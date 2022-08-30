@@ -10,55 +10,36 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDatabaseResult {
-    private final String clusterName;
+    private String clusterName;
     /**
      * @return The time the data that should be kept in cache for fast queries as ISO 8601 timespan.
      * 
      */
-    private final String hotCachePeriod;
+    private String hotCachePeriod;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region in which the managed Kusto Database exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return The size of the database in bytes.
      * 
      */
-    private final Double size;
+    private Double size;
     /**
      * @return The time the data should be kept before it stops being accessible to queries as ISO 8601 timespan.
      * 
      */
-    private final String softDeletePeriod;
+    private String softDeletePeriod;
 
-    @CustomType.Constructor
-    private GetDatabaseResult(
-        @CustomType.Parameter("clusterName") String clusterName,
-        @CustomType.Parameter("hotCachePeriod") String hotCachePeriod,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("size") Double size,
-        @CustomType.Parameter("softDeletePeriod") String softDeletePeriod) {
-        this.clusterName = clusterName;
-        this.hotCachePeriod = hotCachePeriod;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.size = size;
-        this.softDeletePeriod = softDeletePeriod;
-    }
-
+    private GetDatabaseResult() {}
     public String clusterName() {
         return this.clusterName;
     }
@@ -111,7 +92,7 @@ public final class GetDatabaseResult {
     public static Builder builder(GetDatabaseResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clusterName;
         private String hotCachePeriod;
@@ -121,11 +102,7 @@ public final class GetDatabaseResult {
         private String resourceGroupName;
         private Double size;
         private String softDeletePeriod;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDatabaseResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusterName = defaults.clusterName;
@@ -138,39 +115,57 @@ public final class GetDatabaseResult {
     	      this.softDeletePeriod = defaults.softDeletePeriod;
         }
 
+        @CustomType.Setter
         public Builder clusterName(String clusterName) {
             this.clusterName = Objects.requireNonNull(clusterName);
             return this;
         }
+        @CustomType.Setter
         public Builder hotCachePeriod(String hotCachePeriod) {
             this.hotCachePeriod = Objects.requireNonNull(hotCachePeriod);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder size(Double size) {
             this.size = Objects.requireNonNull(size);
             return this;
         }
+        @CustomType.Setter
         public Builder softDeletePeriod(String softDeletePeriod) {
             this.softDeletePeriod = Objects.requireNonNull(softDeletePeriod);
             return this;
-        }        public GetDatabaseResult build() {
-            return new GetDatabaseResult(clusterName, hotCachePeriod, id, location, name, resourceGroupName, size, softDeletePeriod);
+        }
+        public GetDatabaseResult build() {
+            final var o = new GetDatabaseResult();
+            o.clusterName = clusterName;
+            o.hotCachePeriod = hotCachePeriod;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.size = size;
+            o.softDeletePeriod = softDeletePeriod;
+            return o;
         }
     }
 }

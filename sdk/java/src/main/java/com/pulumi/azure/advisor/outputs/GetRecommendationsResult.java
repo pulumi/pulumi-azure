@@ -12,31 +12,20 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetRecommendationsResult {
-    private final @Nullable List<String> filterByCategories;
-    private final @Nullable List<String> filterByResourceGroups;
+    private @Nullable List<String> filterByCategories;
+    private @Nullable List<String> filterByResourceGroups;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return One or more `recommendations` blocks as defined below.
      * 
      */
-    private final List<GetRecommendationsRecommendation> recommendations;
+    private List<GetRecommendationsRecommendation> recommendations;
 
-    @CustomType.Constructor
-    private GetRecommendationsResult(
-        @CustomType.Parameter("filterByCategories") @Nullable List<String> filterByCategories,
-        @CustomType.Parameter("filterByResourceGroups") @Nullable List<String> filterByResourceGroups,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("recommendations") List<GetRecommendationsRecommendation> recommendations) {
-        this.filterByCategories = filterByCategories;
-        this.filterByResourceGroups = filterByResourceGroups;
-        this.id = id;
-        this.recommendations = recommendations;
-    }
-
+    private GetRecommendationsResult() {}
     public List<String> filterByCategories() {
         return this.filterByCategories == null ? List.of() : this.filterByCategories;
     }
@@ -65,17 +54,13 @@ public final class GetRecommendationsResult {
     public static Builder builder(GetRecommendationsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> filterByCategories;
         private @Nullable List<String> filterByResourceGroups;
         private String id;
         private List<GetRecommendationsRecommendation> recommendations;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRecommendationsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filterByCategories = defaults.filterByCategories;
@@ -84,6 +69,7 @@ public final class GetRecommendationsResult {
     	      this.recommendations = defaults.recommendations;
         }
 
+        @CustomType.Setter
         public Builder filterByCategories(@Nullable List<String> filterByCategories) {
             this.filterByCategories = filterByCategories;
             return this;
@@ -91,6 +77,7 @@ public final class GetRecommendationsResult {
         public Builder filterByCategories(String... filterByCategories) {
             return filterByCategories(List.of(filterByCategories));
         }
+        @CustomType.Setter
         public Builder filterByResourceGroups(@Nullable List<String> filterByResourceGroups) {
             this.filterByResourceGroups = filterByResourceGroups;
             return this;
@@ -98,18 +85,26 @@ public final class GetRecommendationsResult {
         public Builder filterByResourceGroups(String... filterByResourceGroups) {
             return filterByResourceGroups(List.of(filterByResourceGroups));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder recommendations(List<GetRecommendationsRecommendation> recommendations) {
             this.recommendations = Objects.requireNonNull(recommendations);
             return this;
         }
         public Builder recommendations(GetRecommendationsRecommendation... recommendations) {
             return recommendations(List.of(recommendations));
-        }        public GetRecommendationsResult build() {
-            return new GetRecommendationsResult(filterByCategories, filterByResourceGroups, id, recommendations);
+        }
+        public GetRecommendationsResult build() {
+            final var o = new GetRecommendationsResult();
+            o.filterByCategories = filterByCategories;
+            o.filterByResourceGroups = filterByResourceGroups;
+            o.id = id;
+            o.recommendations = recommendations;
+            return o;
         }
     }
 }

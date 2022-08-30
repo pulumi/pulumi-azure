@@ -17,21 +17,14 @@ public final class SlotSiteConfigCors {
      * @return A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
      * 
      */
-    private final List<String> allowedOrigins;
+    private List<String> allowedOrigins;
     /**
      * @return Are credentials supported?
      * 
      */
-    private final @Nullable Boolean supportCredentials;
+    private @Nullable Boolean supportCredentials;
 
-    @CustomType.Constructor
-    private SlotSiteConfigCors(
-        @CustomType.Parameter("allowedOrigins") List<String> allowedOrigins,
-        @CustomType.Parameter("supportCredentials") @Nullable Boolean supportCredentials) {
-        this.allowedOrigins = allowedOrigins;
-        this.supportCredentials = supportCredentials;
-    }
-
+    private SlotSiteConfigCors() {}
     /**
      * @return A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
      * 
@@ -54,21 +47,18 @@ public final class SlotSiteConfigCors {
     public static Builder builder(SlotSiteConfigCors defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> allowedOrigins;
         private @Nullable Boolean supportCredentials;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SlotSiteConfigCors defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedOrigins = defaults.allowedOrigins;
     	      this.supportCredentials = defaults.supportCredentials;
         }
 
+        @CustomType.Setter
         public Builder allowedOrigins(List<String> allowedOrigins) {
             this.allowedOrigins = Objects.requireNonNull(allowedOrigins);
             return this;
@@ -76,11 +66,16 @@ public final class SlotSiteConfigCors {
         public Builder allowedOrigins(String... allowedOrigins) {
             return allowedOrigins(List.of(allowedOrigins));
         }
+        @CustomType.Setter
         public Builder supportCredentials(@Nullable Boolean supportCredentials) {
             this.supportCredentials = supportCredentials;
             return this;
-        }        public SlotSiteConfigCors build() {
-            return new SlotSiteConfigCors(allowedOrigins, supportCredentials);
+        }
+        public SlotSiteConfigCors build() {
+            final var o = new SlotSiteConfigCors();
+            o.allowedOrigins = allowedOrigins;
+            o.supportCredentials = supportCredentials;
+            return o;
         }
     }
 }

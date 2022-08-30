@@ -14,21 +14,14 @@ public final class ApplicationGatewayIdentity {
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
      * 
      */
-    private final List<String> identityIds;
+    private List<String> identityIds;
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is `UserAssigned`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ApplicationGatewayIdentity(
-        @CustomType.Parameter("identityIds") List<String> identityIds,
-        @CustomType.Parameter("type") String type) {
-        this.identityIds = identityIds;
-        this.type = type;
-    }
-
+    private ApplicationGatewayIdentity() {}
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
      * 
@@ -51,21 +44,18 @@ public final class ApplicationGatewayIdentity {
     public static Builder builder(ApplicationGatewayIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> identityIds;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder identityIds(List<String> identityIds) {
             this.identityIds = Objects.requireNonNull(identityIds);
             return this;
@@ -73,11 +63,16 @@ public final class ApplicationGatewayIdentity {
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ApplicationGatewayIdentity build() {
-            return new ApplicationGatewayIdentity(identityIds, type);
+        }
+        public ApplicationGatewayIdentity build() {
+            final var o = new ApplicationGatewayIdentity();
+            o.identityIds = identityIds;
+            o.type = type;
+            return o;
         }
     }
 }

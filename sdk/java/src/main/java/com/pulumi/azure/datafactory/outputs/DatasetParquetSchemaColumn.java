@@ -15,28 +15,19 @@ public final class DatasetParquetSchemaColumn {
      * @return The description of the column.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return The name of the column.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private DatasetParquetSchemaColumn(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.description = description;
-        this.name = name;
-        this.type = type;
-    }
-
+    private DatasetParquetSchemaColumn() {}
     /**
      * @return The description of the column.
      * 
@@ -66,16 +57,12 @@ public final class DatasetParquetSchemaColumn {
     public static Builder builder(DatasetParquetSchemaColumn defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private String name;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DatasetParquetSchemaColumn defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -83,19 +70,27 @@ public final class DatasetParquetSchemaColumn {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public DatasetParquetSchemaColumn build() {
-            return new DatasetParquetSchemaColumn(description, name, type);
+        }
+        public DatasetParquetSchemaColumn build() {
+            final var o = new DatasetParquetSchemaColumn();
+            o.description = description;
+            o.name = name;
+            o.type = type;
+            return o;
         }
     }
 }

@@ -14,35 +14,24 @@ public final class HadoopClusterStorageAccountGen2 {
      * @return The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
      * 
      */
-    private final String filesystemId;
+    private String filesystemId;
     /**
      * @return Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
      * 
      */
-    private final Boolean isDefault;
+    private Boolean isDefault;
     /**
      * @return The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
      * 
      */
-    private final String managedIdentityResourceId;
+    private String managedIdentityResourceId;
     /**
      * @return The ID of the Storage Account. Changing this forces a new resource to be created.
      * 
      */
-    private final String storageResourceId;
+    private String storageResourceId;
 
-    @CustomType.Constructor
-    private HadoopClusterStorageAccountGen2(
-        @CustomType.Parameter("filesystemId") String filesystemId,
-        @CustomType.Parameter("isDefault") Boolean isDefault,
-        @CustomType.Parameter("managedIdentityResourceId") String managedIdentityResourceId,
-        @CustomType.Parameter("storageResourceId") String storageResourceId) {
-        this.filesystemId = filesystemId;
-        this.isDefault = isDefault;
-        this.managedIdentityResourceId = managedIdentityResourceId;
-        this.storageResourceId = storageResourceId;
-    }
-
+    private HadoopClusterStorageAccountGen2() {}
     /**
      * @return The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
      * 
@@ -79,17 +68,13 @@ public final class HadoopClusterStorageAccountGen2 {
     public static Builder builder(HadoopClusterStorageAccountGen2 defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String filesystemId;
         private Boolean isDefault;
         private String managedIdentityResourceId;
         private String storageResourceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(HadoopClusterStorageAccountGen2 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filesystemId = defaults.filesystemId;
@@ -98,23 +83,33 @@ public final class HadoopClusterStorageAccountGen2 {
     	      this.storageResourceId = defaults.storageResourceId;
         }
 
+        @CustomType.Setter
         public Builder filesystemId(String filesystemId) {
             this.filesystemId = Objects.requireNonNull(filesystemId);
             return this;
         }
+        @CustomType.Setter
         public Builder isDefault(Boolean isDefault) {
             this.isDefault = Objects.requireNonNull(isDefault);
             return this;
         }
+        @CustomType.Setter
         public Builder managedIdentityResourceId(String managedIdentityResourceId) {
             this.managedIdentityResourceId = Objects.requireNonNull(managedIdentityResourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder storageResourceId(String storageResourceId) {
             this.storageResourceId = Objects.requireNonNull(storageResourceId);
             return this;
-        }        public HadoopClusterStorageAccountGen2 build() {
-            return new HadoopClusterStorageAccountGen2(filesystemId, isDefault, managedIdentityResourceId, storageResourceId);
+        }
+        public HadoopClusterStorageAccountGen2 build() {
+            final var o = new HadoopClusterStorageAccountGen2();
+            o.filesystemId = filesystemId;
+            o.isDefault = isDefault;
+            o.managedIdentityResourceId = managedIdentityResourceId;
+            o.storageResourceId = storageResourceId;
+            return o;
         }
     }
 }

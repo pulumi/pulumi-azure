@@ -13,13 +13,9 @@ public final class KubernetesClusterMicrosoftDefender {
      * @return Specifies the ID of the Log Analytics Workspace where the audit logs collected by Microsoft Defender should be sent to.
      * 
      */
-    private final String logAnalyticsWorkspaceId;
+    private String logAnalyticsWorkspaceId;
 
-    @CustomType.Constructor
-    private KubernetesClusterMicrosoftDefender(@CustomType.Parameter("logAnalyticsWorkspaceId") String logAnalyticsWorkspaceId) {
-        this.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-    }
-
+    private KubernetesClusterMicrosoftDefender() {}
     /**
      * @return Specifies the ID of the Log Analytics Workspace where the audit logs collected by Microsoft Defender should be sent to.
      * 
@@ -35,24 +31,24 @@ public final class KubernetesClusterMicrosoftDefender {
     public static Builder builder(KubernetesClusterMicrosoftDefender defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String logAnalyticsWorkspaceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KubernetesClusterMicrosoftDefender defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.logAnalyticsWorkspaceId = defaults.logAnalyticsWorkspaceId;
         }
 
+        @CustomType.Setter
         public Builder logAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
             this.logAnalyticsWorkspaceId = Objects.requireNonNull(logAnalyticsWorkspaceId);
             return this;
-        }        public KubernetesClusterMicrosoftDefender build() {
-            return new KubernetesClusterMicrosoftDefender(logAnalyticsWorkspaceId);
+        }
+        public KubernetesClusterMicrosoftDefender build() {
+            final var o = new KubernetesClusterMicrosoftDefender();
+            o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            return o;
         }
     }
 }

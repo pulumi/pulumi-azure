@@ -15,28 +15,19 @@ public final class StreamInputBlobSerialization {
      * @return The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
      * 
      */
-    private final @Nullable String encoding;
+    private @Nullable String encoding;
     /**
      * @return The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
      * 
      */
-    private final @Nullable String fieldDelimiter;
+    private @Nullable String fieldDelimiter;
     /**
      * @return The serialization format used for incoming data streams. Possible values are `Avro`, `Csv` and `Json`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private StreamInputBlobSerialization(
-        @CustomType.Parameter("encoding") @Nullable String encoding,
-        @CustomType.Parameter("fieldDelimiter") @Nullable String fieldDelimiter,
-        @CustomType.Parameter("type") String type) {
-        this.encoding = encoding;
-        this.fieldDelimiter = fieldDelimiter;
-        this.type = type;
-    }
-
+    private StreamInputBlobSerialization() {}
     /**
      * @return The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
      * 
@@ -66,16 +57,12 @@ public final class StreamInputBlobSerialization {
     public static Builder builder(StreamInputBlobSerialization defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String encoding;
         private @Nullable String fieldDelimiter;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StreamInputBlobSerialization defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.encoding = defaults.encoding;
@@ -83,19 +70,27 @@ public final class StreamInputBlobSerialization {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder encoding(@Nullable String encoding) {
             this.encoding = encoding;
             return this;
         }
+        @CustomType.Setter
         public Builder fieldDelimiter(@Nullable String fieldDelimiter) {
             this.fieldDelimiter = fieldDelimiter;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public StreamInputBlobSerialization build() {
-            return new StreamInputBlobSerialization(encoding, fieldDelimiter, type);
+        }
+        public StreamInputBlobSerialization build() {
+            final var o = new StreamInputBlobSerialization();
+            o.encoding = encoding;
+            o.fieldDelimiter = fieldDelimiter;
+            o.type = type;
+            return o;
         }
     }
 }

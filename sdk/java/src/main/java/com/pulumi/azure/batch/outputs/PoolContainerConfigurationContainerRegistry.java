@@ -15,36 +15,25 @@ public final class PoolContainerConfigurationContainerRegistry {
      * @return The password to log into the registry server. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String password;
+    private @Nullable String password;
     /**
      * @return The container registry URL. The default is &#34;docker.io&#34;. Changing this forces a new resource to be created.
      * 
      */
-    private final String registryServer;
+    private String registryServer;
     /**
      * @return The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
      * ---
      * 
      */
-    private final @Nullable String userAssignedIdentityId;
+    private @Nullable String userAssignedIdentityId;
     /**
      * @return The user name to log into the registry server. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String userName;
+    private @Nullable String userName;
 
-    @CustomType.Constructor
-    private PoolContainerConfigurationContainerRegistry(
-        @CustomType.Parameter("password") @Nullable String password,
-        @CustomType.Parameter("registryServer") String registryServer,
-        @CustomType.Parameter("userAssignedIdentityId") @Nullable String userAssignedIdentityId,
-        @CustomType.Parameter("userName") @Nullable String userName) {
-        this.password = password;
-        this.registryServer = registryServer;
-        this.userAssignedIdentityId = userAssignedIdentityId;
-        this.userName = userName;
-    }
-
+    private PoolContainerConfigurationContainerRegistry() {}
     /**
      * @return The password to log into the registry server. Changing this forces a new resource to be created.
      * 
@@ -82,17 +71,13 @@ public final class PoolContainerConfigurationContainerRegistry {
     public static Builder builder(PoolContainerConfigurationContainerRegistry defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String password;
         private String registryServer;
         private @Nullable String userAssignedIdentityId;
         private @Nullable String userName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PoolContainerConfigurationContainerRegistry defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.password = defaults.password;
@@ -101,23 +86,33 @@ public final class PoolContainerConfigurationContainerRegistry {
     	      this.userName = defaults.userName;
         }
 
+        @CustomType.Setter
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
         }
+        @CustomType.Setter
         public Builder registryServer(String registryServer) {
             this.registryServer = Objects.requireNonNull(registryServer);
             return this;
         }
+        @CustomType.Setter
         public Builder userAssignedIdentityId(@Nullable String userAssignedIdentityId) {
             this.userAssignedIdentityId = userAssignedIdentityId;
             return this;
         }
+        @CustomType.Setter
         public Builder userName(@Nullable String userName) {
             this.userName = userName;
             return this;
-        }        public PoolContainerConfigurationContainerRegistry build() {
-            return new PoolContainerConfigurationContainerRegistry(password, registryServer, userAssignedIdentityId, userName);
+        }
+        public PoolContainerConfigurationContainerRegistry build() {
+            final var o = new PoolContainerConfigurationContainerRegistry();
+            o.password = password;
+            o.registryServer = registryServer;
+            o.userAssignedIdentityId = userAssignedIdentityId;
+            o.userName = userName;
+            return o;
         }
     }
 }

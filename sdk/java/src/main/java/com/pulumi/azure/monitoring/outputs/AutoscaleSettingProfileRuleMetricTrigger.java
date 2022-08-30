@@ -19,84 +19,59 @@ public final class AutoscaleSettingProfileRuleMetricTrigger {
      * @return One or more `dimensions` block as defined below.
      * 
      */
-    private final @Nullable List<AutoscaleSettingProfileRuleMetricTriggerDimension> dimensions;
+    private @Nullable List<AutoscaleSettingProfileRuleMetricTriggerDimension> dimensions;
     /**
      * @return Whether to enable metric divide by instance count.
      * 
      */
-    private final @Nullable Boolean divideByInstanceCount;
+    private @Nullable Boolean divideByInstanceCount;
     /**
      * @return The name of the metric that defines what the rule monitors, such as `Percentage CPU` for `Virtual Machine Scale Sets` and `CpuPercentage` for `App Service Plan`.
      * 
      */
-    private final String metricName;
+    private String metricName;
     /**
      * @return The namespace of the metric that defines what the rule monitors, such as `microsoft.compute/virtualmachinescalesets` for `Virtual Machine Scale Sets`.
      * 
      */
-    private final @Nullable String metricNamespace;
+    private @Nullable String metricNamespace;
     /**
      * @return The ID of the Resource which the Rule monitors.
      * 
      */
-    private final String metricResourceId;
+    private String metricResourceId;
     /**
      * @return Specifies the operator used to compare the metric data and threshold. Possible values are: `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`, `LessThanOrEqual`.
      * 
      */
-    private final String operator;
+    private String operator;
     /**
      * @return Specifies how the metrics from multiple instances are combined. Possible values are `Average`, `Min` and `Max`.
      * 
      */
-    private final String statistic;
+    private String statistic;
     /**
      * @return Specifies the threshold of the metric that triggers the scale action.
      * 
      */
-    private final Double threshold;
+    private Double threshold;
     /**
      * @return Specifies how the data that&#39;s collected should be combined over time. Possible values include `Average`, `Count`, `Maximum`, `Minimum`, `Last` and `Total`. Defaults to `Average`.
      * 
      */
-    private final String timeAggregation;
+    private String timeAggregation;
     /**
      * @return Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string.
      * 
      */
-    private final String timeGrain;
+    private String timeGrain;
     /**
      * @return Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
      * 
      */
-    private final String timeWindow;
+    private String timeWindow;
 
-    @CustomType.Constructor
-    private AutoscaleSettingProfileRuleMetricTrigger(
-        @CustomType.Parameter("dimensions") @Nullable List<AutoscaleSettingProfileRuleMetricTriggerDimension> dimensions,
-        @CustomType.Parameter("divideByInstanceCount") @Nullable Boolean divideByInstanceCount,
-        @CustomType.Parameter("metricName") String metricName,
-        @CustomType.Parameter("metricNamespace") @Nullable String metricNamespace,
-        @CustomType.Parameter("metricResourceId") String metricResourceId,
-        @CustomType.Parameter("operator") String operator,
-        @CustomType.Parameter("statistic") String statistic,
-        @CustomType.Parameter("threshold") Double threshold,
-        @CustomType.Parameter("timeAggregation") String timeAggregation,
-        @CustomType.Parameter("timeGrain") String timeGrain,
-        @CustomType.Parameter("timeWindow") String timeWindow) {
-        this.dimensions = dimensions;
-        this.divideByInstanceCount = divideByInstanceCount;
-        this.metricName = metricName;
-        this.metricNamespace = metricNamespace;
-        this.metricResourceId = metricResourceId;
-        this.operator = operator;
-        this.statistic = statistic;
-        this.threshold = threshold;
-        this.timeAggregation = timeAggregation;
-        this.timeGrain = timeGrain;
-        this.timeWindow = timeWindow;
-    }
-
+    private AutoscaleSettingProfileRuleMetricTrigger() {}
     /**
      * @return One or more `dimensions` block as defined below.
      * 
@@ -182,7 +157,7 @@ public final class AutoscaleSettingProfileRuleMetricTrigger {
     public static Builder builder(AutoscaleSettingProfileRuleMetricTrigger defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<AutoscaleSettingProfileRuleMetricTriggerDimension> dimensions;
         private @Nullable Boolean divideByInstanceCount;
@@ -195,11 +170,7 @@ public final class AutoscaleSettingProfileRuleMetricTrigger {
         private String timeAggregation;
         private String timeGrain;
         private String timeWindow;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AutoscaleSettingProfileRuleMetricTrigger defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dimensions = defaults.dimensions;
@@ -215,6 +186,7 @@ public final class AutoscaleSettingProfileRuleMetricTrigger {
     	      this.timeWindow = defaults.timeWindow;
         }
 
+        @CustomType.Setter
         public Builder dimensions(@Nullable List<AutoscaleSettingProfileRuleMetricTriggerDimension> dimensions) {
             this.dimensions = dimensions;
             return this;
@@ -222,47 +194,70 @@ public final class AutoscaleSettingProfileRuleMetricTrigger {
         public Builder dimensions(AutoscaleSettingProfileRuleMetricTriggerDimension... dimensions) {
             return dimensions(List.of(dimensions));
         }
+        @CustomType.Setter
         public Builder divideByInstanceCount(@Nullable Boolean divideByInstanceCount) {
             this.divideByInstanceCount = divideByInstanceCount;
             return this;
         }
+        @CustomType.Setter
         public Builder metricName(String metricName) {
             this.metricName = Objects.requireNonNull(metricName);
             return this;
         }
+        @CustomType.Setter
         public Builder metricNamespace(@Nullable String metricNamespace) {
             this.metricNamespace = metricNamespace;
             return this;
         }
+        @CustomType.Setter
         public Builder metricResourceId(String metricResourceId) {
             this.metricResourceId = Objects.requireNonNull(metricResourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder operator(String operator) {
             this.operator = Objects.requireNonNull(operator);
             return this;
         }
+        @CustomType.Setter
         public Builder statistic(String statistic) {
             this.statistic = Objects.requireNonNull(statistic);
             return this;
         }
+        @CustomType.Setter
         public Builder threshold(Double threshold) {
             this.threshold = Objects.requireNonNull(threshold);
             return this;
         }
+        @CustomType.Setter
         public Builder timeAggregation(String timeAggregation) {
             this.timeAggregation = Objects.requireNonNull(timeAggregation);
             return this;
         }
+        @CustomType.Setter
         public Builder timeGrain(String timeGrain) {
             this.timeGrain = Objects.requireNonNull(timeGrain);
             return this;
         }
+        @CustomType.Setter
         public Builder timeWindow(String timeWindow) {
             this.timeWindow = Objects.requireNonNull(timeWindow);
             return this;
-        }        public AutoscaleSettingProfileRuleMetricTrigger build() {
-            return new AutoscaleSettingProfileRuleMetricTrigger(dimensions, divideByInstanceCount, metricName, metricNamespace, metricResourceId, operator, statistic, threshold, timeAggregation, timeGrain, timeWindow);
+        }
+        public AutoscaleSettingProfileRuleMetricTrigger build() {
+            final var o = new AutoscaleSettingProfileRuleMetricTrigger();
+            o.dimensions = dimensions;
+            o.divideByInstanceCount = divideByInstanceCount;
+            o.metricName = metricName;
+            o.metricNamespace = metricNamespace;
+            o.metricResourceId = metricResourceId;
+            o.operator = operator;
+            o.statistic = statistic;
+            o.threshold = threshold;
+            o.timeAggregation = timeAggregation;
+            o.timeGrain = timeGrain;
+            o.timeWindow = timeWindow;
+            return o;
         }
     }
 }

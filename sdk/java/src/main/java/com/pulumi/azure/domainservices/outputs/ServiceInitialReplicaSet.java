@@ -16,49 +16,34 @@ public final class ServiceInitialReplicaSet {
      * @return A list of subnet IP addresses for the domain controllers in the initial replica set, typically two.
      * 
      */
-    private final @Nullable List<String> domainControllerIpAddresses;
+    private @Nullable List<String> domainControllerIpAddresses;
     /**
      * @return The publicly routable IP address for the domain controllers in the initial replica set.
      * 
      */
-    private final @Nullable String externalAccessIpAddress;
+    private @Nullable String externalAccessIpAddress;
     /**
      * @return The ID of the Domain Service.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String location;
+    private @Nullable String location;
     /**
      * @return The current service status for the initial replica set.
      * 
      */
-    private final @Nullable String serviceStatus;
+    private @Nullable String serviceStatus;
     /**
      * @return The ID of the subnet in which to place the initial replica set.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private ServiceInitialReplicaSet(
-        @CustomType.Parameter("domainControllerIpAddresses") @Nullable List<String> domainControllerIpAddresses,
-        @CustomType.Parameter("externalAccessIpAddress") @Nullable String externalAccessIpAddress,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("location") @Nullable String location,
-        @CustomType.Parameter("serviceStatus") @Nullable String serviceStatus,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.domainControllerIpAddresses = domainControllerIpAddresses;
-        this.externalAccessIpAddress = externalAccessIpAddress;
-        this.id = id;
-        this.location = location;
-        this.serviceStatus = serviceStatus;
-        this.subnetId = subnetId;
-    }
-
+    private ServiceInitialReplicaSet() {}
     /**
      * @return A list of subnet IP addresses for the domain controllers in the initial replica set, typically two.
      * 
@@ -109,7 +94,7 @@ public final class ServiceInitialReplicaSet {
     public static Builder builder(ServiceInitialReplicaSet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> domainControllerIpAddresses;
         private @Nullable String externalAccessIpAddress;
@@ -117,11 +102,7 @@ public final class ServiceInitialReplicaSet {
         private @Nullable String location;
         private @Nullable String serviceStatus;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceInitialReplicaSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.domainControllerIpAddresses = defaults.domainControllerIpAddresses;
@@ -132,6 +113,7 @@ public final class ServiceInitialReplicaSet {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder domainControllerIpAddresses(@Nullable List<String> domainControllerIpAddresses) {
             this.domainControllerIpAddresses = domainControllerIpAddresses;
             return this;
@@ -139,27 +121,40 @@ public final class ServiceInitialReplicaSet {
         public Builder domainControllerIpAddresses(String... domainControllerIpAddresses) {
             return domainControllerIpAddresses(List.of(domainControllerIpAddresses));
         }
+        @CustomType.Setter
         public Builder externalAccessIpAddress(@Nullable String externalAccessIpAddress) {
             this.externalAccessIpAddress = externalAccessIpAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder location(@Nullable String location) {
             this.location = location;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceStatus(@Nullable String serviceStatus) {
             this.serviceStatus = serviceStatus;
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public ServiceInitialReplicaSet build() {
-            return new ServiceInitialReplicaSet(domainControllerIpAddresses, externalAccessIpAddress, id, location, serviceStatus, subnetId);
+        }
+        public ServiceInitialReplicaSet build() {
+            final var o = new ServiceInitialReplicaSet();
+            o.domainControllerIpAddresses = domainControllerIpAddresses;
+            o.externalAccessIpAddress = externalAccessIpAddress;
+            o.id = id;
+            o.location = location;
+            o.serviceStatus = serviceStatus;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

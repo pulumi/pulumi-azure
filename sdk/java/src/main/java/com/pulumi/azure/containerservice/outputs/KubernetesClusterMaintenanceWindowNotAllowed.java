@@ -13,21 +13,14 @@ public final class KubernetesClusterMaintenanceWindowNotAllowed {
      * @return The end of a time span, formatted as an RFC3339 string.
      * 
      */
-    private final String end;
+    private String end;
     /**
      * @return The start of a time span, formatted as an RFC3339 string.
      * 
      */
-    private final String start;
+    private String start;
 
-    @CustomType.Constructor
-    private KubernetesClusterMaintenanceWindowNotAllowed(
-        @CustomType.Parameter("end") String end,
-        @CustomType.Parameter("start") String start) {
-        this.end = end;
-        this.start = start;
-    }
-
+    private KubernetesClusterMaintenanceWindowNotAllowed() {}
     /**
      * @return The end of a time span, formatted as an RFC3339 string.
      * 
@@ -50,30 +43,32 @@ public final class KubernetesClusterMaintenanceWindowNotAllowed {
     public static Builder builder(KubernetesClusterMaintenanceWindowNotAllowed defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String end;
         private String start;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KubernetesClusterMaintenanceWindowNotAllowed defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.end = defaults.end;
     	      this.start = defaults.start;
         }
 
+        @CustomType.Setter
         public Builder end(String end) {
             this.end = Objects.requireNonNull(end);
             return this;
         }
+        @CustomType.Setter
         public Builder start(String start) {
             this.start = Objects.requireNonNull(start);
             return this;
-        }        public KubernetesClusterMaintenanceWindowNotAllowed build() {
-            return new KubernetesClusterMaintenanceWindowNotAllowed(end, start);
+        }
+        public KubernetesClusterMaintenanceWindowNotAllowed build() {
+            final var o = new KubernetesClusterMaintenanceWindowNotAllowed();
+            o.end = end;
+            o.start = start;
+            return o;
         }
     }
 }

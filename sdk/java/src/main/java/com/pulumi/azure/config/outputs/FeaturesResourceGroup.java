@@ -11,13 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FeaturesResourceGroup {
-    private final @Nullable Boolean preventDeletionIfContainsResources;
+    private @Nullable Boolean preventDeletionIfContainsResources;
 
-    @CustomType.Constructor
-    private FeaturesResourceGroup(@CustomType.Parameter("preventDeletionIfContainsResources") @Nullable Boolean preventDeletionIfContainsResources) {
-        this.preventDeletionIfContainsResources = preventDeletionIfContainsResources;
-    }
-
+    private FeaturesResourceGroup() {}
     public Optional<Boolean> preventDeletionIfContainsResources() {
         return Optional.ofNullable(this.preventDeletionIfContainsResources);
     }
@@ -29,24 +25,24 @@ public final class FeaturesResourceGroup {
     public static Builder builder(FeaturesResourceGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean preventDeletionIfContainsResources;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FeaturesResourceGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.preventDeletionIfContainsResources = defaults.preventDeletionIfContainsResources;
         }
 
+        @CustomType.Setter
         public Builder preventDeletionIfContainsResources(@Nullable Boolean preventDeletionIfContainsResources) {
             this.preventDeletionIfContainsResources = preventDeletionIfContainsResources;
             return this;
-        }        public FeaturesResourceGroup build() {
-            return new FeaturesResourceGroup(preventDeletionIfContainsResources);
+        }
+        public FeaturesResourceGroup build() {
+            final var o = new FeaturesResourceGroup();
+            o.preventDeletionIfContainsResources = preventDeletionIfContainsResources;
+            return o;
         }
     }
 }

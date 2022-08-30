@@ -18,139 +18,96 @@ public final class GetManagedInstanceResult {
      * @return The administrator login name for the SQL Managed Instance.
      * 
      */
-    private final String administratorLogin;
+    private String administratorLogin;
     /**
      * @return Specifies how the SQL Managed Instance will be collated.
      * 
      */
-    private final String collation;
+    private String collation;
     /**
      * @return The ID of the SQL Managed Instance which shares the DNS zone.
      * 
      */
-    private final String dnsZonePartnerId;
+    private String dnsZonePartnerId;
     /**
      * @return The fully qualified domain name of the Azure Managed SQL Instance.
      * 
      */
-    private final String fqdn;
+    private String fqdn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return An `identity` block as defined below.
      * 
      */
-    private final List<GetManagedInstanceIdentity> identities;
+    private List<GetManagedInstanceIdentity> identities;
     /**
      * @return What type of license the SQL Managed Instance uses.
      * 
      */
-    private final String licenseType;
+    private String licenseType;
     /**
      * @return Specifies the supported Azure location where the resource exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The Minimum TLS Version.
      * 
      */
-    private final String minimumTlsVersion;
-    private final String name;
+    private String minimumTlsVersion;
+    private String name;
     /**
      * @return Specifies how the SQL Managed Instance will be accessed.
      * 
      */
-    private final String proxyOverride;
+    private String proxyOverride;
     /**
      * @return Whether the public data endpoint is enabled.
      * 
      */
-    private final Boolean publicDataEndpointEnabled;
-    private final String resourceGroupName;
+    private Boolean publicDataEndpointEnabled;
+    private String resourceGroupName;
     /**
      * @return Specifies the SKU Name of the SQL Managed Instance.
      * 
      */
-    private final String skuName;
+    private String skuName;
     /**
      * @return Specifies the storage account type used to store backups for this database.
      * 
      */
-    private final String storageAccountType;
+    private String storageAccountType;
     /**
      * @return Maximum storage space allocated for the SQL Managed Instance.
      * 
      */
-    private final Integer storageSizeInGb;
+    private Integer storageSizeInGb;
     /**
      * @return The subnet resource ID that the SQL Managed Instance is associated with.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The TimeZone ID that the SQL Managed Instance is running in.
      * 
      */
-    private final String timezoneId;
+    private String timezoneId;
     /**
      * @return Number of cores that are assigned to the SQL Managed Instance.
      * 
      */
-    private final Integer vcores;
+    private Integer vcores;
 
-    @CustomType.Constructor
-    private GetManagedInstanceResult(
-        @CustomType.Parameter("administratorLogin") String administratorLogin,
-        @CustomType.Parameter("collation") String collation,
-        @CustomType.Parameter("dnsZonePartnerId") String dnsZonePartnerId,
-        @CustomType.Parameter("fqdn") String fqdn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetManagedInstanceIdentity> identities,
-        @CustomType.Parameter("licenseType") String licenseType,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("minimumTlsVersion") String minimumTlsVersion,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("proxyOverride") String proxyOverride,
-        @CustomType.Parameter("publicDataEndpointEnabled") Boolean publicDataEndpointEnabled,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("skuName") String skuName,
-        @CustomType.Parameter("storageAccountType") String storageAccountType,
-        @CustomType.Parameter("storageSizeInGb") Integer storageSizeInGb,
-        @CustomType.Parameter("subnetId") String subnetId,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("timezoneId") String timezoneId,
-        @CustomType.Parameter("vcores") Integer vcores) {
-        this.administratorLogin = administratorLogin;
-        this.collation = collation;
-        this.dnsZonePartnerId = dnsZonePartnerId;
-        this.fqdn = fqdn;
-        this.id = id;
-        this.identities = identities;
-        this.licenseType = licenseType;
-        this.location = location;
-        this.minimumTlsVersion = minimumTlsVersion;
-        this.name = name;
-        this.proxyOverride = proxyOverride;
-        this.publicDataEndpointEnabled = publicDataEndpointEnabled;
-        this.resourceGroupName = resourceGroupName;
-        this.skuName = skuName;
-        this.storageAccountType = storageAccountType;
-        this.storageSizeInGb = storageSizeInGb;
-        this.subnetId = subnetId;
-        this.tags = tags;
-        this.timezoneId = timezoneId;
-        this.vcores = vcores;
-    }
-
+    private GetManagedInstanceResult() {}
     /**
      * @return The administrator login name for the SQL Managed Instance.
      * 
@@ -291,7 +248,7 @@ public final class GetManagedInstanceResult {
     public static Builder builder(GetManagedInstanceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String administratorLogin;
         private String collation;
@@ -313,11 +270,7 @@ public final class GetManagedInstanceResult {
         private Map<String,String> tags;
         private String timezoneId;
         private Integer vcores;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetManagedInstanceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.administratorLogin = defaults.administratorLogin;
@@ -342,26 +295,32 @@ public final class GetManagedInstanceResult {
     	      this.vcores = defaults.vcores;
         }
 
+        @CustomType.Setter
         public Builder administratorLogin(String administratorLogin) {
             this.administratorLogin = Objects.requireNonNull(administratorLogin);
             return this;
         }
+        @CustomType.Setter
         public Builder collation(String collation) {
             this.collation = Objects.requireNonNull(collation);
             return this;
         }
+        @CustomType.Setter
         public Builder dnsZonePartnerId(String dnsZonePartnerId) {
             this.dnsZonePartnerId = Objects.requireNonNull(dnsZonePartnerId);
             return this;
         }
+        @CustomType.Setter
         public Builder fqdn(String fqdn) {
             this.fqdn = Objects.requireNonNull(fqdn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetManagedInstanceIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -369,63 +328,99 @@ public final class GetManagedInstanceResult {
         public Builder identities(GetManagedInstanceIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder licenseType(String licenseType) {
             this.licenseType = Objects.requireNonNull(licenseType);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder minimumTlsVersion(String minimumTlsVersion) {
             this.minimumTlsVersion = Objects.requireNonNull(minimumTlsVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder proxyOverride(String proxyOverride) {
             this.proxyOverride = Objects.requireNonNull(proxyOverride);
             return this;
         }
+        @CustomType.Setter
         public Builder publicDataEndpointEnabled(Boolean publicDataEndpointEnabled) {
             this.publicDataEndpointEnabled = Objects.requireNonNull(publicDataEndpointEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder skuName(String skuName) {
             this.skuName = Objects.requireNonNull(skuName);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountType(String storageAccountType) {
             this.storageAccountType = Objects.requireNonNull(storageAccountType);
             return this;
         }
+        @CustomType.Setter
         public Builder storageSizeInGb(Integer storageSizeInGb) {
             this.storageSizeInGb = Objects.requireNonNull(storageSizeInGb);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder timezoneId(String timezoneId) {
             this.timezoneId = Objects.requireNonNull(timezoneId);
             return this;
         }
+        @CustomType.Setter
         public Builder vcores(Integer vcores) {
             this.vcores = Objects.requireNonNull(vcores);
             return this;
-        }        public GetManagedInstanceResult build() {
-            return new GetManagedInstanceResult(administratorLogin, collation, dnsZonePartnerId, fqdn, id, identities, licenseType, location, minimumTlsVersion, name, proxyOverride, publicDataEndpointEnabled, resourceGroupName, skuName, storageAccountType, storageSizeInGb, subnetId, tags, timezoneId, vcores);
+        }
+        public GetManagedInstanceResult build() {
+            final var o = new GetManagedInstanceResult();
+            o.administratorLogin = administratorLogin;
+            o.collation = collation;
+            o.dnsZonePartnerId = dnsZonePartnerId;
+            o.fqdn = fqdn;
+            o.id = id;
+            o.identities = identities;
+            o.licenseType = licenseType;
+            o.location = location;
+            o.minimumTlsVersion = minimumTlsVersion;
+            o.name = name;
+            o.proxyOverride = proxyOverride;
+            o.publicDataEndpointEnabled = publicDataEndpointEnabled;
+            o.resourceGroupName = resourceGroupName;
+            o.skuName = skuName;
+            o.storageAccountType = storageAccountType;
+            o.storageSizeInGb = storageSizeInGb;
+            o.subnetId = subnetId;
+            o.tags = tags;
+            o.timezoneId = timezoneId;
+            o.vcores = vcores;
+            return o;
         }
     }
 }

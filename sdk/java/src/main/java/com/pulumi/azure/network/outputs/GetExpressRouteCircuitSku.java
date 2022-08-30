@@ -13,21 +13,14 @@ public final class GetExpressRouteCircuitSku {
      * @return The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
      * 
      */
-    private final String family;
+    private String family;
     /**
      * @return The service tier. Possible values are `Basic`, `Local`, `Standard` or `Premium`.
      * 
      */
-    private final String tier;
+    private String tier;
 
-    @CustomType.Constructor
-    private GetExpressRouteCircuitSku(
-        @CustomType.Parameter("family") String family,
-        @CustomType.Parameter("tier") String tier) {
-        this.family = family;
-        this.tier = tier;
-    }
-
+    private GetExpressRouteCircuitSku() {}
     /**
      * @return The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
      * 
@@ -50,30 +43,32 @@ public final class GetExpressRouteCircuitSku {
     public static Builder builder(GetExpressRouteCircuitSku defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String family;
         private String tier;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetExpressRouteCircuitSku defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.family = defaults.family;
     	      this.tier = defaults.tier;
         }
 
+        @CustomType.Setter
         public Builder family(String family) {
             this.family = Objects.requireNonNull(family);
             return this;
         }
+        @CustomType.Setter
         public Builder tier(String tier) {
             this.tier = Objects.requireNonNull(tier);
             return this;
-        }        public GetExpressRouteCircuitSku build() {
-            return new GetExpressRouteCircuitSku(family, tier);
+        }
+        public GetExpressRouteCircuitSku build() {
+            final var o = new GetExpressRouteCircuitSku();
+            o.family = family;
+            o.tier = tier;
+            return o;
         }
     }
 }

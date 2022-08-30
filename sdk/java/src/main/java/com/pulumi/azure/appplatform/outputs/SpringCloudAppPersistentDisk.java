@@ -16,21 +16,14 @@ public final class SpringCloudAppPersistentDisk {
      * @return Specifies the mount path of the persistent disk. Defaults to `/persistent`.
      * 
      */
-    private final @Nullable String mountPath;
+    private @Nullable String mountPath;
     /**
      * @return Specifies the size of the persistent disk in GB. Possible values are between `0` and `50`.
      * 
      */
-    private final Integer sizeInGb;
+    private Integer sizeInGb;
 
-    @CustomType.Constructor
-    private SpringCloudAppPersistentDisk(
-        @CustomType.Parameter("mountPath") @Nullable String mountPath,
-        @CustomType.Parameter("sizeInGb") Integer sizeInGb) {
-        this.mountPath = mountPath;
-        this.sizeInGb = sizeInGb;
-    }
-
+    private SpringCloudAppPersistentDisk() {}
     /**
      * @return Specifies the mount path of the persistent disk. Defaults to `/persistent`.
      * 
@@ -53,30 +46,32 @@ public final class SpringCloudAppPersistentDisk {
     public static Builder builder(SpringCloudAppPersistentDisk defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String mountPath;
         private Integer sizeInGb;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpringCloudAppPersistentDisk defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mountPath = defaults.mountPath;
     	      this.sizeInGb = defaults.sizeInGb;
         }
 
+        @CustomType.Setter
         public Builder mountPath(@Nullable String mountPath) {
             this.mountPath = mountPath;
             return this;
         }
+        @CustomType.Setter
         public Builder sizeInGb(Integer sizeInGb) {
             this.sizeInGb = Objects.requireNonNull(sizeInGb);
             return this;
-        }        public SpringCloudAppPersistentDisk build() {
-            return new SpringCloudAppPersistentDisk(mountPath, sizeInGb);
+        }
+        public SpringCloudAppPersistentDisk build() {
+            final var o = new SpringCloudAppPersistentDisk();
+            o.mountPath = mountPath;
+            o.sizeInGb = sizeInGb;
+            return o;
         }
     }
 }

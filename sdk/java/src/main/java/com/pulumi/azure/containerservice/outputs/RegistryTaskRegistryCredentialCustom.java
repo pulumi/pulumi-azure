@@ -15,35 +15,24 @@ public final class RegistryTaskRegistryCredentialCustom {
      * @return The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `[system]`.
      * 
      */
-    private final @Nullable String identity;
+    private @Nullable String identity;
     /**
      * @return The login server of the custom Container Registry.
      * 
      */
-    private final String loginServer;
+    private String loginServer;
     /**
      * @return The password for logging into the custom Container Registry. It can be either a plain text of password, or a Keyvault Secret ID.
      * 
      */
-    private final @Nullable String password;
+    private @Nullable String password;
     /**
      * @return The username for logging into the custom Container Registry. It can be either a plain text of username, or a Keyvault Secret ID.
      * 
      */
-    private final @Nullable String username;
+    private @Nullable String username;
 
-    @CustomType.Constructor
-    private RegistryTaskRegistryCredentialCustom(
-        @CustomType.Parameter("identity") @Nullable String identity,
-        @CustomType.Parameter("loginServer") String loginServer,
-        @CustomType.Parameter("password") @Nullable String password,
-        @CustomType.Parameter("username") @Nullable String username) {
-        this.identity = identity;
-        this.loginServer = loginServer;
-        this.password = password;
-        this.username = username;
-    }
-
+    private RegistryTaskRegistryCredentialCustom() {}
     /**
      * @return The managed identity assigned to this custom credential. For user assigned identity, the value is the client ID of the identity. For system assigned identity, the value is `[system]`.
      * 
@@ -80,17 +69,13 @@ public final class RegistryTaskRegistryCredentialCustom {
     public static Builder builder(RegistryTaskRegistryCredentialCustom defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String identity;
         private String loginServer;
         private @Nullable String password;
         private @Nullable String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegistryTaskRegistryCredentialCustom defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identity = defaults.identity;
@@ -99,23 +84,33 @@ public final class RegistryTaskRegistryCredentialCustom {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder identity(@Nullable String identity) {
             this.identity = identity;
             return this;
         }
+        @CustomType.Setter
         public Builder loginServer(String loginServer) {
             this.loginServer = Objects.requireNonNull(loginServer);
             return this;
         }
+        @CustomType.Setter
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
         }
+        @CustomType.Setter
         public Builder username(@Nullable String username) {
             this.username = username;
             return this;
-        }        public RegistryTaskRegistryCredentialCustom build() {
-            return new RegistryTaskRegistryCredentialCustom(identity, loginServer, password, username);
+        }
+        public RegistryTaskRegistryCredentialCustom build() {
+            final var o = new RegistryTaskRegistryCredentialCustom();
+            o.identity = identity;
+            o.loginServer = loginServer;
+            o.password = password;
+            o.username = username;
+            return o;
         }
     }
 }

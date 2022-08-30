@@ -13,28 +13,19 @@ public final class VpnServerConfigurationAzureActiveDirectoryAuthentication {
      * @return The Audience which should be used for authentication.
      * 
      */
-    private final String audience;
+    private String audience;
     /**
      * @return The Issuer which should be used for authentication.
      * 
      */
-    private final String issuer;
+    private String issuer;
     /**
      * @return The Tenant which should be used for authentication.
      * 
      */
-    private final String tenant;
+    private String tenant;
 
-    @CustomType.Constructor
-    private VpnServerConfigurationAzureActiveDirectoryAuthentication(
-        @CustomType.Parameter("audience") String audience,
-        @CustomType.Parameter("issuer") String issuer,
-        @CustomType.Parameter("tenant") String tenant) {
-        this.audience = audience;
-        this.issuer = issuer;
-        this.tenant = tenant;
-    }
-
+    private VpnServerConfigurationAzureActiveDirectoryAuthentication() {}
     /**
      * @return The Audience which should be used for authentication.
      * 
@@ -64,16 +55,12 @@ public final class VpnServerConfigurationAzureActiveDirectoryAuthentication {
     public static Builder builder(VpnServerConfigurationAzureActiveDirectoryAuthentication defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String audience;
         private String issuer;
         private String tenant;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpnServerConfigurationAzureActiveDirectoryAuthentication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.audience = defaults.audience;
@@ -81,19 +68,27 @@ public final class VpnServerConfigurationAzureActiveDirectoryAuthentication {
     	      this.tenant = defaults.tenant;
         }
 
+        @CustomType.Setter
         public Builder audience(String audience) {
             this.audience = Objects.requireNonNull(audience);
             return this;
         }
+        @CustomType.Setter
         public Builder issuer(String issuer) {
             this.issuer = Objects.requireNonNull(issuer);
             return this;
         }
+        @CustomType.Setter
         public Builder tenant(String tenant) {
             this.tenant = Objects.requireNonNull(tenant);
             return this;
-        }        public VpnServerConfigurationAzureActiveDirectoryAuthentication build() {
-            return new VpnServerConfigurationAzureActiveDirectoryAuthentication(audience, issuer, tenant);
+        }
+        public VpnServerConfigurationAzureActiveDirectoryAuthentication build() {
+            final var o = new VpnServerConfigurationAzureActiveDirectoryAuthentication();
+            o.audience = audience;
+            o.issuer = issuer;
+            o.tenant = tenant;
+            return o;
         }
     }
 }

@@ -15,68 +15,43 @@ public final class GetNamespaceAuthorizationRuleResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
-    private final @Nullable String namespaceId;
-    private final @Nullable String namespaceName;
+    private String id;
+    private String name;
+    private @Nullable String namespaceId;
+    private @Nullable String namespaceName;
     /**
      * @return The primary connection string for the authorization rule.
      * 
      */
-    private final String primaryConnectionString;
+    private String primaryConnectionString;
     /**
      * @return The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
      * 
      */
-    private final String primaryConnectionStringAlias;
+    private String primaryConnectionStringAlias;
     /**
      * @return The primary access key for the authorization rule.
      * 
      */
-    private final String primaryKey;
-    private final @Nullable String resourceGroupName;
+    private String primaryKey;
+    private @Nullable String resourceGroupName;
     /**
      * @return The secondary connection string for the authorization rule.
      * 
      */
-    private final String secondaryConnectionString;
+    private String secondaryConnectionString;
     /**
      * @return The alias Secondary Connection String for the ServiceBus Namespace
      * 
      */
-    private final String secondaryConnectionStringAlias;
+    private String secondaryConnectionStringAlias;
     /**
      * @return The secondary access key for the authorization rule.
      * 
      */
-    private final String secondaryKey;
+    private String secondaryKey;
 
-    @CustomType.Constructor
-    private GetNamespaceAuthorizationRuleResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("namespaceId") @Nullable String namespaceId,
-        @CustomType.Parameter("namespaceName") @Nullable String namespaceName,
-        @CustomType.Parameter("primaryConnectionString") String primaryConnectionString,
-        @CustomType.Parameter("primaryConnectionStringAlias") String primaryConnectionStringAlias,
-        @CustomType.Parameter("primaryKey") String primaryKey,
-        @CustomType.Parameter("resourceGroupName") @Nullable String resourceGroupName,
-        @CustomType.Parameter("secondaryConnectionString") String secondaryConnectionString,
-        @CustomType.Parameter("secondaryConnectionStringAlias") String secondaryConnectionStringAlias,
-        @CustomType.Parameter("secondaryKey") String secondaryKey) {
-        this.id = id;
-        this.name = name;
-        this.namespaceId = namespaceId;
-        this.namespaceName = namespaceName;
-        this.primaryConnectionString = primaryConnectionString;
-        this.primaryConnectionStringAlias = primaryConnectionStringAlias;
-        this.primaryKey = primaryKey;
-        this.resourceGroupName = resourceGroupName;
-        this.secondaryConnectionString = secondaryConnectionString;
-        this.secondaryConnectionStringAlias = secondaryConnectionStringAlias;
-        this.secondaryKey = secondaryKey;
-    }
-
+    private GetNamespaceAuthorizationRuleResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -146,7 +121,7 @@ public final class GetNamespaceAuthorizationRuleResult {
     public static Builder builder(GetNamespaceAuthorizationRuleResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String name;
@@ -159,11 +134,7 @@ public final class GetNamespaceAuthorizationRuleResult {
         private String secondaryConnectionString;
         private String secondaryConnectionStringAlias;
         private String secondaryKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetNamespaceAuthorizationRuleResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -179,51 +150,75 @@ public final class GetNamespaceAuthorizationRuleResult {
     	      this.secondaryKey = defaults.secondaryKey;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder namespaceId(@Nullable String namespaceId) {
             this.namespaceId = namespaceId;
             return this;
         }
+        @CustomType.Setter
         public Builder namespaceName(@Nullable String namespaceName) {
             this.namespaceName = namespaceName;
             return this;
         }
+        @CustomType.Setter
         public Builder primaryConnectionString(String primaryConnectionString) {
             this.primaryConnectionString = Objects.requireNonNull(primaryConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryConnectionStringAlias(String primaryConnectionStringAlias) {
             this.primaryConnectionStringAlias = Objects.requireNonNull(primaryConnectionStringAlias);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryKey(String primaryKey) {
             this.primaryKey = Objects.requireNonNull(primaryKey);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(@Nullable String resourceGroupName) {
             this.resourceGroupName = resourceGroupName;
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryConnectionString(String secondaryConnectionString) {
             this.secondaryConnectionString = Objects.requireNonNull(secondaryConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryConnectionStringAlias(String secondaryConnectionStringAlias) {
             this.secondaryConnectionStringAlias = Objects.requireNonNull(secondaryConnectionStringAlias);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryKey(String secondaryKey) {
             this.secondaryKey = Objects.requireNonNull(secondaryKey);
             return this;
-        }        public GetNamespaceAuthorizationRuleResult build() {
-            return new GetNamespaceAuthorizationRuleResult(id, name, namespaceId, namespaceName, primaryConnectionString, primaryConnectionStringAlias, primaryKey, resourceGroupName, secondaryConnectionString, secondaryConnectionStringAlias, secondaryKey);
+        }
+        public GetNamespaceAuthorizationRuleResult build() {
+            final var o = new GetNamespaceAuthorizationRuleResult();
+            o.id = id;
+            o.name = name;
+            o.namespaceId = namespaceId;
+            o.namespaceName = namespaceName;
+            o.primaryConnectionString = primaryConnectionString;
+            o.primaryConnectionStringAlias = primaryConnectionStringAlias;
+            o.primaryKey = primaryKey;
+            o.resourceGroupName = resourceGroupName;
+            o.secondaryConnectionString = secondaryConnectionString;
+            o.secondaryConnectionStringAlias = secondaryConnectionStringAlias;
+            o.secondaryKey = secondaryKey;
+            return o;
         }
     }
 }

@@ -13,49 +13,34 @@ public final class AccountAzureFilesAuthenticationActiveDirectory {
      * @return Specifies the domain GUID.
      * 
      */
-    private final String domainGuid;
+    private String domainGuid;
     /**
      * @return Specifies the primary domain that the AD DNS server is authoritative for.
      * 
      */
-    private final String domainName;
+    private String domainName;
     /**
      * @return Specifies the security identifier (SID).
      * 
      */
-    private final String domainSid;
+    private String domainSid;
     /**
      * @return Specifies the Active Directory forest.
      * 
      */
-    private final String forestName;
+    private String forestName;
     /**
      * @return Specifies the NetBIOS domain name.
      * 
      */
-    private final String netbiosDomainName;
+    private String netbiosDomainName;
     /**
      * @return Specifies the security identifier (SID) for Azure Storage.
      * 
      */
-    private final String storageSid;
+    private String storageSid;
 
-    @CustomType.Constructor
-    private AccountAzureFilesAuthenticationActiveDirectory(
-        @CustomType.Parameter("domainGuid") String domainGuid,
-        @CustomType.Parameter("domainName") String domainName,
-        @CustomType.Parameter("domainSid") String domainSid,
-        @CustomType.Parameter("forestName") String forestName,
-        @CustomType.Parameter("netbiosDomainName") String netbiosDomainName,
-        @CustomType.Parameter("storageSid") String storageSid) {
-        this.domainGuid = domainGuid;
-        this.domainName = domainName;
-        this.domainSid = domainSid;
-        this.forestName = forestName;
-        this.netbiosDomainName = netbiosDomainName;
-        this.storageSid = storageSid;
-    }
-
+    private AccountAzureFilesAuthenticationActiveDirectory() {}
     /**
      * @return Specifies the domain GUID.
      * 
@@ -106,7 +91,7 @@ public final class AccountAzureFilesAuthenticationActiveDirectory {
     public static Builder builder(AccountAzureFilesAuthenticationActiveDirectory defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String domainGuid;
         private String domainName;
@@ -114,11 +99,7 @@ public final class AccountAzureFilesAuthenticationActiveDirectory {
         private String forestName;
         private String netbiosDomainName;
         private String storageSid;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountAzureFilesAuthenticationActiveDirectory defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.domainGuid = defaults.domainGuid;
@@ -129,31 +110,45 @@ public final class AccountAzureFilesAuthenticationActiveDirectory {
     	      this.storageSid = defaults.storageSid;
         }
 
+        @CustomType.Setter
         public Builder domainGuid(String domainGuid) {
             this.domainGuid = Objects.requireNonNull(domainGuid);
             return this;
         }
+        @CustomType.Setter
         public Builder domainName(String domainName) {
             this.domainName = Objects.requireNonNull(domainName);
             return this;
         }
+        @CustomType.Setter
         public Builder domainSid(String domainSid) {
             this.domainSid = Objects.requireNonNull(domainSid);
             return this;
         }
+        @CustomType.Setter
         public Builder forestName(String forestName) {
             this.forestName = Objects.requireNonNull(forestName);
             return this;
         }
+        @CustomType.Setter
         public Builder netbiosDomainName(String netbiosDomainName) {
             this.netbiosDomainName = Objects.requireNonNull(netbiosDomainName);
             return this;
         }
+        @CustomType.Setter
         public Builder storageSid(String storageSid) {
             this.storageSid = Objects.requireNonNull(storageSid);
             return this;
-        }        public AccountAzureFilesAuthenticationActiveDirectory build() {
-            return new AccountAzureFilesAuthenticationActiveDirectory(domainGuid, domainName, domainSid, forestName, netbiosDomainName, storageSid);
+        }
+        public AccountAzureFilesAuthenticationActiveDirectory build() {
+            final var o = new AccountAzureFilesAuthenticationActiveDirectory();
+            o.domainGuid = domainGuid;
+            o.domainName = domainName;
+            o.domainSid = domainSid;
+            o.forestName = forestName;
+            o.netbiosDomainName = netbiosDomainName;
+            o.storageSid = storageSid;
+            return o;
         }
     }
 }

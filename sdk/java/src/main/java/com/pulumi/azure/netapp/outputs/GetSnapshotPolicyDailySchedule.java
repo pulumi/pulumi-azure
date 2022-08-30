@@ -13,28 +13,19 @@ public final class GetSnapshotPolicyDailySchedule {
      * @return Hour of the day that the snapshots will be created.
      * 
      */
-    private final Integer hour;
+    private Integer hour;
     /**
      * @return Minute of the hour that the snapshots will be created.
      * 
      */
-    private final Integer minute;
+    private Integer minute;
     /**
      * @return How many hourly snapshots to keep.
      * 
      */
-    private final Integer snapshotsToKeep;
+    private Integer snapshotsToKeep;
 
-    @CustomType.Constructor
-    private GetSnapshotPolicyDailySchedule(
-        @CustomType.Parameter("hour") Integer hour,
-        @CustomType.Parameter("minute") Integer minute,
-        @CustomType.Parameter("snapshotsToKeep") Integer snapshotsToKeep) {
-        this.hour = hour;
-        this.minute = minute;
-        this.snapshotsToKeep = snapshotsToKeep;
-    }
-
+    private GetSnapshotPolicyDailySchedule() {}
     /**
      * @return Hour of the day that the snapshots will be created.
      * 
@@ -64,16 +55,12 @@ public final class GetSnapshotPolicyDailySchedule {
     public static Builder builder(GetSnapshotPolicyDailySchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer hour;
         private Integer minute;
         private Integer snapshotsToKeep;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSnapshotPolicyDailySchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hour = defaults.hour;
@@ -81,19 +68,27 @@ public final class GetSnapshotPolicyDailySchedule {
     	      this.snapshotsToKeep = defaults.snapshotsToKeep;
         }
 
+        @CustomType.Setter
         public Builder hour(Integer hour) {
             this.hour = Objects.requireNonNull(hour);
             return this;
         }
+        @CustomType.Setter
         public Builder minute(Integer minute) {
             this.minute = Objects.requireNonNull(minute);
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotsToKeep(Integer snapshotsToKeep) {
             this.snapshotsToKeep = Objects.requireNonNull(snapshotsToKeep);
             return this;
-        }        public GetSnapshotPolicyDailySchedule build() {
-            return new GetSnapshotPolicyDailySchedule(hour, minute, snapshotsToKeep);
+        }
+        public GetSnapshotPolicyDailySchedule build() {
+            final var o = new GetSnapshotPolicyDailySchedule();
+            o.hour = hour;
+            o.minute = minute;
+            o.snapshotsToKeep = snapshotsToKeep;
+            return o;
         }
     }
 }

@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class AppServiceAuthSettingsTwitter {
-    private final String consumerKey;
-    private final String consumerSecret;
+    private String consumerKey;
+    private String consumerSecret;
 
-    @CustomType.Constructor
-    private AppServiceAuthSettingsTwitter(
-        @CustomType.Parameter("consumerKey") String consumerKey,
-        @CustomType.Parameter("consumerSecret") String consumerSecret) {
-        this.consumerKey = consumerKey;
-        this.consumerSecret = consumerSecret;
-    }
-
+    private AppServiceAuthSettingsTwitter() {}
     public String consumerKey() {
         return this.consumerKey;
     }
@@ -34,30 +27,32 @@ public final class AppServiceAuthSettingsTwitter {
     public static Builder builder(AppServiceAuthSettingsTwitter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String consumerKey;
         private String consumerSecret;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppServiceAuthSettingsTwitter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.consumerKey = defaults.consumerKey;
     	      this.consumerSecret = defaults.consumerSecret;
         }
 
+        @CustomType.Setter
         public Builder consumerKey(String consumerKey) {
             this.consumerKey = Objects.requireNonNull(consumerKey);
             return this;
         }
+        @CustomType.Setter
         public Builder consumerSecret(String consumerSecret) {
             this.consumerSecret = Objects.requireNonNull(consumerSecret);
             return this;
-        }        public AppServiceAuthSettingsTwitter build() {
-            return new AppServiceAuthSettingsTwitter(consumerKey, consumerSecret);
+        }
+        public AppServiceAuthSettingsTwitter build() {
+            final var o = new AppServiceAuthSettingsTwitter();
+            o.consumerKey = consumerKey;
+            o.consumerSecret = consumerSecret;
+            return o;
         }
     }
 }

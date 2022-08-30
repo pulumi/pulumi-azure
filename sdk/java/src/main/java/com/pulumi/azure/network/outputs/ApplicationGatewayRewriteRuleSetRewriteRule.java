@@ -21,49 +21,34 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRule {
      * @return One or more `condition` blocks as defined above.
      * 
      */
-    private final @Nullable List<ApplicationGatewayRewriteRuleSetRewriteRuleCondition> conditions;
+    private @Nullable List<ApplicationGatewayRewriteRuleSetRewriteRuleCondition> conditions;
     /**
      * @return Unique name of the rewrite rule block
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return One or more `request_header_configuration` blocks as defined above.
      * 
      */
-    private final @Nullable List<ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration> requestHeaderConfigurations;
+    private @Nullable List<ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration> requestHeaderConfigurations;
     /**
      * @return One or more `response_header_configuration` blocks as defined above.
      * 
      */
-    private final @Nullable List<ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration> responseHeaderConfigurations;
+    private @Nullable List<ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration> responseHeaderConfigurations;
     /**
      * @return Rule sequence of the rewrite rule that determines the order of execution in a set.
      * 
      */
-    private final Integer ruleSequence;
+    private Integer ruleSequence;
     /**
      * @return One `url` block as defined above
      * 
      */
-    private final @Nullable ApplicationGatewayRewriteRuleSetRewriteRuleUrl url;
+    private @Nullable ApplicationGatewayRewriteRuleSetRewriteRuleUrl url;
 
-    @CustomType.Constructor
-    private ApplicationGatewayRewriteRuleSetRewriteRule(
-        @CustomType.Parameter("conditions") @Nullable List<ApplicationGatewayRewriteRuleSetRewriteRuleCondition> conditions,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("requestHeaderConfigurations") @Nullable List<ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration> requestHeaderConfigurations,
-        @CustomType.Parameter("responseHeaderConfigurations") @Nullable List<ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration> responseHeaderConfigurations,
-        @CustomType.Parameter("ruleSequence") Integer ruleSequence,
-        @CustomType.Parameter("url") @Nullable ApplicationGatewayRewriteRuleSetRewriteRuleUrl url) {
-        this.conditions = conditions;
-        this.name = name;
-        this.requestHeaderConfigurations = requestHeaderConfigurations;
-        this.responseHeaderConfigurations = responseHeaderConfigurations;
-        this.ruleSequence = ruleSequence;
-        this.url = url;
-    }
-
+    private ApplicationGatewayRewriteRuleSetRewriteRule() {}
     /**
      * @return One or more `condition` blocks as defined above.
      * 
@@ -114,7 +99,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRule {
     public static Builder builder(ApplicationGatewayRewriteRuleSetRewriteRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ApplicationGatewayRewriteRuleSetRewriteRuleCondition> conditions;
         private String name;
@@ -122,11 +107,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRule {
         private @Nullable List<ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration> responseHeaderConfigurations;
         private Integer ruleSequence;
         private @Nullable ApplicationGatewayRewriteRuleSetRewriteRuleUrl url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayRewriteRuleSetRewriteRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.conditions = defaults.conditions;
@@ -137,6 +118,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRule {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder conditions(@Nullable List<ApplicationGatewayRewriteRuleSetRewriteRuleCondition> conditions) {
             this.conditions = conditions;
             return this;
@@ -144,10 +126,12 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRule {
         public Builder conditions(ApplicationGatewayRewriteRuleSetRewriteRuleCondition... conditions) {
             return conditions(List.of(conditions));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder requestHeaderConfigurations(@Nullable List<ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration> requestHeaderConfigurations) {
             this.requestHeaderConfigurations = requestHeaderConfigurations;
             return this;
@@ -155,6 +139,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRule {
         public Builder requestHeaderConfigurations(ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration... requestHeaderConfigurations) {
             return requestHeaderConfigurations(List.of(requestHeaderConfigurations));
         }
+        @CustomType.Setter
         public Builder responseHeaderConfigurations(@Nullable List<ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration> responseHeaderConfigurations) {
             this.responseHeaderConfigurations = responseHeaderConfigurations;
             return this;
@@ -162,15 +147,25 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRule {
         public Builder responseHeaderConfigurations(ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfiguration... responseHeaderConfigurations) {
             return responseHeaderConfigurations(List.of(responseHeaderConfigurations));
         }
+        @CustomType.Setter
         public Builder ruleSequence(Integer ruleSequence) {
             this.ruleSequence = Objects.requireNonNull(ruleSequence);
             return this;
         }
+        @CustomType.Setter
         public Builder url(@Nullable ApplicationGatewayRewriteRuleSetRewriteRuleUrl url) {
             this.url = url;
             return this;
-        }        public ApplicationGatewayRewriteRuleSetRewriteRule build() {
-            return new ApplicationGatewayRewriteRuleSetRewriteRule(conditions, name, requestHeaderConfigurations, responseHeaderConfigurations, ruleSequence, url);
+        }
+        public ApplicationGatewayRewriteRuleSetRewriteRule build() {
+            final var o = new ApplicationGatewayRewriteRuleSetRewriteRule();
+            o.conditions = conditions;
+            o.name = name;
+            o.requestHeaderConfigurations = requestHeaderConfigurations;
+            o.responseHeaderConfigurations = responseHeaderConfigurations;
+            o.ruleSequence = ruleSequence;
+            o.url = url;
+            return o;
         }
     }
 }

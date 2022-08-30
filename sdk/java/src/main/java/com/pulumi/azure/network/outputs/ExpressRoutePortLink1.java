@@ -16,77 +16,54 @@ public final class ExpressRoutePortLink1 {
      * @return Whether enable administration state on the Express Route Port Link? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean adminEnabled;
+    private @Nullable Boolean adminEnabled;
     /**
      * @return The connector type of the Express Route Port Link.
      * 
      */
-    private final @Nullable String connectorType;
+    private @Nullable String connectorType;
     /**
      * @return The ID of this Express Route Port Link.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The interface name of the Azure router associated with the Express Route Port Link.
      * 
      */
-    private final @Nullable String interfaceName;
+    private @Nullable String interfaceName;
     /**
      * @return The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
      * 
      */
-    private final @Nullable String macsecCakKeyvaultSecretId;
+    private @Nullable String macsecCakKeyvaultSecretId;
     /**
      * @return The MACSec cipher used for this Express Route Port Link. Possible values are `GcmAes128` and `GcmAes256`. Defaults to `GcmAes128`.
      * 
      */
-    private final @Nullable String macsecCipher;
+    private @Nullable String macsecCipher;
     /**
      * @return The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
      * 
      */
-    private final @Nullable String macsecCknKeyvaultSecretId;
+    private @Nullable String macsecCknKeyvaultSecretId;
     /**
      * @return The ID that maps from the Express Route Port Link to the patch panel port.
      * 
      */
-    private final @Nullable String patchPanelId;
+    private @Nullable String patchPanelId;
     /**
      * @return The ID that maps from the patch panel port to the rack.
      * 
      */
-    private final @Nullable String rackId;
+    private @Nullable String rackId;
     /**
      * @return The name of the Azure router associated with the Express Route Port Link.
      * 
      */
-    private final @Nullable String routerName;
+    private @Nullable String routerName;
 
-    @CustomType.Constructor
-    private ExpressRoutePortLink1(
-        @CustomType.Parameter("adminEnabled") @Nullable Boolean adminEnabled,
-        @CustomType.Parameter("connectorType") @Nullable String connectorType,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("interfaceName") @Nullable String interfaceName,
-        @CustomType.Parameter("macsecCakKeyvaultSecretId") @Nullable String macsecCakKeyvaultSecretId,
-        @CustomType.Parameter("macsecCipher") @Nullable String macsecCipher,
-        @CustomType.Parameter("macsecCknKeyvaultSecretId") @Nullable String macsecCknKeyvaultSecretId,
-        @CustomType.Parameter("patchPanelId") @Nullable String patchPanelId,
-        @CustomType.Parameter("rackId") @Nullable String rackId,
-        @CustomType.Parameter("routerName") @Nullable String routerName) {
-        this.adminEnabled = adminEnabled;
-        this.connectorType = connectorType;
-        this.id = id;
-        this.interfaceName = interfaceName;
-        this.macsecCakKeyvaultSecretId = macsecCakKeyvaultSecretId;
-        this.macsecCipher = macsecCipher;
-        this.macsecCknKeyvaultSecretId = macsecCknKeyvaultSecretId;
-        this.patchPanelId = patchPanelId;
-        this.rackId = rackId;
-        this.routerName = routerName;
-    }
-
+    private ExpressRoutePortLink1() {}
     /**
      * @return Whether enable administration state on the Express Route Port Link? Defaults to `false`.
      * 
@@ -165,7 +142,7 @@ public final class ExpressRoutePortLink1 {
     public static Builder builder(ExpressRoutePortLink1 defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean adminEnabled;
         private @Nullable String connectorType;
@@ -177,11 +154,7 @@ public final class ExpressRoutePortLink1 {
         private @Nullable String patchPanelId;
         private @Nullable String rackId;
         private @Nullable String routerName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ExpressRoutePortLink1 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.adminEnabled = defaults.adminEnabled;
@@ -196,47 +169,69 @@ public final class ExpressRoutePortLink1 {
     	      this.routerName = defaults.routerName;
         }
 
+        @CustomType.Setter
         public Builder adminEnabled(@Nullable Boolean adminEnabled) {
             this.adminEnabled = adminEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder connectorType(@Nullable String connectorType) {
             this.connectorType = connectorType;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder interfaceName(@Nullable String interfaceName) {
             this.interfaceName = interfaceName;
             return this;
         }
+        @CustomType.Setter
         public Builder macsecCakKeyvaultSecretId(@Nullable String macsecCakKeyvaultSecretId) {
             this.macsecCakKeyvaultSecretId = macsecCakKeyvaultSecretId;
             return this;
         }
+        @CustomType.Setter
         public Builder macsecCipher(@Nullable String macsecCipher) {
             this.macsecCipher = macsecCipher;
             return this;
         }
+        @CustomType.Setter
         public Builder macsecCknKeyvaultSecretId(@Nullable String macsecCknKeyvaultSecretId) {
             this.macsecCknKeyvaultSecretId = macsecCknKeyvaultSecretId;
             return this;
         }
+        @CustomType.Setter
         public Builder patchPanelId(@Nullable String patchPanelId) {
             this.patchPanelId = patchPanelId;
             return this;
         }
+        @CustomType.Setter
         public Builder rackId(@Nullable String rackId) {
             this.rackId = rackId;
             return this;
         }
+        @CustomType.Setter
         public Builder routerName(@Nullable String routerName) {
             this.routerName = routerName;
             return this;
-        }        public ExpressRoutePortLink1 build() {
-            return new ExpressRoutePortLink1(adminEnabled, connectorType, id, interfaceName, macsecCakKeyvaultSecretId, macsecCipher, macsecCknKeyvaultSecretId, patchPanelId, rackId, routerName);
+        }
+        public ExpressRoutePortLink1 build() {
+            final var o = new ExpressRoutePortLink1();
+            o.adminEnabled = adminEnabled;
+            o.connectorType = connectorType;
+            o.id = id;
+            o.interfaceName = interfaceName;
+            o.macsecCakKeyvaultSecretId = macsecCakKeyvaultSecretId;
+            o.macsecCipher = macsecCipher;
+            o.macsecCknKeyvaultSecretId = macsecCknKeyvaultSecretId;
+            o.patchPanelId = patchPanelId;
+            o.rackId = rackId;
+            o.routerName = routerName;
+            return o;
         }
     }
 }

@@ -16,69 +16,46 @@ public final class GetVirtualHubResult {
      * @return The Address Prefix used for this Virtual Hub.
      * 
      */
-    private final String addressPrefix;
+    private String addressPrefix;
     /**
      * @return The ID of the default Route Table in the Virtual Hub.
      * 
      */
-    private final String defaultRouteTableId;
+    private String defaultRouteTableId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region where the Virtual Hub exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags assigned to the Virtual Hub.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The Autonomous System Number of the Virtual Hub BGP router.
      * 
      */
-    private final Integer virtualRouterAsn;
+    private Integer virtualRouterAsn;
     /**
      * @return The IP addresses of the Virtual Hub BGP router.
      * 
      */
-    private final List<String> virtualRouterIps;
+    private List<String> virtualRouterIps;
     /**
      * @return The ID of the Virtual WAN within which the Virtual Hub exists.
      * 
      */
-    private final String virtualWanId;
+    private String virtualWanId;
 
-    @CustomType.Constructor
-    private GetVirtualHubResult(
-        @CustomType.Parameter("addressPrefix") String addressPrefix,
-        @CustomType.Parameter("defaultRouteTableId") String defaultRouteTableId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("virtualRouterAsn") Integer virtualRouterAsn,
-        @CustomType.Parameter("virtualRouterIps") List<String> virtualRouterIps,
-        @CustomType.Parameter("virtualWanId") String virtualWanId) {
-        this.addressPrefix = addressPrefix;
-        this.defaultRouteTableId = defaultRouteTableId;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-        this.virtualRouterAsn = virtualRouterAsn;
-        this.virtualRouterIps = virtualRouterIps;
-        this.virtualWanId = virtualWanId;
-    }
-
+    private GetVirtualHubResult() {}
     /**
      * @return The Address Prefix used for this Virtual Hub.
      * 
@@ -149,7 +126,7 @@ public final class GetVirtualHubResult {
     public static Builder builder(GetVirtualHubResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String addressPrefix;
         private String defaultRouteTableId;
@@ -161,11 +138,7 @@ public final class GetVirtualHubResult {
         private Integer virtualRouterAsn;
         private List<String> virtualRouterIps;
         private String virtualWanId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualHubResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addressPrefix = defaults.addressPrefix;
@@ -180,38 +153,47 @@ public final class GetVirtualHubResult {
     	      this.virtualWanId = defaults.virtualWanId;
         }
 
+        @CustomType.Setter
         public Builder addressPrefix(String addressPrefix) {
             this.addressPrefix = Objects.requireNonNull(addressPrefix);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultRouteTableId(String defaultRouteTableId) {
             this.defaultRouteTableId = Objects.requireNonNull(defaultRouteTableId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualRouterAsn(Integer virtualRouterAsn) {
             this.virtualRouterAsn = Objects.requireNonNull(virtualRouterAsn);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualRouterIps(List<String> virtualRouterIps) {
             this.virtualRouterIps = Objects.requireNonNull(virtualRouterIps);
             return this;
@@ -219,11 +201,24 @@ public final class GetVirtualHubResult {
         public Builder virtualRouterIps(String... virtualRouterIps) {
             return virtualRouterIps(List.of(virtualRouterIps));
         }
+        @CustomType.Setter
         public Builder virtualWanId(String virtualWanId) {
             this.virtualWanId = Objects.requireNonNull(virtualWanId);
             return this;
-        }        public GetVirtualHubResult build() {
-            return new GetVirtualHubResult(addressPrefix, defaultRouteTableId, id, location, name, resourceGroupName, tags, virtualRouterAsn, virtualRouterIps, virtualWanId);
+        }
+        public GetVirtualHubResult build() {
+            final var o = new GetVirtualHubResult();
+            o.addressPrefix = addressPrefix;
+            o.defaultRouteTableId = defaultRouteTableId;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            o.virtualRouterAsn = virtualRouterAsn;
+            o.virtualRouterIps = virtualRouterIps;
+            o.virtualWanId = virtualWanId;
+            return o;
         }
     }
 }

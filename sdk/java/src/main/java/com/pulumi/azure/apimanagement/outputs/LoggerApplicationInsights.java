@@ -13,13 +13,9 @@ public final class LoggerApplicationInsights {
      * @return The instrumentation key used to push data to Application Insights.
      * 
      */
-    private final String instrumentationKey;
+    private String instrumentationKey;
 
-    @CustomType.Constructor
-    private LoggerApplicationInsights(@CustomType.Parameter("instrumentationKey") String instrumentationKey) {
-        this.instrumentationKey = instrumentationKey;
-    }
-
+    private LoggerApplicationInsights() {}
     /**
      * @return The instrumentation key used to push data to Application Insights.
      * 
@@ -35,24 +31,24 @@ public final class LoggerApplicationInsights {
     public static Builder builder(LoggerApplicationInsights defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String instrumentationKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LoggerApplicationInsights defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.instrumentationKey = defaults.instrumentationKey;
         }
 
+        @CustomType.Setter
         public Builder instrumentationKey(String instrumentationKey) {
             this.instrumentationKey = Objects.requireNonNull(instrumentationKey);
             return this;
-        }        public LoggerApplicationInsights build() {
-            return new LoggerApplicationInsights(instrumentationKey);
+        }
+        public LoggerApplicationInsights build() {
+            final var o = new LoggerApplicationInsights();
+            o.instrumentationKey = instrumentationKey;
+            return o;
         }
     }
 }

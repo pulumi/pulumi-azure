@@ -16,35 +16,24 @@ public final class GetWindowsFunctionAppBackup {
      * @return Is the Backup Job enabled?
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return The name of this Windows Function App.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A `schedule` block as defined below.
      * 
      */
-    private final List<GetWindowsFunctionAppBackupSchedule> schedules;
+    private List<GetWindowsFunctionAppBackupSchedule> schedules;
     /**
      * @return The SAS URL to the container.
      * 
      */
-    private final String storageAccountUrl;
+    private String storageAccountUrl;
 
-    @CustomType.Constructor
-    private GetWindowsFunctionAppBackup(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("schedules") List<GetWindowsFunctionAppBackupSchedule> schedules,
-        @CustomType.Parameter("storageAccountUrl") String storageAccountUrl) {
-        this.enabled = enabled;
-        this.name = name;
-        this.schedules = schedules;
-        this.storageAccountUrl = storageAccountUrl;
-    }
-
+    private GetWindowsFunctionAppBackup() {}
     /**
      * @return Is the Backup Job enabled?
      * 
@@ -81,17 +70,13 @@ public final class GetWindowsFunctionAppBackup {
     public static Builder builder(GetWindowsFunctionAppBackup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private String name;
         private List<GetWindowsFunctionAppBackupSchedule> schedules;
         private String storageAccountUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsFunctionAppBackup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -100,14 +85,17 @@ public final class GetWindowsFunctionAppBackup {
     	      this.storageAccountUrl = defaults.storageAccountUrl;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder schedules(List<GetWindowsFunctionAppBackupSchedule> schedules) {
             this.schedules = Objects.requireNonNull(schedules);
             return this;
@@ -115,11 +103,18 @@ public final class GetWindowsFunctionAppBackup {
         public Builder schedules(GetWindowsFunctionAppBackupSchedule... schedules) {
             return schedules(List.of(schedules));
         }
+        @CustomType.Setter
         public Builder storageAccountUrl(String storageAccountUrl) {
             this.storageAccountUrl = Objects.requireNonNull(storageAccountUrl);
             return this;
-        }        public GetWindowsFunctionAppBackup build() {
-            return new GetWindowsFunctionAppBackup(enabled, name, schedules, storageAccountUrl);
+        }
+        public GetWindowsFunctionAppBackup build() {
+            final var o = new GetWindowsFunctionAppBackup();
+            o.enabled = enabled;
+            o.name = name;
+            o.schedules = schedules;
+            o.storageAccountUrl = storageAccountUrl;
+            return o;
         }
     }
 }

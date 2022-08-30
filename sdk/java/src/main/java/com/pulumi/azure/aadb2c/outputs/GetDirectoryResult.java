@@ -14,62 +14,41 @@ public final class GetDirectoryResult {
      * @return The type of billing for the AAD B2C tenant. Possible values include: `MAU` or `Auths`.
      * 
      */
-    private final String billingType;
+    private String billingType;
     /**
      * @return Location in which the B2C tenant is hosted and data resides. See [official docs](https://aka.ms/B2CDataResidenc) for more information.
      * 
      */
-    private final String dataResidencyLocation;
-    private final String domainName;
+    private String dataResidencyLocation;
+    private String domainName;
     /**
      * @return The date from which the billing type took effect. May not be populated until after the first billing cycle.
      * 
      */
-    private final String effectiveStartDate;
+    private String effectiveStartDate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String resourceGroupName;
+    private String id;
+    private String resourceGroupName;
     /**
      * @return Billing SKU for the B2C tenant. See [official docs](https://aka.ms/b2cBilling) for more information.
      * 
      */
-    private final String skuName;
+    private String skuName;
     /**
      * @return A mapping of tags assigned to the AAD B2C Directory.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The Tenant ID for the AAD B2C tenant.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
 
-    @CustomType.Constructor
-    private GetDirectoryResult(
-        @CustomType.Parameter("billingType") String billingType,
-        @CustomType.Parameter("dataResidencyLocation") String dataResidencyLocation,
-        @CustomType.Parameter("domainName") String domainName,
-        @CustomType.Parameter("effectiveStartDate") String effectiveStartDate,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("skuName") String skuName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("tenantId") String tenantId) {
-        this.billingType = billingType;
-        this.dataResidencyLocation = dataResidencyLocation;
-        this.domainName = domainName;
-        this.effectiveStartDate = effectiveStartDate;
-        this.id = id;
-        this.resourceGroupName = resourceGroupName;
-        this.skuName = skuName;
-        this.tags = tags;
-        this.tenantId = tenantId;
-    }
-
+    private GetDirectoryResult() {}
     /**
      * @return The type of billing for the AAD B2C tenant. Possible values include: `MAU` or `Auths`.
      * 
@@ -133,7 +112,7 @@ public final class GetDirectoryResult {
     public static Builder builder(GetDirectoryResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String billingType;
         private String dataResidencyLocation;
@@ -144,11 +123,7 @@ public final class GetDirectoryResult {
         private String skuName;
         private Map<String,String> tags;
         private String tenantId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDirectoryResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.billingType = defaults.billingType;
@@ -162,43 +137,63 @@ public final class GetDirectoryResult {
     	      this.tenantId = defaults.tenantId;
         }
 
+        @CustomType.Setter
         public Builder billingType(String billingType) {
             this.billingType = Objects.requireNonNull(billingType);
             return this;
         }
+        @CustomType.Setter
         public Builder dataResidencyLocation(String dataResidencyLocation) {
             this.dataResidencyLocation = Objects.requireNonNull(dataResidencyLocation);
             return this;
         }
+        @CustomType.Setter
         public Builder domainName(String domainName) {
             this.domainName = Objects.requireNonNull(domainName);
             return this;
         }
+        @CustomType.Setter
         public Builder effectiveStartDate(String effectiveStartDate) {
             this.effectiveStartDate = Objects.requireNonNull(effectiveStartDate);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder skuName(String skuName) {
             this.skuName = Objects.requireNonNull(skuName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
-        }        public GetDirectoryResult build() {
-            return new GetDirectoryResult(billingType, dataResidencyLocation, domainName, effectiveStartDate, id, resourceGroupName, skuName, tags, tenantId);
+        }
+        public GetDirectoryResult build() {
+            final var o = new GetDirectoryResult();
+            o.billingType = billingType;
+            o.dataResidencyLocation = dataResidencyLocation;
+            o.domainName = domainName;
+            o.effectiveStartDate = effectiveStartDate;
+            o.id = id;
+            o.resourceGroupName = resourceGroupName;
+            o.skuName = skuName;
+            o.tags = tags;
+            o.tenantId = tenantId;
+            return o;
         }
     }
 }

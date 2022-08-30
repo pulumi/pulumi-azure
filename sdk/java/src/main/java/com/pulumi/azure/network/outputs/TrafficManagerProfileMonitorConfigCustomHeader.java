@@ -13,21 +13,14 @@ public final class TrafficManagerProfileMonitorConfigCustomHeader {
      * @return The name of the custom header.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The value of custom header. Applicable for HTTP and HTTPS protocol.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private TrafficManagerProfileMonitorConfigCustomHeader(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("value") String value) {
-        this.name = name;
-        this.value = value;
-    }
-
+    private TrafficManagerProfileMonitorConfigCustomHeader() {}
     /**
      * @return The name of the custom header.
      * 
@@ -50,30 +43,32 @@ public final class TrafficManagerProfileMonitorConfigCustomHeader {
     public static Builder builder(TrafficManagerProfileMonitorConfigCustomHeader defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TrafficManagerProfileMonitorConfigCustomHeader defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public TrafficManagerProfileMonitorConfigCustomHeader build() {
-            return new TrafficManagerProfileMonitorConfigCustomHeader(name, value);
+        }
+        public TrafficManagerProfileMonitorConfigCustomHeader build() {
+            final var o = new TrafficManagerProfileMonitorConfigCustomHeader();
+            o.name = name;
+            o.value = value;
+            return o;
         }
     }
 }

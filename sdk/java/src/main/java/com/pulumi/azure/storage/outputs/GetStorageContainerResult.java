@@ -15,55 +15,36 @@ public final class GetStorageContainerResult {
      * @return The Access Level configured for this Container.
      * 
      */
-    private final String containerAccessType;
+    private String containerAccessType;
     /**
      * @return Is there an Immutability Policy configured on this Storage Container?
      * 
      */
-    private final Boolean hasImmutabilityPolicy;
+    private Boolean hasImmutabilityPolicy;
     /**
      * @return Is there a Legal Hold configured on this Storage Container?
      * 
      */
-    private final Boolean hasLegalHold;
+    private Boolean hasLegalHold;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A mapping of MetaData for this Container.
      * 
      */
-    private final Map<String,String> metadata;
-    private final String name;
+    private Map<String,String> metadata;
+    private String name;
     /**
      * @return The Resource Manager ID of this Storage Container.
      * 
      */
-    private final String resourceManagerId;
-    private final String storageAccountName;
+    private String resourceManagerId;
+    private String storageAccountName;
 
-    @CustomType.Constructor
-    private GetStorageContainerResult(
-        @CustomType.Parameter("containerAccessType") String containerAccessType,
-        @CustomType.Parameter("hasImmutabilityPolicy") Boolean hasImmutabilityPolicy,
-        @CustomType.Parameter("hasLegalHold") Boolean hasLegalHold,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("metadata") Map<String,String> metadata,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceManagerId") String resourceManagerId,
-        @CustomType.Parameter("storageAccountName") String storageAccountName) {
-        this.containerAccessType = containerAccessType;
-        this.hasImmutabilityPolicy = hasImmutabilityPolicy;
-        this.hasLegalHold = hasLegalHold;
-        this.id = id;
-        this.metadata = metadata;
-        this.name = name;
-        this.resourceManagerId = resourceManagerId;
-        this.storageAccountName = storageAccountName;
-    }
-
+    private GetStorageContainerResult() {}
     /**
      * @return The Access Level configured for this Container.
      * 
@@ -120,7 +101,7 @@ public final class GetStorageContainerResult {
     public static Builder builder(GetStorageContainerResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String containerAccessType;
         private Boolean hasImmutabilityPolicy;
@@ -130,11 +111,7 @@ public final class GetStorageContainerResult {
         private String name;
         private String resourceManagerId;
         private String storageAccountName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetStorageContainerResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.containerAccessType = defaults.containerAccessType;
@@ -147,39 +124,57 @@ public final class GetStorageContainerResult {
     	      this.storageAccountName = defaults.storageAccountName;
         }
 
+        @CustomType.Setter
         public Builder containerAccessType(String containerAccessType) {
             this.containerAccessType = Objects.requireNonNull(containerAccessType);
             return this;
         }
+        @CustomType.Setter
         public Builder hasImmutabilityPolicy(Boolean hasImmutabilityPolicy) {
             this.hasImmutabilityPolicy = Objects.requireNonNull(hasImmutabilityPolicy);
             return this;
         }
+        @CustomType.Setter
         public Builder hasLegalHold(Boolean hasLegalHold) {
             this.hasLegalHold = Objects.requireNonNull(hasLegalHold);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder metadata(Map<String,String> metadata) {
             this.metadata = Objects.requireNonNull(metadata);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceManagerId(String resourceManagerId) {
             this.resourceManagerId = Objects.requireNonNull(resourceManagerId);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountName(String storageAccountName) {
             this.storageAccountName = Objects.requireNonNull(storageAccountName);
             return this;
-        }        public GetStorageContainerResult build() {
-            return new GetStorageContainerResult(containerAccessType, hasImmutabilityPolicy, hasLegalHold, id, metadata, name, resourceManagerId, storageAccountName);
+        }
+        public GetStorageContainerResult build() {
+            final var o = new GetStorageContainerResult();
+            o.containerAccessType = containerAccessType;
+            o.hasImmutabilityPolicy = hasImmutabilityPolicy;
+            o.hasLegalHold = hasLegalHold;
+            o.id = id;
+            o.metadata = metadata;
+            o.name = name;
+            o.resourceManagerId = resourceManagerId;
+            o.storageAccountName = storageAccountName;
+            return o;
         }
     }
 }

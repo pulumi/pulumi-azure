@@ -17,35 +17,24 @@ public final class FirewallVirtualHub {
      * @return The private IP address associated with the Firewall.
      * 
      */
-    private final @Nullable String privateIpAddress;
+    private @Nullable String privateIpAddress;
     /**
      * @return The list of public IP addresses associated with the Firewall.
      * 
      */
-    private final @Nullable List<String> publicIpAddresses;
+    private @Nullable List<String> publicIpAddresses;
     /**
      * @return Specifies the number of public IPs to assign to the Firewall. Defaults to `1`.
      * 
      */
-    private final @Nullable Integer publicIpCount;
+    private @Nullable Integer publicIpCount;
     /**
      * @return Specifies the ID of the Virtual Hub where the Firewall resides in.
      * 
      */
-    private final String virtualHubId;
+    private String virtualHubId;
 
-    @CustomType.Constructor
-    private FirewallVirtualHub(
-        @CustomType.Parameter("privateIpAddress") @Nullable String privateIpAddress,
-        @CustomType.Parameter("publicIpAddresses") @Nullable List<String> publicIpAddresses,
-        @CustomType.Parameter("publicIpCount") @Nullable Integer publicIpCount,
-        @CustomType.Parameter("virtualHubId") String virtualHubId) {
-        this.privateIpAddress = privateIpAddress;
-        this.publicIpAddresses = publicIpAddresses;
-        this.publicIpCount = publicIpCount;
-        this.virtualHubId = virtualHubId;
-    }
-
+    private FirewallVirtualHub() {}
     /**
      * @return The private IP address associated with the Firewall.
      * 
@@ -82,17 +71,13 @@ public final class FirewallVirtualHub {
     public static Builder builder(FirewallVirtualHub defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String privateIpAddress;
         private @Nullable List<String> publicIpAddresses;
         private @Nullable Integer publicIpCount;
         private String virtualHubId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallVirtualHub defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.privateIpAddress = defaults.privateIpAddress;
@@ -101,10 +86,12 @@ public final class FirewallVirtualHub {
     	      this.virtualHubId = defaults.virtualHubId;
         }
 
+        @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
             this.privateIpAddress = privateIpAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpAddresses(@Nullable List<String> publicIpAddresses) {
             this.publicIpAddresses = publicIpAddresses;
             return this;
@@ -112,15 +99,23 @@ public final class FirewallVirtualHub {
         public Builder publicIpAddresses(String... publicIpAddresses) {
             return publicIpAddresses(List.of(publicIpAddresses));
         }
+        @CustomType.Setter
         public Builder publicIpCount(@Nullable Integer publicIpCount) {
             this.publicIpCount = publicIpCount;
             return this;
         }
+        @CustomType.Setter
         public Builder virtualHubId(String virtualHubId) {
             this.virtualHubId = Objects.requireNonNull(virtualHubId);
             return this;
-        }        public FirewallVirtualHub build() {
-            return new FirewallVirtualHub(privateIpAddress, publicIpAddresses, publicIpCount, virtualHubId);
+        }
+        public FirewallVirtualHub build() {
+            final var o = new FirewallVirtualHub();
+            o.privateIpAddress = privateIpAddress;
+            o.publicIpAddresses = publicIpAddresses;
+            o.publicIpCount = publicIpCount;
+            o.virtualHubId = virtualHubId;
+            return o;
         }
     }
 }

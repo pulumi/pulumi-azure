@@ -16,21 +16,14 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscale {
      * @return A `capacity` block as defined below.
      * 
      */
-    private final @Nullable InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity capacity;
+    private @Nullable InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity capacity;
     /**
      * @return A `recurrence` block as defined below.
      * 
      */
-    private final @Nullable InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence recurrence;
+    private @Nullable InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence recurrence;
 
-    @CustomType.Constructor
-    private InteractiveQueryClusterRolesWorkerNodeAutoscale(
-        @CustomType.Parameter("capacity") @Nullable InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity capacity,
-        @CustomType.Parameter("recurrence") @Nullable InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence recurrence) {
-        this.capacity = capacity;
-        this.recurrence = recurrence;
-    }
-
+    private InteractiveQueryClusterRolesWorkerNodeAutoscale() {}
     /**
      * @return A `capacity` block as defined below.
      * 
@@ -53,30 +46,32 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscale {
     public static Builder builder(InteractiveQueryClusterRolesWorkerNodeAutoscale defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity capacity;
         private @Nullable InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence recurrence;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InteractiveQueryClusterRolesWorkerNodeAutoscale defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacity = defaults.capacity;
     	      this.recurrence = defaults.recurrence;
         }
 
+        @CustomType.Setter
         public Builder capacity(@Nullable InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity capacity) {
             this.capacity = capacity;
             return this;
         }
+        @CustomType.Setter
         public Builder recurrence(@Nullable InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence recurrence) {
             this.recurrence = recurrence;
             return this;
-        }        public InteractiveQueryClusterRolesWorkerNodeAutoscale build() {
-            return new InteractiveQueryClusterRolesWorkerNodeAutoscale(capacity, recurrence);
+        }
+        public InteractiveQueryClusterRolesWorkerNodeAutoscale build() {
+            final var o = new InteractiveQueryClusterRolesWorkerNodeAutoscale();
+            o.capacity = capacity;
+            o.recurrence = recurrence;
+            return o;
         }
     }
 }

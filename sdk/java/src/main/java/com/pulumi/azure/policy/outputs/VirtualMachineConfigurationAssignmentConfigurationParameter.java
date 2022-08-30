@@ -13,21 +13,14 @@ public final class VirtualMachineConfigurationAssignmentConfigurationParameter {
      * @return The name of the configuration parameter to check.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The value to check the configuration parameter with.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private VirtualMachineConfigurationAssignmentConfigurationParameter(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("value") String value) {
-        this.name = name;
-        this.value = value;
-    }
-
+    private VirtualMachineConfigurationAssignmentConfigurationParameter() {}
     /**
      * @return The name of the configuration parameter to check.
      * 
@@ -50,30 +43,32 @@ public final class VirtualMachineConfigurationAssignmentConfigurationParameter {
     public static Builder builder(VirtualMachineConfigurationAssignmentConfigurationParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualMachineConfigurationAssignmentConfigurationParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public VirtualMachineConfigurationAssignmentConfigurationParameter build() {
-            return new VirtualMachineConfigurationAssignmentConfigurationParameter(name, value);
+        }
+        public VirtualMachineConfigurationAssignmentConfigurationParameter build() {
+            final var o = new VirtualMachineConfigurationAssignmentConfigurationParameter();
+            o.name = name;
+            o.value = value;
+            return o;
         }
     }
 }

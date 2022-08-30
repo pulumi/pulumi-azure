@@ -14,56 +14,39 @@ public final class GetActionGroupAutomationRunbookReceiver {
      * @return The automation account ID which holds this runbook and authenticates to Azure resources.
      * 
      */
-    private final String automationAccountId;
+    private String automationAccountId;
     /**
      * @return Indicates whether this instance is global runbook.
      * 
      */
-    private final Boolean isGlobalRunbook;
+    private Boolean isGlobalRunbook;
     /**
      * @return Specifies the name of the Action Group.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The name for this runbook.
      * 
      */
-    private final String runbookName;
+    private String runbookName;
     /**
      * @return The URI where webhooks should be sent.
      * 
      */
-    private final String serviceUri;
+    private String serviceUri;
     /**
      * @return Indicates whether to use common alert schema.
      * 
      */
-    private final Boolean useCommonAlertSchema;
+    private Boolean useCommonAlertSchema;
     /**
      * @return The resource id for webhook linked to this runbook.
      * 
      */
-    private final String webhookResourceId;
+    private String webhookResourceId;
 
-    @CustomType.Constructor
-    private GetActionGroupAutomationRunbookReceiver(
-        @CustomType.Parameter("automationAccountId") String automationAccountId,
-        @CustomType.Parameter("isGlobalRunbook") Boolean isGlobalRunbook,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("runbookName") String runbookName,
-        @CustomType.Parameter("serviceUri") String serviceUri,
-        @CustomType.Parameter("useCommonAlertSchema") Boolean useCommonAlertSchema,
-        @CustomType.Parameter("webhookResourceId") String webhookResourceId) {
-        this.automationAccountId = automationAccountId;
-        this.isGlobalRunbook = isGlobalRunbook;
-        this.name = name;
-        this.runbookName = runbookName;
-        this.serviceUri = serviceUri;
-        this.useCommonAlertSchema = useCommonAlertSchema;
-        this.webhookResourceId = webhookResourceId;
-    }
-
+    private GetActionGroupAutomationRunbookReceiver() {}
     /**
      * @return The automation account ID which holds this runbook and authenticates to Azure resources.
      * 
@@ -121,7 +104,7 @@ public final class GetActionGroupAutomationRunbookReceiver {
     public static Builder builder(GetActionGroupAutomationRunbookReceiver defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String automationAccountId;
         private Boolean isGlobalRunbook;
@@ -130,11 +113,7 @@ public final class GetActionGroupAutomationRunbookReceiver {
         private String serviceUri;
         private Boolean useCommonAlertSchema;
         private String webhookResourceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetActionGroupAutomationRunbookReceiver defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.automationAccountId = defaults.automationAccountId;
@@ -146,35 +125,51 @@ public final class GetActionGroupAutomationRunbookReceiver {
     	      this.webhookResourceId = defaults.webhookResourceId;
         }
 
+        @CustomType.Setter
         public Builder automationAccountId(String automationAccountId) {
             this.automationAccountId = Objects.requireNonNull(automationAccountId);
             return this;
         }
+        @CustomType.Setter
         public Builder isGlobalRunbook(Boolean isGlobalRunbook) {
             this.isGlobalRunbook = Objects.requireNonNull(isGlobalRunbook);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder runbookName(String runbookName) {
             this.runbookName = Objects.requireNonNull(runbookName);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceUri(String serviceUri) {
             this.serviceUri = Objects.requireNonNull(serviceUri);
             return this;
         }
+        @CustomType.Setter
         public Builder useCommonAlertSchema(Boolean useCommonAlertSchema) {
             this.useCommonAlertSchema = Objects.requireNonNull(useCommonAlertSchema);
             return this;
         }
+        @CustomType.Setter
         public Builder webhookResourceId(String webhookResourceId) {
             this.webhookResourceId = Objects.requireNonNull(webhookResourceId);
             return this;
-        }        public GetActionGroupAutomationRunbookReceiver build() {
-            return new GetActionGroupAutomationRunbookReceiver(automationAccountId, isGlobalRunbook, name, runbookName, serviceUri, useCommonAlertSchema, webhookResourceId);
+        }
+        public GetActionGroupAutomationRunbookReceiver build() {
+            final var o = new GetActionGroupAutomationRunbookReceiver();
+            o.automationAccountId = automationAccountId;
+            o.isGlobalRunbook = isGlobalRunbook;
+            o.name = name;
+            o.runbookName = runbookName;
+            o.serviceUri = serviceUri;
+            o.useCommonAlertSchema = useCommonAlertSchema;
+            o.webhookResourceId = webhookResourceId;
+            return o;
         }
     }
 }

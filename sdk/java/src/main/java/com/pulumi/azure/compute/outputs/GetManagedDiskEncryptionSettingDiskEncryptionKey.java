@@ -13,21 +13,14 @@ public final class GetManagedDiskEncryptionSettingDiskEncryptionKey {
      * @return The URL to the Key Vault Secret used as the Disk Encryption Key.
      * 
      */
-    private final String secretUrl;
+    private String secretUrl;
     /**
      * @return The ID of the source Key Vault.
      * 
      */
-    private final String sourceVaultId;
+    private String sourceVaultId;
 
-    @CustomType.Constructor
-    private GetManagedDiskEncryptionSettingDiskEncryptionKey(
-        @CustomType.Parameter("secretUrl") String secretUrl,
-        @CustomType.Parameter("sourceVaultId") String sourceVaultId) {
-        this.secretUrl = secretUrl;
-        this.sourceVaultId = sourceVaultId;
-    }
-
+    private GetManagedDiskEncryptionSettingDiskEncryptionKey() {}
     /**
      * @return The URL to the Key Vault Secret used as the Disk Encryption Key.
      * 
@@ -50,30 +43,32 @@ public final class GetManagedDiskEncryptionSettingDiskEncryptionKey {
     public static Builder builder(GetManagedDiskEncryptionSettingDiskEncryptionKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String secretUrl;
         private String sourceVaultId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetManagedDiskEncryptionSettingDiskEncryptionKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.secretUrl = defaults.secretUrl;
     	      this.sourceVaultId = defaults.sourceVaultId;
         }
 
+        @CustomType.Setter
         public Builder secretUrl(String secretUrl) {
             this.secretUrl = Objects.requireNonNull(secretUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceVaultId(String sourceVaultId) {
             this.sourceVaultId = Objects.requireNonNull(sourceVaultId);
             return this;
-        }        public GetManagedDiskEncryptionSettingDiskEncryptionKey build() {
-            return new GetManagedDiskEncryptionSettingDiskEncryptionKey(secretUrl, sourceVaultId);
+        }
+        public GetManagedDiskEncryptionSettingDiskEncryptionKey build() {
+            final var o = new GetManagedDiskEncryptionSettingDiskEncryptionKey();
+            o.secretUrl = secretUrl;
+            o.sourceVaultId = sourceVaultId;
+            return o;
         }
     }
 }

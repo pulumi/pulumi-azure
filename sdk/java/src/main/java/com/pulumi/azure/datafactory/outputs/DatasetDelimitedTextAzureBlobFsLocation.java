@@ -15,28 +15,19 @@ public final class DatasetDelimitedTextAzureBlobFsLocation {
      * @return The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
      * 
      */
-    private final String fileSystem;
+    private String fileSystem;
     /**
      * @return The filename of the file.
      * 
      */
-    private final @Nullable String filename;
+    private @Nullable String filename;
     /**
      * @return The folder path to the file.
      * 
      */
-    private final @Nullable String path;
+    private @Nullable String path;
 
-    @CustomType.Constructor
-    private DatasetDelimitedTextAzureBlobFsLocation(
-        @CustomType.Parameter("fileSystem") String fileSystem,
-        @CustomType.Parameter("filename") @Nullable String filename,
-        @CustomType.Parameter("path") @Nullable String path) {
-        this.fileSystem = fileSystem;
-        this.filename = filename;
-        this.path = path;
-    }
-
+    private DatasetDelimitedTextAzureBlobFsLocation() {}
     /**
      * @return The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
      * 
@@ -66,16 +57,12 @@ public final class DatasetDelimitedTextAzureBlobFsLocation {
     public static Builder builder(DatasetDelimitedTextAzureBlobFsLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String fileSystem;
         private @Nullable String filename;
         private @Nullable String path;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DatasetDelimitedTextAzureBlobFsLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fileSystem = defaults.fileSystem;
@@ -83,19 +70,27 @@ public final class DatasetDelimitedTextAzureBlobFsLocation {
     	      this.path = defaults.path;
         }
 
+        @CustomType.Setter
         public Builder fileSystem(String fileSystem) {
             this.fileSystem = Objects.requireNonNull(fileSystem);
             return this;
         }
+        @CustomType.Setter
         public Builder filename(@Nullable String filename) {
             this.filename = filename;
             return this;
         }
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
-        }        public DatasetDelimitedTextAzureBlobFsLocation build() {
-            return new DatasetDelimitedTextAzureBlobFsLocation(fileSystem, filename, path);
+        }
+        public DatasetDelimitedTextAzureBlobFsLocation build() {
+            final var o = new DatasetDelimitedTextAzureBlobFsLocation();
+            o.fileSystem = fileSystem;
+            o.filename = filename;
+            o.path = path;
+            return o;
         }
     }
 }

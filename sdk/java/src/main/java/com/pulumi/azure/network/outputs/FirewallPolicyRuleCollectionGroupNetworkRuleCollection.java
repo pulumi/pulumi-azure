@@ -16,35 +16,24 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollection {
      * @return The action to take for the network rules in this collection. Possible values are `Allow` and `Deny`.
      * 
      */
-    private final String action;
+    private String action;
     /**
      * @return The name which should be used for this network rule collection.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The priority of the network rule collection. The range is `100` - `65000`.
      * 
      */
-    private final Integer priority;
+    private Integer priority;
     /**
      * @return One or more `rule` (network rule) blocks as defined above.
      * 
      */
-    private final List<FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule> rules;
+    private List<FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule> rules;
 
-    @CustomType.Constructor
-    private FirewallPolicyRuleCollectionGroupNetworkRuleCollection(
-        @CustomType.Parameter("action") String action,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("priority") Integer priority,
-        @CustomType.Parameter("rules") List<FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule> rules) {
-        this.action = action;
-        this.name = name;
-        this.priority = priority;
-        this.rules = rules;
-    }
-
+    private FirewallPolicyRuleCollectionGroupNetworkRuleCollection() {}
     /**
      * @return The action to take for the network rules in this collection. Possible values are `Allow` and `Deny`.
      * 
@@ -81,17 +70,13 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollection {
     public static Builder builder(FirewallPolicyRuleCollectionGroupNetworkRuleCollection defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String action;
         private String name;
         private Integer priority;
         private List<FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule> rules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyRuleCollectionGroupNetworkRuleCollection defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -100,26 +85,36 @@ public final class FirewallPolicyRuleCollectionGroupNetworkRuleCollection {
     	      this.rules = defaults.rules;
         }
 
+        @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder priority(Integer priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
         }
+        @CustomType.Setter
         public Builder rules(List<FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule> rules) {
             this.rules = Objects.requireNonNull(rules);
             return this;
         }
         public Builder rules(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRule... rules) {
             return rules(List.of(rules));
-        }        public FirewallPolicyRuleCollectionGroupNetworkRuleCollection build() {
-            return new FirewallPolicyRuleCollectionGroupNetworkRuleCollection(action, name, priority, rules);
+        }
+        public FirewallPolicyRuleCollectionGroupNetworkRuleCollection build() {
+            final var o = new FirewallPolicyRuleCollectionGroupNetworkRuleCollection();
+            o.action = action;
+            o.name = name;
+            o.priority = priority;
+            o.rules = rules;
+            return o;
         }
     }
 }

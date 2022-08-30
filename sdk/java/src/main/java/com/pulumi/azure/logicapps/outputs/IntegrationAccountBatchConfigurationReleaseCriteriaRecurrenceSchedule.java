@@ -17,42 +17,29 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
      * @return A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered.
      * 
      */
-    private final @Nullable List<Integer> hours;
+    private @Nullable List<Integer> hours;
     /**
      * @return A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
      * 
      */
-    private final @Nullable List<Integer> minutes;
+    private @Nullable List<Integer> minutes;
     /**
      * @return A list of days of the month that the job should execute on.
      * 
      */
-    private final @Nullable List<Integer> monthDays;
+    private @Nullable List<Integer> monthDays;
     /**
      * @return A `monthly` block as documented below.
      * 
      */
-    private final @Nullable List<IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly> monthlies;
+    private @Nullable List<IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly> monthlies;
     /**
      * @return A list of days of the week that the job should execute on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
      * 
      */
-    private final @Nullable List<String> weekDays;
+    private @Nullable List<String> weekDays;
 
-    @CustomType.Constructor
-    private IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule(
-        @CustomType.Parameter("hours") @Nullable List<Integer> hours,
-        @CustomType.Parameter("minutes") @Nullable List<Integer> minutes,
-        @CustomType.Parameter("monthDays") @Nullable List<Integer> monthDays,
-        @CustomType.Parameter("monthlies") @Nullable List<IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly> monthlies,
-        @CustomType.Parameter("weekDays") @Nullable List<String> weekDays) {
-        this.hours = hours;
-        this.minutes = minutes;
-        this.monthDays = monthDays;
-        this.monthlies = monthlies;
-        this.weekDays = weekDays;
-    }
-
+    private IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule() {}
     /**
      * @return A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered.
      * 
@@ -96,18 +83,14 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
     public static Builder builder(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<Integer> hours;
         private @Nullable List<Integer> minutes;
         private @Nullable List<Integer> monthDays;
         private @Nullable List<IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly> monthlies;
         private @Nullable List<String> weekDays;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hours = defaults.hours;
@@ -117,6 +100,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
     	      this.weekDays = defaults.weekDays;
         }
 
+        @CustomType.Setter
         public Builder hours(@Nullable List<Integer> hours) {
             this.hours = hours;
             return this;
@@ -124,6 +108,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
         public Builder hours(Integer... hours) {
             return hours(List.of(hours));
         }
+        @CustomType.Setter
         public Builder minutes(@Nullable List<Integer> minutes) {
             this.minutes = minutes;
             return this;
@@ -131,6 +116,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
         public Builder minutes(Integer... minutes) {
             return minutes(List.of(minutes));
         }
+        @CustomType.Setter
         public Builder monthDays(@Nullable List<Integer> monthDays) {
             this.monthDays = monthDays;
             return this;
@@ -138,6 +124,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
         public Builder monthDays(Integer... monthDays) {
             return monthDays(List.of(monthDays));
         }
+        @CustomType.Setter
         public Builder monthlies(@Nullable List<IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly> monthlies) {
             this.monthlies = monthlies;
             return this;
@@ -145,14 +132,22 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
         public Builder monthlies(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly... monthlies) {
             return monthlies(List.of(monthlies));
         }
+        @CustomType.Setter
         public Builder weekDays(@Nullable List<String> weekDays) {
             this.weekDays = weekDays;
             return this;
         }
         public Builder weekDays(String... weekDays) {
             return weekDays(List.of(weekDays));
-        }        public IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule build() {
-            return new IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule(hours, minutes, monthDays, monthlies, weekDays);
+        }
+        public IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule build() {
+            final var o = new IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule();
+            o.hours = hours;
+            o.minutes = minutes;
+            o.monthDays = monthDays;
+            o.monthlies = monthlies;
+            o.weekDays = weekDays;
+            return o;
         }
     }
 }

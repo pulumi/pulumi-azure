@@ -22,109 +22,70 @@ public final class GetServiceResult {
      * @return A unique ID for the managed domain deployment.
      * 
      */
-    private final String deploymentId;
+    private String deploymentId;
     /**
      * @return The forest type used by the managed domain. One of `ResourceTrusting`, for a _Resource Forest_, or blank, for a _User Forest_.
      * 
      */
-    private final String domainConfigurationType;
+    private String domainConfigurationType;
     /**
      * @return The Active Directory domain of the Domain Service. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations.
      * 
      */
-    private final String domainName;
+    private String domainName;
     /**
      * @return Whether group-based filtered sync (also called scoped synchronisation) is enabled.
      * 
      */
-    private final Boolean filteredSyncEnabled;
+    private Boolean filteredSyncEnabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure location in which the replica set resides.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return A `notifications` block as defined below.
      * 
      */
-    private final List<GetServiceNotification> notifications;
+    private List<GetServiceNotification> notifications;
     /**
      * @return One or more `replica_set` blocks as defined below.
      * 
      */
-    private final List<GetServiceReplicaSet> replicaSets;
-    private final String resourceGroupName;
-    private final String resourceId;
+    private List<GetServiceReplicaSet> replicaSets;
+    private String resourceGroupName;
+    private String resourceId;
     /**
      * @return A `secure_ldap` block as defined below.
      * 
      */
-    private final List<GetServiceSecureLdap> secureLdaps;
+    private List<GetServiceSecureLdap> secureLdaps;
     /**
      * @return A `security` block as defined below.
      * 
      */
-    private final List<GetServiceSecurity> securities;
+    private List<GetServiceSecurity> securities;
     /**
      * @return The SKU of the Domain Service resource. One of `Standard`, `Enterprise` or `Premium`.
      * 
      */
-    private final String sku;
-    private final String syncOwner;
+    private String sku;
+    private String syncOwner;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final @Nullable Map<String,String> tags;
-    private final String tenantId;
-    private final Integer version;
+    private @Nullable Map<String,String> tags;
+    private String tenantId;
+    private Integer version;
 
-    @CustomType.Constructor
-    private GetServiceResult(
-        @CustomType.Parameter("deploymentId") String deploymentId,
-        @CustomType.Parameter("domainConfigurationType") String domainConfigurationType,
-        @CustomType.Parameter("domainName") String domainName,
-        @CustomType.Parameter("filteredSyncEnabled") Boolean filteredSyncEnabled,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("notifications") List<GetServiceNotification> notifications,
-        @CustomType.Parameter("replicaSets") List<GetServiceReplicaSet> replicaSets,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("resourceId") String resourceId,
-        @CustomType.Parameter("secureLdaps") List<GetServiceSecureLdap> secureLdaps,
-        @CustomType.Parameter("securities") List<GetServiceSecurity> securities,
-        @CustomType.Parameter("sku") String sku,
-        @CustomType.Parameter("syncOwner") String syncOwner,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags,
-        @CustomType.Parameter("tenantId") String tenantId,
-        @CustomType.Parameter("version") Integer version) {
-        this.deploymentId = deploymentId;
-        this.domainConfigurationType = domainConfigurationType;
-        this.domainName = domainName;
-        this.filteredSyncEnabled = filteredSyncEnabled;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.notifications = notifications;
-        this.replicaSets = replicaSets;
-        this.resourceGroupName = resourceGroupName;
-        this.resourceId = resourceId;
-        this.secureLdaps = secureLdaps;
-        this.securities = securities;
-        this.sku = sku;
-        this.syncOwner = syncOwner;
-        this.tags = tags;
-        this.tenantId = tenantId;
-        this.version = version;
-    }
-
+    private GetServiceResult() {}
     /**
      * @return A unique ID for the managed domain deployment.
      * 
@@ -235,7 +196,7 @@ public final class GetServiceResult {
     public static Builder builder(GetServiceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String deploymentId;
         private String domainConfigurationType;
@@ -255,11 +216,7 @@ public final class GetServiceResult {
         private @Nullable Map<String,String> tags;
         private String tenantId;
         private Integer version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deploymentId = defaults.deploymentId;
@@ -282,34 +239,42 @@ public final class GetServiceResult {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder deploymentId(String deploymentId) {
             this.deploymentId = Objects.requireNonNull(deploymentId);
             return this;
         }
+        @CustomType.Setter
         public Builder domainConfigurationType(String domainConfigurationType) {
             this.domainConfigurationType = Objects.requireNonNull(domainConfigurationType);
             return this;
         }
+        @CustomType.Setter
         public Builder domainName(String domainName) {
             this.domainName = Objects.requireNonNull(domainName);
             return this;
         }
+        @CustomType.Setter
         public Builder filteredSyncEnabled(Boolean filteredSyncEnabled) {
             this.filteredSyncEnabled = Objects.requireNonNull(filteredSyncEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder notifications(List<GetServiceNotification> notifications) {
             this.notifications = Objects.requireNonNull(notifications);
             return this;
@@ -317,6 +282,7 @@ public final class GetServiceResult {
         public Builder notifications(GetServiceNotification... notifications) {
             return notifications(List.of(notifications));
         }
+        @CustomType.Setter
         public Builder replicaSets(List<GetServiceReplicaSet> replicaSets) {
             this.replicaSets = Objects.requireNonNull(replicaSets);
             return this;
@@ -324,14 +290,17 @@ public final class GetServiceResult {
         public Builder replicaSets(GetServiceReplicaSet... replicaSets) {
             return replicaSets(List.of(replicaSets));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceId(String resourceId) {
             this.resourceId = Objects.requireNonNull(resourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder secureLdaps(List<GetServiceSecureLdap> secureLdaps) {
             this.secureLdaps = Objects.requireNonNull(secureLdaps);
             return this;
@@ -339,6 +308,7 @@ public final class GetServiceResult {
         public Builder secureLdaps(GetServiceSecureLdap... secureLdaps) {
             return secureLdaps(List.of(secureLdaps));
         }
+        @CustomType.Setter
         public Builder securities(List<GetServiceSecurity> securities) {
             this.securities = Objects.requireNonNull(securities);
             return this;
@@ -346,27 +316,52 @@ public final class GetServiceResult {
         public Builder securities(GetServiceSecurity... securities) {
             return securities(List.of(securities));
         }
+        @CustomType.Setter
         public Builder sku(String sku) {
             this.sku = Objects.requireNonNull(sku);
             return this;
         }
+        @CustomType.Setter
         public Builder syncOwner(String syncOwner) {
             this.syncOwner = Objects.requireNonNull(syncOwner);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
         }
+        @CustomType.Setter
         public Builder version(Integer version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public GetServiceResult build() {
-            return new GetServiceResult(deploymentId, domainConfigurationType, domainName, filteredSyncEnabled, id, location, name, notifications, replicaSets, resourceGroupName, resourceId, secureLdaps, securities, sku, syncOwner, tags, tenantId, version);
+        }
+        public GetServiceResult build() {
+            final var o = new GetServiceResult();
+            o.deploymentId = deploymentId;
+            o.domainConfigurationType = domainConfigurationType;
+            o.domainName = domainName;
+            o.filteredSyncEnabled = filteredSyncEnabled;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.notifications = notifications;
+            o.replicaSets = replicaSets;
+            o.resourceGroupName = resourceGroupName;
+            o.resourceId = resourceId;
+            o.secureLdaps = secureLdaps;
+            o.securities = securities;
+            o.sku = sku;
+            o.syncOwner = syncOwner;
+            o.tags = tags;
+            o.tenantId = tenantId;
+            o.version = version;
+            return o;
         }
     }
 }

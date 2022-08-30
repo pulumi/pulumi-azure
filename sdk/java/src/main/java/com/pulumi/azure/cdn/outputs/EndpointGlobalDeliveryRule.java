@@ -21,49 +21,34 @@ public final class EndpointGlobalDeliveryRule {
      * @return A `cache_expiration_action` block as defined above.
      * 
      */
-    private final @Nullable EndpointGlobalDeliveryRuleCacheExpirationAction cacheExpirationAction;
+    private @Nullable EndpointGlobalDeliveryRuleCacheExpirationAction cacheExpirationAction;
     /**
      * @return A `cache_key_query_string_action` block as defined above.
      * 
      */
-    private final @Nullable EndpointGlobalDeliveryRuleCacheKeyQueryStringAction cacheKeyQueryStringAction;
+    private @Nullable EndpointGlobalDeliveryRuleCacheKeyQueryStringAction cacheKeyQueryStringAction;
     /**
      * @return A `modify_request_header_action` block as defined below.
      * 
      */
-    private final @Nullable List<EndpointGlobalDeliveryRuleModifyRequestHeaderAction> modifyRequestHeaderActions;
+    private @Nullable List<EndpointGlobalDeliveryRuleModifyRequestHeaderAction> modifyRequestHeaderActions;
     /**
      * @return A `modify_response_header_action` block as defined below.
      * 
      */
-    private final @Nullable List<EndpointGlobalDeliveryRuleModifyResponseHeaderAction> modifyResponseHeaderActions;
+    private @Nullable List<EndpointGlobalDeliveryRuleModifyResponseHeaderAction> modifyResponseHeaderActions;
     /**
      * @return A `url_redirect_action` block as defined below.
      * 
      */
-    private final @Nullable EndpointGlobalDeliveryRuleUrlRedirectAction urlRedirectAction;
+    private @Nullable EndpointGlobalDeliveryRuleUrlRedirectAction urlRedirectAction;
     /**
      * @return A `url_rewrite_action` block as defined below.
      * 
      */
-    private final @Nullable EndpointGlobalDeliveryRuleUrlRewriteAction urlRewriteAction;
+    private @Nullable EndpointGlobalDeliveryRuleUrlRewriteAction urlRewriteAction;
 
-    @CustomType.Constructor
-    private EndpointGlobalDeliveryRule(
-        @CustomType.Parameter("cacheExpirationAction") @Nullable EndpointGlobalDeliveryRuleCacheExpirationAction cacheExpirationAction,
-        @CustomType.Parameter("cacheKeyQueryStringAction") @Nullable EndpointGlobalDeliveryRuleCacheKeyQueryStringAction cacheKeyQueryStringAction,
-        @CustomType.Parameter("modifyRequestHeaderActions") @Nullable List<EndpointGlobalDeliveryRuleModifyRequestHeaderAction> modifyRequestHeaderActions,
-        @CustomType.Parameter("modifyResponseHeaderActions") @Nullable List<EndpointGlobalDeliveryRuleModifyResponseHeaderAction> modifyResponseHeaderActions,
-        @CustomType.Parameter("urlRedirectAction") @Nullable EndpointGlobalDeliveryRuleUrlRedirectAction urlRedirectAction,
-        @CustomType.Parameter("urlRewriteAction") @Nullable EndpointGlobalDeliveryRuleUrlRewriteAction urlRewriteAction) {
-        this.cacheExpirationAction = cacheExpirationAction;
-        this.cacheKeyQueryStringAction = cacheKeyQueryStringAction;
-        this.modifyRequestHeaderActions = modifyRequestHeaderActions;
-        this.modifyResponseHeaderActions = modifyResponseHeaderActions;
-        this.urlRedirectAction = urlRedirectAction;
-        this.urlRewriteAction = urlRewriteAction;
-    }
-
+    private EndpointGlobalDeliveryRule() {}
     /**
      * @return A `cache_expiration_action` block as defined above.
      * 
@@ -114,7 +99,7 @@ public final class EndpointGlobalDeliveryRule {
     public static Builder builder(EndpointGlobalDeliveryRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable EndpointGlobalDeliveryRuleCacheExpirationAction cacheExpirationAction;
         private @Nullable EndpointGlobalDeliveryRuleCacheKeyQueryStringAction cacheKeyQueryStringAction;
@@ -122,11 +107,7 @@ public final class EndpointGlobalDeliveryRule {
         private @Nullable List<EndpointGlobalDeliveryRuleModifyResponseHeaderAction> modifyResponseHeaderActions;
         private @Nullable EndpointGlobalDeliveryRuleUrlRedirectAction urlRedirectAction;
         private @Nullable EndpointGlobalDeliveryRuleUrlRewriteAction urlRewriteAction;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointGlobalDeliveryRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cacheExpirationAction = defaults.cacheExpirationAction;
@@ -137,14 +118,17 @@ public final class EndpointGlobalDeliveryRule {
     	      this.urlRewriteAction = defaults.urlRewriteAction;
         }
 
+        @CustomType.Setter
         public Builder cacheExpirationAction(@Nullable EndpointGlobalDeliveryRuleCacheExpirationAction cacheExpirationAction) {
             this.cacheExpirationAction = cacheExpirationAction;
             return this;
         }
+        @CustomType.Setter
         public Builder cacheKeyQueryStringAction(@Nullable EndpointGlobalDeliveryRuleCacheKeyQueryStringAction cacheKeyQueryStringAction) {
             this.cacheKeyQueryStringAction = cacheKeyQueryStringAction;
             return this;
         }
+        @CustomType.Setter
         public Builder modifyRequestHeaderActions(@Nullable List<EndpointGlobalDeliveryRuleModifyRequestHeaderAction> modifyRequestHeaderActions) {
             this.modifyRequestHeaderActions = modifyRequestHeaderActions;
             return this;
@@ -152,6 +136,7 @@ public final class EndpointGlobalDeliveryRule {
         public Builder modifyRequestHeaderActions(EndpointGlobalDeliveryRuleModifyRequestHeaderAction... modifyRequestHeaderActions) {
             return modifyRequestHeaderActions(List.of(modifyRequestHeaderActions));
         }
+        @CustomType.Setter
         public Builder modifyResponseHeaderActions(@Nullable List<EndpointGlobalDeliveryRuleModifyResponseHeaderAction> modifyResponseHeaderActions) {
             this.modifyResponseHeaderActions = modifyResponseHeaderActions;
             return this;
@@ -159,15 +144,25 @@ public final class EndpointGlobalDeliveryRule {
         public Builder modifyResponseHeaderActions(EndpointGlobalDeliveryRuleModifyResponseHeaderAction... modifyResponseHeaderActions) {
             return modifyResponseHeaderActions(List.of(modifyResponseHeaderActions));
         }
+        @CustomType.Setter
         public Builder urlRedirectAction(@Nullable EndpointGlobalDeliveryRuleUrlRedirectAction urlRedirectAction) {
             this.urlRedirectAction = urlRedirectAction;
             return this;
         }
+        @CustomType.Setter
         public Builder urlRewriteAction(@Nullable EndpointGlobalDeliveryRuleUrlRewriteAction urlRewriteAction) {
             this.urlRewriteAction = urlRewriteAction;
             return this;
-        }        public EndpointGlobalDeliveryRule build() {
-            return new EndpointGlobalDeliveryRule(cacheExpirationAction, cacheKeyQueryStringAction, modifyRequestHeaderActions, modifyResponseHeaderActions, urlRedirectAction, urlRewriteAction);
+        }
+        public EndpointGlobalDeliveryRule build() {
+            final var o = new EndpointGlobalDeliveryRule();
+            o.cacheExpirationAction = cacheExpirationAction;
+            o.cacheKeyQueryStringAction = cacheKeyQueryStringAction;
+            o.modifyRequestHeaderActions = modifyRequestHeaderActions;
+            o.modifyResponseHeaderActions = modifyResponseHeaderActions;
+            o.urlRedirectAction = urlRedirectAction;
+            o.urlRewriteAction = urlRewriteAction;
+            return o;
         }
     }
 }

@@ -15,28 +15,19 @@ public final class SlotAuthSettingsFacebook {
      * @return The App ID of the Facebook app used for login
      * 
      */
-    private final String appId;
+    private String appId;
     /**
      * @return The App Secret of the Facebook app used for Facebook login.
      * 
      */
-    private final String appSecret;
+    private String appSecret;
     /**
      * @return The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. https://developers.facebook.com/docs/facebook-login
      * 
      */
-    private final @Nullable List<String> oauthScopes;
+    private @Nullable List<String> oauthScopes;
 
-    @CustomType.Constructor
-    private SlotAuthSettingsFacebook(
-        @CustomType.Parameter("appId") String appId,
-        @CustomType.Parameter("appSecret") String appSecret,
-        @CustomType.Parameter("oauthScopes") @Nullable List<String> oauthScopes) {
-        this.appId = appId;
-        this.appSecret = appSecret;
-        this.oauthScopes = oauthScopes;
-    }
-
+    private SlotAuthSettingsFacebook() {}
     /**
      * @return The App ID of the Facebook app used for login
      * 
@@ -66,16 +57,12 @@ public final class SlotAuthSettingsFacebook {
     public static Builder builder(SlotAuthSettingsFacebook defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String appId;
         private String appSecret;
         private @Nullable List<String> oauthScopes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SlotAuthSettingsFacebook defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appId = defaults.appId;
@@ -83,22 +70,30 @@ public final class SlotAuthSettingsFacebook {
     	      this.oauthScopes = defaults.oauthScopes;
         }
 
+        @CustomType.Setter
         public Builder appId(String appId) {
             this.appId = Objects.requireNonNull(appId);
             return this;
         }
+        @CustomType.Setter
         public Builder appSecret(String appSecret) {
             this.appSecret = Objects.requireNonNull(appSecret);
             return this;
         }
+        @CustomType.Setter
         public Builder oauthScopes(@Nullable List<String> oauthScopes) {
             this.oauthScopes = oauthScopes;
             return this;
         }
         public Builder oauthScopes(String... oauthScopes) {
             return oauthScopes(List.of(oauthScopes));
-        }        public SlotAuthSettingsFacebook build() {
-            return new SlotAuthSettingsFacebook(appId, appSecret, oauthScopes);
+        }
+        public SlotAuthSettingsFacebook build() {
+            final var o = new SlotAuthSettingsFacebook();
+            o.appId = appId;
+            o.appSecret = appSecret;
+            o.oauthScopes = oauthScopes;
+            return o;
         }
     }
 }

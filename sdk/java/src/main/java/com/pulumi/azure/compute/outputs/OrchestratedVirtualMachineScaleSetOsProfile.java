@@ -13,20 +13,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetOsProfile {
-    private final @Nullable String customData;
-    private final @Nullable OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration linuxConfiguration;
-    private final @Nullable OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration windowsConfiguration;
+    private @Nullable String customData;
+    private @Nullable OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration linuxConfiguration;
+    private @Nullable OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration windowsConfiguration;
 
-    @CustomType.Constructor
-    private OrchestratedVirtualMachineScaleSetOsProfile(
-        @CustomType.Parameter("customData") @Nullable String customData,
-        @CustomType.Parameter("linuxConfiguration") @Nullable OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration linuxConfiguration,
-        @CustomType.Parameter("windowsConfiguration") @Nullable OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration windowsConfiguration) {
-        this.customData = customData;
-        this.linuxConfiguration = linuxConfiguration;
-        this.windowsConfiguration = windowsConfiguration;
-    }
-
+    private OrchestratedVirtualMachineScaleSetOsProfile() {}
     public Optional<String> customData() {
         return Optional.ofNullable(this.customData);
     }
@@ -44,16 +35,12 @@ public final class OrchestratedVirtualMachineScaleSetOsProfile {
     public static Builder builder(OrchestratedVirtualMachineScaleSetOsProfile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String customData;
         private @Nullable OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration linuxConfiguration;
         private @Nullable OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration windowsConfiguration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetOsProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customData = defaults.customData;
@@ -61,19 +48,27 @@ public final class OrchestratedVirtualMachineScaleSetOsProfile {
     	      this.windowsConfiguration = defaults.windowsConfiguration;
         }
 
+        @CustomType.Setter
         public Builder customData(@Nullable String customData) {
             this.customData = customData;
             return this;
         }
+        @CustomType.Setter
         public Builder linuxConfiguration(@Nullable OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration linuxConfiguration) {
             this.linuxConfiguration = linuxConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder windowsConfiguration(@Nullable OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration windowsConfiguration) {
             this.windowsConfiguration = windowsConfiguration;
             return this;
-        }        public OrchestratedVirtualMachineScaleSetOsProfile build() {
-            return new OrchestratedVirtualMachineScaleSetOsProfile(customData, linuxConfiguration, windowsConfiguration);
+        }
+        public OrchestratedVirtualMachineScaleSetOsProfile build() {
+            final var o = new OrchestratedVirtualMachineScaleSetOsProfile();
+            o.customData = customData;
+            o.linuxConfiguration = linuxConfiguration;
+            o.windowsConfiguration = windowsConfiguration;
+            return o;
         }
     }
 }

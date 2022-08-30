@@ -19,76 +19,51 @@ public final class GetConfigurationStoreResult {
      * @return The Endpoint used to access this App Configuration.
      * 
      */
-    private final String endpoint;
+    private String endpoint;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region where the App Configuration exists.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return A `primary_read_key` block as defined below containing the primary read access key.
      * 
      */
-    private final List<GetConfigurationStorePrimaryReadKey> primaryReadKeys;
+    private List<GetConfigurationStorePrimaryReadKey> primaryReadKeys;
     /**
      * @return A `primary_write_key` block as defined below containing the primary write access key.
      * 
      */
-    private final List<GetConfigurationStorePrimaryWriteKey> primaryWriteKeys;
-    private final String resourceGroupName;
+    private List<GetConfigurationStorePrimaryWriteKey> primaryWriteKeys;
+    private String resourceGroupName;
     /**
      * @return A `secondary_read_key` block as defined below containing the secondary read access key.
      * 
      */
-    private final List<GetConfigurationStoreSecondaryReadKey> secondaryReadKeys;
+    private List<GetConfigurationStoreSecondaryReadKey> secondaryReadKeys;
     /**
      * @return A `secondary_write_key` block as defined below containing the secondary write access key.
      * 
      */
-    private final List<GetConfigurationStoreSecondaryWriteKey> secondaryWriteKeys;
+    private List<GetConfigurationStoreSecondaryWriteKey> secondaryWriteKeys;
     /**
      * @return The name of the SKU used for this App Configuration.
      * 
      */
-    private final String sku;
+    private String sku;
     /**
      * @return A mapping of tags assigned to the App Configuration.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetConfigurationStoreResult(
-        @CustomType.Parameter("endpoint") String endpoint,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("primaryReadKeys") List<GetConfigurationStorePrimaryReadKey> primaryReadKeys,
-        @CustomType.Parameter("primaryWriteKeys") List<GetConfigurationStorePrimaryWriteKey> primaryWriteKeys,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("secondaryReadKeys") List<GetConfigurationStoreSecondaryReadKey> secondaryReadKeys,
-        @CustomType.Parameter("secondaryWriteKeys") List<GetConfigurationStoreSecondaryWriteKey> secondaryWriteKeys,
-        @CustomType.Parameter("sku") String sku,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.endpoint = endpoint;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.primaryReadKeys = primaryReadKeys;
-        this.primaryWriteKeys = primaryWriteKeys;
-        this.resourceGroupName = resourceGroupName;
-        this.secondaryReadKeys = secondaryReadKeys;
-        this.secondaryWriteKeys = secondaryWriteKeys;
-        this.sku = sku;
-        this.tags = tags;
-    }
-
+    private GetConfigurationStoreResult() {}
     /**
      * @return The Endpoint used to access this App Configuration.
      * 
@@ -166,7 +141,7 @@ public final class GetConfigurationStoreResult {
     public static Builder builder(GetConfigurationStoreResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String endpoint;
         private String id;
@@ -179,11 +154,7 @@ public final class GetConfigurationStoreResult {
         private List<GetConfigurationStoreSecondaryWriteKey> secondaryWriteKeys;
         private String sku;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetConfigurationStoreResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpoint = defaults.endpoint;
@@ -199,22 +170,27 @@ public final class GetConfigurationStoreResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder endpoint(String endpoint) {
             this.endpoint = Objects.requireNonNull(endpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryReadKeys(List<GetConfigurationStorePrimaryReadKey> primaryReadKeys) {
             this.primaryReadKeys = Objects.requireNonNull(primaryReadKeys);
             return this;
@@ -222,6 +198,7 @@ public final class GetConfigurationStoreResult {
         public Builder primaryReadKeys(GetConfigurationStorePrimaryReadKey... primaryReadKeys) {
             return primaryReadKeys(List.of(primaryReadKeys));
         }
+        @CustomType.Setter
         public Builder primaryWriteKeys(List<GetConfigurationStorePrimaryWriteKey> primaryWriteKeys) {
             this.primaryWriteKeys = Objects.requireNonNull(primaryWriteKeys);
             return this;
@@ -229,10 +206,12 @@ public final class GetConfigurationStoreResult {
         public Builder primaryWriteKeys(GetConfigurationStorePrimaryWriteKey... primaryWriteKeys) {
             return primaryWriteKeys(List.of(primaryWriteKeys));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryReadKeys(List<GetConfigurationStoreSecondaryReadKey> secondaryReadKeys) {
             this.secondaryReadKeys = Objects.requireNonNull(secondaryReadKeys);
             return this;
@@ -240,6 +219,7 @@ public final class GetConfigurationStoreResult {
         public Builder secondaryReadKeys(GetConfigurationStoreSecondaryReadKey... secondaryReadKeys) {
             return secondaryReadKeys(List.of(secondaryReadKeys));
         }
+        @CustomType.Setter
         public Builder secondaryWriteKeys(List<GetConfigurationStoreSecondaryWriteKey> secondaryWriteKeys) {
             this.secondaryWriteKeys = Objects.requireNonNull(secondaryWriteKeys);
             return this;
@@ -247,15 +227,30 @@ public final class GetConfigurationStoreResult {
         public Builder secondaryWriteKeys(GetConfigurationStoreSecondaryWriteKey... secondaryWriteKeys) {
             return secondaryWriteKeys(List.of(secondaryWriteKeys));
         }
+        @CustomType.Setter
         public Builder sku(String sku) {
             this.sku = Objects.requireNonNull(sku);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetConfigurationStoreResult build() {
-            return new GetConfigurationStoreResult(endpoint, id, location, name, primaryReadKeys, primaryWriteKeys, resourceGroupName, secondaryReadKeys, secondaryWriteKeys, sku, tags);
+        }
+        public GetConfigurationStoreResult build() {
+            final var o = new GetConfigurationStoreResult();
+            o.endpoint = endpoint;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.primaryReadKeys = primaryReadKeys;
+            o.primaryWriteKeys = primaryWriteKeys;
+            o.resourceGroupName = resourceGroupName;
+            o.secondaryReadKeys = secondaryReadKeys;
+            o.secondaryWriteKeys = secondaryWriteKeys;
+            o.sku = sku;
+            o.tags = tags;
+            return o;
         }
     }
 }

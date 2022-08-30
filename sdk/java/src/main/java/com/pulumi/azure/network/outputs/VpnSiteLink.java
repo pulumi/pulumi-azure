@@ -17,56 +17,39 @@ public final class VpnSiteLink {
      * @return A `bgp` block as defined above.
      * 
      */
-    private final @Nullable VpnSiteLinkBgp bgp;
+    private @Nullable VpnSiteLinkBgp bgp;
     /**
      * @return The FQDN of this VPN Site Link.
      * 
      */
-    private final @Nullable String fqdn;
+    private @Nullable String fqdn;
     /**
      * @return The ID of the VPN Site Link.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The IP address of this VPN Site Link.
      * 
      */
-    private final @Nullable String ipAddress;
+    private @Nullable String ipAddress;
     /**
      * @return The name which should be used for this VPN Site Link.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The name of the physical link at the VPN Site. Example: `ATT`, `Verizon`.
      * 
      */
-    private final @Nullable String providerName;
+    private @Nullable String providerName;
     /**
      * @return The speed of the VPN device at the branch location in unit of mbps.
      * 
      */
-    private final @Nullable Integer speedInMbps;
+    private @Nullable Integer speedInMbps;
 
-    @CustomType.Constructor
-    private VpnSiteLink(
-        @CustomType.Parameter("bgp") @Nullable VpnSiteLinkBgp bgp,
-        @CustomType.Parameter("fqdn") @Nullable String fqdn,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("ipAddress") @Nullable String ipAddress,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("providerName") @Nullable String providerName,
-        @CustomType.Parameter("speedInMbps") @Nullable Integer speedInMbps) {
-        this.bgp = bgp;
-        this.fqdn = fqdn;
-        this.id = id;
-        this.ipAddress = ipAddress;
-        this.name = name;
-        this.providerName = providerName;
-        this.speedInMbps = speedInMbps;
-    }
-
+    private VpnSiteLink() {}
     /**
      * @return A `bgp` block as defined above.
      * 
@@ -124,7 +107,7 @@ public final class VpnSiteLink {
     public static Builder builder(VpnSiteLink defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VpnSiteLinkBgp bgp;
         private @Nullable String fqdn;
@@ -133,11 +116,7 @@ public final class VpnSiteLink {
         private String name;
         private @Nullable String providerName;
         private @Nullable Integer speedInMbps;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpnSiteLink defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bgp = defaults.bgp;
@@ -149,35 +128,51 @@ public final class VpnSiteLink {
     	      this.speedInMbps = defaults.speedInMbps;
         }
 
+        @CustomType.Setter
         public Builder bgp(@Nullable VpnSiteLinkBgp bgp) {
             this.bgp = bgp;
             return this;
         }
+        @CustomType.Setter
         public Builder fqdn(@Nullable String fqdn) {
             this.fqdn = fqdn;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddress(@Nullable String ipAddress) {
             this.ipAddress = ipAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder providerName(@Nullable String providerName) {
             this.providerName = providerName;
             return this;
         }
+        @CustomType.Setter
         public Builder speedInMbps(@Nullable Integer speedInMbps) {
             this.speedInMbps = speedInMbps;
             return this;
-        }        public VpnSiteLink build() {
-            return new VpnSiteLink(bgp, fqdn, id, ipAddress, name, providerName, speedInMbps);
+        }
+        public VpnSiteLink build() {
+            final var o = new VpnSiteLink();
+            o.bgp = bgp;
+            o.fqdn = fqdn;
+            o.id = id;
+            o.ipAddress = ipAddress;
+            o.name = name;
+            o.providerName = providerName;
+            o.speedInMbps = speedInMbps;
+            return o;
         }
     }
 }

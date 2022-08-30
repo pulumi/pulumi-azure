@@ -148,7 +148,7 @@ namespace Pulumi.Azure
 
         private static readonly __Value<string?> _oidcRequestToken = new __Value<string?>(() => __config.Get("oidcRequestToken"));
         /// <summary>
-        /// The bearer token for the request to the OIDC provider. For use When authenticating as a Service Principal using OpenID
+        /// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
         /// Connect.
         /// </summary>
         public static string? OidcRequestToken
@@ -159,13 +159,23 @@ namespace Pulumi.Azure
 
         private static readonly __Value<string?> _oidcRequestUrl = new __Value<string?>(() => __config.Get("oidcRequestUrl"));
         /// <summary>
-        /// The URL for the OIDC provider from which to request an ID token. For use When authenticating as a Service Principal
+        /// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
         /// using OpenID Connect.
         /// </summary>
         public static string? OidcRequestUrl
         {
             get => _oidcRequestUrl.Get();
             set => _oidcRequestUrl.Set(value);
+        }
+
+        private static readonly __Value<string?> _oidcToken = new __Value<string?>(() => __config.Get("oidcToken"));
+        /// <summary>
+        /// The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+        /// </summary>
+        public static string? OidcToken
+        {
+            get => _oidcToken.Get();
+            set => _oidcToken.Set(value);
         }
 
         private static readonly __Value<string?> _partnerId = new __Value<string?>(() => __config.Get("partnerId"));

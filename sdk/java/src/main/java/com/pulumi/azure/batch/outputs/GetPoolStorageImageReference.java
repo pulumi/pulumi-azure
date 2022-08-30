@@ -13,26 +13,13 @@ public final class GetPoolStorageImageReference {
      * @return The fully qualified ID of the certificate installed on the pool.
      * 
      */
-    private final String id;
-    private final String offer;
-    private final String publisher;
-    private final String sku;
-    private final String version;
+    private String id;
+    private String offer;
+    private String publisher;
+    private String sku;
+    private String version;
 
-    @CustomType.Constructor
-    private GetPoolStorageImageReference(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("offer") String offer,
-        @CustomType.Parameter("publisher") String publisher,
-        @CustomType.Parameter("sku") String sku,
-        @CustomType.Parameter("version") String version) {
-        this.id = id;
-        this.offer = offer;
-        this.publisher = publisher;
-        this.sku = sku;
-        this.version = version;
-    }
-
+    private GetPoolStorageImageReference() {}
     /**
      * @return The fully qualified ID of the certificate installed on the pool.
      * 
@@ -60,18 +47,14 @@ public final class GetPoolStorageImageReference {
     public static Builder builder(GetPoolStorageImageReference defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String offer;
         private String publisher;
         private String sku;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPoolStorageImageReference defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -81,27 +64,39 @@ public final class GetPoolStorageImageReference {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder offer(String offer) {
             this.offer = Objects.requireNonNull(offer);
             return this;
         }
+        @CustomType.Setter
         public Builder publisher(String publisher) {
             this.publisher = Objects.requireNonNull(publisher);
             return this;
         }
+        @CustomType.Setter
         public Builder sku(String sku) {
             this.sku = Objects.requireNonNull(sku);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public GetPoolStorageImageReference build() {
-            return new GetPoolStorageImageReference(id, offer, publisher, sku, version);
+        }
+        public GetPoolStorageImageReference build() {
+            final var o = new GetPoolStorageImageReference();
+            o.id = id;
+            o.offer = offer;
+            o.publisher = publisher;
+            o.sku = sku;
+            o.version = version;
+            return o;
         }
     }
 }

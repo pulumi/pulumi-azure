@@ -16,77 +16,54 @@ public final class ServiceHostnameConfigurationProxy {
      * @return The Base64 Encoded Certificate.
      * 
      */
-    private final @Nullable String certificate;
+    private @Nullable String certificate;
     /**
      * @return The password associated with the certificate provided above.
      * 
      */
-    private final @Nullable String certificatePassword;
+    private @Nullable String certificatePassword;
     /**
      * @return Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn&#39;t specified by a client. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean defaultSslBinding;
+    private @Nullable Boolean defaultSslBinding;
     /**
      * @return The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
      * 
      */
-    private final @Nullable String expiry;
+    private @Nullable String expiry;
     /**
      * @return The Hostname to use for the Management API.
      * 
      */
-    private final String hostName;
+    private String hostName;
     /**
      * @return The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
      * 
      */
-    private final @Nullable String keyVaultId;
+    private @Nullable String keyVaultId;
     /**
      * @return Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean negotiateClientCertificate;
+    private @Nullable Boolean negotiateClientCertificate;
     /**
      * @return The Managed Identity Client ID to use to access the Key Vault. This Identity must be specified in the `identity` block to be used.
      * 
      */
-    private final @Nullable String sslKeyvaultIdentityClientId;
+    private @Nullable String sslKeyvaultIdentityClientId;
     /**
      * @return The subject of the certificate.
      * 
      */
-    private final @Nullable String subject;
+    private @Nullable String subject;
     /**
      * @return The thumbprint of the certificate.
      * 
      */
-    private final @Nullable String thumbprint;
+    private @Nullable String thumbprint;
 
-    @CustomType.Constructor
-    private ServiceHostnameConfigurationProxy(
-        @CustomType.Parameter("certificate") @Nullable String certificate,
-        @CustomType.Parameter("certificatePassword") @Nullable String certificatePassword,
-        @CustomType.Parameter("defaultSslBinding") @Nullable Boolean defaultSslBinding,
-        @CustomType.Parameter("expiry") @Nullable String expiry,
-        @CustomType.Parameter("hostName") String hostName,
-        @CustomType.Parameter("keyVaultId") @Nullable String keyVaultId,
-        @CustomType.Parameter("negotiateClientCertificate") @Nullable Boolean negotiateClientCertificate,
-        @CustomType.Parameter("sslKeyvaultIdentityClientId") @Nullable String sslKeyvaultIdentityClientId,
-        @CustomType.Parameter("subject") @Nullable String subject,
-        @CustomType.Parameter("thumbprint") @Nullable String thumbprint) {
-        this.certificate = certificate;
-        this.certificatePassword = certificatePassword;
-        this.defaultSslBinding = defaultSslBinding;
-        this.expiry = expiry;
-        this.hostName = hostName;
-        this.keyVaultId = keyVaultId;
-        this.negotiateClientCertificate = negotiateClientCertificate;
-        this.sslKeyvaultIdentityClientId = sslKeyvaultIdentityClientId;
-        this.subject = subject;
-        this.thumbprint = thumbprint;
-    }
-
+    private ServiceHostnameConfigurationProxy() {}
     /**
      * @return The Base64 Encoded Certificate.
      * 
@@ -165,7 +142,7 @@ public final class ServiceHostnameConfigurationProxy {
     public static Builder builder(ServiceHostnameConfigurationProxy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String certificate;
         private @Nullable String certificatePassword;
@@ -177,11 +154,7 @@ public final class ServiceHostnameConfigurationProxy {
         private @Nullable String sslKeyvaultIdentityClientId;
         private @Nullable String subject;
         private @Nullable String thumbprint;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceHostnameConfigurationProxy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificate = defaults.certificate;
@@ -196,47 +169,69 @@ public final class ServiceHostnameConfigurationProxy {
     	      this.thumbprint = defaults.thumbprint;
         }
 
+        @CustomType.Setter
         public Builder certificate(@Nullable String certificate) {
             this.certificate = certificate;
             return this;
         }
+        @CustomType.Setter
         public Builder certificatePassword(@Nullable String certificatePassword) {
             this.certificatePassword = certificatePassword;
             return this;
         }
+        @CustomType.Setter
         public Builder defaultSslBinding(@Nullable Boolean defaultSslBinding) {
             this.defaultSslBinding = defaultSslBinding;
             return this;
         }
+        @CustomType.Setter
         public Builder expiry(@Nullable String expiry) {
             this.expiry = expiry;
             return this;
         }
+        @CustomType.Setter
         public Builder hostName(String hostName) {
             this.hostName = Objects.requireNonNull(hostName);
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultId(@Nullable String keyVaultId) {
             this.keyVaultId = keyVaultId;
             return this;
         }
+        @CustomType.Setter
         public Builder negotiateClientCertificate(@Nullable Boolean negotiateClientCertificate) {
             this.negotiateClientCertificate = negotiateClientCertificate;
             return this;
         }
+        @CustomType.Setter
         public Builder sslKeyvaultIdentityClientId(@Nullable String sslKeyvaultIdentityClientId) {
             this.sslKeyvaultIdentityClientId = sslKeyvaultIdentityClientId;
             return this;
         }
+        @CustomType.Setter
         public Builder subject(@Nullable String subject) {
             this.subject = subject;
             return this;
         }
+        @CustomType.Setter
         public Builder thumbprint(@Nullable String thumbprint) {
             this.thumbprint = thumbprint;
             return this;
-        }        public ServiceHostnameConfigurationProxy build() {
-            return new ServiceHostnameConfigurationProxy(certificate, certificatePassword, defaultSslBinding, expiry, hostName, keyVaultId, negotiateClientCertificate, sslKeyvaultIdentityClientId, subject, thumbprint);
+        }
+        public ServiceHostnameConfigurationProxy build() {
+            final var o = new ServiceHostnameConfigurationProxy();
+            o.certificate = certificate;
+            o.certificatePassword = certificatePassword;
+            o.defaultSslBinding = defaultSslBinding;
+            o.expiry = expiry;
+            o.hostName = hostName;
+            o.keyVaultId = keyVaultId;
+            o.negotiateClientCertificate = negotiateClientCertificate;
+            o.sslKeyvaultIdentityClientId = sslKeyvaultIdentityClientId;
+            o.subject = subject;
+            o.thumbprint = thumbprint;
+            return o;
         }
     }
 }

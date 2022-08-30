@@ -18,54 +18,33 @@ public final class GetFrontdoorOriginGroupResult {
      * @return Specifies the ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group exists.
      * 
      */
-    private final String cdnFrontdoorProfileId;
+    private String cdnFrontdoorProfileId;
     /**
      * @return A `health_probe` block as defined below.
      * 
      */
-    private final List<GetFrontdoorOriginGroupHealthProbe> healthProbes;
+    private List<GetFrontdoorOriginGroupHealthProbe> healthProbes;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A `load_balancing` block as defined below.
      * 
      */
-    private final List<GetFrontdoorOriginGroupLoadBalancing> loadBalancings;
-    private final String name;
-    private final String profileName;
-    private final String resourceGroupName;
-    private final Integer restoreTrafficTimeToHealedOrNewEndpointInMinutes;
+    private List<GetFrontdoorOriginGroupLoadBalancing> loadBalancings;
+    private String name;
+    private String profileName;
+    private String resourceGroupName;
+    private Integer restoreTrafficTimeToHealedOrNewEndpointInMinutes;
     /**
      * @return Specifies whether session affinity is enabled on this host.
      * 
      */
-    private final Boolean sessionAffinityEnabled;
+    private Boolean sessionAffinityEnabled;
 
-    @CustomType.Constructor
-    private GetFrontdoorOriginGroupResult(
-        @CustomType.Parameter("cdnFrontdoorProfileId") String cdnFrontdoorProfileId,
-        @CustomType.Parameter("healthProbes") List<GetFrontdoorOriginGroupHealthProbe> healthProbes,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("loadBalancings") List<GetFrontdoorOriginGroupLoadBalancing> loadBalancings,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("profileName") String profileName,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("restoreTrafficTimeToHealedOrNewEndpointInMinutes") Integer restoreTrafficTimeToHealedOrNewEndpointInMinutes,
-        @CustomType.Parameter("sessionAffinityEnabled") Boolean sessionAffinityEnabled) {
-        this.cdnFrontdoorProfileId = cdnFrontdoorProfileId;
-        this.healthProbes = healthProbes;
-        this.id = id;
-        this.loadBalancings = loadBalancings;
-        this.name = name;
-        this.profileName = profileName;
-        this.resourceGroupName = resourceGroupName;
-        this.restoreTrafficTimeToHealedOrNewEndpointInMinutes = restoreTrafficTimeToHealedOrNewEndpointInMinutes;
-        this.sessionAffinityEnabled = sessionAffinityEnabled;
-    }
-
+    private GetFrontdoorOriginGroupResult() {}
     /**
      * @return Specifies the ID of the CDN FrontDoor Profile within which this CDN FrontDoor Origin Group exists.
      * 
@@ -121,7 +100,7 @@ public final class GetFrontdoorOriginGroupResult {
     public static Builder builder(GetFrontdoorOriginGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cdnFrontdoorProfileId;
         private List<GetFrontdoorOriginGroupHealthProbe> healthProbes;
@@ -132,11 +111,7 @@ public final class GetFrontdoorOriginGroupResult {
         private String resourceGroupName;
         private Integer restoreTrafficTimeToHealedOrNewEndpointInMinutes;
         private Boolean sessionAffinityEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFrontdoorOriginGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cdnFrontdoorProfileId = defaults.cdnFrontdoorProfileId;
@@ -150,10 +125,12 @@ public final class GetFrontdoorOriginGroupResult {
     	      this.sessionAffinityEnabled = defaults.sessionAffinityEnabled;
         }
 
+        @CustomType.Setter
         public Builder cdnFrontdoorProfileId(String cdnFrontdoorProfileId) {
             this.cdnFrontdoorProfileId = Objects.requireNonNull(cdnFrontdoorProfileId);
             return this;
         }
+        @CustomType.Setter
         public Builder healthProbes(List<GetFrontdoorOriginGroupHealthProbe> healthProbes) {
             this.healthProbes = Objects.requireNonNull(healthProbes);
             return this;
@@ -161,10 +138,12 @@ public final class GetFrontdoorOriginGroupResult {
         public Builder healthProbes(GetFrontdoorOriginGroupHealthProbe... healthProbes) {
             return healthProbes(List.of(healthProbes));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder loadBalancings(List<GetFrontdoorOriginGroupLoadBalancing> loadBalancings) {
             this.loadBalancings = Objects.requireNonNull(loadBalancings);
             return this;
@@ -172,27 +151,43 @@ public final class GetFrontdoorOriginGroupResult {
         public Builder loadBalancings(GetFrontdoorOriginGroupLoadBalancing... loadBalancings) {
             return loadBalancings(List.of(loadBalancings));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder profileName(String profileName) {
             this.profileName = Objects.requireNonNull(profileName);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder restoreTrafficTimeToHealedOrNewEndpointInMinutes(Integer restoreTrafficTimeToHealedOrNewEndpointInMinutes) {
             this.restoreTrafficTimeToHealedOrNewEndpointInMinutes = Objects.requireNonNull(restoreTrafficTimeToHealedOrNewEndpointInMinutes);
             return this;
         }
+        @CustomType.Setter
         public Builder sessionAffinityEnabled(Boolean sessionAffinityEnabled) {
             this.sessionAffinityEnabled = Objects.requireNonNull(sessionAffinityEnabled);
             return this;
-        }        public GetFrontdoorOriginGroupResult build() {
-            return new GetFrontdoorOriginGroupResult(cdnFrontdoorProfileId, healthProbes, id, loadBalancings, name, profileName, resourceGroupName, restoreTrafficTimeToHealedOrNewEndpointInMinutes, sessionAffinityEnabled);
+        }
+        public GetFrontdoorOriginGroupResult build() {
+            final var o = new GetFrontdoorOriginGroupResult();
+            o.cdnFrontdoorProfileId = cdnFrontdoorProfileId;
+            o.healthProbes = healthProbes;
+            o.id = id;
+            o.loadBalancings = loadBalancings;
+            o.name = name;
+            o.profileName = profileName;
+            o.resourceGroupName = resourceGroupName;
+            o.restoreTrafficTimeToHealedOrNewEndpointInMinutes = restoreTrafficTimeToHealedOrNewEndpointInMinutes;
+            o.sessionAffinityEnabled = sessionAffinityEnabled;
+            return o;
         }
     }
 }

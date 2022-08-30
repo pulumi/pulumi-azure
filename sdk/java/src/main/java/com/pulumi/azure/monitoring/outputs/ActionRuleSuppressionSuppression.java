@@ -16,21 +16,14 @@ public final class ActionRuleSuppressionSuppression {
      * @return Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
      * 
      */
-    private final String recurrenceType;
+    private String recurrenceType;
     /**
      * @return A `schedule` block as defined below. Required if `recurrence_type` is `Daily`, `Monthly`, `Once` or `Weekly`.
      * 
      */
-    private final @Nullable ActionRuleSuppressionSuppressionSchedule schedule;
+    private @Nullable ActionRuleSuppressionSuppressionSchedule schedule;
 
-    @CustomType.Constructor
-    private ActionRuleSuppressionSuppression(
-        @CustomType.Parameter("recurrenceType") String recurrenceType,
-        @CustomType.Parameter("schedule") @Nullable ActionRuleSuppressionSuppressionSchedule schedule) {
-        this.recurrenceType = recurrenceType;
-        this.schedule = schedule;
-    }
-
+    private ActionRuleSuppressionSuppression() {}
     /**
      * @return Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
      * 
@@ -53,30 +46,32 @@ public final class ActionRuleSuppressionSuppression {
     public static Builder builder(ActionRuleSuppressionSuppression defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String recurrenceType;
         private @Nullable ActionRuleSuppressionSuppressionSchedule schedule;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ActionRuleSuppressionSuppression defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.recurrenceType = defaults.recurrenceType;
     	      this.schedule = defaults.schedule;
         }
 
+        @CustomType.Setter
         public Builder recurrenceType(String recurrenceType) {
             this.recurrenceType = Objects.requireNonNull(recurrenceType);
             return this;
         }
+        @CustomType.Setter
         public Builder schedule(@Nullable ActionRuleSuppressionSuppressionSchedule schedule) {
             this.schedule = schedule;
             return this;
-        }        public ActionRuleSuppressionSuppression build() {
-            return new ActionRuleSuppressionSuppression(recurrenceType, schedule);
+        }
+        public ActionRuleSuppressionSuppression build() {
+            final var o = new ActionRuleSuppressionSuppression();
+            o.recurrenceType = recurrenceType;
+            o.schedule = schedule;
+            return o;
         }
     }
 }

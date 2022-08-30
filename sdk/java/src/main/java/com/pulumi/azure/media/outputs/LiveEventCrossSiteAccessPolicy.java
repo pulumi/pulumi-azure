@@ -15,21 +15,14 @@ public final class LiveEventCrossSiteAccessPolicy {
      * @return The content of clientaccesspolicy.xml used by Silverlight.
      * 
      */
-    private final @Nullable String clientAccessPolicy;
+    private @Nullable String clientAccessPolicy;
     /**
      * @return The content of the Cross Domain Policy (`crossdomain.xml`).
      * 
      */
-    private final @Nullable String crossDomainPolicy;
+    private @Nullable String crossDomainPolicy;
 
-    @CustomType.Constructor
-    private LiveEventCrossSiteAccessPolicy(
-        @CustomType.Parameter("clientAccessPolicy") @Nullable String clientAccessPolicy,
-        @CustomType.Parameter("crossDomainPolicy") @Nullable String crossDomainPolicy) {
-        this.clientAccessPolicy = clientAccessPolicy;
-        this.crossDomainPolicy = crossDomainPolicy;
-    }
-
+    private LiveEventCrossSiteAccessPolicy() {}
     /**
      * @return The content of clientaccesspolicy.xml used by Silverlight.
      * 
@@ -52,30 +45,32 @@ public final class LiveEventCrossSiteAccessPolicy {
     public static Builder builder(LiveEventCrossSiteAccessPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String clientAccessPolicy;
         private @Nullable String crossDomainPolicy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LiveEventCrossSiteAccessPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientAccessPolicy = defaults.clientAccessPolicy;
     	      this.crossDomainPolicy = defaults.crossDomainPolicy;
         }
 
+        @CustomType.Setter
         public Builder clientAccessPolicy(@Nullable String clientAccessPolicy) {
             this.clientAccessPolicy = clientAccessPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder crossDomainPolicy(@Nullable String crossDomainPolicy) {
             this.crossDomainPolicy = crossDomainPolicy;
             return this;
-        }        public LiveEventCrossSiteAccessPolicy build() {
-            return new LiveEventCrossSiteAccessPolicy(clientAccessPolicy, crossDomainPolicy);
+        }
+        public LiveEventCrossSiteAccessPolicy build() {
+            final var o = new LiveEventCrossSiteAccessPolicy();
+            o.clientAccessPolicy = clientAccessPolicy;
+            o.crossDomainPolicy = crossDomainPolicy;
+            return o;
         }
     }
 }

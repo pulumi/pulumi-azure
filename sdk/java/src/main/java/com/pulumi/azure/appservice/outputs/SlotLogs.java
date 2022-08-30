@@ -17,35 +17,24 @@ public final class SlotLogs {
      * @return An `application_logs` block as defined below.
      * 
      */
-    private final @Nullable SlotLogsApplicationLogs applicationLogs;
+    private @Nullable SlotLogsApplicationLogs applicationLogs;
     /**
      * @return Should `Detailed error messages` be enabled on this App Service slot? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean detailedErrorMessagesEnabled;
+    private @Nullable Boolean detailedErrorMessagesEnabled;
     /**
      * @return Should `Failed request tracing` be enabled on this App Service slot? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean failedRequestTracingEnabled;
+    private @Nullable Boolean failedRequestTracingEnabled;
     /**
      * @return An `http_logs` block as defined below.
      * 
      */
-    private final @Nullable SlotLogsHttpLogs httpLogs;
+    private @Nullable SlotLogsHttpLogs httpLogs;
 
-    @CustomType.Constructor
-    private SlotLogs(
-        @CustomType.Parameter("applicationLogs") @Nullable SlotLogsApplicationLogs applicationLogs,
-        @CustomType.Parameter("detailedErrorMessagesEnabled") @Nullable Boolean detailedErrorMessagesEnabled,
-        @CustomType.Parameter("failedRequestTracingEnabled") @Nullable Boolean failedRequestTracingEnabled,
-        @CustomType.Parameter("httpLogs") @Nullable SlotLogsHttpLogs httpLogs) {
-        this.applicationLogs = applicationLogs;
-        this.detailedErrorMessagesEnabled = detailedErrorMessagesEnabled;
-        this.failedRequestTracingEnabled = failedRequestTracingEnabled;
-        this.httpLogs = httpLogs;
-    }
-
+    private SlotLogs() {}
     /**
      * @return An `application_logs` block as defined below.
      * 
@@ -82,17 +71,13 @@ public final class SlotLogs {
     public static Builder builder(SlotLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable SlotLogsApplicationLogs applicationLogs;
         private @Nullable Boolean detailedErrorMessagesEnabled;
         private @Nullable Boolean failedRequestTracingEnabled;
         private @Nullable SlotLogsHttpLogs httpLogs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SlotLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationLogs = defaults.applicationLogs;
@@ -101,23 +86,33 @@ public final class SlotLogs {
     	      this.httpLogs = defaults.httpLogs;
         }
 
+        @CustomType.Setter
         public Builder applicationLogs(@Nullable SlotLogsApplicationLogs applicationLogs) {
             this.applicationLogs = applicationLogs;
             return this;
         }
+        @CustomType.Setter
         public Builder detailedErrorMessagesEnabled(@Nullable Boolean detailedErrorMessagesEnabled) {
             this.detailedErrorMessagesEnabled = detailedErrorMessagesEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder failedRequestTracingEnabled(@Nullable Boolean failedRequestTracingEnabled) {
             this.failedRequestTracingEnabled = failedRequestTracingEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder httpLogs(@Nullable SlotLogsHttpLogs httpLogs) {
             this.httpLogs = httpLogs;
             return this;
-        }        public SlotLogs build() {
-            return new SlotLogs(applicationLogs, detailedErrorMessagesEnabled, failedRequestTracingEnabled, httpLogs);
+        }
+        public SlotLogs build() {
+            final var o = new SlotLogs();
+            o.applicationLogs = applicationLogs;
+            o.detailedErrorMessagesEnabled = detailedErrorMessagesEnabled;
+            o.failedRequestTracingEnabled = failedRequestTracingEnabled;
+            o.httpLogs = httpLogs;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class ActivityLogAlertAction {
      * @return The ID of the Action Group can be sourced from the `azure.monitoring.ActionGroup` resource.
      * 
      */
-    private final String actionGroupId;
+    private String actionGroupId;
     /**
      * @return The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
      * 
      */
-    private final @Nullable Map<String,String> webhookProperties;
+    private @Nullable Map<String,String> webhookProperties;
 
-    @CustomType.Constructor
-    private ActivityLogAlertAction(
-        @CustomType.Parameter("actionGroupId") String actionGroupId,
-        @CustomType.Parameter("webhookProperties") @Nullable Map<String,String> webhookProperties) {
-        this.actionGroupId = actionGroupId;
-        this.webhookProperties = webhookProperties;
-    }
-
+    private ActivityLogAlertAction() {}
     /**
      * @return The ID of the Action Group can be sourced from the `azure.monitoring.ActionGroup` resource.
      * 
@@ -52,30 +45,32 @@ public final class ActivityLogAlertAction {
     public static Builder builder(ActivityLogAlertAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String actionGroupId;
         private @Nullable Map<String,String> webhookProperties;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ActivityLogAlertAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionGroupId = defaults.actionGroupId;
     	      this.webhookProperties = defaults.webhookProperties;
         }
 
+        @CustomType.Setter
         public Builder actionGroupId(String actionGroupId) {
             this.actionGroupId = Objects.requireNonNull(actionGroupId);
             return this;
         }
+        @CustomType.Setter
         public Builder webhookProperties(@Nullable Map<String,String> webhookProperties) {
             this.webhookProperties = webhookProperties;
             return this;
-        }        public ActivityLogAlertAction build() {
-            return new ActivityLogAlertAction(actionGroupId, webhookProperties);
+        }
+        public ActivityLogAlertAction build() {
+            final var o = new ActivityLogAlertAction();
+            o.actionGroupId = actionGroupId;
+            o.webhookProperties = webhookProperties;
+            return o;
         }
     }
 }

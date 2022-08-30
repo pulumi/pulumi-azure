@@ -15,76 +15,51 @@ public final class GetAccountResult {
      * @return The endpoint of the Cognitive Services Account
      * 
      */
-    private final String endpoint;
+    private String endpoint;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The kind of the Cognitive Services Account
      * 
      */
-    private final String kind;
+    private String kind;
     /**
      * @return The Azure location where the Cognitive Services Account exists
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return The primary access key of the Cognitive Services Account
      * 
      */
-    private final String primaryAccessKey;
+    private String primaryAccessKey;
     /**
      * @return If `kind` is `QnAMaker` the link to the QNA runtime.
      * 
      */
-    private final String qnaRuntimeEndpoint;
-    private final String resourceGroupName;
+    private String qnaRuntimeEndpoint;
+    private String resourceGroupName;
     /**
      * @return The secondary access key of the Cognitive Services Account
      * 
      */
-    private final String secondaryAccessKey;
+    private String secondaryAccessKey;
     /**
      * @return The SKU name of the Cognitive Services Account
      * 
      */
-    private final String skuName;
+    private String skuName;
     /**
      * @return A mapping of tags to assigned to the resource.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetAccountResult(
-        @CustomType.Parameter("endpoint") String endpoint,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kind") String kind,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("primaryAccessKey") String primaryAccessKey,
-        @CustomType.Parameter("qnaRuntimeEndpoint") String qnaRuntimeEndpoint,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("secondaryAccessKey") String secondaryAccessKey,
-        @CustomType.Parameter("skuName") String skuName,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.endpoint = endpoint;
-        this.id = id;
-        this.kind = kind;
-        this.location = location;
-        this.name = name;
-        this.primaryAccessKey = primaryAccessKey;
-        this.qnaRuntimeEndpoint = qnaRuntimeEndpoint;
-        this.resourceGroupName = resourceGroupName;
-        this.secondaryAccessKey = secondaryAccessKey;
-        this.skuName = skuName;
-        this.tags = tags;
-    }
-
+    private GetAccountResult() {}
     /**
      * @return The endpoint of the Cognitive Services Account
      * 
@@ -162,7 +137,7 @@ public final class GetAccountResult {
     public static Builder builder(GetAccountResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String endpoint;
         private String id;
@@ -175,11 +150,7 @@ public final class GetAccountResult {
         private String secondaryAccessKey;
         private String skuName;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccountResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpoint = defaults.endpoint;
@@ -195,51 +166,75 @@ public final class GetAccountResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder endpoint(String endpoint) {
             this.endpoint = Objects.requireNonNull(endpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kind(String kind) {
             this.kind = Objects.requireNonNull(kind);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryAccessKey(String primaryAccessKey) {
             this.primaryAccessKey = Objects.requireNonNull(primaryAccessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder qnaRuntimeEndpoint(String qnaRuntimeEndpoint) {
             this.qnaRuntimeEndpoint = Objects.requireNonNull(qnaRuntimeEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryAccessKey(String secondaryAccessKey) {
             this.secondaryAccessKey = Objects.requireNonNull(secondaryAccessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder skuName(String skuName) {
             this.skuName = Objects.requireNonNull(skuName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public GetAccountResult build() {
-            return new GetAccountResult(endpoint, id, kind, location, name, primaryAccessKey, qnaRuntimeEndpoint, resourceGroupName, secondaryAccessKey, skuName, tags);
+        }
+        public GetAccountResult build() {
+            final var o = new GetAccountResult();
+            o.endpoint = endpoint;
+            o.id = id;
+            o.kind = kind;
+            o.location = location;
+            o.name = name;
+            o.primaryAccessKey = primaryAccessKey;
+            o.qnaRuntimeEndpoint = qnaRuntimeEndpoint;
+            o.resourceGroupName = resourceGroupName;
+            o.secondaryAccessKey = secondaryAccessKey;
+            o.skuName = skuName;
+            o.tags = tags;
+            return o;
         }
     }
 }

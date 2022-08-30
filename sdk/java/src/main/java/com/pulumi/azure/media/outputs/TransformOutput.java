@@ -19,49 +19,34 @@ public final class TransformOutput {
      * @return A `audio_analyzer_preset` block as defined below.
      * 
      */
-    private final @Nullable TransformOutputAudioAnalyzerPreset audioAnalyzerPreset;
+    private @Nullable TransformOutputAudioAnalyzerPreset audioAnalyzerPreset;
     /**
      * @return A `builtin_preset` block as defined below.
      * 
      */
-    private final @Nullable TransformOutputBuiltinPreset builtinPreset;
+    private @Nullable TransformOutputBuiltinPreset builtinPreset;
     /**
      * @return A `face_detector_preset` block as defined below.
      * 
      */
-    private final @Nullable TransformOutputFaceDetectorPreset faceDetectorPreset;
+    private @Nullable TransformOutputFaceDetectorPreset faceDetectorPreset;
     /**
      * @return A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with `ContinueJob`. Possibles value are `StopProcessingJob` or `ContinueJob`.
      * 
      */
-    private final @Nullable String onErrorAction;
+    private @Nullable String onErrorAction;
     /**
      * @return Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possibles value are `High`, `Normal` or `Low`.
      * 
      */
-    private final @Nullable String relativePriority;
+    private @Nullable String relativePriority;
     /**
      * @return A `video_analyzer_preset` block as defined below.
      * 
      */
-    private final @Nullable TransformOutputVideoAnalyzerPreset videoAnalyzerPreset;
+    private @Nullable TransformOutputVideoAnalyzerPreset videoAnalyzerPreset;
 
-    @CustomType.Constructor
-    private TransformOutput(
-        @CustomType.Parameter("audioAnalyzerPreset") @Nullable TransformOutputAudioAnalyzerPreset audioAnalyzerPreset,
-        @CustomType.Parameter("builtinPreset") @Nullable TransformOutputBuiltinPreset builtinPreset,
-        @CustomType.Parameter("faceDetectorPreset") @Nullable TransformOutputFaceDetectorPreset faceDetectorPreset,
-        @CustomType.Parameter("onErrorAction") @Nullable String onErrorAction,
-        @CustomType.Parameter("relativePriority") @Nullable String relativePriority,
-        @CustomType.Parameter("videoAnalyzerPreset") @Nullable TransformOutputVideoAnalyzerPreset videoAnalyzerPreset) {
-        this.audioAnalyzerPreset = audioAnalyzerPreset;
-        this.builtinPreset = builtinPreset;
-        this.faceDetectorPreset = faceDetectorPreset;
-        this.onErrorAction = onErrorAction;
-        this.relativePriority = relativePriority;
-        this.videoAnalyzerPreset = videoAnalyzerPreset;
-    }
-
+    private TransformOutput() {}
     /**
      * @return A `audio_analyzer_preset` block as defined below.
      * 
@@ -112,7 +97,7 @@ public final class TransformOutput {
     public static Builder builder(TransformOutput defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable TransformOutputAudioAnalyzerPreset audioAnalyzerPreset;
         private @Nullable TransformOutputBuiltinPreset builtinPreset;
@@ -120,11 +105,7 @@ public final class TransformOutput {
         private @Nullable String onErrorAction;
         private @Nullable String relativePriority;
         private @Nullable TransformOutputVideoAnalyzerPreset videoAnalyzerPreset;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TransformOutput defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.audioAnalyzerPreset = defaults.audioAnalyzerPreset;
@@ -135,31 +116,45 @@ public final class TransformOutput {
     	      this.videoAnalyzerPreset = defaults.videoAnalyzerPreset;
         }
 
+        @CustomType.Setter
         public Builder audioAnalyzerPreset(@Nullable TransformOutputAudioAnalyzerPreset audioAnalyzerPreset) {
             this.audioAnalyzerPreset = audioAnalyzerPreset;
             return this;
         }
+        @CustomType.Setter
         public Builder builtinPreset(@Nullable TransformOutputBuiltinPreset builtinPreset) {
             this.builtinPreset = builtinPreset;
             return this;
         }
+        @CustomType.Setter
         public Builder faceDetectorPreset(@Nullable TransformOutputFaceDetectorPreset faceDetectorPreset) {
             this.faceDetectorPreset = faceDetectorPreset;
             return this;
         }
+        @CustomType.Setter
         public Builder onErrorAction(@Nullable String onErrorAction) {
             this.onErrorAction = onErrorAction;
             return this;
         }
+        @CustomType.Setter
         public Builder relativePriority(@Nullable String relativePriority) {
             this.relativePriority = relativePriority;
             return this;
         }
+        @CustomType.Setter
         public Builder videoAnalyzerPreset(@Nullable TransformOutputVideoAnalyzerPreset videoAnalyzerPreset) {
             this.videoAnalyzerPreset = videoAnalyzerPreset;
             return this;
-        }        public TransformOutput build() {
-            return new TransformOutput(audioAnalyzerPreset, builtinPreset, faceDetectorPreset, onErrorAction, relativePriority, videoAnalyzerPreset);
+        }
+        public TransformOutput build() {
+            final var o = new TransformOutput();
+            o.audioAnalyzerPreset = audioAnalyzerPreset;
+            o.builtinPreset = builtinPreset;
+            o.faceDetectorPreset = faceDetectorPreset;
+            o.onErrorAction = onErrorAction;
+            o.relativePriority = relativePriority;
+            o.videoAnalyzerPreset = videoAnalyzerPreset;
+            return o;
         }
     }
 }

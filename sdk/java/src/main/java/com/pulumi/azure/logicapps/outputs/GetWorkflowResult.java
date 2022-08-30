@@ -16,104 +16,71 @@ public final class GetWorkflowResult {
      * @return The Access Endpoint for the Logic App Workflow
      * 
      */
-    private final String accessEndpoint;
+    private String accessEndpoint;
     /**
      * @return The list of access endpoint IP addresses of connector.
      * 
      */
-    private final List<String> connectorEndpointIpAddresses;
+    private List<String> connectorEndpointIpAddresses;
     /**
      * @return The list of outgoing IP addresses of connector.
      * 
      */
-    private final List<String> connectorOutboundIpAddresses;
+    private List<String> connectorOutboundIpAddresses;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return An `identity` block as defined below.
      * 
      */
-    private final List<GetWorkflowIdentity> identities;
+    private List<GetWorkflowIdentity> identities;
     /**
      * @return The Azure location where the Logic App Workflow exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The ID of the integration account linked by this Logic App Workflow.
      * 
      */
-    private final String logicAppIntegrationAccountId;
-    private final String name;
+    private String logicAppIntegrationAccountId;
+    private String name;
     /**
      * @return A map of Key-Value pairs.
      * 
      */
-    private final Map<String,String> parameters;
-    private final String resourceGroupName;
+    private Map<String,String> parameters;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The list of access endpoint IP addresses of workflow.
      * 
      */
-    private final List<String> workflowEndpointIpAddresses;
+    private List<String> workflowEndpointIpAddresses;
     /**
      * @return The list of outgoing IP addresses of workflow.
      * 
      */
-    private final List<String> workflowOutboundIpAddresses;
+    private List<String> workflowOutboundIpAddresses;
     /**
      * @return The Schema used for this Logic App Workflow.
      * 
      */
-    private final String workflowSchema;
+    private String workflowSchema;
     /**
      * @return The version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`.
      * 
      */
-    private final String workflowVersion;
+    private String workflowVersion;
 
-    @CustomType.Constructor
-    private GetWorkflowResult(
-        @CustomType.Parameter("accessEndpoint") String accessEndpoint,
-        @CustomType.Parameter("connectorEndpointIpAddresses") List<String> connectorEndpointIpAddresses,
-        @CustomType.Parameter("connectorOutboundIpAddresses") List<String> connectorOutboundIpAddresses,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetWorkflowIdentity> identities,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("logicAppIntegrationAccountId") String logicAppIntegrationAccountId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("parameters") Map<String,String> parameters,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("workflowEndpointIpAddresses") List<String> workflowEndpointIpAddresses,
-        @CustomType.Parameter("workflowOutboundIpAddresses") List<String> workflowOutboundIpAddresses,
-        @CustomType.Parameter("workflowSchema") String workflowSchema,
-        @CustomType.Parameter("workflowVersion") String workflowVersion) {
-        this.accessEndpoint = accessEndpoint;
-        this.connectorEndpointIpAddresses = connectorEndpointIpAddresses;
-        this.connectorOutboundIpAddresses = connectorOutboundIpAddresses;
-        this.id = id;
-        this.identities = identities;
-        this.location = location;
-        this.logicAppIntegrationAccountId = logicAppIntegrationAccountId;
-        this.name = name;
-        this.parameters = parameters;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-        this.workflowEndpointIpAddresses = workflowEndpointIpAddresses;
-        this.workflowOutboundIpAddresses = workflowOutboundIpAddresses;
-        this.workflowSchema = workflowSchema;
-        this.workflowVersion = workflowVersion;
-    }
-
+    private GetWorkflowResult() {}
     /**
      * @return The Access Endpoint for the Logic App Workflow
      * 
@@ -219,7 +186,7 @@ public final class GetWorkflowResult {
     public static Builder builder(GetWorkflowResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accessEndpoint;
         private List<String> connectorEndpointIpAddresses;
@@ -236,11 +203,7 @@ public final class GetWorkflowResult {
         private List<String> workflowOutboundIpAddresses;
         private String workflowSchema;
         private String workflowVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWorkflowResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessEndpoint = defaults.accessEndpoint;
@@ -260,10 +223,12 @@ public final class GetWorkflowResult {
     	      this.workflowVersion = defaults.workflowVersion;
         }
 
+        @CustomType.Setter
         public Builder accessEndpoint(String accessEndpoint) {
             this.accessEndpoint = Objects.requireNonNull(accessEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder connectorEndpointIpAddresses(List<String> connectorEndpointIpAddresses) {
             this.connectorEndpointIpAddresses = Objects.requireNonNull(connectorEndpointIpAddresses);
             return this;
@@ -271,6 +236,7 @@ public final class GetWorkflowResult {
         public Builder connectorEndpointIpAddresses(String... connectorEndpointIpAddresses) {
             return connectorEndpointIpAddresses(List.of(connectorEndpointIpAddresses));
         }
+        @CustomType.Setter
         public Builder connectorOutboundIpAddresses(List<String> connectorOutboundIpAddresses) {
             this.connectorOutboundIpAddresses = Objects.requireNonNull(connectorOutboundIpAddresses);
             return this;
@@ -278,10 +244,12 @@ public final class GetWorkflowResult {
         public Builder connectorOutboundIpAddresses(String... connectorOutboundIpAddresses) {
             return connectorOutboundIpAddresses(List.of(connectorOutboundIpAddresses));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetWorkflowIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -289,30 +257,37 @@ public final class GetWorkflowResult {
         public Builder identities(GetWorkflowIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder logicAppIntegrationAccountId(String logicAppIntegrationAccountId) {
             this.logicAppIntegrationAccountId = Objects.requireNonNull(logicAppIntegrationAccountId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(Map<String,String> parameters) {
             this.parameters = Objects.requireNonNull(parameters);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder workflowEndpointIpAddresses(List<String> workflowEndpointIpAddresses) {
             this.workflowEndpointIpAddresses = Objects.requireNonNull(workflowEndpointIpAddresses);
             return this;
@@ -320,6 +295,7 @@ public final class GetWorkflowResult {
         public Builder workflowEndpointIpAddresses(String... workflowEndpointIpAddresses) {
             return workflowEndpointIpAddresses(List.of(workflowEndpointIpAddresses));
         }
+        @CustomType.Setter
         public Builder workflowOutboundIpAddresses(List<String> workflowOutboundIpAddresses) {
             this.workflowOutboundIpAddresses = Objects.requireNonNull(workflowOutboundIpAddresses);
             return this;
@@ -327,15 +303,34 @@ public final class GetWorkflowResult {
         public Builder workflowOutboundIpAddresses(String... workflowOutboundIpAddresses) {
             return workflowOutboundIpAddresses(List.of(workflowOutboundIpAddresses));
         }
+        @CustomType.Setter
         public Builder workflowSchema(String workflowSchema) {
             this.workflowSchema = Objects.requireNonNull(workflowSchema);
             return this;
         }
+        @CustomType.Setter
         public Builder workflowVersion(String workflowVersion) {
             this.workflowVersion = Objects.requireNonNull(workflowVersion);
             return this;
-        }        public GetWorkflowResult build() {
-            return new GetWorkflowResult(accessEndpoint, connectorEndpointIpAddresses, connectorOutboundIpAddresses, id, identities, location, logicAppIntegrationAccountId, name, parameters, resourceGroupName, tags, workflowEndpointIpAddresses, workflowOutboundIpAddresses, workflowSchema, workflowVersion);
+        }
+        public GetWorkflowResult build() {
+            final var o = new GetWorkflowResult();
+            o.accessEndpoint = accessEndpoint;
+            o.connectorEndpointIpAddresses = connectorEndpointIpAddresses;
+            o.connectorOutboundIpAddresses = connectorOutboundIpAddresses;
+            o.id = id;
+            o.identities = identities;
+            o.location = location;
+            o.logicAppIntegrationAccountId = logicAppIntegrationAccountId;
+            o.name = name;
+            o.parameters = parameters;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            o.workflowEndpointIpAddresses = workflowEndpointIpAddresses;
+            o.workflowOutboundIpAddresses = workflowOutboundIpAddresses;
+            o.workflowSchema = workflowSchema;
+            o.workflowVersion = workflowVersion;
+            return o;
         }
     }
 }

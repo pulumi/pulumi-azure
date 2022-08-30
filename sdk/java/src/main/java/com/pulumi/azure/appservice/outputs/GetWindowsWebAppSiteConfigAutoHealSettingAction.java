@@ -15,28 +15,19 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingAction {
      * @return The predefined action to be taken to an Auto Heal trigger.
      * 
      */
-    private final String actionType;
+    private String actionType;
     /**
      * @return A `custom_action` block as defined below.
      * 
      */
-    private final List<GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction> customActions;
+    private List<GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction> customActions;
     /**
      * @return The minimum amount of time in `hh:mm:ss` the Windows Web App must have been running before the defined action will be run in the event of a trigger.
      * 
      */
-    private final String minimumProcessExecutionTime;
+    private String minimumProcessExecutionTime;
 
-    @CustomType.Constructor
-    private GetWindowsWebAppSiteConfigAutoHealSettingAction(
-        @CustomType.Parameter("actionType") String actionType,
-        @CustomType.Parameter("customActions") List<GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction> customActions,
-        @CustomType.Parameter("minimumProcessExecutionTime") String minimumProcessExecutionTime) {
-        this.actionType = actionType;
-        this.customActions = customActions;
-        this.minimumProcessExecutionTime = minimumProcessExecutionTime;
-    }
-
+    private GetWindowsWebAppSiteConfigAutoHealSettingAction() {}
     /**
      * @return The predefined action to be taken to an Auto Heal trigger.
      * 
@@ -66,16 +57,12 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingAction {
     public static Builder builder(GetWindowsWebAppSiteConfigAutoHealSettingAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String actionType;
         private List<GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction> customActions;
         private String minimumProcessExecutionTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsWebAppSiteConfigAutoHealSettingAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionType = defaults.actionType;
@@ -83,10 +70,12 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingAction {
     	      this.minimumProcessExecutionTime = defaults.minimumProcessExecutionTime;
         }
 
+        @CustomType.Setter
         public Builder actionType(String actionType) {
             this.actionType = Objects.requireNonNull(actionType);
             return this;
         }
+        @CustomType.Setter
         public Builder customActions(List<GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction> customActions) {
             this.customActions = Objects.requireNonNull(customActions);
             return this;
@@ -94,11 +83,17 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingAction {
         public Builder customActions(GetWindowsWebAppSiteConfigAutoHealSettingActionCustomAction... customActions) {
             return customActions(List.of(customActions));
         }
+        @CustomType.Setter
         public Builder minimumProcessExecutionTime(String minimumProcessExecutionTime) {
             this.minimumProcessExecutionTime = Objects.requireNonNull(minimumProcessExecutionTime);
             return this;
-        }        public GetWindowsWebAppSiteConfigAutoHealSettingAction build() {
-            return new GetWindowsWebAppSiteConfigAutoHealSettingAction(actionType, customActions, minimumProcessExecutionTime);
+        }
+        public GetWindowsWebAppSiteConfigAutoHealSettingAction build() {
+            final var o = new GetWindowsWebAppSiteConfigAutoHealSettingAction();
+            o.actionType = actionType;
+            o.customActions = customActions;
+            o.minimumProcessExecutionTime = minimumProcessExecutionTime;
+            return o;
         }
     }
 }

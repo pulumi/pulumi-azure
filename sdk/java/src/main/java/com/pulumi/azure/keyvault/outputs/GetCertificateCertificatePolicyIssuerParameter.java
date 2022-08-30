@@ -13,13 +13,9 @@ public final class GetCertificateCertificatePolicyIssuerParameter {
      * @return Specifies the name of the Key Vault Certificate.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private GetCertificateCertificatePolicyIssuerParameter(@CustomType.Parameter("name") String name) {
-        this.name = name;
-    }
-
+    private GetCertificateCertificatePolicyIssuerParameter() {}
     /**
      * @return Specifies the name of the Key Vault Certificate.
      * 
@@ -35,24 +31,24 @@ public final class GetCertificateCertificatePolicyIssuerParameter {
     public static Builder builder(GetCertificateCertificatePolicyIssuerParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCertificateCertificatePolicyIssuerParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetCertificateCertificatePolicyIssuerParameter build() {
-            return new GetCertificateCertificatePolicyIssuerParameter(name);
+        }
+        public GetCertificateCertificatePolicyIssuerParameter build() {
+            final var o = new GetCertificateCertificatePolicyIssuerParameter();
+            o.name = name;
+            return o;
         }
     }
 }

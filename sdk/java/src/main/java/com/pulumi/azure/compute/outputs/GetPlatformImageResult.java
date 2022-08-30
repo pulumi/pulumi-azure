@@ -13,29 +13,14 @@ public final class GetPlatformImageResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String location;
-    private final String offer;
-    private final String publisher;
-    private final String sku;
-    private final String version;
+    private String id;
+    private String location;
+    private String offer;
+    private String publisher;
+    private String sku;
+    private String version;
 
-    @CustomType.Constructor
-    private GetPlatformImageResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("offer") String offer,
-        @CustomType.Parameter("publisher") String publisher,
-        @CustomType.Parameter("sku") String sku,
-        @CustomType.Parameter("version") String version) {
-        this.id = id;
-        this.location = location;
-        this.offer = offer;
-        this.publisher = publisher;
-        this.sku = sku;
-        this.version = version;
-    }
-
+    private GetPlatformImageResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -66,7 +51,7 @@ public final class GetPlatformImageResult {
     public static Builder builder(GetPlatformImageResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String location;
@@ -74,11 +59,7 @@ public final class GetPlatformImageResult {
         private String publisher;
         private String sku;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPlatformImageResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -89,31 +70,45 @@ public final class GetPlatformImageResult {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder offer(String offer) {
             this.offer = Objects.requireNonNull(offer);
             return this;
         }
+        @CustomType.Setter
         public Builder publisher(String publisher) {
             this.publisher = Objects.requireNonNull(publisher);
             return this;
         }
+        @CustomType.Setter
         public Builder sku(String sku) {
             this.sku = Objects.requireNonNull(sku);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public GetPlatformImageResult build() {
-            return new GetPlatformImageResult(id, location, offer, publisher, sku, version);
+        }
+        public GetPlatformImageResult build() {
+            final var o = new GetPlatformImageResult();
+            o.id = id;
+            o.location = location;
+            o.offer = offer;
+            o.publisher = publisher;
+            o.sku = sku;
+            o.version = version;
+            return o;
         }
     }
 }

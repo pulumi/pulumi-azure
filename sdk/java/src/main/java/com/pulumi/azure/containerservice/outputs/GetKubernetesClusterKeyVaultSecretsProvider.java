@@ -16,28 +16,19 @@ public final class GetKubernetesClusterKeyVaultSecretsProvider {
      * @return A `secret_identity` block as documented below.
      * 
      */
-    private final List<GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity> secretIdentities;
+    private List<GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity> secretIdentities;
     /**
      * @return Is secret rotation enabled?
      * 
      */
-    private final Boolean secretRotationEnabled;
+    private Boolean secretRotationEnabled;
     /**
      * @return The interval to poll for secret rotation.
      * 
      */
-    private final String secretRotationInterval;
+    private String secretRotationInterval;
 
-    @CustomType.Constructor
-    private GetKubernetesClusterKeyVaultSecretsProvider(
-        @CustomType.Parameter("secretIdentities") List<GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity> secretIdentities,
-        @CustomType.Parameter("secretRotationEnabled") Boolean secretRotationEnabled,
-        @CustomType.Parameter("secretRotationInterval") String secretRotationInterval) {
-        this.secretIdentities = secretIdentities;
-        this.secretRotationEnabled = secretRotationEnabled;
-        this.secretRotationInterval = secretRotationInterval;
-    }
-
+    private GetKubernetesClusterKeyVaultSecretsProvider() {}
     /**
      * @return A `secret_identity` block as documented below.
      * 
@@ -67,16 +58,12 @@ public final class GetKubernetesClusterKeyVaultSecretsProvider {
     public static Builder builder(GetKubernetesClusterKeyVaultSecretsProvider defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity> secretIdentities;
         private Boolean secretRotationEnabled;
         private String secretRotationInterval;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKubernetesClusterKeyVaultSecretsProvider defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.secretIdentities = defaults.secretIdentities;
@@ -84,6 +71,7 @@ public final class GetKubernetesClusterKeyVaultSecretsProvider {
     	      this.secretRotationInterval = defaults.secretRotationInterval;
         }
 
+        @CustomType.Setter
         public Builder secretIdentities(List<GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity> secretIdentities) {
             this.secretIdentities = Objects.requireNonNull(secretIdentities);
             return this;
@@ -91,15 +79,22 @@ public final class GetKubernetesClusterKeyVaultSecretsProvider {
         public Builder secretIdentities(GetKubernetesClusterKeyVaultSecretsProviderSecretIdentity... secretIdentities) {
             return secretIdentities(List.of(secretIdentities));
         }
+        @CustomType.Setter
         public Builder secretRotationEnabled(Boolean secretRotationEnabled) {
             this.secretRotationEnabled = Objects.requireNonNull(secretRotationEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder secretRotationInterval(String secretRotationInterval) {
             this.secretRotationInterval = Objects.requireNonNull(secretRotationInterval);
             return this;
-        }        public GetKubernetesClusterKeyVaultSecretsProvider build() {
-            return new GetKubernetesClusterKeyVaultSecretsProvider(secretIdentities, secretRotationEnabled, secretRotationInterval);
+        }
+        public GetKubernetesClusterKeyVaultSecretsProvider build() {
+            final var o = new GetKubernetesClusterKeyVaultSecretsProvider();
+            o.secretIdentities = secretIdentities;
+            o.secretRotationEnabled = secretRotationEnabled;
+            o.secretRotationInterval = secretRotationInterval;
+            return o;
         }
     }
 }

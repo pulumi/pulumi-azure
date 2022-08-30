@@ -14,21 +14,14 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewall {
      * @return An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
      * 
      */
-    private final FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation association;
+    private FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation association;
     /**
      * @return The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
      * 
      */
-    private final String cdnFrontdoorFirewallPolicyId;
+    private String cdnFrontdoorFirewallPolicyId;
 
-    @CustomType.Constructor
-    private FrontdoorSecurityPolicySecurityPoliciesFirewall(
-        @CustomType.Parameter("association") FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation association,
-        @CustomType.Parameter("cdnFrontdoorFirewallPolicyId") String cdnFrontdoorFirewallPolicyId) {
-        this.association = association;
-        this.cdnFrontdoorFirewallPolicyId = cdnFrontdoorFirewallPolicyId;
-    }
-
+    private FrontdoorSecurityPolicySecurityPoliciesFirewall() {}
     /**
      * @return An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
      * 
@@ -51,30 +44,32 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewall {
     public static Builder builder(FrontdoorSecurityPolicySecurityPoliciesFirewall defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation association;
         private String cdnFrontdoorFirewallPolicyId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrontdoorSecurityPolicySecurityPoliciesFirewall defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.association = defaults.association;
     	      this.cdnFrontdoorFirewallPolicyId = defaults.cdnFrontdoorFirewallPolicyId;
         }
 
+        @CustomType.Setter
         public Builder association(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation association) {
             this.association = Objects.requireNonNull(association);
             return this;
         }
+        @CustomType.Setter
         public Builder cdnFrontdoorFirewallPolicyId(String cdnFrontdoorFirewallPolicyId) {
             this.cdnFrontdoorFirewallPolicyId = Objects.requireNonNull(cdnFrontdoorFirewallPolicyId);
             return this;
-        }        public FrontdoorSecurityPolicySecurityPoliciesFirewall build() {
-            return new FrontdoorSecurityPolicySecurityPoliciesFirewall(association, cdnFrontdoorFirewallPolicyId);
+        }
+        public FrontdoorSecurityPolicySecurityPoliciesFirewall build() {
+            final var o = new FrontdoorSecurityPolicySecurityPoliciesFirewall();
+            o.association = association;
+            o.cdnFrontdoorFirewallPolicyId = cdnFrontdoorFirewallPolicyId;
+            return o;
         }
     }
 }

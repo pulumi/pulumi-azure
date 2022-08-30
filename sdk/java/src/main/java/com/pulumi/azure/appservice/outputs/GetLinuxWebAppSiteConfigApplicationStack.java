@@ -13,77 +13,54 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
      * @return The Docker image reference, including repository.
      * 
      */
-    private final String dockerImage;
+    private String dockerImage;
     /**
      * @return The image Tag.
      * 
      */
-    private final String dockerImageTag;
+    private String dockerImageTag;
     /**
      * @return The version of .NET in use.
      * 
      */
-    private final String dotnetVersion;
+    private String dotnetVersion;
     /**
      * @return The Java server type.
      * 
      */
-    private final String javaServer;
+    private String javaServer;
     /**
      * @return The Version of the `java_server` in use.
      * 
      */
-    private final String javaServerVersion;
+    private String javaServerVersion;
     /**
      * @return The Version of Java in use.
      * 
      */
-    private final String javaVersion;
+    private String javaVersion;
     /**
      * @return The version of Node in use.
      * 
      */
-    private final String nodeVersion;
+    private String nodeVersion;
     /**
      * @return The version of PHP in use.
      * 
      */
-    private final String phpVersion;
+    private String phpVersion;
     /**
      * @return The version of Python in use.
      * 
      */
-    private final String pythonVersion;
+    private String pythonVersion;
     /**
      * @return The version of Ruby in use.
      * 
      */
-    private final String rubyVersion;
+    private String rubyVersion;
 
-    @CustomType.Constructor
-    private GetLinuxWebAppSiteConfigApplicationStack(
-        @CustomType.Parameter("dockerImage") String dockerImage,
-        @CustomType.Parameter("dockerImageTag") String dockerImageTag,
-        @CustomType.Parameter("dotnetVersion") String dotnetVersion,
-        @CustomType.Parameter("javaServer") String javaServer,
-        @CustomType.Parameter("javaServerVersion") String javaServerVersion,
-        @CustomType.Parameter("javaVersion") String javaVersion,
-        @CustomType.Parameter("nodeVersion") String nodeVersion,
-        @CustomType.Parameter("phpVersion") String phpVersion,
-        @CustomType.Parameter("pythonVersion") String pythonVersion,
-        @CustomType.Parameter("rubyVersion") String rubyVersion) {
-        this.dockerImage = dockerImage;
-        this.dockerImageTag = dockerImageTag;
-        this.dotnetVersion = dotnetVersion;
-        this.javaServer = javaServer;
-        this.javaServerVersion = javaServerVersion;
-        this.javaVersion = javaVersion;
-        this.nodeVersion = nodeVersion;
-        this.phpVersion = phpVersion;
-        this.pythonVersion = pythonVersion;
-        this.rubyVersion = rubyVersion;
-    }
-
+    private GetLinuxWebAppSiteConfigApplicationStack() {}
     /**
      * @return The Docker image reference, including repository.
      * 
@@ -162,7 +139,7 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
     public static Builder builder(GetLinuxWebAppSiteConfigApplicationStack defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dockerImage;
         private String dockerImageTag;
@@ -174,11 +151,7 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
         private String phpVersion;
         private String pythonVersion;
         private String rubyVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxWebAppSiteConfigApplicationStack defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dockerImage = defaults.dockerImage;
@@ -193,47 +166,69 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
     	      this.rubyVersion = defaults.rubyVersion;
         }
 
+        @CustomType.Setter
         public Builder dockerImage(String dockerImage) {
             this.dockerImage = Objects.requireNonNull(dockerImage);
             return this;
         }
+        @CustomType.Setter
         public Builder dockerImageTag(String dockerImageTag) {
             this.dockerImageTag = Objects.requireNonNull(dockerImageTag);
             return this;
         }
+        @CustomType.Setter
         public Builder dotnetVersion(String dotnetVersion) {
             this.dotnetVersion = Objects.requireNonNull(dotnetVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder javaServer(String javaServer) {
             this.javaServer = Objects.requireNonNull(javaServer);
             return this;
         }
+        @CustomType.Setter
         public Builder javaServerVersion(String javaServerVersion) {
             this.javaServerVersion = Objects.requireNonNull(javaServerVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder javaVersion(String javaVersion) {
             this.javaVersion = Objects.requireNonNull(javaVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder nodeVersion(String nodeVersion) {
             this.nodeVersion = Objects.requireNonNull(nodeVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder phpVersion(String phpVersion) {
             this.phpVersion = Objects.requireNonNull(phpVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder pythonVersion(String pythonVersion) {
             this.pythonVersion = Objects.requireNonNull(pythonVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder rubyVersion(String rubyVersion) {
             this.rubyVersion = Objects.requireNonNull(rubyVersion);
             return this;
-        }        public GetLinuxWebAppSiteConfigApplicationStack build() {
-            return new GetLinuxWebAppSiteConfigApplicationStack(dockerImage, dockerImageTag, dotnetVersion, javaServer, javaServerVersion, javaVersion, nodeVersion, phpVersion, pythonVersion, rubyVersion);
+        }
+        public GetLinuxWebAppSiteConfigApplicationStack build() {
+            final var o = new GetLinuxWebAppSiteConfigApplicationStack();
+            o.dockerImage = dockerImage;
+            o.dockerImageTag = dockerImageTag;
+            o.dotnetVersion = dotnetVersion;
+            o.javaServer = javaServer;
+            o.javaServerVersion = javaServerVersion;
+            o.javaVersion = javaVersion;
+            o.nodeVersion = nodeVersion;
+            o.phpVersion = phpVersion;
+            o.pythonVersion = pythonVersion;
+            o.rubyVersion = rubyVersion;
+            return o;
         }
     }
 }

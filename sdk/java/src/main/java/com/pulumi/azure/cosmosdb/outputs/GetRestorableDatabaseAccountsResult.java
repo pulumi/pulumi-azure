@@ -15,31 +15,20 @@ public final class GetRestorableDatabaseAccountsResult {
      * @return One or more `accounts` blocks as defined below.
      * 
      */
-    private final List<GetRestorableDatabaseAccountsAccount> accounts;
+    private List<GetRestorableDatabaseAccountsAccount> accounts;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The location of the regional Cosmos DB Restorable Database Account.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
 
-    @CustomType.Constructor
-    private GetRestorableDatabaseAccountsResult(
-        @CustomType.Parameter("accounts") List<GetRestorableDatabaseAccountsAccount> accounts,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name) {
-        this.accounts = accounts;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-    }
-
+    private GetRestorableDatabaseAccountsResult() {}
     /**
      * @return One or more `accounts` blocks as defined below.
      * 
@@ -72,17 +61,13 @@ public final class GetRestorableDatabaseAccountsResult {
     public static Builder builder(GetRestorableDatabaseAccountsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetRestorableDatabaseAccountsAccount> accounts;
         private String id;
         private String location;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRestorableDatabaseAccountsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accounts = defaults.accounts;
@@ -91,6 +76,7 @@ public final class GetRestorableDatabaseAccountsResult {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder accounts(List<GetRestorableDatabaseAccountsAccount> accounts) {
             this.accounts = Objects.requireNonNull(accounts);
             return this;
@@ -98,19 +84,28 @@ public final class GetRestorableDatabaseAccountsResult {
         public Builder accounts(GetRestorableDatabaseAccountsAccount... accounts) {
             return accounts(List.of(accounts));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetRestorableDatabaseAccountsResult build() {
-            return new GetRestorableDatabaseAccountsResult(accounts, id, location, name);
+        }
+        public GetRestorableDatabaseAccountsResult build() {
+            final var o = new GetRestorableDatabaseAccountsResult();
+            o.accounts = accounts;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            return o;
         }
     }
 }

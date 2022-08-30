@@ -14,21 +14,14 @@ public final class SecuritySolutionAdditionalWorkspace {
      * @return A list of data types which sent to workspace. Possible values are `Alerts` and `RawEvents`.
      * 
      */
-    private final List<String> dataTypes;
+    private List<String> dataTypes;
     /**
      * @return The resource ID of the Log Analytics Workspace.
      * 
      */
-    private final String workspaceId;
+    private String workspaceId;
 
-    @CustomType.Constructor
-    private SecuritySolutionAdditionalWorkspace(
-        @CustomType.Parameter("dataTypes") List<String> dataTypes,
-        @CustomType.Parameter("workspaceId") String workspaceId) {
-        this.dataTypes = dataTypes;
-        this.workspaceId = workspaceId;
-    }
-
+    private SecuritySolutionAdditionalWorkspace() {}
     /**
      * @return A list of data types which sent to workspace. Possible values are `Alerts` and `RawEvents`.
      * 
@@ -51,21 +44,18 @@ public final class SecuritySolutionAdditionalWorkspace {
     public static Builder builder(SecuritySolutionAdditionalWorkspace defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> dataTypes;
         private String workspaceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SecuritySolutionAdditionalWorkspace defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataTypes = defaults.dataTypes;
     	      this.workspaceId = defaults.workspaceId;
         }
 
+        @CustomType.Setter
         public Builder dataTypes(List<String> dataTypes) {
             this.dataTypes = Objects.requireNonNull(dataTypes);
             return this;
@@ -73,11 +63,16 @@ public final class SecuritySolutionAdditionalWorkspace {
         public Builder dataTypes(String... dataTypes) {
             return dataTypes(List.of(dataTypes));
         }
+        @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
             this.workspaceId = Objects.requireNonNull(workspaceId);
             return this;
-        }        public SecuritySolutionAdditionalWorkspace build() {
-            return new SecuritySolutionAdditionalWorkspace(dataTypes, workspaceId);
+        }
+        public SecuritySolutionAdditionalWorkspace build() {
+            final var o = new SecuritySolutionAdditionalWorkspace();
+            o.dataTypes = dataTypes;
+            o.workspaceId = workspaceId;
+            return o;
         }
     }
 }

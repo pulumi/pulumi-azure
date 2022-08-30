@@ -16,49 +16,34 @@ public final class SystemTopicEventSubscriptionWebhookEndpoint {
      * @return The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
      * 
      */
-    private final @Nullable String activeDirectoryAppIdOrUri;
+    private @Nullable String activeDirectoryAppIdOrUri;
     /**
      * @return The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
      * 
      */
-    private final @Nullable String activeDirectoryTenantId;
+    private @Nullable String activeDirectoryTenantId;
     /**
      * @return The base url of the webhook where the Event Subscription will receive events.
      * 
      */
-    private final @Nullable String baseUrl;
+    private @Nullable String baseUrl;
     /**
      * @return Maximum number of events per batch.
      * 
      */
-    private final @Nullable Integer maxEventsPerBatch;
+    private @Nullable Integer maxEventsPerBatch;
     /**
      * @return Preferred batch size in Kilobytes.
      * 
      */
-    private final @Nullable Integer preferredBatchSizeInKilobytes;
+    private @Nullable Integer preferredBatchSizeInKilobytes;
     /**
      * @return Specifies the url of the webhook where the Event Subscription will receive events.
      * 
      */
-    private final String url;
+    private String url;
 
-    @CustomType.Constructor
-    private SystemTopicEventSubscriptionWebhookEndpoint(
-        @CustomType.Parameter("activeDirectoryAppIdOrUri") @Nullable String activeDirectoryAppIdOrUri,
-        @CustomType.Parameter("activeDirectoryTenantId") @Nullable String activeDirectoryTenantId,
-        @CustomType.Parameter("baseUrl") @Nullable String baseUrl,
-        @CustomType.Parameter("maxEventsPerBatch") @Nullable Integer maxEventsPerBatch,
-        @CustomType.Parameter("preferredBatchSizeInKilobytes") @Nullable Integer preferredBatchSizeInKilobytes,
-        @CustomType.Parameter("url") String url) {
-        this.activeDirectoryAppIdOrUri = activeDirectoryAppIdOrUri;
-        this.activeDirectoryTenantId = activeDirectoryTenantId;
-        this.baseUrl = baseUrl;
-        this.maxEventsPerBatch = maxEventsPerBatch;
-        this.preferredBatchSizeInKilobytes = preferredBatchSizeInKilobytes;
-        this.url = url;
-    }
-
+    private SystemTopicEventSubscriptionWebhookEndpoint() {}
     /**
      * @return The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
      * 
@@ -109,7 +94,7 @@ public final class SystemTopicEventSubscriptionWebhookEndpoint {
     public static Builder builder(SystemTopicEventSubscriptionWebhookEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String activeDirectoryAppIdOrUri;
         private @Nullable String activeDirectoryTenantId;
@@ -117,11 +102,7 @@ public final class SystemTopicEventSubscriptionWebhookEndpoint {
         private @Nullable Integer maxEventsPerBatch;
         private @Nullable Integer preferredBatchSizeInKilobytes;
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SystemTopicEventSubscriptionWebhookEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.activeDirectoryAppIdOrUri = defaults.activeDirectoryAppIdOrUri;
@@ -132,31 +113,45 @@ public final class SystemTopicEventSubscriptionWebhookEndpoint {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder activeDirectoryAppIdOrUri(@Nullable String activeDirectoryAppIdOrUri) {
             this.activeDirectoryAppIdOrUri = activeDirectoryAppIdOrUri;
             return this;
         }
+        @CustomType.Setter
         public Builder activeDirectoryTenantId(@Nullable String activeDirectoryTenantId) {
             this.activeDirectoryTenantId = activeDirectoryTenantId;
             return this;
         }
+        @CustomType.Setter
         public Builder baseUrl(@Nullable String baseUrl) {
             this.baseUrl = baseUrl;
             return this;
         }
+        @CustomType.Setter
         public Builder maxEventsPerBatch(@Nullable Integer maxEventsPerBatch) {
             this.maxEventsPerBatch = maxEventsPerBatch;
             return this;
         }
+        @CustomType.Setter
         public Builder preferredBatchSizeInKilobytes(@Nullable Integer preferredBatchSizeInKilobytes) {
             this.preferredBatchSizeInKilobytes = preferredBatchSizeInKilobytes;
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public SystemTopicEventSubscriptionWebhookEndpoint build() {
-            return new SystemTopicEventSubscriptionWebhookEndpoint(activeDirectoryAppIdOrUri, activeDirectoryTenantId, baseUrl, maxEventsPerBatch, preferredBatchSizeInKilobytes, url);
+        }
+        public SystemTopicEventSubscriptionWebhookEndpoint build() {
+            final var o = new SystemTopicEventSubscriptionWebhookEndpoint();
+            o.activeDirectoryAppIdOrUri = activeDirectoryAppIdOrUri;
+            o.activeDirectoryTenantId = activeDirectoryTenantId;
+            o.baseUrl = baseUrl;
+            o.maxEventsPerBatch = maxEventsPerBatch;
+            o.preferredBatchSizeInKilobytes = preferredBatchSizeInKilobytes;
+            o.url = url;
+            return o;
         }
     }
 }

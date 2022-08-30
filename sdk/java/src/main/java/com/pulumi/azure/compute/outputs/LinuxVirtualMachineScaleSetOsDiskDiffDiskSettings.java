@@ -15,21 +15,14 @@ public final class LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings {
      * @return Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
      * 
      */
-    private final String option;
+    private String option;
     /**
      * @return Specifies where to store the Ephemeral Disk. Possible values are `CacheDisk` and `ResourceDisk`. Defaults to `CacheDisk`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String placement;
+    private @Nullable String placement;
 
-    @CustomType.Constructor
-    private LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings(
-        @CustomType.Parameter("option") String option,
-        @CustomType.Parameter("placement") @Nullable String placement) {
-        this.option = option;
-        this.placement = placement;
-    }
-
+    private LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings() {}
     /**
      * @return Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
      * 
@@ -52,30 +45,32 @@ public final class LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings {
     public static Builder builder(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String option;
         private @Nullable String placement;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.option = defaults.option;
     	      this.placement = defaults.placement;
         }
 
+        @CustomType.Setter
         public Builder option(String option) {
             this.option = Objects.requireNonNull(option);
             return this;
         }
+        @CustomType.Setter
         public Builder placement(@Nullable String placement) {
             this.placement = placement;
             return this;
-        }        public LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings build() {
-            return new LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings(option, placement);
+        }
+        public LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings build() {
+            final var o = new LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings();
+            o.option = option;
+            o.placement = placement;
+            return o;
         }
     }
 }

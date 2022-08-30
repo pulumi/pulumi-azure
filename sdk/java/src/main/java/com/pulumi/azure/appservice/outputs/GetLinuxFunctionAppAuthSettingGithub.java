@@ -14,35 +14,24 @@ public final class GetLinuxFunctionAppAuthSettingGithub {
      * @return The OAuth 2.0 client ID that was created for the app used for authentication.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return The OAuth 2.0 client secret that was created for the app used for authentication.
      * 
      */
-    private final String clientSecret;
+    private String clientSecret;
     /**
      * @return The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
      * 
      */
-    private final String clientSecretSettingName;
+    private String clientSecretSettingName;
     /**
      * @return A list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
      * 
      */
-    private final List<String> oauthScopes;
+    private List<String> oauthScopes;
 
-    @CustomType.Constructor
-    private GetLinuxFunctionAppAuthSettingGithub(
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("clientSecret") String clientSecret,
-        @CustomType.Parameter("clientSecretSettingName") String clientSecretSettingName,
-        @CustomType.Parameter("oauthScopes") List<String> oauthScopes) {
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
-        this.clientSecretSettingName = clientSecretSettingName;
-        this.oauthScopes = oauthScopes;
-    }
-
+    private GetLinuxFunctionAppAuthSettingGithub() {}
     /**
      * @return The OAuth 2.0 client ID that was created for the app used for authentication.
      * 
@@ -79,17 +68,13 @@ public final class GetLinuxFunctionAppAuthSettingGithub {
     public static Builder builder(GetLinuxFunctionAppAuthSettingGithub defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clientId;
         private String clientSecret;
         private String clientSecretSettingName;
         private List<String> oauthScopes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxFunctionAppAuthSettingGithub defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientId = defaults.clientId;
@@ -98,26 +83,36 @@ public final class GetLinuxFunctionAppAuthSettingGithub {
     	      this.oauthScopes = defaults.oauthScopes;
         }
 
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
             this.clientSecret = Objects.requireNonNull(clientSecret);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecretSettingName(String clientSecretSettingName) {
             this.clientSecretSettingName = Objects.requireNonNull(clientSecretSettingName);
             return this;
         }
+        @CustomType.Setter
         public Builder oauthScopes(List<String> oauthScopes) {
             this.oauthScopes = Objects.requireNonNull(oauthScopes);
             return this;
         }
         public Builder oauthScopes(String... oauthScopes) {
             return oauthScopes(List.of(oauthScopes));
-        }        public GetLinuxFunctionAppAuthSettingGithub build() {
-            return new GetLinuxFunctionAppAuthSettingGithub(clientId, clientSecret, clientSecretSettingName, oauthScopes);
+        }
+        public GetLinuxFunctionAppAuthSettingGithub build() {
+            final var o = new GetLinuxFunctionAppAuthSettingGithub();
+            o.clientId = clientId;
+            o.clientSecret = clientSecret;
+            o.clientSecretSettingName = clientSecretSettingName;
+            o.oauthScopes = oauthScopes;
+            return o;
         }
     }
 }

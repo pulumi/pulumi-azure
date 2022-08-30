@@ -15,21 +15,14 @@ public final class GetKubernetesClusterLinuxProfile {
      * @return The username associated with the administrator account of the Windows VMs.
      * 
      */
-    private final String adminUsername;
+    private String adminUsername;
     /**
      * @return An `ssh_key` block as defined below.
      * 
      */
-    private final List<GetKubernetesClusterLinuxProfileSshKey> sshKeys;
+    private List<GetKubernetesClusterLinuxProfileSshKey> sshKeys;
 
-    @CustomType.Constructor
-    private GetKubernetesClusterLinuxProfile(
-        @CustomType.Parameter("adminUsername") String adminUsername,
-        @CustomType.Parameter("sshKeys") List<GetKubernetesClusterLinuxProfileSshKey> sshKeys) {
-        this.adminUsername = adminUsername;
-        this.sshKeys = sshKeys;
-    }
-
+    private GetKubernetesClusterLinuxProfile() {}
     /**
      * @return The username associated with the administrator account of the Windows VMs.
      * 
@@ -52,33 +45,35 @@ public final class GetKubernetesClusterLinuxProfile {
     public static Builder builder(GetKubernetesClusterLinuxProfile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String adminUsername;
         private List<GetKubernetesClusterLinuxProfileSshKey> sshKeys;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKubernetesClusterLinuxProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.adminUsername = defaults.adminUsername;
     	      this.sshKeys = defaults.sshKeys;
         }
 
+        @CustomType.Setter
         public Builder adminUsername(String adminUsername) {
             this.adminUsername = Objects.requireNonNull(adminUsername);
             return this;
         }
+        @CustomType.Setter
         public Builder sshKeys(List<GetKubernetesClusterLinuxProfileSshKey> sshKeys) {
             this.sshKeys = Objects.requireNonNull(sshKeys);
             return this;
         }
         public Builder sshKeys(GetKubernetesClusterLinuxProfileSshKey... sshKeys) {
             return sshKeys(List.of(sshKeys));
-        }        public GetKubernetesClusterLinuxProfile build() {
-            return new GetKubernetesClusterLinuxProfile(adminUsername, sshKeys);
+        }
+        public GetKubernetesClusterLinuxProfile build() {
+            final var o = new GetKubernetesClusterLinuxProfile();
+            o.adminUsername = adminUsername;
+            o.sshKeys = sshKeys;
+            return o;
         }
     }
 }

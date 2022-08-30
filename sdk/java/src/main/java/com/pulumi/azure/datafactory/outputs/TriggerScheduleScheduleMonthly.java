@@ -16,21 +16,14 @@ public final class TriggerScheduleScheduleMonthly {
      * @return The occurrence of the specified day during the month. For example, a `monthly` property with `weekday` and `week` values of `Sunday, -1` means the last Sunday of the month.
      * 
      */
-    private final @Nullable Integer week;
+    private @Nullable Integer week;
     /**
      * @return The day of the week on which the trigger runs. For example, a `monthly` property with a `weekday` value of `Sunday` means every Sunday of the month.
      * 
      */
-    private final String weekday;
+    private String weekday;
 
-    @CustomType.Constructor
-    private TriggerScheduleScheduleMonthly(
-        @CustomType.Parameter("week") @Nullable Integer week,
-        @CustomType.Parameter("weekday") String weekday) {
-        this.week = week;
-        this.weekday = weekday;
-    }
-
+    private TriggerScheduleScheduleMonthly() {}
     /**
      * @return The occurrence of the specified day during the month. For example, a `monthly` property with `weekday` and `week` values of `Sunday, -1` means the last Sunday of the month.
      * 
@@ -53,30 +46,32 @@ public final class TriggerScheduleScheduleMonthly {
     public static Builder builder(TriggerScheduleScheduleMonthly defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer week;
         private String weekday;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TriggerScheduleScheduleMonthly defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.week = defaults.week;
     	      this.weekday = defaults.weekday;
         }
 
+        @CustomType.Setter
         public Builder week(@Nullable Integer week) {
             this.week = week;
             return this;
         }
+        @CustomType.Setter
         public Builder weekday(String weekday) {
             this.weekday = Objects.requireNonNull(weekday);
             return this;
-        }        public TriggerScheduleScheduleMonthly build() {
-            return new TriggerScheduleScheduleMonthly(week, weekday);
+        }
+        public TriggerScheduleScheduleMonthly build() {
+            final var o = new TriggerScheduleScheduleMonthly();
+            o.week = week;
+            o.weekday = weekday;
+            return o;
         }
     }
 }

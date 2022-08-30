@@ -13,28 +13,19 @@ public final class DatasetBlobStorageStorageAccount {
      * @return The name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The resource group name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
      * 
      */
-    private final String resourceGroupName;
+    private String resourceGroupName;
     /**
      * @return The subscription id of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
      * 
      */
-    private final String subscriptionId;
+    private String subscriptionId;
 
-    @CustomType.Constructor
-    private DatasetBlobStorageStorageAccount(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("subscriptionId") String subscriptionId) {
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.subscriptionId = subscriptionId;
-    }
-
+    private DatasetBlobStorageStorageAccount() {}
     /**
      * @return The name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
      * 
@@ -64,16 +55,12 @@ public final class DatasetBlobStorageStorageAccount {
     public static Builder builder(DatasetBlobStorageStorageAccount defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String resourceGroupName;
         private String subscriptionId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DatasetBlobStorageStorageAccount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -81,19 +68,27 @@ public final class DatasetBlobStorageStorageAccount {
     	      this.subscriptionId = defaults.subscriptionId;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder subscriptionId(String subscriptionId) {
             this.subscriptionId = Objects.requireNonNull(subscriptionId);
             return this;
-        }        public DatasetBlobStorageStorageAccount build() {
-            return new DatasetBlobStorageStorageAccount(name, resourceGroupName, subscriptionId);
+        }
+        public DatasetBlobStorageStorageAccount build() {
+            final var o = new DatasetBlobStorageStorageAccount();
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.subscriptionId = subscriptionId;
+            return o;
         }
     }
 }

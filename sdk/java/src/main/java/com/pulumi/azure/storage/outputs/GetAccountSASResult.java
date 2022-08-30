@@ -15,52 +15,27 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccountSASResult {
-    private final String connectionString;
-    private final String expiry;
-    private final @Nullable Boolean httpsOnly;
+    private String connectionString;
+    private String expiry;
+    private @Nullable Boolean httpsOnly;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String ipAddresses;
-    private final GetAccountSASPermissions permissions;
-    private final GetAccountSASResourceTypes resourceTypes;
+    private String id;
+    private @Nullable String ipAddresses;
+    private GetAccountSASPermissions permissions;
+    private GetAccountSASResourceTypes resourceTypes;
     /**
      * @return The computed Account Shared Access Signature (SAS).
      * 
      */
-    private final String sas;
-    private final GetAccountSASServices services;
-    private final @Nullable String signedVersion;
-    private final String start;
+    private String sas;
+    private GetAccountSASServices services;
+    private @Nullable String signedVersion;
+    private String start;
 
-    @CustomType.Constructor
-    private GetAccountSASResult(
-        @CustomType.Parameter("connectionString") String connectionString,
-        @CustomType.Parameter("expiry") String expiry,
-        @CustomType.Parameter("httpsOnly") @Nullable Boolean httpsOnly,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ipAddresses") @Nullable String ipAddresses,
-        @CustomType.Parameter("permissions") GetAccountSASPermissions permissions,
-        @CustomType.Parameter("resourceTypes") GetAccountSASResourceTypes resourceTypes,
-        @CustomType.Parameter("sas") String sas,
-        @CustomType.Parameter("services") GetAccountSASServices services,
-        @CustomType.Parameter("signedVersion") @Nullable String signedVersion,
-        @CustomType.Parameter("start") String start) {
-        this.connectionString = connectionString;
-        this.expiry = expiry;
-        this.httpsOnly = httpsOnly;
-        this.id = id;
-        this.ipAddresses = ipAddresses;
-        this.permissions = permissions;
-        this.resourceTypes = resourceTypes;
-        this.sas = sas;
-        this.services = services;
-        this.signedVersion = signedVersion;
-        this.start = start;
-    }
-
+    private GetAccountSASResult() {}
     public String connectionString() {
         return this.connectionString;
     }
@@ -110,7 +85,7 @@ public final class GetAccountSASResult {
     public static Builder builder(GetAccountSASResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String connectionString;
         private String expiry;
@@ -123,11 +98,7 @@ public final class GetAccountSASResult {
         private GetAccountSASServices services;
         private @Nullable String signedVersion;
         private String start;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccountSASResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectionString = defaults.connectionString;
@@ -143,51 +114,75 @@ public final class GetAccountSASResult {
     	      this.start = defaults.start;
         }
 
+        @CustomType.Setter
         public Builder connectionString(String connectionString) {
             this.connectionString = Objects.requireNonNull(connectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder expiry(String expiry) {
             this.expiry = Objects.requireNonNull(expiry);
             return this;
         }
+        @CustomType.Setter
         public Builder httpsOnly(@Nullable Boolean httpsOnly) {
             this.httpsOnly = httpsOnly;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddresses(@Nullable String ipAddresses) {
             this.ipAddresses = ipAddresses;
             return this;
         }
+        @CustomType.Setter
         public Builder permissions(GetAccountSASPermissions permissions) {
             this.permissions = Objects.requireNonNull(permissions);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceTypes(GetAccountSASResourceTypes resourceTypes) {
             this.resourceTypes = Objects.requireNonNull(resourceTypes);
             return this;
         }
+        @CustomType.Setter
         public Builder sas(String sas) {
             this.sas = Objects.requireNonNull(sas);
             return this;
         }
+        @CustomType.Setter
         public Builder services(GetAccountSASServices services) {
             this.services = Objects.requireNonNull(services);
             return this;
         }
+        @CustomType.Setter
         public Builder signedVersion(@Nullable String signedVersion) {
             this.signedVersion = signedVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder start(String start) {
             this.start = Objects.requireNonNull(start);
             return this;
-        }        public GetAccountSASResult build() {
-            return new GetAccountSASResult(connectionString, expiry, httpsOnly, id, ipAddresses, permissions, resourceTypes, sas, services, signedVersion, start);
+        }
+        public GetAccountSASResult build() {
+            final var o = new GetAccountSASResult();
+            o.connectionString = connectionString;
+            o.expiry = expiry;
+            o.httpsOnly = httpsOnly;
+            o.id = id;
+            o.ipAddresses = ipAddresses;
+            o.permissions = permissions;
+            o.resourceTypes = resourceTypes;
+            o.sas = sas;
+            o.services = services;
+            o.signedVersion = signedVersion;
+            o.start = start;
+            return o;
         }
     }
 }

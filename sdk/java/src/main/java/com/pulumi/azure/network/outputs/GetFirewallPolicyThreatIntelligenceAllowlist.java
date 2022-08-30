@@ -10,17 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFirewallPolicyThreatIntelligenceAllowlist {
-    private final List<String> fqdns;
-    private final List<String> ipAddresses;
+    private List<String> fqdns;
+    private List<String> ipAddresses;
 
-    @CustomType.Constructor
-    private GetFirewallPolicyThreatIntelligenceAllowlist(
-        @CustomType.Parameter("fqdns") List<String> fqdns,
-        @CustomType.Parameter("ipAddresses") List<String> ipAddresses) {
-        this.fqdns = fqdns;
-        this.ipAddresses = ipAddresses;
-    }
-
+    private GetFirewallPolicyThreatIntelligenceAllowlist() {}
     public List<String> fqdns() {
         return this.fqdns;
     }
@@ -35,21 +28,18 @@ public final class GetFirewallPolicyThreatIntelligenceAllowlist {
     public static Builder builder(GetFirewallPolicyThreatIntelligenceAllowlist defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> fqdns;
         private List<String> ipAddresses;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFirewallPolicyThreatIntelligenceAllowlist defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fqdns = defaults.fqdns;
     	      this.ipAddresses = defaults.ipAddresses;
         }
 
+        @CustomType.Setter
         public Builder fqdns(List<String> fqdns) {
             this.fqdns = Objects.requireNonNull(fqdns);
             return this;
@@ -57,14 +47,19 @@ public final class GetFirewallPolicyThreatIntelligenceAllowlist {
         public Builder fqdns(String... fqdns) {
             return fqdns(List.of(fqdns));
         }
+        @CustomType.Setter
         public Builder ipAddresses(List<String> ipAddresses) {
             this.ipAddresses = Objects.requireNonNull(ipAddresses);
             return this;
         }
         public Builder ipAddresses(String... ipAddresses) {
             return ipAddresses(List.of(ipAddresses));
-        }        public GetFirewallPolicyThreatIntelligenceAllowlist build() {
-            return new GetFirewallPolicyThreatIntelligenceAllowlist(fqdns, ipAddresses);
+        }
+        public GetFirewallPolicyThreatIntelligenceAllowlist build() {
+            final var o = new GetFirewallPolicyThreatIntelligenceAllowlist();
+            o.fqdns = fqdns;
+            o.ipAddresses = ipAddresses;
+            return o;
         }
     }
 }

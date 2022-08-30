@@ -15,77 +15,54 @@ public final class LinuxWebAppSiteConfigApplicationStack {
      * @return The Docker image reference, including repository host as needed.
      * 
      */
-    private final @Nullable String dockerImage;
+    private @Nullable String dockerImage;
     /**
      * @return The image Tag to use. e.g. `latest`.
      * 
      */
-    private final @Nullable String dockerImageTag;
+    private @Nullable String dockerImageTag;
     /**
      * @return The version of .NET to use. Possible values include `3.1`, `5.0`, and `6.0`.
      * 
      */
-    private final @Nullable String dotnetVersion;
+    private @Nullable String dotnetVersion;
     /**
      * @return The Java server type. Possible values include `JAVA`, `TOMCAT`, and `JBOSSEAP`.
      * 
      */
-    private final @Nullable String javaServer;
+    private @Nullable String javaServer;
     /**
      * @return The Version of the `java_server` to use.
      * 
      */
-    private final @Nullable String javaServerVersion;
+    private @Nullable String javaServerVersion;
     /**
      * @return The Version of Java to use. Supported versions of Java vary depending on the `java_server` and `java_server_version`, as well as security and fixes to major versions. Please see Azure documentation for the latest information.
      * 
      */
-    private final @Nullable String javaVersion;
+    private @Nullable String javaVersion;
     /**
      * @return The version of Node to run. Possible values include `12-lts`, `14-lts`, and `16-lts`. This property conflicts with `java_version`.
      * 
      */
-    private final @Nullable String nodeVersion;
+    private @Nullable String nodeVersion;
     /**
      * @return The version of PHP to run. Possible values include `7.4`, and `8.0`.
      * 
      */
-    private final @Nullable String phpVersion;
+    private @Nullable String phpVersion;
     /**
      * @return The version of Python to run. Possible values include `3.7`, `3.8`, and `3.9`.
      * 
      */
-    private final @Nullable String pythonVersion;
+    private @Nullable String pythonVersion;
     /**
      * @return Te version of Ruby to run. Possible values include `2.6` and `2.7`.
      * 
      */
-    private final @Nullable String rubyVersion;
+    private @Nullable String rubyVersion;
 
-    @CustomType.Constructor
-    private LinuxWebAppSiteConfigApplicationStack(
-        @CustomType.Parameter("dockerImage") @Nullable String dockerImage,
-        @CustomType.Parameter("dockerImageTag") @Nullable String dockerImageTag,
-        @CustomType.Parameter("dotnetVersion") @Nullable String dotnetVersion,
-        @CustomType.Parameter("javaServer") @Nullable String javaServer,
-        @CustomType.Parameter("javaServerVersion") @Nullable String javaServerVersion,
-        @CustomType.Parameter("javaVersion") @Nullable String javaVersion,
-        @CustomType.Parameter("nodeVersion") @Nullable String nodeVersion,
-        @CustomType.Parameter("phpVersion") @Nullable String phpVersion,
-        @CustomType.Parameter("pythonVersion") @Nullable String pythonVersion,
-        @CustomType.Parameter("rubyVersion") @Nullable String rubyVersion) {
-        this.dockerImage = dockerImage;
-        this.dockerImageTag = dockerImageTag;
-        this.dotnetVersion = dotnetVersion;
-        this.javaServer = javaServer;
-        this.javaServerVersion = javaServerVersion;
-        this.javaVersion = javaVersion;
-        this.nodeVersion = nodeVersion;
-        this.phpVersion = phpVersion;
-        this.pythonVersion = pythonVersion;
-        this.rubyVersion = rubyVersion;
-    }
-
+    private LinuxWebAppSiteConfigApplicationStack() {}
     /**
      * @return The Docker image reference, including repository host as needed.
      * 
@@ -164,7 +141,7 @@ public final class LinuxWebAppSiteConfigApplicationStack {
     public static Builder builder(LinuxWebAppSiteConfigApplicationStack defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String dockerImage;
         private @Nullable String dockerImageTag;
@@ -176,11 +153,7 @@ public final class LinuxWebAppSiteConfigApplicationStack {
         private @Nullable String phpVersion;
         private @Nullable String pythonVersion;
         private @Nullable String rubyVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxWebAppSiteConfigApplicationStack defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dockerImage = defaults.dockerImage;
@@ -195,47 +168,69 @@ public final class LinuxWebAppSiteConfigApplicationStack {
     	      this.rubyVersion = defaults.rubyVersion;
         }
 
+        @CustomType.Setter
         public Builder dockerImage(@Nullable String dockerImage) {
             this.dockerImage = dockerImage;
             return this;
         }
+        @CustomType.Setter
         public Builder dockerImageTag(@Nullable String dockerImageTag) {
             this.dockerImageTag = dockerImageTag;
             return this;
         }
+        @CustomType.Setter
         public Builder dotnetVersion(@Nullable String dotnetVersion) {
             this.dotnetVersion = dotnetVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder javaServer(@Nullable String javaServer) {
             this.javaServer = javaServer;
             return this;
         }
+        @CustomType.Setter
         public Builder javaServerVersion(@Nullable String javaServerVersion) {
             this.javaServerVersion = javaServerVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder javaVersion(@Nullable String javaVersion) {
             this.javaVersion = javaVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder nodeVersion(@Nullable String nodeVersion) {
             this.nodeVersion = nodeVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder phpVersion(@Nullable String phpVersion) {
             this.phpVersion = phpVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder pythonVersion(@Nullable String pythonVersion) {
             this.pythonVersion = pythonVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder rubyVersion(@Nullable String rubyVersion) {
             this.rubyVersion = rubyVersion;
             return this;
-        }        public LinuxWebAppSiteConfigApplicationStack build() {
-            return new LinuxWebAppSiteConfigApplicationStack(dockerImage, dockerImageTag, dotnetVersion, javaServer, javaServerVersion, javaVersion, nodeVersion, phpVersion, pythonVersion, rubyVersion);
+        }
+        public LinuxWebAppSiteConfigApplicationStack build() {
+            final var o = new LinuxWebAppSiteConfigApplicationStack();
+            o.dockerImage = dockerImage;
+            o.dockerImageTag = dockerImageTag;
+            o.dotnetVersion = dotnetVersion;
+            o.javaServer = javaServer;
+            o.javaServerVersion = javaServerVersion;
+            o.javaVersion = javaVersion;
+            o.nodeVersion = nodeVersion;
+            o.phpVersion = phpVersion;
+            o.pythonVersion = pythonVersion;
+            o.rubyVersion = rubyVersion;
+            return o;
         }
     }
 }

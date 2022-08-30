@@ -17,28 +17,19 @@ public final class EndpointDeliveryRuleRemoteAddressCondition {
      * @return List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`. This is required if `operator` is not `Any`.
      * 
      */
-    private final @Nullable List<String> matchValues;
+    private @Nullable List<String> matchValues;
     /**
      * @return Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean negateCondition;
+    private @Nullable Boolean negateCondition;
     /**
      * @return Valid values are `Any`, `GeoMatch` and `IPMatch`.
      * 
      */
-    private final String operator;
+    private String operator;
 
-    @CustomType.Constructor
-    private EndpointDeliveryRuleRemoteAddressCondition(
-        @CustomType.Parameter("matchValues") @Nullable List<String> matchValues,
-        @CustomType.Parameter("negateCondition") @Nullable Boolean negateCondition,
-        @CustomType.Parameter("operator") String operator) {
-        this.matchValues = matchValues;
-        this.negateCondition = negateCondition;
-        this.operator = operator;
-    }
-
+    private EndpointDeliveryRuleRemoteAddressCondition() {}
     /**
      * @return List of string values. For `GeoMatch` `operator` this should be a list of country codes (e.g. `US` or `DE`). List of IP address if `operator` equals to `IPMatch`. This is required if `operator` is not `Any`.
      * 
@@ -68,16 +59,12 @@ public final class EndpointDeliveryRuleRemoteAddressCondition {
     public static Builder builder(EndpointDeliveryRuleRemoteAddressCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> matchValues;
         private @Nullable Boolean negateCondition;
         private String operator;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointDeliveryRuleRemoteAddressCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.matchValues = defaults.matchValues;
@@ -85,6 +72,7 @@ public final class EndpointDeliveryRuleRemoteAddressCondition {
     	      this.operator = defaults.operator;
         }
 
+        @CustomType.Setter
         public Builder matchValues(@Nullable List<String> matchValues) {
             this.matchValues = matchValues;
             return this;
@@ -92,15 +80,22 @@ public final class EndpointDeliveryRuleRemoteAddressCondition {
         public Builder matchValues(String... matchValues) {
             return matchValues(List.of(matchValues));
         }
+        @CustomType.Setter
         public Builder negateCondition(@Nullable Boolean negateCondition) {
             this.negateCondition = negateCondition;
             return this;
         }
+        @CustomType.Setter
         public Builder operator(String operator) {
             this.operator = Objects.requireNonNull(operator);
             return this;
-        }        public EndpointDeliveryRuleRemoteAddressCondition build() {
-            return new EndpointDeliveryRuleRemoteAddressCondition(matchValues, negateCondition, operator);
+        }
+        public EndpointDeliveryRuleRemoteAddressCondition build() {
+            final var o = new EndpointDeliveryRuleRemoteAddressCondition();
+            o.matchValues = matchValues;
+            o.negateCondition = negateCondition;
+            o.operator = operator;
+            return o;
         }
     }
 }

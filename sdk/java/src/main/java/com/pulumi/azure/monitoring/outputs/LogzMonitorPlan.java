@@ -13,35 +13,24 @@ public final class LogzMonitorPlan {
      * @return Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
      * 
      */
-    private final String billingCycle;
+    private String billingCycle;
     /**
      * @return Date when plan was applied. Changing this forces a new logz Monitor to be created.
      * 
      */
-    private final String effectiveDate;
+    private String effectiveDate;
     /**
      * @return Plan id as published by Logz. Possible values are `100gb14days`. Changing this forces a new logz Monitor to be created.
      * 
      */
-    private final String planId;
+    private String planId;
     /**
      * @return Different usage types. Possible values are `PAYG` or `COMMITTED`. Changing this forces a new logz Monitor to be created.
      * 
      */
-    private final String usageType;
+    private String usageType;
 
-    @CustomType.Constructor
-    private LogzMonitorPlan(
-        @CustomType.Parameter("billingCycle") String billingCycle,
-        @CustomType.Parameter("effectiveDate") String effectiveDate,
-        @CustomType.Parameter("planId") String planId,
-        @CustomType.Parameter("usageType") String usageType) {
-        this.billingCycle = billingCycle;
-        this.effectiveDate = effectiveDate;
-        this.planId = planId;
-        this.usageType = usageType;
-    }
-
+    private LogzMonitorPlan() {}
     /**
      * @return Different billing cycles. Possible values are `MONTHLY` or `WEEKLY`. Changing this forces a new logz Monitor to be created.
      * 
@@ -78,17 +67,13 @@ public final class LogzMonitorPlan {
     public static Builder builder(LogzMonitorPlan defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String billingCycle;
         private String effectiveDate;
         private String planId;
         private String usageType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LogzMonitorPlan defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.billingCycle = defaults.billingCycle;
@@ -97,23 +82,33 @@ public final class LogzMonitorPlan {
     	      this.usageType = defaults.usageType;
         }
 
+        @CustomType.Setter
         public Builder billingCycle(String billingCycle) {
             this.billingCycle = Objects.requireNonNull(billingCycle);
             return this;
         }
+        @CustomType.Setter
         public Builder effectiveDate(String effectiveDate) {
             this.effectiveDate = Objects.requireNonNull(effectiveDate);
             return this;
         }
+        @CustomType.Setter
         public Builder planId(String planId) {
             this.planId = Objects.requireNonNull(planId);
             return this;
         }
+        @CustomType.Setter
         public Builder usageType(String usageType) {
             this.usageType = Objects.requireNonNull(usageType);
             return this;
-        }        public LogzMonitorPlan build() {
-            return new LogzMonitorPlan(billingCycle, effectiveDate, planId, usageType);
+        }
+        public LogzMonitorPlan build() {
+            final var o = new LogzMonitorPlan();
+            o.billingCycle = billingCycle;
+            o.effectiveDate = effectiveDate;
+            o.planId = planId;
+            o.usageType = usageType;
+            return o;
         }
     }
 }

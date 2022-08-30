@@ -10,31 +10,20 @@ import java.util.Objects;
 
 @CustomType
 public final class GetScheduledQueryRulesAlertTriggerMetricTrigger {
-    private final String metricColumn;
-    private final String metricTriggerType;
+    private String metricColumn;
+    private String metricTriggerType;
     /**
      * @return Evaluation operation for rule.
      * 
      */
-    private final String operator;
+    private String operator;
     /**
      * @return Result or count threshold based on which rule should be triggered.
      * 
      */
-    private final Double threshold;
+    private Double threshold;
 
-    @CustomType.Constructor
-    private GetScheduledQueryRulesAlertTriggerMetricTrigger(
-        @CustomType.Parameter("metricColumn") String metricColumn,
-        @CustomType.Parameter("metricTriggerType") String metricTriggerType,
-        @CustomType.Parameter("operator") String operator,
-        @CustomType.Parameter("threshold") Double threshold) {
-        this.metricColumn = metricColumn;
-        this.metricTriggerType = metricTriggerType;
-        this.operator = operator;
-        this.threshold = threshold;
-    }
-
+    private GetScheduledQueryRulesAlertTriggerMetricTrigger() {}
     public String metricColumn() {
         return this.metricColumn;
     }
@@ -63,17 +52,13 @@ public final class GetScheduledQueryRulesAlertTriggerMetricTrigger {
     public static Builder builder(GetScheduledQueryRulesAlertTriggerMetricTrigger defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String metricColumn;
         private String metricTriggerType;
         private String operator;
         private Double threshold;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetScheduledQueryRulesAlertTriggerMetricTrigger defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.metricColumn = defaults.metricColumn;
@@ -82,23 +67,33 @@ public final class GetScheduledQueryRulesAlertTriggerMetricTrigger {
     	      this.threshold = defaults.threshold;
         }
 
+        @CustomType.Setter
         public Builder metricColumn(String metricColumn) {
             this.metricColumn = Objects.requireNonNull(metricColumn);
             return this;
         }
+        @CustomType.Setter
         public Builder metricTriggerType(String metricTriggerType) {
             this.metricTriggerType = Objects.requireNonNull(metricTriggerType);
             return this;
         }
+        @CustomType.Setter
         public Builder operator(String operator) {
             this.operator = Objects.requireNonNull(operator);
             return this;
         }
+        @CustomType.Setter
         public Builder threshold(Double threshold) {
             this.threshold = Objects.requireNonNull(threshold);
             return this;
-        }        public GetScheduledQueryRulesAlertTriggerMetricTrigger build() {
-            return new GetScheduledQueryRulesAlertTriggerMetricTrigger(metricColumn, metricTriggerType, operator, threshold);
+        }
+        public GetScheduledQueryRulesAlertTriggerMetricTrigger build() {
+            final var o = new GetScheduledQueryRulesAlertTriggerMetricTrigger();
+            o.metricColumn = metricColumn;
+            o.metricTriggerType = metricTriggerType;
+            o.operator = operator;
+            o.threshold = threshold;
+            return o;
         }
     }
 }

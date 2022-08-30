@@ -65,14 +65,14 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+     * The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azure.sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
      * 
      */
     @Import(name="dnsZonePartnerId")
     private @Nullable Output<String> dnsZonePartnerId;
 
     /**
-     * @return The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+     * @return The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azure.sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> dnsZonePartnerId() {
@@ -442,7 +442,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dnsZonePartnerId The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+         * @param dnsZonePartnerId The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azure.sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -453,7 +453,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dnsZonePartnerId The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+         * @param dnsZonePartnerId The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azure.sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
          * 
          * @return builder
          * 

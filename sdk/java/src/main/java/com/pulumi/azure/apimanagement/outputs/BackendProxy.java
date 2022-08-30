@@ -15,28 +15,19 @@ public final class BackendProxy {
      * @return The password to connect to the proxy server.
      * 
      */
-    private final @Nullable String password;
+    private @Nullable String password;
     /**
      * @return The URL of the proxy server.
      * 
      */
-    private final String url;
+    private String url;
     /**
      * @return The username to connect to the proxy server.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private BackendProxy(
-        @CustomType.Parameter("password") @Nullable String password,
-        @CustomType.Parameter("url") String url,
-        @CustomType.Parameter("username") String username) {
-        this.password = password;
-        this.url = url;
-        this.username = username;
-    }
-
+    private BackendProxy() {}
     /**
      * @return The password to connect to the proxy server.
      * 
@@ -66,16 +57,12 @@ public final class BackendProxy {
     public static Builder builder(BackendProxy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String password;
         private String url;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BackendProxy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.password = defaults.password;
@@ -83,19 +70,27 @@ public final class BackendProxy {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public BackendProxy build() {
-            return new BackendProxy(password, url, username);
+        }
+        public BackendProxy build() {
+            final var o = new BackendProxy();
+            o.password = password;
+            o.url = url;
+            o.username = username;
+            return o;
         }
     }
 }

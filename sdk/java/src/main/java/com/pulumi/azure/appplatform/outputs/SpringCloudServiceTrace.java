@@ -16,21 +16,14 @@ public final class SpringCloudServiceTrace {
      * @return The connection string used for Application Insights.
      * 
      */
-    private final @Nullable String connectionString;
+    private @Nullable String connectionString;
     /**
      * @return The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
      * 
      */
-    private final @Nullable Double sampleRate;
+    private @Nullable Double sampleRate;
 
-    @CustomType.Constructor
-    private SpringCloudServiceTrace(
-        @CustomType.Parameter("connectionString") @Nullable String connectionString,
-        @CustomType.Parameter("sampleRate") @Nullable Double sampleRate) {
-        this.connectionString = connectionString;
-        this.sampleRate = sampleRate;
-    }
-
+    private SpringCloudServiceTrace() {}
     /**
      * @return The connection string used for Application Insights.
      * 
@@ -53,30 +46,32 @@ public final class SpringCloudServiceTrace {
     public static Builder builder(SpringCloudServiceTrace defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String connectionString;
         private @Nullable Double sampleRate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpringCloudServiceTrace defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectionString = defaults.connectionString;
     	      this.sampleRate = defaults.sampleRate;
         }
 
+        @CustomType.Setter
         public Builder connectionString(@Nullable String connectionString) {
             this.connectionString = connectionString;
             return this;
         }
+        @CustomType.Setter
         public Builder sampleRate(@Nullable Double sampleRate) {
             this.sampleRate = sampleRate;
             return this;
-        }        public SpringCloudServiceTrace build() {
-            return new SpringCloudServiceTrace(connectionString, sampleRate);
+        }
+        public SpringCloudServiceTrace build() {
+            final var o = new SpringCloudServiceTrace();
+            o.connectionString = connectionString;
+            o.sampleRate = sampleRate;
+            return o;
         }
     }
 }

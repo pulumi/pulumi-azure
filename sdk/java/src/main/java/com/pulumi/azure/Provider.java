@@ -127,7 +127,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.msiEndpoint);
     }
     /**
-     * The bearer token for the request to the OIDC provider. For use When authenticating as a Service Principal using OpenID
+     * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
      * Connect.
      * 
      */
@@ -135,7 +135,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     private Output</* @Nullable */ String> oidcRequestToken;
 
     /**
-     * @return The bearer token for the request to the OIDC provider. For use When authenticating as a Service Principal using OpenID
+     * @return The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
      * Connect.
      * 
      */
@@ -143,7 +143,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.oidcRequestToken);
     }
     /**
-     * The URL for the OIDC provider from which to request an ID token. For use When authenticating as a Service Principal
+     * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
      * using OpenID Connect.
      * 
      */
@@ -151,12 +151,26 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     private Output</* @Nullable */ String> oidcRequestUrl;
 
     /**
-     * @return The URL for the OIDC provider from which to request an ID token. For use When authenticating as a Service Principal
+     * @return The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
      * using OpenID Connect.
      * 
      */
     public Output<Optional<String>> oidcRequestUrl() {
         return Codegen.optional(this.oidcRequestUrl);
+    }
+    /**
+     * The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+     * 
+     */
+    @Export(name="oidcToken", type=String.class, parameters={})
+    private Output</* @Nullable */ String> oidcToken;
+
+    /**
+     * @return The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+     * 
+     */
+    public Output<Optional<String>> oidcToken() {
+        return Codegen.optional(this.oidcToken);
     }
     /**
      * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.

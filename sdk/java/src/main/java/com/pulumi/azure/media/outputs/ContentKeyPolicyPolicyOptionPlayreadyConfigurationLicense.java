@@ -17,84 +17,59 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense {
      * @return A flag indicating whether test devices can use the license.
      * 
      */
-    private final @Nullable Boolean allowTestDevices;
+    private @Nullable Boolean allowTestDevices;
     /**
      * @return The begin date of license.
      * 
      */
-    private final @Nullable String beginDate;
+    private @Nullable String beginDate;
     /**
      * @return Specifies that the content key ID is in the PlayReady header.
      * 
      */
-    private final @Nullable Boolean contentKeyLocationFromHeaderEnabled;
+    private @Nullable Boolean contentKeyLocationFromHeaderEnabled;
     /**
      * @return The content key ID. Specifies that the content key ID is specified in the PlayReady configuration.
      * 
      */
-    private final @Nullable String contentKeyLocationFromKeyId;
+    private @Nullable String contentKeyLocationFromKeyId;
     /**
      * @return The PlayReady content type. Supported values are `UltraVioletDownload`, `UltraVioletStreaming` or `Unspecified`.
      * 
      */
-    private final @Nullable String contentType;
+    private @Nullable String contentType;
     /**
      * @return The expiration date of license.
      * 
      */
-    private final @Nullable String expirationDate;
+    private @Nullable String expirationDate;
     /**
      * @return The grace period of license.
      * 
      */
-    private final @Nullable String gracePeriod;
+    private @Nullable String gracePeriod;
     /**
      * @return The license type. Supported values are `NonPersistent` or `Persistent`.
      * 
      */
-    private final @Nullable String licenseType;
+    private @Nullable String licenseType;
     /**
      * @return A `play_right` block as defined above.
      * 
      */
-    private final @Nullable ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight playRight;
+    private @Nullable ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight playRight;
     /**
      * @return The relative begin date of license.
      * 
      */
-    private final @Nullable String relativeBeginDate;
+    private @Nullable String relativeBeginDate;
     /**
      * @return The relative expiration date of license.
      * 
      */
-    private final @Nullable String relativeExpirationDate;
+    private @Nullable String relativeExpirationDate;
 
-    @CustomType.Constructor
-    private ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense(
-        @CustomType.Parameter("allowTestDevices") @Nullable Boolean allowTestDevices,
-        @CustomType.Parameter("beginDate") @Nullable String beginDate,
-        @CustomType.Parameter("contentKeyLocationFromHeaderEnabled") @Nullable Boolean contentKeyLocationFromHeaderEnabled,
-        @CustomType.Parameter("contentKeyLocationFromKeyId") @Nullable String contentKeyLocationFromKeyId,
-        @CustomType.Parameter("contentType") @Nullable String contentType,
-        @CustomType.Parameter("expirationDate") @Nullable String expirationDate,
-        @CustomType.Parameter("gracePeriod") @Nullable String gracePeriod,
-        @CustomType.Parameter("licenseType") @Nullable String licenseType,
-        @CustomType.Parameter("playRight") @Nullable ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight playRight,
-        @CustomType.Parameter("relativeBeginDate") @Nullable String relativeBeginDate,
-        @CustomType.Parameter("relativeExpirationDate") @Nullable String relativeExpirationDate) {
-        this.allowTestDevices = allowTestDevices;
-        this.beginDate = beginDate;
-        this.contentKeyLocationFromHeaderEnabled = contentKeyLocationFromHeaderEnabled;
-        this.contentKeyLocationFromKeyId = contentKeyLocationFromKeyId;
-        this.contentType = contentType;
-        this.expirationDate = expirationDate;
-        this.gracePeriod = gracePeriod;
-        this.licenseType = licenseType;
-        this.playRight = playRight;
-        this.relativeBeginDate = relativeBeginDate;
-        this.relativeExpirationDate = relativeExpirationDate;
-    }
-
+    private ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense() {}
     /**
      * @return A flag indicating whether test devices can use the license.
      * 
@@ -180,7 +155,7 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense {
     public static Builder builder(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean allowTestDevices;
         private @Nullable String beginDate;
@@ -193,11 +168,7 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense {
         private @Nullable ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight playRight;
         private @Nullable String relativeBeginDate;
         private @Nullable String relativeExpirationDate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowTestDevices = defaults.allowTestDevices;
@@ -213,51 +184,75 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense {
     	      this.relativeExpirationDate = defaults.relativeExpirationDate;
         }
 
+        @CustomType.Setter
         public Builder allowTestDevices(@Nullable Boolean allowTestDevices) {
             this.allowTestDevices = allowTestDevices;
             return this;
         }
+        @CustomType.Setter
         public Builder beginDate(@Nullable String beginDate) {
             this.beginDate = beginDate;
             return this;
         }
+        @CustomType.Setter
         public Builder contentKeyLocationFromHeaderEnabled(@Nullable Boolean contentKeyLocationFromHeaderEnabled) {
             this.contentKeyLocationFromHeaderEnabled = contentKeyLocationFromHeaderEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder contentKeyLocationFromKeyId(@Nullable String contentKeyLocationFromKeyId) {
             this.contentKeyLocationFromKeyId = contentKeyLocationFromKeyId;
             return this;
         }
+        @CustomType.Setter
         public Builder contentType(@Nullable String contentType) {
             this.contentType = contentType;
             return this;
         }
+        @CustomType.Setter
         public Builder expirationDate(@Nullable String expirationDate) {
             this.expirationDate = expirationDate;
             return this;
         }
+        @CustomType.Setter
         public Builder gracePeriod(@Nullable String gracePeriod) {
             this.gracePeriod = gracePeriod;
             return this;
         }
+        @CustomType.Setter
         public Builder licenseType(@Nullable String licenseType) {
             this.licenseType = licenseType;
             return this;
         }
+        @CustomType.Setter
         public Builder playRight(@Nullable ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight playRight) {
             this.playRight = playRight;
             return this;
         }
+        @CustomType.Setter
         public Builder relativeBeginDate(@Nullable String relativeBeginDate) {
             this.relativeBeginDate = relativeBeginDate;
             return this;
         }
+        @CustomType.Setter
         public Builder relativeExpirationDate(@Nullable String relativeExpirationDate) {
             this.relativeExpirationDate = relativeExpirationDate;
             return this;
-        }        public ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense build() {
-            return new ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense(allowTestDevices, beginDate, contentKeyLocationFromHeaderEnabled, contentKeyLocationFromKeyId, contentType, expirationDate, gracePeriod, licenseType, playRight, relativeBeginDate, relativeExpirationDate);
+        }
+        public ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense build() {
+            final var o = new ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense();
+            o.allowTestDevices = allowTestDevices;
+            o.beginDate = beginDate;
+            o.contentKeyLocationFromHeaderEnabled = contentKeyLocationFromHeaderEnabled;
+            o.contentKeyLocationFromKeyId = contentKeyLocationFromKeyId;
+            o.contentType = contentType;
+            o.expirationDate = expirationDate;
+            o.gracePeriod = gracePeriod;
+            o.licenseType = licenseType;
+            o.playRight = playRight;
+            o.relativeBeginDate = relativeBeginDate;
+            o.relativeExpirationDate = relativeExpirationDate;
+            return o;
         }
     }
 }

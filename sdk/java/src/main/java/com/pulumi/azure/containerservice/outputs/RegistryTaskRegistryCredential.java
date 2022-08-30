@@ -17,21 +17,14 @@ public final class RegistryTaskRegistryCredential {
      * @return One or more `custom` blocks as defined above.
      * 
      */
-    private final @Nullable List<RegistryTaskRegistryCredentialCustom> customs;
+    private @Nullable List<RegistryTaskRegistryCredentialCustom> customs;
     /**
      * @return One `source` block as defined below.
      * 
      */
-    private final @Nullable RegistryTaskRegistryCredentialSource source;
+    private @Nullable RegistryTaskRegistryCredentialSource source;
 
-    @CustomType.Constructor
-    private RegistryTaskRegistryCredential(
-        @CustomType.Parameter("customs") @Nullable List<RegistryTaskRegistryCredentialCustom> customs,
-        @CustomType.Parameter("source") @Nullable RegistryTaskRegistryCredentialSource source) {
-        this.customs = customs;
-        this.source = source;
-    }
-
+    private RegistryTaskRegistryCredential() {}
     /**
      * @return One or more `custom` blocks as defined above.
      * 
@@ -54,21 +47,18 @@ public final class RegistryTaskRegistryCredential {
     public static Builder builder(RegistryTaskRegistryCredential defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<RegistryTaskRegistryCredentialCustom> customs;
         private @Nullable RegistryTaskRegistryCredentialSource source;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegistryTaskRegistryCredential defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customs = defaults.customs;
     	      this.source = defaults.source;
         }
 
+        @CustomType.Setter
         public Builder customs(@Nullable List<RegistryTaskRegistryCredentialCustom> customs) {
             this.customs = customs;
             return this;
@@ -76,11 +66,16 @@ public final class RegistryTaskRegistryCredential {
         public Builder customs(RegistryTaskRegistryCredentialCustom... customs) {
             return customs(List.of(customs));
         }
+        @CustomType.Setter
         public Builder source(@Nullable RegistryTaskRegistryCredentialSource source) {
             this.source = source;
             return this;
-        }        public RegistryTaskRegistryCredential build() {
-            return new RegistryTaskRegistryCredential(customs, source);
+        }
+        public RegistryTaskRegistryCredential build() {
+            final var o = new RegistryTaskRegistryCredential();
+            o.customs = customs;
+            o.source = source;
+            return o;
         }
     }
 }

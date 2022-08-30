@@ -13,13 +13,9 @@ public final class GetKubernetesClusterLinuxProfileSshKey {
      * @return The Public SSH Key used to access the cluster.
      * 
      */
-    private final String keyData;
+    private String keyData;
 
-    @CustomType.Constructor
-    private GetKubernetesClusterLinuxProfileSshKey(@CustomType.Parameter("keyData") String keyData) {
-        this.keyData = keyData;
-    }
-
+    private GetKubernetesClusterLinuxProfileSshKey() {}
     /**
      * @return The Public SSH Key used to access the cluster.
      * 
@@ -35,24 +31,24 @@ public final class GetKubernetesClusterLinuxProfileSshKey {
     public static Builder builder(GetKubernetesClusterLinuxProfileSshKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String keyData;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKubernetesClusterLinuxProfileSshKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyData = defaults.keyData;
         }
 
+        @CustomType.Setter
         public Builder keyData(String keyData) {
             this.keyData = Objects.requireNonNull(keyData);
             return this;
-        }        public GetKubernetesClusterLinuxProfileSshKey build() {
-            return new GetKubernetesClusterLinuxProfileSshKey(keyData);
+        }
+        public GetKubernetesClusterLinuxProfileSshKey build() {
+            final var o = new GetKubernetesClusterLinuxProfileSshKey();
+            o.keyData = keyData;
+            return o;
         }
     }
 }

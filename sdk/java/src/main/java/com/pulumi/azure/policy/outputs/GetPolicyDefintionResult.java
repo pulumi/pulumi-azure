@@ -15,65 +15,42 @@ public final class GetPolicyDefintionResult {
      * @return The Description of the Policy.
      * 
      */
-    private final String description;
-    private final String displayName;
+    private String description;
+    private String displayName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String managementGroupName;
+    private String id;
+    private @Nullable String managementGroupName;
     /**
      * @return Any Metadata defined in the Policy.
      * 
      */
-    private final String metadata;
-    private final String name;
+    private String metadata;
+    private String name;
     /**
      * @return Any Parameters defined in the Policy.
      * 
      */
-    private final String parameters;
+    private String parameters;
     /**
      * @return The Rule as defined (in JSON) in the Policy.
      * 
      */
-    private final String policyRule;
+    private String policyRule;
     /**
      * @return The Type of the Policy. Possible values are `BuiltIn`, `Custom` and `NotSpecified`.
      * 
      */
-    private final String policyType;
+    private String policyType;
     /**
      * @return The Type of Policy.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetPolicyDefintionResult(
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("managementGroupName") @Nullable String managementGroupName,
-        @CustomType.Parameter("metadata") String metadata,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("parameters") String parameters,
-        @CustomType.Parameter("policyRule") String policyRule,
-        @CustomType.Parameter("policyType") String policyType,
-        @CustomType.Parameter("type") String type) {
-        this.description = description;
-        this.displayName = displayName;
-        this.id = id;
-        this.managementGroupName = managementGroupName;
-        this.metadata = metadata;
-        this.name = name;
-        this.parameters = parameters;
-        this.policyRule = policyRule;
-        this.policyType = policyType;
-        this.type = type;
-    }
-
+    private GetPolicyDefintionResult() {}
     /**
      * @return The Description of the Policy.
      * 
@@ -140,7 +117,7 @@ public final class GetPolicyDefintionResult {
     public static Builder builder(GetPolicyDefintionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String description;
         private String displayName;
@@ -152,11 +129,7 @@ public final class GetPolicyDefintionResult {
         private String policyRule;
         private String policyType;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPolicyDefintionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -171,47 +144,69 @@ public final class GetPolicyDefintionResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder managementGroupName(@Nullable String managementGroupName) {
             this.managementGroupName = managementGroupName;
             return this;
         }
+        @CustomType.Setter
         public Builder metadata(String metadata) {
             this.metadata = Objects.requireNonNull(metadata);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(String parameters) {
             this.parameters = Objects.requireNonNull(parameters);
             return this;
         }
+        @CustomType.Setter
         public Builder policyRule(String policyRule) {
             this.policyRule = Objects.requireNonNull(policyRule);
             return this;
         }
+        @CustomType.Setter
         public Builder policyType(String policyType) {
             this.policyType = Objects.requireNonNull(policyType);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetPolicyDefintionResult build() {
-            return new GetPolicyDefintionResult(description, displayName, id, managementGroupName, metadata, name, parameters, policyRule, policyType, type);
+        }
+        public GetPolicyDefintionResult build() {
+            final var o = new GetPolicyDefintionResult();
+            o.description = description;
+            o.displayName = displayName;
+            o.id = id;
+            o.managementGroupName = managementGroupName;
+            o.metadata = metadata;
+            o.name = name;
+            o.parameters = parameters;
+            o.policyRule = policyRule;
+            o.policyType = policyType;
+            o.type = type;
+            return o;
         }
     }
 }

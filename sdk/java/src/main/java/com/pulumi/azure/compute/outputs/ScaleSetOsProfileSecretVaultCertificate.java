@@ -15,21 +15,14 @@ public final class ScaleSetOsProfileSecretVaultCertificate {
      * @return Specifies the certificate store on the Virtual Machine where the certificate should be added to.
      * 
      */
-    private final @Nullable String certificateStore;
+    private @Nullable String certificateStore;
     /**
      * @return It is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be `data`, `dataType` and `password`.
      * 
      */
-    private final String certificateUrl;
+    private String certificateUrl;
 
-    @CustomType.Constructor
-    private ScaleSetOsProfileSecretVaultCertificate(
-        @CustomType.Parameter("certificateStore") @Nullable String certificateStore,
-        @CustomType.Parameter("certificateUrl") String certificateUrl) {
-        this.certificateStore = certificateStore;
-        this.certificateUrl = certificateUrl;
-    }
-
+    private ScaleSetOsProfileSecretVaultCertificate() {}
     /**
      * @return Specifies the certificate store on the Virtual Machine where the certificate should be added to.
      * 
@@ -52,30 +45,32 @@ public final class ScaleSetOsProfileSecretVaultCertificate {
     public static Builder builder(ScaleSetOsProfileSecretVaultCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String certificateStore;
         private String certificateUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScaleSetOsProfileSecretVaultCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateStore = defaults.certificateStore;
     	      this.certificateUrl = defaults.certificateUrl;
         }
 
+        @CustomType.Setter
         public Builder certificateStore(@Nullable String certificateStore) {
             this.certificateStore = certificateStore;
             return this;
         }
+        @CustomType.Setter
         public Builder certificateUrl(String certificateUrl) {
             this.certificateUrl = Objects.requireNonNull(certificateUrl);
             return this;
-        }        public ScaleSetOsProfileSecretVaultCertificate build() {
-            return new ScaleSetOsProfileSecretVaultCertificate(certificateStore, certificateUrl);
+        }
+        public ScaleSetOsProfileSecretVaultCertificate build() {
+            final var o = new ScaleSetOsProfileSecretVaultCertificate();
+            o.certificateStore = certificateStore;
+            o.certificateUrl = certificateUrl;
+            return o;
         }
     }
 }

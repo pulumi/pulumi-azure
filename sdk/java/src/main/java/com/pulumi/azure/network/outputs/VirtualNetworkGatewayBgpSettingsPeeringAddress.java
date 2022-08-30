@@ -16,35 +16,24 @@ public final class VirtualNetworkGatewayBgpSettingsPeeringAddress {
      * @return A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
      * 
      */
-    private final @Nullable List<String> apipaAddresses;
+    private @Nullable List<String> apipaAddresses;
     /**
      * @return A list of peering address assigned to the BGP peer of the Virtual Network Gateway.
      * 
      */
-    private final @Nullable List<String> defaultAddresses;
+    private @Nullable List<String> defaultAddresses;
     /**
      * @return The name of the IP configuration of this Virtual Network Gateway. In case there are multiple `ip_configuration` blocks defined, this property is **required** to specify.
      * 
      */
-    private final @Nullable String ipConfigurationName;
+    private @Nullable String ipConfigurationName;
     /**
      * @return A list of tunnel IP addresses assigned to the BGP peer of the Virtual Network Gateway.
      * 
      */
-    private final @Nullable List<String> tunnelIpAddresses;
+    private @Nullable List<String> tunnelIpAddresses;
 
-    @CustomType.Constructor
-    private VirtualNetworkGatewayBgpSettingsPeeringAddress(
-        @CustomType.Parameter("apipaAddresses") @Nullable List<String> apipaAddresses,
-        @CustomType.Parameter("defaultAddresses") @Nullable List<String> defaultAddresses,
-        @CustomType.Parameter("ipConfigurationName") @Nullable String ipConfigurationName,
-        @CustomType.Parameter("tunnelIpAddresses") @Nullable List<String> tunnelIpAddresses) {
-        this.apipaAddresses = apipaAddresses;
-        this.defaultAddresses = defaultAddresses;
-        this.ipConfigurationName = ipConfigurationName;
-        this.tunnelIpAddresses = tunnelIpAddresses;
-    }
-
+    private VirtualNetworkGatewayBgpSettingsPeeringAddress() {}
     /**
      * @return A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
      * 
@@ -81,17 +70,13 @@ public final class VirtualNetworkGatewayBgpSettingsPeeringAddress {
     public static Builder builder(VirtualNetworkGatewayBgpSettingsPeeringAddress defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> apipaAddresses;
         private @Nullable List<String> defaultAddresses;
         private @Nullable String ipConfigurationName;
         private @Nullable List<String> tunnelIpAddresses;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNetworkGatewayBgpSettingsPeeringAddress defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apipaAddresses = defaults.apipaAddresses;
@@ -100,6 +85,7 @@ public final class VirtualNetworkGatewayBgpSettingsPeeringAddress {
     	      this.tunnelIpAddresses = defaults.tunnelIpAddresses;
         }
 
+        @CustomType.Setter
         public Builder apipaAddresses(@Nullable List<String> apipaAddresses) {
             this.apipaAddresses = apipaAddresses;
             return this;
@@ -107,6 +93,7 @@ public final class VirtualNetworkGatewayBgpSettingsPeeringAddress {
         public Builder apipaAddresses(String... apipaAddresses) {
             return apipaAddresses(List.of(apipaAddresses));
         }
+        @CustomType.Setter
         public Builder defaultAddresses(@Nullable List<String> defaultAddresses) {
             this.defaultAddresses = defaultAddresses;
             return this;
@@ -114,18 +101,26 @@ public final class VirtualNetworkGatewayBgpSettingsPeeringAddress {
         public Builder defaultAddresses(String... defaultAddresses) {
             return defaultAddresses(List.of(defaultAddresses));
         }
+        @CustomType.Setter
         public Builder ipConfigurationName(@Nullable String ipConfigurationName) {
             this.ipConfigurationName = ipConfigurationName;
             return this;
         }
+        @CustomType.Setter
         public Builder tunnelIpAddresses(@Nullable List<String> tunnelIpAddresses) {
             this.tunnelIpAddresses = tunnelIpAddresses;
             return this;
         }
         public Builder tunnelIpAddresses(String... tunnelIpAddresses) {
             return tunnelIpAddresses(List.of(tunnelIpAddresses));
-        }        public VirtualNetworkGatewayBgpSettingsPeeringAddress build() {
-            return new VirtualNetworkGatewayBgpSettingsPeeringAddress(apipaAddresses, defaultAddresses, ipConfigurationName, tunnelIpAddresses);
+        }
+        public VirtualNetworkGatewayBgpSettingsPeeringAddress build() {
+            final var o = new VirtualNetworkGatewayBgpSettingsPeeringAddress();
+            o.apipaAddresses = apipaAddresses;
+            o.defaultAddresses = defaultAddresses;
+            o.ipConfigurationName = ipConfigurationName;
+            o.tunnelIpAddresses = tunnelIpAddresses;
+            return o;
         }
     }
 }

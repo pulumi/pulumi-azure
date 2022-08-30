@@ -18,132 +18,91 @@ public final class GetKubernetesClusterAgentPoolProfile {
      * @return The number of Agents (VM&#39;s) in the Pool.
      * 
      */
-    private final Integer count;
+    private Integer count;
     /**
      * @return If the auto-scaler is enabled.
      * 
      */
-    private final Boolean enableAutoScaling;
+    private Boolean enableAutoScaling;
     /**
      * @return If the Public IPs for the nodes in this Agent Pool are enabled.
      * 
      */
-    private final Boolean enableNodePublicIp;
+    private Boolean enableNodePublicIp;
     /**
      * @return Maximum number of nodes for auto-scaling
      * 
      */
-    private final Integer maxCount;
+    private Integer maxCount;
     /**
      * @return The maximum number of pods that can run on each agent.
      * 
      */
-    private final Integer maxPods;
+    private Integer maxPods;
     /**
      * @return Minimum number of nodes for auto-scaling
      * 
      */
-    private final Integer minCount;
+    private Integer minCount;
     /**
      * @return The name of the managed Kubernetes Cluster.
      * 
      */
-    private final String name;
-    private final Map<String,String> nodeLabels;
+    private String name;
+    private Map<String,String> nodeLabels;
     /**
      * @return Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
      * 
      */
-    private final String nodePublicIpPrefixId;
-    private final List<String> nodeTaints;
+    private String nodePublicIpPrefixId;
+    private List<String> nodeTaints;
     /**
      * @return Kubernetes version used for the Agents.
      * 
      */
-    private final String orchestratorVersion;
+    private String orchestratorVersion;
     /**
      * @return The size of the Agent VM&#39;s Operating System Disk in GB.
      * 
      */
-    private final Integer osDiskSizeGb;
+    private Integer osDiskSizeGb;
     /**
      * @return The Operating System used for the Agents.
      * 
      */
-    private final String osType;
+    private String osType;
     /**
      * @return A mapping of tags to assign to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The type of Managed Service Identity that is configured on this Kubernetes Cluster.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return A `upgrade_settings` block as documented below.
      * 
      */
-    private final List<GetKubernetesClusterAgentPoolProfileUpgradeSetting> upgradeSettings;
+    private List<GetKubernetesClusterAgentPoolProfileUpgradeSetting> upgradeSettings;
     /**
      * @return The size of each VM in the Agent Pool (e.g. `Standard_F1`).
      * 
      */
-    private final String vmSize;
+    private String vmSize;
     /**
      * @return The ID of the Subnet where the Agents in the Pool are provisioned.
      * 
      */
-    private final String vnetSubnetId;
+    private String vnetSubnetId;
     /**
      * @return A list of Availability Zones in which this Kubernetes Cluster is located.
      * 
      */
-    private final List<String> zones;
+    private List<String> zones;
 
-    @CustomType.Constructor
-    private GetKubernetesClusterAgentPoolProfile(
-        @CustomType.Parameter("count") Integer count,
-        @CustomType.Parameter("enableAutoScaling") Boolean enableAutoScaling,
-        @CustomType.Parameter("enableNodePublicIp") Boolean enableNodePublicIp,
-        @CustomType.Parameter("maxCount") Integer maxCount,
-        @CustomType.Parameter("maxPods") Integer maxPods,
-        @CustomType.Parameter("minCount") Integer minCount,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nodeLabels") Map<String,String> nodeLabels,
-        @CustomType.Parameter("nodePublicIpPrefixId") String nodePublicIpPrefixId,
-        @CustomType.Parameter("nodeTaints") List<String> nodeTaints,
-        @CustomType.Parameter("orchestratorVersion") String orchestratorVersion,
-        @CustomType.Parameter("osDiskSizeGb") Integer osDiskSizeGb,
-        @CustomType.Parameter("osType") String osType,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("upgradeSettings") List<GetKubernetesClusterAgentPoolProfileUpgradeSetting> upgradeSettings,
-        @CustomType.Parameter("vmSize") String vmSize,
-        @CustomType.Parameter("vnetSubnetId") String vnetSubnetId,
-        @CustomType.Parameter("zones") List<String> zones) {
-        this.count = count;
-        this.enableAutoScaling = enableAutoScaling;
-        this.enableNodePublicIp = enableNodePublicIp;
-        this.maxCount = maxCount;
-        this.maxPods = maxPods;
-        this.minCount = minCount;
-        this.name = name;
-        this.nodeLabels = nodeLabels;
-        this.nodePublicIpPrefixId = nodePublicIpPrefixId;
-        this.nodeTaints = nodeTaints;
-        this.orchestratorVersion = orchestratorVersion;
-        this.osDiskSizeGb = osDiskSizeGb;
-        this.osType = osType;
-        this.tags = tags;
-        this.type = type;
-        this.upgradeSettings = upgradeSettings;
-        this.vmSize = vmSize;
-        this.vnetSubnetId = vnetSubnetId;
-        this.zones = zones;
-    }
-
+    private GetKubernetesClusterAgentPoolProfile() {}
     /**
      * @return The number of Agents (VM&#39;s) in the Pool.
      * 
@@ -277,7 +236,7 @@ public final class GetKubernetesClusterAgentPoolProfile {
     public static Builder builder(GetKubernetesClusterAgentPoolProfile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer count;
         private Boolean enableAutoScaling;
@@ -298,11 +257,7 @@ public final class GetKubernetesClusterAgentPoolProfile {
         private String vmSize;
         private String vnetSubnetId;
         private List<String> zones;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKubernetesClusterAgentPoolProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
@@ -326,42 +281,52 @@ public final class GetKubernetesClusterAgentPoolProfile {
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
         public Builder count(Integer count) {
             this.count = Objects.requireNonNull(count);
             return this;
         }
+        @CustomType.Setter
         public Builder enableAutoScaling(Boolean enableAutoScaling) {
             this.enableAutoScaling = Objects.requireNonNull(enableAutoScaling);
             return this;
         }
+        @CustomType.Setter
         public Builder enableNodePublicIp(Boolean enableNodePublicIp) {
             this.enableNodePublicIp = Objects.requireNonNull(enableNodePublicIp);
             return this;
         }
+        @CustomType.Setter
         public Builder maxCount(Integer maxCount) {
             this.maxCount = Objects.requireNonNull(maxCount);
             return this;
         }
+        @CustomType.Setter
         public Builder maxPods(Integer maxPods) {
             this.maxPods = Objects.requireNonNull(maxPods);
             return this;
         }
+        @CustomType.Setter
         public Builder minCount(Integer minCount) {
             this.minCount = Objects.requireNonNull(minCount);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nodeLabels(Map<String,String> nodeLabels) {
             this.nodeLabels = Objects.requireNonNull(nodeLabels);
             return this;
         }
+        @CustomType.Setter
         public Builder nodePublicIpPrefixId(String nodePublicIpPrefixId) {
             this.nodePublicIpPrefixId = Objects.requireNonNull(nodePublicIpPrefixId);
             return this;
         }
+        @CustomType.Setter
         public Builder nodeTaints(List<String> nodeTaints) {
             this.nodeTaints = Objects.requireNonNull(nodeTaints);
             return this;
@@ -369,26 +334,32 @@ public final class GetKubernetesClusterAgentPoolProfile {
         public Builder nodeTaints(String... nodeTaints) {
             return nodeTaints(List.of(nodeTaints));
         }
+        @CustomType.Setter
         public Builder orchestratorVersion(String orchestratorVersion) {
             this.orchestratorVersion = Objects.requireNonNull(orchestratorVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder osDiskSizeGb(Integer osDiskSizeGb) {
             this.osDiskSizeGb = Objects.requireNonNull(osDiskSizeGb);
             return this;
         }
+        @CustomType.Setter
         public Builder osType(String osType) {
             this.osType = Objects.requireNonNull(osType);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder upgradeSettings(List<GetKubernetesClusterAgentPoolProfileUpgradeSetting> upgradeSettings) {
             this.upgradeSettings = Objects.requireNonNull(upgradeSettings);
             return this;
@@ -396,22 +367,46 @@ public final class GetKubernetesClusterAgentPoolProfile {
         public Builder upgradeSettings(GetKubernetesClusterAgentPoolProfileUpgradeSetting... upgradeSettings) {
             return upgradeSettings(List.of(upgradeSettings));
         }
+        @CustomType.Setter
         public Builder vmSize(String vmSize) {
             this.vmSize = Objects.requireNonNull(vmSize);
             return this;
         }
+        @CustomType.Setter
         public Builder vnetSubnetId(String vnetSubnetId) {
             this.vnetSubnetId = Objects.requireNonNull(vnetSubnetId);
             return this;
         }
+        @CustomType.Setter
         public Builder zones(List<String> zones) {
             this.zones = Objects.requireNonNull(zones);
             return this;
         }
         public Builder zones(String... zones) {
             return zones(List.of(zones));
-        }        public GetKubernetesClusterAgentPoolProfile build() {
-            return new GetKubernetesClusterAgentPoolProfile(count, enableAutoScaling, enableNodePublicIp, maxCount, maxPods, minCount, name, nodeLabels, nodePublicIpPrefixId, nodeTaints, orchestratorVersion, osDiskSizeGb, osType, tags, type, upgradeSettings, vmSize, vnetSubnetId, zones);
+        }
+        public GetKubernetesClusterAgentPoolProfile build() {
+            final var o = new GetKubernetesClusterAgentPoolProfile();
+            o.count = count;
+            o.enableAutoScaling = enableAutoScaling;
+            o.enableNodePublicIp = enableNodePublicIp;
+            o.maxCount = maxCount;
+            o.maxPods = maxPods;
+            o.minCount = minCount;
+            o.name = name;
+            o.nodeLabels = nodeLabels;
+            o.nodePublicIpPrefixId = nodePublicIpPrefixId;
+            o.nodeTaints = nodeTaints;
+            o.orchestratorVersion = orchestratorVersion;
+            o.osDiskSizeGb = osDiskSizeGb;
+            o.osType = osType;
+            o.tags = tags;
+            o.type = type;
+            o.upgradeSettings = upgradeSettings;
+            o.vmSize = vmSize;
+            o.vnetSubnetId = vnetSubnetId;
+            o.zones = zones;
+            return o;
         }
     }
 }

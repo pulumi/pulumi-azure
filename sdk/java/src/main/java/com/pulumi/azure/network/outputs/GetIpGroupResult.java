@@ -15,41 +15,26 @@ public final class GetIpGroupResult {
      * @return A list of CIDRs or IP addresses.
      * 
      */
-    private final List<String> cidrs;
+    private List<String> cidrs;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The supported Azure location where the resource exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetIpGroupResult(
-        @CustomType.Parameter("cidrs") List<String> cidrs,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.cidrs = cidrs;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-    }
-
+    private GetIpGroupResult() {}
     /**
      * @return A list of CIDRs or IP addresses.
      * 
@@ -92,7 +77,7 @@ public final class GetIpGroupResult {
     public static Builder builder(GetIpGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> cidrs;
         private String id;
@@ -100,11 +85,7 @@ public final class GetIpGroupResult {
         private String name;
         private String resourceGroupName;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetIpGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cidrs = defaults.cidrs;
@@ -115,6 +96,7 @@ public final class GetIpGroupResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder cidrs(List<String> cidrs) {
             this.cidrs = Objects.requireNonNull(cidrs);
             return this;
@@ -122,27 +104,40 @@ public final class GetIpGroupResult {
         public Builder cidrs(String... cidrs) {
             return cidrs(List.of(cidrs));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetIpGroupResult build() {
-            return new GetIpGroupResult(cidrs, id, location, name, resourceGroupName, tags);
+        }
+        public GetIpGroupResult build() {
+            final var o = new GetIpGroupResult();
+            o.cidrs = cidrs;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            return o;
         }
     }
 }

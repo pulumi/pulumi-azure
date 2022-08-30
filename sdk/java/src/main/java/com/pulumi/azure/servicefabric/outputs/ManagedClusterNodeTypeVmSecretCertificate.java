@@ -13,21 +13,14 @@ public final class ManagedClusterNodeTypeVmSecretCertificate {
      * @return The certificate store on the Virtual Machine to which the certificate should be added.
      * 
      */
-    private final String store;
+    private String store;
     /**
      * @return The URL of a certificate that has been uploaded to Key Vault as a secret
      * 
      */
-    private final String url;
+    private String url;
 
-    @CustomType.Constructor
-    private ManagedClusterNodeTypeVmSecretCertificate(
-        @CustomType.Parameter("store") String store,
-        @CustomType.Parameter("url") String url) {
-        this.store = store;
-        this.url = url;
-    }
-
+    private ManagedClusterNodeTypeVmSecretCertificate() {}
     /**
      * @return The certificate store on the Virtual Machine to which the certificate should be added.
      * 
@@ -50,30 +43,32 @@ public final class ManagedClusterNodeTypeVmSecretCertificate {
     public static Builder builder(ManagedClusterNodeTypeVmSecretCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String store;
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ManagedClusterNodeTypeVmSecretCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.store = defaults.store;
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder store(String store) {
             this.store = Objects.requireNonNull(store);
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public ManagedClusterNodeTypeVmSecretCertificate build() {
-            return new ManagedClusterNodeTypeVmSecretCertificate(store, url);
+        }
+        public ManagedClusterNodeTypeVmSecretCertificate build() {
+            final var o = new ManagedClusterNodeTypeVmSecretCertificate();
+            o.store = store;
+            o.url = url;
+            return o;
         }
     }
 }

@@ -15,28 +15,19 @@ public final class ConfigurationStorePrimaryWriteKey {
      * @return The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
      * 
      */
-    private final @Nullable String connectionString;
+    private @Nullable String connectionString;
     /**
      * @return The ID of the Access Key.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The Secret of the Access Key.
      * 
      */
-    private final @Nullable String secret;
+    private @Nullable String secret;
 
-    @CustomType.Constructor
-    private ConfigurationStorePrimaryWriteKey(
-        @CustomType.Parameter("connectionString") @Nullable String connectionString,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("secret") @Nullable String secret) {
-        this.connectionString = connectionString;
-        this.id = id;
-        this.secret = secret;
-    }
-
+    private ConfigurationStorePrimaryWriteKey() {}
     /**
      * @return The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
      * 
@@ -66,16 +57,12 @@ public final class ConfigurationStorePrimaryWriteKey {
     public static Builder builder(ConfigurationStorePrimaryWriteKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String connectionString;
         private @Nullable String id;
         private @Nullable String secret;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConfigurationStorePrimaryWriteKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectionString = defaults.connectionString;
@@ -83,19 +70,27 @@ public final class ConfigurationStorePrimaryWriteKey {
     	      this.secret = defaults.secret;
         }
 
+        @CustomType.Setter
         public Builder connectionString(@Nullable String connectionString) {
             this.connectionString = connectionString;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder secret(@Nullable String secret) {
             this.secret = secret;
             return this;
-        }        public ConfigurationStorePrimaryWriteKey build() {
-            return new ConfigurationStorePrimaryWriteKey(connectionString, id, secret);
+        }
+        public ConfigurationStorePrimaryWriteKey build() {
+            final var o = new ConfigurationStorePrimaryWriteKey();
+            o.connectionString = connectionString;
+            o.id = id;
+            o.secret = secret;
+            return o;
         }
     }
 }

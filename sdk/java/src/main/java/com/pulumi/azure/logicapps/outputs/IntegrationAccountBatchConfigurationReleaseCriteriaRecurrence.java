@@ -17,49 +17,34 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
      * @return The end time of the schedule, formatted as an RFC3339 string.
      * 
      */
-    private final @Nullable String endTime;
+    private @Nullable String endTime;
     /**
      * @return The frequency of the schedule. Possible values are `Day`, `Hour`, `Minute`, `Month`, `Second`, `Week` and `Year`.
      * 
      */
-    private final String frequency;
+    private String frequency;
     /**
      * @return The number of `frequency`s between runs.
      * 
      */
-    private final Integer interval;
+    private Integer interval;
     /**
      * @return A `schedule` block as documented below.
      * 
      */
-    private final @Nullable IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule schedule;
+    private @Nullable IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule schedule;
     /**
      * @return The start time of the schedule, formatted as an RFC3339 string.
      * 
      */
-    private final @Nullable String startTime;
+    private @Nullable String startTime;
     /**
      * @return The timezone of the start/end time.
      * 
      */
-    private final @Nullable String timeZone;
+    private @Nullable String timeZone;
 
-    @CustomType.Constructor
-    private IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence(
-        @CustomType.Parameter("endTime") @Nullable String endTime,
-        @CustomType.Parameter("frequency") String frequency,
-        @CustomType.Parameter("interval") Integer interval,
-        @CustomType.Parameter("schedule") @Nullable IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule schedule,
-        @CustomType.Parameter("startTime") @Nullable String startTime,
-        @CustomType.Parameter("timeZone") @Nullable String timeZone) {
-        this.endTime = endTime;
-        this.frequency = frequency;
-        this.interval = interval;
-        this.schedule = schedule;
-        this.startTime = startTime;
-        this.timeZone = timeZone;
-    }
-
+    private IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence() {}
     /**
      * @return The end time of the schedule, formatted as an RFC3339 string.
      * 
@@ -110,7 +95,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
     public static Builder builder(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String endTime;
         private String frequency;
@@ -118,11 +103,7 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
         private @Nullable IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule schedule;
         private @Nullable String startTime;
         private @Nullable String timeZone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endTime = defaults.endTime;
@@ -133,31 +114,45 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
     	      this.timeZone = defaults.timeZone;
         }
 
+        @CustomType.Setter
         public Builder endTime(@Nullable String endTime) {
             this.endTime = endTime;
             return this;
         }
+        @CustomType.Setter
         public Builder frequency(String frequency) {
             this.frequency = Objects.requireNonNull(frequency);
             return this;
         }
+        @CustomType.Setter
         public Builder interval(Integer interval) {
             this.interval = Objects.requireNonNull(interval);
             return this;
         }
+        @CustomType.Setter
         public Builder schedule(@Nullable IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule schedule) {
             this.schedule = schedule;
             return this;
         }
+        @CustomType.Setter
         public Builder startTime(@Nullable String startTime) {
             this.startTime = startTime;
             return this;
         }
+        @CustomType.Setter
         public Builder timeZone(@Nullable String timeZone) {
             this.timeZone = timeZone;
             return this;
-        }        public IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence build() {
-            return new IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence(endTime, frequency, interval, schedule, startTime, timeZone);
+        }
+        public IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence build() {
+            final var o = new IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence();
+            o.endTime = endTime;
+            o.frequency = frequency;
+            o.interval = interval;
+            o.schedule = schedule;
+            o.startTime = startTime;
+            o.timeZone = timeZone;
+            return o;
         }
     }
 }

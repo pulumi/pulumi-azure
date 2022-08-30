@@ -17,28 +17,19 @@ public final class DiagnosticSettingMetric {
      * @return The name of a Diagnostic Metric Category for this Resource.
      * 
      */
-    private final String category;
+    private String category;
     /**
      * @return Is this Diagnostic Metric enabled? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return A `retention_policy` block as defined below.
      * 
      */
-    private final @Nullable DiagnosticSettingMetricRetentionPolicy retentionPolicy;
+    private @Nullable DiagnosticSettingMetricRetentionPolicy retentionPolicy;
 
-    @CustomType.Constructor
-    private DiagnosticSettingMetric(
-        @CustomType.Parameter("category") String category,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("retentionPolicy") @Nullable DiagnosticSettingMetricRetentionPolicy retentionPolicy) {
-        this.category = category;
-        this.enabled = enabled;
-        this.retentionPolicy = retentionPolicy;
-    }
-
+    private DiagnosticSettingMetric() {}
     /**
      * @return The name of a Diagnostic Metric Category for this Resource.
      * 
@@ -68,16 +59,12 @@ public final class DiagnosticSettingMetric {
     public static Builder builder(DiagnosticSettingMetric defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String category;
         private @Nullable Boolean enabled;
         private @Nullable DiagnosticSettingMetricRetentionPolicy retentionPolicy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DiagnosticSettingMetric defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.category = defaults.category;
@@ -85,19 +72,27 @@ public final class DiagnosticSettingMetric {
     	      this.retentionPolicy = defaults.retentionPolicy;
         }
 
+        @CustomType.Setter
         public Builder category(String category) {
             this.category = Objects.requireNonNull(category);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder retentionPolicy(@Nullable DiagnosticSettingMetricRetentionPolicy retentionPolicy) {
             this.retentionPolicy = retentionPolicy;
             return this;
-        }        public DiagnosticSettingMetric build() {
-            return new DiagnosticSettingMetric(category, enabled, retentionPolicy);
+        }
+        public DiagnosticSettingMetric build() {
+            final var o = new DiagnosticSettingMetric();
+            o.category = category;
+            o.enabled = enabled;
+            o.retentionPolicy = retentionPolicy;
+            return o;
         }
     }
 }

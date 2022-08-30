@@ -17,42 +17,29 @@ public final class SpringCloudAppCustomPersistentDisk {
      * @return These are the mount options for a persistent disk.
      * 
      */
-    private final @Nullable List<String> mountOptions;
+    private @Nullable List<String> mountOptions;
     /**
      * @return The mount path of the persistent disk.
      * 
      */
-    private final String mountPath;
+    private String mountPath;
     /**
      * @return Indicates whether the persistent disk is a readOnly one.
      * 
      */
-    private final @Nullable Boolean readOnlyEnabled;
+    private @Nullable Boolean readOnlyEnabled;
     /**
      * @return The share name of the Azure File share.
      * 
      */
-    private final String shareName;
+    private String shareName;
     /**
      * @return The name of the Spring Cloud Storage.
      * 
      */
-    private final String storageName;
+    private String storageName;
 
-    @CustomType.Constructor
-    private SpringCloudAppCustomPersistentDisk(
-        @CustomType.Parameter("mountOptions") @Nullable List<String> mountOptions,
-        @CustomType.Parameter("mountPath") String mountPath,
-        @CustomType.Parameter("readOnlyEnabled") @Nullable Boolean readOnlyEnabled,
-        @CustomType.Parameter("shareName") String shareName,
-        @CustomType.Parameter("storageName") String storageName) {
-        this.mountOptions = mountOptions;
-        this.mountPath = mountPath;
-        this.readOnlyEnabled = readOnlyEnabled;
-        this.shareName = shareName;
-        this.storageName = storageName;
-    }
-
+    private SpringCloudAppCustomPersistentDisk() {}
     /**
      * @return These are the mount options for a persistent disk.
      * 
@@ -96,18 +83,14 @@ public final class SpringCloudAppCustomPersistentDisk {
     public static Builder builder(SpringCloudAppCustomPersistentDisk defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> mountOptions;
         private String mountPath;
         private @Nullable Boolean readOnlyEnabled;
         private String shareName;
         private String storageName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpringCloudAppCustomPersistentDisk defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mountOptions = defaults.mountOptions;
@@ -117,6 +100,7 @@ public final class SpringCloudAppCustomPersistentDisk {
     	      this.storageName = defaults.storageName;
         }
 
+        @CustomType.Setter
         public Builder mountOptions(@Nullable List<String> mountOptions) {
             this.mountOptions = mountOptions;
             return this;
@@ -124,23 +108,34 @@ public final class SpringCloudAppCustomPersistentDisk {
         public Builder mountOptions(String... mountOptions) {
             return mountOptions(List.of(mountOptions));
         }
+        @CustomType.Setter
         public Builder mountPath(String mountPath) {
             this.mountPath = Objects.requireNonNull(mountPath);
             return this;
         }
+        @CustomType.Setter
         public Builder readOnlyEnabled(@Nullable Boolean readOnlyEnabled) {
             this.readOnlyEnabled = readOnlyEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder shareName(String shareName) {
             this.shareName = Objects.requireNonNull(shareName);
             return this;
         }
+        @CustomType.Setter
         public Builder storageName(String storageName) {
             this.storageName = Objects.requireNonNull(storageName);
             return this;
-        }        public SpringCloudAppCustomPersistentDisk build() {
-            return new SpringCloudAppCustomPersistentDisk(mountOptions, mountPath, readOnlyEnabled, shareName, storageName);
+        }
+        public SpringCloudAppCustomPersistentDisk build() {
+            final var o = new SpringCloudAppCustomPersistentDisk();
+            o.mountOptions = mountOptions;
+            o.mountPath = mountPath;
+            o.readOnlyEnabled = readOnlyEnabled;
+            o.shareName = shareName;
+            o.storageName = storageName;
+            return o;
         }
     }
 }

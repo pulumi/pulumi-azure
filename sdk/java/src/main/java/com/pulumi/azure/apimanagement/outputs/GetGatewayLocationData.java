@@ -13,31 +13,20 @@ public final class GetGatewayLocationData {
      * @return The city or locality where the resource is located.
      * 
      */
-    private final String city;
+    private String city;
     /**
      * @return The district, state, or province where the resource is located.
      * 
      */
-    private final String district;
+    private String district;
     /**
      * @return The name of the API Management Gateway.
      * 
      */
-    private final String name;
-    private final String region;
+    private String name;
+    private String region;
 
-    @CustomType.Constructor
-    private GetGatewayLocationData(
-        @CustomType.Parameter("city") String city,
-        @CustomType.Parameter("district") String district,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("region") String region) {
-        this.city = city;
-        this.district = district;
-        this.name = name;
-        this.region = region;
-    }
-
+    private GetGatewayLocationData() {}
     /**
      * @return The city or locality where the resource is located.
      * 
@@ -70,17 +59,13 @@ public final class GetGatewayLocationData {
     public static Builder builder(GetGatewayLocationData defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String city;
         private String district;
         private String name;
         private String region;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetGatewayLocationData defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.city = defaults.city;
@@ -89,23 +74,33 @@ public final class GetGatewayLocationData {
     	      this.region = defaults.region;
         }
 
+        @CustomType.Setter
         public Builder city(String city) {
             this.city = Objects.requireNonNull(city);
             return this;
         }
+        @CustomType.Setter
         public Builder district(String district) {
             this.district = Objects.requireNonNull(district);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder region(String region) {
             this.region = Objects.requireNonNull(region);
             return this;
-        }        public GetGatewayLocationData build() {
-            return new GetGatewayLocationData(city, district, name, region);
+        }
+        public GetGatewayLocationData build() {
+            final var o = new GetGatewayLocationData();
+            o.city = city;
+            o.district = district;
+            o.name = name;
+            o.region = region;
+            return o;
         }
     }
 }

@@ -19,146 +19,101 @@ public final class GetFunctionAppSiteConfig {
      * @return Is the app loaded at all times?
      * 
      */
-    private final Boolean alwaysOn;
+    private Boolean alwaysOn;
     /**
      * @return The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
      * 
      */
-    private final Integer appScaleLimit;
-    private final String autoSwapSlotName;
+    private Integer appScaleLimit;
+    private String autoSwapSlotName;
     /**
      * @return A `cors` block as defined above.
      * 
      */
-    private final GetFunctionAppSiteConfigCors cors;
+    private GetFunctionAppSiteConfigCors cors;
     /**
      * @return The version of the .NET framework&#39;s CLR used in this App Service.
      * 
      */
-    private final String dotnetFrameworkVersion;
+    private String dotnetFrameworkVersion;
     /**
      * @return The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
      * 
      */
-    private final Integer elasticInstanceMinimum;
+    private Integer elasticInstanceMinimum;
     /**
      * @return State of FTP / FTPS service for this AppService.
      * 
      */
-    private final String ftpsState;
-    private final String healthCheckPath;
+    private String ftpsState;
+    private String healthCheckPath;
     /**
      * @return Is HTTP2 Enabled on this App Service?
      * 
      */
-    private final Boolean http2Enabled;
+    private Boolean http2Enabled;
     /**
      * @return One or more `ip_restriction` blocks as defined above.
      * 
      */
-    private final List<GetFunctionAppSiteConfigIpRestriction> ipRestrictions;
+    private List<GetFunctionAppSiteConfigIpRestriction> ipRestrictions;
     /**
      * @return Java version hosted by the function app in Azure.
      * 
      */
-    private final String javaVersion;
+    private String javaVersion;
     /**
      * @return Linux App Framework and version for the AppService.
      * 
      */
-    private final String linuxFxVersion;
+    private String linuxFxVersion;
     /**
      * @return The minimum supported TLS version for this App Service.
      * 
      */
-    private final String minTlsVersion;
+    private String minTlsVersion;
     /**
      * @return The number of pre-warmed instances for this function app. Only applicable to apps on the Premium plan.
      * 
      */
-    private final Integer preWarmedInstanceCount;
+    private Integer preWarmedInstanceCount;
     /**
      * @return Is Runtime Scale Monitoring Enabled on this function app?
      * 
      */
-    private final Boolean runtimeScaleMonitoringEnabled;
+    private Boolean runtimeScaleMonitoringEnabled;
     /**
      * @return One or more `scm_ip_restriction` blocks as defined above.
      * 
      */
-    private final List<GetFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions;
+    private List<GetFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions;
     /**
      * @return The type of Source Control enabled for this App Service.
      * 
      */
-    private final String scmType;
+    private String scmType;
     /**
      * @return IP security restrictions for scm to use main.
      * 
      */
-    private final Boolean scmUseMainIpRestriction;
+    private Boolean scmUseMainIpRestriction;
     /**
      * @return Does the App Service run in 32 bit mode, rather than 64 bit mode?
      * 
      */
-    private final Boolean use32BitWorkerProcess;
+    private Boolean use32BitWorkerProcess;
     /**
      * @return (Optional) Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied?
      * 
      */
-    private final Boolean vnetRouteAllEnabled;
+    private Boolean vnetRouteAllEnabled;
     /**
      * @return Are WebSockets enabled for this App Service?
      * 
      */
-    private final Boolean websocketsEnabled;
+    private Boolean websocketsEnabled;
 
-    @CustomType.Constructor
-    private GetFunctionAppSiteConfig(
-        @CustomType.Parameter("alwaysOn") Boolean alwaysOn,
-        @CustomType.Parameter("appScaleLimit") Integer appScaleLimit,
-        @CustomType.Parameter("autoSwapSlotName") String autoSwapSlotName,
-        @CustomType.Parameter("cors") GetFunctionAppSiteConfigCors cors,
-        @CustomType.Parameter("dotnetFrameworkVersion") String dotnetFrameworkVersion,
-        @CustomType.Parameter("elasticInstanceMinimum") Integer elasticInstanceMinimum,
-        @CustomType.Parameter("ftpsState") String ftpsState,
-        @CustomType.Parameter("healthCheckPath") String healthCheckPath,
-        @CustomType.Parameter("http2Enabled") Boolean http2Enabled,
-        @CustomType.Parameter("ipRestrictions") List<GetFunctionAppSiteConfigIpRestriction> ipRestrictions,
-        @CustomType.Parameter("javaVersion") String javaVersion,
-        @CustomType.Parameter("linuxFxVersion") String linuxFxVersion,
-        @CustomType.Parameter("minTlsVersion") String minTlsVersion,
-        @CustomType.Parameter("preWarmedInstanceCount") Integer preWarmedInstanceCount,
-        @CustomType.Parameter("runtimeScaleMonitoringEnabled") Boolean runtimeScaleMonitoringEnabled,
-        @CustomType.Parameter("scmIpRestrictions") List<GetFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions,
-        @CustomType.Parameter("scmType") String scmType,
-        @CustomType.Parameter("scmUseMainIpRestriction") Boolean scmUseMainIpRestriction,
-        @CustomType.Parameter("use32BitWorkerProcess") Boolean use32BitWorkerProcess,
-        @CustomType.Parameter("vnetRouteAllEnabled") Boolean vnetRouteAllEnabled,
-        @CustomType.Parameter("websocketsEnabled") Boolean websocketsEnabled) {
-        this.alwaysOn = alwaysOn;
-        this.appScaleLimit = appScaleLimit;
-        this.autoSwapSlotName = autoSwapSlotName;
-        this.cors = cors;
-        this.dotnetFrameworkVersion = dotnetFrameworkVersion;
-        this.elasticInstanceMinimum = elasticInstanceMinimum;
-        this.ftpsState = ftpsState;
-        this.healthCheckPath = healthCheckPath;
-        this.http2Enabled = http2Enabled;
-        this.ipRestrictions = ipRestrictions;
-        this.javaVersion = javaVersion;
-        this.linuxFxVersion = linuxFxVersion;
-        this.minTlsVersion = minTlsVersion;
-        this.preWarmedInstanceCount = preWarmedInstanceCount;
-        this.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
-        this.scmIpRestrictions = scmIpRestrictions;
-        this.scmType = scmType;
-        this.scmUseMainIpRestriction = scmUseMainIpRestriction;
-        this.use32BitWorkerProcess = use32BitWorkerProcess;
-        this.vnetRouteAllEnabled = vnetRouteAllEnabled;
-        this.websocketsEnabled = websocketsEnabled;
-    }
-
+    private GetFunctionAppSiteConfig() {}
     /**
      * @return Is the app loaded at all times?
      * 
@@ -306,7 +261,7 @@ public final class GetFunctionAppSiteConfig {
     public static Builder builder(GetFunctionAppSiteConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean alwaysOn;
         private Integer appScaleLimit;
@@ -329,11 +284,7 @@ public final class GetFunctionAppSiteConfig {
         private Boolean use32BitWorkerProcess;
         private Boolean vnetRouteAllEnabled;
         private Boolean websocketsEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFunctionAppSiteConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alwaysOn = defaults.alwaysOn;
@@ -359,42 +310,52 @@ public final class GetFunctionAppSiteConfig {
     	      this.websocketsEnabled = defaults.websocketsEnabled;
         }
 
+        @CustomType.Setter
         public Builder alwaysOn(Boolean alwaysOn) {
             this.alwaysOn = Objects.requireNonNull(alwaysOn);
             return this;
         }
+        @CustomType.Setter
         public Builder appScaleLimit(Integer appScaleLimit) {
             this.appScaleLimit = Objects.requireNonNull(appScaleLimit);
             return this;
         }
+        @CustomType.Setter
         public Builder autoSwapSlotName(String autoSwapSlotName) {
             this.autoSwapSlotName = Objects.requireNonNull(autoSwapSlotName);
             return this;
         }
+        @CustomType.Setter
         public Builder cors(GetFunctionAppSiteConfigCors cors) {
             this.cors = Objects.requireNonNull(cors);
             return this;
         }
+        @CustomType.Setter
         public Builder dotnetFrameworkVersion(String dotnetFrameworkVersion) {
             this.dotnetFrameworkVersion = Objects.requireNonNull(dotnetFrameworkVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder elasticInstanceMinimum(Integer elasticInstanceMinimum) {
             this.elasticInstanceMinimum = Objects.requireNonNull(elasticInstanceMinimum);
             return this;
         }
+        @CustomType.Setter
         public Builder ftpsState(String ftpsState) {
             this.ftpsState = Objects.requireNonNull(ftpsState);
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheckPath(String healthCheckPath) {
             this.healthCheckPath = Objects.requireNonNull(healthCheckPath);
             return this;
         }
+        @CustomType.Setter
         public Builder http2Enabled(Boolean http2Enabled) {
             this.http2Enabled = Objects.requireNonNull(http2Enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder ipRestrictions(List<GetFunctionAppSiteConfigIpRestriction> ipRestrictions) {
             this.ipRestrictions = Objects.requireNonNull(ipRestrictions);
             return this;
@@ -402,26 +363,32 @@ public final class GetFunctionAppSiteConfig {
         public Builder ipRestrictions(GetFunctionAppSiteConfigIpRestriction... ipRestrictions) {
             return ipRestrictions(List.of(ipRestrictions));
         }
+        @CustomType.Setter
         public Builder javaVersion(String javaVersion) {
             this.javaVersion = Objects.requireNonNull(javaVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder linuxFxVersion(String linuxFxVersion) {
             this.linuxFxVersion = Objects.requireNonNull(linuxFxVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder minTlsVersion(String minTlsVersion) {
             this.minTlsVersion = Objects.requireNonNull(minTlsVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder preWarmedInstanceCount(Integer preWarmedInstanceCount) {
             this.preWarmedInstanceCount = Objects.requireNonNull(preWarmedInstanceCount);
             return this;
         }
+        @CustomType.Setter
         public Builder runtimeScaleMonitoringEnabled(Boolean runtimeScaleMonitoringEnabled) {
             this.runtimeScaleMonitoringEnabled = Objects.requireNonNull(runtimeScaleMonitoringEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder scmIpRestrictions(List<GetFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions) {
             this.scmIpRestrictions = Objects.requireNonNull(scmIpRestrictions);
             return this;
@@ -429,27 +396,55 @@ public final class GetFunctionAppSiteConfig {
         public Builder scmIpRestrictions(GetFunctionAppSiteConfigScmIpRestriction... scmIpRestrictions) {
             return scmIpRestrictions(List.of(scmIpRestrictions));
         }
+        @CustomType.Setter
         public Builder scmType(String scmType) {
             this.scmType = Objects.requireNonNull(scmType);
             return this;
         }
+        @CustomType.Setter
         public Builder scmUseMainIpRestriction(Boolean scmUseMainIpRestriction) {
             this.scmUseMainIpRestriction = Objects.requireNonNull(scmUseMainIpRestriction);
             return this;
         }
+        @CustomType.Setter
         public Builder use32BitWorkerProcess(Boolean use32BitWorkerProcess) {
             this.use32BitWorkerProcess = Objects.requireNonNull(use32BitWorkerProcess);
             return this;
         }
+        @CustomType.Setter
         public Builder vnetRouteAllEnabled(Boolean vnetRouteAllEnabled) {
             this.vnetRouteAllEnabled = Objects.requireNonNull(vnetRouteAllEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder websocketsEnabled(Boolean websocketsEnabled) {
             this.websocketsEnabled = Objects.requireNonNull(websocketsEnabled);
             return this;
-        }        public GetFunctionAppSiteConfig build() {
-            return new GetFunctionAppSiteConfig(alwaysOn, appScaleLimit, autoSwapSlotName, cors, dotnetFrameworkVersion, elasticInstanceMinimum, ftpsState, healthCheckPath, http2Enabled, ipRestrictions, javaVersion, linuxFxVersion, minTlsVersion, preWarmedInstanceCount, runtimeScaleMonitoringEnabled, scmIpRestrictions, scmType, scmUseMainIpRestriction, use32BitWorkerProcess, vnetRouteAllEnabled, websocketsEnabled);
+        }
+        public GetFunctionAppSiteConfig build() {
+            final var o = new GetFunctionAppSiteConfig();
+            o.alwaysOn = alwaysOn;
+            o.appScaleLimit = appScaleLimit;
+            o.autoSwapSlotName = autoSwapSlotName;
+            o.cors = cors;
+            o.dotnetFrameworkVersion = dotnetFrameworkVersion;
+            o.elasticInstanceMinimum = elasticInstanceMinimum;
+            o.ftpsState = ftpsState;
+            o.healthCheckPath = healthCheckPath;
+            o.http2Enabled = http2Enabled;
+            o.ipRestrictions = ipRestrictions;
+            o.javaVersion = javaVersion;
+            o.linuxFxVersion = linuxFxVersion;
+            o.minTlsVersion = minTlsVersion;
+            o.preWarmedInstanceCount = preWarmedInstanceCount;
+            o.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            o.scmIpRestrictions = scmIpRestrictions;
+            o.scmType = scmType;
+            o.scmUseMainIpRestriction = scmUseMainIpRestriction;
+            o.use32BitWorkerProcess = use32BitWorkerProcess;
+            o.vnetRouteAllEnabled = vnetRouteAllEnabled;
+            o.websocketsEnabled = websocketsEnabled;
+            return o;
         }
     }
 }

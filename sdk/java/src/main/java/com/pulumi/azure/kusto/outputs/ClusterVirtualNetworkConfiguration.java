@@ -13,28 +13,19 @@ public final class ClusterVirtualNetworkConfiguration {
      * @return Data management&#39;s service public IP address resource id.
      * 
      */
-    private final String dataManagementPublicIpId;
+    private String dataManagementPublicIpId;
     /**
      * @return Engine service&#39;s public IP address resource id.
      * 
      */
-    private final String enginePublicIpId;
+    private String enginePublicIpId;
     /**
      * @return The subnet resource id.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private ClusterVirtualNetworkConfiguration(
-        @CustomType.Parameter("dataManagementPublicIpId") String dataManagementPublicIpId,
-        @CustomType.Parameter("enginePublicIpId") String enginePublicIpId,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.dataManagementPublicIpId = dataManagementPublicIpId;
-        this.enginePublicIpId = enginePublicIpId;
-        this.subnetId = subnetId;
-    }
-
+    private ClusterVirtualNetworkConfiguration() {}
     /**
      * @return Data management&#39;s service public IP address resource id.
      * 
@@ -64,16 +55,12 @@ public final class ClusterVirtualNetworkConfiguration {
     public static Builder builder(ClusterVirtualNetworkConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dataManagementPublicIpId;
         private String enginePublicIpId;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterVirtualNetworkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataManagementPublicIpId = defaults.dataManagementPublicIpId;
@@ -81,19 +68,27 @@ public final class ClusterVirtualNetworkConfiguration {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder dataManagementPublicIpId(String dataManagementPublicIpId) {
             this.dataManagementPublicIpId = Objects.requireNonNull(dataManagementPublicIpId);
             return this;
         }
+        @CustomType.Setter
         public Builder enginePublicIpId(String enginePublicIpId) {
             this.enginePublicIpId = Objects.requireNonNull(enginePublicIpId);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public ClusterVirtualNetworkConfiguration build() {
-            return new ClusterVirtualNetworkConfiguration(dataManagementPublicIpId, enginePublicIpId, subnetId);
+        }
+        public ClusterVirtualNetworkConfiguration build() {
+            final var o = new ClusterVirtualNetworkConfiguration();
+            o.dataManagementPublicIpId = dataManagementPublicIpId;
+            o.enginePublicIpId = enginePublicIpId;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

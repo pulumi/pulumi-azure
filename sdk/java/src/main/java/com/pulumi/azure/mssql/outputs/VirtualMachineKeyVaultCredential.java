@@ -13,35 +13,24 @@ public final class VirtualMachineKeyVaultCredential {
      * @return The Azure Key Vault url. Changing this forces a new resource to be created.
      * 
      */
-    private final String keyVaultUrl;
+    private String keyVaultUrl;
     /**
      * @return The credential name.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The service principal name to access key vault. Changing this forces a new resource to be created.
      * 
      */
-    private final String servicePrincipalName;
+    private String servicePrincipalName;
     /**
      * @return The service principal name secret to access key vault. Changing this forces a new resource to be created.
      * 
      */
-    private final String servicePrincipalSecret;
+    private String servicePrincipalSecret;
 
-    @CustomType.Constructor
-    private VirtualMachineKeyVaultCredential(
-        @CustomType.Parameter("keyVaultUrl") String keyVaultUrl,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("servicePrincipalName") String servicePrincipalName,
-        @CustomType.Parameter("servicePrincipalSecret") String servicePrincipalSecret) {
-        this.keyVaultUrl = keyVaultUrl;
-        this.name = name;
-        this.servicePrincipalName = servicePrincipalName;
-        this.servicePrincipalSecret = servicePrincipalSecret;
-    }
-
+    private VirtualMachineKeyVaultCredential() {}
     /**
      * @return The Azure Key Vault url. Changing this forces a new resource to be created.
      * 
@@ -78,17 +67,13 @@ public final class VirtualMachineKeyVaultCredential {
     public static Builder builder(VirtualMachineKeyVaultCredential defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String keyVaultUrl;
         private String name;
         private String servicePrincipalName;
         private String servicePrincipalSecret;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualMachineKeyVaultCredential defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyVaultUrl = defaults.keyVaultUrl;
@@ -97,23 +82,33 @@ public final class VirtualMachineKeyVaultCredential {
     	      this.servicePrincipalSecret = defaults.servicePrincipalSecret;
         }
 
+        @CustomType.Setter
         public Builder keyVaultUrl(String keyVaultUrl) {
             this.keyVaultUrl = Objects.requireNonNull(keyVaultUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder servicePrincipalName(String servicePrincipalName) {
             this.servicePrincipalName = Objects.requireNonNull(servicePrincipalName);
             return this;
         }
+        @CustomType.Setter
         public Builder servicePrincipalSecret(String servicePrincipalSecret) {
             this.servicePrincipalSecret = Objects.requireNonNull(servicePrincipalSecret);
             return this;
-        }        public VirtualMachineKeyVaultCredential build() {
-            return new VirtualMachineKeyVaultCredential(keyVaultUrl, name, servicePrincipalName, servicePrincipalSecret);
+        }
+        public VirtualMachineKeyVaultCredential build() {
+            final var o = new VirtualMachineKeyVaultCredential();
+            o.keyVaultUrl = keyVaultUrl;
+            o.name = name;
+            o.servicePrincipalName = servicePrincipalName;
+            o.servicePrincipalSecret = servicePrincipalSecret;
+            return o;
         }
     }
 }

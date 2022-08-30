@@ -15,21 +15,14 @@ public final class NamedValueValueFromKeyVault {
      * @return The client ID of User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used in absence.
      * 
      */
-    private final @Nullable String identityClientId;
+    private @Nullable String identityClientId;
     /**
      * @return The resource ID of the Key Vault Secret.
      * 
      */
-    private final String secretId;
+    private String secretId;
 
-    @CustomType.Constructor
-    private NamedValueValueFromKeyVault(
-        @CustomType.Parameter("identityClientId") @Nullable String identityClientId,
-        @CustomType.Parameter("secretId") String secretId) {
-        this.identityClientId = identityClientId;
-        this.secretId = secretId;
-    }
-
+    private NamedValueValueFromKeyVault() {}
     /**
      * @return The client ID of User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used in absence.
      * 
@@ -52,30 +45,32 @@ public final class NamedValueValueFromKeyVault {
     public static Builder builder(NamedValueValueFromKeyVault defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String identityClientId;
         private String secretId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NamedValueValueFromKeyVault defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityClientId = defaults.identityClientId;
     	      this.secretId = defaults.secretId;
         }
 
+        @CustomType.Setter
         public Builder identityClientId(@Nullable String identityClientId) {
             this.identityClientId = identityClientId;
             return this;
         }
+        @CustomType.Setter
         public Builder secretId(String secretId) {
             this.secretId = Objects.requireNonNull(secretId);
             return this;
-        }        public NamedValueValueFromKeyVault build() {
-            return new NamedValueValueFromKeyVault(identityClientId, secretId);
+        }
+        public NamedValueValueFromKeyVault build() {
+            final var o = new NamedValueValueFromKeyVault();
+            o.identityClientId = identityClientId;
+            o.secretId = secretId;
+            return o;
         }
     }
 }

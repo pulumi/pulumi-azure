@@ -15,35 +15,24 @@ public final class StreamingPolicyCommonEncryptionCbcsEnabledProtocols {
      * @return Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
      * 
      */
-    private final @Nullable Boolean dash;
+    private @Nullable Boolean dash;
     /**
      * @return Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
      * 
      */
-    private final @Nullable Boolean download;
+    private @Nullable Boolean download;
     /**
      * @return Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
      * 
      */
-    private final @Nullable Boolean hls;
+    private @Nullable Boolean hls;
     /**
      * @return Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
      * 
      */
-    private final @Nullable Boolean smoothStreaming;
+    private @Nullable Boolean smoothStreaming;
 
-    @CustomType.Constructor
-    private StreamingPolicyCommonEncryptionCbcsEnabledProtocols(
-        @CustomType.Parameter("dash") @Nullable Boolean dash,
-        @CustomType.Parameter("download") @Nullable Boolean download,
-        @CustomType.Parameter("hls") @Nullable Boolean hls,
-        @CustomType.Parameter("smoothStreaming") @Nullable Boolean smoothStreaming) {
-        this.dash = dash;
-        this.download = download;
-        this.hls = hls;
-        this.smoothStreaming = smoothStreaming;
-    }
-
+    private StreamingPolicyCommonEncryptionCbcsEnabledProtocols() {}
     /**
      * @return Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
      * 
@@ -80,17 +69,13 @@ public final class StreamingPolicyCommonEncryptionCbcsEnabledProtocols {
     public static Builder builder(StreamingPolicyCommonEncryptionCbcsEnabledProtocols defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean dash;
         private @Nullable Boolean download;
         private @Nullable Boolean hls;
         private @Nullable Boolean smoothStreaming;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StreamingPolicyCommonEncryptionCbcsEnabledProtocols defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dash = defaults.dash;
@@ -99,23 +84,33 @@ public final class StreamingPolicyCommonEncryptionCbcsEnabledProtocols {
     	      this.smoothStreaming = defaults.smoothStreaming;
         }
 
+        @CustomType.Setter
         public Builder dash(@Nullable Boolean dash) {
             this.dash = dash;
             return this;
         }
+        @CustomType.Setter
         public Builder download(@Nullable Boolean download) {
             this.download = download;
             return this;
         }
+        @CustomType.Setter
         public Builder hls(@Nullable Boolean hls) {
             this.hls = hls;
             return this;
         }
+        @CustomType.Setter
         public Builder smoothStreaming(@Nullable Boolean smoothStreaming) {
             this.smoothStreaming = smoothStreaming;
             return this;
-        }        public StreamingPolicyCommonEncryptionCbcsEnabledProtocols build() {
-            return new StreamingPolicyCommonEncryptionCbcsEnabledProtocols(dash, download, hls, smoothStreaming);
+        }
+        public StreamingPolicyCommonEncryptionCbcsEnabledProtocols build() {
+            final var o = new StreamingPolicyCommonEncryptionCbcsEnabledProtocols();
+            o.dash = dash;
+            o.download = download;
+            o.hls = hls;
+            o.smoothStreaming = smoothStreaming;
+            return o;
         }
     }
 }

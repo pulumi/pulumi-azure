@@ -16,71 +16,52 @@ public final class GetGatewayConnectionIpsecPolicy {
      * `ECP256`, `ECP384`, or `None`.
      * 
      */
-    private final String dhGroup;
+    private String dhGroup;
     /**
      * @return The IKE encryption algorithm. Valid
      * options are `AES128`, `AES192`, `AES256`, `DES`, or `DES3`.
      * 
      */
-    private final String ikeEncryption;
+    private String ikeEncryption;
     /**
      * @return The IKE integrity algorithm. Valid
      * options are `MD5`, `SHA1`, `SHA256`, or `SHA384`.
      * 
      */
-    private final String ikeIntegrity;
+    private String ikeIntegrity;
     /**
      * @return The IPSec encryption algorithm. Valid
      * options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
      * 
      */
-    private final String ipsecEncryption;
+    private String ipsecEncryption;
     /**
      * @return The IPSec integrity algorithm. Valid
      * options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
      * 
      */
-    private final String ipsecIntegrity;
+    private String ipsecIntegrity;
     /**
      * @return The DH group used in IKE phase 2 for new child SA.
      * Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS2048`, `PFS24`,
      * or `None`.
      * 
      */
-    private final String pfsGroup;
+    private String pfsGroup;
     /**
      * @return The IPSec SA payload size in KB. Must be at least
      * `1024` KB.
      * 
      */
-    private final Integer saDatasize;
+    private Integer saDatasize;
     /**
      * @return The IPSec SA lifetime in seconds. Must be at least
      * `300` seconds.
      * 
      */
-    private final Integer saLifetime;
+    private Integer saLifetime;
 
-    @CustomType.Constructor
-    private GetGatewayConnectionIpsecPolicy(
-        @CustomType.Parameter("dhGroup") String dhGroup,
-        @CustomType.Parameter("ikeEncryption") String ikeEncryption,
-        @CustomType.Parameter("ikeIntegrity") String ikeIntegrity,
-        @CustomType.Parameter("ipsecEncryption") String ipsecEncryption,
-        @CustomType.Parameter("ipsecIntegrity") String ipsecIntegrity,
-        @CustomType.Parameter("pfsGroup") String pfsGroup,
-        @CustomType.Parameter("saDatasize") Integer saDatasize,
-        @CustomType.Parameter("saLifetime") Integer saLifetime) {
-        this.dhGroup = dhGroup;
-        this.ikeEncryption = ikeEncryption;
-        this.ikeIntegrity = ikeIntegrity;
-        this.ipsecEncryption = ipsecEncryption;
-        this.ipsecIntegrity = ipsecIntegrity;
-        this.pfsGroup = pfsGroup;
-        this.saDatasize = saDatasize;
-        this.saLifetime = saLifetime;
-    }
-
+    private GetGatewayConnectionIpsecPolicy() {}
     /**
      * @return The DH group used in IKE phase 1 for initial SA. Valid
      * options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
@@ -155,7 +136,7 @@ public final class GetGatewayConnectionIpsecPolicy {
     public static Builder builder(GetGatewayConnectionIpsecPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dhGroup;
         private String ikeEncryption;
@@ -165,11 +146,7 @@ public final class GetGatewayConnectionIpsecPolicy {
         private String pfsGroup;
         private Integer saDatasize;
         private Integer saLifetime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetGatewayConnectionIpsecPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dhGroup = defaults.dhGroup;
@@ -182,39 +159,57 @@ public final class GetGatewayConnectionIpsecPolicy {
     	      this.saLifetime = defaults.saLifetime;
         }
 
+        @CustomType.Setter
         public Builder dhGroup(String dhGroup) {
             this.dhGroup = Objects.requireNonNull(dhGroup);
             return this;
         }
+        @CustomType.Setter
         public Builder ikeEncryption(String ikeEncryption) {
             this.ikeEncryption = Objects.requireNonNull(ikeEncryption);
             return this;
         }
+        @CustomType.Setter
         public Builder ikeIntegrity(String ikeIntegrity) {
             this.ikeIntegrity = Objects.requireNonNull(ikeIntegrity);
             return this;
         }
+        @CustomType.Setter
         public Builder ipsecEncryption(String ipsecEncryption) {
             this.ipsecEncryption = Objects.requireNonNull(ipsecEncryption);
             return this;
         }
+        @CustomType.Setter
         public Builder ipsecIntegrity(String ipsecIntegrity) {
             this.ipsecIntegrity = Objects.requireNonNull(ipsecIntegrity);
             return this;
         }
+        @CustomType.Setter
         public Builder pfsGroup(String pfsGroup) {
             this.pfsGroup = Objects.requireNonNull(pfsGroup);
             return this;
         }
+        @CustomType.Setter
         public Builder saDatasize(Integer saDatasize) {
             this.saDatasize = Objects.requireNonNull(saDatasize);
             return this;
         }
+        @CustomType.Setter
         public Builder saLifetime(Integer saLifetime) {
             this.saLifetime = Objects.requireNonNull(saLifetime);
             return this;
-        }        public GetGatewayConnectionIpsecPolicy build() {
-            return new GetGatewayConnectionIpsecPolicy(dhGroup, ikeEncryption, ikeIntegrity, ipsecEncryption, ipsecIntegrity, pfsGroup, saDatasize, saLifetime);
+        }
+        public GetGatewayConnectionIpsecPolicy build() {
+            final var o = new GetGatewayConnectionIpsecPolicy();
+            o.dhGroup = dhGroup;
+            o.ikeEncryption = ikeEncryption;
+            o.ikeIntegrity = ikeIntegrity;
+            o.ipsecEncryption = ipsecEncryption;
+            o.ipsecIntegrity = ipsecIntegrity;
+            o.pfsGroup = pfsGroup;
+            o.saDatasize = saDatasize;
+            o.saLifetime = saLifetime;
+            return o;
         }
     }
 }

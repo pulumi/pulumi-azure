@@ -15,28 +15,19 @@ public final class SqlContainerConflictResolutionPolicy {
      * @return The conflict resolution path in the case of `LastWriterWins` mode.
      * 
      */
-    private final @Nullable String conflictResolutionPath;
+    private @Nullable String conflictResolutionPath;
     /**
      * @return The procedure to resolve conflicts in the case of `Custom` mode.
      * 
      */
-    private final @Nullable String conflictResolutionProcedure;
+    private @Nullable String conflictResolutionProcedure;
     /**
      * @return Indicates the conflict resolution mode. Possible values include: `LastWriterWins`, `Custom`.
      * 
      */
-    private final String mode;
+    private String mode;
 
-    @CustomType.Constructor
-    private SqlContainerConflictResolutionPolicy(
-        @CustomType.Parameter("conflictResolutionPath") @Nullable String conflictResolutionPath,
-        @CustomType.Parameter("conflictResolutionProcedure") @Nullable String conflictResolutionProcedure,
-        @CustomType.Parameter("mode") String mode) {
-        this.conflictResolutionPath = conflictResolutionPath;
-        this.conflictResolutionProcedure = conflictResolutionProcedure;
-        this.mode = mode;
-    }
-
+    private SqlContainerConflictResolutionPolicy() {}
     /**
      * @return The conflict resolution path in the case of `LastWriterWins` mode.
      * 
@@ -66,16 +57,12 @@ public final class SqlContainerConflictResolutionPolicy {
     public static Builder builder(SqlContainerConflictResolutionPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String conflictResolutionPath;
         private @Nullable String conflictResolutionProcedure;
         private String mode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SqlContainerConflictResolutionPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.conflictResolutionPath = defaults.conflictResolutionPath;
@@ -83,19 +70,27 @@ public final class SqlContainerConflictResolutionPolicy {
     	      this.mode = defaults.mode;
         }
 
+        @CustomType.Setter
         public Builder conflictResolutionPath(@Nullable String conflictResolutionPath) {
             this.conflictResolutionPath = conflictResolutionPath;
             return this;
         }
+        @CustomType.Setter
         public Builder conflictResolutionProcedure(@Nullable String conflictResolutionProcedure) {
             this.conflictResolutionProcedure = conflictResolutionProcedure;
             return this;
         }
+        @CustomType.Setter
         public Builder mode(String mode) {
             this.mode = Objects.requireNonNull(mode);
             return this;
-        }        public SqlContainerConflictResolutionPolicy build() {
-            return new SqlContainerConflictResolutionPolicy(conflictResolutionPath, conflictResolutionProcedure, mode);
+        }
+        public SqlContainerConflictResolutionPolicy build() {
+            final var o = new SqlContainerConflictResolutionPolicy();
+            o.conflictResolutionPath = conflictResolutionPath;
+            o.conflictResolutionProcedure = conflictResolutionProcedure;
+            o.mode = mode;
+            return o;
         }
     }
 }

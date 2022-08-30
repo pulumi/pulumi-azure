@@ -15,35 +15,24 @@ public final class PolicyFileShareRetentionYearly {
      * @return The number of yearly backups to keep. Must be between `1` and `10`
      * 
      */
-    private final Integer count;
+    private Integer count;
     /**
      * @return The months of the year to retain backups of. Must be one of `January`, `February`, `March`, `April`, `May`, `June`, `July`, `Augest`, `September`, `October`, `November` and `December`.
      * 
      */
-    private final List<String> months;
+    private List<String> months;
     /**
      * @return The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
      * 
      */
-    private final List<String> weekdays;
+    private List<String> weekdays;
     /**
      * @return The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
      * 
      */
-    private final List<String> weeks;
+    private List<String> weeks;
 
-    @CustomType.Constructor
-    private PolicyFileShareRetentionYearly(
-        @CustomType.Parameter("count") Integer count,
-        @CustomType.Parameter("months") List<String> months,
-        @CustomType.Parameter("weekdays") List<String> weekdays,
-        @CustomType.Parameter("weeks") List<String> weeks) {
-        this.count = count;
-        this.months = months;
-        this.weekdays = weekdays;
-        this.weeks = weeks;
-    }
-
+    private PolicyFileShareRetentionYearly() {}
     /**
      * @return The number of yearly backups to keep. Must be between `1` and `10`
      * 
@@ -80,17 +69,13 @@ public final class PolicyFileShareRetentionYearly {
     public static Builder builder(PolicyFileShareRetentionYearly defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer count;
         private List<String> months;
         private List<String> weekdays;
         private List<String> weeks;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyFileShareRetentionYearly defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
@@ -99,10 +84,12 @@ public final class PolicyFileShareRetentionYearly {
     	      this.weeks = defaults.weeks;
         }
 
+        @CustomType.Setter
         public Builder count(Integer count) {
             this.count = Objects.requireNonNull(count);
             return this;
         }
+        @CustomType.Setter
         public Builder months(List<String> months) {
             this.months = Objects.requireNonNull(months);
             return this;
@@ -110,6 +97,7 @@ public final class PolicyFileShareRetentionYearly {
         public Builder months(String... months) {
             return months(List.of(months));
         }
+        @CustomType.Setter
         public Builder weekdays(List<String> weekdays) {
             this.weekdays = Objects.requireNonNull(weekdays);
             return this;
@@ -117,14 +105,21 @@ public final class PolicyFileShareRetentionYearly {
         public Builder weekdays(String... weekdays) {
             return weekdays(List.of(weekdays));
         }
+        @CustomType.Setter
         public Builder weeks(List<String> weeks) {
             this.weeks = Objects.requireNonNull(weeks);
             return this;
         }
         public Builder weeks(String... weeks) {
             return weeks(List.of(weeks));
-        }        public PolicyFileShareRetentionYearly build() {
-            return new PolicyFileShareRetentionYearly(count, months, weekdays, weeks);
+        }
+        public PolicyFileShareRetentionYearly build() {
+            final var o = new PolicyFileShareRetentionYearly();
+            o.count = count;
+            o.months = months;
+            o.weekdays = weekdays;
+            o.weeks = weeks;
+            return o;
         }
     }
 }

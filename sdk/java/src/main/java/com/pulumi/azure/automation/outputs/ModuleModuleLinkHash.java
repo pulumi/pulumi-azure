@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class ModuleModuleLinkHash {
-    private final String algorithm;
-    private final String value;
+    private String algorithm;
+    private String value;
 
-    @CustomType.Constructor
-    private ModuleModuleLinkHash(
-        @CustomType.Parameter("algorithm") String algorithm,
-        @CustomType.Parameter("value") String value) {
-        this.algorithm = algorithm;
-        this.value = value;
-    }
-
+    private ModuleModuleLinkHash() {}
     public String algorithm() {
         return this.algorithm;
     }
@@ -34,30 +27,32 @@ public final class ModuleModuleLinkHash {
     public static Builder builder(ModuleModuleLinkHash defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String algorithm;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ModuleModuleLinkHash defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.algorithm = defaults.algorithm;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder algorithm(String algorithm) {
             this.algorithm = Objects.requireNonNull(algorithm);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public ModuleModuleLinkHash build() {
-            return new ModuleModuleLinkHash(algorithm, value);
+        }
+        public ModuleModuleLinkHash build() {
+            final var o = new ModuleModuleLinkHash();
+            o.algorithm = algorithm;
+            o.value = value;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class VirtualHubConnectionRoutingPropagatedRouteTable {
      * @return The list of labels to assign to this route table.
      * 
      */
-    private final @Nullable List<String> labels;
+    private @Nullable List<String> labels;
     /**
      * @return A list of Route Table IDs to associated with this Virtual Hub Connection.
      * 
      */
-    private final @Nullable List<String> routeTableIds;
+    private @Nullable List<String> routeTableIds;
 
-    @CustomType.Constructor
-    private VirtualHubConnectionRoutingPropagatedRouteTable(
-        @CustomType.Parameter("labels") @Nullable List<String> labels,
-        @CustomType.Parameter("routeTableIds") @Nullable List<String> routeTableIds) {
-        this.labels = labels;
-        this.routeTableIds = routeTableIds;
-    }
-
+    private VirtualHubConnectionRoutingPropagatedRouteTable() {}
     /**
      * @return The list of labels to assign to this route table.
      * 
@@ -52,21 +45,18 @@ public final class VirtualHubConnectionRoutingPropagatedRouteTable {
     public static Builder builder(VirtualHubConnectionRoutingPropagatedRouteTable defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> labels;
         private @Nullable List<String> routeTableIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualHubConnectionRoutingPropagatedRouteTable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.labels = defaults.labels;
     	      this.routeTableIds = defaults.routeTableIds;
         }
 
+        @CustomType.Setter
         public Builder labels(@Nullable List<String> labels) {
             this.labels = labels;
             return this;
@@ -74,14 +64,19 @@ public final class VirtualHubConnectionRoutingPropagatedRouteTable {
         public Builder labels(String... labels) {
             return labels(List.of(labels));
         }
+        @CustomType.Setter
         public Builder routeTableIds(@Nullable List<String> routeTableIds) {
             this.routeTableIds = routeTableIds;
             return this;
         }
         public Builder routeTableIds(String... routeTableIds) {
             return routeTableIds(List.of(routeTableIds));
-        }        public VirtualHubConnectionRoutingPropagatedRouteTable build() {
-            return new VirtualHubConnectionRoutingPropagatedRouteTable(labels, routeTableIds);
+        }
+        public VirtualHubConnectionRoutingPropagatedRouteTable build() {
+            final var o = new VirtualHubConnectionRoutingPropagatedRouteTable();
+            o.labels = labels;
+            o.routeTableIds = routeTableIds;
+            return o;
         }
     }
 }

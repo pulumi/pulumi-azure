@@ -15,76 +15,51 @@ public final class GetVirtualNetworkResult {
      * @return The list of address spaces used by the virtual network.
      * 
      */
-    private final List<String> addressSpaces;
+    private List<String> addressSpaces;
     /**
      * @return The list of DNS servers used by the virtual network.
      * 
      */
-    private final List<String> dnsServers;
+    private List<String> dnsServers;
     /**
      * @return The GUID of the virtual network.
      * 
      */
-    private final String guid;
+    private String guid;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Location of the virtual network.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return The list of name of the subnets that are attached to this virtual network.
      * 
      */
-    private final List<String> subnets;
+    private List<String> subnets;
     /**
      * @return A mapping of tags to assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return A mapping of name - virtual network id of the virtual network peerings.
      * 
      */
-    private final Map<String,String> vnetPeerings;
+    private Map<String,String> vnetPeerings;
     /**
      * @return A list of virtual network peerings IP addresses.
      * 
      */
-    private final List<String> vnetPeeringsAddresses;
+    private List<String> vnetPeeringsAddresses;
 
-    @CustomType.Constructor
-    private GetVirtualNetworkResult(
-        @CustomType.Parameter("addressSpaces") List<String> addressSpaces,
-        @CustomType.Parameter("dnsServers") List<String> dnsServers,
-        @CustomType.Parameter("guid") String guid,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("subnets") List<String> subnets,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("vnetPeerings") Map<String,String> vnetPeerings,
-        @CustomType.Parameter("vnetPeeringsAddresses") List<String> vnetPeeringsAddresses) {
-        this.addressSpaces = addressSpaces;
-        this.dnsServers = dnsServers;
-        this.guid = guid;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.subnets = subnets;
-        this.tags = tags;
-        this.vnetPeerings = vnetPeerings;
-        this.vnetPeeringsAddresses = vnetPeeringsAddresses;
-    }
-
+    private GetVirtualNetworkResult() {}
     /**
      * @return The list of address spaces used by the virtual network.
      * 
@@ -162,7 +137,7 @@ public final class GetVirtualNetworkResult {
     public static Builder builder(GetVirtualNetworkResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> addressSpaces;
         private List<String> dnsServers;
@@ -175,11 +150,7 @@ public final class GetVirtualNetworkResult {
         private Map<String,String> tags;
         private Map<String,String> vnetPeerings;
         private List<String> vnetPeeringsAddresses;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualNetworkResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addressSpaces = defaults.addressSpaces;
@@ -195,6 +166,7 @@ public final class GetVirtualNetworkResult {
     	      this.vnetPeeringsAddresses = defaults.vnetPeeringsAddresses;
         }
 
+        @CustomType.Setter
         public Builder addressSpaces(List<String> addressSpaces) {
             this.addressSpaces = Objects.requireNonNull(addressSpaces);
             return this;
@@ -202,6 +174,7 @@ public final class GetVirtualNetworkResult {
         public Builder addressSpaces(String... addressSpaces) {
             return addressSpaces(List.of(addressSpaces));
         }
+        @CustomType.Setter
         public Builder dnsServers(List<String> dnsServers) {
             this.dnsServers = Objects.requireNonNull(dnsServers);
             return this;
@@ -209,26 +182,32 @@ public final class GetVirtualNetworkResult {
         public Builder dnsServers(String... dnsServers) {
             return dnsServers(List.of(dnsServers));
         }
+        @CustomType.Setter
         public Builder guid(String guid) {
             this.guid = Objects.requireNonNull(guid);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder subnets(List<String> subnets) {
             this.subnets = Objects.requireNonNull(subnets);
             return this;
@@ -236,22 +215,38 @@ public final class GetVirtualNetworkResult {
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder vnetPeerings(Map<String,String> vnetPeerings) {
             this.vnetPeerings = Objects.requireNonNull(vnetPeerings);
             return this;
         }
+        @CustomType.Setter
         public Builder vnetPeeringsAddresses(List<String> vnetPeeringsAddresses) {
             this.vnetPeeringsAddresses = Objects.requireNonNull(vnetPeeringsAddresses);
             return this;
         }
         public Builder vnetPeeringsAddresses(String... vnetPeeringsAddresses) {
             return vnetPeeringsAddresses(List.of(vnetPeeringsAddresses));
-        }        public GetVirtualNetworkResult build() {
-            return new GetVirtualNetworkResult(addressSpaces, dnsServers, guid, id, location, name, resourceGroupName, subnets, tags, vnetPeerings, vnetPeeringsAddresses);
+        }
+        public GetVirtualNetworkResult build() {
+            final var o = new GetVirtualNetworkResult();
+            o.addressSpaces = addressSpaces;
+            o.dnsServers = dnsServers;
+            o.guid = guid;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.subnets = subnets;
+            o.tags = tags;
+            o.vnetPeerings = vnetPeerings;
+            o.vnetPeeringsAddresses = vnetPeeringsAddresses;
+            return o;
         }
     }
 }

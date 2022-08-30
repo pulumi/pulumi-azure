@@ -13,21 +13,14 @@ public final class SnapshotPolicyHourlySchedule {
      * @return Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
      * 
      */
-    private final Integer minute;
+    private Integer minute;
     /**
      * @return How many hourly snapshots to keep, valid range is from 0 to 255.
      * 
      */
-    private final Integer snapshotsToKeep;
+    private Integer snapshotsToKeep;
 
-    @CustomType.Constructor
-    private SnapshotPolicyHourlySchedule(
-        @CustomType.Parameter("minute") Integer minute,
-        @CustomType.Parameter("snapshotsToKeep") Integer snapshotsToKeep) {
-        this.minute = minute;
-        this.snapshotsToKeep = snapshotsToKeep;
-    }
-
+    private SnapshotPolicyHourlySchedule() {}
     /**
      * @return Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
      * 
@@ -50,30 +43,32 @@ public final class SnapshotPolicyHourlySchedule {
     public static Builder builder(SnapshotPolicyHourlySchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer minute;
         private Integer snapshotsToKeep;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SnapshotPolicyHourlySchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.minute = defaults.minute;
     	      this.snapshotsToKeep = defaults.snapshotsToKeep;
         }
 
+        @CustomType.Setter
         public Builder minute(Integer minute) {
             this.minute = Objects.requireNonNull(minute);
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotsToKeep(Integer snapshotsToKeep) {
             this.snapshotsToKeep = Objects.requireNonNull(snapshotsToKeep);
             return this;
-        }        public SnapshotPolicyHourlySchedule build() {
-            return new SnapshotPolicyHourlySchedule(minute, snapshotsToKeep);
+        }
+        public SnapshotPolicyHourlySchedule build() {
+            final var o = new SnapshotPolicyHourlySchedule();
+            o.minute = minute;
+            o.snapshotsToKeep = snapshotsToKeep;
+            return o;
         }
     }
 }

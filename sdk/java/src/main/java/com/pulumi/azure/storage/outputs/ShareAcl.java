@@ -16,21 +16,14 @@ public final class ShareAcl {
      * @return An `access_policy` block as defined below.
      * 
      */
-    private final @Nullable List<ShareAclAccessPolicy> accessPolicies;
+    private @Nullable List<ShareAclAccessPolicy> accessPolicies;
     /**
      * @return The ID which should be used for this Shared Identifier.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private ShareAcl(
-        @CustomType.Parameter("accessPolicies") @Nullable List<ShareAclAccessPolicy> accessPolicies,
-        @CustomType.Parameter("id") String id) {
-        this.accessPolicies = accessPolicies;
-        this.id = id;
-    }
-
+    private ShareAcl() {}
     /**
      * @return An `access_policy` block as defined below.
      * 
@@ -53,21 +46,18 @@ public final class ShareAcl {
     public static Builder builder(ShareAcl defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ShareAclAccessPolicy> accessPolicies;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ShareAcl defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessPolicies = defaults.accessPolicies;
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder accessPolicies(@Nullable List<ShareAclAccessPolicy> accessPolicies) {
             this.accessPolicies = accessPolicies;
             return this;
@@ -75,11 +65,16 @@ public final class ShareAcl {
         public Builder accessPolicies(ShareAclAccessPolicy... accessPolicies) {
             return accessPolicies(List.of(accessPolicies));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public ShareAcl build() {
-            return new ShareAcl(accessPolicies, id);
+        }
+        public ShareAcl build() {
+            final var o = new ShareAcl();
+            o.accessPolicies = accessPolicies;
+            o.id = id;
+            return o;
         }
     }
 }

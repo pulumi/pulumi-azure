@@ -18,71 +18,52 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicy {
      * `ECP256`, `ECP384`, or `None`.
      * 
      */
-    private final String dhGroup;
+    private String dhGroup;
     /**
      * @return The IKE encryption algorithm. Valid
      * options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, or `GCMAES256`.
      * 
      */
-    private final String ikeEncryption;
+    private String ikeEncryption;
     /**
      * @return The IKE integrity algorithm. Valid
      * options are `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256`, or `SHA384`.
      * 
      */
-    private final String ikeIntegrity;
+    private String ikeIntegrity;
     /**
      * @return The IPSec encryption algorithm. Valid
      * options are `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256`, or `None`.
      * 
      */
-    private final String ipsecEncryption;
+    private String ipsecEncryption;
     /**
      * @return The IPSec integrity algorithm. Valid
      * options are `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1`, or `SHA256`.
      * 
      */
-    private final String ipsecIntegrity;
+    private String ipsecIntegrity;
     /**
      * @return The DH group used in IKE phase 2 for new child SA.
      * Valid options are `ECP256`, `ECP384`, `PFS1`, `PFS14`, `PFS2`, `PFS2048`, `PFS24`, `PFSMM`,
      * or `None`.
      * 
      */
-    private final String pfsGroup;
+    private String pfsGroup;
     /**
      * @return The IPSec SA payload size in KB. Must be at least
      * `1024` KB. Defaults to `102400000` KB.
      * 
      */
-    private final @Nullable Integer saDatasize;
+    private @Nullable Integer saDatasize;
     /**
      * @return The IPSec SA lifetime in seconds. Must be at least
      * `300` seconds. Defaults to `27000` seconds.
      * 
      */
-    private final @Nullable Integer saLifetime;
+    private @Nullable Integer saLifetime;
 
-    @CustomType.Constructor
-    private VirtualNetworkGatewayConnectionIpsecPolicy(
-        @CustomType.Parameter("dhGroup") String dhGroup,
-        @CustomType.Parameter("ikeEncryption") String ikeEncryption,
-        @CustomType.Parameter("ikeIntegrity") String ikeIntegrity,
-        @CustomType.Parameter("ipsecEncryption") String ipsecEncryption,
-        @CustomType.Parameter("ipsecIntegrity") String ipsecIntegrity,
-        @CustomType.Parameter("pfsGroup") String pfsGroup,
-        @CustomType.Parameter("saDatasize") @Nullable Integer saDatasize,
-        @CustomType.Parameter("saLifetime") @Nullable Integer saLifetime) {
-        this.dhGroup = dhGroup;
-        this.ikeEncryption = ikeEncryption;
-        this.ikeIntegrity = ikeIntegrity;
-        this.ipsecEncryption = ipsecEncryption;
-        this.ipsecIntegrity = ipsecIntegrity;
-        this.pfsGroup = pfsGroup;
-        this.saDatasize = saDatasize;
-        this.saLifetime = saLifetime;
-    }
-
+    private VirtualNetworkGatewayConnectionIpsecPolicy() {}
     /**
      * @return The DH group used in IKE phase 1 for initial SA. Valid
      * options are `DHGroup1`, `DHGroup14`, `DHGroup2`, `DHGroup2048`, `DHGroup24`,
@@ -157,7 +138,7 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicy {
     public static Builder builder(VirtualNetworkGatewayConnectionIpsecPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dhGroup;
         private String ikeEncryption;
@@ -167,11 +148,7 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicy {
         private String pfsGroup;
         private @Nullable Integer saDatasize;
         private @Nullable Integer saLifetime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNetworkGatewayConnectionIpsecPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dhGroup = defaults.dhGroup;
@@ -184,39 +161,57 @@ public final class VirtualNetworkGatewayConnectionIpsecPolicy {
     	      this.saLifetime = defaults.saLifetime;
         }
 
+        @CustomType.Setter
         public Builder dhGroup(String dhGroup) {
             this.dhGroup = Objects.requireNonNull(dhGroup);
             return this;
         }
+        @CustomType.Setter
         public Builder ikeEncryption(String ikeEncryption) {
             this.ikeEncryption = Objects.requireNonNull(ikeEncryption);
             return this;
         }
+        @CustomType.Setter
         public Builder ikeIntegrity(String ikeIntegrity) {
             this.ikeIntegrity = Objects.requireNonNull(ikeIntegrity);
             return this;
         }
+        @CustomType.Setter
         public Builder ipsecEncryption(String ipsecEncryption) {
             this.ipsecEncryption = Objects.requireNonNull(ipsecEncryption);
             return this;
         }
+        @CustomType.Setter
         public Builder ipsecIntegrity(String ipsecIntegrity) {
             this.ipsecIntegrity = Objects.requireNonNull(ipsecIntegrity);
             return this;
         }
+        @CustomType.Setter
         public Builder pfsGroup(String pfsGroup) {
             this.pfsGroup = Objects.requireNonNull(pfsGroup);
             return this;
         }
+        @CustomType.Setter
         public Builder saDatasize(@Nullable Integer saDatasize) {
             this.saDatasize = saDatasize;
             return this;
         }
+        @CustomType.Setter
         public Builder saLifetime(@Nullable Integer saLifetime) {
             this.saLifetime = saLifetime;
             return this;
-        }        public VirtualNetworkGatewayConnectionIpsecPolicy build() {
-            return new VirtualNetworkGatewayConnectionIpsecPolicy(dhGroup, ikeEncryption, ikeIntegrity, ipsecEncryption, ipsecIntegrity, pfsGroup, saDatasize, saLifetime);
+        }
+        public VirtualNetworkGatewayConnectionIpsecPolicy build() {
+            final var o = new VirtualNetworkGatewayConnectionIpsecPolicy();
+            o.dhGroup = dhGroup;
+            o.ikeEncryption = ikeEncryption;
+            o.ikeIntegrity = ikeIntegrity;
+            o.ipsecEncryption = ipsecEncryption;
+            o.ipsecIntegrity = ipsecIntegrity;
+            o.pfsGroup = pfsGroup;
+            o.saDatasize = saDatasize;
+            o.saLifetime = saLifetime;
+            return o;
         }
     }
 }

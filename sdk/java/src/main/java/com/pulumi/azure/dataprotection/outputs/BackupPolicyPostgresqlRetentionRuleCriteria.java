@@ -16,42 +16,29 @@ public final class BackupPolicyPostgresqlRetentionRuleCriteria {
      * @return Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
-    private final @Nullable String absoluteCriteria;
+    private @Nullable String absoluteCriteria;
     /**
      * @return Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
-    private final @Nullable List<String> daysOfWeeks;
+    private @Nullable List<String> daysOfWeeks;
     /**
      * @return Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
-    private final @Nullable List<String> monthsOfYears;
+    private @Nullable List<String> monthsOfYears;
     /**
      * @return Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
-    private final @Nullable List<String> scheduledBackupTimes;
+    private @Nullable List<String> scheduledBackupTimes;
     /**
      * @return Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
-    private final @Nullable List<String> weeksOfMonths;
+    private @Nullable List<String> weeksOfMonths;
 
-    @CustomType.Constructor
-    private BackupPolicyPostgresqlRetentionRuleCriteria(
-        @CustomType.Parameter("absoluteCriteria") @Nullable String absoluteCriteria,
-        @CustomType.Parameter("daysOfWeeks") @Nullable List<String> daysOfWeeks,
-        @CustomType.Parameter("monthsOfYears") @Nullable List<String> monthsOfYears,
-        @CustomType.Parameter("scheduledBackupTimes") @Nullable List<String> scheduledBackupTimes,
-        @CustomType.Parameter("weeksOfMonths") @Nullable List<String> weeksOfMonths) {
-        this.absoluteCriteria = absoluteCriteria;
-        this.daysOfWeeks = daysOfWeeks;
-        this.monthsOfYears = monthsOfYears;
-        this.scheduledBackupTimes = scheduledBackupTimes;
-        this.weeksOfMonths = weeksOfMonths;
-    }
-
+    private BackupPolicyPostgresqlRetentionRuleCriteria() {}
     /**
      * @return Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
@@ -95,18 +82,14 @@ public final class BackupPolicyPostgresqlRetentionRuleCriteria {
     public static Builder builder(BackupPolicyPostgresqlRetentionRuleCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String absoluteCriteria;
         private @Nullable List<String> daysOfWeeks;
         private @Nullable List<String> monthsOfYears;
         private @Nullable List<String> scheduledBackupTimes;
         private @Nullable List<String> weeksOfMonths;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BackupPolicyPostgresqlRetentionRuleCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.absoluteCriteria = defaults.absoluteCriteria;
@@ -116,10 +99,12 @@ public final class BackupPolicyPostgresqlRetentionRuleCriteria {
     	      this.weeksOfMonths = defaults.weeksOfMonths;
         }
 
+        @CustomType.Setter
         public Builder absoluteCriteria(@Nullable String absoluteCriteria) {
             this.absoluteCriteria = absoluteCriteria;
             return this;
         }
+        @CustomType.Setter
         public Builder daysOfWeeks(@Nullable List<String> daysOfWeeks) {
             this.daysOfWeeks = daysOfWeeks;
             return this;
@@ -127,6 +112,7 @@ public final class BackupPolicyPostgresqlRetentionRuleCriteria {
         public Builder daysOfWeeks(String... daysOfWeeks) {
             return daysOfWeeks(List.of(daysOfWeeks));
         }
+        @CustomType.Setter
         public Builder monthsOfYears(@Nullable List<String> monthsOfYears) {
             this.monthsOfYears = monthsOfYears;
             return this;
@@ -134,6 +120,7 @@ public final class BackupPolicyPostgresqlRetentionRuleCriteria {
         public Builder monthsOfYears(String... monthsOfYears) {
             return monthsOfYears(List.of(monthsOfYears));
         }
+        @CustomType.Setter
         public Builder scheduledBackupTimes(@Nullable List<String> scheduledBackupTimes) {
             this.scheduledBackupTimes = scheduledBackupTimes;
             return this;
@@ -141,14 +128,22 @@ public final class BackupPolicyPostgresqlRetentionRuleCriteria {
         public Builder scheduledBackupTimes(String... scheduledBackupTimes) {
             return scheduledBackupTimes(List.of(scheduledBackupTimes));
         }
+        @CustomType.Setter
         public Builder weeksOfMonths(@Nullable List<String> weeksOfMonths) {
             this.weeksOfMonths = weeksOfMonths;
             return this;
         }
         public Builder weeksOfMonths(String... weeksOfMonths) {
             return weeksOfMonths(List.of(weeksOfMonths));
-        }        public BackupPolicyPostgresqlRetentionRuleCriteria build() {
-            return new BackupPolicyPostgresqlRetentionRuleCriteria(absoluteCriteria, daysOfWeeks, monthsOfYears, scheduledBackupTimes, weeksOfMonths);
+        }
+        public BackupPolicyPostgresqlRetentionRuleCriteria build() {
+            final var o = new BackupPolicyPostgresqlRetentionRuleCriteria();
+            o.absoluteCriteria = absoluteCriteria;
+            o.daysOfWeeks = daysOfWeeks;
+            o.monthsOfYears = monthsOfYears;
+            o.scheduledBackupTimes = scheduledBackupTimes;
+            o.weeksOfMonths = weeksOfMonths;
+            return o;
         }
     }
 }

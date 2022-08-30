@@ -15,21 +15,14 @@ public final class JobInputAsset {
      * @return A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label &#39;xyz&#39; and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label &#39;xyz&#39;.
      * 
      */
-    private final @Nullable String label;
+    private @Nullable String label;
     /**
      * @return The name of the input Asset. Changing this forces a new Media Job to be created.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private JobInputAsset(
-        @CustomType.Parameter("label") @Nullable String label,
-        @CustomType.Parameter("name") String name) {
-        this.label = label;
-        this.name = name;
-    }
-
+    private JobInputAsset() {}
     /**
      * @return A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label &#39;xyz&#39; and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label &#39;xyz&#39;.
      * 
@@ -52,30 +45,32 @@ public final class JobInputAsset {
     public static Builder builder(JobInputAsset defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String label;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(JobInputAsset defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.label = defaults.label;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder label(@Nullable String label) {
             this.label = label;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public JobInputAsset build() {
-            return new JobInputAsset(label, name);
+        }
+        public JobInputAsset build() {
+            final var o = new JobInputAsset();
+            o.label = label;
+            o.name = name;
+            return o;
         }
     }
 }

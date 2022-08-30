@@ -16,55 +16,36 @@ public final class GetBackupVaultResult {
      * @return Specifies the type of the data store.
      * 
      */
-    private final String datastoreType;
+    private String datastoreType;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A `identity` block as defined below.
      * 
      */
-    private final List<GetBackupVaultIdentity> identities;
+    private List<GetBackupVaultIdentity> identities;
     /**
      * @return The Azure Region where the Backup Vault exists.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return Specifies the backup storage redundancy.
      * 
      */
-    private final String redundancy;
-    private final String resourceGroupName;
+    private String redundancy;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags which are assigned to the Backup Vault.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetBackupVaultResult(
-        @CustomType.Parameter("datastoreType") String datastoreType,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetBackupVaultIdentity> identities,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("redundancy") String redundancy,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.datastoreType = datastoreType;
-        this.id = id;
-        this.identities = identities;
-        this.location = location;
-        this.name = name;
-        this.redundancy = redundancy;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-    }
-
+    private GetBackupVaultResult() {}
     /**
      * @return Specifies the type of the data store.
      * 
@@ -121,7 +102,7 @@ public final class GetBackupVaultResult {
     public static Builder builder(GetBackupVaultResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String datastoreType;
         private String id;
@@ -131,11 +112,7 @@ public final class GetBackupVaultResult {
         private String redundancy;
         private String resourceGroupName;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBackupVaultResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.datastoreType = defaults.datastoreType;
@@ -148,14 +125,17 @@ public final class GetBackupVaultResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder datastoreType(String datastoreType) {
             this.datastoreType = Objects.requireNonNull(datastoreType);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetBackupVaultIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -163,27 +143,42 @@ public final class GetBackupVaultResult {
         public Builder identities(GetBackupVaultIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder redundancy(String redundancy) {
             this.redundancy = Objects.requireNonNull(redundancy);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetBackupVaultResult build() {
-            return new GetBackupVaultResult(datastoreType, id, identities, location, name, redundancy, resourceGroupName, tags);
+        }
+        public GetBackupVaultResult build() {
+            final var o = new GetBackupVaultResult();
+            o.datastoreType = datastoreType;
+            o.id = id;
+            o.identities = identities;
+            o.location = location;
+            o.name = name;
+            o.redundancy = redundancy;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            return o;
         }
     }
 }

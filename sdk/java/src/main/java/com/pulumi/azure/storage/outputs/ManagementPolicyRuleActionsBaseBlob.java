@@ -15,49 +15,34 @@ public final class ManagementPolicyRuleActionsBaseBlob {
      * @return The age in days after last access time to delete the blob. Must be between `0` and `99999`.
      * 
      */
-    private final @Nullable Integer deleteAfterDaysSinceLastAccessTimeGreaterThan;
+    private @Nullable Integer deleteAfterDaysSinceLastAccessTimeGreaterThan;
     /**
      * @return The age in days after last modification to delete the blob. Must be between 0 and 99999.
      * 
      */
-    private final @Nullable Integer deleteAfterDaysSinceModificationGreaterThan;
+    private @Nullable Integer deleteAfterDaysSinceModificationGreaterThan;
     /**
      * @return The age in days after last access time to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between ` 0 and  `99999`.
      * 
      */
-    private final @Nullable Integer tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
+    private @Nullable Integer tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
     /**
      * @return The age in days after last modification to tier blobs to archive storage. Supports blob currently at Hot or Cool tier. Must be between 0 and 99999.
      * 
      */
-    private final @Nullable Integer tierToArchiveAfterDaysSinceModificationGreaterThan;
+    private @Nullable Integer tierToArchiveAfterDaysSinceModificationGreaterThan;
     /**
      * @return The age in days after last access time to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`.
      * 
      */
-    private final @Nullable Integer tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
+    private @Nullable Integer tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
     /**
      * @return The age in days after last modification to tier blobs to cool storage. Supports blob currently at Hot tier. Must be between 0 and 99999.
      * 
      */
-    private final @Nullable Integer tierToCoolAfterDaysSinceModificationGreaterThan;
+    private @Nullable Integer tierToCoolAfterDaysSinceModificationGreaterThan;
 
-    @CustomType.Constructor
-    private ManagementPolicyRuleActionsBaseBlob(
-        @CustomType.Parameter("deleteAfterDaysSinceLastAccessTimeGreaterThan") @Nullable Integer deleteAfterDaysSinceLastAccessTimeGreaterThan,
-        @CustomType.Parameter("deleteAfterDaysSinceModificationGreaterThan") @Nullable Integer deleteAfterDaysSinceModificationGreaterThan,
-        @CustomType.Parameter("tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan") @Nullable Integer tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan,
-        @CustomType.Parameter("tierToArchiveAfterDaysSinceModificationGreaterThan") @Nullable Integer tierToArchiveAfterDaysSinceModificationGreaterThan,
-        @CustomType.Parameter("tierToCoolAfterDaysSinceLastAccessTimeGreaterThan") @Nullable Integer tierToCoolAfterDaysSinceLastAccessTimeGreaterThan,
-        @CustomType.Parameter("tierToCoolAfterDaysSinceModificationGreaterThan") @Nullable Integer tierToCoolAfterDaysSinceModificationGreaterThan) {
-        this.deleteAfterDaysSinceLastAccessTimeGreaterThan = deleteAfterDaysSinceLastAccessTimeGreaterThan;
-        this.deleteAfterDaysSinceModificationGreaterThan = deleteAfterDaysSinceModificationGreaterThan;
-        this.tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan = tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
-        this.tierToArchiveAfterDaysSinceModificationGreaterThan = tierToArchiveAfterDaysSinceModificationGreaterThan;
-        this.tierToCoolAfterDaysSinceLastAccessTimeGreaterThan = tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
-        this.tierToCoolAfterDaysSinceModificationGreaterThan = tierToCoolAfterDaysSinceModificationGreaterThan;
-    }
-
+    private ManagementPolicyRuleActionsBaseBlob() {}
     /**
      * @return The age in days after last access time to delete the blob. Must be between `0` and `99999`.
      * 
@@ -108,7 +93,7 @@ public final class ManagementPolicyRuleActionsBaseBlob {
     public static Builder builder(ManagementPolicyRuleActionsBaseBlob defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer deleteAfterDaysSinceLastAccessTimeGreaterThan;
         private @Nullable Integer deleteAfterDaysSinceModificationGreaterThan;
@@ -116,11 +101,7 @@ public final class ManagementPolicyRuleActionsBaseBlob {
         private @Nullable Integer tierToArchiveAfterDaysSinceModificationGreaterThan;
         private @Nullable Integer tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
         private @Nullable Integer tierToCoolAfterDaysSinceModificationGreaterThan;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ManagementPolicyRuleActionsBaseBlob defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deleteAfterDaysSinceLastAccessTimeGreaterThan = defaults.deleteAfterDaysSinceLastAccessTimeGreaterThan;
@@ -131,31 +112,45 @@ public final class ManagementPolicyRuleActionsBaseBlob {
     	      this.tierToCoolAfterDaysSinceModificationGreaterThan = defaults.tierToCoolAfterDaysSinceModificationGreaterThan;
         }
 
+        @CustomType.Setter
         public Builder deleteAfterDaysSinceLastAccessTimeGreaterThan(@Nullable Integer deleteAfterDaysSinceLastAccessTimeGreaterThan) {
             this.deleteAfterDaysSinceLastAccessTimeGreaterThan = deleteAfterDaysSinceLastAccessTimeGreaterThan;
             return this;
         }
+        @CustomType.Setter
         public Builder deleteAfterDaysSinceModificationGreaterThan(@Nullable Integer deleteAfterDaysSinceModificationGreaterThan) {
             this.deleteAfterDaysSinceModificationGreaterThan = deleteAfterDaysSinceModificationGreaterThan;
             return this;
         }
+        @CustomType.Setter
         public Builder tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan(@Nullable Integer tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan) {
             this.tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan = tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
             return this;
         }
+        @CustomType.Setter
         public Builder tierToArchiveAfterDaysSinceModificationGreaterThan(@Nullable Integer tierToArchiveAfterDaysSinceModificationGreaterThan) {
             this.tierToArchiveAfterDaysSinceModificationGreaterThan = tierToArchiveAfterDaysSinceModificationGreaterThan;
             return this;
         }
+        @CustomType.Setter
         public Builder tierToCoolAfterDaysSinceLastAccessTimeGreaterThan(@Nullable Integer tierToCoolAfterDaysSinceLastAccessTimeGreaterThan) {
             this.tierToCoolAfterDaysSinceLastAccessTimeGreaterThan = tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
             return this;
         }
+        @CustomType.Setter
         public Builder tierToCoolAfterDaysSinceModificationGreaterThan(@Nullable Integer tierToCoolAfterDaysSinceModificationGreaterThan) {
             this.tierToCoolAfterDaysSinceModificationGreaterThan = tierToCoolAfterDaysSinceModificationGreaterThan;
             return this;
-        }        public ManagementPolicyRuleActionsBaseBlob build() {
-            return new ManagementPolicyRuleActionsBaseBlob(deleteAfterDaysSinceLastAccessTimeGreaterThan, deleteAfterDaysSinceModificationGreaterThan, tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan, tierToArchiveAfterDaysSinceModificationGreaterThan, tierToCoolAfterDaysSinceLastAccessTimeGreaterThan, tierToCoolAfterDaysSinceModificationGreaterThan);
+        }
+        public ManagementPolicyRuleActionsBaseBlob build() {
+            final var o = new ManagementPolicyRuleActionsBaseBlob();
+            o.deleteAfterDaysSinceLastAccessTimeGreaterThan = deleteAfterDaysSinceLastAccessTimeGreaterThan;
+            o.deleteAfterDaysSinceModificationGreaterThan = deleteAfterDaysSinceModificationGreaterThan;
+            o.tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan = tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
+            o.tierToArchiveAfterDaysSinceModificationGreaterThan = tierToArchiveAfterDaysSinceModificationGreaterThan;
+            o.tierToCoolAfterDaysSinceLastAccessTimeGreaterThan = tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
+            o.tierToCoolAfterDaysSinceModificationGreaterThan = tierToCoolAfterDaysSinceModificationGreaterThan;
+            return o;
         }
     }
 }

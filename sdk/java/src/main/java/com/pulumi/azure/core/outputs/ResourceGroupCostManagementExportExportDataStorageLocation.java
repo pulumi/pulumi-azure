@@ -13,21 +13,14 @@ public final class ResourceGroupCostManagementExportExportDataStorageLocation {
      * @return The Resource Manager ID of the container where exports will be uploaded.
      * 
      */
-    private final String containerId;
+    private String containerId;
     /**
      * @return The path of the directory where exports will be uploaded.
      * 
      */
-    private final String rootFolderPath;
+    private String rootFolderPath;
 
-    @CustomType.Constructor
-    private ResourceGroupCostManagementExportExportDataStorageLocation(
-        @CustomType.Parameter("containerId") String containerId,
-        @CustomType.Parameter("rootFolderPath") String rootFolderPath) {
-        this.containerId = containerId;
-        this.rootFolderPath = rootFolderPath;
-    }
-
+    private ResourceGroupCostManagementExportExportDataStorageLocation() {}
     /**
      * @return The Resource Manager ID of the container where exports will be uploaded.
      * 
@@ -50,30 +43,32 @@ public final class ResourceGroupCostManagementExportExportDataStorageLocation {
     public static Builder builder(ResourceGroupCostManagementExportExportDataStorageLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String containerId;
         private String rootFolderPath;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResourceGroupCostManagementExportExportDataStorageLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.containerId = defaults.containerId;
     	      this.rootFolderPath = defaults.rootFolderPath;
         }
 
+        @CustomType.Setter
         public Builder containerId(String containerId) {
             this.containerId = Objects.requireNonNull(containerId);
             return this;
         }
+        @CustomType.Setter
         public Builder rootFolderPath(String rootFolderPath) {
             this.rootFolderPath = Objects.requireNonNull(rootFolderPath);
             return this;
-        }        public ResourceGroupCostManagementExportExportDataStorageLocation build() {
-            return new ResourceGroupCostManagementExportExportDataStorageLocation(containerId, rootFolderPath);
+        }
+        public ResourceGroupCostManagementExportExportDataStorageLocation build() {
+            final var o = new ResourceGroupCostManagementExportExportDataStorageLocation();
+            o.containerId = containerId;
+            o.rootFolderPath = rootFolderPath;
+            return o;
         }
     }
 }

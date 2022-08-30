@@ -17,21 +17,14 @@ public final class MongoCollectionIndex {
      * @return Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
      * 
      */
-    private final List<String> keys;
+    private List<String> keys;
     /**
      * @return Is the index unique or not? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean unique;
+    private @Nullable Boolean unique;
 
-    @CustomType.Constructor
-    private MongoCollectionIndex(
-        @CustomType.Parameter("keys") List<String> keys,
-        @CustomType.Parameter("unique") @Nullable Boolean unique) {
-        this.keys = keys;
-        this.unique = unique;
-    }
-
+    private MongoCollectionIndex() {}
     /**
      * @return Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
      * 
@@ -54,21 +47,18 @@ public final class MongoCollectionIndex {
     public static Builder builder(MongoCollectionIndex defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> keys;
         private @Nullable Boolean unique;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MongoCollectionIndex defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keys = defaults.keys;
     	      this.unique = defaults.unique;
         }
 
+        @CustomType.Setter
         public Builder keys(List<String> keys) {
             this.keys = Objects.requireNonNull(keys);
             return this;
@@ -76,11 +66,16 @@ public final class MongoCollectionIndex {
         public Builder keys(String... keys) {
             return keys(List.of(keys));
         }
+        @CustomType.Setter
         public Builder unique(@Nullable Boolean unique) {
             this.unique = unique;
             return this;
-        }        public MongoCollectionIndex build() {
-            return new MongoCollectionIndex(keys, unique);
+        }
+        public MongoCollectionIndex build() {
+            final var o = new MongoCollectionIndex();
+            o.keys = keys;
+            o.unique = unique;
+            return o;
         }
     }
 }

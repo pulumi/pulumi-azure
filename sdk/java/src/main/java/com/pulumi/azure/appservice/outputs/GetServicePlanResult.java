@@ -16,97 +16,66 @@ public final class GetServicePlanResult {
      * @return The ID of the App Service Environment this Service Plan is part of.
      * 
      */
-    private final String appServiceEnvironmentId;
+    private String appServiceEnvironmentId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A string representing the Kind of Service Plan.
      * 
      */
-    private final String kind;
+    private String kind;
     /**
      * @return The Azure Region where the Service Plan exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The maximum number of workers in use in an Elastic SKU Plan.
      * 
      */
-    private final Integer maximumElasticWorkerCount;
-    private final String name;
+    private Integer maximumElasticWorkerCount;
+    private String name;
     /**
      * @return The O/S type for the App Services hosted in this plan.
      * 
      */
-    private final String osType;
+    private String osType;
     /**
      * @return Is Per Site Scaling be enabled?
      * 
      */
-    private final Boolean perSiteScalingEnabled;
+    private Boolean perSiteScalingEnabled;
     /**
      * @return Whether this is a reserved Service Plan Type. `true` if `os_type` is `Linux`, otherwise `false`.
      * 
      */
-    private final Boolean reserved;
-    private final String resourceGroupName;
+    private Boolean reserved;
+    private String resourceGroupName;
     /**
      * @return The SKU for the Service Plan.
      * 
      */
-    private final String skuName;
+    private String skuName;
     /**
      * @return A mapping of tags assigned to the Service Plan.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The number of Workers (instances) allocated.
      * 
      */
-    private final Integer workerCount;
+    private Integer workerCount;
     /**
      * @return Is the Service Plan balance across Availability Zones in the region?
      * 
      */
-    private final Boolean zoneBalancingEnabled;
+    private Boolean zoneBalancingEnabled;
 
-    @CustomType.Constructor
-    private GetServicePlanResult(
-        @CustomType.Parameter("appServiceEnvironmentId") String appServiceEnvironmentId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kind") String kind,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("maximumElasticWorkerCount") Integer maximumElasticWorkerCount,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("osType") String osType,
-        @CustomType.Parameter("perSiteScalingEnabled") Boolean perSiteScalingEnabled,
-        @CustomType.Parameter("reserved") Boolean reserved,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("skuName") String skuName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("workerCount") Integer workerCount,
-        @CustomType.Parameter("zoneBalancingEnabled") Boolean zoneBalancingEnabled) {
-        this.appServiceEnvironmentId = appServiceEnvironmentId;
-        this.id = id;
-        this.kind = kind;
-        this.location = location;
-        this.maximumElasticWorkerCount = maximumElasticWorkerCount;
-        this.name = name;
-        this.osType = osType;
-        this.perSiteScalingEnabled = perSiteScalingEnabled;
-        this.reserved = reserved;
-        this.resourceGroupName = resourceGroupName;
-        this.skuName = skuName;
-        this.tags = tags;
-        this.workerCount = workerCount;
-        this.zoneBalancingEnabled = zoneBalancingEnabled;
-    }
-
+    private GetServicePlanResult() {}
     /**
      * @return The ID of the App Service Environment this Service Plan is part of.
      * 
@@ -205,7 +174,7 @@ public final class GetServicePlanResult {
     public static Builder builder(GetServicePlanResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String appServiceEnvironmentId;
         private String id;
@@ -221,11 +190,7 @@ public final class GetServicePlanResult {
         private Map<String,String> tags;
         private Integer workerCount;
         private Boolean zoneBalancingEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServicePlanResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appServiceEnvironmentId = defaults.appServiceEnvironmentId;
@@ -244,63 +209,93 @@ public final class GetServicePlanResult {
     	      this.zoneBalancingEnabled = defaults.zoneBalancingEnabled;
         }
 
+        @CustomType.Setter
         public Builder appServiceEnvironmentId(String appServiceEnvironmentId) {
             this.appServiceEnvironmentId = Objects.requireNonNull(appServiceEnvironmentId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kind(String kind) {
             this.kind = Objects.requireNonNull(kind);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder maximumElasticWorkerCount(Integer maximumElasticWorkerCount) {
             this.maximumElasticWorkerCount = Objects.requireNonNull(maximumElasticWorkerCount);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder osType(String osType) {
             this.osType = Objects.requireNonNull(osType);
             return this;
         }
+        @CustomType.Setter
         public Builder perSiteScalingEnabled(Boolean perSiteScalingEnabled) {
             this.perSiteScalingEnabled = Objects.requireNonNull(perSiteScalingEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder reserved(Boolean reserved) {
             this.reserved = Objects.requireNonNull(reserved);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder skuName(String skuName) {
             this.skuName = Objects.requireNonNull(skuName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder workerCount(Integer workerCount) {
             this.workerCount = Objects.requireNonNull(workerCount);
             return this;
         }
+        @CustomType.Setter
         public Builder zoneBalancingEnabled(Boolean zoneBalancingEnabled) {
             this.zoneBalancingEnabled = Objects.requireNonNull(zoneBalancingEnabled);
             return this;
-        }        public GetServicePlanResult build() {
-            return new GetServicePlanResult(appServiceEnvironmentId, id, kind, location, maximumElasticWorkerCount, name, osType, perSiteScalingEnabled, reserved, resourceGroupName, skuName, tags, workerCount, zoneBalancingEnabled);
+        }
+        public GetServicePlanResult build() {
+            final var o = new GetServicePlanResult();
+            o.appServiceEnvironmentId = appServiceEnvironmentId;
+            o.id = id;
+            o.kind = kind;
+            o.location = location;
+            o.maximumElasticWorkerCount = maximumElasticWorkerCount;
+            o.name = name;
+            o.osType = osType;
+            o.perSiteScalingEnabled = perSiteScalingEnabled;
+            o.reserved = reserved;
+            o.resourceGroupName = resourceGroupName;
+            o.skuName = skuName;
+            o.tags = tags;
+            o.workerCount = workerCount;
+            o.zoneBalancingEnabled = zoneBalancingEnabled;
+            return o;
         }
     }
 }

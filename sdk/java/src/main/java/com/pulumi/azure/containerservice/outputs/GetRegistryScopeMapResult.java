@@ -14,33 +14,18 @@ public final class GetRegistryScopeMapResult {
      * @return The actions for the Scope Map.
      * 
      */
-    private final List<String> actions;
-    private final String containerRegistryName;
-    private final String description;
+    private List<String> actions;
+    private String containerRegistryName;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
-    private final String resourceGroupName;
+    private String id;
+    private String name;
+    private String resourceGroupName;
 
-    @CustomType.Constructor
-    private GetRegistryScopeMapResult(
-        @CustomType.Parameter("actions") List<String> actions,
-        @CustomType.Parameter("containerRegistryName") String containerRegistryName,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName) {
-        this.actions = actions;
-        this.containerRegistryName = containerRegistryName;
-        this.description = description;
-        this.id = id;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-    }
-
+    private GetRegistryScopeMapResult() {}
     /**
      * @return The actions for the Scope Map.
      * 
@@ -75,7 +60,7 @@ public final class GetRegistryScopeMapResult {
     public static Builder builder(GetRegistryScopeMapResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> actions;
         private String containerRegistryName;
@@ -83,11 +68,7 @@ public final class GetRegistryScopeMapResult {
         private String id;
         private String name;
         private String resourceGroupName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRegistryScopeMapResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
@@ -98,6 +79,7 @@ public final class GetRegistryScopeMapResult {
     	      this.resourceGroupName = defaults.resourceGroupName;
         }
 
+        @CustomType.Setter
         public Builder actions(List<String> actions) {
             this.actions = Objects.requireNonNull(actions);
             return this;
@@ -105,27 +87,40 @@ public final class GetRegistryScopeMapResult {
         public Builder actions(String... actions) {
             return actions(List.of(actions));
         }
+        @CustomType.Setter
         public Builder containerRegistryName(String containerRegistryName) {
             this.containerRegistryName = Objects.requireNonNull(containerRegistryName);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
-        }        public GetRegistryScopeMapResult build() {
-            return new GetRegistryScopeMapResult(actions, containerRegistryName, description, id, name, resourceGroupName);
+        }
+        public GetRegistryScopeMapResult build() {
+            final var o = new GetRegistryScopeMapResult();
+            o.actions = actions;
+            o.containerRegistryName = containerRegistryName;
+            o.description = description;
+            o.id = id;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            return o;
         }
     }
 }

@@ -14,42 +14,29 @@ public final class GetResourcesResource {
      * @return The ID of this Resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region in which this Resource exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The name of the Resource.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A map of tags assigned to this Resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The Resource Type of the Resources you want to list (e.g. `Microsoft.Network/virtualNetworks`). A full list of available Resource Types can be found [here](https://docs.microsoft.com/azure/azure-resource-manager/azure-services-resource-providers).
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetResourcesResource(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("type") String type) {
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.tags = tags;
-        this.type = type;
-    }
-
+    private GetResourcesResource() {}
     /**
      * @return The ID of this Resource.
      * 
@@ -93,18 +80,14 @@ public final class GetResourcesResource {
     public static Builder builder(GetResourcesResource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String location;
         private String name;
         private Map<String,String> tags;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResourcesResource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -114,27 +97,39 @@ public final class GetResourcesResource {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetResourcesResource build() {
-            return new GetResourcesResource(id, location, name, tags, type);
+        }
+        public GetResourcesResource build() {
+            final var o = new GetResourcesResource();
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.tags = tags;
+            o.type = type;
+            return o;
         }
     }
 }

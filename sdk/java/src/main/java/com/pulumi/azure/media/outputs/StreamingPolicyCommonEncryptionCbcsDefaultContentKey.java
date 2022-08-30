@@ -15,21 +15,14 @@ public final class StreamingPolicyCommonEncryptionCbcsDefaultContentKey {
      * @return Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
      * 
      */
-    private final @Nullable String label;
+    private @Nullable String label;
     /**
      * @return Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
      * 
      */
-    private final @Nullable String policyName;
+    private @Nullable String policyName;
 
-    @CustomType.Constructor
-    private StreamingPolicyCommonEncryptionCbcsDefaultContentKey(
-        @CustomType.Parameter("label") @Nullable String label,
-        @CustomType.Parameter("policyName") @Nullable String policyName) {
-        this.label = label;
-        this.policyName = policyName;
-    }
-
+    private StreamingPolicyCommonEncryptionCbcsDefaultContentKey() {}
     /**
      * @return Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
      * 
@@ -52,30 +45,32 @@ public final class StreamingPolicyCommonEncryptionCbcsDefaultContentKey {
     public static Builder builder(StreamingPolicyCommonEncryptionCbcsDefaultContentKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String label;
         private @Nullable String policyName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StreamingPolicyCommonEncryptionCbcsDefaultContentKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.label = defaults.label;
     	      this.policyName = defaults.policyName;
         }
 
+        @CustomType.Setter
         public Builder label(@Nullable String label) {
             this.label = label;
             return this;
         }
+        @CustomType.Setter
         public Builder policyName(@Nullable String policyName) {
             this.policyName = policyName;
             return this;
-        }        public StreamingPolicyCommonEncryptionCbcsDefaultContentKey build() {
-            return new StreamingPolicyCommonEncryptionCbcsDefaultContentKey(label, policyName);
+        }
+        public StreamingPolicyCommonEncryptionCbcsDefaultContentKey build() {
+            final var o = new StreamingPolicyCommonEncryptionCbcsDefaultContentKey();
+            o.label = label;
+            o.policyName = policyName;
+            return o;
         }
     }
 }

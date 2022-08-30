@@ -14,63 +14,44 @@ public final class VpnServerConfigurationIpsecPolicy {
      * @return The DH Group, used in IKE Phase 1. Possible values include `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
      * 
      */
-    private final String dhGroup;
+    private String dhGroup;
     /**
      * @return The IKE encryption algorithm, used for IKE Phase 2. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128` and `GCMAES256`.
      * 
      */
-    private final String ikeEncryption;
+    private String ikeEncryption;
     /**
      * @return The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values include `GCMAES128`, `GCMAES256`, `MD5`, `SHA1`, `SHA256` and `SHA384`.
      * 
      */
-    private final String ikeIntegrity;
+    private String ikeIntegrity;
     /**
      * @return The IPSec encryption algorithm, used for IKE phase 1. Possible values include `AES128`, `AES192`, `AES256`, `DES`, `DES3`, `GCMAES128`, `GCMAES192`, `GCMAES256` and `None`.
      * 
      */
-    private final String ipsecEncryption;
+    private String ipsecEncryption;
     /**
      * @return The IPSec integrity algorithm, used for IKE phase 1. Possible values include `GCMAES128`, `GCMAES192`, `GCMAES256`, `MD5`, `SHA1` and `SHA256`.
      * 
      */
-    private final String ipsecIntegrity;
+    private String ipsecIntegrity;
     /**
      * @return The Pfs Group, used in IKE Phase 2. Possible values include `ECP256`, `ECP384`, `PFS1`, `PFS2`, `PFS14`, `PFS24`, `PFS2048`, `PFSMM` and `None`.
      * 
      */
-    private final String pfsGroup;
+    private String pfsGroup;
     /**
      * @return The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
      * 
      */
-    private final Integer saDataSizeKilobytes;
+    private Integer saDataSizeKilobytes;
     /**
      * @return The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
      * 
      */
-    private final Integer saLifetimeSeconds;
+    private Integer saLifetimeSeconds;
 
-    @CustomType.Constructor
-    private VpnServerConfigurationIpsecPolicy(
-        @CustomType.Parameter("dhGroup") String dhGroup,
-        @CustomType.Parameter("ikeEncryption") String ikeEncryption,
-        @CustomType.Parameter("ikeIntegrity") String ikeIntegrity,
-        @CustomType.Parameter("ipsecEncryption") String ipsecEncryption,
-        @CustomType.Parameter("ipsecIntegrity") String ipsecIntegrity,
-        @CustomType.Parameter("pfsGroup") String pfsGroup,
-        @CustomType.Parameter("saDataSizeKilobytes") Integer saDataSizeKilobytes,
-        @CustomType.Parameter("saLifetimeSeconds") Integer saLifetimeSeconds) {
-        this.dhGroup = dhGroup;
-        this.ikeEncryption = ikeEncryption;
-        this.ikeIntegrity = ikeIntegrity;
-        this.ipsecEncryption = ipsecEncryption;
-        this.ipsecIntegrity = ipsecIntegrity;
-        this.pfsGroup = pfsGroup;
-        this.saDataSizeKilobytes = saDataSizeKilobytes;
-        this.saLifetimeSeconds = saLifetimeSeconds;
-    }
-
+    private VpnServerConfigurationIpsecPolicy() {}
     /**
      * @return The DH Group, used in IKE Phase 1. Possible values include `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
      * 
@@ -135,7 +116,7 @@ public final class VpnServerConfigurationIpsecPolicy {
     public static Builder builder(VpnServerConfigurationIpsecPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dhGroup;
         private String ikeEncryption;
@@ -145,11 +126,7 @@ public final class VpnServerConfigurationIpsecPolicy {
         private String pfsGroup;
         private Integer saDataSizeKilobytes;
         private Integer saLifetimeSeconds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpnServerConfigurationIpsecPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dhGroup = defaults.dhGroup;
@@ -162,39 +139,57 @@ public final class VpnServerConfigurationIpsecPolicy {
     	      this.saLifetimeSeconds = defaults.saLifetimeSeconds;
         }
 
+        @CustomType.Setter
         public Builder dhGroup(String dhGroup) {
             this.dhGroup = Objects.requireNonNull(dhGroup);
             return this;
         }
+        @CustomType.Setter
         public Builder ikeEncryption(String ikeEncryption) {
             this.ikeEncryption = Objects.requireNonNull(ikeEncryption);
             return this;
         }
+        @CustomType.Setter
         public Builder ikeIntegrity(String ikeIntegrity) {
             this.ikeIntegrity = Objects.requireNonNull(ikeIntegrity);
             return this;
         }
+        @CustomType.Setter
         public Builder ipsecEncryption(String ipsecEncryption) {
             this.ipsecEncryption = Objects.requireNonNull(ipsecEncryption);
             return this;
         }
+        @CustomType.Setter
         public Builder ipsecIntegrity(String ipsecIntegrity) {
             this.ipsecIntegrity = Objects.requireNonNull(ipsecIntegrity);
             return this;
         }
+        @CustomType.Setter
         public Builder pfsGroup(String pfsGroup) {
             this.pfsGroup = Objects.requireNonNull(pfsGroup);
             return this;
         }
+        @CustomType.Setter
         public Builder saDataSizeKilobytes(Integer saDataSizeKilobytes) {
             this.saDataSizeKilobytes = Objects.requireNonNull(saDataSizeKilobytes);
             return this;
         }
+        @CustomType.Setter
         public Builder saLifetimeSeconds(Integer saLifetimeSeconds) {
             this.saLifetimeSeconds = Objects.requireNonNull(saLifetimeSeconds);
             return this;
-        }        public VpnServerConfigurationIpsecPolicy build() {
-            return new VpnServerConfigurationIpsecPolicy(dhGroup, ikeEncryption, ikeIntegrity, ipsecEncryption, ipsecIntegrity, pfsGroup, saDataSizeKilobytes, saLifetimeSeconds);
+        }
+        public VpnServerConfigurationIpsecPolicy build() {
+            final var o = new VpnServerConfigurationIpsecPolicy();
+            o.dhGroup = dhGroup;
+            o.ikeEncryption = ikeEncryption;
+            o.ikeIntegrity = ikeIntegrity;
+            o.ipsecEncryption = ipsecEncryption;
+            o.ipsecIntegrity = ipsecIntegrity;
+            o.pfsGroup = pfsGroup;
+            o.saDataSizeKilobytes = saDataSizeKilobytes;
+            o.saLifetimeSeconds = saLifetimeSeconds;
+            return o;
         }
     }
 }

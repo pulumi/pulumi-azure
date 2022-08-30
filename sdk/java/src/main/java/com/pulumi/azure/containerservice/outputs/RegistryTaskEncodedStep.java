@@ -16,49 +16,34 @@ public final class RegistryTaskEncodedStep {
      * @return The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
      * 
      */
-    private final @Nullable String contextAccessToken;
+    private @Nullable String contextAccessToken;
     /**
      * @return The URL (absolute or relative) of the source context for this step.
      * 
      */
-    private final @Nullable String contextPath;
+    private @Nullable String contextPath;
     /**
      * @return Specifies a map of secret values that can be passed when running a task.
      * 
      */
-    private final @Nullable Map<String,String> secretValues;
+    private @Nullable Map<String,String> secretValues;
     /**
      * @return The (optionally base64 encoded) content of the build template.
      * 
      */
-    private final String taskContent;
+    private String taskContent;
     /**
      * @return The (optionally base64 encoded) content of the build parameters.
      * 
      */
-    private final @Nullable String valueContent;
+    private @Nullable String valueContent;
     /**
      * @return Specifies a map of values that can be passed when running a task.
      * 
      */
-    private final @Nullable Map<String,String> values;
+    private @Nullable Map<String,String> values;
 
-    @CustomType.Constructor
-    private RegistryTaskEncodedStep(
-        @CustomType.Parameter("contextAccessToken") @Nullable String contextAccessToken,
-        @CustomType.Parameter("contextPath") @Nullable String contextPath,
-        @CustomType.Parameter("secretValues") @Nullable Map<String,String> secretValues,
-        @CustomType.Parameter("taskContent") String taskContent,
-        @CustomType.Parameter("valueContent") @Nullable String valueContent,
-        @CustomType.Parameter("values") @Nullable Map<String,String> values) {
-        this.contextAccessToken = contextAccessToken;
-        this.contextPath = contextPath;
-        this.secretValues = secretValues;
-        this.taskContent = taskContent;
-        this.valueContent = valueContent;
-        this.values = values;
-    }
-
+    private RegistryTaskEncodedStep() {}
     /**
      * @return The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
      * 
@@ -109,7 +94,7 @@ public final class RegistryTaskEncodedStep {
     public static Builder builder(RegistryTaskEncodedStep defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String contextAccessToken;
         private @Nullable String contextPath;
@@ -117,11 +102,7 @@ public final class RegistryTaskEncodedStep {
         private String taskContent;
         private @Nullable String valueContent;
         private @Nullable Map<String,String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegistryTaskEncodedStep defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contextAccessToken = defaults.contextAccessToken;
@@ -132,31 +113,45 @@ public final class RegistryTaskEncodedStep {
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder contextAccessToken(@Nullable String contextAccessToken) {
             this.contextAccessToken = contextAccessToken;
             return this;
         }
+        @CustomType.Setter
         public Builder contextPath(@Nullable String contextPath) {
             this.contextPath = contextPath;
             return this;
         }
+        @CustomType.Setter
         public Builder secretValues(@Nullable Map<String,String> secretValues) {
             this.secretValues = secretValues;
             return this;
         }
+        @CustomType.Setter
         public Builder taskContent(String taskContent) {
             this.taskContent = Objects.requireNonNull(taskContent);
             return this;
         }
+        @CustomType.Setter
         public Builder valueContent(@Nullable String valueContent) {
             this.valueContent = valueContent;
             return this;
         }
+        @CustomType.Setter
         public Builder values(@Nullable Map<String,String> values) {
             this.values = values;
             return this;
-        }        public RegistryTaskEncodedStep build() {
-            return new RegistryTaskEncodedStep(contextAccessToken, contextPath, secretValues, taskContent, valueContent, values);
+        }
+        public RegistryTaskEncodedStep build() {
+            final var o = new RegistryTaskEncodedStep();
+            o.contextAccessToken = contextAccessToken;
+            o.contextPath = contextPath;
+            o.secretValues = secretValues;
+            o.taskContent = taskContent;
+            o.valueContent = valueContent;
+            o.values = values;
+            return o;
         }
     }
 }

@@ -18,35 +18,24 @@ public final class WorkflowAccessControl {
      * @return A `action` block as defined below.
      * 
      */
-    private final @Nullable WorkflowAccessControlAction action;
+    private @Nullable WorkflowAccessControlAction action;
     /**
      * @return A `content` block as defined below.
      * 
      */
-    private final @Nullable WorkflowAccessControlContent content;
+    private @Nullable WorkflowAccessControlContent content;
     /**
      * @return A `trigger` block as defined below.
      * 
      */
-    private final @Nullable WorkflowAccessControlTrigger trigger;
+    private @Nullable WorkflowAccessControlTrigger trigger;
     /**
      * @return A `workflow_management` block as defined below.
      * 
      */
-    private final @Nullable WorkflowAccessControlWorkflowManagement workflowManagement;
+    private @Nullable WorkflowAccessControlWorkflowManagement workflowManagement;
 
-    @CustomType.Constructor
-    private WorkflowAccessControl(
-        @CustomType.Parameter("action") @Nullable WorkflowAccessControlAction action,
-        @CustomType.Parameter("content") @Nullable WorkflowAccessControlContent content,
-        @CustomType.Parameter("trigger") @Nullable WorkflowAccessControlTrigger trigger,
-        @CustomType.Parameter("workflowManagement") @Nullable WorkflowAccessControlWorkflowManagement workflowManagement) {
-        this.action = action;
-        this.content = content;
-        this.trigger = trigger;
-        this.workflowManagement = workflowManagement;
-    }
-
+    private WorkflowAccessControl() {}
     /**
      * @return A `action` block as defined below.
      * 
@@ -83,17 +72,13 @@ public final class WorkflowAccessControl {
     public static Builder builder(WorkflowAccessControl defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable WorkflowAccessControlAction action;
         private @Nullable WorkflowAccessControlContent content;
         private @Nullable WorkflowAccessControlTrigger trigger;
         private @Nullable WorkflowAccessControlWorkflowManagement workflowManagement;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkflowAccessControl defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -102,23 +87,33 @@ public final class WorkflowAccessControl {
     	      this.workflowManagement = defaults.workflowManagement;
         }
 
+        @CustomType.Setter
         public Builder action(@Nullable WorkflowAccessControlAction action) {
             this.action = action;
             return this;
         }
+        @CustomType.Setter
         public Builder content(@Nullable WorkflowAccessControlContent content) {
             this.content = content;
             return this;
         }
+        @CustomType.Setter
         public Builder trigger(@Nullable WorkflowAccessControlTrigger trigger) {
             this.trigger = trigger;
             return this;
         }
+        @CustomType.Setter
         public Builder workflowManagement(@Nullable WorkflowAccessControlWorkflowManagement workflowManagement) {
             this.workflowManagement = workflowManagement;
             return this;
-        }        public WorkflowAccessControl build() {
-            return new WorkflowAccessControl(action, content, trigger, workflowManagement);
+        }
+        public WorkflowAccessControl build() {
+            final var o = new WorkflowAccessControl();
+            o.action = action;
+            o.content = content;
+            o.trigger = trigger;
+            o.workflowManagement = workflowManagement;
+            return o;
         }
     }
 }

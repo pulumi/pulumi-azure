@@ -16,52 +16,35 @@ public final class GetBudgetSubscriptionNotification {
      * @return A list of email addresses to send the budget notification to when the threshold is exceeded.
      * 
      */
-    private final List<String> contactEmails;
+    private List<String> contactEmails;
     /**
      * @return A list of Action Group IDs to send the budget notification to when the threshold is exceeded.
      * 
      */
-    private final List<String> contactGroups;
+    private List<String> contactGroups;
     /**
      * @return A list of contact roles to send the budget notification to when the threshold is exceeded.
      * 
      */
-    private final List<String> contactRoles;
+    private List<String> contactRoles;
     /**
      * @return Whether the notification is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return The operator to used for comparison.
      * 
      */
-    private final String operator;
+    private String operator;
     /**
      * @return Threshold value associated with the notification.
      * 
      */
-    private final Integer threshold;
-    private final String thresholdType;
+    private Integer threshold;
+    private String thresholdType;
 
-    @CustomType.Constructor
-    private GetBudgetSubscriptionNotification(
-        @CustomType.Parameter("contactEmails") List<String> contactEmails,
-        @CustomType.Parameter("contactGroups") List<String> contactGroups,
-        @CustomType.Parameter("contactRoles") List<String> contactRoles,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("operator") String operator,
-        @CustomType.Parameter("threshold") Integer threshold,
-        @CustomType.Parameter("thresholdType") String thresholdType) {
-        this.contactEmails = contactEmails;
-        this.contactGroups = contactGroups;
-        this.contactRoles = contactRoles;
-        this.enabled = enabled;
-        this.operator = operator;
-        this.threshold = threshold;
-        this.thresholdType = thresholdType;
-    }
-
+    private GetBudgetSubscriptionNotification() {}
     /**
      * @return A list of email addresses to send the budget notification to when the threshold is exceeded.
      * 
@@ -115,7 +98,7 @@ public final class GetBudgetSubscriptionNotification {
     public static Builder builder(GetBudgetSubscriptionNotification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> contactEmails;
         private List<String> contactGroups;
@@ -124,11 +107,7 @@ public final class GetBudgetSubscriptionNotification {
         private String operator;
         private Integer threshold;
         private String thresholdType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBudgetSubscriptionNotification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contactEmails = defaults.contactEmails;
@@ -140,6 +119,7 @@ public final class GetBudgetSubscriptionNotification {
     	      this.thresholdType = defaults.thresholdType;
         }
 
+        @CustomType.Setter
         public Builder contactEmails(List<String> contactEmails) {
             this.contactEmails = Objects.requireNonNull(contactEmails);
             return this;
@@ -147,6 +127,7 @@ public final class GetBudgetSubscriptionNotification {
         public Builder contactEmails(String... contactEmails) {
             return contactEmails(List.of(contactEmails));
         }
+        @CustomType.Setter
         public Builder contactGroups(List<String> contactGroups) {
             this.contactGroups = Objects.requireNonNull(contactGroups);
             return this;
@@ -154,6 +135,7 @@ public final class GetBudgetSubscriptionNotification {
         public Builder contactGroups(String... contactGroups) {
             return contactGroups(List.of(contactGroups));
         }
+        @CustomType.Setter
         public Builder contactRoles(List<String> contactRoles) {
             this.contactRoles = Objects.requireNonNull(contactRoles);
             return this;
@@ -161,23 +143,36 @@ public final class GetBudgetSubscriptionNotification {
         public Builder contactRoles(String... contactRoles) {
             return contactRoles(List.of(contactRoles));
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder operator(String operator) {
             this.operator = Objects.requireNonNull(operator);
             return this;
         }
+        @CustomType.Setter
         public Builder threshold(Integer threshold) {
             this.threshold = Objects.requireNonNull(threshold);
             return this;
         }
+        @CustomType.Setter
         public Builder thresholdType(String thresholdType) {
             this.thresholdType = Objects.requireNonNull(thresholdType);
             return this;
-        }        public GetBudgetSubscriptionNotification build() {
-            return new GetBudgetSubscriptionNotification(contactEmails, contactGroups, contactRoles, enabled, operator, threshold, thresholdType);
+        }
+        public GetBudgetSubscriptionNotification build() {
+            final var o = new GetBudgetSubscriptionNotification();
+            o.contactEmails = contactEmails;
+            o.contactGroups = contactGroups;
+            o.contactRoles = contactRoles;
+            o.enabled = enabled;
+            o.operator = operator;
+            o.threshold = threshold;
+            o.thresholdType = thresholdType;
+            return o;
         }
     }
 }

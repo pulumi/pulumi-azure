@@ -14,13 +14,9 @@ public final class ServiceCor {
      * @return A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
      * 
      */
-    private final List<String> allowedOrigins;
+    private List<String> allowedOrigins;
 
-    @CustomType.Constructor
-    private ServiceCor(@CustomType.Parameter("allowedOrigins") List<String> allowedOrigins) {
-        this.allowedOrigins = allowedOrigins;
-    }
-
+    private ServiceCor() {}
     /**
      * @return A list of origins which should be able to make cross-origin calls. `*` can be used to allow all calls.
      * 
@@ -36,27 +32,27 @@ public final class ServiceCor {
     public static Builder builder(ServiceCor defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> allowedOrigins;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceCor defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedOrigins = defaults.allowedOrigins;
         }
 
+        @CustomType.Setter
         public Builder allowedOrigins(List<String> allowedOrigins) {
             this.allowedOrigins = Objects.requireNonNull(allowedOrigins);
             return this;
         }
         public Builder allowedOrigins(String... allowedOrigins) {
             return allowedOrigins(List.of(allowedOrigins));
-        }        public ServiceCor build() {
-            return new ServiceCor(allowedOrigins);
+        }
+        public ServiceCor build() {
+            final var o = new ServiceCor();
+            o.allowedOrigins = allowedOrigins;
+            return o;
         }
     }
 }

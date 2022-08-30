@@ -20,73 +20,50 @@ public final class GetTrafficManagerProfileResult {
      * @return This block specifies the DNS configuration of the Profile.
      * 
      */
-    private final List<GetTrafficManagerProfileDnsConfig> dnsConfigs;
+    private List<GetTrafficManagerProfileDnsConfig> dnsConfigs;
     /**
      * @return The FQDN of the created Profile.
      * 
      */
-    private final String fqdn;
+    private String fqdn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return This block specifies the Endpoint monitoring configuration for the Profile.
      * 
      */
-    private final List<GetTrafficManagerProfileMonitorConfig> monitorConfigs;
+    private List<GetTrafficManagerProfileMonitorConfig> monitorConfigs;
     /**
      * @return The name of the custom header.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The status of the profile.
      * 
      */
-    private final String profileStatus;
-    private final String resourceGroupName;
+    private String profileStatus;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags to assign to the resource.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Specifies the algorithm used to route traffic.
      * 
      */
-    private final String trafficRoutingMethod;
+    private String trafficRoutingMethod;
     /**
      * @return Indicates whether Traffic View is enabled for the Traffic Manager profile.
      * 
      */
-    private final @Nullable Boolean trafficViewEnabled;
+    private @Nullable Boolean trafficViewEnabled;
 
-    @CustomType.Constructor
-    private GetTrafficManagerProfileResult(
-        @CustomType.Parameter("dnsConfigs") List<GetTrafficManagerProfileDnsConfig> dnsConfigs,
-        @CustomType.Parameter("fqdn") String fqdn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("monitorConfigs") List<GetTrafficManagerProfileMonitorConfig> monitorConfigs,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("profileStatus") String profileStatus,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags,
-        @CustomType.Parameter("trafficRoutingMethod") String trafficRoutingMethod,
-        @CustomType.Parameter("trafficViewEnabled") @Nullable Boolean trafficViewEnabled) {
-        this.dnsConfigs = dnsConfigs;
-        this.fqdn = fqdn;
-        this.id = id;
-        this.monitorConfigs = monitorConfigs;
-        this.name = name;
-        this.profileStatus = profileStatus;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-        this.trafficRoutingMethod = trafficRoutingMethod;
-        this.trafficViewEnabled = trafficViewEnabled;
-    }
-
+    private GetTrafficManagerProfileResult() {}
     /**
      * @return This block specifies the DNS configuration of the Profile.
      * 
@@ -161,7 +138,7 @@ public final class GetTrafficManagerProfileResult {
     public static Builder builder(GetTrafficManagerProfileResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetTrafficManagerProfileDnsConfig> dnsConfigs;
         private String fqdn;
@@ -173,11 +150,7 @@ public final class GetTrafficManagerProfileResult {
         private @Nullable Map<String,String> tags;
         private String trafficRoutingMethod;
         private @Nullable Boolean trafficViewEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTrafficManagerProfileResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsConfigs = defaults.dnsConfigs;
@@ -192,6 +165,7 @@ public final class GetTrafficManagerProfileResult {
     	      this.trafficViewEnabled = defaults.trafficViewEnabled;
         }
 
+        @CustomType.Setter
         public Builder dnsConfigs(List<GetTrafficManagerProfileDnsConfig> dnsConfigs) {
             this.dnsConfigs = Objects.requireNonNull(dnsConfigs);
             return this;
@@ -199,14 +173,17 @@ public final class GetTrafficManagerProfileResult {
         public Builder dnsConfigs(GetTrafficManagerProfileDnsConfig... dnsConfigs) {
             return dnsConfigs(List.of(dnsConfigs));
         }
+        @CustomType.Setter
         public Builder fqdn(String fqdn) {
             this.fqdn = Objects.requireNonNull(fqdn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder monitorConfigs(List<GetTrafficManagerProfileMonitorConfig> monitorConfigs) {
             this.monitorConfigs = Objects.requireNonNull(monitorConfigs);
             return this;
@@ -214,31 +191,49 @@ public final class GetTrafficManagerProfileResult {
         public Builder monitorConfigs(GetTrafficManagerProfileMonitorConfig... monitorConfigs) {
             return monitorConfigs(List.of(monitorConfigs));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder profileStatus(String profileStatus) {
             this.profileStatus = Objects.requireNonNull(profileStatus);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
         public Builder trafficRoutingMethod(String trafficRoutingMethod) {
             this.trafficRoutingMethod = Objects.requireNonNull(trafficRoutingMethod);
             return this;
         }
+        @CustomType.Setter
         public Builder trafficViewEnabled(@Nullable Boolean trafficViewEnabled) {
             this.trafficViewEnabled = trafficViewEnabled;
             return this;
-        }        public GetTrafficManagerProfileResult build() {
-            return new GetTrafficManagerProfileResult(dnsConfigs, fqdn, id, monitorConfigs, name, profileStatus, resourceGroupName, tags, trafficRoutingMethod, trafficViewEnabled);
+        }
+        public GetTrafficManagerProfileResult build() {
+            final var o = new GetTrafficManagerProfileResult();
+            o.dnsConfigs = dnsConfigs;
+            o.fqdn = fqdn;
+            o.id = id;
+            o.monitorConfigs = monitorConfigs;
+            o.name = name;
+            o.profileStatus = profileStatus;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            o.trafficRoutingMethod = trafficRoutingMethod;
+            o.trafficViewEnabled = trafficViewEnabled;
+            return o;
         }
     }
 }

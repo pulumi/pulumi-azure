@@ -13,21 +13,14 @@ public final class ClusterNodeTypeEphemeralPorts {
      * @return The end of the Ephemeral Port Range on this Node Type.
      * 
      */
-    private final Integer endPort;
+    private Integer endPort;
     /**
      * @return The start of the Ephemeral Port Range on this Node Type.
      * 
      */
-    private final Integer startPort;
+    private Integer startPort;
 
-    @CustomType.Constructor
-    private ClusterNodeTypeEphemeralPorts(
-        @CustomType.Parameter("endPort") Integer endPort,
-        @CustomType.Parameter("startPort") Integer startPort) {
-        this.endPort = endPort;
-        this.startPort = startPort;
-    }
-
+    private ClusterNodeTypeEphemeralPorts() {}
     /**
      * @return The end of the Ephemeral Port Range on this Node Type.
      * 
@@ -50,30 +43,32 @@ public final class ClusterNodeTypeEphemeralPorts {
     public static Builder builder(ClusterNodeTypeEphemeralPorts defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer endPort;
         private Integer startPort;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterNodeTypeEphemeralPorts defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endPort = defaults.endPort;
     	      this.startPort = defaults.startPort;
         }
 
+        @CustomType.Setter
         public Builder endPort(Integer endPort) {
             this.endPort = Objects.requireNonNull(endPort);
             return this;
         }
+        @CustomType.Setter
         public Builder startPort(Integer startPort) {
             this.startPort = Objects.requireNonNull(startPort);
             return this;
-        }        public ClusterNodeTypeEphemeralPorts build() {
-            return new ClusterNodeTypeEphemeralPorts(endPort, startPort);
+        }
+        public ClusterNodeTypeEphemeralPorts build() {
+            final var o = new ClusterNodeTypeEphemeralPorts();
+            o.endPort = endPort;
+            o.startPort = startPort;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class CassandraTableSchemaClusterKey {
      * @return Name of the cluster key to be created.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Order of the key. Currently supported values are `Asc` and `Desc`.
      * 
      */
-    private final String orderBy;
+    private String orderBy;
 
-    @CustomType.Constructor
-    private CassandraTableSchemaClusterKey(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("orderBy") String orderBy) {
-        this.name = name;
-        this.orderBy = orderBy;
-    }
-
+    private CassandraTableSchemaClusterKey() {}
     /**
      * @return Name of the cluster key to be created.
      * 
@@ -50,30 +43,32 @@ public final class CassandraTableSchemaClusterKey {
     public static Builder builder(CassandraTableSchemaClusterKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String orderBy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CassandraTableSchemaClusterKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.orderBy = defaults.orderBy;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder orderBy(String orderBy) {
             this.orderBy = Objects.requireNonNull(orderBy);
             return this;
-        }        public CassandraTableSchemaClusterKey build() {
-            return new CassandraTableSchemaClusterKey(name, orderBy);
+        }
+        public CassandraTableSchemaClusterKey build() {
+            final var o = new CassandraTableSchemaClusterKey();
+            o.name = name;
+            o.orderBy = orderBy;
+            return o;
         }
     }
 }

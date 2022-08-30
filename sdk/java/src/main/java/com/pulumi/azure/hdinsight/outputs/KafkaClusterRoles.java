@@ -18,35 +18,24 @@ public final class KafkaClusterRoles {
      * @return A `head_node` block as defined above.
      * 
      */
-    private final KafkaClusterRolesHeadNode headNode;
+    private KafkaClusterRolesHeadNode headNode;
     /**
      * @return A `kafka_management_node` block as defined below.
      * 
      */
-    private final @Nullable KafkaClusterRolesKafkaManagementNode kafkaManagementNode;
+    private @Nullable KafkaClusterRolesKafkaManagementNode kafkaManagementNode;
     /**
      * @return A `worker_node` block as defined below.
      * 
      */
-    private final KafkaClusterRolesWorkerNode workerNode;
+    private KafkaClusterRolesWorkerNode workerNode;
     /**
      * @return A `zookeeper_node` block as defined below.
      * 
      */
-    private final KafkaClusterRolesZookeeperNode zookeeperNode;
+    private KafkaClusterRolesZookeeperNode zookeeperNode;
 
-    @CustomType.Constructor
-    private KafkaClusterRoles(
-        @CustomType.Parameter("headNode") KafkaClusterRolesHeadNode headNode,
-        @CustomType.Parameter("kafkaManagementNode") @Nullable KafkaClusterRolesKafkaManagementNode kafkaManagementNode,
-        @CustomType.Parameter("workerNode") KafkaClusterRolesWorkerNode workerNode,
-        @CustomType.Parameter("zookeeperNode") KafkaClusterRolesZookeeperNode zookeeperNode) {
-        this.headNode = headNode;
-        this.kafkaManagementNode = kafkaManagementNode;
-        this.workerNode = workerNode;
-        this.zookeeperNode = zookeeperNode;
-    }
-
+    private KafkaClusterRoles() {}
     /**
      * @return A `head_node` block as defined above.
      * 
@@ -83,17 +72,13 @@ public final class KafkaClusterRoles {
     public static Builder builder(KafkaClusterRoles defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private KafkaClusterRolesHeadNode headNode;
         private @Nullable KafkaClusterRolesKafkaManagementNode kafkaManagementNode;
         private KafkaClusterRolesWorkerNode workerNode;
         private KafkaClusterRolesZookeeperNode zookeeperNode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KafkaClusterRoles defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.headNode = defaults.headNode;
@@ -102,23 +87,33 @@ public final class KafkaClusterRoles {
     	      this.zookeeperNode = defaults.zookeeperNode;
         }
 
+        @CustomType.Setter
         public Builder headNode(KafkaClusterRolesHeadNode headNode) {
             this.headNode = Objects.requireNonNull(headNode);
             return this;
         }
+        @CustomType.Setter
         public Builder kafkaManagementNode(@Nullable KafkaClusterRolesKafkaManagementNode kafkaManagementNode) {
             this.kafkaManagementNode = kafkaManagementNode;
             return this;
         }
+        @CustomType.Setter
         public Builder workerNode(KafkaClusterRolesWorkerNode workerNode) {
             this.workerNode = Objects.requireNonNull(workerNode);
             return this;
         }
+        @CustomType.Setter
         public Builder zookeeperNode(KafkaClusterRolesZookeeperNode zookeeperNode) {
             this.zookeeperNode = Objects.requireNonNull(zookeeperNode);
             return this;
-        }        public KafkaClusterRoles build() {
-            return new KafkaClusterRoles(headNode, kafkaManagementNode, workerNode, zookeeperNode);
+        }
+        public KafkaClusterRoles build() {
+            final var o = new KafkaClusterRoles();
+            o.headNode = headNode;
+            o.kafkaManagementNode = kafkaManagementNode;
+            o.workerNode = workerNode;
+            o.zookeeperNode = zookeeperNode;
+            return o;
         }
     }
 }

@@ -13,28 +13,19 @@ public final class ManagedClusterCustomFabricSetting {
      * @return Parameter name.
      * 
      */
-    private final String parameter;
+    private String parameter;
     /**
      * @return Section name.
      * 
      */
-    private final String section;
+    private String section;
     /**
      * @return Parameter value.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private ManagedClusterCustomFabricSetting(
-        @CustomType.Parameter("parameter") String parameter,
-        @CustomType.Parameter("section") String section,
-        @CustomType.Parameter("value") String value) {
-        this.parameter = parameter;
-        this.section = section;
-        this.value = value;
-    }
-
+    private ManagedClusterCustomFabricSetting() {}
     /**
      * @return Parameter name.
      * 
@@ -64,16 +55,12 @@ public final class ManagedClusterCustomFabricSetting {
     public static Builder builder(ManagedClusterCustomFabricSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String parameter;
         private String section;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ManagedClusterCustomFabricSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.parameter = defaults.parameter;
@@ -81,19 +68,27 @@ public final class ManagedClusterCustomFabricSetting {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder parameter(String parameter) {
             this.parameter = Objects.requireNonNull(parameter);
             return this;
         }
+        @CustomType.Setter
         public Builder section(String section) {
             this.section = Objects.requireNonNull(section);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public ManagedClusterCustomFabricSetting build() {
-            return new ManagedClusterCustomFabricSetting(parameter, section, value);
+        }
+        public ManagedClusterCustomFabricSetting build() {
+            final var o = new ManagedClusterCustomFabricSetting();
+            o.parameter = parameter;
+            o.section = section;
+            o.value = value;
+            return o;
         }
     }
 }

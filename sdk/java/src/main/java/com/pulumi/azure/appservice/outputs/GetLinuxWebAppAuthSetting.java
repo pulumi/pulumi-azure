@@ -23,112 +23,79 @@ public final class GetLinuxWebAppAuthSetting {
      * @return A `active_directory` block as defined above.
      * 
      */
-    private final List<GetLinuxWebAppAuthSettingActiveDirectory> activeDirectories;
+    private List<GetLinuxWebAppAuthSettingActiveDirectory> activeDirectories;
     /**
      * @return A `additional_login_parameters` block as defined above.
      * 
      */
-    private final Map<String,String> additionalLoginParameters;
+    private Map<String,String> additionalLoginParameters;
     /**
      * @return A `allowed_external_redirect_urls` block as defined above.
      * 
      */
-    private final List<String> allowedExternalRedirectUrls;
+    private List<String> allowedExternalRedirectUrls;
     /**
      * @return The default authentication provider in use when multiple providers are configured.
      * 
      */
-    private final String defaultProvider;
+    private String defaultProvider;
     /**
      * @return Is the Backup enabled?
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return A `facebook` block as defined below.
      * 
      */
-    private final List<GetLinuxWebAppAuthSettingFacebook> facebooks;
+    private List<GetLinuxWebAppAuthSettingFacebook> facebooks;
     /**
      * @return A `github` block as defined below.
      * 
      */
-    private final List<GetLinuxWebAppAuthSettingGithub> githubs;
+    private List<GetLinuxWebAppAuthSettingGithub> githubs;
     /**
      * @return A `google` block as defined below.
      * 
      */
-    private final List<GetLinuxWebAppAuthSettingGoogle> googles;
+    private List<GetLinuxWebAppAuthSettingGoogle> googles;
     /**
      * @return The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
      * 
      */
-    private final String issuer;
+    private String issuer;
     /**
      * @return A `microsoft` block as defined below.
      * 
      */
-    private final List<GetLinuxWebAppAuthSettingMicrosoft> microsofts;
+    private List<GetLinuxWebAppAuthSettingMicrosoft> microsofts;
     /**
      * @return The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
      * 
      */
-    private final String runtimeVersion;
+    private String runtimeVersion;
     /**
      * @return The number of hours after session token expiration that a session token can be used to call the token refresh API.
      * 
      */
-    private final Double tokenRefreshExtensionHours;
+    private Double tokenRefreshExtensionHours;
     /**
      * @return Does Linux Web App durably store platform-specific security tokens that are obtained during login flows enabled?
      * 
      */
-    private final Boolean tokenStoreEnabled;
+    private Boolean tokenStoreEnabled;
     /**
      * @return A `twitter` block as defined below.
      * 
      */
-    private final List<GetLinuxWebAppAuthSettingTwitter> twitters;
+    private List<GetLinuxWebAppAuthSettingTwitter> twitters;
     /**
      * @return The action to take when an unauthenticated client attempts to access the app.
      * 
      */
-    private final String unauthenticatedClientAction;
+    private String unauthenticatedClientAction;
 
-    @CustomType.Constructor
-    private GetLinuxWebAppAuthSetting(
-        @CustomType.Parameter("activeDirectories") List<GetLinuxWebAppAuthSettingActiveDirectory> activeDirectories,
-        @CustomType.Parameter("additionalLoginParameters") Map<String,String> additionalLoginParameters,
-        @CustomType.Parameter("allowedExternalRedirectUrls") List<String> allowedExternalRedirectUrls,
-        @CustomType.Parameter("defaultProvider") String defaultProvider,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("facebooks") List<GetLinuxWebAppAuthSettingFacebook> facebooks,
-        @CustomType.Parameter("githubs") List<GetLinuxWebAppAuthSettingGithub> githubs,
-        @CustomType.Parameter("googles") List<GetLinuxWebAppAuthSettingGoogle> googles,
-        @CustomType.Parameter("issuer") String issuer,
-        @CustomType.Parameter("microsofts") List<GetLinuxWebAppAuthSettingMicrosoft> microsofts,
-        @CustomType.Parameter("runtimeVersion") String runtimeVersion,
-        @CustomType.Parameter("tokenRefreshExtensionHours") Double tokenRefreshExtensionHours,
-        @CustomType.Parameter("tokenStoreEnabled") Boolean tokenStoreEnabled,
-        @CustomType.Parameter("twitters") List<GetLinuxWebAppAuthSettingTwitter> twitters,
-        @CustomType.Parameter("unauthenticatedClientAction") String unauthenticatedClientAction) {
-        this.activeDirectories = activeDirectories;
-        this.additionalLoginParameters = additionalLoginParameters;
-        this.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
-        this.defaultProvider = defaultProvider;
-        this.enabled = enabled;
-        this.facebooks = facebooks;
-        this.githubs = githubs;
-        this.googles = googles;
-        this.issuer = issuer;
-        this.microsofts = microsofts;
-        this.runtimeVersion = runtimeVersion;
-        this.tokenRefreshExtensionHours = tokenRefreshExtensionHours;
-        this.tokenStoreEnabled = tokenStoreEnabled;
-        this.twitters = twitters;
-        this.unauthenticatedClientAction = unauthenticatedClientAction;
-    }
-
+    private GetLinuxWebAppAuthSetting() {}
     /**
      * @return A `active_directory` block as defined above.
      * 
@@ -242,7 +209,7 @@ public final class GetLinuxWebAppAuthSetting {
     public static Builder builder(GetLinuxWebAppAuthSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetLinuxWebAppAuthSettingActiveDirectory> activeDirectories;
         private Map<String,String> additionalLoginParameters;
@@ -259,11 +226,7 @@ public final class GetLinuxWebAppAuthSetting {
         private Boolean tokenStoreEnabled;
         private List<GetLinuxWebAppAuthSettingTwitter> twitters;
         private String unauthenticatedClientAction;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxWebAppAuthSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.activeDirectories = defaults.activeDirectories;
@@ -283,6 +246,7 @@ public final class GetLinuxWebAppAuthSetting {
     	      this.unauthenticatedClientAction = defaults.unauthenticatedClientAction;
         }
 
+        @CustomType.Setter
         public Builder activeDirectories(List<GetLinuxWebAppAuthSettingActiveDirectory> activeDirectories) {
             this.activeDirectories = Objects.requireNonNull(activeDirectories);
             return this;
@@ -290,10 +254,12 @@ public final class GetLinuxWebAppAuthSetting {
         public Builder activeDirectories(GetLinuxWebAppAuthSettingActiveDirectory... activeDirectories) {
             return activeDirectories(List.of(activeDirectories));
         }
+        @CustomType.Setter
         public Builder additionalLoginParameters(Map<String,String> additionalLoginParameters) {
             this.additionalLoginParameters = Objects.requireNonNull(additionalLoginParameters);
             return this;
         }
+        @CustomType.Setter
         public Builder allowedExternalRedirectUrls(List<String> allowedExternalRedirectUrls) {
             this.allowedExternalRedirectUrls = Objects.requireNonNull(allowedExternalRedirectUrls);
             return this;
@@ -301,14 +267,17 @@ public final class GetLinuxWebAppAuthSetting {
         public Builder allowedExternalRedirectUrls(String... allowedExternalRedirectUrls) {
             return allowedExternalRedirectUrls(List.of(allowedExternalRedirectUrls));
         }
+        @CustomType.Setter
         public Builder defaultProvider(String defaultProvider) {
             this.defaultProvider = Objects.requireNonNull(defaultProvider);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder facebooks(List<GetLinuxWebAppAuthSettingFacebook> facebooks) {
             this.facebooks = Objects.requireNonNull(facebooks);
             return this;
@@ -316,6 +285,7 @@ public final class GetLinuxWebAppAuthSetting {
         public Builder facebooks(GetLinuxWebAppAuthSettingFacebook... facebooks) {
             return facebooks(List.of(facebooks));
         }
+        @CustomType.Setter
         public Builder githubs(List<GetLinuxWebAppAuthSettingGithub> githubs) {
             this.githubs = Objects.requireNonNull(githubs);
             return this;
@@ -323,6 +293,7 @@ public final class GetLinuxWebAppAuthSetting {
         public Builder githubs(GetLinuxWebAppAuthSettingGithub... githubs) {
             return githubs(List.of(githubs));
         }
+        @CustomType.Setter
         public Builder googles(List<GetLinuxWebAppAuthSettingGoogle> googles) {
             this.googles = Objects.requireNonNull(googles);
             return this;
@@ -330,10 +301,12 @@ public final class GetLinuxWebAppAuthSetting {
         public Builder googles(GetLinuxWebAppAuthSettingGoogle... googles) {
             return googles(List.of(googles));
         }
+        @CustomType.Setter
         public Builder issuer(String issuer) {
             this.issuer = Objects.requireNonNull(issuer);
             return this;
         }
+        @CustomType.Setter
         public Builder microsofts(List<GetLinuxWebAppAuthSettingMicrosoft> microsofts) {
             this.microsofts = Objects.requireNonNull(microsofts);
             return this;
@@ -341,18 +314,22 @@ public final class GetLinuxWebAppAuthSetting {
         public Builder microsofts(GetLinuxWebAppAuthSettingMicrosoft... microsofts) {
             return microsofts(List.of(microsofts));
         }
+        @CustomType.Setter
         public Builder runtimeVersion(String runtimeVersion) {
             this.runtimeVersion = Objects.requireNonNull(runtimeVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder tokenRefreshExtensionHours(Double tokenRefreshExtensionHours) {
             this.tokenRefreshExtensionHours = Objects.requireNonNull(tokenRefreshExtensionHours);
             return this;
         }
+        @CustomType.Setter
         public Builder tokenStoreEnabled(Boolean tokenStoreEnabled) {
             this.tokenStoreEnabled = Objects.requireNonNull(tokenStoreEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder twitters(List<GetLinuxWebAppAuthSettingTwitter> twitters) {
             this.twitters = Objects.requireNonNull(twitters);
             return this;
@@ -360,11 +337,29 @@ public final class GetLinuxWebAppAuthSetting {
         public Builder twitters(GetLinuxWebAppAuthSettingTwitter... twitters) {
             return twitters(List.of(twitters));
         }
+        @CustomType.Setter
         public Builder unauthenticatedClientAction(String unauthenticatedClientAction) {
             this.unauthenticatedClientAction = Objects.requireNonNull(unauthenticatedClientAction);
             return this;
-        }        public GetLinuxWebAppAuthSetting build() {
-            return new GetLinuxWebAppAuthSetting(activeDirectories, additionalLoginParameters, allowedExternalRedirectUrls, defaultProvider, enabled, facebooks, githubs, googles, issuer, microsofts, runtimeVersion, tokenRefreshExtensionHours, tokenStoreEnabled, twitters, unauthenticatedClientAction);
+        }
+        public GetLinuxWebAppAuthSetting build() {
+            final var o = new GetLinuxWebAppAuthSetting();
+            o.activeDirectories = activeDirectories;
+            o.additionalLoginParameters = additionalLoginParameters;
+            o.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
+            o.defaultProvider = defaultProvider;
+            o.enabled = enabled;
+            o.facebooks = facebooks;
+            o.githubs = githubs;
+            o.googles = googles;
+            o.issuer = issuer;
+            o.microsofts = microsofts;
+            o.runtimeVersion = runtimeVersion;
+            o.tokenRefreshExtensionHours = tokenRefreshExtensionHours;
+            o.tokenStoreEnabled = tokenStoreEnabled;
+            o.twitters = twitters;
+            o.unauthenticatedClientAction = unauthenticatedClientAction;
+            return o;
         }
     }
 }

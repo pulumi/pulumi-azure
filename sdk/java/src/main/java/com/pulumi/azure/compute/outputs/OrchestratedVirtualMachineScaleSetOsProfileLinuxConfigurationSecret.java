@@ -11,17 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret {
-    private final List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate> certificates;
-    private final String keyVaultId;
+    private List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate> certificates;
+    private String keyVaultId;
 
-    @CustomType.Constructor
-    private OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret(
-        @CustomType.Parameter("certificates") List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate> certificates,
-        @CustomType.Parameter("keyVaultId") String keyVaultId) {
-        this.certificates = certificates;
-        this.keyVaultId = keyVaultId;
-    }
-
+    private OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret() {}
     public List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate> certificates() {
         return this.certificates;
     }
@@ -36,21 +29,18 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     public static Builder builder(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate> certificates;
         private String keyVaultId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificates = defaults.certificates;
     	      this.keyVaultId = defaults.keyVaultId;
         }
 
+        @CustomType.Setter
         public Builder certificates(List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate> certificates) {
             this.certificates = Objects.requireNonNull(certificates);
             return this;
@@ -58,11 +48,16 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         public Builder certificates(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate... certificates) {
             return certificates(List.of(certificates));
         }
+        @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
             this.keyVaultId = Objects.requireNonNull(keyVaultId);
             return this;
-        }        public OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret build() {
-            return new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret(certificates, keyVaultId);
+        }
+        public OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret build() {
+            final var o = new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret();
+            o.certificates = certificates;
+            o.keyVaultId = keyVaultId;
+            return o;
         }
     }
 }

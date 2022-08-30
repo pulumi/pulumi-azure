@@ -17,35 +17,24 @@ public final class IoTHubFallbackRoute {
      * @return The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
      * 
      */
-    private final @Nullable String condition;
+    private @Nullable String condition;
     /**
      * @return Used to specify whether the fallback route is enabled.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed.
      * 
      */
-    private final @Nullable List<String> endpointNames;
+    private @Nullable List<String> endpointNames;
     /**
      * @return The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`.
      * 
      */
-    private final @Nullable String source;
+    private @Nullable String source;
 
-    @CustomType.Constructor
-    private IoTHubFallbackRoute(
-        @CustomType.Parameter("condition") @Nullable String condition,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("endpointNames") @Nullable List<String> endpointNames,
-        @CustomType.Parameter("source") @Nullable String source) {
-        this.condition = condition;
-        this.enabled = enabled;
-        this.endpointNames = endpointNames;
-        this.source = source;
-    }
-
+    private IoTHubFallbackRoute() {}
     /**
      * @return The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
      * 
@@ -82,17 +71,13 @@ public final class IoTHubFallbackRoute {
     public static Builder builder(IoTHubFallbackRoute defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String condition;
         private @Nullable Boolean enabled;
         private @Nullable List<String> endpointNames;
         private @Nullable String source;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IoTHubFallbackRoute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.condition = defaults.condition;
@@ -101,14 +86,17 @@ public final class IoTHubFallbackRoute {
     	      this.source = defaults.source;
         }
 
+        @CustomType.Setter
         public Builder condition(@Nullable String condition) {
             this.condition = condition;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder endpointNames(@Nullable List<String> endpointNames) {
             this.endpointNames = endpointNames;
             return this;
@@ -116,11 +104,18 @@ public final class IoTHubFallbackRoute {
         public Builder endpointNames(String... endpointNames) {
             return endpointNames(List.of(endpointNames));
         }
+        @CustomType.Setter
         public Builder source(@Nullable String source) {
             this.source = source;
             return this;
-        }        public IoTHubFallbackRoute build() {
-            return new IoTHubFallbackRoute(condition, enabled, endpointNames, source);
+        }
+        public IoTHubFallbackRoute build() {
+            final var o = new IoTHubFallbackRoute();
+            o.condition = condition;
+            o.enabled = enabled;
+            o.endpointNames = endpointNames;
+            o.source = source;
+            return o;
         }
     }
 }

@@ -16,35 +16,24 @@ public final class EndpointOrigin {
      * @return A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
      * 
      */
-    private final String hostName;
+    private String hostName;
     /**
      * @return The HTTP port of the origin. Defaults to `80`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer httpPort;
+    private @Nullable Integer httpPort;
     /**
      * @return The HTTPS port of the origin. Defaults to `443`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer httpsPort;
+    private @Nullable Integer httpsPort;
     /**
      * @return The name of the origin. This is an arbitrary value. However, this value needs to be unique under the endpoint. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private EndpointOrigin(
-        @CustomType.Parameter("hostName") String hostName,
-        @CustomType.Parameter("httpPort") @Nullable Integer httpPort,
-        @CustomType.Parameter("httpsPort") @Nullable Integer httpsPort,
-        @CustomType.Parameter("name") String name) {
-        this.hostName = hostName;
-        this.httpPort = httpPort;
-        this.httpsPort = httpsPort;
-        this.name = name;
-    }
-
+    private EndpointOrigin() {}
     /**
      * @return A string that determines the hostname/IP address of the origin server. This string can be a domain name, Storage Account endpoint, Web App endpoint, IPv4 address or IPv6 address. Changing this forces a new resource to be created.
      * 
@@ -81,17 +70,13 @@ public final class EndpointOrigin {
     public static Builder builder(EndpointOrigin defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String hostName;
         private @Nullable Integer httpPort;
         private @Nullable Integer httpsPort;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointOrigin defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostName = defaults.hostName;
@@ -100,23 +85,33 @@ public final class EndpointOrigin {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder hostName(String hostName) {
             this.hostName = Objects.requireNonNull(hostName);
             return this;
         }
+        @CustomType.Setter
         public Builder httpPort(@Nullable Integer httpPort) {
             this.httpPort = httpPort;
             return this;
         }
+        @CustomType.Setter
         public Builder httpsPort(@Nullable Integer httpsPort) {
             this.httpsPort = httpsPort;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public EndpointOrigin build() {
-            return new EndpointOrigin(hostName, httpPort, httpsPort, name);
+        }
+        public EndpointOrigin build() {
+            final var o = new EndpointOrigin();
+            o.hostName = hostName;
+            o.httpPort = httpPort;
+            o.httpsPort = httpsPort;
+            o.name = name;
+            return o;
         }
     }
 }

@@ -17,84 +17,59 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
      * @return Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
      * 
      */
-    private final @Nullable Integer agcAndColorStripeRestriction;
+    private @Nullable Integer agcAndColorStripeRestriction;
     /**
      * @return Configures Unknown output handling settings of the license. Supported values are `Allowed`, `AllowedWithVideoConstriction` or `NotAllowed`.
      * 
      */
-    private final @Nullable String allowPassingVideoContentToUnknownOutput;
+    private @Nullable String allowPassingVideoContentToUnknownOutput;
     /**
      * @return Specifies the output protection level for compressed digital audio. Supported values are 100, 150 or 200.
      * 
      */
-    private final @Nullable Integer analogVideoOpl;
+    private @Nullable Integer analogVideoOpl;
     /**
      * @return Specifies the output protection level for compressed digital audio.Supported values are 100, 150 or 200.
      * 
      */
-    private final @Nullable Integer compressedDigitalAudioOpl;
+    private @Nullable Integer compressedDigitalAudioOpl;
     /**
      * @return Enables the Image Constraint For Analog Component Video Restriction in the license.
      * 
      */
-    private final @Nullable Boolean digitalVideoOnlyContentRestriction;
+    private @Nullable Boolean digitalVideoOnlyContentRestriction;
     /**
      * @return The amount of time that the license is valid after the license is first used to play content.
      * 
      */
-    private final @Nullable String firstPlayExpiration;
+    private @Nullable String firstPlayExpiration;
     /**
      * @return Enables the Image Constraint For Analog Component Video Restriction in the license.
      * 
      */
-    private final @Nullable Boolean imageConstraintForAnalogComponentVideoRestriction;
+    private @Nullable Boolean imageConstraintForAnalogComponentVideoRestriction;
     /**
      * @return Enables the Image Constraint For Analog Component Video Restriction in the license.
      * 
      */
-    private final @Nullable Boolean imageConstraintForAnalogComputerMonitorRestriction;
+    private @Nullable Boolean imageConstraintForAnalogComputerMonitorRestriction;
     /**
      * @return Configures the Serial Copy Management System (SCMS) in the license. Must be between 0 and 3 inclusive.
      * 
      */
-    private final @Nullable Integer scmsRestriction;
+    private @Nullable Integer scmsRestriction;
     /**
      * @return Specifies the output protection level for uncompressed digital audio. Supported values are 100, 150, 250 or 300.
      * 
      */
-    private final @Nullable Integer uncompressedDigitalAudioOpl;
+    private @Nullable Integer uncompressedDigitalAudioOpl;
     /**
      * @return Specifies the output protection level for uncompressed digital video. Supported values are 100, 150, 250 or 300.
      * 
      */
-    private final @Nullable Integer uncompressedDigitalVideoOpl;
+    private @Nullable Integer uncompressedDigitalVideoOpl;
 
-    @CustomType.Constructor
-    private ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight(
-        @CustomType.Parameter("agcAndColorStripeRestriction") @Nullable Integer agcAndColorStripeRestriction,
-        @CustomType.Parameter("allowPassingVideoContentToUnknownOutput") @Nullable String allowPassingVideoContentToUnknownOutput,
-        @CustomType.Parameter("analogVideoOpl") @Nullable Integer analogVideoOpl,
-        @CustomType.Parameter("compressedDigitalAudioOpl") @Nullable Integer compressedDigitalAudioOpl,
-        @CustomType.Parameter("digitalVideoOnlyContentRestriction") @Nullable Boolean digitalVideoOnlyContentRestriction,
-        @CustomType.Parameter("firstPlayExpiration") @Nullable String firstPlayExpiration,
-        @CustomType.Parameter("imageConstraintForAnalogComponentVideoRestriction") @Nullable Boolean imageConstraintForAnalogComponentVideoRestriction,
-        @CustomType.Parameter("imageConstraintForAnalogComputerMonitorRestriction") @Nullable Boolean imageConstraintForAnalogComputerMonitorRestriction,
-        @CustomType.Parameter("scmsRestriction") @Nullable Integer scmsRestriction,
-        @CustomType.Parameter("uncompressedDigitalAudioOpl") @Nullable Integer uncompressedDigitalAudioOpl,
-        @CustomType.Parameter("uncompressedDigitalVideoOpl") @Nullable Integer uncompressedDigitalVideoOpl) {
-        this.agcAndColorStripeRestriction = agcAndColorStripeRestriction;
-        this.allowPassingVideoContentToUnknownOutput = allowPassingVideoContentToUnknownOutput;
-        this.analogVideoOpl = analogVideoOpl;
-        this.compressedDigitalAudioOpl = compressedDigitalAudioOpl;
-        this.digitalVideoOnlyContentRestriction = digitalVideoOnlyContentRestriction;
-        this.firstPlayExpiration = firstPlayExpiration;
-        this.imageConstraintForAnalogComponentVideoRestriction = imageConstraintForAnalogComponentVideoRestriction;
-        this.imageConstraintForAnalogComputerMonitorRestriction = imageConstraintForAnalogComputerMonitorRestriction;
-        this.scmsRestriction = scmsRestriction;
-        this.uncompressedDigitalAudioOpl = uncompressedDigitalAudioOpl;
-        this.uncompressedDigitalVideoOpl = uncompressedDigitalVideoOpl;
-    }
-
+    private ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight() {}
     /**
      * @return Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
      * 
@@ -180,7 +155,7 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
     public static Builder builder(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer agcAndColorStripeRestriction;
         private @Nullable String allowPassingVideoContentToUnknownOutput;
@@ -193,11 +168,7 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
         private @Nullable Integer scmsRestriction;
         private @Nullable Integer uncompressedDigitalAudioOpl;
         private @Nullable Integer uncompressedDigitalVideoOpl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.agcAndColorStripeRestriction = defaults.agcAndColorStripeRestriction;
@@ -213,51 +184,75 @@ public final class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlay
     	      this.uncompressedDigitalVideoOpl = defaults.uncompressedDigitalVideoOpl;
         }
 
+        @CustomType.Setter
         public Builder agcAndColorStripeRestriction(@Nullable Integer agcAndColorStripeRestriction) {
             this.agcAndColorStripeRestriction = agcAndColorStripeRestriction;
             return this;
         }
+        @CustomType.Setter
         public Builder allowPassingVideoContentToUnknownOutput(@Nullable String allowPassingVideoContentToUnknownOutput) {
             this.allowPassingVideoContentToUnknownOutput = allowPassingVideoContentToUnknownOutput;
             return this;
         }
+        @CustomType.Setter
         public Builder analogVideoOpl(@Nullable Integer analogVideoOpl) {
             this.analogVideoOpl = analogVideoOpl;
             return this;
         }
+        @CustomType.Setter
         public Builder compressedDigitalAudioOpl(@Nullable Integer compressedDigitalAudioOpl) {
             this.compressedDigitalAudioOpl = compressedDigitalAudioOpl;
             return this;
         }
+        @CustomType.Setter
         public Builder digitalVideoOnlyContentRestriction(@Nullable Boolean digitalVideoOnlyContentRestriction) {
             this.digitalVideoOnlyContentRestriction = digitalVideoOnlyContentRestriction;
             return this;
         }
+        @CustomType.Setter
         public Builder firstPlayExpiration(@Nullable String firstPlayExpiration) {
             this.firstPlayExpiration = firstPlayExpiration;
             return this;
         }
+        @CustomType.Setter
         public Builder imageConstraintForAnalogComponentVideoRestriction(@Nullable Boolean imageConstraintForAnalogComponentVideoRestriction) {
             this.imageConstraintForAnalogComponentVideoRestriction = imageConstraintForAnalogComponentVideoRestriction;
             return this;
         }
+        @CustomType.Setter
         public Builder imageConstraintForAnalogComputerMonitorRestriction(@Nullable Boolean imageConstraintForAnalogComputerMonitorRestriction) {
             this.imageConstraintForAnalogComputerMonitorRestriction = imageConstraintForAnalogComputerMonitorRestriction;
             return this;
         }
+        @CustomType.Setter
         public Builder scmsRestriction(@Nullable Integer scmsRestriction) {
             this.scmsRestriction = scmsRestriction;
             return this;
         }
+        @CustomType.Setter
         public Builder uncompressedDigitalAudioOpl(@Nullable Integer uncompressedDigitalAudioOpl) {
             this.uncompressedDigitalAudioOpl = uncompressedDigitalAudioOpl;
             return this;
         }
+        @CustomType.Setter
         public Builder uncompressedDigitalVideoOpl(@Nullable Integer uncompressedDigitalVideoOpl) {
             this.uncompressedDigitalVideoOpl = uncompressedDigitalVideoOpl;
             return this;
-        }        public ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight build() {
-            return new ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight(agcAndColorStripeRestriction, allowPassingVideoContentToUnknownOutput, analogVideoOpl, compressedDigitalAudioOpl, digitalVideoOnlyContentRestriction, firstPlayExpiration, imageConstraintForAnalogComponentVideoRestriction, imageConstraintForAnalogComputerMonitorRestriction, scmsRestriction, uncompressedDigitalAudioOpl, uncompressedDigitalVideoOpl);
+        }
+        public ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight build() {
+            final var o = new ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight();
+            o.agcAndColorStripeRestriction = agcAndColorStripeRestriction;
+            o.allowPassingVideoContentToUnknownOutput = allowPassingVideoContentToUnknownOutput;
+            o.analogVideoOpl = analogVideoOpl;
+            o.compressedDigitalAudioOpl = compressedDigitalAudioOpl;
+            o.digitalVideoOnlyContentRestriction = digitalVideoOnlyContentRestriction;
+            o.firstPlayExpiration = firstPlayExpiration;
+            o.imageConstraintForAnalogComponentVideoRestriction = imageConstraintForAnalogComponentVideoRestriction;
+            o.imageConstraintForAnalogComputerMonitorRestriction = imageConstraintForAnalogComputerMonitorRestriction;
+            o.scmsRestriction = scmsRestriction;
+            o.uncompressedDigitalAudioOpl = uncompressedDigitalAudioOpl;
+            o.uncompressedDigitalVideoOpl = uncompressedDigitalVideoOpl;
+            return o;
         }
     }
 }

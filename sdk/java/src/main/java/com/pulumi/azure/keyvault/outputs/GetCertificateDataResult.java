@@ -15,72 +15,47 @@ public final class GetCertificateDataResult {
      * @return Amount of certificates in the chain in case Key Vault Certificate is a bundle (e.g. has an intermediate certificate).
      * 
      */
-    private final Integer certificatesCount;
+    private Integer certificatesCount;
     /**
      * @return Expiry date of certificate in RFC3339 format.
      * 
      */
-    private final String expires;
+    private String expires;
     /**
      * @return The raw Key Vault Certificate data represented as a hexadecimal string.
      * 
      */
-    private final String hex;
+    private String hex;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Key Vault Certificate Key.
      * 
      */
-    private final String key;
-    private final String keyVaultId;
-    private final String name;
+    private String key;
+    private String keyVaultId;
+    private String name;
     /**
      * @return Not Before date of certificate in RFC3339 format.
      * 
      */
-    private final String notBefore;
+    private String notBefore;
     /**
      * @return The Key Vault Certificate in PEM format.
      * 
      */
-    private final String pem;
+    private String pem;
     /**
      * @return A mapping of tags to assign to the resource.
      * 
      */
-    private final Map<String,String> tags;
-    private final String version;
+    private Map<String,String> tags;
+    private String version;
 
-    @CustomType.Constructor
-    private GetCertificateDataResult(
-        @CustomType.Parameter("certificatesCount") Integer certificatesCount,
-        @CustomType.Parameter("expires") String expires,
-        @CustomType.Parameter("hex") String hex,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("keyVaultId") String keyVaultId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("notBefore") String notBefore,
-        @CustomType.Parameter("pem") String pem,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("version") String version) {
-        this.certificatesCount = certificatesCount;
-        this.expires = expires;
-        this.hex = hex;
-        this.id = id;
-        this.key = key;
-        this.keyVaultId = keyVaultId;
-        this.name = name;
-        this.notBefore = notBefore;
-        this.pem = pem;
-        this.tags = tags;
-        this.version = version;
-    }
-
+    private GetCertificateDataResult() {}
     /**
      * @return Amount of certificates in the chain in case Key Vault Certificate is a bundle (e.g. has an intermediate certificate).
      * 
@@ -154,7 +129,7 @@ public final class GetCertificateDataResult {
     public static Builder builder(GetCertificateDataResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer certificatesCount;
         private String expires;
@@ -167,11 +142,7 @@ public final class GetCertificateDataResult {
         private String pem;
         private Map<String,String> tags;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCertificateDataResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificatesCount = defaults.certificatesCount;
@@ -187,51 +158,75 @@ public final class GetCertificateDataResult {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder certificatesCount(Integer certificatesCount) {
             this.certificatesCount = Objects.requireNonNull(certificatesCount);
             return this;
         }
+        @CustomType.Setter
         public Builder expires(String expires) {
             this.expires = Objects.requireNonNull(expires);
             return this;
         }
+        @CustomType.Setter
         public Builder hex(String hex) {
             this.hex = Objects.requireNonNull(hex);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
             this.keyVaultId = Objects.requireNonNull(keyVaultId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder notBefore(String notBefore) {
             this.notBefore = Objects.requireNonNull(notBefore);
             return this;
         }
+        @CustomType.Setter
         public Builder pem(String pem) {
             this.pem = Objects.requireNonNull(pem);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public GetCertificateDataResult build() {
-            return new GetCertificateDataResult(certificatesCount, expires, hex, id, key, keyVaultId, name, notBefore, pem, tags, version);
+        }
+        public GetCertificateDataResult build() {
+            final var o = new GetCertificateDataResult();
+            o.certificatesCount = certificatesCount;
+            o.expires = expires;
+            o.hex = hex;
+            o.id = id;
+            o.key = key;
+            o.keyVaultId = keyVaultId;
+            o.name = name;
+            o.notBefore = notBefore;
+            o.pem = pem;
+            o.tags = tags;
+            o.version = version;
+            return o;
         }
     }
 }

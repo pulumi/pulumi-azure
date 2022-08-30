@@ -16,21 +16,14 @@ public final class ApplicationGatewayProbeMatch {
      * @return A snippet from the Response Body which must be present in the Response.
      * 
      */
-    private final @Nullable String body;
+    private @Nullable String body;
     /**
      * @return A list of allowed status codes for this Health Probe.
      * 
      */
-    private final List<String> statusCodes;
+    private List<String> statusCodes;
 
-    @CustomType.Constructor
-    private ApplicationGatewayProbeMatch(
-        @CustomType.Parameter("body") @Nullable String body,
-        @CustomType.Parameter("statusCodes") List<String> statusCodes) {
-        this.body = body;
-        this.statusCodes = statusCodes;
-    }
-
+    private ApplicationGatewayProbeMatch() {}
     /**
      * @return A snippet from the Response Body which must be present in the Response.
      * 
@@ -53,33 +46,35 @@ public final class ApplicationGatewayProbeMatch {
     public static Builder builder(ApplicationGatewayProbeMatch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String body;
         private List<String> statusCodes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayProbeMatch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.body = defaults.body;
     	      this.statusCodes = defaults.statusCodes;
         }
 
+        @CustomType.Setter
         public Builder body(@Nullable String body) {
             this.body = body;
             return this;
         }
+        @CustomType.Setter
         public Builder statusCodes(List<String> statusCodes) {
             this.statusCodes = Objects.requireNonNull(statusCodes);
             return this;
         }
         public Builder statusCodes(String... statusCodes) {
             return statusCodes(List.of(statusCodes));
-        }        public ApplicationGatewayProbeMatch build() {
-            return new ApplicationGatewayProbeMatch(body, statusCodes);
+        }
+        public ApplicationGatewayProbeMatch build() {
+            final var o = new ApplicationGatewayProbeMatch();
+            o.body = body;
+            o.statusCodes = statusCodes;
+            return o;
         }
     }
 }

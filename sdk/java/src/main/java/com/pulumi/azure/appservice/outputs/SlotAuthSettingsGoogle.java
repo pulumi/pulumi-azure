@@ -15,28 +15,19 @@ public final class SlotAuthSettingsGoogle {
      * @return The OpenID Connect Client ID for the Google web application.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return The client secret associated with the Google web application.
      * 
      */
-    private final String clientSecret;
+    private String clientSecret;
     /**
      * @return The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. https://developers.google.com/identity/sign-in/web/
      * 
      */
-    private final @Nullable List<String> oauthScopes;
+    private @Nullable List<String> oauthScopes;
 
-    @CustomType.Constructor
-    private SlotAuthSettingsGoogle(
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("clientSecret") String clientSecret,
-        @CustomType.Parameter("oauthScopes") @Nullable List<String> oauthScopes) {
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
-        this.oauthScopes = oauthScopes;
-    }
-
+    private SlotAuthSettingsGoogle() {}
     /**
      * @return The OpenID Connect Client ID for the Google web application.
      * 
@@ -66,16 +57,12 @@ public final class SlotAuthSettingsGoogle {
     public static Builder builder(SlotAuthSettingsGoogle defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clientId;
         private String clientSecret;
         private @Nullable List<String> oauthScopes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SlotAuthSettingsGoogle defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientId = defaults.clientId;
@@ -83,22 +70,30 @@ public final class SlotAuthSettingsGoogle {
     	      this.oauthScopes = defaults.oauthScopes;
         }
 
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
             this.clientSecret = Objects.requireNonNull(clientSecret);
             return this;
         }
+        @CustomType.Setter
         public Builder oauthScopes(@Nullable List<String> oauthScopes) {
             this.oauthScopes = oauthScopes;
             return this;
         }
         public Builder oauthScopes(String... oauthScopes) {
             return oauthScopes(List.of(oauthScopes));
-        }        public SlotAuthSettingsGoogle build() {
-            return new SlotAuthSettingsGoogle(clientId, clientSecret, oauthScopes);
+        }
+        public SlotAuthSettingsGoogle build() {
+            final var o = new SlotAuthSettingsGoogle();
+            o.clientId = clientId;
+            o.clientSecret = clientSecret;
+            o.oauthScopes = oauthScopes;
+            return o;
         }
     }
 }

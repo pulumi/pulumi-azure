@@ -13,28 +13,19 @@ public final class WindowsWebAppConnectionString {
      * @return The name of the Connection String.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return The connection string value.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private WindowsWebAppConnectionString(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("value") String value) {
-        this.name = name;
-        this.type = type;
-        this.value = value;
-    }
-
+    private WindowsWebAppConnectionString() {}
     /**
      * @return The name of the Connection String.
      * 
@@ -64,16 +55,12 @@ public final class WindowsWebAppConnectionString {
     public static Builder builder(WindowsWebAppConnectionString defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String type;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsWebAppConnectionString defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -81,19 +68,27 @@ public final class WindowsWebAppConnectionString {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public WindowsWebAppConnectionString build() {
-            return new WindowsWebAppConnectionString(name, type, value);
+        }
+        public WindowsWebAppConnectionString build() {
+            final var o = new WindowsWebAppConnectionString();
+            o.name = name;
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

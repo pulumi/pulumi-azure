@@ -18,91 +18,64 @@ public final class ApplicationGatewayProbe {
      * @return The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
      * 
      */
-    private final @Nullable String host;
+    private @Nullable String host;
     /**
      * @return The ID of the Rewrite Rule Set
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
      * 
      */
-    private final Integer interval;
+    private Integer interval;
     /**
      * @return A `match` block as defined above.
      * 
      */
-    private final @Nullable ApplicationGatewayProbeMatch match;
+    private @Nullable ApplicationGatewayProbeMatch match;
     /**
      * @return The minimum number of servers that are always marked as healthy. Defaults to `0`.
      * 
      */
-    private final @Nullable Integer minimumServers;
+    private @Nullable Integer minimumServers;
     /**
      * @return The Name of the Probe.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Path used for this Probe.
      * 
      */
-    private final String path;
+    private String path;
     /**
      * @return Whether the host header should be picked from the backend HTTP settings. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean pickHostNameFromBackendHttpSettings;
+    private @Nullable Boolean pickHostNameFromBackendHttpSettings;
     /**
      * @return Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
      * 
      */
-    private final @Nullable Integer port;
+    private @Nullable Integer port;
     /**
      * @return The Protocol used for this Probe. Possible values are `Http` and `Https`.
      * 
      */
-    private final String protocol;
+    private String protocol;
     /**
      * @return The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
      * 
      */
-    private final Integer timeout;
+    private Integer timeout;
     /**
      * @return The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20.
      * 
      */
-    private final Integer unhealthyThreshold;
+    private Integer unhealthyThreshold;
 
-    @CustomType.Constructor
-    private ApplicationGatewayProbe(
-        @CustomType.Parameter("host") @Nullable String host,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("interval") Integer interval,
-        @CustomType.Parameter("match") @Nullable ApplicationGatewayProbeMatch match,
-        @CustomType.Parameter("minimumServers") @Nullable Integer minimumServers,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("pickHostNameFromBackendHttpSettings") @Nullable Boolean pickHostNameFromBackendHttpSettings,
-        @CustomType.Parameter("port") @Nullable Integer port,
-        @CustomType.Parameter("protocol") String protocol,
-        @CustomType.Parameter("timeout") Integer timeout,
-        @CustomType.Parameter("unhealthyThreshold") Integer unhealthyThreshold) {
-        this.host = host;
-        this.id = id;
-        this.interval = interval;
-        this.match = match;
-        this.minimumServers = minimumServers;
-        this.name = name;
-        this.path = path;
-        this.pickHostNameFromBackendHttpSettings = pickHostNameFromBackendHttpSettings;
-        this.port = port;
-        this.protocol = protocol;
-        this.timeout = timeout;
-        this.unhealthyThreshold = unhealthyThreshold;
-    }
-
+    private ApplicationGatewayProbe() {}
     /**
      * @return The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as ‘127.0.0.1’, unless otherwise configured in custom probe. Cannot be set if `pick_host_name_from_backend_http_settings` is set to `true`.
      * 
@@ -195,7 +168,7 @@ public final class ApplicationGatewayProbe {
     public static Builder builder(ApplicationGatewayProbe defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String host;
         private @Nullable String id;
@@ -209,11 +182,7 @@ public final class ApplicationGatewayProbe {
         private String protocol;
         private Integer timeout;
         private Integer unhealthyThreshold;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayProbe defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.host = defaults.host;
@@ -230,55 +199,81 @@ public final class ApplicationGatewayProbe {
     	      this.unhealthyThreshold = defaults.unhealthyThreshold;
         }
 
+        @CustomType.Setter
         public Builder host(@Nullable String host) {
             this.host = host;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder interval(Integer interval) {
             this.interval = Objects.requireNonNull(interval);
             return this;
         }
+        @CustomType.Setter
         public Builder match(@Nullable ApplicationGatewayProbeMatch match) {
             this.match = match;
             return this;
         }
+        @CustomType.Setter
         public Builder minimumServers(@Nullable Integer minimumServers) {
             this.minimumServers = minimumServers;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder pickHostNameFromBackendHttpSettings(@Nullable Boolean pickHostNameFromBackendHttpSettings) {
             this.pickHostNameFromBackendHttpSettings = pickHostNameFromBackendHttpSettings;
             return this;
         }
+        @CustomType.Setter
         public Builder port(@Nullable Integer port) {
             this.port = port;
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
         }
+        @CustomType.Setter
         public Builder timeout(Integer timeout) {
             this.timeout = Objects.requireNonNull(timeout);
             return this;
         }
+        @CustomType.Setter
         public Builder unhealthyThreshold(Integer unhealthyThreshold) {
             this.unhealthyThreshold = Objects.requireNonNull(unhealthyThreshold);
             return this;
-        }        public ApplicationGatewayProbe build() {
-            return new ApplicationGatewayProbe(host, id, interval, match, minimumServers, name, path, pickHostNameFromBackendHttpSettings, port, protocol, timeout, unhealthyThreshold);
+        }
+        public ApplicationGatewayProbe build() {
+            final var o = new ApplicationGatewayProbe();
+            o.host = host;
+            o.id = id;
+            o.interval = interval;
+            o.match = match;
+            o.minimumServers = minimumServers;
+            o.name = name;
+            o.path = path;
+            o.pickHostNameFromBackendHttpSettings = pickHostNameFromBackendHttpSettings;
+            o.port = port;
+            o.protocol = protocol;
+            o.timeout = timeout;
+            o.unhealthyThreshold = unhealthyThreshold;
+            return o;
         }
     }
 }

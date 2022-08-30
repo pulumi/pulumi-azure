@@ -16,29 +16,20 @@ public final class ServiceAuthenticationConfiguration {
      * @return The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
      * 
      */
-    private final @Nullable String audience;
+    private @Nullable String audience;
     /**
      * @return The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running this provider.
      * Authority must be registered to Azure AD and in the following format: https://{Azure-AD-endpoint}/{tenant-id}.
      * 
      */
-    private final @Nullable String authority;
+    private @Nullable String authority;
     /**
      * @return Enables the &#39;SMART on FHIR&#39; option for mobile and web implementations.
      * 
      */
-    private final @Nullable Boolean smartProxyEnabled;
+    private @Nullable Boolean smartProxyEnabled;
 
-    @CustomType.Constructor
-    private ServiceAuthenticationConfiguration(
-        @CustomType.Parameter("audience") @Nullable String audience,
-        @CustomType.Parameter("authority") @Nullable String authority,
-        @CustomType.Parameter("smartProxyEnabled") @Nullable Boolean smartProxyEnabled) {
-        this.audience = audience;
-        this.authority = authority;
-        this.smartProxyEnabled = smartProxyEnabled;
-    }
-
+    private ServiceAuthenticationConfiguration() {}
     /**
      * @return The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
      * 
@@ -69,16 +60,12 @@ public final class ServiceAuthenticationConfiguration {
     public static Builder builder(ServiceAuthenticationConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String audience;
         private @Nullable String authority;
         private @Nullable Boolean smartProxyEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceAuthenticationConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.audience = defaults.audience;
@@ -86,19 +73,27 @@ public final class ServiceAuthenticationConfiguration {
     	      this.smartProxyEnabled = defaults.smartProxyEnabled;
         }
 
+        @CustomType.Setter
         public Builder audience(@Nullable String audience) {
             this.audience = audience;
             return this;
         }
+        @CustomType.Setter
         public Builder authority(@Nullable String authority) {
             this.authority = authority;
             return this;
         }
+        @CustomType.Setter
         public Builder smartProxyEnabled(@Nullable Boolean smartProxyEnabled) {
             this.smartProxyEnabled = smartProxyEnabled;
             return this;
-        }        public ServiceAuthenticationConfiguration build() {
-            return new ServiceAuthenticationConfiguration(audience, authority, smartProxyEnabled);
+        }
+        public ServiceAuthenticationConfiguration build() {
+            final var o = new ServiceAuthenticationConfiguration();
+            o.audience = audience;
+            o.authority = authority;
+            o.smartProxyEnabled = smartProxyEnabled;
+            return o;
         }
     }
 }

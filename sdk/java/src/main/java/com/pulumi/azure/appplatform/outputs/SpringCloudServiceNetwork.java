@@ -17,49 +17,34 @@ public final class SpringCloudServiceNetwork {
      * @return Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String appNetworkResourceGroup;
+    private @Nullable String appNetworkResourceGroup;
     /**
      * @return Specifies the ID of the Subnet which should host the Spring Boot Applications deployed in this Spring Cloud Service. Changing this forces a new resource to be created.
      * 
      */
-    private final String appSubnetId;
+    private String appSubnetId;
     /**
      * @return A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
      * 
      */
-    private final List<String> cidrRanges;
+    private List<String> cidrRanges;
     /**
      * @return Ingress read time out in seconds. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer readTimeoutSeconds;
+    private @Nullable Integer readTimeoutSeconds;
     /**
      * @return Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String serviceRuntimeNetworkResourceGroup;
+    private @Nullable String serviceRuntimeNetworkResourceGroup;
     /**
      * @return Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created.
      * 
      */
-    private final String serviceRuntimeSubnetId;
+    private String serviceRuntimeSubnetId;
 
-    @CustomType.Constructor
-    private SpringCloudServiceNetwork(
-        @CustomType.Parameter("appNetworkResourceGroup") @Nullable String appNetworkResourceGroup,
-        @CustomType.Parameter("appSubnetId") String appSubnetId,
-        @CustomType.Parameter("cidrRanges") List<String> cidrRanges,
-        @CustomType.Parameter("readTimeoutSeconds") @Nullable Integer readTimeoutSeconds,
-        @CustomType.Parameter("serviceRuntimeNetworkResourceGroup") @Nullable String serviceRuntimeNetworkResourceGroup,
-        @CustomType.Parameter("serviceRuntimeSubnetId") String serviceRuntimeSubnetId) {
-        this.appNetworkResourceGroup = appNetworkResourceGroup;
-        this.appSubnetId = appSubnetId;
-        this.cidrRanges = cidrRanges;
-        this.readTimeoutSeconds = readTimeoutSeconds;
-        this.serviceRuntimeNetworkResourceGroup = serviceRuntimeNetworkResourceGroup;
-        this.serviceRuntimeSubnetId = serviceRuntimeSubnetId;
-    }
-
+    private SpringCloudServiceNetwork() {}
     /**
      * @return Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
      * 
@@ -110,7 +95,7 @@ public final class SpringCloudServiceNetwork {
     public static Builder builder(SpringCloudServiceNetwork defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String appNetworkResourceGroup;
         private String appSubnetId;
@@ -118,11 +103,7 @@ public final class SpringCloudServiceNetwork {
         private @Nullable Integer readTimeoutSeconds;
         private @Nullable String serviceRuntimeNetworkResourceGroup;
         private String serviceRuntimeSubnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpringCloudServiceNetwork defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appNetworkResourceGroup = defaults.appNetworkResourceGroup;
@@ -133,14 +114,17 @@ public final class SpringCloudServiceNetwork {
     	      this.serviceRuntimeSubnetId = defaults.serviceRuntimeSubnetId;
         }
 
+        @CustomType.Setter
         public Builder appNetworkResourceGroup(@Nullable String appNetworkResourceGroup) {
             this.appNetworkResourceGroup = appNetworkResourceGroup;
             return this;
         }
+        @CustomType.Setter
         public Builder appSubnetId(String appSubnetId) {
             this.appSubnetId = Objects.requireNonNull(appSubnetId);
             return this;
         }
+        @CustomType.Setter
         public Builder cidrRanges(List<String> cidrRanges) {
             this.cidrRanges = Objects.requireNonNull(cidrRanges);
             return this;
@@ -148,19 +132,30 @@ public final class SpringCloudServiceNetwork {
         public Builder cidrRanges(String... cidrRanges) {
             return cidrRanges(List.of(cidrRanges));
         }
+        @CustomType.Setter
         public Builder readTimeoutSeconds(@Nullable Integer readTimeoutSeconds) {
             this.readTimeoutSeconds = readTimeoutSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceRuntimeNetworkResourceGroup(@Nullable String serviceRuntimeNetworkResourceGroup) {
             this.serviceRuntimeNetworkResourceGroup = serviceRuntimeNetworkResourceGroup;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceRuntimeSubnetId(String serviceRuntimeSubnetId) {
             this.serviceRuntimeSubnetId = Objects.requireNonNull(serviceRuntimeSubnetId);
             return this;
-        }        public SpringCloudServiceNetwork build() {
-            return new SpringCloudServiceNetwork(appNetworkResourceGroup, appSubnetId, cidrRanges, readTimeoutSeconds, serviceRuntimeNetworkResourceGroup, serviceRuntimeSubnetId);
+        }
+        public SpringCloudServiceNetwork build() {
+            final var o = new SpringCloudServiceNetwork();
+            o.appNetworkResourceGroup = appNetworkResourceGroup;
+            o.appSubnetId = appSubnetId;
+            o.cidrRanges = cidrRanges;
+            o.readTimeoutSeconds = readTimeoutSeconds;
+            o.serviceRuntimeNetworkResourceGroup = serviceRuntimeNetworkResourceGroup;
+            o.serviceRuntimeSubnetId = serviceRuntimeSubnetId;
+            return o;
         }
     }
 }

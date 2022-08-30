@@ -16,63 +16,44 @@ public final class FirewallPolicyIntrusionDetectionTrafficBypass {
      * @return The description for this bypass traffic setting.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return Specifies a list of destination IP addresses that shall be bypassed by intrusion detection.
      * 
      */
-    private final @Nullable List<String> destinationAddresses;
+    private @Nullable List<String> destinationAddresses;
     /**
      * @return Specifies a list of destination IP groups that shall be bypassed by intrusion detection.
      * 
      */
-    private final @Nullable List<String> destinationIpGroups;
+    private @Nullable List<String> destinationIpGroups;
     /**
      * @return Specifies a list of destination IP ports that shall be bypassed by intrusion detection.
      * 
      */
-    private final @Nullable List<String> destinationPorts;
+    private @Nullable List<String> destinationPorts;
     /**
      * @return The name which should be used for this bypass traffic setting.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The protocols any of `ANY`, `TCP`, `ICMP`, `UDP` that shall be bypassed by intrusion detection.
      * 
      */
-    private final String protocol;
+    private String protocol;
     /**
      * @return Specifies a list of source addresses that shall be bypassed by intrusion detection.
      * 
      */
-    private final @Nullable List<String> sourceAddresses;
+    private @Nullable List<String> sourceAddresses;
     /**
      * @return Specifies a list of source IP groups that shall be bypassed by intrusion detection.
      * 
      */
-    private final @Nullable List<String> sourceIpGroups;
+    private @Nullable List<String> sourceIpGroups;
 
-    @CustomType.Constructor
-    private FirewallPolicyIntrusionDetectionTrafficBypass(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("destinationAddresses") @Nullable List<String> destinationAddresses,
-        @CustomType.Parameter("destinationIpGroups") @Nullable List<String> destinationIpGroups,
-        @CustomType.Parameter("destinationPorts") @Nullable List<String> destinationPorts,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("protocol") String protocol,
-        @CustomType.Parameter("sourceAddresses") @Nullable List<String> sourceAddresses,
-        @CustomType.Parameter("sourceIpGroups") @Nullable List<String> sourceIpGroups) {
-        this.description = description;
-        this.destinationAddresses = destinationAddresses;
-        this.destinationIpGroups = destinationIpGroups;
-        this.destinationPorts = destinationPorts;
-        this.name = name;
-        this.protocol = protocol;
-        this.sourceAddresses = sourceAddresses;
-        this.sourceIpGroups = sourceIpGroups;
-    }
-
+    private FirewallPolicyIntrusionDetectionTrafficBypass() {}
     /**
      * @return The description for this bypass traffic setting.
      * 
@@ -137,7 +118,7 @@ public final class FirewallPolicyIntrusionDetectionTrafficBypass {
     public static Builder builder(FirewallPolicyIntrusionDetectionTrafficBypass defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private @Nullable List<String> destinationAddresses;
@@ -147,11 +128,7 @@ public final class FirewallPolicyIntrusionDetectionTrafficBypass {
         private String protocol;
         private @Nullable List<String> sourceAddresses;
         private @Nullable List<String> sourceIpGroups;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyIntrusionDetectionTrafficBypass defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -164,10 +141,12 @@ public final class FirewallPolicyIntrusionDetectionTrafficBypass {
     	      this.sourceIpGroups = defaults.sourceIpGroups;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder destinationAddresses(@Nullable List<String> destinationAddresses) {
             this.destinationAddresses = destinationAddresses;
             return this;
@@ -175,6 +154,7 @@ public final class FirewallPolicyIntrusionDetectionTrafficBypass {
         public Builder destinationAddresses(String... destinationAddresses) {
             return destinationAddresses(List.of(destinationAddresses));
         }
+        @CustomType.Setter
         public Builder destinationIpGroups(@Nullable List<String> destinationIpGroups) {
             this.destinationIpGroups = destinationIpGroups;
             return this;
@@ -182,6 +162,7 @@ public final class FirewallPolicyIntrusionDetectionTrafficBypass {
         public Builder destinationIpGroups(String... destinationIpGroups) {
             return destinationIpGroups(List.of(destinationIpGroups));
         }
+        @CustomType.Setter
         public Builder destinationPorts(@Nullable List<String> destinationPorts) {
             this.destinationPorts = destinationPorts;
             return this;
@@ -189,14 +170,17 @@ public final class FirewallPolicyIntrusionDetectionTrafficBypass {
         public Builder destinationPorts(String... destinationPorts) {
             return destinationPorts(List.of(destinationPorts));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceAddresses(@Nullable List<String> sourceAddresses) {
             this.sourceAddresses = sourceAddresses;
             return this;
@@ -204,14 +188,25 @@ public final class FirewallPolicyIntrusionDetectionTrafficBypass {
         public Builder sourceAddresses(String... sourceAddresses) {
             return sourceAddresses(List.of(sourceAddresses));
         }
+        @CustomType.Setter
         public Builder sourceIpGroups(@Nullable List<String> sourceIpGroups) {
             this.sourceIpGroups = sourceIpGroups;
             return this;
         }
         public Builder sourceIpGroups(String... sourceIpGroups) {
             return sourceIpGroups(List.of(sourceIpGroups));
-        }        public FirewallPolicyIntrusionDetectionTrafficBypass build() {
-            return new FirewallPolicyIntrusionDetectionTrafficBypass(description, destinationAddresses, destinationIpGroups, destinationPorts, name, protocol, sourceAddresses, sourceIpGroups);
+        }
+        public FirewallPolicyIntrusionDetectionTrafficBypass build() {
+            final var o = new FirewallPolicyIntrusionDetectionTrafficBypass();
+            o.description = description;
+            o.destinationAddresses = destinationAddresses;
+            o.destinationIpGroups = destinationIpGroups;
+            o.destinationPorts = destinationPorts;
+            o.name = name;
+            o.protocol = protocol;
+            o.sourceAddresses = sourceAddresses;
+            o.sourceIpGroups = sourceIpGroups;
+            return o;
         }
     }
 }

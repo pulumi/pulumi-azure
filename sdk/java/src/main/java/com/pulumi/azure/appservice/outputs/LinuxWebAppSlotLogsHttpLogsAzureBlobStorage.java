@@ -16,21 +16,14 @@ public final class LinuxWebAppSlotLogsHttpLogsAzureBlobStorage {
      * @return The time in days after which to remove blobs. A value of `0` means no retention.
      * 
      */
-    private final @Nullable Integer retentionInDays;
+    private @Nullable Integer retentionInDays;
     /**
      * @return SAS url to an Azure blob container with read/write/list/delete permissions.
      * 
      */
-    private final String sasUrl;
+    private String sasUrl;
 
-    @CustomType.Constructor
-    private LinuxWebAppSlotLogsHttpLogsAzureBlobStorage(
-        @CustomType.Parameter("retentionInDays") @Nullable Integer retentionInDays,
-        @CustomType.Parameter("sasUrl") String sasUrl) {
-        this.retentionInDays = retentionInDays;
-        this.sasUrl = sasUrl;
-    }
-
+    private LinuxWebAppSlotLogsHttpLogsAzureBlobStorage() {}
     /**
      * @return The time in days after which to remove blobs. A value of `0` means no retention.
      * 
@@ -53,30 +46,32 @@ public final class LinuxWebAppSlotLogsHttpLogsAzureBlobStorage {
     public static Builder builder(LinuxWebAppSlotLogsHttpLogsAzureBlobStorage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer retentionInDays;
         private String sasUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxWebAppSlotLogsHttpLogsAzureBlobStorage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.retentionInDays = defaults.retentionInDays;
     	      this.sasUrl = defaults.sasUrl;
         }
 
+        @CustomType.Setter
         public Builder retentionInDays(@Nullable Integer retentionInDays) {
             this.retentionInDays = retentionInDays;
             return this;
         }
+        @CustomType.Setter
         public Builder sasUrl(String sasUrl) {
             this.sasUrl = Objects.requireNonNull(sasUrl);
             return this;
-        }        public LinuxWebAppSlotLogsHttpLogsAzureBlobStorage build() {
-            return new LinuxWebAppSlotLogsHttpLogsAzureBlobStorage(retentionInDays, sasUrl);
+        }
+        public LinuxWebAppSlotLogsHttpLogsAzureBlobStorage build() {
+            final var o = new LinuxWebAppSlotLogsHttpLogsAzureBlobStorage();
+            o.retentionInDays = retentionInDays;
+            o.sasUrl = sasUrl;
+            return o;
         }
     }
 }

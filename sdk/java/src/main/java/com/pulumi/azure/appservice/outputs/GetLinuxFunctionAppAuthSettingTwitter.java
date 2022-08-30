@@ -13,28 +13,19 @@ public final class GetLinuxFunctionAppAuthSettingTwitter {
      * @return The OAuth 1.0a consumer key of the Twitter application used for sign-in.
      * 
      */
-    private final String consumerKey;
+    private String consumerKey;
     /**
      * @return The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
      * 
      */
-    private final String consumerSecret;
+    private String consumerSecret;
     /**
      * @return The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
      * 
      */
-    private final String consumerSecretSettingName;
+    private String consumerSecretSettingName;
 
-    @CustomType.Constructor
-    private GetLinuxFunctionAppAuthSettingTwitter(
-        @CustomType.Parameter("consumerKey") String consumerKey,
-        @CustomType.Parameter("consumerSecret") String consumerSecret,
-        @CustomType.Parameter("consumerSecretSettingName") String consumerSecretSettingName) {
-        this.consumerKey = consumerKey;
-        this.consumerSecret = consumerSecret;
-        this.consumerSecretSettingName = consumerSecretSettingName;
-    }
-
+    private GetLinuxFunctionAppAuthSettingTwitter() {}
     /**
      * @return The OAuth 1.0a consumer key of the Twitter application used for sign-in.
      * 
@@ -64,16 +55,12 @@ public final class GetLinuxFunctionAppAuthSettingTwitter {
     public static Builder builder(GetLinuxFunctionAppAuthSettingTwitter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String consumerKey;
         private String consumerSecret;
         private String consumerSecretSettingName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxFunctionAppAuthSettingTwitter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.consumerKey = defaults.consumerKey;
@@ -81,19 +68,27 @@ public final class GetLinuxFunctionAppAuthSettingTwitter {
     	      this.consumerSecretSettingName = defaults.consumerSecretSettingName;
         }
 
+        @CustomType.Setter
         public Builder consumerKey(String consumerKey) {
             this.consumerKey = Objects.requireNonNull(consumerKey);
             return this;
         }
+        @CustomType.Setter
         public Builder consumerSecret(String consumerSecret) {
             this.consumerSecret = Objects.requireNonNull(consumerSecret);
             return this;
         }
+        @CustomType.Setter
         public Builder consumerSecretSettingName(String consumerSecretSettingName) {
             this.consumerSecretSettingName = Objects.requireNonNull(consumerSecretSettingName);
             return this;
-        }        public GetLinuxFunctionAppAuthSettingTwitter build() {
-            return new GetLinuxFunctionAppAuthSettingTwitter(consumerKey, consumerSecret, consumerSecretSettingName);
+        }
+        public GetLinuxFunctionAppAuthSettingTwitter build() {
+            final var o = new GetLinuxFunctionAppAuthSettingTwitter();
+            o.consumerKey = consumerKey;
+            o.consumerSecret = consumerSecret;
+            o.consumerSecretSettingName = consumerSecretSettingName;
+            return o;
         }
     }
 }

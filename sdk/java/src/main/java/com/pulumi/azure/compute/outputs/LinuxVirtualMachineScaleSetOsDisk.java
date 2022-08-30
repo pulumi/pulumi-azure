@@ -18,63 +18,44 @@ public final class LinuxVirtualMachineScaleSetOsDisk {
      * @return The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
      * 
      */
-    private final String caching;
+    private String caching;
     /**
      * @return A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings diffDiskSettings;
+    private @Nullable LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings diffDiskSettings;
     /**
      * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
      * 
      */
-    private final @Nullable String diskEncryptionSetId;
+    private @Nullable String diskEncryptionSetId;
     /**
      * @return The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
      * 
      */
-    private final @Nullable Integer diskSizeGb;
+    private @Nullable Integer diskSizeGb;
     /**
      * @return The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String secureVmDiskEncryptionSetId;
+    private @Nullable String secureVmDiskEncryptionSetId;
     /**
      * @return Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String securityEncryptionType;
+    private @Nullable String securityEncryptionType;
     /**
      * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS` and `Premium_LRS`.
      * 
      */
-    private final String storageAccountType;
+    private String storageAccountType;
     /**
      * @return Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean writeAcceleratorEnabled;
+    private @Nullable Boolean writeAcceleratorEnabled;
 
-    @CustomType.Constructor
-    private LinuxVirtualMachineScaleSetOsDisk(
-        @CustomType.Parameter("caching") String caching,
-        @CustomType.Parameter("diffDiskSettings") @Nullable LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings diffDiskSettings,
-        @CustomType.Parameter("diskEncryptionSetId") @Nullable String diskEncryptionSetId,
-        @CustomType.Parameter("diskSizeGb") @Nullable Integer diskSizeGb,
-        @CustomType.Parameter("secureVmDiskEncryptionSetId") @Nullable String secureVmDiskEncryptionSetId,
-        @CustomType.Parameter("securityEncryptionType") @Nullable String securityEncryptionType,
-        @CustomType.Parameter("storageAccountType") String storageAccountType,
-        @CustomType.Parameter("writeAcceleratorEnabled") @Nullable Boolean writeAcceleratorEnabled) {
-        this.caching = caching;
-        this.diffDiskSettings = diffDiskSettings;
-        this.diskEncryptionSetId = diskEncryptionSetId;
-        this.diskSizeGb = diskSizeGb;
-        this.secureVmDiskEncryptionSetId = secureVmDiskEncryptionSetId;
-        this.securityEncryptionType = securityEncryptionType;
-        this.storageAccountType = storageAccountType;
-        this.writeAcceleratorEnabled = writeAcceleratorEnabled;
-    }
-
+    private LinuxVirtualMachineScaleSetOsDisk() {}
     /**
      * @return The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
      * 
@@ -139,7 +120,7 @@ public final class LinuxVirtualMachineScaleSetOsDisk {
     public static Builder builder(LinuxVirtualMachineScaleSetOsDisk defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String caching;
         private @Nullable LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings diffDiskSettings;
@@ -149,11 +130,7 @@ public final class LinuxVirtualMachineScaleSetOsDisk {
         private @Nullable String securityEncryptionType;
         private String storageAccountType;
         private @Nullable Boolean writeAcceleratorEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxVirtualMachineScaleSetOsDisk defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.caching = defaults.caching;
@@ -166,39 +143,57 @@ public final class LinuxVirtualMachineScaleSetOsDisk {
     	      this.writeAcceleratorEnabled = defaults.writeAcceleratorEnabled;
         }
 
+        @CustomType.Setter
         public Builder caching(String caching) {
             this.caching = Objects.requireNonNull(caching);
             return this;
         }
+        @CustomType.Setter
         public Builder diffDiskSettings(@Nullable LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings diffDiskSettings) {
             this.diffDiskSettings = diffDiskSettings;
             return this;
         }
+        @CustomType.Setter
         public Builder diskEncryptionSetId(@Nullable String diskEncryptionSetId) {
             this.diskEncryptionSetId = diskEncryptionSetId;
             return this;
         }
+        @CustomType.Setter
         public Builder diskSizeGb(@Nullable Integer diskSizeGb) {
             this.diskSizeGb = diskSizeGb;
             return this;
         }
+        @CustomType.Setter
         public Builder secureVmDiskEncryptionSetId(@Nullable String secureVmDiskEncryptionSetId) {
             this.secureVmDiskEncryptionSetId = secureVmDiskEncryptionSetId;
             return this;
         }
+        @CustomType.Setter
         public Builder securityEncryptionType(@Nullable String securityEncryptionType) {
             this.securityEncryptionType = securityEncryptionType;
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountType(String storageAccountType) {
             this.storageAccountType = Objects.requireNonNull(storageAccountType);
             return this;
         }
+        @CustomType.Setter
         public Builder writeAcceleratorEnabled(@Nullable Boolean writeAcceleratorEnabled) {
             this.writeAcceleratorEnabled = writeAcceleratorEnabled;
             return this;
-        }        public LinuxVirtualMachineScaleSetOsDisk build() {
-            return new LinuxVirtualMachineScaleSetOsDisk(caching, diffDiskSettings, diskEncryptionSetId, diskSizeGb, secureVmDiskEncryptionSetId, securityEncryptionType, storageAccountType, writeAcceleratorEnabled);
+        }
+        public LinuxVirtualMachineScaleSetOsDisk build() {
+            final var o = new LinuxVirtualMachineScaleSetOsDisk();
+            o.caching = caching;
+            o.diffDiskSettings = diffDiskSettings;
+            o.diskEncryptionSetId = diskEncryptionSetId;
+            o.diskSizeGb = diskSizeGb;
+            o.secureVmDiskEncryptionSetId = secureVmDiskEncryptionSetId;
+            o.securityEncryptionType = securityEncryptionType;
+            o.storageAccountType = storageAccountType;
+            o.writeAcceleratorEnabled = writeAcceleratorEnabled;
+            return o;
         }
     }
 }

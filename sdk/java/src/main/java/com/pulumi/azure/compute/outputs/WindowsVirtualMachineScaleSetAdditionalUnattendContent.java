@@ -13,21 +13,14 @@ public final class WindowsVirtualMachineScaleSetAdditionalUnattendContent {
      * @return The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
      * 
      */
-    private final String content;
+    private String content;
     /**
      * @return The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
      * 
      */
-    private final String setting;
+    private String setting;
 
-    @CustomType.Constructor
-    private WindowsVirtualMachineScaleSetAdditionalUnattendContent(
-        @CustomType.Parameter("content") String content,
-        @CustomType.Parameter("setting") String setting) {
-        this.content = content;
-        this.setting = setting;
-    }
-
+    private WindowsVirtualMachineScaleSetAdditionalUnattendContent() {}
     /**
      * @return The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
      * 
@@ -50,30 +43,32 @@ public final class WindowsVirtualMachineScaleSetAdditionalUnattendContent {
     public static Builder builder(WindowsVirtualMachineScaleSetAdditionalUnattendContent defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String content;
         private String setting;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsVirtualMachineScaleSetAdditionalUnattendContent defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.content = defaults.content;
     	      this.setting = defaults.setting;
         }
 
+        @CustomType.Setter
         public Builder content(String content) {
             this.content = Objects.requireNonNull(content);
             return this;
         }
+        @CustomType.Setter
         public Builder setting(String setting) {
             this.setting = Objects.requireNonNull(setting);
             return this;
-        }        public WindowsVirtualMachineScaleSetAdditionalUnattendContent build() {
-            return new WindowsVirtualMachineScaleSetAdditionalUnattendContent(content, setting);
+        }
+        public WindowsVirtualMachineScaleSetAdditionalUnattendContent build() {
+            final var o = new WindowsVirtualMachineScaleSetAdditionalUnattendContent();
+            o.content = content;
+            o.setting = setting;
+            return o;
         }
     }
 }

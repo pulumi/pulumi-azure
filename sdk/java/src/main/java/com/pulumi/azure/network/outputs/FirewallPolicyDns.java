@@ -17,21 +17,14 @@ public final class FirewallPolicyDns {
      * @return Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean proxyEnabled;
+    private @Nullable Boolean proxyEnabled;
     /**
      * @return A list of custom DNS servers&#39; IP addresses.
      * 
      */
-    private final @Nullable List<String> servers;
+    private @Nullable List<String> servers;
 
-    @CustomType.Constructor
-    private FirewallPolicyDns(
-        @CustomType.Parameter("proxyEnabled") @Nullable Boolean proxyEnabled,
-        @CustomType.Parameter("servers") @Nullable List<String> servers) {
-        this.proxyEnabled = proxyEnabled;
-        this.servers = servers;
-    }
-
+    private FirewallPolicyDns() {}
     /**
      * @return Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to `false`.
      * 
@@ -54,33 +47,35 @@ public final class FirewallPolicyDns {
     public static Builder builder(FirewallPolicyDns defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean proxyEnabled;
         private @Nullable List<String> servers;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyDns defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.proxyEnabled = defaults.proxyEnabled;
     	      this.servers = defaults.servers;
         }
 
+        @CustomType.Setter
         public Builder proxyEnabled(@Nullable Boolean proxyEnabled) {
             this.proxyEnabled = proxyEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder servers(@Nullable List<String> servers) {
             this.servers = servers;
             return this;
         }
         public Builder servers(String... servers) {
             return servers(List.of(servers));
-        }        public FirewallPolicyDns build() {
-            return new FirewallPolicyDns(proxyEnabled, servers);
+        }
+        public FirewallPolicyDns build() {
+            final var o = new FirewallPolicyDns();
+            o.proxyEnabled = proxyEnabled;
+            o.servers = servers;
+            return o;
         }
     }
 }

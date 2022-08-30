@@ -18,146 +18,101 @@ public final class GetServiceResult {
      * @return Zero or more `additional_location` blocks as defined below
      * 
      */
-    private final List<GetServiceAdditionalLocation> additionalLocations;
+    private List<GetServiceAdditionalLocation> additionalLocations;
     /**
      * @return The URL for the Developer Portal associated with this API Management service.
      * 
      */
-    private final String developerPortalUrl;
+    private String developerPortalUrl;
     /**
      * @return Gateway URL of the API Management service in the Region.
      * 
      */
-    private final String gatewayRegionalUrl;
+    private String gatewayRegionalUrl;
     /**
      * @return The URL for the API Management Service&#39;s Gateway.
      * 
      */
-    private final String gatewayUrl;
+    private String gatewayUrl;
     /**
      * @return A `hostname_configuration` block as defined below.
      * 
      */
-    private final List<GetServiceHostnameConfiguration> hostnameConfigurations;
+    private List<GetServiceHostnameConfiguration> hostnameConfigurations;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return (Optional) An `identity` block as defined below.
      * 
      */
-    private final List<GetServiceIdentity> identities;
+    private List<GetServiceIdentity> identities;
     /**
      * @return The location name of the additional region among Azure Data center regions.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The URL for the Management API.
      * 
      */
-    private final String managementApiUrl;
+    private String managementApiUrl;
     /**
      * @return Specifies the plan&#39;s pricing tier.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The email address from which the notification will be sent.
      * 
      */
-    private final String notificationSenderEmail;
+    private String notificationSenderEmail;
     /**
      * @return The URL of the Publisher Portal.
      * 
      */
-    private final String portalUrl;
+    private String portalUrl;
     /**
      * @return Private IP addresses of the API Management service in the additional location, for instances using virtual network mode.
      * 
      */
-    private final List<String> privateIpAddresses;
+    private List<String> privateIpAddresses;
     /**
      * @return ID of the standard SKU IPv4 Public IP. Available only for Premium SKU deployed in a virtual network.
      * 
      */
-    private final String publicIpAddressId;
+    private String publicIpAddressId;
     /**
      * @return Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
      * 
      */
-    private final List<String> publicIpAddresses;
+    private List<String> publicIpAddresses;
     /**
      * @return The email of Publisher/Company of the API Management Service.
      * 
      */
-    private final String publisherEmail;
+    private String publisherEmail;
     /**
      * @return The name of the Publisher/Company of the API Management Service.
      * 
      */
-    private final String publisherName;
-    private final String resourceGroupName;
+    private String publisherName;
+    private String resourceGroupName;
     /**
      * @return The SCM (Source Code Management) endpoint.
      * 
      */
-    private final String scmUrl;
-    private final String skuName;
+    private String scmUrl;
+    private String skuName;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetServiceResult(
-        @CustomType.Parameter("additionalLocations") List<GetServiceAdditionalLocation> additionalLocations,
-        @CustomType.Parameter("developerPortalUrl") String developerPortalUrl,
-        @CustomType.Parameter("gatewayRegionalUrl") String gatewayRegionalUrl,
-        @CustomType.Parameter("gatewayUrl") String gatewayUrl,
-        @CustomType.Parameter("hostnameConfigurations") List<GetServiceHostnameConfiguration> hostnameConfigurations,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetServiceIdentity> identities,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("managementApiUrl") String managementApiUrl,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("notificationSenderEmail") String notificationSenderEmail,
-        @CustomType.Parameter("portalUrl") String portalUrl,
-        @CustomType.Parameter("privateIpAddresses") List<String> privateIpAddresses,
-        @CustomType.Parameter("publicIpAddressId") String publicIpAddressId,
-        @CustomType.Parameter("publicIpAddresses") List<String> publicIpAddresses,
-        @CustomType.Parameter("publisherEmail") String publisherEmail,
-        @CustomType.Parameter("publisherName") String publisherName,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("scmUrl") String scmUrl,
-        @CustomType.Parameter("skuName") String skuName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.additionalLocations = additionalLocations;
-        this.developerPortalUrl = developerPortalUrl;
-        this.gatewayRegionalUrl = gatewayRegionalUrl;
-        this.gatewayUrl = gatewayUrl;
-        this.hostnameConfigurations = hostnameConfigurations;
-        this.id = id;
-        this.identities = identities;
-        this.location = location;
-        this.managementApiUrl = managementApiUrl;
-        this.name = name;
-        this.notificationSenderEmail = notificationSenderEmail;
-        this.portalUrl = portalUrl;
-        this.privateIpAddresses = privateIpAddresses;
-        this.publicIpAddressId = publicIpAddressId;
-        this.publicIpAddresses = publicIpAddresses;
-        this.publisherEmail = publisherEmail;
-        this.publisherName = publisherName;
-        this.resourceGroupName = resourceGroupName;
-        this.scmUrl = scmUrl;
-        this.skuName = skuName;
-        this.tags = tags;
-    }
-
+    private GetServiceResult() {}
     /**
      * @return Zero or more `additional_location` blocks as defined below
      * 
@@ -305,7 +260,7 @@ public final class GetServiceResult {
     public static Builder builder(GetServiceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetServiceAdditionalLocation> additionalLocations;
         private String developerPortalUrl;
@@ -328,11 +283,7 @@ public final class GetServiceResult {
         private String scmUrl;
         private String skuName;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.additionalLocations = defaults.additionalLocations;
@@ -358,6 +309,7 @@ public final class GetServiceResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder additionalLocations(List<GetServiceAdditionalLocation> additionalLocations) {
             this.additionalLocations = Objects.requireNonNull(additionalLocations);
             return this;
@@ -365,18 +317,22 @@ public final class GetServiceResult {
         public Builder additionalLocations(GetServiceAdditionalLocation... additionalLocations) {
             return additionalLocations(List.of(additionalLocations));
         }
+        @CustomType.Setter
         public Builder developerPortalUrl(String developerPortalUrl) {
             this.developerPortalUrl = Objects.requireNonNull(developerPortalUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder gatewayRegionalUrl(String gatewayRegionalUrl) {
             this.gatewayRegionalUrl = Objects.requireNonNull(gatewayRegionalUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder gatewayUrl(String gatewayUrl) {
             this.gatewayUrl = Objects.requireNonNull(gatewayUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder hostnameConfigurations(List<GetServiceHostnameConfiguration> hostnameConfigurations) {
             this.hostnameConfigurations = Objects.requireNonNull(hostnameConfigurations);
             return this;
@@ -384,10 +340,12 @@ public final class GetServiceResult {
         public Builder hostnameConfigurations(GetServiceHostnameConfiguration... hostnameConfigurations) {
             return hostnameConfigurations(List.of(hostnameConfigurations));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetServiceIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -395,26 +353,32 @@ public final class GetServiceResult {
         public Builder identities(GetServiceIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder managementApiUrl(String managementApiUrl) {
             this.managementApiUrl = Objects.requireNonNull(managementApiUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder notificationSenderEmail(String notificationSenderEmail) {
             this.notificationSenderEmail = Objects.requireNonNull(notificationSenderEmail);
             return this;
         }
+        @CustomType.Setter
         public Builder portalUrl(String portalUrl) {
             this.portalUrl = Objects.requireNonNull(portalUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddresses(List<String> privateIpAddresses) {
             this.privateIpAddresses = Objects.requireNonNull(privateIpAddresses);
             return this;
@@ -422,10 +386,12 @@ public final class GetServiceResult {
         public Builder privateIpAddresses(String... privateIpAddresses) {
             return privateIpAddresses(List.of(privateIpAddresses));
         }
+        @CustomType.Setter
         public Builder publicIpAddressId(String publicIpAddressId) {
             this.publicIpAddressId = Objects.requireNonNull(publicIpAddressId);
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpAddresses(List<String> publicIpAddresses) {
             this.publicIpAddresses = Objects.requireNonNull(publicIpAddresses);
             return this;
@@ -433,31 +399,60 @@ public final class GetServiceResult {
         public Builder publicIpAddresses(String... publicIpAddresses) {
             return publicIpAddresses(List.of(publicIpAddresses));
         }
+        @CustomType.Setter
         public Builder publisherEmail(String publisherEmail) {
             this.publisherEmail = Objects.requireNonNull(publisherEmail);
             return this;
         }
+        @CustomType.Setter
         public Builder publisherName(String publisherName) {
             this.publisherName = Objects.requireNonNull(publisherName);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder scmUrl(String scmUrl) {
             this.scmUrl = Objects.requireNonNull(scmUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder skuName(String skuName) {
             this.skuName = Objects.requireNonNull(skuName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetServiceResult build() {
-            return new GetServiceResult(additionalLocations, developerPortalUrl, gatewayRegionalUrl, gatewayUrl, hostnameConfigurations, id, identities, location, managementApiUrl, name, notificationSenderEmail, portalUrl, privateIpAddresses, publicIpAddressId, publicIpAddresses, publisherEmail, publisherName, resourceGroupName, scmUrl, skuName, tags);
+        }
+        public GetServiceResult build() {
+            final var o = new GetServiceResult();
+            o.additionalLocations = additionalLocations;
+            o.developerPortalUrl = developerPortalUrl;
+            o.gatewayRegionalUrl = gatewayRegionalUrl;
+            o.gatewayUrl = gatewayUrl;
+            o.hostnameConfigurations = hostnameConfigurations;
+            o.id = id;
+            o.identities = identities;
+            o.location = location;
+            o.managementApiUrl = managementApiUrl;
+            o.name = name;
+            o.notificationSenderEmail = notificationSenderEmail;
+            o.portalUrl = portalUrl;
+            o.privateIpAddresses = privateIpAddresses;
+            o.publicIpAddressId = publicIpAddressId;
+            o.publicIpAddresses = publicIpAddresses;
+            o.publisherEmail = publisherEmail;
+            o.publisherName = publisherName;
+            o.resourceGroupName = resourceGroupName;
+            o.scmUrl = scmUrl;
+            o.skuName = skuName;
+            o.tags = tags;
+            return o;
         }
     }
 }

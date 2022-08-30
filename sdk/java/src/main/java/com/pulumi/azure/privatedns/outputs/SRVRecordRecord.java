@@ -14,35 +14,24 @@ public final class SRVRecordRecord {
      * @return The Port the service is listening on.
      * 
      */
-    private final Integer port;
+    private Integer port;
     /**
      * @return The priority of the SRV record.
      * 
      */
-    private final Integer priority;
+    private Integer priority;
     /**
      * @return The FQDN of the service.
      * 
      */
-    private final String target;
+    private String target;
     /**
      * @return The Weight of the SRV record.
      * 
      */
-    private final Integer weight;
+    private Integer weight;
 
-    @CustomType.Constructor
-    private SRVRecordRecord(
-        @CustomType.Parameter("port") Integer port,
-        @CustomType.Parameter("priority") Integer priority,
-        @CustomType.Parameter("target") String target,
-        @CustomType.Parameter("weight") Integer weight) {
-        this.port = port;
-        this.priority = priority;
-        this.target = target;
-        this.weight = weight;
-    }
-
+    private SRVRecordRecord() {}
     /**
      * @return The Port the service is listening on.
      * 
@@ -79,17 +68,13 @@ public final class SRVRecordRecord {
     public static Builder builder(SRVRecordRecord defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer port;
         private Integer priority;
         private String target;
         private Integer weight;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SRVRecordRecord defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.port = defaults.port;
@@ -98,23 +83,33 @@ public final class SRVRecordRecord {
     	      this.weight = defaults.weight;
         }
 
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
         }
+        @CustomType.Setter
         public Builder priority(Integer priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
         }
+        @CustomType.Setter
         public Builder target(String target) {
             this.target = Objects.requireNonNull(target);
             return this;
         }
+        @CustomType.Setter
         public Builder weight(Integer weight) {
             this.weight = Objects.requireNonNull(weight);
             return this;
-        }        public SRVRecordRecord build() {
-            return new SRVRecordRecord(port, priority, target, weight);
+        }
+        public SRVRecordRecord build() {
+            final var o = new SRVRecordRecord();
+            o.port = port;
+            o.priority = priority;
+            o.target = target;
+            o.weight = weight;
+            return o;
         }
     }
 }

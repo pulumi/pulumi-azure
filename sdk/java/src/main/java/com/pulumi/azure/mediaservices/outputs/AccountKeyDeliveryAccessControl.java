@@ -16,21 +16,14 @@ public final class AccountKeyDeliveryAccessControl {
      * @return The Default Action to use when no rules match from `ip_allow_list`. Possible values are `Allow` and `Deny`.
      * 
      */
-    private final @Nullable String defaultAction;
+    private @Nullable String defaultAction;
     /**
      * @return One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery.
      * 
      */
-    private final @Nullable List<String> ipAllowLists;
+    private @Nullable List<String> ipAllowLists;
 
-    @CustomType.Constructor
-    private AccountKeyDeliveryAccessControl(
-        @CustomType.Parameter("defaultAction") @Nullable String defaultAction,
-        @CustomType.Parameter("ipAllowLists") @Nullable List<String> ipAllowLists) {
-        this.defaultAction = defaultAction;
-        this.ipAllowLists = ipAllowLists;
-    }
-
+    private AccountKeyDeliveryAccessControl() {}
     /**
      * @return The Default Action to use when no rules match from `ip_allow_list`. Possible values are `Allow` and `Deny`.
      * 
@@ -53,33 +46,35 @@ public final class AccountKeyDeliveryAccessControl {
     public static Builder builder(AccountKeyDeliveryAccessControl defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String defaultAction;
         private @Nullable List<String> ipAllowLists;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountKeyDeliveryAccessControl defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultAction = defaults.defaultAction;
     	      this.ipAllowLists = defaults.ipAllowLists;
         }
 
+        @CustomType.Setter
         public Builder defaultAction(@Nullable String defaultAction) {
             this.defaultAction = defaultAction;
             return this;
         }
+        @CustomType.Setter
         public Builder ipAllowLists(@Nullable List<String> ipAllowLists) {
             this.ipAllowLists = ipAllowLists;
             return this;
         }
         public Builder ipAllowLists(String... ipAllowLists) {
             return ipAllowLists(List.of(ipAllowLists));
-        }        public AccountKeyDeliveryAccessControl build() {
-            return new AccountKeyDeliveryAccessControl(defaultAction, ipAllowLists);
+        }
+        public AccountKeyDeliveryAccessControl build() {
+            final var o = new AccountKeyDeliveryAccessControl();
+            o.defaultAction = defaultAction;
+            o.ipAllowLists = ipAllowLists;
+            return o;
         }
     }
 }

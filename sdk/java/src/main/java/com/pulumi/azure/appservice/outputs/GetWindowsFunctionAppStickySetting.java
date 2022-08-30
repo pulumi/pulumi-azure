@@ -14,21 +14,14 @@ public final class GetWindowsFunctionAppStickySetting {
      * @return A list of `app_setting` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
      * 
      */
-    private final List<String> appSettingNames;
+    private List<String> appSettingNames;
     /**
      * @return A list of `connection_string` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
      * 
      */
-    private final List<String> connectionStringNames;
+    private List<String> connectionStringNames;
 
-    @CustomType.Constructor
-    private GetWindowsFunctionAppStickySetting(
-        @CustomType.Parameter("appSettingNames") List<String> appSettingNames,
-        @CustomType.Parameter("connectionStringNames") List<String> connectionStringNames) {
-        this.appSettingNames = appSettingNames;
-        this.connectionStringNames = connectionStringNames;
-    }
-
+    private GetWindowsFunctionAppStickySetting() {}
     /**
      * @return A list of `app_setting` names that the Windows Function App will not swap between Slots when a swap operation is triggered.
      * 
@@ -51,21 +44,18 @@ public final class GetWindowsFunctionAppStickySetting {
     public static Builder builder(GetWindowsFunctionAppStickySetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> appSettingNames;
         private List<String> connectionStringNames;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsFunctionAppStickySetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appSettingNames = defaults.appSettingNames;
     	      this.connectionStringNames = defaults.connectionStringNames;
         }
 
+        @CustomType.Setter
         public Builder appSettingNames(List<String> appSettingNames) {
             this.appSettingNames = Objects.requireNonNull(appSettingNames);
             return this;
@@ -73,14 +63,19 @@ public final class GetWindowsFunctionAppStickySetting {
         public Builder appSettingNames(String... appSettingNames) {
             return appSettingNames(List.of(appSettingNames));
         }
+        @CustomType.Setter
         public Builder connectionStringNames(List<String> connectionStringNames) {
             this.connectionStringNames = Objects.requireNonNull(connectionStringNames);
             return this;
         }
         public Builder connectionStringNames(String... connectionStringNames) {
             return connectionStringNames(List.of(connectionStringNames));
-        }        public GetWindowsFunctionAppStickySetting build() {
-            return new GetWindowsFunctionAppStickySetting(appSettingNames, connectionStringNames);
+        }
+        public GetWindowsFunctionAppStickySetting build() {
+            final var o = new GetWindowsFunctionAppStickySetting();
+            o.appSettingNames = appSettingNames;
+            o.connectionStringNames = connectionStringNames;
+            return o;
         }
     }
 }

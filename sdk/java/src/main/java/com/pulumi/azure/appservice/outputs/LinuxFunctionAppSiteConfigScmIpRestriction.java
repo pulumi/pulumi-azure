@@ -17,56 +17,39 @@ public final class LinuxFunctionAppSiteConfigScmIpRestriction {
      * @return The action to take. Possible values are `Allow` or `Deny`.
      * 
      */
-    private final @Nullable String action;
+    private @Nullable String action;
     /**
      * @return A `headers` block as defined above.
      * 
      */
-    private final @Nullable LinuxFunctionAppSiteConfigScmIpRestrictionHeaders headers;
+    private @Nullable LinuxFunctionAppSiteConfigScmIpRestrictionHeaders headers;
     /**
      * @return The CIDR notation of the IP or IP Range to match. For example: `10.0.0.0/24` or `192.168.10.1/32`
      * 
      */
-    private final @Nullable String ipAddress;
+    private @Nullable String ipAddress;
     /**
      * @return The name which should be used for this `ip_restriction`.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The priority value of this `ip_restriction`.
      * 
      */
-    private final @Nullable Integer priority;
+    private @Nullable Integer priority;
     /**
      * @return The Service Tag used for this IP Restriction.
      * 
      */
-    private final @Nullable String serviceTag;
+    private @Nullable String serviceTag;
     /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
      */
-    private final @Nullable String virtualNetworkSubnetId;
+    private @Nullable String virtualNetworkSubnetId;
 
-    @CustomType.Constructor
-    private LinuxFunctionAppSiteConfigScmIpRestriction(
-        @CustomType.Parameter("action") @Nullable String action,
-        @CustomType.Parameter("headers") @Nullable LinuxFunctionAppSiteConfigScmIpRestrictionHeaders headers,
-        @CustomType.Parameter("ipAddress") @Nullable String ipAddress,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("priority") @Nullable Integer priority,
-        @CustomType.Parameter("serviceTag") @Nullable String serviceTag,
-        @CustomType.Parameter("virtualNetworkSubnetId") @Nullable String virtualNetworkSubnetId) {
-        this.action = action;
-        this.headers = headers;
-        this.ipAddress = ipAddress;
-        this.name = name;
-        this.priority = priority;
-        this.serviceTag = serviceTag;
-        this.virtualNetworkSubnetId = virtualNetworkSubnetId;
-    }
-
+    private LinuxFunctionAppSiteConfigScmIpRestriction() {}
     /**
      * @return The action to take. Possible values are `Allow` or `Deny`.
      * 
@@ -124,7 +107,7 @@ public final class LinuxFunctionAppSiteConfigScmIpRestriction {
     public static Builder builder(LinuxFunctionAppSiteConfigScmIpRestriction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String action;
         private @Nullable LinuxFunctionAppSiteConfigScmIpRestrictionHeaders headers;
@@ -133,11 +116,7 @@ public final class LinuxFunctionAppSiteConfigScmIpRestriction {
         private @Nullable Integer priority;
         private @Nullable String serviceTag;
         private @Nullable String virtualNetworkSubnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxFunctionAppSiteConfigScmIpRestriction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -149,35 +128,51 @@ public final class LinuxFunctionAppSiteConfigScmIpRestriction {
     	      this.virtualNetworkSubnetId = defaults.virtualNetworkSubnetId;
         }
 
+        @CustomType.Setter
         public Builder action(@Nullable String action) {
             this.action = action;
             return this;
         }
+        @CustomType.Setter
         public Builder headers(@Nullable LinuxFunctionAppSiteConfigScmIpRestrictionHeaders headers) {
             this.headers = headers;
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddress(@Nullable String ipAddress) {
             this.ipAddress = ipAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
             this.priority = priority;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceTag(@Nullable String serviceTag) {
             this.serviceTag = serviceTag;
             return this;
         }
+        @CustomType.Setter
         public Builder virtualNetworkSubnetId(@Nullable String virtualNetworkSubnetId) {
             this.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return this;
-        }        public LinuxFunctionAppSiteConfigScmIpRestriction build() {
-            return new LinuxFunctionAppSiteConfigScmIpRestriction(action, headers, ipAddress, name, priority, serviceTag, virtualNetworkSubnetId);
+        }
+        public LinuxFunctionAppSiteConfigScmIpRestriction build() {
+            final var o = new LinuxFunctionAppSiteConfigScmIpRestriction();
+            o.action = action;
+            o.headers = headers;
+            o.ipAddress = ipAddress;
+            o.name = name;
+            o.priority = priority;
+            o.serviceTag = serviceTag;
+            o.virtualNetworkSubnetId = virtualNetworkSubnetId;
+            return o;
         }
     }
 }

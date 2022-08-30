@@ -13,65 +13,42 @@ public final class GetVirtualMachineConfigurationAssignmentResult {
      * @return Combined hash of the configuration package and parameters.
      * 
      */
-    private final String assignmentHash;
+    private String assignmentHash;
     /**
      * @return A value indicating compliance status of the machine for the assigned guest configuration. Possible return values are `Compliant`, `NonCompliant` and `Pending`.
      * 
      */
-    private final String complianceStatus;
+    private String complianceStatus;
     /**
      * @return The content hash for the Guest Configuration package.
      * 
      */
-    private final String contentHash;
+    private String contentHash;
     /**
      * @return The content URI where the Guest Configuration package is stored.
      * 
      */
-    private final String contentUri;
+    private String contentUri;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Date and time, in RFC3339 format, when the machines compliance status was last checked.
      * 
      */
-    private final String lastComplianceStatusChecked;
+    private String lastComplianceStatusChecked;
     /**
      * @return The ID of the latest report for the guest configuration assignment.
      * 
      */
-    private final String latestReportId;
-    private final String name;
-    private final String resourceGroupName;
-    private final String virtualMachineName;
+    private String latestReportId;
+    private String name;
+    private String resourceGroupName;
+    private String virtualMachineName;
 
-    @CustomType.Constructor
-    private GetVirtualMachineConfigurationAssignmentResult(
-        @CustomType.Parameter("assignmentHash") String assignmentHash,
-        @CustomType.Parameter("complianceStatus") String complianceStatus,
-        @CustomType.Parameter("contentHash") String contentHash,
-        @CustomType.Parameter("contentUri") String contentUri,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("lastComplianceStatusChecked") String lastComplianceStatusChecked,
-        @CustomType.Parameter("latestReportId") String latestReportId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("virtualMachineName") String virtualMachineName) {
-        this.assignmentHash = assignmentHash;
-        this.complianceStatus = complianceStatus;
-        this.contentHash = contentHash;
-        this.contentUri = contentUri;
-        this.id = id;
-        this.lastComplianceStatusChecked = lastComplianceStatusChecked;
-        this.latestReportId = latestReportId;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.virtualMachineName = virtualMachineName;
-    }
-
+    private GetVirtualMachineConfigurationAssignmentResult() {}
     /**
      * @return Combined hash of the configuration package and parameters.
      * 
@@ -138,7 +115,7 @@ public final class GetVirtualMachineConfigurationAssignmentResult {
     public static Builder builder(GetVirtualMachineConfigurationAssignmentResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String assignmentHash;
         private String complianceStatus;
@@ -150,11 +127,7 @@ public final class GetVirtualMachineConfigurationAssignmentResult {
         private String name;
         private String resourceGroupName;
         private String virtualMachineName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualMachineConfigurationAssignmentResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.assignmentHash = defaults.assignmentHash;
@@ -169,47 +142,69 @@ public final class GetVirtualMachineConfigurationAssignmentResult {
     	      this.virtualMachineName = defaults.virtualMachineName;
         }
 
+        @CustomType.Setter
         public Builder assignmentHash(String assignmentHash) {
             this.assignmentHash = Objects.requireNonNull(assignmentHash);
             return this;
         }
+        @CustomType.Setter
         public Builder complianceStatus(String complianceStatus) {
             this.complianceStatus = Objects.requireNonNull(complianceStatus);
             return this;
         }
+        @CustomType.Setter
         public Builder contentHash(String contentHash) {
             this.contentHash = Objects.requireNonNull(contentHash);
             return this;
         }
+        @CustomType.Setter
         public Builder contentUri(String contentUri) {
             this.contentUri = Objects.requireNonNull(contentUri);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder lastComplianceStatusChecked(String lastComplianceStatusChecked) {
             this.lastComplianceStatusChecked = Objects.requireNonNull(lastComplianceStatusChecked);
             return this;
         }
+        @CustomType.Setter
         public Builder latestReportId(String latestReportId) {
             this.latestReportId = Objects.requireNonNull(latestReportId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualMachineName(String virtualMachineName) {
             this.virtualMachineName = Objects.requireNonNull(virtualMachineName);
             return this;
-        }        public GetVirtualMachineConfigurationAssignmentResult build() {
-            return new GetVirtualMachineConfigurationAssignmentResult(assignmentHash, complianceStatus, contentHash, contentUri, id, lastComplianceStatusChecked, latestReportId, name, resourceGroupName, virtualMachineName);
+        }
+        public GetVirtualMachineConfigurationAssignmentResult build() {
+            final var o = new GetVirtualMachineConfigurationAssignmentResult();
+            o.assignmentHash = assignmentHash;
+            o.complianceStatus = complianceStatus;
+            o.contentHash = contentHash;
+            o.contentUri = contentUri;
+            o.id = id;
+            o.lastComplianceStatusChecked = lastComplianceStatusChecked;
+            o.latestReportId = latestReportId;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.virtualMachineName = virtualMachineName;
+            return o;
         }
     }
 }

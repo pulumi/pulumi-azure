@@ -13,71 +13,44 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSnapshotResult {
-    private final String creationOption;
+    private String creationOption;
     /**
      * @return The size of the Snapshotted Disk in GB.
      * 
      */
-    private final Integer diskSizeGb;
-    private final List<GetSnapshotEncryptionSetting> encryptionSettings;
+    private Integer diskSizeGb;
+    private List<GetSnapshotEncryptionSetting> encryptionSettings;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
-    private final String osType;
-    private final String resourceGroupName;
+    private String id;
+    private String name;
+    private String osType;
+    private String resourceGroupName;
     /**
      * @return The reference to an existing snapshot.
      * 
      */
-    private final String sourceResourceId;
+    private String sourceResourceId;
     /**
      * @return The URI to a Managed or Unmanaged Disk.
      * 
      */
-    private final String sourceUri;
+    private String sourceUri;
     /**
      * @return The ID of an storage account.
      * 
      */
-    private final String storageAccountId;
-    private final String timeCreated;
+    private String storageAccountId;
+    private String timeCreated;
     /**
      * @return Whether Trusted Launch is enabled for the Snapshot.
      * 
      */
-    private final Boolean trustedLaunchEnabled;
+    private Boolean trustedLaunchEnabled;
 
-    @CustomType.Constructor
-    private GetSnapshotResult(
-        @CustomType.Parameter("creationOption") String creationOption,
-        @CustomType.Parameter("diskSizeGb") Integer diskSizeGb,
-        @CustomType.Parameter("encryptionSettings") List<GetSnapshotEncryptionSetting> encryptionSettings,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("osType") String osType,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("sourceResourceId") String sourceResourceId,
-        @CustomType.Parameter("sourceUri") String sourceUri,
-        @CustomType.Parameter("storageAccountId") String storageAccountId,
-        @CustomType.Parameter("timeCreated") String timeCreated,
-        @CustomType.Parameter("trustedLaunchEnabled") Boolean trustedLaunchEnabled) {
-        this.creationOption = creationOption;
-        this.diskSizeGb = diskSizeGb;
-        this.encryptionSettings = encryptionSettings;
-        this.id = id;
-        this.name = name;
-        this.osType = osType;
-        this.resourceGroupName = resourceGroupName;
-        this.sourceResourceId = sourceResourceId;
-        this.sourceUri = sourceUri;
-        this.storageAccountId = storageAccountId;
-        this.timeCreated = timeCreated;
-        this.trustedLaunchEnabled = trustedLaunchEnabled;
-    }
-
+    private GetSnapshotResult() {}
     public String creationOption() {
         return this.creationOption;
     }
@@ -146,7 +119,7 @@ public final class GetSnapshotResult {
     public static Builder builder(GetSnapshotResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String creationOption;
         private Integer diskSizeGb;
@@ -160,11 +133,7 @@ public final class GetSnapshotResult {
         private String storageAccountId;
         private String timeCreated;
         private Boolean trustedLaunchEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSnapshotResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.creationOption = defaults.creationOption;
@@ -181,14 +150,17 @@ public final class GetSnapshotResult {
     	      this.trustedLaunchEnabled = defaults.trustedLaunchEnabled;
         }
 
+        @CustomType.Setter
         public Builder creationOption(String creationOption) {
             this.creationOption = Objects.requireNonNull(creationOption);
             return this;
         }
+        @CustomType.Setter
         public Builder diskSizeGb(Integer diskSizeGb) {
             this.diskSizeGb = Objects.requireNonNull(diskSizeGb);
             return this;
         }
+        @CustomType.Setter
         public Builder encryptionSettings(List<GetSnapshotEncryptionSetting> encryptionSettings) {
             this.encryptionSettings = Objects.requireNonNull(encryptionSettings);
             return this;
@@ -196,43 +168,66 @@ public final class GetSnapshotResult {
         public Builder encryptionSettings(GetSnapshotEncryptionSetting... encryptionSettings) {
             return encryptionSettings(List.of(encryptionSettings));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder osType(String osType) {
             this.osType = Objects.requireNonNull(osType);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceResourceId(String sourceResourceId) {
             this.sourceResourceId = Objects.requireNonNull(sourceResourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceUri(String sourceUri) {
             this.sourceUri = Objects.requireNonNull(sourceUri);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
             this.storageAccountId = Objects.requireNonNull(storageAccountId);
             return this;
         }
+        @CustomType.Setter
         public Builder timeCreated(String timeCreated) {
             this.timeCreated = Objects.requireNonNull(timeCreated);
             return this;
         }
+        @CustomType.Setter
         public Builder trustedLaunchEnabled(Boolean trustedLaunchEnabled) {
             this.trustedLaunchEnabled = Objects.requireNonNull(trustedLaunchEnabled);
             return this;
-        }        public GetSnapshotResult build() {
-            return new GetSnapshotResult(creationOption, diskSizeGb, encryptionSettings, id, name, osType, resourceGroupName, sourceResourceId, sourceUri, storageAccountId, timeCreated, trustedLaunchEnabled);
+        }
+        public GetSnapshotResult build() {
+            final var o = new GetSnapshotResult();
+            o.creationOption = creationOption;
+            o.diskSizeGb = diskSizeGb;
+            o.encryptionSettings = encryptionSettings;
+            o.id = id;
+            o.name = name;
+            o.osType = osType;
+            o.resourceGroupName = resourceGroupName;
+            o.sourceResourceId = sourceResourceId;
+            o.sourceUri = sourceUri;
+            o.storageAccountId = storageAccountId;
+            o.timeCreated = timeCreated;
+            o.trustedLaunchEnabled = trustedLaunchEnabled;
+            return o;
         }
     }
 }

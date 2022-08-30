@@ -16,35 +16,24 @@ public final class VpnGatewayBgpSettingsInstance0BgpPeeringAddress {
      * @return A list of custom BGP peering addresses to assign to this instance.
      * 
      */
-    private final List<String> customIps;
+    private List<String> customIps;
     /**
      * @return The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration.
      * 
      */
-    private final @Nullable List<String> defaultIps;
+    private @Nullable List<String> defaultIps;
     /**
      * @return The pre-defined id of VPN Gateway IP Configuration.
      * 
      */
-    private final @Nullable String ipConfigurationId;
+    private @Nullable String ipConfigurationId;
     /**
      * @return The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration.
      * 
      */
-    private final @Nullable List<String> tunnelIps;
+    private @Nullable List<String> tunnelIps;
 
-    @CustomType.Constructor
-    private VpnGatewayBgpSettingsInstance0BgpPeeringAddress(
-        @CustomType.Parameter("customIps") List<String> customIps,
-        @CustomType.Parameter("defaultIps") @Nullable List<String> defaultIps,
-        @CustomType.Parameter("ipConfigurationId") @Nullable String ipConfigurationId,
-        @CustomType.Parameter("tunnelIps") @Nullable List<String> tunnelIps) {
-        this.customIps = customIps;
-        this.defaultIps = defaultIps;
-        this.ipConfigurationId = ipConfigurationId;
-        this.tunnelIps = tunnelIps;
-    }
-
+    private VpnGatewayBgpSettingsInstance0BgpPeeringAddress() {}
     /**
      * @return A list of custom BGP peering addresses to assign to this instance.
      * 
@@ -81,17 +70,13 @@ public final class VpnGatewayBgpSettingsInstance0BgpPeeringAddress {
     public static Builder builder(VpnGatewayBgpSettingsInstance0BgpPeeringAddress defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> customIps;
         private @Nullable List<String> defaultIps;
         private @Nullable String ipConfigurationId;
         private @Nullable List<String> tunnelIps;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpnGatewayBgpSettingsInstance0BgpPeeringAddress defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customIps = defaults.customIps;
@@ -100,6 +85,7 @@ public final class VpnGatewayBgpSettingsInstance0BgpPeeringAddress {
     	      this.tunnelIps = defaults.tunnelIps;
         }
 
+        @CustomType.Setter
         public Builder customIps(List<String> customIps) {
             this.customIps = Objects.requireNonNull(customIps);
             return this;
@@ -107,6 +93,7 @@ public final class VpnGatewayBgpSettingsInstance0BgpPeeringAddress {
         public Builder customIps(String... customIps) {
             return customIps(List.of(customIps));
         }
+        @CustomType.Setter
         public Builder defaultIps(@Nullable List<String> defaultIps) {
             this.defaultIps = defaultIps;
             return this;
@@ -114,18 +101,26 @@ public final class VpnGatewayBgpSettingsInstance0BgpPeeringAddress {
         public Builder defaultIps(String... defaultIps) {
             return defaultIps(List.of(defaultIps));
         }
+        @CustomType.Setter
         public Builder ipConfigurationId(@Nullable String ipConfigurationId) {
             this.ipConfigurationId = ipConfigurationId;
             return this;
         }
+        @CustomType.Setter
         public Builder tunnelIps(@Nullable List<String> tunnelIps) {
             this.tunnelIps = tunnelIps;
             return this;
         }
         public Builder tunnelIps(String... tunnelIps) {
             return tunnelIps(List.of(tunnelIps));
-        }        public VpnGatewayBgpSettingsInstance0BgpPeeringAddress build() {
-            return new VpnGatewayBgpSettingsInstance0BgpPeeringAddress(customIps, defaultIps, ipConfigurationId, tunnelIps);
+        }
+        public VpnGatewayBgpSettingsInstance0BgpPeeringAddress build() {
+            final var o = new VpnGatewayBgpSettingsInstance0BgpPeeringAddress();
+            o.customIps = customIps;
+            o.defaultIps = defaultIps;
+            o.ipConfigurationId = ipConfigurationId;
+            o.tunnelIps = tunnelIps;
+            return o;
         }
     }
 }

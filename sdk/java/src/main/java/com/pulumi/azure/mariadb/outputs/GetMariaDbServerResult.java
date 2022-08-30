@@ -16,77 +16,52 @@ public final class GetMariaDbServerResult {
      * @return The Administrator login for the MariaDB Server.
      * 
      */
-    private final String administratorLogin;
+    private String administratorLogin;
     /**
      * @return The FQDN of the MariaDB Server.
      * 
      */
-    private final String fqdn;
+    private String fqdn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure location where the resource exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return The SKU Name for this MariaDB Server.
      * 
      */
-    private final String skuName;
+    private String skuName;
     /**
      * @return The SSL being enforced on connections.
      * 
      */
-    private final String sslEnforcement;
+    private String sslEnforcement;
     /**
      * @return A `storage_profile` block as defined below.
      * 
      */
-    private final List<GetMariaDbServerStorageProfile> storageProfiles;
+    private List<GetMariaDbServerStorageProfile> storageProfiles;
     /**
      * @return A mapping of tags assigned to the resource.
      * ---
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The version of MariaDB being used.
      * 
      */
-    private final String version;
+    private String version;
 
-    @CustomType.Constructor
-    private GetMariaDbServerResult(
-        @CustomType.Parameter("administratorLogin") String administratorLogin,
-        @CustomType.Parameter("fqdn") String fqdn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("skuName") String skuName,
-        @CustomType.Parameter("sslEnforcement") String sslEnforcement,
-        @CustomType.Parameter("storageProfiles") List<GetMariaDbServerStorageProfile> storageProfiles,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("version") String version) {
-        this.administratorLogin = administratorLogin;
-        this.fqdn = fqdn;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.skuName = skuName;
-        this.sslEnforcement = sslEnforcement;
-        this.storageProfiles = storageProfiles;
-        this.tags = tags;
-        this.version = version;
-    }
-
+    private GetMariaDbServerResult() {}
     /**
      * @return The Administrator login for the MariaDB Server.
      * 
@@ -165,7 +140,7 @@ public final class GetMariaDbServerResult {
     public static Builder builder(GetMariaDbServerResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String administratorLogin;
         private String fqdn;
@@ -178,11 +153,7 @@ public final class GetMariaDbServerResult {
         private List<GetMariaDbServerStorageProfile> storageProfiles;
         private Map<String,String> tags;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetMariaDbServerResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.administratorLogin = defaults.administratorLogin;
@@ -198,38 +169,47 @@ public final class GetMariaDbServerResult {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder administratorLogin(String administratorLogin) {
             this.administratorLogin = Objects.requireNonNull(administratorLogin);
             return this;
         }
+        @CustomType.Setter
         public Builder fqdn(String fqdn) {
             this.fqdn = Objects.requireNonNull(fqdn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder skuName(String skuName) {
             this.skuName = Objects.requireNonNull(skuName);
             return this;
         }
+        @CustomType.Setter
         public Builder sslEnforcement(String sslEnforcement) {
             this.sslEnforcement = Objects.requireNonNull(sslEnforcement);
             return this;
         }
+        @CustomType.Setter
         public Builder storageProfiles(List<GetMariaDbServerStorageProfile> storageProfiles) {
             this.storageProfiles = Objects.requireNonNull(storageProfiles);
             return this;
@@ -237,15 +217,30 @@ public final class GetMariaDbServerResult {
         public Builder storageProfiles(GetMariaDbServerStorageProfile... storageProfiles) {
             return storageProfiles(List.of(storageProfiles));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public GetMariaDbServerResult build() {
-            return new GetMariaDbServerResult(administratorLogin, fqdn, id, location, name, resourceGroupName, skuName, sslEnforcement, storageProfiles, tags, version);
+        }
+        public GetMariaDbServerResult build() {
+            final var o = new GetMariaDbServerResult();
+            o.administratorLogin = administratorLogin;
+            o.fqdn = fqdn;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.skuName = skuName;
+            o.sslEnforcement = sslEnforcement;
+            o.storageProfiles = storageProfiles;
+            o.tags = tags;
+            o.version = version;
+            return o;
         }
     }
 }

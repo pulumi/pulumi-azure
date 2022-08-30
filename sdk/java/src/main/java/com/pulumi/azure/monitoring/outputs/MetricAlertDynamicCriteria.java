@@ -19,77 +19,54 @@ public final class MetricAlertDynamicCriteria {
      * @return The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
      * 
      */
-    private final String aggregation;
+    private String aggregation;
     /**
      * @return The extent of deviation required to trigger an alert. Possible values are `Low`, `Medium` and `High`.
      * 
      */
-    private final String alertSensitivity;
+    private String alertSensitivity;
     /**
      * @return One or more `dimension` blocks as defined below.
      * 
      */
-    private final @Nullable List<MetricAlertDynamicCriteriaDimension> dimensions;
+    private @Nullable List<MetricAlertDynamicCriteriaDimension> dimensions;
     /**
      * @return The number of violations to trigger an alert. Should be smaller or equal to `evaluation_total_count`.
      * 
      */
-    private final @Nullable Integer evaluationFailureCount;
+    private @Nullable Integer evaluationFailureCount;
     /**
      * @return The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity (`window_size`) and the selected number of aggregated points.
      * 
      */
-    private final @Nullable Integer evaluationTotalCount;
+    private @Nullable Integer evaluationTotalCount;
     /**
      * @return The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds.
      * 
      */
-    private final @Nullable String ignoreDataBefore;
+    private @Nullable String ignoreDataBefore;
     /**
      * @return One of the metric names to be monitored.
      * 
      */
-    private final String metricName;
+    private String metricName;
     /**
      * @return One of the metric namespaces to be monitored.
      * 
      */
-    private final String metricNamespace;
+    private String metricNamespace;
     /**
      * @return The criteria operator. Possible values are `LessThan`, `GreaterThan` and `GreaterOrLessThan`.
      * 
      */
-    private final String operator;
+    private String operator;
     /**
      * @return Skip the metric validation to allow creating an alert rule on a custom metric that isn&#39;t yet emitted? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean skipMetricValidation;
+    private @Nullable Boolean skipMetricValidation;
 
-    @CustomType.Constructor
-    private MetricAlertDynamicCriteria(
-        @CustomType.Parameter("aggregation") String aggregation,
-        @CustomType.Parameter("alertSensitivity") String alertSensitivity,
-        @CustomType.Parameter("dimensions") @Nullable List<MetricAlertDynamicCriteriaDimension> dimensions,
-        @CustomType.Parameter("evaluationFailureCount") @Nullable Integer evaluationFailureCount,
-        @CustomType.Parameter("evaluationTotalCount") @Nullable Integer evaluationTotalCount,
-        @CustomType.Parameter("ignoreDataBefore") @Nullable String ignoreDataBefore,
-        @CustomType.Parameter("metricName") String metricName,
-        @CustomType.Parameter("metricNamespace") String metricNamespace,
-        @CustomType.Parameter("operator") String operator,
-        @CustomType.Parameter("skipMetricValidation") @Nullable Boolean skipMetricValidation) {
-        this.aggregation = aggregation;
-        this.alertSensitivity = alertSensitivity;
-        this.dimensions = dimensions;
-        this.evaluationFailureCount = evaluationFailureCount;
-        this.evaluationTotalCount = evaluationTotalCount;
-        this.ignoreDataBefore = ignoreDataBefore;
-        this.metricName = metricName;
-        this.metricNamespace = metricNamespace;
-        this.operator = operator;
-        this.skipMetricValidation = skipMetricValidation;
-    }
-
+    private MetricAlertDynamicCriteria() {}
     /**
      * @return The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
      * 
@@ -168,7 +145,7 @@ public final class MetricAlertDynamicCriteria {
     public static Builder builder(MetricAlertDynamicCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String aggregation;
         private String alertSensitivity;
@@ -180,11 +157,7 @@ public final class MetricAlertDynamicCriteria {
         private String metricNamespace;
         private String operator;
         private @Nullable Boolean skipMetricValidation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MetricAlertDynamicCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aggregation = defaults.aggregation;
@@ -199,14 +172,17 @@ public final class MetricAlertDynamicCriteria {
     	      this.skipMetricValidation = defaults.skipMetricValidation;
         }
 
+        @CustomType.Setter
         public Builder aggregation(String aggregation) {
             this.aggregation = Objects.requireNonNull(aggregation);
             return this;
         }
+        @CustomType.Setter
         public Builder alertSensitivity(String alertSensitivity) {
             this.alertSensitivity = Objects.requireNonNull(alertSensitivity);
             return this;
         }
+        @CustomType.Setter
         public Builder dimensions(@Nullable List<MetricAlertDynamicCriteriaDimension> dimensions) {
             this.dimensions = dimensions;
             return this;
@@ -214,35 +190,54 @@ public final class MetricAlertDynamicCriteria {
         public Builder dimensions(MetricAlertDynamicCriteriaDimension... dimensions) {
             return dimensions(List.of(dimensions));
         }
+        @CustomType.Setter
         public Builder evaluationFailureCount(@Nullable Integer evaluationFailureCount) {
             this.evaluationFailureCount = evaluationFailureCount;
             return this;
         }
+        @CustomType.Setter
         public Builder evaluationTotalCount(@Nullable Integer evaluationTotalCount) {
             this.evaluationTotalCount = evaluationTotalCount;
             return this;
         }
+        @CustomType.Setter
         public Builder ignoreDataBefore(@Nullable String ignoreDataBefore) {
             this.ignoreDataBefore = ignoreDataBefore;
             return this;
         }
+        @CustomType.Setter
         public Builder metricName(String metricName) {
             this.metricName = Objects.requireNonNull(metricName);
             return this;
         }
+        @CustomType.Setter
         public Builder metricNamespace(String metricNamespace) {
             this.metricNamespace = Objects.requireNonNull(metricNamespace);
             return this;
         }
+        @CustomType.Setter
         public Builder operator(String operator) {
             this.operator = Objects.requireNonNull(operator);
             return this;
         }
+        @CustomType.Setter
         public Builder skipMetricValidation(@Nullable Boolean skipMetricValidation) {
             this.skipMetricValidation = skipMetricValidation;
             return this;
-        }        public MetricAlertDynamicCriteria build() {
-            return new MetricAlertDynamicCriteria(aggregation, alertSensitivity, dimensions, evaluationFailureCount, evaluationTotalCount, ignoreDataBefore, metricName, metricNamespace, operator, skipMetricValidation);
+        }
+        public MetricAlertDynamicCriteria build() {
+            final var o = new MetricAlertDynamicCriteria();
+            o.aggregation = aggregation;
+            o.alertSensitivity = alertSensitivity;
+            o.dimensions = dimensions;
+            o.evaluationFailureCount = evaluationFailureCount;
+            o.evaluationTotalCount = evaluationTotalCount;
+            o.ignoreDataBefore = ignoreDataBefore;
+            o.metricName = metricName;
+            o.metricNamespace = metricNamespace;
+            o.operator = operator;
+            o.skipMetricValidation = skipMetricValidation;
+            return o;
         }
     }
 }

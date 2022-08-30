@@ -16,35 +16,24 @@ public final class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPas
      * @return Specifies the name of an existing Key Vault Data Factory Linked Service.
      * 
      */
-    private final String linkedServiceName;
+    private String linkedServiceName;
     /**
      * @return A map of parameters to associate with the Key Vault Data Factory Linked Service.
      * 
      */
-    private final @Nullable Map<String,String> parameters;
+    private @Nullable Map<String,String> parameters;
     /**
      * @return Specifies the secret name in Azure Key Vault.
      * 
      */
-    private final String secretName;
+    private String secretName;
     /**
      * @return Specifies the secret version in Azure Key Vault.
      * 
      */
-    private final @Nullable String secretVersion;
+    private @Nullable String secretVersion;
 
-    @CustomType.Constructor
-    private IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword(
-        @CustomType.Parameter("linkedServiceName") String linkedServiceName,
-        @CustomType.Parameter("parameters") @Nullable Map<String,String> parameters,
-        @CustomType.Parameter("secretName") String secretName,
-        @CustomType.Parameter("secretVersion") @Nullable String secretVersion) {
-        this.linkedServiceName = linkedServiceName;
-        this.parameters = parameters;
-        this.secretName = secretName;
-        this.secretVersion = secretVersion;
-    }
-
+    private IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword() {}
     /**
      * @return Specifies the name of an existing Key Vault Data Factory Linked Service.
      * 
@@ -81,17 +70,13 @@ public final class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPas
     public static Builder builder(IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String linkedServiceName;
         private @Nullable Map<String,String> parameters;
         private String secretName;
         private @Nullable String secretVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.linkedServiceName = defaults.linkedServiceName;
@@ -100,23 +85,33 @@ public final class IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPas
     	      this.secretVersion = defaults.secretVersion;
         }
 
+        @CustomType.Setter
         public Builder linkedServiceName(String linkedServiceName) {
             this.linkedServiceName = Objects.requireNonNull(linkedServiceName);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
             this.parameters = parameters;
             return this;
         }
+        @CustomType.Setter
         public Builder secretName(String secretName) {
             this.secretName = Objects.requireNonNull(secretName);
             return this;
         }
+        @CustomType.Setter
         public Builder secretVersion(@Nullable String secretVersion) {
             this.secretVersion = secretVersion;
             return this;
-        }        public IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword build() {
-            return new IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword(linkedServiceName, parameters, secretName, secretVersion);
+        }
+        public IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword build() {
+            final var o = new IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword();
+            o.linkedServiceName = linkedServiceName;
+            o.parameters = parameters;
+            o.secretName = secretName;
+            o.secretVersion = secretVersion;
+            return o;
         }
     }
 }

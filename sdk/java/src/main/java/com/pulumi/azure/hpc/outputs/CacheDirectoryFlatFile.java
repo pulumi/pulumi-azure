@@ -13,21 +13,14 @@ public final class CacheDirectoryFlatFile {
      * @return The URI of the file containing group information (`/etc/group` file format in Unix-like OS).
      * 
      */
-    private final String groupFileUri;
+    private String groupFileUri;
     /**
      * @return The URI of the file containing user information (`/etc/passwd` file format in Unix-like OS).
      * 
      */
-    private final String passwordFileUri;
+    private String passwordFileUri;
 
-    @CustomType.Constructor
-    private CacheDirectoryFlatFile(
-        @CustomType.Parameter("groupFileUri") String groupFileUri,
-        @CustomType.Parameter("passwordFileUri") String passwordFileUri) {
-        this.groupFileUri = groupFileUri;
-        this.passwordFileUri = passwordFileUri;
-    }
-
+    private CacheDirectoryFlatFile() {}
     /**
      * @return The URI of the file containing group information (`/etc/group` file format in Unix-like OS).
      * 
@@ -50,30 +43,32 @@ public final class CacheDirectoryFlatFile {
     public static Builder builder(CacheDirectoryFlatFile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String groupFileUri;
         private String passwordFileUri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CacheDirectoryFlatFile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.groupFileUri = defaults.groupFileUri;
     	      this.passwordFileUri = defaults.passwordFileUri;
         }
 
+        @CustomType.Setter
         public Builder groupFileUri(String groupFileUri) {
             this.groupFileUri = Objects.requireNonNull(groupFileUri);
             return this;
         }
+        @CustomType.Setter
         public Builder passwordFileUri(String passwordFileUri) {
             this.passwordFileUri = Objects.requireNonNull(passwordFileUri);
             return this;
-        }        public CacheDirectoryFlatFile build() {
-            return new CacheDirectoryFlatFile(groupFileUri, passwordFileUri);
+        }
+        public CacheDirectoryFlatFile build() {
+            final var o = new CacheDirectoryFlatFile();
+            o.groupFileUri = groupFileUri;
+            o.passwordFileUri = passwordFileUri;
+            return o;
         }
     }
 }

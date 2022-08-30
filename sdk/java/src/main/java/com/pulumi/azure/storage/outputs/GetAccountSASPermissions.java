@@ -13,77 +13,54 @@ public final class GetAccountSASPermissions {
      * @return Should Add permissions be enabled for this SAS?
      * 
      */
-    private final Boolean add;
+    private Boolean add;
     /**
      * @return Should Create permissions be enabled for this SAS?
      * 
      */
-    private final Boolean create;
+    private Boolean create;
     /**
      * @return Should Delete permissions be enabled for this SAS?
      * 
      */
-    private final Boolean delete;
+    private Boolean delete;
     /**
      * @return Should Filter by Index Tags permissions be enabled for this SAS?
      * 
      */
-    private final Boolean filter;
+    private Boolean filter;
     /**
      * @return Should List permissions be enabled for this SAS?
      * 
      */
-    private final Boolean list;
+    private Boolean list;
     /**
      * @return Should Process permissions be enabled for this SAS?
      * 
      */
-    private final Boolean process;
+    private Boolean process;
     /**
      * @return Should Read permissions be enabled for this SAS?
      * 
      */
-    private final Boolean read;
+    private Boolean read;
     /**
      * @return Should Get / Set Index Tags permissions be enabled for this SAS?
      * 
      */
-    private final Boolean tag;
+    private Boolean tag;
     /**
      * @return Should Update permissions be enabled for this SAS?
      * 
      */
-    private final Boolean update;
+    private Boolean update;
     /**
      * @return Should Write permissions be enabled for this SAS?
      * 
      */
-    private final Boolean write;
+    private Boolean write;
 
-    @CustomType.Constructor
-    private GetAccountSASPermissions(
-        @CustomType.Parameter("add") Boolean add,
-        @CustomType.Parameter("create") Boolean create,
-        @CustomType.Parameter("delete") Boolean delete,
-        @CustomType.Parameter("filter") Boolean filter,
-        @CustomType.Parameter("list") Boolean list,
-        @CustomType.Parameter("process") Boolean process,
-        @CustomType.Parameter("read") Boolean read,
-        @CustomType.Parameter("tag") Boolean tag,
-        @CustomType.Parameter("update") Boolean update,
-        @CustomType.Parameter("write") Boolean write) {
-        this.add = add;
-        this.create = create;
-        this.delete = delete;
-        this.filter = filter;
-        this.list = list;
-        this.process = process;
-        this.read = read;
-        this.tag = tag;
-        this.update = update;
-        this.write = write;
-    }
-
+    private GetAccountSASPermissions() {}
     /**
      * @return Should Add permissions be enabled for this SAS?
      * 
@@ -162,7 +139,7 @@ public final class GetAccountSASPermissions {
     public static Builder builder(GetAccountSASPermissions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean add;
         private Boolean create;
@@ -174,11 +151,7 @@ public final class GetAccountSASPermissions {
         private Boolean tag;
         private Boolean update;
         private Boolean write;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccountSASPermissions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.add = defaults.add;
@@ -193,47 +166,69 @@ public final class GetAccountSASPermissions {
     	      this.write = defaults.write;
         }
 
+        @CustomType.Setter
         public Builder add(Boolean add) {
             this.add = Objects.requireNonNull(add);
             return this;
         }
+        @CustomType.Setter
         public Builder create(Boolean create) {
             this.create = Objects.requireNonNull(create);
             return this;
         }
+        @CustomType.Setter
         public Builder delete(Boolean delete) {
             this.delete = Objects.requireNonNull(delete);
             return this;
         }
+        @CustomType.Setter
         public Builder filter(Boolean filter) {
             this.filter = Objects.requireNonNull(filter);
             return this;
         }
+        @CustomType.Setter
         public Builder list(Boolean list) {
             this.list = Objects.requireNonNull(list);
             return this;
         }
+        @CustomType.Setter
         public Builder process(Boolean process) {
             this.process = Objects.requireNonNull(process);
             return this;
         }
+        @CustomType.Setter
         public Builder read(Boolean read) {
             this.read = Objects.requireNonNull(read);
             return this;
         }
+        @CustomType.Setter
         public Builder tag(Boolean tag) {
             this.tag = Objects.requireNonNull(tag);
             return this;
         }
+        @CustomType.Setter
         public Builder update(Boolean update) {
             this.update = Objects.requireNonNull(update);
             return this;
         }
+        @CustomType.Setter
         public Builder write(Boolean write) {
             this.write = Objects.requireNonNull(write);
             return this;
-        }        public GetAccountSASPermissions build() {
-            return new GetAccountSASPermissions(add, create, delete, filter, list, process, read, tag, update, write);
+        }
+        public GetAccountSASPermissions build() {
+            final var o = new GetAccountSASPermissions();
+            o.add = add;
+            o.create = create;
+            o.delete = delete;
+            o.filter = filter;
+            o.list = list;
+            o.process = process;
+            o.read = read;
+            o.tag = tag;
+            o.update = update;
+            o.write = write;
+            return o;
         }
     }
 }

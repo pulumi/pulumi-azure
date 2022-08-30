@@ -14,49 +14,34 @@ public final class GetImagesImageOsDisk {
      * @return the URI in Azure storage of the blob used to create the image.
      * 
      */
-    private final String blobUri;
+    private String blobUri;
     /**
      * @return the caching mode for the Data Disk.
      * 
      */
-    private final String caching;
+    private String caching;
     /**
      * @return the ID of the Managed Disk used as the Data Disk Image.
      * 
      */
-    private final String managedDiskId;
+    private String managedDiskId;
     /**
      * @return the State of the OS used in the Image.
      * 
      */
-    private final String osState;
+    private String osState;
     /**
      * @return the type of Operating System used on the OS Disk.
      * 
      */
-    private final String osType;
+    private String osType;
     /**
      * @return the size of this Data Disk in GB.
      * 
      */
-    private final Integer sizeGb;
+    private Integer sizeGb;
 
-    @CustomType.Constructor
-    private GetImagesImageOsDisk(
-        @CustomType.Parameter("blobUri") String blobUri,
-        @CustomType.Parameter("caching") String caching,
-        @CustomType.Parameter("managedDiskId") String managedDiskId,
-        @CustomType.Parameter("osState") String osState,
-        @CustomType.Parameter("osType") String osType,
-        @CustomType.Parameter("sizeGb") Integer sizeGb) {
-        this.blobUri = blobUri;
-        this.caching = caching;
-        this.managedDiskId = managedDiskId;
-        this.osState = osState;
-        this.osType = osType;
-        this.sizeGb = sizeGb;
-    }
-
+    private GetImagesImageOsDisk() {}
     /**
      * @return the URI in Azure storage of the blob used to create the image.
      * 
@@ -107,7 +92,7 @@ public final class GetImagesImageOsDisk {
     public static Builder builder(GetImagesImageOsDisk defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String blobUri;
         private String caching;
@@ -115,11 +100,7 @@ public final class GetImagesImageOsDisk {
         private String osState;
         private String osType;
         private Integer sizeGb;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetImagesImageOsDisk defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.blobUri = defaults.blobUri;
@@ -130,31 +111,45 @@ public final class GetImagesImageOsDisk {
     	      this.sizeGb = defaults.sizeGb;
         }
 
+        @CustomType.Setter
         public Builder blobUri(String blobUri) {
             this.blobUri = Objects.requireNonNull(blobUri);
             return this;
         }
+        @CustomType.Setter
         public Builder caching(String caching) {
             this.caching = Objects.requireNonNull(caching);
             return this;
         }
+        @CustomType.Setter
         public Builder managedDiskId(String managedDiskId) {
             this.managedDiskId = Objects.requireNonNull(managedDiskId);
             return this;
         }
+        @CustomType.Setter
         public Builder osState(String osState) {
             this.osState = Objects.requireNonNull(osState);
             return this;
         }
+        @CustomType.Setter
         public Builder osType(String osType) {
             this.osType = Objects.requireNonNull(osType);
             return this;
         }
+        @CustomType.Setter
         public Builder sizeGb(Integer sizeGb) {
             this.sizeGb = Objects.requireNonNull(sizeGb);
             return this;
-        }        public GetImagesImageOsDisk build() {
-            return new GetImagesImageOsDisk(blobUri, caching, managedDiskId, osState, osType, sizeGb);
+        }
+        public GetImagesImageOsDisk build() {
+            final var o = new GetImagesImageOsDisk();
+            o.blobUri = blobUri;
+            o.caching = caching;
+            o.managedDiskId = managedDiskId;
+            o.osState = osState;
+            o.osType = osType;
+            o.sizeGb = sizeGb;
+            return o;
         }
     }
 }

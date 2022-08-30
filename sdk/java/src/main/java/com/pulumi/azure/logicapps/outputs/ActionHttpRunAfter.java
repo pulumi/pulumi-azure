@@ -13,21 +13,14 @@ public final class ActionHttpRunAfter {
      * @return Specifies the name of the precedent HTTP Action.
      * 
      */
-    private final String actionName;
+    private String actionName;
     /**
      * @return Specifies the expected result of the precedent HTTP Action, only after which the current HTTP Action will be triggered. Possible values include `Succeeded`, `Failed`, `Skipped` and `TimedOut`.
      * 
      */
-    private final String actionResult;
+    private String actionResult;
 
-    @CustomType.Constructor
-    private ActionHttpRunAfter(
-        @CustomType.Parameter("actionName") String actionName,
-        @CustomType.Parameter("actionResult") String actionResult) {
-        this.actionName = actionName;
-        this.actionResult = actionResult;
-    }
-
+    private ActionHttpRunAfter() {}
     /**
      * @return Specifies the name of the precedent HTTP Action.
      * 
@@ -50,30 +43,32 @@ public final class ActionHttpRunAfter {
     public static Builder builder(ActionHttpRunAfter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String actionName;
         private String actionResult;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ActionHttpRunAfter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionName = defaults.actionName;
     	      this.actionResult = defaults.actionResult;
         }
 
+        @CustomType.Setter
         public Builder actionName(String actionName) {
             this.actionName = Objects.requireNonNull(actionName);
             return this;
         }
+        @CustomType.Setter
         public Builder actionResult(String actionResult) {
             this.actionResult = Objects.requireNonNull(actionResult);
             return this;
-        }        public ActionHttpRunAfter build() {
-            return new ActionHttpRunAfter(actionName, actionResult);
+        }
+        public ActionHttpRunAfter build() {
+            final var o = new ActionHttpRunAfter();
+            o.actionName = actionName;
+            o.actionResult = actionResult;
+            return o;
         }
     }
 }

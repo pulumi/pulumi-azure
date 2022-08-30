@@ -17,28 +17,19 @@ public final class SparkClusterMetastores {
      * @return An `ambari` block as defined below.
      * 
      */
-    private final @Nullable SparkClusterMetastoresAmbari ambari;
+    private @Nullable SparkClusterMetastoresAmbari ambari;
     /**
      * @return A `hive` block as defined below.
      * 
      */
-    private final @Nullable SparkClusterMetastoresHive hive;
+    private @Nullable SparkClusterMetastoresHive hive;
     /**
      * @return An `oozie` block as defined below.
      * 
      */
-    private final @Nullable SparkClusterMetastoresOozie oozie;
+    private @Nullable SparkClusterMetastoresOozie oozie;
 
-    @CustomType.Constructor
-    private SparkClusterMetastores(
-        @CustomType.Parameter("ambari") @Nullable SparkClusterMetastoresAmbari ambari,
-        @CustomType.Parameter("hive") @Nullable SparkClusterMetastoresHive hive,
-        @CustomType.Parameter("oozie") @Nullable SparkClusterMetastoresOozie oozie) {
-        this.ambari = ambari;
-        this.hive = hive;
-        this.oozie = oozie;
-    }
-
+    private SparkClusterMetastores() {}
     /**
      * @return An `ambari` block as defined below.
      * 
@@ -68,16 +59,12 @@ public final class SparkClusterMetastores {
     public static Builder builder(SparkClusterMetastores defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable SparkClusterMetastoresAmbari ambari;
         private @Nullable SparkClusterMetastoresHive hive;
         private @Nullable SparkClusterMetastoresOozie oozie;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SparkClusterMetastores defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ambari = defaults.ambari;
@@ -85,19 +72,27 @@ public final class SparkClusterMetastores {
     	      this.oozie = defaults.oozie;
         }
 
+        @CustomType.Setter
         public Builder ambari(@Nullable SparkClusterMetastoresAmbari ambari) {
             this.ambari = ambari;
             return this;
         }
+        @CustomType.Setter
         public Builder hive(@Nullable SparkClusterMetastoresHive hive) {
             this.hive = hive;
             return this;
         }
+        @CustomType.Setter
         public Builder oozie(@Nullable SparkClusterMetastoresOozie oozie) {
             this.oozie = oozie;
             return this;
-        }        public SparkClusterMetastores build() {
-            return new SparkClusterMetastores(ambari, hive, oozie);
+        }
+        public SparkClusterMetastores build() {
+            final var o = new SparkClusterMetastores();
+            o.ambari = ambari;
+            o.hive = hive;
+            o.oozie = oozie;
+            return o;
         }
     }
 }

@@ -16,35 +16,24 @@ public final class DatasetSnowflakeSchemaColumn {
      * @return The name of the column.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The total number of digits allowed.
      * 
      */
-    private final @Nullable Integer precision;
+    private @Nullable Integer precision;
     /**
      * @return The number of digits allowed to the right of the decimal point.
      * 
      */
-    private final @Nullable Integer scale;
+    private @Nullable Integer scale;
     /**
      * @return Type of the column. Valid values are `NUMBER`, `DECIMAL`, `NUMERIC`, `INT`, `INTEGER`, `BIGINT`, `SMALLINT`, `FLOAT``FLOAT4`, `FLOAT8`, `DOUBLE`, `DOUBLE PRECISION`, `REAL`, `VARCHAR`, `CHAR`, `CHARACTER`, `STRING`, `TEXT`, `BINARY`, `VARBINARY`, `BOOLEAN`, `DATE`, `DATETIME`, `TIME`, `TIMESTAMP`, `TIMESTAMP_LTZ`, `TIMESTAMP_NTZ`, `TIMESTAMP_TZ`, `VARIANT`, `OBJECT`, `ARRAY`, `GEOGRAPHY`. Please note these values are case sensitive.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private DatasetSnowflakeSchemaColumn(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("precision") @Nullable Integer precision,
-        @CustomType.Parameter("scale") @Nullable Integer scale,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.name = name;
-        this.precision = precision;
-        this.scale = scale;
-        this.type = type;
-    }
-
+    private DatasetSnowflakeSchemaColumn() {}
     /**
      * @return The name of the column.
      * 
@@ -81,17 +70,13 @@ public final class DatasetSnowflakeSchemaColumn {
     public static Builder builder(DatasetSnowflakeSchemaColumn defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private @Nullable Integer precision;
         private @Nullable Integer scale;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DatasetSnowflakeSchemaColumn defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -100,23 +85,33 @@ public final class DatasetSnowflakeSchemaColumn {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder precision(@Nullable Integer precision) {
             this.precision = precision;
             return this;
         }
+        @CustomType.Setter
         public Builder scale(@Nullable Integer scale) {
             this.scale = scale;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public DatasetSnowflakeSchemaColumn build() {
-            return new DatasetSnowflakeSchemaColumn(name, precision, scale, type);
+        }
+        public DatasetSnowflakeSchemaColumn build() {
+            final var o = new DatasetSnowflakeSchemaColumn();
+            o.name = name;
+            o.precision = precision;
+            o.scale = scale;
+            o.type = type;
+            return o;
         }
     }
 }

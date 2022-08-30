@@ -17,42 +17,29 @@ public final class EndpointDeliveryRulePostArgCondition {
      * @return List of string values. This is required if `operator` is not `Any`.
      * 
      */
-    private final @Nullable List<String> matchValues;
+    private @Nullable List<String> matchValues;
     /**
      * @return Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean negateCondition;
+    private @Nullable Boolean negateCondition;
     /**
      * @return Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
      * 
      */
-    private final String operator;
+    private String operator;
     /**
      * @return Name of the post arg.
      * 
      */
-    private final String selector;
+    private String selector;
     /**
      * @return A list of transforms. Valid values are `Lowercase` and `Uppercase`.
      * 
      */
-    private final @Nullable List<String> transforms;
+    private @Nullable List<String> transforms;
 
-    @CustomType.Constructor
-    private EndpointDeliveryRulePostArgCondition(
-        @CustomType.Parameter("matchValues") @Nullable List<String> matchValues,
-        @CustomType.Parameter("negateCondition") @Nullable Boolean negateCondition,
-        @CustomType.Parameter("operator") String operator,
-        @CustomType.Parameter("selector") String selector,
-        @CustomType.Parameter("transforms") @Nullable List<String> transforms) {
-        this.matchValues = matchValues;
-        this.negateCondition = negateCondition;
-        this.operator = operator;
-        this.selector = selector;
-        this.transforms = transforms;
-    }
-
+    private EndpointDeliveryRulePostArgCondition() {}
     /**
      * @return List of string values. This is required if `operator` is not `Any`.
      * 
@@ -96,18 +83,14 @@ public final class EndpointDeliveryRulePostArgCondition {
     public static Builder builder(EndpointDeliveryRulePostArgCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> matchValues;
         private @Nullable Boolean negateCondition;
         private String operator;
         private String selector;
         private @Nullable List<String> transforms;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointDeliveryRulePostArgCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.matchValues = defaults.matchValues;
@@ -117,6 +100,7 @@ public final class EndpointDeliveryRulePostArgCondition {
     	      this.transforms = defaults.transforms;
         }
 
+        @CustomType.Setter
         public Builder matchValues(@Nullable List<String> matchValues) {
             this.matchValues = matchValues;
             return this;
@@ -124,26 +108,37 @@ public final class EndpointDeliveryRulePostArgCondition {
         public Builder matchValues(String... matchValues) {
             return matchValues(List.of(matchValues));
         }
+        @CustomType.Setter
         public Builder negateCondition(@Nullable Boolean negateCondition) {
             this.negateCondition = negateCondition;
             return this;
         }
+        @CustomType.Setter
         public Builder operator(String operator) {
             this.operator = Objects.requireNonNull(operator);
             return this;
         }
+        @CustomType.Setter
         public Builder selector(String selector) {
             this.selector = Objects.requireNonNull(selector);
             return this;
         }
+        @CustomType.Setter
         public Builder transforms(@Nullable List<String> transforms) {
             this.transforms = transforms;
             return this;
         }
         public Builder transforms(String... transforms) {
             return transforms(List.of(transforms));
-        }        public EndpointDeliveryRulePostArgCondition build() {
-            return new EndpointDeliveryRulePostArgCondition(matchValues, negateCondition, operator, selector, transforms);
+        }
+        public EndpointDeliveryRulePostArgCondition build() {
+            final var o = new EndpointDeliveryRulePostArgCondition();
+            o.matchValues = matchValues;
+            o.negateCondition = negateCondition;
+            o.operator = operator;
+            o.selector = selector;
+            o.transforms = transforms;
+            return o;
         }
     }
 }

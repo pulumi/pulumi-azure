@@ -16,21 +16,14 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSetting {
      * @return A `action` block as defined above.
      * 
      */
-    private final @Nullable LinuxWebAppSlotSiteConfigAutoHealSettingAction action;
+    private @Nullable LinuxWebAppSlotSiteConfigAutoHealSettingAction action;
     /**
      * @return A `trigger` block as defined below.
      * 
      */
-    private final @Nullable LinuxWebAppSlotSiteConfigAutoHealSettingTrigger trigger;
+    private @Nullable LinuxWebAppSlotSiteConfigAutoHealSettingTrigger trigger;
 
-    @CustomType.Constructor
-    private LinuxWebAppSlotSiteConfigAutoHealSetting(
-        @CustomType.Parameter("action") @Nullable LinuxWebAppSlotSiteConfigAutoHealSettingAction action,
-        @CustomType.Parameter("trigger") @Nullable LinuxWebAppSlotSiteConfigAutoHealSettingTrigger trigger) {
-        this.action = action;
-        this.trigger = trigger;
-    }
-
+    private LinuxWebAppSlotSiteConfigAutoHealSetting() {}
     /**
      * @return A `action` block as defined above.
      * 
@@ -53,30 +46,32 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSetting {
     public static Builder builder(LinuxWebAppSlotSiteConfigAutoHealSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable LinuxWebAppSlotSiteConfigAutoHealSettingAction action;
         private @Nullable LinuxWebAppSlotSiteConfigAutoHealSettingTrigger trigger;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxWebAppSlotSiteConfigAutoHealSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
     	      this.trigger = defaults.trigger;
         }
 
+        @CustomType.Setter
         public Builder action(@Nullable LinuxWebAppSlotSiteConfigAutoHealSettingAction action) {
             this.action = action;
             return this;
         }
+        @CustomType.Setter
         public Builder trigger(@Nullable LinuxWebAppSlotSiteConfigAutoHealSettingTrigger trigger) {
             this.trigger = trigger;
             return this;
-        }        public LinuxWebAppSlotSiteConfigAutoHealSetting build() {
-            return new LinuxWebAppSlotSiteConfigAutoHealSetting(action, trigger);
+        }
+        public LinuxWebAppSlotSiteConfigAutoHealSetting build() {
+            final var o = new LinuxWebAppSlotSiteConfigAutoHealSetting();
+            o.action = action;
+            o.trigger = trigger;
+            return o;
         }
     }
 }

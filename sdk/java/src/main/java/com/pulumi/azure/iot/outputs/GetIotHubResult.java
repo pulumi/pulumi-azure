@@ -15,30 +15,17 @@ public final class GetIotHubResult {
      * @return The Hostname of the IoTHub.
      * 
      */
-    private final String hostname;
+    private String hostname;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
-    private final String resourceGroupName;
-    private final @Nullable Map<String,String> tags;
+    private String id;
+    private String name;
+    private String resourceGroupName;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetIotHubResult(
-        @CustomType.Parameter("hostname") String hostname,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.hostname = hostname;
-        this.id = id;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-    }
-
+    private GetIotHubResult() {}
     /**
      * @return The Hostname of the IoTHub.
      * 
@@ -70,18 +57,14 @@ public final class GetIotHubResult {
     public static Builder builder(GetIotHubResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String hostname;
         private String id;
         private String name;
         private String resourceGroupName;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetIotHubResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostname = defaults.hostname;
@@ -91,27 +74,39 @@ public final class GetIotHubResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder hostname(String hostname) {
             this.hostname = Objects.requireNonNull(hostname);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public GetIotHubResult build() {
-            return new GetIotHubResult(hostname, id, name, resourceGroupName, tags);
+        }
+        public GetIotHubResult build() {
+            final var o = new GetIotHubResult();
+            o.hostname = hostname;
+            o.id = id;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            return o;
         }
     }
 }

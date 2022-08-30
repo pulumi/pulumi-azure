@@ -13,38 +13,25 @@ public final class GetConfigurationWindow {
      * @return The duration of the maintenance window.
      * 
      */
-    private final String duration;
+    private String duration;
     /**
      * @return Effective expiration date of the maintenance window.
      * 
      */
-    private final String expirationDateTime;
-    private final String recurEvery;
+    private String expirationDateTime;
+    private String recurEvery;
     /**
      * @return Effective start date of the maintenance window.
      * 
      */
-    private final String startDateTime;
+    private String startDateTime;
     /**
      * @return The time zone for the maintenance window.
      * 
      */
-    private final String timeZone;
+    private String timeZone;
 
-    @CustomType.Constructor
-    private GetConfigurationWindow(
-        @CustomType.Parameter("duration") String duration,
-        @CustomType.Parameter("expirationDateTime") String expirationDateTime,
-        @CustomType.Parameter("recurEvery") String recurEvery,
-        @CustomType.Parameter("startDateTime") String startDateTime,
-        @CustomType.Parameter("timeZone") String timeZone) {
-        this.duration = duration;
-        this.expirationDateTime = expirationDateTime;
-        this.recurEvery = recurEvery;
-        this.startDateTime = startDateTime;
-        this.timeZone = timeZone;
-    }
-
+    private GetConfigurationWindow() {}
     /**
      * @return The duration of the maintenance window.
      * 
@@ -84,18 +71,14 @@ public final class GetConfigurationWindow {
     public static Builder builder(GetConfigurationWindow defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String duration;
         private String expirationDateTime;
         private String recurEvery;
         private String startDateTime;
         private String timeZone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetConfigurationWindow defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.duration = defaults.duration;
@@ -105,27 +88,39 @@ public final class GetConfigurationWindow {
     	      this.timeZone = defaults.timeZone;
         }
 
+        @CustomType.Setter
         public Builder duration(String duration) {
             this.duration = Objects.requireNonNull(duration);
             return this;
         }
+        @CustomType.Setter
         public Builder expirationDateTime(String expirationDateTime) {
             this.expirationDateTime = Objects.requireNonNull(expirationDateTime);
             return this;
         }
+        @CustomType.Setter
         public Builder recurEvery(String recurEvery) {
             this.recurEvery = Objects.requireNonNull(recurEvery);
             return this;
         }
+        @CustomType.Setter
         public Builder startDateTime(String startDateTime) {
             this.startDateTime = Objects.requireNonNull(startDateTime);
             return this;
         }
+        @CustomType.Setter
         public Builder timeZone(String timeZone) {
             this.timeZone = Objects.requireNonNull(timeZone);
             return this;
-        }        public GetConfigurationWindow build() {
-            return new GetConfigurationWindow(duration, expirationDateTime, recurEvery, startDateTime, timeZone);
+        }
+        public GetConfigurationWindow build() {
+            final var o = new GetConfigurationWindow();
+            o.duration = duration;
+            o.expirationDateTime = expirationDateTime;
+            o.recurEvery = recurEvery;
+            o.startDateTime = startDateTime;
+            o.timeZone = timeZone;
+            return o;
         }
     }
 }

@@ -18,42 +18,29 @@ public final class DataFlowTransformation {
      * @return A `dataset` block as defined below.
      * 
      */
-    private final @Nullable DataFlowTransformationDataset dataset;
+    private @Nullable DataFlowTransformationDataset dataset;
     /**
      * @return The description for the Data Flow transformation.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return A `flowlet` block as defined below.
      * 
      */
-    private final @Nullable DataFlowTransformationFlowlet flowlet;
+    private @Nullable DataFlowTransformationFlowlet flowlet;
     /**
      * @return A `linked_service` block as defined below.
      * 
      */
-    private final @Nullable DataFlowTransformationLinkedService linkedService;
+    private @Nullable DataFlowTransformationLinkedService linkedService;
     /**
      * @return The name for the Data Flow transformation.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private DataFlowTransformation(
-        @CustomType.Parameter("dataset") @Nullable DataFlowTransformationDataset dataset,
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("flowlet") @Nullable DataFlowTransformationFlowlet flowlet,
-        @CustomType.Parameter("linkedService") @Nullable DataFlowTransformationLinkedService linkedService,
-        @CustomType.Parameter("name") String name) {
-        this.dataset = dataset;
-        this.description = description;
-        this.flowlet = flowlet;
-        this.linkedService = linkedService;
-        this.name = name;
-    }
-
+    private DataFlowTransformation() {}
     /**
      * @return A `dataset` block as defined below.
      * 
@@ -97,18 +84,14 @@ public final class DataFlowTransformation {
     public static Builder builder(DataFlowTransformation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable DataFlowTransformationDataset dataset;
         private @Nullable String description;
         private @Nullable DataFlowTransformationFlowlet flowlet;
         private @Nullable DataFlowTransformationLinkedService linkedService;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataFlowTransformation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataset = defaults.dataset;
@@ -118,27 +101,39 @@ public final class DataFlowTransformation {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder dataset(@Nullable DataFlowTransformationDataset dataset) {
             this.dataset = dataset;
             return this;
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder flowlet(@Nullable DataFlowTransformationFlowlet flowlet) {
             this.flowlet = flowlet;
             return this;
         }
+        @CustomType.Setter
         public Builder linkedService(@Nullable DataFlowTransformationLinkedService linkedService) {
             this.linkedService = linkedService;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public DataFlowTransformation build() {
-            return new DataFlowTransformation(dataset, description, flowlet, linkedService, name);
+        }
+        public DataFlowTransformation build() {
+            final var o = new DataFlowTransformation();
+            o.dataset = dataset;
+            o.description = description;
+            o.flowlet = flowlet;
+            o.linkedService = linkedService;
+            o.name = name;
+            return o;
         }
     }
 }

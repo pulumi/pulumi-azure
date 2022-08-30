@@ -12,24 +12,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RunBookPublishContentLink {
-    private final @Nullable RunBookPublishContentLinkHash hash;
+    private @Nullable RunBookPublishContentLinkHash hash;
     /**
      * @return The URI of the runbook content.
      * 
      */
-    private final String uri;
-    private final @Nullable String version;
+    private String uri;
+    private @Nullable String version;
 
-    @CustomType.Constructor
-    private RunBookPublishContentLink(
-        @CustomType.Parameter("hash") @Nullable RunBookPublishContentLinkHash hash,
-        @CustomType.Parameter("uri") String uri,
-        @CustomType.Parameter("version") @Nullable String version) {
-        this.hash = hash;
-        this.uri = uri;
-        this.version = version;
-    }
-
+    private RunBookPublishContentLink() {}
     public Optional<RunBookPublishContentLinkHash> hash() {
         return Optional.ofNullable(this.hash);
     }
@@ -51,16 +42,12 @@ public final class RunBookPublishContentLink {
     public static Builder builder(RunBookPublishContentLink defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable RunBookPublishContentLinkHash hash;
         private String uri;
         private @Nullable String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RunBookPublishContentLink defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hash = defaults.hash;
@@ -68,19 +55,27 @@ public final class RunBookPublishContentLink {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder hash(@Nullable RunBookPublishContentLinkHash hash) {
             this.hash = hash;
             return this;
         }
+        @CustomType.Setter
         public Builder uri(String uri) {
             this.uri = Objects.requireNonNull(uri);
             return this;
         }
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
-        }        public RunBookPublishContentLink build() {
-            return new RunBookPublishContentLink(hash, uri, version);
+        }
+        public RunBookPublishContentLink build() {
+            final var o = new RunBookPublishContentLink();
+            o.hash = hash;
+            o.uri = uri;
+            o.version = version;
+            return o;
         }
     }
 }

@@ -16,62 +16,41 @@ public final class GetConfigurationResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure location where the resource exists.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return The properties assigned to the resource.
      * 
      */
-    private final Map<String,String> properties;
-    private final String resourceGroupName;
+    private Map<String,String> properties;
+    private String resourceGroupName;
     /**
      * @return The scope of the Maintenance Configuration.
      * 
      */
-    private final String scope;
+    private String scope;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The visibility of the Maintenance Configuration.
      * 
      */
-    private final String visibility;
+    private String visibility;
     /**
      * @return A `window` block as defined below.
      * 
      */
-    private final List<GetConfigurationWindow> windows;
+    private List<GetConfigurationWindow> windows;
 
-    @CustomType.Constructor
-    private GetConfigurationResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("properties") Map<String,String> properties,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("scope") String scope,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("visibility") String visibility,
-        @CustomType.Parameter("windows") List<GetConfigurationWindow> windows) {
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.properties = properties;
-        this.resourceGroupName = resourceGroupName;
-        this.scope = scope;
-        this.tags = tags;
-        this.visibility = visibility;
-        this.windows = windows;
-    }
-
+    private GetConfigurationResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -135,7 +114,7 @@ public final class GetConfigurationResult {
     public static Builder builder(GetConfigurationResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String location;
@@ -146,11 +125,7 @@ public final class GetConfigurationResult {
         private Map<String,String> tags;
         private String visibility;
         private List<GetConfigurationWindow> windows;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetConfigurationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -164,46 +139,66 @@ public final class GetConfigurationResult {
     	      this.windows = defaults.windows;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder properties(Map<String,String> properties) {
             this.properties = Objects.requireNonNull(properties);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder scope(String scope) {
             this.scope = Objects.requireNonNull(scope);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder visibility(String visibility) {
             this.visibility = Objects.requireNonNull(visibility);
             return this;
         }
+        @CustomType.Setter
         public Builder windows(List<GetConfigurationWindow> windows) {
             this.windows = Objects.requireNonNull(windows);
             return this;
         }
         public Builder windows(GetConfigurationWindow... windows) {
             return windows(List.of(windows));
-        }        public GetConfigurationResult build() {
-            return new GetConfigurationResult(id, location, name, properties, resourceGroupName, scope, tags, visibility, windows);
+        }
+        public GetConfigurationResult build() {
+            final var o = new GetConfigurationResult();
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.properties = properties;
+            o.resourceGroupName = resourceGroupName;
+            o.scope = scope;
+            o.tags = tags;
+            o.visibility = visibility;
+            o.windows = windows;
+            return o;
         }
     }
 }

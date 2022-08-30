@@ -15,76 +15,51 @@ public final class GetInsightsResult {
      * @return The App ID associated with this Application Insights component.
      * 
      */
-    private final String appId;
+    private String appId;
     /**
      * @return The type of the component.
      * 
      */
-    private final String applicationType;
+    private String applicationType;
     /**
      * @return The connection string of the Application Insights component. (Sensitive)
      * 
      */
-    private final String connectionString;
+    private String connectionString;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The instrumentation key of the Application Insights component.
      * 
      */
-    private final String instrumentationKey;
+    private String instrumentationKey;
     /**
      * @return The Azure location where the component exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return The retention period in days.
      * 
      */
-    private final Integer retentionInDays;
+    private Integer retentionInDays;
     /**
      * @return Tags applied to the component.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The id of the associated Log Analytics workspace
      * 
      */
-    private final String workspaceId;
+    private String workspaceId;
 
-    @CustomType.Constructor
-    private GetInsightsResult(
-        @CustomType.Parameter("appId") String appId,
-        @CustomType.Parameter("applicationType") String applicationType,
-        @CustomType.Parameter("connectionString") String connectionString,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("instrumentationKey") String instrumentationKey,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("retentionInDays") Integer retentionInDays,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("workspaceId") String workspaceId) {
-        this.appId = appId;
-        this.applicationType = applicationType;
-        this.connectionString = connectionString;
-        this.id = id;
-        this.instrumentationKey = instrumentationKey;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.retentionInDays = retentionInDays;
-        this.tags = tags;
-        this.workspaceId = workspaceId;
-    }
-
+    private GetInsightsResult() {}
     /**
      * @return The App ID associated with this Application Insights component.
      * 
@@ -162,7 +137,7 @@ public final class GetInsightsResult {
     public static Builder builder(GetInsightsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String appId;
         private String applicationType;
@@ -175,11 +150,7 @@ public final class GetInsightsResult {
         private Integer retentionInDays;
         private Map<String,String> tags;
         private String workspaceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInsightsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appId = defaults.appId;
@@ -195,51 +166,75 @@ public final class GetInsightsResult {
     	      this.workspaceId = defaults.workspaceId;
         }
 
+        @CustomType.Setter
         public Builder appId(String appId) {
             this.appId = Objects.requireNonNull(appId);
             return this;
         }
+        @CustomType.Setter
         public Builder applicationType(String applicationType) {
             this.applicationType = Objects.requireNonNull(applicationType);
             return this;
         }
+        @CustomType.Setter
         public Builder connectionString(String connectionString) {
             this.connectionString = Objects.requireNonNull(connectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder instrumentationKey(String instrumentationKey) {
             this.instrumentationKey = Objects.requireNonNull(instrumentationKey);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder retentionInDays(Integer retentionInDays) {
             this.retentionInDays = Objects.requireNonNull(retentionInDays);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
             this.workspaceId = Objects.requireNonNull(workspaceId);
             return this;
-        }        public GetInsightsResult build() {
-            return new GetInsightsResult(appId, applicationType, connectionString, id, instrumentationKey, location, name, resourceGroupName, retentionInDays, tags, workspaceId);
+        }
+        public GetInsightsResult build() {
+            final var o = new GetInsightsResult();
+            o.appId = appId;
+            o.applicationType = applicationType;
+            o.connectionString = connectionString;
+            o.id = id;
+            o.instrumentationKey = instrumentationKey;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.retentionInDays = retentionInDays;
+            o.tags = tags;
+            o.workspaceId = workspaceId;
+            return o;
         }
     }
 }

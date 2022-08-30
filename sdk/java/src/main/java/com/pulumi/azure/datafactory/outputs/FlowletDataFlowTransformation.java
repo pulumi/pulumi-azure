@@ -18,42 +18,29 @@ public final class FlowletDataFlowTransformation {
      * @return A `dataset` block as defined below.
      * 
      */
-    private final @Nullable FlowletDataFlowTransformationDataset dataset;
+    private @Nullable FlowletDataFlowTransformationDataset dataset;
     /**
      * @return The description for the Data Flow transformation.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return A `flowlet` block as defined below.
      * 
      */
-    private final @Nullable FlowletDataFlowTransformationFlowlet flowlet;
+    private @Nullable FlowletDataFlowTransformationFlowlet flowlet;
     /**
      * @return A `linked_service` block as defined below.
      * 
      */
-    private final @Nullable FlowletDataFlowTransformationLinkedService linkedService;
+    private @Nullable FlowletDataFlowTransformationLinkedService linkedService;
     /**
      * @return Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private FlowletDataFlowTransformation(
-        @CustomType.Parameter("dataset") @Nullable FlowletDataFlowTransformationDataset dataset,
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("flowlet") @Nullable FlowletDataFlowTransformationFlowlet flowlet,
-        @CustomType.Parameter("linkedService") @Nullable FlowletDataFlowTransformationLinkedService linkedService,
-        @CustomType.Parameter("name") String name) {
-        this.dataset = dataset;
-        this.description = description;
-        this.flowlet = flowlet;
-        this.linkedService = linkedService;
-        this.name = name;
-    }
-
+    private FlowletDataFlowTransformation() {}
     /**
      * @return A `dataset` block as defined below.
      * 
@@ -97,18 +84,14 @@ public final class FlowletDataFlowTransformation {
     public static Builder builder(FlowletDataFlowTransformation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable FlowletDataFlowTransformationDataset dataset;
         private @Nullable String description;
         private @Nullable FlowletDataFlowTransformationFlowlet flowlet;
         private @Nullable FlowletDataFlowTransformationLinkedService linkedService;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowletDataFlowTransformation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataset = defaults.dataset;
@@ -118,27 +101,39 @@ public final class FlowletDataFlowTransformation {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder dataset(@Nullable FlowletDataFlowTransformationDataset dataset) {
             this.dataset = dataset;
             return this;
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder flowlet(@Nullable FlowletDataFlowTransformationFlowlet flowlet) {
             this.flowlet = flowlet;
             return this;
         }
+        @CustomType.Setter
         public Builder linkedService(@Nullable FlowletDataFlowTransformationLinkedService linkedService) {
             this.linkedService = linkedService;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public FlowletDataFlowTransformation build() {
-            return new FlowletDataFlowTransformation(dataset, description, flowlet, linkedService, name);
+        }
+        public FlowletDataFlowTransformation build() {
+            final var o = new FlowletDataFlowTransformation();
+            o.dataset = dataset;
+            o.description = description;
+            o.flowlet = flowlet;
+            o.linkedService = linkedService;
+            o.name = name;
+            return o;
         }
     }
 }

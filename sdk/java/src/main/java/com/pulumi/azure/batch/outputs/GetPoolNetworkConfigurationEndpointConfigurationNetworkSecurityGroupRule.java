@@ -14,28 +14,19 @@ public final class GetPoolNetworkConfigurationEndpointConfigurationNetworkSecuri
      * @return The action that should be taken for a specified IP address, subnet range or tag.
      * 
      */
-    private final String access;
+    private String access;
     /**
      * @return The priority for this rule.
      * 
      */
-    private final Integer priority;
+    private Integer priority;
     /**
      * @return The source address prefix or tag to match for the rule.
      * 
      */
-    private final String sourceAddressPrefix;
+    private String sourceAddressPrefix;
 
-    @CustomType.Constructor
-    private GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule(
-        @CustomType.Parameter("access") String access,
-        @CustomType.Parameter("priority") Integer priority,
-        @CustomType.Parameter("sourceAddressPrefix") String sourceAddressPrefix) {
-        this.access = access;
-        this.priority = priority;
-        this.sourceAddressPrefix = sourceAddressPrefix;
-    }
-
+    private GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule() {}
     /**
      * @return The action that should be taken for a specified IP address, subnet range or tag.
      * 
@@ -65,16 +56,12 @@ public final class GetPoolNetworkConfigurationEndpointConfigurationNetworkSecuri
     public static Builder builder(GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String access;
         private Integer priority;
         private String sourceAddressPrefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.access = defaults.access;
@@ -82,19 +69,27 @@ public final class GetPoolNetworkConfigurationEndpointConfigurationNetworkSecuri
     	      this.sourceAddressPrefix = defaults.sourceAddressPrefix;
         }
 
+        @CustomType.Setter
         public Builder access(String access) {
             this.access = Objects.requireNonNull(access);
             return this;
         }
+        @CustomType.Setter
         public Builder priority(Integer priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceAddressPrefix(String sourceAddressPrefix) {
             this.sourceAddressPrefix = Objects.requireNonNull(sourceAddressPrefix);
             return this;
-        }        public GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule build() {
-            return new GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule(access, priority, sourceAddressPrefix);
+        }
+        public GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule build() {
+            final var o = new GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule();
+            o.access = access;
+            o.priority = priority;
+            o.sourceAddressPrefix = sourceAddressPrefix;
+            return o;
         }
     }
 }

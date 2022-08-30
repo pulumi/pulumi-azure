@@ -15,55 +15,36 @@ public final class GetAvailabilitySetResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The supported Azure location where the Availability Set exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return Whether the availability set is managed or not.
      * 
      */
-    private final Boolean managed;
-    private final String name;
+    private Boolean managed;
+    private String name;
     /**
      * @return The number of fault domains that are used.
      * 
      */
-    private final String platformFaultDomainCount;
+    private String platformFaultDomainCount;
     /**
      * @return The number of update domains that are used.
      * 
      */
-    private final String platformUpdateDomainCount;
-    private final String resourceGroupName;
+    private String platformUpdateDomainCount;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetAvailabilitySetResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("managed") Boolean managed,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("platformFaultDomainCount") String platformFaultDomainCount,
-        @CustomType.Parameter("platformUpdateDomainCount") String platformUpdateDomainCount,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.id = id;
-        this.location = location;
-        this.managed = managed;
-        this.name = name;
-        this.platformFaultDomainCount = platformFaultDomainCount;
-        this.platformUpdateDomainCount = platformUpdateDomainCount;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-    }
-
+    private GetAvailabilitySetResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -120,7 +101,7 @@ public final class GetAvailabilitySetResult {
     public static Builder builder(GetAvailabilitySetResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String location;
@@ -130,11 +111,7 @@ public final class GetAvailabilitySetResult {
         private String platformUpdateDomainCount;
         private String resourceGroupName;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAvailabilitySetResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -147,39 +124,57 @@ public final class GetAvailabilitySetResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder managed(Boolean managed) {
             this.managed = Objects.requireNonNull(managed);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder platformFaultDomainCount(String platformFaultDomainCount) {
             this.platformFaultDomainCount = Objects.requireNonNull(platformFaultDomainCount);
             return this;
         }
+        @CustomType.Setter
         public Builder platformUpdateDomainCount(String platformUpdateDomainCount) {
             this.platformUpdateDomainCount = Objects.requireNonNull(platformUpdateDomainCount);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetAvailabilitySetResult build() {
-            return new GetAvailabilitySetResult(id, location, managed, name, platformFaultDomainCount, platformUpdateDomainCount, resourceGroupName, tags);
+        }
+        public GetAvailabilitySetResult build() {
+            final var o = new GetAvailabilitySetResult();
+            o.id = id;
+            o.location = location;
+            o.managed = managed;
+            o.name = name;
+            o.platformFaultDomainCount = platformFaultDomainCount;
+            o.platformUpdateDomainCount = platformUpdateDomainCount;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            return o;
         }
     }
 }

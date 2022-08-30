@@ -20,9 +20,9 @@ public final class GetVirtualNetworkGatewayResult {
      * @return Is this an Active-Active Gateway?
      * 
      */
-    private final Boolean activeActive;
-    private final List<GetVirtualNetworkGatewayBgpSetting> bgpSettings;
-    private final List<GetVirtualNetworkGatewayCustomRoute> customRoutes;
+    private Boolean activeActive;
+    private List<GetVirtualNetworkGatewayBgpSetting> bgpSettings;
+    private List<GetVirtualNetworkGatewayCustomRoute> customRoutes;
     /**
      * @return The ID of the local network gateway
      * through which outbound Internet traffic from the virtual network in which the
@@ -30,108 +30,71 @@ public final class GetVirtualNetworkGatewayResult {
      * [Azure documentation on forced tunneling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm).
      * 
      */
-    private final String defaultLocalNetworkGatewayId;
+    private String defaultLocalNetworkGatewayId;
     /**
      * @return Will BGP (Border Gateway Protocol) will be enabled
      * for this Virtual Network Gateway.
      * 
      */
-    private final Boolean enableBgp;
+    private Boolean enableBgp;
     /**
      * @return The Generation of the Virtual Network Gateway.
      * 
      */
-    private final String generation;
+    private String generation;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return One or two `ip_configuration` blocks documented below.
      * 
      */
-    private final List<GetVirtualNetworkGatewayIpConfiguration> ipConfigurations;
+    private List<GetVirtualNetworkGatewayIpConfiguration> ipConfigurations;
     /**
      * @return The location/region where the Virtual Network Gateway is located.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The user-defined name of the revoked certificate.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Whether a private IP will be used for this  gateway for connections.
      * 
      */
-    private final Boolean privateIpAddressEnabled;
-    private final String resourceGroupName;
+    private Boolean privateIpAddressEnabled;
+    private String resourceGroupName;
     /**
      * @return Configuration of the size and capacity of the Virtual Network Gateway.
      * 
      */
-    private final String sku;
+    private String sku;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The type of the Virtual Network Gateway.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return A `vpn_client_configuration` block which is documented below.
      * 
      */
-    private final List<GetVirtualNetworkGatewayVpnClientConfiguration> vpnClientConfigurations;
+    private List<GetVirtualNetworkGatewayVpnClientConfiguration> vpnClientConfigurations;
     /**
      * @return The routing type of the Virtual Network Gateway.
      * 
      */
-    private final String vpnType;
+    private String vpnType;
 
-    @CustomType.Constructor
-    private GetVirtualNetworkGatewayResult(
-        @CustomType.Parameter("activeActive") Boolean activeActive,
-        @CustomType.Parameter("bgpSettings") List<GetVirtualNetworkGatewayBgpSetting> bgpSettings,
-        @CustomType.Parameter("customRoutes") List<GetVirtualNetworkGatewayCustomRoute> customRoutes,
-        @CustomType.Parameter("defaultLocalNetworkGatewayId") String defaultLocalNetworkGatewayId,
-        @CustomType.Parameter("enableBgp") Boolean enableBgp,
-        @CustomType.Parameter("generation") String generation,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ipConfigurations") List<GetVirtualNetworkGatewayIpConfiguration> ipConfigurations,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("privateIpAddressEnabled") Boolean privateIpAddressEnabled,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("sku") String sku,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("vpnClientConfigurations") List<GetVirtualNetworkGatewayVpnClientConfiguration> vpnClientConfigurations,
-        @CustomType.Parameter("vpnType") String vpnType) {
-        this.activeActive = activeActive;
-        this.bgpSettings = bgpSettings;
-        this.customRoutes = customRoutes;
-        this.defaultLocalNetworkGatewayId = defaultLocalNetworkGatewayId;
-        this.enableBgp = enableBgp;
-        this.generation = generation;
-        this.id = id;
-        this.ipConfigurations = ipConfigurations;
-        this.location = location;
-        this.name = name;
-        this.privateIpAddressEnabled = privateIpAddressEnabled;
-        this.resourceGroupName = resourceGroupName;
-        this.sku = sku;
-        this.tags = tags;
-        this.type = type;
-        this.vpnClientConfigurations = vpnClientConfigurations;
-        this.vpnType = vpnType;
-    }
-
+    private GetVirtualNetworkGatewayResult() {}
     /**
      * @return Is this an Active-Active Gateway?
      * 
@@ -251,7 +214,7 @@ public final class GetVirtualNetworkGatewayResult {
     public static Builder builder(GetVirtualNetworkGatewayResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean activeActive;
         private List<GetVirtualNetworkGatewayBgpSetting> bgpSettings;
@@ -270,11 +233,7 @@ public final class GetVirtualNetworkGatewayResult {
         private String type;
         private List<GetVirtualNetworkGatewayVpnClientConfiguration> vpnClientConfigurations;
         private String vpnType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualNetworkGatewayResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.activeActive = defaults.activeActive;
@@ -296,10 +255,12 @@ public final class GetVirtualNetworkGatewayResult {
     	      this.vpnType = defaults.vpnType;
         }
 
+        @CustomType.Setter
         public Builder activeActive(Boolean activeActive) {
             this.activeActive = Objects.requireNonNull(activeActive);
             return this;
         }
+        @CustomType.Setter
         public Builder bgpSettings(List<GetVirtualNetworkGatewayBgpSetting> bgpSettings) {
             this.bgpSettings = Objects.requireNonNull(bgpSettings);
             return this;
@@ -307,6 +268,7 @@ public final class GetVirtualNetworkGatewayResult {
         public Builder bgpSettings(GetVirtualNetworkGatewayBgpSetting... bgpSettings) {
             return bgpSettings(List.of(bgpSettings));
         }
+        @CustomType.Setter
         public Builder customRoutes(List<GetVirtualNetworkGatewayCustomRoute> customRoutes) {
             this.customRoutes = Objects.requireNonNull(customRoutes);
             return this;
@@ -314,22 +276,27 @@ public final class GetVirtualNetworkGatewayResult {
         public Builder customRoutes(GetVirtualNetworkGatewayCustomRoute... customRoutes) {
             return customRoutes(List.of(customRoutes));
         }
+        @CustomType.Setter
         public Builder defaultLocalNetworkGatewayId(String defaultLocalNetworkGatewayId) {
             this.defaultLocalNetworkGatewayId = Objects.requireNonNull(defaultLocalNetworkGatewayId);
             return this;
         }
+        @CustomType.Setter
         public Builder enableBgp(Boolean enableBgp) {
             this.enableBgp = Objects.requireNonNull(enableBgp);
             return this;
         }
+        @CustomType.Setter
         public Builder generation(String generation) {
             this.generation = Objects.requireNonNull(generation);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ipConfigurations(List<GetVirtualNetworkGatewayIpConfiguration> ipConfigurations) {
             this.ipConfigurations = Objects.requireNonNull(ipConfigurations);
             return this;
@@ -337,34 +304,42 @@ public final class GetVirtualNetworkGatewayResult {
         public Builder ipConfigurations(GetVirtualNetworkGatewayIpConfiguration... ipConfigurations) {
             return ipConfigurations(List.of(ipConfigurations));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddressEnabled(Boolean privateIpAddressEnabled) {
             this.privateIpAddressEnabled = Objects.requireNonNull(privateIpAddressEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder sku(String sku) {
             this.sku = Objects.requireNonNull(sku);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder vpnClientConfigurations(List<GetVirtualNetworkGatewayVpnClientConfiguration> vpnClientConfigurations) {
             this.vpnClientConfigurations = Objects.requireNonNull(vpnClientConfigurations);
             return this;
@@ -372,11 +347,31 @@ public final class GetVirtualNetworkGatewayResult {
         public Builder vpnClientConfigurations(GetVirtualNetworkGatewayVpnClientConfiguration... vpnClientConfigurations) {
             return vpnClientConfigurations(List.of(vpnClientConfigurations));
         }
+        @CustomType.Setter
         public Builder vpnType(String vpnType) {
             this.vpnType = Objects.requireNonNull(vpnType);
             return this;
-        }        public GetVirtualNetworkGatewayResult build() {
-            return new GetVirtualNetworkGatewayResult(activeActive, bgpSettings, customRoutes, defaultLocalNetworkGatewayId, enableBgp, generation, id, ipConfigurations, location, name, privateIpAddressEnabled, resourceGroupName, sku, tags, type, vpnClientConfigurations, vpnType);
+        }
+        public GetVirtualNetworkGatewayResult build() {
+            final var o = new GetVirtualNetworkGatewayResult();
+            o.activeActive = activeActive;
+            o.bgpSettings = bgpSettings;
+            o.customRoutes = customRoutes;
+            o.defaultLocalNetworkGatewayId = defaultLocalNetworkGatewayId;
+            o.enableBgp = enableBgp;
+            o.generation = generation;
+            o.id = id;
+            o.ipConfigurations = ipConfigurations;
+            o.location = location;
+            o.name = name;
+            o.privateIpAddressEnabled = privateIpAddressEnabled;
+            o.resourceGroupName = resourceGroupName;
+            o.sku = sku;
+            o.tags = tags;
+            o.type = type;
+            o.vpnClientConfigurations = vpnClientConfigurations;
+            o.vpnType = vpnType;
+            return o;
         }
     }
 }

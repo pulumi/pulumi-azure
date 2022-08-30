@@ -13,21 +13,14 @@ public final class SparkClusterRolesWorkerNodeAutoscaleCapacity {
      * @return The maximum number of worker nodes to autoscale to based on the cluster&#39;s activity.
      * 
      */
-    private final Integer maxInstanceCount;
+    private Integer maxInstanceCount;
     /**
      * @return The minimum number of worker nodes to autoscale to based on the cluster&#39;s activity.
      * 
      */
-    private final Integer minInstanceCount;
+    private Integer minInstanceCount;
 
-    @CustomType.Constructor
-    private SparkClusterRolesWorkerNodeAutoscaleCapacity(
-        @CustomType.Parameter("maxInstanceCount") Integer maxInstanceCount,
-        @CustomType.Parameter("minInstanceCount") Integer minInstanceCount) {
-        this.maxInstanceCount = maxInstanceCount;
-        this.minInstanceCount = minInstanceCount;
-    }
-
+    private SparkClusterRolesWorkerNodeAutoscaleCapacity() {}
     /**
      * @return The maximum number of worker nodes to autoscale to based on the cluster&#39;s activity.
      * 
@@ -50,30 +43,32 @@ public final class SparkClusterRolesWorkerNodeAutoscaleCapacity {
     public static Builder builder(SparkClusterRolesWorkerNodeAutoscaleCapacity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer maxInstanceCount;
         private Integer minInstanceCount;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SparkClusterRolesWorkerNodeAutoscaleCapacity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxInstanceCount = defaults.maxInstanceCount;
     	      this.minInstanceCount = defaults.minInstanceCount;
         }
 
+        @CustomType.Setter
         public Builder maxInstanceCount(Integer maxInstanceCount) {
             this.maxInstanceCount = Objects.requireNonNull(maxInstanceCount);
             return this;
         }
+        @CustomType.Setter
         public Builder minInstanceCount(Integer minInstanceCount) {
             this.minInstanceCount = Objects.requireNonNull(minInstanceCount);
             return this;
-        }        public SparkClusterRolesWorkerNodeAutoscaleCapacity build() {
-            return new SparkClusterRolesWorkerNodeAutoscaleCapacity(maxInstanceCount, minInstanceCount);
+        }
+        public SparkClusterRolesWorkerNodeAutoscaleCapacity build() {
+            final var o = new SparkClusterRolesWorkerNodeAutoscaleCapacity();
+            o.maxInstanceCount = maxInstanceCount;
+            o.minInstanceCount = minInstanceCount;
+            return o;
         }
     }
 }

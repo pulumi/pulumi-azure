@@ -16,42 +16,29 @@ public final class FrontdoorBackendPoolLoadBalancing {
      * @return The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to `0`.
      * 
      */
-    private final @Nullable Integer additionalLatencyMilliseconds;
+    private @Nullable Integer additionalLatencyMilliseconds;
     /**
      * @return The ID of the FrontDoor.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Specifies the name of the Load Balancer.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The number of samples to consider for load balancing decisions. Defaults to `4`.
      * 
      */
-    private final @Nullable Integer sampleSize;
+    private @Nullable Integer sampleSize;
     /**
      * @return The number of samples within the sample period that must succeed. Defaults to `2`.
      * 
      */
-    private final @Nullable Integer successfulSamplesRequired;
+    private @Nullable Integer successfulSamplesRequired;
 
-    @CustomType.Constructor
-    private FrontdoorBackendPoolLoadBalancing(
-        @CustomType.Parameter("additionalLatencyMilliseconds") @Nullable Integer additionalLatencyMilliseconds,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("sampleSize") @Nullable Integer sampleSize,
-        @CustomType.Parameter("successfulSamplesRequired") @Nullable Integer successfulSamplesRequired) {
-        this.additionalLatencyMilliseconds = additionalLatencyMilliseconds;
-        this.id = id;
-        this.name = name;
-        this.sampleSize = sampleSize;
-        this.successfulSamplesRequired = successfulSamplesRequired;
-    }
-
+    private FrontdoorBackendPoolLoadBalancing() {}
     /**
      * @return The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to `0`.
      * 
@@ -95,18 +82,14 @@ public final class FrontdoorBackendPoolLoadBalancing {
     public static Builder builder(FrontdoorBackendPoolLoadBalancing defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer additionalLatencyMilliseconds;
         private @Nullable String id;
         private String name;
         private @Nullable Integer sampleSize;
         private @Nullable Integer successfulSamplesRequired;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrontdoorBackendPoolLoadBalancing defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.additionalLatencyMilliseconds = defaults.additionalLatencyMilliseconds;
@@ -116,27 +99,39 @@ public final class FrontdoorBackendPoolLoadBalancing {
     	      this.successfulSamplesRequired = defaults.successfulSamplesRequired;
         }
 
+        @CustomType.Setter
         public Builder additionalLatencyMilliseconds(@Nullable Integer additionalLatencyMilliseconds) {
             this.additionalLatencyMilliseconds = additionalLatencyMilliseconds;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder sampleSize(@Nullable Integer sampleSize) {
             this.sampleSize = sampleSize;
             return this;
         }
+        @CustomType.Setter
         public Builder successfulSamplesRequired(@Nullable Integer successfulSamplesRequired) {
             this.successfulSamplesRequired = successfulSamplesRequired;
             return this;
-        }        public FrontdoorBackendPoolLoadBalancing build() {
-            return new FrontdoorBackendPoolLoadBalancing(additionalLatencyMilliseconds, id, name, sampleSize, successfulSamplesRequired);
+        }
+        public FrontdoorBackendPoolLoadBalancing build() {
+            final var o = new FrontdoorBackendPoolLoadBalancing();
+            o.additionalLatencyMilliseconds = additionalLatencyMilliseconds;
+            o.id = id;
+            o.name = name;
+            o.sampleSize = sampleSize;
+            o.successfulSamplesRequired = successfulSamplesRequired;
+            return o;
         }
     }
 }

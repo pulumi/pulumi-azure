@@ -16,21 +16,14 @@ public final class FunctionJavaScriptUDFInput {
      * @return Is this input parameter a configuration parameter? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean configurationParameter;
+    private @Nullable Boolean configurationParameter;
     /**
      * @return The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private FunctionJavaScriptUDFInput(
-        @CustomType.Parameter("configurationParameter") @Nullable Boolean configurationParameter,
-        @CustomType.Parameter("type") String type) {
-        this.configurationParameter = configurationParameter;
-        this.type = type;
-    }
-
+    private FunctionJavaScriptUDFInput() {}
     /**
      * @return Is this input parameter a configuration parameter? Defaults to `false`.
      * 
@@ -53,30 +46,32 @@ public final class FunctionJavaScriptUDFInput {
     public static Builder builder(FunctionJavaScriptUDFInput defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean configurationParameter;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FunctionJavaScriptUDFInput defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.configurationParameter = defaults.configurationParameter;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder configurationParameter(@Nullable Boolean configurationParameter) {
             this.configurationParameter = configurationParameter;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public FunctionJavaScriptUDFInput build() {
-            return new FunctionJavaScriptUDFInput(configurationParameter, type);
+        }
+        public FunctionJavaScriptUDFInput build() {
+            final var o = new FunctionJavaScriptUDFInput();
+            o.configurationParameter = configurationParameter;
+            o.type = type;
+            return o;
         }
     }
 }

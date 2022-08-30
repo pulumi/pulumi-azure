@@ -17,49 +17,34 @@ public final class KubernetesClusterIngressApplicationGateway {
      * @return The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
      * 
      */
-    private final @Nullable String effectiveGatewayId;
+    private @Nullable String effectiveGatewayId;
     /**
      * @return The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
      * 
      */
-    private final @Nullable String gatewayId;
+    private @Nullable String gatewayId;
     /**
      * @return The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
      * 
      */
-    private final @Nullable String gatewayName;
+    private @Nullable String gatewayName;
     /**
      * @return An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
      * 
      */
-    private final @Nullable List<KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity> ingressApplicationGatewayIdentities;
+    private @Nullable List<KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity> ingressApplicationGatewayIdentities;
     /**
      * @return The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
      * 
      */
-    private final @Nullable String subnetCidr;
+    private @Nullable String subnetCidr;
     /**
      * @return The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
      * 
      */
-    private final @Nullable String subnetId;
+    private @Nullable String subnetId;
 
-    @CustomType.Constructor
-    private KubernetesClusterIngressApplicationGateway(
-        @CustomType.Parameter("effectiveGatewayId") @Nullable String effectiveGatewayId,
-        @CustomType.Parameter("gatewayId") @Nullable String gatewayId,
-        @CustomType.Parameter("gatewayName") @Nullable String gatewayName,
-        @CustomType.Parameter("ingressApplicationGatewayIdentities") @Nullable List<KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity> ingressApplicationGatewayIdentities,
-        @CustomType.Parameter("subnetCidr") @Nullable String subnetCidr,
-        @CustomType.Parameter("subnetId") @Nullable String subnetId) {
-        this.effectiveGatewayId = effectiveGatewayId;
-        this.gatewayId = gatewayId;
-        this.gatewayName = gatewayName;
-        this.ingressApplicationGatewayIdentities = ingressApplicationGatewayIdentities;
-        this.subnetCidr = subnetCidr;
-        this.subnetId = subnetId;
-    }
-
+    private KubernetesClusterIngressApplicationGateway() {}
     /**
      * @return The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
      * 
@@ -110,7 +95,7 @@ public final class KubernetesClusterIngressApplicationGateway {
     public static Builder builder(KubernetesClusterIngressApplicationGateway defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String effectiveGatewayId;
         private @Nullable String gatewayId;
@@ -118,11 +103,7 @@ public final class KubernetesClusterIngressApplicationGateway {
         private @Nullable List<KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity> ingressApplicationGatewayIdentities;
         private @Nullable String subnetCidr;
         private @Nullable String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KubernetesClusterIngressApplicationGateway defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.effectiveGatewayId = defaults.effectiveGatewayId;
@@ -133,18 +114,22 @@ public final class KubernetesClusterIngressApplicationGateway {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder effectiveGatewayId(@Nullable String effectiveGatewayId) {
             this.effectiveGatewayId = effectiveGatewayId;
             return this;
         }
+        @CustomType.Setter
         public Builder gatewayId(@Nullable String gatewayId) {
             this.gatewayId = gatewayId;
             return this;
         }
+        @CustomType.Setter
         public Builder gatewayName(@Nullable String gatewayName) {
             this.gatewayName = gatewayName;
             return this;
         }
+        @CustomType.Setter
         public Builder ingressApplicationGatewayIdentities(@Nullable List<KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity> ingressApplicationGatewayIdentities) {
             this.ingressApplicationGatewayIdentities = ingressApplicationGatewayIdentities;
             return this;
@@ -152,15 +137,25 @@ public final class KubernetesClusterIngressApplicationGateway {
         public Builder ingressApplicationGatewayIdentities(KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity... ingressApplicationGatewayIdentities) {
             return ingressApplicationGatewayIdentities(List.of(ingressApplicationGatewayIdentities));
         }
+        @CustomType.Setter
         public Builder subnetCidr(@Nullable String subnetCidr) {
             this.subnetCidr = subnetCidr;
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
             this.subnetId = subnetId;
             return this;
-        }        public KubernetesClusterIngressApplicationGateway build() {
-            return new KubernetesClusterIngressApplicationGateway(effectiveGatewayId, gatewayId, gatewayName, ingressApplicationGatewayIdentities, subnetCidr, subnetId);
+        }
+        public KubernetesClusterIngressApplicationGateway build() {
+            final var o = new KubernetesClusterIngressApplicationGateway();
+            o.effectiveGatewayId = effectiveGatewayId;
+            o.gatewayId = gatewayId;
+            o.gatewayName = gatewayName;
+            o.ingressApplicationGatewayIdentities = ingressApplicationGatewayIdentities;
+            o.subnetCidr = subnetCidr;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

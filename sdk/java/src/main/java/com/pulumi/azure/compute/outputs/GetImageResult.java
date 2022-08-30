@@ -20,65 +20,42 @@ public final class GetImageResult {
      * @return a collection of `data_disk` blocks as defined below.
      * 
      */
-    private final List<GetImageDataDisk> dataDisks;
+    private List<GetImageDataDisk> dataDisks;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return the Azure Location where this Image exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return the name of the Image.
      * 
      */
-    private final @Nullable String name;
-    private final @Nullable String nameRegex;
+    private @Nullable String name;
+    private @Nullable String nameRegex;
     /**
      * @return a `os_disk` block as defined below.
      * 
      */
-    private final List<GetImageOsDisk> osDisks;
-    private final String resourceGroupName;
-    private final @Nullable Boolean sortDescending;
+    private List<GetImageOsDisk> osDisks;
+    private String resourceGroupName;
+    private @Nullable Boolean sortDescending;
     /**
      * @return a mapping of tags to assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return is zone resiliency enabled?
      * 
      */
-    private final Boolean zoneResilient;
+    private Boolean zoneResilient;
 
-    @CustomType.Constructor
-    private GetImageResult(
-        @CustomType.Parameter("dataDisks") List<GetImageDataDisk> dataDisks,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("nameRegex") @Nullable String nameRegex,
-        @CustomType.Parameter("osDisks") List<GetImageOsDisk> osDisks,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("sortDescending") @Nullable Boolean sortDescending,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("zoneResilient") Boolean zoneResilient) {
-        this.dataDisks = dataDisks;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.nameRegex = nameRegex;
-        this.osDisks = osDisks;
-        this.resourceGroupName = resourceGroupName;
-        this.sortDescending = sortDescending;
-        this.tags = tags;
-        this.zoneResilient = zoneResilient;
-    }
-
+    private GetImageResult() {}
     /**
      * @return a collection of `data_disk` blocks as defined below.
      * 
@@ -145,7 +122,7 @@ public final class GetImageResult {
     public static Builder builder(GetImageResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetImageDataDisk> dataDisks;
         private String id;
@@ -157,11 +134,7 @@ public final class GetImageResult {
         private @Nullable Boolean sortDescending;
         private Map<String,String> tags;
         private Boolean zoneResilient;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetImageResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataDisks = defaults.dataDisks;
@@ -176,6 +149,7 @@ public final class GetImageResult {
     	      this.zoneResilient = defaults.zoneResilient;
         }
 
+        @CustomType.Setter
         public Builder dataDisks(List<GetImageDataDisk> dataDisks) {
             this.dataDisks = Objects.requireNonNull(dataDisks);
             return this;
@@ -183,22 +157,27 @@ public final class GetImageResult {
         public Builder dataDisks(GetImageDataDisk... dataDisks) {
             return dataDisks(List.of(dataDisks));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder nameRegex(@Nullable String nameRegex) {
             this.nameRegex = nameRegex;
             return this;
         }
+        @CustomType.Setter
         public Builder osDisks(List<GetImageOsDisk> osDisks) {
             this.osDisks = Objects.requireNonNull(osDisks);
             return this;
@@ -206,23 +185,39 @@ public final class GetImageResult {
         public Builder osDisks(GetImageOsDisk... osDisks) {
             return osDisks(List.of(osDisks));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder sortDescending(@Nullable Boolean sortDescending) {
             this.sortDescending = sortDescending;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder zoneResilient(Boolean zoneResilient) {
             this.zoneResilient = Objects.requireNonNull(zoneResilient);
             return this;
-        }        public GetImageResult build() {
-            return new GetImageResult(dataDisks, id, location, name, nameRegex, osDisks, resourceGroupName, sortDescending, tags, zoneResilient);
+        }
+        public GetImageResult build() {
+            final var o = new GetImageResult();
+            o.dataDisks = dataDisks;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.nameRegex = nameRegex;
+            o.osDisks = osDisks;
+            o.resourceGroupName = resourceGroupName;
+            o.sortDescending = sortDescending;
+            o.tags = tags;
+            o.zoneResilient = zoneResilient;
+            return o;
         }
     }
 }

@@ -17,49 +17,34 @@ public final class ApiOperationTemplateParameter {
      * @return The default value for this Template Parameter.
      * 
      */
-    private final @Nullable String defaultValue;
+    private @Nullable String defaultValue;
     /**
      * @return A description of this Template Parameter.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return The Name of this Template Parameter.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Is this Template Parameter Required?
      * 
      */
-    private final Boolean required;
+    private Boolean required;
     /**
      * @return The Type of this Template Parameter, such as a `string`.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return One or more acceptable values for this Template Parameter.
      * 
      */
-    private final @Nullable List<String> values;
+    private @Nullable List<String> values;
 
-    @CustomType.Constructor
-    private ApiOperationTemplateParameter(
-        @CustomType.Parameter("defaultValue") @Nullable String defaultValue,
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("required") Boolean required,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("values") @Nullable List<String> values) {
-        this.defaultValue = defaultValue;
-        this.description = description;
-        this.name = name;
-        this.required = required;
-        this.type = type;
-        this.values = values;
-    }
-
+    private ApiOperationTemplateParameter() {}
     /**
      * @return The default value for this Template Parameter.
      * 
@@ -110,7 +95,7 @@ public final class ApiOperationTemplateParameter {
     public static Builder builder(ApiOperationTemplateParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String defaultValue;
         private @Nullable String description;
@@ -118,11 +103,7 @@ public final class ApiOperationTemplateParameter {
         private Boolean required;
         private String type;
         private @Nullable List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApiOperationTemplateParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultValue = defaults.defaultValue;
@@ -133,34 +114,48 @@ public final class ApiOperationTemplateParameter {
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder defaultValue(@Nullable String defaultValue) {
             this.defaultValue = defaultValue;
             return this;
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder required(Boolean required) {
             this.required = Objects.requireNonNull(required);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder values(@Nullable List<String> values) {
             this.values = values;
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public ApiOperationTemplateParameter build() {
-            return new ApiOperationTemplateParameter(defaultValue, description, name, required, type, values);
+        }
+        public ApiOperationTemplateParameter build() {
+            final var o = new ApiOperationTemplateParameter();
+            o.defaultValue = defaultValue;
+            o.description = description;
+            o.name = name;
+            o.required = required;
+            o.type = type;
+            o.values = values;
+            return o;
         }
     }
 }

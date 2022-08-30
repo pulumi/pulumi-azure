@@ -16,28 +16,19 @@ public final class NamespaceCustomerManagedKey {
      * @return The ID of the User Assigned Identity that has access to the key.
      * 
      */
-    private final String identityId;
+    private String identityId;
     /**
      * @return Used to specify whether enable Infrastructure Encryption (Double Encryption).
      * 
      */
-    private final @Nullable Boolean infrastructureEncryptionEnabled;
+    private @Nullable Boolean infrastructureEncryptionEnabled;
     /**
      * @return The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
      * 
      */
-    private final String keyVaultKeyId;
+    private String keyVaultKeyId;
 
-    @CustomType.Constructor
-    private NamespaceCustomerManagedKey(
-        @CustomType.Parameter("identityId") String identityId,
-        @CustomType.Parameter("infrastructureEncryptionEnabled") @Nullable Boolean infrastructureEncryptionEnabled,
-        @CustomType.Parameter("keyVaultKeyId") String keyVaultKeyId) {
-        this.identityId = identityId;
-        this.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
-        this.keyVaultKeyId = keyVaultKeyId;
-    }
-
+    private NamespaceCustomerManagedKey() {}
     /**
      * @return The ID of the User Assigned Identity that has access to the key.
      * 
@@ -67,16 +58,12 @@ public final class NamespaceCustomerManagedKey {
     public static Builder builder(NamespaceCustomerManagedKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String identityId;
         private @Nullable Boolean infrastructureEncryptionEnabled;
         private String keyVaultKeyId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NamespaceCustomerManagedKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityId = defaults.identityId;
@@ -84,19 +71,27 @@ public final class NamespaceCustomerManagedKey {
     	      this.keyVaultKeyId = defaults.keyVaultKeyId;
         }
 
+        @CustomType.Setter
         public Builder identityId(String identityId) {
             this.identityId = Objects.requireNonNull(identityId);
             return this;
         }
+        @CustomType.Setter
         public Builder infrastructureEncryptionEnabled(@Nullable Boolean infrastructureEncryptionEnabled) {
             this.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultKeyId(String keyVaultKeyId) {
             this.keyVaultKeyId = Objects.requireNonNull(keyVaultKeyId);
             return this;
-        }        public NamespaceCustomerManagedKey build() {
-            return new NamespaceCustomerManagedKey(identityId, infrastructureEncryptionEnabled, keyVaultKeyId);
+        }
+        public NamespaceCustomerManagedKey build() {
+            final var o = new NamespaceCustomerManagedKey();
+            o.identityId = identityId;
+            o.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
+            o.keyVaultKeyId = keyVaultKeyId;
+            return o;
         }
     }
 }

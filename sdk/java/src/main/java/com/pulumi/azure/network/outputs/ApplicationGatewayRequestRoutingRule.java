@@ -16,119 +16,84 @@ public final class ApplicationGatewayRequestRoutingRule {
      * @return The ID of the associated Backend Address Pool.
      * 
      */
-    private final @Nullable String backendAddressPoolId;
+    private @Nullable String backendAddressPoolId;
     /**
      * @return The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
      * 
      */
-    private final @Nullable String backendAddressPoolName;
+    private @Nullable String backendAddressPoolName;
     /**
      * @return The ID of the associated Backend HTTP Settings Configuration.
      * 
      */
-    private final @Nullable String backendHttpSettingsId;
+    private @Nullable String backendHttpSettingsId;
     /**
      * @return The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if `redirect_configuration_name` is set.
      * 
      */
-    private final @Nullable String backendHttpSettingsName;
+    private @Nullable String backendHttpSettingsName;
     /**
      * @return The ID of the associated HTTP Listener.
      * 
      */
-    private final @Nullable String httpListenerId;
+    private @Nullable String httpListenerId;
     /**
      * @return The Name of the HTTP Listener which should be used for this Routing Rule.
      * 
      */
-    private final String httpListenerName;
+    private String httpListenerName;
     /**
      * @return The ID of the Rewrite Rule Set
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The Name of this Request Routing Rule.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Rule evaluation order can be dictated by specifying an integer value from `1` to `20000` with `1` being the highest priority and `20000` being the lowest priority.
      * 
      */
-    private final @Nullable Integer priority;
+    private @Nullable Integer priority;
     /**
      * @return The ID of the associated Redirect Configuration.
      * 
      */
-    private final @Nullable String redirectConfigurationId;
+    private @Nullable String redirectConfigurationId;
     /**
      * @return The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either `backend_address_pool_name` or `backend_http_settings_name` is set.
      * 
      */
-    private final @Nullable String redirectConfigurationName;
+    private @Nullable String redirectConfigurationName;
     /**
      * @return The ID of the associated Rewrite Rule Set.
      * 
      */
-    private final @Nullable String rewriteRuleSetId;
+    private @Nullable String rewriteRuleSetId;
     /**
      * @return The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
      * 
      */
-    private final @Nullable String rewriteRuleSetName;
+    private @Nullable String rewriteRuleSetName;
     /**
      * @return The Type of Routing that should be used for this Rule. Possible values are `Basic` and `PathBasedRouting`.
      * 
      */
-    private final String ruleType;
+    private String ruleType;
     /**
      * @return The ID of the associated URL Path Map.
      * 
      */
-    private final @Nullable String urlPathMapId;
+    private @Nullable String urlPathMapId;
     /**
      * @return The Name of the URL Path Map which should be associated with this Routing Rule.
      * 
      */
-    private final @Nullable String urlPathMapName;
+    private @Nullable String urlPathMapName;
 
-    @CustomType.Constructor
-    private ApplicationGatewayRequestRoutingRule(
-        @CustomType.Parameter("backendAddressPoolId") @Nullable String backendAddressPoolId,
-        @CustomType.Parameter("backendAddressPoolName") @Nullable String backendAddressPoolName,
-        @CustomType.Parameter("backendHttpSettingsId") @Nullable String backendHttpSettingsId,
-        @CustomType.Parameter("backendHttpSettingsName") @Nullable String backendHttpSettingsName,
-        @CustomType.Parameter("httpListenerId") @Nullable String httpListenerId,
-        @CustomType.Parameter("httpListenerName") String httpListenerName,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("priority") @Nullable Integer priority,
-        @CustomType.Parameter("redirectConfigurationId") @Nullable String redirectConfigurationId,
-        @CustomType.Parameter("redirectConfigurationName") @Nullable String redirectConfigurationName,
-        @CustomType.Parameter("rewriteRuleSetId") @Nullable String rewriteRuleSetId,
-        @CustomType.Parameter("rewriteRuleSetName") @Nullable String rewriteRuleSetName,
-        @CustomType.Parameter("ruleType") String ruleType,
-        @CustomType.Parameter("urlPathMapId") @Nullable String urlPathMapId,
-        @CustomType.Parameter("urlPathMapName") @Nullable String urlPathMapName) {
-        this.backendAddressPoolId = backendAddressPoolId;
-        this.backendAddressPoolName = backendAddressPoolName;
-        this.backendHttpSettingsId = backendHttpSettingsId;
-        this.backendHttpSettingsName = backendHttpSettingsName;
-        this.httpListenerId = httpListenerId;
-        this.httpListenerName = httpListenerName;
-        this.id = id;
-        this.name = name;
-        this.priority = priority;
-        this.redirectConfigurationId = redirectConfigurationId;
-        this.redirectConfigurationName = redirectConfigurationName;
-        this.rewriteRuleSetId = rewriteRuleSetId;
-        this.rewriteRuleSetName = rewriteRuleSetName;
-        this.ruleType = ruleType;
-        this.urlPathMapId = urlPathMapId;
-        this.urlPathMapName = urlPathMapName;
-    }
-
+    private ApplicationGatewayRequestRoutingRule() {}
     /**
      * @return The ID of the associated Backend Address Pool.
      * 
@@ -249,7 +214,7 @@ public final class ApplicationGatewayRequestRoutingRule {
     public static Builder builder(ApplicationGatewayRequestRoutingRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String backendAddressPoolId;
         private @Nullable String backendAddressPoolName;
@@ -267,11 +232,7 @@ public final class ApplicationGatewayRequestRoutingRule {
         private String ruleType;
         private @Nullable String urlPathMapId;
         private @Nullable String urlPathMapName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayRequestRoutingRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.backendAddressPoolId = defaults.backendAddressPoolId;
@@ -292,71 +253,105 @@ public final class ApplicationGatewayRequestRoutingRule {
     	      this.urlPathMapName = defaults.urlPathMapName;
         }
 
+        @CustomType.Setter
         public Builder backendAddressPoolId(@Nullable String backendAddressPoolId) {
             this.backendAddressPoolId = backendAddressPoolId;
             return this;
         }
+        @CustomType.Setter
         public Builder backendAddressPoolName(@Nullable String backendAddressPoolName) {
             this.backendAddressPoolName = backendAddressPoolName;
             return this;
         }
+        @CustomType.Setter
         public Builder backendHttpSettingsId(@Nullable String backendHttpSettingsId) {
             this.backendHttpSettingsId = backendHttpSettingsId;
             return this;
         }
+        @CustomType.Setter
         public Builder backendHttpSettingsName(@Nullable String backendHttpSettingsName) {
             this.backendHttpSettingsName = backendHttpSettingsName;
             return this;
         }
+        @CustomType.Setter
         public Builder httpListenerId(@Nullable String httpListenerId) {
             this.httpListenerId = httpListenerId;
             return this;
         }
+        @CustomType.Setter
         public Builder httpListenerName(String httpListenerName) {
             this.httpListenerName = Objects.requireNonNull(httpListenerName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
             this.priority = priority;
             return this;
         }
+        @CustomType.Setter
         public Builder redirectConfigurationId(@Nullable String redirectConfigurationId) {
             this.redirectConfigurationId = redirectConfigurationId;
             return this;
         }
+        @CustomType.Setter
         public Builder redirectConfigurationName(@Nullable String redirectConfigurationName) {
             this.redirectConfigurationName = redirectConfigurationName;
             return this;
         }
+        @CustomType.Setter
         public Builder rewriteRuleSetId(@Nullable String rewriteRuleSetId) {
             this.rewriteRuleSetId = rewriteRuleSetId;
             return this;
         }
+        @CustomType.Setter
         public Builder rewriteRuleSetName(@Nullable String rewriteRuleSetName) {
             this.rewriteRuleSetName = rewriteRuleSetName;
             return this;
         }
+        @CustomType.Setter
         public Builder ruleType(String ruleType) {
             this.ruleType = Objects.requireNonNull(ruleType);
             return this;
         }
+        @CustomType.Setter
         public Builder urlPathMapId(@Nullable String urlPathMapId) {
             this.urlPathMapId = urlPathMapId;
             return this;
         }
+        @CustomType.Setter
         public Builder urlPathMapName(@Nullable String urlPathMapName) {
             this.urlPathMapName = urlPathMapName;
             return this;
-        }        public ApplicationGatewayRequestRoutingRule build() {
-            return new ApplicationGatewayRequestRoutingRule(backendAddressPoolId, backendAddressPoolName, backendHttpSettingsId, backendHttpSettingsName, httpListenerId, httpListenerName, id, name, priority, redirectConfigurationId, redirectConfigurationName, rewriteRuleSetId, rewriteRuleSetName, ruleType, urlPathMapId, urlPathMapName);
+        }
+        public ApplicationGatewayRequestRoutingRule build() {
+            final var o = new ApplicationGatewayRequestRoutingRule();
+            o.backendAddressPoolId = backendAddressPoolId;
+            o.backendAddressPoolName = backendAddressPoolName;
+            o.backendHttpSettingsId = backendHttpSettingsId;
+            o.backendHttpSettingsName = backendHttpSettingsName;
+            o.httpListenerId = httpListenerId;
+            o.httpListenerName = httpListenerName;
+            o.id = id;
+            o.name = name;
+            o.priority = priority;
+            o.redirectConfigurationId = redirectConfigurationId;
+            o.redirectConfigurationName = redirectConfigurationName;
+            o.rewriteRuleSetId = rewriteRuleSetId;
+            o.rewriteRuleSetName = rewriteRuleSetName;
+            o.ruleType = ruleType;
+            o.urlPathMapId = urlPathMapId;
+            o.urlPathMapName = urlPathMapName;
+            return o;
         }
     }
 }

@@ -16,17 +16,10 @@ public final class DicomServiceAuthentication {
      * @return The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
      * 
      */
-    private final @Nullable List<String> audiences;
-    private final @Nullable String authority;
+    private @Nullable List<String> audiences;
+    private @Nullable String authority;
 
-    @CustomType.Constructor
-    private DicomServiceAuthentication(
-        @CustomType.Parameter("audiences") @Nullable List<String> audiences,
-        @CustomType.Parameter("authority") @Nullable String authority) {
-        this.audiences = audiences;
-        this.authority = authority;
-    }
-
+    private DicomServiceAuthentication() {}
     /**
      * @return The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
      * 
@@ -45,21 +38,18 @@ public final class DicomServiceAuthentication {
     public static Builder builder(DicomServiceAuthentication defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> audiences;
         private @Nullable String authority;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DicomServiceAuthentication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.audiences = defaults.audiences;
     	      this.authority = defaults.authority;
         }
 
+        @CustomType.Setter
         public Builder audiences(@Nullable List<String> audiences) {
             this.audiences = audiences;
             return this;
@@ -67,11 +57,16 @@ public final class DicomServiceAuthentication {
         public Builder audiences(String... audiences) {
             return audiences(List.of(audiences));
         }
+        @CustomType.Setter
         public Builder authority(@Nullable String authority) {
             this.authority = authority;
             return this;
-        }        public DicomServiceAuthentication build() {
-            return new DicomServiceAuthentication(audiences, authority);
+        }
+        public DicomServiceAuthentication build() {
+            final var o = new DicomServiceAuthentication();
+            o.audiences = audiences;
+            o.authority = authority;
+            return o;
         }
     }
 }

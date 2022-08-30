@@ -17,62 +17,41 @@ public final class WindowsVirtualMachineScaleSetDataDisk {
      * @return The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
      * 
      */
-    private final String caching;
+    private String caching;
     /**
      * @return The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (`FromImage` should only be used if the source image includes data disks).
      * 
      */
-    private final @Nullable String createOption;
+    private @Nullable String createOption;
     /**
      * @return The ID of the Disk Encryption Set which should be used to encrypt this Data Disk.
      * 
      */
-    private final @Nullable String diskEncryptionSetId;
+    private @Nullable String diskEncryptionSetId;
     /**
      * @return The size of the Data Disk which should be created.
      * 
      */
-    private final Integer diskSizeGb;
+    private Integer diskSizeGb;
     /**
      * @return The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
      * 
      */
-    private final Integer lun;
+    private Integer lun;
     /**
      * @return The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
      * 
      */
-    private final String storageAccountType;
-    private final @Nullable Integer ultraSsdDiskIopsReadWrite;
-    private final @Nullable Integer ultraSsdDiskMbpsReadWrite;
+    private String storageAccountType;
+    private @Nullable Integer ultraSsdDiskIopsReadWrite;
+    private @Nullable Integer ultraSsdDiskMbpsReadWrite;
     /**
      * @return Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean writeAcceleratorEnabled;
+    private @Nullable Boolean writeAcceleratorEnabled;
 
-    @CustomType.Constructor
-    private WindowsVirtualMachineScaleSetDataDisk(
-        @CustomType.Parameter("caching") String caching,
-        @CustomType.Parameter("createOption") @Nullable String createOption,
-        @CustomType.Parameter("diskEncryptionSetId") @Nullable String diskEncryptionSetId,
-        @CustomType.Parameter("diskSizeGb") Integer diskSizeGb,
-        @CustomType.Parameter("lun") Integer lun,
-        @CustomType.Parameter("storageAccountType") String storageAccountType,
-        @CustomType.Parameter("ultraSsdDiskIopsReadWrite") @Nullable Integer ultraSsdDiskIopsReadWrite,
-        @CustomType.Parameter("ultraSsdDiskMbpsReadWrite") @Nullable Integer ultraSsdDiskMbpsReadWrite,
-        @CustomType.Parameter("writeAcceleratorEnabled") @Nullable Boolean writeAcceleratorEnabled) {
-        this.caching = caching;
-        this.createOption = createOption;
-        this.diskEncryptionSetId = diskEncryptionSetId;
-        this.diskSizeGb = diskSizeGb;
-        this.lun = lun;
-        this.storageAccountType = storageAccountType;
-        this.ultraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
-        this.ultraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
-        this.writeAcceleratorEnabled = writeAcceleratorEnabled;
-    }
-
+    private WindowsVirtualMachineScaleSetDataDisk() {}
     /**
      * @return The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
      * 
@@ -136,7 +115,7 @@ public final class WindowsVirtualMachineScaleSetDataDisk {
     public static Builder builder(WindowsVirtualMachineScaleSetDataDisk defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String caching;
         private @Nullable String createOption;
@@ -147,11 +126,7 @@ public final class WindowsVirtualMachineScaleSetDataDisk {
         private @Nullable Integer ultraSsdDiskIopsReadWrite;
         private @Nullable Integer ultraSsdDiskMbpsReadWrite;
         private @Nullable Boolean writeAcceleratorEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsVirtualMachineScaleSetDataDisk defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.caching = defaults.caching;
@@ -165,43 +140,63 @@ public final class WindowsVirtualMachineScaleSetDataDisk {
     	      this.writeAcceleratorEnabled = defaults.writeAcceleratorEnabled;
         }
 
+        @CustomType.Setter
         public Builder caching(String caching) {
             this.caching = Objects.requireNonNull(caching);
             return this;
         }
+        @CustomType.Setter
         public Builder createOption(@Nullable String createOption) {
             this.createOption = createOption;
             return this;
         }
+        @CustomType.Setter
         public Builder diskEncryptionSetId(@Nullable String diskEncryptionSetId) {
             this.diskEncryptionSetId = diskEncryptionSetId;
             return this;
         }
+        @CustomType.Setter
         public Builder diskSizeGb(Integer diskSizeGb) {
             this.diskSizeGb = Objects.requireNonNull(diskSizeGb);
             return this;
         }
+        @CustomType.Setter
         public Builder lun(Integer lun) {
             this.lun = Objects.requireNonNull(lun);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountType(String storageAccountType) {
             this.storageAccountType = Objects.requireNonNull(storageAccountType);
             return this;
         }
+        @CustomType.Setter
         public Builder ultraSsdDiskIopsReadWrite(@Nullable Integer ultraSsdDiskIopsReadWrite) {
             this.ultraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
             return this;
         }
+        @CustomType.Setter
         public Builder ultraSsdDiskMbpsReadWrite(@Nullable Integer ultraSsdDiskMbpsReadWrite) {
             this.ultraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
             return this;
         }
+        @CustomType.Setter
         public Builder writeAcceleratorEnabled(@Nullable Boolean writeAcceleratorEnabled) {
             this.writeAcceleratorEnabled = writeAcceleratorEnabled;
             return this;
-        }        public WindowsVirtualMachineScaleSetDataDisk build() {
-            return new WindowsVirtualMachineScaleSetDataDisk(caching, createOption, diskEncryptionSetId, diskSizeGb, lun, storageAccountType, ultraSsdDiskIopsReadWrite, ultraSsdDiskMbpsReadWrite, writeAcceleratorEnabled);
+        }
+        public WindowsVirtualMachineScaleSetDataDisk build() {
+            final var o = new WindowsVirtualMachineScaleSetDataDisk();
+            o.caching = caching;
+            o.createOption = createOption;
+            o.diskEncryptionSetId = diskEncryptionSetId;
+            o.diskSizeGb = diskSizeGb;
+            o.lun = lun;
+            o.storageAccountType = storageAccountType;
+            o.ultraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
+            o.ultraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
+            o.writeAcceleratorEnabled = writeAcceleratorEnabled;
+            return o;
         }
     }
 }

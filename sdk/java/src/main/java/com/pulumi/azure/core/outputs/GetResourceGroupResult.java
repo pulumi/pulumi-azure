@@ -14,31 +14,20 @@ public final class GetResourceGroupResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region where the Resource Group exists.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return A mapping of tags assigned to the Resource Group.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetResourceGroupResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.tags = tags;
-    }
-
+    private GetResourceGroupResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -71,17 +60,13 @@ public final class GetResourceGroupResult {
     public static Builder builder(GetResourceGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String location;
         private String name;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResourceGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -90,23 +75,33 @@ public final class GetResourceGroupResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetResourceGroupResult build() {
-            return new GetResourceGroupResult(id, location, name, tags);
+        }
+        public GetResourceGroupResult build() {
+            final var o = new GetResourceGroupResult();
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.tags = tags;
+            return o;
         }
     }
 }

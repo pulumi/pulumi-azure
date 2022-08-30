@@ -16,28 +16,19 @@ public final class EventSubscriptionAzureFunctionEndpoint {
      * @return Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
      * 
      */
-    private final String functionId;
+    private String functionId;
     /**
      * @return Maximum number of events per batch.
      * 
      */
-    private final @Nullable Integer maxEventsPerBatch;
+    private @Nullable Integer maxEventsPerBatch;
     /**
      * @return Preferred batch size in Kilobytes.
      * 
      */
-    private final @Nullable Integer preferredBatchSizeInKilobytes;
+    private @Nullable Integer preferredBatchSizeInKilobytes;
 
-    @CustomType.Constructor
-    private EventSubscriptionAzureFunctionEndpoint(
-        @CustomType.Parameter("functionId") String functionId,
-        @CustomType.Parameter("maxEventsPerBatch") @Nullable Integer maxEventsPerBatch,
-        @CustomType.Parameter("preferredBatchSizeInKilobytes") @Nullable Integer preferredBatchSizeInKilobytes) {
-        this.functionId = functionId;
-        this.maxEventsPerBatch = maxEventsPerBatch;
-        this.preferredBatchSizeInKilobytes = preferredBatchSizeInKilobytes;
-    }
-
+    private EventSubscriptionAzureFunctionEndpoint() {}
     /**
      * @return Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
      * 
@@ -67,16 +58,12 @@ public final class EventSubscriptionAzureFunctionEndpoint {
     public static Builder builder(EventSubscriptionAzureFunctionEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String functionId;
         private @Nullable Integer maxEventsPerBatch;
         private @Nullable Integer preferredBatchSizeInKilobytes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventSubscriptionAzureFunctionEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.functionId = defaults.functionId;
@@ -84,19 +71,27 @@ public final class EventSubscriptionAzureFunctionEndpoint {
     	      this.preferredBatchSizeInKilobytes = defaults.preferredBatchSizeInKilobytes;
         }
 
+        @CustomType.Setter
         public Builder functionId(String functionId) {
             this.functionId = Objects.requireNonNull(functionId);
             return this;
         }
+        @CustomType.Setter
         public Builder maxEventsPerBatch(@Nullable Integer maxEventsPerBatch) {
             this.maxEventsPerBatch = maxEventsPerBatch;
             return this;
         }
+        @CustomType.Setter
         public Builder preferredBatchSizeInKilobytes(@Nullable Integer preferredBatchSizeInKilobytes) {
             this.preferredBatchSizeInKilobytes = preferredBatchSizeInKilobytes;
             return this;
-        }        public EventSubscriptionAzureFunctionEndpoint build() {
-            return new EventSubscriptionAzureFunctionEndpoint(functionId, maxEventsPerBatch, preferredBatchSizeInKilobytes);
+        }
+        public EventSubscriptionAzureFunctionEndpoint build() {
+            final var o = new EventSubscriptionAzureFunctionEndpoint();
+            o.functionId = functionId;
+            o.maxEventsPerBatch = maxEventsPerBatch;
+            o.preferredBatchSizeInKilobytes = preferredBatchSizeInKilobytes;
+            return o;
         }
     }
 }

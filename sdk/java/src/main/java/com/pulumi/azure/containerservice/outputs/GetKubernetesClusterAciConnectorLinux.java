@@ -13,13 +13,9 @@ public final class GetKubernetesClusterAciConnectorLinux {
      * @return The subnet name for the virtual nodes to run.
      * 
      */
-    private final String subnetName;
+    private String subnetName;
 
-    @CustomType.Constructor
-    private GetKubernetesClusterAciConnectorLinux(@CustomType.Parameter("subnetName") String subnetName) {
-        this.subnetName = subnetName;
-    }
-
+    private GetKubernetesClusterAciConnectorLinux() {}
     /**
      * @return The subnet name for the virtual nodes to run.
      * 
@@ -35,24 +31,24 @@ public final class GetKubernetesClusterAciConnectorLinux {
     public static Builder builder(GetKubernetesClusterAciConnectorLinux defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String subnetName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKubernetesClusterAciConnectorLinux defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.subnetName = defaults.subnetName;
         }
 
+        @CustomType.Setter
         public Builder subnetName(String subnetName) {
             this.subnetName = Objects.requireNonNull(subnetName);
             return this;
-        }        public GetKubernetesClusterAciConnectorLinux build() {
-            return new GetKubernetesClusterAciConnectorLinux(subnetName);
+        }
+        public GetKubernetesClusterAciConnectorLinux build() {
+            final var o = new GetKubernetesClusterAciConnectorLinux();
+            o.subnetName = subnetName;
+            return o;
         }
     }
 }

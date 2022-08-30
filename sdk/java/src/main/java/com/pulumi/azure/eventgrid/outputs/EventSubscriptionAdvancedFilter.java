@@ -33,140 +33,99 @@ public final class EventSubscriptionAdvancedFilter {
      * @return Compares a value of an event using a single boolean value.
      * 
      */
-    private final @Nullable List<EventSubscriptionAdvancedFilterBoolEqual> boolEquals;
+    private @Nullable List<EventSubscriptionAdvancedFilterBoolEqual> boolEquals;
     /**
      * @return Evaluates if a value of an event isn&#39;t NULL or undefined.
      * 
      */
-    private final @Nullable List<EventSubscriptionAdvancedFilterIsNotNull> isNotNulls;
+    private @Nullable List<EventSubscriptionAdvancedFilterIsNotNull> isNotNulls;
     /**
      * @return Evaluates if a value of an event is NULL or undefined.
      * 
      */
-    private final @Nullable List<EventSubscriptionAdvancedFilterIsNullOrUndefined> isNullOrUndefineds;
+    private @Nullable List<EventSubscriptionAdvancedFilterIsNullOrUndefined> isNullOrUndefineds;
     /**
      * @return Compares a value of an event using a single floating point number.
      * 
      */
-    private final @Nullable List<EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual> numberGreaterThanOrEquals;
+    private @Nullable List<EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual> numberGreaterThanOrEquals;
     /**
      * @return Compares a value of an event using a single floating point number.
      * 
      */
-    private final @Nullable List<EventSubscriptionAdvancedFilterNumberGreaterThan> numberGreaterThans;
+    private @Nullable List<EventSubscriptionAdvancedFilterNumberGreaterThan> numberGreaterThans;
     /**
      * @return Compares a value of an event using multiple floating point number ranges.
      * 
      */
-    private final @Nullable List<EventSubscriptionAdvancedFilterNumberInRange> numberInRanges;
+    private @Nullable List<EventSubscriptionAdvancedFilterNumberInRange> numberInRanges;
     /**
      * @return Compares a value of an event using multiple floating point numbers.
      * 
      */
-    private final @Nullable List<EventSubscriptionAdvancedFilterNumberIn> numberIns;
+    private @Nullable List<EventSubscriptionAdvancedFilterNumberIn> numberIns;
     /**
      * @return Compares a value of an event using a single floating point number.
      * 
      */
-    private final @Nullable List<EventSubscriptionAdvancedFilterNumberLessThanOrEqual> numberLessThanOrEquals;
+    private @Nullable List<EventSubscriptionAdvancedFilterNumberLessThanOrEqual> numberLessThanOrEquals;
     /**
      * @return Compares a value of an event using a single floating point number.
      * 
      */
-    private final @Nullable List<EventSubscriptionAdvancedFilterNumberLessThan> numberLessThans;
+    private @Nullable List<EventSubscriptionAdvancedFilterNumberLessThan> numberLessThans;
     /**
      * @return Compares a value of an event using multiple floating point number ranges.
      * 
      */
-    private final @Nullable List<EventSubscriptionAdvancedFilterNumberNotInRange> numberNotInRanges;
+    private @Nullable List<EventSubscriptionAdvancedFilterNumberNotInRange> numberNotInRanges;
     /**
      * @return Compares a value of an event using multiple floating point numbers.
      * 
      */
-    private final @Nullable List<EventSubscriptionAdvancedFilterNumberNotIn> numberNotIns;
+    private @Nullable List<EventSubscriptionAdvancedFilterNumberNotIn> numberNotIns;
     /**
      * @return Compares a value of an event using multiple string values.
      * 
      */
-    private final @Nullable List<EventSubscriptionAdvancedFilterStringBeginsWith> stringBeginsWiths;
+    private @Nullable List<EventSubscriptionAdvancedFilterStringBeginsWith> stringBeginsWiths;
     /**
      * @return Compares a value of an event using multiple string values.
      * 
      */
-    private final @Nullable List<EventSubscriptionAdvancedFilterStringContain> stringContains;
+    private @Nullable List<EventSubscriptionAdvancedFilterStringContain> stringContains;
     /**
      * @return Compares a value of an event using multiple string values.
      * 
      */
-    private final @Nullable List<EventSubscriptionAdvancedFilterStringEndsWith> stringEndsWiths;
+    private @Nullable List<EventSubscriptionAdvancedFilterStringEndsWith> stringEndsWiths;
     /**
      * @return Compares a value of an event using multiple string values.
      * 
      */
-    private final @Nullable List<EventSubscriptionAdvancedFilterStringIn> stringIns;
+    private @Nullable List<EventSubscriptionAdvancedFilterStringIn> stringIns;
     /**
      * @return Compares a value of an event using multiple string values.
      * 
      */
-    private final @Nullable List<EventSubscriptionAdvancedFilterStringNotBeginsWith> stringNotBeginsWiths;
+    private @Nullable List<EventSubscriptionAdvancedFilterStringNotBeginsWith> stringNotBeginsWiths;
     /**
      * @return Compares a value of an event using multiple string values.
      * 
      */
-    private final @Nullable List<EventSubscriptionAdvancedFilterStringNotContain> stringNotContains;
+    private @Nullable List<EventSubscriptionAdvancedFilterStringNotContain> stringNotContains;
     /**
      * @return Compares a value of an event using multiple string values.
      * 
      */
-    private final @Nullable List<EventSubscriptionAdvancedFilterStringNotEndsWith> stringNotEndsWiths;
+    private @Nullable List<EventSubscriptionAdvancedFilterStringNotEndsWith> stringNotEndsWiths;
     /**
      * @return Compares a value of an event using multiple string values.
      * 
      */
-    private final @Nullable List<EventSubscriptionAdvancedFilterStringNotIn> stringNotIns;
+    private @Nullable List<EventSubscriptionAdvancedFilterStringNotIn> stringNotIns;
 
-    @CustomType.Constructor
-    private EventSubscriptionAdvancedFilter(
-        @CustomType.Parameter("boolEquals") @Nullable List<EventSubscriptionAdvancedFilterBoolEqual> boolEquals,
-        @CustomType.Parameter("isNotNulls") @Nullable List<EventSubscriptionAdvancedFilterIsNotNull> isNotNulls,
-        @CustomType.Parameter("isNullOrUndefineds") @Nullable List<EventSubscriptionAdvancedFilterIsNullOrUndefined> isNullOrUndefineds,
-        @CustomType.Parameter("numberGreaterThanOrEquals") @Nullable List<EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual> numberGreaterThanOrEquals,
-        @CustomType.Parameter("numberGreaterThans") @Nullable List<EventSubscriptionAdvancedFilterNumberGreaterThan> numberGreaterThans,
-        @CustomType.Parameter("numberInRanges") @Nullable List<EventSubscriptionAdvancedFilterNumberInRange> numberInRanges,
-        @CustomType.Parameter("numberIns") @Nullable List<EventSubscriptionAdvancedFilterNumberIn> numberIns,
-        @CustomType.Parameter("numberLessThanOrEquals") @Nullable List<EventSubscriptionAdvancedFilterNumberLessThanOrEqual> numberLessThanOrEquals,
-        @CustomType.Parameter("numberLessThans") @Nullable List<EventSubscriptionAdvancedFilterNumberLessThan> numberLessThans,
-        @CustomType.Parameter("numberNotInRanges") @Nullable List<EventSubscriptionAdvancedFilterNumberNotInRange> numberNotInRanges,
-        @CustomType.Parameter("numberNotIns") @Nullable List<EventSubscriptionAdvancedFilterNumberNotIn> numberNotIns,
-        @CustomType.Parameter("stringBeginsWiths") @Nullable List<EventSubscriptionAdvancedFilterStringBeginsWith> stringBeginsWiths,
-        @CustomType.Parameter("stringContains") @Nullable List<EventSubscriptionAdvancedFilterStringContain> stringContains,
-        @CustomType.Parameter("stringEndsWiths") @Nullable List<EventSubscriptionAdvancedFilterStringEndsWith> stringEndsWiths,
-        @CustomType.Parameter("stringIns") @Nullable List<EventSubscriptionAdvancedFilterStringIn> stringIns,
-        @CustomType.Parameter("stringNotBeginsWiths") @Nullable List<EventSubscriptionAdvancedFilterStringNotBeginsWith> stringNotBeginsWiths,
-        @CustomType.Parameter("stringNotContains") @Nullable List<EventSubscriptionAdvancedFilterStringNotContain> stringNotContains,
-        @CustomType.Parameter("stringNotEndsWiths") @Nullable List<EventSubscriptionAdvancedFilterStringNotEndsWith> stringNotEndsWiths,
-        @CustomType.Parameter("stringNotIns") @Nullable List<EventSubscriptionAdvancedFilterStringNotIn> stringNotIns) {
-        this.boolEquals = boolEquals;
-        this.isNotNulls = isNotNulls;
-        this.isNullOrUndefineds = isNullOrUndefineds;
-        this.numberGreaterThanOrEquals = numberGreaterThanOrEquals;
-        this.numberGreaterThans = numberGreaterThans;
-        this.numberInRanges = numberInRanges;
-        this.numberIns = numberIns;
-        this.numberLessThanOrEquals = numberLessThanOrEquals;
-        this.numberLessThans = numberLessThans;
-        this.numberNotInRanges = numberNotInRanges;
-        this.numberNotIns = numberNotIns;
-        this.stringBeginsWiths = stringBeginsWiths;
-        this.stringContains = stringContains;
-        this.stringEndsWiths = stringEndsWiths;
-        this.stringIns = stringIns;
-        this.stringNotBeginsWiths = stringNotBeginsWiths;
-        this.stringNotContains = stringNotContains;
-        this.stringNotEndsWiths = stringNotEndsWiths;
-        this.stringNotIns = stringNotIns;
-    }
-
+    private EventSubscriptionAdvancedFilter() {}
     /**
      * @return Compares a value of an event using a single boolean value.
      * 
@@ -308,7 +267,7 @@ public final class EventSubscriptionAdvancedFilter {
     public static Builder builder(EventSubscriptionAdvancedFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<EventSubscriptionAdvancedFilterBoolEqual> boolEquals;
         private @Nullable List<EventSubscriptionAdvancedFilterIsNotNull> isNotNulls;
@@ -329,11 +288,7 @@ public final class EventSubscriptionAdvancedFilter {
         private @Nullable List<EventSubscriptionAdvancedFilterStringNotContain> stringNotContains;
         private @Nullable List<EventSubscriptionAdvancedFilterStringNotEndsWith> stringNotEndsWiths;
         private @Nullable List<EventSubscriptionAdvancedFilterStringNotIn> stringNotIns;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventSubscriptionAdvancedFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.boolEquals = defaults.boolEquals;
@@ -357,6 +312,7 @@ public final class EventSubscriptionAdvancedFilter {
     	      this.stringNotIns = defaults.stringNotIns;
         }
 
+        @CustomType.Setter
         public Builder boolEquals(@Nullable List<EventSubscriptionAdvancedFilterBoolEqual> boolEquals) {
             this.boolEquals = boolEquals;
             return this;
@@ -364,6 +320,7 @@ public final class EventSubscriptionAdvancedFilter {
         public Builder boolEquals(EventSubscriptionAdvancedFilterBoolEqual... boolEquals) {
             return boolEquals(List.of(boolEquals));
         }
+        @CustomType.Setter
         public Builder isNotNulls(@Nullable List<EventSubscriptionAdvancedFilterIsNotNull> isNotNulls) {
             this.isNotNulls = isNotNulls;
             return this;
@@ -371,6 +328,7 @@ public final class EventSubscriptionAdvancedFilter {
         public Builder isNotNulls(EventSubscriptionAdvancedFilterIsNotNull... isNotNulls) {
             return isNotNulls(List.of(isNotNulls));
         }
+        @CustomType.Setter
         public Builder isNullOrUndefineds(@Nullable List<EventSubscriptionAdvancedFilterIsNullOrUndefined> isNullOrUndefineds) {
             this.isNullOrUndefineds = isNullOrUndefineds;
             return this;
@@ -378,6 +336,7 @@ public final class EventSubscriptionAdvancedFilter {
         public Builder isNullOrUndefineds(EventSubscriptionAdvancedFilterIsNullOrUndefined... isNullOrUndefineds) {
             return isNullOrUndefineds(List.of(isNullOrUndefineds));
         }
+        @CustomType.Setter
         public Builder numberGreaterThanOrEquals(@Nullable List<EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual> numberGreaterThanOrEquals) {
             this.numberGreaterThanOrEquals = numberGreaterThanOrEquals;
             return this;
@@ -385,6 +344,7 @@ public final class EventSubscriptionAdvancedFilter {
         public Builder numberGreaterThanOrEquals(EventSubscriptionAdvancedFilterNumberGreaterThanOrEqual... numberGreaterThanOrEquals) {
             return numberGreaterThanOrEquals(List.of(numberGreaterThanOrEquals));
         }
+        @CustomType.Setter
         public Builder numberGreaterThans(@Nullable List<EventSubscriptionAdvancedFilterNumberGreaterThan> numberGreaterThans) {
             this.numberGreaterThans = numberGreaterThans;
             return this;
@@ -392,6 +352,7 @@ public final class EventSubscriptionAdvancedFilter {
         public Builder numberGreaterThans(EventSubscriptionAdvancedFilterNumberGreaterThan... numberGreaterThans) {
             return numberGreaterThans(List.of(numberGreaterThans));
         }
+        @CustomType.Setter
         public Builder numberInRanges(@Nullable List<EventSubscriptionAdvancedFilterNumberInRange> numberInRanges) {
             this.numberInRanges = numberInRanges;
             return this;
@@ -399,6 +360,7 @@ public final class EventSubscriptionAdvancedFilter {
         public Builder numberInRanges(EventSubscriptionAdvancedFilterNumberInRange... numberInRanges) {
             return numberInRanges(List.of(numberInRanges));
         }
+        @CustomType.Setter
         public Builder numberIns(@Nullable List<EventSubscriptionAdvancedFilterNumberIn> numberIns) {
             this.numberIns = numberIns;
             return this;
@@ -406,6 +368,7 @@ public final class EventSubscriptionAdvancedFilter {
         public Builder numberIns(EventSubscriptionAdvancedFilterNumberIn... numberIns) {
             return numberIns(List.of(numberIns));
         }
+        @CustomType.Setter
         public Builder numberLessThanOrEquals(@Nullable List<EventSubscriptionAdvancedFilterNumberLessThanOrEqual> numberLessThanOrEquals) {
             this.numberLessThanOrEquals = numberLessThanOrEquals;
             return this;
@@ -413,6 +376,7 @@ public final class EventSubscriptionAdvancedFilter {
         public Builder numberLessThanOrEquals(EventSubscriptionAdvancedFilterNumberLessThanOrEqual... numberLessThanOrEquals) {
             return numberLessThanOrEquals(List.of(numberLessThanOrEquals));
         }
+        @CustomType.Setter
         public Builder numberLessThans(@Nullable List<EventSubscriptionAdvancedFilterNumberLessThan> numberLessThans) {
             this.numberLessThans = numberLessThans;
             return this;
@@ -420,6 +384,7 @@ public final class EventSubscriptionAdvancedFilter {
         public Builder numberLessThans(EventSubscriptionAdvancedFilterNumberLessThan... numberLessThans) {
             return numberLessThans(List.of(numberLessThans));
         }
+        @CustomType.Setter
         public Builder numberNotInRanges(@Nullable List<EventSubscriptionAdvancedFilterNumberNotInRange> numberNotInRanges) {
             this.numberNotInRanges = numberNotInRanges;
             return this;
@@ -427,6 +392,7 @@ public final class EventSubscriptionAdvancedFilter {
         public Builder numberNotInRanges(EventSubscriptionAdvancedFilterNumberNotInRange... numberNotInRanges) {
             return numberNotInRanges(List.of(numberNotInRanges));
         }
+        @CustomType.Setter
         public Builder numberNotIns(@Nullable List<EventSubscriptionAdvancedFilterNumberNotIn> numberNotIns) {
             this.numberNotIns = numberNotIns;
             return this;
@@ -434,6 +400,7 @@ public final class EventSubscriptionAdvancedFilter {
         public Builder numberNotIns(EventSubscriptionAdvancedFilterNumberNotIn... numberNotIns) {
             return numberNotIns(List.of(numberNotIns));
         }
+        @CustomType.Setter
         public Builder stringBeginsWiths(@Nullable List<EventSubscriptionAdvancedFilterStringBeginsWith> stringBeginsWiths) {
             this.stringBeginsWiths = stringBeginsWiths;
             return this;
@@ -441,6 +408,7 @@ public final class EventSubscriptionAdvancedFilter {
         public Builder stringBeginsWiths(EventSubscriptionAdvancedFilterStringBeginsWith... stringBeginsWiths) {
             return stringBeginsWiths(List.of(stringBeginsWiths));
         }
+        @CustomType.Setter
         public Builder stringContains(@Nullable List<EventSubscriptionAdvancedFilterStringContain> stringContains) {
             this.stringContains = stringContains;
             return this;
@@ -448,6 +416,7 @@ public final class EventSubscriptionAdvancedFilter {
         public Builder stringContains(EventSubscriptionAdvancedFilterStringContain... stringContains) {
             return stringContains(List.of(stringContains));
         }
+        @CustomType.Setter
         public Builder stringEndsWiths(@Nullable List<EventSubscriptionAdvancedFilterStringEndsWith> stringEndsWiths) {
             this.stringEndsWiths = stringEndsWiths;
             return this;
@@ -455,6 +424,7 @@ public final class EventSubscriptionAdvancedFilter {
         public Builder stringEndsWiths(EventSubscriptionAdvancedFilterStringEndsWith... stringEndsWiths) {
             return stringEndsWiths(List.of(stringEndsWiths));
         }
+        @CustomType.Setter
         public Builder stringIns(@Nullable List<EventSubscriptionAdvancedFilterStringIn> stringIns) {
             this.stringIns = stringIns;
             return this;
@@ -462,6 +432,7 @@ public final class EventSubscriptionAdvancedFilter {
         public Builder stringIns(EventSubscriptionAdvancedFilterStringIn... stringIns) {
             return stringIns(List.of(stringIns));
         }
+        @CustomType.Setter
         public Builder stringNotBeginsWiths(@Nullable List<EventSubscriptionAdvancedFilterStringNotBeginsWith> stringNotBeginsWiths) {
             this.stringNotBeginsWiths = stringNotBeginsWiths;
             return this;
@@ -469,6 +440,7 @@ public final class EventSubscriptionAdvancedFilter {
         public Builder stringNotBeginsWiths(EventSubscriptionAdvancedFilterStringNotBeginsWith... stringNotBeginsWiths) {
             return stringNotBeginsWiths(List.of(stringNotBeginsWiths));
         }
+        @CustomType.Setter
         public Builder stringNotContains(@Nullable List<EventSubscriptionAdvancedFilterStringNotContain> stringNotContains) {
             this.stringNotContains = stringNotContains;
             return this;
@@ -476,6 +448,7 @@ public final class EventSubscriptionAdvancedFilter {
         public Builder stringNotContains(EventSubscriptionAdvancedFilterStringNotContain... stringNotContains) {
             return stringNotContains(List.of(stringNotContains));
         }
+        @CustomType.Setter
         public Builder stringNotEndsWiths(@Nullable List<EventSubscriptionAdvancedFilterStringNotEndsWith> stringNotEndsWiths) {
             this.stringNotEndsWiths = stringNotEndsWiths;
             return this;
@@ -483,14 +456,36 @@ public final class EventSubscriptionAdvancedFilter {
         public Builder stringNotEndsWiths(EventSubscriptionAdvancedFilterStringNotEndsWith... stringNotEndsWiths) {
             return stringNotEndsWiths(List.of(stringNotEndsWiths));
         }
+        @CustomType.Setter
         public Builder stringNotIns(@Nullable List<EventSubscriptionAdvancedFilterStringNotIn> stringNotIns) {
             this.stringNotIns = stringNotIns;
             return this;
         }
         public Builder stringNotIns(EventSubscriptionAdvancedFilterStringNotIn... stringNotIns) {
             return stringNotIns(List.of(stringNotIns));
-        }        public EventSubscriptionAdvancedFilter build() {
-            return new EventSubscriptionAdvancedFilter(boolEquals, isNotNulls, isNullOrUndefineds, numberGreaterThanOrEquals, numberGreaterThans, numberInRanges, numberIns, numberLessThanOrEquals, numberLessThans, numberNotInRanges, numberNotIns, stringBeginsWiths, stringContains, stringEndsWiths, stringIns, stringNotBeginsWiths, stringNotContains, stringNotEndsWiths, stringNotIns);
+        }
+        public EventSubscriptionAdvancedFilter build() {
+            final var o = new EventSubscriptionAdvancedFilter();
+            o.boolEquals = boolEquals;
+            o.isNotNulls = isNotNulls;
+            o.isNullOrUndefineds = isNullOrUndefineds;
+            o.numberGreaterThanOrEquals = numberGreaterThanOrEquals;
+            o.numberGreaterThans = numberGreaterThans;
+            o.numberInRanges = numberInRanges;
+            o.numberIns = numberIns;
+            o.numberLessThanOrEquals = numberLessThanOrEquals;
+            o.numberLessThans = numberLessThans;
+            o.numberNotInRanges = numberNotInRanges;
+            o.numberNotIns = numberNotIns;
+            o.stringBeginsWiths = stringBeginsWiths;
+            o.stringContains = stringContains;
+            o.stringEndsWiths = stringEndsWiths;
+            o.stringIns = stringIns;
+            o.stringNotBeginsWiths = stringNotBeginsWiths;
+            o.stringNotContains = stringNotContains;
+            o.stringNotEndsWiths = stringNotEndsWiths;
+            o.stringNotIns = stringNotIns;
+            return o;
         }
     }
 }

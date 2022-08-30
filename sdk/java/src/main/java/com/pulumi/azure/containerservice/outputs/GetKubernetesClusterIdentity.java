@@ -14,35 +14,24 @@ public final class GetKubernetesClusterIdentity {
      * @return The list of User Assigned Managed Identity IDs assigned to this Kubernetes Cluster.
      * 
      */
-    private final List<String> identityIds;
+    private List<String> identityIds;
     /**
      * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
      * 
      */
-    private final String principalId;
+    private String principalId;
     /**
      * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
     /**
      * @return The type of Managed Service Identity that is configured on this Kubernetes Cluster.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetKubernetesClusterIdentity(
-        @CustomType.Parameter("identityIds") List<String> identityIds,
-        @CustomType.Parameter("principalId") String principalId,
-        @CustomType.Parameter("tenantId") String tenantId,
-        @CustomType.Parameter("type") String type) {
-        this.identityIds = identityIds;
-        this.principalId = principalId;
-        this.tenantId = tenantId;
-        this.type = type;
-    }
-
+    private GetKubernetesClusterIdentity() {}
     /**
      * @return The list of User Assigned Managed Identity IDs assigned to this Kubernetes Cluster.
      * 
@@ -79,17 +68,13 @@ public final class GetKubernetesClusterIdentity {
     public static Builder builder(GetKubernetesClusterIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> identityIds;
         private String principalId;
         private String tenantId;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKubernetesClusterIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
@@ -98,6 +83,7 @@ public final class GetKubernetesClusterIdentity {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder identityIds(List<String> identityIds) {
             this.identityIds = Objects.requireNonNull(identityIds);
             return this;
@@ -105,19 +91,28 @@ public final class GetKubernetesClusterIdentity {
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
+        @CustomType.Setter
         public Builder principalId(String principalId) {
             this.principalId = Objects.requireNonNull(principalId);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetKubernetesClusterIdentity build() {
-            return new GetKubernetesClusterIdentity(identityIds, principalId, tenantId, type);
+        }
+        public GetKubernetesClusterIdentity build() {
+            final var o = new GetKubernetesClusterIdentity();
+            o.identityIds = identityIds;
+            o.principalId = principalId;
+            o.tenantId = tenantId;
+            o.type = type;
+            return o;
         }
     }
 }

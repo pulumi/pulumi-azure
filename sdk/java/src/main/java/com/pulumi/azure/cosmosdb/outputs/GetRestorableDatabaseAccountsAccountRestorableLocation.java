@@ -13,35 +13,24 @@ public final class GetRestorableDatabaseAccountsAccountRestorableLocation {
      * @return The creation time of the regional Cosmos DB Restorable Database Account.
      * 
      */
-    private final String creationTime;
+    private String creationTime;
     /**
      * @return The deletion time of the regional Cosmos DB Restorable Database Account.
      * 
      */
-    private final String deletionTime;
+    private String deletionTime;
     /**
      * @return The location where the Cosmos DB Database Account.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The instance ID of the regional Cosmos DB Restorable Database Account.
      * 
      */
-    private final String regionalDatabaseAccountInstanceId;
+    private String regionalDatabaseAccountInstanceId;
 
-    @CustomType.Constructor
-    private GetRestorableDatabaseAccountsAccountRestorableLocation(
-        @CustomType.Parameter("creationTime") String creationTime,
-        @CustomType.Parameter("deletionTime") String deletionTime,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("regionalDatabaseAccountInstanceId") String regionalDatabaseAccountInstanceId) {
-        this.creationTime = creationTime;
-        this.deletionTime = deletionTime;
-        this.location = location;
-        this.regionalDatabaseAccountInstanceId = regionalDatabaseAccountInstanceId;
-    }
-
+    private GetRestorableDatabaseAccountsAccountRestorableLocation() {}
     /**
      * @return The creation time of the regional Cosmos DB Restorable Database Account.
      * 
@@ -78,17 +67,13 @@ public final class GetRestorableDatabaseAccountsAccountRestorableLocation {
     public static Builder builder(GetRestorableDatabaseAccountsAccountRestorableLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String creationTime;
         private String deletionTime;
         private String location;
         private String regionalDatabaseAccountInstanceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRestorableDatabaseAccountsAccountRestorableLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.creationTime = defaults.creationTime;
@@ -97,23 +82,33 @@ public final class GetRestorableDatabaseAccountsAccountRestorableLocation {
     	      this.regionalDatabaseAccountInstanceId = defaults.regionalDatabaseAccountInstanceId;
         }
 
+        @CustomType.Setter
         public Builder creationTime(String creationTime) {
             this.creationTime = Objects.requireNonNull(creationTime);
             return this;
         }
+        @CustomType.Setter
         public Builder deletionTime(String deletionTime) {
             this.deletionTime = Objects.requireNonNull(deletionTime);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder regionalDatabaseAccountInstanceId(String regionalDatabaseAccountInstanceId) {
             this.regionalDatabaseAccountInstanceId = Objects.requireNonNull(regionalDatabaseAccountInstanceId);
             return this;
-        }        public GetRestorableDatabaseAccountsAccountRestorableLocation build() {
-            return new GetRestorableDatabaseAccountsAccountRestorableLocation(creationTime, deletionTime, location, regionalDatabaseAccountInstanceId);
+        }
+        public GetRestorableDatabaseAccountsAccountRestorableLocation build() {
+            final var o = new GetRestorableDatabaseAccountsAccountRestorableLocation();
+            o.creationTime = creationTime;
+            o.deletionTime = deletionTime;
+            o.location = location;
+            o.regionalDatabaseAccountInstanceId = regionalDatabaseAccountInstanceId;
+            return o;
         }
     }
 }

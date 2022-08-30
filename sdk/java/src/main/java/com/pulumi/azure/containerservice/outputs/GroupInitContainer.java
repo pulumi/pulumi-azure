@@ -17,49 +17,34 @@ public final class GroupInitContainer {
      * @return A list of commands which should be run on the container. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable List<String> commands;
+    private @Nullable List<String> commands;
     /**
      * @return A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Map<String,String> environmentVariables;
+    private @Nullable Map<String,String> environmentVariables;
     /**
      * @return The container image name. Changing this forces a new resource to be created.
      * 
      */
-    private final String image;
+    private String image;
     /**
      * @return Specifies the name of the Container Group. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Map<String,String> secureEnvironmentVariables;
+    private @Nullable Map<String,String> secureEnvironmentVariables;
     /**
      * @return The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable List<GroupInitContainerVolume> volumes;
+    private @Nullable List<GroupInitContainerVolume> volumes;
 
-    @CustomType.Constructor
-    private GroupInitContainer(
-        @CustomType.Parameter("commands") @Nullable List<String> commands,
-        @CustomType.Parameter("environmentVariables") @Nullable Map<String,String> environmentVariables,
-        @CustomType.Parameter("image") String image,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("secureEnvironmentVariables") @Nullable Map<String,String> secureEnvironmentVariables,
-        @CustomType.Parameter("volumes") @Nullable List<GroupInitContainerVolume> volumes) {
-        this.commands = commands;
-        this.environmentVariables = environmentVariables;
-        this.image = image;
-        this.name = name;
-        this.secureEnvironmentVariables = secureEnvironmentVariables;
-        this.volumes = volumes;
-    }
-
+    private GroupInitContainer() {}
     /**
      * @return A list of commands which should be run on the container. Changing this forces a new resource to be created.
      * 
@@ -110,7 +95,7 @@ public final class GroupInitContainer {
     public static Builder builder(GroupInitContainer defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> commands;
         private @Nullable Map<String,String> environmentVariables;
@@ -118,11 +103,7 @@ public final class GroupInitContainer {
         private String name;
         private @Nullable Map<String,String> secureEnvironmentVariables;
         private @Nullable List<GroupInitContainerVolume> volumes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupInitContainer defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.commands = defaults.commands;
@@ -133,6 +114,7 @@ public final class GroupInitContainer {
     	      this.volumes = defaults.volumes;
         }
 
+        @CustomType.Setter
         public Builder commands(@Nullable List<String> commands) {
             this.commands = commands;
             return this;
@@ -140,30 +122,43 @@ public final class GroupInitContainer {
         public Builder commands(String... commands) {
             return commands(List.of(commands));
         }
+        @CustomType.Setter
         public Builder environmentVariables(@Nullable Map<String,String> environmentVariables) {
             this.environmentVariables = environmentVariables;
             return this;
         }
+        @CustomType.Setter
         public Builder image(String image) {
             this.image = Objects.requireNonNull(image);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder secureEnvironmentVariables(@Nullable Map<String,String> secureEnvironmentVariables) {
             this.secureEnvironmentVariables = secureEnvironmentVariables;
             return this;
         }
+        @CustomType.Setter
         public Builder volumes(@Nullable List<GroupInitContainerVolume> volumes) {
             this.volumes = volumes;
             return this;
         }
         public Builder volumes(GroupInitContainerVolume... volumes) {
             return volumes(List.of(volumes));
-        }        public GroupInitContainer build() {
-            return new GroupInitContainer(commands, environmentVariables, image, name, secureEnvironmentVariables, volumes);
+        }
+        public GroupInitContainer build() {
+            final var o = new GroupInitContainer();
+            o.commands = commands;
+            o.environmentVariables = environmentVariables;
+            o.image = image;
+            o.name = name;
+            o.secureEnvironmentVariables = secureEnvironmentVariables;
+            o.volumes = volumes;
+            return o;
         }
     }
 }

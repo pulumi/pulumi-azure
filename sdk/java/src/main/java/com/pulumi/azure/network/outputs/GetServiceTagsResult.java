@@ -16,44 +16,27 @@ public final class GetServiceTagsResult {
      * @return List of address prefixes for the service type (and optionally a specific region).
      * 
      */
-    private final List<String> addressPrefixes;
+    private List<String> addressPrefixes;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return List of IPv4 addresses for the service type (and optionally a specific region)
      * 
      */
-    private final List<String> ipv4Cidrs;
+    private List<String> ipv4Cidrs;
     /**
      * @return List of IPv6 addresses for the service type (and optionally a specific region)
      * 
      */
-    private final List<String> ipv6Cidrs;
-    private final String location;
-    private final @Nullable String locationFilter;
-    private final String service;
+    private List<String> ipv6Cidrs;
+    private String location;
+    private @Nullable String locationFilter;
+    private String service;
 
-    @CustomType.Constructor
-    private GetServiceTagsResult(
-        @CustomType.Parameter("addressPrefixes") List<String> addressPrefixes,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ipv4Cidrs") List<String> ipv4Cidrs,
-        @CustomType.Parameter("ipv6Cidrs") List<String> ipv6Cidrs,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("locationFilter") @Nullable String locationFilter,
-        @CustomType.Parameter("service") String service) {
-        this.addressPrefixes = addressPrefixes;
-        this.id = id;
-        this.ipv4Cidrs = ipv4Cidrs;
-        this.ipv6Cidrs = ipv6Cidrs;
-        this.location = location;
-        this.locationFilter = locationFilter;
-        this.service = service;
-    }
-
+    private GetServiceTagsResult() {}
     /**
      * @return List of address prefixes for the service type (and optionally a specific region).
      * 
@@ -99,7 +82,7 @@ public final class GetServiceTagsResult {
     public static Builder builder(GetServiceTagsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> addressPrefixes;
         private String id;
@@ -108,11 +91,7 @@ public final class GetServiceTagsResult {
         private String location;
         private @Nullable String locationFilter;
         private String service;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceTagsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addressPrefixes = defaults.addressPrefixes;
@@ -124,6 +103,7 @@ public final class GetServiceTagsResult {
     	      this.service = defaults.service;
         }
 
+        @CustomType.Setter
         public Builder addressPrefixes(List<String> addressPrefixes) {
             this.addressPrefixes = Objects.requireNonNull(addressPrefixes);
             return this;
@@ -131,10 +111,12 @@ public final class GetServiceTagsResult {
         public Builder addressPrefixes(String... addressPrefixes) {
             return addressPrefixes(List.of(addressPrefixes));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ipv4Cidrs(List<String> ipv4Cidrs) {
             this.ipv4Cidrs = Objects.requireNonNull(ipv4Cidrs);
             return this;
@@ -142,6 +124,7 @@ public final class GetServiceTagsResult {
         public Builder ipv4Cidrs(String... ipv4Cidrs) {
             return ipv4Cidrs(List.of(ipv4Cidrs));
         }
+        @CustomType.Setter
         public Builder ipv6Cidrs(List<String> ipv6Cidrs) {
             this.ipv6Cidrs = Objects.requireNonNull(ipv6Cidrs);
             return this;
@@ -149,19 +132,31 @@ public final class GetServiceTagsResult {
         public Builder ipv6Cidrs(String... ipv6Cidrs) {
             return ipv6Cidrs(List.of(ipv6Cidrs));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder locationFilter(@Nullable String locationFilter) {
             this.locationFilter = locationFilter;
             return this;
         }
+        @CustomType.Setter
         public Builder service(String service) {
             this.service = Objects.requireNonNull(service);
             return this;
-        }        public GetServiceTagsResult build() {
-            return new GetServiceTagsResult(addressPrefixes, id, ipv4Cidrs, ipv6Cidrs, location, locationFilter, service);
+        }
+        public GetServiceTagsResult build() {
+            final var o = new GetServiceTagsResult();
+            o.addressPrefixes = addressPrefixes;
+            o.id = id;
+            o.ipv4Cidrs = ipv4Cidrs;
+            o.ipv6Cidrs = ipv6Cidrs;
+            o.location = location;
+            o.locationFilter = locationFilter;
+            o.service = service;
+            return o;
         }
     }
 }

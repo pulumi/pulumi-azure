@@ -14,21 +14,14 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests {
      * @return The number of requests in the specified `interval` to trigger this rule.
      * 
      */
-    private final Integer count;
+    private Integer count;
     /**
      * @return The interval in `hh:mm:ss`.
      * 
      */
-    private final String interval;
+    private String interval;
 
-    @CustomType.Constructor
-    private LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests(
-        @CustomType.Parameter("count") Integer count,
-        @CustomType.Parameter("interval") String interval) {
-        this.count = count;
-        this.interval = interval;
-    }
-
+    private LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests() {}
     /**
      * @return The number of requests in the specified `interval` to trigger this rule.
      * 
@@ -51,30 +44,32 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests {
     public static Builder builder(LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer count;
         private String interval;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
     	      this.interval = defaults.interval;
         }
 
+        @CustomType.Setter
         public Builder count(Integer count) {
             this.count = Objects.requireNonNull(count);
             return this;
         }
+        @CustomType.Setter
         public Builder interval(String interval) {
             this.interval = Objects.requireNonNull(interval);
             return this;
-        }        public LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests build() {
-            return new LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests(count, interval);
+        }
+        public LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests build() {
+            final var o = new LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests();
+            o.count = count;
+            o.interval = interval;
+            return o;
         }
     }
 }

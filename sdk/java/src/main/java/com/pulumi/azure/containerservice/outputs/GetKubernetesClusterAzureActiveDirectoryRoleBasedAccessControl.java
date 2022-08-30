@@ -15,49 +15,34 @@ public final class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessContro
      * @return A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
      * 
      */
-    private final List<String> adminGroupObjectIds;
+    private List<String> adminGroupObjectIds;
     /**
      * @return Is Role Based Access Control based on Azure AD enabled?
      * 
      */
-    private final Boolean azureRbacEnabled;
+    private Boolean azureRbacEnabled;
     /**
      * @return The Client ID of an Azure Active Directory Application.
      * 
      */
-    private final String clientAppId;
+    private String clientAppId;
     /**
      * @return Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
      * 
      */
-    private final Boolean managed;
+    private Boolean managed;
     /**
      * @return The Server ID of an Azure Active Directory Application.
      * 
      */
-    private final String serverAppId;
+    private String serverAppId;
     /**
      * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this Kubernetes Cluster.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
 
-    @CustomType.Constructor
-    private GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl(
-        @CustomType.Parameter("adminGroupObjectIds") List<String> adminGroupObjectIds,
-        @CustomType.Parameter("azureRbacEnabled") Boolean azureRbacEnabled,
-        @CustomType.Parameter("clientAppId") String clientAppId,
-        @CustomType.Parameter("managed") Boolean managed,
-        @CustomType.Parameter("serverAppId") String serverAppId,
-        @CustomType.Parameter("tenantId") String tenantId) {
-        this.adminGroupObjectIds = adminGroupObjectIds;
-        this.azureRbacEnabled = azureRbacEnabled;
-        this.clientAppId = clientAppId;
-        this.managed = managed;
-        this.serverAppId = serverAppId;
-        this.tenantId = tenantId;
-    }
-
+    private GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl() {}
     /**
      * @return A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
      * 
@@ -108,7 +93,7 @@ public final class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessContro
     public static Builder builder(GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> adminGroupObjectIds;
         private Boolean azureRbacEnabled;
@@ -116,11 +101,7 @@ public final class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessContro
         private Boolean managed;
         private String serverAppId;
         private String tenantId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.adminGroupObjectIds = defaults.adminGroupObjectIds;
@@ -131,6 +112,7 @@ public final class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessContro
     	      this.tenantId = defaults.tenantId;
         }
 
+        @CustomType.Setter
         public Builder adminGroupObjectIds(List<String> adminGroupObjectIds) {
             this.adminGroupObjectIds = Objects.requireNonNull(adminGroupObjectIds);
             return this;
@@ -138,27 +120,40 @@ public final class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessContro
         public Builder adminGroupObjectIds(String... adminGroupObjectIds) {
             return adminGroupObjectIds(List.of(adminGroupObjectIds));
         }
+        @CustomType.Setter
         public Builder azureRbacEnabled(Boolean azureRbacEnabled) {
             this.azureRbacEnabled = Objects.requireNonNull(azureRbacEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder clientAppId(String clientAppId) {
             this.clientAppId = Objects.requireNonNull(clientAppId);
             return this;
         }
+        @CustomType.Setter
         public Builder managed(Boolean managed) {
             this.managed = Objects.requireNonNull(managed);
             return this;
         }
+        @CustomType.Setter
         public Builder serverAppId(String serverAppId) {
             this.serverAppId = Objects.requireNonNull(serverAppId);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
-        }        public GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl build() {
-            return new GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl(adminGroupObjectIds, azureRbacEnabled, clientAppId, managed, serverAppId, tenantId);
+        }
+        public GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl build() {
+            final var o = new GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl();
+            o.adminGroupObjectIds = adminGroupObjectIds;
+            o.azureRbacEnabled = azureRbacEnabled;
+            o.clientAppId = clientAppId;
+            o.managed = managed;
+            o.serverAppId = serverAppId;
+            o.tenantId = tenantId;
+            return o;
         }
     }
 }

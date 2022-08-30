@@ -14,13 +14,9 @@ public final class SqlContainerIndexingPolicyCompositeIndex {
      * @return One or more `index` blocks as defined below.
      * 
      */
-    private final List<SqlContainerIndexingPolicyCompositeIndexIndex> indices;
+    private List<SqlContainerIndexingPolicyCompositeIndexIndex> indices;
 
-    @CustomType.Constructor
-    private SqlContainerIndexingPolicyCompositeIndex(@CustomType.Parameter("indices") List<SqlContainerIndexingPolicyCompositeIndexIndex> indices) {
-        this.indices = indices;
-    }
-
+    private SqlContainerIndexingPolicyCompositeIndex() {}
     /**
      * @return One or more `index` blocks as defined below.
      * 
@@ -36,27 +32,27 @@ public final class SqlContainerIndexingPolicyCompositeIndex {
     public static Builder builder(SqlContainerIndexingPolicyCompositeIndex defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<SqlContainerIndexingPolicyCompositeIndexIndex> indices;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SqlContainerIndexingPolicyCompositeIndex defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.indices = defaults.indices;
         }
 
+        @CustomType.Setter
         public Builder indices(List<SqlContainerIndexingPolicyCompositeIndexIndex> indices) {
             this.indices = Objects.requireNonNull(indices);
             return this;
         }
         public Builder indices(SqlContainerIndexingPolicyCompositeIndexIndex... indices) {
             return indices(List.of(indices));
-        }        public SqlContainerIndexingPolicyCompositeIndex build() {
-            return new SqlContainerIndexingPolicyCompositeIndex(indices);
+        }
+        public SqlContainerIndexingPolicyCompositeIndex build() {
+            final var o = new SqlContainerIndexingPolicyCompositeIndex();
+            o.indices = indices;
+            return o;
         }
     }
 }

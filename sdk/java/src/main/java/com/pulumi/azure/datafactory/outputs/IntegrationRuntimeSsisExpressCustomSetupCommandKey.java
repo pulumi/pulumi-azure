@@ -16,35 +16,24 @@ public final class IntegrationRuntimeSsisExpressCustomSetupCommandKey {
      * @return A `key_vault_secret_reference` block as defined below.
      * 
      */
-    private final @Nullable IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword keyVaultPassword;
+    private @Nullable IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword keyVaultPassword;
     /**
      * @return The password for the target device.
      * 
      */
-    private final @Nullable String password;
+    private @Nullable String password;
     /**
      * @return The target computer or domain name.
      * 
      */
-    private final String targetName;
+    private String targetName;
     /**
      * @return The username for the target device.
      * 
      */
-    private final String userName;
+    private String userName;
 
-    @CustomType.Constructor
-    private IntegrationRuntimeSsisExpressCustomSetupCommandKey(
-        @CustomType.Parameter("keyVaultPassword") @Nullable IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword keyVaultPassword,
-        @CustomType.Parameter("password") @Nullable String password,
-        @CustomType.Parameter("targetName") String targetName,
-        @CustomType.Parameter("userName") String userName) {
-        this.keyVaultPassword = keyVaultPassword;
-        this.password = password;
-        this.targetName = targetName;
-        this.userName = userName;
-    }
-
+    private IntegrationRuntimeSsisExpressCustomSetupCommandKey() {}
     /**
      * @return A `key_vault_secret_reference` block as defined below.
      * 
@@ -81,17 +70,13 @@ public final class IntegrationRuntimeSsisExpressCustomSetupCommandKey {
     public static Builder builder(IntegrationRuntimeSsisExpressCustomSetupCommandKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword keyVaultPassword;
         private @Nullable String password;
         private String targetName;
         private String userName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationRuntimeSsisExpressCustomSetupCommandKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyVaultPassword = defaults.keyVaultPassword;
@@ -100,23 +85,33 @@ public final class IntegrationRuntimeSsisExpressCustomSetupCommandKey {
     	      this.userName = defaults.userName;
         }
 
+        @CustomType.Setter
         public Builder keyVaultPassword(@Nullable IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword keyVaultPassword) {
             this.keyVaultPassword = keyVaultPassword;
             return this;
         }
+        @CustomType.Setter
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
         }
+        @CustomType.Setter
         public Builder targetName(String targetName) {
             this.targetName = Objects.requireNonNull(targetName);
             return this;
         }
+        @CustomType.Setter
         public Builder userName(String userName) {
             this.userName = Objects.requireNonNull(userName);
             return this;
-        }        public IntegrationRuntimeSsisExpressCustomSetupCommandKey build() {
-            return new IntegrationRuntimeSsisExpressCustomSetupCommandKey(keyVaultPassword, password, targetName, userName);
+        }
+        public IntegrationRuntimeSsisExpressCustomSetupCommandKey build() {
+            final var o = new IntegrationRuntimeSsisExpressCustomSetupCommandKey();
+            o.keyVaultPassword = keyVaultPassword;
+            o.password = password;
+            o.targetName = targetName;
+            o.userName = userName;
+            return o;
         }
     }
 }

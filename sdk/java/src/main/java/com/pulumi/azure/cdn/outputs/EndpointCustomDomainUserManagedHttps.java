@@ -19,28 +19,19 @@ public final class EndpointCustomDomainUserManagedHttps {
      * 
      */
     @Deprecated /* This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate */
-    private final @Nullable String keyVaultCertificateId;
+    private @Nullable String keyVaultCertificateId;
     /**
      * @return The ID of the Key Vault Secret that contains the HTTPS certificate.
      * 
      */
-    private final @Nullable String keyVaultSecretId;
+    private @Nullable String keyVaultSecretId;
     /**
      * @return The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
      * 
      */
-    private final @Nullable String tlsVersion;
+    private @Nullable String tlsVersion;
 
-    @CustomType.Constructor
-    private EndpointCustomDomainUserManagedHttps(
-        @CustomType.Parameter("keyVaultCertificateId") @Nullable String keyVaultCertificateId,
-        @CustomType.Parameter("keyVaultSecretId") @Nullable String keyVaultSecretId,
-        @CustomType.Parameter("tlsVersion") @Nullable String tlsVersion) {
-        this.keyVaultCertificateId = keyVaultCertificateId;
-        this.keyVaultSecretId = keyVaultSecretId;
-        this.tlsVersion = tlsVersion;
-    }
-
+    private EndpointCustomDomainUserManagedHttps() {}
     /**
      * @return The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `key_vault_secret_id`.
      * 
@@ -74,16 +65,12 @@ public final class EndpointCustomDomainUserManagedHttps {
     public static Builder builder(EndpointCustomDomainUserManagedHttps defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String keyVaultCertificateId;
         private @Nullable String keyVaultSecretId;
         private @Nullable String tlsVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointCustomDomainUserManagedHttps defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyVaultCertificateId = defaults.keyVaultCertificateId;
@@ -91,19 +78,27 @@ public final class EndpointCustomDomainUserManagedHttps {
     	      this.tlsVersion = defaults.tlsVersion;
         }
 
+        @CustomType.Setter
         public Builder keyVaultCertificateId(@Nullable String keyVaultCertificateId) {
             this.keyVaultCertificateId = keyVaultCertificateId;
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultSecretId(@Nullable String keyVaultSecretId) {
             this.keyVaultSecretId = keyVaultSecretId;
             return this;
         }
+        @CustomType.Setter
         public Builder tlsVersion(@Nullable String tlsVersion) {
             this.tlsVersion = tlsVersion;
             return this;
-        }        public EndpointCustomDomainUserManagedHttps build() {
-            return new EndpointCustomDomainUserManagedHttps(keyVaultCertificateId, keyVaultSecretId, tlsVersion);
+        }
+        public EndpointCustomDomainUserManagedHttps build() {
+            final var o = new EndpointCustomDomainUserManagedHttps();
+            o.keyVaultCertificateId = keyVaultCertificateId;
+            o.keyVaultSecretId = keyVaultSecretId;
+            o.tlsVersion = tlsVersion;
+            return o;
         }
     }
 }

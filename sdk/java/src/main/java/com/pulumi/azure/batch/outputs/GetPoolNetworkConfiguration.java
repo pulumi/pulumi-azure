@@ -15,27 +15,16 @@ public final class GetPoolNetworkConfiguration {
      * @return The inbound NAT pools that are used to address specific ports on the individual compute node externally.
      * 
      */
-    private final List<GetPoolNetworkConfigurationEndpointConfiguration> endpointConfigurations;
-    private final String publicAddressProvisioningType;
-    private final List<String> publicIps;
+    private List<GetPoolNetworkConfigurationEndpointConfiguration> endpointConfigurations;
+    private String publicAddressProvisioningType;
+    private List<String> publicIps;
     /**
      * @return The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private GetPoolNetworkConfiguration(
-        @CustomType.Parameter("endpointConfigurations") List<GetPoolNetworkConfigurationEndpointConfiguration> endpointConfigurations,
-        @CustomType.Parameter("publicAddressProvisioningType") String publicAddressProvisioningType,
-        @CustomType.Parameter("publicIps") List<String> publicIps,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.endpointConfigurations = endpointConfigurations;
-        this.publicAddressProvisioningType = publicAddressProvisioningType;
-        this.publicIps = publicIps;
-        this.subnetId = subnetId;
-    }
-
+    private GetPoolNetworkConfiguration() {}
     /**
      * @return The inbound NAT pools that are used to address specific ports on the individual compute node externally.
      * 
@@ -64,17 +53,13 @@ public final class GetPoolNetworkConfiguration {
     public static Builder builder(GetPoolNetworkConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetPoolNetworkConfigurationEndpointConfiguration> endpointConfigurations;
         private String publicAddressProvisioningType;
         private List<String> publicIps;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPoolNetworkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpointConfigurations = defaults.endpointConfigurations;
@@ -83,6 +68,7 @@ public final class GetPoolNetworkConfiguration {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder endpointConfigurations(List<GetPoolNetworkConfigurationEndpointConfiguration> endpointConfigurations) {
             this.endpointConfigurations = Objects.requireNonNull(endpointConfigurations);
             return this;
@@ -90,10 +76,12 @@ public final class GetPoolNetworkConfiguration {
         public Builder endpointConfigurations(GetPoolNetworkConfigurationEndpointConfiguration... endpointConfigurations) {
             return endpointConfigurations(List.of(endpointConfigurations));
         }
+        @CustomType.Setter
         public Builder publicAddressProvisioningType(String publicAddressProvisioningType) {
             this.publicAddressProvisioningType = Objects.requireNonNull(publicAddressProvisioningType);
             return this;
         }
+        @CustomType.Setter
         public Builder publicIps(List<String> publicIps) {
             this.publicIps = Objects.requireNonNull(publicIps);
             return this;
@@ -101,11 +89,18 @@ public final class GetPoolNetworkConfiguration {
         public Builder publicIps(String... publicIps) {
             return publicIps(List.of(publicIps));
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public GetPoolNetworkConfiguration build() {
-            return new GetPoolNetworkConfiguration(endpointConfigurations, publicAddressProvisioningType, publicIps, subnetId);
+        }
+        public GetPoolNetworkConfiguration build() {
+            final var o = new GetPoolNetworkConfiguration();
+            o.endpointConfigurations = endpointConfigurations;
+            o.publicAddressProvisioningType = publicAddressProvisioningType;
+            o.publicIps = publicIps;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

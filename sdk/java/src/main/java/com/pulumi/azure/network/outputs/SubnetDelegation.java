@@ -14,21 +14,14 @@ public final class SubnetDelegation {
      * @return A name for this delegation.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A `service_delegation` block as defined below.
      * 
      */
-    private final SubnetDelegationServiceDelegation serviceDelegation;
+    private SubnetDelegationServiceDelegation serviceDelegation;
 
-    @CustomType.Constructor
-    private SubnetDelegation(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("serviceDelegation") SubnetDelegationServiceDelegation serviceDelegation) {
-        this.name = name;
-        this.serviceDelegation = serviceDelegation;
-    }
-
+    private SubnetDelegation() {}
     /**
      * @return A name for this delegation.
      * 
@@ -51,30 +44,32 @@ public final class SubnetDelegation {
     public static Builder builder(SubnetDelegation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private SubnetDelegationServiceDelegation serviceDelegation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SubnetDelegation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.serviceDelegation = defaults.serviceDelegation;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceDelegation(SubnetDelegationServiceDelegation serviceDelegation) {
             this.serviceDelegation = Objects.requireNonNull(serviceDelegation);
             return this;
-        }        public SubnetDelegation build() {
-            return new SubnetDelegation(name, serviceDelegation);
+        }
+        public SubnetDelegation build() {
+            final var o = new SubnetDelegation();
+            o.name = name;
+            o.serviceDelegation = serviceDelegation;
+            return o;
         }
     }
 }

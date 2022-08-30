@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class InteractiveQueryClusterComponentVersion {
-    private final String interactiveHive;
+    private String interactiveHive;
 
-    @CustomType.Constructor
-    private InteractiveQueryClusterComponentVersion(@CustomType.Parameter("interactiveHive") String interactiveHive) {
-        this.interactiveHive = interactiveHive;
-    }
-
+    private InteractiveQueryClusterComponentVersion() {}
     public String interactiveHive() {
         return this.interactiveHive;
     }
@@ -27,24 +23,24 @@ public final class InteractiveQueryClusterComponentVersion {
     public static Builder builder(InteractiveQueryClusterComponentVersion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String interactiveHive;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InteractiveQueryClusterComponentVersion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.interactiveHive = defaults.interactiveHive;
         }
 
+        @CustomType.Setter
         public Builder interactiveHive(String interactiveHive) {
             this.interactiveHive = Objects.requireNonNull(interactiveHive);
             return this;
-        }        public InteractiveQueryClusterComponentVersion build() {
-            return new InteractiveQueryClusterComponentVersion(interactiveHive);
+        }
+        public InteractiveQueryClusterComponentVersion build() {
+            final var o = new InteractiveQueryClusterComponentVersion();
+            o.interactiveHive = interactiveHive;
+            return o;
         }
     }
 }

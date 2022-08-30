@@ -22,124 +22,83 @@ public final class GetFunctionAppResult {
      * @return The ID of the App Service Plan within which to create this Function App.
      * 
      */
-    private final String appServicePlanId;
+    private String appServicePlanId;
     /**
      * @return A key-value pair of App Settings.
      * 
      */
-    private final Map<String,String> appSettings;
+    private Map<String,String> appSettings;
     /**
      * @return The mode of the Function App&#39;s client certificates requirement for incoming requests.
      * 
      */
-    private final String clientCertMode;
+    private String clientCertMode;
     /**
      * @return An `connection_string` block as defined below.
      * 
      */
-    private final List<GetFunctionAppConnectionString> connectionStrings;
+    private List<GetFunctionAppConnectionString> connectionStrings;
     /**
      * @return An identifier used by App Service to perform domain ownership verification via DNS TXT record.
      * 
      */
-    private final String customDomainVerificationId;
+    private String customDomainVerificationId;
     /**
      * @return The default hostname associated with the Function App.
      * 
      */
-    private final String defaultHostname;
+    private String defaultHostname;
     /**
      * @return Is the Function App enabled?
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A `identity` block as defined below.
      * 
      */
-    private final List<GetFunctionAppIdentity> identities;
-    private final String location;
+    private List<GetFunctionAppIdentity> identities;
+    private String location;
     /**
      * @return The name for this IP Restriction.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A string indicating the Operating System type for this function app.
      * 
      */
-    private final String osType;
+    private String osType;
     /**
      * @return A comma separated list of outbound IP addresses.
      * 
      */
-    private final String outboundIpAddresses;
+    private String outboundIpAddresses;
     /**
      * @return A comma separated list of outbound IP addresses, not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
      * 
      */
-    private final String possibleOutboundIpAddresses;
-    private final String resourceGroupName;
-    private final List<GetFunctionAppSiteConfig> siteConfigs;
+    private String possibleOutboundIpAddresses;
+    private String resourceGroupName;
+    private List<GetFunctionAppSiteConfig> siteConfigs;
     /**
      * @return A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
      * 
      */
-    private final List<GetFunctionAppSiteCredential> siteCredentials;
+    private List<GetFunctionAppSiteCredential> siteCredentials;
     /**
      * @return A `source_control` block as defined below.
      * 
      */
-    private final List<GetFunctionAppSourceControl> sourceControls;
-    private final @Nullable Map<String,String> tags;
+    private List<GetFunctionAppSourceControl> sourceControls;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetFunctionAppResult(
-        @CustomType.Parameter("appServicePlanId") String appServicePlanId,
-        @CustomType.Parameter("appSettings") Map<String,String> appSettings,
-        @CustomType.Parameter("clientCertMode") String clientCertMode,
-        @CustomType.Parameter("connectionStrings") List<GetFunctionAppConnectionString> connectionStrings,
-        @CustomType.Parameter("customDomainVerificationId") String customDomainVerificationId,
-        @CustomType.Parameter("defaultHostname") String defaultHostname,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetFunctionAppIdentity> identities,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("osType") String osType,
-        @CustomType.Parameter("outboundIpAddresses") String outboundIpAddresses,
-        @CustomType.Parameter("possibleOutboundIpAddresses") String possibleOutboundIpAddresses,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("siteConfigs") List<GetFunctionAppSiteConfig> siteConfigs,
-        @CustomType.Parameter("siteCredentials") List<GetFunctionAppSiteCredential> siteCredentials,
-        @CustomType.Parameter("sourceControls") List<GetFunctionAppSourceControl> sourceControls,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.appServicePlanId = appServicePlanId;
-        this.appSettings = appSettings;
-        this.clientCertMode = clientCertMode;
-        this.connectionStrings = connectionStrings;
-        this.customDomainVerificationId = customDomainVerificationId;
-        this.defaultHostname = defaultHostname;
-        this.enabled = enabled;
-        this.id = id;
-        this.identities = identities;
-        this.location = location;
-        this.name = name;
-        this.osType = osType;
-        this.outboundIpAddresses = outboundIpAddresses;
-        this.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
-        this.resourceGroupName = resourceGroupName;
-        this.siteConfigs = siteConfigs;
-        this.siteCredentials = siteCredentials;
-        this.sourceControls = sourceControls;
-        this.tags = tags;
-    }
-
+    private GetFunctionAppResult() {}
     /**
      * @return The ID of the App Service Plan within which to create this Function App.
      * 
@@ -265,7 +224,7 @@ public final class GetFunctionAppResult {
     public static Builder builder(GetFunctionAppResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String appServicePlanId;
         private Map<String,String> appSettings;
@@ -286,11 +245,7 @@ public final class GetFunctionAppResult {
         private List<GetFunctionAppSiteCredential> siteCredentials;
         private List<GetFunctionAppSourceControl> sourceControls;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFunctionAppResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appServicePlanId = defaults.appServicePlanId;
@@ -314,18 +269,22 @@ public final class GetFunctionAppResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder appServicePlanId(String appServicePlanId) {
             this.appServicePlanId = Objects.requireNonNull(appServicePlanId);
             return this;
         }
+        @CustomType.Setter
         public Builder appSettings(Map<String,String> appSettings) {
             this.appSettings = Objects.requireNonNull(appSettings);
             return this;
         }
+        @CustomType.Setter
         public Builder clientCertMode(String clientCertMode) {
             this.clientCertMode = Objects.requireNonNull(clientCertMode);
             return this;
         }
+        @CustomType.Setter
         public Builder connectionStrings(List<GetFunctionAppConnectionString> connectionStrings) {
             this.connectionStrings = Objects.requireNonNull(connectionStrings);
             return this;
@@ -333,22 +292,27 @@ public final class GetFunctionAppResult {
         public Builder connectionStrings(GetFunctionAppConnectionString... connectionStrings) {
             return connectionStrings(List.of(connectionStrings));
         }
+        @CustomType.Setter
         public Builder customDomainVerificationId(String customDomainVerificationId) {
             this.customDomainVerificationId = Objects.requireNonNull(customDomainVerificationId);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultHostname(String defaultHostname) {
             this.defaultHostname = Objects.requireNonNull(defaultHostname);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetFunctionAppIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -356,30 +320,37 @@ public final class GetFunctionAppResult {
         public Builder identities(GetFunctionAppIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder osType(String osType) {
             this.osType = Objects.requireNonNull(osType);
             return this;
         }
+        @CustomType.Setter
         public Builder outboundIpAddresses(String outboundIpAddresses) {
             this.outboundIpAddresses = Objects.requireNonNull(outboundIpAddresses);
             return this;
         }
+        @CustomType.Setter
         public Builder possibleOutboundIpAddresses(String possibleOutboundIpAddresses) {
             this.possibleOutboundIpAddresses = Objects.requireNonNull(possibleOutboundIpAddresses);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder siteConfigs(List<GetFunctionAppSiteConfig> siteConfigs) {
             this.siteConfigs = Objects.requireNonNull(siteConfigs);
             return this;
@@ -387,6 +358,7 @@ public final class GetFunctionAppResult {
         public Builder siteConfigs(GetFunctionAppSiteConfig... siteConfigs) {
             return siteConfigs(List.of(siteConfigs));
         }
+        @CustomType.Setter
         public Builder siteCredentials(List<GetFunctionAppSiteCredential> siteCredentials) {
             this.siteCredentials = Objects.requireNonNull(siteCredentials);
             return this;
@@ -394,6 +366,7 @@ public final class GetFunctionAppResult {
         public Builder siteCredentials(GetFunctionAppSiteCredential... siteCredentials) {
             return siteCredentials(List.of(siteCredentials));
         }
+        @CustomType.Setter
         public Builder sourceControls(List<GetFunctionAppSourceControl> sourceControls) {
             this.sourceControls = Objects.requireNonNull(sourceControls);
             return this;
@@ -401,11 +374,33 @@ public final class GetFunctionAppResult {
         public Builder sourceControls(GetFunctionAppSourceControl... sourceControls) {
             return sourceControls(List.of(sourceControls));
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public GetFunctionAppResult build() {
-            return new GetFunctionAppResult(appServicePlanId, appSettings, clientCertMode, connectionStrings, customDomainVerificationId, defaultHostname, enabled, id, identities, location, name, osType, outboundIpAddresses, possibleOutboundIpAddresses, resourceGroupName, siteConfigs, siteCredentials, sourceControls, tags);
+        }
+        public GetFunctionAppResult build() {
+            final var o = new GetFunctionAppResult();
+            o.appServicePlanId = appServicePlanId;
+            o.appSettings = appSettings;
+            o.clientCertMode = clientCertMode;
+            o.connectionStrings = connectionStrings;
+            o.customDomainVerificationId = customDomainVerificationId;
+            o.defaultHostname = defaultHostname;
+            o.enabled = enabled;
+            o.id = id;
+            o.identities = identities;
+            o.location = location;
+            o.name = name;
+            o.osType = osType;
+            o.outboundIpAddresses = outboundIpAddresses;
+            o.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
+            o.resourceGroupName = resourceGroupName;
+            o.siteConfigs = siteConfigs;
+            o.siteCredentials = siteCredentials;
+            o.sourceControls = sourceControls;
+            o.tags = tags;
+            return o;
         }
     }
 }

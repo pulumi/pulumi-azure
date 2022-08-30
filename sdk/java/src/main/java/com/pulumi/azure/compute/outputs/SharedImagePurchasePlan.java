@@ -15,28 +15,19 @@ public final class SharedImagePurchasePlan {
      * @return The Purchase Plan Name for this Shared Image. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Purchase Plan Product for this Gallery Image. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String product;
+    private @Nullable String product;
     /**
      * @return The Purchase Plan Publisher for this Gallery Image. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String publisher;
+    private @Nullable String publisher;
 
-    @CustomType.Constructor
-    private SharedImagePurchasePlan(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("product") @Nullable String product,
-        @CustomType.Parameter("publisher") @Nullable String publisher) {
-        this.name = name;
-        this.product = product;
-        this.publisher = publisher;
-    }
-
+    private SharedImagePurchasePlan() {}
     /**
      * @return The Purchase Plan Name for this Shared Image. Changing this forces a new resource to be created.
      * 
@@ -66,16 +57,12 @@ public final class SharedImagePurchasePlan {
     public static Builder builder(SharedImagePurchasePlan defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private @Nullable String product;
         private @Nullable String publisher;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SharedImagePurchasePlan defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -83,19 +70,27 @@ public final class SharedImagePurchasePlan {
     	      this.publisher = defaults.publisher;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder product(@Nullable String product) {
             this.product = product;
             return this;
         }
+        @CustomType.Setter
         public Builder publisher(@Nullable String publisher) {
             this.publisher = publisher;
             return this;
-        }        public SharedImagePurchasePlan build() {
-            return new SharedImagePurchasePlan(name, product, publisher);
+        }
+        public SharedImagePurchasePlan build() {
+            final var o = new SharedImagePurchasePlan();
+            o.name = name;
+            o.product = product;
+            o.publisher = publisher;
+            return o;
         }
     }
 }

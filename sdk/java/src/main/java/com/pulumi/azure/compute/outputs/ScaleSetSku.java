@@ -16,28 +16,19 @@ public final class ScaleSetSku {
      * @return Specifies the number of virtual machines in the scale set.
      * 
      */
-    private final Integer capacity;
+    private Integer capacity;
     /**
      * @return Specifies the size of virtual machines in a scale set.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Specifies the tier of virtual machines in a scale set. Possible values, `standard` or `basic`.
      * 
      */
-    private final @Nullable String tier;
+    private @Nullable String tier;
 
-    @CustomType.Constructor
-    private ScaleSetSku(
-        @CustomType.Parameter("capacity") Integer capacity,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("tier") @Nullable String tier) {
-        this.capacity = capacity;
-        this.name = name;
-        this.tier = tier;
-    }
-
+    private ScaleSetSku() {}
     /**
      * @return Specifies the number of virtual machines in the scale set.
      * 
@@ -67,16 +58,12 @@ public final class ScaleSetSku {
     public static Builder builder(ScaleSetSku defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer capacity;
         private String name;
         private @Nullable String tier;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScaleSetSku defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacity = defaults.capacity;
@@ -84,19 +71,27 @@ public final class ScaleSetSku {
     	      this.tier = defaults.tier;
         }
 
+        @CustomType.Setter
         public Builder capacity(Integer capacity) {
             this.capacity = Objects.requireNonNull(capacity);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder tier(@Nullable String tier) {
             this.tier = tier;
             return this;
-        }        public ScaleSetSku build() {
-            return new ScaleSetSku(capacity, name, tier);
+        }
+        public ScaleSetSku build() {
+            final var o = new ScaleSetSku();
+            o.capacity = capacity;
+            o.name = name;
+            o.tier = tier;
+            return o;
         }
     }
 }

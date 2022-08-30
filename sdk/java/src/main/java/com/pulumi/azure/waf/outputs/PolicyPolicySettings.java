@@ -17,42 +17,29 @@ public final class PolicyPolicySettings {
      * @return Describes if the policy is in enabled state or disabled state. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
      * 
      */
-    private final @Nullable Integer fileUploadLimitInMb;
+    private @Nullable Integer fileUploadLimitInMb;
     /**
      * @return The Maximum Request Body Size in KB.  Accepted values are in the range `8` to `2000`. Defaults to `128`.
      * 
      */
-    private final @Nullable Integer maxRequestBodySizeInKb;
+    private @Nullable Integer maxRequestBodySizeInKb;
     /**
      * @return Describes if it is in detection mode or prevention mode at the policy level. Valid values are `Detection` and `Prevention`. Defaults to `Prevention`.
      * 
      */
-    private final @Nullable String mode;
+    private @Nullable String mode;
     /**
      * @return Is Request Body Inspection enabled? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean requestBodyCheck;
+    private @Nullable Boolean requestBodyCheck;
 
-    @CustomType.Constructor
-    private PolicyPolicySettings(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("fileUploadLimitInMb") @Nullable Integer fileUploadLimitInMb,
-        @CustomType.Parameter("maxRequestBodySizeInKb") @Nullable Integer maxRequestBodySizeInKb,
-        @CustomType.Parameter("mode") @Nullable String mode,
-        @CustomType.Parameter("requestBodyCheck") @Nullable Boolean requestBodyCheck) {
-        this.enabled = enabled;
-        this.fileUploadLimitInMb = fileUploadLimitInMb;
-        this.maxRequestBodySizeInKb = maxRequestBodySizeInKb;
-        this.mode = mode;
-        this.requestBodyCheck = requestBodyCheck;
-    }
-
+    private PolicyPolicySettings() {}
     /**
      * @return Describes if the policy is in enabled state or disabled state. Defaults to `true`.
      * 
@@ -96,18 +83,14 @@ public final class PolicyPolicySettings {
     public static Builder builder(PolicyPolicySettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable Integer fileUploadLimitInMb;
         private @Nullable Integer maxRequestBodySizeInKb;
         private @Nullable String mode;
         private @Nullable Boolean requestBodyCheck;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyPolicySettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -117,27 +100,39 @@ public final class PolicyPolicySettings {
     	      this.requestBodyCheck = defaults.requestBodyCheck;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder fileUploadLimitInMb(@Nullable Integer fileUploadLimitInMb) {
             this.fileUploadLimitInMb = fileUploadLimitInMb;
             return this;
         }
+        @CustomType.Setter
         public Builder maxRequestBodySizeInKb(@Nullable Integer maxRequestBodySizeInKb) {
             this.maxRequestBodySizeInKb = maxRequestBodySizeInKb;
             return this;
         }
+        @CustomType.Setter
         public Builder mode(@Nullable String mode) {
             this.mode = mode;
             return this;
         }
+        @CustomType.Setter
         public Builder requestBodyCheck(@Nullable Boolean requestBodyCheck) {
             this.requestBodyCheck = requestBodyCheck;
             return this;
-        }        public PolicyPolicySettings build() {
-            return new PolicyPolicySettings(enabled, fileUploadLimitInMb, maxRequestBodySizeInKb, mode, requestBodyCheck);
+        }
+        public PolicyPolicySettings build() {
+            final var o = new PolicyPolicySettings();
+            o.enabled = enabled;
+            o.fileUploadLimitInMb = fileUploadLimitInMb;
+            o.maxRequestBodySizeInKb = maxRequestBodySizeInKb;
+            o.mode = mode;
+            o.requestBodyCheck = requestBodyCheck;
+            return o;
         }
     }
 }

@@ -15,35 +15,24 @@ public final class ConnectedRegistryNotification {
      * @return The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are `push`, `delete` and `*` (i.e. any).
      * 
      */
-    private final String action;
+    private String action;
     /**
      * @return The digest of the artifact that wants to be subscribed for the Connected Registry.
      * 
      */
-    private final @Nullable String digest;
+    private @Nullable String digest;
     /**
      * @return The name of the artifact that wants to be subscribed for the Connected Registry.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The tag of the artifact that wants to be subscribed for the Connected Registry.
      * 
      */
-    private final @Nullable String tag;
+    private @Nullable String tag;
 
-    @CustomType.Constructor
-    private ConnectedRegistryNotification(
-        @CustomType.Parameter("action") String action,
-        @CustomType.Parameter("digest") @Nullable String digest,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("tag") @Nullable String tag) {
-        this.action = action;
-        this.digest = digest;
-        this.name = name;
-        this.tag = tag;
-    }
-
+    private ConnectedRegistryNotification() {}
     /**
      * @return The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are `push`, `delete` and `*` (i.e. any).
      * 
@@ -80,17 +69,13 @@ public final class ConnectedRegistryNotification {
     public static Builder builder(ConnectedRegistryNotification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String action;
         private @Nullable String digest;
         private String name;
         private @Nullable String tag;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConnectedRegistryNotification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -99,23 +84,33 @@ public final class ConnectedRegistryNotification {
     	      this.tag = defaults.tag;
         }
 
+        @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder digest(@Nullable String digest) {
             this.digest = digest;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder tag(@Nullable String tag) {
             this.tag = tag;
             return this;
-        }        public ConnectedRegistryNotification build() {
-            return new ConnectedRegistryNotification(action, digest, name, tag);
+        }
+        public ConnectedRegistryNotification build() {
+            final var o = new ConnectedRegistryNotification();
+            o.action = action;
+            o.digest = digest;
+            o.name = name;
+            o.tag = tag;
+            return o;
         }
     }
 }

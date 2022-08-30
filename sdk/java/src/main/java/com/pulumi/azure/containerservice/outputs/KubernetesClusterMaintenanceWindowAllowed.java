@@ -15,21 +15,14 @@ public final class KubernetesClusterMaintenanceWindowAllowed {
      * @return A day in a week. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
      * 
      */
-    private final String day;
+    private String day;
     /**
      * @return An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
      * 
      */
-    private final List<Integer> hours;
+    private List<Integer> hours;
 
-    @CustomType.Constructor
-    private KubernetesClusterMaintenanceWindowAllowed(
-        @CustomType.Parameter("day") String day,
-        @CustomType.Parameter("hours") List<Integer> hours) {
-        this.day = day;
-        this.hours = hours;
-    }
-
+    private KubernetesClusterMaintenanceWindowAllowed() {}
     /**
      * @return A day in a week. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
      * 
@@ -52,33 +45,35 @@ public final class KubernetesClusterMaintenanceWindowAllowed {
     public static Builder builder(KubernetesClusterMaintenanceWindowAllowed defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String day;
         private List<Integer> hours;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KubernetesClusterMaintenanceWindowAllowed defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.day = defaults.day;
     	      this.hours = defaults.hours;
         }
 
+        @CustomType.Setter
         public Builder day(String day) {
             this.day = Objects.requireNonNull(day);
             return this;
         }
+        @CustomType.Setter
         public Builder hours(List<Integer> hours) {
             this.hours = Objects.requireNonNull(hours);
             return this;
         }
         public Builder hours(Integer... hours) {
             return hours(List.of(hours));
-        }        public KubernetesClusterMaintenanceWindowAllowed build() {
-            return new KubernetesClusterMaintenanceWindowAllowed(day, hours);
+        }
+        public KubernetesClusterMaintenanceWindowAllowed build() {
+            final var o = new KubernetesClusterMaintenanceWindowAllowed();
+            o.day = day;
+            o.hours = hours;
+            return o;
         }
     }
 }

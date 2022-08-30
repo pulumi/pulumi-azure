@@ -15,21 +15,14 @@ public final class GetCertificateCertificatePolicyLifetimeAction {
      * @return A `action` block as defined below.
      * 
      */
-    private final List<GetCertificateCertificatePolicyLifetimeActionAction> actions;
+    private List<GetCertificateCertificatePolicyLifetimeActionAction> actions;
     /**
      * @return A `trigger` block as defined below.
      * 
      */
-    private final List<GetCertificateCertificatePolicyLifetimeActionTrigger> triggers;
+    private List<GetCertificateCertificatePolicyLifetimeActionTrigger> triggers;
 
-    @CustomType.Constructor
-    private GetCertificateCertificatePolicyLifetimeAction(
-        @CustomType.Parameter("actions") List<GetCertificateCertificatePolicyLifetimeActionAction> actions,
-        @CustomType.Parameter("triggers") List<GetCertificateCertificatePolicyLifetimeActionTrigger> triggers) {
-        this.actions = actions;
-        this.triggers = triggers;
-    }
-
+    private GetCertificateCertificatePolicyLifetimeAction() {}
     /**
      * @return A `action` block as defined below.
      * 
@@ -52,21 +45,18 @@ public final class GetCertificateCertificatePolicyLifetimeAction {
     public static Builder builder(GetCertificateCertificatePolicyLifetimeAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetCertificateCertificatePolicyLifetimeActionAction> actions;
         private List<GetCertificateCertificatePolicyLifetimeActionTrigger> triggers;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCertificateCertificatePolicyLifetimeAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
     	      this.triggers = defaults.triggers;
         }
 
+        @CustomType.Setter
         public Builder actions(List<GetCertificateCertificatePolicyLifetimeActionAction> actions) {
             this.actions = Objects.requireNonNull(actions);
             return this;
@@ -74,14 +64,19 @@ public final class GetCertificateCertificatePolicyLifetimeAction {
         public Builder actions(GetCertificateCertificatePolicyLifetimeActionAction... actions) {
             return actions(List.of(actions));
         }
+        @CustomType.Setter
         public Builder triggers(List<GetCertificateCertificatePolicyLifetimeActionTrigger> triggers) {
             this.triggers = Objects.requireNonNull(triggers);
             return this;
         }
         public Builder triggers(GetCertificateCertificatePolicyLifetimeActionTrigger... triggers) {
             return triggers(List.of(triggers));
-        }        public GetCertificateCertificatePolicyLifetimeAction build() {
-            return new GetCertificateCertificatePolicyLifetimeAction(actions, triggers);
+        }
+        public GetCertificateCertificatePolicyLifetimeAction build() {
+            final var o = new GetCertificateCertificatePolicyLifetimeAction();
+            o.actions = actions;
+            o.triggers = triggers;
+            return o;
         }
     }
 }

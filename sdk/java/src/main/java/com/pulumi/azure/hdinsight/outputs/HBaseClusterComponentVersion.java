@@ -13,13 +13,9 @@ public final class HBaseClusterComponentVersion {
      * @return The version of HBase which should be used for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
      * 
      */
-    private final String hbase;
+    private String hbase;
 
-    @CustomType.Constructor
-    private HBaseClusterComponentVersion(@CustomType.Parameter("hbase") String hbase) {
-        this.hbase = hbase;
-    }
-
+    private HBaseClusterComponentVersion() {}
     /**
      * @return The version of HBase which should be used for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
      * 
@@ -35,24 +31,24 @@ public final class HBaseClusterComponentVersion {
     public static Builder builder(HBaseClusterComponentVersion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String hbase;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(HBaseClusterComponentVersion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hbase = defaults.hbase;
         }
 
+        @CustomType.Setter
         public Builder hbase(String hbase) {
             this.hbase = Objects.requireNonNull(hbase);
             return this;
-        }        public HBaseClusterComponentVersion build() {
-            return new HBaseClusterComponentVersion(hbase);
+        }
+        public HBaseClusterComponentVersion build() {
+            final var o = new HBaseClusterComponentVersion();
+            o.hbase = hbase;
+            return o;
         }
     }
 }

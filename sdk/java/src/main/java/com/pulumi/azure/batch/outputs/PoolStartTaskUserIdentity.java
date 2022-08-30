@@ -16,21 +16,14 @@ public final class PoolStartTaskUserIdentity {
      * @return A `auto_user` block that describes the user identity under which the start task runs.
      * 
      */
-    private final @Nullable PoolStartTaskUserIdentityAutoUser autoUser;
+    private @Nullable PoolStartTaskUserIdentityAutoUser autoUser;
     /**
      * @return The username to be used by the Batch pool start task.
      * 
      */
-    private final @Nullable String userName;
+    private @Nullable String userName;
 
-    @CustomType.Constructor
-    private PoolStartTaskUserIdentity(
-        @CustomType.Parameter("autoUser") @Nullable PoolStartTaskUserIdentityAutoUser autoUser,
-        @CustomType.Parameter("userName") @Nullable String userName) {
-        this.autoUser = autoUser;
-        this.userName = userName;
-    }
-
+    private PoolStartTaskUserIdentity() {}
     /**
      * @return A `auto_user` block that describes the user identity under which the start task runs.
      * 
@@ -53,30 +46,32 @@ public final class PoolStartTaskUserIdentity {
     public static Builder builder(PoolStartTaskUserIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable PoolStartTaskUserIdentityAutoUser autoUser;
         private @Nullable String userName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PoolStartTaskUserIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoUser = defaults.autoUser;
     	      this.userName = defaults.userName;
         }
 
+        @CustomType.Setter
         public Builder autoUser(@Nullable PoolStartTaskUserIdentityAutoUser autoUser) {
             this.autoUser = autoUser;
             return this;
         }
+        @CustomType.Setter
         public Builder userName(@Nullable String userName) {
             this.userName = userName;
             return this;
-        }        public PoolStartTaskUserIdentity build() {
-            return new PoolStartTaskUserIdentity(autoUser, userName);
+        }
+        public PoolStartTaskUserIdentity build() {
+            final var o = new PoolStartTaskUserIdentity();
+            o.autoUser = autoUser;
+            o.userName = userName;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class DataFlowTransformationDataset {
      * @return The name for the Data Factory Dataset.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A map of parameters to associate with the Data Factory dataset.
      * 
      */
-    private final @Nullable Map<String,String> parameters;
+    private @Nullable Map<String,String> parameters;
 
-    @CustomType.Constructor
-    private DataFlowTransformationDataset(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("parameters") @Nullable Map<String,String> parameters) {
-        this.name = name;
-        this.parameters = parameters;
-    }
-
+    private DataFlowTransformationDataset() {}
     /**
      * @return The name for the Data Factory Dataset.
      * 
@@ -52,30 +45,32 @@ public final class DataFlowTransformationDataset {
     public static Builder builder(DataFlowTransformationDataset defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private @Nullable Map<String,String> parameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataFlowTransformationDataset defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.parameters = defaults.parameters;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
             this.parameters = parameters;
             return this;
-        }        public DataFlowTransformationDataset build() {
-            return new DataFlowTransformationDataset(name, parameters);
+        }
+        public DataFlowTransformationDataset build() {
+            final var o = new DataFlowTransformationDataset();
+            o.name = name;
+            o.parameters = parameters;
+            return o;
         }
     }
 }

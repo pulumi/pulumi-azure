@@ -18,49 +18,34 @@ public final class EventHubCaptureDescription {
      * @return A `destination` block as defined below.
      * 
      */
-    private final EventHubCaptureDescriptionDestination destination;
+    private EventHubCaptureDescriptionDestination destination;
     /**
      * @return Specifies if the Capture Description is Enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Specifies the Encoding used for the Capture Description. Possible values are `Avro` and `AvroDeflate`.
      * 
      */
-    private final String encoding;
+    private String encoding;
     /**
      * @return Specifies the time interval in seconds at which the capture will happen. Values can be between `60` and `900` seconds. Defaults to `300` seconds.
      * 
      */
-    private final @Nullable Integer intervalInSeconds;
+    private @Nullable Integer intervalInSeconds;
     /**
      * @return Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between `10485760` and `524288000`  bytes. Defaults to `314572800` bytes.
      * 
      */
-    private final @Nullable Integer sizeLimitInBytes;
+    private @Nullable Integer sizeLimitInBytes;
     /**
      * @return Specifies if empty files should not be emitted if no events occur during the Capture time window.  Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean skipEmptyArchives;
+    private @Nullable Boolean skipEmptyArchives;
 
-    @CustomType.Constructor
-    private EventHubCaptureDescription(
-        @CustomType.Parameter("destination") EventHubCaptureDescriptionDestination destination,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("encoding") String encoding,
-        @CustomType.Parameter("intervalInSeconds") @Nullable Integer intervalInSeconds,
-        @CustomType.Parameter("sizeLimitInBytes") @Nullable Integer sizeLimitInBytes,
-        @CustomType.Parameter("skipEmptyArchives") @Nullable Boolean skipEmptyArchives) {
-        this.destination = destination;
-        this.enabled = enabled;
-        this.encoding = encoding;
-        this.intervalInSeconds = intervalInSeconds;
-        this.sizeLimitInBytes = sizeLimitInBytes;
-        this.skipEmptyArchives = skipEmptyArchives;
-    }
-
+    private EventHubCaptureDescription() {}
     /**
      * @return A `destination` block as defined below.
      * 
@@ -111,7 +96,7 @@ public final class EventHubCaptureDescription {
     public static Builder builder(EventHubCaptureDescription defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private EventHubCaptureDescriptionDestination destination;
         private Boolean enabled;
@@ -119,11 +104,7 @@ public final class EventHubCaptureDescription {
         private @Nullable Integer intervalInSeconds;
         private @Nullable Integer sizeLimitInBytes;
         private @Nullable Boolean skipEmptyArchives;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventHubCaptureDescription defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destination = defaults.destination;
@@ -134,31 +115,45 @@ public final class EventHubCaptureDescription {
     	      this.skipEmptyArchives = defaults.skipEmptyArchives;
         }
 
+        @CustomType.Setter
         public Builder destination(EventHubCaptureDescriptionDestination destination) {
             this.destination = Objects.requireNonNull(destination);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder encoding(String encoding) {
             this.encoding = Objects.requireNonNull(encoding);
             return this;
         }
+        @CustomType.Setter
         public Builder intervalInSeconds(@Nullable Integer intervalInSeconds) {
             this.intervalInSeconds = intervalInSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder sizeLimitInBytes(@Nullable Integer sizeLimitInBytes) {
             this.sizeLimitInBytes = sizeLimitInBytes;
             return this;
         }
+        @CustomType.Setter
         public Builder skipEmptyArchives(@Nullable Boolean skipEmptyArchives) {
             this.skipEmptyArchives = skipEmptyArchives;
             return this;
-        }        public EventHubCaptureDescription build() {
-            return new EventHubCaptureDescription(destination, enabled, encoding, intervalInSeconds, sizeLimitInBytes, skipEmptyArchives);
+        }
+        public EventHubCaptureDescription build() {
+            final var o = new EventHubCaptureDescription();
+            o.destination = destination;
+            o.enabled = enabled;
+            o.encoding = encoding;
+            o.intervalInSeconds = intervalInSeconds;
+            o.sizeLimitInBytes = sizeLimitInBytes;
+            o.skipEmptyArchives = skipEmptyArchives;
+            return o;
         }
     }
 }

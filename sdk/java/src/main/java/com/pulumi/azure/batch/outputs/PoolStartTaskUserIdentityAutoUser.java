@@ -15,21 +15,14 @@ public final class PoolStartTaskUserIdentityAutoUser {
      * @return The elevation level of the user identity under which the start task runs. Possible values are `Admin` or `NonAdmin`. Defaults to `NonAdmin`.
      * 
      */
-    private final @Nullable String elevationLevel;
+    private @Nullable String elevationLevel;
     /**
      * @return The scope of the user identity under which the start task runs. Possible values are `Task` or `Pool`. Defaults to `Task`.
      * 
      */
-    private final @Nullable String scope;
+    private @Nullable String scope;
 
-    @CustomType.Constructor
-    private PoolStartTaskUserIdentityAutoUser(
-        @CustomType.Parameter("elevationLevel") @Nullable String elevationLevel,
-        @CustomType.Parameter("scope") @Nullable String scope) {
-        this.elevationLevel = elevationLevel;
-        this.scope = scope;
-    }
-
+    private PoolStartTaskUserIdentityAutoUser() {}
     /**
      * @return The elevation level of the user identity under which the start task runs. Possible values are `Admin` or `NonAdmin`. Defaults to `NonAdmin`.
      * 
@@ -52,30 +45,32 @@ public final class PoolStartTaskUserIdentityAutoUser {
     public static Builder builder(PoolStartTaskUserIdentityAutoUser defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String elevationLevel;
         private @Nullable String scope;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PoolStartTaskUserIdentityAutoUser defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.elevationLevel = defaults.elevationLevel;
     	      this.scope = defaults.scope;
         }
 
+        @CustomType.Setter
         public Builder elevationLevel(@Nullable String elevationLevel) {
             this.elevationLevel = elevationLevel;
             return this;
         }
+        @CustomType.Setter
         public Builder scope(@Nullable String scope) {
             this.scope = scope;
             return this;
-        }        public PoolStartTaskUserIdentityAutoUser build() {
-            return new PoolStartTaskUserIdentityAutoUser(elevationLevel, scope);
+        }
+        public PoolStartTaskUserIdentityAutoUser build() {
+            final var o = new PoolStartTaskUserIdentityAutoUser();
+            o.elevationLevel = elevationLevel;
+            o.scope = scope;
+            return o;
         }
     }
 }

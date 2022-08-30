@@ -18,84 +18,59 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
      * @return The description which should be used for this rule.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return Specifies a list of destination IP addresses (including CIDR and `*`) or Service Tags.
      * 
      */
-    private final @Nullable List<String> destinationAddresses;
+    private @Nullable List<String> destinationAddresses;
     /**
      * @return Specifies a list of destination FQDN tags.
      * 
      */
-    private final @Nullable List<String> destinationFqdnTags;
+    private @Nullable List<String> destinationFqdnTags;
     /**
      * @return Specifies a list of destination FQDNs.
      * 
      */
-    private final @Nullable List<String> destinationFqdns;
+    private @Nullable List<String> destinationFqdns;
     /**
      * @return Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
      * 
      */
-    private final @Nullable List<String> destinationUrls;
+    private @Nullable List<String> destinationUrls;
     /**
      * @return The name which should be used for this rule.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Specifies a list of network protocols this rule applies to. Possible values are `TCP`, `UDP`.
      * 
      */
-    private final @Nullable List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol> protocols;
+    private @Nullable List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol> protocols;
     /**
      * @return Specifies a list of source IP addresses (including CIDR and `*`).
      * 
      */
-    private final @Nullable List<String> sourceAddresses;
+    private @Nullable List<String> sourceAddresses;
     /**
      * @return Specifies a list of source IP groups.
      * 
      */
-    private final @Nullable List<String> sourceIpGroups;
+    private @Nullable List<String> sourceIpGroups;
     /**
      * @return Boolean specifying if TLS shall be terminated (true) or not (false). Must be  `true` when using `destination_urls`. Needs Premium SKU for Firewall Policy.
      * 
      */
-    private final @Nullable Boolean terminateTls;
+    private @Nullable Boolean terminateTls;
     /**
      * @return Specifies a list of web categories to which access is denied or allowed depending on the value of `action` above. Needs Premium SKU for Firewall Policy.
      * 
      */
-    private final @Nullable List<String> webCategories;
+    private @Nullable List<String> webCategories;
 
-    @CustomType.Constructor
-    private FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("destinationAddresses") @Nullable List<String> destinationAddresses,
-        @CustomType.Parameter("destinationFqdnTags") @Nullable List<String> destinationFqdnTags,
-        @CustomType.Parameter("destinationFqdns") @Nullable List<String> destinationFqdns,
-        @CustomType.Parameter("destinationUrls") @Nullable List<String> destinationUrls,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("protocols") @Nullable List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol> protocols,
-        @CustomType.Parameter("sourceAddresses") @Nullable List<String> sourceAddresses,
-        @CustomType.Parameter("sourceIpGroups") @Nullable List<String> sourceIpGroups,
-        @CustomType.Parameter("terminateTls") @Nullable Boolean terminateTls,
-        @CustomType.Parameter("webCategories") @Nullable List<String> webCategories) {
-        this.description = description;
-        this.destinationAddresses = destinationAddresses;
-        this.destinationFqdnTags = destinationFqdnTags;
-        this.destinationFqdns = destinationFqdns;
-        this.destinationUrls = destinationUrls;
-        this.name = name;
-        this.protocols = protocols;
-        this.sourceAddresses = sourceAddresses;
-        this.sourceIpGroups = sourceIpGroups;
-        this.terminateTls = terminateTls;
-        this.webCategories = webCategories;
-    }
-
+    private FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule() {}
     /**
      * @return The description which should be used for this rule.
      * 
@@ -181,7 +156,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
     public static Builder builder(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private @Nullable List<String> destinationAddresses;
@@ -194,11 +169,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         private @Nullable List<String> sourceIpGroups;
         private @Nullable Boolean terminateTls;
         private @Nullable List<String> webCategories;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -214,10 +185,12 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
     	      this.webCategories = defaults.webCategories;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder destinationAddresses(@Nullable List<String> destinationAddresses) {
             this.destinationAddresses = destinationAddresses;
             return this;
@@ -225,6 +198,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         public Builder destinationAddresses(String... destinationAddresses) {
             return destinationAddresses(List.of(destinationAddresses));
         }
+        @CustomType.Setter
         public Builder destinationFqdnTags(@Nullable List<String> destinationFqdnTags) {
             this.destinationFqdnTags = destinationFqdnTags;
             return this;
@@ -232,6 +206,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         public Builder destinationFqdnTags(String... destinationFqdnTags) {
             return destinationFqdnTags(List.of(destinationFqdnTags));
         }
+        @CustomType.Setter
         public Builder destinationFqdns(@Nullable List<String> destinationFqdns) {
             this.destinationFqdns = destinationFqdns;
             return this;
@@ -239,6 +214,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         public Builder destinationFqdns(String... destinationFqdns) {
             return destinationFqdns(List.of(destinationFqdns));
         }
+        @CustomType.Setter
         public Builder destinationUrls(@Nullable List<String> destinationUrls) {
             this.destinationUrls = destinationUrls;
             return this;
@@ -246,10 +222,12 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         public Builder destinationUrls(String... destinationUrls) {
             return destinationUrls(List.of(destinationUrls));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder protocols(@Nullable List<FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol> protocols) {
             this.protocols = protocols;
             return this;
@@ -257,6 +235,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         public Builder protocols(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol... protocols) {
             return protocols(List.of(protocols));
         }
+        @CustomType.Setter
         public Builder sourceAddresses(@Nullable List<String> sourceAddresses) {
             this.sourceAddresses = sourceAddresses;
             return this;
@@ -264,6 +243,7 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         public Builder sourceAddresses(String... sourceAddresses) {
             return sourceAddresses(List.of(sourceAddresses));
         }
+        @CustomType.Setter
         public Builder sourceIpGroups(@Nullable List<String> sourceIpGroups) {
             this.sourceIpGroups = sourceIpGroups;
             return this;
@@ -271,18 +251,33 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
         public Builder sourceIpGroups(String... sourceIpGroups) {
             return sourceIpGroups(List.of(sourceIpGroups));
         }
+        @CustomType.Setter
         public Builder terminateTls(@Nullable Boolean terminateTls) {
             this.terminateTls = terminateTls;
             return this;
         }
+        @CustomType.Setter
         public Builder webCategories(@Nullable List<String> webCategories) {
             this.webCategories = webCategories;
             return this;
         }
         public Builder webCategories(String... webCategories) {
             return webCategories(List.of(webCategories));
-        }        public FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule build() {
-            return new FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule(description, destinationAddresses, destinationFqdnTags, destinationFqdns, destinationUrls, name, protocols, sourceAddresses, sourceIpGroups, terminateTls, webCategories);
+        }
+        public FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule build() {
+            final var o = new FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRule();
+            o.description = description;
+            o.destinationAddresses = destinationAddresses;
+            o.destinationFqdnTags = destinationFqdnTags;
+            o.destinationFqdns = destinationFqdns;
+            o.destinationUrls = destinationUrls;
+            o.name = name;
+            o.protocols = protocols;
+            o.sourceAddresses = sourceAddresses;
+            o.sourceIpGroups = sourceIpGroups;
+            o.terminateTls = terminateTls;
+            o.webCategories = webCategories;
+            return o;
         }
     }
 }

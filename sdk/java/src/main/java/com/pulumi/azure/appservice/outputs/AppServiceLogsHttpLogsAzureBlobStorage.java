@@ -14,21 +14,14 @@ public final class AppServiceLogsHttpLogsAzureBlobStorage {
      * @return The number of days to retain logs for.
      * 
      */
-    private final Integer retentionInDays;
+    private Integer retentionInDays;
     /**
      * @return The URL to the storage container with a shared access signature token appended.
      * 
      */
-    private final String sasUrl;
+    private String sasUrl;
 
-    @CustomType.Constructor
-    private AppServiceLogsHttpLogsAzureBlobStorage(
-        @CustomType.Parameter("retentionInDays") Integer retentionInDays,
-        @CustomType.Parameter("sasUrl") String sasUrl) {
-        this.retentionInDays = retentionInDays;
-        this.sasUrl = sasUrl;
-    }
-
+    private AppServiceLogsHttpLogsAzureBlobStorage() {}
     /**
      * @return The number of days to retain logs for.
      * 
@@ -51,30 +44,32 @@ public final class AppServiceLogsHttpLogsAzureBlobStorage {
     public static Builder builder(AppServiceLogsHttpLogsAzureBlobStorage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer retentionInDays;
         private String sasUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppServiceLogsHttpLogsAzureBlobStorage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.retentionInDays = defaults.retentionInDays;
     	      this.sasUrl = defaults.sasUrl;
         }
 
+        @CustomType.Setter
         public Builder retentionInDays(Integer retentionInDays) {
             this.retentionInDays = Objects.requireNonNull(retentionInDays);
             return this;
         }
+        @CustomType.Setter
         public Builder sasUrl(String sasUrl) {
             this.sasUrl = Objects.requireNonNull(sasUrl);
             return this;
-        }        public AppServiceLogsHttpLogsAzureBlobStorage build() {
-            return new AppServiceLogsHttpLogsAzureBlobStorage(retentionInDays, sasUrl);
+        }
+        public AppServiceLogsHttpLogsAzureBlobStorage build() {
+            final var o = new AppServiceLogsHttpLogsAzureBlobStorage();
+            o.retentionInDays = retentionInDays;
+            o.sasUrl = sasUrl;
+            return o;
         }
     }
 }

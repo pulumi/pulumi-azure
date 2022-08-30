@@ -17,56 +17,39 @@ public final class FirewallApplicationRuleCollectionRule {
      * @return Specifies a description for the rule.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `AzureKubernetesService`, `HDInsight`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics`, `WindowsUpdate` and `WindowsVirtualDesktop`.
      * 
      */
-    private final @Nullable List<String> fqdnTags;
+    private @Nullable List<String> fqdnTags;
     /**
      * @return Specifies the name of the rule.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return One or more `protocol` blocks as defined below.
      * 
      */
-    private final @Nullable List<FirewallApplicationRuleCollectionRuleProtocol> protocols;
+    private @Nullable List<FirewallApplicationRuleCollectionRuleProtocol> protocols;
     /**
      * @return A list of source IP addresses and/or IP ranges.
      * 
      */
-    private final @Nullable List<String> sourceAddresses;
+    private @Nullable List<String> sourceAddresses;
     /**
      * @return A list of source IP Group IDs for the rule.
      * 
      */
-    private final @Nullable List<String> sourceIpGroups;
+    private @Nullable List<String> sourceIpGroups;
     /**
      * @return A list of FQDNs.
      * 
      */
-    private final @Nullable List<String> targetFqdns;
+    private @Nullable List<String> targetFqdns;
 
-    @CustomType.Constructor
-    private FirewallApplicationRuleCollectionRule(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("fqdnTags") @Nullable List<String> fqdnTags,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("protocols") @Nullable List<FirewallApplicationRuleCollectionRuleProtocol> protocols,
-        @CustomType.Parameter("sourceAddresses") @Nullable List<String> sourceAddresses,
-        @CustomType.Parameter("sourceIpGroups") @Nullable List<String> sourceIpGroups,
-        @CustomType.Parameter("targetFqdns") @Nullable List<String> targetFqdns) {
-        this.description = description;
-        this.fqdnTags = fqdnTags;
-        this.name = name;
-        this.protocols = protocols;
-        this.sourceAddresses = sourceAddresses;
-        this.sourceIpGroups = sourceIpGroups;
-        this.targetFqdns = targetFqdns;
-    }
-
+    private FirewallApplicationRuleCollectionRule() {}
     /**
      * @return Specifies a description for the rule.
      * 
@@ -124,7 +107,7 @@ public final class FirewallApplicationRuleCollectionRule {
     public static Builder builder(FirewallApplicationRuleCollectionRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private @Nullable List<String> fqdnTags;
@@ -133,11 +116,7 @@ public final class FirewallApplicationRuleCollectionRule {
         private @Nullable List<String> sourceAddresses;
         private @Nullable List<String> sourceIpGroups;
         private @Nullable List<String> targetFqdns;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallApplicationRuleCollectionRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -149,10 +128,12 @@ public final class FirewallApplicationRuleCollectionRule {
     	      this.targetFqdns = defaults.targetFqdns;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder fqdnTags(@Nullable List<String> fqdnTags) {
             this.fqdnTags = fqdnTags;
             return this;
@@ -160,10 +141,12 @@ public final class FirewallApplicationRuleCollectionRule {
         public Builder fqdnTags(String... fqdnTags) {
             return fqdnTags(List.of(fqdnTags));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder protocols(@Nullable List<FirewallApplicationRuleCollectionRuleProtocol> protocols) {
             this.protocols = protocols;
             return this;
@@ -171,6 +154,7 @@ public final class FirewallApplicationRuleCollectionRule {
         public Builder protocols(FirewallApplicationRuleCollectionRuleProtocol... protocols) {
             return protocols(List.of(protocols));
         }
+        @CustomType.Setter
         public Builder sourceAddresses(@Nullable List<String> sourceAddresses) {
             this.sourceAddresses = sourceAddresses;
             return this;
@@ -178,6 +162,7 @@ public final class FirewallApplicationRuleCollectionRule {
         public Builder sourceAddresses(String... sourceAddresses) {
             return sourceAddresses(List.of(sourceAddresses));
         }
+        @CustomType.Setter
         public Builder sourceIpGroups(@Nullable List<String> sourceIpGroups) {
             this.sourceIpGroups = sourceIpGroups;
             return this;
@@ -185,14 +170,24 @@ public final class FirewallApplicationRuleCollectionRule {
         public Builder sourceIpGroups(String... sourceIpGroups) {
             return sourceIpGroups(List.of(sourceIpGroups));
         }
+        @CustomType.Setter
         public Builder targetFqdns(@Nullable List<String> targetFqdns) {
             this.targetFqdns = targetFqdns;
             return this;
         }
         public Builder targetFqdns(String... targetFqdns) {
             return targetFqdns(List.of(targetFqdns));
-        }        public FirewallApplicationRuleCollectionRule build() {
-            return new FirewallApplicationRuleCollectionRule(description, fqdnTags, name, protocols, sourceAddresses, sourceIpGroups, targetFqdns);
+        }
+        public FirewallApplicationRuleCollectionRule build() {
+            final var o = new FirewallApplicationRuleCollectionRule();
+            o.description = description;
+            o.fqdnTags = fqdnTags;
+            o.name = name;
+            o.protocols = protocols;
+            o.sourceAddresses = sourceAddresses;
+            o.sourceIpGroups = sourceIpGroups;
+            o.targetFqdns = targetFqdns;
+            return o;
         }
     }
 }

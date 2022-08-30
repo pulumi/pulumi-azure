@@ -57,6 +57,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PrivateLinkScopedService{}
 	case "azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert":
 		r = &ScheduledQueryRulesAlert{}
+	case "azure:monitoring/scheduledQueryRulesAlertV2:ScheduledQueryRulesAlertV2":
+		r = &ScheduledQueryRulesAlertV2{}
 	case "azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog":
 		r = &ScheduledQueryRulesLog{}
 	case "azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule":
@@ -162,6 +164,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"monitoring/scheduledQueryRulesAlert",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"monitoring/scheduledQueryRulesAlertV2",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

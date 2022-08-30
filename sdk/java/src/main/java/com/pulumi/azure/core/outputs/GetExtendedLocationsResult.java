@@ -14,24 +14,15 @@ public final class GetExtendedLocationsResult {
      * @return The available extended locations for the Azure Location.
      * 
      */
-    private final List<String> extendedLocations;
+    private List<String> extendedLocations;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String location;
+    private String id;
+    private String location;
 
-    @CustomType.Constructor
-    private GetExtendedLocationsResult(
-        @CustomType.Parameter("extendedLocations") List<String> extendedLocations,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location) {
-        this.extendedLocations = extendedLocations;
-        this.id = id;
-        this.location = location;
-    }
-
+    private GetExtendedLocationsResult() {}
     /**
      * @return The available extended locations for the Azure Location.
      * 
@@ -57,16 +48,12 @@ public final class GetExtendedLocationsResult {
     public static Builder builder(GetExtendedLocationsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> extendedLocations;
         private String id;
         private String location;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetExtendedLocationsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.extendedLocations = defaults.extendedLocations;
@@ -74,6 +61,7 @@ public final class GetExtendedLocationsResult {
     	      this.location = defaults.location;
         }
 
+        @CustomType.Setter
         public Builder extendedLocations(List<String> extendedLocations) {
             this.extendedLocations = Objects.requireNonNull(extendedLocations);
             return this;
@@ -81,15 +69,22 @@ public final class GetExtendedLocationsResult {
         public Builder extendedLocations(String... extendedLocations) {
             return extendedLocations(List.of(extendedLocations));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
-        }        public GetExtendedLocationsResult build() {
-            return new GetExtendedLocationsResult(extendedLocations, id, location);
+        }
+        public GetExtendedLocationsResult build() {
+            final var o = new GetExtendedLocationsResult();
+            o.extendedLocations = extendedLocations;
+            o.id = id;
+            o.location = location;
+            return o;
         }
     }
 }

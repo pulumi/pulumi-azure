@@ -15,21 +15,14 @@ public final class FirewallPolicyThreatIntelligenceAllowlist {
      * @return A list of FQDNs that will be skipped for threat detection.
      * 
      */
-    private final @Nullable List<String> fqdns;
+    private @Nullable List<String> fqdns;
     /**
      * @return A list of IP addresses or CIDR ranges that will be skipped for threat detection.
      * 
      */
-    private final @Nullable List<String> ipAddresses;
+    private @Nullable List<String> ipAddresses;
 
-    @CustomType.Constructor
-    private FirewallPolicyThreatIntelligenceAllowlist(
-        @CustomType.Parameter("fqdns") @Nullable List<String> fqdns,
-        @CustomType.Parameter("ipAddresses") @Nullable List<String> ipAddresses) {
-        this.fqdns = fqdns;
-        this.ipAddresses = ipAddresses;
-    }
-
+    private FirewallPolicyThreatIntelligenceAllowlist() {}
     /**
      * @return A list of FQDNs that will be skipped for threat detection.
      * 
@@ -52,21 +45,18 @@ public final class FirewallPolicyThreatIntelligenceAllowlist {
     public static Builder builder(FirewallPolicyThreatIntelligenceAllowlist defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> fqdns;
         private @Nullable List<String> ipAddresses;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyThreatIntelligenceAllowlist defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fqdns = defaults.fqdns;
     	      this.ipAddresses = defaults.ipAddresses;
         }
 
+        @CustomType.Setter
         public Builder fqdns(@Nullable List<String> fqdns) {
             this.fqdns = fqdns;
             return this;
@@ -74,14 +64,19 @@ public final class FirewallPolicyThreatIntelligenceAllowlist {
         public Builder fqdns(String... fqdns) {
             return fqdns(List.of(fqdns));
         }
+        @CustomType.Setter
         public Builder ipAddresses(@Nullable List<String> ipAddresses) {
             this.ipAddresses = ipAddresses;
             return this;
         }
         public Builder ipAddresses(String... ipAddresses) {
             return ipAddresses(List.of(ipAddresses));
-        }        public FirewallPolicyThreatIntelligenceAllowlist build() {
-            return new FirewallPolicyThreatIntelligenceAllowlist(fqdns, ipAddresses);
+        }
+        public FirewallPolicyThreatIntelligenceAllowlist build() {
+            final var o = new FirewallPolicyThreatIntelligenceAllowlist();
+            o.fqdns = fqdns;
+            o.ipAddresses = ipAddresses;
+            return o;
         }
     }
 }

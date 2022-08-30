@@ -15,21 +15,14 @@ public final class ScheduleWeeklyRecurrence {
      * @return The time when the schedule takes effect.
      * 
      */
-    private final String time;
+    private String time;
     /**
      * @return A list of days that this schedule takes effect . Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      * 
      */
-    private final @Nullable List<String> weekDays;
+    private @Nullable List<String> weekDays;
 
-    @CustomType.Constructor
-    private ScheduleWeeklyRecurrence(
-        @CustomType.Parameter("time") String time,
-        @CustomType.Parameter("weekDays") @Nullable List<String> weekDays) {
-        this.time = time;
-        this.weekDays = weekDays;
-    }
-
+    private ScheduleWeeklyRecurrence() {}
     /**
      * @return The time when the schedule takes effect.
      * 
@@ -52,33 +45,35 @@ public final class ScheduleWeeklyRecurrence {
     public static Builder builder(ScheduleWeeklyRecurrence defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String time;
         private @Nullable List<String> weekDays;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScheduleWeeklyRecurrence defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.time = defaults.time;
     	      this.weekDays = defaults.weekDays;
         }
 
+        @CustomType.Setter
         public Builder time(String time) {
             this.time = Objects.requireNonNull(time);
             return this;
         }
+        @CustomType.Setter
         public Builder weekDays(@Nullable List<String> weekDays) {
             this.weekDays = weekDays;
             return this;
         }
         public Builder weekDays(String... weekDays) {
             return weekDays(List.of(weekDays));
-        }        public ScheduleWeeklyRecurrence build() {
-            return new ScheduleWeeklyRecurrence(time, weekDays);
+        }
+        public ScheduleWeeklyRecurrence build() {
+            final var o = new ScheduleWeeklyRecurrence();
+            o.time = time;
+            o.weekDays = weekDays;
+            return o;
         }
     }
 }

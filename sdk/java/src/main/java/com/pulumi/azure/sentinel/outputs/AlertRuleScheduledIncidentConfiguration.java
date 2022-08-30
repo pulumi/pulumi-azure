@@ -14,21 +14,14 @@ public final class AlertRuleScheduledIncidentConfiguration {
      * @return Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
      * 
      */
-    private final Boolean createIncident;
+    private Boolean createIncident;
     /**
      * @return A `grouping` block as defined below.
      * 
      */
-    private final AlertRuleScheduledIncidentConfigurationGrouping grouping;
+    private AlertRuleScheduledIncidentConfigurationGrouping grouping;
 
-    @CustomType.Constructor
-    private AlertRuleScheduledIncidentConfiguration(
-        @CustomType.Parameter("createIncident") Boolean createIncident,
-        @CustomType.Parameter("grouping") AlertRuleScheduledIncidentConfigurationGrouping grouping) {
-        this.createIncident = createIncident;
-        this.grouping = grouping;
-    }
-
+    private AlertRuleScheduledIncidentConfiguration() {}
     /**
      * @return Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
      * 
@@ -51,30 +44,32 @@ public final class AlertRuleScheduledIncidentConfiguration {
     public static Builder builder(AlertRuleScheduledIncidentConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean createIncident;
         private AlertRuleScheduledIncidentConfigurationGrouping grouping;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AlertRuleScheduledIncidentConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.createIncident = defaults.createIncident;
     	      this.grouping = defaults.grouping;
         }
 
+        @CustomType.Setter
         public Builder createIncident(Boolean createIncident) {
             this.createIncident = Objects.requireNonNull(createIncident);
             return this;
         }
+        @CustomType.Setter
         public Builder grouping(AlertRuleScheduledIncidentConfigurationGrouping grouping) {
             this.grouping = Objects.requireNonNull(grouping);
             return this;
-        }        public AlertRuleScheduledIncidentConfiguration build() {
-            return new AlertRuleScheduledIncidentConfiguration(createIncident, grouping);
+        }
+        public AlertRuleScheduledIncidentConfiguration build() {
+            final var o = new AlertRuleScheduledIncidentConfiguration();
+            o.createIncident = createIncident;
+            o.grouping = grouping;
+            return o;
         }
     }
 }

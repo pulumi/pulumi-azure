@@ -16,28 +16,19 @@ public final class SubnetServiceEndpointStoragePolicyDefinition {
      * @return The description of this Subnet Service Endpoint Storage Policy Definition.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return The name which should be used for this Subnet Service Endpoint Storage Policy Definition.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Specifies a list of resources that this Subnet Service Endpoint Storage Policy Definition applies to.
      * 
      */
-    private final List<String> serviceResources;
+    private List<String> serviceResources;
 
-    @CustomType.Constructor
-    private SubnetServiceEndpointStoragePolicyDefinition(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("serviceResources") List<String> serviceResources) {
-        this.description = description;
-        this.name = name;
-        this.serviceResources = serviceResources;
-    }
-
+    private SubnetServiceEndpointStoragePolicyDefinition() {}
     /**
      * @return The description of this Subnet Service Endpoint Storage Policy Definition.
      * 
@@ -67,16 +58,12 @@ public final class SubnetServiceEndpointStoragePolicyDefinition {
     public static Builder builder(SubnetServiceEndpointStoragePolicyDefinition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private String name;
         private List<String> serviceResources;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SubnetServiceEndpointStoragePolicyDefinition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -84,22 +71,30 @@ public final class SubnetServiceEndpointStoragePolicyDefinition {
     	      this.serviceResources = defaults.serviceResources;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceResources(List<String> serviceResources) {
             this.serviceResources = Objects.requireNonNull(serviceResources);
             return this;
         }
         public Builder serviceResources(String... serviceResources) {
             return serviceResources(List.of(serviceResources));
-        }        public SubnetServiceEndpointStoragePolicyDefinition build() {
-            return new SubnetServiceEndpointStoragePolicyDefinition(description, name, serviceResources);
+        }
+        public SubnetServiceEndpointStoragePolicyDefinition build() {
+            final var o = new SubnetServiceEndpointStoragePolicyDefinition();
+            o.description = description;
+            o.name = name;
+            o.serviceResources = serviceResources;
+            return o;
         }
     }
 }

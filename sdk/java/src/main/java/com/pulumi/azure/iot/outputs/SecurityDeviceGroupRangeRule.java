@@ -14,35 +14,24 @@ public final class SecurityDeviceGroupRangeRule {
      * @return Specifies the time range. represented in ISO 8601 duration format.
      * 
      */
-    private final String duration;
+    private String duration;
     /**
      * @return The maximum threshold in the given time window.
      * 
      */
-    private final Integer max;
+    private Integer max;
     /**
      * @return The minimum threshold in the given time window.
      * 
      */
-    private final Integer min;
+    private Integer min;
     /**
      * @return The type of supported rule type. Possible Values are `ActiveConnectionsNotInAllowedRange`, `AmqpC2DMessagesNotInAllowedRange`, `MqttC2DMessagesNotInAllowedRange`, `HttpC2DMessagesNotInAllowedRange`, `AmqpC2DRejectedMessagesNotInAllowedRange`, `MqttC2DRejectedMessagesNotInAllowedRange`, `HttpC2DRejectedMessagesNotInAllowedRange`, `AmqpD2CMessagesNotInAllowedRange`, `MqttD2CMessagesNotInAllowedRange`, `HttpD2CMessagesNotInAllowedRange`, `DirectMethodInvokesNotInAllowedRange`, `FailedLocalLoginsNotInAllowedRange`, `FileUploadsNotInAllowedRange`, `QueuePurgesNotInAllowedRange`, `TwinUpdatesNotInAllowedRange` and `UnauthorizedOperationsNotInAllowedRange`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private SecurityDeviceGroupRangeRule(
-        @CustomType.Parameter("duration") String duration,
-        @CustomType.Parameter("max") Integer max,
-        @CustomType.Parameter("min") Integer min,
-        @CustomType.Parameter("type") String type) {
-        this.duration = duration;
-        this.max = max;
-        this.min = min;
-        this.type = type;
-    }
-
+    private SecurityDeviceGroupRangeRule() {}
     /**
      * @return Specifies the time range. represented in ISO 8601 duration format.
      * 
@@ -79,17 +68,13 @@ public final class SecurityDeviceGroupRangeRule {
     public static Builder builder(SecurityDeviceGroupRangeRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String duration;
         private Integer max;
         private Integer min;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SecurityDeviceGroupRangeRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.duration = defaults.duration;
@@ -98,23 +83,33 @@ public final class SecurityDeviceGroupRangeRule {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder duration(String duration) {
             this.duration = Objects.requireNonNull(duration);
             return this;
         }
+        @CustomType.Setter
         public Builder max(Integer max) {
             this.max = Objects.requireNonNull(max);
             return this;
         }
+        @CustomType.Setter
         public Builder min(Integer min) {
             this.min = Objects.requireNonNull(min);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public SecurityDeviceGroupRangeRule build() {
-            return new SecurityDeviceGroupRangeRule(duration, max, min, type);
+        }
+        public SecurityDeviceGroupRangeRule build() {
+            final var o = new SecurityDeviceGroupRangeRule();
+            o.duration = duration;
+            o.max = max;
+            o.min = min;
+            o.type = type;
+            return o;
         }
     }
 }

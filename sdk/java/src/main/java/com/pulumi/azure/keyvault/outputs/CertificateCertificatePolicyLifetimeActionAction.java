@@ -13,13 +13,9 @@ public final class CertificateCertificatePolicyLifetimeActionAction {
      * @return The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
      * 
      */
-    private final String actionType;
+    private String actionType;
 
-    @CustomType.Constructor
-    private CertificateCertificatePolicyLifetimeActionAction(@CustomType.Parameter("actionType") String actionType) {
-        this.actionType = actionType;
-    }
-
+    private CertificateCertificatePolicyLifetimeActionAction() {}
     /**
      * @return The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`. Changing this forces a new resource to be created.
      * 
@@ -35,24 +31,24 @@ public final class CertificateCertificatePolicyLifetimeActionAction {
     public static Builder builder(CertificateCertificatePolicyLifetimeActionAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String actionType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CertificateCertificatePolicyLifetimeActionAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionType = defaults.actionType;
         }
 
+        @CustomType.Setter
         public Builder actionType(String actionType) {
             this.actionType = Objects.requireNonNull(actionType);
             return this;
-        }        public CertificateCertificatePolicyLifetimeActionAction build() {
-            return new CertificateCertificatePolicyLifetimeActionAction(actionType);
+        }
+        public CertificateCertificatePolicyLifetimeActionAction build() {
+            final var o = new CertificateCertificatePolicyLifetimeActionAction();
+            o.actionType = actionType;
+            return o;
         }
     }
 }

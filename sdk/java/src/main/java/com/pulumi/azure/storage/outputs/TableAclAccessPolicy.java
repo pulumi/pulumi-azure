@@ -13,28 +13,19 @@ public final class TableAclAccessPolicy {
      * @return The ISO8061 UTC time at which this Access Policy should be valid until.
      * 
      */
-    private final String expiry;
+    private String expiry;
     /**
      * @return The permissions which should associated with this Shared Identifier.
      * 
      */
-    private final String permissions;
+    private String permissions;
     /**
      * @return The ISO8061 UTC time at which this Access Policy should be valid from.
      * 
      */
-    private final String start;
+    private String start;
 
-    @CustomType.Constructor
-    private TableAclAccessPolicy(
-        @CustomType.Parameter("expiry") String expiry,
-        @CustomType.Parameter("permissions") String permissions,
-        @CustomType.Parameter("start") String start) {
-        this.expiry = expiry;
-        this.permissions = permissions;
-        this.start = start;
-    }
-
+    private TableAclAccessPolicy() {}
     /**
      * @return The ISO8061 UTC time at which this Access Policy should be valid until.
      * 
@@ -64,16 +55,12 @@ public final class TableAclAccessPolicy {
     public static Builder builder(TableAclAccessPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String expiry;
         private String permissions;
         private String start;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableAclAccessPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.expiry = defaults.expiry;
@@ -81,19 +68,27 @@ public final class TableAclAccessPolicy {
     	      this.start = defaults.start;
         }
 
+        @CustomType.Setter
         public Builder expiry(String expiry) {
             this.expiry = Objects.requireNonNull(expiry);
             return this;
         }
+        @CustomType.Setter
         public Builder permissions(String permissions) {
             this.permissions = Objects.requireNonNull(permissions);
             return this;
         }
+        @CustomType.Setter
         public Builder start(String start) {
             this.start = Objects.requireNonNull(start);
             return this;
-        }        public TableAclAccessPolicy build() {
-            return new TableAclAccessPolicy(expiry, permissions, start);
+        }
+        public TableAclAccessPolicy build() {
+            final var o = new TableAclAccessPolicy();
+            o.expiry = expiry;
+            o.permissions = permissions;
+            o.start = start;
+            return o;
         }
     }
 }

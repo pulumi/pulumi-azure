@@ -18,107 +18,72 @@ public final class GetKeyVaultResult {
      * @return One or more `access_policy` blocks as defined below.
      * 
      */
-    private final List<GetKeyVaultAccessPolicy> accessPolicies;
+    private List<GetKeyVaultAccessPolicy> accessPolicies;
     /**
      * @return Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
      * 
      */
-    private final Boolean enableRbacAuthorization;
+    private Boolean enableRbacAuthorization;
     /**
      * @return Can Azure Virtual Machines retrieve certificates stored as secrets from the Key Vault?
      * 
      */
-    private final Boolean enabledForDeployment;
+    private Boolean enabledForDeployment;
     /**
      * @return Can Azure Disk Encryption retrieve secrets from the Key Vault?
      * 
      */
-    private final Boolean enabledForDiskEncryption;
+    private Boolean enabledForDiskEncryption;
     /**
      * @return Can Azure Resource Manager retrieve secrets from the Key Vault?
      * 
      */
-    private final Boolean enabledForTemplateDeployment;
+    private Boolean enabledForTemplateDeployment;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region in which the Key Vault exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final List<GetKeyVaultNetworkAcl> networkAcls;
+    private String location;
+    private String name;
+    private List<GetKeyVaultNetworkAcl> networkAcls;
     /**
      * @return Is public network access enabled on this Key Vault?
      * 
      */
-    private final Boolean publicNetworkAccessEnabled;
+    private Boolean publicNetworkAccessEnabled;
     /**
      * @return Is purge protection enabled on this Key Vault?
      * 
      */
-    private final Boolean purgeProtectionEnabled;
-    private final String resourceGroupName;
+    private Boolean purgeProtectionEnabled;
+    private String resourceGroupName;
     /**
      * @return The Name of the SKU used for this Key Vault.
      * 
      */
-    private final String skuName;
+    private String skuName;
     /**
      * @return A mapping of tags assigned to the Key Vault.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The Azure Active Directory Tenant ID used to authenticate requests for this Key Vault.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
     /**
      * @return The URI of the vault for performing operations on keys and secrets.
      * 
      */
-    private final String vaultUri;
+    private String vaultUri;
 
-    @CustomType.Constructor
-    private GetKeyVaultResult(
-        @CustomType.Parameter("accessPolicies") List<GetKeyVaultAccessPolicy> accessPolicies,
-        @CustomType.Parameter("enableRbacAuthorization") Boolean enableRbacAuthorization,
-        @CustomType.Parameter("enabledForDeployment") Boolean enabledForDeployment,
-        @CustomType.Parameter("enabledForDiskEncryption") Boolean enabledForDiskEncryption,
-        @CustomType.Parameter("enabledForTemplateDeployment") Boolean enabledForTemplateDeployment,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("networkAcls") List<GetKeyVaultNetworkAcl> networkAcls,
-        @CustomType.Parameter("publicNetworkAccessEnabled") Boolean publicNetworkAccessEnabled,
-        @CustomType.Parameter("purgeProtectionEnabled") Boolean purgeProtectionEnabled,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("skuName") String skuName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("tenantId") String tenantId,
-        @CustomType.Parameter("vaultUri") String vaultUri) {
-        this.accessPolicies = accessPolicies;
-        this.enableRbacAuthorization = enableRbacAuthorization;
-        this.enabledForDeployment = enabledForDeployment;
-        this.enabledForDiskEncryption = enabledForDiskEncryption;
-        this.enabledForTemplateDeployment = enabledForTemplateDeployment;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.networkAcls = networkAcls;
-        this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-        this.purgeProtectionEnabled = purgeProtectionEnabled;
-        this.resourceGroupName = resourceGroupName;
-        this.skuName = skuName;
-        this.tags = tags;
-        this.tenantId = tenantId;
-        this.vaultUri = vaultUri;
-    }
-
+    private GetKeyVaultResult() {}
     /**
      * @return One or more `access_policy` blocks as defined below.
      * 
@@ -227,7 +192,7 @@ public final class GetKeyVaultResult {
     public static Builder builder(GetKeyVaultResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetKeyVaultAccessPolicy> accessPolicies;
         private Boolean enableRbacAuthorization;
@@ -245,11 +210,7 @@ public final class GetKeyVaultResult {
         private Map<String,String> tags;
         private String tenantId;
         private String vaultUri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKeyVaultResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessPolicies = defaults.accessPolicies;
@@ -270,6 +231,7 @@ public final class GetKeyVaultResult {
     	      this.vaultUri = defaults.vaultUri;
         }
 
+        @CustomType.Setter
         public Builder accessPolicies(List<GetKeyVaultAccessPolicy> accessPolicies) {
             this.accessPolicies = Objects.requireNonNull(accessPolicies);
             return this;
@@ -277,34 +239,42 @@ public final class GetKeyVaultResult {
         public Builder accessPolicies(GetKeyVaultAccessPolicy... accessPolicies) {
             return accessPolicies(List.of(accessPolicies));
         }
+        @CustomType.Setter
         public Builder enableRbacAuthorization(Boolean enableRbacAuthorization) {
             this.enableRbacAuthorization = Objects.requireNonNull(enableRbacAuthorization);
             return this;
         }
+        @CustomType.Setter
         public Builder enabledForDeployment(Boolean enabledForDeployment) {
             this.enabledForDeployment = Objects.requireNonNull(enabledForDeployment);
             return this;
         }
+        @CustomType.Setter
         public Builder enabledForDiskEncryption(Boolean enabledForDiskEncryption) {
             this.enabledForDiskEncryption = Objects.requireNonNull(enabledForDiskEncryption);
             return this;
         }
+        @CustomType.Setter
         public Builder enabledForTemplateDeployment(Boolean enabledForTemplateDeployment) {
             this.enabledForTemplateDeployment = Objects.requireNonNull(enabledForTemplateDeployment);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder networkAcls(List<GetKeyVaultNetworkAcl> networkAcls) {
             this.networkAcls = Objects.requireNonNull(networkAcls);
             return this;
@@ -312,35 +282,60 @@ public final class GetKeyVaultResult {
         public Builder networkAcls(GetKeyVaultNetworkAcl... networkAcls) {
             return networkAcls(List.of(networkAcls));
         }
+        @CustomType.Setter
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
             this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder purgeProtectionEnabled(Boolean purgeProtectionEnabled) {
             this.purgeProtectionEnabled = Objects.requireNonNull(purgeProtectionEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder skuName(String skuName) {
             this.skuName = Objects.requireNonNull(skuName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
         }
+        @CustomType.Setter
         public Builder vaultUri(String vaultUri) {
             this.vaultUri = Objects.requireNonNull(vaultUri);
             return this;
-        }        public GetKeyVaultResult build() {
-            return new GetKeyVaultResult(accessPolicies, enableRbacAuthorization, enabledForDeployment, enabledForDiskEncryption, enabledForTemplateDeployment, id, location, name, networkAcls, publicNetworkAccessEnabled, purgeProtectionEnabled, resourceGroupName, skuName, tags, tenantId, vaultUri);
+        }
+        public GetKeyVaultResult build() {
+            final var o = new GetKeyVaultResult();
+            o.accessPolicies = accessPolicies;
+            o.enableRbacAuthorization = enableRbacAuthorization;
+            o.enabledForDeployment = enabledForDeployment;
+            o.enabledForDiskEncryption = enabledForDiskEncryption;
+            o.enabledForTemplateDeployment = enabledForTemplateDeployment;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.networkAcls = networkAcls;
+            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            o.purgeProtectionEnabled = purgeProtectionEnabled;
+            o.resourceGroupName = resourceGroupName;
+            o.skuName = skuName;
+            o.tags = tags;
+            o.tenantId = tenantId;
+            o.vaultUri = vaultUri;
+            return o;
         }
     }
 }

@@ -16,28 +16,19 @@ public final class EventSubscriptionStorageQueueEndpoint {
      * @return Storage queue message time to live in seconds.
      * 
      */
-    private final @Nullable Integer queueMessageTimeToLiveInSeconds;
+    private @Nullable Integer queueMessageTimeToLiveInSeconds;
     /**
      * @return Specifies the name of the storage queue where the Event Subscription will receive events.
      * 
      */
-    private final String queueName;
+    private String queueName;
     /**
      * @return Specifies the id of the storage account id where the storage queue is located.
      * 
      */
-    private final String storageAccountId;
+    private String storageAccountId;
 
-    @CustomType.Constructor
-    private EventSubscriptionStorageQueueEndpoint(
-        @CustomType.Parameter("queueMessageTimeToLiveInSeconds") @Nullable Integer queueMessageTimeToLiveInSeconds,
-        @CustomType.Parameter("queueName") String queueName,
-        @CustomType.Parameter("storageAccountId") String storageAccountId) {
-        this.queueMessageTimeToLiveInSeconds = queueMessageTimeToLiveInSeconds;
-        this.queueName = queueName;
-        this.storageAccountId = storageAccountId;
-    }
-
+    private EventSubscriptionStorageQueueEndpoint() {}
     /**
      * @return Storage queue message time to live in seconds.
      * 
@@ -67,16 +58,12 @@ public final class EventSubscriptionStorageQueueEndpoint {
     public static Builder builder(EventSubscriptionStorageQueueEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer queueMessageTimeToLiveInSeconds;
         private String queueName;
         private String storageAccountId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventSubscriptionStorageQueueEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.queueMessageTimeToLiveInSeconds = defaults.queueMessageTimeToLiveInSeconds;
@@ -84,19 +71,27 @@ public final class EventSubscriptionStorageQueueEndpoint {
     	      this.storageAccountId = defaults.storageAccountId;
         }
 
+        @CustomType.Setter
         public Builder queueMessageTimeToLiveInSeconds(@Nullable Integer queueMessageTimeToLiveInSeconds) {
             this.queueMessageTimeToLiveInSeconds = queueMessageTimeToLiveInSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder queueName(String queueName) {
             this.queueName = Objects.requireNonNull(queueName);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
             this.storageAccountId = Objects.requireNonNull(storageAccountId);
             return this;
-        }        public EventSubscriptionStorageQueueEndpoint build() {
-            return new EventSubscriptionStorageQueueEndpoint(queueMessageTimeToLiveInSeconds, queueName, storageAccountId);
+        }
+        public EventSubscriptionStorageQueueEndpoint build() {
+            final var o = new EventSubscriptionStorageQueueEndpoint();
+            o.queueMessageTimeToLiveInSeconds = queueMessageTimeToLiveInSeconds;
+            o.queueName = queueName;
+            o.storageAccountId = storageAccountId;
+            return o;
         }
     }
 }

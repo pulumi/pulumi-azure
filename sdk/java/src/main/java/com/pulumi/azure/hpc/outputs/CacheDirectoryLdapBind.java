@@ -13,21 +13,14 @@ public final class CacheDirectoryLdapBind {
      * @return The Bind Distinguished Name (DN) identity to be used in the secure LDAP connection.
      * 
      */
-    private final String dn;
+    private String dn;
     /**
      * @return The Bind password to be used in the secure LDAP connection.
      * 
      */
-    private final String password;
+    private String password;
 
-    @CustomType.Constructor
-    private CacheDirectoryLdapBind(
-        @CustomType.Parameter("dn") String dn,
-        @CustomType.Parameter("password") String password) {
-        this.dn = dn;
-        this.password = password;
-    }
-
+    private CacheDirectoryLdapBind() {}
     /**
      * @return The Bind Distinguished Name (DN) identity to be used in the secure LDAP connection.
      * 
@@ -50,30 +43,32 @@ public final class CacheDirectoryLdapBind {
     public static Builder builder(CacheDirectoryLdapBind defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dn;
         private String password;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CacheDirectoryLdapBind defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dn = defaults.dn;
     	      this.password = defaults.password;
         }
 
+        @CustomType.Setter
         public Builder dn(String dn) {
             this.dn = Objects.requireNonNull(dn);
             return this;
         }
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
-        }        public CacheDirectoryLdapBind build() {
-            return new CacheDirectoryLdapBind(dn, password);
+        }
+        public CacheDirectoryLdapBind build() {
+            final var o = new CacheDirectoryLdapBind();
+            o.dn = dn;
+            o.password = password;
+            return o;
         }
     }
 }

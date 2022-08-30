@@ -15,28 +15,19 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesSubjectA
      * @return A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable List<String> dnsNames;
+    private @Nullable List<String> dnsNames;
     /**
      * @return A list of email addresses identified by this Certificate. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable List<String> emails;
+    private @Nullable List<String> emails;
     /**
      * @return A list of User Principal Names identified by the Certificate. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable List<String> upns;
+    private @Nullable List<String> upns;
 
-    @CustomType.Constructor
-    private CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames(
-        @CustomType.Parameter("dnsNames") @Nullable List<String> dnsNames,
-        @CustomType.Parameter("emails") @Nullable List<String> emails,
-        @CustomType.Parameter("upns") @Nullable List<String> upns) {
-        this.dnsNames = dnsNames;
-        this.emails = emails;
-        this.upns = upns;
-    }
-
+    private CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames() {}
     /**
      * @return A list of alternative DNS names (FQDNs) identified by the Certificate. Changing this forces a new resource to be created.
      * 
@@ -66,16 +57,12 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesSubjectA
     public static Builder builder(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> dnsNames;
         private @Nullable List<String> emails;
         private @Nullable List<String> upns;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsNames = defaults.dnsNames;
@@ -83,6 +70,7 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesSubjectA
     	      this.upns = defaults.upns;
         }
 
+        @CustomType.Setter
         public Builder dnsNames(@Nullable List<String> dnsNames) {
             this.dnsNames = dnsNames;
             return this;
@@ -90,6 +78,7 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesSubjectA
         public Builder dnsNames(String... dnsNames) {
             return dnsNames(List.of(dnsNames));
         }
+        @CustomType.Setter
         public Builder emails(@Nullable List<String> emails) {
             this.emails = emails;
             return this;
@@ -97,14 +86,20 @@ public final class CertificateCertificatePolicyX509CertificatePropertiesSubjectA
         public Builder emails(String... emails) {
             return emails(List.of(emails));
         }
+        @CustomType.Setter
         public Builder upns(@Nullable List<String> upns) {
             this.upns = upns;
             return this;
         }
         public Builder upns(String... upns) {
             return upns(List.of(upns));
-        }        public CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames build() {
-            return new CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames(dnsNames, emails, upns);
+        }
+        public CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames build() {
+            final var o = new CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames();
+            o.dnsNames = dnsNames;
+            o.emails = emails;
+            o.upns = upns;
+            return o;
         }
     }
 }

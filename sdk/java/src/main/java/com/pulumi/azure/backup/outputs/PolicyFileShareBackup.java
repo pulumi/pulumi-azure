@@ -13,21 +13,14 @@ public final class PolicyFileShareBackup {
      * @return Sets the backup frequency. Currently, only `Daily` is supported
      * 
      */
-    private final String frequency;
+    private String frequency;
     /**
      * @return The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
      * 
      */
-    private final String time;
+    private String time;
 
-    @CustomType.Constructor
-    private PolicyFileShareBackup(
-        @CustomType.Parameter("frequency") String frequency,
-        @CustomType.Parameter("time") String time) {
-        this.frequency = frequency;
-        this.time = time;
-    }
-
+    private PolicyFileShareBackup() {}
     /**
      * @return Sets the backup frequency. Currently, only `Daily` is supported
      * 
@@ -50,30 +43,32 @@ public final class PolicyFileShareBackup {
     public static Builder builder(PolicyFileShareBackup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String frequency;
         private String time;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyFileShareBackup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.frequency = defaults.frequency;
     	      this.time = defaults.time;
         }
 
+        @CustomType.Setter
         public Builder frequency(String frequency) {
             this.frequency = Objects.requireNonNull(frequency);
             return this;
         }
+        @CustomType.Setter
         public Builder time(String time) {
             this.time = Objects.requireNonNull(time);
             return this;
-        }        public PolicyFileShareBackup build() {
-            return new PolicyFileShareBackup(frequency, time);
+        }
+        public PolicyFileShareBackup build() {
+            final var o = new PolicyFileShareBackup();
+            o.frequency = frequency;
+            o.time = time;
+            return o;
         }
     }
 }

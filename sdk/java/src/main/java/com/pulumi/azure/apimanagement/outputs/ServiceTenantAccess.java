@@ -16,35 +16,24 @@ public final class ServiceTenantAccess {
      * @return Should the access to the management API be enabled?
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Primary access key for the tenant access information contract.
      * 
      */
-    private final @Nullable String primaryKey;
+    private @Nullable String primaryKey;
     /**
      * @return Secondary access key for the tenant access information contract.
      * 
      */
-    private final @Nullable String secondaryKey;
+    private @Nullable String secondaryKey;
     /**
      * @return The identifier for the tenant access information contract.
      * 
      */
-    private final @Nullable String tenantId;
+    private @Nullable String tenantId;
 
-    @CustomType.Constructor
-    private ServiceTenantAccess(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("primaryKey") @Nullable String primaryKey,
-        @CustomType.Parameter("secondaryKey") @Nullable String secondaryKey,
-        @CustomType.Parameter("tenantId") @Nullable String tenantId) {
-        this.enabled = enabled;
-        this.primaryKey = primaryKey;
-        this.secondaryKey = secondaryKey;
-        this.tenantId = tenantId;
-    }
-
+    private ServiceTenantAccess() {}
     /**
      * @return Should the access to the management API be enabled?
      * 
@@ -81,17 +70,13 @@ public final class ServiceTenantAccess {
     public static Builder builder(ServiceTenantAccess defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private @Nullable String primaryKey;
         private @Nullable String secondaryKey;
         private @Nullable String tenantId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceTenantAccess defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -100,23 +85,33 @@ public final class ServiceTenantAccess {
     	      this.tenantId = defaults.tenantId;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryKey(@Nullable String primaryKey) {
             this.primaryKey = primaryKey;
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryKey(@Nullable String secondaryKey) {
             this.secondaryKey = secondaryKey;
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
             this.tenantId = tenantId;
             return this;
-        }        public ServiceTenantAccess build() {
-            return new ServiceTenantAccess(enabled, primaryKey, secondaryKey, tenantId);
+        }
+        public ServiceTenantAccess build() {
+            final var o = new ServiceTenantAccess();
+            o.enabled = enabled;
+            o.primaryKey = primaryKey;
+            o.secondaryKey = secondaryKey;
+            o.tenantId = tenantId;
+            return o;
         }
     }
 }

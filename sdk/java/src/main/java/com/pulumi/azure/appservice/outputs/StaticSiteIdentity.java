@@ -16,27 +16,16 @@ public final class StaticSiteIdentity {
      * @return A list of Managed Identity IDs which should be assigned to this Static Site resource.
      * 
      */
-    private final @Nullable List<String> identityIds;
-    private final @Nullable String principalId;
-    private final @Nullable String tenantId;
+    private @Nullable List<String> identityIds;
+    private @Nullable String principalId;
+    private @Nullable String tenantId;
     /**
      * @return The Type of Managed Identity assigned to this Static Site resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private StaticSiteIdentity(
-        @CustomType.Parameter("identityIds") @Nullable List<String> identityIds,
-        @CustomType.Parameter("principalId") @Nullable String principalId,
-        @CustomType.Parameter("tenantId") @Nullable String tenantId,
-        @CustomType.Parameter("type") String type) {
-        this.identityIds = identityIds;
-        this.principalId = principalId;
-        this.tenantId = tenantId;
-        this.type = type;
-    }
-
+    private StaticSiteIdentity() {}
     /**
      * @return A list of Managed Identity IDs which should be assigned to this Static Site resource.
      * 
@@ -65,17 +54,13 @@ public final class StaticSiteIdentity {
     public static Builder builder(StaticSiteIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> identityIds;
         private @Nullable String principalId;
         private @Nullable String tenantId;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StaticSiteIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
@@ -84,6 +69,7 @@ public final class StaticSiteIdentity {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder identityIds(@Nullable List<String> identityIds) {
             this.identityIds = identityIds;
             return this;
@@ -91,19 +77,28 @@ public final class StaticSiteIdentity {
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
+        @CustomType.Setter
         public Builder principalId(@Nullable String principalId) {
             this.principalId = principalId;
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
             this.tenantId = tenantId;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public StaticSiteIdentity build() {
-            return new StaticSiteIdentity(identityIds, principalId, tenantId, type);
+        }
+        public StaticSiteIdentity build() {
+            final var o = new StaticSiteIdentity();
+            o.identityIds = identityIds;
+            o.principalId = principalId;
+            o.tenantId = tenantId;
+            o.type = type;
+            return o;
         }
     }
 }

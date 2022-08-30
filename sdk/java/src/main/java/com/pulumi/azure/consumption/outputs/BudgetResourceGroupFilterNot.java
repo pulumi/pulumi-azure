@@ -16,21 +16,14 @@ public final class BudgetResourceGroupFilterNot {
      * @return One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
      * 
      */
-    private final @Nullable BudgetResourceGroupFilterNotDimension dimension;
+    private @Nullable BudgetResourceGroupFilterNotDimension dimension;
     /**
      * @return One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
      * 
      */
-    private final @Nullable BudgetResourceGroupFilterNotTag tag;
+    private @Nullable BudgetResourceGroupFilterNotTag tag;
 
-    @CustomType.Constructor
-    private BudgetResourceGroupFilterNot(
-        @CustomType.Parameter("dimension") @Nullable BudgetResourceGroupFilterNotDimension dimension,
-        @CustomType.Parameter("tag") @Nullable BudgetResourceGroupFilterNotTag tag) {
-        this.dimension = dimension;
-        this.tag = tag;
-    }
-
+    private BudgetResourceGroupFilterNot() {}
     /**
      * @return One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
      * 
@@ -53,30 +46,32 @@ public final class BudgetResourceGroupFilterNot {
     public static Builder builder(BudgetResourceGroupFilterNot defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable BudgetResourceGroupFilterNotDimension dimension;
         private @Nullable BudgetResourceGroupFilterNotTag tag;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BudgetResourceGroupFilterNot defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dimension = defaults.dimension;
     	      this.tag = defaults.tag;
         }
 
+        @CustomType.Setter
         public Builder dimension(@Nullable BudgetResourceGroupFilterNotDimension dimension) {
             this.dimension = dimension;
             return this;
         }
+        @CustomType.Setter
         public Builder tag(@Nullable BudgetResourceGroupFilterNotTag tag) {
             this.tag = tag;
             return this;
-        }        public BudgetResourceGroupFilterNot build() {
-            return new BudgetResourceGroupFilterNot(dimension, tag);
+        }
+        public BudgetResourceGroupFilterNot build() {
+            final var o = new BudgetResourceGroupFilterNot();
+            o.dimension = dimension;
+            o.tag = tag;
+            return o;
         }
     }
 }

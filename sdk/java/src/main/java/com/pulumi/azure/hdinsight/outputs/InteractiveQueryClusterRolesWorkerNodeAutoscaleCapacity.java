@@ -13,21 +13,14 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity {
      * @return The maximum number of worker nodes to autoscale to based on the cluster&#39;s activity.
      * 
      */
-    private final Integer maxInstanceCount;
+    private Integer maxInstanceCount;
     /**
      * @return The minimum number of worker nodes to autoscale to based on the cluster&#39;s activity.
      * 
      */
-    private final Integer minInstanceCount;
+    private Integer minInstanceCount;
 
-    @CustomType.Constructor
-    private InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity(
-        @CustomType.Parameter("maxInstanceCount") Integer maxInstanceCount,
-        @CustomType.Parameter("minInstanceCount") Integer minInstanceCount) {
-        this.maxInstanceCount = maxInstanceCount;
-        this.minInstanceCount = minInstanceCount;
-    }
-
+    private InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity() {}
     /**
      * @return The maximum number of worker nodes to autoscale to based on the cluster&#39;s activity.
      * 
@@ -50,30 +43,32 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity {
     public static Builder builder(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer maxInstanceCount;
         private Integer minInstanceCount;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxInstanceCount = defaults.maxInstanceCount;
     	      this.minInstanceCount = defaults.minInstanceCount;
         }
 
+        @CustomType.Setter
         public Builder maxInstanceCount(Integer maxInstanceCount) {
             this.maxInstanceCount = Objects.requireNonNull(maxInstanceCount);
             return this;
         }
+        @CustomType.Setter
         public Builder minInstanceCount(Integer minInstanceCount) {
             this.minInstanceCount = Objects.requireNonNull(minInstanceCount);
             return this;
-        }        public InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity build() {
-            return new InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity(maxInstanceCount, minInstanceCount);
+        }
+        public InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity build() {
+            final var o = new InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacity();
+            o.maxInstanceCount = maxInstanceCount;
+            o.minInstanceCount = minInstanceCount;
+            return o;
         }
     }
 }

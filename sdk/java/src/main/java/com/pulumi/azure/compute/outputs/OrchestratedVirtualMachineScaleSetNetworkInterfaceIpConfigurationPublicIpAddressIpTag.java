@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
-    private final String tag;
-    private final String type;
+    private String tag;
+    private String type;
 
-    @CustomType.Constructor
-    private OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag(
-        @CustomType.Parameter("tag") String tag,
-        @CustomType.Parameter("type") String type) {
-        this.tag = tag;
-        this.type = type;
-    }
-
+    private OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag() {}
     public String tag() {
         return this.tag;
     }
@@ -34,30 +27,32 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     public static Builder builder(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String tag;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.tag = defaults.tag;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder tag(String tag) {
             this.tag = Objects.requireNonNull(tag);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag build() {
-            return new OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag(tag, type);
+        }
+        public OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag build() {
+            final var o = new OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag();
+            o.tag = tag;
+            o.type = type;
+            return o;
         }
     }
 }

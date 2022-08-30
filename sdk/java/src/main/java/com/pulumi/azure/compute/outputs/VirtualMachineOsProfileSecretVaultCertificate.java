@@ -15,21 +15,14 @@ public final class VirtualMachineOsProfileSecretVaultCertificate {
      * @return Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
      * 
      */
-    private final @Nullable String certificateStore;
+    private @Nullable String certificateStore;
     /**
      * @return The ID of the Key Vault Secret. Stored secret is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be:
      * 
      */
-    private final String certificateUrl;
+    private String certificateUrl;
 
-    @CustomType.Constructor
-    private VirtualMachineOsProfileSecretVaultCertificate(
-        @CustomType.Parameter("certificateStore") @Nullable String certificateStore,
-        @CustomType.Parameter("certificateUrl") String certificateUrl) {
-        this.certificateStore = certificateStore;
-        this.certificateUrl = certificateUrl;
-    }
-
+    private VirtualMachineOsProfileSecretVaultCertificate() {}
     /**
      * @return Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as `My`.
      * 
@@ -52,30 +45,32 @@ public final class VirtualMachineOsProfileSecretVaultCertificate {
     public static Builder builder(VirtualMachineOsProfileSecretVaultCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String certificateStore;
         private String certificateUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualMachineOsProfileSecretVaultCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateStore = defaults.certificateStore;
     	      this.certificateUrl = defaults.certificateUrl;
         }
 
+        @CustomType.Setter
         public Builder certificateStore(@Nullable String certificateStore) {
             this.certificateStore = certificateStore;
             return this;
         }
+        @CustomType.Setter
         public Builder certificateUrl(String certificateUrl) {
             this.certificateUrl = Objects.requireNonNull(certificateUrl);
             return this;
-        }        public VirtualMachineOsProfileSecretVaultCertificate build() {
-            return new VirtualMachineOsProfileSecretVaultCertificate(certificateStore, certificateUrl);
+        }
+        public VirtualMachineOsProfileSecretVaultCertificate build() {
+            final var o = new VirtualMachineOsProfileSecretVaultCertificate();
+            o.certificateStore = certificateStore;
+            o.certificateUrl = certificateUrl;
+            return o;
         }
     }
 }

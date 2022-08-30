@@ -15,28 +15,19 @@ public final class MonitorIdentity {
      * @return The Principal ID for the Service Principal associated with the Identity of this Datadog Monitor.
      * 
      */
-    private final @Nullable String principalId;
+    private @Nullable String principalId;
     /**
      * @return The Tenant ID for the Service Principal associated with the Identity of this Datadog Monitor.
      * 
      */
-    private final @Nullable String tenantId;
+    private @Nullable String tenantId;
     /**
      * @return Specifies the identity type of the Datadog Monitor. At this time the only allowed value is `SystemAssigned`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private MonitorIdentity(
-        @CustomType.Parameter("principalId") @Nullable String principalId,
-        @CustomType.Parameter("tenantId") @Nullable String tenantId,
-        @CustomType.Parameter("type") String type) {
-        this.principalId = principalId;
-        this.tenantId = tenantId;
-        this.type = type;
-    }
-
+    private MonitorIdentity() {}
     /**
      * @return The Principal ID for the Service Principal associated with the Identity of this Datadog Monitor.
      * 
@@ -66,16 +57,12 @@ public final class MonitorIdentity {
     public static Builder builder(MonitorIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String principalId;
         private @Nullable String tenantId;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MonitorIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.principalId = defaults.principalId;
@@ -83,19 +70,27 @@ public final class MonitorIdentity {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder principalId(@Nullable String principalId) {
             this.principalId = principalId;
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
             this.tenantId = tenantId;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public MonitorIdentity build() {
-            return new MonitorIdentity(principalId, tenantId, type);
+        }
+        public MonitorIdentity build() {
+            final var o = new MonitorIdentity();
+            o.principalId = principalId;
+            o.tenantId = tenantId;
+            o.type = type;
+            return o;
         }
     }
 }

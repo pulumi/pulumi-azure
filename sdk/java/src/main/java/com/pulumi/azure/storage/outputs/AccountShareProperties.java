@@ -18,28 +18,19 @@ public final class AccountShareProperties {
      * @return A `cors_rule` block as defined below.
      * 
      */
-    private final @Nullable List<AccountSharePropertiesCorsRule> corsRules;
+    private @Nullable List<AccountSharePropertiesCorsRule> corsRules;
     /**
      * @return A `retention_policy` block as defined below.
      * 
      */
-    private final @Nullable AccountSharePropertiesRetentionPolicy retentionPolicy;
+    private @Nullable AccountSharePropertiesRetentionPolicy retentionPolicy;
     /**
      * @return A `smb` block as defined below.
      * 
      */
-    private final @Nullable AccountSharePropertiesSmb smb;
+    private @Nullable AccountSharePropertiesSmb smb;
 
-    @CustomType.Constructor
-    private AccountShareProperties(
-        @CustomType.Parameter("corsRules") @Nullable List<AccountSharePropertiesCorsRule> corsRules,
-        @CustomType.Parameter("retentionPolicy") @Nullable AccountSharePropertiesRetentionPolicy retentionPolicy,
-        @CustomType.Parameter("smb") @Nullable AccountSharePropertiesSmb smb) {
-        this.corsRules = corsRules;
-        this.retentionPolicy = retentionPolicy;
-        this.smb = smb;
-    }
-
+    private AccountShareProperties() {}
     /**
      * @return A `cors_rule` block as defined below.
      * 
@@ -69,16 +60,12 @@ public final class AccountShareProperties {
     public static Builder builder(AccountShareProperties defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<AccountSharePropertiesCorsRule> corsRules;
         private @Nullable AccountSharePropertiesRetentionPolicy retentionPolicy;
         private @Nullable AccountSharePropertiesSmb smb;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountShareProperties defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.corsRules = defaults.corsRules;
@@ -86,6 +73,7 @@ public final class AccountShareProperties {
     	      this.smb = defaults.smb;
         }
 
+        @CustomType.Setter
         public Builder corsRules(@Nullable List<AccountSharePropertiesCorsRule> corsRules) {
             this.corsRules = corsRules;
             return this;
@@ -93,15 +81,22 @@ public final class AccountShareProperties {
         public Builder corsRules(AccountSharePropertiesCorsRule... corsRules) {
             return corsRules(List.of(corsRules));
         }
+        @CustomType.Setter
         public Builder retentionPolicy(@Nullable AccountSharePropertiesRetentionPolicy retentionPolicy) {
             this.retentionPolicy = retentionPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder smb(@Nullable AccountSharePropertiesSmb smb) {
             this.smb = smb;
             return this;
-        }        public AccountShareProperties build() {
-            return new AccountShareProperties(corsRules, retentionPolicy, smb);
+        }
+        public AccountShareProperties build() {
+            final var o = new AccountShareProperties();
+            o.corsRules = corsRules;
+            o.retentionPolicy = retentionPolicy;
+            o.smb = smb;
+            return o;
         }
     }
 }

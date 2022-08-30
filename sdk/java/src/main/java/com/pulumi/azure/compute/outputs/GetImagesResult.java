@@ -17,27 +17,16 @@ public final class GetImagesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return One or more `images` blocks as defined below:
      * 
      */
-    private final List<GetImagesImage> images;
-    private final String resourceGroupName;
-    private final @Nullable Map<String,String> tagsFilter;
+    private List<GetImagesImage> images;
+    private String resourceGroupName;
+    private @Nullable Map<String,String> tagsFilter;
 
-    @CustomType.Constructor
-    private GetImagesResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("images") List<GetImagesImage> images,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tagsFilter") @Nullable Map<String,String> tagsFilter) {
-        this.id = id;
-        this.images = images;
-        this.resourceGroupName = resourceGroupName;
-        this.tagsFilter = tagsFilter;
-    }
-
+    private GetImagesResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -66,17 +55,13 @@ public final class GetImagesResult {
     public static Builder builder(GetImagesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private List<GetImagesImage> images;
         private String resourceGroupName;
         private @Nullable Map<String,String> tagsFilter;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetImagesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -85,10 +70,12 @@ public final class GetImagesResult {
     	      this.tagsFilter = defaults.tagsFilter;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder images(List<GetImagesImage> images) {
             this.images = Objects.requireNonNull(images);
             return this;
@@ -96,15 +83,23 @@ public final class GetImagesResult {
         public Builder images(GetImagesImage... images) {
             return images(List.of(images));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tagsFilter(@Nullable Map<String,String> tagsFilter) {
             this.tagsFilter = tagsFilter;
             return this;
-        }        public GetImagesResult build() {
-            return new GetImagesResult(id, images, resourceGroupName, tagsFilter);
+        }
+        public GetImagesResult build() {
+            final var o = new GetImagesResult();
+            o.id = id;
+            o.images = images;
+            o.resourceGroupName = resourceGroupName;
+            o.tagsFilter = tagsFilter;
+            return o;
         }
     }
 }

@@ -15,13 +15,9 @@ public final class LinuxVirtualMachineScaleSetBootDiagnostics {
      * @return The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
      * 
      */
-    private final @Nullable String storageAccountUri;
+    private @Nullable String storageAccountUri;
 
-    @CustomType.Constructor
-    private LinuxVirtualMachineScaleSetBootDiagnostics(@CustomType.Parameter("storageAccountUri") @Nullable String storageAccountUri) {
-        this.storageAccountUri = storageAccountUri;
-    }
-
+    private LinuxVirtualMachineScaleSetBootDiagnostics() {}
     /**
      * @return The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
      * 
@@ -37,24 +33,24 @@ public final class LinuxVirtualMachineScaleSetBootDiagnostics {
     public static Builder builder(LinuxVirtualMachineScaleSetBootDiagnostics defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String storageAccountUri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxVirtualMachineScaleSetBootDiagnostics defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.storageAccountUri = defaults.storageAccountUri;
         }
 
+        @CustomType.Setter
         public Builder storageAccountUri(@Nullable String storageAccountUri) {
             this.storageAccountUri = storageAccountUri;
             return this;
-        }        public LinuxVirtualMachineScaleSetBootDiagnostics build() {
-            return new LinuxVirtualMachineScaleSetBootDiagnostics(storageAccountUri);
+        }
+        public LinuxVirtualMachineScaleSetBootDiagnostics build() {
+            final var o = new LinuxVirtualMachineScaleSetBootDiagnostics();
+            o.storageAccountUri = storageAccountUri;
+            return o;
         }
     }
 }

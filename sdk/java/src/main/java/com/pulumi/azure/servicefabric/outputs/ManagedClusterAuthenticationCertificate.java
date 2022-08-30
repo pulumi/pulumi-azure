@@ -15,28 +15,19 @@ public final class ManagedClusterAuthenticationCertificate {
      * @return The certificate&#39;s CN.
      * 
      */
-    private final @Nullable String commonName;
+    private @Nullable String commonName;
     /**
      * @return The thumbprint of the certificate.
      * 
      */
-    private final String thumbprint;
+    private String thumbprint;
     /**
      * @return The type of the certificate. Can be `AdminClient` or `ReadOnlyClient`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ManagedClusterAuthenticationCertificate(
-        @CustomType.Parameter("commonName") @Nullable String commonName,
-        @CustomType.Parameter("thumbprint") String thumbprint,
-        @CustomType.Parameter("type") String type) {
-        this.commonName = commonName;
-        this.thumbprint = thumbprint;
-        this.type = type;
-    }
-
+    private ManagedClusterAuthenticationCertificate() {}
     /**
      * @return The certificate&#39;s CN.
      * 
@@ -66,16 +57,12 @@ public final class ManagedClusterAuthenticationCertificate {
     public static Builder builder(ManagedClusterAuthenticationCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String commonName;
         private String thumbprint;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ManagedClusterAuthenticationCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.commonName = defaults.commonName;
@@ -83,19 +70,27 @@ public final class ManagedClusterAuthenticationCertificate {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder commonName(@Nullable String commonName) {
             this.commonName = commonName;
             return this;
         }
+        @CustomType.Setter
         public Builder thumbprint(String thumbprint) {
             this.thumbprint = Objects.requireNonNull(thumbprint);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ManagedClusterAuthenticationCertificate build() {
-            return new ManagedClusterAuthenticationCertificate(commonName, thumbprint, type);
+        }
+        public ManagedClusterAuthenticationCertificate build() {
+            final var o = new ManagedClusterAuthenticationCertificate();
+            o.commonName = commonName;
+            o.thumbprint = thumbprint;
+            o.type = type;
+            return o;
         }
     }
 }

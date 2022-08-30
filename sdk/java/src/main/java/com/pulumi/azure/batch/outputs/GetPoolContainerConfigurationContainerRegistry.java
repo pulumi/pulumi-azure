@@ -13,35 +13,24 @@ public final class GetPoolContainerConfigurationContainerRegistry {
      * @return The password to log into the registry server.
      * 
      */
-    private final String password;
+    private String password;
     /**
      * @return The container registry URL. The default is &#34;docker.io&#34;.
      * 
      */
-    private final String registryServer;
+    private String registryServer;
     /**
      * @return The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
      * 
      */
-    private final String userAssignedIdentityId;
+    private String userAssignedIdentityId;
     /**
      * @return The user name to log into the registry server.
      * 
      */
-    private final String userName;
+    private String userName;
 
-    @CustomType.Constructor
-    private GetPoolContainerConfigurationContainerRegistry(
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("registryServer") String registryServer,
-        @CustomType.Parameter("userAssignedIdentityId") String userAssignedIdentityId,
-        @CustomType.Parameter("userName") String userName) {
-        this.password = password;
-        this.registryServer = registryServer;
-        this.userAssignedIdentityId = userAssignedIdentityId;
-        this.userName = userName;
-    }
-
+    private GetPoolContainerConfigurationContainerRegistry() {}
     /**
      * @return The password to log into the registry server.
      * 
@@ -78,17 +67,13 @@ public final class GetPoolContainerConfigurationContainerRegistry {
     public static Builder builder(GetPoolContainerConfigurationContainerRegistry defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String password;
         private String registryServer;
         private String userAssignedIdentityId;
         private String userName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPoolContainerConfigurationContainerRegistry defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.password = defaults.password;
@@ -97,23 +82,33 @@ public final class GetPoolContainerConfigurationContainerRegistry {
     	      this.userName = defaults.userName;
         }
 
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder registryServer(String registryServer) {
             this.registryServer = Objects.requireNonNull(registryServer);
             return this;
         }
+        @CustomType.Setter
         public Builder userAssignedIdentityId(String userAssignedIdentityId) {
             this.userAssignedIdentityId = Objects.requireNonNull(userAssignedIdentityId);
             return this;
         }
+        @CustomType.Setter
         public Builder userName(String userName) {
             this.userName = Objects.requireNonNull(userName);
             return this;
-        }        public GetPoolContainerConfigurationContainerRegistry build() {
-            return new GetPoolContainerConfigurationContainerRegistry(password, registryServer, userAssignedIdentityId, userName);
+        }
+        public GetPoolContainerConfigurationContainerRegistry build() {
+            final var o = new GetPoolContainerConfigurationContainerRegistry();
+            o.password = password;
+            o.registryServer = registryServer;
+            o.userAssignedIdentityId = userAssignedIdentityId;
+            o.userName = userName;
+            return o;
         }
     }
 }

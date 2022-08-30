@@ -13,21 +13,14 @@ public final class ApiDiagnosticFrontendRequestDataMaskingHeader {
      * @return The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
      * 
      */
-    private final String mode;
+    private String mode;
     /**
      * @return The name of the header or the query parameter to mask.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private ApiDiagnosticFrontendRequestDataMaskingHeader(
-        @CustomType.Parameter("mode") String mode,
-        @CustomType.Parameter("value") String value) {
-        this.mode = mode;
-        this.value = value;
-    }
-
+    private ApiDiagnosticFrontendRequestDataMaskingHeader() {}
     /**
      * @return The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
      * 
@@ -50,30 +43,32 @@ public final class ApiDiagnosticFrontendRequestDataMaskingHeader {
     public static Builder builder(ApiDiagnosticFrontendRequestDataMaskingHeader defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String mode;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApiDiagnosticFrontendRequestDataMaskingHeader defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mode = defaults.mode;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder mode(String mode) {
             this.mode = Objects.requireNonNull(mode);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public ApiDiagnosticFrontendRequestDataMaskingHeader build() {
-            return new ApiDiagnosticFrontendRequestDataMaskingHeader(mode, value);
+        }
+        public ApiDiagnosticFrontendRequestDataMaskingHeader build() {
+            final var o = new ApiDiagnosticFrontendRequestDataMaskingHeader();
+            o.mode = mode;
+            o.value = value;
+            return o;
         }
     }
 }

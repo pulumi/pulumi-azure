@@ -15,28 +15,19 @@ public final class FlexibleServerMaintenanceWindow {
      * @return The day of week for maintenance window. Defaults to `0`.
      * 
      */
-    private final @Nullable Integer dayOfWeek;
+    private @Nullable Integer dayOfWeek;
     /**
      * @return The start hour for maintenance window. Defaults to `0`.
      * 
      */
-    private final @Nullable Integer startHour;
+    private @Nullable Integer startHour;
     /**
      * @return The start minute for maintenance window. Defaults to `0`.
      * 
      */
-    private final @Nullable Integer startMinute;
+    private @Nullable Integer startMinute;
 
-    @CustomType.Constructor
-    private FlexibleServerMaintenanceWindow(
-        @CustomType.Parameter("dayOfWeek") @Nullable Integer dayOfWeek,
-        @CustomType.Parameter("startHour") @Nullable Integer startHour,
-        @CustomType.Parameter("startMinute") @Nullable Integer startMinute) {
-        this.dayOfWeek = dayOfWeek;
-        this.startHour = startHour;
-        this.startMinute = startMinute;
-    }
-
+    private FlexibleServerMaintenanceWindow() {}
     /**
      * @return The day of week for maintenance window. Defaults to `0`.
      * 
@@ -66,16 +57,12 @@ public final class FlexibleServerMaintenanceWindow {
     public static Builder builder(FlexibleServerMaintenanceWindow defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer dayOfWeek;
         private @Nullable Integer startHour;
         private @Nullable Integer startMinute;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlexibleServerMaintenanceWindow defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dayOfWeek = defaults.dayOfWeek;
@@ -83,19 +70,27 @@ public final class FlexibleServerMaintenanceWindow {
     	      this.startMinute = defaults.startMinute;
         }
 
+        @CustomType.Setter
         public Builder dayOfWeek(@Nullable Integer dayOfWeek) {
             this.dayOfWeek = dayOfWeek;
             return this;
         }
+        @CustomType.Setter
         public Builder startHour(@Nullable Integer startHour) {
             this.startHour = startHour;
             return this;
         }
+        @CustomType.Setter
         public Builder startMinute(@Nullable Integer startMinute) {
             this.startMinute = startMinute;
             return this;
-        }        public FlexibleServerMaintenanceWindow build() {
-            return new FlexibleServerMaintenanceWindow(dayOfWeek, startHour, startMinute);
+        }
+        public FlexibleServerMaintenanceWindow build() {
+            final var o = new FlexibleServerMaintenanceWindow();
+            o.dayOfWeek = dayOfWeek;
+            o.startHour = startHour;
+            o.startMinute = startMinute;
+            return o;
         }
     }
 }

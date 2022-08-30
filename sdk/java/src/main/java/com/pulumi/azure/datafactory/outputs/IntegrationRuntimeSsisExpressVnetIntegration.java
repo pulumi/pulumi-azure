@@ -13,13 +13,9 @@ public final class IntegrationRuntimeSsisExpressVnetIntegration {
      * @return id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private IntegrationRuntimeSsisExpressVnetIntegration(@CustomType.Parameter("subnetId") String subnetId) {
-        this.subnetId = subnetId;
-    }
-
+    private IntegrationRuntimeSsisExpressVnetIntegration() {}
     /**
      * @return id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
      * 
@@ -35,24 +31,24 @@ public final class IntegrationRuntimeSsisExpressVnetIntegration {
     public static Builder builder(IntegrationRuntimeSsisExpressVnetIntegration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationRuntimeSsisExpressVnetIntegration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public IntegrationRuntimeSsisExpressVnetIntegration build() {
-            return new IntegrationRuntimeSsisExpressVnetIntegration(subnetId);
+        }
+        public IntegrationRuntimeSsisExpressVnetIntegration build() {
+            final var o = new IntegrationRuntimeSsisExpressVnetIntegration();
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

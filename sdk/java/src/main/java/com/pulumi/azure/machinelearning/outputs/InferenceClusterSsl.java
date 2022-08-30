@@ -16,42 +16,29 @@ public final class InferenceClusterSsl {
      * @return The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    private final @Nullable String cert;
+    private @Nullable String cert;
     /**
      * @return The cname of the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    private final @Nullable String cname;
+    private @Nullable String cname;
     /**
      * @return The key content for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    private final @Nullable String key;
+    private @Nullable String key;
     /**
      * @return The leaf domain label for the SSL configuration. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname`. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    private final @Nullable String leafDomainLabel;
+    private @Nullable String leafDomainLabel;
     /**
      * @return Whether or not to overwrite existing leaf domain. Conflicts with `ssl.0.cert`,`ssl.0.key`,`ssl.0.cname` Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
      */
-    private final @Nullable Boolean overwriteExistingDomain;
+    private @Nullable Boolean overwriteExistingDomain;
 
-    @CustomType.Constructor
-    private InferenceClusterSsl(
-        @CustomType.Parameter("cert") @Nullable String cert,
-        @CustomType.Parameter("cname") @Nullable String cname,
-        @CustomType.Parameter("key") @Nullable String key,
-        @CustomType.Parameter("leafDomainLabel") @Nullable String leafDomainLabel,
-        @CustomType.Parameter("overwriteExistingDomain") @Nullable Boolean overwriteExistingDomain) {
-        this.cert = cert;
-        this.cname = cname;
-        this.key = key;
-        this.leafDomainLabel = leafDomainLabel;
-        this.overwriteExistingDomain = overwriteExistingDomain;
-    }
-
+    private InferenceClusterSsl() {}
     /**
      * @return The certificate for the SSL configuration.Conflicts with `ssl.0.leaf_domain_label`,`ssl.0.overwrite_existing_domain`. Changing this forces a new Machine Learning Inference Cluster to be created.
      * 
@@ -95,18 +82,14 @@ public final class InferenceClusterSsl {
     public static Builder builder(InferenceClusterSsl defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String cert;
         private @Nullable String cname;
         private @Nullable String key;
         private @Nullable String leafDomainLabel;
         private @Nullable Boolean overwriteExistingDomain;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InferenceClusterSsl defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cert = defaults.cert;
@@ -116,27 +99,39 @@ public final class InferenceClusterSsl {
     	      this.overwriteExistingDomain = defaults.overwriteExistingDomain;
         }
 
+        @CustomType.Setter
         public Builder cert(@Nullable String cert) {
             this.cert = cert;
             return this;
         }
+        @CustomType.Setter
         public Builder cname(@Nullable String cname) {
             this.cname = cname;
             return this;
         }
+        @CustomType.Setter
         public Builder key(@Nullable String key) {
             this.key = key;
             return this;
         }
+        @CustomType.Setter
         public Builder leafDomainLabel(@Nullable String leafDomainLabel) {
             this.leafDomainLabel = leafDomainLabel;
             return this;
         }
+        @CustomType.Setter
         public Builder overwriteExistingDomain(@Nullable Boolean overwriteExistingDomain) {
             this.overwriteExistingDomain = overwriteExistingDomain;
             return this;
-        }        public InferenceClusterSsl build() {
-            return new InferenceClusterSsl(cert, cname, key, leafDomainLabel, overwriteExistingDomain);
+        }
+        public InferenceClusterSsl build() {
+            final var o = new InferenceClusterSsl();
+            o.cert = cert;
+            o.cname = cname;
+            o.key = key;
+            o.leafDomainLabel = leafDomainLabel;
+            o.overwriteExistingDomain = overwriteExistingDomain;
+            return o;
         }
     }
 }

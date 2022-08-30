@@ -13,13 +13,9 @@ public final class FailoverGroupReadonlyEndpointFailoverPolicy {
      * @return Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
      * 
      */
-    private final String mode;
+    private String mode;
 
-    @CustomType.Constructor
-    private FailoverGroupReadonlyEndpointFailoverPolicy(@CustomType.Parameter("mode") String mode) {
-        this.mode = mode;
-    }
-
+    private FailoverGroupReadonlyEndpointFailoverPolicy() {}
     /**
      * @return Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
      * 
@@ -35,24 +31,24 @@ public final class FailoverGroupReadonlyEndpointFailoverPolicy {
     public static Builder builder(FailoverGroupReadonlyEndpointFailoverPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String mode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FailoverGroupReadonlyEndpointFailoverPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mode = defaults.mode;
         }
 
+        @CustomType.Setter
         public Builder mode(String mode) {
             this.mode = Objects.requireNonNull(mode);
             return this;
-        }        public FailoverGroupReadonlyEndpointFailoverPolicy build() {
-            return new FailoverGroupReadonlyEndpointFailoverPolicy(mode);
+        }
+        public FailoverGroupReadonlyEndpointFailoverPolicy build() {
+            final var o = new FailoverGroupReadonlyEndpointFailoverPolicy();
+            o.mode = mode;
+            return o;
         }
     }
 }

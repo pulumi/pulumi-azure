@@ -15,21 +15,14 @@ public final class EventHubNamespaceNetworkRulesetsIpRule {
      * @return The action to take when the rule is matched. Possible values are `Allow`.
      * 
      */
-    private final @Nullable String action;
+    private @Nullable String action;
     /**
      * @return The IP mask to match on.
      * 
      */
-    private final String ipMask;
+    private String ipMask;
 
-    @CustomType.Constructor
-    private EventHubNamespaceNetworkRulesetsIpRule(
-        @CustomType.Parameter("action") @Nullable String action,
-        @CustomType.Parameter("ipMask") String ipMask) {
-        this.action = action;
-        this.ipMask = ipMask;
-    }
-
+    private EventHubNamespaceNetworkRulesetsIpRule() {}
     /**
      * @return The action to take when the rule is matched. Possible values are `Allow`.
      * 
@@ -52,30 +45,32 @@ public final class EventHubNamespaceNetworkRulesetsIpRule {
     public static Builder builder(EventHubNamespaceNetworkRulesetsIpRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String action;
         private String ipMask;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventHubNamespaceNetworkRulesetsIpRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
     	      this.ipMask = defaults.ipMask;
         }
 
+        @CustomType.Setter
         public Builder action(@Nullable String action) {
             this.action = action;
             return this;
         }
+        @CustomType.Setter
         public Builder ipMask(String ipMask) {
             this.ipMask = Objects.requireNonNull(ipMask);
             return this;
-        }        public EventHubNamespaceNetworkRulesetsIpRule build() {
-            return new EventHubNamespaceNetworkRulesetsIpRule(action, ipMask);
+        }
+        public EventHubNamespaceNetworkRulesetsIpRule build() {
+            final var o = new EventHubNamespaceNetworkRulesetsIpRule();
+            o.action = action;
+            o.ipMask = ipMask;
+            return o;
         }
     }
 }

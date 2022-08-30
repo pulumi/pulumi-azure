@@ -17,28 +17,19 @@ public final class NetworkConnectionMonitorTestConfigurationTcpConfiguration {
      * @return The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
      * 
      */
-    private final @Nullable String destinationPortBehavior;
+    private @Nullable String destinationPortBehavior;
     /**
      * @return The port for the TCP connection.
      * 
      */
-    private final Integer port;
+    private Integer port;
     /**
      * @return Should path evaluation with trace route be enabled? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean traceRouteEnabled;
+    private @Nullable Boolean traceRouteEnabled;
 
-    @CustomType.Constructor
-    private NetworkConnectionMonitorTestConfigurationTcpConfiguration(
-        @CustomType.Parameter("destinationPortBehavior") @Nullable String destinationPortBehavior,
-        @CustomType.Parameter("port") Integer port,
-        @CustomType.Parameter("traceRouteEnabled") @Nullable Boolean traceRouteEnabled) {
-        this.destinationPortBehavior = destinationPortBehavior;
-        this.port = port;
-        this.traceRouteEnabled = traceRouteEnabled;
-    }
-
+    private NetworkConnectionMonitorTestConfigurationTcpConfiguration() {}
     /**
      * @return The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
      * 
@@ -68,16 +59,12 @@ public final class NetworkConnectionMonitorTestConfigurationTcpConfiguration {
     public static Builder builder(NetworkConnectionMonitorTestConfigurationTcpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String destinationPortBehavior;
         private Integer port;
         private @Nullable Boolean traceRouteEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NetworkConnectionMonitorTestConfigurationTcpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destinationPortBehavior = defaults.destinationPortBehavior;
@@ -85,19 +72,27 @@ public final class NetworkConnectionMonitorTestConfigurationTcpConfiguration {
     	      this.traceRouteEnabled = defaults.traceRouteEnabled;
         }
 
+        @CustomType.Setter
         public Builder destinationPortBehavior(@Nullable String destinationPortBehavior) {
             this.destinationPortBehavior = destinationPortBehavior;
             return this;
         }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
         }
+        @CustomType.Setter
         public Builder traceRouteEnabled(@Nullable Boolean traceRouteEnabled) {
             this.traceRouteEnabled = traceRouteEnabled;
             return this;
-        }        public NetworkConnectionMonitorTestConfigurationTcpConfiguration build() {
-            return new NetworkConnectionMonitorTestConfigurationTcpConfiguration(destinationPortBehavior, port, traceRouteEnabled);
+        }
+        public NetworkConnectionMonitorTestConfigurationTcpConfiguration build() {
+            final var o = new NetworkConnectionMonitorTestConfigurationTcpConfiguration();
+            o.destinationPortBehavior = destinationPortBehavior;
+            o.port = port;
+            o.traceRouteEnabled = traceRouteEnabled;
+            return o;
         }
     }
 }

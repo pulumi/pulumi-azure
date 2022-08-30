@@ -17,28 +17,19 @@ public final class ScheduledQueryRulesAlertTrigger {
      * @return A `metric_trigger` block as defined above. Trigger condition for metric query rule.
      * 
      */
-    private final @Nullable ScheduledQueryRulesAlertTriggerMetricTrigger metricTrigger;
+    private @Nullable ScheduledQueryRulesAlertTriggerMetricTrigger metricTrigger;
     /**
      * @return Evaluation operation for rule - &#39;GreaterThan&#39;, GreaterThanOrEqual&#39;, &#39;LessThan&#39;, or &#39;LessThanOrEqual&#39;.
      * 
      */
-    private final String operator;
+    private String operator;
     /**
      * @return Result or count threshold based on which rule should be triggered.  Values must be between 0 and 10000 inclusive.
      * 
      */
-    private final Double threshold;
+    private Double threshold;
 
-    @CustomType.Constructor
-    private ScheduledQueryRulesAlertTrigger(
-        @CustomType.Parameter("metricTrigger") @Nullable ScheduledQueryRulesAlertTriggerMetricTrigger metricTrigger,
-        @CustomType.Parameter("operator") String operator,
-        @CustomType.Parameter("threshold") Double threshold) {
-        this.metricTrigger = metricTrigger;
-        this.operator = operator;
-        this.threshold = threshold;
-    }
-
+    private ScheduledQueryRulesAlertTrigger() {}
     /**
      * @return A `metric_trigger` block as defined above. Trigger condition for metric query rule.
      * 
@@ -68,16 +59,12 @@ public final class ScheduledQueryRulesAlertTrigger {
     public static Builder builder(ScheduledQueryRulesAlertTrigger defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ScheduledQueryRulesAlertTriggerMetricTrigger metricTrigger;
         private String operator;
         private Double threshold;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScheduledQueryRulesAlertTrigger defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.metricTrigger = defaults.metricTrigger;
@@ -85,19 +72,27 @@ public final class ScheduledQueryRulesAlertTrigger {
     	      this.threshold = defaults.threshold;
         }
 
+        @CustomType.Setter
         public Builder metricTrigger(@Nullable ScheduledQueryRulesAlertTriggerMetricTrigger metricTrigger) {
             this.metricTrigger = metricTrigger;
             return this;
         }
+        @CustomType.Setter
         public Builder operator(String operator) {
             this.operator = Objects.requireNonNull(operator);
             return this;
         }
+        @CustomType.Setter
         public Builder threshold(Double threshold) {
             this.threshold = Objects.requireNonNull(threshold);
             return this;
-        }        public ScheduledQueryRulesAlertTrigger build() {
-            return new ScheduledQueryRulesAlertTrigger(metricTrigger, operator, threshold);
+        }
+        public ScheduledQueryRulesAlertTrigger build() {
+            final var o = new ScheduledQueryRulesAlertTrigger();
+            o.metricTrigger = metricTrigger;
+            o.operator = operator;
+            o.threshold = threshold;
+            return o;
         }
     }
 }

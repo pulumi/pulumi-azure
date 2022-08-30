@@ -19,35 +19,24 @@ public final class EventHubNamespaceNetworkRulesets {
      * @return The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
      * 
      */
-    private final String defaultAction;
+    private String defaultAction;
     /**
      * @return One or more `ip_rule` blocks as defined below.
      * 
      */
-    private final @Nullable List<EventHubNamespaceNetworkRulesetsIpRule> ipRules;
+    private @Nullable List<EventHubNamespaceNetworkRulesetsIpRule> ipRules;
     /**
      * @return Whether Trusted Microsoft Services are allowed to bypass firewall.
      * 
      */
-    private final @Nullable Boolean trustedServiceAccessEnabled;
+    private @Nullable Boolean trustedServiceAccessEnabled;
     /**
      * @return One or more `virtual_network_rule` blocks as defined below.
      * 
      */
-    private final @Nullable List<EventHubNamespaceNetworkRulesetsVirtualNetworkRule> virtualNetworkRules;
+    private @Nullable List<EventHubNamespaceNetworkRulesetsVirtualNetworkRule> virtualNetworkRules;
 
-    @CustomType.Constructor
-    private EventHubNamespaceNetworkRulesets(
-        @CustomType.Parameter("defaultAction") String defaultAction,
-        @CustomType.Parameter("ipRules") @Nullable List<EventHubNamespaceNetworkRulesetsIpRule> ipRules,
-        @CustomType.Parameter("trustedServiceAccessEnabled") @Nullable Boolean trustedServiceAccessEnabled,
-        @CustomType.Parameter("virtualNetworkRules") @Nullable List<EventHubNamespaceNetworkRulesetsVirtualNetworkRule> virtualNetworkRules) {
-        this.defaultAction = defaultAction;
-        this.ipRules = ipRules;
-        this.trustedServiceAccessEnabled = trustedServiceAccessEnabled;
-        this.virtualNetworkRules = virtualNetworkRules;
-    }
-
+    private EventHubNamespaceNetworkRulesets() {}
     /**
      * @return The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
      * 
@@ -84,17 +73,13 @@ public final class EventHubNamespaceNetworkRulesets {
     public static Builder builder(EventHubNamespaceNetworkRulesets defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String defaultAction;
         private @Nullable List<EventHubNamespaceNetworkRulesetsIpRule> ipRules;
         private @Nullable Boolean trustedServiceAccessEnabled;
         private @Nullable List<EventHubNamespaceNetworkRulesetsVirtualNetworkRule> virtualNetworkRules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventHubNamespaceNetworkRulesets defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultAction = defaults.defaultAction;
@@ -103,10 +88,12 @@ public final class EventHubNamespaceNetworkRulesets {
     	      this.virtualNetworkRules = defaults.virtualNetworkRules;
         }
 
+        @CustomType.Setter
         public Builder defaultAction(String defaultAction) {
             this.defaultAction = Objects.requireNonNull(defaultAction);
             return this;
         }
+        @CustomType.Setter
         public Builder ipRules(@Nullable List<EventHubNamespaceNetworkRulesetsIpRule> ipRules) {
             this.ipRules = ipRules;
             return this;
@@ -114,18 +101,26 @@ public final class EventHubNamespaceNetworkRulesets {
         public Builder ipRules(EventHubNamespaceNetworkRulesetsIpRule... ipRules) {
             return ipRules(List.of(ipRules));
         }
+        @CustomType.Setter
         public Builder trustedServiceAccessEnabled(@Nullable Boolean trustedServiceAccessEnabled) {
             this.trustedServiceAccessEnabled = trustedServiceAccessEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder virtualNetworkRules(@Nullable List<EventHubNamespaceNetworkRulesetsVirtualNetworkRule> virtualNetworkRules) {
             this.virtualNetworkRules = virtualNetworkRules;
             return this;
         }
         public Builder virtualNetworkRules(EventHubNamespaceNetworkRulesetsVirtualNetworkRule... virtualNetworkRules) {
             return virtualNetworkRules(List.of(virtualNetworkRules));
-        }        public EventHubNamespaceNetworkRulesets build() {
-            return new EventHubNamespaceNetworkRulesets(defaultAction, ipRules, trustedServiceAccessEnabled, virtualNetworkRules);
+        }
+        public EventHubNamespaceNetworkRulesets build() {
+            final var o = new EventHubNamespaceNetworkRulesets();
+            o.defaultAction = defaultAction;
+            o.ipRules = ipRules;
+            o.trustedServiceAccessEnabled = trustedServiceAccessEnabled;
+            o.virtualNetworkRules = virtualNetworkRules;
+            return o;
         }
     }
 }

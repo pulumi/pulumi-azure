@@ -15,21 +15,14 @@ public final class ScheduledQueryRulesLogCriteria {
      * @return A `dimension` block as defined below.
      * 
      */
-    private final List<ScheduledQueryRulesLogCriteriaDimension> dimensions;
+    private List<ScheduledQueryRulesLogCriteriaDimension> dimensions;
     /**
      * @return Name of the metric.  Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
      * 
      */
-    private final String metricName;
+    private String metricName;
 
-    @CustomType.Constructor
-    private ScheduledQueryRulesLogCriteria(
-        @CustomType.Parameter("dimensions") List<ScheduledQueryRulesLogCriteriaDimension> dimensions,
-        @CustomType.Parameter("metricName") String metricName) {
-        this.dimensions = dimensions;
-        this.metricName = metricName;
-    }
-
+    private ScheduledQueryRulesLogCriteria() {}
     /**
      * @return A `dimension` block as defined below.
      * 
@@ -52,21 +45,18 @@ public final class ScheduledQueryRulesLogCriteria {
     public static Builder builder(ScheduledQueryRulesLogCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<ScheduledQueryRulesLogCriteriaDimension> dimensions;
         private String metricName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScheduledQueryRulesLogCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dimensions = defaults.dimensions;
     	      this.metricName = defaults.metricName;
         }
 
+        @CustomType.Setter
         public Builder dimensions(List<ScheduledQueryRulesLogCriteriaDimension> dimensions) {
             this.dimensions = Objects.requireNonNull(dimensions);
             return this;
@@ -74,11 +64,16 @@ public final class ScheduledQueryRulesLogCriteria {
         public Builder dimensions(ScheduledQueryRulesLogCriteriaDimension... dimensions) {
             return dimensions(List.of(dimensions));
         }
+        @CustomType.Setter
         public Builder metricName(String metricName) {
             this.metricName = Objects.requireNonNull(metricName);
             return this;
-        }        public ScheduledQueryRulesLogCriteria build() {
-            return new ScheduledQueryRulesLogCriteria(dimensions, metricName);
+        }
+        public ScheduledQueryRulesLogCriteria build() {
+            final var o = new ScheduledQueryRulesLogCriteria();
+            o.dimensions = dimensions;
+            o.metricName = metricName;
+            return o;
         }
     }
 }

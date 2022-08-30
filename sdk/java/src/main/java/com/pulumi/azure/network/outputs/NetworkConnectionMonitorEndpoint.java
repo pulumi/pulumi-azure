@@ -17,63 +17,44 @@ public final class NetworkConnectionMonitorEndpoint {
      * @return The IP address or domain name of the Network Connection Monitor endpoint.
      * 
      */
-    private final @Nullable String address;
+    private @Nullable String address;
     /**
      * @return The test coverage for the Network Connection Monitor endpoint. Possible values are `AboveAverage`, `Average`, `BelowAverage`, `Default`, `Full` and `Low`.
      * 
      */
-    private final @Nullable String coverageLevel;
+    private @Nullable String coverageLevel;
     /**
      * @return A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be excluded to the Network Connection Monitor endpoint.
      * 
      */
-    private final @Nullable List<String> excludedIpAddresses;
+    private @Nullable List<String> excludedIpAddresses;
     /**
      * @return A `filter` block as defined below.
      * 
      */
-    private final @Nullable NetworkConnectionMonitorEndpointFilter filter;
+    private @Nullable NetworkConnectionMonitorEndpointFilter filter;
     /**
      * @return A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be included to the Network Connection Monitor endpoint.
      * 
      */
-    private final @Nullable List<String> includedIpAddresses;
+    private @Nullable List<String> includedIpAddresses;
     /**
      * @return The name of the endpoint for the Network Connection Monitor .
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The resource ID which is used as the endpoint by the Network Connection Monitor.
      * 
      */
-    private final @Nullable String targetResourceId;
+    private @Nullable String targetResourceId;
     /**
      * @return The endpoint type of the Network Connection Monitor. Possible values are `AzureSubnet`, `AzureVM`, `AzureVNet`, `ExternalAddress`, `MMAWorkspaceMachine` and `MMAWorkspaceNetwork`.
      * 
      */
-    private final @Nullable String targetResourceType;
+    private @Nullable String targetResourceType;
 
-    @CustomType.Constructor
-    private NetworkConnectionMonitorEndpoint(
-        @CustomType.Parameter("address") @Nullable String address,
-        @CustomType.Parameter("coverageLevel") @Nullable String coverageLevel,
-        @CustomType.Parameter("excludedIpAddresses") @Nullable List<String> excludedIpAddresses,
-        @CustomType.Parameter("filter") @Nullable NetworkConnectionMonitorEndpointFilter filter,
-        @CustomType.Parameter("includedIpAddresses") @Nullable List<String> includedIpAddresses,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("targetResourceId") @Nullable String targetResourceId,
-        @CustomType.Parameter("targetResourceType") @Nullable String targetResourceType) {
-        this.address = address;
-        this.coverageLevel = coverageLevel;
-        this.excludedIpAddresses = excludedIpAddresses;
-        this.filter = filter;
-        this.includedIpAddresses = includedIpAddresses;
-        this.name = name;
-        this.targetResourceId = targetResourceId;
-        this.targetResourceType = targetResourceType;
-    }
-
+    private NetworkConnectionMonitorEndpoint() {}
     /**
      * @return The IP address or domain name of the Network Connection Monitor endpoint.
      * 
@@ -138,7 +119,7 @@ public final class NetworkConnectionMonitorEndpoint {
     public static Builder builder(NetworkConnectionMonitorEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String address;
         private @Nullable String coverageLevel;
@@ -148,11 +129,7 @@ public final class NetworkConnectionMonitorEndpoint {
         private String name;
         private @Nullable String targetResourceId;
         private @Nullable String targetResourceType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NetworkConnectionMonitorEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.address = defaults.address;
@@ -165,14 +142,17 @@ public final class NetworkConnectionMonitorEndpoint {
     	      this.targetResourceType = defaults.targetResourceType;
         }
 
+        @CustomType.Setter
         public Builder address(@Nullable String address) {
             this.address = address;
             return this;
         }
+        @CustomType.Setter
         public Builder coverageLevel(@Nullable String coverageLevel) {
             this.coverageLevel = coverageLevel;
             return this;
         }
+        @CustomType.Setter
         public Builder excludedIpAddresses(@Nullable List<String> excludedIpAddresses) {
             this.excludedIpAddresses = excludedIpAddresses;
             return this;
@@ -180,10 +160,12 @@ public final class NetworkConnectionMonitorEndpoint {
         public Builder excludedIpAddresses(String... excludedIpAddresses) {
             return excludedIpAddresses(List.of(excludedIpAddresses));
         }
+        @CustomType.Setter
         public Builder filter(@Nullable NetworkConnectionMonitorEndpointFilter filter) {
             this.filter = filter;
             return this;
         }
+        @CustomType.Setter
         public Builder includedIpAddresses(@Nullable List<String> includedIpAddresses) {
             this.includedIpAddresses = includedIpAddresses;
             return this;
@@ -191,19 +173,32 @@ public final class NetworkConnectionMonitorEndpoint {
         public Builder includedIpAddresses(String... includedIpAddresses) {
             return includedIpAddresses(List.of(includedIpAddresses));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder targetResourceId(@Nullable String targetResourceId) {
             this.targetResourceId = targetResourceId;
             return this;
         }
+        @CustomType.Setter
         public Builder targetResourceType(@Nullable String targetResourceType) {
             this.targetResourceType = targetResourceType;
             return this;
-        }        public NetworkConnectionMonitorEndpoint build() {
-            return new NetworkConnectionMonitorEndpoint(address, coverageLevel, excludedIpAddresses, filter, includedIpAddresses, name, targetResourceId, targetResourceType);
+        }
+        public NetworkConnectionMonitorEndpoint build() {
+            final var o = new NetworkConnectionMonitorEndpoint();
+            o.address = address;
+            o.coverageLevel = coverageLevel;
+            o.excludedIpAddresses = excludedIpAddresses;
+            o.filter = filter;
+            o.includedIpAddresses = includedIpAddresses;
+            o.name = name;
+            o.targetResourceId = targetResourceId;
+            o.targetResourceType = targetResourceType;
+            return o;
         }
     }
 }

@@ -15,28 +15,19 @@ public final class LogzSubAccountTagRuleTagFilter {
      * @return The action is used to limit logs collection to include or exclude Azure resources with specific tags. Possible values are `Include` and `Exclude`. Note that the `Exclude` takes priority over the `Include`.
      * 
      */
-    private final String action;
+    private String action;
     /**
      * @return The name of the tag to match.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The value of the tag to match.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private LogzSubAccountTagRuleTagFilter(
-        @CustomType.Parameter("action") String action,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.action = action;
-        this.name = name;
-        this.value = value;
-    }
-
+    private LogzSubAccountTagRuleTagFilter() {}
     /**
      * @return The action is used to limit logs collection to include or exclude Azure resources with specific tags. Possible values are `Include` and `Exclude`. Note that the `Exclude` takes priority over the `Include`.
      * 
@@ -66,16 +57,12 @@ public final class LogzSubAccountTagRuleTagFilter {
     public static Builder builder(LogzSubAccountTagRuleTagFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String action;
         private String name;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LogzSubAccountTagRuleTagFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -83,19 +70,27 @@ public final class LogzSubAccountTagRuleTagFilter {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public LogzSubAccountTagRuleTagFilter build() {
-            return new LogzSubAccountTagRuleTagFilter(action, name, value);
+        }
+        public LogzSubAccountTagRuleTagFilter build() {
+            final var o = new LogzSubAccountTagRuleTagFilter();
+            o.action = action;
+            o.name = name;
+            o.value = value;
+            return o;
         }
     }
 }

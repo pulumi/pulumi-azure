@@ -13,84 +13,59 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
      * @return The Current Stack value of the Windows Web App.
      * 
      */
-    private final String currentStack;
+    private String currentStack;
     /**
      * @return The name of the Docker Container in used.
      * 
      */
-    private final String dockerContainerName;
+    private String dockerContainerName;
     /**
      * @return The Container Registry where the Docker Container is pulled from.
      * 
      */
-    private final String dockerContainerRegistry;
+    private String dockerContainerRegistry;
     /**
      * @return The Docker Container Tag of the Container in use.
      * 
      */
-    private final String dockerContainerTag;
+    private String dockerContainerTag;
     /**
      * @return The version of .NET in use.
      * 
      */
-    private final String dotnetVersion;
+    private String dotnetVersion;
     /**
      * @return The Java Container in use.
      * 
      */
-    private final String javaContainer;
+    private String javaContainer;
     /**
      * @return The Version of the Java Container in use.
      * 
      */
-    private final String javaContainerVersion;
+    private String javaContainerVersion;
     /**
      * @return The Version of Java in use.
      * 
      */
-    private final String javaVersion;
+    private String javaVersion;
     /**
      * @return The Version of Node in use.
      * 
      */
-    private final String nodeVersion;
+    private String nodeVersion;
     /**
      * @return The Version of the PHP in use.
      * 
      */
-    private final String phpVersion;
+    private String phpVersion;
     /**
      * @return The Version of Python in use.
      * 
      */
-    private final String pythonVersion;
+    private String pythonVersion;
 
-    @CustomType.Constructor
-    private GetWindowsWebAppSiteConfigApplicationStack(
-        @CustomType.Parameter("currentStack") String currentStack,
-        @CustomType.Parameter("dockerContainerName") String dockerContainerName,
-        @CustomType.Parameter("dockerContainerRegistry") String dockerContainerRegistry,
-        @CustomType.Parameter("dockerContainerTag") String dockerContainerTag,
-        @CustomType.Parameter("dotnetVersion") String dotnetVersion,
-        @CustomType.Parameter("javaContainer") String javaContainer,
-        @CustomType.Parameter("javaContainerVersion") String javaContainerVersion,
-        @CustomType.Parameter("javaVersion") String javaVersion,
-        @CustomType.Parameter("nodeVersion") String nodeVersion,
-        @CustomType.Parameter("phpVersion") String phpVersion,
-        @CustomType.Parameter("pythonVersion") String pythonVersion) {
-        this.currentStack = currentStack;
-        this.dockerContainerName = dockerContainerName;
-        this.dockerContainerRegistry = dockerContainerRegistry;
-        this.dockerContainerTag = dockerContainerTag;
-        this.dotnetVersion = dotnetVersion;
-        this.javaContainer = javaContainer;
-        this.javaContainerVersion = javaContainerVersion;
-        this.javaVersion = javaVersion;
-        this.nodeVersion = nodeVersion;
-        this.phpVersion = phpVersion;
-        this.pythonVersion = pythonVersion;
-    }
-
+    private GetWindowsWebAppSiteConfigApplicationStack() {}
     /**
      * @return The Current Stack value of the Windows Web App.
      * 
@@ -176,7 +151,7 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
     public static Builder builder(GetWindowsWebAppSiteConfigApplicationStack defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String currentStack;
         private String dockerContainerName;
@@ -189,11 +164,7 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
         private String nodeVersion;
         private String phpVersion;
         private String pythonVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsWebAppSiteConfigApplicationStack defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.currentStack = defaults.currentStack;
@@ -209,51 +180,75 @@ public final class GetWindowsWebAppSiteConfigApplicationStack {
     	      this.pythonVersion = defaults.pythonVersion;
         }
 
+        @CustomType.Setter
         public Builder currentStack(String currentStack) {
             this.currentStack = Objects.requireNonNull(currentStack);
             return this;
         }
+        @CustomType.Setter
         public Builder dockerContainerName(String dockerContainerName) {
             this.dockerContainerName = Objects.requireNonNull(dockerContainerName);
             return this;
         }
+        @CustomType.Setter
         public Builder dockerContainerRegistry(String dockerContainerRegistry) {
             this.dockerContainerRegistry = Objects.requireNonNull(dockerContainerRegistry);
             return this;
         }
+        @CustomType.Setter
         public Builder dockerContainerTag(String dockerContainerTag) {
             this.dockerContainerTag = Objects.requireNonNull(dockerContainerTag);
             return this;
         }
+        @CustomType.Setter
         public Builder dotnetVersion(String dotnetVersion) {
             this.dotnetVersion = Objects.requireNonNull(dotnetVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder javaContainer(String javaContainer) {
             this.javaContainer = Objects.requireNonNull(javaContainer);
             return this;
         }
+        @CustomType.Setter
         public Builder javaContainerVersion(String javaContainerVersion) {
             this.javaContainerVersion = Objects.requireNonNull(javaContainerVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder javaVersion(String javaVersion) {
             this.javaVersion = Objects.requireNonNull(javaVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder nodeVersion(String nodeVersion) {
             this.nodeVersion = Objects.requireNonNull(nodeVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder phpVersion(String phpVersion) {
             this.phpVersion = Objects.requireNonNull(phpVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder pythonVersion(String pythonVersion) {
             this.pythonVersion = Objects.requireNonNull(pythonVersion);
             return this;
-        }        public GetWindowsWebAppSiteConfigApplicationStack build() {
-            return new GetWindowsWebAppSiteConfigApplicationStack(currentStack, dockerContainerName, dockerContainerRegistry, dockerContainerTag, dotnetVersion, javaContainer, javaContainerVersion, javaVersion, nodeVersion, phpVersion, pythonVersion);
+        }
+        public GetWindowsWebAppSiteConfigApplicationStack build() {
+            final var o = new GetWindowsWebAppSiteConfigApplicationStack();
+            o.currentStack = currentStack;
+            o.dockerContainerName = dockerContainerName;
+            o.dockerContainerRegistry = dockerContainerRegistry;
+            o.dockerContainerTag = dockerContainerTag;
+            o.dotnetVersion = dotnetVersion;
+            o.javaContainer = javaContainer;
+            o.javaContainerVersion = javaContainerVersion;
+            o.javaVersion = javaVersion;
+            o.nodeVersion = nodeVersion;
+            o.phpVersion = phpVersion;
+            o.pythonVersion = pythonVersion;
+            return o;
         }
     }
 }

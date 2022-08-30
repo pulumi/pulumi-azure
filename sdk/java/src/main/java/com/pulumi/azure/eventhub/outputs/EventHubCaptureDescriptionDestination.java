@@ -13,35 +13,24 @@ public final class EventHubCaptureDescriptionDestination {
      * @return The Blob naming convention for archiving. e.g. `{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}`. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
      * 
      */
-    private final String archiveNameFormat;
+    private String archiveNameFormat;
     /**
      * @return The name of the Container within the Blob Storage Account where messages should be archived.
      * 
      */
-    private final String blobContainerName;
+    private String blobContainerName;
     /**
      * @return The Name of the Destination where the capture should take place. At this time the only supported value is `EventHubArchive.AzureBlockBlob`.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The ID of the Blob Storage Account where messages should be archived.
      * 
      */
-    private final String storageAccountId;
+    private String storageAccountId;
 
-    @CustomType.Constructor
-    private EventHubCaptureDescriptionDestination(
-        @CustomType.Parameter("archiveNameFormat") String archiveNameFormat,
-        @CustomType.Parameter("blobContainerName") String blobContainerName,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("storageAccountId") String storageAccountId) {
-        this.archiveNameFormat = archiveNameFormat;
-        this.blobContainerName = blobContainerName;
-        this.name = name;
-        this.storageAccountId = storageAccountId;
-    }
-
+    private EventHubCaptureDescriptionDestination() {}
     /**
      * @return The Blob naming convention for archiving. e.g. `{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}`. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
      * 
@@ -78,17 +67,13 @@ public final class EventHubCaptureDescriptionDestination {
     public static Builder builder(EventHubCaptureDescriptionDestination defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String archiveNameFormat;
         private String blobContainerName;
         private String name;
         private String storageAccountId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventHubCaptureDescriptionDestination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.archiveNameFormat = defaults.archiveNameFormat;
@@ -97,23 +82,33 @@ public final class EventHubCaptureDescriptionDestination {
     	      this.storageAccountId = defaults.storageAccountId;
         }
 
+        @CustomType.Setter
         public Builder archiveNameFormat(String archiveNameFormat) {
             this.archiveNameFormat = Objects.requireNonNull(archiveNameFormat);
             return this;
         }
+        @CustomType.Setter
         public Builder blobContainerName(String blobContainerName) {
             this.blobContainerName = Objects.requireNonNull(blobContainerName);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
             this.storageAccountId = Objects.requireNonNull(storageAccountId);
             return this;
-        }        public EventHubCaptureDescriptionDestination build() {
-            return new EventHubCaptureDescriptionDestination(archiveNameFormat, blobContainerName, name, storageAccountId);
+        }
+        public EventHubCaptureDescriptionDestination build() {
+            final var o = new EventHubCaptureDescriptionDestination();
+            o.archiveNameFormat = archiveNameFormat;
+            o.blobContainerName = blobContainerName;
+            o.name = name;
+            o.storageAccountId = storageAccountId;
+            return o;
         }
     }
 }

@@ -16,75 +16,48 @@ public final class GetCertificateResult {
      * @return The expiration date for the certificate.
      * 
      */
-    private final String expirationDate;
+    private String expirationDate;
     /**
      * @return The friendly name of the certificate.
      * 
      */
-    private final String friendlyName;
+    private String friendlyName;
     /**
      * @return List of host names the certificate applies to.
      * 
      */
-    private final List<String> hostNames;
+    private List<String> hostNames;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The issue date for the certificate.
      * 
      */
-    private final String issueDate;
+    private String issueDate;
     /**
      * @return The name of the certificate issuer.
      * 
      */
-    private final String issuer;
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String issuer;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return The subject name of the certificate.
      * 
      */
-    private final String subjectName;
-    private final @Nullable Map<String,String> tags;
+    private String subjectName;
+    private @Nullable Map<String,String> tags;
     /**
      * @return The thumbprint for the certificate.
      * 
      */
-    private final String thumbprint;
+    private String thumbprint;
 
-    @CustomType.Constructor
-    private GetCertificateResult(
-        @CustomType.Parameter("expirationDate") String expirationDate,
-        @CustomType.Parameter("friendlyName") String friendlyName,
-        @CustomType.Parameter("hostNames") List<String> hostNames,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("issueDate") String issueDate,
-        @CustomType.Parameter("issuer") String issuer,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("subjectName") String subjectName,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags,
-        @CustomType.Parameter("thumbprint") String thumbprint) {
-        this.expirationDate = expirationDate;
-        this.friendlyName = friendlyName;
-        this.hostNames = hostNames;
-        this.id = id;
-        this.issueDate = issueDate;
-        this.issuer = issuer;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.subjectName = subjectName;
-        this.tags = tags;
-        this.thumbprint = thumbprint;
-    }
-
+    private GetCertificateResult() {}
     /**
      * @return The expiration date for the certificate.
      * 
@@ -161,7 +134,7 @@ public final class GetCertificateResult {
     public static Builder builder(GetCertificateResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String expirationDate;
         private String friendlyName;
@@ -175,11 +148,7 @@ public final class GetCertificateResult {
         private String subjectName;
         private @Nullable Map<String,String> tags;
         private String thumbprint;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCertificateResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.expirationDate = defaults.expirationDate;
@@ -196,14 +165,17 @@ public final class GetCertificateResult {
     	      this.thumbprint = defaults.thumbprint;
         }
 
+        @CustomType.Setter
         public Builder expirationDate(String expirationDate) {
             this.expirationDate = Objects.requireNonNull(expirationDate);
             return this;
         }
+        @CustomType.Setter
         public Builder friendlyName(String friendlyName) {
             this.friendlyName = Objects.requireNonNull(friendlyName);
             return this;
         }
+        @CustomType.Setter
         public Builder hostNames(List<String> hostNames) {
             this.hostNames = Objects.requireNonNull(hostNames);
             return this;
@@ -211,43 +183,66 @@ public final class GetCertificateResult {
         public Builder hostNames(String... hostNames) {
             return hostNames(List.of(hostNames));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder issueDate(String issueDate) {
             this.issueDate = Objects.requireNonNull(issueDate);
             return this;
         }
+        @CustomType.Setter
         public Builder issuer(String issuer) {
             this.issuer = Objects.requireNonNull(issuer);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder subjectName(String subjectName) {
             this.subjectName = Objects.requireNonNull(subjectName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
         public Builder thumbprint(String thumbprint) {
             this.thumbprint = Objects.requireNonNull(thumbprint);
             return this;
-        }        public GetCertificateResult build() {
-            return new GetCertificateResult(expirationDate, friendlyName, hostNames, id, issueDate, issuer, location, name, resourceGroupName, subjectName, tags, thumbprint);
+        }
+        public GetCertificateResult build() {
+            final var o = new GetCertificateResult();
+            o.expirationDate = expirationDate;
+            o.friendlyName = friendlyName;
+            o.hostNames = hostNames;
+            o.id = id;
+            o.issueDate = issueDate;
+            o.issuer = issuer;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.subjectName = subjectName;
+            o.tags = tags;
+            o.thumbprint = thumbprint;
+            return o;
         }
     }
 }

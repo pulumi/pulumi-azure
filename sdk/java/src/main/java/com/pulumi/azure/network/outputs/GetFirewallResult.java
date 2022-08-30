@@ -18,97 +18,66 @@ public final class GetFirewallResult {
      * @return The list of DNS servers that the Azure Firewall will direct DNS traffic to for name resolution.
      * 
      */
-    private final List<String> dnsServers;
+    private List<String> dnsServers;
     /**
      * @return The ID of the Firewall Policy applied to the Azure Firewall.
      * 
      */
-    private final String firewallPolicyId;
+    private String firewallPolicyId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A `ip_configuration` block as defined below.
      * 
      */
-    private final List<GetFirewallIpConfiguration> ipConfigurations;
+    private List<GetFirewallIpConfiguration> ipConfigurations;
     /**
      * @return The Azure location where the Azure Firewall exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return A `management_ip_configuration` block as defined below, which allows force-tunnelling of traffic to be performed by the firewall.
      * 
      */
-    private final List<GetFirewallManagementIpConfiguration> managementIpConfigurations;
-    private final String name;
-    private final String resourceGroupName;
+    private List<GetFirewallManagementIpConfiguration> managementIpConfigurations;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return The SKU name of the Azure Firewall.
      * 
      */
-    private final String skuName;
+    private String skuName;
     /**
      * @return The SKU tier of the Azure Firewall.
      * 
      */
-    private final String skuTier;
+    private String skuTier;
     /**
      * @return A mapping of tags assigned to the Azure Firewall.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The operation mode for threat intelligence-based filtering.
      * 
      */
-    private final String threatIntelMode;
+    private String threatIntelMode;
     /**
      * @return A `virtual_hub` block as defined below.
      * 
      */
-    private final List<GetFirewallVirtualHub> virtualHubs;
+    private List<GetFirewallVirtualHub> virtualHubs;
     /**
      * @return A list of Availability Zones in which this Azure Firewall is located.
      * 
      */
-    private final List<String> zones;
+    private List<String> zones;
 
-    @CustomType.Constructor
-    private GetFirewallResult(
-        @CustomType.Parameter("dnsServers") List<String> dnsServers,
-        @CustomType.Parameter("firewallPolicyId") String firewallPolicyId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ipConfigurations") List<GetFirewallIpConfiguration> ipConfigurations,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("managementIpConfigurations") List<GetFirewallManagementIpConfiguration> managementIpConfigurations,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("skuName") String skuName,
-        @CustomType.Parameter("skuTier") String skuTier,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("threatIntelMode") String threatIntelMode,
-        @CustomType.Parameter("virtualHubs") List<GetFirewallVirtualHub> virtualHubs,
-        @CustomType.Parameter("zones") List<String> zones) {
-        this.dnsServers = dnsServers;
-        this.firewallPolicyId = firewallPolicyId;
-        this.id = id;
-        this.ipConfigurations = ipConfigurations;
-        this.location = location;
-        this.managementIpConfigurations = managementIpConfigurations;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.skuName = skuName;
-        this.skuTier = skuTier;
-        this.tags = tags;
-        this.threatIntelMode = threatIntelMode;
-        this.virtualHubs = virtualHubs;
-        this.zones = zones;
-    }
-
+    private GetFirewallResult() {}
     /**
      * @return The list of DNS servers that the Azure Firewall will direct DNS traffic to for name resolution.
      * 
@@ -207,7 +176,7 @@ public final class GetFirewallResult {
     public static Builder builder(GetFirewallResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> dnsServers;
         private String firewallPolicyId;
@@ -223,11 +192,7 @@ public final class GetFirewallResult {
         private String threatIntelMode;
         private List<GetFirewallVirtualHub> virtualHubs;
         private List<String> zones;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFirewallResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsServers = defaults.dnsServers;
@@ -246,6 +211,7 @@ public final class GetFirewallResult {
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
         public Builder dnsServers(List<String> dnsServers) {
             this.dnsServers = Objects.requireNonNull(dnsServers);
             return this;
@@ -253,14 +219,17 @@ public final class GetFirewallResult {
         public Builder dnsServers(String... dnsServers) {
             return dnsServers(List.of(dnsServers));
         }
+        @CustomType.Setter
         public Builder firewallPolicyId(String firewallPolicyId) {
             this.firewallPolicyId = Objects.requireNonNull(firewallPolicyId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ipConfigurations(List<GetFirewallIpConfiguration> ipConfigurations) {
             this.ipConfigurations = Objects.requireNonNull(ipConfigurations);
             return this;
@@ -268,10 +237,12 @@ public final class GetFirewallResult {
         public Builder ipConfigurations(GetFirewallIpConfiguration... ipConfigurations) {
             return ipConfigurations(List.of(ipConfigurations));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder managementIpConfigurations(List<GetFirewallManagementIpConfiguration> managementIpConfigurations) {
             this.managementIpConfigurations = Objects.requireNonNull(managementIpConfigurations);
             return this;
@@ -279,30 +250,37 @@ public final class GetFirewallResult {
         public Builder managementIpConfigurations(GetFirewallManagementIpConfiguration... managementIpConfigurations) {
             return managementIpConfigurations(List.of(managementIpConfigurations));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder skuName(String skuName) {
             this.skuName = Objects.requireNonNull(skuName);
             return this;
         }
+        @CustomType.Setter
         public Builder skuTier(String skuTier) {
             this.skuTier = Objects.requireNonNull(skuTier);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder threatIntelMode(String threatIntelMode) {
             this.threatIntelMode = Objects.requireNonNull(threatIntelMode);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualHubs(List<GetFirewallVirtualHub> virtualHubs) {
             this.virtualHubs = Objects.requireNonNull(virtualHubs);
             return this;
@@ -310,14 +288,31 @@ public final class GetFirewallResult {
         public Builder virtualHubs(GetFirewallVirtualHub... virtualHubs) {
             return virtualHubs(List.of(virtualHubs));
         }
+        @CustomType.Setter
         public Builder zones(List<String> zones) {
             this.zones = Objects.requireNonNull(zones);
             return this;
         }
         public Builder zones(String... zones) {
             return zones(List.of(zones));
-        }        public GetFirewallResult build() {
-            return new GetFirewallResult(dnsServers, firewallPolicyId, id, ipConfigurations, location, managementIpConfigurations, name, resourceGroupName, skuName, skuTier, tags, threatIntelMode, virtualHubs, zones);
+        }
+        public GetFirewallResult build() {
+            final var o = new GetFirewallResult();
+            o.dnsServers = dnsServers;
+            o.firewallPolicyId = firewallPolicyId;
+            o.id = id;
+            o.ipConfigurations = ipConfigurations;
+            o.location = location;
+            o.managementIpConfigurations = managementIpConfigurations;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.skuName = skuName;
+            o.skuTier = skuTier;
+            o.tags = tags;
+            o.threatIntelMode = threatIntelMode;
+            o.virtualHubs = virtualHubs;
+            o.zones = zones;
+            return o;
         }
     }
 }

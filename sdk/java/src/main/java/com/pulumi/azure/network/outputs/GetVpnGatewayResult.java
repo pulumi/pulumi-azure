@@ -17,55 +17,36 @@ public final class GetVpnGatewayResult {
      * @return A `bgp_settings` block as defined below.
      * 
      */
-    private final List<GetVpnGatewayBgpSetting> bgpSettings;
+    private List<GetVpnGatewayBgpSetting> bgpSettings;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure location where the VPN Gateway exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return The Scale Unit of this VPN Gateway.
      * 
      */
-    private final Integer scaleUnit;
+    private Integer scaleUnit;
     /**
      * @return A mapping of tags assigned to the VPN Gateway.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The ID of the Virtual Hub within which this VPN Gateway has been created.
      * 
      */
-    private final String virtualHubId;
+    private String virtualHubId;
 
-    @CustomType.Constructor
-    private GetVpnGatewayResult(
-        @CustomType.Parameter("bgpSettings") List<GetVpnGatewayBgpSetting> bgpSettings,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("scaleUnit") Integer scaleUnit,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("virtualHubId") String virtualHubId) {
-        this.bgpSettings = bgpSettings;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.scaleUnit = scaleUnit;
-        this.tags = tags;
-        this.virtualHubId = virtualHubId;
-    }
-
+    private GetVpnGatewayResult() {}
     /**
      * @return A `bgp_settings` block as defined below.
      * 
@@ -122,7 +103,7 @@ public final class GetVpnGatewayResult {
     public static Builder builder(GetVpnGatewayResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetVpnGatewayBgpSetting> bgpSettings;
         private String id;
@@ -132,11 +113,7 @@ public final class GetVpnGatewayResult {
         private Integer scaleUnit;
         private Map<String,String> tags;
         private String virtualHubId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVpnGatewayResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bgpSettings = defaults.bgpSettings;
@@ -149,6 +126,7 @@ public final class GetVpnGatewayResult {
     	      this.virtualHubId = defaults.virtualHubId;
         }
 
+        @CustomType.Setter
         public Builder bgpSettings(List<GetVpnGatewayBgpSetting> bgpSettings) {
             this.bgpSettings = Objects.requireNonNull(bgpSettings);
             return this;
@@ -156,35 +134,52 @@ public final class GetVpnGatewayResult {
         public Builder bgpSettings(GetVpnGatewayBgpSetting... bgpSettings) {
             return bgpSettings(List.of(bgpSettings));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder scaleUnit(Integer scaleUnit) {
             this.scaleUnit = Objects.requireNonNull(scaleUnit);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualHubId(String virtualHubId) {
             this.virtualHubId = Objects.requireNonNull(virtualHubId);
             return this;
-        }        public GetVpnGatewayResult build() {
-            return new GetVpnGatewayResult(bgpSettings, id, location, name, resourceGroupName, scaleUnit, tags, virtualHubId);
+        }
+        public GetVpnGatewayResult build() {
+            final var o = new GetVpnGatewayResult();
+            o.bgpSettings = bgpSettings;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.scaleUnit = scaleUnit;
+            o.tags = tags;
+            o.virtualHubId = virtualHubId;
+            return o;
         }
     }
 }

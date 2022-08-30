@@ -13,20 +13,11 @@ public final class GetAlertRuleResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String logAnalyticsWorkspaceId;
-    private final String name;
+    private String id;
+    private String logAnalyticsWorkspaceId;
+    private String name;
 
-    @CustomType.Constructor
-    private GetAlertRuleResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("logAnalyticsWorkspaceId") String logAnalyticsWorkspaceId,
-        @CustomType.Parameter("name") String name) {
-        this.id = id;
-        this.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-        this.name = name;
-    }
-
+    private GetAlertRuleResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -48,16 +39,12 @@ public final class GetAlertRuleResult {
     public static Builder builder(GetAlertRuleResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String logAnalyticsWorkspaceId;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAlertRuleResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -65,19 +52,27 @@ public final class GetAlertRuleResult {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder logAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
             this.logAnalyticsWorkspaceId = Objects.requireNonNull(logAnalyticsWorkspaceId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetAlertRuleResult build() {
-            return new GetAlertRuleResult(id, logAnalyticsWorkspaceId, name);
+        }
+        public GetAlertRuleResult build() {
+            final var o = new GetAlertRuleResult();
+            o.id = id;
+            o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            o.name = name;
+            return o;
         }
     }
 }

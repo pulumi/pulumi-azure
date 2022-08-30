@@ -14,28 +14,19 @@ public final class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigura
      * @return The domain name label for the DNS settings.
      * 
      */
-    private final String domainNameLabel;
+    private String domainNameLabel;
     /**
      * @return The idle timeout in minutes. This value must be between 4 and 30.
      * 
      */
-    private final Integer idleTimeout;
+    private Integer idleTimeout;
     /**
      * @return The name of the public IP address configuration
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration(
-        @CustomType.Parameter("domainNameLabel") String domainNameLabel,
-        @CustomType.Parameter("idleTimeout") Integer idleTimeout,
-        @CustomType.Parameter("name") String name) {
-        this.domainNameLabel = domainNameLabel;
-        this.idleTimeout = idleTimeout;
-        this.name = name;
-    }
-
+    private ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration() {}
     /**
      * @return The domain name label for the DNS settings.
      * 
@@ -65,16 +56,12 @@ public final class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigura
     public static Builder builder(ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String domainNameLabel;
         private Integer idleTimeout;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.domainNameLabel = defaults.domainNameLabel;
@@ -82,19 +69,27 @@ public final class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigura
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder domainNameLabel(String domainNameLabel) {
             this.domainNameLabel = Objects.requireNonNull(domainNameLabel);
             return this;
         }
+        @CustomType.Setter
         public Builder idleTimeout(Integer idleTimeout) {
             this.idleTimeout = Objects.requireNonNull(idleTimeout);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration build() {
-            return new ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration(domainNameLabel, idleTimeout, name);
+        }
+        public ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration build() {
+            final var o = new ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration();
+            o.domainNameLabel = domainNameLabel;
+            o.idleTimeout = idleTimeout;
+            o.name = name;
+            return o;
         }
     }
 }

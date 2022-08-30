@@ -15,21 +15,14 @@ public final class LinuxFunctionAppSlotSiteConfigAppServiceLogs {
      * @return The amount of disk space to use for logs. Valid values are between `25` and `100`.
      * 
      */
-    private final @Nullable Integer diskQuotaMb;
+    private @Nullable Integer diskQuotaMb;
     /**
      * @return The retention period for logs in days. Valid values are between `0` and `99999`. Defaults to `0` (never delete).
      * 
      */
-    private final @Nullable Integer retentionPeriodDays;
+    private @Nullable Integer retentionPeriodDays;
 
-    @CustomType.Constructor
-    private LinuxFunctionAppSlotSiteConfigAppServiceLogs(
-        @CustomType.Parameter("diskQuotaMb") @Nullable Integer diskQuotaMb,
-        @CustomType.Parameter("retentionPeriodDays") @Nullable Integer retentionPeriodDays) {
-        this.diskQuotaMb = diskQuotaMb;
-        this.retentionPeriodDays = retentionPeriodDays;
-    }
-
+    private LinuxFunctionAppSlotSiteConfigAppServiceLogs() {}
     /**
      * @return The amount of disk space to use for logs. Valid values are between `25` and `100`.
      * 
@@ -52,30 +45,32 @@ public final class LinuxFunctionAppSlotSiteConfigAppServiceLogs {
     public static Builder builder(LinuxFunctionAppSlotSiteConfigAppServiceLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer diskQuotaMb;
         private @Nullable Integer retentionPeriodDays;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxFunctionAppSlotSiteConfigAppServiceLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.diskQuotaMb = defaults.diskQuotaMb;
     	      this.retentionPeriodDays = defaults.retentionPeriodDays;
         }
 
+        @CustomType.Setter
         public Builder diskQuotaMb(@Nullable Integer diskQuotaMb) {
             this.diskQuotaMb = diskQuotaMb;
             return this;
         }
+        @CustomType.Setter
         public Builder retentionPeriodDays(@Nullable Integer retentionPeriodDays) {
             this.retentionPeriodDays = retentionPeriodDays;
             return this;
-        }        public LinuxFunctionAppSlotSiteConfigAppServiceLogs build() {
-            return new LinuxFunctionAppSlotSiteConfigAppServiceLogs(diskQuotaMb, retentionPeriodDays);
+        }
+        public LinuxFunctionAppSlotSiteConfigAppServiceLogs build() {
+            final var o = new LinuxFunctionAppSlotSiteConfigAppServiceLogs();
+            o.diskQuotaMb = diskQuotaMb;
+            o.retentionPeriodDays = retentionPeriodDays;
+            return o;
         }
     }
 }

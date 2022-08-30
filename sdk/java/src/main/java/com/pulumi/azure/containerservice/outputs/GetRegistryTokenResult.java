@@ -10,41 +10,26 @@ import java.util.Objects;
 
 @CustomType
 public final class GetRegistryTokenResult {
-    private final String containerRegistryName;
+    private String containerRegistryName;
     /**
      * @return Whether this Token is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
-    private final String resourceGroupName;
+    private String id;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return The Scope Map ID used by the token.
      * 
      */
-    private final String scopeMapId;
+    private String scopeMapId;
 
-    @CustomType.Constructor
-    private GetRegistryTokenResult(
-        @CustomType.Parameter("containerRegistryName") String containerRegistryName,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("scopeMapId") String scopeMapId) {
-        this.containerRegistryName = containerRegistryName;
-        this.enabled = enabled;
-        this.id = id;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.scopeMapId = scopeMapId;
-    }
-
+    private GetRegistryTokenResult() {}
     public String containerRegistryName() {
         return this.containerRegistryName;
     }
@@ -83,7 +68,7 @@ public final class GetRegistryTokenResult {
     public static Builder builder(GetRegistryTokenResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String containerRegistryName;
         private Boolean enabled;
@@ -91,11 +76,7 @@ public final class GetRegistryTokenResult {
         private String name;
         private String resourceGroupName;
         private String scopeMapId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRegistryTokenResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.containerRegistryName = defaults.containerRegistryName;
@@ -106,31 +87,45 @@ public final class GetRegistryTokenResult {
     	      this.scopeMapId = defaults.scopeMapId;
         }
 
+        @CustomType.Setter
         public Builder containerRegistryName(String containerRegistryName) {
             this.containerRegistryName = Objects.requireNonNull(containerRegistryName);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder scopeMapId(String scopeMapId) {
             this.scopeMapId = Objects.requireNonNull(scopeMapId);
             return this;
-        }        public GetRegistryTokenResult build() {
-            return new GetRegistryTokenResult(containerRegistryName, enabled, id, name, resourceGroupName, scopeMapId);
+        }
+        public GetRegistryTokenResult build() {
+            final var o = new GetRegistryTokenResult();
+            o.containerRegistryName = containerRegistryName;
+            o.enabled = enabled;
+            o.id = id;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.scopeMapId = scopeMapId;
+            return o;
         }
     }
 }

@@ -16,21 +16,14 @@ public final class VpnGatewayConnectionRouting {
      * @return The ID of the Route Table associated with this VPN Connection.
      * 
      */
-    private final String associatedRouteTable;
+    private String associatedRouteTable;
     /**
      * @return A `propagated_route_table` block as defined below.
      * 
      */
-    private final @Nullable VpnGatewayConnectionRoutingPropagatedRouteTable propagatedRouteTable;
+    private @Nullable VpnGatewayConnectionRoutingPropagatedRouteTable propagatedRouteTable;
 
-    @CustomType.Constructor
-    private VpnGatewayConnectionRouting(
-        @CustomType.Parameter("associatedRouteTable") String associatedRouteTable,
-        @CustomType.Parameter("propagatedRouteTable") @Nullable VpnGatewayConnectionRoutingPropagatedRouteTable propagatedRouteTable) {
-        this.associatedRouteTable = associatedRouteTable;
-        this.propagatedRouteTable = propagatedRouteTable;
-    }
-
+    private VpnGatewayConnectionRouting() {}
     /**
      * @return The ID of the Route Table associated with this VPN Connection.
      * 
@@ -53,30 +46,32 @@ public final class VpnGatewayConnectionRouting {
     public static Builder builder(VpnGatewayConnectionRouting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String associatedRouteTable;
         private @Nullable VpnGatewayConnectionRoutingPropagatedRouteTable propagatedRouteTable;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpnGatewayConnectionRouting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.associatedRouteTable = defaults.associatedRouteTable;
     	      this.propagatedRouteTable = defaults.propagatedRouteTable;
         }
 
+        @CustomType.Setter
         public Builder associatedRouteTable(String associatedRouteTable) {
             this.associatedRouteTable = Objects.requireNonNull(associatedRouteTable);
             return this;
         }
+        @CustomType.Setter
         public Builder propagatedRouteTable(@Nullable VpnGatewayConnectionRoutingPropagatedRouteTable propagatedRouteTable) {
             this.propagatedRouteTable = propagatedRouteTable;
             return this;
-        }        public VpnGatewayConnectionRouting build() {
-            return new VpnGatewayConnectionRouting(associatedRouteTable, propagatedRouteTable);
+        }
+        public VpnGatewayConnectionRouting build() {
+            final var o = new VpnGatewayConnectionRouting();
+            o.associatedRouteTable = associatedRouteTable;
+            o.propagatedRouteTable = propagatedRouteTable;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class HubGcmCredential {
      * @return The API Key associated with the Google Cloud Messaging service.
      * 
      */
-    private final String apiKey;
+    private String apiKey;
 
-    @CustomType.Constructor
-    private HubGcmCredential(@CustomType.Parameter("apiKey") String apiKey) {
-        this.apiKey = apiKey;
-    }
-
+    private HubGcmCredential() {}
     /**
      * @return The API Key associated with the Google Cloud Messaging service.
      * 
@@ -35,24 +31,24 @@ public final class HubGcmCredential {
     public static Builder builder(HubGcmCredential defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(HubGcmCredential defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiKey = defaults.apiKey;
         }
 
+        @CustomType.Setter
         public Builder apiKey(String apiKey) {
             this.apiKey = Objects.requireNonNull(apiKey);
             return this;
-        }        public HubGcmCredential build() {
-            return new HubGcmCredential(apiKey);
+        }
+        public HubGcmCredential build() {
+            final var o = new HubGcmCredential();
+            o.apiKey = apiKey;
+            return o;
         }
     }
 }

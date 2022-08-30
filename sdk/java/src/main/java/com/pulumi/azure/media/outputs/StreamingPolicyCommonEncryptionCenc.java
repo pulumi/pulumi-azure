@@ -18,35 +18,24 @@ public final class StreamingPolicyCommonEncryptionCenc {
      * @return A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
      * 
      */
-    private final @Nullable StreamingPolicyCommonEncryptionCencDefaultContentKey defaultContentKey;
+    private @Nullable StreamingPolicyCommonEncryptionCencDefaultContentKey defaultContentKey;
     /**
      * @return A `drm_playready` block as defined below. Changing this forces a new Streaming Policy to be created.
      * 
      */
-    private final @Nullable StreamingPolicyCommonEncryptionCencDrmPlayready drmPlayready;
+    private @Nullable StreamingPolicyCommonEncryptionCencDrmPlayready drmPlayready;
     /**
      * @return Template for the URL of the custom service delivering licenses to end user players. Not required when using Azure Media Services for issuing licenses. The template supports replaceable tokens that the service will update at runtime with the value specific to the request. The currently supported token values are `{AlternativeMediaId}`, which is replaced with the value of `StreamingLocatorId.AlternativeMediaId`, and `{ContentKeyId}`, which is replaced with the value of identifier of the key being requested. Changing this forces a new Streaming Policy to be created.
      * 
      */
-    private final @Nullable String drmWidevineCustomLicenseAcquisitionUrlTemplate;
+    private @Nullable String drmWidevineCustomLicenseAcquisitionUrlTemplate;
     /**
      * @return A `enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
      * 
      */
-    private final @Nullable StreamingPolicyCommonEncryptionCencEnabledProtocols enabledProtocols;
+    private @Nullable StreamingPolicyCommonEncryptionCencEnabledProtocols enabledProtocols;
 
-    @CustomType.Constructor
-    private StreamingPolicyCommonEncryptionCenc(
-        @CustomType.Parameter("defaultContentKey") @Nullable StreamingPolicyCommonEncryptionCencDefaultContentKey defaultContentKey,
-        @CustomType.Parameter("drmPlayready") @Nullable StreamingPolicyCommonEncryptionCencDrmPlayready drmPlayready,
-        @CustomType.Parameter("drmWidevineCustomLicenseAcquisitionUrlTemplate") @Nullable String drmWidevineCustomLicenseAcquisitionUrlTemplate,
-        @CustomType.Parameter("enabledProtocols") @Nullable StreamingPolicyCommonEncryptionCencEnabledProtocols enabledProtocols) {
-        this.defaultContentKey = defaultContentKey;
-        this.drmPlayready = drmPlayready;
-        this.drmWidevineCustomLicenseAcquisitionUrlTemplate = drmWidevineCustomLicenseAcquisitionUrlTemplate;
-        this.enabledProtocols = enabledProtocols;
-    }
-
+    private StreamingPolicyCommonEncryptionCenc() {}
     /**
      * @return A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
      * 
@@ -83,17 +72,13 @@ public final class StreamingPolicyCommonEncryptionCenc {
     public static Builder builder(StreamingPolicyCommonEncryptionCenc defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable StreamingPolicyCommonEncryptionCencDefaultContentKey defaultContentKey;
         private @Nullable StreamingPolicyCommonEncryptionCencDrmPlayready drmPlayready;
         private @Nullable String drmWidevineCustomLicenseAcquisitionUrlTemplate;
         private @Nullable StreamingPolicyCommonEncryptionCencEnabledProtocols enabledProtocols;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StreamingPolicyCommonEncryptionCenc defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultContentKey = defaults.defaultContentKey;
@@ -102,23 +87,33 @@ public final class StreamingPolicyCommonEncryptionCenc {
     	      this.enabledProtocols = defaults.enabledProtocols;
         }
 
+        @CustomType.Setter
         public Builder defaultContentKey(@Nullable StreamingPolicyCommonEncryptionCencDefaultContentKey defaultContentKey) {
             this.defaultContentKey = defaultContentKey;
             return this;
         }
+        @CustomType.Setter
         public Builder drmPlayready(@Nullable StreamingPolicyCommonEncryptionCencDrmPlayready drmPlayready) {
             this.drmPlayready = drmPlayready;
             return this;
         }
+        @CustomType.Setter
         public Builder drmWidevineCustomLicenseAcquisitionUrlTemplate(@Nullable String drmWidevineCustomLicenseAcquisitionUrlTemplate) {
             this.drmWidevineCustomLicenseAcquisitionUrlTemplate = drmWidevineCustomLicenseAcquisitionUrlTemplate;
             return this;
         }
+        @CustomType.Setter
         public Builder enabledProtocols(@Nullable StreamingPolicyCommonEncryptionCencEnabledProtocols enabledProtocols) {
             this.enabledProtocols = enabledProtocols;
             return this;
-        }        public StreamingPolicyCommonEncryptionCenc build() {
-            return new StreamingPolicyCommonEncryptionCenc(defaultContentKey, drmPlayready, drmWidevineCustomLicenseAcquisitionUrlTemplate, enabledProtocols);
+        }
+        public StreamingPolicyCommonEncryptionCenc build() {
+            final var o = new StreamingPolicyCommonEncryptionCenc();
+            o.defaultContentKey = defaultContentKey;
+            o.drmPlayready = drmPlayready;
+            o.drmWidevineCustomLicenseAcquisitionUrlTemplate = drmWidevineCustomLicenseAcquisitionUrlTemplate;
+            o.enabledProtocols = enabledProtocols;
+            return o;
         }
     }
 }

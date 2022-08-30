@@ -15,51 +15,32 @@ public final class GetAccountResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return The primary key used to authenticate and authorize access to the Maps REST APIs.
      * 
      */
-    private final String primaryAccessKey;
-    private final String resourceGroupName;
+    private String primaryAccessKey;
+    private String resourceGroupName;
     /**
      * @return The primary key used to authenticate and authorize access to the Maps REST APIs. The second key is given to provide seamless key regeneration.
      * 
      */
-    private final String secondaryAccessKey;
+    private String secondaryAccessKey;
     /**
      * @return The SKU of the Azure Maps Account.
      * 
      */
-    private final String skuName;
-    private final @Nullable Map<String,String> tags;
+    private String skuName;
+    private @Nullable Map<String,String> tags;
     /**
      * @return A unique identifier for the Maps Account.
      * 
      */
-    private final String xMsClientId;
+    private String xMsClientId;
 
-    @CustomType.Constructor
-    private GetAccountResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("primaryAccessKey") String primaryAccessKey,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("secondaryAccessKey") String secondaryAccessKey,
-        @CustomType.Parameter("skuName") String skuName,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags,
-        @CustomType.Parameter("xMsClientId") String xMsClientId) {
-        this.id = id;
-        this.name = name;
-        this.primaryAccessKey = primaryAccessKey;
-        this.resourceGroupName = resourceGroupName;
-        this.secondaryAccessKey = secondaryAccessKey;
-        this.skuName = skuName;
-        this.tags = tags;
-        this.xMsClientId = xMsClientId;
-    }
-
+    private GetAccountResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -112,7 +93,7 @@ public final class GetAccountResult {
     public static Builder builder(GetAccountResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String name;
@@ -122,11 +103,7 @@ public final class GetAccountResult {
         private String skuName;
         private @Nullable Map<String,String> tags;
         private String xMsClientId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccountResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -139,39 +116,57 @@ public final class GetAccountResult {
     	      this.xMsClientId = defaults.xMsClientId;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryAccessKey(String primaryAccessKey) {
             this.primaryAccessKey = Objects.requireNonNull(primaryAccessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryAccessKey(String secondaryAccessKey) {
             this.secondaryAccessKey = Objects.requireNonNull(secondaryAccessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder skuName(String skuName) {
             this.skuName = Objects.requireNonNull(skuName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
         public Builder xMsClientId(String xMsClientId) {
             this.xMsClientId = Objects.requireNonNull(xMsClientId);
             return this;
-        }        public GetAccountResult build() {
-            return new GetAccountResult(id, name, primaryAccessKey, resourceGroupName, secondaryAccessKey, skuName, tags, xMsClientId);
+        }
+        public GetAccountResult build() {
+            final var o = new GetAccountResult();
+            o.id = id;
+            o.name = name;
+            o.primaryAccessKey = primaryAccessKey;
+            o.resourceGroupName = resourceGroupName;
+            o.secondaryAccessKey = secondaryAccessKey;
+            o.skuName = skuName;
+            o.tags = tags;
+            o.xMsClientId = xMsClientId;
+            return o;
         }
     }
 }

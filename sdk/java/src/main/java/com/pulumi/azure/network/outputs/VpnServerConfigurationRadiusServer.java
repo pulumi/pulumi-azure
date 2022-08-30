@@ -14,28 +14,19 @@ public final class VpnServerConfigurationRadiusServer {
      * @return The Address of the Radius Server.
      * 
      */
-    private final String address;
+    private String address;
     /**
      * @return The Score of the Radius Server determines the priority of the server. Ranges from 1 to 30.
      * 
      */
-    private final Integer score;
+    private Integer score;
     /**
      * @return The Secret used to communicate with the Radius Server.
      * 
      */
-    private final String secret;
+    private String secret;
 
-    @CustomType.Constructor
-    private VpnServerConfigurationRadiusServer(
-        @CustomType.Parameter("address") String address,
-        @CustomType.Parameter("score") Integer score,
-        @CustomType.Parameter("secret") String secret) {
-        this.address = address;
-        this.score = score;
-        this.secret = secret;
-    }
-
+    private VpnServerConfigurationRadiusServer() {}
     /**
      * @return The Address of the Radius Server.
      * 
@@ -65,16 +56,12 @@ public final class VpnServerConfigurationRadiusServer {
     public static Builder builder(VpnServerConfigurationRadiusServer defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String address;
         private Integer score;
         private String secret;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpnServerConfigurationRadiusServer defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.address = defaults.address;
@@ -82,19 +69,27 @@ public final class VpnServerConfigurationRadiusServer {
     	      this.secret = defaults.secret;
         }
 
+        @CustomType.Setter
         public Builder address(String address) {
             this.address = Objects.requireNonNull(address);
             return this;
         }
+        @CustomType.Setter
         public Builder score(Integer score) {
             this.score = Objects.requireNonNull(score);
             return this;
         }
+        @CustomType.Setter
         public Builder secret(String secret) {
             this.secret = Objects.requireNonNull(secret);
             return this;
-        }        public VpnServerConfigurationRadiusServer build() {
-            return new VpnServerConfigurationRadiusServer(address, score, secret);
+        }
+        public VpnServerConfigurationRadiusServer build() {
+            final var o = new VpnServerConfigurationRadiusServer();
+            o.address = address;
+            o.score = score;
+            o.secret = secret;
+            return o;
         }
     }
 }

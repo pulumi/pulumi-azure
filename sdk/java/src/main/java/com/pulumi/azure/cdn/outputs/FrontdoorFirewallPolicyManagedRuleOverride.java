@@ -17,28 +17,19 @@ public final class FrontdoorFirewallPolicyManagedRuleOverride {
      * @return One or more `exclusion` blocks as defined below.
      * 
      */
-    private final @Nullable List<FrontdoorFirewallPolicyManagedRuleOverrideExclusion> exclusions;
+    private @Nullable List<FrontdoorFirewallPolicyManagedRuleOverrideExclusion> exclusions;
     /**
      * @return The managed rule group to override.
      * 
      */
-    private final String ruleGroupName;
+    private String ruleGroupName;
     /**
      * @return One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
      * 
      */
-    private final @Nullable List<FrontdoorFirewallPolicyManagedRuleOverrideRule> rules;
+    private @Nullable List<FrontdoorFirewallPolicyManagedRuleOverrideRule> rules;
 
-    @CustomType.Constructor
-    private FrontdoorFirewallPolicyManagedRuleOverride(
-        @CustomType.Parameter("exclusions") @Nullable List<FrontdoorFirewallPolicyManagedRuleOverrideExclusion> exclusions,
-        @CustomType.Parameter("ruleGroupName") String ruleGroupName,
-        @CustomType.Parameter("rules") @Nullable List<FrontdoorFirewallPolicyManagedRuleOverrideRule> rules) {
-        this.exclusions = exclusions;
-        this.ruleGroupName = ruleGroupName;
-        this.rules = rules;
-    }
-
+    private FrontdoorFirewallPolicyManagedRuleOverride() {}
     /**
      * @return One or more `exclusion` blocks as defined below.
      * 
@@ -68,16 +59,12 @@ public final class FrontdoorFirewallPolicyManagedRuleOverride {
     public static Builder builder(FrontdoorFirewallPolicyManagedRuleOverride defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<FrontdoorFirewallPolicyManagedRuleOverrideExclusion> exclusions;
         private String ruleGroupName;
         private @Nullable List<FrontdoorFirewallPolicyManagedRuleOverrideRule> rules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrontdoorFirewallPolicyManagedRuleOverride defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.exclusions = defaults.exclusions;
@@ -85,6 +72,7 @@ public final class FrontdoorFirewallPolicyManagedRuleOverride {
     	      this.rules = defaults.rules;
         }
 
+        @CustomType.Setter
         public Builder exclusions(@Nullable List<FrontdoorFirewallPolicyManagedRuleOverrideExclusion> exclusions) {
             this.exclusions = exclusions;
             return this;
@@ -92,18 +80,25 @@ public final class FrontdoorFirewallPolicyManagedRuleOverride {
         public Builder exclusions(FrontdoorFirewallPolicyManagedRuleOverrideExclusion... exclusions) {
             return exclusions(List.of(exclusions));
         }
+        @CustomType.Setter
         public Builder ruleGroupName(String ruleGroupName) {
             this.ruleGroupName = Objects.requireNonNull(ruleGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder rules(@Nullable List<FrontdoorFirewallPolicyManagedRuleOverrideRule> rules) {
             this.rules = rules;
             return this;
         }
         public Builder rules(FrontdoorFirewallPolicyManagedRuleOverrideRule... rules) {
             return rules(List.of(rules));
-        }        public FrontdoorFirewallPolicyManagedRuleOverride build() {
-            return new FrontdoorFirewallPolicyManagedRuleOverride(exclusions, ruleGroupName, rules);
+        }
+        public FrontdoorFirewallPolicyManagedRuleOverride build() {
+            final var o = new FrontdoorFirewallPolicyManagedRuleOverride();
+            o.exclusions = exclusions;
+            o.ruleGroupName = ruleGroupName;
+            o.rules = rules;
+            return o;
         }
     }
 }

@@ -16,63 +16,44 @@ public final class NetworkInterfaceIpConfiguration {
      * @return The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
      * 
      */
-    private final @Nullable String gatewayLoadBalancerFrontendIpConfigurationId;
+    private @Nullable String gatewayLoadBalancerFrontendIpConfigurationId;
     /**
      * @return A name used for this IP Configuration.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Is this the Primary IP Configuration? Must be `true` for the first `ip_configuration` when multiple are specified. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean primary;
+    private @Nullable Boolean primary;
     /**
      * @return The Static IP Address which should be used.
      * 
      */
-    private final @Nullable String privateIpAddress;
+    private @Nullable String privateIpAddress;
     /**
      * @return The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
      * 
      */
-    private final String privateIpAddressAllocation;
+    private String privateIpAddressAllocation;
     /**
      * @return The IP Version to use. Possible values are `IPv4` or `IPv6`. Defaults to `IPv4`.
      * 
      */
-    private final @Nullable String privateIpAddressVersion;
+    private @Nullable String privateIpAddressVersion;
     /**
      * @return Reference to a Public IP Address to associate with this NIC
      * 
      */
-    private final @Nullable String publicIpAddressId;
+    private @Nullable String publicIpAddressId;
     /**
      * @return The ID of the Subnet where this Network Interface should be located in.
      * 
      */
-    private final @Nullable String subnetId;
+    private @Nullable String subnetId;
 
-    @CustomType.Constructor
-    private NetworkInterfaceIpConfiguration(
-        @CustomType.Parameter("gatewayLoadBalancerFrontendIpConfigurationId") @Nullable String gatewayLoadBalancerFrontendIpConfigurationId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("primary") @Nullable Boolean primary,
-        @CustomType.Parameter("privateIpAddress") @Nullable String privateIpAddress,
-        @CustomType.Parameter("privateIpAddressAllocation") String privateIpAddressAllocation,
-        @CustomType.Parameter("privateIpAddressVersion") @Nullable String privateIpAddressVersion,
-        @CustomType.Parameter("publicIpAddressId") @Nullable String publicIpAddressId,
-        @CustomType.Parameter("subnetId") @Nullable String subnetId) {
-        this.gatewayLoadBalancerFrontendIpConfigurationId = gatewayLoadBalancerFrontendIpConfigurationId;
-        this.name = name;
-        this.primary = primary;
-        this.privateIpAddress = privateIpAddress;
-        this.privateIpAddressAllocation = privateIpAddressAllocation;
-        this.privateIpAddressVersion = privateIpAddressVersion;
-        this.publicIpAddressId = publicIpAddressId;
-        this.subnetId = subnetId;
-    }
-
+    private NetworkInterfaceIpConfiguration() {}
     /**
      * @return The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
      * 
@@ -137,7 +118,7 @@ public final class NetworkInterfaceIpConfiguration {
     public static Builder builder(NetworkInterfaceIpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String gatewayLoadBalancerFrontendIpConfigurationId;
         private String name;
@@ -147,11 +128,7 @@ public final class NetworkInterfaceIpConfiguration {
         private @Nullable String privateIpAddressVersion;
         private @Nullable String publicIpAddressId;
         private @Nullable String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NetworkInterfaceIpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.gatewayLoadBalancerFrontendIpConfigurationId = defaults.gatewayLoadBalancerFrontendIpConfigurationId;
@@ -164,39 +141,57 @@ public final class NetworkInterfaceIpConfiguration {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder gatewayLoadBalancerFrontendIpConfigurationId(@Nullable String gatewayLoadBalancerFrontendIpConfigurationId) {
             this.gatewayLoadBalancerFrontendIpConfigurationId = gatewayLoadBalancerFrontendIpConfigurationId;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder primary(@Nullable Boolean primary) {
             this.primary = primary;
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
             this.privateIpAddress = privateIpAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddressAllocation(String privateIpAddressAllocation) {
             this.privateIpAddressAllocation = Objects.requireNonNull(privateIpAddressAllocation);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddressVersion(@Nullable String privateIpAddressVersion) {
             this.privateIpAddressVersion = privateIpAddressVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpAddressId(@Nullable String publicIpAddressId) {
             this.publicIpAddressId = publicIpAddressId;
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
             this.subnetId = subnetId;
             return this;
-        }        public NetworkInterfaceIpConfiguration build() {
-            return new NetworkInterfaceIpConfiguration(gatewayLoadBalancerFrontendIpConfigurationId, name, primary, privateIpAddress, privateIpAddressAllocation, privateIpAddressVersion, publicIpAddressId, subnetId);
+        }
+        public NetworkInterfaceIpConfiguration build() {
+            final var o = new NetworkInterfaceIpConfiguration();
+            o.gatewayLoadBalancerFrontendIpConfigurationId = gatewayLoadBalancerFrontendIpConfigurationId;
+            o.name = name;
+            o.primary = primary;
+            o.privateIpAddress = privateIpAddress;
+            o.privateIpAddressAllocation = privateIpAddressAllocation;
+            o.privateIpAddressVersion = privateIpAddressVersion;
+            o.publicIpAddressId = publicIpAddressId;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

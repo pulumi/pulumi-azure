@@ -14,37 +14,22 @@ public final class GetReplicationPolicyResult {
      * @return Specifies the frequency (in minutes) at which to create application consistent recovery.
      * 
      */
-    private final Integer applicationConsistentSnapshotFrequencyInMinutes;
+    private Integer applicationConsistentSnapshotFrequencyInMinutes;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return The duration in minutes for which the recovery points need to be stored.
      * 
      */
-    private final Integer recoveryPointRetentionInMinutes;
-    private final String recoveryVaultName;
-    private final String resourceGroupName;
+    private Integer recoveryPointRetentionInMinutes;
+    private String recoveryVaultName;
+    private String resourceGroupName;
 
-    @CustomType.Constructor
-    private GetReplicationPolicyResult(
-        @CustomType.Parameter("applicationConsistentSnapshotFrequencyInMinutes") Integer applicationConsistentSnapshotFrequencyInMinutes,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("recoveryPointRetentionInMinutes") Integer recoveryPointRetentionInMinutes,
-        @CustomType.Parameter("recoveryVaultName") String recoveryVaultName,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName) {
-        this.applicationConsistentSnapshotFrequencyInMinutes = applicationConsistentSnapshotFrequencyInMinutes;
-        this.id = id;
-        this.name = name;
-        this.recoveryPointRetentionInMinutes = recoveryPointRetentionInMinutes;
-        this.recoveryVaultName = recoveryVaultName;
-        this.resourceGroupName = resourceGroupName;
-    }
-
+    private GetReplicationPolicyResult() {}
     /**
      * @return Specifies the frequency (in minutes) at which to create application consistent recovery.
      * 
@@ -83,7 +68,7 @@ public final class GetReplicationPolicyResult {
     public static Builder builder(GetReplicationPolicyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer applicationConsistentSnapshotFrequencyInMinutes;
         private String id;
@@ -91,11 +76,7 @@ public final class GetReplicationPolicyResult {
         private Integer recoveryPointRetentionInMinutes;
         private String recoveryVaultName;
         private String resourceGroupName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetReplicationPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationConsistentSnapshotFrequencyInMinutes = defaults.applicationConsistentSnapshotFrequencyInMinutes;
@@ -106,31 +87,45 @@ public final class GetReplicationPolicyResult {
     	      this.resourceGroupName = defaults.resourceGroupName;
         }
 
+        @CustomType.Setter
         public Builder applicationConsistentSnapshotFrequencyInMinutes(Integer applicationConsistentSnapshotFrequencyInMinutes) {
             this.applicationConsistentSnapshotFrequencyInMinutes = Objects.requireNonNull(applicationConsistentSnapshotFrequencyInMinutes);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder recoveryPointRetentionInMinutes(Integer recoveryPointRetentionInMinutes) {
             this.recoveryPointRetentionInMinutes = Objects.requireNonNull(recoveryPointRetentionInMinutes);
             return this;
         }
+        @CustomType.Setter
         public Builder recoveryVaultName(String recoveryVaultName) {
             this.recoveryVaultName = Objects.requireNonNull(recoveryVaultName);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
-        }        public GetReplicationPolicyResult build() {
-            return new GetReplicationPolicyResult(applicationConsistentSnapshotFrequencyInMinutes, id, name, recoveryPointRetentionInMinutes, recoveryVaultName, resourceGroupName);
+        }
+        public GetReplicationPolicyResult build() {
+            final var o = new GetReplicationPolicyResult();
+            o.applicationConsistentSnapshotFrequencyInMinutes = applicationConsistentSnapshotFrequencyInMinutes;
+            o.id = id;
+            o.name = name;
+            o.recoveryPointRetentionInMinutes = recoveryPointRetentionInMinutes;
+            o.recoveryVaultName = recoveryVaultName;
+            o.resourceGroupName = resourceGroupName;
+            return o;
         }
     }
 }

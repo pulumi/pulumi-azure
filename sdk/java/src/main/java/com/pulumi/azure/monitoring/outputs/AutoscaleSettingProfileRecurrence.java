@@ -17,35 +17,24 @@ public final class AutoscaleSettingProfileRecurrence {
      * @return A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      * 
      */
-    private final List<String> days;
+    private List<String> days;
     /**
      * @return A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from `0` to `23`.
      * 
      */
-    private final Integer hours;
+    private Integer hours;
     /**
      * @return A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
      * 
      */
-    private final Integer minutes;
+    private Integer minutes;
     /**
      * @return The Time Zone used for the `hours` field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
      * 
      */
-    private final @Nullable String timezone;
+    private @Nullable String timezone;
 
-    @CustomType.Constructor
-    private AutoscaleSettingProfileRecurrence(
-        @CustomType.Parameter("days") List<String> days,
-        @CustomType.Parameter("hours") Integer hours,
-        @CustomType.Parameter("minutes") Integer minutes,
-        @CustomType.Parameter("timezone") @Nullable String timezone) {
-        this.days = days;
-        this.hours = hours;
-        this.minutes = minutes;
-        this.timezone = timezone;
-    }
-
+    private AutoscaleSettingProfileRecurrence() {}
     /**
      * @return A list of days that this profile takes effect on. Possible values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`.
      * 
@@ -82,17 +71,13 @@ public final class AutoscaleSettingProfileRecurrence {
     public static Builder builder(AutoscaleSettingProfileRecurrence defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> days;
         private Integer hours;
         private Integer minutes;
         private @Nullable String timezone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AutoscaleSettingProfileRecurrence defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.days = defaults.days;
@@ -101,6 +86,7 @@ public final class AutoscaleSettingProfileRecurrence {
     	      this.timezone = defaults.timezone;
         }
 
+        @CustomType.Setter
         public Builder days(List<String> days) {
             this.days = Objects.requireNonNull(days);
             return this;
@@ -108,19 +94,28 @@ public final class AutoscaleSettingProfileRecurrence {
         public Builder days(String... days) {
             return days(List.of(days));
         }
+        @CustomType.Setter
         public Builder hours(Integer hours) {
             this.hours = Objects.requireNonNull(hours);
             return this;
         }
+        @CustomType.Setter
         public Builder minutes(Integer minutes) {
             this.minutes = Objects.requireNonNull(minutes);
             return this;
         }
+        @CustomType.Setter
         public Builder timezone(@Nullable String timezone) {
             this.timezone = timezone;
             return this;
-        }        public AutoscaleSettingProfileRecurrence build() {
-            return new AutoscaleSettingProfileRecurrence(days, hours, minutes, timezone);
+        }
+        public AutoscaleSettingProfileRecurrence build() {
+            final var o = new AutoscaleSettingProfileRecurrence();
+            o.days = days;
+            o.hours = hours;
+            o.minutes = minutes;
+            o.timezone = timezone;
+            return o;
         }
     }
 }

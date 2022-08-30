@@ -14,21 +14,14 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
      * @return Port number of the protocol. Range is 0-64000.
      * 
      */
-    private final Integer port;
+    private Integer port;
     /**
      * @return Protocol type. Possible values are `Http` and `Https`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol(
-        @CustomType.Parameter("port") Integer port,
-        @CustomType.Parameter("type") String type) {
-        this.port = port;
-        this.type = type;
-    }
-
+    private FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol() {}
     /**
      * @return Port number of the protocol. Range is 0-64000.
      * 
@@ -51,30 +44,32 @@ public final class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRul
     public static Builder builder(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer port;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.port = defaults.port;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol build() {
-            return new FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol(port, type);
+        }
+        public FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol build() {
+            final var o = new FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocol();
+            o.port = port;
+            o.type = type;
+            return o;
         }
     }
 }

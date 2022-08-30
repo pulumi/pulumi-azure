@@ -1389,6 +1389,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_monitor_private_link_scoped_service": {Tok: azureResource(azureMonitoring, "PrivateLinkScopedService")},
 			"azurerm_monitor_data_collection_rule":        {Tok: azureResource(azureMonitoring, "DataCollectionRule")},
 			"azurerm_monitor_data_collection_endpoint":    {Tok: azureResource(azureMonitoring, "DataCollectionEndpoint")},
+			"azurerm_monitor_scheduled_query_rules_alert_v2": {
+				Tok: azureResource(azureMonitoring, "ScheduledQueryRulesAlertV2"),
+			},
 
 			// MS SQL
 			"azurerm_mssql_elasticpool": {Tok: azureResource(azureMSSQL, "ElasticPool")},
@@ -2052,6 +2055,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_backup_protected_file_share":      {Tok: azureResource(azureBackup, "ProtectedFileShare")},
 			"azurerm_backup_policy_vm":                 {Tok: azureResource(azureBackup, "PolicyVM")},
 			"azurerm_backup_protected_vm":              {Tok: azureResource(azureBackup, "ProtectedVM")},
+			"azurerm_backup_policy_vm_workload":        {Tok: azureResource(azureBackup, "PolicyVMWorkload")},
 
 			// Private Link
 			"azurerm_private_endpoint": {Tok: azureResource(azurePrivateLink, "Endpoint")},
@@ -2716,6 +2720,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_web_pubsub_private_link_resource": {Tok: azureDataSource(azureWebPubSub, "getPrivateLinkResource")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
+			TypeScriptVersion: "4.7.4",
 			DevDependencies: map[string]string{
 				"@types/node":       "^10.0.0", // so we can access strongly typed node definitions.
 				"@types/node-fetch": "^2.5.8",

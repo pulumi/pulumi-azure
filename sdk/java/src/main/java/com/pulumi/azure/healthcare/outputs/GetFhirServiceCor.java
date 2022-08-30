@@ -16,42 +16,29 @@ public final class GetFhirServiceCor {
      * @return The set of headers to be allowed via CORS.
      * 
      */
-    private final List<String> allowedHeaders;
+    private List<String> allowedHeaders;
     /**
      * @return The methods to be allowed via CORS.
      * 
      */
-    private final List<String> allowedMethods;
+    private List<String> allowedMethods;
     /**
      * @return The set of origins to be allowed via CORS.
      * 
      */
-    private final List<String> allowedOrigins;
+    private List<String> allowedOrigins;
     /**
      * @return Are credentials allowed via CORS?
      * 
      */
-    private final Boolean credentialsAllowed;
+    private Boolean credentialsAllowed;
     /**
      * @return The max age to be allowed via CORS.
      * 
      */
-    private final Integer maxAgeInSeconds;
+    private Integer maxAgeInSeconds;
 
-    @CustomType.Constructor
-    private GetFhirServiceCor(
-        @CustomType.Parameter("allowedHeaders") List<String> allowedHeaders,
-        @CustomType.Parameter("allowedMethods") List<String> allowedMethods,
-        @CustomType.Parameter("allowedOrigins") List<String> allowedOrigins,
-        @CustomType.Parameter("credentialsAllowed") Boolean credentialsAllowed,
-        @CustomType.Parameter("maxAgeInSeconds") Integer maxAgeInSeconds) {
-        this.allowedHeaders = allowedHeaders;
-        this.allowedMethods = allowedMethods;
-        this.allowedOrigins = allowedOrigins;
-        this.credentialsAllowed = credentialsAllowed;
-        this.maxAgeInSeconds = maxAgeInSeconds;
-    }
-
+    private GetFhirServiceCor() {}
     /**
      * @return The set of headers to be allowed via CORS.
      * 
@@ -95,18 +82,14 @@ public final class GetFhirServiceCor {
     public static Builder builder(GetFhirServiceCor defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> allowedHeaders;
         private List<String> allowedMethods;
         private List<String> allowedOrigins;
         private Boolean credentialsAllowed;
         private Integer maxAgeInSeconds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFhirServiceCor defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedHeaders = defaults.allowedHeaders;
@@ -116,6 +99,7 @@ public final class GetFhirServiceCor {
     	      this.maxAgeInSeconds = defaults.maxAgeInSeconds;
         }
 
+        @CustomType.Setter
         public Builder allowedHeaders(List<String> allowedHeaders) {
             this.allowedHeaders = Objects.requireNonNull(allowedHeaders);
             return this;
@@ -123,6 +107,7 @@ public final class GetFhirServiceCor {
         public Builder allowedHeaders(String... allowedHeaders) {
             return allowedHeaders(List.of(allowedHeaders));
         }
+        @CustomType.Setter
         public Builder allowedMethods(List<String> allowedMethods) {
             this.allowedMethods = Objects.requireNonNull(allowedMethods);
             return this;
@@ -130,6 +115,7 @@ public final class GetFhirServiceCor {
         public Builder allowedMethods(String... allowedMethods) {
             return allowedMethods(List.of(allowedMethods));
         }
+        @CustomType.Setter
         public Builder allowedOrigins(List<String> allowedOrigins) {
             this.allowedOrigins = Objects.requireNonNull(allowedOrigins);
             return this;
@@ -137,15 +123,24 @@ public final class GetFhirServiceCor {
         public Builder allowedOrigins(String... allowedOrigins) {
             return allowedOrigins(List.of(allowedOrigins));
         }
+        @CustomType.Setter
         public Builder credentialsAllowed(Boolean credentialsAllowed) {
             this.credentialsAllowed = Objects.requireNonNull(credentialsAllowed);
             return this;
         }
+        @CustomType.Setter
         public Builder maxAgeInSeconds(Integer maxAgeInSeconds) {
             this.maxAgeInSeconds = Objects.requireNonNull(maxAgeInSeconds);
             return this;
-        }        public GetFhirServiceCor build() {
-            return new GetFhirServiceCor(allowedHeaders, allowedMethods, allowedOrigins, credentialsAllowed, maxAgeInSeconds);
+        }
+        public GetFhirServiceCor build() {
+            final var o = new GetFhirServiceCor();
+            o.allowedHeaders = allowedHeaders;
+            o.allowedMethods = allowedMethods;
+            o.allowedOrigins = allowedOrigins;
+            o.credentialsAllowed = credentialsAllowed;
+            o.maxAgeInSeconds = maxAgeInSeconds;
+            return o;
         }
     }
 }

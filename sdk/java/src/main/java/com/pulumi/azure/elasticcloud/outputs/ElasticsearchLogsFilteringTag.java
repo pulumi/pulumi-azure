@@ -13,28 +13,19 @@ public final class ElasticsearchLogsFilteringTag {
      * @return Specifies the type of action which should be taken when the Tag matches the `name` and `value`. Possible values are `Exclude` and `Include`.
      * 
      */
-    private final String action;
+    private String action;
     /**
      * @return Specifies the name (key) of the Tag which should be filtered.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Specifies the value of the Tag which should be filtered.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private ElasticsearchLogsFilteringTag(
-        @CustomType.Parameter("action") String action,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("value") String value) {
-        this.action = action;
-        this.name = name;
-        this.value = value;
-    }
-
+    private ElasticsearchLogsFilteringTag() {}
     /**
      * @return Specifies the type of action which should be taken when the Tag matches the `name` and `value`. Possible values are `Exclude` and `Include`.
      * 
@@ -64,16 +55,12 @@ public final class ElasticsearchLogsFilteringTag {
     public static Builder builder(ElasticsearchLogsFilteringTag defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String action;
         private String name;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ElasticsearchLogsFilteringTag defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -81,19 +68,27 @@ public final class ElasticsearchLogsFilteringTag {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public ElasticsearchLogsFilteringTag build() {
-            return new ElasticsearchLogsFilteringTag(action, name, value);
+        }
+        public ElasticsearchLogsFilteringTag build() {
+            final var o = new ElasticsearchLogsFilteringTag();
+            o.action = action;
+            o.name = name;
+            o.value = value;
+            return o;
         }
     }
 }

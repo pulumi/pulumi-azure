@@ -14,35 +14,24 @@ public final class GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth 
      * @return The host key of the Git repository server.
      * 
      */
-    private final String hostKey;
+    private String hostKey;
     /**
      * @return The host key algorithm.
      * 
      */
-    private final String hostKeyAlgorithm;
+    private String hostKeyAlgorithm;
     /**
      * @return The SSH private key to access the Git repository, needed when the URI starts with `git@` or `ssh://`.
      * 
      */
-    private final String privateKey;
+    private String privateKey;
     /**
      * @return Indicates whether the Config Server instance will fail to start if the host_key does not match.
      * 
      */
-    private final Boolean strictHostKeyCheckingEnabled;
+    private Boolean strictHostKeyCheckingEnabled;
 
-    @CustomType.Constructor
-    private GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth(
-        @CustomType.Parameter("hostKey") String hostKey,
-        @CustomType.Parameter("hostKeyAlgorithm") String hostKeyAlgorithm,
-        @CustomType.Parameter("privateKey") String privateKey,
-        @CustomType.Parameter("strictHostKeyCheckingEnabled") Boolean strictHostKeyCheckingEnabled) {
-        this.hostKey = hostKey;
-        this.hostKeyAlgorithm = hostKeyAlgorithm;
-        this.privateKey = privateKey;
-        this.strictHostKeyCheckingEnabled = strictHostKeyCheckingEnabled;
-    }
-
+    private GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth() {}
     /**
      * @return The host key of the Git repository server.
      * 
@@ -79,17 +68,13 @@ public final class GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth 
     public static Builder builder(GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String hostKey;
         private String hostKeyAlgorithm;
         private String privateKey;
         private Boolean strictHostKeyCheckingEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostKey = defaults.hostKey;
@@ -98,23 +83,33 @@ public final class GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth 
     	      this.strictHostKeyCheckingEnabled = defaults.strictHostKeyCheckingEnabled;
         }
 
+        @CustomType.Setter
         public Builder hostKey(String hostKey) {
             this.hostKey = Objects.requireNonNull(hostKey);
             return this;
         }
+        @CustomType.Setter
         public Builder hostKeyAlgorithm(String hostKeyAlgorithm) {
             this.hostKeyAlgorithm = Objects.requireNonNull(hostKeyAlgorithm);
             return this;
         }
+        @CustomType.Setter
         public Builder privateKey(String privateKey) {
             this.privateKey = Objects.requireNonNull(privateKey);
             return this;
         }
+        @CustomType.Setter
         public Builder strictHostKeyCheckingEnabled(Boolean strictHostKeyCheckingEnabled) {
             this.strictHostKeyCheckingEnabled = Objects.requireNonNull(strictHostKeyCheckingEnabled);
             return this;
-        }        public GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth build() {
-            return new GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth(hostKey, hostKeyAlgorithm, privateKey, strictHostKeyCheckingEnabled);
+        }
+        public GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth build() {
+            final var o = new GetSpringCloudServiceConfigServerGitSettingRepositorySshAuth();
+            o.hostKey = hostKey;
+            o.hostKeyAlgorithm = hostKeyAlgorithm;
+            o.privateKey = privateKey;
+            o.strictHostKeyCheckingEnabled = strictHostKeyCheckingEnabled;
+            return o;
         }
     }
 }

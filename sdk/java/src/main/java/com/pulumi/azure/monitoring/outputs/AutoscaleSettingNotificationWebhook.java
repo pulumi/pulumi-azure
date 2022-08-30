@@ -15,21 +15,14 @@ public final class AutoscaleSettingNotificationWebhook {
      * @return A map of settings.
      * 
      */
-    private final @Nullable Map<String,String> properties;
+    private @Nullable Map<String,String> properties;
     /**
      * @return The HTTPS URI which should receive scale notifications.
      * 
      */
-    private final String serviceUri;
+    private String serviceUri;
 
-    @CustomType.Constructor
-    private AutoscaleSettingNotificationWebhook(
-        @CustomType.Parameter("properties") @Nullable Map<String,String> properties,
-        @CustomType.Parameter("serviceUri") String serviceUri) {
-        this.properties = properties;
-        this.serviceUri = serviceUri;
-    }
-
+    private AutoscaleSettingNotificationWebhook() {}
     /**
      * @return A map of settings.
      * 
@@ -52,30 +45,32 @@ public final class AutoscaleSettingNotificationWebhook {
     public static Builder builder(AutoscaleSettingNotificationWebhook defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> properties;
         private String serviceUri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AutoscaleSettingNotificationWebhook defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.properties = defaults.properties;
     	      this.serviceUri = defaults.serviceUri;
         }
 
+        @CustomType.Setter
         public Builder properties(@Nullable Map<String,String> properties) {
             this.properties = properties;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceUri(String serviceUri) {
             this.serviceUri = Objects.requireNonNull(serviceUri);
             return this;
-        }        public AutoscaleSettingNotificationWebhook build() {
-            return new AutoscaleSettingNotificationWebhook(properties, serviceUri);
+        }
+        public AutoscaleSettingNotificationWebhook build() {
+            final var o = new AutoscaleSettingNotificationWebhook();
+            o.properties = properties;
+            o.serviceUri = serviceUri;
+            return o;
         }
     }
 }

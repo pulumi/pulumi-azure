@@ -13,132 +13,91 @@ import java.util.Objects;
 
 @CustomType
 public final class GetManagedDiskResult {
-    private final String createOption;
+    private String createOption;
     /**
      * @return The ID of the disk access resource for using private endpoints on disks.
      * 
      */
-    private final String diskAccessId;
+    private String diskAccessId;
     /**
      * @return The ID of the Disk Encryption Set used to encrypt this Managed Disk.
      * 
      */
-    private final String diskEncryptionSetId;
+    private String diskEncryptionSetId;
     /**
      * @return The number of IOPS allowed for this disk, where one operation can transfer between 4k and 256k bytes.
      * 
      */
-    private final Integer diskIopsReadWrite;
+    private Integer diskIopsReadWrite;
     /**
      * @return The bandwidth allowed for this disk.
      * 
      */
-    private final Integer diskMbpsReadWrite;
+    private Integer diskMbpsReadWrite;
     /**
      * @return The size of the Managed Disk in gigabytes.
      * 
      */
-    private final Integer diskSizeGb;
+    private Integer diskSizeGb;
     /**
      * @return A `encryption_settings` block as defined below.
      * 
      */
-    private final List<GetManagedDiskEncryptionSetting> encryptionSettings;
+    private List<GetManagedDiskEncryptionSetting> encryptionSettings;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The ID of the source image used for creating this Managed Disk.
      * 
      */
-    private final String imageReferenceId;
-    private final String name;
+    private String imageReferenceId;
+    private String name;
     /**
      * @return Policy for accessing the disk via network.
      * 
      */
-    private final String networkAccessPolicy;
+    private String networkAccessPolicy;
     /**
      * @return The operating system used for this Managed Disk.
      * 
      */
-    private final String osType;
-    private final String resourceGroupName;
+    private String osType;
+    private String resourceGroupName;
     /**
      * @return The ID of an existing Managed Disk which this Disk was created from.
      * 
      */
-    private final String sourceResourceId;
+    private String sourceResourceId;
     /**
      * @return The Source URI for this Managed Disk.
      * 
      */
-    private final String sourceUri;
+    private String sourceUri;
     /**
      * @return The ID of the Storage Account where the `source_uri` is located.
      * 
      */
-    private final String storageAccountId;
+    private String storageAccountId;
     /**
      * @return The storage account type for the Managed Disk.
      * 
      */
-    private final String storageAccountType;
+    private String storageAccountType;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return A list of Availability Zones where the Managed Disk exists.
      * 
      */
-    private final List<String> zones;
+    private List<String> zones;
 
-    @CustomType.Constructor
-    private GetManagedDiskResult(
-        @CustomType.Parameter("createOption") String createOption,
-        @CustomType.Parameter("diskAccessId") String diskAccessId,
-        @CustomType.Parameter("diskEncryptionSetId") String diskEncryptionSetId,
-        @CustomType.Parameter("diskIopsReadWrite") Integer diskIopsReadWrite,
-        @CustomType.Parameter("diskMbpsReadWrite") Integer diskMbpsReadWrite,
-        @CustomType.Parameter("diskSizeGb") Integer diskSizeGb,
-        @CustomType.Parameter("encryptionSettings") List<GetManagedDiskEncryptionSetting> encryptionSettings,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("imageReferenceId") String imageReferenceId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("networkAccessPolicy") String networkAccessPolicy,
-        @CustomType.Parameter("osType") String osType,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("sourceResourceId") String sourceResourceId,
-        @CustomType.Parameter("sourceUri") String sourceUri,
-        @CustomType.Parameter("storageAccountId") String storageAccountId,
-        @CustomType.Parameter("storageAccountType") String storageAccountType,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("zones") List<String> zones) {
-        this.createOption = createOption;
-        this.diskAccessId = diskAccessId;
-        this.diskEncryptionSetId = diskEncryptionSetId;
-        this.diskIopsReadWrite = diskIopsReadWrite;
-        this.diskMbpsReadWrite = diskMbpsReadWrite;
-        this.diskSizeGb = diskSizeGb;
-        this.encryptionSettings = encryptionSettings;
-        this.id = id;
-        this.imageReferenceId = imageReferenceId;
-        this.name = name;
-        this.networkAccessPolicy = networkAccessPolicy;
-        this.osType = osType;
-        this.resourceGroupName = resourceGroupName;
-        this.sourceResourceId = sourceResourceId;
-        this.sourceUri = sourceUri;
-        this.storageAccountId = storageAccountId;
-        this.storageAccountType = storageAccountType;
-        this.tags = tags;
-        this.zones = zones;
-    }
-
+    private GetManagedDiskResult() {}
     public String createOption() {
         return this.createOption;
     }
@@ -268,7 +227,7 @@ public final class GetManagedDiskResult {
     public static Builder builder(GetManagedDiskResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String createOption;
         private String diskAccessId;
@@ -289,11 +248,7 @@ public final class GetManagedDiskResult {
         private String storageAccountType;
         private Map<String,String> tags;
         private List<String> zones;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetManagedDiskResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.createOption = defaults.createOption;
@@ -317,30 +272,37 @@ public final class GetManagedDiskResult {
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
         public Builder createOption(String createOption) {
             this.createOption = Objects.requireNonNull(createOption);
             return this;
         }
+        @CustomType.Setter
         public Builder diskAccessId(String diskAccessId) {
             this.diskAccessId = Objects.requireNonNull(diskAccessId);
             return this;
         }
+        @CustomType.Setter
         public Builder diskEncryptionSetId(String diskEncryptionSetId) {
             this.diskEncryptionSetId = Objects.requireNonNull(diskEncryptionSetId);
             return this;
         }
+        @CustomType.Setter
         public Builder diskIopsReadWrite(Integer diskIopsReadWrite) {
             this.diskIopsReadWrite = Objects.requireNonNull(diskIopsReadWrite);
             return this;
         }
+        @CustomType.Setter
         public Builder diskMbpsReadWrite(Integer diskMbpsReadWrite) {
             this.diskMbpsReadWrite = Objects.requireNonNull(diskMbpsReadWrite);
             return this;
         }
+        @CustomType.Setter
         public Builder diskSizeGb(Integer diskSizeGb) {
             this.diskSizeGb = Objects.requireNonNull(diskSizeGb);
             return this;
         }
+        @CustomType.Setter
         public Builder encryptionSettings(List<GetManagedDiskEncryptionSetting> encryptionSettings) {
             this.encryptionSettings = Objects.requireNonNull(encryptionSettings);
             return this;
@@ -348,58 +310,91 @@ public final class GetManagedDiskResult {
         public Builder encryptionSettings(GetManagedDiskEncryptionSetting... encryptionSettings) {
             return encryptionSettings(List.of(encryptionSettings));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder imageReferenceId(String imageReferenceId) {
             this.imageReferenceId = Objects.requireNonNull(imageReferenceId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder networkAccessPolicy(String networkAccessPolicy) {
             this.networkAccessPolicy = Objects.requireNonNull(networkAccessPolicy);
             return this;
         }
+        @CustomType.Setter
         public Builder osType(String osType) {
             this.osType = Objects.requireNonNull(osType);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceResourceId(String sourceResourceId) {
             this.sourceResourceId = Objects.requireNonNull(sourceResourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceUri(String sourceUri) {
             this.sourceUri = Objects.requireNonNull(sourceUri);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
             this.storageAccountId = Objects.requireNonNull(storageAccountId);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountType(String storageAccountType) {
             this.storageAccountType = Objects.requireNonNull(storageAccountType);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder zones(List<String> zones) {
             this.zones = Objects.requireNonNull(zones);
             return this;
         }
         public Builder zones(String... zones) {
             return zones(List.of(zones));
-        }        public GetManagedDiskResult build() {
-            return new GetManagedDiskResult(createOption, diskAccessId, diskEncryptionSetId, diskIopsReadWrite, diskMbpsReadWrite, diskSizeGb, encryptionSettings, id, imageReferenceId, name, networkAccessPolicy, osType, resourceGroupName, sourceResourceId, sourceUri, storageAccountId, storageAccountType, tags, zones);
+        }
+        public GetManagedDiskResult build() {
+            final var o = new GetManagedDiskResult();
+            o.createOption = createOption;
+            o.diskAccessId = diskAccessId;
+            o.diskEncryptionSetId = diskEncryptionSetId;
+            o.diskIopsReadWrite = diskIopsReadWrite;
+            o.diskMbpsReadWrite = diskMbpsReadWrite;
+            o.diskSizeGb = diskSizeGb;
+            o.encryptionSettings = encryptionSettings;
+            o.id = id;
+            o.imageReferenceId = imageReferenceId;
+            o.name = name;
+            o.networkAccessPolicy = networkAccessPolicy;
+            o.osType = osType;
+            o.resourceGroupName = resourceGroupName;
+            o.sourceResourceId = sourceResourceId;
+            o.sourceUri = sourceUri;
+            o.storageAccountId = storageAccountId;
+            o.storageAccountType = storageAccountType;
+            o.tags = tags;
+            o.zones = zones;
+            return o;
         }
     }
 }

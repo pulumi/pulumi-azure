@@ -16,98 +16,69 @@ public final class LoadBalancerFrontendIpConfiguration {
      * @return The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
      * 
      */
-    private final @Nullable String gatewayLoadBalancerFrontendIpConfigurationId;
+    private @Nullable String gatewayLoadBalancerFrontendIpConfigurationId;
     /**
      * @return The id of the Frontend IP Configuration.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The list of IDs of inbound rules that use this frontend IP.
      * 
      */
-    private final @Nullable List<String> inboundNatRules;
+    private @Nullable List<String> inboundNatRules;
     /**
      * @return The list of IDs of load balancing rules that use this frontend IP.
      * 
      */
-    private final @Nullable List<String> loadBalancerRules;
+    private @Nullable List<String> loadBalancerRules;
     /**
      * @return Specifies the name of the frontend IP configuration.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The list of IDs outbound rules that use this frontend IP.
      * 
      */
-    private final @Nullable List<String> outboundRules;
+    private @Nullable List<String> outboundRules;
     /**
      * @return Private IP Address to assign to the Load Balancer. The last one and first four IPs in any range are reserved and cannot be manually assigned.
      * 
      */
-    private final @Nullable String privateIpAddress;
+    private @Nullable String privateIpAddress;
     /**
      * @return The allocation method for the Private IP Address used by this Load Balancer. Possible values as `Dynamic` and `Static`.
      * 
      */
-    private final @Nullable String privateIpAddressAllocation;
+    private @Nullable String privateIpAddressAllocation;
     /**
      * @return The version of IP that the Private IP Address is. Possible values are `IPv4` or `IPv6`.
      * 
      */
-    private final @Nullable String privateIpAddressVersion;
+    private @Nullable String privateIpAddressVersion;
     /**
      * @return The ID of a Public IP Address which should be associated with the Load Balancer.
      * 
      */
-    private final @Nullable String publicIpAddressId;
+    private @Nullable String publicIpAddressId;
     /**
      * @return The ID of a Public IP Prefix which should be associated with the Load Balancer. Public IP Prefix can only be used with outbound rules.
      * 
      */
-    private final @Nullable String publicIpPrefixId;
+    private @Nullable String publicIpPrefixId;
     /**
      * @return The ID of the Subnet which should be associated with the IP Configuration.
      * 
      */
-    private final @Nullable String subnetId;
+    private @Nullable String subnetId;
     /**
      * @return Specifies a list of Availability Zones in which the IP Address for this Load Balancer should be located. Changing this forces a new Load Balancer to be created.
      * 
      */
-    private final @Nullable List<String> zones;
+    private @Nullable List<String> zones;
 
-    @CustomType.Constructor
-    private LoadBalancerFrontendIpConfiguration(
-        @CustomType.Parameter("gatewayLoadBalancerFrontendIpConfigurationId") @Nullable String gatewayLoadBalancerFrontendIpConfigurationId,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("inboundNatRules") @Nullable List<String> inboundNatRules,
-        @CustomType.Parameter("loadBalancerRules") @Nullable List<String> loadBalancerRules,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("outboundRules") @Nullable List<String> outboundRules,
-        @CustomType.Parameter("privateIpAddress") @Nullable String privateIpAddress,
-        @CustomType.Parameter("privateIpAddressAllocation") @Nullable String privateIpAddressAllocation,
-        @CustomType.Parameter("privateIpAddressVersion") @Nullable String privateIpAddressVersion,
-        @CustomType.Parameter("publicIpAddressId") @Nullable String publicIpAddressId,
-        @CustomType.Parameter("publicIpPrefixId") @Nullable String publicIpPrefixId,
-        @CustomType.Parameter("subnetId") @Nullable String subnetId,
-        @CustomType.Parameter("zones") @Nullable List<String> zones) {
-        this.gatewayLoadBalancerFrontendIpConfigurationId = gatewayLoadBalancerFrontendIpConfigurationId;
-        this.id = id;
-        this.inboundNatRules = inboundNatRules;
-        this.loadBalancerRules = loadBalancerRules;
-        this.name = name;
-        this.outboundRules = outboundRules;
-        this.privateIpAddress = privateIpAddress;
-        this.privateIpAddressAllocation = privateIpAddressAllocation;
-        this.privateIpAddressVersion = privateIpAddressVersion;
-        this.publicIpAddressId = publicIpAddressId;
-        this.publicIpPrefixId = publicIpPrefixId;
-        this.subnetId = subnetId;
-        this.zones = zones;
-    }
-
+    private LoadBalancerFrontendIpConfiguration() {}
     /**
      * @return The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
      * 
@@ -207,7 +178,7 @@ public final class LoadBalancerFrontendIpConfiguration {
     public static Builder builder(LoadBalancerFrontendIpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String gatewayLoadBalancerFrontendIpConfigurationId;
         private @Nullable String id;
@@ -222,11 +193,7 @@ public final class LoadBalancerFrontendIpConfiguration {
         private @Nullable String publicIpPrefixId;
         private @Nullable String subnetId;
         private @Nullable List<String> zones;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LoadBalancerFrontendIpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.gatewayLoadBalancerFrontendIpConfigurationId = defaults.gatewayLoadBalancerFrontendIpConfigurationId;
@@ -244,14 +211,17 @@ public final class LoadBalancerFrontendIpConfiguration {
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
         public Builder gatewayLoadBalancerFrontendIpConfigurationId(@Nullable String gatewayLoadBalancerFrontendIpConfigurationId) {
             this.gatewayLoadBalancerFrontendIpConfigurationId = gatewayLoadBalancerFrontendIpConfigurationId;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder inboundNatRules(@Nullable List<String> inboundNatRules) {
             this.inboundNatRules = inboundNatRules;
             return this;
@@ -259,6 +229,7 @@ public final class LoadBalancerFrontendIpConfiguration {
         public Builder inboundNatRules(String... inboundNatRules) {
             return inboundNatRules(List.of(inboundNatRules));
         }
+        @CustomType.Setter
         public Builder loadBalancerRules(@Nullable List<String> loadBalancerRules) {
             this.loadBalancerRules = loadBalancerRules;
             return this;
@@ -266,10 +237,12 @@ public final class LoadBalancerFrontendIpConfiguration {
         public Builder loadBalancerRules(String... loadBalancerRules) {
             return loadBalancerRules(List.of(loadBalancerRules));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder outboundRules(@Nullable List<String> outboundRules) {
             this.outboundRules = outboundRules;
             return this;
@@ -277,38 +250,60 @@ public final class LoadBalancerFrontendIpConfiguration {
         public Builder outboundRules(String... outboundRules) {
             return outboundRules(List.of(outboundRules));
         }
+        @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
             this.privateIpAddress = privateIpAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddressAllocation(@Nullable String privateIpAddressAllocation) {
             this.privateIpAddressAllocation = privateIpAddressAllocation;
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddressVersion(@Nullable String privateIpAddressVersion) {
             this.privateIpAddressVersion = privateIpAddressVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpAddressId(@Nullable String publicIpAddressId) {
             this.publicIpAddressId = publicIpAddressId;
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpPrefixId(@Nullable String publicIpPrefixId) {
             this.publicIpPrefixId = publicIpPrefixId;
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
             this.subnetId = subnetId;
             return this;
         }
+        @CustomType.Setter
         public Builder zones(@Nullable List<String> zones) {
             this.zones = zones;
             return this;
         }
         public Builder zones(String... zones) {
             return zones(List.of(zones));
-        }        public LoadBalancerFrontendIpConfiguration build() {
-            return new LoadBalancerFrontendIpConfiguration(gatewayLoadBalancerFrontendIpConfigurationId, id, inboundNatRules, loadBalancerRules, name, outboundRules, privateIpAddress, privateIpAddressAllocation, privateIpAddressVersion, publicIpAddressId, publicIpPrefixId, subnetId, zones);
+        }
+        public LoadBalancerFrontendIpConfiguration build() {
+            final var o = new LoadBalancerFrontendIpConfiguration();
+            o.gatewayLoadBalancerFrontendIpConfigurationId = gatewayLoadBalancerFrontendIpConfigurationId;
+            o.id = id;
+            o.inboundNatRules = inboundNatRules;
+            o.loadBalancerRules = loadBalancerRules;
+            o.name = name;
+            o.outboundRules = outboundRules;
+            o.privateIpAddress = privateIpAddress;
+            o.privateIpAddressAllocation = privateIpAddressAllocation;
+            o.privateIpAddressVersion = privateIpAddressVersion;
+            o.publicIpAddressId = publicIpAddressId;
+            o.publicIpPrefixId = publicIpPrefixId;
+            o.subnetId = subnetId;
+            o.zones = zones;
+            return o;
         }
     }
 }

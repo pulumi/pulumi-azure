@@ -14,21 +14,14 @@ public final class ServiceSignUp {
      * @return Can users sign up on the development portal?
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return A `terms_of_service` block as defined below.
      * 
      */
-    private final ServiceSignUpTermsOfService termsOfService;
+    private ServiceSignUpTermsOfService termsOfService;
 
-    @CustomType.Constructor
-    private ServiceSignUp(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("termsOfService") ServiceSignUpTermsOfService termsOfService) {
-        this.enabled = enabled;
-        this.termsOfService = termsOfService;
-    }
-
+    private ServiceSignUp() {}
     /**
      * @return Can users sign up on the development portal?
      * 
@@ -51,30 +44,32 @@ public final class ServiceSignUp {
     public static Builder builder(ServiceSignUp defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private ServiceSignUpTermsOfService termsOfService;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceSignUp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.termsOfService = defaults.termsOfService;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder termsOfService(ServiceSignUpTermsOfService termsOfService) {
             this.termsOfService = Objects.requireNonNull(termsOfService);
             return this;
-        }        public ServiceSignUp build() {
-            return new ServiceSignUp(enabled, termsOfService);
+        }
+        public ServiceSignUp build() {
+            final var o = new ServiceSignUp();
+            o.enabled = enabled;
+            o.termsOfService = termsOfService;
+            return o;
         }
     }
 }

@@ -14,21 +14,14 @@ public final class ResourceProviderRegistrationFeature {
      * @return Specifies the name of the feature to register.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Should this feature be Registered or Unregistered?
      * 
      */
-    private final Boolean registered;
+    private Boolean registered;
 
-    @CustomType.Constructor
-    private ResourceProviderRegistrationFeature(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("registered") Boolean registered) {
-        this.name = name;
-        this.registered = registered;
-    }
-
+    private ResourceProviderRegistrationFeature() {}
     /**
      * @return Specifies the name of the feature to register.
      * 
@@ -51,30 +44,32 @@ public final class ResourceProviderRegistrationFeature {
     public static Builder builder(ResourceProviderRegistrationFeature defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private Boolean registered;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResourceProviderRegistrationFeature defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.registered = defaults.registered;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder registered(Boolean registered) {
             this.registered = Objects.requireNonNull(registered);
             return this;
-        }        public ResourceProviderRegistrationFeature build() {
-            return new ResourceProviderRegistrationFeature(name, registered);
+        }
+        public ResourceProviderRegistrationFeature build() {
+            final var o = new ResourceProviderRegistrationFeature();
+            o.name = name;
+            o.registered = registered;
+            return o;
         }
     }
 }

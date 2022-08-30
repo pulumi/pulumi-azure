@@ -15,35 +15,24 @@ public final class IoTHubSharedAccessPolicy {
      * @return The name of the shared access policy.
      * 
      */
-    private final @Nullable String keyName;
+    private @Nullable String keyName;
     /**
      * @return The permissions assigned to the shared access policy.
      * 
      */
-    private final @Nullable String permissions;
+    private @Nullable String permissions;
     /**
      * @return The primary key.
      * 
      */
-    private final @Nullable String primaryKey;
+    private @Nullable String primaryKey;
     /**
      * @return The secondary key.
      * 
      */
-    private final @Nullable String secondaryKey;
+    private @Nullable String secondaryKey;
 
-    @CustomType.Constructor
-    private IoTHubSharedAccessPolicy(
-        @CustomType.Parameter("keyName") @Nullable String keyName,
-        @CustomType.Parameter("permissions") @Nullable String permissions,
-        @CustomType.Parameter("primaryKey") @Nullable String primaryKey,
-        @CustomType.Parameter("secondaryKey") @Nullable String secondaryKey) {
-        this.keyName = keyName;
-        this.permissions = permissions;
-        this.primaryKey = primaryKey;
-        this.secondaryKey = secondaryKey;
-    }
-
+    private IoTHubSharedAccessPolicy() {}
     /**
      * @return The name of the shared access policy.
      * 
@@ -80,17 +69,13 @@ public final class IoTHubSharedAccessPolicy {
     public static Builder builder(IoTHubSharedAccessPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String keyName;
         private @Nullable String permissions;
         private @Nullable String primaryKey;
         private @Nullable String secondaryKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IoTHubSharedAccessPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyName = defaults.keyName;
@@ -99,23 +84,33 @@ public final class IoTHubSharedAccessPolicy {
     	      this.secondaryKey = defaults.secondaryKey;
         }
 
+        @CustomType.Setter
         public Builder keyName(@Nullable String keyName) {
             this.keyName = keyName;
             return this;
         }
+        @CustomType.Setter
         public Builder permissions(@Nullable String permissions) {
             this.permissions = permissions;
             return this;
         }
+        @CustomType.Setter
         public Builder primaryKey(@Nullable String primaryKey) {
             this.primaryKey = primaryKey;
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryKey(@Nullable String secondaryKey) {
             this.secondaryKey = secondaryKey;
             return this;
-        }        public IoTHubSharedAccessPolicy build() {
-            return new IoTHubSharedAccessPolicy(keyName, permissions, primaryKey, secondaryKey);
+        }
+        public IoTHubSharedAccessPolicy build() {
+            final var o = new IoTHubSharedAccessPolicy();
+            o.keyName = keyName;
+            o.permissions = permissions;
+            o.primaryKey = primaryKey;
+            o.secondaryKey = secondaryKey;
+            return o;
         }
     }
 }

@@ -13,61 +13,30 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccountBlobContainerSASResult {
-    private final @Nullable String cacheControl;
-    private final String connectionString;
-    private final String containerName;
-    private final @Nullable String contentDisposition;
-    private final @Nullable String contentEncoding;
-    private final @Nullable String contentLanguage;
-    private final @Nullable String contentType;
-    private final String expiry;
-    private final @Nullable Boolean httpsOnly;
+    private @Nullable String cacheControl;
+    private String connectionString;
+    private String containerName;
+    private @Nullable String contentDisposition;
+    private @Nullable String contentEncoding;
+    private @Nullable String contentLanguage;
+    private @Nullable String contentType;
+    private String expiry;
+    private @Nullable Boolean httpsOnly;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String ipAddress;
-    private final GetAccountBlobContainerSASPermissions permissions;
+    private String id;
+    private @Nullable String ipAddress;
+    private GetAccountBlobContainerSASPermissions permissions;
     /**
      * @return The computed Blob Container Shared Access Signature (SAS).
      * 
      */
-    private final String sas;
-    private final String start;
+    private String sas;
+    private String start;
 
-    @CustomType.Constructor
-    private GetAccountBlobContainerSASResult(
-        @CustomType.Parameter("cacheControl") @Nullable String cacheControl,
-        @CustomType.Parameter("connectionString") String connectionString,
-        @CustomType.Parameter("containerName") String containerName,
-        @CustomType.Parameter("contentDisposition") @Nullable String contentDisposition,
-        @CustomType.Parameter("contentEncoding") @Nullable String contentEncoding,
-        @CustomType.Parameter("contentLanguage") @Nullable String contentLanguage,
-        @CustomType.Parameter("contentType") @Nullable String contentType,
-        @CustomType.Parameter("expiry") String expiry,
-        @CustomType.Parameter("httpsOnly") @Nullable Boolean httpsOnly,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ipAddress") @Nullable String ipAddress,
-        @CustomType.Parameter("permissions") GetAccountBlobContainerSASPermissions permissions,
-        @CustomType.Parameter("sas") String sas,
-        @CustomType.Parameter("start") String start) {
-        this.cacheControl = cacheControl;
-        this.connectionString = connectionString;
-        this.containerName = containerName;
-        this.contentDisposition = contentDisposition;
-        this.contentEncoding = contentEncoding;
-        this.contentLanguage = contentLanguage;
-        this.contentType = contentType;
-        this.expiry = expiry;
-        this.httpsOnly = httpsOnly;
-        this.id = id;
-        this.ipAddress = ipAddress;
-        this.permissions = permissions;
-        this.sas = sas;
-        this.start = start;
-    }
-
+    private GetAccountBlobContainerSASResult() {}
     public Optional<String> cacheControl() {
         return Optional.ofNullable(this.cacheControl);
     }
@@ -126,7 +95,7 @@ public final class GetAccountBlobContainerSASResult {
     public static Builder builder(GetAccountBlobContainerSASResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String cacheControl;
         private String connectionString;
@@ -142,11 +111,7 @@ public final class GetAccountBlobContainerSASResult {
         private GetAccountBlobContainerSASPermissions permissions;
         private String sas;
         private String start;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccountBlobContainerSASResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cacheControl = defaults.cacheControl;
@@ -165,63 +130,93 @@ public final class GetAccountBlobContainerSASResult {
     	      this.start = defaults.start;
         }
 
+        @CustomType.Setter
         public Builder cacheControl(@Nullable String cacheControl) {
             this.cacheControl = cacheControl;
             return this;
         }
+        @CustomType.Setter
         public Builder connectionString(String connectionString) {
             this.connectionString = Objects.requireNonNull(connectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder containerName(String containerName) {
             this.containerName = Objects.requireNonNull(containerName);
             return this;
         }
+        @CustomType.Setter
         public Builder contentDisposition(@Nullable String contentDisposition) {
             this.contentDisposition = contentDisposition;
             return this;
         }
+        @CustomType.Setter
         public Builder contentEncoding(@Nullable String contentEncoding) {
             this.contentEncoding = contentEncoding;
             return this;
         }
+        @CustomType.Setter
         public Builder contentLanguage(@Nullable String contentLanguage) {
             this.contentLanguage = contentLanguage;
             return this;
         }
+        @CustomType.Setter
         public Builder contentType(@Nullable String contentType) {
             this.contentType = contentType;
             return this;
         }
+        @CustomType.Setter
         public Builder expiry(String expiry) {
             this.expiry = Objects.requireNonNull(expiry);
             return this;
         }
+        @CustomType.Setter
         public Builder httpsOnly(@Nullable Boolean httpsOnly) {
             this.httpsOnly = httpsOnly;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddress(@Nullable String ipAddress) {
             this.ipAddress = ipAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder permissions(GetAccountBlobContainerSASPermissions permissions) {
             this.permissions = Objects.requireNonNull(permissions);
             return this;
         }
+        @CustomType.Setter
         public Builder sas(String sas) {
             this.sas = Objects.requireNonNull(sas);
             return this;
         }
+        @CustomType.Setter
         public Builder start(String start) {
             this.start = Objects.requireNonNull(start);
             return this;
-        }        public GetAccountBlobContainerSASResult build() {
-            return new GetAccountBlobContainerSASResult(cacheControl, connectionString, containerName, contentDisposition, contentEncoding, contentLanguage, contentType, expiry, httpsOnly, id, ipAddress, permissions, sas, start);
+        }
+        public GetAccountBlobContainerSASResult build() {
+            final var o = new GetAccountBlobContainerSASResult();
+            o.cacheControl = cacheControl;
+            o.connectionString = connectionString;
+            o.containerName = containerName;
+            o.contentDisposition = contentDisposition;
+            o.contentEncoding = contentEncoding;
+            o.contentLanguage = contentLanguage;
+            o.contentType = contentType;
+            o.expiry = expiry;
+            o.httpsOnly = httpsOnly;
+            o.id = id;
+            o.ipAddress = ipAddress;
+            o.permissions = permissions;
+            o.sas = sas;
+            o.start = start;
+            return o;
         }
     }
 }

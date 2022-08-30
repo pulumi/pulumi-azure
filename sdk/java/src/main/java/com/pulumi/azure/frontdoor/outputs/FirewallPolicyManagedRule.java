@@ -17,35 +17,24 @@ public final class FirewallPolicyManagedRule {
      * @return One or more `exclusion` blocks as defined below.
      * 
      */
-    private final @Nullable List<FirewallPolicyManagedRuleExclusion> exclusions;
+    private @Nullable List<FirewallPolicyManagedRuleExclusion> exclusions;
     /**
      * @return One or more `override` blocks as defined below.
      * 
      */
-    private final @Nullable List<FirewallPolicyManagedRuleOverride> overrides;
+    private @Nullable List<FirewallPolicyManagedRuleOverride> overrides;
     /**
      * @return The name of the managed rule to use with this resource.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return The version on the managed rule to use with this resource.
      * 
      */
-    private final String version;
+    private String version;
 
-    @CustomType.Constructor
-    private FirewallPolicyManagedRule(
-        @CustomType.Parameter("exclusions") @Nullable List<FirewallPolicyManagedRuleExclusion> exclusions,
-        @CustomType.Parameter("overrides") @Nullable List<FirewallPolicyManagedRuleOverride> overrides,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("version") String version) {
-        this.exclusions = exclusions;
-        this.overrides = overrides;
-        this.type = type;
-        this.version = version;
-    }
-
+    private FirewallPolicyManagedRule() {}
     /**
      * @return One or more `exclusion` blocks as defined below.
      * 
@@ -82,17 +71,13 @@ public final class FirewallPolicyManagedRule {
     public static Builder builder(FirewallPolicyManagedRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<FirewallPolicyManagedRuleExclusion> exclusions;
         private @Nullable List<FirewallPolicyManagedRuleOverride> overrides;
         private String type;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyManagedRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.exclusions = defaults.exclusions;
@@ -101,6 +86,7 @@ public final class FirewallPolicyManagedRule {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder exclusions(@Nullable List<FirewallPolicyManagedRuleExclusion> exclusions) {
             this.exclusions = exclusions;
             return this;
@@ -108,6 +94,7 @@ public final class FirewallPolicyManagedRule {
         public Builder exclusions(FirewallPolicyManagedRuleExclusion... exclusions) {
             return exclusions(List.of(exclusions));
         }
+        @CustomType.Setter
         public Builder overrides(@Nullable List<FirewallPolicyManagedRuleOverride> overrides) {
             this.overrides = overrides;
             return this;
@@ -115,15 +102,23 @@ public final class FirewallPolicyManagedRule {
         public Builder overrides(FirewallPolicyManagedRuleOverride... overrides) {
             return overrides(List.of(overrides));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public FirewallPolicyManagedRule build() {
-            return new FirewallPolicyManagedRule(exclusions, overrides, type, version);
+        }
+        public FirewallPolicyManagedRule build() {
+            final var o = new FirewallPolicyManagedRule();
+            o.exclusions = exclusions;
+            o.overrides = overrides;
+            o.type = type;
+            o.version = version;
+            return o;
         }
     }
 }

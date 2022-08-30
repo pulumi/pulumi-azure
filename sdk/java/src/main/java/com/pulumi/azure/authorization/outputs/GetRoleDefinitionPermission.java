@@ -15,27 +15,16 @@ public final class GetRoleDefinitionPermission {
      * @return a list of actions supported by this role
      * 
      */
-    private final List<String> actions;
-    private final @Nullable List<String> dataActions;
+    private List<String> actions;
+    private @Nullable List<String> dataActions;
     /**
      * @return a list of actions which are denied by this role
      * 
      */
-    private final List<String> notActions;
-    private final @Nullable List<String> notDataActions;
+    private List<String> notActions;
+    private @Nullable List<String> notDataActions;
 
-    @CustomType.Constructor
-    private GetRoleDefinitionPermission(
-        @CustomType.Parameter("actions") List<String> actions,
-        @CustomType.Parameter("dataActions") @Nullable List<String> dataActions,
-        @CustomType.Parameter("notActions") List<String> notActions,
-        @CustomType.Parameter("notDataActions") @Nullable List<String> notDataActions) {
-        this.actions = actions;
-        this.dataActions = dataActions;
-        this.notActions = notActions;
-        this.notDataActions = notDataActions;
-    }
-
+    private GetRoleDefinitionPermission() {}
     /**
      * @return a list of actions supported by this role
      * 
@@ -64,17 +53,13 @@ public final class GetRoleDefinitionPermission {
     public static Builder builder(GetRoleDefinitionPermission defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> actions;
         private @Nullable List<String> dataActions;
         private List<String> notActions;
         private @Nullable List<String> notDataActions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRoleDefinitionPermission defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
@@ -83,6 +68,7 @@ public final class GetRoleDefinitionPermission {
     	      this.notDataActions = defaults.notDataActions;
         }
 
+        @CustomType.Setter
         public Builder actions(List<String> actions) {
             this.actions = Objects.requireNonNull(actions);
             return this;
@@ -90,6 +76,7 @@ public final class GetRoleDefinitionPermission {
         public Builder actions(String... actions) {
             return actions(List.of(actions));
         }
+        @CustomType.Setter
         public Builder dataActions(@Nullable List<String> dataActions) {
             this.dataActions = dataActions;
             return this;
@@ -97,6 +84,7 @@ public final class GetRoleDefinitionPermission {
         public Builder dataActions(String... dataActions) {
             return dataActions(List.of(dataActions));
         }
+        @CustomType.Setter
         public Builder notActions(List<String> notActions) {
             this.notActions = Objects.requireNonNull(notActions);
             return this;
@@ -104,14 +92,21 @@ public final class GetRoleDefinitionPermission {
         public Builder notActions(String... notActions) {
             return notActions(List.of(notActions));
         }
+        @CustomType.Setter
         public Builder notDataActions(@Nullable List<String> notDataActions) {
             this.notDataActions = notDataActions;
             return this;
         }
         public Builder notDataActions(String... notDataActions) {
             return notDataActions(List.of(notDataActions));
-        }        public GetRoleDefinitionPermission build() {
-            return new GetRoleDefinitionPermission(actions, dataActions, notActions, notDataActions);
+        }
+        public GetRoleDefinitionPermission build() {
+            final var o = new GetRoleDefinitionPermission();
+            o.actions = actions;
+            o.dataActions = dataActions;
+            o.notActions = notActions;
+            o.notDataActions = notDataActions;
+            return o;
         }
     }
 }

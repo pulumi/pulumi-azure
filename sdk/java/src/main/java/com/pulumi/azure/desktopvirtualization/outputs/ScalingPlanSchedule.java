@@ -18,133 +18,94 @@ public final class ScalingPlanSchedule {
      * @return A list of Days of the Week on which this schedule will be used..Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
      * 
      */
-    private final List<String> daysOfWeeks;
+    private List<String> daysOfWeeks;
     /**
      * @return The name of the schedule.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The load Balancing Algorithm to use during Off-Peak Hours. Possible values are `DepthFirst` and `BreadthFirst`.
      * 
      */
-    private final String offPeakLoadBalancingAlgorithm;
+    private String offPeakLoadBalancingAlgorithm;
     /**
      * @return The time at which Off-Peak scaling will begin. This is also the end-time for the Ramp-Down period. The time must be specified in &#34;HH:MM&#34; format.
      * 
      */
-    private final String offPeakStartTime;
+    private String offPeakStartTime;
     /**
      * @return The load Balancing Algorithm to use during Peak Hours. Possible values are `DepthFirst` and `BreadthFirst`.
      * 
      */
-    private final String peakLoadBalancingAlgorithm;
+    private String peakLoadBalancingAlgorithm;
     /**
      * @return The time at which Peak scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in &#34;HH:MM&#34; format.
      * 
      */
-    private final String peakStartTime;
+    private String peakStartTime;
     /**
      * @return This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
      * 
      */
-    private final Integer rampDownCapacityThresholdPercent;
+    private Integer rampDownCapacityThresholdPercent;
     /**
      * @return Whether users will be forced to log-off session hosts once the `ramp_down_wait_time_minutes` value has been exceeded during the Ramp-Down period. Possible
      * 
      */
-    private final Boolean rampDownForceLogoffUsers;
+    private Boolean rampDownForceLogoffUsers;
     /**
      * @return The load Balancing Algorithm to use during the Ramp-Down period. Possible values are `DepthFirst` and `BreadthFirst`.
      * 
      */
-    private final String rampDownLoadBalancingAlgorithm;
+    private String rampDownLoadBalancingAlgorithm;
     /**
      * @return The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
      * 
      */
-    private final Integer rampDownMinimumHostsPercent;
+    private Integer rampDownMinimumHostsPercent;
     /**
      * @return The notification message to send to users during Ramp-Down period when they are required to log-off.
      * 
      */
-    private final String rampDownNotificationMessage;
+    private String rampDownNotificationMessage;
     /**
      * @return The time at which Ramp-Down scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in &#34;HH:MM&#34; format.
      * 
      */
-    private final String rampDownStartTime;
+    private String rampDownStartTime;
     /**
      * @return Controls Session Host shutdown behaviour during Ramp-Down period. Session Hosts can either be shutdown when all sessions on the Session Host have ended, or when there are no Active sessions left on the Session Host. Possible values are `ZeroSessions` and `ZeroActiveSessions`.
      * 
      */
-    private final String rampDownStopHostsWhen;
+    private String rampDownStopHostsWhen;
     /**
      * @return The number of minutes during Ramp-Down period that autoscale will wait after setting the session host VMs to drain mode, notifying any currently signed in users to save their work before forcing the users to logoff. Once all user sessions on the session host VM have been logged off, Autoscale will shut down the VM.
      * 
      */
-    private final Integer rampDownWaitTimeMinutes;
+    private Integer rampDownWaitTimeMinutes;
     /**
      * @return Specify minimum percentage of session host virtual machines to start for ramp-up and peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
      * 
      */
-    private final @Nullable Integer rampUpCapacityThresholdPercent;
+    private @Nullable Integer rampUpCapacityThresholdPercent;
     /**
      * @return The load Balancing Algorithm to use during the Ramp-Up period. Possible values are `DepthFirst` and `BreadthFirst`.
      * 
      */
-    private final String rampUpLoadBalancingAlgorithm;
+    private String rampUpLoadBalancingAlgorithm;
     /**
      * @return This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
      * 
      */
-    private final @Nullable Integer rampUpMinimumHostsPercent;
+    private @Nullable Integer rampUpMinimumHostsPercent;
     /**
      * @return The time at which Ramp-Up scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in &#34;HH:MM&#34; format.
      * 
      */
-    private final String rampUpStartTime;
+    private String rampUpStartTime;
 
-    @CustomType.Constructor
-    private ScalingPlanSchedule(
-        @CustomType.Parameter("daysOfWeeks") List<String> daysOfWeeks,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("offPeakLoadBalancingAlgorithm") String offPeakLoadBalancingAlgorithm,
-        @CustomType.Parameter("offPeakStartTime") String offPeakStartTime,
-        @CustomType.Parameter("peakLoadBalancingAlgorithm") String peakLoadBalancingAlgorithm,
-        @CustomType.Parameter("peakStartTime") String peakStartTime,
-        @CustomType.Parameter("rampDownCapacityThresholdPercent") Integer rampDownCapacityThresholdPercent,
-        @CustomType.Parameter("rampDownForceLogoffUsers") Boolean rampDownForceLogoffUsers,
-        @CustomType.Parameter("rampDownLoadBalancingAlgorithm") String rampDownLoadBalancingAlgorithm,
-        @CustomType.Parameter("rampDownMinimumHostsPercent") Integer rampDownMinimumHostsPercent,
-        @CustomType.Parameter("rampDownNotificationMessage") String rampDownNotificationMessage,
-        @CustomType.Parameter("rampDownStartTime") String rampDownStartTime,
-        @CustomType.Parameter("rampDownStopHostsWhen") String rampDownStopHostsWhen,
-        @CustomType.Parameter("rampDownWaitTimeMinutes") Integer rampDownWaitTimeMinutes,
-        @CustomType.Parameter("rampUpCapacityThresholdPercent") @Nullable Integer rampUpCapacityThresholdPercent,
-        @CustomType.Parameter("rampUpLoadBalancingAlgorithm") String rampUpLoadBalancingAlgorithm,
-        @CustomType.Parameter("rampUpMinimumHostsPercent") @Nullable Integer rampUpMinimumHostsPercent,
-        @CustomType.Parameter("rampUpStartTime") String rampUpStartTime) {
-        this.daysOfWeeks = daysOfWeeks;
-        this.name = name;
-        this.offPeakLoadBalancingAlgorithm = offPeakLoadBalancingAlgorithm;
-        this.offPeakStartTime = offPeakStartTime;
-        this.peakLoadBalancingAlgorithm = peakLoadBalancingAlgorithm;
-        this.peakStartTime = peakStartTime;
-        this.rampDownCapacityThresholdPercent = rampDownCapacityThresholdPercent;
-        this.rampDownForceLogoffUsers = rampDownForceLogoffUsers;
-        this.rampDownLoadBalancingAlgorithm = rampDownLoadBalancingAlgorithm;
-        this.rampDownMinimumHostsPercent = rampDownMinimumHostsPercent;
-        this.rampDownNotificationMessage = rampDownNotificationMessage;
-        this.rampDownStartTime = rampDownStartTime;
-        this.rampDownStopHostsWhen = rampDownStopHostsWhen;
-        this.rampDownWaitTimeMinutes = rampDownWaitTimeMinutes;
-        this.rampUpCapacityThresholdPercent = rampUpCapacityThresholdPercent;
-        this.rampUpLoadBalancingAlgorithm = rampUpLoadBalancingAlgorithm;
-        this.rampUpMinimumHostsPercent = rampUpMinimumHostsPercent;
-        this.rampUpStartTime = rampUpStartTime;
-    }
-
+    private ScalingPlanSchedule() {}
     /**
      * @return A list of Days of the Week on which this schedule will be used..Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
      * 
@@ -279,7 +240,7 @@ public final class ScalingPlanSchedule {
     public static Builder builder(ScalingPlanSchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> daysOfWeeks;
         private String name;
@@ -299,11 +260,7 @@ public final class ScalingPlanSchedule {
         private String rampUpLoadBalancingAlgorithm;
         private @Nullable Integer rampUpMinimumHostsPercent;
         private String rampUpStartTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScalingPlanSchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.daysOfWeeks = defaults.daysOfWeeks;
@@ -326,6 +283,7 @@ public final class ScalingPlanSchedule {
     	      this.rampUpStartTime = defaults.rampUpStartTime;
         }
 
+        @CustomType.Setter
         public Builder daysOfWeeks(List<String> daysOfWeeks) {
             this.daysOfWeeks = Objects.requireNonNull(daysOfWeeks);
             return this;
@@ -333,75 +291,112 @@ public final class ScalingPlanSchedule {
         public Builder daysOfWeeks(String... daysOfWeeks) {
             return daysOfWeeks(List.of(daysOfWeeks));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder offPeakLoadBalancingAlgorithm(String offPeakLoadBalancingAlgorithm) {
             this.offPeakLoadBalancingAlgorithm = Objects.requireNonNull(offPeakLoadBalancingAlgorithm);
             return this;
         }
+        @CustomType.Setter
         public Builder offPeakStartTime(String offPeakStartTime) {
             this.offPeakStartTime = Objects.requireNonNull(offPeakStartTime);
             return this;
         }
+        @CustomType.Setter
         public Builder peakLoadBalancingAlgorithm(String peakLoadBalancingAlgorithm) {
             this.peakLoadBalancingAlgorithm = Objects.requireNonNull(peakLoadBalancingAlgorithm);
             return this;
         }
+        @CustomType.Setter
         public Builder peakStartTime(String peakStartTime) {
             this.peakStartTime = Objects.requireNonNull(peakStartTime);
             return this;
         }
+        @CustomType.Setter
         public Builder rampDownCapacityThresholdPercent(Integer rampDownCapacityThresholdPercent) {
             this.rampDownCapacityThresholdPercent = Objects.requireNonNull(rampDownCapacityThresholdPercent);
             return this;
         }
+        @CustomType.Setter
         public Builder rampDownForceLogoffUsers(Boolean rampDownForceLogoffUsers) {
             this.rampDownForceLogoffUsers = Objects.requireNonNull(rampDownForceLogoffUsers);
             return this;
         }
+        @CustomType.Setter
         public Builder rampDownLoadBalancingAlgorithm(String rampDownLoadBalancingAlgorithm) {
             this.rampDownLoadBalancingAlgorithm = Objects.requireNonNull(rampDownLoadBalancingAlgorithm);
             return this;
         }
+        @CustomType.Setter
         public Builder rampDownMinimumHostsPercent(Integer rampDownMinimumHostsPercent) {
             this.rampDownMinimumHostsPercent = Objects.requireNonNull(rampDownMinimumHostsPercent);
             return this;
         }
+        @CustomType.Setter
         public Builder rampDownNotificationMessage(String rampDownNotificationMessage) {
             this.rampDownNotificationMessage = Objects.requireNonNull(rampDownNotificationMessage);
             return this;
         }
+        @CustomType.Setter
         public Builder rampDownStartTime(String rampDownStartTime) {
             this.rampDownStartTime = Objects.requireNonNull(rampDownStartTime);
             return this;
         }
+        @CustomType.Setter
         public Builder rampDownStopHostsWhen(String rampDownStopHostsWhen) {
             this.rampDownStopHostsWhen = Objects.requireNonNull(rampDownStopHostsWhen);
             return this;
         }
+        @CustomType.Setter
         public Builder rampDownWaitTimeMinutes(Integer rampDownWaitTimeMinutes) {
             this.rampDownWaitTimeMinutes = Objects.requireNonNull(rampDownWaitTimeMinutes);
             return this;
         }
+        @CustomType.Setter
         public Builder rampUpCapacityThresholdPercent(@Nullable Integer rampUpCapacityThresholdPercent) {
             this.rampUpCapacityThresholdPercent = rampUpCapacityThresholdPercent;
             return this;
         }
+        @CustomType.Setter
         public Builder rampUpLoadBalancingAlgorithm(String rampUpLoadBalancingAlgorithm) {
             this.rampUpLoadBalancingAlgorithm = Objects.requireNonNull(rampUpLoadBalancingAlgorithm);
             return this;
         }
+        @CustomType.Setter
         public Builder rampUpMinimumHostsPercent(@Nullable Integer rampUpMinimumHostsPercent) {
             this.rampUpMinimumHostsPercent = rampUpMinimumHostsPercent;
             return this;
         }
+        @CustomType.Setter
         public Builder rampUpStartTime(String rampUpStartTime) {
             this.rampUpStartTime = Objects.requireNonNull(rampUpStartTime);
             return this;
-        }        public ScalingPlanSchedule build() {
-            return new ScalingPlanSchedule(daysOfWeeks, name, offPeakLoadBalancingAlgorithm, offPeakStartTime, peakLoadBalancingAlgorithm, peakStartTime, rampDownCapacityThresholdPercent, rampDownForceLogoffUsers, rampDownLoadBalancingAlgorithm, rampDownMinimumHostsPercent, rampDownNotificationMessage, rampDownStartTime, rampDownStopHostsWhen, rampDownWaitTimeMinutes, rampUpCapacityThresholdPercent, rampUpLoadBalancingAlgorithm, rampUpMinimumHostsPercent, rampUpStartTime);
+        }
+        public ScalingPlanSchedule build() {
+            final var o = new ScalingPlanSchedule();
+            o.daysOfWeeks = daysOfWeeks;
+            o.name = name;
+            o.offPeakLoadBalancingAlgorithm = offPeakLoadBalancingAlgorithm;
+            o.offPeakStartTime = offPeakStartTime;
+            o.peakLoadBalancingAlgorithm = peakLoadBalancingAlgorithm;
+            o.peakStartTime = peakStartTime;
+            o.rampDownCapacityThresholdPercent = rampDownCapacityThresholdPercent;
+            o.rampDownForceLogoffUsers = rampDownForceLogoffUsers;
+            o.rampDownLoadBalancingAlgorithm = rampDownLoadBalancingAlgorithm;
+            o.rampDownMinimumHostsPercent = rampDownMinimumHostsPercent;
+            o.rampDownNotificationMessage = rampDownNotificationMessage;
+            o.rampDownStartTime = rampDownStartTime;
+            o.rampDownStopHostsWhen = rampDownStopHostsWhen;
+            o.rampDownWaitTimeMinutes = rampDownWaitTimeMinutes;
+            o.rampUpCapacityThresholdPercent = rampUpCapacityThresholdPercent;
+            o.rampUpLoadBalancingAlgorithm = rampUpLoadBalancingAlgorithm;
+            o.rampUpMinimumHostsPercent = rampUpMinimumHostsPercent;
+            o.rampUpStartTime = rampUpStartTime;
+            return o;
         }
     }
 }

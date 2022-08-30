@@ -13,13 +13,9 @@ public final class ScheduleDailyRecurrence {
      * @return The time each day when the schedule takes effect.
      * 
      */
-    private final String time;
+    private String time;
 
-    @CustomType.Constructor
-    private ScheduleDailyRecurrence(@CustomType.Parameter("time") String time) {
-        this.time = time;
-    }
-
+    private ScheduleDailyRecurrence() {}
     /**
      * @return The time each day when the schedule takes effect.
      * 
@@ -35,24 +31,24 @@ public final class ScheduleDailyRecurrence {
     public static Builder builder(ScheduleDailyRecurrence defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String time;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScheduleDailyRecurrence defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.time = defaults.time;
         }
 
+        @CustomType.Setter
         public Builder time(String time) {
             this.time = Objects.requireNonNull(time);
             return this;
-        }        public ScheduleDailyRecurrence build() {
-            return new ScheduleDailyRecurrence(time);
+        }
+        public ScheduleDailyRecurrence build() {
+            final var o = new ScheduleDailyRecurrence();
+            o.time = time;
+            return o;
         }
     }
 }

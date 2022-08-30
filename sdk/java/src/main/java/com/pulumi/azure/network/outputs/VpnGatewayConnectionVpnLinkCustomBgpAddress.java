@@ -13,21 +13,14 @@ public final class VpnGatewayConnectionVpnLinkCustomBgpAddress {
      * @return The custom bgp ip address which belongs to the IP Configuration.
      * 
      */
-    private final String ipAddress;
+    private String ipAddress;
     /**
      * @return The ID of the IP Configuration which belongs to the VPN Gateway.
      * 
      */
-    private final String ipConfigurationId;
+    private String ipConfigurationId;
 
-    @CustomType.Constructor
-    private VpnGatewayConnectionVpnLinkCustomBgpAddress(
-        @CustomType.Parameter("ipAddress") String ipAddress,
-        @CustomType.Parameter("ipConfigurationId") String ipConfigurationId) {
-        this.ipAddress = ipAddress;
-        this.ipConfigurationId = ipConfigurationId;
-    }
-
+    private VpnGatewayConnectionVpnLinkCustomBgpAddress() {}
     /**
      * @return The custom bgp ip address which belongs to the IP Configuration.
      * 
@@ -50,30 +43,32 @@ public final class VpnGatewayConnectionVpnLinkCustomBgpAddress {
     public static Builder builder(VpnGatewayConnectionVpnLinkCustomBgpAddress defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String ipAddress;
         private String ipConfigurationId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpnGatewayConnectionVpnLinkCustomBgpAddress defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ipAddress = defaults.ipAddress;
     	      this.ipConfigurationId = defaults.ipConfigurationId;
         }
 
+        @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
             this.ipAddress = Objects.requireNonNull(ipAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder ipConfigurationId(String ipConfigurationId) {
             this.ipConfigurationId = Objects.requireNonNull(ipConfigurationId);
             return this;
-        }        public VpnGatewayConnectionVpnLinkCustomBgpAddress build() {
-            return new VpnGatewayConnectionVpnLinkCustomBgpAddress(ipAddress, ipConfigurationId);
+        }
+        public VpnGatewayConnectionVpnLinkCustomBgpAddress build() {
+            final var o = new VpnGatewayConnectionVpnLinkCustomBgpAddress();
+            o.ipAddress = ipAddress;
+            o.ipConfigurationId = ipConfigurationId;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class FlowletDataFlowTransformationLinkedService {
      * @return The name for the Data Factory Linked Service.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A map of parameters to associate with the Data Factory Linked Service.
      * 
      */
-    private final @Nullable Map<String,String> parameters;
+    private @Nullable Map<String,String> parameters;
 
-    @CustomType.Constructor
-    private FlowletDataFlowTransformationLinkedService(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("parameters") @Nullable Map<String,String> parameters) {
-        this.name = name;
-        this.parameters = parameters;
-    }
-
+    private FlowletDataFlowTransformationLinkedService() {}
     /**
      * @return The name for the Data Factory Linked Service.
      * 
@@ -52,30 +45,32 @@ public final class FlowletDataFlowTransformationLinkedService {
     public static Builder builder(FlowletDataFlowTransformationLinkedService defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private @Nullable Map<String,String> parameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowletDataFlowTransformationLinkedService defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.parameters = defaults.parameters;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
             this.parameters = parameters;
             return this;
-        }        public FlowletDataFlowTransformationLinkedService build() {
-            return new FlowletDataFlowTransformationLinkedService(name, parameters);
+        }
+        public FlowletDataFlowTransformationLinkedService build() {
+            final var o = new FlowletDataFlowTransformationLinkedService();
+            o.name = name;
+            o.parameters = parameters;
+            return o;
         }
     }
 }

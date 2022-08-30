@@ -19,136 +19,93 @@ public final class GetServerResult {
      * @return The Administrator login for the MySQL Server.
      * 
      */
-    private final String administratorLogin;
+    private String administratorLogin;
     /**
      * @return The auto grow setting for this MySQL Server.
      * 
      */
-    private final Boolean autoGrowEnabled;
+    private Boolean autoGrowEnabled;
     /**
      * @return The backup retention days for this MySQL server.
      * 
      */
-    private final Integer backupRetentionDays;
+    private Integer backupRetentionDays;
     /**
      * @return The FQDN of the MySQL Server.
      * 
      */
-    private final String fqdn;
+    private String fqdn;
     /**
      * @return The geo redundant backup setting for this MySQL Server.
      * 
      */
-    private final Boolean geoRedundantBackupEnabled;
+    private Boolean geoRedundantBackupEnabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return An `identity` block as defined below.
      * 
      */
-    private final List<GetServerIdentity> identities;
+    private List<GetServerIdentity> identities;
     /**
      * @return Whether or not infrastructure is encrypted for this MySQL Server.
      * 
      */
-    private final Boolean infrastructureEncryptionEnabled;
+    private Boolean infrastructureEncryptionEnabled;
     /**
      * @return The Azure location where the resource exists.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return Whether or not public network access is allowed for this MySQL Server.
      * 
      */
-    private final Boolean publicNetworkAccessEnabled;
-    private final String resourceGroupName;
-    private final String restorePointInTime;
+    private Boolean publicNetworkAccessEnabled;
+    private String resourceGroupName;
+    private String restorePointInTime;
     /**
      * @return The SKU Name for this MySQL Server.
      * 
      */
-    private final String skuName;
+    private String skuName;
     /**
      * @return Specifies if SSL should be enforced on connections for this MySQL Server.
      * 
      */
-    private final Boolean sslEnforcementEnabled;
+    private Boolean sslEnforcementEnabled;
     /**
      * @return The minimum TLS version to support for this MySQL Server.
      * 
      */
-    private final String sslMinimalTlsVersionEnforced;
+    private String sslMinimalTlsVersionEnforced;
     /**
      * @return Max storage allowed for this MySQL Server.
      * 
      */
-    private final Integer storageMb;
+    private Integer storageMb;
     /**
      * @return A mapping of tags to assign to the resource.
      * ---
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block exports fields documented below.
      * 
      */
-    private final List<GetServerThreatDetectionPolicy> threatDetectionPolicies;
+    private List<GetServerThreatDetectionPolicy> threatDetectionPolicies;
     /**
      * @return The version of this MySQL Server.
      * 
      */
-    private final String version;
+    private String version;
 
-    @CustomType.Constructor
-    private GetServerResult(
-        @CustomType.Parameter("administratorLogin") String administratorLogin,
-        @CustomType.Parameter("autoGrowEnabled") Boolean autoGrowEnabled,
-        @CustomType.Parameter("backupRetentionDays") Integer backupRetentionDays,
-        @CustomType.Parameter("fqdn") String fqdn,
-        @CustomType.Parameter("geoRedundantBackupEnabled") Boolean geoRedundantBackupEnabled,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetServerIdentity> identities,
-        @CustomType.Parameter("infrastructureEncryptionEnabled") Boolean infrastructureEncryptionEnabled,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("publicNetworkAccessEnabled") Boolean publicNetworkAccessEnabled,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("restorePointInTime") String restorePointInTime,
-        @CustomType.Parameter("skuName") String skuName,
-        @CustomType.Parameter("sslEnforcementEnabled") Boolean sslEnforcementEnabled,
-        @CustomType.Parameter("sslMinimalTlsVersionEnforced") String sslMinimalTlsVersionEnforced,
-        @CustomType.Parameter("storageMb") Integer storageMb,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("threatDetectionPolicies") List<GetServerThreatDetectionPolicy> threatDetectionPolicies,
-        @CustomType.Parameter("version") String version) {
-        this.administratorLogin = administratorLogin;
-        this.autoGrowEnabled = autoGrowEnabled;
-        this.backupRetentionDays = backupRetentionDays;
-        this.fqdn = fqdn;
-        this.geoRedundantBackupEnabled = geoRedundantBackupEnabled;
-        this.id = id;
-        this.identities = identities;
-        this.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
-        this.location = location;
-        this.name = name;
-        this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-        this.resourceGroupName = resourceGroupName;
-        this.restorePointInTime = restorePointInTime;
-        this.skuName = skuName;
-        this.sslEnforcementEnabled = sslEnforcementEnabled;
-        this.sslMinimalTlsVersionEnforced = sslMinimalTlsVersionEnforced;
-        this.storageMb = storageMb;
-        this.tags = tags;
-        this.threatDetectionPolicies = threatDetectionPolicies;
-        this.version = version;
-    }
-
+    private GetServerResult() {}
     /**
      * @return The Administrator login for the MySQL Server.
      * 
@@ -286,7 +243,7 @@ public final class GetServerResult {
     public static Builder builder(GetServerResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String administratorLogin;
         private Boolean autoGrowEnabled;
@@ -308,11 +265,7 @@ public final class GetServerResult {
         private Map<String,String> tags;
         private List<GetServerThreatDetectionPolicy> threatDetectionPolicies;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServerResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.administratorLogin = defaults.administratorLogin;
@@ -337,30 +290,37 @@ public final class GetServerResult {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder administratorLogin(String administratorLogin) {
             this.administratorLogin = Objects.requireNonNull(administratorLogin);
             return this;
         }
+        @CustomType.Setter
         public Builder autoGrowEnabled(Boolean autoGrowEnabled) {
             this.autoGrowEnabled = Objects.requireNonNull(autoGrowEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder backupRetentionDays(Integer backupRetentionDays) {
             this.backupRetentionDays = Objects.requireNonNull(backupRetentionDays);
             return this;
         }
+        @CustomType.Setter
         public Builder fqdn(String fqdn) {
             this.fqdn = Objects.requireNonNull(fqdn);
             return this;
         }
+        @CustomType.Setter
         public Builder geoRedundantBackupEnabled(Boolean geoRedundantBackupEnabled) {
             this.geoRedundantBackupEnabled = Objects.requireNonNull(geoRedundantBackupEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetServerIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -368,50 +328,62 @@ public final class GetServerResult {
         public Builder identities(GetServerIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder infrastructureEncryptionEnabled(Boolean infrastructureEncryptionEnabled) {
             this.infrastructureEncryptionEnabled = Objects.requireNonNull(infrastructureEncryptionEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
             this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder restorePointInTime(String restorePointInTime) {
             this.restorePointInTime = Objects.requireNonNull(restorePointInTime);
             return this;
         }
+        @CustomType.Setter
         public Builder skuName(String skuName) {
             this.skuName = Objects.requireNonNull(skuName);
             return this;
         }
+        @CustomType.Setter
         public Builder sslEnforcementEnabled(Boolean sslEnforcementEnabled) {
             this.sslEnforcementEnabled = Objects.requireNonNull(sslEnforcementEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder sslMinimalTlsVersionEnforced(String sslMinimalTlsVersionEnforced) {
             this.sslMinimalTlsVersionEnforced = Objects.requireNonNull(sslMinimalTlsVersionEnforced);
             return this;
         }
+        @CustomType.Setter
         public Builder storageMb(Integer storageMb) {
             this.storageMb = Objects.requireNonNull(storageMb);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder threatDetectionPolicies(List<GetServerThreatDetectionPolicy> threatDetectionPolicies) {
             this.threatDetectionPolicies = Objects.requireNonNull(threatDetectionPolicies);
             return this;
@@ -419,11 +391,34 @@ public final class GetServerResult {
         public Builder threatDetectionPolicies(GetServerThreatDetectionPolicy... threatDetectionPolicies) {
             return threatDetectionPolicies(List.of(threatDetectionPolicies));
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public GetServerResult build() {
-            return new GetServerResult(administratorLogin, autoGrowEnabled, backupRetentionDays, fqdn, geoRedundantBackupEnabled, id, identities, infrastructureEncryptionEnabled, location, name, publicNetworkAccessEnabled, resourceGroupName, restorePointInTime, skuName, sslEnforcementEnabled, sslMinimalTlsVersionEnforced, storageMb, tags, threatDetectionPolicies, version);
+        }
+        public GetServerResult build() {
+            final var o = new GetServerResult();
+            o.administratorLogin = administratorLogin;
+            o.autoGrowEnabled = autoGrowEnabled;
+            o.backupRetentionDays = backupRetentionDays;
+            o.fqdn = fqdn;
+            o.geoRedundantBackupEnabled = geoRedundantBackupEnabled;
+            o.id = id;
+            o.identities = identities;
+            o.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
+            o.location = location;
+            o.name = name;
+            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            o.resourceGroupName = resourceGroupName;
+            o.restorePointInTime = restorePointInTime;
+            o.skuName = skuName;
+            o.sslEnforcementEnabled = sslEnforcementEnabled;
+            o.sslMinimalTlsVersionEnforced = sslMinimalTlsVersionEnforced;
+            o.storageMb = storageMb;
+            o.tags = tags;
+            o.threatDetectionPolicies = threatDetectionPolicies;
+            o.version = version;
+            return o;
         }
     }
 }

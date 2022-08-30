@@ -13,21 +13,14 @@ public final class HBaseClusterMonitor {
      * @return The Operations Management Suite (OMS) workspace ID.
      * 
      */
-    private final String logAnalyticsWorkspaceId;
+    private String logAnalyticsWorkspaceId;
     /**
      * @return The Operations Management Suite (OMS) workspace key.
      * 
      */
-    private final String primaryKey;
+    private String primaryKey;
 
-    @CustomType.Constructor
-    private HBaseClusterMonitor(
-        @CustomType.Parameter("logAnalyticsWorkspaceId") String logAnalyticsWorkspaceId,
-        @CustomType.Parameter("primaryKey") String primaryKey) {
-        this.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-        this.primaryKey = primaryKey;
-    }
-
+    private HBaseClusterMonitor() {}
     /**
      * @return The Operations Management Suite (OMS) workspace ID.
      * 
@@ -50,30 +43,32 @@ public final class HBaseClusterMonitor {
     public static Builder builder(HBaseClusterMonitor defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String logAnalyticsWorkspaceId;
         private String primaryKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(HBaseClusterMonitor defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.logAnalyticsWorkspaceId = defaults.logAnalyticsWorkspaceId;
     	      this.primaryKey = defaults.primaryKey;
         }
 
+        @CustomType.Setter
         public Builder logAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
             this.logAnalyticsWorkspaceId = Objects.requireNonNull(logAnalyticsWorkspaceId);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryKey(String primaryKey) {
             this.primaryKey = Objects.requireNonNull(primaryKey);
             return this;
-        }        public HBaseClusterMonitor build() {
-            return new HBaseClusterMonitor(logAnalyticsWorkspaceId, primaryKey);
+        }
+        public HBaseClusterMonitor build() {
+            final var o = new HBaseClusterMonitor();
+            o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            o.primaryKey = primaryKey;
+            return o;
         }
     }
 }

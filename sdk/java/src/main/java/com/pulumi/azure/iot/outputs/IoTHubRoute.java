@@ -17,42 +17,29 @@ public final class IoTHubRoute {
      * @return The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
      * 
      */
-    private final @Nullable String condition;
+    private @Nullable String condition;
     /**
      * @return Used to specify whether a route is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return The list of endpoints to which messages that satisfy the condition are routed.
      * 
      */
-    private final List<String> endpointNames;
+    private List<String> endpointNames;
     /**
      * @return The name of the route.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The source that the routing rule is to be applied to, such as `DeviceMessages`. Possible values include: `Invalid`, `DeviceMessages`, `TwinChangeEvents`, `DeviceLifecycleEvents`, `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`.
      * 
      */
-    private final String source;
+    private String source;
 
-    @CustomType.Constructor
-    private IoTHubRoute(
-        @CustomType.Parameter("condition") @Nullable String condition,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("endpointNames") List<String> endpointNames,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("source") String source) {
-        this.condition = condition;
-        this.enabled = enabled;
-        this.endpointNames = endpointNames;
-        this.name = name;
-        this.source = source;
-    }
-
+    private IoTHubRoute() {}
     /**
      * @return The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
      * 
@@ -96,18 +83,14 @@ public final class IoTHubRoute {
     public static Builder builder(IoTHubRoute defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String condition;
         private Boolean enabled;
         private List<String> endpointNames;
         private String name;
         private String source;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IoTHubRoute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.condition = defaults.condition;
@@ -117,14 +100,17 @@ public final class IoTHubRoute {
     	      this.source = defaults.source;
         }
 
+        @CustomType.Setter
         public Builder condition(@Nullable String condition) {
             this.condition = condition;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder endpointNames(List<String> endpointNames) {
             this.endpointNames = Objects.requireNonNull(endpointNames);
             return this;
@@ -132,15 +118,24 @@ public final class IoTHubRoute {
         public Builder endpointNames(String... endpointNames) {
             return endpointNames(List.of(endpointNames));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder source(String source) {
             this.source = Objects.requireNonNull(source);
             return this;
-        }        public IoTHubRoute build() {
-            return new IoTHubRoute(condition, enabled, endpointNames, name, source);
+        }
+        public IoTHubRoute build() {
+            final var o = new IoTHubRoute();
+            o.condition = condition;
+            o.enabled = enabled;
+            o.endpointNames = endpointNames;
+            o.name = name;
+            o.source = source;
+            return o;
         }
     }
 }

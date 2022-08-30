@@ -13,21 +13,14 @@ public final class GetAlertRuleTemplateSecurityIncidentTemplate {
      * @return The description of this Sentinel Scheduled Alert Rule Template.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The Microsoft Security Service from where the alert will be generated.
      * 
      */
-    private final String productFilter;
+    private String productFilter;
 
-    @CustomType.Constructor
-    private GetAlertRuleTemplateSecurityIncidentTemplate(
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("productFilter") String productFilter) {
-        this.description = description;
-        this.productFilter = productFilter;
-    }
-
+    private GetAlertRuleTemplateSecurityIncidentTemplate() {}
     /**
      * @return The description of this Sentinel Scheduled Alert Rule Template.
      * 
@@ -50,30 +43,32 @@ public final class GetAlertRuleTemplateSecurityIncidentTemplate {
     public static Builder builder(GetAlertRuleTemplateSecurityIncidentTemplate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String description;
         private String productFilter;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAlertRuleTemplateSecurityIncidentTemplate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
     	      this.productFilter = defaults.productFilter;
         }
 
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder productFilter(String productFilter) {
             this.productFilter = Objects.requireNonNull(productFilter);
             return this;
-        }        public GetAlertRuleTemplateSecurityIncidentTemplate build() {
-            return new GetAlertRuleTemplateSecurityIncidentTemplate(description, productFilter);
+        }
+        public GetAlertRuleTemplateSecurityIncidentTemplate build() {
+            final var o = new GetAlertRuleTemplateSecurityIncidentTemplate();
+            o.description = description;
+            o.productFilter = productFilter;
+            return o;
         }
     }
 }

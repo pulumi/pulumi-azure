@@ -16,21 +16,14 @@ public final class KubernetesClusterMaintenanceWindow {
      * @return One or more `allowed` block as defined below.
      * 
      */
-    private final @Nullable List<KubernetesClusterMaintenanceWindowAllowed> alloweds;
+    private @Nullable List<KubernetesClusterMaintenanceWindowAllowed> alloweds;
     /**
      * @return One or more `not_allowed` block as defined below.
      * 
      */
-    private final @Nullable List<KubernetesClusterMaintenanceWindowNotAllowed> notAlloweds;
+    private @Nullable List<KubernetesClusterMaintenanceWindowNotAllowed> notAlloweds;
 
-    @CustomType.Constructor
-    private KubernetesClusterMaintenanceWindow(
-        @CustomType.Parameter("alloweds") @Nullable List<KubernetesClusterMaintenanceWindowAllowed> alloweds,
-        @CustomType.Parameter("notAlloweds") @Nullable List<KubernetesClusterMaintenanceWindowNotAllowed> notAlloweds) {
-        this.alloweds = alloweds;
-        this.notAlloweds = notAlloweds;
-    }
-
+    private KubernetesClusterMaintenanceWindow() {}
     /**
      * @return One or more `allowed` block as defined below.
      * 
@@ -53,21 +46,18 @@ public final class KubernetesClusterMaintenanceWindow {
     public static Builder builder(KubernetesClusterMaintenanceWindow defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<KubernetesClusterMaintenanceWindowAllowed> alloweds;
         private @Nullable List<KubernetesClusterMaintenanceWindowNotAllowed> notAlloweds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KubernetesClusterMaintenanceWindow defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alloweds = defaults.alloweds;
     	      this.notAlloweds = defaults.notAlloweds;
         }
 
+        @CustomType.Setter
         public Builder alloweds(@Nullable List<KubernetesClusterMaintenanceWindowAllowed> alloweds) {
             this.alloweds = alloweds;
             return this;
@@ -75,14 +65,19 @@ public final class KubernetesClusterMaintenanceWindow {
         public Builder alloweds(KubernetesClusterMaintenanceWindowAllowed... alloweds) {
             return alloweds(List.of(alloweds));
         }
+        @CustomType.Setter
         public Builder notAlloweds(@Nullable List<KubernetesClusterMaintenanceWindowNotAllowed> notAlloweds) {
             this.notAlloweds = notAlloweds;
             return this;
         }
         public Builder notAlloweds(KubernetesClusterMaintenanceWindowNotAllowed... notAlloweds) {
             return notAlloweds(List.of(notAlloweds));
-        }        public KubernetesClusterMaintenanceWindow build() {
-            return new KubernetesClusterMaintenanceWindow(alloweds, notAlloweds);
+        }
+        public KubernetesClusterMaintenanceWindow build() {
+            final var o = new KubernetesClusterMaintenanceWindow();
+            o.alloweds = alloweds;
+            o.notAlloweds = notAlloweds;
+            return o;
         }
     }
 }

@@ -14,30 +14,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
-    private final @Nullable String domainNameLabel;
-    private final @Nullable Integer idleTimeoutInMinutes;
-    private final @Nullable List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags;
+    private @Nullable String domainNameLabel;
+    private @Nullable Integer idleTimeoutInMinutes;
+    private @Nullable List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags;
     /**
      * @return The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
-    private final @Nullable String publicIpPrefixId;
+    private String name;
+    private @Nullable String publicIpPrefixId;
 
-    @CustomType.Constructor
-    private OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(
-        @CustomType.Parameter("domainNameLabel") @Nullable String domainNameLabel,
-        @CustomType.Parameter("idleTimeoutInMinutes") @Nullable Integer idleTimeoutInMinutes,
-        @CustomType.Parameter("ipTags") @Nullable List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("publicIpPrefixId") @Nullable String publicIpPrefixId) {
-        this.domainNameLabel = domainNameLabel;
-        this.idleTimeoutInMinutes = idleTimeoutInMinutes;
-        this.ipTags = ipTags;
-        this.name = name;
-        this.publicIpPrefixId = publicIpPrefixId;
-    }
-
+    private OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress() {}
     public Optional<String> domainNameLabel() {
         return Optional.ofNullable(this.domainNameLabel);
     }
@@ -65,18 +52,14 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     public static Builder builder(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String domainNameLabel;
         private @Nullable Integer idleTimeoutInMinutes;
         private @Nullable List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags;
         private String name;
         private @Nullable String publicIpPrefixId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.domainNameLabel = defaults.domainNameLabel;
@@ -86,14 +69,17 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     	      this.publicIpPrefixId = defaults.publicIpPrefixId;
         }
 
+        @CustomType.Setter
         public Builder domainNameLabel(@Nullable String domainNameLabel) {
             this.domainNameLabel = domainNameLabel;
             return this;
         }
+        @CustomType.Setter
         public Builder idleTimeoutInMinutes(@Nullable Integer idleTimeoutInMinutes) {
             this.idleTimeoutInMinutes = idleTimeoutInMinutes;
             return this;
         }
+        @CustomType.Setter
         public Builder ipTags(@Nullable List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags) {
             this.ipTags = ipTags;
             return this;
@@ -101,15 +87,24 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         public Builder ipTags(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag... ipTags) {
             return ipTags(List.of(ipTags));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpPrefixId(@Nullable String publicIpPrefixId) {
             this.publicIpPrefixId = publicIpPrefixId;
             return this;
-        }        public OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress build() {
-            return new OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(domainNameLabel, idleTimeoutInMinutes, ipTags, name, publicIpPrefixId);
+        }
+        public OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress build() {
+            final var o = new OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress();
+            o.domainNameLabel = domainNameLabel;
+            o.idleTimeoutInMinutes = idleTimeoutInMinutes;
+            o.ipTags = ipTags;
+            o.name = name;
+            o.publicIpPrefixId = publicIpPrefixId;
+            return o;
         }
     }
 }

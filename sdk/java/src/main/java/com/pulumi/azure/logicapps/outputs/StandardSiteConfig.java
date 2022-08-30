@@ -20,119 +20,84 @@ public final class StandardSiteConfig {
      * @return Should the Logic App be loaded at all times? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean alwaysOn;
+    private @Nullable Boolean alwaysOn;
     /**
      * @return The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan.
      * 
      */
-    private final @Nullable Integer appScaleLimit;
+    private @Nullable Integer appScaleLimit;
     /**
      * @return A `cors` block as defined below.
      * 
      */
-    private final @Nullable StandardSiteConfigCors cors;
+    private @Nullable StandardSiteConfigCors cors;
     /**
      * @return The version of the .NET framework&#39;s CLR used in this Logic App Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you&#39;re targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
      * 
      */
-    private final @Nullable String dotnetFrameworkVersion;
+    private @Nullable String dotnetFrameworkVersion;
     /**
      * @return The number of minimum instances for this Logic App Only affects apps on the Premium plan.
      * 
      */
-    private final @Nullable Integer elasticInstanceMinimum;
+    private @Nullable Integer elasticInstanceMinimum;
     /**
      * @return State of FTP / FTPS service for this Logic App Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `AllAllowed`.
      * 
      */
-    private final @Nullable String ftpsState;
+    private @Nullable String ftpsState;
     /**
      * @return Path which will be checked for this Logic App health.
      * 
      */
-    private final @Nullable String healthCheckPath;
+    private @Nullable String healthCheckPath;
     /**
      * @return Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean http2Enabled;
+    private @Nullable Boolean http2Enabled;
     /**
      * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
      * 
      */
-    private final @Nullable List<StandardSiteConfigIpRestriction> ipRestrictions;
+    private @Nullable List<StandardSiteConfigIpRestriction> ipRestrictions;
     /**
      * @return Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`
      * 
      */
-    private final @Nullable String linuxFxVersion;
+    private @Nullable String linuxFxVersion;
     /**
      * @return The minimum supported TLS version for the Logic App Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new Logic Apps.
      * 
      */
-    private final @Nullable String minTlsVersion;
+    private @Nullable String minTlsVersion;
     /**
      * @return The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
      * 
      */
-    private final @Nullable Integer preWarmedInstanceCount;
+    private @Nullable Integer preWarmedInstanceCount;
     /**
      * @return Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean runtimeScaleMonitoringEnabled;
+    private @Nullable Boolean runtimeScaleMonitoringEnabled;
     /**
      * @return Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean use32BitWorkerProcess;
+    private @Nullable Boolean use32BitWorkerProcess;
     /**
      * @return Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
      * 
      */
-    private final @Nullable Boolean vnetRouteAllEnabled;
+    private @Nullable Boolean vnetRouteAllEnabled;
     /**
      * @return Should WebSockets be enabled?
      * 
      */
-    private final @Nullable Boolean websocketsEnabled;
+    private @Nullable Boolean websocketsEnabled;
 
-    @CustomType.Constructor
-    private StandardSiteConfig(
-        @CustomType.Parameter("alwaysOn") @Nullable Boolean alwaysOn,
-        @CustomType.Parameter("appScaleLimit") @Nullable Integer appScaleLimit,
-        @CustomType.Parameter("cors") @Nullable StandardSiteConfigCors cors,
-        @CustomType.Parameter("dotnetFrameworkVersion") @Nullable String dotnetFrameworkVersion,
-        @CustomType.Parameter("elasticInstanceMinimum") @Nullable Integer elasticInstanceMinimum,
-        @CustomType.Parameter("ftpsState") @Nullable String ftpsState,
-        @CustomType.Parameter("healthCheckPath") @Nullable String healthCheckPath,
-        @CustomType.Parameter("http2Enabled") @Nullable Boolean http2Enabled,
-        @CustomType.Parameter("ipRestrictions") @Nullable List<StandardSiteConfigIpRestriction> ipRestrictions,
-        @CustomType.Parameter("linuxFxVersion") @Nullable String linuxFxVersion,
-        @CustomType.Parameter("minTlsVersion") @Nullable String minTlsVersion,
-        @CustomType.Parameter("preWarmedInstanceCount") @Nullable Integer preWarmedInstanceCount,
-        @CustomType.Parameter("runtimeScaleMonitoringEnabled") @Nullable Boolean runtimeScaleMonitoringEnabled,
-        @CustomType.Parameter("use32BitWorkerProcess") @Nullable Boolean use32BitWorkerProcess,
-        @CustomType.Parameter("vnetRouteAllEnabled") @Nullable Boolean vnetRouteAllEnabled,
-        @CustomType.Parameter("websocketsEnabled") @Nullable Boolean websocketsEnabled) {
-        this.alwaysOn = alwaysOn;
-        this.appScaleLimit = appScaleLimit;
-        this.cors = cors;
-        this.dotnetFrameworkVersion = dotnetFrameworkVersion;
-        this.elasticInstanceMinimum = elasticInstanceMinimum;
-        this.ftpsState = ftpsState;
-        this.healthCheckPath = healthCheckPath;
-        this.http2Enabled = http2Enabled;
-        this.ipRestrictions = ipRestrictions;
-        this.linuxFxVersion = linuxFxVersion;
-        this.minTlsVersion = minTlsVersion;
-        this.preWarmedInstanceCount = preWarmedInstanceCount;
-        this.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
-        this.use32BitWorkerProcess = use32BitWorkerProcess;
-        this.vnetRouteAllEnabled = vnetRouteAllEnabled;
-        this.websocketsEnabled = websocketsEnabled;
-    }
-
+    private StandardSiteConfig() {}
     /**
      * @return Should the Logic App be loaded at all times? Defaults to `false`.
      * 
@@ -253,7 +218,7 @@ public final class StandardSiteConfig {
     public static Builder builder(StandardSiteConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean alwaysOn;
         private @Nullable Integer appScaleLimit;
@@ -271,11 +236,7 @@ public final class StandardSiteConfig {
         private @Nullable Boolean use32BitWorkerProcess;
         private @Nullable Boolean vnetRouteAllEnabled;
         private @Nullable Boolean websocketsEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StandardSiteConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alwaysOn = defaults.alwaysOn;
@@ -296,38 +257,47 @@ public final class StandardSiteConfig {
     	      this.websocketsEnabled = defaults.websocketsEnabled;
         }
 
+        @CustomType.Setter
         public Builder alwaysOn(@Nullable Boolean alwaysOn) {
             this.alwaysOn = alwaysOn;
             return this;
         }
+        @CustomType.Setter
         public Builder appScaleLimit(@Nullable Integer appScaleLimit) {
             this.appScaleLimit = appScaleLimit;
             return this;
         }
+        @CustomType.Setter
         public Builder cors(@Nullable StandardSiteConfigCors cors) {
             this.cors = cors;
             return this;
         }
+        @CustomType.Setter
         public Builder dotnetFrameworkVersion(@Nullable String dotnetFrameworkVersion) {
             this.dotnetFrameworkVersion = dotnetFrameworkVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder elasticInstanceMinimum(@Nullable Integer elasticInstanceMinimum) {
             this.elasticInstanceMinimum = elasticInstanceMinimum;
             return this;
         }
+        @CustomType.Setter
         public Builder ftpsState(@Nullable String ftpsState) {
             this.ftpsState = ftpsState;
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheckPath(@Nullable String healthCheckPath) {
             this.healthCheckPath = healthCheckPath;
             return this;
         }
+        @CustomType.Setter
         public Builder http2Enabled(@Nullable Boolean http2Enabled) {
             this.http2Enabled = http2Enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder ipRestrictions(@Nullable List<StandardSiteConfigIpRestriction> ipRestrictions) {
             this.ipRestrictions = ipRestrictions;
             return this;
@@ -335,35 +305,60 @@ public final class StandardSiteConfig {
         public Builder ipRestrictions(StandardSiteConfigIpRestriction... ipRestrictions) {
             return ipRestrictions(List.of(ipRestrictions));
         }
+        @CustomType.Setter
         public Builder linuxFxVersion(@Nullable String linuxFxVersion) {
             this.linuxFxVersion = linuxFxVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder minTlsVersion(@Nullable String minTlsVersion) {
             this.minTlsVersion = minTlsVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder preWarmedInstanceCount(@Nullable Integer preWarmedInstanceCount) {
             this.preWarmedInstanceCount = preWarmedInstanceCount;
             return this;
         }
+        @CustomType.Setter
         public Builder runtimeScaleMonitoringEnabled(@Nullable Boolean runtimeScaleMonitoringEnabled) {
             this.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder use32BitWorkerProcess(@Nullable Boolean use32BitWorkerProcess) {
             this.use32BitWorkerProcess = use32BitWorkerProcess;
             return this;
         }
+        @CustomType.Setter
         public Builder vnetRouteAllEnabled(@Nullable Boolean vnetRouteAllEnabled) {
             this.vnetRouteAllEnabled = vnetRouteAllEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder websocketsEnabled(@Nullable Boolean websocketsEnabled) {
             this.websocketsEnabled = websocketsEnabled;
             return this;
-        }        public StandardSiteConfig build() {
-            return new StandardSiteConfig(alwaysOn, appScaleLimit, cors, dotnetFrameworkVersion, elasticInstanceMinimum, ftpsState, healthCheckPath, http2Enabled, ipRestrictions, linuxFxVersion, minTlsVersion, preWarmedInstanceCount, runtimeScaleMonitoringEnabled, use32BitWorkerProcess, vnetRouteAllEnabled, websocketsEnabled);
+        }
+        public StandardSiteConfig build() {
+            final var o = new StandardSiteConfig();
+            o.alwaysOn = alwaysOn;
+            o.appScaleLimit = appScaleLimit;
+            o.cors = cors;
+            o.dotnetFrameworkVersion = dotnetFrameworkVersion;
+            o.elasticInstanceMinimum = elasticInstanceMinimum;
+            o.ftpsState = ftpsState;
+            o.healthCheckPath = healthCheckPath;
+            o.http2Enabled = http2Enabled;
+            o.ipRestrictions = ipRestrictions;
+            o.linuxFxVersion = linuxFxVersion;
+            o.minTlsVersion = minTlsVersion;
+            o.preWarmedInstanceCount = preWarmedInstanceCount;
+            o.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            o.use32BitWorkerProcess = use32BitWorkerProcess;
+            o.vnetRouteAllEnabled = vnetRouteAllEnabled;
+            o.websocketsEnabled = websocketsEnabled;
+            return o;
         }
     }
 }

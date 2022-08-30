@@ -15,28 +15,19 @@ public final class IntegrationRuntimeSsisProxy {
      * @return The path in the data store to be used when moving data between Self-Hosted and Azure-SSIS Integration Runtimes.
      * 
      */
-    private final @Nullable String path;
+    private @Nullable String path;
     /**
      * @return Name of Self Hosted Integration Runtime as a proxy.
      * 
      */
-    private final String selfHostedIntegrationRuntimeName;
+    private String selfHostedIntegrationRuntimeName;
     /**
      * @return Name of Azure Blob Storage linked service to reference the staging data store to be used when moving data between self-hosted and Azure-SSIS integration runtimes.
      * 
      */
-    private final String stagingStorageLinkedServiceName;
+    private String stagingStorageLinkedServiceName;
 
-    @CustomType.Constructor
-    private IntegrationRuntimeSsisProxy(
-        @CustomType.Parameter("path") @Nullable String path,
-        @CustomType.Parameter("selfHostedIntegrationRuntimeName") String selfHostedIntegrationRuntimeName,
-        @CustomType.Parameter("stagingStorageLinkedServiceName") String stagingStorageLinkedServiceName) {
-        this.path = path;
-        this.selfHostedIntegrationRuntimeName = selfHostedIntegrationRuntimeName;
-        this.stagingStorageLinkedServiceName = stagingStorageLinkedServiceName;
-    }
-
+    private IntegrationRuntimeSsisProxy() {}
     /**
      * @return The path in the data store to be used when moving data between Self-Hosted and Azure-SSIS Integration Runtimes.
      * 
@@ -66,16 +57,12 @@ public final class IntegrationRuntimeSsisProxy {
     public static Builder builder(IntegrationRuntimeSsisProxy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String path;
         private String selfHostedIntegrationRuntimeName;
         private String stagingStorageLinkedServiceName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationRuntimeSsisProxy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.path = defaults.path;
@@ -83,19 +70,27 @@ public final class IntegrationRuntimeSsisProxy {
     	      this.stagingStorageLinkedServiceName = defaults.stagingStorageLinkedServiceName;
         }
 
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
         }
+        @CustomType.Setter
         public Builder selfHostedIntegrationRuntimeName(String selfHostedIntegrationRuntimeName) {
             this.selfHostedIntegrationRuntimeName = Objects.requireNonNull(selfHostedIntegrationRuntimeName);
             return this;
         }
+        @CustomType.Setter
         public Builder stagingStorageLinkedServiceName(String stagingStorageLinkedServiceName) {
             this.stagingStorageLinkedServiceName = Objects.requireNonNull(stagingStorageLinkedServiceName);
             return this;
-        }        public IntegrationRuntimeSsisProxy build() {
-            return new IntegrationRuntimeSsisProxy(path, selfHostedIntegrationRuntimeName, stagingStorageLinkedServiceName);
+        }
+        public IntegrationRuntimeSsisProxy build() {
+            final var o = new IntegrationRuntimeSsisProxy();
+            o.path = path;
+            o.selfHostedIntegrationRuntimeName = selfHostedIntegrationRuntimeName;
+            o.stagingStorageLinkedServiceName = stagingStorageLinkedServiceName;
+            return o;
         }
     }
 }

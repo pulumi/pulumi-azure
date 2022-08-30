@@ -17,28 +17,19 @@ public final class FirewallPolicyManagedRuleOverride {
      * @return One or more `exclusion` blocks as defined below.
      * 
      */
-    private final @Nullable List<FirewallPolicyManagedRuleOverrideExclusion> exclusions;
+    private @Nullable List<FirewallPolicyManagedRuleOverrideExclusion> exclusions;
     /**
      * @return The managed rule group to override.
      * 
      */
-    private final String ruleGroupName;
+    private String ruleGroupName;
     /**
      * @return One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
      * 
      */
-    private final @Nullable List<FirewallPolicyManagedRuleOverrideRule> rules;
+    private @Nullable List<FirewallPolicyManagedRuleOverrideRule> rules;
 
-    @CustomType.Constructor
-    private FirewallPolicyManagedRuleOverride(
-        @CustomType.Parameter("exclusions") @Nullable List<FirewallPolicyManagedRuleOverrideExclusion> exclusions,
-        @CustomType.Parameter("ruleGroupName") String ruleGroupName,
-        @CustomType.Parameter("rules") @Nullable List<FirewallPolicyManagedRuleOverrideRule> rules) {
-        this.exclusions = exclusions;
-        this.ruleGroupName = ruleGroupName;
-        this.rules = rules;
-    }
-
+    private FirewallPolicyManagedRuleOverride() {}
     /**
      * @return One or more `exclusion` blocks as defined below.
      * 
@@ -68,16 +59,12 @@ public final class FirewallPolicyManagedRuleOverride {
     public static Builder builder(FirewallPolicyManagedRuleOverride defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<FirewallPolicyManagedRuleOverrideExclusion> exclusions;
         private String ruleGroupName;
         private @Nullable List<FirewallPolicyManagedRuleOverrideRule> rules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyManagedRuleOverride defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.exclusions = defaults.exclusions;
@@ -85,6 +72,7 @@ public final class FirewallPolicyManagedRuleOverride {
     	      this.rules = defaults.rules;
         }
 
+        @CustomType.Setter
         public Builder exclusions(@Nullable List<FirewallPolicyManagedRuleOverrideExclusion> exclusions) {
             this.exclusions = exclusions;
             return this;
@@ -92,18 +80,25 @@ public final class FirewallPolicyManagedRuleOverride {
         public Builder exclusions(FirewallPolicyManagedRuleOverrideExclusion... exclusions) {
             return exclusions(List.of(exclusions));
         }
+        @CustomType.Setter
         public Builder ruleGroupName(String ruleGroupName) {
             this.ruleGroupName = Objects.requireNonNull(ruleGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder rules(@Nullable List<FirewallPolicyManagedRuleOverrideRule> rules) {
             this.rules = rules;
             return this;
         }
         public Builder rules(FirewallPolicyManagedRuleOverrideRule... rules) {
             return rules(List.of(rules));
-        }        public FirewallPolicyManagedRuleOverride build() {
-            return new FirewallPolicyManagedRuleOverride(exclusions, ruleGroupName, rules);
+        }
+        public FirewallPolicyManagedRuleOverride build() {
+            final var o = new FirewallPolicyManagedRuleOverride();
+            o.exclusions = exclusions;
+            o.ruleGroupName = ruleGroupName;
+            o.rules = rules;
+            return o;
         }
     }
 }

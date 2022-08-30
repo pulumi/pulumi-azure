@@ -17,84 +17,59 @@ public final class SpringCloudConfigurationServiceRepository {
      * @return Specifies the SSH public key of git repository.
      * 
      */
-    private final @Nullable String hostKey;
+    private @Nullable String hostKey;
     /**
      * @return Specifies the SSH key algorithm of git repository.
      * 
      */
-    private final @Nullable String hostKeyAlgorithm;
+    private @Nullable String hostKeyAlgorithm;
     /**
      * @return Specifies the label of the repository.
      * 
      */
-    private final String label;
+    private String label;
     /**
      * @return Specifies the name which should be used for this repository.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Specifies the password of git repository basic auth.
      * 
      */
-    private final @Nullable String password;
+    private @Nullable String password;
     /**
      * @return Specifies the collection of patterns of the repository.
      * 
      */
-    private final List<String> patterns;
+    private List<String> patterns;
     /**
      * @return Specifies the SSH private key of git repository.
      * 
      */
-    private final @Nullable String privateKey;
+    private @Nullable String privateKey;
     /**
      * @return Specifies a list of searching path of the repository
      * 
      */
-    private final @Nullable List<String> searchPaths;
+    private @Nullable List<String> searchPaths;
     /**
      * @return Specifies whether enable the strict host key checking.
      * 
      */
-    private final @Nullable Boolean strictHostKeyChecking;
+    private @Nullable Boolean strictHostKeyChecking;
     /**
      * @return Specifies the URI of the repository.
      * 
      */
-    private final String uri;
+    private String uri;
     /**
      * @return Specifies the username of git repository basic auth.
      * 
      */
-    private final @Nullable String username;
+    private @Nullable String username;
 
-    @CustomType.Constructor
-    private SpringCloudConfigurationServiceRepository(
-        @CustomType.Parameter("hostKey") @Nullable String hostKey,
-        @CustomType.Parameter("hostKeyAlgorithm") @Nullable String hostKeyAlgorithm,
-        @CustomType.Parameter("label") String label,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("password") @Nullable String password,
-        @CustomType.Parameter("patterns") List<String> patterns,
-        @CustomType.Parameter("privateKey") @Nullable String privateKey,
-        @CustomType.Parameter("searchPaths") @Nullable List<String> searchPaths,
-        @CustomType.Parameter("strictHostKeyChecking") @Nullable Boolean strictHostKeyChecking,
-        @CustomType.Parameter("uri") String uri,
-        @CustomType.Parameter("username") @Nullable String username) {
-        this.hostKey = hostKey;
-        this.hostKeyAlgorithm = hostKeyAlgorithm;
-        this.label = label;
-        this.name = name;
-        this.password = password;
-        this.patterns = patterns;
-        this.privateKey = privateKey;
-        this.searchPaths = searchPaths;
-        this.strictHostKeyChecking = strictHostKeyChecking;
-        this.uri = uri;
-        this.username = username;
-    }
-
+    private SpringCloudConfigurationServiceRepository() {}
     /**
      * @return Specifies the SSH public key of git repository.
      * 
@@ -180,7 +155,7 @@ public final class SpringCloudConfigurationServiceRepository {
     public static Builder builder(SpringCloudConfigurationServiceRepository defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String hostKey;
         private @Nullable String hostKeyAlgorithm;
@@ -193,11 +168,7 @@ public final class SpringCloudConfigurationServiceRepository {
         private @Nullable Boolean strictHostKeyChecking;
         private String uri;
         private @Nullable String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpringCloudConfigurationServiceRepository defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostKey = defaults.hostKey;
@@ -213,26 +184,32 @@ public final class SpringCloudConfigurationServiceRepository {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder hostKey(@Nullable String hostKey) {
             this.hostKey = hostKey;
             return this;
         }
+        @CustomType.Setter
         public Builder hostKeyAlgorithm(@Nullable String hostKeyAlgorithm) {
             this.hostKeyAlgorithm = hostKeyAlgorithm;
             return this;
         }
+        @CustomType.Setter
         public Builder label(String label) {
             this.label = Objects.requireNonNull(label);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
         }
+        @CustomType.Setter
         public Builder patterns(List<String> patterns) {
             this.patterns = Objects.requireNonNull(patterns);
             return this;
@@ -240,10 +217,12 @@ public final class SpringCloudConfigurationServiceRepository {
         public Builder patterns(String... patterns) {
             return patterns(List.of(patterns));
         }
+        @CustomType.Setter
         public Builder privateKey(@Nullable String privateKey) {
             this.privateKey = privateKey;
             return this;
         }
+        @CustomType.Setter
         public Builder searchPaths(@Nullable List<String> searchPaths) {
             this.searchPaths = searchPaths;
             return this;
@@ -251,19 +230,35 @@ public final class SpringCloudConfigurationServiceRepository {
         public Builder searchPaths(String... searchPaths) {
             return searchPaths(List.of(searchPaths));
         }
+        @CustomType.Setter
         public Builder strictHostKeyChecking(@Nullable Boolean strictHostKeyChecking) {
             this.strictHostKeyChecking = strictHostKeyChecking;
             return this;
         }
+        @CustomType.Setter
         public Builder uri(String uri) {
             this.uri = Objects.requireNonNull(uri);
             return this;
         }
+        @CustomType.Setter
         public Builder username(@Nullable String username) {
             this.username = username;
             return this;
-        }        public SpringCloudConfigurationServiceRepository build() {
-            return new SpringCloudConfigurationServiceRepository(hostKey, hostKeyAlgorithm, label, name, password, patterns, privateKey, searchPaths, strictHostKeyChecking, uri, username);
+        }
+        public SpringCloudConfigurationServiceRepository build() {
+            final var o = new SpringCloudConfigurationServiceRepository();
+            o.hostKey = hostKey;
+            o.hostKeyAlgorithm = hostKeyAlgorithm;
+            o.label = label;
+            o.name = name;
+            o.password = password;
+            o.patterns = patterns;
+            o.privateKey = privateKey;
+            o.searchPaths = searchPaths;
+            o.strictHostKeyChecking = strictHostKeyChecking;
+            o.uri = uri;
+            o.username = username;
+            return o;
         }
     }
 }

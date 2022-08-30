@@ -15,21 +15,14 @@ public final class SqlContainerIndexingPolicySpatialIndex {
      * @return Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
      * 
      */
-    private final String path;
+    private String path;
     /**
      * @return A set of spatial types of the path.
      * 
      */
-    private final @Nullable List<String> types;
+    private @Nullable List<String> types;
 
-    @CustomType.Constructor
-    private SqlContainerIndexingPolicySpatialIndex(
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("types") @Nullable List<String> types) {
-        this.path = path;
-        this.types = types;
-    }
-
+    private SqlContainerIndexingPolicySpatialIndex() {}
     /**
      * @return Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
      * 
@@ -52,33 +45,35 @@ public final class SqlContainerIndexingPolicySpatialIndex {
     public static Builder builder(SqlContainerIndexingPolicySpatialIndex defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String path;
         private @Nullable List<String> types;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SqlContainerIndexingPolicySpatialIndex defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.path = defaults.path;
     	      this.types = defaults.types;
         }
 
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder types(@Nullable List<String> types) {
             this.types = types;
             return this;
         }
         public Builder types(String... types) {
             return types(List.of(types));
-        }        public SqlContainerIndexingPolicySpatialIndex build() {
-            return new SqlContainerIndexingPolicySpatialIndex(path, types);
+        }
+        public SqlContainerIndexingPolicySpatialIndex build() {
+            final var o = new SqlContainerIndexingPolicySpatialIndex();
+            o.path = path;
+            o.types = types;
+            return o;
         }
     }
 }

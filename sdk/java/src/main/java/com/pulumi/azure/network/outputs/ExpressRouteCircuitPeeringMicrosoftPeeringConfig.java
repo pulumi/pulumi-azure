@@ -17,28 +17,19 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
      * @return A list of Advertised Public Prefixes.
      * 
      */
-    private final List<String> advertisedPublicPrefixes;
+    private List<String> advertisedPublicPrefixes;
     /**
      * @return The CustomerASN of the peering.
      * 
      */
-    private final @Nullable Integer customerAsn;
+    private @Nullable Integer customerAsn;
     /**
      * @return The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
      * 
      */
-    private final @Nullable String routingRegistryName;
+    private @Nullable String routingRegistryName;
 
-    @CustomType.Constructor
-    private ExpressRouteCircuitPeeringMicrosoftPeeringConfig(
-        @CustomType.Parameter("advertisedPublicPrefixes") List<String> advertisedPublicPrefixes,
-        @CustomType.Parameter("customerAsn") @Nullable Integer customerAsn,
-        @CustomType.Parameter("routingRegistryName") @Nullable String routingRegistryName) {
-        this.advertisedPublicPrefixes = advertisedPublicPrefixes;
-        this.customerAsn = customerAsn;
-        this.routingRegistryName = routingRegistryName;
-    }
-
+    private ExpressRouteCircuitPeeringMicrosoftPeeringConfig() {}
     /**
      * @return A list of Advertised Public Prefixes.
      * 
@@ -68,16 +59,12 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
     public static Builder builder(ExpressRouteCircuitPeeringMicrosoftPeeringConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> advertisedPublicPrefixes;
         private @Nullable Integer customerAsn;
         private @Nullable String routingRegistryName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ExpressRouteCircuitPeeringMicrosoftPeeringConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.advertisedPublicPrefixes = defaults.advertisedPublicPrefixes;
@@ -85,6 +72,7 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
     	      this.routingRegistryName = defaults.routingRegistryName;
         }
 
+        @CustomType.Setter
         public Builder advertisedPublicPrefixes(List<String> advertisedPublicPrefixes) {
             this.advertisedPublicPrefixes = Objects.requireNonNull(advertisedPublicPrefixes);
             return this;
@@ -92,15 +80,22 @@ public final class ExpressRouteCircuitPeeringMicrosoftPeeringConfig {
         public Builder advertisedPublicPrefixes(String... advertisedPublicPrefixes) {
             return advertisedPublicPrefixes(List.of(advertisedPublicPrefixes));
         }
+        @CustomType.Setter
         public Builder customerAsn(@Nullable Integer customerAsn) {
             this.customerAsn = customerAsn;
             return this;
         }
+        @CustomType.Setter
         public Builder routingRegistryName(@Nullable String routingRegistryName) {
             this.routingRegistryName = routingRegistryName;
             return this;
-        }        public ExpressRouteCircuitPeeringMicrosoftPeeringConfig build() {
-            return new ExpressRouteCircuitPeeringMicrosoftPeeringConfig(advertisedPublicPrefixes, customerAsn, routingRegistryName);
+        }
+        public ExpressRouteCircuitPeeringMicrosoftPeeringConfig build() {
+            final var o = new ExpressRouteCircuitPeeringMicrosoftPeeringConfig();
+            o.advertisedPublicPrefixes = advertisedPublicPrefixes;
+            o.customerAsn = customerAsn;
+            o.routingRegistryName = routingRegistryName;
+            return o;
         }
     }
 }

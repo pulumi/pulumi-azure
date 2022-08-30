@@ -16,21 +16,14 @@ public final class WindowsVirtualMachineScaleSetTerminateNotification {
      * @return Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format.
      * 
      */
-    private final @Nullable String timeout;
+    private @Nullable String timeout;
 
-    @CustomType.Constructor
-    private WindowsVirtualMachineScaleSetTerminateNotification(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("timeout") @Nullable String timeout) {
-        this.enabled = enabled;
-        this.timeout = timeout;
-    }
-
+    private WindowsVirtualMachineScaleSetTerminateNotification() {}
     /**
      * @return Should the terminate notification be enabled on this Virtual Machine Scale Set? Defaults to `false`.
      * 
@@ -53,30 +46,32 @@ public final class WindowsVirtualMachineScaleSetTerminateNotification {
     public static Builder builder(WindowsVirtualMachineScaleSetTerminateNotification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private @Nullable String timeout;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsVirtualMachineScaleSetTerminateNotification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.timeout = defaults.timeout;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder timeout(@Nullable String timeout) {
             this.timeout = timeout;
             return this;
-        }        public WindowsVirtualMachineScaleSetTerminateNotification build() {
-            return new WindowsVirtualMachineScaleSetTerminateNotification(enabled, timeout);
+        }
+        public WindowsVirtualMachineScaleSetTerminateNotification build() {
+            final var o = new WindowsVirtualMachineScaleSetTerminateNotification();
+            o.enabled = enabled;
+            o.timeout = timeout;
+            return o;
         }
     }
 }

@@ -14,28 +14,19 @@ public final class GetServiceHostnameConfigurationPortal {
      * @return The Hostname used for the SCM URL.
      * 
      */
-    private final String hostName;
+    private String hostName;
     /**
      * @return The ID of the Key Vault Secret which contains the SSL Certificate.
      * 
      */
-    private final String keyVaultId;
+    private String keyVaultId;
     /**
      * @return Is Client Certificate Negotiation enabled?
      * 
      */
-    private final Boolean negotiateClientCertificate;
+    private Boolean negotiateClientCertificate;
 
-    @CustomType.Constructor
-    private GetServiceHostnameConfigurationPortal(
-        @CustomType.Parameter("hostName") String hostName,
-        @CustomType.Parameter("keyVaultId") String keyVaultId,
-        @CustomType.Parameter("negotiateClientCertificate") Boolean negotiateClientCertificate) {
-        this.hostName = hostName;
-        this.keyVaultId = keyVaultId;
-        this.negotiateClientCertificate = negotiateClientCertificate;
-    }
-
+    private GetServiceHostnameConfigurationPortal() {}
     /**
      * @return The Hostname used for the SCM URL.
      * 
@@ -65,16 +56,12 @@ public final class GetServiceHostnameConfigurationPortal {
     public static Builder builder(GetServiceHostnameConfigurationPortal defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String hostName;
         private String keyVaultId;
         private Boolean negotiateClientCertificate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceHostnameConfigurationPortal defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostName = defaults.hostName;
@@ -82,19 +69,27 @@ public final class GetServiceHostnameConfigurationPortal {
     	      this.negotiateClientCertificate = defaults.negotiateClientCertificate;
         }
 
+        @CustomType.Setter
         public Builder hostName(String hostName) {
             this.hostName = Objects.requireNonNull(hostName);
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
             this.keyVaultId = Objects.requireNonNull(keyVaultId);
             return this;
         }
+        @CustomType.Setter
         public Builder negotiateClientCertificate(Boolean negotiateClientCertificate) {
             this.negotiateClientCertificate = Objects.requireNonNull(negotiateClientCertificate);
             return this;
-        }        public GetServiceHostnameConfigurationPortal build() {
-            return new GetServiceHostnameConfigurationPortal(hostName, keyVaultId, negotiateClientCertificate);
+        }
+        public GetServiceHostnameConfigurationPortal build() {
+            final var o = new GetServiceHostnameConfigurationPortal();
+            o.hostName = hostName;
+            o.keyVaultId = keyVaultId;
+            o.negotiateClientCertificate = negotiateClientCertificate;
+            return o;
         }
     }
 }

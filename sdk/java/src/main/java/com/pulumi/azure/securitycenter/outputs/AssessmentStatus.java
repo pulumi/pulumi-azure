@@ -15,28 +15,19 @@ public final class AssessmentStatus {
      * @return Specifies the cause of the assessment status.
      * 
      */
-    private final @Nullable String cause;
+    private @Nullable String cause;
     /**
      * @return Specifies the programmatic code of the assessment status. Possible values are `Healthy`, `Unhealthy` and `NotApplicable`.
      * 
      */
-    private final String code;
+    private String code;
     /**
      * @return Specifies the human readable description of the assessment status.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
 
-    @CustomType.Constructor
-    private AssessmentStatus(
-        @CustomType.Parameter("cause") @Nullable String cause,
-        @CustomType.Parameter("code") String code,
-        @CustomType.Parameter("description") @Nullable String description) {
-        this.cause = cause;
-        this.code = code;
-        this.description = description;
-    }
-
+    private AssessmentStatus() {}
     /**
      * @return Specifies the cause of the assessment status.
      * 
@@ -66,16 +57,12 @@ public final class AssessmentStatus {
     public static Builder builder(AssessmentStatus defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String cause;
         private String code;
         private @Nullable String description;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AssessmentStatus defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cause = defaults.cause;
@@ -83,19 +70,27 @@ public final class AssessmentStatus {
     	      this.description = defaults.description;
         }
 
+        @CustomType.Setter
         public Builder cause(@Nullable String cause) {
             this.cause = cause;
             return this;
         }
+        @CustomType.Setter
         public Builder code(String code) {
             this.code = Objects.requireNonNull(code);
             return this;
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
-        }        public AssessmentStatus build() {
-            return new AssessmentStatus(cause, code, description);
+        }
+        public AssessmentStatus build() {
+            final var o = new AssessmentStatus();
+            o.cause = cause;
+            o.code = code;
+            o.description = description;
+            return o;
         }
     }
 }

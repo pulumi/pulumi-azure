@@ -14,13 +14,9 @@ public final class CacheDefaultAccessPolicy {
      * @return One to three `access_rule` blocks as defined above.
      * 
      */
-    private final List<CacheDefaultAccessPolicyAccessRule> accessRules;
+    private List<CacheDefaultAccessPolicyAccessRule> accessRules;
 
-    @CustomType.Constructor
-    private CacheDefaultAccessPolicy(@CustomType.Parameter("accessRules") List<CacheDefaultAccessPolicyAccessRule> accessRules) {
-        this.accessRules = accessRules;
-    }
-
+    private CacheDefaultAccessPolicy() {}
     /**
      * @return One to three `access_rule` blocks as defined above.
      * 
@@ -36,27 +32,27 @@ public final class CacheDefaultAccessPolicy {
     public static Builder builder(CacheDefaultAccessPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<CacheDefaultAccessPolicyAccessRule> accessRules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CacheDefaultAccessPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessRules = defaults.accessRules;
         }
 
+        @CustomType.Setter
         public Builder accessRules(List<CacheDefaultAccessPolicyAccessRule> accessRules) {
             this.accessRules = Objects.requireNonNull(accessRules);
             return this;
         }
         public Builder accessRules(CacheDefaultAccessPolicyAccessRule... accessRules) {
             return accessRules(List.of(accessRules));
-        }        public CacheDefaultAccessPolicy build() {
-            return new CacheDefaultAccessPolicy(accessRules);
+        }
+        public CacheDefaultAccessPolicy build() {
+            final var o = new CacheDefaultAccessPolicy();
+            o.accessRules = accessRules;
+            return o;
         }
     }
 }

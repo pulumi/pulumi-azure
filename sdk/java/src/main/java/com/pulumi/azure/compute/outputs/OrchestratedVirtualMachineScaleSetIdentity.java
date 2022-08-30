@@ -10,17 +10,10 @@ import java.util.Objects;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetIdentity {
-    private final List<String> identityIds;
-    private final String type;
+    private List<String> identityIds;
+    private String type;
 
-    @CustomType.Constructor
-    private OrchestratedVirtualMachineScaleSetIdentity(
-        @CustomType.Parameter("identityIds") List<String> identityIds,
-        @CustomType.Parameter("type") String type) {
-        this.identityIds = identityIds;
-        this.type = type;
-    }
-
+    private OrchestratedVirtualMachineScaleSetIdentity() {}
     public List<String> identityIds() {
         return this.identityIds;
     }
@@ -35,21 +28,18 @@ public final class OrchestratedVirtualMachineScaleSetIdentity {
     public static Builder builder(OrchestratedVirtualMachineScaleSetIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> identityIds;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder identityIds(List<String> identityIds) {
             this.identityIds = Objects.requireNonNull(identityIds);
             return this;
@@ -57,11 +47,16 @@ public final class OrchestratedVirtualMachineScaleSetIdentity {
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public OrchestratedVirtualMachineScaleSetIdentity build() {
-            return new OrchestratedVirtualMachineScaleSetIdentity(identityIds, type);
+        }
+        public OrchestratedVirtualMachineScaleSetIdentity build() {
+            final var o = new OrchestratedVirtualMachineScaleSetIdentity();
+            o.identityIds = identityIds;
+            o.type = type;
+            return o;
         }
     }
 }

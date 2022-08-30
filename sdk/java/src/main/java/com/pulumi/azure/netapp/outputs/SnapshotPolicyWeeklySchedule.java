@@ -15,35 +15,24 @@ public final class SnapshotPolicyWeeklySchedule {
      * @return List of the week days using English names when the snapshots will be created.
      * 
      */
-    private final List<String> daysOfWeeks;
+    private List<String> daysOfWeeks;
     /**
      * @return Hour of the day that the snapshots will be created, valid range is from 0 to 23.
      * 
      */
-    private final Integer hour;
+    private Integer hour;
     /**
      * @return Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
      * 
      */
-    private final Integer minute;
+    private Integer minute;
     /**
      * @return How many hourly snapshots to keep, valid range is from 0 to 255.
      * 
      */
-    private final Integer snapshotsToKeep;
+    private Integer snapshotsToKeep;
 
-    @CustomType.Constructor
-    private SnapshotPolicyWeeklySchedule(
-        @CustomType.Parameter("daysOfWeeks") List<String> daysOfWeeks,
-        @CustomType.Parameter("hour") Integer hour,
-        @CustomType.Parameter("minute") Integer minute,
-        @CustomType.Parameter("snapshotsToKeep") Integer snapshotsToKeep) {
-        this.daysOfWeeks = daysOfWeeks;
-        this.hour = hour;
-        this.minute = minute;
-        this.snapshotsToKeep = snapshotsToKeep;
-    }
-
+    private SnapshotPolicyWeeklySchedule() {}
     /**
      * @return List of the week days using English names when the snapshots will be created.
      * 
@@ -80,17 +69,13 @@ public final class SnapshotPolicyWeeklySchedule {
     public static Builder builder(SnapshotPolicyWeeklySchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> daysOfWeeks;
         private Integer hour;
         private Integer minute;
         private Integer snapshotsToKeep;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SnapshotPolicyWeeklySchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.daysOfWeeks = defaults.daysOfWeeks;
@@ -99,6 +84,7 @@ public final class SnapshotPolicyWeeklySchedule {
     	      this.snapshotsToKeep = defaults.snapshotsToKeep;
         }
 
+        @CustomType.Setter
         public Builder daysOfWeeks(List<String> daysOfWeeks) {
             this.daysOfWeeks = Objects.requireNonNull(daysOfWeeks);
             return this;
@@ -106,19 +92,28 @@ public final class SnapshotPolicyWeeklySchedule {
         public Builder daysOfWeeks(String... daysOfWeeks) {
             return daysOfWeeks(List.of(daysOfWeeks));
         }
+        @CustomType.Setter
         public Builder hour(Integer hour) {
             this.hour = Objects.requireNonNull(hour);
             return this;
         }
+        @CustomType.Setter
         public Builder minute(Integer minute) {
             this.minute = Objects.requireNonNull(minute);
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotsToKeep(Integer snapshotsToKeep) {
             this.snapshotsToKeep = Objects.requireNonNull(snapshotsToKeep);
             return this;
-        }        public SnapshotPolicyWeeklySchedule build() {
-            return new SnapshotPolicyWeeklySchedule(daysOfWeeks, hour, minute, snapshotsToKeep);
+        }
+        public SnapshotPolicyWeeklySchedule build() {
+            final var o = new SnapshotPolicyWeeklySchedule();
+            o.daysOfWeeks = daysOfWeeks;
+            o.hour = hour;
+            o.minute = minute;
+            o.snapshotsToKeep = snapshotsToKeep;
+            return o;
         }
     }
 }

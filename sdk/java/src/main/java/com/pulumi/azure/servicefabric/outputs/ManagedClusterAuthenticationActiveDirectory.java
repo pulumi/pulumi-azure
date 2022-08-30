@@ -13,28 +13,19 @@ public final class ManagedClusterAuthenticationActiveDirectory {
      * @return The ID of the Client Application.
      * 
      */
-    private final String clientApplicationId;
+    private String clientApplicationId;
     /**
      * @return The ID of the Cluster Application.
      * 
      */
-    private final String clusterApplicationId;
+    private String clusterApplicationId;
     /**
      * @return The ID of the Tenant.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
 
-    @CustomType.Constructor
-    private ManagedClusterAuthenticationActiveDirectory(
-        @CustomType.Parameter("clientApplicationId") String clientApplicationId,
-        @CustomType.Parameter("clusterApplicationId") String clusterApplicationId,
-        @CustomType.Parameter("tenantId") String tenantId) {
-        this.clientApplicationId = clientApplicationId;
-        this.clusterApplicationId = clusterApplicationId;
-        this.tenantId = tenantId;
-    }
-
+    private ManagedClusterAuthenticationActiveDirectory() {}
     /**
      * @return The ID of the Client Application.
      * 
@@ -64,16 +55,12 @@ public final class ManagedClusterAuthenticationActiveDirectory {
     public static Builder builder(ManagedClusterAuthenticationActiveDirectory defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clientApplicationId;
         private String clusterApplicationId;
         private String tenantId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ManagedClusterAuthenticationActiveDirectory defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientApplicationId = defaults.clientApplicationId;
@@ -81,19 +68,27 @@ public final class ManagedClusterAuthenticationActiveDirectory {
     	      this.tenantId = defaults.tenantId;
         }
 
+        @CustomType.Setter
         public Builder clientApplicationId(String clientApplicationId) {
             this.clientApplicationId = Objects.requireNonNull(clientApplicationId);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterApplicationId(String clusterApplicationId) {
             this.clusterApplicationId = Objects.requireNonNull(clusterApplicationId);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
-        }        public ManagedClusterAuthenticationActiveDirectory build() {
-            return new ManagedClusterAuthenticationActiveDirectory(clientApplicationId, clusterApplicationId, tenantId);
+        }
+        public ManagedClusterAuthenticationActiveDirectory build() {
+            final var o = new ManagedClusterAuthenticationActiveDirectory();
+            o.clientApplicationId = clientApplicationId;
+            o.clusterApplicationId = clusterApplicationId;
+            o.tenantId = tenantId;
+            return o;
         }
     }
 }

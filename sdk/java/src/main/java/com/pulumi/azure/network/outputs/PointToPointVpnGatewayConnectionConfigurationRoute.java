@@ -16,21 +16,14 @@ public final class PointToPointVpnGatewayConnectionConfigurationRoute {
      * @return The Virtual Hub Route Table resource id associated with this Routing Configuration.
      * 
      */
-    private final String associatedRouteTableId;
+    private String associatedRouteTableId;
     /**
      * @return A `propagated_route_table` block as defined below.
      * 
      */
-    private final @Nullable PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable propagatedRouteTable;
+    private @Nullable PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable propagatedRouteTable;
 
-    @CustomType.Constructor
-    private PointToPointVpnGatewayConnectionConfigurationRoute(
-        @CustomType.Parameter("associatedRouteTableId") String associatedRouteTableId,
-        @CustomType.Parameter("propagatedRouteTable") @Nullable PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable propagatedRouteTable) {
-        this.associatedRouteTableId = associatedRouteTableId;
-        this.propagatedRouteTable = propagatedRouteTable;
-    }
-
+    private PointToPointVpnGatewayConnectionConfigurationRoute() {}
     /**
      * @return The Virtual Hub Route Table resource id associated with this Routing Configuration.
      * 
@@ -53,30 +46,32 @@ public final class PointToPointVpnGatewayConnectionConfigurationRoute {
     public static Builder builder(PointToPointVpnGatewayConnectionConfigurationRoute defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String associatedRouteTableId;
         private @Nullable PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable propagatedRouteTable;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PointToPointVpnGatewayConnectionConfigurationRoute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.associatedRouteTableId = defaults.associatedRouteTableId;
     	      this.propagatedRouteTable = defaults.propagatedRouteTable;
         }
 
+        @CustomType.Setter
         public Builder associatedRouteTableId(String associatedRouteTableId) {
             this.associatedRouteTableId = Objects.requireNonNull(associatedRouteTableId);
             return this;
         }
+        @CustomType.Setter
         public Builder propagatedRouteTable(@Nullable PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable propagatedRouteTable) {
             this.propagatedRouteTable = propagatedRouteTable;
             return this;
-        }        public PointToPointVpnGatewayConnectionConfigurationRoute build() {
-            return new PointToPointVpnGatewayConnectionConfigurationRoute(associatedRouteTableId, propagatedRouteTable);
+        }
+        public PointToPointVpnGatewayConnectionConfigurationRoute build() {
+            final var o = new PointToPointVpnGatewayConnectionConfigurationRoute();
+            o.associatedRouteTableId = associatedRouteTableId;
+            o.propagatedRouteTable = propagatedRouteTable;
+            return o;
         }
     }
 }

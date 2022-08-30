@@ -15,28 +15,19 @@ public final class ApplicationGatewayGatewayIpConfiguration {
      * @return The ID of the Rewrite Rule Set
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The Name of this Gateway IP Configuration.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The ID of the Subnet which the Application Gateway should be connected to.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private ApplicationGatewayGatewayIpConfiguration(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.id = id;
-        this.name = name;
-        this.subnetId = subnetId;
-    }
-
+    private ApplicationGatewayGatewayIpConfiguration() {}
     /**
      * @return The ID of the Rewrite Rule Set
      * 
@@ -66,16 +57,12 @@ public final class ApplicationGatewayGatewayIpConfiguration {
     public static Builder builder(ApplicationGatewayGatewayIpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private String name;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayGatewayIpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -83,19 +70,27 @@ public final class ApplicationGatewayGatewayIpConfiguration {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public ApplicationGatewayGatewayIpConfiguration build() {
-            return new ApplicationGatewayGatewayIpConfiguration(id, name, subnetId);
+        }
+        public ApplicationGatewayGatewayIpConfiguration build() {
+            final var o = new ApplicationGatewayGatewayIpConfiguration();
+            o.id = id;
+            o.name = name;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

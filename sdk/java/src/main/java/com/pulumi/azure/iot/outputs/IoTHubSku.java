@@ -14,21 +14,14 @@ public final class IoTHubSku {
      * @return The number of provisioned IoT Hub units.
      * 
      */
-    private final Integer capacity;
+    private Integer capacity;
     /**
      * @return The name of the sku. Possible values are `B1`, `B2`, `B3`, `F1`, `S1`, `S2`, and `S3`.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private IoTHubSku(
-        @CustomType.Parameter("capacity") Integer capacity,
-        @CustomType.Parameter("name") String name) {
-        this.capacity = capacity;
-        this.name = name;
-    }
-
+    private IoTHubSku() {}
     /**
      * @return The number of provisioned IoT Hub units.
      * 
@@ -51,30 +44,32 @@ public final class IoTHubSku {
     public static Builder builder(IoTHubSku defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer capacity;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IoTHubSku defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacity = defaults.capacity;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder capacity(Integer capacity) {
             this.capacity = Objects.requireNonNull(capacity);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public IoTHubSku build() {
-            return new IoTHubSku(capacity, name);
+        }
+        public IoTHubSku build() {
+            final var o = new IoTHubSku();
+            o.capacity = capacity;
+            o.name = name;
+            return o;
         }
     }
 }

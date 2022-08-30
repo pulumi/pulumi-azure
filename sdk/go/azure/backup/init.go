@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PolicyFileShare{}
 	case "azure:backup/policyVM:PolicyVM":
 		r = &PolicyVM{}
+	case "azure:backup/policyVMWorkload:PolicyVMWorkload":
+		r = &PolicyVMWorkload{}
 	case "azure:backup/protectedFileShare:ProtectedFileShare":
 		r = &ProtectedFileShare{}
 	case "azure:backup/protectedVM:ProtectedVM":
@@ -57,6 +59,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"backup/policyVM",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"backup/policyVMWorkload",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

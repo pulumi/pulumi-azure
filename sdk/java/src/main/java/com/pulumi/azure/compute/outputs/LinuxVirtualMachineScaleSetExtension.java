@@ -17,77 +17,54 @@ public final class LinuxVirtualMachineScaleSetExtension {
      * @return Should the latest version of the Extension be used at Deployment Time, if one is available? This won&#39;t auto-update the extension on existing installation. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean autoUpgradeMinorVersion;
+    private @Nullable Boolean autoUpgradeMinorVersion;
     /**
      * @return Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean automaticUpgradeEnabled;
+    private @Nullable Boolean automaticUpgradeEnabled;
     /**
      * @return A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn&#39;t changed.
      * 
      */
-    private final @Nullable String forceUpdateTag;
+    private @Nullable String forceUpdateTag;
     /**
      * @return The name for the Virtual Machine Scale Set Extension.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
      * 
      */
-    private final @Nullable String protectedSettings;
+    private @Nullable String protectedSettings;
     /**
      * @return An ordered list of Extension names which this should be provisioned after.
      * 
      */
-    private final @Nullable List<String> provisionAfterExtensions;
+    private @Nullable List<String> provisionAfterExtensions;
     /**
      * @return Specifies the Publisher of the Extension.
      * 
      */
-    private final String publisher;
+    private String publisher;
     /**
      * @return A JSON String which specifies Settings for the Extension.
      * 
      */
-    private final @Nullable String settings;
+    private @Nullable String settings;
     /**
      * @return Specifies the Type of the Extension.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      * 
      */
-    private final String typeHandlerVersion;
+    private String typeHandlerVersion;
 
-    @CustomType.Constructor
-    private LinuxVirtualMachineScaleSetExtension(
-        @CustomType.Parameter("autoUpgradeMinorVersion") @Nullable Boolean autoUpgradeMinorVersion,
-        @CustomType.Parameter("automaticUpgradeEnabled") @Nullable Boolean automaticUpgradeEnabled,
-        @CustomType.Parameter("forceUpdateTag") @Nullable String forceUpdateTag,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("protectedSettings") @Nullable String protectedSettings,
-        @CustomType.Parameter("provisionAfterExtensions") @Nullable List<String> provisionAfterExtensions,
-        @CustomType.Parameter("publisher") String publisher,
-        @CustomType.Parameter("settings") @Nullable String settings,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("typeHandlerVersion") String typeHandlerVersion) {
-        this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
-        this.automaticUpgradeEnabled = automaticUpgradeEnabled;
-        this.forceUpdateTag = forceUpdateTag;
-        this.name = name;
-        this.protectedSettings = protectedSettings;
-        this.provisionAfterExtensions = provisionAfterExtensions;
-        this.publisher = publisher;
-        this.settings = settings;
-        this.type = type;
-        this.typeHandlerVersion = typeHandlerVersion;
-    }
-
+    private LinuxVirtualMachineScaleSetExtension() {}
     /**
      * @return Should the latest version of the Extension be used at Deployment Time, if one is available? This won&#39;t auto-update the extension on existing installation. Defaults to `true`.
      * 
@@ -166,7 +143,7 @@ public final class LinuxVirtualMachineScaleSetExtension {
     public static Builder builder(LinuxVirtualMachineScaleSetExtension defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean autoUpgradeMinorVersion;
         private @Nullable Boolean automaticUpgradeEnabled;
@@ -178,11 +155,7 @@ public final class LinuxVirtualMachineScaleSetExtension {
         private @Nullable String settings;
         private String type;
         private String typeHandlerVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxVirtualMachineScaleSetExtension defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoUpgradeMinorVersion = defaults.autoUpgradeMinorVersion;
@@ -197,26 +170,32 @@ public final class LinuxVirtualMachineScaleSetExtension {
     	      this.typeHandlerVersion = defaults.typeHandlerVersion;
         }
 
+        @CustomType.Setter
         public Builder autoUpgradeMinorVersion(@Nullable Boolean autoUpgradeMinorVersion) {
             this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder automaticUpgradeEnabled(@Nullable Boolean automaticUpgradeEnabled) {
             this.automaticUpgradeEnabled = automaticUpgradeEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder forceUpdateTag(@Nullable String forceUpdateTag) {
             this.forceUpdateTag = forceUpdateTag;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder protectedSettings(@Nullable String protectedSettings) {
             this.protectedSettings = protectedSettings;
             return this;
         }
+        @CustomType.Setter
         public Builder provisionAfterExtensions(@Nullable List<String> provisionAfterExtensions) {
             this.provisionAfterExtensions = provisionAfterExtensions;
             return this;
@@ -224,23 +203,39 @@ public final class LinuxVirtualMachineScaleSetExtension {
         public Builder provisionAfterExtensions(String... provisionAfterExtensions) {
             return provisionAfterExtensions(List.of(provisionAfterExtensions));
         }
+        @CustomType.Setter
         public Builder publisher(String publisher) {
             this.publisher = Objects.requireNonNull(publisher);
             return this;
         }
+        @CustomType.Setter
         public Builder settings(@Nullable String settings) {
             this.settings = settings;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder typeHandlerVersion(String typeHandlerVersion) {
             this.typeHandlerVersion = Objects.requireNonNull(typeHandlerVersion);
             return this;
-        }        public LinuxVirtualMachineScaleSetExtension build() {
-            return new LinuxVirtualMachineScaleSetExtension(autoUpgradeMinorVersion, automaticUpgradeEnabled, forceUpdateTag, name, protectedSettings, provisionAfterExtensions, publisher, settings, type, typeHandlerVersion);
+        }
+        public LinuxVirtualMachineScaleSetExtension build() {
+            final var o = new LinuxVirtualMachineScaleSetExtension();
+            o.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
+            o.automaticUpgradeEnabled = automaticUpgradeEnabled;
+            o.forceUpdateTag = forceUpdateTag;
+            o.name = name;
+            o.protectedSettings = protectedSettings;
+            o.provisionAfterExtensions = provisionAfterExtensions;
+            o.publisher = publisher;
+            o.settings = settings;
+            o.type = type;
+            o.typeHandlerVersion = typeHandlerVersion;
+            return o;
         }
     }
 }

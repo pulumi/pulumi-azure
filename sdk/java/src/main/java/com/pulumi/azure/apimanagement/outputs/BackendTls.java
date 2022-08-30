@@ -15,21 +15,14 @@ public final class BackendTls {
      * @return Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.
      * 
      */
-    private final @Nullable Boolean validateCertificateChain;
+    private @Nullable Boolean validateCertificateChain;
     /**
      * @return Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host.
      * 
      */
-    private final @Nullable Boolean validateCertificateName;
+    private @Nullable Boolean validateCertificateName;
 
-    @CustomType.Constructor
-    private BackendTls(
-        @CustomType.Parameter("validateCertificateChain") @Nullable Boolean validateCertificateChain,
-        @CustomType.Parameter("validateCertificateName") @Nullable Boolean validateCertificateName) {
-        this.validateCertificateChain = validateCertificateChain;
-        this.validateCertificateName = validateCertificateName;
-    }
-
+    private BackendTls() {}
     /**
      * @return Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.
      * 
@@ -52,30 +45,32 @@ public final class BackendTls {
     public static Builder builder(BackendTls defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean validateCertificateChain;
         private @Nullable Boolean validateCertificateName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BackendTls defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.validateCertificateChain = defaults.validateCertificateChain;
     	      this.validateCertificateName = defaults.validateCertificateName;
         }
 
+        @CustomType.Setter
         public Builder validateCertificateChain(@Nullable Boolean validateCertificateChain) {
             this.validateCertificateChain = validateCertificateChain;
             return this;
         }
+        @CustomType.Setter
         public Builder validateCertificateName(@Nullable Boolean validateCertificateName) {
             this.validateCertificateName = validateCertificateName;
             return this;
-        }        public BackendTls build() {
-            return new BackendTls(validateCertificateChain, validateCertificateName);
+        }
+        public BackendTls build() {
+            final var o = new BackendTls();
+            o.validateCertificateChain = validateCertificateChain;
+            o.validateCertificateName = validateCertificateName;
+            return o;
         }
     }
 }

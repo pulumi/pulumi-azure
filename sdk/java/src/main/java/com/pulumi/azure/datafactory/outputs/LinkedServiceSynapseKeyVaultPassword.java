@@ -13,21 +13,14 @@ public final class LinkedServiceSynapseKeyVaultPassword {
      * @return Specifies the name of an existing Key Vault Data Factory Linked Service.
      * 
      */
-    private final String linkedServiceName;
+    private String linkedServiceName;
     /**
      * @return Specifies the secret name in Azure Key Vault that stores Synapse password.
      * 
      */
-    private final String secretName;
+    private String secretName;
 
-    @CustomType.Constructor
-    private LinkedServiceSynapseKeyVaultPassword(
-        @CustomType.Parameter("linkedServiceName") String linkedServiceName,
-        @CustomType.Parameter("secretName") String secretName) {
-        this.linkedServiceName = linkedServiceName;
-        this.secretName = secretName;
-    }
-
+    private LinkedServiceSynapseKeyVaultPassword() {}
     /**
      * @return Specifies the name of an existing Key Vault Data Factory Linked Service.
      * 
@@ -50,30 +43,32 @@ public final class LinkedServiceSynapseKeyVaultPassword {
     public static Builder builder(LinkedServiceSynapseKeyVaultPassword defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String linkedServiceName;
         private String secretName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinkedServiceSynapseKeyVaultPassword defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.linkedServiceName = defaults.linkedServiceName;
     	      this.secretName = defaults.secretName;
         }
 
+        @CustomType.Setter
         public Builder linkedServiceName(String linkedServiceName) {
             this.linkedServiceName = Objects.requireNonNull(linkedServiceName);
             return this;
         }
+        @CustomType.Setter
         public Builder secretName(String secretName) {
             this.secretName = Objects.requireNonNull(secretName);
             return this;
-        }        public LinkedServiceSynapseKeyVaultPassword build() {
-            return new LinkedServiceSynapseKeyVaultPassword(linkedServiceName, secretName);
+        }
+        public LinkedServiceSynapseKeyVaultPassword build() {
+            final var o = new LinkedServiceSynapseKeyVaultPassword();
+            o.linkedServiceName = linkedServiceName;
+            o.secretName = secretName;
+            return o;
         }
     }
 }

@@ -16,98 +16,69 @@ public final class IoTHubEndpoint {
      * @return The type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
      * 
      */
-    private final @Nullable String authenticationType;
+    private @Nullable String authenticationType;
     /**
      * @return Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
      * 
      */
-    private final @Nullable Integer batchFrequencyInSeconds;
+    private @Nullable Integer batchFrequencyInSeconds;
     /**
      * @return The connection string for the endpoint. This attribute is mandatory and can only be specified when `authentication_type` is `keyBased`.
      * 
      */
-    private final @Nullable String connectionString;
+    private @Nullable String connectionString;
     /**
      * @return The name of storage container in the storage account. This attribute is mandatory for endpoint type `AzureIotHub.StorageContainer`.
      * 
      */
-    private final @Nullable String containerName;
+    private @Nullable String containerName;
     /**
      * @return Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String encoding;
+    private @Nullable String encoding;
     /**
      * @return URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
      * 
      */
-    private final @Nullable String endpointUri;
+    private @Nullable String endpointUri;
     /**
      * @return Name of the Service Bus Queue/Topic or Event Hub. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased` for endpoint type `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
      * 
      */
-    private final @Nullable String entityPath;
+    private @Nullable String entityPath;
     /**
      * @return File name format for the blob. Default format is ``{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}``. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
      * 
      */
-    private final @Nullable String fileNameFormat;
+    private @Nullable String fileNameFormat;
     /**
      * @return The ID of the User Managed Identity used to authenticate against the endpoint.
      * 
      */
-    private final @Nullable String identityId;
+    private @Nullable String identityId;
     /**
      * @return Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). This attribute is applicable for endpoint type `AzureIotHub.StorageContainer`.
      * 
      */
-    private final @Nullable Integer maxChunkSizeInBytes;
+    private @Nullable Integer maxChunkSizeInBytes;
     /**
      * @return The name of the endpoint. The name must be unique across endpoint types. The following names are reserved:  `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The resource group in which the endpoint will be created.
      * 
      */
-    private final @Nullable String resourceGroupName;
+    private @Nullable String resourceGroupName;
     /**
      * @return The type of the endpoint. Possible values are `AzureIotHub.StorageContainer`, `AzureIotHub.ServiceBusQueue`, `AzureIotHub.ServiceBusTopic` or `AzureIotHub.EventHub`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private IoTHubEndpoint(
-        @CustomType.Parameter("authenticationType") @Nullable String authenticationType,
-        @CustomType.Parameter("batchFrequencyInSeconds") @Nullable Integer batchFrequencyInSeconds,
-        @CustomType.Parameter("connectionString") @Nullable String connectionString,
-        @CustomType.Parameter("containerName") @Nullable String containerName,
-        @CustomType.Parameter("encoding") @Nullable String encoding,
-        @CustomType.Parameter("endpointUri") @Nullable String endpointUri,
-        @CustomType.Parameter("entityPath") @Nullable String entityPath,
-        @CustomType.Parameter("fileNameFormat") @Nullable String fileNameFormat,
-        @CustomType.Parameter("identityId") @Nullable String identityId,
-        @CustomType.Parameter("maxChunkSizeInBytes") @Nullable Integer maxChunkSizeInBytes,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") @Nullable String resourceGroupName,
-        @CustomType.Parameter("type") String type) {
-        this.authenticationType = authenticationType;
-        this.batchFrequencyInSeconds = batchFrequencyInSeconds;
-        this.connectionString = connectionString;
-        this.containerName = containerName;
-        this.encoding = encoding;
-        this.endpointUri = endpointUri;
-        this.entityPath = entityPath;
-        this.fileNameFormat = fileNameFormat;
-        this.identityId = identityId;
-        this.maxChunkSizeInBytes = maxChunkSizeInBytes;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.type = type;
-    }
-
+    private IoTHubEndpoint() {}
     /**
      * @return The type used to authenticate against the endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
      * 
@@ -207,7 +178,7 @@ public final class IoTHubEndpoint {
     public static Builder builder(IoTHubEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String authenticationType;
         private @Nullable Integer batchFrequencyInSeconds;
@@ -222,11 +193,7 @@ public final class IoTHubEndpoint {
         private String name;
         private @Nullable String resourceGroupName;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IoTHubEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authenticationType = defaults.authenticationType;
@@ -244,59 +211,87 @@ public final class IoTHubEndpoint {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder authenticationType(@Nullable String authenticationType) {
             this.authenticationType = authenticationType;
             return this;
         }
+        @CustomType.Setter
         public Builder batchFrequencyInSeconds(@Nullable Integer batchFrequencyInSeconds) {
             this.batchFrequencyInSeconds = batchFrequencyInSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder connectionString(@Nullable String connectionString) {
             this.connectionString = connectionString;
             return this;
         }
+        @CustomType.Setter
         public Builder containerName(@Nullable String containerName) {
             this.containerName = containerName;
             return this;
         }
+        @CustomType.Setter
         public Builder encoding(@Nullable String encoding) {
             this.encoding = encoding;
             return this;
         }
+        @CustomType.Setter
         public Builder endpointUri(@Nullable String endpointUri) {
             this.endpointUri = endpointUri;
             return this;
         }
+        @CustomType.Setter
         public Builder entityPath(@Nullable String entityPath) {
             this.entityPath = entityPath;
             return this;
         }
+        @CustomType.Setter
         public Builder fileNameFormat(@Nullable String fileNameFormat) {
             this.fileNameFormat = fileNameFormat;
             return this;
         }
+        @CustomType.Setter
         public Builder identityId(@Nullable String identityId) {
             this.identityId = identityId;
             return this;
         }
+        @CustomType.Setter
         public Builder maxChunkSizeInBytes(@Nullable Integer maxChunkSizeInBytes) {
             this.maxChunkSizeInBytes = maxChunkSizeInBytes;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(@Nullable String resourceGroupName) {
             this.resourceGroupName = resourceGroupName;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public IoTHubEndpoint build() {
-            return new IoTHubEndpoint(authenticationType, batchFrequencyInSeconds, connectionString, containerName, encoding, endpointUri, entityPath, fileNameFormat, identityId, maxChunkSizeInBytes, name, resourceGroupName, type);
+        }
+        public IoTHubEndpoint build() {
+            final var o = new IoTHubEndpoint();
+            o.authenticationType = authenticationType;
+            o.batchFrequencyInSeconds = batchFrequencyInSeconds;
+            o.connectionString = connectionString;
+            o.containerName = containerName;
+            o.encoding = encoding;
+            o.endpointUri = endpointUri;
+            o.entityPath = entityPath;
+            o.fileNameFormat = fileNameFormat;
+            o.identityId = identityId;
+            o.maxChunkSizeInBytes = maxChunkSizeInBytes;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.type = type;
+            return o;
         }
     }
 }

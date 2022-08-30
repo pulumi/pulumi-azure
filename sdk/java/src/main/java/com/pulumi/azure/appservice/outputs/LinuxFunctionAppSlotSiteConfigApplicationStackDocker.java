@@ -15,42 +15,29 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackDocker {
      * @return The name of the Docker image to use.
      * 
      */
-    private final String imageName;
+    private String imageName;
     /**
      * @return The image tag of the image to use.
      * 
      */
-    private final String imageTag;
+    private String imageTag;
     /**
      * @return The password for the account to use to connect to the registry.
      * 
      */
-    private final @Nullable String registryPassword;
+    private @Nullable String registryPassword;
     /**
      * @return The URL of the docker registry.
      * 
      */
-    private final String registryUrl;
+    private String registryUrl;
     /**
      * @return The username to use for connections to the registry.
      * 
      */
-    private final @Nullable String registryUsername;
+    private @Nullable String registryUsername;
 
-    @CustomType.Constructor
-    private LinuxFunctionAppSlotSiteConfigApplicationStackDocker(
-        @CustomType.Parameter("imageName") String imageName,
-        @CustomType.Parameter("imageTag") String imageTag,
-        @CustomType.Parameter("registryPassword") @Nullable String registryPassword,
-        @CustomType.Parameter("registryUrl") String registryUrl,
-        @CustomType.Parameter("registryUsername") @Nullable String registryUsername) {
-        this.imageName = imageName;
-        this.imageTag = imageTag;
-        this.registryPassword = registryPassword;
-        this.registryUrl = registryUrl;
-        this.registryUsername = registryUsername;
-    }
-
+    private LinuxFunctionAppSlotSiteConfigApplicationStackDocker() {}
     /**
      * @return The name of the Docker image to use.
      * 
@@ -94,18 +81,14 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackDocker {
     public static Builder builder(LinuxFunctionAppSlotSiteConfigApplicationStackDocker defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String imageName;
         private String imageTag;
         private @Nullable String registryPassword;
         private String registryUrl;
         private @Nullable String registryUsername;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxFunctionAppSlotSiteConfigApplicationStackDocker defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.imageName = defaults.imageName;
@@ -115,27 +98,39 @@ public final class LinuxFunctionAppSlotSiteConfigApplicationStackDocker {
     	      this.registryUsername = defaults.registryUsername;
         }
 
+        @CustomType.Setter
         public Builder imageName(String imageName) {
             this.imageName = Objects.requireNonNull(imageName);
             return this;
         }
+        @CustomType.Setter
         public Builder imageTag(String imageTag) {
             this.imageTag = Objects.requireNonNull(imageTag);
             return this;
         }
+        @CustomType.Setter
         public Builder registryPassword(@Nullable String registryPassword) {
             this.registryPassword = registryPassword;
             return this;
         }
+        @CustomType.Setter
         public Builder registryUrl(String registryUrl) {
             this.registryUrl = Objects.requireNonNull(registryUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder registryUsername(@Nullable String registryUsername) {
             this.registryUsername = registryUsername;
             return this;
-        }        public LinuxFunctionAppSlotSiteConfigApplicationStackDocker build() {
-            return new LinuxFunctionAppSlotSiteConfigApplicationStackDocker(imageName, imageTag, registryPassword, registryUrl, registryUsername);
+        }
+        public LinuxFunctionAppSlotSiteConfigApplicationStackDocker build() {
+            final var o = new LinuxFunctionAppSlotSiteConfigApplicationStackDocker();
+            o.imageName = imageName;
+            o.imageTag = imageTag;
+            o.registryPassword = registryPassword;
+            o.registryUrl = registryUrl;
+            o.registryUsername = registryUsername;
+            return o;
         }
     }
 }

@@ -16,21 +16,14 @@ public final class SlotLogsApplicationLogs {
      * @return An `azure_blob_storage` block as defined below.
      * 
      */
-    private final @Nullable SlotLogsApplicationLogsAzureBlobStorage azureBlobStorage;
+    private @Nullable SlotLogsApplicationLogsAzureBlobStorage azureBlobStorage;
     /**
      * @return The file system log level. Possible values are `Off`, `Error`, `Warning`, `Information`, and `Verbose`.
      * 
      */
-    private final @Nullable String fileSystemLevel;
+    private @Nullable String fileSystemLevel;
 
-    @CustomType.Constructor
-    private SlotLogsApplicationLogs(
-        @CustomType.Parameter("azureBlobStorage") @Nullable SlotLogsApplicationLogsAzureBlobStorage azureBlobStorage,
-        @CustomType.Parameter("fileSystemLevel") @Nullable String fileSystemLevel) {
-        this.azureBlobStorage = azureBlobStorage;
-        this.fileSystemLevel = fileSystemLevel;
-    }
-
+    private SlotLogsApplicationLogs() {}
     /**
      * @return An `azure_blob_storage` block as defined below.
      * 
@@ -53,30 +46,32 @@ public final class SlotLogsApplicationLogs {
     public static Builder builder(SlotLogsApplicationLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable SlotLogsApplicationLogsAzureBlobStorage azureBlobStorage;
         private @Nullable String fileSystemLevel;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SlotLogsApplicationLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.azureBlobStorage = defaults.azureBlobStorage;
     	      this.fileSystemLevel = defaults.fileSystemLevel;
         }
 
+        @CustomType.Setter
         public Builder azureBlobStorage(@Nullable SlotLogsApplicationLogsAzureBlobStorage azureBlobStorage) {
             this.azureBlobStorage = azureBlobStorage;
             return this;
         }
+        @CustomType.Setter
         public Builder fileSystemLevel(@Nullable String fileSystemLevel) {
             this.fileSystemLevel = fileSystemLevel;
             return this;
-        }        public SlotLogsApplicationLogs build() {
-            return new SlotLogsApplicationLogs(azureBlobStorage, fileSystemLevel);
+        }
+        public SlotLogsApplicationLogs build() {
+            final var o = new SlotLogsApplicationLogs();
+            o.azureBlobStorage = azureBlobStorage;
+            o.fileSystemLevel = fileSystemLevel;
+            return o;
         }
     }
 }

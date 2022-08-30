@@ -16,21 +16,14 @@ public final class WorkflowAccessControlTrigger {
      * @return A list of the allowed caller IP address ranges.
      * 
      */
-    private final List<String> allowedCallerIpAddressRanges;
+    private List<String> allowedCallerIpAddressRanges;
     /**
      * @return A `open_authentication_policy` block as defined below.
      * 
      */
-    private final @Nullable List<WorkflowAccessControlTriggerOpenAuthenticationPolicy> openAuthenticationPolicies;
+    private @Nullable List<WorkflowAccessControlTriggerOpenAuthenticationPolicy> openAuthenticationPolicies;
 
-    @CustomType.Constructor
-    private WorkflowAccessControlTrigger(
-        @CustomType.Parameter("allowedCallerIpAddressRanges") List<String> allowedCallerIpAddressRanges,
-        @CustomType.Parameter("openAuthenticationPolicies") @Nullable List<WorkflowAccessControlTriggerOpenAuthenticationPolicy> openAuthenticationPolicies) {
-        this.allowedCallerIpAddressRanges = allowedCallerIpAddressRanges;
-        this.openAuthenticationPolicies = openAuthenticationPolicies;
-    }
-
+    private WorkflowAccessControlTrigger() {}
     /**
      * @return A list of the allowed caller IP address ranges.
      * 
@@ -53,21 +46,18 @@ public final class WorkflowAccessControlTrigger {
     public static Builder builder(WorkflowAccessControlTrigger defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> allowedCallerIpAddressRanges;
         private @Nullable List<WorkflowAccessControlTriggerOpenAuthenticationPolicy> openAuthenticationPolicies;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkflowAccessControlTrigger defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedCallerIpAddressRanges = defaults.allowedCallerIpAddressRanges;
     	      this.openAuthenticationPolicies = defaults.openAuthenticationPolicies;
         }
 
+        @CustomType.Setter
         public Builder allowedCallerIpAddressRanges(List<String> allowedCallerIpAddressRanges) {
             this.allowedCallerIpAddressRanges = Objects.requireNonNull(allowedCallerIpAddressRanges);
             return this;
@@ -75,14 +65,19 @@ public final class WorkflowAccessControlTrigger {
         public Builder allowedCallerIpAddressRanges(String... allowedCallerIpAddressRanges) {
             return allowedCallerIpAddressRanges(List.of(allowedCallerIpAddressRanges));
         }
+        @CustomType.Setter
         public Builder openAuthenticationPolicies(@Nullable List<WorkflowAccessControlTriggerOpenAuthenticationPolicy> openAuthenticationPolicies) {
             this.openAuthenticationPolicies = openAuthenticationPolicies;
             return this;
         }
         public Builder openAuthenticationPolicies(WorkflowAccessControlTriggerOpenAuthenticationPolicy... openAuthenticationPolicies) {
             return openAuthenticationPolicies(List.of(openAuthenticationPolicies));
-        }        public WorkflowAccessControlTrigger build() {
-            return new WorkflowAccessControlTrigger(allowedCallerIpAddressRanges, openAuthenticationPolicies);
+        }
+        public WorkflowAccessControlTrigger build() {
+            final var o = new WorkflowAccessControlTrigger();
+            o.allowedCallerIpAddressRanges = allowedCallerIpAddressRanges;
+            o.openAuthenticationPolicies = openAuthenticationPolicies;
+            return o;
         }
     }
 }

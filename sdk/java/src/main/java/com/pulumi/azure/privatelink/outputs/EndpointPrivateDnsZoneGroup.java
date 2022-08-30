@@ -16,28 +16,19 @@ public final class EndpointPrivateDnsZoneGroup {
      * @return The ID of the Private DNS Zone Config.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Specifies the Name of the Private DNS Zone Group. Changing this forces a new `private_dns_zone_group` resource to be created.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Specifies the list of Private DNS Zones to include within the `private_dns_zone_group`.
      * 
      */
-    private final List<String> privateDnsZoneIds;
+    private List<String> privateDnsZoneIds;
 
-    @CustomType.Constructor
-    private EndpointPrivateDnsZoneGroup(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("privateDnsZoneIds") List<String> privateDnsZoneIds) {
-        this.id = id;
-        this.name = name;
-        this.privateDnsZoneIds = privateDnsZoneIds;
-    }
-
+    private EndpointPrivateDnsZoneGroup() {}
     /**
      * @return The ID of the Private DNS Zone Config.
      * 
@@ -67,16 +58,12 @@ public final class EndpointPrivateDnsZoneGroup {
     public static Builder builder(EndpointPrivateDnsZoneGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private String name;
         private List<String> privateDnsZoneIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointPrivateDnsZoneGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -84,22 +71,30 @@ public final class EndpointPrivateDnsZoneGroup {
     	      this.privateDnsZoneIds = defaults.privateDnsZoneIds;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder privateDnsZoneIds(List<String> privateDnsZoneIds) {
             this.privateDnsZoneIds = Objects.requireNonNull(privateDnsZoneIds);
             return this;
         }
         public Builder privateDnsZoneIds(String... privateDnsZoneIds) {
             return privateDnsZoneIds(List.of(privateDnsZoneIds));
-        }        public EndpointPrivateDnsZoneGroup build() {
-            return new EndpointPrivateDnsZoneGroup(id, name, privateDnsZoneIds);
+        }
+        public EndpointPrivateDnsZoneGroup build() {
+            final var o = new EndpointPrivateDnsZoneGroup();
+            o.id = id;
+            o.name = name;
+            o.privateDnsZoneIds = privateDnsZoneIds;
+            return o;
         }
     }
 }

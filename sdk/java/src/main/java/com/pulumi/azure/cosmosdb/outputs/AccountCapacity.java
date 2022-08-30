@@ -13,13 +13,9 @@ public final class AccountCapacity {
      * @return The total throughput limit imposed on this Cosmos DB account (RU/s). Possible values are at least `-1`. `-1` means no limit.
      * 
      */
-    private final Integer totalThroughputLimit;
+    private Integer totalThroughputLimit;
 
-    @CustomType.Constructor
-    private AccountCapacity(@CustomType.Parameter("totalThroughputLimit") Integer totalThroughputLimit) {
-        this.totalThroughputLimit = totalThroughputLimit;
-    }
-
+    private AccountCapacity() {}
     /**
      * @return The total throughput limit imposed on this Cosmos DB account (RU/s). Possible values are at least `-1`. `-1` means no limit.
      * 
@@ -35,24 +31,24 @@ public final class AccountCapacity {
     public static Builder builder(AccountCapacity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer totalThroughputLimit;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountCapacity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.totalThroughputLimit = defaults.totalThroughputLimit;
         }
 
+        @CustomType.Setter
         public Builder totalThroughputLimit(Integer totalThroughputLimit) {
             this.totalThroughputLimit = Objects.requireNonNull(totalThroughputLimit);
             return this;
-        }        public AccountCapacity build() {
-            return new AccountCapacity(totalThroughputLimit);
+        }
+        public AccountCapacity build() {
+            final var o = new AccountCapacity();
+            o.totalThroughputLimit = totalThroughputLimit;
+            return o;
         }
     }
 }

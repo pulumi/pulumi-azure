@@ -17,42 +17,29 @@ public final class NetworkConnectionMonitorTestGroup {
      * @return A list of destination endpoint names.
      * 
      */
-    private final List<String> destinationEndpoints;
+    private List<String> destinationEndpoints;
     /**
      * @return Should the test group be enabled? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return The name of the test group for the Network Connection Monitor.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A list of source endpoint names.
      * 
      */
-    private final List<String> sourceEndpoints;
+    private List<String> sourceEndpoints;
     /**
      * @return A list of test configuration names.
      * 
      */
-    private final List<String> testConfigurationNames;
+    private List<String> testConfigurationNames;
 
-    @CustomType.Constructor
-    private NetworkConnectionMonitorTestGroup(
-        @CustomType.Parameter("destinationEndpoints") List<String> destinationEndpoints,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("sourceEndpoints") List<String> sourceEndpoints,
-        @CustomType.Parameter("testConfigurationNames") List<String> testConfigurationNames) {
-        this.destinationEndpoints = destinationEndpoints;
-        this.enabled = enabled;
-        this.name = name;
-        this.sourceEndpoints = sourceEndpoints;
-        this.testConfigurationNames = testConfigurationNames;
-    }
-
+    private NetworkConnectionMonitorTestGroup() {}
     /**
      * @return A list of destination endpoint names.
      * 
@@ -96,18 +83,14 @@ public final class NetworkConnectionMonitorTestGroup {
     public static Builder builder(NetworkConnectionMonitorTestGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> destinationEndpoints;
         private @Nullable Boolean enabled;
         private String name;
         private List<String> sourceEndpoints;
         private List<String> testConfigurationNames;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NetworkConnectionMonitorTestGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destinationEndpoints = defaults.destinationEndpoints;
@@ -117,6 +100,7 @@ public final class NetworkConnectionMonitorTestGroup {
     	      this.testConfigurationNames = defaults.testConfigurationNames;
         }
 
+        @CustomType.Setter
         public Builder destinationEndpoints(List<String> destinationEndpoints) {
             this.destinationEndpoints = Objects.requireNonNull(destinationEndpoints);
             return this;
@@ -124,14 +108,17 @@ public final class NetworkConnectionMonitorTestGroup {
         public Builder destinationEndpoints(String... destinationEndpoints) {
             return destinationEndpoints(List.of(destinationEndpoints));
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceEndpoints(List<String> sourceEndpoints) {
             this.sourceEndpoints = Objects.requireNonNull(sourceEndpoints);
             return this;
@@ -139,14 +126,22 @@ public final class NetworkConnectionMonitorTestGroup {
         public Builder sourceEndpoints(String... sourceEndpoints) {
             return sourceEndpoints(List.of(sourceEndpoints));
         }
+        @CustomType.Setter
         public Builder testConfigurationNames(List<String> testConfigurationNames) {
             this.testConfigurationNames = Objects.requireNonNull(testConfigurationNames);
             return this;
         }
         public Builder testConfigurationNames(String... testConfigurationNames) {
             return testConfigurationNames(List.of(testConfigurationNames));
-        }        public NetworkConnectionMonitorTestGroup build() {
-            return new NetworkConnectionMonitorTestGroup(destinationEndpoints, enabled, name, sourceEndpoints, testConfigurationNames);
+        }
+        public NetworkConnectionMonitorTestGroup build() {
+            final var o = new NetworkConnectionMonitorTestGroup();
+            o.destinationEndpoints = destinationEndpoints;
+            o.enabled = enabled;
+            o.name = name;
+            o.sourceEndpoints = sourceEndpoints;
+            o.testConfigurationNames = testConfigurationNames;
+            return o;
         }
     }
 }

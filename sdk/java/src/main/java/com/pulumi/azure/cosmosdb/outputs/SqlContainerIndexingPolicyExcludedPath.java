@@ -13,13 +13,9 @@ public final class SqlContainerIndexingPolicyExcludedPath {
      * @return Path that is excluded from indexing.
      * 
      */
-    private final String path;
+    private String path;
 
-    @CustomType.Constructor
-    private SqlContainerIndexingPolicyExcludedPath(@CustomType.Parameter("path") String path) {
-        this.path = path;
-    }
-
+    private SqlContainerIndexingPolicyExcludedPath() {}
     /**
      * @return Path that is excluded from indexing.
      * 
@@ -35,24 +31,24 @@ public final class SqlContainerIndexingPolicyExcludedPath {
     public static Builder builder(SqlContainerIndexingPolicyExcludedPath defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String path;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SqlContainerIndexingPolicyExcludedPath defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.path = defaults.path;
         }
 
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
-        }        public SqlContainerIndexingPolicyExcludedPath build() {
-            return new SqlContainerIndexingPolicyExcludedPath(path);
+        }
+        public SqlContainerIndexingPolicyExcludedPath build() {
+            final var o = new SqlContainerIndexingPolicyExcludedPath();
+            o.path = path;
+            return o;
         }
     }
 }

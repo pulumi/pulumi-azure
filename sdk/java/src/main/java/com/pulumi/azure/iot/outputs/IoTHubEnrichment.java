@@ -14,28 +14,19 @@ public final class IoTHubEnrichment {
      * @return The list of endpoints which will be enriched.
      * 
      */
-    private final List<String> endpointNames;
+    private List<String> endpointNames;
     /**
      * @return The key of the enrichment.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return The value of the enrichment. Value can be any static string, the name of the IoT Hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`)
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private IoTHubEnrichment(
-        @CustomType.Parameter("endpointNames") List<String> endpointNames,
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("value") String value) {
-        this.endpointNames = endpointNames;
-        this.key = key;
-        this.value = value;
-    }
-
+    private IoTHubEnrichment() {}
     /**
      * @return The list of endpoints which will be enriched.
      * 
@@ -65,16 +56,12 @@ public final class IoTHubEnrichment {
     public static Builder builder(IoTHubEnrichment defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> endpointNames;
         private String key;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IoTHubEnrichment defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpointNames = defaults.endpointNames;
@@ -82,6 +69,7 @@ public final class IoTHubEnrichment {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder endpointNames(List<String> endpointNames) {
             this.endpointNames = Objects.requireNonNull(endpointNames);
             return this;
@@ -89,15 +77,22 @@ public final class IoTHubEnrichment {
         public Builder endpointNames(String... endpointNames) {
             return endpointNames(List.of(endpointNames));
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public IoTHubEnrichment build() {
-            return new IoTHubEnrichment(endpointNames, key, value);
+        }
+        public IoTHubEnrichment build() {
+            final var o = new IoTHubEnrichment();
+            o.endpointNames = endpointNames;
+            o.key = key;
+            o.value = value;
+            return o;
         }
     }
 }

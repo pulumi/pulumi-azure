@@ -11,17 +11,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScaleSetOsProfileLinuxConfigSshKey {
-    private final @Nullable String keyData;
-    private final String path;
+    private @Nullable String keyData;
+    private String path;
 
-    @CustomType.Constructor
-    private ScaleSetOsProfileLinuxConfigSshKey(
-        @CustomType.Parameter("keyData") @Nullable String keyData,
-        @CustomType.Parameter("path") String path) {
-        this.keyData = keyData;
-        this.path = path;
-    }
-
+    private ScaleSetOsProfileLinuxConfigSshKey() {}
     public Optional<String> keyData() {
         return Optional.ofNullable(this.keyData);
     }
@@ -36,30 +29,32 @@ public final class ScaleSetOsProfileLinuxConfigSshKey {
     public static Builder builder(ScaleSetOsProfileLinuxConfigSshKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String keyData;
         private String path;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScaleSetOsProfileLinuxConfigSshKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyData = defaults.keyData;
     	      this.path = defaults.path;
         }
 
+        @CustomType.Setter
         public Builder keyData(@Nullable String keyData) {
             this.keyData = keyData;
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
-        }        public ScaleSetOsProfileLinuxConfigSshKey build() {
-            return new ScaleSetOsProfileLinuxConfigSshKey(keyData, path);
+        }
+        public ScaleSetOsProfileLinuxConfigSshKey build() {
+            final var o = new ScaleSetOsProfileLinuxConfigSshKey();
+            o.keyData = keyData;
+            o.path = path;
+            return o;
         }
     }
 }

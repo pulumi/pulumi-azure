@@ -13,21 +13,14 @@ public final class IntegrationRuntimeManagedVnetIntegration {
      * @return Name of the subnet to which the nodes of the Managed Integration Runtime will be added.
      * 
      */
-    private final String subnetName;
+    private String subnetName;
     /**
      * @return ID of the virtual network to which the nodes of the Managed Integration Runtime will be added.
      * 
      */
-    private final String vnetId;
+    private String vnetId;
 
-    @CustomType.Constructor
-    private IntegrationRuntimeManagedVnetIntegration(
-        @CustomType.Parameter("subnetName") String subnetName,
-        @CustomType.Parameter("vnetId") String vnetId) {
-        this.subnetName = subnetName;
-        this.vnetId = vnetId;
-    }
-
+    private IntegrationRuntimeManagedVnetIntegration() {}
     /**
      * @return Name of the subnet to which the nodes of the Managed Integration Runtime will be added.
      * 
@@ -50,30 +43,32 @@ public final class IntegrationRuntimeManagedVnetIntegration {
     public static Builder builder(IntegrationRuntimeManagedVnetIntegration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String subnetName;
         private String vnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationRuntimeManagedVnetIntegration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.subnetName = defaults.subnetName;
     	      this.vnetId = defaults.vnetId;
         }
 
+        @CustomType.Setter
         public Builder subnetName(String subnetName) {
             this.subnetName = Objects.requireNonNull(subnetName);
             return this;
         }
+        @CustomType.Setter
         public Builder vnetId(String vnetId) {
             this.vnetId = Objects.requireNonNull(vnetId);
             return this;
-        }        public IntegrationRuntimeManagedVnetIntegration build() {
-            return new IntegrationRuntimeManagedVnetIntegration(subnetName, vnetId);
+        }
+        public IntegrationRuntimeManagedVnetIntegration build() {
+            final var o = new IntegrationRuntimeManagedVnetIntegration();
+            o.subnetName = subnetName;
+            o.vnetId = vnetId;
+            return o;
         }
     }
 }

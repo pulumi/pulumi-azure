@@ -14,13 +14,9 @@ public final class AssetFilterTrackSelection {
      * @return One or more `condition` blocks as defined above.
      * 
      */
-    private final List<AssetFilterTrackSelectionCondition> conditions;
+    private List<AssetFilterTrackSelectionCondition> conditions;
 
-    @CustomType.Constructor
-    private AssetFilterTrackSelection(@CustomType.Parameter("conditions") List<AssetFilterTrackSelectionCondition> conditions) {
-        this.conditions = conditions;
-    }
-
+    private AssetFilterTrackSelection() {}
     /**
      * @return One or more `condition` blocks as defined above.
      * 
@@ -36,27 +32,27 @@ public final class AssetFilterTrackSelection {
     public static Builder builder(AssetFilterTrackSelection defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<AssetFilterTrackSelectionCondition> conditions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AssetFilterTrackSelection defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.conditions = defaults.conditions;
         }
 
+        @CustomType.Setter
         public Builder conditions(List<AssetFilterTrackSelectionCondition> conditions) {
             this.conditions = Objects.requireNonNull(conditions);
             return this;
         }
         public Builder conditions(AssetFilterTrackSelectionCondition... conditions) {
             return conditions(List.of(conditions));
-        }        public AssetFilterTrackSelection build() {
-            return new AssetFilterTrackSelection(conditions);
+        }
+        public AssetFilterTrackSelection build() {
+            final var o = new AssetFilterTrackSelection();
+            o.conditions = conditions;
+            return o;
         }
     }
 }

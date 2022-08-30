@@ -17,97 +17,66 @@ public final class GetSoaRecordResult {
      * @return The email contact for the SOA record.
      * 
      */
-    private final String email;
+    private String email;
     /**
      * @return The expire time for the SOA record.
      * 
      */
-    private final Integer expireTime;
+    private Integer expireTime;
     /**
      * @return The FQDN of the Private DNS SOA Record.
      * 
      */
-    private final String fqdn;
+    private String fqdn;
     /**
      * @return The domain name of the authoritative name server for the SOA record.
      * 
      */
-    private final String hostName;
+    private String hostName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration.
      * 
      */
-    private final Integer minimumTtl;
+    private Integer minimumTtl;
     /**
      * @return The name of the Private DNS SOA Record.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The refresh time for the SOA record.
      * 
      */
-    private final Integer refreshTime;
-    private final String resourceGroupName;
+    private Integer refreshTime;
+    private String resourceGroupName;
     /**
      * @return The retry time for the SOA record.
      * 
      */
-    private final Integer retryTime;
+    private Integer retryTime;
     /**
      * @return The serial number for the SOA record.
      * 
      */
-    private final Integer serialNumber;
+    private Integer serialNumber;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The Time To Live (TTL) of the Private DNS record in seconds.
      * 
      */
-    private final Integer ttl;
-    private final String zoneName;
+    private Integer ttl;
+    private String zoneName;
 
-    @CustomType.Constructor
-    private GetSoaRecordResult(
-        @CustomType.Parameter("email") String email,
-        @CustomType.Parameter("expireTime") Integer expireTime,
-        @CustomType.Parameter("fqdn") String fqdn,
-        @CustomType.Parameter("hostName") String hostName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("minimumTtl") Integer minimumTtl,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("refreshTime") Integer refreshTime,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("retryTime") Integer retryTime,
-        @CustomType.Parameter("serialNumber") Integer serialNumber,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("ttl") Integer ttl,
-        @CustomType.Parameter("zoneName") String zoneName) {
-        this.email = email;
-        this.expireTime = expireTime;
-        this.fqdn = fqdn;
-        this.hostName = hostName;
-        this.id = id;
-        this.minimumTtl = minimumTtl;
-        this.name = name;
-        this.refreshTime = refreshTime;
-        this.resourceGroupName = resourceGroupName;
-        this.retryTime = retryTime;
-        this.serialNumber = serialNumber;
-        this.tags = tags;
-        this.ttl = ttl;
-        this.zoneName = zoneName;
-    }
-
+    private GetSoaRecordResult() {}
     /**
      * @return The email contact for the SOA record.
      * 
@@ -206,7 +175,7 @@ public final class GetSoaRecordResult {
     public static Builder builder(GetSoaRecordResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String email;
         private Integer expireTime;
@@ -222,11 +191,7 @@ public final class GetSoaRecordResult {
         private Map<String,String> tags;
         private Integer ttl;
         private String zoneName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSoaRecordResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.email = defaults.email;
@@ -245,63 +210,93 @@ public final class GetSoaRecordResult {
     	      this.zoneName = defaults.zoneName;
         }
 
+        @CustomType.Setter
         public Builder email(String email) {
             this.email = Objects.requireNonNull(email);
             return this;
         }
+        @CustomType.Setter
         public Builder expireTime(Integer expireTime) {
             this.expireTime = Objects.requireNonNull(expireTime);
             return this;
         }
+        @CustomType.Setter
         public Builder fqdn(String fqdn) {
             this.fqdn = Objects.requireNonNull(fqdn);
             return this;
         }
+        @CustomType.Setter
         public Builder hostName(String hostName) {
             this.hostName = Objects.requireNonNull(hostName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder minimumTtl(Integer minimumTtl) {
             this.minimumTtl = Objects.requireNonNull(minimumTtl);
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder refreshTime(Integer refreshTime) {
             this.refreshTime = Objects.requireNonNull(refreshTime);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder retryTime(Integer retryTime) {
             this.retryTime = Objects.requireNonNull(retryTime);
             return this;
         }
+        @CustomType.Setter
         public Builder serialNumber(Integer serialNumber) {
             this.serialNumber = Objects.requireNonNull(serialNumber);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder ttl(Integer ttl) {
             this.ttl = Objects.requireNonNull(ttl);
             return this;
         }
+        @CustomType.Setter
         public Builder zoneName(String zoneName) {
             this.zoneName = Objects.requireNonNull(zoneName);
             return this;
-        }        public GetSoaRecordResult build() {
-            return new GetSoaRecordResult(email, expireTime, fqdn, hostName, id, minimumTtl, name, refreshTime, resourceGroupName, retryTime, serialNumber, tags, ttl, zoneName);
+        }
+        public GetSoaRecordResult build() {
+            final var o = new GetSoaRecordResult();
+            o.email = email;
+            o.expireTime = expireTime;
+            o.fqdn = fqdn;
+            o.hostName = hostName;
+            o.id = id;
+            o.minimumTtl = minimumTtl;
+            o.name = name;
+            o.refreshTime = refreshTime;
+            o.resourceGroupName = resourceGroupName;
+            o.retryTime = retryTime;
+            o.serialNumber = serialNumber;
+            o.tags = tags;
+            o.ttl = ttl;
+            o.zoneName = zoneName;
+            return o;
         }
     }
 }

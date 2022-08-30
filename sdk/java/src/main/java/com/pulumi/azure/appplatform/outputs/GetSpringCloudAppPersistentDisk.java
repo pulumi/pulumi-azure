@@ -14,21 +14,14 @@ public final class GetSpringCloudAppPersistentDisk {
      * @return The mount path of the persistent disk.
      * 
      */
-    private final String mountPath;
+    private String mountPath;
     /**
      * @return The size of the persistent disk in GB.
      * 
      */
-    private final Integer sizeInGb;
+    private Integer sizeInGb;
 
-    @CustomType.Constructor
-    private GetSpringCloudAppPersistentDisk(
-        @CustomType.Parameter("mountPath") String mountPath,
-        @CustomType.Parameter("sizeInGb") Integer sizeInGb) {
-        this.mountPath = mountPath;
-        this.sizeInGb = sizeInGb;
-    }
-
+    private GetSpringCloudAppPersistentDisk() {}
     /**
      * @return The mount path of the persistent disk.
      * 
@@ -51,30 +44,32 @@ public final class GetSpringCloudAppPersistentDisk {
     public static Builder builder(GetSpringCloudAppPersistentDisk defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String mountPath;
         private Integer sizeInGb;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSpringCloudAppPersistentDisk defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mountPath = defaults.mountPath;
     	      this.sizeInGb = defaults.sizeInGb;
         }
 
+        @CustomType.Setter
         public Builder mountPath(String mountPath) {
             this.mountPath = Objects.requireNonNull(mountPath);
             return this;
         }
+        @CustomType.Setter
         public Builder sizeInGb(Integer sizeInGb) {
             this.sizeInGb = Objects.requireNonNull(sizeInGb);
             return this;
-        }        public GetSpringCloudAppPersistentDisk build() {
-            return new GetSpringCloudAppPersistentDisk(mountPath, sizeInGb);
+        }
+        public GetSpringCloudAppPersistentDisk build() {
+            final var o = new GetSpringCloudAppPersistentDisk();
+            o.mountPath = mountPath;
+            o.sizeInGb = sizeInGb;
+            return o;
         }
     }
 }

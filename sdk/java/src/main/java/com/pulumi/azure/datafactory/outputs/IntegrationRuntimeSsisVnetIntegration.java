@@ -16,35 +16,24 @@ public final class IntegrationRuntimeSsisVnetIntegration {
      * @return Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
      * 
      */
-    private final @Nullable List<String> publicIps;
+    private @Nullable List<String> publicIps;
     /**
      * @return id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
      * 
      */
-    private final @Nullable String subnetId;
+    private @Nullable String subnetId;
     /**
      * @return Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
      * 
      */
-    private final @Nullable String subnetName;
+    private @Nullable String subnetName;
     /**
      * @return ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added.
      * 
      */
-    private final @Nullable String vnetId;
+    private @Nullable String vnetId;
 
-    @CustomType.Constructor
-    private IntegrationRuntimeSsisVnetIntegration(
-        @CustomType.Parameter("publicIps") @Nullable List<String> publicIps,
-        @CustomType.Parameter("subnetId") @Nullable String subnetId,
-        @CustomType.Parameter("subnetName") @Nullable String subnetName,
-        @CustomType.Parameter("vnetId") @Nullable String vnetId) {
-        this.publicIps = publicIps;
-        this.subnetId = subnetId;
-        this.subnetName = subnetName;
-        this.vnetId = vnetId;
-    }
-
+    private IntegrationRuntimeSsisVnetIntegration() {}
     /**
      * @return Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2.
      * 
@@ -81,17 +70,13 @@ public final class IntegrationRuntimeSsisVnetIntegration {
     public static Builder builder(IntegrationRuntimeSsisVnetIntegration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> publicIps;
         private @Nullable String subnetId;
         private @Nullable String subnetName;
         private @Nullable String vnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationRuntimeSsisVnetIntegration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.publicIps = defaults.publicIps;
@@ -100,6 +85,7 @@ public final class IntegrationRuntimeSsisVnetIntegration {
     	      this.vnetId = defaults.vnetId;
         }
 
+        @CustomType.Setter
         public Builder publicIps(@Nullable List<String> publicIps) {
             this.publicIps = publicIps;
             return this;
@@ -107,19 +93,28 @@ public final class IntegrationRuntimeSsisVnetIntegration {
         public Builder publicIps(String... publicIps) {
             return publicIps(List.of(publicIps));
         }
+        @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
             this.subnetId = subnetId;
             return this;
         }
+        @CustomType.Setter
         public Builder subnetName(@Nullable String subnetName) {
             this.subnetName = subnetName;
             return this;
         }
+        @CustomType.Setter
         public Builder vnetId(@Nullable String vnetId) {
             this.vnetId = vnetId;
             return this;
-        }        public IntegrationRuntimeSsisVnetIntegration build() {
-            return new IntegrationRuntimeSsisVnetIntegration(publicIps, subnetId, subnetName, vnetId);
+        }
+        public IntegrationRuntimeSsisVnetIntegration build() {
+            final var o = new IntegrationRuntimeSsisVnetIntegration();
+            o.publicIps = publicIps;
+            o.subnetId = subnetId;
+            o.subnetName = subnetName;
+            o.vnetId = vnetId;
+            return o;
         }
     }
 }

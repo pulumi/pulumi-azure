@@ -17,28 +17,19 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
      * @return A `requests` block as defined above.
      * 
      */
-    private final List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest> requests;
+    private List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest> requests;
     /**
      * @return A `slow_request` block as defined above.
      * 
      */
-    private final @Nullable List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
+    private @Nullable List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
     /**
      * @return A `status_code` block as defined above.
      * 
      */
-    private final List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
+    private List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
 
-    @CustomType.Constructor
-    private GetLinuxWebAppSiteConfigAutoHealSettingTrigger(
-        @CustomType.Parameter("requests") List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest> requests,
-        @CustomType.Parameter("slowRequests") @Nullable List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests,
-        @CustomType.Parameter("statusCodes") List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes) {
-        this.requests = requests;
-        this.slowRequests = slowRequests;
-        this.statusCodes = statusCodes;
-    }
-
+    private GetLinuxWebAppSiteConfigAutoHealSettingTrigger() {}
     /**
      * @return A `requests` block as defined above.
      * 
@@ -68,16 +59,12 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
     public static Builder builder(GetLinuxWebAppSiteConfigAutoHealSettingTrigger defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest> requests;
         private @Nullable List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
         private List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxWebAppSiteConfigAutoHealSettingTrigger defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.requests = defaults.requests;
@@ -85,6 +72,7 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
     	      this.statusCodes = defaults.statusCodes;
         }
 
+        @CustomType.Setter
         public Builder requests(List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest> requests) {
             this.requests = Objects.requireNonNull(requests);
             return this;
@@ -92,6 +80,7 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
         public Builder requests(GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest... requests) {
             return requests(List.of(requests));
         }
+        @CustomType.Setter
         public Builder slowRequests(@Nullable List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests) {
             this.slowRequests = slowRequests;
             return this;
@@ -99,14 +88,20 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTrigger {
         public Builder slowRequests(GetLinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest... slowRequests) {
             return slowRequests(List.of(slowRequests));
         }
+        @CustomType.Setter
         public Builder statusCodes(List<GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes) {
             this.statusCodes = Objects.requireNonNull(statusCodes);
             return this;
         }
         public Builder statusCodes(GetLinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode... statusCodes) {
             return statusCodes(List.of(statusCodes));
-        }        public GetLinuxWebAppSiteConfigAutoHealSettingTrigger build() {
-            return new GetLinuxWebAppSiteConfigAutoHealSettingTrigger(requests, slowRequests, statusCodes);
+        }
+        public GetLinuxWebAppSiteConfigAutoHealSettingTrigger build() {
+            final var o = new GetLinuxWebAppSiteConfigAutoHealSettingTrigger();
+            o.requests = requests;
+            o.slowRequests = slowRequests;
+            o.statusCodes = statusCodes;
+            return o;
         }
     }
 }

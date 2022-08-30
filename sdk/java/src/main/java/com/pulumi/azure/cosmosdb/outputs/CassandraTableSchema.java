@@ -17,28 +17,19 @@ public final class CassandraTableSchema {
      * @return One or more `cluster_key` blocks as defined below.
      * 
      */
-    private final @Nullable List<CassandraTableSchemaClusterKey> clusterKeys;
+    private @Nullable List<CassandraTableSchemaClusterKey> clusterKeys;
     /**
      * @return One or more `column` blocks as defined below.
      * 
      */
-    private final List<CassandraTableSchemaColumn> columns;
+    private List<CassandraTableSchemaColumn> columns;
     /**
      * @return One or more `partition_key` blocks as defined below.
      * 
      */
-    private final List<CassandraTableSchemaPartitionKey> partitionKeys;
+    private List<CassandraTableSchemaPartitionKey> partitionKeys;
 
-    @CustomType.Constructor
-    private CassandraTableSchema(
-        @CustomType.Parameter("clusterKeys") @Nullable List<CassandraTableSchemaClusterKey> clusterKeys,
-        @CustomType.Parameter("columns") List<CassandraTableSchemaColumn> columns,
-        @CustomType.Parameter("partitionKeys") List<CassandraTableSchemaPartitionKey> partitionKeys) {
-        this.clusterKeys = clusterKeys;
-        this.columns = columns;
-        this.partitionKeys = partitionKeys;
-    }
-
+    private CassandraTableSchema() {}
     /**
      * @return One or more `cluster_key` blocks as defined below.
      * 
@@ -68,16 +59,12 @@ public final class CassandraTableSchema {
     public static Builder builder(CassandraTableSchema defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<CassandraTableSchemaClusterKey> clusterKeys;
         private List<CassandraTableSchemaColumn> columns;
         private List<CassandraTableSchemaPartitionKey> partitionKeys;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CassandraTableSchema defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusterKeys = defaults.clusterKeys;
@@ -85,6 +72,7 @@ public final class CassandraTableSchema {
     	      this.partitionKeys = defaults.partitionKeys;
         }
 
+        @CustomType.Setter
         public Builder clusterKeys(@Nullable List<CassandraTableSchemaClusterKey> clusterKeys) {
             this.clusterKeys = clusterKeys;
             return this;
@@ -92,6 +80,7 @@ public final class CassandraTableSchema {
         public Builder clusterKeys(CassandraTableSchemaClusterKey... clusterKeys) {
             return clusterKeys(List.of(clusterKeys));
         }
+        @CustomType.Setter
         public Builder columns(List<CassandraTableSchemaColumn> columns) {
             this.columns = Objects.requireNonNull(columns);
             return this;
@@ -99,14 +88,20 @@ public final class CassandraTableSchema {
         public Builder columns(CassandraTableSchemaColumn... columns) {
             return columns(List.of(columns));
         }
+        @CustomType.Setter
         public Builder partitionKeys(List<CassandraTableSchemaPartitionKey> partitionKeys) {
             this.partitionKeys = Objects.requireNonNull(partitionKeys);
             return this;
         }
         public Builder partitionKeys(CassandraTableSchemaPartitionKey... partitionKeys) {
             return partitionKeys(List.of(partitionKeys));
-        }        public CassandraTableSchema build() {
-            return new CassandraTableSchema(clusterKeys, columns, partitionKeys);
+        }
+        public CassandraTableSchema build() {
+            final var o = new CassandraTableSchema();
+            o.clusterKeys = clusterKeys;
+            o.columns = columns;
+            o.partitionKeys = partitionKeys;
+            return o;
         }
     }
 }

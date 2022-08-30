@@ -13,42 +13,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConfigurationKeysResult {
-    private final String configurationStoreId;
+    private String configurationStoreId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A list of `items` blocks as defined below.
      * 
      */
-    private final List<GetConfigurationKeysItem> items;
+    private List<GetConfigurationKeysItem> items;
     /**
      * @return The name of the App Configuration Key.
      * 
      */
-    private final @Nullable String key;
+    private @Nullable String key;
     /**
      * @return The label of the App Configuration Key.
      * 
      */
-    private final @Nullable String label;
+    private @Nullable String label;
 
-    @CustomType.Constructor
-    private GetConfigurationKeysResult(
-        @CustomType.Parameter("configurationStoreId") String configurationStoreId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("items") List<GetConfigurationKeysItem> items,
-        @CustomType.Parameter("key") @Nullable String key,
-        @CustomType.Parameter("label") @Nullable String label) {
-        this.configurationStoreId = configurationStoreId;
-        this.id = id;
-        this.items = items;
-        this.key = key;
-        this.label = label;
-    }
-
+    private GetConfigurationKeysResult() {}
     public String configurationStoreId() {
         return this.configurationStoreId;
     }
@@ -88,18 +75,14 @@ public final class GetConfigurationKeysResult {
     public static Builder builder(GetConfigurationKeysResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String configurationStoreId;
         private String id;
         private List<GetConfigurationKeysItem> items;
         private @Nullable String key;
         private @Nullable String label;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetConfigurationKeysResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.configurationStoreId = defaults.configurationStoreId;
@@ -109,14 +92,17 @@ public final class GetConfigurationKeysResult {
     	      this.label = defaults.label;
         }
 
+        @CustomType.Setter
         public Builder configurationStoreId(String configurationStoreId) {
             this.configurationStoreId = Objects.requireNonNull(configurationStoreId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder items(List<GetConfigurationKeysItem> items) {
             this.items = Objects.requireNonNull(items);
             return this;
@@ -124,15 +110,24 @@ public final class GetConfigurationKeysResult {
         public Builder items(GetConfigurationKeysItem... items) {
             return items(List.of(items));
         }
+        @CustomType.Setter
         public Builder key(@Nullable String key) {
             this.key = key;
             return this;
         }
+        @CustomType.Setter
         public Builder label(@Nullable String label) {
             this.label = label;
             return this;
-        }        public GetConfigurationKeysResult build() {
-            return new GetConfigurationKeysResult(configurationStoreId, id, items, key, label);
+        }
+        public GetConfigurationKeysResult build() {
+            final var o = new GetConfigurationKeysResult();
+            o.configurationStoreId = configurationStoreId;
+            o.id = id;
+            o.items = items;
+            o.key = key;
+            o.label = label;
+            return o;
         }
     }
 }

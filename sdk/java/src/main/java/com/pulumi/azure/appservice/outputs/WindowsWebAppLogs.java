@@ -17,35 +17,24 @@ public final class WindowsWebAppLogs {
      * @return A `application_logs` block as defined above.
      * 
      */
-    private final @Nullable WindowsWebAppLogsApplicationLogs applicationLogs;
+    private @Nullable WindowsWebAppLogsApplicationLogs applicationLogs;
     /**
      * @return Should detailed error messages be enabled.
      * 
      */
-    private final @Nullable Boolean detailedErrorMessages;
+    private @Nullable Boolean detailedErrorMessages;
     /**
      * @return Should tracing be enabled for failed requests.
      * 
      */
-    private final @Nullable Boolean failedRequestTracing;
+    private @Nullable Boolean failedRequestTracing;
     /**
      * @return A `http_logs` block as defined above.
      * 
      */
-    private final @Nullable WindowsWebAppLogsHttpLogs httpLogs;
+    private @Nullable WindowsWebAppLogsHttpLogs httpLogs;
 
-    @CustomType.Constructor
-    private WindowsWebAppLogs(
-        @CustomType.Parameter("applicationLogs") @Nullable WindowsWebAppLogsApplicationLogs applicationLogs,
-        @CustomType.Parameter("detailedErrorMessages") @Nullable Boolean detailedErrorMessages,
-        @CustomType.Parameter("failedRequestTracing") @Nullable Boolean failedRequestTracing,
-        @CustomType.Parameter("httpLogs") @Nullable WindowsWebAppLogsHttpLogs httpLogs) {
-        this.applicationLogs = applicationLogs;
-        this.detailedErrorMessages = detailedErrorMessages;
-        this.failedRequestTracing = failedRequestTracing;
-        this.httpLogs = httpLogs;
-    }
-
+    private WindowsWebAppLogs() {}
     /**
      * @return A `application_logs` block as defined above.
      * 
@@ -82,17 +71,13 @@ public final class WindowsWebAppLogs {
     public static Builder builder(WindowsWebAppLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable WindowsWebAppLogsApplicationLogs applicationLogs;
         private @Nullable Boolean detailedErrorMessages;
         private @Nullable Boolean failedRequestTracing;
         private @Nullable WindowsWebAppLogsHttpLogs httpLogs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsWebAppLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationLogs = defaults.applicationLogs;
@@ -101,23 +86,33 @@ public final class WindowsWebAppLogs {
     	      this.httpLogs = defaults.httpLogs;
         }
 
+        @CustomType.Setter
         public Builder applicationLogs(@Nullable WindowsWebAppLogsApplicationLogs applicationLogs) {
             this.applicationLogs = applicationLogs;
             return this;
         }
+        @CustomType.Setter
         public Builder detailedErrorMessages(@Nullable Boolean detailedErrorMessages) {
             this.detailedErrorMessages = detailedErrorMessages;
             return this;
         }
+        @CustomType.Setter
         public Builder failedRequestTracing(@Nullable Boolean failedRequestTracing) {
             this.failedRequestTracing = failedRequestTracing;
             return this;
         }
+        @CustomType.Setter
         public Builder httpLogs(@Nullable WindowsWebAppLogsHttpLogs httpLogs) {
             this.httpLogs = httpLogs;
             return this;
-        }        public WindowsWebAppLogs build() {
-            return new WindowsWebAppLogs(applicationLogs, detailedErrorMessages, failedRequestTracing, httpLogs);
+        }
+        public WindowsWebAppLogs build() {
+            final var o = new WindowsWebAppLogs();
+            o.applicationLogs = applicationLogs;
+            o.detailedErrorMessages = detailedErrorMessages;
+            o.failedRequestTracing = failedRequestTracing;
+            o.httpLogs = httpLogs;
+            return o;
         }
     }
 }

@@ -18,91 +18,64 @@ public final class KubernetesClusterNetworkProfile {
      * @return IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String dnsServiceIp;
+    private @Nullable String dnsServiceIp;
     /**
      * @return IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String dockerBridgeCidr;
+    private @Nullable String dockerBridgeCidr;
     /**
      * @return Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are `IPv4` and/or `IPv6`. `IPv4` must always be specified. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable List<String> ipVersions;
+    private @Nullable List<String> ipVersions;
     /**
      * @return A `load_balancer_profile` block. This can only be specified when `load_balancer_sku` is set to `standard`.
      * 
      */
-    private final @Nullable KubernetesClusterNetworkProfileLoadBalancerProfile loadBalancerProfile;
+    private @Nullable KubernetesClusterNetworkProfileLoadBalancerProfile loadBalancerProfile;
     /**
      * @return Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`.
      * 
      */
-    private final @Nullable String loadBalancerSku;
+    private @Nullable String loadBalancerSku;
     /**
      * @return A `nat_gateway_profile` block. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`.
      * 
      */
-    private final @Nullable KubernetesClusterNetworkProfileNatGatewayProfile natGatewayProfile;
+    private @Nullable KubernetesClusterNetworkProfileNatGatewayProfile natGatewayProfile;
     /**
      * @return Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String networkMode;
+    private @Nullable String networkMode;
     /**
      * @return Network plugin to use for networking. Currently supported values are `azure`, `kubenet` and `none`. Changing this forces a new resource to be created.
      * 
      */
-    private final String networkPlugin;
+    private String networkPlugin;
     /**
      * @return Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are `calico` and `azure`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String networkPolicy;
+    private @Nullable String networkPolicy;
     /**
      * @return The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are `loadBalancer`, `userDefinedRouting`, `managedNATGateway` and `userAssignedNATGateway`. Defaults to `loadBalancer`.
      * 
      */
-    private final @Nullable String outboundType;
+    private @Nullable String outboundType;
     /**
      * @return The CIDR to use for pod IP addresses. This field can only be set when `network_plugin` is set to `kubenet`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String podCidr;
+    private @Nullable String podCidr;
     /**
      * @return The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String serviceCidr;
+    private @Nullable String serviceCidr;
 
-    @CustomType.Constructor
-    private KubernetesClusterNetworkProfile(
-        @CustomType.Parameter("dnsServiceIp") @Nullable String dnsServiceIp,
-        @CustomType.Parameter("dockerBridgeCidr") @Nullable String dockerBridgeCidr,
-        @CustomType.Parameter("ipVersions") @Nullable List<String> ipVersions,
-        @CustomType.Parameter("loadBalancerProfile") @Nullable KubernetesClusterNetworkProfileLoadBalancerProfile loadBalancerProfile,
-        @CustomType.Parameter("loadBalancerSku") @Nullable String loadBalancerSku,
-        @CustomType.Parameter("natGatewayProfile") @Nullable KubernetesClusterNetworkProfileNatGatewayProfile natGatewayProfile,
-        @CustomType.Parameter("networkMode") @Nullable String networkMode,
-        @CustomType.Parameter("networkPlugin") String networkPlugin,
-        @CustomType.Parameter("networkPolicy") @Nullable String networkPolicy,
-        @CustomType.Parameter("outboundType") @Nullable String outboundType,
-        @CustomType.Parameter("podCidr") @Nullable String podCidr,
-        @CustomType.Parameter("serviceCidr") @Nullable String serviceCidr) {
-        this.dnsServiceIp = dnsServiceIp;
-        this.dockerBridgeCidr = dockerBridgeCidr;
-        this.ipVersions = ipVersions;
-        this.loadBalancerProfile = loadBalancerProfile;
-        this.loadBalancerSku = loadBalancerSku;
-        this.natGatewayProfile = natGatewayProfile;
-        this.networkMode = networkMode;
-        this.networkPlugin = networkPlugin;
-        this.networkPolicy = networkPolicy;
-        this.outboundType = outboundType;
-        this.podCidr = podCidr;
-        this.serviceCidr = serviceCidr;
-    }
-
+    private KubernetesClusterNetworkProfile() {}
     /**
      * @return IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
      * 
@@ -195,7 +168,7 @@ public final class KubernetesClusterNetworkProfile {
     public static Builder builder(KubernetesClusterNetworkProfile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String dnsServiceIp;
         private @Nullable String dockerBridgeCidr;
@@ -209,11 +182,7 @@ public final class KubernetesClusterNetworkProfile {
         private @Nullable String outboundType;
         private @Nullable String podCidr;
         private @Nullable String serviceCidr;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KubernetesClusterNetworkProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsServiceIp = defaults.dnsServiceIp;
@@ -230,14 +199,17 @@ public final class KubernetesClusterNetworkProfile {
     	      this.serviceCidr = defaults.serviceCidr;
         }
 
+        @CustomType.Setter
         public Builder dnsServiceIp(@Nullable String dnsServiceIp) {
             this.dnsServiceIp = dnsServiceIp;
             return this;
         }
+        @CustomType.Setter
         public Builder dockerBridgeCidr(@Nullable String dockerBridgeCidr) {
             this.dockerBridgeCidr = dockerBridgeCidr;
             return this;
         }
+        @CustomType.Setter
         public Builder ipVersions(@Nullable List<String> ipVersions) {
             this.ipVersions = ipVersions;
             return this;
@@ -245,43 +217,66 @@ public final class KubernetesClusterNetworkProfile {
         public Builder ipVersions(String... ipVersions) {
             return ipVersions(List.of(ipVersions));
         }
+        @CustomType.Setter
         public Builder loadBalancerProfile(@Nullable KubernetesClusterNetworkProfileLoadBalancerProfile loadBalancerProfile) {
             this.loadBalancerProfile = loadBalancerProfile;
             return this;
         }
+        @CustomType.Setter
         public Builder loadBalancerSku(@Nullable String loadBalancerSku) {
             this.loadBalancerSku = loadBalancerSku;
             return this;
         }
+        @CustomType.Setter
         public Builder natGatewayProfile(@Nullable KubernetesClusterNetworkProfileNatGatewayProfile natGatewayProfile) {
             this.natGatewayProfile = natGatewayProfile;
             return this;
         }
+        @CustomType.Setter
         public Builder networkMode(@Nullable String networkMode) {
             this.networkMode = networkMode;
             return this;
         }
+        @CustomType.Setter
         public Builder networkPlugin(String networkPlugin) {
             this.networkPlugin = Objects.requireNonNull(networkPlugin);
             return this;
         }
+        @CustomType.Setter
         public Builder networkPolicy(@Nullable String networkPolicy) {
             this.networkPolicy = networkPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder outboundType(@Nullable String outboundType) {
             this.outboundType = outboundType;
             return this;
         }
+        @CustomType.Setter
         public Builder podCidr(@Nullable String podCidr) {
             this.podCidr = podCidr;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceCidr(@Nullable String serviceCidr) {
             this.serviceCidr = serviceCidr;
             return this;
-        }        public KubernetesClusterNetworkProfile build() {
-            return new KubernetesClusterNetworkProfile(dnsServiceIp, dockerBridgeCidr, ipVersions, loadBalancerProfile, loadBalancerSku, natGatewayProfile, networkMode, networkPlugin, networkPolicy, outboundType, podCidr, serviceCidr);
+        }
+        public KubernetesClusterNetworkProfile build() {
+            final var o = new KubernetesClusterNetworkProfile();
+            o.dnsServiceIp = dnsServiceIp;
+            o.dockerBridgeCidr = dockerBridgeCidr;
+            o.ipVersions = ipVersions;
+            o.loadBalancerProfile = loadBalancerProfile;
+            o.loadBalancerSku = loadBalancerSku;
+            o.natGatewayProfile = natGatewayProfile;
+            o.networkMode = networkMode;
+            o.networkPlugin = networkPlugin;
+            o.networkPolicy = networkPolicy;
+            o.outboundType = outboundType;
+            o.podCidr = podCidr;
+            o.serviceCidr = serviceCidr;
+            return o;
         }
     }
 }

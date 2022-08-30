@@ -14,21 +14,14 @@ public final class WindowsWebAppSiteConfigAutoHealSetting {
      * @return An `action` block as defined above.
      * 
      */
-    private final WindowsWebAppSiteConfigAutoHealSettingAction action;
+    private WindowsWebAppSiteConfigAutoHealSettingAction action;
     /**
      * @return A `trigger` block as defined below.
      * 
      */
-    private final WindowsWebAppSiteConfigAutoHealSettingTrigger trigger;
+    private WindowsWebAppSiteConfigAutoHealSettingTrigger trigger;
 
-    @CustomType.Constructor
-    private WindowsWebAppSiteConfigAutoHealSetting(
-        @CustomType.Parameter("action") WindowsWebAppSiteConfigAutoHealSettingAction action,
-        @CustomType.Parameter("trigger") WindowsWebAppSiteConfigAutoHealSettingTrigger trigger) {
-        this.action = action;
-        this.trigger = trigger;
-    }
-
+    private WindowsWebAppSiteConfigAutoHealSetting() {}
     /**
      * @return An `action` block as defined above.
      * 
@@ -51,30 +44,32 @@ public final class WindowsWebAppSiteConfigAutoHealSetting {
     public static Builder builder(WindowsWebAppSiteConfigAutoHealSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private WindowsWebAppSiteConfigAutoHealSettingAction action;
         private WindowsWebAppSiteConfigAutoHealSettingTrigger trigger;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsWebAppSiteConfigAutoHealSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
     	      this.trigger = defaults.trigger;
         }
 
+        @CustomType.Setter
         public Builder action(WindowsWebAppSiteConfigAutoHealSettingAction action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder trigger(WindowsWebAppSiteConfigAutoHealSettingTrigger trigger) {
             this.trigger = Objects.requireNonNull(trigger);
             return this;
-        }        public WindowsWebAppSiteConfigAutoHealSetting build() {
-            return new WindowsWebAppSiteConfigAutoHealSetting(action, trigger);
+        }
+        public WindowsWebAppSiteConfigAutoHealSetting build() {
+            final var o = new WindowsWebAppSiteConfigAutoHealSetting();
+            o.action = action;
+            o.trigger = trigger;
+            return o;
         }
     }
 }

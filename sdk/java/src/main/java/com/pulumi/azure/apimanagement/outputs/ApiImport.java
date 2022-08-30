@@ -16,28 +16,19 @@ public final class ApiImport {
      * @return The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
      * 
      */
-    private final String contentFormat;
+    private String contentFormat;
     /**
      * @return The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
      * 
      */
-    private final String contentValue;
+    private String contentValue;
     /**
      * @return A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
      * 
      */
-    private final @Nullable ApiImportWsdlSelector wsdlSelector;
+    private @Nullable ApiImportWsdlSelector wsdlSelector;
 
-    @CustomType.Constructor
-    private ApiImport(
-        @CustomType.Parameter("contentFormat") String contentFormat,
-        @CustomType.Parameter("contentValue") String contentValue,
-        @CustomType.Parameter("wsdlSelector") @Nullable ApiImportWsdlSelector wsdlSelector) {
-        this.contentFormat = contentFormat;
-        this.contentValue = contentValue;
-        this.wsdlSelector = wsdlSelector;
-    }
-
+    private ApiImport() {}
     /**
      * @return The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
      * 
@@ -67,16 +58,12 @@ public final class ApiImport {
     public static Builder builder(ApiImport defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String contentFormat;
         private String contentValue;
         private @Nullable ApiImportWsdlSelector wsdlSelector;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApiImport defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contentFormat = defaults.contentFormat;
@@ -84,19 +71,27 @@ public final class ApiImport {
     	      this.wsdlSelector = defaults.wsdlSelector;
         }
 
+        @CustomType.Setter
         public Builder contentFormat(String contentFormat) {
             this.contentFormat = Objects.requireNonNull(contentFormat);
             return this;
         }
+        @CustomType.Setter
         public Builder contentValue(String contentValue) {
             this.contentValue = Objects.requireNonNull(contentValue);
             return this;
         }
+        @CustomType.Setter
         public Builder wsdlSelector(@Nullable ApiImportWsdlSelector wsdlSelector) {
             this.wsdlSelector = wsdlSelector;
             return this;
-        }        public ApiImport build() {
-            return new ApiImport(contentFormat, contentValue, wsdlSelector);
+        }
+        public ApiImport build() {
+            final var o = new ApiImport();
+            o.contentFormat = contentFormat;
+            o.contentValue = contentValue;
+            o.wsdlSelector = wsdlSelector;
+            return o;
         }
     }
 }

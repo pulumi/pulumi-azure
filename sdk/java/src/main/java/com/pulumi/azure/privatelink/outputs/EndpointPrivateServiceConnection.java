@@ -17,56 +17,39 @@ public final class EndpointPrivateServiceConnection {
      * @return Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
      * 
      */
-    private final Boolean isManualConnection;
+    private Boolean isManualConnection;
     /**
      * @return Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String privateConnectionResourceAlias;
+    private @Nullable String privateConnectionResourceAlias;
     /**
      * @return The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
      * 
      */
-    private final @Nullable String privateConnectionResourceId;
+    private @Nullable String privateConnectionResourceId;
     /**
      * @return (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
      * 
      */
-    private final @Nullable String privateIpAddress;
+    private @Nullable String privateIpAddress;
     /**
      * @return A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
      * 
      */
-    private final @Nullable String requestMessage;
+    private @Nullable String requestMessage;
     /**
      * @return A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable List<String> subresourceNames;
+    private @Nullable List<String> subresourceNames;
 
-    @CustomType.Constructor
-    private EndpointPrivateServiceConnection(
-        @CustomType.Parameter("isManualConnection") Boolean isManualConnection,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("privateConnectionResourceAlias") @Nullable String privateConnectionResourceAlias,
-        @CustomType.Parameter("privateConnectionResourceId") @Nullable String privateConnectionResourceId,
-        @CustomType.Parameter("privateIpAddress") @Nullable String privateIpAddress,
-        @CustomType.Parameter("requestMessage") @Nullable String requestMessage,
-        @CustomType.Parameter("subresourceNames") @Nullable List<String> subresourceNames) {
-        this.isManualConnection = isManualConnection;
-        this.name = name;
-        this.privateConnectionResourceAlias = privateConnectionResourceAlias;
-        this.privateConnectionResourceId = privateConnectionResourceId;
-        this.privateIpAddress = privateIpAddress;
-        this.requestMessage = requestMessage;
-        this.subresourceNames = subresourceNames;
-    }
-
+    private EndpointPrivateServiceConnection() {}
     /**
      * @return Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
      * 
@@ -124,7 +107,7 @@ public final class EndpointPrivateServiceConnection {
     public static Builder builder(EndpointPrivateServiceConnection defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean isManualConnection;
         private String name;
@@ -133,11 +116,7 @@ public final class EndpointPrivateServiceConnection {
         private @Nullable String privateIpAddress;
         private @Nullable String requestMessage;
         private @Nullable List<String> subresourceNames;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointPrivateServiceConnection defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.isManualConnection = defaults.isManualConnection;
@@ -149,38 +128,54 @@ public final class EndpointPrivateServiceConnection {
     	      this.subresourceNames = defaults.subresourceNames;
         }
 
+        @CustomType.Setter
         public Builder isManualConnection(Boolean isManualConnection) {
             this.isManualConnection = Objects.requireNonNull(isManualConnection);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder privateConnectionResourceAlias(@Nullable String privateConnectionResourceAlias) {
             this.privateConnectionResourceAlias = privateConnectionResourceAlias;
             return this;
         }
+        @CustomType.Setter
         public Builder privateConnectionResourceId(@Nullable String privateConnectionResourceId) {
             this.privateConnectionResourceId = privateConnectionResourceId;
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
             this.privateIpAddress = privateIpAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder requestMessage(@Nullable String requestMessage) {
             this.requestMessage = requestMessage;
             return this;
         }
+        @CustomType.Setter
         public Builder subresourceNames(@Nullable List<String> subresourceNames) {
             this.subresourceNames = subresourceNames;
             return this;
         }
         public Builder subresourceNames(String... subresourceNames) {
             return subresourceNames(List.of(subresourceNames));
-        }        public EndpointPrivateServiceConnection build() {
-            return new EndpointPrivateServiceConnection(isManualConnection, name, privateConnectionResourceAlias, privateConnectionResourceId, privateIpAddress, requestMessage, subresourceNames);
+        }
+        public EndpointPrivateServiceConnection build() {
+            final var o = new EndpointPrivateServiceConnection();
+            o.isManualConnection = isManualConnection;
+            o.name = name;
+            o.privateConnectionResourceAlias = privateConnectionResourceAlias;
+            o.privateConnectionResourceId = privateConnectionResourceId;
+            o.privateIpAddress = privateIpAddress;
+            o.requestMessage = requestMessage;
+            o.subresourceNames = subresourceNames;
+            return o;
         }
     }
 }

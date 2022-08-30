@@ -15,35 +15,24 @@ public final class AccountSharePropertiesSmb {
      * @return A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
      * 
      */
-    private final @Nullable List<String> authenticationTypes;
+    private @Nullable List<String> authenticationTypes;
     /**
      * @return A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
      * 
      */
-    private final @Nullable List<String> channelEncryptionTypes;
+    private @Nullable List<String> channelEncryptionTypes;
     /**
      * @return A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
      * 
      */
-    private final @Nullable List<String> kerberosTicketEncryptionTypes;
+    private @Nullable List<String> kerberosTicketEncryptionTypes;
     /**
      * @return A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
      * 
      */
-    private final @Nullable List<String> versions;
+    private @Nullable List<String> versions;
 
-    @CustomType.Constructor
-    private AccountSharePropertiesSmb(
-        @CustomType.Parameter("authenticationTypes") @Nullable List<String> authenticationTypes,
-        @CustomType.Parameter("channelEncryptionTypes") @Nullable List<String> channelEncryptionTypes,
-        @CustomType.Parameter("kerberosTicketEncryptionTypes") @Nullable List<String> kerberosTicketEncryptionTypes,
-        @CustomType.Parameter("versions") @Nullable List<String> versions) {
-        this.authenticationTypes = authenticationTypes;
-        this.channelEncryptionTypes = channelEncryptionTypes;
-        this.kerberosTicketEncryptionTypes = kerberosTicketEncryptionTypes;
-        this.versions = versions;
-    }
-
+    private AccountSharePropertiesSmb() {}
     /**
      * @return A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
      * 
@@ -80,17 +69,13 @@ public final class AccountSharePropertiesSmb {
     public static Builder builder(AccountSharePropertiesSmb defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> authenticationTypes;
         private @Nullable List<String> channelEncryptionTypes;
         private @Nullable List<String> kerberosTicketEncryptionTypes;
         private @Nullable List<String> versions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountSharePropertiesSmb defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authenticationTypes = defaults.authenticationTypes;
@@ -99,6 +84,7 @@ public final class AccountSharePropertiesSmb {
     	      this.versions = defaults.versions;
         }
 
+        @CustomType.Setter
         public Builder authenticationTypes(@Nullable List<String> authenticationTypes) {
             this.authenticationTypes = authenticationTypes;
             return this;
@@ -106,6 +92,7 @@ public final class AccountSharePropertiesSmb {
         public Builder authenticationTypes(String... authenticationTypes) {
             return authenticationTypes(List.of(authenticationTypes));
         }
+        @CustomType.Setter
         public Builder channelEncryptionTypes(@Nullable List<String> channelEncryptionTypes) {
             this.channelEncryptionTypes = channelEncryptionTypes;
             return this;
@@ -113,6 +100,7 @@ public final class AccountSharePropertiesSmb {
         public Builder channelEncryptionTypes(String... channelEncryptionTypes) {
             return channelEncryptionTypes(List.of(channelEncryptionTypes));
         }
+        @CustomType.Setter
         public Builder kerberosTicketEncryptionTypes(@Nullable List<String> kerberosTicketEncryptionTypes) {
             this.kerberosTicketEncryptionTypes = kerberosTicketEncryptionTypes;
             return this;
@@ -120,14 +108,21 @@ public final class AccountSharePropertiesSmb {
         public Builder kerberosTicketEncryptionTypes(String... kerberosTicketEncryptionTypes) {
             return kerberosTicketEncryptionTypes(List.of(kerberosTicketEncryptionTypes));
         }
+        @CustomType.Setter
         public Builder versions(@Nullable List<String> versions) {
             this.versions = versions;
             return this;
         }
         public Builder versions(String... versions) {
             return versions(List.of(versions));
-        }        public AccountSharePropertiesSmb build() {
-            return new AccountSharePropertiesSmb(authenticationTypes, channelEncryptionTypes, kerberosTicketEncryptionTypes, versions);
+        }
+        public AccountSharePropertiesSmb build() {
+            final var o = new AccountSharePropertiesSmb();
+            o.authenticationTypes = authenticationTypes;
+            o.channelEncryptionTypes = channelEncryptionTypes;
+            o.kerberosTicketEncryptionTypes = kerberosTicketEncryptionTypes;
+            o.versions = versions;
+            return o;
         }
     }
 }

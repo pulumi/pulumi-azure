@@ -16,35 +16,24 @@ public final class WindowsWebAppAuthSettingsGoogle {
      * @return The OpenID Connect Client ID for the Google web application.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return The client secret associated with the Google web application.  Cannot be specified with `client_secret_setting_name`.
      * 
      */
-    private final @Nullable String clientSecret;
+    private @Nullable String clientSecret;
     /**
      * @return The app setting name that contains the `client_secret` value used for Google login. Cannot be specified with `client_secret`.
      * 
      */
-    private final @Nullable String clientSecretSettingName;
+    private @Nullable String clientSecretSettingName;
     /**
      * @return Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, `openid`, `profile`, and `email` are used as default scopes.
      * 
      */
-    private final @Nullable List<String> oauthScopes;
+    private @Nullable List<String> oauthScopes;
 
-    @CustomType.Constructor
-    private WindowsWebAppAuthSettingsGoogle(
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("clientSecret") @Nullable String clientSecret,
-        @CustomType.Parameter("clientSecretSettingName") @Nullable String clientSecretSettingName,
-        @CustomType.Parameter("oauthScopes") @Nullable List<String> oauthScopes) {
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
-        this.clientSecretSettingName = clientSecretSettingName;
-        this.oauthScopes = oauthScopes;
-    }
-
+    private WindowsWebAppAuthSettingsGoogle() {}
     /**
      * @return The OpenID Connect Client ID for the Google web application.
      * 
@@ -81,17 +70,13 @@ public final class WindowsWebAppAuthSettingsGoogle {
     public static Builder builder(WindowsWebAppAuthSettingsGoogle defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clientId;
         private @Nullable String clientSecret;
         private @Nullable String clientSecretSettingName;
         private @Nullable List<String> oauthScopes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsWebAppAuthSettingsGoogle defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientId = defaults.clientId;
@@ -100,26 +85,36 @@ public final class WindowsWebAppAuthSettingsGoogle {
     	      this.oauthScopes = defaults.oauthScopes;
         }
 
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecret(@Nullable String clientSecret) {
             this.clientSecret = clientSecret;
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecretSettingName(@Nullable String clientSecretSettingName) {
             this.clientSecretSettingName = clientSecretSettingName;
             return this;
         }
+        @CustomType.Setter
         public Builder oauthScopes(@Nullable List<String> oauthScopes) {
             this.oauthScopes = oauthScopes;
             return this;
         }
         public Builder oauthScopes(String... oauthScopes) {
             return oauthScopes(List.of(oauthScopes));
-        }        public WindowsWebAppAuthSettingsGoogle build() {
-            return new WindowsWebAppAuthSettingsGoogle(clientId, clientSecret, clientSecretSettingName, oauthScopes);
+        }
+        public WindowsWebAppAuthSettingsGoogle build() {
+            final var o = new WindowsWebAppAuthSettingsGoogle();
+            o.clientId = clientId;
+            o.clientSecret = clientSecret;
+            o.clientSecretSettingName = clientSecretSettingName;
+            o.oauthScopes = oauthScopes;
+            return o;
         }
     }
 }

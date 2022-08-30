@@ -16,21 +16,14 @@ public final class FailoverGroupReadWriteEndpointFailoverPolicy {
      * @return Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
      * 
      */
-    private final @Nullable Integer graceMinutes;
+    private @Nullable Integer graceMinutes;
     /**
      * @return the failover mode. Possible values are `Manual`, `Automatic`
      * 
      */
-    private final String mode;
+    private String mode;
 
-    @CustomType.Constructor
-    private FailoverGroupReadWriteEndpointFailoverPolicy(
-        @CustomType.Parameter("graceMinutes") @Nullable Integer graceMinutes,
-        @CustomType.Parameter("mode") String mode) {
-        this.graceMinutes = graceMinutes;
-        this.mode = mode;
-    }
-
+    private FailoverGroupReadWriteEndpointFailoverPolicy() {}
     /**
      * @return Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
      * 
@@ -53,30 +46,32 @@ public final class FailoverGroupReadWriteEndpointFailoverPolicy {
     public static Builder builder(FailoverGroupReadWriteEndpointFailoverPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer graceMinutes;
         private String mode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FailoverGroupReadWriteEndpointFailoverPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.graceMinutes = defaults.graceMinutes;
     	      this.mode = defaults.mode;
         }
 
+        @CustomType.Setter
         public Builder graceMinutes(@Nullable Integer graceMinutes) {
             this.graceMinutes = graceMinutes;
             return this;
         }
+        @CustomType.Setter
         public Builder mode(String mode) {
             this.mode = Objects.requireNonNull(mode);
             return this;
-        }        public FailoverGroupReadWriteEndpointFailoverPolicy build() {
-            return new FailoverGroupReadWriteEndpointFailoverPolicy(graceMinutes, mode);
+        }
+        public FailoverGroupReadWriteEndpointFailoverPolicy build() {
+            final var o = new FailoverGroupReadWriteEndpointFailoverPolicy();
+            o.graceMinutes = graceMinutes;
+            o.mode = mode;
+            return o;
         }
     }
 }

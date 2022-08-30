@@ -17,72 +17,47 @@ public final class GetSpringCloudAppResult {
      * @return The Fully Qualified DNS Name.
      * 
      */
-    private final String fqdn;
+    private String fqdn;
     /**
      * @return Is only HTTPS allowed?
      * 
      */
-    private final Boolean httpsOnly;
+    private Boolean httpsOnly;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return An `identity` block as defined below.
      * 
      */
-    private final List<GetSpringCloudAppIdentity> identities;
+    private List<GetSpringCloudAppIdentity> identities;
     /**
      * @return Does the Spring Cloud Application have public endpoint?
      * 
      */
-    private final Boolean isPublic;
-    private final String name;
+    private Boolean isPublic;
+    private String name;
     /**
      * @return A `persistent_disk` block as defined below.
      * 
      */
-    private final List<GetSpringCloudAppPersistentDisk> persistentDisks;
-    private final String resourceGroupName;
-    private final String serviceName;
+    private List<GetSpringCloudAppPersistentDisk> persistentDisks;
+    private String resourceGroupName;
+    private String serviceName;
     /**
      * @return Is End to End TLS Enabled?
      * 
      */
-    private final Boolean tlsEnabled;
+    private Boolean tlsEnabled;
     /**
      * @return The public endpoint of the Spring Cloud Application.
      * 
      */
-    private final String url;
+    private String url;
 
-    @CustomType.Constructor
-    private GetSpringCloudAppResult(
-        @CustomType.Parameter("fqdn") String fqdn,
-        @CustomType.Parameter("httpsOnly") Boolean httpsOnly,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetSpringCloudAppIdentity> identities,
-        @CustomType.Parameter("isPublic") Boolean isPublic,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("persistentDisks") List<GetSpringCloudAppPersistentDisk> persistentDisks,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("serviceName") String serviceName,
-        @CustomType.Parameter("tlsEnabled") Boolean tlsEnabled,
-        @CustomType.Parameter("url") String url) {
-        this.fqdn = fqdn;
-        this.httpsOnly = httpsOnly;
-        this.id = id;
-        this.identities = identities;
-        this.isPublic = isPublic;
-        this.name = name;
-        this.persistentDisks = persistentDisks;
-        this.resourceGroupName = resourceGroupName;
-        this.serviceName = serviceName;
-        this.tlsEnabled = tlsEnabled;
-        this.url = url;
-    }
-
+    private GetSpringCloudAppResult() {}
     /**
      * @return The Fully Qualified DNS Name.
      * 
@@ -156,7 +131,7 @@ public final class GetSpringCloudAppResult {
     public static Builder builder(GetSpringCloudAppResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String fqdn;
         private Boolean httpsOnly;
@@ -169,11 +144,7 @@ public final class GetSpringCloudAppResult {
         private String serviceName;
         private Boolean tlsEnabled;
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSpringCloudAppResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fqdn = defaults.fqdn;
@@ -189,18 +160,22 @@ public final class GetSpringCloudAppResult {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder fqdn(String fqdn) {
             this.fqdn = Objects.requireNonNull(fqdn);
             return this;
         }
+        @CustomType.Setter
         public Builder httpsOnly(Boolean httpsOnly) {
             this.httpsOnly = Objects.requireNonNull(httpsOnly);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetSpringCloudAppIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -208,14 +183,17 @@ public final class GetSpringCloudAppResult {
         public Builder identities(GetSpringCloudAppIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder isPublic(Boolean isPublic) {
             this.isPublic = Objects.requireNonNull(isPublic);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder persistentDisks(List<GetSpringCloudAppPersistentDisk> persistentDisks) {
             this.persistentDisks = Objects.requireNonNull(persistentDisks);
             return this;
@@ -223,23 +201,40 @@ public final class GetSpringCloudAppResult {
         public Builder persistentDisks(GetSpringCloudAppPersistentDisk... persistentDisks) {
             return persistentDisks(List.of(persistentDisks));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceName(String serviceName) {
             this.serviceName = Objects.requireNonNull(serviceName);
             return this;
         }
+        @CustomType.Setter
         public Builder tlsEnabled(Boolean tlsEnabled) {
             this.tlsEnabled = Objects.requireNonNull(tlsEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public GetSpringCloudAppResult build() {
-            return new GetSpringCloudAppResult(fqdn, httpsOnly, id, identities, isPublic, name, persistentDisks, resourceGroupName, serviceName, tlsEnabled, url);
+        }
+        public GetSpringCloudAppResult build() {
+            final var o = new GetSpringCloudAppResult();
+            o.fqdn = fqdn;
+            o.httpsOnly = httpsOnly;
+            o.id = id;
+            o.identities = identities;
+            o.isPublic = isPublic;
+            o.name = name;
+            o.persistentDisks = persistentDisks;
+            o.resourceGroupName = resourceGroupName;
+            o.serviceName = serviceName;
+            o.tlsEnabled = tlsEnabled;
+            o.url = url;
+            return o;
         }
     }
 }

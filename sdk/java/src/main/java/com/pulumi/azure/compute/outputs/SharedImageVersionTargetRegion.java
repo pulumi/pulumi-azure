@@ -16,35 +16,24 @@ public final class SharedImageVersionTargetRegion {
      * @return The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String diskEncryptionSetId;
+    private @Nullable String diskEncryptionSetId;
     /**
      * @return The Azure Region in which this Image Version should exist.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The number of replicas of the Image Version to be created per region.
      * 
      */
-    private final Integer regionalReplicaCount;
+    private Integer regionalReplicaCount;
     /**
      * @return The storage account type for the image version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. You can store all of your image version replicas in Zone Redundant Storage by specifying `Standard_ZRS`.
      * 
      */
-    private final @Nullable String storageAccountType;
+    private @Nullable String storageAccountType;
 
-    @CustomType.Constructor
-    private SharedImageVersionTargetRegion(
-        @CustomType.Parameter("diskEncryptionSetId") @Nullable String diskEncryptionSetId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("regionalReplicaCount") Integer regionalReplicaCount,
-        @CustomType.Parameter("storageAccountType") @Nullable String storageAccountType) {
-        this.diskEncryptionSetId = diskEncryptionSetId;
-        this.name = name;
-        this.regionalReplicaCount = regionalReplicaCount;
-        this.storageAccountType = storageAccountType;
-    }
-
+    private SharedImageVersionTargetRegion() {}
     /**
      * @return The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
      * 
@@ -81,17 +70,13 @@ public final class SharedImageVersionTargetRegion {
     public static Builder builder(SharedImageVersionTargetRegion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String diskEncryptionSetId;
         private String name;
         private Integer regionalReplicaCount;
         private @Nullable String storageAccountType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SharedImageVersionTargetRegion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.diskEncryptionSetId = defaults.diskEncryptionSetId;
@@ -100,23 +85,33 @@ public final class SharedImageVersionTargetRegion {
     	      this.storageAccountType = defaults.storageAccountType;
         }
 
+        @CustomType.Setter
         public Builder diskEncryptionSetId(@Nullable String diskEncryptionSetId) {
             this.diskEncryptionSetId = diskEncryptionSetId;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder regionalReplicaCount(Integer regionalReplicaCount) {
             this.regionalReplicaCount = Objects.requireNonNull(regionalReplicaCount);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountType(@Nullable String storageAccountType) {
             this.storageAccountType = storageAccountType;
             return this;
-        }        public SharedImageVersionTargetRegion build() {
-            return new SharedImageVersionTargetRegion(diskEncryptionSetId, name, regionalReplicaCount, storageAccountType);
+        }
+        public SharedImageVersionTargetRegion build() {
+            final var o = new SharedImageVersionTargetRegion();
+            o.diskEncryptionSetId = diskEncryptionSetId;
+            o.name = name;
+            o.regionalReplicaCount = regionalReplicaCount;
+            o.storageAccountType = storageAccountType;
+            return o;
         }
     }
 }

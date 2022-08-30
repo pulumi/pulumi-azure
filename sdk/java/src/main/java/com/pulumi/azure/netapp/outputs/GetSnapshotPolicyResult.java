@@ -20,80 +20,55 @@ public final class GetSnapshotPolicyResult {
      * @return The name of the NetApp Account in which the NetApp Snapshot Policy was created.
      * 
      */
-    private final String accountName;
+    private String accountName;
     /**
      * @return Daily snapshot schedule.
      * 
      */
-    private final List<GetSnapshotPolicyDailySchedule> dailySchedules;
+    private List<GetSnapshotPolicyDailySchedule> dailySchedules;
     /**
      * @return Defines that the NetApp Snapshot Policy is enabled or not.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Hourly snapshot schedule.
      * 
      */
-    private final List<GetSnapshotPolicyHourlySchedule> hourlySchedules;
+    private List<GetSnapshotPolicyHourlySchedule> hourlySchedules;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Specifies the supported Azure location where the resource exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return List of the days of the month when the snapshots will be created.
      * 
      */
-    private final List<GetSnapshotPolicyMonthlySchedule> monthlySchedules;
+    private List<GetSnapshotPolicyMonthlySchedule> monthlySchedules;
     /**
      * @return The name of the NetApp Snapshot Policy.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The name of the resource group where the NetApp Snapshot Policy should be created.
      * 
      */
-    private final String resourceGroupName;
-    private final Map<String,String> tags;
+    private String resourceGroupName;
+    private Map<String,String> tags;
     /**
      * @return Weekly snapshot schedule.
      * 
      */
-    private final List<GetSnapshotPolicyWeeklySchedule> weeklySchedules;
+    private List<GetSnapshotPolicyWeeklySchedule> weeklySchedules;
 
-    @CustomType.Constructor
-    private GetSnapshotPolicyResult(
-        @CustomType.Parameter("accountName") String accountName,
-        @CustomType.Parameter("dailySchedules") List<GetSnapshotPolicyDailySchedule> dailySchedules,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("hourlySchedules") List<GetSnapshotPolicyHourlySchedule> hourlySchedules,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("monthlySchedules") List<GetSnapshotPolicyMonthlySchedule> monthlySchedules,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("weeklySchedules") List<GetSnapshotPolicyWeeklySchedule> weeklySchedules) {
-        this.accountName = accountName;
-        this.dailySchedules = dailySchedules;
-        this.enabled = enabled;
-        this.hourlySchedules = hourlySchedules;
-        this.id = id;
-        this.location = location;
-        this.monthlySchedules = monthlySchedules;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-        this.weeklySchedules = weeklySchedules;
-    }
-
+    private GetSnapshotPolicyResult() {}
     /**
      * @return The name of the NetApp Account in which the NetApp Snapshot Policy was created.
      * 
@@ -175,7 +150,7 @@ public final class GetSnapshotPolicyResult {
     public static Builder builder(GetSnapshotPolicyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountName;
         private List<GetSnapshotPolicyDailySchedule> dailySchedules;
@@ -188,11 +163,7 @@ public final class GetSnapshotPolicyResult {
         private String resourceGroupName;
         private Map<String,String> tags;
         private List<GetSnapshotPolicyWeeklySchedule> weeklySchedules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSnapshotPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountName = defaults.accountName;
@@ -208,10 +179,12 @@ public final class GetSnapshotPolicyResult {
     	      this.weeklySchedules = defaults.weeklySchedules;
         }
 
+        @CustomType.Setter
         public Builder accountName(String accountName) {
             this.accountName = Objects.requireNonNull(accountName);
             return this;
         }
+        @CustomType.Setter
         public Builder dailySchedules(List<GetSnapshotPolicyDailySchedule> dailySchedules) {
             this.dailySchedules = Objects.requireNonNull(dailySchedules);
             return this;
@@ -219,10 +192,12 @@ public final class GetSnapshotPolicyResult {
         public Builder dailySchedules(GetSnapshotPolicyDailySchedule... dailySchedules) {
             return dailySchedules(List.of(dailySchedules));
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder hourlySchedules(List<GetSnapshotPolicyHourlySchedule> hourlySchedules) {
             this.hourlySchedules = Objects.requireNonNull(hourlySchedules);
             return this;
@@ -230,14 +205,17 @@ public final class GetSnapshotPolicyResult {
         public Builder hourlySchedules(GetSnapshotPolicyHourlySchedule... hourlySchedules) {
             return hourlySchedules(List.of(hourlySchedules));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder monthlySchedules(List<GetSnapshotPolicyMonthlySchedule> monthlySchedules) {
             this.monthlySchedules = Objects.requireNonNull(monthlySchedules);
             return this;
@@ -245,26 +223,43 @@ public final class GetSnapshotPolicyResult {
         public Builder monthlySchedules(GetSnapshotPolicyMonthlySchedule... monthlySchedules) {
             return monthlySchedules(List.of(monthlySchedules));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder weeklySchedules(List<GetSnapshotPolicyWeeklySchedule> weeklySchedules) {
             this.weeklySchedules = Objects.requireNonNull(weeklySchedules);
             return this;
         }
         public Builder weeklySchedules(GetSnapshotPolicyWeeklySchedule... weeklySchedules) {
             return weeklySchedules(List.of(weeklySchedules));
-        }        public GetSnapshotPolicyResult build() {
-            return new GetSnapshotPolicyResult(accountName, dailySchedules, enabled, hourlySchedules, id, location, monthlySchedules, name, resourceGroupName, tags, weeklySchedules);
+        }
+        public GetSnapshotPolicyResult build() {
+            final var o = new GetSnapshotPolicyResult();
+            o.accountName = accountName;
+            o.dailySchedules = dailySchedules;
+            o.enabled = enabled;
+            o.hourlySchedules = hourlySchedules;
+            o.id = id;
+            o.location = location;
+            o.monthlySchedules = monthlySchedules;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            o.weeklySchedules = weeklySchedules;
+            return o;
         }
     }
 }

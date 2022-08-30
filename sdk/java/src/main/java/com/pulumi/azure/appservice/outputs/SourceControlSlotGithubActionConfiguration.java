@@ -17,35 +17,24 @@ public final class SourceControlSlotGithubActionConfiguration {
      * @return A `code_configuration` block as detailed below.
      * 
      */
-    private final @Nullable SourceControlSlotGithubActionConfigurationCodeConfiguration codeConfiguration;
+    private @Nullable SourceControlSlotGithubActionConfigurationCodeConfiguration codeConfiguration;
     /**
      * @return A `container_configuration` block as detailed below.
      * 
      */
-    private final @Nullable SourceControlSlotGithubActionConfigurationContainerConfiguration containerConfiguration;
+    private @Nullable SourceControlSlotGithubActionConfigurationContainerConfiguration containerConfiguration;
     /**
      * @return Should the service generate the GitHub Action Workflow file. Defaults to `true` Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Boolean generateWorkflowFile;
+    private @Nullable Boolean generateWorkflowFile;
     /**
      * @return Denotes this action uses a Linux base image.
      * 
      */
-    private final @Nullable Boolean linuxAction;
+    private @Nullable Boolean linuxAction;
 
-    @CustomType.Constructor
-    private SourceControlSlotGithubActionConfiguration(
-        @CustomType.Parameter("codeConfiguration") @Nullable SourceControlSlotGithubActionConfigurationCodeConfiguration codeConfiguration,
-        @CustomType.Parameter("containerConfiguration") @Nullable SourceControlSlotGithubActionConfigurationContainerConfiguration containerConfiguration,
-        @CustomType.Parameter("generateWorkflowFile") @Nullable Boolean generateWorkflowFile,
-        @CustomType.Parameter("linuxAction") @Nullable Boolean linuxAction) {
-        this.codeConfiguration = codeConfiguration;
-        this.containerConfiguration = containerConfiguration;
-        this.generateWorkflowFile = generateWorkflowFile;
-        this.linuxAction = linuxAction;
-    }
-
+    private SourceControlSlotGithubActionConfiguration() {}
     /**
      * @return A `code_configuration` block as detailed below.
      * 
@@ -82,17 +71,13 @@ public final class SourceControlSlotGithubActionConfiguration {
     public static Builder builder(SourceControlSlotGithubActionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable SourceControlSlotGithubActionConfigurationCodeConfiguration codeConfiguration;
         private @Nullable SourceControlSlotGithubActionConfigurationContainerConfiguration containerConfiguration;
         private @Nullable Boolean generateWorkflowFile;
         private @Nullable Boolean linuxAction;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SourceControlSlotGithubActionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.codeConfiguration = defaults.codeConfiguration;
@@ -101,23 +86,33 @@ public final class SourceControlSlotGithubActionConfiguration {
     	      this.linuxAction = defaults.linuxAction;
         }
 
+        @CustomType.Setter
         public Builder codeConfiguration(@Nullable SourceControlSlotGithubActionConfigurationCodeConfiguration codeConfiguration) {
             this.codeConfiguration = codeConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder containerConfiguration(@Nullable SourceControlSlotGithubActionConfigurationContainerConfiguration containerConfiguration) {
             this.containerConfiguration = containerConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder generateWorkflowFile(@Nullable Boolean generateWorkflowFile) {
             this.generateWorkflowFile = generateWorkflowFile;
             return this;
         }
+        @CustomType.Setter
         public Builder linuxAction(@Nullable Boolean linuxAction) {
             this.linuxAction = linuxAction;
             return this;
-        }        public SourceControlSlotGithubActionConfiguration build() {
-            return new SourceControlSlotGithubActionConfiguration(codeConfiguration, containerConfiguration, generateWorkflowFile, linuxAction);
+        }
+        public SourceControlSlotGithubActionConfiguration build() {
+            final var o = new SourceControlSlotGithubActionConfiguration();
+            o.codeConfiguration = codeConfiguration;
+            o.containerConfiguration = containerConfiguration;
+            o.generateWorkflowFile = generateWorkflowFile;
+            o.linuxAction = linuxAction;
+            return o;
         }
     }
 }

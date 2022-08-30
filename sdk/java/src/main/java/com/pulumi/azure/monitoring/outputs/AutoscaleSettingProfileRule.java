@@ -14,21 +14,14 @@ public final class AutoscaleSettingProfileRule {
      * @return A `metric_trigger` block as defined below.
      * 
      */
-    private final AutoscaleSettingProfileRuleMetricTrigger metricTrigger;
+    private AutoscaleSettingProfileRuleMetricTrigger metricTrigger;
     /**
      * @return A `scale_action` block as defined below.
      * 
      */
-    private final AutoscaleSettingProfileRuleScaleAction scaleAction;
+    private AutoscaleSettingProfileRuleScaleAction scaleAction;
 
-    @CustomType.Constructor
-    private AutoscaleSettingProfileRule(
-        @CustomType.Parameter("metricTrigger") AutoscaleSettingProfileRuleMetricTrigger metricTrigger,
-        @CustomType.Parameter("scaleAction") AutoscaleSettingProfileRuleScaleAction scaleAction) {
-        this.metricTrigger = metricTrigger;
-        this.scaleAction = scaleAction;
-    }
-
+    private AutoscaleSettingProfileRule() {}
     /**
      * @return A `metric_trigger` block as defined below.
      * 
@@ -51,30 +44,32 @@ public final class AutoscaleSettingProfileRule {
     public static Builder builder(AutoscaleSettingProfileRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private AutoscaleSettingProfileRuleMetricTrigger metricTrigger;
         private AutoscaleSettingProfileRuleScaleAction scaleAction;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AutoscaleSettingProfileRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.metricTrigger = defaults.metricTrigger;
     	      this.scaleAction = defaults.scaleAction;
         }
 
+        @CustomType.Setter
         public Builder metricTrigger(AutoscaleSettingProfileRuleMetricTrigger metricTrigger) {
             this.metricTrigger = Objects.requireNonNull(metricTrigger);
             return this;
         }
+        @CustomType.Setter
         public Builder scaleAction(AutoscaleSettingProfileRuleScaleAction scaleAction) {
             this.scaleAction = Objects.requireNonNull(scaleAction);
             return this;
-        }        public AutoscaleSettingProfileRule build() {
-            return new AutoscaleSettingProfileRule(metricTrigger, scaleAction);
+        }
+        public AutoscaleSettingProfileRule build() {
+            final var o = new AutoscaleSettingProfileRule();
+            o.metricTrigger = metricTrigger;
+            o.scaleAction = scaleAction;
+            return o;
         }
     }
 }

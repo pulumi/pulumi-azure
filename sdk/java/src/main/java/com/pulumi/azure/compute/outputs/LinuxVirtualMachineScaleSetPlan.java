@@ -13,28 +13,19 @@ public final class LinuxVirtualMachineScaleSetPlan {
      * @return Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
      * 
      */
-    private final String product;
+    private String product;
     /**
      * @return Specifies the publisher of the image. Changing this forces a new resource to be created.
      * 
      */
-    private final String publisher;
+    private String publisher;
 
-    @CustomType.Constructor
-    private LinuxVirtualMachineScaleSetPlan(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("product") String product,
-        @CustomType.Parameter("publisher") String publisher) {
-        this.name = name;
-        this.product = product;
-        this.publisher = publisher;
-    }
-
+    private LinuxVirtualMachineScaleSetPlan() {}
     /**
      * @return Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
      * 
@@ -64,16 +55,12 @@ public final class LinuxVirtualMachineScaleSetPlan {
     public static Builder builder(LinuxVirtualMachineScaleSetPlan defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String product;
         private String publisher;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxVirtualMachineScaleSetPlan defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -81,19 +68,27 @@ public final class LinuxVirtualMachineScaleSetPlan {
     	      this.publisher = defaults.publisher;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder product(String product) {
             this.product = Objects.requireNonNull(product);
             return this;
         }
+        @CustomType.Setter
         public Builder publisher(String publisher) {
             this.publisher = Objects.requireNonNull(publisher);
             return this;
-        }        public LinuxVirtualMachineScaleSetPlan build() {
-            return new LinuxVirtualMachineScaleSetPlan(name, product, publisher);
+        }
+        public LinuxVirtualMachineScaleSetPlan build() {
+            final var o = new LinuxVirtualMachineScaleSetPlan();
+            o.name = name;
+            o.product = product;
+            o.publisher = publisher;
+            return o;
         }
     }
 }

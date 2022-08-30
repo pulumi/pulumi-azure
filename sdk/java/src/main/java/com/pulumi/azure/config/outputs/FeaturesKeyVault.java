@@ -11,38 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FeaturesKeyVault {
-    private final @Nullable Boolean purgeSoftDeleteOnDestroy;
-    private final @Nullable Boolean purgeSoftDeletedCertificatesOnDestroy;
-    private final @Nullable Boolean purgeSoftDeletedHardwareSecurityModulesOnDestroy;
-    private final @Nullable Boolean purgeSoftDeletedKeysOnDestroy;
-    private final @Nullable Boolean purgeSoftDeletedSecretsOnDestroy;
-    private final @Nullable Boolean recoverSoftDeletedCertificates;
-    private final @Nullable Boolean recoverSoftDeletedKeyVaults;
-    private final @Nullable Boolean recoverSoftDeletedKeys;
-    private final @Nullable Boolean recoverSoftDeletedSecrets;
+    private @Nullable Boolean purgeSoftDeleteOnDestroy;
+    private @Nullable Boolean purgeSoftDeletedCertificatesOnDestroy;
+    private @Nullable Boolean purgeSoftDeletedHardwareSecurityModulesOnDestroy;
+    private @Nullable Boolean purgeSoftDeletedKeysOnDestroy;
+    private @Nullable Boolean purgeSoftDeletedSecretsOnDestroy;
+    private @Nullable Boolean recoverSoftDeletedCertificates;
+    private @Nullable Boolean recoverSoftDeletedKeyVaults;
+    private @Nullable Boolean recoverSoftDeletedKeys;
+    private @Nullable Boolean recoverSoftDeletedSecrets;
 
-    @CustomType.Constructor
-    private FeaturesKeyVault(
-        @CustomType.Parameter("purgeSoftDeleteOnDestroy") @Nullable Boolean purgeSoftDeleteOnDestroy,
-        @CustomType.Parameter("purgeSoftDeletedCertificatesOnDestroy") @Nullable Boolean purgeSoftDeletedCertificatesOnDestroy,
-        @CustomType.Parameter("purgeSoftDeletedHardwareSecurityModulesOnDestroy") @Nullable Boolean purgeSoftDeletedHardwareSecurityModulesOnDestroy,
-        @CustomType.Parameter("purgeSoftDeletedKeysOnDestroy") @Nullable Boolean purgeSoftDeletedKeysOnDestroy,
-        @CustomType.Parameter("purgeSoftDeletedSecretsOnDestroy") @Nullable Boolean purgeSoftDeletedSecretsOnDestroy,
-        @CustomType.Parameter("recoverSoftDeletedCertificates") @Nullable Boolean recoverSoftDeletedCertificates,
-        @CustomType.Parameter("recoverSoftDeletedKeyVaults") @Nullable Boolean recoverSoftDeletedKeyVaults,
-        @CustomType.Parameter("recoverSoftDeletedKeys") @Nullable Boolean recoverSoftDeletedKeys,
-        @CustomType.Parameter("recoverSoftDeletedSecrets") @Nullable Boolean recoverSoftDeletedSecrets) {
-        this.purgeSoftDeleteOnDestroy = purgeSoftDeleteOnDestroy;
-        this.purgeSoftDeletedCertificatesOnDestroy = purgeSoftDeletedCertificatesOnDestroy;
-        this.purgeSoftDeletedHardwareSecurityModulesOnDestroy = purgeSoftDeletedHardwareSecurityModulesOnDestroy;
-        this.purgeSoftDeletedKeysOnDestroy = purgeSoftDeletedKeysOnDestroy;
-        this.purgeSoftDeletedSecretsOnDestroy = purgeSoftDeletedSecretsOnDestroy;
-        this.recoverSoftDeletedCertificates = recoverSoftDeletedCertificates;
-        this.recoverSoftDeletedKeyVaults = recoverSoftDeletedKeyVaults;
-        this.recoverSoftDeletedKeys = recoverSoftDeletedKeys;
-        this.recoverSoftDeletedSecrets = recoverSoftDeletedSecrets;
-    }
-
+    private FeaturesKeyVault() {}
     public Optional<Boolean> purgeSoftDeleteOnDestroy() {
         return Optional.ofNullable(this.purgeSoftDeleteOnDestroy);
     }
@@ -78,7 +57,7 @@ public final class FeaturesKeyVault {
     public static Builder builder(FeaturesKeyVault defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean purgeSoftDeleteOnDestroy;
         private @Nullable Boolean purgeSoftDeletedCertificatesOnDestroy;
@@ -89,11 +68,7 @@ public final class FeaturesKeyVault {
         private @Nullable Boolean recoverSoftDeletedKeyVaults;
         private @Nullable Boolean recoverSoftDeletedKeys;
         private @Nullable Boolean recoverSoftDeletedSecrets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FeaturesKeyVault defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.purgeSoftDeleteOnDestroy = defaults.purgeSoftDeleteOnDestroy;
@@ -107,43 +82,63 @@ public final class FeaturesKeyVault {
     	      this.recoverSoftDeletedSecrets = defaults.recoverSoftDeletedSecrets;
         }
 
+        @CustomType.Setter
         public Builder purgeSoftDeleteOnDestroy(@Nullable Boolean purgeSoftDeleteOnDestroy) {
             this.purgeSoftDeleteOnDestroy = purgeSoftDeleteOnDestroy;
             return this;
         }
+        @CustomType.Setter
         public Builder purgeSoftDeletedCertificatesOnDestroy(@Nullable Boolean purgeSoftDeletedCertificatesOnDestroy) {
             this.purgeSoftDeletedCertificatesOnDestroy = purgeSoftDeletedCertificatesOnDestroy;
             return this;
         }
+        @CustomType.Setter
         public Builder purgeSoftDeletedHardwareSecurityModulesOnDestroy(@Nullable Boolean purgeSoftDeletedHardwareSecurityModulesOnDestroy) {
             this.purgeSoftDeletedHardwareSecurityModulesOnDestroy = purgeSoftDeletedHardwareSecurityModulesOnDestroy;
             return this;
         }
+        @CustomType.Setter
         public Builder purgeSoftDeletedKeysOnDestroy(@Nullable Boolean purgeSoftDeletedKeysOnDestroy) {
             this.purgeSoftDeletedKeysOnDestroy = purgeSoftDeletedKeysOnDestroy;
             return this;
         }
+        @CustomType.Setter
         public Builder purgeSoftDeletedSecretsOnDestroy(@Nullable Boolean purgeSoftDeletedSecretsOnDestroy) {
             this.purgeSoftDeletedSecretsOnDestroy = purgeSoftDeletedSecretsOnDestroy;
             return this;
         }
+        @CustomType.Setter
         public Builder recoverSoftDeletedCertificates(@Nullable Boolean recoverSoftDeletedCertificates) {
             this.recoverSoftDeletedCertificates = recoverSoftDeletedCertificates;
             return this;
         }
+        @CustomType.Setter
         public Builder recoverSoftDeletedKeyVaults(@Nullable Boolean recoverSoftDeletedKeyVaults) {
             this.recoverSoftDeletedKeyVaults = recoverSoftDeletedKeyVaults;
             return this;
         }
+        @CustomType.Setter
         public Builder recoverSoftDeletedKeys(@Nullable Boolean recoverSoftDeletedKeys) {
             this.recoverSoftDeletedKeys = recoverSoftDeletedKeys;
             return this;
         }
+        @CustomType.Setter
         public Builder recoverSoftDeletedSecrets(@Nullable Boolean recoverSoftDeletedSecrets) {
             this.recoverSoftDeletedSecrets = recoverSoftDeletedSecrets;
             return this;
-        }        public FeaturesKeyVault build() {
-            return new FeaturesKeyVault(purgeSoftDeleteOnDestroy, purgeSoftDeletedCertificatesOnDestroy, purgeSoftDeletedHardwareSecurityModulesOnDestroy, purgeSoftDeletedKeysOnDestroy, purgeSoftDeletedSecretsOnDestroy, recoverSoftDeletedCertificates, recoverSoftDeletedKeyVaults, recoverSoftDeletedKeys, recoverSoftDeletedSecrets);
+        }
+        public FeaturesKeyVault build() {
+            final var o = new FeaturesKeyVault();
+            o.purgeSoftDeleteOnDestroy = purgeSoftDeleteOnDestroy;
+            o.purgeSoftDeletedCertificatesOnDestroy = purgeSoftDeletedCertificatesOnDestroy;
+            o.purgeSoftDeletedHardwareSecurityModulesOnDestroy = purgeSoftDeletedHardwareSecurityModulesOnDestroy;
+            o.purgeSoftDeletedKeysOnDestroy = purgeSoftDeletedKeysOnDestroy;
+            o.purgeSoftDeletedSecretsOnDestroy = purgeSoftDeletedSecretsOnDestroy;
+            o.recoverSoftDeletedCertificates = recoverSoftDeletedCertificates;
+            o.recoverSoftDeletedKeyVaults = recoverSoftDeletedKeyVaults;
+            o.recoverSoftDeletedKeys = recoverSoftDeletedKeys;
+            o.recoverSoftDeletedSecrets = recoverSoftDeletedSecrets;
+            return o;
         }
     }
 }

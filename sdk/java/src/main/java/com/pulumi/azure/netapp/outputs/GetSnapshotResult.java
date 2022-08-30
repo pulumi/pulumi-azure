@@ -9,40 +9,23 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSnapshotResult {
-    private final String accountName;
+    private String accountName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region where the NetApp Snapshot exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String poolName;
-    private final String resourceGroupName;
-    private final String volumeName;
+    private String location;
+    private String name;
+    private String poolName;
+    private String resourceGroupName;
+    private String volumeName;
 
-    @CustomType.Constructor
-    private GetSnapshotResult(
-        @CustomType.Parameter("accountName") String accountName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("poolName") String poolName,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("volumeName") String volumeName) {
-        this.accountName = accountName;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.poolName = poolName;
-        this.resourceGroupName = resourceGroupName;
-        this.volumeName = volumeName;
-    }
-
+    private GetSnapshotResult() {}
     public String accountName() {
         return this.accountName;
     }
@@ -80,7 +63,7 @@ public final class GetSnapshotResult {
     public static Builder builder(GetSnapshotResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountName;
         private String id;
@@ -89,11 +72,7 @@ public final class GetSnapshotResult {
         private String poolName;
         private String resourceGroupName;
         private String volumeName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSnapshotResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountName = defaults.accountName;
@@ -105,35 +84,51 @@ public final class GetSnapshotResult {
     	      this.volumeName = defaults.volumeName;
         }
 
+        @CustomType.Setter
         public Builder accountName(String accountName) {
             this.accountName = Objects.requireNonNull(accountName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder poolName(String poolName) {
             this.poolName = Objects.requireNonNull(poolName);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder volumeName(String volumeName) {
             this.volumeName = Objects.requireNonNull(volumeName);
             return this;
-        }        public GetSnapshotResult build() {
-            return new GetSnapshotResult(accountName, id, location, name, poolName, resourceGroupName, volumeName);
+        }
+        public GetSnapshotResult build() {
+            final var o = new GetSnapshotResult();
+            o.accountName = accountName;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.poolName = poolName;
+            o.resourceGroupName = resourceGroupName;
+            o.volumeName = volumeName;
+            return o;
         }
     }
 }

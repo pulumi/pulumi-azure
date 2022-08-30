@@ -15,21 +15,14 @@ public final class SpringCloudBuilderBuildPackGroup {
      * @return Specifies a list of the build pack&#39;s ID.
      * 
      */
-    private final @Nullable List<String> buildPackIds;
+    private @Nullable List<String> buildPackIds;
     /**
      * @return The name which should be used for this build pack group.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private SpringCloudBuilderBuildPackGroup(
-        @CustomType.Parameter("buildPackIds") @Nullable List<String> buildPackIds,
-        @CustomType.Parameter("name") String name) {
-        this.buildPackIds = buildPackIds;
-        this.name = name;
-    }
-
+    private SpringCloudBuilderBuildPackGroup() {}
     /**
      * @return Specifies a list of the build pack&#39;s ID.
      * 
@@ -52,21 +45,18 @@ public final class SpringCloudBuilderBuildPackGroup {
     public static Builder builder(SpringCloudBuilderBuildPackGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> buildPackIds;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpringCloudBuilderBuildPackGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.buildPackIds = defaults.buildPackIds;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder buildPackIds(@Nullable List<String> buildPackIds) {
             this.buildPackIds = buildPackIds;
             return this;
@@ -74,11 +64,16 @@ public final class SpringCloudBuilderBuildPackGroup {
         public Builder buildPackIds(String... buildPackIds) {
             return buildPackIds(List.of(buildPackIds));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public SpringCloudBuilderBuildPackGroup build() {
-            return new SpringCloudBuilderBuildPackGroup(buildPackIds, name);
+        }
+        public SpringCloudBuilderBuildPackGroup build() {
+            final var o = new SpringCloudBuilderBuildPackGroup();
+            o.buildPackIds = buildPackIds;
+            o.name = name;
+            return o;
         }
     }
 }

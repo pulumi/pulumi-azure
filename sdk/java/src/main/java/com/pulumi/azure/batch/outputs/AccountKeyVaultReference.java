@@ -13,21 +13,14 @@ public final class AccountKeyVaultReference {
      * @return The Azure identifier of the Azure KeyVault to use.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The HTTPS URL of the Azure KeyVault to use.
      * 
      */
-    private final String url;
+    private String url;
 
-    @CustomType.Constructor
-    private AccountKeyVaultReference(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("url") String url) {
-        this.id = id;
-        this.url = url;
-    }
-
+    private AccountKeyVaultReference() {}
     /**
      * @return The Azure identifier of the Azure KeyVault to use.
      * 
@@ -50,30 +43,32 @@ public final class AccountKeyVaultReference {
     public static Builder builder(AccountKeyVaultReference defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountKeyVaultReference defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public AccountKeyVaultReference build() {
-            return new AccountKeyVaultReference(id, url);
+        }
+        public AccountKeyVaultReference build() {
+            final var o = new AccountKeyVaultReference();
+            o.id = id;
+            o.url = url;
+            return o;
         }
     }
 }

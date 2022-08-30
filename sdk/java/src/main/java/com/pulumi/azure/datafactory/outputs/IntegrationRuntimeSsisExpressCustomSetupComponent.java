@@ -16,28 +16,19 @@ public final class IntegrationRuntimeSsisExpressCustomSetupComponent {
      * @return A `key_vault_secret_reference` block as defined below.
      * 
      */
-    private final @Nullable IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense keyVaultLicense;
+    private @Nullable IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense keyVaultLicense;
     /**
      * @return The license used for the Component.
      * 
      */
-    private final @Nullable String license;
+    private @Nullable String license;
     /**
      * @return The Component Name installed for the Azure-SSIS Integration Runtime.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private IntegrationRuntimeSsisExpressCustomSetupComponent(
-        @CustomType.Parameter("keyVaultLicense") @Nullable IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense keyVaultLicense,
-        @CustomType.Parameter("license") @Nullable String license,
-        @CustomType.Parameter("name") String name) {
-        this.keyVaultLicense = keyVaultLicense;
-        this.license = license;
-        this.name = name;
-    }
-
+    private IntegrationRuntimeSsisExpressCustomSetupComponent() {}
     /**
      * @return A `key_vault_secret_reference` block as defined below.
      * 
@@ -67,16 +58,12 @@ public final class IntegrationRuntimeSsisExpressCustomSetupComponent {
     public static Builder builder(IntegrationRuntimeSsisExpressCustomSetupComponent defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense keyVaultLicense;
         private @Nullable String license;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationRuntimeSsisExpressCustomSetupComponent defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyVaultLicense = defaults.keyVaultLicense;
@@ -84,19 +71,27 @@ public final class IntegrationRuntimeSsisExpressCustomSetupComponent {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder keyVaultLicense(@Nullable IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense keyVaultLicense) {
             this.keyVaultLicense = keyVaultLicense;
             return this;
         }
+        @CustomType.Setter
         public Builder license(@Nullable String license) {
             this.license = license;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public IntegrationRuntimeSsisExpressCustomSetupComponent build() {
-            return new IntegrationRuntimeSsisExpressCustomSetupComponent(keyVaultLicense, license, name);
+        }
+        public IntegrationRuntimeSsisExpressCustomSetupComponent build() {
+            final var o = new IntegrationRuntimeSsisExpressCustomSetupComponent();
+            o.keyVaultLicense = keyVaultLicense;
+            o.license = license;
+            o.name = name;
+            return o;
         }
     }
 }

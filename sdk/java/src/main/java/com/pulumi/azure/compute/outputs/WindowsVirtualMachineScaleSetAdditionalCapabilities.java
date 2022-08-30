@@ -15,13 +15,9 @@ public final class WindowsVirtualMachineScaleSetAdditionalCapabilities {
      * @return Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Boolean ultraSsdEnabled;
+    private @Nullable Boolean ultraSsdEnabled;
 
-    @CustomType.Constructor
-    private WindowsVirtualMachineScaleSetAdditionalCapabilities(@CustomType.Parameter("ultraSsdEnabled") @Nullable Boolean ultraSsdEnabled) {
-        this.ultraSsdEnabled = ultraSsdEnabled;
-    }
-
+    private WindowsVirtualMachineScaleSetAdditionalCapabilities() {}
     /**
      * @return Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
      * 
@@ -37,24 +33,24 @@ public final class WindowsVirtualMachineScaleSetAdditionalCapabilities {
     public static Builder builder(WindowsVirtualMachineScaleSetAdditionalCapabilities defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean ultraSsdEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsVirtualMachineScaleSetAdditionalCapabilities defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ultraSsdEnabled = defaults.ultraSsdEnabled;
         }
 
+        @CustomType.Setter
         public Builder ultraSsdEnabled(@Nullable Boolean ultraSsdEnabled) {
             this.ultraSsdEnabled = ultraSsdEnabled;
             return this;
-        }        public WindowsVirtualMachineScaleSetAdditionalCapabilities build() {
-            return new WindowsVirtualMachineScaleSetAdditionalCapabilities(ultraSsdEnabled);
+        }
+        public WindowsVirtualMachineScaleSetAdditionalCapabilities build() {
+            final var o = new WindowsVirtualMachineScaleSetAdditionalCapabilities();
+            o.ultraSsdEnabled = ultraSsdEnabled;
+            return o;
         }
     }
 }

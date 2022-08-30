@@ -17,70 +17,49 @@ public final class ChannelDirectLineSite {
      * @return Enables/Disables this site. Enabled by default
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Enables additional security measures for this site, see [Enhanced Directline Authentication Features](https://blog.botframework.com/2018/09/25/enhanced-direct-line-authentication-features). Disabled by default.
      * 
      */
-    private final @Nullable Boolean enhancedAuthenticationEnabled;
+    private @Nullable Boolean enhancedAuthenticationEnabled;
     /**
      * @return Id for the site
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Primary key for accessing this site
      * 
      */
-    private final @Nullable String key;
+    private @Nullable String key;
     /**
      * @return Secondary key for accessing this site
      * 
      */
-    private final @Nullable String key2;
+    private @Nullable String key2;
     /**
      * @return The name of the site
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return This field is required when `is_secure_site_enabled` is enabled. Determines which origins can establish a Directline conversation for this site.
      * 
      */
-    private final @Nullable List<String> trustedOrigins;
+    private @Nullable List<String> trustedOrigins;
     /**
      * @return Enables v1 of the Directline protocol for this site. Enabled by default
      * 
      */
-    private final @Nullable Boolean v1Allowed;
+    private @Nullable Boolean v1Allowed;
     /**
      * @return Enables v3 of the Directline protocol for this site. Enabled by default
      * 
      */
-    private final @Nullable Boolean v3Allowed;
+    private @Nullable Boolean v3Allowed;
 
-    @CustomType.Constructor
-    private ChannelDirectLineSite(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("enhancedAuthenticationEnabled") @Nullable Boolean enhancedAuthenticationEnabled,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("key") @Nullable String key,
-        @CustomType.Parameter("key2") @Nullable String key2,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("trustedOrigins") @Nullable List<String> trustedOrigins,
-        @CustomType.Parameter("v1Allowed") @Nullable Boolean v1Allowed,
-        @CustomType.Parameter("v3Allowed") @Nullable Boolean v3Allowed) {
-        this.enabled = enabled;
-        this.enhancedAuthenticationEnabled = enhancedAuthenticationEnabled;
-        this.id = id;
-        this.key = key;
-        this.key2 = key2;
-        this.name = name;
-        this.trustedOrigins = trustedOrigins;
-        this.v1Allowed = v1Allowed;
-        this.v3Allowed = v3Allowed;
-    }
-
+    private ChannelDirectLineSite() {}
     /**
      * @return Enables/Disables this site. Enabled by default
      * 
@@ -152,7 +131,7 @@ public final class ChannelDirectLineSite {
     public static Builder builder(ChannelDirectLineSite defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable Boolean enhancedAuthenticationEnabled;
@@ -163,11 +142,7 @@ public final class ChannelDirectLineSite {
         private @Nullable List<String> trustedOrigins;
         private @Nullable Boolean v1Allowed;
         private @Nullable Boolean v3Allowed;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ChannelDirectLineSite defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -181,30 +156,37 @@ public final class ChannelDirectLineSite {
     	      this.v3Allowed = defaults.v3Allowed;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder enhancedAuthenticationEnabled(@Nullable Boolean enhancedAuthenticationEnabled) {
             this.enhancedAuthenticationEnabled = enhancedAuthenticationEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder key(@Nullable String key) {
             this.key = key;
             return this;
         }
+        @CustomType.Setter
         public Builder key2(@Nullable String key2) {
             this.key2 = key2;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder trustedOrigins(@Nullable List<String> trustedOrigins) {
             this.trustedOrigins = trustedOrigins;
             return this;
@@ -212,15 +194,28 @@ public final class ChannelDirectLineSite {
         public Builder trustedOrigins(String... trustedOrigins) {
             return trustedOrigins(List.of(trustedOrigins));
         }
+        @CustomType.Setter
         public Builder v1Allowed(@Nullable Boolean v1Allowed) {
             this.v1Allowed = v1Allowed;
             return this;
         }
+        @CustomType.Setter
         public Builder v3Allowed(@Nullable Boolean v3Allowed) {
             this.v3Allowed = v3Allowed;
             return this;
-        }        public ChannelDirectLineSite build() {
-            return new ChannelDirectLineSite(enabled, enhancedAuthenticationEnabled, id, key, key2, name, trustedOrigins, v1Allowed, v3Allowed);
+        }
+        public ChannelDirectLineSite build() {
+            final var o = new ChannelDirectLineSite();
+            o.enabled = enabled;
+            o.enhancedAuthenticationEnabled = enhancedAuthenticationEnabled;
+            o.id = id;
+            o.key = key;
+            o.key2 = key2;
+            o.name = name;
+            o.trustedOrigins = trustedOrigins;
+            o.v1Allowed = v1Allowed;
+            o.v3Allowed = v3Allowed;
+            return o;
         }
     }
 }

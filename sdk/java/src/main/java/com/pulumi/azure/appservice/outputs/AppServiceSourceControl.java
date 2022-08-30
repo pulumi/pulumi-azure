@@ -16,42 +16,29 @@ public final class AppServiceSourceControl {
      * @return The branch of the remote repository to use. Defaults to &#39;master&#39;.
      * 
      */
-    private final @Nullable String branch;
+    private @Nullable String branch;
     /**
      * @return Limits to manual integration. Defaults to `false` if not specified.
      * 
      */
-    private final @Nullable Boolean manualIntegration;
+    private @Nullable Boolean manualIntegration;
     /**
      * @return The URL of the source code repository.
      * 
      */
-    private final @Nullable String repoUrl;
+    private @Nullable String repoUrl;
     /**
      * @return Enable roll-back for the repository. Defaults to `false` if not specified.
      * 
      */
-    private final @Nullable Boolean rollbackEnabled;
+    private @Nullable Boolean rollbackEnabled;
     /**
      * @return Use Mercurial if `true`, otherwise uses Git.
      * 
      */
-    private final @Nullable Boolean useMercurial;
+    private @Nullable Boolean useMercurial;
 
-    @CustomType.Constructor
-    private AppServiceSourceControl(
-        @CustomType.Parameter("branch") @Nullable String branch,
-        @CustomType.Parameter("manualIntegration") @Nullable Boolean manualIntegration,
-        @CustomType.Parameter("repoUrl") @Nullable String repoUrl,
-        @CustomType.Parameter("rollbackEnabled") @Nullable Boolean rollbackEnabled,
-        @CustomType.Parameter("useMercurial") @Nullable Boolean useMercurial) {
-        this.branch = branch;
-        this.manualIntegration = manualIntegration;
-        this.repoUrl = repoUrl;
-        this.rollbackEnabled = rollbackEnabled;
-        this.useMercurial = useMercurial;
-    }
-
+    private AppServiceSourceControl() {}
     /**
      * @return The branch of the remote repository to use. Defaults to &#39;master&#39;.
      * 
@@ -95,18 +82,14 @@ public final class AppServiceSourceControl {
     public static Builder builder(AppServiceSourceControl defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String branch;
         private @Nullable Boolean manualIntegration;
         private @Nullable String repoUrl;
         private @Nullable Boolean rollbackEnabled;
         private @Nullable Boolean useMercurial;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppServiceSourceControl defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.branch = defaults.branch;
@@ -116,27 +99,39 @@ public final class AppServiceSourceControl {
     	      this.useMercurial = defaults.useMercurial;
         }
 
+        @CustomType.Setter
         public Builder branch(@Nullable String branch) {
             this.branch = branch;
             return this;
         }
+        @CustomType.Setter
         public Builder manualIntegration(@Nullable Boolean manualIntegration) {
             this.manualIntegration = manualIntegration;
             return this;
         }
+        @CustomType.Setter
         public Builder repoUrl(@Nullable String repoUrl) {
             this.repoUrl = repoUrl;
             return this;
         }
+        @CustomType.Setter
         public Builder rollbackEnabled(@Nullable Boolean rollbackEnabled) {
             this.rollbackEnabled = rollbackEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder useMercurial(@Nullable Boolean useMercurial) {
             this.useMercurial = useMercurial;
             return this;
-        }        public AppServiceSourceControl build() {
-            return new AppServiceSourceControl(branch, manualIntegration, repoUrl, rollbackEnabled, useMercurial);
+        }
+        public AppServiceSourceControl build() {
+            final var o = new AppServiceSourceControl();
+            o.branch = branch;
+            o.manualIntegration = manualIntegration;
+            o.repoUrl = repoUrl;
+            o.rollbackEnabled = rollbackEnabled;
+            o.useMercurial = useMercurial;
+            return o;
         }
     }
 }

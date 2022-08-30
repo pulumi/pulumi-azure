@@ -15,21 +15,14 @@ public final class ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim {
      * @return Token claim type.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
     /**
      * @return Token claim value.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim(
-        @CustomType.Parameter("type") @Nullable String type,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.type = type;
-        this.value = value;
-    }
-
+    private ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim() {}
     /**
      * @return Token claim type.
      * 
@@ -52,30 +45,32 @@ public final class ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim {
     public static Builder builder(ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String type;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.type = defaults.type;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim build() {
-            return new ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim(type, value);
+        }
+        public ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim build() {
+            final var o = new ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim();
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

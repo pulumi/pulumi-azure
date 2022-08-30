@@ -14,21 +14,14 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest {
      * @return The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
      * 
      */
-    private final Integer count;
+    private Integer count;
     /**
      * @return The time interval in the form `hh:mm:ss`.
      * 
      */
-    private final String interval;
+    private String interval;
 
-    @CustomType.Constructor
-    private GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest(
-        @CustomType.Parameter("count") Integer count,
-        @CustomType.Parameter("interval") String interval) {
-        this.count = count;
-        this.interval = interval;
-    }
-
+    private GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest() {}
     /**
      * @return The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
      * 
@@ -51,30 +44,32 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest {
     public static Builder builder(GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer count;
         private String interval;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
     	      this.interval = defaults.interval;
         }
 
+        @CustomType.Setter
         public Builder count(Integer count) {
             this.count = Objects.requireNonNull(count);
             return this;
         }
+        @CustomType.Setter
         public Builder interval(String interval) {
             this.interval = Objects.requireNonNull(interval);
             return this;
-        }        public GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest build() {
-            return new GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest(count, interval);
+        }
+        public GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest build() {
+            final var o = new GetLinuxWebAppSiteConfigAutoHealSettingTriggerRequest();
+            o.count = count;
+            o.interval = interval;
+            return o;
         }
     }
 }

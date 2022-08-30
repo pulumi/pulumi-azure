@@ -16,35 +16,24 @@ public final class ElasticPoolSku {
      * @return The scale up/out capacity, representing server&#39;s compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
      * 
      */
-    private final Integer capacity;
+    private Integer capacity;
     /**
      * @return The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
      * 
      */
-    private final @Nullable String family;
+    private @Nullable String family;
     /**
      * @return Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either `vCore` based `tier` + `family` pattern (e.g. GP_Gen4, BC_Gen5) or the `DTU` based `BasicPool`, `StandardPool`, or `PremiumPool` pattern.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, or `Premium`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
      * 
      */
-    private final String tier;
+    private String tier;
 
-    @CustomType.Constructor
-    private ElasticPoolSku(
-        @CustomType.Parameter("capacity") Integer capacity,
-        @CustomType.Parameter("family") @Nullable String family,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("tier") String tier) {
-        this.capacity = capacity;
-        this.family = family;
-        this.name = name;
-        this.tier = tier;
-    }
-
+    private ElasticPoolSku() {}
     /**
      * @return The scale up/out capacity, representing server&#39;s compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
      * 
@@ -81,17 +70,13 @@ public final class ElasticPoolSku {
     public static Builder builder(ElasticPoolSku defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer capacity;
         private @Nullable String family;
         private String name;
         private String tier;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ElasticPoolSku defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacity = defaults.capacity;
@@ -100,23 +85,33 @@ public final class ElasticPoolSku {
     	      this.tier = defaults.tier;
         }
 
+        @CustomType.Setter
         public Builder capacity(Integer capacity) {
             this.capacity = Objects.requireNonNull(capacity);
             return this;
         }
+        @CustomType.Setter
         public Builder family(@Nullable String family) {
             this.family = family;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder tier(String tier) {
             this.tier = Objects.requireNonNull(tier);
             return this;
-        }        public ElasticPoolSku build() {
-            return new ElasticPoolSku(capacity, family, name, tier);
+        }
+        public ElasticPoolSku build() {
+            final var o = new ElasticPoolSku();
+            o.capacity = capacity;
+            o.family = family;
+            o.name = name;
+            o.tier = tier;
+            return o;
         }
     }
 }

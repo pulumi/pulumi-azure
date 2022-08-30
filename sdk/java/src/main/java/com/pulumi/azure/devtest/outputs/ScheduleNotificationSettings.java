@@ -16,28 +16,19 @@ public final class ScheduleNotificationSettings {
      * @return The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
      * 
      */
-    private final @Nullable String status;
+    private @Nullable String status;
     /**
      * @return Time in minutes before event at which notification will be sent.
      * 
      */
-    private final @Nullable Integer timeInMinutes;
+    private @Nullable Integer timeInMinutes;
     /**
      * @return The webhook URL to which the notification will be sent.
      * 
      */
-    private final @Nullable String webhookUrl;
+    private @Nullable String webhookUrl;
 
-    @CustomType.Constructor
-    private ScheduleNotificationSettings(
-        @CustomType.Parameter("status") @Nullable String status,
-        @CustomType.Parameter("timeInMinutes") @Nullable Integer timeInMinutes,
-        @CustomType.Parameter("webhookUrl") @Nullable String webhookUrl) {
-        this.status = status;
-        this.timeInMinutes = timeInMinutes;
-        this.webhookUrl = webhookUrl;
-    }
-
+    private ScheduleNotificationSettings() {}
     /**
      * @return The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
      * 
@@ -67,16 +58,12 @@ public final class ScheduleNotificationSettings {
     public static Builder builder(ScheduleNotificationSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String status;
         private @Nullable Integer timeInMinutes;
         private @Nullable String webhookUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScheduleNotificationSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.status = defaults.status;
@@ -84,19 +71,27 @@ public final class ScheduleNotificationSettings {
     	      this.webhookUrl = defaults.webhookUrl;
         }
 
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
         }
+        @CustomType.Setter
         public Builder timeInMinutes(@Nullable Integer timeInMinutes) {
             this.timeInMinutes = timeInMinutes;
             return this;
         }
+        @CustomType.Setter
         public Builder webhookUrl(@Nullable String webhookUrl) {
             this.webhookUrl = webhookUrl;
             return this;
-        }        public ScheduleNotificationSettings build() {
-            return new ScheduleNotificationSettings(status, timeInMinutes, webhookUrl);
+        }
+        public ScheduleNotificationSettings build() {
+            final var o = new ScheduleNotificationSettings();
+            o.status = status;
+            o.timeInMinutes = timeInMinutes;
+            o.webhookUrl = webhookUrl;
+            return o;
         }
     }
 }

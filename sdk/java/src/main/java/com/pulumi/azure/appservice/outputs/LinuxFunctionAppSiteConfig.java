@@ -23,247 +23,172 @@ public final class LinuxFunctionAppSiteConfig {
      * @return If this Linux Web App is Always On enabled. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean alwaysOn;
+    private @Nullable Boolean alwaysOn;
     /**
      * @return The URL of the API definition that describes this Linux Function App.
      * 
      */
-    private final @Nullable String apiDefinitionUrl;
+    private @Nullable String apiDefinitionUrl;
     /**
      * @return The ID of the API Management API for this Linux Function App.
      * 
      */
-    private final @Nullable String apiManagementApiId;
+    private @Nullable String apiManagementApiId;
     /**
      * @return The App command line to launch.
      * 
      */
-    private final @Nullable String appCommandLine;
+    private @Nullable String appCommandLine;
     /**
      * @return The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
      * 
      */
-    private final @Nullable Integer appScaleLimit;
+    private @Nullable Integer appScaleLimit;
     /**
      * @return An `app_service_logs` block as defined above.
      * 
      */
-    private final @Nullable LinuxFunctionAppSiteConfigAppServiceLogs appServiceLogs;
+    private @Nullable LinuxFunctionAppSiteConfigAppServiceLogs appServiceLogs;
     /**
      * @return The Connection String for linking the Linux Function App to Application Insights.
      * 
      */
-    private final @Nullable String applicationInsightsConnectionString;
+    private @Nullable String applicationInsightsConnectionString;
     /**
      * @return The Instrumentation Key for connecting the Linux Function App to Application Insights.
      * 
      */
-    private final @Nullable String applicationInsightsKey;
+    private @Nullable String applicationInsightsKey;
     /**
      * @return An `application_stack` block as defined above.
      * 
      */
-    private final @Nullable LinuxFunctionAppSiteConfigApplicationStack applicationStack;
+    private @Nullable LinuxFunctionAppSiteConfigApplicationStack applicationStack;
     /**
      * @return The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
      * 
      */
-    private final @Nullable String containerRegistryManagedIdentityClientId;
+    private @Nullable String containerRegistryManagedIdentityClientId;
     /**
      * @return Should connections for Azure Container Registry use Managed Identity.
      * 
      */
-    private final @Nullable Boolean containerRegistryUseManagedIdentity;
+    private @Nullable Boolean containerRegistryUseManagedIdentity;
     /**
      * @return A `cors` block as defined above.
      * 
      */
-    private final @Nullable LinuxFunctionAppSiteConfigCors cors;
+    private @Nullable LinuxFunctionAppSiteConfigCors cors;
     /**
      * @return Specifies a list of Default Documents for the Linux Web App.
      * 
      */
-    private final @Nullable List<String> defaultDocuments;
-    private final @Nullable Boolean detailedErrorLoggingEnabled;
+    private @Nullable List<String> defaultDocuments;
+    private @Nullable Boolean detailedErrorLoggingEnabled;
     /**
      * @return The number of minimum instances for this Linux Function App. Only affects apps on Elastic Premium plans.
      * 
      */
-    private final @Nullable Integer elasticInstanceMinimum;
+    private @Nullable Integer elasticInstanceMinimum;
     /**
      * @return State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`. Defaults to `Disabled`.
      * 
      */
-    private final @Nullable String ftpsState;
+    private @Nullable String ftpsState;
     /**
      * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
      * 
      */
-    private final @Nullable Integer healthCheckEvictionTimeInMin;
+    private @Nullable Integer healthCheckEvictionTimeInMin;
     /**
      * @return The path to be checked for this function app health.
      * 
      */
-    private final @Nullable String healthCheckPath;
+    private @Nullable String healthCheckPath;
     /**
      * @return Specifies if the HTTP2 protocol should be enabled. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean http2Enabled;
+    private @Nullable Boolean http2Enabled;
     /**
      * @return One or more `ip_restriction` blocks as defined above.
      * 
      */
-    private final @Nullable List<LinuxFunctionAppSiteConfigIpRestriction> ipRestrictions;
-    private final @Nullable String linuxFxVersion;
+    private @Nullable List<LinuxFunctionAppSiteConfigIpRestriction> ipRestrictions;
+    private @Nullable String linuxFxVersion;
     /**
      * @return The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
      * 
      */
-    private final @Nullable String loadBalancingMode;
+    private @Nullable String loadBalancingMode;
     /**
      * @return Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
      * 
      */
-    private final @Nullable String managedPipelineMode;
+    private @Nullable String managedPipelineMode;
     /**
      * @return The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
      * 
      */
-    private final @Nullable String minimumTlsVersion;
+    private @Nullable String minimumTlsVersion;
     /**
      * @return The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
      * 
      */
-    private final @Nullable Integer preWarmedInstanceCount;
+    private @Nullable Integer preWarmedInstanceCount;
     /**
      * @return Should Remote Debugging be enabled. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean remoteDebuggingEnabled;
+    private @Nullable Boolean remoteDebuggingEnabled;
     /**
      * @return The Remote Debugging Version. Possible values include `VS2017` and `VS2019`.
      * 
      */
-    private final @Nullable String remoteDebuggingVersion;
+    private @Nullable String remoteDebuggingVersion;
     /**
      * @return Should Scale Monitoring of the Functions Runtime be enabled?
      * 
      */
-    private final @Nullable Boolean runtimeScaleMonitoringEnabled;
+    private @Nullable Boolean runtimeScaleMonitoringEnabled;
     /**
      * @return One or more `scm_ip_restriction` blocks as defined above.
      * 
      */
-    private final @Nullable List<LinuxFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions;
+    private @Nullable List<LinuxFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions;
     /**
      * @return Configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
      * 
      */
-    private final @Nullable String scmMinimumTlsVersion;
-    private final @Nullable String scmType;
+    private @Nullable String scmMinimumTlsVersion;
+    private @Nullable String scmType;
     /**
      * @return Should the Linux Function App `ip_restriction` configuration be used for the SCM also.
      * 
      */
-    private final @Nullable Boolean scmUseMainIpRestriction;
+    private @Nullable Boolean scmUseMainIpRestriction;
     /**
      * @return Should the Linux Web App use a 32-bit worker process. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean use32BitWorker;
+    private @Nullable Boolean use32BitWorker;
     /**
      * @return Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean vnetRouteAllEnabled;
+    private @Nullable Boolean vnetRouteAllEnabled;
     /**
      * @return Should Web Sockets be enabled. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean websocketsEnabled;
+    private @Nullable Boolean websocketsEnabled;
     /**
      * @return The number of Workers for this Linux Function App.
      * 
      */
-    private final @Nullable Integer workerCount;
+    private @Nullable Integer workerCount;
 
-    @CustomType.Constructor
-    private LinuxFunctionAppSiteConfig(
-        @CustomType.Parameter("alwaysOn") @Nullable Boolean alwaysOn,
-        @CustomType.Parameter("apiDefinitionUrl") @Nullable String apiDefinitionUrl,
-        @CustomType.Parameter("apiManagementApiId") @Nullable String apiManagementApiId,
-        @CustomType.Parameter("appCommandLine") @Nullable String appCommandLine,
-        @CustomType.Parameter("appScaleLimit") @Nullable Integer appScaleLimit,
-        @CustomType.Parameter("appServiceLogs") @Nullable LinuxFunctionAppSiteConfigAppServiceLogs appServiceLogs,
-        @CustomType.Parameter("applicationInsightsConnectionString") @Nullable String applicationInsightsConnectionString,
-        @CustomType.Parameter("applicationInsightsKey") @Nullable String applicationInsightsKey,
-        @CustomType.Parameter("applicationStack") @Nullable LinuxFunctionAppSiteConfigApplicationStack applicationStack,
-        @CustomType.Parameter("containerRegistryManagedIdentityClientId") @Nullable String containerRegistryManagedIdentityClientId,
-        @CustomType.Parameter("containerRegistryUseManagedIdentity") @Nullable Boolean containerRegistryUseManagedIdentity,
-        @CustomType.Parameter("cors") @Nullable LinuxFunctionAppSiteConfigCors cors,
-        @CustomType.Parameter("defaultDocuments") @Nullable List<String> defaultDocuments,
-        @CustomType.Parameter("detailedErrorLoggingEnabled") @Nullable Boolean detailedErrorLoggingEnabled,
-        @CustomType.Parameter("elasticInstanceMinimum") @Nullable Integer elasticInstanceMinimum,
-        @CustomType.Parameter("ftpsState") @Nullable String ftpsState,
-        @CustomType.Parameter("healthCheckEvictionTimeInMin") @Nullable Integer healthCheckEvictionTimeInMin,
-        @CustomType.Parameter("healthCheckPath") @Nullable String healthCheckPath,
-        @CustomType.Parameter("http2Enabled") @Nullable Boolean http2Enabled,
-        @CustomType.Parameter("ipRestrictions") @Nullable List<LinuxFunctionAppSiteConfigIpRestriction> ipRestrictions,
-        @CustomType.Parameter("linuxFxVersion") @Nullable String linuxFxVersion,
-        @CustomType.Parameter("loadBalancingMode") @Nullable String loadBalancingMode,
-        @CustomType.Parameter("managedPipelineMode") @Nullable String managedPipelineMode,
-        @CustomType.Parameter("minimumTlsVersion") @Nullable String minimumTlsVersion,
-        @CustomType.Parameter("preWarmedInstanceCount") @Nullable Integer preWarmedInstanceCount,
-        @CustomType.Parameter("remoteDebuggingEnabled") @Nullable Boolean remoteDebuggingEnabled,
-        @CustomType.Parameter("remoteDebuggingVersion") @Nullable String remoteDebuggingVersion,
-        @CustomType.Parameter("runtimeScaleMonitoringEnabled") @Nullable Boolean runtimeScaleMonitoringEnabled,
-        @CustomType.Parameter("scmIpRestrictions") @Nullable List<LinuxFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions,
-        @CustomType.Parameter("scmMinimumTlsVersion") @Nullable String scmMinimumTlsVersion,
-        @CustomType.Parameter("scmType") @Nullable String scmType,
-        @CustomType.Parameter("scmUseMainIpRestriction") @Nullable Boolean scmUseMainIpRestriction,
-        @CustomType.Parameter("use32BitWorker") @Nullable Boolean use32BitWorker,
-        @CustomType.Parameter("vnetRouteAllEnabled") @Nullable Boolean vnetRouteAllEnabled,
-        @CustomType.Parameter("websocketsEnabled") @Nullable Boolean websocketsEnabled,
-        @CustomType.Parameter("workerCount") @Nullable Integer workerCount) {
-        this.alwaysOn = alwaysOn;
-        this.apiDefinitionUrl = apiDefinitionUrl;
-        this.apiManagementApiId = apiManagementApiId;
-        this.appCommandLine = appCommandLine;
-        this.appScaleLimit = appScaleLimit;
-        this.appServiceLogs = appServiceLogs;
-        this.applicationInsightsConnectionString = applicationInsightsConnectionString;
-        this.applicationInsightsKey = applicationInsightsKey;
-        this.applicationStack = applicationStack;
-        this.containerRegistryManagedIdentityClientId = containerRegistryManagedIdentityClientId;
-        this.containerRegistryUseManagedIdentity = containerRegistryUseManagedIdentity;
-        this.cors = cors;
-        this.defaultDocuments = defaultDocuments;
-        this.detailedErrorLoggingEnabled = detailedErrorLoggingEnabled;
-        this.elasticInstanceMinimum = elasticInstanceMinimum;
-        this.ftpsState = ftpsState;
-        this.healthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
-        this.healthCheckPath = healthCheckPath;
-        this.http2Enabled = http2Enabled;
-        this.ipRestrictions = ipRestrictions;
-        this.linuxFxVersion = linuxFxVersion;
-        this.loadBalancingMode = loadBalancingMode;
-        this.managedPipelineMode = managedPipelineMode;
-        this.minimumTlsVersion = minimumTlsVersion;
-        this.preWarmedInstanceCount = preWarmedInstanceCount;
-        this.remoteDebuggingEnabled = remoteDebuggingEnabled;
-        this.remoteDebuggingVersion = remoteDebuggingVersion;
-        this.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
-        this.scmIpRestrictions = scmIpRestrictions;
-        this.scmMinimumTlsVersion = scmMinimumTlsVersion;
-        this.scmType = scmType;
-        this.scmUseMainIpRestriction = scmUseMainIpRestriction;
-        this.use32BitWorker = use32BitWorker;
-        this.vnetRouteAllEnabled = vnetRouteAllEnabled;
-        this.websocketsEnabled = websocketsEnabled;
-        this.workerCount = workerCount;
-    }
-
+    private LinuxFunctionAppSiteConfig() {}
     /**
      * @return If this Linux Web App is Always On enabled. Defaults to `false`.
      * 
@@ -512,7 +437,7 @@ public final class LinuxFunctionAppSiteConfig {
     public static Builder builder(LinuxFunctionAppSiteConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean alwaysOn;
         private @Nullable String apiDefinitionUrl;
@@ -550,11 +475,7 @@ public final class LinuxFunctionAppSiteConfig {
         private @Nullable Boolean vnetRouteAllEnabled;
         private @Nullable Boolean websocketsEnabled;
         private @Nullable Integer workerCount;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxFunctionAppSiteConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alwaysOn = defaults.alwaysOn;
@@ -595,54 +516,67 @@ public final class LinuxFunctionAppSiteConfig {
     	      this.workerCount = defaults.workerCount;
         }
 
+        @CustomType.Setter
         public Builder alwaysOn(@Nullable Boolean alwaysOn) {
             this.alwaysOn = alwaysOn;
             return this;
         }
+        @CustomType.Setter
         public Builder apiDefinitionUrl(@Nullable String apiDefinitionUrl) {
             this.apiDefinitionUrl = apiDefinitionUrl;
             return this;
         }
+        @CustomType.Setter
         public Builder apiManagementApiId(@Nullable String apiManagementApiId) {
             this.apiManagementApiId = apiManagementApiId;
             return this;
         }
+        @CustomType.Setter
         public Builder appCommandLine(@Nullable String appCommandLine) {
             this.appCommandLine = appCommandLine;
             return this;
         }
+        @CustomType.Setter
         public Builder appScaleLimit(@Nullable Integer appScaleLimit) {
             this.appScaleLimit = appScaleLimit;
             return this;
         }
+        @CustomType.Setter
         public Builder appServiceLogs(@Nullable LinuxFunctionAppSiteConfigAppServiceLogs appServiceLogs) {
             this.appServiceLogs = appServiceLogs;
             return this;
         }
+        @CustomType.Setter
         public Builder applicationInsightsConnectionString(@Nullable String applicationInsightsConnectionString) {
             this.applicationInsightsConnectionString = applicationInsightsConnectionString;
             return this;
         }
+        @CustomType.Setter
         public Builder applicationInsightsKey(@Nullable String applicationInsightsKey) {
             this.applicationInsightsKey = applicationInsightsKey;
             return this;
         }
+        @CustomType.Setter
         public Builder applicationStack(@Nullable LinuxFunctionAppSiteConfigApplicationStack applicationStack) {
             this.applicationStack = applicationStack;
             return this;
         }
+        @CustomType.Setter
         public Builder containerRegistryManagedIdentityClientId(@Nullable String containerRegistryManagedIdentityClientId) {
             this.containerRegistryManagedIdentityClientId = containerRegistryManagedIdentityClientId;
             return this;
         }
+        @CustomType.Setter
         public Builder containerRegistryUseManagedIdentity(@Nullable Boolean containerRegistryUseManagedIdentity) {
             this.containerRegistryUseManagedIdentity = containerRegistryUseManagedIdentity;
             return this;
         }
+        @CustomType.Setter
         public Builder cors(@Nullable LinuxFunctionAppSiteConfigCors cors) {
             this.cors = cors;
             return this;
         }
+        @CustomType.Setter
         public Builder defaultDocuments(@Nullable List<String> defaultDocuments) {
             this.defaultDocuments = defaultDocuments;
             return this;
@@ -650,30 +584,37 @@ public final class LinuxFunctionAppSiteConfig {
         public Builder defaultDocuments(String... defaultDocuments) {
             return defaultDocuments(List.of(defaultDocuments));
         }
+        @CustomType.Setter
         public Builder detailedErrorLoggingEnabled(@Nullable Boolean detailedErrorLoggingEnabled) {
             this.detailedErrorLoggingEnabled = detailedErrorLoggingEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder elasticInstanceMinimum(@Nullable Integer elasticInstanceMinimum) {
             this.elasticInstanceMinimum = elasticInstanceMinimum;
             return this;
         }
+        @CustomType.Setter
         public Builder ftpsState(@Nullable String ftpsState) {
             this.ftpsState = ftpsState;
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheckEvictionTimeInMin(@Nullable Integer healthCheckEvictionTimeInMin) {
             this.healthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheckPath(@Nullable String healthCheckPath) {
             this.healthCheckPath = healthCheckPath;
             return this;
         }
+        @CustomType.Setter
         public Builder http2Enabled(@Nullable Boolean http2Enabled) {
             this.http2Enabled = http2Enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder ipRestrictions(@Nullable List<LinuxFunctionAppSiteConfigIpRestriction> ipRestrictions) {
             this.ipRestrictions = ipRestrictions;
             return this;
@@ -681,38 +622,47 @@ public final class LinuxFunctionAppSiteConfig {
         public Builder ipRestrictions(LinuxFunctionAppSiteConfigIpRestriction... ipRestrictions) {
             return ipRestrictions(List.of(ipRestrictions));
         }
+        @CustomType.Setter
         public Builder linuxFxVersion(@Nullable String linuxFxVersion) {
             this.linuxFxVersion = linuxFxVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder loadBalancingMode(@Nullable String loadBalancingMode) {
             this.loadBalancingMode = loadBalancingMode;
             return this;
         }
+        @CustomType.Setter
         public Builder managedPipelineMode(@Nullable String managedPipelineMode) {
             this.managedPipelineMode = managedPipelineMode;
             return this;
         }
+        @CustomType.Setter
         public Builder minimumTlsVersion(@Nullable String minimumTlsVersion) {
             this.minimumTlsVersion = minimumTlsVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder preWarmedInstanceCount(@Nullable Integer preWarmedInstanceCount) {
             this.preWarmedInstanceCount = preWarmedInstanceCount;
             return this;
         }
+        @CustomType.Setter
         public Builder remoteDebuggingEnabled(@Nullable Boolean remoteDebuggingEnabled) {
             this.remoteDebuggingEnabled = remoteDebuggingEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder remoteDebuggingVersion(@Nullable String remoteDebuggingVersion) {
             this.remoteDebuggingVersion = remoteDebuggingVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder runtimeScaleMonitoringEnabled(@Nullable Boolean runtimeScaleMonitoringEnabled) {
             this.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder scmIpRestrictions(@Nullable List<LinuxFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions) {
             this.scmIpRestrictions = scmIpRestrictions;
             return this;
@@ -720,35 +670,80 @@ public final class LinuxFunctionAppSiteConfig {
         public Builder scmIpRestrictions(LinuxFunctionAppSiteConfigScmIpRestriction... scmIpRestrictions) {
             return scmIpRestrictions(List.of(scmIpRestrictions));
         }
+        @CustomType.Setter
         public Builder scmMinimumTlsVersion(@Nullable String scmMinimumTlsVersion) {
             this.scmMinimumTlsVersion = scmMinimumTlsVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder scmType(@Nullable String scmType) {
             this.scmType = scmType;
             return this;
         }
+        @CustomType.Setter
         public Builder scmUseMainIpRestriction(@Nullable Boolean scmUseMainIpRestriction) {
             this.scmUseMainIpRestriction = scmUseMainIpRestriction;
             return this;
         }
+        @CustomType.Setter
         public Builder use32BitWorker(@Nullable Boolean use32BitWorker) {
             this.use32BitWorker = use32BitWorker;
             return this;
         }
+        @CustomType.Setter
         public Builder vnetRouteAllEnabled(@Nullable Boolean vnetRouteAllEnabled) {
             this.vnetRouteAllEnabled = vnetRouteAllEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder websocketsEnabled(@Nullable Boolean websocketsEnabled) {
             this.websocketsEnabled = websocketsEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder workerCount(@Nullable Integer workerCount) {
             this.workerCount = workerCount;
             return this;
-        }        public LinuxFunctionAppSiteConfig build() {
-            return new LinuxFunctionAppSiteConfig(alwaysOn, apiDefinitionUrl, apiManagementApiId, appCommandLine, appScaleLimit, appServiceLogs, applicationInsightsConnectionString, applicationInsightsKey, applicationStack, containerRegistryManagedIdentityClientId, containerRegistryUseManagedIdentity, cors, defaultDocuments, detailedErrorLoggingEnabled, elasticInstanceMinimum, ftpsState, healthCheckEvictionTimeInMin, healthCheckPath, http2Enabled, ipRestrictions, linuxFxVersion, loadBalancingMode, managedPipelineMode, minimumTlsVersion, preWarmedInstanceCount, remoteDebuggingEnabled, remoteDebuggingVersion, runtimeScaleMonitoringEnabled, scmIpRestrictions, scmMinimumTlsVersion, scmType, scmUseMainIpRestriction, use32BitWorker, vnetRouteAllEnabled, websocketsEnabled, workerCount);
+        }
+        public LinuxFunctionAppSiteConfig build() {
+            final var o = new LinuxFunctionAppSiteConfig();
+            o.alwaysOn = alwaysOn;
+            o.apiDefinitionUrl = apiDefinitionUrl;
+            o.apiManagementApiId = apiManagementApiId;
+            o.appCommandLine = appCommandLine;
+            o.appScaleLimit = appScaleLimit;
+            o.appServiceLogs = appServiceLogs;
+            o.applicationInsightsConnectionString = applicationInsightsConnectionString;
+            o.applicationInsightsKey = applicationInsightsKey;
+            o.applicationStack = applicationStack;
+            o.containerRegistryManagedIdentityClientId = containerRegistryManagedIdentityClientId;
+            o.containerRegistryUseManagedIdentity = containerRegistryUseManagedIdentity;
+            o.cors = cors;
+            o.defaultDocuments = defaultDocuments;
+            o.detailedErrorLoggingEnabled = detailedErrorLoggingEnabled;
+            o.elasticInstanceMinimum = elasticInstanceMinimum;
+            o.ftpsState = ftpsState;
+            o.healthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
+            o.healthCheckPath = healthCheckPath;
+            o.http2Enabled = http2Enabled;
+            o.ipRestrictions = ipRestrictions;
+            o.linuxFxVersion = linuxFxVersion;
+            o.loadBalancingMode = loadBalancingMode;
+            o.managedPipelineMode = managedPipelineMode;
+            o.minimumTlsVersion = minimumTlsVersion;
+            o.preWarmedInstanceCount = preWarmedInstanceCount;
+            o.remoteDebuggingEnabled = remoteDebuggingEnabled;
+            o.remoteDebuggingVersion = remoteDebuggingVersion;
+            o.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            o.scmIpRestrictions = scmIpRestrictions;
+            o.scmMinimumTlsVersion = scmMinimumTlsVersion;
+            o.scmType = scmType;
+            o.scmUseMainIpRestriction = scmUseMainIpRestriction;
+            o.use32BitWorker = use32BitWorker;
+            o.vnetRouteAllEnabled = vnetRouteAllEnabled;
+            o.websocketsEnabled = websocketsEnabled;
+            o.workerCount = workerCount;
+            return o;
         }
     }
 }

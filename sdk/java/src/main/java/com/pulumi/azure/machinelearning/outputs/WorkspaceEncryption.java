@@ -15,28 +15,19 @@ public final class WorkspaceEncryption {
      * @return The Key Vault URI to access the encryption key.
      * 
      */
-    private final String keyId;
+    private String keyId;
     /**
      * @return The ID of the keyVault where the customer owned encryption key is present.
      * 
      */
-    private final String keyVaultId;
+    private String keyVaultId;
     /**
      * @return The Key Vault URI to access the encryption key.
      * 
      */
-    private final @Nullable String userAssignedIdentityId;
+    private @Nullable String userAssignedIdentityId;
 
-    @CustomType.Constructor
-    private WorkspaceEncryption(
-        @CustomType.Parameter("keyId") String keyId,
-        @CustomType.Parameter("keyVaultId") String keyVaultId,
-        @CustomType.Parameter("userAssignedIdentityId") @Nullable String userAssignedIdentityId) {
-        this.keyId = keyId;
-        this.keyVaultId = keyVaultId;
-        this.userAssignedIdentityId = userAssignedIdentityId;
-    }
-
+    private WorkspaceEncryption() {}
     /**
      * @return The Key Vault URI to access the encryption key.
      * 
@@ -66,16 +57,12 @@ public final class WorkspaceEncryption {
     public static Builder builder(WorkspaceEncryption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String keyId;
         private String keyVaultId;
         private @Nullable String userAssignedIdentityId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkspaceEncryption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyId = defaults.keyId;
@@ -83,19 +70,27 @@ public final class WorkspaceEncryption {
     	      this.userAssignedIdentityId = defaults.userAssignedIdentityId;
         }
 
+        @CustomType.Setter
         public Builder keyId(String keyId) {
             this.keyId = Objects.requireNonNull(keyId);
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
             this.keyVaultId = Objects.requireNonNull(keyVaultId);
             return this;
         }
+        @CustomType.Setter
         public Builder userAssignedIdentityId(@Nullable String userAssignedIdentityId) {
             this.userAssignedIdentityId = userAssignedIdentityId;
             return this;
-        }        public WorkspaceEncryption build() {
-            return new WorkspaceEncryption(keyId, keyVaultId, userAssignedIdentityId);
+        }
+        public WorkspaceEncryption build() {
+            final var o = new WorkspaceEncryption();
+            o.keyId = keyId;
+            o.keyVaultId = keyVaultId;
+            o.userAssignedIdentityId = userAssignedIdentityId;
+            return o;
         }
     }
 }

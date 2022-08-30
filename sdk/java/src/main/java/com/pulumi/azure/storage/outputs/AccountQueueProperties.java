@@ -19,35 +19,24 @@ public final class AccountQueueProperties {
      * @return A `cors_rule` block as defined above.
      * 
      */
-    private final @Nullable List<AccountQueuePropertiesCorsRule> corsRules;
+    private @Nullable List<AccountQueuePropertiesCorsRule> corsRules;
     /**
      * @return A `hour_metrics` block as defined below.
      * 
      */
-    private final @Nullable AccountQueuePropertiesHourMetrics hourMetrics;
+    private @Nullable AccountQueuePropertiesHourMetrics hourMetrics;
     /**
      * @return A `logging` block as defined below.
      * 
      */
-    private final @Nullable AccountQueuePropertiesLogging logging;
+    private @Nullable AccountQueuePropertiesLogging logging;
     /**
      * @return A `minute_metrics` block as defined below.
      * 
      */
-    private final @Nullable AccountQueuePropertiesMinuteMetrics minuteMetrics;
+    private @Nullable AccountQueuePropertiesMinuteMetrics minuteMetrics;
 
-    @CustomType.Constructor
-    private AccountQueueProperties(
-        @CustomType.Parameter("corsRules") @Nullable List<AccountQueuePropertiesCorsRule> corsRules,
-        @CustomType.Parameter("hourMetrics") @Nullable AccountQueuePropertiesHourMetrics hourMetrics,
-        @CustomType.Parameter("logging") @Nullable AccountQueuePropertiesLogging logging,
-        @CustomType.Parameter("minuteMetrics") @Nullable AccountQueuePropertiesMinuteMetrics minuteMetrics) {
-        this.corsRules = corsRules;
-        this.hourMetrics = hourMetrics;
-        this.logging = logging;
-        this.minuteMetrics = minuteMetrics;
-    }
-
+    private AccountQueueProperties() {}
     /**
      * @return A `cors_rule` block as defined above.
      * 
@@ -84,17 +73,13 @@ public final class AccountQueueProperties {
     public static Builder builder(AccountQueueProperties defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<AccountQueuePropertiesCorsRule> corsRules;
         private @Nullable AccountQueuePropertiesHourMetrics hourMetrics;
         private @Nullable AccountQueuePropertiesLogging logging;
         private @Nullable AccountQueuePropertiesMinuteMetrics minuteMetrics;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountQueueProperties defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.corsRules = defaults.corsRules;
@@ -103,6 +88,7 @@ public final class AccountQueueProperties {
     	      this.minuteMetrics = defaults.minuteMetrics;
         }
 
+        @CustomType.Setter
         public Builder corsRules(@Nullable List<AccountQueuePropertiesCorsRule> corsRules) {
             this.corsRules = corsRules;
             return this;
@@ -110,19 +96,28 @@ public final class AccountQueueProperties {
         public Builder corsRules(AccountQueuePropertiesCorsRule... corsRules) {
             return corsRules(List.of(corsRules));
         }
+        @CustomType.Setter
         public Builder hourMetrics(@Nullable AccountQueuePropertiesHourMetrics hourMetrics) {
             this.hourMetrics = hourMetrics;
             return this;
         }
+        @CustomType.Setter
         public Builder logging(@Nullable AccountQueuePropertiesLogging logging) {
             this.logging = logging;
             return this;
         }
+        @CustomType.Setter
         public Builder minuteMetrics(@Nullable AccountQueuePropertiesMinuteMetrics minuteMetrics) {
             this.minuteMetrics = minuteMetrics;
             return this;
-        }        public AccountQueueProperties build() {
-            return new AccountQueueProperties(corsRules, hourMetrics, logging, minuteMetrics);
+        }
+        public AccountQueueProperties build() {
+            final var o = new AccountQueueProperties();
+            o.corsRules = corsRules;
+            o.hourMetrics = hourMetrics;
+            o.logging = logging;
+            o.minuteMetrics = minuteMetrics;
+            return o;
         }
     }
 }

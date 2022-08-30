@@ -20,56 +20,39 @@ public final class ContentKeyPolicyPolicyOption {
      * @return Enable a configuration for non-DRM keys.
      * 
      */
-    private final @Nullable Boolean clearKeyConfigurationEnabled;
+    private @Nullable Boolean clearKeyConfigurationEnabled;
     /**
      * @return A `fairplay_configuration` block as defined above. Check license requirements here https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview.
      * 
      */
-    private final @Nullable ContentKeyPolicyPolicyOptionFairplayConfiguration fairplayConfiguration;
+    private @Nullable ContentKeyPolicyPolicyOptionFairplayConfiguration fairplayConfiguration;
     /**
      * @return The name which should be used for this Policy Option.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Enable an open restriction. License or key will be delivered on every request.
      * 
      */
-    private final @Nullable Boolean openRestrictionEnabled;
+    private @Nullable Boolean openRestrictionEnabled;
     /**
      * @return One or more `playready_configuration_license` blocks as defined above.
      * 
      */
-    private final @Nullable List<ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense> playreadyConfigurationLicenses;
+    private @Nullable List<ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense> playreadyConfigurationLicenses;
     /**
      * @return A `token_restriction` block as defined below.
      * 
      */
-    private final @Nullable ContentKeyPolicyPolicyOptionTokenRestriction tokenRestriction;
+    private @Nullable ContentKeyPolicyPolicyOptionTokenRestriction tokenRestriction;
     /**
      * @return The Widevine template.
      * 
      */
-    private final @Nullable String widevineConfigurationTemplate;
+    private @Nullable String widevineConfigurationTemplate;
 
-    @CustomType.Constructor
-    private ContentKeyPolicyPolicyOption(
-        @CustomType.Parameter("clearKeyConfigurationEnabled") @Nullable Boolean clearKeyConfigurationEnabled,
-        @CustomType.Parameter("fairplayConfiguration") @Nullable ContentKeyPolicyPolicyOptionFairplayConfiguration fairplayConfiguration,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("openRestrictionEnabled") @Nullable Boolean openRestrictionEnabled,
-        @CustomType.Parameter("playreadyConfigurationLicenses") @Nullable List<ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense> playreadyConfigurationLicenses,
-        @CustomType.Parameter("tokenRestriction") @Nullable ContentKeyPolicyPolicyOptionTokenRestriction tokenRestriction,
-        @CustomType.Parameter("widevineConfigurationTemplate") @Nullable String widevineConfigurationTemplate) {
-        this.clearKeyConfigurationEnabled = clearKeyConfigurationEnabled;
-        this.fairplayConfiguration = fairplayConfiguration;
-        this.name = name;
-        this.openRestrictionEnabled = openRestrictionEnabled;
-        this.playreadyConfigurationLicenses = playreadyConfigurationLicenses;
-        this.tokenRestriction = tokenRestriction;
-        this.widevineConfigurationTemplate = widevineConfigurationTemplate;
-    }
-
+    private ContentKeyPolicyPolicyOption() {}
     /**
      * @return Enable a configuration for non-DRM keys.
      * 
@@ -127,7 +110,7 @@ public final class ContentKeyPolicyPolicyOption {
     public static Builder builder(ContentKeyPolicyPolicyOption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean clearKeyConfigurationEnabled;
         private @Nullable ContentKeyPolicyPolicyOptionFairplayConfiguration fairplayConfiguration;
@@ -136,11 +119,7 @@ public final class ContentKeyPolicyPolicyOption {
         private @Nullable List<ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense> playreadyConfigurationLicenses;
         private @Nullable ContentKeyPolicyPolicyOptionTokenRestriction tokenRestriction;
         private @Nullable String widevineConfigurationTemplate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ContentKeyPolicyPolicyOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clearKeyConfigurationEnabled = defaults.clearKeyConfigurationEnabled;
@@ -152,22 +131,27 @@ public final class ContentKeyPolicyPolicyOption {
     	      this.widevineConfigurationTemplate = defaults.widevineConfigurationTemplate;
         }
 
+        @CustomType.Setter
         public Builder clearKeyConfigurationEnabled(@Nullable Boolean clearKeyConfigurationEnabled) {
             this.clearKeyConfigurationEnabled = clearKeyConfigurationEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder fairplayConfiguration(@Nullable ContentKeyPolicyPolicyOptionFairplayConfiguration fairplayConfiguration) {
             this.fairplayConfiguration = fairplayConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder openRestrictionEnabled(@Nullable Boolean openRestrictionEnabled) {
             this.openRestrictionEnabled = openRestrictionEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder playreadyConfigurationLicenses(@Nullable List<ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense> playreadyConfigurationLicenses) {
             this.playreadyConfigurationLicenses = playreadyConfigurationLicenses;
             return this;
@@ -175,15 +159,26 @@ public final class ContentKeyPolicyPolicyOption {
         public Builder playreadyConfigurationLicenses(ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense... playreadyConfigurationLicenses) {
             return playreadyConfigurationLicenses(List.of(playreadyConfigurationLicenses));
         }
+        @CustomType.Setter
         public Builder tokenRestriction(@Nullable ContentKeyPolicyPolicyOptionTokenRestriction tokenRestriction) {
             this.tokenRestriction = tokenRestriction;
             return this;
         }
+        @CustomType.Setter
         public Builder widevineConfigurationTemplate(@Nullable String widevineConfigurationTemplate) {
             this.widevineConfigurationTemplate = widevineConfigurationTemplate;
             return this;
-        }        public ContentKeyPolicyPolicyOption build() {
-            return new ContentKeyPolicyPolicyOption(clearKeyConfigurationEnabled, fairplayConfiguration, name, openRestrictionEnabled, playreadyConfigurationLicenses, tokenRestriction, widevineConfigurationTemplate);
+        }
+        public ContentKeyPolicyPolicyOption build() {
+            final var o = new ContentKeyPolicyPolicyOption();
+            o.clearKeyConfigurationEnabled = clearKeyConfigurationEnabled;
+            o.fairplayConfiguration = fairplayConfiguration;
+            o.name = name;
+            o.openRestrictionEnabled = openRestrictionEnabled;
+            o.playreadyConfigurationLicenses = playreadyConfigurationLicenses;
+            o.tokenRestriction = tokenRestriction;
+            o.widevineConfigurationTemplate = widevineConfigurationTemplate;
+            return o;
         }
     }
 }

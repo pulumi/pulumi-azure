@@ -15,21 +15,14 @@ public final class WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory {
      * @return The physical path for the Virtual Application.
      * 
      */
-    private final @Nullable String physicalPath;
+    private @Nullable String physicalPath;
     /**
      * @return The Virtual Path for the Virtual Application.
      * 
      */
-    private final @Nullable String virtualPath;
+    private @Nullable String virtualPath;
 
-    @CustomType.Constructor
-    private WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory(
-        @CustomType.Parameter("physicalPath") @Nullable String physicalPath,
-        @CustomType.Parameter("virtualPath") @Nullable String virtualPath) {
-        this.physicalPath = physicalPath;
-        this.virtualPath = virtualPath;
-    }
-
+    private WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory() {}
     /**
      * @return The physical path for the Virtual Application.
      * 
@@ -52,30 +45,32 @@ public final class WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory {
     public static Builder builder(WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String physicalPath;
         private @Nullable String virtualPath;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.physicalPath = defaults.physicalPath;
     	      this.virtualPath = defaults.virtualPath;
         }
 
+        @CustomType.Setter
         public Builder physicalPath(@Nullable String physicalPath) {
             this.physicalPath = physicalPath;
             return this;
         }
+        @CustomType.Setter
         public Builder virtualPath(@Nullable String virtualPath) {
             this.virtualPath = virtualPath;
             return this;
-        }        public WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory build() {
-            return new WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory(physicalPath, virtualPath);
+        }
+        public WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory build() {
+            final var o = new WindowsWebAppSiteConfigVirtualApplicationVirtualDirectory();
+            o.physicalPath = physicalPath;
+            o.virtualPath = virtualPath;
+            return o;
         }
     }
 }

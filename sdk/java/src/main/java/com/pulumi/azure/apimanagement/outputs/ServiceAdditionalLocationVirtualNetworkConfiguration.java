@@ -13,13 +13,9 @@ public final class ServiceAdditionalLocationVirtualNetworkConfiguration {
      * @return The id of the subnet that will be used for the API Management.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private ServiceAdditionalLocationVirtualNetworkConfiguration(@CustomType.Parameter("subnetId") String subnetId) {
-        this.subnetId = subnetId;
-    }
-
+    private ServiceAdditionalLocationVirtualNetworkConfiguration() {}
     /**
      * @return The id of the subnet that will be used for the API Management.
      * 
@@ -35,24 +31,24 @@ public final class ServiceAdditionalLocationVirtualNetworkConfiguration {
     public static Builder builder(ServiceAdditionalLocationVirtualNetworkConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceAdditionalLocationVirtualNetworkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public ServiceAdditionalLocationVirtualNetworkConfiguration build() {
-            return new ServiceAdditionalLocationVirtualNetworkConfiguration(subnetId);
+        }
+        public ServiceAdditionalLocationVirtualNetworkConfiguration build() {
+            final var o = new ServiceAdditionalLocationVirtualNetworkConfiguration();
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

@@ -13,24 +13,15 @@ public final class GetStandardConnectionString {
      * @return The name of this Logic App.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Type of Managed Identity assigned to this Logic App Workflow.
      * 
      */
-    private final String type;
-    private final String value;
+    private String type;
+    private String value;
 
-    @CustomType.Constructor
-    private GetStandardConnectionString(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("value") String value) {
-        this.name = name;
-        this.type = type;
-        this.value = value;
-    }
-
+    private GetStandardConnectionString() {}
     /**
      * @return The name of this Logic App.
      * 
@@ -56,16 +47,12 @@ public final class GetStandardConnectionString {
     public static Builder builder(GetStandardConnectionString defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String type;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetStandardConnectionString defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -73,19 +60,27 @@ public final class GetStandardConnectionString {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public GetStandardConnectionString build() {
-            return new GetStandardConnectionString(name, type, value);
+        }
+        public GetStandardConnectionString build() {
+            final var o = new GetStandardConnectionString();
+            o.name = name;
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

@@ -97,7 +97,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def oidc_request_token(self) -> Optional[str]:
         """
-        The bearer token for the request to the OIDC provider. For use When authenticating as a Service Principal using OpenID
+        The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
         Connect.
         """
         return __config__.get('oidcRequestToken')
@@ -105,10 +105,17 @@ class _ExportableConfig(types.ModuleType):
     @property
     def oidc_request_url(self) -> Optional[str]:
         """
-        The URL for the OIDC provider from which to request an ID token. For use When authenticating as a Service Principal
+        The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
         using OpenID Connect.
         """
         return __config__.get('oidcRequestUrl')
+
+    @property
+    def oidc_token(self) -> Optional[str]:
+        """
+        The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+        """
+        return __config__.get('oidcToken')
 
     @property
     def partner_id(self) -> Optional[str]:

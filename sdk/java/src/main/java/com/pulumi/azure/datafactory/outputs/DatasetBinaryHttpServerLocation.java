@@ -16,42 +16,29 @@ public final class DatasetBinaryHttpServerLocation {
      * @return Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean dynamicFilenameEnabled;
+    private @Nullable Boolean dynamicFilenameEnabled;
     /**
      * @return Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean dynamicPathEnabled;
+    private @Nullable Boolean dynamicPathEnabled;
     /**
      * @return The filename of the file on the web server.
      * 
      */
-    private final String filename;
+    private String filename;
     /**
      * @return The folder path to the file on the web server.
      * 
      */
-    private final String path;
+    private String path;
     /**
      * @return The base URL to the web server hosting the file.
      * 
      */
-    private final String relativeUrl;
+    private String relativeUrl;
 
-    @CustomType.Constructor
-    private DatasetBinaryHttpServerLocation(
-        @CustomType.Parameter("dynamicFilenameEnabled") @Nullable Boolean dynamicFilenameEnabled,
-        @CustomType.Parameter("dynamicPathEnabled") @Nullable Boolean dynamicPathEnabled,
-        @CustomType.Parameter("filename") String filename,
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("relativeUrl") String relativeUrl) {
-        this.dynamicFilenameEnabled = dynamicFilenameEnabled;
-        this.dynamicPathEnabled = dynamicPathEnabled;
-        this.filename = filename;
-        this.path = path;
-        this.relativeUrl = relativeUrl;
-    }
-
+    private DatasetBinaryHttpServerLocation() {}
     /**
      * @return Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
      * 
@@ -95,18 +82,14 @@ public final class DatasetBinaryHttpServerLocation {
     public static Builder builder(DatasetBinaryHttpServerLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean dynamicFilenameEnabled;
         private @Nullable Boolean dynamicPathEnabled;
         private String filename;
         private String path;
         private String relativeUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DatasetBinaryHttpServerLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dynamicFilenameEnabled = defaults.dynamicFilenameEnabled;
@@ -116,27 +99,39 @@ public final class DatasetBinaryHttpServerLocation {
     	      this.relativeUrl = defaults.relativeUrl;
         }
 
+        @CustomType.Setter
         public Builder dynamicFilenameEnabled(@Nullable Boolean dynamicFilenameEnabled) {
             this.dynamicFilenameEnabled = dynamicFilenameEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder dynamicPathEnabled(@Nullable Boolean dynamicPathEnabled) {
             this.dynamicPathEnabled = dynamicPathEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder filename(String filename) {
             this.filename = Objects.requireNonNull(filename);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder relativeUrl(String relativeUrl) {
             this.relativeUrl = Objects.requireNonNull(relativeUrl);
             return this;
-        }        public DatasetBinaryHttpServerLocation build() {
-            return new DatasetBinaryHttpServerLocation(dynamicFilenameEnabled, dynamicPathEnabled, filename, path, relativeUrl);
+        }
+        public DatasetBinaryHttpServerLocation build() {
+            final var o = new DatasetBinaryHttpServerLocation();
+            o.dynamicFilenameEnabled = dynamicFilenameEnabled;
+            o.dynamicPathEnabled = dynamicPathEnabled;
+            o.filename = filename;
+            o.path = path;
+            o.relativeUrl = relativeUrl;
+            return o;
         }
     }
 }

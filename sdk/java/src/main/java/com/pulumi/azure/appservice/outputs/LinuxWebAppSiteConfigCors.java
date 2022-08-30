@@ -17,21 +17,14 @@ public final class LinuxWebAppSiteConfigCors {
      * @return Specifies a list of origins that should be allowed to make cross-origin calls.
      * 
      */
-    private final List<String> allowedOrigins;
+    private List<String> allowedOrigins;
     /**
      * @return Whether CORS requests with credentials are allowed. Defaults to `false`
      * 
      */
-    private final @Nullable Boolean supportCredentials;
+    private @Nullable Boolean supportCredentials;
 
-    @CustomType.Constructor
-    private LinuxWebAppSiteConfigCors(
-        @CustomType.Parameter("allowedOrigins") List<String> allowedOrigins,
-        @CustomType.Parameter("supportCredentials") @Nullable Boolean supportCredentials) {
-        this.allowedOrigins = allowedOrigins;
-        this.supportCredentials = supportCredentials;
-    }
-
+    private LinuxWebAppSiteConfigCors() {}
     /**
      * @return Specifies a list of origins that should be allowed to make cross-origin calls.
      * 
@@ -54,21 +47,18 @@ public final class LinuxWebAppSiteConfigCors {
     public static Builder builder(LinuxWebAppSiteConfigCors defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> allowedOrigins;
         private @Nullable Boolean supportCredentials;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxWebAppSiteConfigCors defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedOrigins = defaults.allowedOrigins;
     	      this.supportCredentials = defaults.supportCredentials;
         }
 
+        @CustomType.Setter
         public Builder allowedOrigins(List<String> allowedOrigins) {
             this.allowedOrigins = Objects.requireNonNull(allowedOrigins);
             return this;
@@ -76,11 +66,16 @@ public final class LinuxWebAppSiteConfigCors {
         public Builder allowedOrigins(String... allowedOrigins) {
             return allowedOrigins(List.of(allowedOrigins));
         }
+        @CustomType.Setter
         public Builder supportCredentials(@Nullable Boolean supportCredentials) {
             this.supportCredentials = supportCredentials;
             return this;
-        }        public LinuxWebAppSiteConfigCors build() {
-            return new LinuxWebAppSiteConfigCors(allowedOrigins, supportCredentials);
+        }
+        public LinuxWebAppSiteConfigCors build() {
+            final var o = new LinuxWebAppSiteConfigCors();
+            o.allowedOrigins = allowedOrigins;
+            o.supportCredentials = supportCredentials;
+            return o;
         }
     }
 }

@@ -20,112 +20,79 @@ public final class ApplicationGatewayBackendHttpSetting {
      * @return The name of the affinity cookie.
      * 
      */
-    private final @Nullable String affinityCookieName;
+    private @Nullable String affinityCookieName;
     /**
      * @return One or more `authentication_certificate` blocks.
      * 
      */
-    private final @Nullable List<ApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates;
+    private @Nullable List<ApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates;
     /**
      * @return A `connection_draining` block as defined below.
      * 
      */
-    private final @Nullable ApplicationGatewayBackendHttpSettingConnectionDraining connectionDraining;
+    private @Nullable ApplicationGatewayBackendHttpSettingConnectionDraining connectionDraining;
     /**
      * @return Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
      * 
      */
-    private final String cookieBasedAffinity;
+    private String cookieBasedAffinity;
     /**
      * @return Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
      * 
      */
-    private final @Nullable String hostName;
+    private @Nullable String hostName;
     /**
      * @return The ID of the Rewrite Rule Set
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The name of the Backend HTTP Settings Collection.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Path which should be used as a prefix for all HTTP requests.
      * 
      */
-    private final @Nullable String path;
+    private @Nullable String path;
     /**
      * @return Whether host header should be picked from the host name of the backend server. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean pickHostNameFromBackendAddress;
+    private @Nullable Boolean pickHostNameFromBackendAddress;
     /**
      * @return The port which should be used for this Backend HTTP Settings Collection.
      * 
      */
-    private final Integer port;
+    private Integer port;
     /**
      * @return The ID of the associated Probe.
      * 
      */
-    private final @Nullable String probeId;
+    private @Nullable String probeId;
     /**
      * @return The name of an associated HTTP Probe.
      * 
      */
-    private final @Nullable String probeName;
+    private @Nullable String probeName;
     /**
      * @return The Protocol which should be used. Possible values are `Http` and `Https`.
      * 
      */
-    private final String protocol;
+    private String protocol;
     /**
      * @return The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
      * 
      */
-    private final @Nullable Integer requestTimeout;
+    private @Nullable Integer requestTimeout;
     /**
      * @return A list of `trusted_root_certificate` names.
      * 
      */
-    private final @Nullable List<String> trustedRootCertificateNames;
+    private @Nullable List<String> trustedRootCertificateNames;
 
-    @CustomType.Constructor
-    private ApplicationGatewayBackendHttpSetting(
-        @CustomType.Parameter("affinityCookieName") @Nullable String affinityCookieName,
-        @CustomType.Parameter("authenticationCertificates") @Nullable List<ApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates,
-        @CustomType.Parameter("connectionDraining") @Nullable ApplicationGatewayBackendHttpSettingConnectionDraining connectionDraining,
-        @CustomType.Parameter("cookieBasedAffinity") String cookieBasedAffinity,
-        @CustomType.Parameter("hostName") @Nullable String hostName,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("path") @Nullable String path,
-        @CustomType.Parameter("pickHostNameFromBackendAddress") @Nullable Boolean pickHostNameFromBackendAddress,
-        @CustomType.Parameter("port") Integer port,
-        @CustomType.Parameter("probeId") @Nullable String probeId,
-        @CustomType.Parameter("probeName") @Nullable String probeName,
-        @CustomType.Parameter("protocol") String protocol,
-        @CustomType.Parameter("requestTimeout") @Nullable Integer requestTimeout,
-        @CustomType.Parameter("trustedRootCertificateNames") @Nullable List<String> trustedRootCertificateNames) {
-        this.affinityCookieName = affinityCookieName;
-        this.authenticationCertificates = authenticationCertificates;
-        this.connectionDraining = connectionDraining;
-        this.cookieBasedAffinity = cookieBasedAffinity;
-        this.hostName = hostName;
-        this.id = id;
-        this.name = name;
-        this.path = path;
-        this.pickHostNameFromBackendAddress = pickHostNameFromBackendAddress;
-        this.port = port;
-        this.probeId = probeId;
-        this.probeName = probeName;
-        this.protocol = protocol;
-        this.requestTimeout = requestTimeout;
-        this.trustedRootCertificateNames = trustedRootCertificateNames;
-    }
-
+    private ApplicationGatewayBackendHttpSetting() {}
     /**
      * @return The name of the affinity cookie.
      * 
@@ -239,7 +206,7 @@ public final class ApplicationGatewayBackendHttpSetting {
     public static Builder builder(ApplicationGatewayBackendHttpSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String affinityCookieName;
         private @Nullable List<ApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates;
@@ -256,11 +223,7 @@ public final class ApplicationGatewayBackendHttpSetting {
         private String protocol;
         private @Nullable Integer requestTimeout;
         private @Nullable List<String> trustedRootCertificateNames;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayBackendHttpSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.affinityCookieName = defaults.affinityCookieName;
@@ -280,10 +243,12 @@ public final class ApplicationGatewayBackendHttpSetting {
     	      this.trustedRootCertificateNames = defaults.trustedRootCertificateNames;
         }
 
+        @CustomType.Setter
         public Builder affinityCookieName(@Nullable String affinityCookieName) {
             this.affinityCookieName = affinityCookieName;
             return this;
         }
+        @CustomType.Setter
         public Builder authenticationCertificates(@Nullable List<ApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates) {
             this.authenticationCertificates = authenticationCertificates;
             return this;
@@ -291,62 +256,92 @@ public final class ApplicationGatewayBackendHttpSetting {
         public Builder authenticationCertificates(ApplicationGatewayBackendHttpSettingAuthenticationCertificate... authenticationCertificates) {
             return authenticationCertificates(List.of(authenticationCertificates));
         }
+        @CustomType.Setter
         public Builder connectionDraining(@Nullable ApplicationGatewayBackendHttpSettingConnectionDraining connectionDraining) {
             this.connectionDraining = connectionDraining;
             return this;
         }
+        @CustomType.Setter
         public Builder cookieBasedAffinity(String cookieBasedAffinity) {
             this.cookieBasedAffinity = Objects.requireNonNull(cookieBasedAffinity);
             return this;
         }
+        @CustomType.Setter
         public Builder hostName(@Nullable String hostName) {
             this.hostName = hostName;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
         }
+        @CustomType.Setter
         public Builder pickHostNameFromBackendAddress(@Nullable Boolean pickHostNameFromBackendAddress) {
             this.pickHostNameFromBackendAddress = pickHostNameFromBackendAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
         }
+        @CustomType.Setter
         public Builder probeId(@Nullable String probeId) {
             this.probeId = probeId;
             return this;
         }
+        @CustomType.Setter
         public Builder probeName(@Nullable String probeName) {
             this.probeName = probeName;
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
         }
+        @CustomType.Setter
         public Builder requestTimeout(@Nullable Integer requestTimeout) {
             this.requestTimeout = requestTimeout;
             return this;
         }
+        @CustomType.Setter
         public Builder trustedRootCertificateNames(@Nullable List<String> trustedRootCertificateNames) {
             this.trustedRootCertificateNames = trustedRootCertificateNames;
             return this;
         }
         public Builder trustedRootCertificateNames(String... trustedRootCertificateNames) {
             return trustedRootCertificateNames(List.of(trustedRootCertificateNames));
-        }        public ApplicationGatewayBackendHttpSetting build() {
-            return new ApplicationGatewayBackendHttpSetting(affinityCookieName, authenticationCertificates, connectionDraining, cookieBasedAffinity, hostName, id, name, path, pickHostNameFromBackendAddress, port, probeId, probeName, protocol, requestTimeout, trustedRootCertificateNames);
+        }
+        public ApplicationGatewayBackendHttpSetting build() {
+            final var o = new ApplicationGatewayBackendHttpSetting();
+            o.affinityCookieName = affinityCookieName;
+            o.authenticationCertificates = authenticationCertificates;
+            o.connectionDraining = connectionDraining;
+            o.cookieBasedAffinity = cookieBasedAffinity;
+            o.hostName = hostName;
+            o.id = id;
+            o.name = name;
+            o.path = path;
+            o.pickHostNameFromBackendAddress = pickHostNameFromBackendAddress;
+            o.port = port;
+            o.probeId = probeId;
+            o.probeName = probeName;
+            o.protocol = protocol;
+            o.requestTimeout = requestTimeout;
+            o.trustedRootCertificateNames = trustedRootCertificateNames;
+            return o;
         }
     }
 }

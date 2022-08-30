@@ -14,42 +14,29 @@ public final class GetAppServiceSourceControl {
      * @return The branch of the remote repository in use.
      * 
      */
-    private final String branch;
+    private String branch;
     /**
      * @return Limits to manual integration.
      * 
      */
-    private final Boolean manualIntegration;
+    private Boolean manualIntegration;
     /**
      * @return The URL of the source code repository.
      * 
      */
-    private final String repoUrl;
+    private String repoUrl;
     /**
      * @return Is roll-back enabled for the repository.
      * 
      */
-    private final Boolean rollbackEnabled;
+    private Boolean rollbackEnabled;
     /**
      * @return Uses Mercurial if `true`, otherwise uses Git.
      * 
      */
-    private final Boolean useMercurial;
+    private Boolean useMercurial;
 
-    @CustomType.Constructor
-    private GetAppServiceSourceControl(
-        @CustomType.Parameter("branch") String branch,
-        @CustomType.Parameter("manualIntegration") Boolean manualIntegration,
-        @CustomType.Parameter("repoUrl") String repoUrl,
-        @CustomType.Parameter("rollbackEnabled") Boolean rollbackEnabled,
-        @CustomType.Parameter("useMercurial") Boolean useMercurial) {
-        this.branch = branch;
-        this.manualIntegration = manualIntegration;
-        this.repoUrl = repoUrl;
-        this.rollbackEnabled = rollbackEnabled;
-        this.useMercurial = useMercurial;
-    }
-
+    private GetAppServiceSourceControl() {}
     /**
      * @return The branch of the remote repository in use.
      * 
@@ -93,18 +80,14 @@ public final class GetAppServiceSourceControl {
     public static Builder builder(GetAppServiceSourceControl defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String branch;
         private Boolean manualIntegration;
         private String repoUrl;
         private Boolean rollbackEnabled;
         private Boolean useMercurial;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAppServiceSourceControl defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.branch = defaults.branch;
@@ -114,27 +97,39 @@ public final class GetAppServiceSourceControl {
     	      this.useMercurial = defaults.useMercurial;
         }
 
+        @CustomType.Setter
         public Builder branch(String branch) {
             this.branch = Objects.requireNonNull(branch);
             return this;
         }
+        @CustomType.Setter
         public Builder manualIntegration(Boolean manualIntegration) {
             this.manualIntegration = Objects.requireNonNull(manualIntegration);
             return this;
         }
+        @CustomType.Setter
         public Builder repoUrl(String repoUrl) {
             this.repoUrl = Objects.requireNonNull(repoUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder rollbackEnabled(Boolean rollbackEnabled) {
             this.rollbackEnabled = Objects.requireNonNull(rollbackEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder useMercurial(Boolean useMercurial) {
             this.useMercurial = Objects.requireNonNull(useMercurial);
             return this;
-        }        public GetAppServiceSourceControl build() {
-            return new GetAppServiceSourceControl(branch, manualIntegration, repoUrl, rollbackEnabled, useMercurial);
+        }
+        public GetAppServiceSourceControl build() {
+            final var o = new GetAppServiceSourceControl();
+            o.branch = branch;
+            o.manualIntegration = manualIntegration;
+            o.repoUrl = repoUrl;
+            o.rollbackEnabled = rollbackEnabled;
+            o.useMercurial = useMercurial;
+            return o;
         }
     }
 }

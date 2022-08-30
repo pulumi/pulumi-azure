@@ -17,80 +17,55 @@ public final class GetServiceResult {
      * @return The alias is a globally unique name for your private link service which Azure generates for you. Your can use this alias to request a connection to your private link service.
      * 
      */
-    private final String alias;
+    private String alias;
     /**
      * @return The list of subscription(s) globally unique identifiers that will be auto approved to use the private link service.
      * 
      */
-    private final List<String> autoApprovalSubscriptionIds;
+    private List<String> autoApprovalSubscriptionIds;
     /**
      * @return Does the Private Link Service support the Proxy Protocol?
      * 
      */
-    private final Boolean enableProxyProtocol;
+    private Boolean enableProxyProtocol;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
      * 
      */
-    private final List<String> loadBalancerFrontendIpConfigurationIds;
+    private List<String> loadBalancerFrontendIpConfigurationIds;
     /**
      * @return The supported Azure location where the resource exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The name of private link service NAT IP configuration.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The `nat_ip_configuration` block as defined below.
      * 
      */
-    private final List<GetServiceNatIpConfiguration> natIpConfigurations;
-    private final String resourceGroupName;
+    private List<GetServiceNatIpConfiguration> natIpConfigurations;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags to assign to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The list of subscription(s) globally unique identifiers(GUID) that will be able to see the private link service.
      * 
      */
-    private final List<String> visibilitySubscriptionIds;
+    private List<String> visibilitySubscriptionIds;
 
-    @CustomType.Constructor
-    private GetServiceResult(
-        @CustomType.Parameter("alias") String alias,
-        @CustomType.Parameter("autoApprovalSubscriptionIds") List<String> autoApprovalSubscriptionIds,
-        @CustomType.Parameter("enableProxyProtocol") Boolean enableProxyProtocol,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("loadBalancerFrontendIpConfigurationIds") List<String> loadBalancerFrontendIpConfigurationIds,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("natIpConfigurations") List<GetServiceNatIpConfiguration> natIpConfigurations,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("visibilitySubscriptionIds") List<String> visibilitySubscriptionIds) {
-        this.alias = alias;
-        this.autoApprovalSubscriptionIds = autoApprovalSubscriptionIds;
-        this.enableProxyProtocol = enableProxyProtocol;
-        this.id = id;
-        this.loadBalancerFrontendIpConfigurationIds = loadBalancerFrontendIpConfigurationIds;
-        this.location = location;
-        this.name = name;
-        this.natIpConfigurations = natIpConfigurations;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-        this.visibilitySubscriptionIds = visibilitySubscriptionIds;
-    }
-
+    private GetServiceResult() {}
     /**
      * @return The alias is a globally unique name for your private link service which Azure generates for you. Your can use this alias to request a connection to your private link service.
      * 
@@ -172,7 +147,7 @@ public final class GetServiceResult {
     public static Builder builder(GetServiceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String alias;
         private List<String> autoApprovalSubscriptionIds;
@@ -185,11 +160,7 @@ public final class GetServiceResult {
         private String resourceGroupName;
         private Map<String,String> tags;
         private List<String> visibilitySubscriptionIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alias = defaults.alias;
@@ -205,10 +176,12 @@ public final class GetServiceResult {
     	      this.visibilitySubscriptionIds = defaults.visibilitySubscriptionIds;
         }
 
+        @CustomType.Setter
         public Builder alias(String alias) {
             this.alias = Objects.requireNonNull(alias);
             return this;
         }
+        @CustomType.Setter
         public Builder autoApprovalSubscriptionIds(List<String> autoApprovalSubscriptionIds) {
             this.autoApprovalSubscriptionIds = Objects.requireNonNull(autoApprovalSubscriptionIds);
             return this;
@@ -216,14 +189,17 @@ public final class GetServiceResult {
         public Builder autoApprovalSubscriptionIds(String... autoApprovalSubscriptionIds) {
             return autoApprovalSubscriptionIds(List.of(autoApprovalSubscriptionIds));
         }
+        @CustomType.Setter
         public Builder enableProxyProtocol(Boolean enableProxyProtocol) {
             this.enableProxyProtocol = Objects.requireNonNull(enableProxyProtocol);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder loadBalancerFrontendIpConfigurationIds(List<String> loadBalancerFrontendIpConfigurationIds) {
             this.loadBalancerFrontendIpConfigurationIds = Objects.requireNonNull(loadBalancerFrontendIpConfigurationIds);
             return this;
@@ -231,14 +207,17 @@ public final class GetServiceResult {
         public Builder loadBalancerFrontendIpConfigurationIds(String... loadBalancerFrontendIpConfigurationIds) {
             return loadBalancerFrontendIpConfigurationIds(List.of(loadBalancerFrontendIpConfigurationIds));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder natIpConfigurations(List<GetServiceNatIpConfiguration> natIpConfigurations) {
             this.natIpConfigurations = Objects.requireNonNull(natIpConfigurations);
             return this;
@@ -246,22 +225,38 @@ public final class GetServiceResult {
         public Builder natIpConfigurations(GetServiceNatIpConfiguration... natIpConfigurations) {
             return natIpConfigurations(List.of(natIpConfigurations));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder visibilitySubscriptionIds(List<String> visibilitySubscriptionIds) {
             this.visibilitySubscriptionIds = Objects.requireNonNull(visibilitySubscriptionIds);
             return this;
         }
         public Builder visibilitySubscriptionIds(String... visibilitySubscriptionIds) {
             return visibilitySubscriptionIds(List.of(visibilitySubscriptionIds));
-        }        public GetServiceResult build() {
-            return new GetServiceResult(alias, autoApprovalSubscriptionIds, enableProxyProtocol, id, loadBalancerFrontendIpConfigurationIds, location, name, natIpConfigurations, resourceGroupName, tags, visibilitySubscriptionIds);
+        }
+        public GetServiceResult build() {
+            final var o = new GetServiceResult();
+            o.alias = alias;
+            o.autoApprovalSubscriptionIds = autoApprovalSubscriptionIds;
+            o.enableProxyProtocol = enableProxyProtocol;
+            o.id = id;
+            o.loadBalancerFrontendIpConfigurationIds = loadBalancerFrontendIpConfigurationIds;
+            o.location = location;
+            o.name = name;
+            o.natIpConfigurations = natIpConfigurations;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            o.visibilitySubscriptionIds = visibilitySubscriptionIds;
+            return o;
         }
     }
 }

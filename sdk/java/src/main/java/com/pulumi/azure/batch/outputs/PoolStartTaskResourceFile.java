@@ -15,49 +15,34 @@ public final class PoolStartTaskResourceFile {
      * @return The storage container name in the auto storage account.
      * 
      */
-    private final @Nullable String autoStorageContainerName;
+    private @Nullable String autoStorageContainerName;
     /**
      * @return The blob prefix to use when downloading blobs from an Azure Storage container. Only the blobs whose names begin with the specified prefix will be downloaded. The property is valid only when `auto_storage_container_name` or `storage_container_url` is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.
      * 
      */
-    private final @Nullable String blobPrefix;
+    private @Nullable String blobPrefix;
     /**
      * @return The file permission mode represented as a string in octal format (e.g. `&#34;0644&#34;`). This property applies only to files being downloaded to Linux compute nodes. It will be ignored if it is specified for a `resource_file` which will be downloaded to a Windows node. If this property is not specified for a Linux node, then a default value of 0770 is applied to the file.
      * 
      */
-    private final @Nullable String fileMode;
+    private @Nullable String fileMode;
     /**
      * @return The location on the compute node to which to download the file, relative to the task&#39;s working directory. If the `http_url` property is specified, the `file_path` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `auto_storage_container_name` or `storage_container_url` property is specified, `file_path` is optional and is the directory to download the files to. In the case where `file_path` is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task&#39;s working directory (for example by using &#39;..&#39;).
      * 
      */
-    private final @Nullable String filePath;
+    private @Nullable String filePath;
     /**
      * @return The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.
      * 
      */
-    private final @Nullable String httpUrl;
+    private @Nullable String httpUrl;
     /**
      * @return The URL of the blob container within Azure Blob Storage. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
      * 
      */
-    private final @Nullable String storageContainerUrl;
+    private @Nullable String storageContainerUrl;
 
-    @CustomType.Constructor
-    private PoolStartTaskResourceFile(
-        @CustomType.Parameter("autoStorageContainerName") @Nullable String autoStorageContainerName,
-        @CustomType.Parameter("blobPrefix") @Nullable String blobPrefix,
-        @CustomType.Parameter("fileMode") @Nullable String fileMode,
-        @CustomType.Parameter("filePath") @Nullable String filePath,
-        @CustomType.Parameter("httpUrl") @Nullable String httpUrl,
-        @CustomType.Parameter("storageContainerUrl") @Nullable String storageContainerUrl) {
-        this.autoStorageContainerName = autoStorageContainerName;
-        this.blobPrefix = blobPrefix;
-        this.fileMode = fileMode;
-        this.filePath = filePath;
-        this.httpUrl = httpUrl;
-        this.storageContainerUrl = storageContainerUrl;
-    }
-
+    private PoolStartTaskResourceFile() {}
     /**
      * @return The storage container name in the auto storage account.
      * 
@@ -108,7 +93,7 @@ public final class PoolStartTaskResourceFile {
     public static Builder builder(PoolStartTaskResourceFile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String autoStorageContainerName;
         private @Nullable String blobPrefix;
@@ -116,11 +101,7 @@ public final class PoolStartTaskResourceFile {
         private @Nullable String filePath;
         private @Nullable String httpUrl;
         private @Nullable String storageContainerUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PoolStartTaskResourceFile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoStorageContainerName = defaults.autoStorageContainerName;
@@ -131,31 +112,45 @@ public final class PoolStartTaskResourceFile {
     	      this.storageContainerUrl = defaults.storageContainerUrl;
         }
 
+        @CustomType.Setter
         public Builder autoStorageContainerName(@Nullable String autoStorageContainerName) {
             this.autoStorageContainerName = autoStorageContainerName;
             return this;
         }
+        @CustomType.Setter
         public Builder blobPrefix(@Nullable String blobPrefix) {
             this.blobPrefix = blobPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder fileMode(@Nullable String fileMode) {
             this.fileMode = fileMode;
             return this;
         }
+        @CustomType.Setter
         public Builder filePath(@Nullable String filePath) {
             this.filePath = filePath;
             return this;
         }
+        @CustomType.Setter
         public Builder httpUrl(@Nullable String httpUrl) {
             this.httpUrl = httpUrl;
             return this;
         }
+        @CustomType.Setter
         public Builder storageContainerUrl(@Nullable String storageContainerUrl) {
             this.storageContainerUrl = storageContainerUrl;
             return this;
-        }        public PoolStartTaskResourceFile build() {
-            return new PoolStartTaskResourceFile(autoStorageContainerName, blobPrefix, fileMode, filePath, httpUrl, storageContainerUrl);
+        }
+        public PoolStartTaskResourceFile build() {
+            final var o = new PoolStartTaskResourceFile();
+            o.autoStorageContainerName = autoStorageContainerName;
+            o.blobPrefix = blobPrefix;
+            o.fileMode = fileMode;
+            o.filePath = filePath;
+            o.httpUrl = httpUrl;
+            o.storageContainerUrl = storageContainerUrl;
+            return o;
         }
     }
 }

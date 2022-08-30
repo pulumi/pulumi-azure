@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class FeaturesNetwork {
-    private final Boolean relaxedLocking;
+    private Boolean relaxedLocking;
 
-    @CustomType.Constructor
-    private FeaturesNetwork(@CustomType.Parameter("relaxedLocking") Boolean relaxedLocking) {
-        this.relaxedLocking = relaxedLocking;
-    }
-
+    private FeaturesNetwork() {}
     public Boolean relaxedLocking() {
         return this.relaxedLocking;
     }
@@ -27,24 +23,24 @@ public final class FeaturesNetwork {
     public static Builder builder(FeaturesNetwork defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean relaxedLocking;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FeaturesNetwork defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.relaxedLocking = defaults.relaxedLocking;
         }
 
+        @CustomType.Setter
         public Builder relaxedLocking(Boolean relaxedLocking) {
             this.relaxedLocking = Objects.requireNonNull(relaxedLocking);
             return this;
-        }        public FeaturesNetwork build() {
-            return new FeaturesNetwork(relaxedLocking);
+        }
+        public FeaturesNetwork build() {
+            final var o = new FeaturesNetwork();
+            o.relaxedLocking = relaxedLocking;
+            return o;
         }
     }
 }

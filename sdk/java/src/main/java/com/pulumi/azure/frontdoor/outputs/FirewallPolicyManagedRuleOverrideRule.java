@@ -18,35 +18,24 @@ public final class FirewallPolicyManagedRuleOverrideRule {
      * @return The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
      * 
      */
-    private final String action;
+    private String action;
     /**
      * @return Is the managed rule override enabled or disabled. Defaults to `false`
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return One or more `exclusion` blocks as defined below.
      * 
      */
-    private final @Nullable List<FirewallPolicyManagedRuleOverrideRuleExclusion> exclusions;
+    private @Nullable List<FirewallPolicyManagedRuleOverrideRuleExclusion> exclusions;
     /**
      * @return Identifier for the managed rule.
      * 
      */
-    private final String ruleId;
+    private String ruleId;
 
-    @CustomType.Constructor
-    private FirewallPolicyManagedRuleOverrideRule(
-        @CustomType.Parameter("action") String action,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("exclusions") @Nullable List<FirewallPolicyManagedRuleOverrideRuleExclusion> exclusions,
-        @CustomType.Parameter("ruleId") String ruleId) {
-        this.action = action;
-        this.enabled = enabled;
-        this.exclusions = exclusions;
-        this.ruleId = ruleId;
-    }
-
+    private FirewallPolicyManagedRuleOverrideRule() {}
     /**
      * @return The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
      * 
@@ -83,17 +72,13 @@ public final class FirewallPolicyManagedRuleOverrideRule {
     public static Builder builder(FirewallPolicyManagedRuleOverrideRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String action;
         private @Nullable Boolean enabled;
         private @Nullable List<FirewallPolicyManagedRuleOverrideRuleExclusion> exclusions;
         private String ruleId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyManagedRuleOverrideRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -102,14 +87,17 @@ public final class FirewallPolicyManagedRuleOverrideRule {
     	      this.ruleId = defaults.ruleId;
         }
 
+        @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder exclusions(@Nullable List<FirewallPolicyManagedRuleOverrideRuleExclusion> exclusions) {
             this.exclusions = exclusions;
             return this;
@@ -117,11 +105,18 @@ public final class FirewallPolicyManagedRuleOverrideRule {
         public Builder exclusions(FirewallPolicyManagedRuleOverrideRuleExclusion... exclusions) {
             return exclusions(List.of(exclusions));
         }
+        @CustomType.Setter
         public Builder ruleId(String ruleId) {
             this.ruleId = Objects.requireNonNull(ruleId);
             return this;
-        }        public FirewallPolicyManagedRuleOverrideRule build() {
-            return new FirewallPolicyManagedRuleOverrideRule(action, enabled, exclusions, ruleId);
+        }
+        public FirewallPolicyManagedRuleOverrideRule build() {
+            final var o = new FirewallPolicyManagedRuleOverrideRule();
+            o.action = action;
+            o.enabled = enabled;
+            o.exclusions = exclusions;
+            o.ruleId = ruleId;
+            return o;
         }
     }
 }

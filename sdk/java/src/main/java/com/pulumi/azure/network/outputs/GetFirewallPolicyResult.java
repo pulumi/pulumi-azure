@@ -13,55 +13,28 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFirewallPolicyResult {
-    private final String basePolicyId;
-    private final List<String> childPolicies;
-    private final List<GetFirewallPolicyDn> dns;
-    private final List<String> firewalls;
+    private String basePolicyId;
+    private List<String> childPolicies;
+    private List<GetFirewallPolicyDn> dns;
+    private List<String> firewalls;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
-    private final List<String> ruleCollectionGroups;
+    private String id;
+    private String location;
+    private String name;
+    private String resourceGroupName;
+    private List<String> ruleCollectionGroups;
     /**
      * @return A mapping of tags assigned to the Firewall Policy.
      * 
      */
-    private final Map<String,String> tags;
-    private final List<GetFirewallPolicyThreatIntelligenceAllowlist> threatIntelligenceAllowlists;
-    private final String threatIntelligenceMode;
+    private Map<String,String> tags;
+    private List<GetFirewallPolicyThreatIntelligenceAllowlist> threatIntelligenceAllowlists;
+    private String threatIntelligenceMode;
 
-    @CustomType.Constructor
-    private GetFirewallPolicyResult(
-        @CustomType.Parameter("basePolicyId") String basePolicyId,
-        @CustomType.Parameter("childPolicies") List<String> childPolicies,
-        @CustomType.Parameter("dns") List<GetFirewallPolicyDn> dns,
-        @CustomType.Parameter("firewalls") List<String> firewalls,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("ruleCollectionGroups") List<String> ruleCollectionGroups,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("threatIntelligenceAllowlists") List<GetFirewallPolicyThreatIntelligenceAllowlist> threatIntelligenceAllowlists,
-        @CustomType.Parameter("threatIntelligenceMode") String threatIntelligenceMode) {
-        this.basePolicyId = basePolicyId;
-        this.childPolicies = childPolicies;
-        this.dns = dns;
-        this.firewalls = firewalls;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.ruleCollectionGroups = ruleCollectionGroups;
-        this.tags = tags;
-        this.threatIntelligenceAllowlists = threatIntelligenceAllowlists;
-        this.threatIntelligenceMode = threatIntelligenceMode;
-    }
-
+    private GetFirewallPolicyResult() {}
     public String basePolicyId() {
         return this.basePolicyId;
     }
@@ -114,7 +87,7 @@ public final class GetFirewallPolicyResult {
     public static Builder builder(GetFirewallPolicyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String basePolicyId;
         private List<String> childPolicies;
@@ -128,11 +101,7 @@ public final class GetFirewallPolicyResult {
         private Map<String,String> tags;
         private List<GetFirewallPolicyThreatIntelligenceAllowlist> threatIntelligenceAllowlists;
         private String threatIntelligenceMode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFirewallPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.basePolicyId = defaults.basePolicyId;
@@ -149,10 +118,12 @@ public final class GetFirewallPolicyResult {
     	      this.threatIntelligenceMode = defaults.threatIntelligenceMode;
         }
 
+        @CustomType.Setter
         public Builder basePolicyId(String basePolicyId) {
             this.basePolicyId = Objects.requireNonNull(basePolicyId);
             return this;
         }
+        @CustomType.Setter
         public Builder childPolicies(List<String> childPolicies) {
             this.childPolicies = Objects.requireNonNull(childPolicies);
             return this;
@@ -160,6 +131,7 @@ public final class GetFirewallPolicyResult {
         public Builder childPolicies(String... childPolicies) {
             return childPolicies(List.of(childPolicies));
         }
+        @CustomType.Setter
         public Builder dns(List<GetFirewallPolicyDn> dns) {
             this.dns = Objects.requireNonNull(dns);
             return this;
@@ -167,6 +139,7 @@ public final class GetFirewallPolicyResult {
         public Builder dns(GetFirewallPolicyDn... dns) {
             return dns(List.of(dns));
         }
+        @CustomType.Setter
         public Builder firewalls(List<String> firewalls) {
             this.firewalls = Objects.requireNonNull(firewalls);
             return this;
@@ -174,22 +147,27 @@ public final class GetFirewallPolicyResult {
         public Builder firewalls(String... firewalls) {
             return firewalls(List.of(firewalls));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder ruleCollectionGroups(List<String> ruleCollectionGroups) {
             this.ruleCollectionGroups = Objects.requireNonNull(ruleCollectionGroups);
             return this;
@@ -197,10 +175,12 @@ public final class GetFirewallPolicyResult {
         public Builder ruleCollectionGroups(String... ruleCollectionGroups) {
             return ruleCollectionGroups(List.of(ruleCollectionGroups));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder threatIntelligenceAllowlists(List<GetFirewallPolicyThreatIntelligenceAllowlist> threatIntelligenceAllowlists) {
             this.threatIntelligenceAllowlists = Objects.requireNonNull(threatIntelligenceAllowlists);
             return this;
@@ -208,11 +188,26 @@ public final class GetFirewallPolicyResult {
         public Builder threatIntelligenceAllowlists(GetFirewallPolicyThreatIntelligenceAllowlist... threatIntelligenceAllowlists) {
             return threatIntelligenceAllowlists(List.of(threatIntelligenceAllowlists));
         }
+        @CustomType.Setter
         public Builder threatIntelligenceMode(String threatIntelligenceMode) {
             this.threatIntelligenceMode = Objects.requireNonNull(threatIntelligenceMode);
             return this;
-        }        public GetFirewallPolicyResult build() {
-            return new GetFirewallPolicyResult(basePolicyId, childPolicies, dns, firewalls, id, location, name, resourceGroupName, ruleCollectionGroups, tags, threatIntelligenceAllowlists, threatIntelligenceMode);
+        }
+        public GetFirewallPolicyResult build() {
+            final var o = new GetFirewallPolicyResult();
+            o.basePolicyId = basePolicyId;
+            o.childPolicies = childPolicies;
+            o.dns = dns;
+            o.firewalls = firewalls;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.ruleCollectionGroups = ruleCollectionGroups;
+            o.tags = tags;
+            o.threatIntelligenceAllowlists = threatIntelligenceAllowlists;
+            o.threatIntelligenceMode = threatIntelligenceMode;
+            return o;
         }
     }
 }

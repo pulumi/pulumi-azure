@@ -13,21 +13,14 @@ public final class GetApiSubscriptionKeyParameterName {
      * @return The name of the HTTP Header which should be used for the Subscription Key.
      * 
      */
-    private final String header;
+    private String header;
     /**
      * @return The name of the QueryString parameter which should be used for the Subscription Key.
      * 
      */
-    private final String query;
+    private String query;
 
-    @CustomType.Constructor
-    private GetApiSubscriptionKeyParameterName(
-        @CustomType.Parameter("header") String header,
-        @CustomType.Parameter("query") String query) {
-        this.header = header;
-        this.query = query;
-    }
-
+    private GetApiSubscriptionKeyParameterName() {}
     /**
      * @return The name of the HTTP Header which should be used for the Subscription Key.
      * 
@@ -50,30 +43,32 @@ public final class GetApiSubscriptionKeyParameterName {
     public static Builder builder(GetApiSubscriptionKeyParameterName defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String header;
         private String query;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetApiSubscriptionKeyParameterName defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.header = defaults.header;
     	      this.query = defaults.query;
         }
 
+        @CustomType.Setter
         public Builder header(String header) {
             this.header = Objects.requireNonNull(header);
             return this;
         }
+        @CustomType.Setter
         public Builder query(String query) {
             this.query = Objects.requireNonNull(query);
             return this;
-        }        public GetApiSubscriptionKeyParameterName build() {
-            return new GetApiSubscriptionKeyParameterName(header, query);
+        }
+        public GetApiSubscriptionKeyParameterName build() {
+            final var o = new GetApiSubscriptionKeyParameterName();
+            o.header = header;
+            o.query = query;
+            return o;
         }
     }
 }

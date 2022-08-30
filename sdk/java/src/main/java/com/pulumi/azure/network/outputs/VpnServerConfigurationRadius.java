@@ -17,28 +17,19 @@ public final class VpnServerConfigurationRadius {
      * @return One or more `client_root_certificate` blocks as defined above.
      * 
      */
-    private final @Nullable List<VpnServerConfigurationRadiusClientRootCertificate> clientRootCertificates;
+    private @Nullable List<VpnServerConfigurationRadiusClientRootCertificate> clientRootCertificates;
     /**
      * @return One or more `server_root_certificate` blocks as defined below.
      * 
      */
-    private final @Nullable List<VpnServerConfigurationRadiusServerRootCertificate> serverRootCertificates;
+    private @Nullable List<VpnServerConfigurationRadiusServerRootCertificate> serverRootCertificates;
     /**
      * @return One or more `server` blocks as defined below.
      * 
      */
-    private final @Nullable List<VpnServerConfigurationRadiusServer> servers;
+    private @Nullable List<VpnServerConfigurationRadiusServer> servers;
 
-    @CustomType.Constructor
-    private VpnServerConfigurationRadius(
-        @CustomType.Parameter("clientRootCertificates") @Nullable List<VpnServerConfigurationRadiusClientRootCertificate> clientRootCertificates,
-        @CustomType.Parameter("serverRootCertificates") @Nullable List<VpnServerConfigurationRadiusServerRootCertificate> serverRootCertificates,
-        @CustomType.Parameter("servers") @Nullable List<VpnServerConfigurationRadiusServer> servers) {
-        this.clientRootCertificates = clientRootCertificates;
-        this.serverRootCertificates = serverRootCertificates;
-        this.servers = servers;
-    }
-
+    private VpnServerConfigurationRadius() {}
     /**
      * @return One or more `client_root_certificate` blocks as defined above.
      * 
@@ -68,16 +59,12 @@ public final class VpnServerConfigurationRadius {
     public static Builder builder(VpnServerConfigurationRadius defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<VpnServerConfigurationRadiusClientRootCertificate> clientRootCertificates;
         private @Nullable List<VpnServerConfigurationRadiusServerRootCertificate> serverRootCertificates;
         private @Nullable List<VpnServerConfigurationRadiusServer> servers;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpnServerConfigurationRadius defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientRootCertificates = defaults.clientRootCertificates;
@@ -85,6 +72,7 @@ public final class VpnServerConfigurationRadius {
     	      this.servers = defaults.servers;
         }
 
+        @CustomType.Setter
         public Builder clientRootCertificates(@Nullable List<VpnServerConfigurationRadiusClientRootCertificate> clientRootCertificates) {
             this.clientRootCertificates = clientRootCertificates;
             return this;
@@ -92,6 +80,7 @@ public final class VpnServerConfigurationRadius {
         public Builder clientRootCertificates(VpnServerConfigurationRadiusClientRootCertificate... clientRootCertificates) {
             return clientRootCertificates(List.of(clientRootCertificates));
         }
+        @CustomType.Setter
         public Builder serverRootCertificates(@Nullable List<VpnServerConfigurationRadiusServerRootCertificate> serverRootCertificates) {
             this.serverRootCertificates = serverRootCertificates;
             return this;
@@ -99,14 +88,20 @@ public final class VpnServerConfigurationRadius {
         public Builder serverRootCertificates(VpnServerConfigurationRadiusServerRootCertificate... serverRootCertificates) {
             return serverRootCertificates(List.of(serverRootCertificates));
         }
+        @CustomType.Setter
         public Builder servers(@Nullable List<VpnServerConfigurationRadiusServer> servers) {
             this.servers = servers;
             return this;
         }
         public Builder servers(VpnServerConfigurationRadiusServer... servers) {
             return servers(List.of(servers));
-        }        public VpnServerConfigurationRadius build() {
-            return new VpnServerConfigurationRadius(clientRootCertificates, serverRootCertificates, servers);
+        }
+        public VpnServerConfigurationRadius build() {
+            final var o = new VpnServerConfigurationRadius();
+            o.clientRootCertificates = clientRootCertificates;
+            o.serverRootCertificates = serverRootCertificates;
+            o.servers = servers;
+            return o;
         }
     }
 }

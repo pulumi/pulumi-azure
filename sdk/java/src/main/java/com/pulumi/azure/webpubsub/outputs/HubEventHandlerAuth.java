@@ -13,13 +13,9 @@ public final class HubEventHandlerAuth {
      * @return Specify the identity ID of the target resource.
      * 
      */
-    private final String managedIdentityId;
+    private String managedIdentityId;
 
-    @CustomType.Constructor
-    private HubEventHandlerAuth(@CustomType.Parameter("managedIdentityId") String managedIdentityId) {
-        this.managedIdentityId = managedIdentityId;
-    }
-
+    private HubEventHandlerAuth() {}
     /**
      * @return Specify the identity ID of the target resource.
      * 
@@ -35,24 +31,24 @@ public final class HubEventHandlerAuth {
     public static Builder builder(HubEventHandlerAuth defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String managedIdentityId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(HubEventHandlerAuth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.managedIdentityId = defaults.managedIdentityId;
         }
 
+        @CustomType.Setter
         public Builder managedIdentityId(String managedIdentityId) {
             this.managedIdentityId = Objects.requireNonNull(managedIdentityId);
             return this;
-        }        public HubEventHandlerAuth build() {
-            return new HubEventHandlerAuth(managedIdentityId);
+        }
+        public HubEventHandlerAuth build() {
+            final var o = new HubEventHandlerAuth();
+            o.managedIdentityId = managedIdentityId;
+            return o;
         }
     }
 }

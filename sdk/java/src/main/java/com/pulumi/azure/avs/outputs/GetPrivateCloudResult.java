@@ -18,125 +18,86 @@ public final class GetPrivateCloudResult {
      * @return A `circuit` block as defined below.
      * 
      */
-    private final List<GetPrivateCloudCircuit> circuits;
+    private List<GetPrivateCloudCircuit> circuits;
     /**
      * @return The endpoint for the HCX Cloud Manager.
      * 
      */
-    private final String hcxCloudManagerEndpoint;
+    private String hcxCloudManagerEndpoint;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Is the VMware Private Cluster connected to the internet?
      * 
      */
-    private final Boolean internetConnectionEnabled;
+    private Boolean internetConnectionEnabled;
     /**
      * @return The Azure Region where the VMware Private Cloud exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return A `management_cluster` block as defined below.
      * 
      */
-    private final List<GetPrivateCloudManagementCluster> managementClusters;
+    private List<GetPrivateCloudManagementCluster> managementClusters;
     /**
      * @return The network used to access vCenter Server and NSX-T Manager.
      * 
      */
-    private final String managementSubnetCidr;
-    private final String name;
+    private String managementSubnetCidr;
+    private String name;
     /**
      * @return The subnet CIDR of the VMware Private Cloud.
      * 
      */
-    private final String networkSubnetCidr;
+    private String networkSubnetCidr;
     /**
      * @return The thumbprint of the NSX-T Manager SSL certificate.
      * 
      */
-    private final String nsxtCertificateThumbprint;
+    private String nsxtCertificateThumbprint;
     /**
      * @return The endpoint for the NSX-T Data Center manager.
      * 
      */
-    private final String nsxtManagerEndpoint;
+    private String nsxtManagerEndpoint;
     /**
      * @return The network which isused for virtual machine cold migration, cloning, and snapshot migration.
      * 
      */
-    private final String provisioningSubnetCidr;
-    private final String resourceGroupName;
+    private String provisioningSubnetCidr;
+    private String resourceGroupName;
     /**
      * @return The Name of the SKU used for this Private Cloud.
      * 
      */
-    private final String skuName;
+    private String skuName;
     /**
      * @return A mapping of tags assigned to the VMware Private Cloud.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The thumbprint of the vCenter Server SSL certificate.
      * 
      */
-    private final String vcenterCertificateThumbprint;
+    private String vcenterCertificateThumbprint;
     /**
      * @return The endpoint for Virtual Center Server Appliance.
      * 
      */
-    private final String vcsaEndpoint;
+    private String vcsaEndpoint;
     /**
      * @return The network which is used for live migration of virtual machines.
      * 
      */
-    private final String vmotionSubnetCidr;
+    private String vmotionSubnetCidr;
 
-    @CustomType.Constructor
-    private GetPrivateCloudResult(
-        @CustomType.Parameter("circuits") List<GetPrivateCloudCircuit> circuits,
-        @CustomType.Parameter("hcxCloudManagerEndpoint") String hcxCloudManagerEndpoint,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("internetConnectionEnabled") Boolean internetConnectionEnabled,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("managementClusters") List<GetPrivateCloudManagementCluster> managementClusters,
-        @CustomType.Parameter("managementSubnetCidr") String managementSubnetCidr,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("networkSubnetCidr") String networkSubnetCidr,
-        @CustomType.Parameter("nsxtCertificateThumbprint") String nsxtCertificateThumbprint,
-        @CustomType.Parameter("nsxtManagerEndpoint") String nsxtManagerEndpoint,
-        @CustomType.Parameter("provisioningSubnetCidr") String provisioningSubnetCidr,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("skuName") String skuName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("vcenterCertificateThumbprint") String vcenterCertificateThumbprint,
-        @CustomType.Parameter("vcsaEndpoint") String vcsaEndpoint,
-        @CustomType.Parameter("vmotionSubnetCidr") String vmotionSubnetCidr) {
-        this.circuits = circuits;
-        this.hcxCloudManagerEndpoint = hcxCloudManagerEndpoint;
-        this.id = id;
-        this.internetConnectionEnabled = internetConnectionEnabled;
-        this.location = location;
-        this.managementClusters = managementClusters;
-        this.managementSubnetCidr = managementSubnetCidr;
-        this.name = name;
-        this.networkSubnetCidr = networkSubnetCidr;
-        this.nsxtCertificateThumbprint = nsxtCertificateThumbprint;
-        this.nsxtManagerEndpoint = nsxtManagerEndpoint;
-        this.provisioningSubnetCidr = provisioningSubnetCidr;
-        this.resourceGroupName = resourceGroupName;
-        this.skuName = skuName;
-        this.tags = tags;
-        this.vcenterCertificateThumbprint = vcenterCertificateThumbprint;
-        this.vcsaEndpoint = vcsaEndpoint;
-        this.vmotionSubnetCidr = vmotionSubnetCidr;
-    }
-
+    private GetPrivateCloudResult() {}
     /**
      * @return A `circuit` block as defined below.
      * 
@@ -263,7 +224,7 @@ public final class GetPrivateCloudResult {
     public static Builder builder(GetPrivateCloudResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetPrivateCloudCircuit> circuits;
         private String hcxCloudManagerEndpoint;
@@ -283,11 +244,7 @@ public final class GetPrivateCloudResult {
         private String vcenterCertificateThumbprint;
         private String vcsaEndpoint;
         private String vmotionSubnetCidr;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPrivateCloudResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.circuits = defaults.circuits;
@@ -310,6 +267,7 @@ public final class GetPrivateCloudResult {
     	      this.vmotionSubnetCidr = defaults.vmotionSubnetCidr;
         }
 
+        @CustomType.Setter
         public Builder circuits(List<GetPrivateCloudCircuit> circuits) {
             this.circuits = Objects.requireNonNull(circuits);
             return this;
@@ -317,22 +275,27 @@ public final class GetPrivateCloudResult {
         public Builder circuits(GetPrivateCloudCircuit... circuits) {
             return circuits(List.of(circuits));
         }
+        @CustomType.Setter
         public Builder hcxCloudManagerEndpoint(String hcxCloudManagerEndpoint) {
             this.hcxCloudManagerEndpoint = Objects.requireNonNull(hcxCloudManagerEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder internetConnectionEnabled(Boolean internetConnectionEnabled) {
             this.internetConnectionEnabled = Objects.requireNonNull(internetConnectionEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder managementClusters(List<GetPrivateCloudManagementCluster> managementClusters) {
             this.managementClusters = Objects.requireNonNull(managementClusters);
             return this;
@@ -340,55 +303,87 @@ public final class GetPrivateCloudResult {
         public Builder managementClusters(GetPrivateCloudManagementCluster... managementClusters) {
             return managementClusters(List.of(managementClusters));
         }
+        @CustomType.Setter
         public Builder managementSubnetCidr(String managementSubnetCidr) {
             this.managementSubnetCidr = Objects.requireNonNull(managementSubnetCidr);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder networkSubnetCidr(String networkSubnetCidr) {
             this.networkSubnetCidr = Objects.requireNonNull(networkSubnetCidr);
             return this;
         }
+        @CustomType.Setter
         public Builder nsxtCertificateThumbprint(String nsxtCertificateThumbprint) {
             this.nsxtCertificateThumbprint = Objects.requireNonNull(nsxtCertificateThumbprint);
             return this;
         }
+        @CustomType.Setter
         public Builder nsxtManagerEndpoint(String nsxtManagerEndpoint) {
             this.nsxtManagerEndpoint = Objects.requireNonNull(nsxtManagerEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder provisioningSubnetCidr(String provisioningSubnetCidr) {
             this.provisioningSubnetCidr = Objects.requireNonNull(provisioningSubnetCidr);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder skuName(String skuName) {
             this.skuName = Objects.requireNonNull(skuName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder vcenterCertificateThumbprint(String vcenterCertificateThumbprint) {
             this.vcenterCertificateThumbprint = Objects.requireNonNull(vcenterCertificateThumbprint);
             return this;
         }
+        @CustomType.Setter
         public Builder vcsaEndpoint(String vcsaEndpoint) {
             this.vcsaEndpoint = Objects.requireNonNull(vcsaEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder vmotionSubnetCidr(String vmotionSubnetCidr) {
             this.vmotionSubnetCidr = Objects.requireNonNull(vmotionSubnetCidr);
             return this;
-        }        public GetPrivateCloudResult build() {
-            return new GetPrivateCloudResult(circuits, hcxCloudManagerEndpoint, id, internetConnectionEnabled, location, managementClusters, managementSubnetCidr, name, networkSubnetCidr, nsxtCertificateThumbprint, nsxtManagerEndpoint, provisioningSubnetCidr, resourceGroupName, skuName, tags, vcenterCertificateThumbprint, vcsaEndpoint, vmotionSubnetCidr);
+        }
+        public GetPrivateCloudResult build() {
+            final var o = new GetPrivateCloudResult();
+            o.circuits = circuits;
+            o.hcxCloudManagerEndpoint = hcxCloudManagerEndpoint;
+            o.id = id;
+            o.internetConnectionEnabled = internetConnectionEnabled;
+            o.location = location;
+            o.managementClusters = managementClusters;
+            o.managementSubnetCidr = managementSubnetCidr;
+            o.name = name;
+            o.networkSubnetCidr = networkSubnetCidr;
+            o.nsxtCertificateThumbprint = nsxtCertificateThumbprint;
+            o.nsxtManagerEndpoint = nsxtManagerEndpoint;
+            o.provisioningSubnetCidr = provisioningSubnetCidr;
+            o.resourceGroupName = resourceGroupName;
+            o.skuName = skuName;
+            o.tags = tags;
+            o.vcenterCertificateThumbprint = vcenterCertificateThumbprint;
+            o.vcsaEndpoint = vcsaEndpoint;
+            o.vmotionSubnetCidr = vmotionSubnetCidr;
+            return o;
         }
     }
 }

@@ -28,6 +28,7 @@ export * from "./metricAlert";
 export * from "./privateLinkScope";
 export * from "./privateLinkScopedService";
 export * from "./scheduledQueryRulesAlert";
+export * from "./scheduledQueryRulesAlertV2";
 export * from "./scheduledQueryRulesLog";
 export * from "./smartDetectorAlertRule";
 
@@ -50,6 +51,7 @@ import { MetricAlert } from "./metricAlert";
 import { PrivateLinkScope } from "./privateLinkScope";
 import { PrivateLinkScopedService } from "./privateLinkScopedService";
 import { ScheduledQueryRulesAlert } from "./scheduledQueryRulesAlert";
+import { ScheduledQueryRulesAlertV2 } from "./scheduledQueryRulesAlertV2";
 import { ScheduledQueryRulesLog } from "./scheduledQueryRulesLog";
 import { SmartDetectorAlertRule } from "./smartDetectorAlertRule";
 
@@ -93,6 +95,8 @@ const _module = {
                 return new PrivateLinkScopedService(name, <any>undefined, { urn })
             case "azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert":
                 return new ScheduledQueryRulesAlert(name, <any>undefined, { urn })
+            case "azure:monitoring/scheduledQueryRulesAlertV2:ScheduledQueryRulesAlertV2":
+                return new ScheduledQueryRulesAlertV2(name, <any>undefined, { urn })
             case "azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog":
                 return new ScheduledQueryRulesLog(name, <any>undefined, { urn })
             case "azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule":
@@ -120,5 +124,6 @@ pulumi.runtime.registerResourceModule("azure", "monitoring/metricAlert", _module
 pulumi.runtime.registerResourceModule("azure", "monitoring/privateLinkScope", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/privateLinkScopedService", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/scheduledQueryRulesAlert", _module)
+pulumi.runtime.registerResourceModule("azure", "monitoring/scheduledQueryRulesAlertV2", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/scheduledQueryRulesLog", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/smartDetectorAlertRule", _module)

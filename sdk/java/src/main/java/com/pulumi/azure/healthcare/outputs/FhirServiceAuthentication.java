@@ -16,20 +16,11 @@ public final class FhirServiceAuthentication {
      * @return The intended audience to receive authentication tokens for the service. The default value is https://&lt;name&gt;.fhir.azurehealthcareapis.com
      * 
      */
-    private final String audience;
-    private final String authority;
-    private final @Nullable Boolean smartProxyEnabled;
+    private String audience;
+    private String authority;
+    private @Nullable Boolean smartProxyEnabled;
 
-    @CustomType.Constructor
-    private FhirServiceAuthentication(
-        @CustomType.Parameter("audience") String audience,
-        @CustomType.Parameter("authority") String authority,
-        @CustomType.Parameter("smartProxyEnabled") @Nullable Boolean smartProxyEnabled) {
-        this.audience = audience;
-        this.authority = authority;
-        this.smartProxyEnabled = smartProxyEnabled;
-    }
-
+    private FhirServiceAuthentication() {}
     /**
      * @return The intended audience to receive authentication tokens for the service. The default value is https://&lt;name&gt;.fhir.azurehealthcareapis.com
      * 
@@ -51,16 +42,12 @@ public final class FhirServiceAuthentication {
     public static Builder builder(FhirServiceAuthentication defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String audience;
         private String authority;
         private @Nullable Boolean smartProxyEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FhirServiceAuthentication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.audience = defaults.audience;
@@ -68,19 +55,27 @@ public final class FhirServiceAuthentication {
     	      this.smartProxyEnabled = defaults.smartProxyEnabled;
         }
 
+        @CustomType.Setter
         public Builder audience(String audience) {
             this.audience = Objects.requireNonNull(audience);
             return this;
         }
+        @CustomType.Setter
         public Builder authority(String authority) {
             this.authority = Objects.requireNonNull(authority);
             return this;
         }
+        @CustomType.Setter
         public Builder smartProxyEnabled(@Nullable Boolean smartProxyEnabled) {
             this.smartProxyEnabled = smartProxyEnabled;
             return this;
-        }        public FhirServiceAuthentication build() {
-            return new FhirServiceAuthentication(audience, authority, smartProxyEnabled);
+        }
+        public FhirServiceAuthentication build() {
+            final var o = new FhirServiceAuthentication();
+            o.audience = audience;
+            o.authority = authority;
+            o.smartProxyEnabled = smartProxyEnabled;
+            return o;
         }
     }
 }

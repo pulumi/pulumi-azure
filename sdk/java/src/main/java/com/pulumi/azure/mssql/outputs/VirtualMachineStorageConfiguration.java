@@ -18,42 +18,29 @@ public final class VirtualMachineStorageConfiguration {
      * @return An `storage_settings` as defined below.
      * 
      */
-    private final @Nullable VirtualMachineStorageConfigurationDataSettings dataSettings;
+    private @Nullable VirtualMachineStorageConfigurationDataSettings dataSettings;
     /**
      * @return The type of disk configuration to apply to the SQL Server. Valid values include `NEW`, `EXTEND`, or `ADD`.
      * 
      */
-    private final String diskType;
+    private String diskType;
     /**
      * @return An `storage_settings` as defined below.
      * 
      */
-    private final @Nullable VirtualMachineStorageConfigurationLogSettings logSettings;
+    private @Nullable VirtualMachineStorageConfigurationLogSettings logSettings;
     /**
      * @return The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
      * 
      */
-    private final String storageWorkloadType;
+    private String storageWorkloadType;
     /**
      * @return An `storage_settings` as defined below.
      * 
      */
-    private final @Nullable VirtualMachineStorageConfigurationTempDbSettings tempDbSettings;
+    private @Nullable VirtualMachineStorageConfigurationTempDbSettings tempDbSettings;
 
-    @CustomType.Constructor
-    private VirtualMachineStorageConfiguration(
-        @CustomType.Parameter("dataSettings") @Nullable VirtualMachineStorageConfigurationDataSettings dataSettings,
-        @CustomType.Parameter("diskType") String diskType,
-        @CustomType.Parameter("logSettings") @Nullable VirtualMachineStorageConfigurationLogSettings logSettings,
-        @CustomType.Parameter("storageWorkloadType") String storageWorkloadType,
-        @CustomType.Parameter("tempDbSettings") @Nullable VirtualMachineStorageConfigurationTempDbSettings tempDbSettings) {
-        this.dataSettings = dataSettings;
-        this.diskType = diskType;
-        this.logSettings = logSettings;
-        this.storageWorkloadType = storageWorkloadType;
-        this.tempDbSettings = tempDbSettings;
-    }
-
+    private VirtualMachineStorageConfiguration() {}
     /**
      * @return An `storage_settings` as defined below.
      * 
@@ -97,18 +84,14 @@ public final class VirtualMachineStorageConfiguration {
     public static Builder builder(VirtualMachineStorageConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VirtualMachineStorageConfigurationDataSettings dataSettings;
         private String diskType;
         private @Nullable VirtualMachineStorageConfigurationLogSettings logSettings;
         private String storageWorkloadType;
         private @Nullable VirtualMachineStorageConfigurationTempDbSettings tempDbSettings;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualMachineStorageConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataSettings = defaults.dataSettings;
@@ -118,27 +101,39 @@ public final class VirtualMachineStorageConfiguration {
     	      this.tempDbSettings = defaults.tempDbSettings;
         }
 
+        @CustomType.Setter
         public Builder dataSettings(@Nullable VirtualMachineStorageConfigurationDataSettings dataSettings) {
             this.dataSettings = dataSettings;
             return this;
         }
+        @CustomType.Setter
         public Builder diskType(String diskType) {
             this.diskType = Objects.requireNonNull(diskType);
             return this;
         }
+        @CustomType.Setter
         public Builder logSettings(@Nullable VirtualMachineStorageConfigurationLogSettings logSettings) {
             this.logSettings = logSettings;
             return this;
         }
+        @CustomType.Setter
         public Builder storageWorkloadType(String storageWorkloadType) {
             this.storageWorkloadType = Objects.requireNonNull(storageWorkloadType);
             return this;
         }
+        @CustomType.Setter
         public Builder tempDbSettings(@Nullable VirtualMachineStorageConfigurationTempDbSettings tempDbSettings) {
             this.tempDbSettings = tempDbSettings;
             return this;
-        }        public VirtualMachineStorageConfiguration build() {
-            return new VirtualMachineStorageConfiguration(dataSettings, diskType, logSettings, storageWorkloadType, tempDbSettings);
+        }
+        public VirtualMachineStorageConfiguration build() {
+            final var o = new VirtualMachineStorageConfiguration();
+            o.dataSettings = dataSettings;
+            o.diskType = diskType;
+            o.logSettings = logSettings;
+            o.storageWorkloadType = storageWorkloadType;
+            o.tempDbSettings = tempDbSettings;
+            return o;
         }
     }
 }

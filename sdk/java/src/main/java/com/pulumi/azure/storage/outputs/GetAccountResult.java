@@ -20,363 +20,258 @@ public final class GetAccountResult {
      * @return The access tier for `BlobStorage` accounts.
      * 
      */
-    private final String accessTier;
+    private String accessTier;
     /**
      * @return The Kind of account.
      * 
      */
-    private final String accountKind;
+    private String accountKind;
     /**
      * @return The type of replication used for this storage account.
      * 
      */
-    private final String accountReplicationType;
+    private String accountReplicationType;
     /**
      * @return The Tier of this storage account.
      * 
      */
-    private final String accountTier;
+    private String accountTier;
     /**
      * @return Can nested items in the storage account opt into allowing public access?
      * 
      */
-    private final Boolean allowNestedItemsToBePublic;
+    private Boolean allowNestedItemsToBePublic;
     /**
      * @return A `custom_domain` block as documented below.
      * 
      */
-    private final List<GetAccountCustomDomain> customDomains;
+    private List<GetAccountCustomDomain> customDomains;
     /**
      * @return Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
      * for more information.
      * 
      */
-    private final Boolean enableHttpsTrafficOnly;
+    private Boolean enableHttpsTrafficOnly;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return An `identity` block as documented below.
      * 
      */
-    private final List<GetAccountIdentity> identities;
+    private List<GetAccountIdentity> identities;
     /**
      * @return Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/azure/storage/common/infrastructure-encryption-enable/)
      * for more information.
      * ---
      * 
      */
-    private final Boolean infrastructureEncryptionEnabled;
+    private Boolean infrastructureEncryptionEnabled;
     /**
      * @return Is Hierarchical Namespace enabled?
      * 
      */
-    private final Boolean isHnsEnabled;
+    private Boolean isHnsEnabled;
     /**
      * @return The Azure location where the Storage Account exists
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The minimum supported TLS version for this storage account.
      * 
      */
-    private final @Nullable String minTlsVersion;
+    private @Nullable String minTlsVersion;
     /**
      * @return The Custom Domain Name used for the Storage Account.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Is NFSv3 protocol enabled?
      * 
      */
-    private final Boolean nfsv3Enabled;
+    private Boolean nfsv3Enabled;
     /**
      * @return The primary access key for the Storage Account.
      * 
      */
-    private final String primaryAccessKey;
+    private String primaryAccessKey;
     /**
      * @return The connection string associated with the primary blob location
      * 
      */
-    private final String primaryBlobConnectionString;
+    private String primaryBlobConnectionString;
     /**
      * @return The endpoint URL for blob storage in the primary location.
      * 
      */
-    private final String primaryBlobEndpoint;
+    private String primaryBlobEndpoint;
     /**
      * @return The hostname with port if applicable for blob storage in the primary location.
      * 
      */
-    private final String primaryBlobHost;
+    private String primaryBlobHost;
     /**
      * @return The connection string associated with the primary location
      * 
      */
-    private final String primaryConnectionString;
+    private String primaryConnectionString;
     /**
      * @return The endpoint URL for DFS storage in the primary location.
      * 
      */
-    private final String primaryDfsEndpoint;
+    private String primaryDfsEndpoint;
     /**
      * @return The hostname with port if applicable for DFS storage in the primary location.
      * 
      */
-    private final String primaryDfsHost;
+    private String primaryDfsHost;
     /**
      * @return The endpoint URL for file storage in the primary location.
      * 
      */
-    private final String primaryFileEndpoint;
+    private String primaryFileEndpoint;
     /**
      * @return The hostname with port if applicable for file storage in the primary location.
      * 
      */
-    private final String primaryFileHost;
+    private String primaryFileHost;
     /**
      * @return The primary location of the Storage Account.
      * 
      */
-    private final String primaryLocation;
+    private String primaryLocation;
     /**
      * @return The endpoint URL for queue storage in the primary location.
      * 
      */
-    private final String primaryQueueEndpoint;
+    private String primaryQueueEndpoint;
     /**
      * @return The hostname with port if applicable for queue storage in the primary location.
      * 
      */
-    private final String primaryQueueHost;
+    private String primaryQueueHost;
     /**
      * @return The endpoint URL for table storage in the primary location.
      * 
      */
-    private final String primaryTableEndpoint;
+    private String primaryTableEndpoint;
     /**
      * @return The hostname with port if applicable for table storage in the primary location.
      * 
      */
-    private final String primaryTableHost;
+    private String primaryTableHost;
     /**
      * @return The endpoint URL for web storage in the primary location.
      * 
      */
-    private final String primaryWebEndpoint;
+    private String primaryWebEndpoint;
     /**
      * @return The hostname with port if applicable for web storage in the primary location.
      * 
      */
-    private final String primaryWebHost;
+    private String primaryWebHost;
     /**
      * @return The encryption key type of the queue.
      * 
      */
-    private final String queueEncryptionKeyType;
-    private final @Nullable String resourceGroupName;
+    private String queueEncryptionKeyType;
+    private @Nullable String resourceGroupName;
     /**
      * @return The secondary access key for the Storage Account.
      * 
      */
-    private final String secondaryAccessKey;
+    private String secondaryAccessKey;
     /**
      * @return The connection string associated with the secondary blob location
      * 
      */
-    private final String secondaryBlobConnectionString;
+    private String secondaryBlobConnectionString;
     /**
      * @return The endpoint URL for blob storage in the secondary location.
      * 
      */
-    private final String secondaryBlobEndpoint;
+    private String secondaryBlobEndpoint;
     /**
      * @return The hostname with port if applicable for blob storage in the secondary location.
      * 
      */
-    private final String secondaryBlobHost;
+    private String secondaryBlobHost;
     /**
      * @return The connection string associated with the secondary location
      * 
      */
-    private final String secondaryConnectionString;
+    private String secondaryConnectionString;
     /**
      * @return The endpoint URL for DFS storage in the secondary location.
      * 
      */
-    private final String secondaryDfsEndpoint;
+    private String secondaryDfsEndpoint;
     /**
      * @return The hostname with port if applicable for DFS storage in the secondary location.
      * 
      */
-    private final String secondaryDfsHost;
+    private String secondaryDfsHost;
     /**
      * @return The endpoint URL for file storage in the secondary location.
      * 
      */
-    private final String secondaryFileEndpoint;
+    private String secondaryFileEndpoint;
     /**
      * @return The hostname with port if applicable for file storage in the secondary location.
      * 
      */
-    private final String secondaryFileHost;
+    private String secondaryFileHost;
     /**
      * @return The secondary location of the Storage Account.
      * 
      */
-    private final String secondaryLocation;
+    private String secondaryLocation;
     /**
      * @return The endpoint URL for queue storage in the secondary location.
      * 
      */
-    private final String secondaryQueueEndpoint;
+    private String secondaryQueueEndpoint;
     /**
      * @return The hostname with port if applicable for queue storage in the secondary location.
      * 
      */
-    private final String secondaryQueueHost;
+    private String secondaryQueueHost;
     /**
      * @return The endpoint URL for table storage in the secondary location.
      * 
      */
-    private final String secondaryTableEndpoint;
+    private String secondaryTableEndpoint;
     /**
      * @return The hostname with port if applicable for table storage in the secondary location.
      * 
      */
-    private final String secondaryTableHost;
+    private String secondaryTableHost;
     /**
      * @return The endpoint URL for web storage in the secondary location.
      * 
      */
-    private final String secondaryWebEndpoint;
+    private String secondaryWebEndpoint;
     /**
      * @return The hostname with port if applicable for web storage in the secondary location.
      * 
      */
-    private final String secondaryWebHost;
+    private String secondaryWebHost;
     /**
      * @return The encryption key type of the table.
      * 
      */
-    private final String tableEncryptionKeyType;
+    private String tableEncryptionKeyType;
     /**
      * @return A mapping of tags to assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetAccountResult(
-        @CustomType.Parameter("accessTier") String accessTier,
-        @CustomType.Parameter("accountKind") String accountKind,
-        @CustomType.Parameter("accountReplicationType") String accountReplicationType,
-        @CustomType.Parameter("accountTier") String accountTier,
-        @CustomType.Parameter("allowNestedItemsToBePublic") Boolean allowNestedItemsToBePublic,
-        @CustomType.Parameter("customDomains") List<GetAccountCustomDomain> customDomains,
-        @CustomType.Parameter("enableHttpsTrafficOnly") Boolean enableHttpsTrafficOnly,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetAccountIdentity> identities,
-        @CustomType.Parameter("infrastructureEncryptionEnabled") Boolean infrastructureEncryptionEnabled,
-        @CustomType.Parameter("isHnsEnabled") Boolean isHnsEnabled,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("minTlsVersion") @Nullable String minTlsVersion,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nfsv3Enabled") Boolean nfsv3Enabled,
-        @CustomType.Parameter("primaryAccessKey") String primaryAccessKey,
-        @CustomType.Parameter("primaryBlobConnectionString") String primaryBlobConnectionString,
-        @CustomType.Parameter("primaryBlobEndpoint") String primaryBlobEndpoint,
-        @CustomType.Parameter("primaryBlobHost") String primaryBlobHost,
-        @CustomType.Parameter("primaryConnectionString") String primaryConnectionString,
-        @CustomType.Parameter("primaryDfsEndpoint") String primaryDfsEndpoint,
-        @CustomType.Parameter("primaryDfsHost") String primaryDfsHost,
-        @CustomType.Parameter("primaryFileEndpoint") String primaryFileEndpoint,
-        @CustomType.Parameter("primaryFileHost") String primaryFileHost,
-        @CustomType.Parameter("primaryLocation") String primaryLocation,
-        @CustomType.Parameter("primaryQueueEndpoint") String primaryQueueEndpoint,
-        @CustomType.Parameter("primaryQueueHost") String primaryQueueHost,
-        @CustomType.Parameter("primaryTableEndpoint") String primaryTableEndpoint,
-        @CustomType.Parameter("primaryTableHost") String primaryTableHost,
-        @CustomType.Parameter("primaryWebEndpoint") String primaryWebEndpoint,
-        @CustomType.Parameter("primaryWebHost") String primaryWebHost,
-        @CustomType.Parameter("queueEncryptionKeyType") String queueEncryptionKeyType,
-        @CustomType.Parameter("resourceGroupName") @Nullable String resourceGroupName,
-        @CustomType.Parameter("secondaryAccessKey") String secondaryAccessKey,
-        @CustomType.Parameter("secondaryBlobConnectionString") String secondaryBlobConnectionString,
-        @CustomType.Parameter("secondaryBlobEndpoint") String secondaryBlobEndpoint,
-        @CustomType.Parameter("secondaryBlobHost") String secondaryBlobHost,
-        @CustomType.Parameter("secondaryConnectionString") String secondaryConnectionString,
-        @CustomType.Parameter("secondaryDfsEndpoint") String secondaryDfsEndpoint,
-        @CustomType.Parameter("secondaryDfsHost") String secondaryDfsHost,
-        @CustomType.Parameter("secondaryFileEndpoint") String secondaryFileEndpoint,
-        @CustomType.Parameter("secondaryFileHost") String secondaryFileHost,
-        @CustomType.Parameter("secondaryLocation") String secondaryLocation,
-        @CustomType.Parameter("secondaryQueueEndpoint") String secondaryQueueEndpoint,
-        @CustomType.Parameter("secondaryQueueHost") String secondaryQueueHost,
-        @CustomType.Parameter("secondaryTableEndpoint") String secondaryTableEndpoint,
-        @CustomType.Parameter("secondaryTableHost") String secondaryTableHost,
-        @CustomType.Parameter("secondaryWebEndpoint") String secondaryWebEndpoint,
-        @CustomType.Parameter("secondaryWebHost") String secondaryWebHost,
-        @CustomType.Parameter("tableEncryptionKeyType") String tableEncryptionKeyType,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.accessTier = accessTier;
-        this.accountKind = accountKind;
-        this.accountReplicationType = accountReplicationType;
-        this.accountTier = accountTier;
-        this.allowNestedItemsToBePublic = allowNestedItemsToBePublic;
-        this.customDomains = customDomains;
-        this.enableHttpsTrafficOnly = enableHttpsTrafficOnly;
-        this.id = id;
-        this.identities = identities;
-        this.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
-        this.isHnsEnabled = isHnsEnabled;
-        this.location = location;
-        this.minTlsVersion = minTlsVersion;
-        this.name = name;
-        this.nfsv3Enabled = nfsv3Enabled;
-        this.primaryAccessKey = primaryAccessKey;
-        this.primaryBlobConnectionString = primaryBlobConnectionString;
-        this.primaryBlobEndpoint = primaryBlobEndpoint;
-        this.primaryBlobHost = primaryBlobHost;
-        this.primaryConnectionString = primaryConnectionString;
-        this.primaryDfsEndpoint = primaryDfsEndpoint;
-        this.primaryDfsHost = primaryDfsHost;
-        this.primaryFileEndpoint = primaryFileEndpoint;
-        this.primaryFileHost = primaryFileHost;
-        this.primaryLocation = primaryLocation;
-        this.primaryQueueEndpoint = primaryQueueEndpoint;
-        this.primaryQueueHost = primaryQueueHost;
-        this.primaryTableEndpoint = primaryTableEndpoint;
-        this.primaryTableHost = primaryTableHost;
-        this.primaryWebEndpoint = primaryWebEndpoint;
-        this.primaryWebHost = primaryWebHost;
-        this.queueEncryptionKeyType = queueEncryptionKeyType;
-        this.resourceGroupName = resourceGroupName;
-        this.secondaryAccessKey = secondaryAccessKey;
-        this.secondaryBlobConnectionString = secondaryBlobConnectionString;
-        this.secondaryBlobEndpoint = secondaryBlobEndpoint;
-        this.secondaryBlobHost = secondaryBlobHost;
-        this.secondaryConnectionString = secondaryConnectionString;
-        this.secondaryDfsEndpoint = secondaryDfsEndpoint;
-        this.secondaryDfsHost = secondaryDfsHost;
-        this.secondaryFileEndpoint = secondaryFileEndpoint;
-        this.secondaryFileHost = secondaryFileHost;
-        this.secondaryLocation = secondaryLocation;
-        this.secondaryQueueEndpoint = secondaryQueueEndpoint;
-        this.secondaryQueueHost = secondaryQueueHost;
-        this.secondaryTableEndpoint = secondaryTableEndpoint;
-        this.secondaryTableHost = secondaryTableHost;
-        this.secondaryWebEndpoint = secondaryWebEndpoint;
-        this.secondaryWebHost = secondaryWebHost;
-        this.tableEncryptionKeyType = tableEncryptionKeyType;
-        this.tags = tags;
-    }
-
+    private GetAccountResult() {}
     /**
      * @return The access tier for `BlobStorage` accounts.
      * 
@@ -741,7 +636,7 @@ public final class GetAccountResult {
     public static Builder builder(GetAccountResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accessTier;
         private String accountKind;
@@ -794,11 +689,7 @@ public final class GetAccountResult {
         private String secondaryWebHost;
         private String tableEncryptionKeyType;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccountResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessTier = defaults.accessTier;
@@ -854,26 +745,32 @@ public final class GetAccountResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder accessTier(String accessTier) {
             this.accessTier = Objects.requireNonNull(accessTier);
             return this;
         }
+        @CustomType.Setter
         public Builder accountKind(String accountKind) {
             this.accountKind = Objects.requireNonNull(accountKind);
             return this;
         }
+        @CustomType.Setter
         public Builder accountReplicationType(String accountReplicationType) {
             this.accountReplicationType = Objects.requireNonNull(accountReplicationType);
             return this;
         }
+        @CustomType.Setter
         public Builder accountTier(String accountTier) {
             this.accountTier = Objects.requireNonNull(accountTier);
             return this;
         }
+        @CustomType.Setter
         public Builder allowNestedItemsToBePublic(Boolean allowNestedItemsToBePublic) {
             this.allowNestedItemsToBePublic = Objects.requireNonNull(allowNestedItemsToBePublic);
             return this;
         }
+        @CustomType.Setter
         public Builder customDomains(List<GetAccountCustomDomain> customDomains) {
             this.customDomains = Objects.requireNonNull(customDomains);
             return this;
@@ -881,14 +778,17 @@ public final class GetAccountResult {
         public Builder customDomains(GetAccountCustomDomain... customDomains) {
             return customDomains(List.of(customDomains));
         }
+        @CustomType.Setter
         public Builder enableHttpsTrafficOnly(Boolean enableHttpsTrafficOnly) {
             this.enableHttpsTrafficOnly = Objects.requireNonNull(enableHttpsTrafficOnly);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetAccountIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -896,175 +796,270 @@ public final class GetAccountResult {
         public Builder identities(GetAccountIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder infrastructureEncryptionEnabled(Boolean infrastructureEncryptionEnabled) {
             this.infrastructureEncryptionEnabled = Objects.requireNonNull(infrastructureEncryptionEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder isHnsEnabled(Boolean isHnsEnabled) {
             this.isHnsEnabled = Objects.requireNonNull(isHnsEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder minTlsVersion(@Nullable String minTlsVersion) {
             this.minTlsVersion = minTlsVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nfsv3Enabled(Boolean nfsv3Enabled) {
             this.nfsv3Enabled = Objects.requireNonNull(nfsv3Enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryAccessKey(String primaryAccessKey) {
             this.primaryAccessKey = Objects.requireNonNull(primaryAccessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryBlobConnectionString(String primaryBlobConnectionString) {
             this.primaryBlobConnectionString = Objects.requireNonNull(primaryBlobConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryBlobEndpoint(String primaryBlobEndpoint) {
             this.primaryBlobEndpoint = Objects.requireNonNull(primaryBlobEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryBlobHost(String primaryBlobHost) {
             this.primaryBlobHost = Objects.requireNonNull(primaryBlobHost);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryConnectionString(String primaryConnectionString) {
             this.primaryConnectionString = Objects.requireNonNull(primaryConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryDfsEndpoint(String primaryDfsEndpoint) {
             this.primaryDfsEndpoint = Objects.requireNonNull(primaryDfsEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryDfsHost(String primaryDfsHost) {
             this.primaryDfsHost = Objects.requireNonNull(primaryDfsHost);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryFileEndpoint(String primaryFileEndpoint) {
             this.primaryFileEndpoint = Objects.requireNonNull(primaryFileEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryFileHost(String primaryFileHost) {
             this.primaryFileHost = Objects.requireNonNull(primaryFileHost);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryLocation(String primaryLocation) {
             this.primaryLocation = Objects.requireNonNull(primaryLocation);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryQueueEndpoint(String primaryQueueEndpoint) {
             this.primaryQueueEndpoint = Objects.requireNonNull(primaryQueueEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryQueueHost(String primaryQueueHost) {
             this.primaryQueueHost = Objects.requireNonNull(primaryQueueHost);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryTableEndpoint(String primaryTableEndpoint) {
             this.primaryTableEndpoint = Objects.requireNonNull(primaryTableEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryTableHost(String primaryTableHost) {
             this.primaryTableHost = Objects.requireNonNull(primaryTableHost);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryWebEndpoint(String primaryWebEndpoint) {
             this.primaryWebEndpoint = Objects.requireNonNull(primaryWebEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryWebHost(String primaryWebHost) {
             this.primaryWebHost = Objects.requireNonNull(primaryWebHost);
             return this;
         }
+        @CustomType.Setter
         public Builder queueEncryptionKeyType(String queueEncryptionKeyType) {
             this.queueEncryptionKeyType = Objects.requireNonNull(queueEncryptionKeyType);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(@Nullable String resourceGroupName) {
             this.resourceGroupName = resourceGroupName;
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryAccessKey(String secondaryAccessKey) {
             this.secondaryAccessKey = Objects.requireNonNull(secondaryAccessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryBlobConnectionString(String secondaryBlobConnectionString) {
             this.secondaryBlobConnectionString = Objects.requireNonNull(secondaryBlobConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryBlobEndpoint(String secondaryBlobEndpoint) {
             this.secondaryBlobEndpoint = Objects.requireNonNull(secondaryBlobEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryBlobHost(String secondaryBlobHost) {
             this.secondaryBlobHost = Objects.requireNonNull(secondaryBlobHost);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryConnectionString(String secondaryConnectionString) {
             this.secondaryConnectionString = Objects.requireNonNull(secondaryConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryDfsEndpoint(String secondaryDfsEndpoint) {
             this.secondaryDfsEndpoint = Objects.requireNonNull(secondaryDfsEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryDfsHost(String secondaryDfsHost) {
             this.secondaryDfsHost = Objects.requireNonNull(secondaryDfsHost);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryFileEndpoint(String secondaryFileEndpoint) {
             this.secondaryFileEndpoint = Objects.requireNonNull(secondaryFileEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryFileHost(String secondaryFileHost) {
             this.secondaryFileHost = Objects.requireNonNull(secondaryFileHost);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryLocation(String secondaryLocation) {
             this.secondaryLocation = Objects.requireNonNull(secondaryLocation);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryQueueEndpoint(String secondaryQueueEndpoint) {
             this.secondaryQueueEndpoint = Objects.requireNonNull(secondaryQueueEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryQueueHost(String secondaryQueueHost) {
             this.secondaryQueueHost = Objects.requireNonNull(secondaryQueueHost);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryTableEndpoint(String secondaryTableEndpoint) {
             this.secondaryTableEndpoint = Objects.requireNonNull(secondaryTableEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryTableHost(String secondaryTableHost) {
             this.secondaryTableHost = Objects.requireNonNull(secondaryTableHost);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryWebEndpoint(String secondaryWebEndpoint) {
             this.secondaryWebEndpoint = Objects.requireNonNull(secondaryWebEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryWebHost(String secondaryWebHost) {
             this.secondaryWebHost = Objects.requireNonNull(secondaryWebHost);
             return this;
         }
+        @CustomType.Setter
         public Builder tableEncryptionKeyType(String tableEncryptionKeyType) {
             this.tableEncryptionKeyType = Objects.requireNonNull(tableEncryptionKeyType);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetAccountResult build() {
-            return new GetAccountResult(accessTier, accountKind, accountReplicationType, accountTier, allowNestedItemsToBePublic, customDomains, enableHttpsTrafficOnly, id, identities, infrastructureEncryptionEnabled, isHnsEnabled, location, minTlsVersion, name, nfsv3Enabled, primaryAccessKey, primaryBlobConnectionString, primaryBlobEndpoint, primaryBlobHost, primaryConnectionString, primaryDfsEndpoint, primaryDfsHost, primaryFileEndpoint, primaryFileHost, primaryLocation, primaryQueueEndpoint, primaryQueueHost, primaryTableEndpoint, primaryTableHost, primaryWebEndpoint, primaryWebHost, queueEncryptionKeyType, resourceGroupName, secondaryAccessKey, secondaryBlobConnectionString, secondaryBlobEndpoint, secondaryBlobHost, secondaryConnectionString, secondaryDfsEndpoint, secondaryDfsHost, secondaryFileEndpoint, secondaryFileHost, secondaryLocation, secondaryQueueEndpoint, secondaryQueueHost, secondaryTableEndpoint, secondaryTableHost, secondaryWebEndpoint, secondaryWebHost, tableEncryptionKeyType, tags);
+        }
+        public GetAccountResult build() {
+            final var o = new GetAccountResult();
+            o.accessTier = accessTier;
+            o.accountKind = accountKind;
+            o.accountReplicationType = accountReplicationType;
+            o.accountTier = accountTier;
+            o.allowNestedItemsToBePublic = allowNestedItemsToBePublic;
+            o.customDomains = customDomains;
+            o.enableHttpsTrafficOnly = enableHttpsTrafficOnly;
+            o.id = id;
+            o.identities = identities;
+            o.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
+            o.isHnsEnabled = isHnsEnabled;
+            o.location = location;
+            o.minTlsVersion = minTlsVersion;
+            o.name = name;
+            o.nfsv3Enabled = nfsv3Enabled;
+            o.primaryAccessKey = primaryAccessKey;
+            o.primaryBlobConnectionString = primaryBlobConnectionString;
+            o.primaryBlobEndpoint = primaryBlobEndpoint;
+            o.primaryBlobHost = primaryBlobHost;
+            o.primaryConnectionString = primaryConnectionString;
+            o.primaryDfsEndpoint = primaryDfsEndpoint;
+            o.primaryDfsHost = primaryDfsHost;
+            o.primaryFileEndpoint = primaryFileEndpoint;
+            o.primaryFileHost = primaryFileHost;
+            o.primaryLocation = primaryLocation;
+            o.primaryQueueEndpoint = primaryQueueEndpoint;
+            o.primaryQueueHost = primaryQueueHost;
+            o.primaryTableEndpoint = primaryTableEndpoint;
+            o.primaryTableHost = primaryTableHost;
+            o.primaryWebEndpoint = primaryWebEndpoint;
+            o.primaryWebHost = primaryWebHost;
+            o.queueEncryptionKeyType = queueEncryptionKeyType;
+            o.resourceGroupName = resourceGroupName;
+            o.secondaryAccessKey = secondaryAccessKey;
+            o.secondaryBlobConnectionString = secondaryBlobConnectionString;
+            o.secondaryBlobEndpoint = secondaryBlobEndpoint;
+            o.secondaryBlobHost = secondaryBlobHost;
+            o.secondaryConnectionString = secondaryConnectionString;
+            o.secondaryDfsEndpoint = secondaryDfsEndpoint;
+            o.secondaryDfsHost = secondaryDfsHost;
+            o.secondaryFileEndpoint = secondaryFileEndpoint;
+            o.secondaryFileHost = secondaryFileHost;
+            o.secondaryLocation = secondaryLocation;
+            o.secondaryQueueEndpoint = secondaryQueueEndpoint;
+            o.secondaryQueueHost = secondaryQueueHost;
+            o.secondaryTableEndpoint = secondaryTableEndpoint;
+            o.secondaryTableHost = secondaryTableHost;
+            o.secondaryWebEndpoint = secondaryWebEndpoint;
+            o.secondaryWebHost = secondaryWebHost;
+            o.tableEncryptionKeyType = tableEncryptionKeyType;
+            o.tags = tags;
+            return o;
         }
     }
 }

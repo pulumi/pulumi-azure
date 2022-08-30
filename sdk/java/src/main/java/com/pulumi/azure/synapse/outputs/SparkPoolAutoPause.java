@@ -13,13 +13,9 @@ public final class SparkPoolAutoPause {
      * @return Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
      * 
      */
-    private final Integer delayInMinutes;
+    private Integer delayInMinutes;
 
-    @CustomType.Constructor
-    private SparkPoolAutoPause(@CustomType.Parameter("delayInMinutes") Integer delayInMinutes) {
-        this.delayInMinutes = delayInMinutes;
-    }
-
+    private SparkPoolAutoPause() {}
     /**
      * @return Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
      * 
@@ -35,24 +31,24 @@ public final class SparkPoolAutoPause {
     public static Builder builder(SparkPoolAutoPause defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer delayInMinutes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SparkPoolAutoPause defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.delayInMinutes = defaults.delayInMinutes;
         }
 
+        @CustomType.Setter
         public Builder delayInMinutes(Integer delayInMinutes) {
             this.delayInMinutes = Objects.requireNonNull(delayInMinutes);
             return this;
-        }        public SparkPoolAutoPause build() {
-            return new SparkPoolAutoPause(delayInMinutes);
+        }
+        public SparkPoolAutoPause build() {
+            final var o = new SparkPoolAutoPause();
+            o.delayInMinutes = delayInMinutes;
+            return o;
         }
     }
 }

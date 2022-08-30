@@ -15,35 +15,24 @@ public final class AlertRuleScheduledAlertDetailsOverride {
      * @return The format containing columns name(s) to override the description of this Sentinel Alert Rule.
      * 
      */
-    private final @Nullable String descriptionFormat;
+    private @Nullable String descriptionFormat;
     /**
      * @return The format containing columns name(s) to override the name of this Sentinel Alert Rule.
      * 
      */
-    private final @Nullable String displayNameFormat;
+    private @Nullable String displayNameFormat;
     /**
      * @return The column name to take the alert severity from.
      * 
      */
-    private final @Nullable String severityColumnName;
+    private @Nullable String severityColumnName;
     /**
      * @return The column name to take the alert tactics from.
      * 
      */
-    private final @Nullable String tacticsColumnName;
+    private @Nullable String tacticsColumnName;
 
-    @CustomType.Constructor
-    private AlertRuleScheduledAlertDetailsOverride(
-        @CustomType.Parameter("descriptionFormat") @Nullable String descriptionFormat,
-        @CustomType.Parameter("displayNameFormat") @Nullable String displayNameFormat,
-        @CustomType.Parameter("severityColumnName") @Nullable String severityColumnName,
-        @CustomType.Parameter("tacticsColumnName") @Nullable String tacticsColumnName) {
-        this.descriptionFormat = descriptionFormat;
-        this.displayNameFormat = displayNameFormat;
-        this.severityColumnName = severityColumnName;
-        this.tacticsColumnName = tacticsColumnName;
-    }
-
+    private AlertRuleScheduledAlertDetailsOverride() {}
     /**
      * @return The format containing columns name(s) to override the description of this Sentinel Alert Rule.
      * 
@@ -80,17 +69,13 @@ public final class AlertRuleScheduledAlertDetailsOverride {
     public static Builder builder(AlertRuleScheduledAlertDetailsOverride defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String descriptionFormat;
         private @Nullable String displayNameFormat;
         private @Nullable String severityColumnName;
         private @Nullable String tacticsColumnName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AlertRuleScheduledAlertDetailsOverride defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.descriptionFormat = defaults.descriptionFormat;
@@ -99,23 +84,33 @@ public final class AlertRuleScheduledAlertDetailsOverride {
     	      this.tacticsColumnName = defaults.tacticsColumnName;
         }
 
+        @CustomType.Setter
         public Builder descriptionFormat(@Nullable String descriptionFormat) {
             this.descriptionFormat = descriptionFormat;
             return this;
         }
+        @CustomType.Setter
         public Builder displayNameFormat(@Nullable String displayNameFormat) {
             this.displayNameFormat = displayNameFormat;
             return this;
         }
+        @CustomType.Setter
         public Builder severityColumnName(@Nullable String severityColumnName) {
             this.severityColumnName = severityColumnName;
             return this;
         }
+        @CustomType.Setter
         public Builder tacticsColumnName(@Nullable String tacticsColumnName) {
             this.tacticsColumnName = tacticsColumnName;
             return this;
-        }        public AlertRuleScheduledAlertDetailsOverride build() {
-            return new AlertRuleScheduledAlertDetailsOverride(descriptionFormat, displayNameFormat, severityColumnName, tacticsColumnName);
+        }
+        public AlertRuleScheduledAlertDetailsOverride build() {
+            final var o = new AlertRuleScheduledAlertDetailsOverride();
+            o.descriptionFormat = descriptionFormat;
+            o.displayNameFormat = displayNameFormat;
+            o.severityColumnName = severityColumnName;
+            o.tacticsColumnName = tacticsColumnName;
+            return o;
         }
     }
 }

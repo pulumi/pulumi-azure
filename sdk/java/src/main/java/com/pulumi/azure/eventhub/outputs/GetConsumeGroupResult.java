@@ -9,37 +9,22 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConsumeGroupResult {
-    private final String eventhubName;
+    private String eventhubName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
-    private final String namespaceName;
-    private final String resourceGroupName;
+    private String id;
+    private String name;
+    private String namespaceName;
+    private String resourceGroupName;
     /**
      * @return Specifies the user metadata.
      * 
      */
-    private final String userMetadata;
+    private String userMetadata;
 
-    @CustomType.Constructor
-    private GetConsumeGroupResult(
-        @CustomType.Parameter("eventhubName") String eventhubName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("namespaceName") String namespaceName,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("userMetadata") String userMetadata) {
-        this.eventhubName = eventhubName;
-        this.id = id;
-        this.name = name;
-        this.namespaceName = namespaceName;
-        this.resourceGroupName = resourceGroupName;
-        this.userMetadata = userMetadata;
-    }
-
+    private GetConsumeGroupResult() {}
     public String eventhubName() {
         return this.eventhubName;
     }
@@ -74,7 +59,7 @@ public final class GetConsumeGroupResult {
     public static Builder builder(GetConsumeGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String eventhubName;
         private String id;
@@ -82,11 +67,7 @@ public final class GetConsumeGroupResult {
         private String namespaceName;
         private String resourceGroupName;
         private String userMetadata;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetConsumeGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eventhubName = defaults.eventhubName;
@@ -97,31 +78,45 @@ public final class GetConsumeGroupResult {
     	      this.userMetadata = defaults.userMetadata;
         }
 
+        @CustomType.Setter
         public Builder eventhubName(String eventhubName) {
             this.eventhubName = Objects.requireNonNull(eventhubName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder namespaceName(String namespaceName) {
             this.namespaceName = Objects.requireNonNull(namespaceName);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder userMetadata(String userMetadata) {
             this.userMetadata = Objects.requireNonNull(userMetadata);
             return this;
-        }        public GetConsumeGroupResult build() {
-            return new GetConsumeGroupResult(eventhubName, id, name, namespaceName, resourceGroupName, userMetadata);
+        }
+        public GetConsumeGroupResult build() {
+            final var o = new GetConsumeGroupResult();
+            o.eventhubName = eventhubName;
+            o.id = id;
+            o.name = name;
+            o.namespaceName = namespaceName;
+            o.resourceGroupName = resourceGroupName;
+            o.userMetadata = userMetadata;
+            return o;
         }
     }
 }

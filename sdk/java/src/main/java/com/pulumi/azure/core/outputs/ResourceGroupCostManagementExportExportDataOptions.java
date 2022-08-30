@@ -13,21 +13,14 @@ public final class ResourceGroupCostManagementExportExportDataOptions {
      * @return The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
      * 
      */
-    private final String timeFrame;
+    private String timeFrame;
     /**
      * @return The type of the query.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ResourceGroupCostManagementExportExportDataOptions(
-        @CustomType.Parameter("timeFrame") String timeFrame,
-        @CustomType.Parameter("type") String type) {
-        this.timeFrame = timeFrame;
-        this.type = type;
-    }
-
+    private ResourceGroupCostManagementExportExportDataOptions() {}
     /**
      * @return The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLastWeek`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
      * 
@@ -50,30 +43,32 @@ public final class ResourceGroupCostManagementExportExportDataOptions {
     public static Builder builder(ResourceGroupCostManagementExportExportDataOptions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String timeFrame;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResourceGroupCostManagementExportExportDataOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.timeFrame = defaults.timeFrame;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder timeFrame(String timeFrame) {
             this.timeFrame = Objects.requireNonNull(timeFrame);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ResourceGroupCostManagementExportExportDataOptions build() {
-            return new ResourceGroupCostManagementExportExportDataOptions(timeFrame, type);
+        }
+        public ResourceGroupCostManagementExportExportDataOptions build() {
+            final var o = new ResourceGroupCostManagementExportExportDataOptions();
+            o.timeFrame = timeFrame;
+            o.type = type;
+            return o;
         }
     }
 }

@@ -19,184 +19,127 @@ public final class GetClusterNodePoolResult {
      * @return Does this Node Pool have Auto-Scaling enabled?
      * 
      */
-    private final Boolean enableAutoScaling;
+    private Boolean enableAutoScaling;
     /**
      * @return Do nodes in this Node Pool have a Public IP Address?
      * 
      */
-    private final Boolean enableNodePublicIp;
+    private Boolean enableNodePublicIp;
     /**
      * @return The eviction policy used for Virtual Machines in the Virtual Machine Scale Set, when `priority` is set to `Spot`.
      * 
      */
-    private final String evictionPolicy;
+    private String evictionPolicy;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String kubernetesClusterName;
+    private String id;
+    private String kubernetesClusterName;
     /**
      * @return The maximum number of Nodes allowed when auto-scaling is enabled.
      * 
      */
-    private final Integer maxCount;
+    private Integer maxCount;
     /**
      * @return The maximum number of Pods allowed on each Node in this Node Pool.
      * 
      */
-    private final Integer maxPods;
+    private Integer maxPods;
     /**
      * @return The minimum number of Nodes allowed when auto-scaling is enabled.
      * 
      */
-    private final Integer minCount;
+    private Integer minCount;
     /**
      * @return The Mode for this Node Pool, specifying how these Nodes should be used (for either System or User resources).
      * 
      */
-    private final String mode;
-    private final String name;
+    private String mode;
+    private String name;
     /**
      * @return The current number of Nodes in the Node Pool.
      * 
      */
-    private final Integer nodeCount;
+    private Integer nodeCount;
     /**
      * @return A map of Kubernetes Labels applied to each Node in this Node Pool.
      * 
      */
-    private final Map<String,String> nodeLabels;
+    private Map<String,String> nodeLabels;
     /**
      * @return Resource ID for the Public IP Addresses Prefix for the nodes in this Agent Pool.
      * 
      */
-    private final String nodePublicIpPrefixId;
+    private String nodePublicIpPrefixId;
     /**
      * @return A map of Kubernetes Taints applied to each Node in this Node Pool.
      * 
      */
-    private final List<String> nodeTaints;
+    private List<String> nodeTaints;
     /**
      * @return The version of Kubernetes configured on each Node in this Node Pool.
      * 
      */
-    private final String orchestratorVersion;
+    private String orchestratorVersion;
     /**
      * @return The size of the OS Disk on each Node in this Node Pool.
      * 
      */
-    private final Integer osDiskSizeGb;
+    private Integer osDiskSizeGb;
     /**
      * @return The type of the OS Disk on each Node in this Node Pool.
      * 
      */
-    private final String osDiskType;
+    private String osDiskType;
     /**
      * @return The operating system used on each Node in this Node Pool.
      * 
      */
-    private final String osType;
+    private String osType;
     /**
      * @return The priority of the Virtual Machines in the Virtual Machine Scale Set backing this Node Pool.
      * 
      */
-    private final String priority;
+    private String priority;
     /**
      * @return The ID of the Proximity Placement Group where the Virtual Machine Scale Set backing this Node Pool will be placed.
      * 
      */
-    private final String proximityPlacementGroupId;
-    private final String resourceGroupName;
+    private String proximityPlacementGroupId;
+    private String resourceGroupName;
     /**
      * @return The maximum price being paid for Virtual Machines in this Scale Set. `-1` means the current on-demand price for a Virtual Machine.
      * 
      */
-    private final Double spotMaxPrice;
+    private Double spotMaxPrice;
     /**
      * @return A mapping of tags assigned to the Kubernetes Cluster Node Pool.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return A `upgrade_settings` block as documented below.
      * 
      */
-    private final List<GetClusterNodePoolUpgradeSetting> upgradeSettings;
+    private List<GetClusterNodePoolUpgradeSetting> upgradeSettings;
     /**
      * @return The size of the Virtual Machines used in the Virtual Machine Scale Set backing this Node Pool.
      * 
      */
-    private final String vmSize;
+    private String vmSize;
     /**
      * @return The ID of the Subnet in which this Node Pool exists.
      * 
      */
-    private final String vnetSubnetId;
+    private String vnetSubnetId;
     /**
      * @return A list of the Availability Zones where the Nodes in this Node Pool exist.
      * 
      */
-    private final List<String> zones;
+    private List<String> zones;
 
-    @CustomType.Constructor
-    private GetClusterNodePoolResult(
-        @CustomType.Parameter("enableAutoScaling") Boolean enableAutoScaling,
-        @CustomType.Parameter("enableNodePublicIp") Boolean enableNodePublicIp,
-        @CustomType.Parameter("evictionPolicy") String evictionPolicy,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kubernetesClusterName") String kubernetesClusterName,
-        @CustomType.Parameter("maxCount") Integer maxCount,
-        @CustomType.Parameter("maxPods") Integer maxPods,
-        @CustomType.Parameter("minCount") Integer minCount,
-        @CustomType.Parameter("mode") String mode,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nodeCount") Integer nodeCount,
-        @CustomType.Parameter("nodeLabels") Map<String,String> nodeLabels,
-        @CustomType.Parameter("nodePublicIpPrefixId") String nodePublicIpPrefixId,
-        @CustomType.Parameter("nodeTaints") List<String> nodeTaints,
-        @CustomType.Parameter("orchestratorVersion") String orchestratorVersion,
-        @CustomType.Parameter("osDiskSizeGb") Integer osDiskSizeGb,
-        @CustomType.Parameter("osDiskType") String osDiskType,
-        @CustomType.Parameter("osType") String osType,
-        @CustomType.Parameter("priority") String priority,
-        @CustomType.Parameter("proximityPlacementGroupId") String proximityPlacementGroupId,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("spotMaxPrice") Double spotMaxPrice,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("upgradeSettings") List<GetClusterNodePoolUpgradeSetting> upgradeSettings,
-        @CustomType.Parameter("vmSize") String vmSize,
-        @CustomType.Parameter("vnetSubnetId") String vnetSubnetId,
-        @CustomType.Parameter("zones") List<String> zones) {
-        this.enableAutoScaling = enableAutoScaling;
-        this.enableNodePublicIp = enableNodePublicIp;
-        this.evictionPolicy = evictionPolicy;
-        this.id = id;
-        this.kubernetesClusterName = kubernetesClusterName;
-        this.maxCount = maxCount;
-        this.maxPods = maxPods;
-        this.minCount = minCount;
-        this.mode = mode;
-        this.name = name;
-        this.nodeCount = nodeCount;
-        this.nodeLabels = nodeLabels;
-        this.nodePublicIpPrefixId = nodePublicIpPrefixId;
-        this.nodeTaints = nodeTaints;
-        this.orchestratorVersion = orchestratorVersion;
-        this.osDiskSizeGb = osDiskSizeGb;
-        this.osDiskType = osDiskType;
-        this.osType = osType;
-        this.priority = priority;
-        this.proximityPlacementGroupId = proximityPlacementGroupId;
-        this.resourceGroupName = resourceGroupName;
-        this.spotMaxPrice = spotMaxPrice;
-        this.tags = tags;
-        this.upgradeSettings = upgradeSettings;
-        this.vmSize = vmSize;
-        this.vnetSubnetId = vnetSubnetId;
-        this.zones = zones;
-    }
-
+    private GetClusterNodePoolResult() {}
     /**
      * @return Does this Node Pool have Auto-Scaling enabled?
      * 
@@ -382,7 +325,7 @@ public final class GetClusterNodePoolResult {
     public static Builder builder(GetClusterNodePoolResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enableAutoScaling;
         private Boolean enableNodePublicIp;
@@ -411,11 +354,7 @@ public final class GetClusterNodePoolResult {
         private String vmSize;
         private String vnetSubnetId;
         private List<String> zones;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterNodePoolResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enableAutoScaling = defaults.enableAutoScaling;
@@ -447,58 +386,72 @@ public final class GetClusterNodePoolResult {
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
         public Builder enableAutoScaling(Boolean enableAutoScaling) {
             this.enableAutoScaling = Objects.requireNonNull(enableAutoScaling);
             return this;
         }
+        @CustomType.Setter
         public Builder enableNodePublicIp(Boolean enableNodePublicIp) {
             this.enableNodePublicIp = Objects.requireNonNull(enableNodePublicIp);
             return this;
         }
+        @CustomType.Setter
         public Builder evictionPolicy(String evictionPolicy) {
             this.evictionPolicy = Objects.requireNonNull(evictionPolicy);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kubernetesClusterName(String kubernetesClusterName) {
             this.kubernetesClusterName = Objects.requireNonNull(kubernetesClusterName);
             return this;
         }
+        @CustomType.Setter
         public Builder maxCount(Integer maxCount) {
             this.maxCount = Objects.requireNonNull(maxCount);
             return this;
         }
+        @CustomType.Setter
         public Builder maxPods(Integer maxPods) {
             this.maxPods = Objects.requireNonNull(maxPods);
             return this;
         }
+        @CustomType.Setter
         public Builder minCount(Integer minCount) {
             this.minCount = Objects.requireNonNull(minCount);
             return this;
         }
+        @CustomType.Setter
         public Builder mode(String mode) {
             this.mode = Objects.requireNonNull(mode);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nodeCount(Integer nodeCount) {
             this.nodeCount = Objects.requireNonNull(nodeCount);
             return this;
         }
+        @CustomType.Setter
         public Builder nodeLabels(Map<String,String> nodeLabels) {
             this.nodeLabels = Objects.requireNonNull(nodeLabels);
             return this;
         }
+        @CustomType.Setter
         public Builder nodePublicIpPrefixId(String nodePublicIpPrefixId) {
             this.nodePublicIpPrefixId = Objects.requireNonNull(nodePublicIpPrefixId);
             return this;
         }
+        @CustomType.Setter
         public Builder nodeTaints(List<String> nodeTaints) {
             this.nodeTaints = Objects.requireNonNull(nodeTaints);
             return this;
@@ -506,42 +459,52 @@ public final class GetClusterNodePoolResult {
         public Builder nodeTaints(String... nodeTaints) {
             return nodeTaints(List.of(nodeTaints));
         }
+        @CustomType.Setter
         public Builder orchestratorVersion(String orchestratorVersion) {
             this.orchestratorVersion = Objects.requireNonNull(orchestratorVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder osDiskSizeGb(Integer osDiskSizeGb) {
             this.osDiskSizeGb = Objects.requireNonNull(osDiskSizeGb);
             return this;
         }
+        @CustomType.Setter
         public Builder osDiskType(String osDiskType) {
             this.osDiskType = Objects.requireNonNull(osDiskType);
             return this;
         }
+        @CustomType.Setter
         public Builder osType(String osType) {
             this.osType = Objects.requireNonNull(osType);
             return this;
         }
+        @CustomType.Setter
         public Builder priority(String priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
         }
+        @CustomType.Setter
         public Builder proximityPlacementGroupId(String proximityPlacementGroupId) {
             this.proximityPlacementGroupId = Objects.requireNonNull(proximityPlacementGroupId);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder spotMaxPrice(Double spotMaxPrice) {
             this.spotMaxPrice = Objects.requireNonNull(spotMaxPrice);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder upgradeSettings(List<GetClusterNodePoolUpgradeSetting> upgradeSettings) {
             this.upgradeSettings = Objects.requireNonNull(upgradeSettings);
             return this;
@@ -549,22 +512,54 @@ public final class GetClusterNodePoolResult {
         public Builder upgradeSettings(GetClusterNodePoolUpgradeSetting... upgradeSettings) {
             return upgradeSettings(List.of(upgradeSettings));
         }
+        @CustomType.Setter
         public Builder vmSize(String vmSize) {
             this.vmSize = Objects.requireNonNull(vmSize);
             return this;
         }
+        @CustomType.Setter
         public Builder vnetSubnetId(String vnetSubnetId) {
             this.vnetSubnetId = Objects.requireNonNull(vnetSubnetId);
             return this;
         }
+        @CustomType.Setter
         public Builder zones(List<String> zones) {
             this.zones = Objects.requireNonNull(zones);
             return this;
         }
         public Builder zones(String... zones) {
             return zones(List.of(zones));
-        }        public GetClusterNodePoolResult build() {
-            return new GetClusterNodePoolResult(enableAutoScaling, enableNodePublicIp, evictionPolicy, id, kubernetesClusterName, maxCount, maxPods, minCount, mode, name, nodeCount, nodeLabels, nodePublicIpPrefixId, nodeTaints, orchestratorVersion, osDiskSizeGb, osDiskType, osType, priority, proximityPlacementGroupId, resourceGroupName, spotMaxPrice, tags, upgradeSettings, vmSize, vnetSubnetId, zones);
+        }
+        public GetClusterNodePoolResult build() {
+            final var o = new GetClusterNodePoolResult();
+            o.enableAutoScaling = enableAutoScaling;
+            o.enableNodePublicIp = enableNodePublicIp;
+            o.evictionPolicy = evictionPolicy;
+            o.id = id;
+            o.kubernetesClusterName = kubernetesClusterName;
+            o.maxCount = maxCount;
+            o.maxPods = maxPods;
+            o.minCount = minCount;
+            o.mode = mode;
+            o.name = name;
+            o.nodeCount = nodeCount;
+            o.nodeLabels = nodeLabels;
+            o.nodePublicIpPrefixId = nodePublicIpPrefixId;
+            o.nodeTaints = nodeTaints;
+            o.orchestratorVersion = orchestratorVersion;
+            o.osDiskSizeGb = osDiskSizeGb;
+            o.osDiskType = osDiskType;
+            o.osType = osType;
+            o.priority = priority;
+            o.proximityPlacementGroupId = proximityPlacementGroupId;
+            o.resourceGroupName = resourceGroupName;
+            o.spotMaxPrice = spotMaxPrice;
+            o.tags = tags;
+            o.upgradeSettings = upgradeSettings;
+            o.vmSize = vmSize;
+            o.vnetSubnetId = vnetSubnetId;
+            o.zones = zones;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class FrontdoorSecurityPolicySecurityPolicies {
      * @return An `firewall` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
      * 
      */
-    private final FrontdoorSecurityPolicySecurityPoliciesFirewall firewall;
+    private FrontdoorSecurityPolicySecurityPoliciesFirewall firewall;
 
-    @CustomType.Constructor
-    private FrontdoorSecurityPolicySecurityPolicies(@CustomType.Parameter("firewall") FrontdoorSecurityPolicySecurityPoliciesFirewall firewall) {
-        this.firewall = firewall;
-    }
-
+    private FrontdoorSecurityPolicySecurityPolicies() {}
     /**
      * @return An `firewall` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
      * 
@@ -35,24 +31,24 @@ public final class FrontdoorSecurityPolicySecurityPolicies {
     public static Builder builder(FrontdoorSecurityPolicySecurityPolicies defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private FrontdoorSecurityPolicySecurityPoliciesFirewall firewall;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrontdoorSecurityPolicySecurityPolicies defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.firewall = defaults.firewall;
         }
 
+        @CustomType.Setter
         public Builder firewall(FrontdoorSecurityPolicySecurityPoliciesFirewall firewall) {
             this.firewall = Objects.requireNonNull(firewall);
             return this;
-        }        public FrontdoorSecurityPolicySecurityPolicies build() {
-            return new FrontdoorSecurityPolicySecurityPolicies(firewall);
+        }
+        public FrontdoorSecurityPolicySecurityPolicies build() {
+            final var o = new FrontdoorSecurityPolicySecurityPolicies();
+            o.firewall = firewall;
+            return o;
         }
     }
 }

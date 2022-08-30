@@ -15,21 +15,14 @@ public final class EndpointNetworkInterface {
      * @return The ID of the Private DNS Zone Config.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
 
-    @CustomType.Constructor
-    private EndpointNetworkInterface(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") @Nullable String name) {
-        this.id = id;
-        this.name = name;
-    }
-
+    private EndpointNetworkInterface() {}
     /**
      * @return The ID of the Private DNS Zone Config.
      * 
@@ -52,30 +45,32 @@ public final class EndpointNetworkInterface {
     public static Builder builder(EndpointNetworkInterface defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
-        }        public EndpointNetworkInterface build() {
-            return new EndpointNetworkInterface(id, name);
+        }
+        public EndpointNetworkInterface build() {
+            final var o = new EndpointNetworkInterface();
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

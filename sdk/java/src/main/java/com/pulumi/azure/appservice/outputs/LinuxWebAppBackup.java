@@ -17,35 +17,24 @@ public final class LinuxWebAppBackup {
      * @return Should this backup job be enabled?
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return The name which should be used for this Backup.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A `schedule` block as defined below.
      * 
      */
-    private final LinuxWebAppBackupSchedule schedule;
+    private LinuxWebAppBackupSchedule schedule;
     /**
      * @return The SAS URL to the container.
      * 
      */
-    private final String storageAccountUrl;
+    private String storageAccountUrl;
 
-    @CustomType.Constructor
-    private LinuxWebAppBackup(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("schedule") LinuxWebAppBackupSchedule schedule,
-        @CustomType.Parameter("storageAccountUrl") String storageAccountUrl) {
-        this.enabled = enabled;
-        this.name = name;
-        this.schedule = schedule;
-        this.storageAccountUrl = storageAccountUrl;
-    }
-
+    private LinuxWebAppBackup() {}
     /**
      * @return Should this backup job be enabled?
      * 
@@ -82,17 +71,13 @@ public final class LinuxWebAppBackup {
     public static Builder builder(LinuxWebAppBackup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private String name;
         private LinuxWebAppBackupSchedule schedule;
         private String storageAccountUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxWebAppBackup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -101,23 +86,33 @@ public final class LinuxWebAppBackup {
     	      this.storageAccountUrl = defaults.storageAccountUrl;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder schedule(LinuxWebAppBackupSchedule schedule) {
             this.schedule = Objects.requireNonNull(schedule);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountUrl(String storageAccountUrl) {
             this.storageAccountUrl = Objects.requireNonNull(storageAccountUrl);
             return this;
-        }        public LinuxWebAppBackup build() {
-            return new LinuxWebAppBackup(enabled, name, schedule, storageAccountUrl);
+        }
+        public LinuxWebAppBackup build() {
+            final var o = new LinuxWebAppBackup();
+            o.enabled = enabled;
+            o.name = name;
+            o.schedule = schedule;
+            o.storageAccountUrl = storageAccountUrl;
+            return o;
         }
     }
 }

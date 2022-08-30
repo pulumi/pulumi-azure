@@ -14,21 +14,14 @@ public final class CapacityReservationSku {
      * @return Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
      * 
      */
-    private final Integer capacity;
+    private Integer capacity;
     /**
      * @return Name of the sku, such as `Standard_F2`. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private CapacityReservationSku(
-        @CustomType.Parameter("capacity") Integer capacity,
-        @CustomType.Parameter("name") String name) {
-        this.capacity = capacity;
-        this.name = name;
-    }
-
+    private CapacityReservationSku() {}
     /**
      * @return Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription.
      * 
@@ -51,30 +44,32 @@ public final class CapacityReservationSku {
     public static Builder builder(CapacityReservationSku defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer capacity;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CapacityReservationSku defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacity = defaults.capacity;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder capacity(Integer capacity) {
             this.capacity = Objects.requireNonNull(capacity);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public CapacityReservationSku build() {
-            return new CapacityReservationSku(capacity, name);
+        }
+        public CapacityReservationSku build() {
+            final var o = new CapacityReservationSku();
+            o.capacity = capacity;
+            o.name = name;
+            return o;
         }
     }
 }

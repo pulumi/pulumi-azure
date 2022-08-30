@@ -18,59 +18,40 @@ public final class GetBudgetSubscriptionResult {
      * @return The total amount of cost to track with the budget.
      * 
      */
-    private final Double amount;
+    private Double amount;
     /**
      * @return A `filter` block as defined below.
      * 
      */
-    private final List<GetBudgetSubscriptionFilter> filters;
+    private List<GetBudgetSubscriptionFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The name of the tag to use for the filter.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A `notification` block as defined below.
      * 
      */
-    private final List<GetBudgetSubscriptionNotification> notifications;
-    private final String subscriptionId;
+    private List<GetBudgetSubscriptionNotification> notifications;
+    private String subscriptionId;
     /**
      * @return The time covered by a budget.
      * 
      */
-    private final String timeGrain;
+    private String timeGrain;
     /**
      * @return A `time_period` block as defined below.
      * 
      */
-    private final List<GetBudgetSubscriptionTimePeriod> timePeriods;
+    private List<GetBudgetSubscriptionTimePeriod> timePeriods;
 
-    @CustomType.Constructor
-    private GetBudgetSubscriptionResult(
-        @CustomType.Parameter("amount") Double amount,
-        @CustomType.Parameter("filters") List<GetBudgetSubscriptionFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("notifications") List<GetBudgetSubscriptionNotification> notifications,
-        @CustomType.Parameter("subscriptionId") String subscriptionId,
-        @CustomType.Parameter("timeGrain") String timeGrain,
-        @CustomType.Parameter("timePeriods") List<GetBudgetSubscriptionTimePeriod> timePeriods) {
-        this.amount = amount;
-        this.filters = filters;
-        this.id = id;
-        this.name = name;
-        this.notifications = notifications;
-        this.subscriptionId = subscriptionId;
-        this.timeGrain = timeGrain;
-        this.timePeriods = timePeriods;
-    }
-
+    private GetBudgetSubscriptionResult() {}
     /**
      * @return The total amount of cost to track with the budget.
      * 
@@ -131,7 +112,7 @@ public final class GetBudgetSubscriptionResult {
     public static Builder builder(GetBudgetSubscriptionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Double amount;
         private List<GetBudgetSubscriptionFilter> filters;
@@ -141,11 +122,7 @@ public final class GetBudgetSubscriptionResult {
         private String subscriptionId;
         private String timeGrain;
         private List<GetBudgetSubscriptionTimePeriod> timePeriods;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBudgetSubscriptionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amount = defaults.amount;
@@ -158,10 +135,12 @@ public final class GetBudgetSubscriptionResult {
     	      this.timePeriods = defaults.timePeriods;
         }
 
+        @CustomType.Setter
         public Builder amount(Double amount) {
             this.amount = Objects.requireNonNull(amount);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(List<GetBudgetSubscriptionFilter> filters) {
             this.filters = Objects.requireNonNull(filters);
             return this;
@@ -169,14 +148,17 @@ public final class GetBudgetSubscriptionResult {
         public Builder filters(GetBudgetSubscriptionFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder notifications(List<GetBudgetSubscriptionNotification> notifications) {
             this.notifications = Objects.requireNonNull(notifications);
             return this;
@@ -184,22 +166,35 @@ public final class GetBudgetSubscriptionResult {
         public Builder notifications(GetBudgetSubscriptionNotification... notifications) {
             return notifications(List.of(notifications));
         }
+        @CustomType.Setter
         public Builder subscriptionId(String subscriptionId) {
             this.subscriptionId = Objects.requireNonNull(subscriptionId);
             return this;
         }
+        @CustomType.Setter
         public Builder timeGrain(String timeGrain) {
             this.timeGrain = Objects.requireNonNull(timeGrain);
             return this;
         }
+        @CustomType.Setter
         public Builder timePeriods(List<GetBudgetSubscriptionTimePeriod> timePeriods) {
             this.timePeriods = Objects.requireNonNull(timePeriods);
             return this;
         }
         public Builder timePeriods(GetBudgetSubscriptionTimePeriod... timePeriods) {
             return timePeriods(List.of(timePeriods));
-        }        public GetBudgetSubscriptionResult build() {
-            return new GetBudgetSubscriptionResult(amount, filters, id, name, notifications, subscriptionId, timeGrain, timePeriods);
+        }
+        public GetBudgetSubscriptionResult build() {
+            final var o = new GetBudgetSubscriptionResult();
+            o.amount = amount;
+            o.filters = filters;
+            o.id = id;
+            o.name = name;
+            o.notifications = notifications;
+            o.subscriptionId = subscriptionId;
+            o.timeGrain = timeGrain;
+            o.timePeriods = timePeriods;
+            return o;
         }
     }
 }

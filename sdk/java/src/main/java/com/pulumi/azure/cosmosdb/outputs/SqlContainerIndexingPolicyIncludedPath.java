@@ -13,13 +13,9 @@ public final class SqlContainerIndexingPolicyIncludedPath {
      * @return Path for which the indexing behaviour applies to.
      * 
      */
-    private final String path;
+    private String path;
 
-    @CustomType.Constructor
-    private SqlContainerIndexingPolicyIncludedPath(@CustomType.Parameter("path") String path) {
-        this.path = path;
-    }
-
+    private SqlContainerIndexingPolicyIncludedPath() {}
     /**
      * @return Path for which the indexing behaviour applies to.
      * 
@@ -35,24 +31,24 @@ public final class SqlContainerIndexingPolicyIncludedPath {
     public static Builder builder(SqlContainerIndexingPolicyIncludedPath defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String path;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SqlContainerIndexingPolicyIncludedPath defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.path = defaults.path;
         }
 
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
-        }        public SqlContainerIndexingPolicyIncludedPath build() {
-            return new SqlContainerIndexingPolicyIncludedPath(path);
+        }
+        public SqlContainerIndexingPolicyIncludedPath build() {
+            final var o = new SqlContainerIndexingPolicyIncludedPath();
+            o.path = path;
+            return o;
         }
     }
 }

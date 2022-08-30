@@ -15,28 +15,19 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
      * @return The days of the week to perform autoscale.
      * 
      */
-    private final List<String> days;
+    private List<String> days;
     /**
      * @return The number of worker nodes to autoscale at the specified time.
      * 
      */
-    private final Integer targetInstanceCount;
+    private Integer targetInstanceCount;
     /**
      * @return The time of day to perform the autoscale in 24hour format.
      * 
      */
-    private final String time;
+    private String time;
 
-    @CustomType.Constructor
-    private HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(
-        @CustomType.Parameter("days") List<String> days,
-        @CustomType.Parameter("targetInstanceCount") Integer targetInstanceCount,
-        @CustomType.Parameter("time") String time) {
-        this.days = days;
-        this.targetInstanceCount = targetInstanceCount;
-        this.time = time;
-    }
-
+    private HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule() {}
     /**
      * @return The days of the week to perform autoscale.
      * 
@@ -66,16 +57,12 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
     public static Builder builder(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> days;
         private Integer targetInstanceCount;
         private String time;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.days = defaults.days;
@@ -83,6 +70,7 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
     	      this.time = defaults.time;
         }
 
+        @CustomType.Setter
         public Builder days(List<String> days) {
             this.days = Objects.requireNonNull(days);
             return this;
@@ -90,15 +78,22 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule {
         public Builder days(String... days) {
             return days(List.of(days));
         }
+        @CustomType.Setter
         public Builder targetInstanceCount(Integer targetInstanceCount) {
             this.targetInstanceCount = Objects.requireNonNull(targetInstanceCount);
             return this;
         }
+        @CustomType.Setter
         public Builder time(String time) {
             this.time = Objects.requireNonNull(time);
             return this;
-        }        public HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule build() {
-            return new HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule(days, targetInstanceCount, time);
+        }
+        public HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule build() {
+            final var o = new HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule();
+            o.days = days;
+            o.targetInstanceCount = targetInstanceCount;
+            o.time = time;
+            return o;
         }
     }
 }

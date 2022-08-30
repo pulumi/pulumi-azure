@@ -11,35 +11,24 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AnalyticsSolutionPlan {
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The product name of the solution. For example `OMSGallery/Containers`. Changing this forces a new resource to be created.
      * 
      */
-    private final String product;
+    private String product;
     /**
      * @return A promotion code to be used with the solution.
      * 
      */
-    private final @Nullable String promotionCode;
+    private @Nullable String promotionCode;
     /**
      * @return The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
      * 
      */
-    private final String publisher;
+    private String publisher;
 
-    @CustomType.Constructor
-    private AnalyticsSolutionPlan(
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("product") String product,
-        @CustomType.Parameter("promotionCode") @Nullable String promotionCode,
-        @CustomType.Parameter("publisher") String publisher) {
-        this.name = name;
-        this.product = product;
-        this.promotionCode = promotionCode;
-        this.publisher = publisher;
-    }
-
+    private AnalyticsSolutionPlan() {}
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
@@ -72,17 +61,13 @@ public final class AnalyticsSolutionPlan {
     public static Builder builder(AnalyticsSolutionPlan defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
         private String product;
         private @Nullable String promotionCode;
         private String publisher;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyticsSolutionPlan defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -91,23 +76,33 @@ public final class AnalyticsSolutionPlan {
     	      this.publisher = defaults.publisher;
         }
 
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder product(String product) {
             this.product = Objects.requireNonNull(product);
             return this;
         }
+        @CustomType.Setter
         public Builder promotionCode(@Nullable String promotionCode) {
             this.promotionCode = promotionCode;
             return this;
         }
+        @CustomType.Setter
         public Builder publisher(String publisher) {
             this.publisher = Objects.requireNonNull(publisher);
             return this;
-        }        public AnalyticsSolutionPlan build() {
-            return new AnalyticsSolutionPlan(name, product, promotionCode, publisher);
+        }
+        public AnalyticsSolutionPlan build() {
+            final var o = new AnalyticsSolutionPlan();
+            o.name = name;
+            o.product = product;
+            o.promotionCode = promotionCode;
+            o.publisher = publisher;
+            return o;
         }
     }
 }

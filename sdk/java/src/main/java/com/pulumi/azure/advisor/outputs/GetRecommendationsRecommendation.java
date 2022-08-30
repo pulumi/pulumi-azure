@@ -14,70 +14,49 @@ public final class GetRecommendationsRecommendation {
      * @return The category of the recommendation.
      * 
      */
-    private final String category;
+    private String category;
     /**
      * @return The description of the issue or the opportunity identified by the recommendation.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The business impact of the recommendation.
      * 
      */
-    private final String impact;
+    private String impact;
     /**
      * @return The name of the Advisor Recommendation.
      * 
      */
-    private final String recommendationName;
+    private String recommendationName;
     /**
      * @return The recommendation type id of the Advisor Recommendation.
      * 
      */
-    private final String recommendationTypeId;
+    private String recommendationTypeId;
     /**
      * @return The name of the identified resource of the Advisor Recommendation.
      * 
      */
-    private final String resourceName;
+    private String resourceName;
     /**
      * @return The type of the identified resource of the Advisor Recommendation.
      * 
      */
-    private final String resourceType;
+    private String resourceType;
     /**
      * @return A list of Advisor Suppression names of the Advisor Recommendation.
      * 
      */
-    private final List<String> suppressionNames;
+    private List<String> suppressionNames;
     /**
      * @return The most recent time that Advisor checked the validity of the recommendation..
      * 
      */
-    private final String updatedTime;
+    private String updatedTime;
 
-    @CustomType.Constructor
-    private GetRecommendationsRecommendation(
-        @CustomType.Parameter("category") String category,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("impact") String impact,
-        @CustomType.Parameter("recommendationName") String recommendationName,
-        @CustomType.Parameter("recommendationTypeId") String recommendationTypeId,
-        @CustomType.Parameter("resourceName") String resourceName,
-        @CustomType.Parameter("resourceType") String resourceType,
-        @CustomType.Parameter("suppressionNames") List<String> suppressionNames,
-        @CustomType.Parameter("updatedTime") String updatedTime) {
-        this.category = category;
-        this.description = description;
-        this.impact = impact;
-        this.recommendationName = recommendationName;
-        this.recommendationTypeId = recommendationTypeId;
-        this.resourceName = resourceName;
-        this.resourceType = resourceType;
-        this.suppressionNames = suppressionNames;
-        this.updatedTime = updatedTime;
-    }
-
+    private GetRecommendationsRecommendation() {}
     /**
      * @return The category of the recommendation.
      * 
@@ -149,7 +128,7 @@ public final class GetRecommendationsRecommendation {
     public static Builder builder(GetRecommendationsRecommendation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String category;
         private String description;
@@ -160,11 +139,7 @@ public final class GetRecommendationsRecommendation {
         private String resourceType;
         private List<String> suppressionNames;
         private String updatedTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRecommendationsRecommendation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.category = defaults.category;
@@ -178,34 +153,42 @@ public final class GetRecommendationsRecommendation {
     	      this.updatedTime = defaults.updatedTime;
         }
 
+        @CustomType.Setter
         public Builder category(String category) {
             this.category = Objects.requireNonNull(category);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder impact(String impact) {
             this.impact = Objects.requireNonNull(impact);
             return this;
         }
+        @CustomType.Setter
         public Builder recommendationName(String recommendationName) {
             this.recommendationName = Objects.requireNonNull(recommendationName);
             return this;
         }
+        @CustomType.Setter
         public Builder recommendationTypeId(String recommendationTypeId) {
             this.recommendationTypeId = Objects.requireNonNull(recommendationTypeId);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceName(String resourceName) {
             this.resourceName = Objects.requireNonNull(resourceName);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceType(String resourceType) {
             this.resourceType = Objects.requireNonNull(resourceType);
             return this;
         }
+        @CustomType.Setter
         public Builder suppressionNames(List<String> suppressionNames) {
             this.suppressionNames = Objects.requireNonNull(suppressionNames);
             return this;
@@ -213,11 +196,23 @@ public final class GetRecommendationsRecommendation {
         public Builder suppressionNames(String... suppressionNames) {
             return suppressionNames(List.of(suppressionNames));
         }
+        @CustomType.Setter
         public Builder updatedTime(String updatedTime) {
             this.updatedTime = Objects.requireNonNull(updatedTime);
             return this;
-        }        public GetRecommendationsRecommendation build() {
-            return new GetRecommendationsRecommendation(category, description, impact, recommendationName, recommendationTypeId, resourceName, resourceType, suppressionNames, updatedTime);
+        }
+        public GetRecommendationsRecommendation build() {
+            final var o = new GetRecommendationsRecommendation();
+            o.category = category;
+            o.description = description;
+            o.impact = impact;
+            o.recommendationName = recommendationName;
+            o.recommendationTypeId = recommendationTypeId;
+            o.resourceName = resourceName;
+            o.resourceType = resourceType;
+            o.suppressionNames = suppressionNames;
+            o.updatedTime = updatedTime;
+            return o;
         }
     }
 }

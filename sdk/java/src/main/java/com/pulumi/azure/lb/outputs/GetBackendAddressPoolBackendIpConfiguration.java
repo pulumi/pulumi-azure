@@ -13,13 +13,9 @@ public final class GetBackendAddressPoolBackendIpConfiguration {
      * @return The ID of the Backend Address Pool.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetBackendAddressPoolBackendIpConfiguration(@CustomType.Parameter("id") String id) {
-        this.id = id;
-    }
-
+    private GetBackendAddressPoolBackendIpConfiguration() {}
     /**
      * @return The ID of the Backend Address Pool.
      * 
@@ -35,24 +31,24 @@ public final class GetBackendAddressPoolBackendIpConfiguration {
     public static Builder builder(GetBackendAddressPoolBackendIpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBackendAddressPoolBackendIpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetBackendAddressPoolBackendIpConfiguration build() {
-            return new GetBackendAddressPoolBackendIpConfiguration(id);
+        }
+        public GetBackendAddressPoolBackendIpConfiguration build() {
+            final var o = new GetBackendAddressPoolBackendIpConfiguration();
+            o.id = id;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class TriggerSchedulePipeline {
      * @return Reference pipeline name.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The pipeline parameters that the trigger will act upon.
      * 
      */
-    private final @Nullable Map<String,String> parameters;
+    private @Nullable Map<String,String> parameters;
 
-    @CustomType.Constructor
-    private TriggerSchedulePipeline(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("parameters") @Nullable Map<String,String> parameters) {
-        this.name = name;
-        this.parameters = parameters;
-    }
-
+    private TriggerSchedulePipeline() {}
     /**
      * @return Reference pipeline name.
      * 
@@ -52,30 +45,32 @@ public final class TriggerSchedulePipeline {
     public static Builder builder(TriggerSchedulePipeline defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private @Nullable Map<String,String> parameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TriggerSchedulePipeline defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.parameters = defaults.parameters;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
             this.parameters = parameters;
             return this;
-        }        public TriggerSchedulePipeline build() {
-            return new TriggerSchedulePipeline(name, parameters);
+        }
+        public TriggerSchedulePipeline build() {
+            final var o = new TriggerSchedulePipeline();
+            o.name = name;
+            o.parameters = parameters;
+            return o;
         }
     }
 }

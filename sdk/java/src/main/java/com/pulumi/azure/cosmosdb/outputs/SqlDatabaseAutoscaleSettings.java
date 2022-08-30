@@ -15,13 +15,9 @@ public final class SqlDatabaseAutoscaleSettings {
      * @return The maximum throughput of the SQL database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
      * 
      */
-    private final @Nullable Integer maxThroughput;
+    private @Nullable Integer maxThroughput;
 
-    @CustomType.Constructor
-    private SqlDatabaseAutoscaleSettings(@CustomType.Parameter("maxThroughput") @Nullable Integer maxThroughput) {
-        this.maxThroughput = maxThroughput;
-    }
-
+    private SqlDatabaseAutoscaleSettings() {}
     /**
      * @return The maximum throughput of the SQL database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
      * 
@@ -37,24 +33,24 @@ public final class SqlDatabaseAutoscaleSettings {
     public static Builder builder(SqlDatabaseAutoscaleSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer maxThroughput;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SqlDatabaseAutoscaleSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxThroughput = defaults.maxThroughput;
         }
 
+        @CustomType.Setter
         public Builder maxThroughput(@Nullable Integer maxThroughput) {
             this.maxThroughput = maxThroughput;
             return this;
-        }        public SqlDatabaseAutoscaleSettings build() {
-            return new SqlDatabaseAutoscaleSettings(maxThroughput);
+        }
+        public SqlDatabaseAutoscaleSettings build() {
+            final var o = new SqlDatabaseAutoscaleSettings();
+            o.maxThroughput = maxThroughput;
+            return o;
         }
     }
 }

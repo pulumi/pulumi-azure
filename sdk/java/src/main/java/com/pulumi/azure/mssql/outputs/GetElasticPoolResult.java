@@ -19,90 +19,61 @@ public final class GetElasticPoolResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The license type to apply for this database.
      * 
      */
-    private final String licenseType;
+    private String licenseType;
     /**
      * @return Specifies the supported Azure location where the resource exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The max data size of the elastic pool in bytes.
      * 
      */
-    private final Integer maxSizeBytes;
+    private Integer maxSizeBytes;
     /**
      * @return The max data size of the elastic pool in gigabytes.
      * 
      */
-    private final Double maxSizeGb;
+    private Double maxSizeGb;
     /**
      * @return Specifies the SKU Name for this Elasticpool.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The maximum capacity any one database can consume.
      * 
      */
-    private final Integer perDbMaxCapacity;
+    private Integer perDbMaxCapacity;
     /**
      * @return The minimum capacity all databases are guaranteed.
      * 
      */
-    private final Integer perDbMinCapacity;
-    private final String resourceGroupName;
-    private final String serverName;
+    private Integer perDbMinCapacity;
+    private String resourceGroupName;
+    private String serverName;
     /**
      * @return A `sku` block as defined below.
      * 
      */
-    private final List<GetElasticPoolSkus> skus;
+    private List<GetElasticPoolSkus> skus;
     /**
      * @return A mapping of tags to assign to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return Whether or not this elastic pool is zone redundant.
      * 
      */
-    private final Boolean zoneRedundant;
+    private Boolean zoneRedundant;
 
-    @CustomType.Constructor
-    private GetElasticPoolResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("licenseType") String licenseType,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("maxSizeBytes") Integer maxSizeBytes,
-        @CustomType.Parameter("maxSizeGb") Double maxSizeGb,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("perDbMaxCapacity") Integer perDbMaxCapacity,
-        @CustomType.Parameter("perDbMinCapacity") Integer perDbMinCapacity,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("serverName") String serverName,
-        @CustomType.Parameter("skus") List<GetElasticPoolSkus> skus,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("zoneRedundant") Boolean zoneRedundant) {
-        this.id = id;
-        this.licenseType = licenseType;
-        this.location = location;
-        this.maxSizeBytes = maxSizeBytes;
-        this.maxSizeGb = maxSizeGb;
-        this.name = name;
-        this.perDbMaxCapacity = perDbMaxCapacity;
-        this.perDbMinCapacity = perDbMinCapacity;
-        this.resourceGroupName = resourceGroupName;
-        this.serverName = serverName;
-        this.skus = skus;
-        this.tags = tags;
-        this.zoneRedundant = zoneRedundant;
-    }
-
+    private GetElasticPoolResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -194,7 +165,7 @@ public final class GetElasticPoolResult {
     public static Builder builder(GetElasticPoolResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String licenseType;
@@ -209,11 +180,7 @@ public final class GetElasticPoolResult {
         private List<GetElasticPoolSkus> skus;
         private Map<String,String> tags;
         private Boolean zoneRedundant;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetElasticPoolResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -231,46 +198,57 @@ public final class GetElasticPoolResult {
     	      this.zoneRedundant = defaults.zoneRedundant;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder licenseType(String licenseType) {
             this.licenseType = Objects.requireNonNull(licenseType);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder maxSizeBytes(Integer maxSizeBytes) {
             this.maxSizeBytes = Objects.requireNonNull(maxSizeBytes);
             return this;
         }
+        @CustomType.Setter
         public Builder maxSizeGb(Double maxSizeGb) {
             this.maxSizeGb = Objects.requireNonNull(maxSizeGb);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder perDbMaxCapacity(Integer perDbMaxCapacity) {
             this.perDbMaxCapacity = Objects.requireNonNull(perDbMaxCapacity);
             return this;
         }
+        @CustomType.Setter
         public Builder perDbMinCapacity(Integer perDbMinCapacity) {
             this.perDbMinCapacity = Objects.requireNonNull(perDbMinCapacity);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder serverName(String serverName) {
             this.serverName = Objects.requireNonNull(serverName);
             return this;
         }
+        @CustomType.Setter
         public Builder skus(List<GetElasticPoolSkus> skus) {
             this.skus = Objects.requireNonNull(skus);
             return this;
@@ -278,15 +256,32 @@ public final class GetElasticPoolResult {
         public Builder skus(GetElasticPoolSkus... skus) {
             return skus(List.of(skus));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder zoneRedundant(Boolean zoneRedundant) {
             this.zoneRedundant = Objects.requireNonNull(zoneRedundant);
             return this;
-        }        public GetElasticPoolResult build() {
-            return new GetElasticPoolResult(id, licenseType, location, maxSizeBytes, maxSizeGb, name, perDbMaxCapacity, perDbMinCapacity, resourceGroupName, serverName, skus, tags, zoneRedundant);
+        }
+        public GetElasticPoolResult build() {
+            final var o = new GetElasticPoolResult();
+            o.id = id;
+            o.licenseType = licenseType;
+            o.location = location;
+            o.maxSizeBytes = maxSizeBytes;
+            o.maxSizeGb = maxSizeGb;
+            o.name = name;
+            o.perDbMaxCapacity = perDbMaxCapacity;
+            o.perDbMinCapacity = perDbMinCapacity;
+            o.resourceGroupName = resourceGroupName;
+            o.serverName = serverName;
+            o.skus = skus;
+            o.tags = tags;
+            o.zoneRedundant = zoneRedundant;
+            return o;
         }
     }
 }

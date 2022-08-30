@@ -13,21 +13,14 @@ public final class GetWindowsFunctionAppSiteConfigAppServiceLog {
      * @return The amount of disk space to use for logs.
      * 
      */
-    private final Integer diskQuotaMb;
+    private Integer diskQuotaMb;
     /**
      * @return After how many days backups is deleted.
      * 
      */
-    private final Integer retentionPeriodDays;
+    private Integer retentionPeriodDays;
 
-    @CustomType.Constructor
-    private GetWindowsFunctionAppSiteConfigAppServiceLog(
-        @CustomType.Parameter("diskQuotaMb") Integer diskQuotaMb,
-        @CustomType.Parameter("retentionPeriodDays") Integer retentionPeriodDays) {
-        this.diskQuotaMb = diskQuotaMb;
-        this.retentionPeriodDays = retentionPeriodDays;
-    }
-
+    private GetWindowsFunctionAppSiteConfigAppServiceLog() {}
     /**
      * @return The amount of disk space to use for logs.
      * 
@@ -50,30 +43,32 @@ public final class GetWindowsFunctionAppSiteConfigAppServiceLog {
     public static Builder builder(GetWindowsFunctionAppSiteConfigAppServiceLog defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer diskQuotaMb;
         private Integer retentionPeriodDays;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsFunctionAppSiteConfigAppServiceLog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.diskQuotaMb = defaults.diskQuotaMb;
     	      this.retentionPeriodDays = defaults.retentionPeriodDays;
         }
 
+        @CustomType.Setter
         public Builder diskQuotaMb(Integer diskQuotaMb) {
             this.diskQuotaMb = Objects.requireNonNull(diskQuotaMb);
             return this;
         }
+        @CustomType.Setter
         public Builder retentionPeriodDays(Integer retentionPeriodDays) {
             this.retentionPeriodDays = Objects.requireNonNull(retentionPeriodDays);
             return this;
-        }        public GetWindowsFunctionAppSiteConfigAppServiceLog build() {
-            return new GetWindowsFunctionAppSiteConfigAppServiceLog(diskQuotaMb, retentionPeriodDays);
+        }
+        public GetWindowsFunctionAppSiteConfigAppServiceLog build() {
+            final var o = new GetWindowsFunctionAppSiteConfigAppServiceLog();
+            o.diskQuotaMb = diskQuotaMb;
+            o.retentionPeriodDays = retentionPeriodDays;
+            return o;
         }
     }
 }

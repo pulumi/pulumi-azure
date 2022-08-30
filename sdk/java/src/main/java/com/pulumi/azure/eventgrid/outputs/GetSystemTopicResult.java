@@ -16,58 +16,37 @@ public final class GetSystemTopicResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return An `identity` block as defined below, which contains the Managed Service Identity information for this Event Grid System Topic.
      * 
      */
-    private final List<GetSystemTopicIdentity> identities;
-    private final String location;
+    private List<GetSystemTopicIdentity> identities;
+    private String location;
     /**
      * @return The Metric ARM Resource ID of the Event Grid System Topic.
      * 
      */
-    private final String metricArmResourceId;
-    private final String name;
-    private final String resourceGroupName;
+    private String metricArmResourceId;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return The ID of the Event Grid System Topic ARM Source.
      * 
      */
-    private final String sourceArmResourceId;
+    private String sourceArmResourceId;
     /**
      * @return A mapping of tags which are assigned to the Event Grid System Topic.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The Topic Type of the Event Grid System Topic.
      * 
      */
-    private final String topicType;
+    private String topicType;
 
-    @CustomType.Constructor
-    private GetSystemTopicResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetSystemTopicIdentity> identities,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("metricArmResourceId") String metricArmResourceId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("sourceArmResourceId") String sourceArmResourceId,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("topicType") String topicType) {
-        this.id = id;
-        this.identities = identities;
-        this.location = location;
-        this.metricArmResourceId = metricArmResourceId;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.sourceArmResourceId = sourceArmResourceId;
-        this.tags = tags;
-        this.topicType = topicType;
-    }
-
+    private GetSystemTopicResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -127,7 +106,7 @@ public final class GetSystemTopicResult {
     public static Builder builder(GetSystemTopicResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private List<GetSystemTopicIdentity> identities;
@@ -138,11 +117,7 @@ public final class GetSystemTopicResult {
         private String sourceArmResourceId;
         private Map<String,String> tags;
         private String topicType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSystemTopicResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -156,10 +131,12 @@ public final class GetSystemTopicResult {
     	      this.topicType = defaults.topicType;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetSystemTopicIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -167,35 +144,53 @@ public final class GetSystemTopicResult {
         public Builder identities(GetSystemTopicIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder metricArmResourceId(String metricArmResourceId) {
             this.metricArmResourceId = Objects.requireNonNull(metricArmResourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceArmResourceId(String sourceArmResourceId) {
             this.sourceArmResourceId = Objects.requireNonNull(sourceArmResourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder topicType(String topicType) {
             this.topicType = Objects.requireNonNull(topicType);
             return this;
-        }        public GetSystemTopicResult build() {
-            return new GetSystemTopicResult(id, identities, location, metricArmResourceId, name, resourceGroupName, sourceArmResourceId, tags, topicType);
+        }
+        public GetSystemTopicResult build() {
+            final var o = new GetSystemTopicResult();
+            o.id = id;
+            o.identities = identities;
+            o.location = location;
+            o.metricArmResourceId = metricArmResourceId;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.sourceArmResourceId = sourceArmResourceId;
+            o.tags = tags;
+            o.topicType = topicType;
+            return o;
         }
     }
 }

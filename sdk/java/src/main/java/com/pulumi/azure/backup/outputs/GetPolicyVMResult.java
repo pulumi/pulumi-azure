@@ -13,23 +13,12 @@ public final class GetPolicyVMResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
-    private final String recoveryVaultName;
-    private final String resourceGroupName;
+    private String id;
+    private String name;
+    private String recoveryVaultName;
+    private String resourceGroupName;
 
-    @CustomType.Constructor
-    private GetPolicyVMResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("recoveryVaultName") String recoveryVaultName,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName) {
-        this.id = id;
-        this.name = name;
-        this.recoveryVaultName = recoveryVaultName;
-        this.resourceGroupName = resourceGroupName;
-    }
-
+    private GetPolicyVMResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -54,17 +43,13 @@ public final class GetPolicyVMResult {
     public static Builder builder(GetPolicyVMResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String name;
         private String recoveryVaultName;
         private String resourceGroupName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPolicyVMResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -73,23 +58,33 @@ public final class GetPolicyVMResult {
     	      this.resourceGroupName = defaults.resourceGroupName;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder recoveryVaultName(String recoveryVaultName) {
             this.recoveryVaultName = Objects.requireNonNull(recoveryVaultName);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
-        }        public GetPolicyVMResult build() {
-            return new GetPolicyVMResult(id, name, recoveryVaultName, resourceGroupName);
+        }
+        public GetPolicyVMResult build() {
+            final var o = new GetPolicyVMResult();
+            o.id = id;
+            o.name = name;
+            o.recoveryVaultName = recoveryVaultName;
+            o.resourceGroupName = resourceGroupName;
+            return o;
         }
     }
 }

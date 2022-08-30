@@ -37,161 +37,114 @@ public final class EndpointDeliveryRule {
      * @return A `cache_expiration_action` block as defined above.
      * 
      */
-    private final @Nullable EndpointDeliveryRuleCacheExpirationAction cacheExpirationAction;
+    private @Nullable EndpointDeliveryRuleCacheExpirationAction cacheExpirationAction;
     /**
      * @return A `cache_key_query_string_action` block as defined above.
      * 
      */
-    private final @Nullable EndpointDeliveryRuleCacheKeyQueryStringAction cacheKeyQueryStringAction;
+    private @Nullable EndpointDeliveryRuleCacheKeyQueryStringAction cacheKeyQueryStringAction;
     /**
      * @return A `cookies_condition` block as defined above.
      * 
      */
-    private final @Nullable List<EndpointDeliveryRuleCookiesCondition> cookiesConditions;
+    private @Nullable List<EndpointDeliveryRuleCookiesCondition> cookiesConditions;
     /**
      * @return A `device_condition` block as defined below.
      * 
      */
-    private final @Nullable EndpointDeliveryRuleDeviceCondition deviceCondition;
+    private @Nullable EndpointDeliveryRuleDeviceCondition deviceCondition;
     /**
      * @return A `http_version_condition` block as defined below.
      * 
      */
-    private final @Nullable List<EndpointDeliveryRuleHttpVersionCondition> httpVersionConditions;
+    private @Nullable List<EndpointDeliveryRuleHttpVersionCondition> httpVersionConditions;
     /**
      * @return A `modify_request_header_action` block as defined below.
      * 
      */
-    private final @Nullable List<EndpointDeliveryRuleModifyRequestHeaderAction> modifyRequestHeaderActions;
+    private @Nullable List<EndpointDeliveryRuleModifyRequestHeaderAction> modifyRequestHeaderActions;
     /**
      * @return A `modify_response_header_action` block as defined below.
      * 
      */
-    private final @Nullable List<EndpointDeliveryRuleModifyResponseHeaderAction> modifyResponseHeaderActions;
+    private @Nullable List<EndpointDeliveryRuleModifyResponseHeaderAction> modifyResponseHeaderActions;
     /**
      * @return The Name which should be used for this Delivery Rule.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The order used for this rule. The order values should be sequential and begin at `1`.
      * 
      */
-    private final Integer order;
+    private Integer order;
     /**
      * @return A `post_arg_condition` block as defined below.
      * 
      */
-    private final @Nullable List<EndpointDeliveryRulePostArgCondition> postArgConditions;
+    private @Nullable List<EndpointDeliveryRulePostArgCondition> postArgConditions;
     /**
      * @return A `query_string_condition` block as defined below.
      * 
      */
-    private final @Nullable List<EndpointDeliveryRuleQueryStringCondition> queryStringConditions;
+    private @Nullable List<EndpointDeliveryRuleQueryStringCondition> queryStringConditions;
     /**
      * @return A `remote_address_condition` block as defined below.
      * 
      */
-    private final @Nullable List<EndpointDeliveryRuleRemoteAddressCondition> remoteAddressConditions;
+    private @Nullable List<EndpointDeliveryRuleRemoteAddressCondition> remoteAddressConditions;
     /**
      * @return A `request_body_condition` block as defined below.
      * 
      */
-    private final @Nullable List<EndpointDeliveryRuleRequestBodyCondition> requestBodyConditions;
+    private @Nullable List<EndpointDeliveryRuleRequestBodyCondition> requestBodyConditions;
     /**
      * @return A `request_header_condition` block as defined below.
      * 
      */
-    private final @Nullable List<EndpointDeliveryRuleRequestHeaderCondition> requestHeaderConditions;
+    private @Nullable List<EndpointDeliveryRuleRequestHeaderCondition> requestHeaderConditions;
     /**
      * @return A `request_method_condition` block as defined below.
      * 
      */
-    private final @Nullable EndpointDeliveryRuleRequestMethodCondition requestMethodCondition;
+    private @Nullable EndpointDeliveryRuleRequestMethodCondition requestMethodCondition;
     /**
      * @return A `request_scheme_condition` block as defined below.
      * 
      */
-    private final @Nullable EndpointDeliveryRuleRequestSchemeCondition requestSchemeCondition;
+    private @Nullable EndpointDeliveryRuleRequestSchemeCondition requestSchemeCondition;
     /**
      * @return A `request_uri_condition` block as defined below.
      * 
      */
-    private final @Nullable List<EndpointDeliveryRuleRequestUriCondition> requestUriConditions;
+    private @Nullable List<EndpointDeliveryRuleRequestUriCondition> requestUriConditions;
     /**
      * @return A `url_file_extension_condition` block as defined below.
      * 
      */
-    private final @Nullable List<EndpointDeliveryRuleUrlFileExtensionCondition> urlFileExtensionConditions;
+    private @Nullable List<EndpointDeliveryRuleUrlFileExtensionCondition> urlFileExtensionConditions;
     /**
      * @return A `url_file_name_condition` block as defined below.
      * 
      */
-    private final @Nullable List<EndpointDeliveryRuleUrlFileNameCondition> urlFileNameConditions;
+    private @Nullable List<EndpointDeliveryRuleUrlFileNameCondition> urlFileNameConditions;
     /**
      * @return A `url_path_condition` block as defined below.
      * 
      */
-    private final @Nullable List<EndpointDeliveryRuleUrlPathCondition> urlPathConditions;
+    private @Nullable List<EndpointDeliveryRuleUrlPathCondition> urlPathConditions;
     /**
      * @return A `url_redirect_action` block as defined below.
      * 
      */
-    private final @Nullable EndpointDeliveryRuleUrlRedirectAction urlRedirectAction;
+    private @Nullable EndpointDeliveryRuleUrlRedirectAction urlRedirectAction;
     /**
      * @return A `url_rewrite_action` block as defined below.
      * 
      */
-    private final @Nullable EndpointDeliveryRuleUrlRewriteAction urlRewriteAction;
+    private @Nullable EndpointDeliveryRuleUrlRewriteAction urlRewriteAction;
 
-    @CustomType.Constructor
-    private EndpointDeliveryRule(
-        @CustomType.Parameter("cacheExpirationAction") @Nullable EndpointDeliveryRuleCacheExpirationAction cacheExpirationAction,
-        @CustomType.Parameter("cacheKeyQueryStringAction") @Nullable EndpointDeliveryRuleCacheKeyQueryStringAction cacheKeyQueryStringAction,
-        @CustomType.Parameter("cookiesConditions") @Nullable List<EndpointDeliveryRuleCookiesCondition> cookiesConditions,
-        @CustomType.Parameter("deviceCondition") @Nullable EndpointDeliveryRuleDeviceCondition deviceCondition,
-        @CustomType.Parameter("httpVersionConditions") @Nullable List<EndpointDeliveryRuleHttpVersionCondition> httpVersionConditions,
-        @CustomType.Parameter("modifyRequestHeaderActions") @Nullable List<EndpointDeliveryRuleModifyRequestHeaderAction> modifyRequestHeaderActions,
-        @CustomType.Parameter("modifyResponseHeaderActions") @Nullable List<EndpointDeliveryRuleModifyResponseHeaderAction> modifyResponseHeaderActions,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("order") Integer order,
-        @CustomType.Parameter("postArgConditions") @Nullable List<EndpointDeliveryRulePostArgCondition> postArgConditions,
-        @CustomType.Parameter("queryStringConditions") @Nullable List<EndpointDeliveryRuleQueryStringCondition> queryStringConditions,
-        @CustomType.Parameter("remoteAddressConditions") @Nullable List<EndpointDeliveryRuleRemoteAddressCondition> remoteAddressConditions,
-        @CustomType.Parameter("requestBodyConditions") @Nullable List<EndpointDeliveryRuleRequestBodyCondition> requestBodyConditions,
-        @CustomType.Parameter("requestHeaderConditions") @Nullable List<EndpointDeliveryRuleRequestHeaderCondition> requestHeaderConditions,
-        @CustomType.Parameter("requestMethodCondition") @Nullable EndpointDeliveryRuleRequestMethodCondition requestMethodCondition,
-        @CustomType.Parameter("requestSchemeCondition") @Nullable EndpointDeliveryRuleRequestSchemeCondition requestSchemeCondition,
-        @CustomType.Parameter("requestUriConditions") @Nullable List<EndpointDeliveryRuleRequestUriCondition> requestUriConditions,
-        @CustomType.Parameter("urlFileExtensionConditions") @Nullable List<EndpointDeliveryRuleUrlFileExtensionCondition> urlFileExtensionConditions,
-        @CustomType.Parameter("urlFileNameConditions") @Nullable List<EndpointDeliveryRuleUrlFileNameCondition> urlFileNameConditions,
-        @CustomType.Parameter("urlPathConditions") @Nullable List<EndpointDeliveryRuleUrlPathCondition> urlPathConditions,
-        @CustomType.Parameter("urlRedirectAction") @Nullable EndpointDeliveryRuleUrlRedirectAction urlRedirectAction,
-        @CustomType.Parameter("urlRewriteAction") @Nullable EndpointDeliveryRuleUrlRewriteAction urlRewriteAction) {
-        this.cacheExpirationAction = cacheExpirationAction;
-        this.cacheKeyQueryStringAction = cacheKeyQueryStringAction;
-        this.cookiesConditions = cookiesConditions;
-        this.deviceCondition = deviceCondition;
-        this.httpVersionConditions = httpVersionConditions;
-        this.modifyRequestHeaderActions = modifyRequestHeaderActions;
-        this.modifyResponseHeaderActions = modifyResponseHeaderActions;
-        this.name = name;
-        this.order = order;
-        this.postArgConditions = postArgConditions;
-        this.queryStringConditions = queryStringConditions;
-        this.remoteAddressConditions = remoteAddressConditions;
-        this.requestBodyConditions = requestBodyConditions;
-        this.requestHeaderConditions = requestHeaderConditions;
-        this.requestMethodCondition = requestMethodCondition;
-        this.requestSchemeCondition = requestSchemeCondition;
-        this.requestUriConditions = requestUriConditions;
-        this.urlFileExtensionConditions = urlFileExtensionConditions;
-        this.urlFileNameConditions = urlFileNameConditions;
-        this.urlPathConditions = urlPathConditions;
-        this.urlRedirectAction = urlRedirectAction;
-        this.urlRewriteAction = urlRewriteAction;
-    }
-
+    private EndpointDeliveryRule() {}
     /**
      * @return A `cache_expiration_action` block as defined above.
      * 
@@ -354,7 +307,7 @@ public final class EndpointDeliveryRule {
     public static Builder builder(EndpointDeliveryRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable EndpointDeliveryRuleCacheExpirationAction cacheExpirationAction;
         private @Nullable EndpointDeliveryRuleCacheKeyQueryStringAction cacheKeyQueryStringAction;
@@ -378,11 +331,7 @@ public final class EndpointDeliveryRule {
         private @Nullable List<EndpointDeliveryRuleUrlPathCondition> urlPathConditions;
         private @Nullable EndpointDeliveryRuleUrlRedirectAction urlRedirectAction;
         private @Nullable EndpointDeliveryRuleUrlRewriteAction urlRewriteAction;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointDeliveryRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cacheExpirationAction = defaults.cacheExpirationAction;
@@ -409,14 +358,17 @@ public final class EndpointDeliveryRule {
     	      this.urlRewriteAction = defaults.urlRewriteAction;
         }
 
+        @CustomType.Setter
         public Builder cacheExpirationAction(@Nullable EndpointDeliveryRuleCacheExpirationAction cacheExpirationAction) {
             this.cacheExpirationAction = cacheExpirationAction;
             return this;
         }
+        @CustomType.Setter
         public Builder cacheKeyQueryStringAction(@Nullable EndpointDeliveryRuleCacheKeyQueryStringAction cacheKeyQueryStringAction) {
             this.cacheKeyQueryStringAction = cacheKeyQueryStringAction;
             return this;
         }
+        @CustomType.Setter
         public Builder cookiesConditions(@Nullable List<EndpointDeliveryRuleCookiesCondition> cookiesConditions) {
             this.cookiesConditions = cookiesConditions;
             return this;
@@ -424,10 +376,12 @@ public final class EndpointDeliveryRule {
         public Builder cookiesConditions(EndpointDeliveryRuleCookiesCondition... cookiesConditions) {
             return cookiesConditions(List.of(cookiesConditions));
         }
+        @CustomType.Setter
         public Builder deviceCondition(@Nullable EndpointDeliveryRuleDeviceCondition deviceCondition) {
             this.deviceCondition = deviceCondition;
             return this;
         }
+        @CustomType.Setter
         public Builder httpVersionConditions(@Nullable List<EndpointDeliveryRuleHttpVersionCondition> httpVersionConditions) {
             this.httpVersionConditions = httpVersionConditions;
             return this;
@@ -435,6 +389,7 @@ public final class EndpointDeliveryRule {
         public Builder httpVersionConditions(EndpointDeliveryRuleHttpVersionCondition... httpVersionConditions) {
             return httpVersionConditions(List.of(httpVersionConditions));
         }
+        @CustomType.Setter
         public Builder modifyRequestHeaderActions(@Nullable List<EndpointDeliveryRuleModifyRequestHeaderAction> modifyRequestHeaderActions) {
             this.modifyRequestHeaderActions = modifyRequestHeaderActions;
             return this;
@@ -442,6 +397,7 @@ public final class EndpointDeliveryRule {
         public Builder modifyRequestHeaderActions(EndpointDeliveryRuleModifyRequestHeaderAction... modifyRequestHeaderActions) {
             return modifyRequestHeaderActions(List.of(modifyRequestHeaderActions));
         }
+        @CustomType.Setter
         public Builder modifyResponseHeaderActions(@Nullable List<EndpointDeliveryRuleModifyResponseHeaderAction> modifyResponseHeaderActions) {
             this.modifyResponseHeaderActions = modifyResponseHeaderActions;
             return this;
@@ -449,14 +405,17 @@ public final class EndpointDeliveryRule {
         public Builder modifyResponseHeaderActions(EndpointDeliveryRuleModifyResponseHeaderAction... modifyResponseHeaderActions) {
             return modifyResponseHeaderActions(List.of(modifyResponseHeaderActions));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder order(Integer order) {
             this.order = Objects.requireNonNull(order);
             return this;
         }
+        @CustomType.Setter
         public Builder postArgConditions(@Nullable List<EndpointDeliveryRulePostArgCondition> postArgConditions) {
             this.postArgConditions = postArgConditions;
             return this;
@@ -464,6 +423,7 @@ public final class EndpointDeliveryRule {
         public Builder postArgConditions(EndpointDeliveryRulePostArgCondition... postArgConditions) {
             return postArgConditions(List.of(postArgConditions));
         }
+        @CustomType.Setter
         public Builder queryStringConditions(@Nullable List<EndpointDeliveryRuleQueryStringCondition> queryStringConditions) {
             this.queryStringConditions = queryStringConditions;
             return this;
@@ -471,6 +431,7 @@ public final class EndpointDeliveryRule {
         public Builder queryStringConditions(EndpointDeliveryRuleQueryStringCondition... queryStringConditions) {
             return queryStringConditions(List.of(queryStringConditions));
         }
+        @CustomType.Setter
         public Builder remoteAddressConditions(@Nullable List<EndpointDeliveryRuleRemoteAddressCondition> remoteAddressConditions) {
             this.remoteAddressConditions = remoteAddressConditions;
             return this;
@@ -478,6 +439,7 @@ public final class EndpointDeliveryRule {
         public Builder remoteAddressConditions(EndpointDeliveryRuleRemoteAddressCondition... remoteAddressConditions) {
             return remoteAddressConditions(List.of(remoteAddressConditions));
         }
+        @CustomType.Setter
         public Builder requestBodyConditions(@Nullable List<EndpointDeliveryRuleRequestBodyCondition> requestBodyConditions) {
             this.requestBodyConditions = requestBodyConditions;
             return this;
@@ -485,6 +447,7 @@ public final class EndpointDeliveryRule {
         public Builder requestBodyConditions(EndpointDeliveryRuleRequestBodyCondition... requestBodyConditions) {
             return requestBodyConditions(List.of(requestBodyConditions));
         }
+        @CustomType.Setter
         public Builder requestHeaderConditions(@Nullable List<EndpointDeliveryRuleRequestHeaderCondition> requestHeaderConditions) {
             this.requestHeaderConditions = requestHeaderConditions;
             return this;
@@ -492,14 +455,17 @@ public final class EndpointDeliveryRule {
         public Builder requestHeaderConditions(EndpointDeliveryRuleRequestHeaderCondition... requestHeaderConditions) {
             return requestHeaderConditions(List.of(requestHeaderConditions));
         }
+        @CustomType.Setter
         public Builder requestMethodCondition(@Nullable EndpointDeliveryRuleRequestMethodCondition requestMethodCondition) {
             this.requestMethodCondition = requestMethodCondition;
             return this;
         }
+        @CustomType.Setter
         public Builder requestSchemeCondition(@Nullable EndpointDeliveryRuleRequestSchemeCondition requestSchemeCondition) {
             this.requestSchemeCondition = requestSchemeCondition;
             return this;
         }
+        @CustomType.Setter
         public Builder requestUriConditions(@Nullable List<EndpointDeliveryRuleRequestUriCondition> requestUriConditions) {
             this.requestUriConditions = requestUriConditions;
             return this;
@@ -507,6 +473,7 @@ public final class EndpointDeliveryRule {
         public Builder requestUriConditions(EndpointDeliveryRuleRequestUriCondition... requestUriConditions) {
             return requestUriConditions(List.of(requestUriConditions));
         }
+        @CustomType.Setter
         public Builder urlFileExtensionConditions(@Nullable List<EndpointDeliveryRuleUrlFileExtensionCondition> urlFileExtensionConditions) {
             this.urlFileExtensionConditions = urlFileExtensionConditions;
             return this;
@@ -514,6 +481,7 @@ public final class EndpointDeliveryRule {
         public Builder urlFileExtensionConditions(EndpointDeliveryRuleUrlFileExtensionCondition... urlFileExtensionConditions) {
             return urlFileExtensionConditions(List.of(urlFileExtensionConditions));
         }
+        @CustomType.Setter
         public Builder urlFileNameConditions(@Nullable List<EndpointDeliveryRuleUrlFileNameCondition> urlFileNameConditions) {
             this.urlFileNameConditions = urlFileNameConditions;
             return this;
@@ -521,6 +489,7 @@ public final class EndpointDeliveryRule {
         public Builder urlFileNameConditions(EndpointDeliveryRuleUrlFileNameCondition... urlFileNameConditions) {
             return urlFileNameConditions(List.of(urlFileNameConditions));
         }
+        @CustomType.Setter
         public Builder urlPathConditions(@Nullable List<EndpointDeliveryRuleUrlPathCondition> urlPathConditions) {
             this.urlPathConditions = urlPathConditions;
             return this;
@@ -528,15 +497,41 @@ public final class EndpointDeliveryRule {
         public Builder urlPathConditions(EndpointDeliveryRuleUrlPathCondition... urlPathConditions) {
             return urlPathConditions(List.of(urlPathConditions));
         }
+        @CustomType.Setter
         public Builder urlRedirectAction(@Nullable EndpointDeliveryRuleUrlRedirectAction urlRedirectAction) {
             this.urlRedirectAction = urlRedirectAction;
             return this;
         }
+        @CustomType.Setter
         public Builder urlRewriteAction(@Nullable EndpointDeliveryRuleUrlRewriteAction urlRewriteAction) {
             this.urlRewriteAction = urlRewriteAction;
             return this;
-        }        public EndpointDeliveryRule build() {
-            return new EndpointDeliveryRule(cacheExpirationAction, cacheKeyQueryStringAction, cookiesConditions, deviceCondition, httpVersionConditions, modifyRequestHeaderActions, modifyResponseHeaderActions, name, order, postArgConditions, queryStringConditions, remoteAddressConditions, requestBodyConditions, requestHeaderConditions, requestMethodCondition, requestSchemeCondition, requestUriConditions, urlFileExtensionConditions, urlFileNameConditions, urlPathConditions, urlRedirectAction, urlRewriteAction);
+        }
+        public EndpointDeliveryRule build() {
+            final var o = new EndpointDeliveryRule();
+            o.cacheExpirationAction = cacheExpirationAction;
+            o.cacheKeyQueryStringAction = cacheKeyQueryStringAction;
+            o.cookiesConditions = cookiesConditions;
+            o.deviceCondition = deviceCondition;
+            o.httpVersionConditions = httpVersionConditions;
+            o.modifyRequestHeaderActions = modifyRequestHeaderActions;
+            o.modifyResponseHeaderActions = modifyResponseHeaderActions;
+            o.name = name;
+            o.order = order;
+            o.postArgConditions = postArgConditions;
+            o.queryStringConditions = queryStringConditions;
+            o.remoteAddressConditions = remoteAddressConditions;
+            o.requestBodyConditions = requestBodyConditions;
+            o.requestHeaderConditions = requestHeaderConditions;
+            o.requestMethodCondition = requestMethodCondition;
+            o.requestSchemeCondition = requestSchemeCondition;
+            o.requestUriConditions = requestUriConditions;
+            o.urlFileExtensionConditions = urlFileExtensionConditions;
+            o.urlFileNameConditions = urlFileNameConditions;
+            o.urlPathConditions = urlPathConditions;
+            o.urlRedirectAction = urlRedirectAction;
+            o.urlRewriteAction = urlRewriteAction;
+            return o;
         }
     }
 }

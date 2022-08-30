@@ -14,21 +14,14 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
      * @return The occurrence of the week within the month.
      * 
      */
-    private final Integer week;
+    private Integer week;
     /**
      * @return The day of the occurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
      * 
      */
-    private final String weekday;
+    private String weekday;
 
-    @CustomType.Constructor
-    private IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly(
-        @CustomType.Parameter("week") Integer week,
-        @CustomType.Parameter("weekday") String weekday) {
-        this.week = week;
-        this.weekday = weekday;
-    }
-
+    private IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly() {}
     /**
      * @return The occurrence of the week within the month.
      * 
@@ -51,30 +44,32 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence
     public static Builder builder(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer week;
         private String weekday;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.week = defaults.week;
     	      this.weekday = defaults.weekday;
         }
 
+        @CustomType.Setter
         public Builder week(Integer week) {
             this.week = Objects.requireNonNull(week);
             return this;
         }
+        @CustomType.Setter
         public Builder weekday(String weekday) {
             this.weekday = Objects.requireNonNull(weekday);
             return this;
-        }        public IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly build() {
-            return new IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly(week, weekday);
+        }
+        public IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly build() {
+            final var o = new IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthly();
+            o.week = week;
+            o.weekday = weekday;
+            return o;
         }
     }
 }

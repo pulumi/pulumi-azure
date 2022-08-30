@@ -13,21 +13,14 @@ public final class VirtualNetworkGatewayConnectionCustomBgpAddresses {
      * @return single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (first one)
      * 
      */
-    private final String primary;
+    private String primary;
     /**
      * @return single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (second one)
      * 
      */
-    private final String secondary;
+    private String secondary;
 
-    @CustomType.Constructor
-    private VirtualNetworkGatewayConnectionCustomBgpAddresses(
-        @CustomType.Parameter("primary") String primary,
-        @CustomType.Parameter("secondary") String secondary) {
-        this.primary = primary;
-        this.secondary = secondary;
-    }
-
+    private VirtualNetworkGatewayConnectionCustomBgpAddresses() {}
     /**
      * @return single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (first one)
      * 
@@ -50,30 +43,32 @@ public final class VirtualNetworkGatewayConnectionCustomBgpAddresses {
     public static Builder builder(VirtualNetworkGatewayConnectionCustomBgpAddresses defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String primary;
         private String secondary;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNetworkGatewayConnectionCustomBgpAddresses defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.primary = defaults.primary;
     	      this.secondary = defaults.secondary;
         }
 
+        @CustomType.Setter
         public Builder primary(String primary) {
             this.primary = Objects.requireNonNull(primary);
             return this;
         }
+        @CustomType.Setter
         public Builder secondary(String secondary) {
             this.secondary = Objects.requireNonNull(secondary);
             return this;
-        }        public VirtualNetworkGatewayConnectionCustomBgpAddresses build() {
-            return new VirtualNetworkGatewayConnectionCustomBgpAddresses(primary, secondary);
+        }
+        public VirtualNetworkGatewayConnectionCustomBgpAddresses build() {
+            final var o = new VirtualNetworkGatewayConnectionCustomBgpAddresses();
+            o.primary = primary;
+            o.secondary = secondary;
+            return o;
         }
     }
 }

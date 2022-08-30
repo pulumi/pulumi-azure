@@ -14,35 +14,24 @@ public final class GetLinuxWebAppIdentity {
      * @return The list of User Assigned Managed Identity IDs assigned to this Linux Web App.
      * 
      */
-    private final List<String> identityIds;
+    private List<String> identityIds;
     /**
      * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this Linux Web App.
      * 
      */
-    private final String principalId;
+    private String principalId;
     /**
      * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this Linux Web App.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
     /**
      * @return The Azure Storage Type.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetLinuxWebAppIdentity(
-        @CustomType.Parameter("identityIds") List<String> identityIds,
-        @CustomType.Parameter("principalId") String principalId,
-        @CustomType.Parameter("tenantId") String tenantId,
-        @CustomType.Parameter("type") String type) {
-        this.identityIds = identityIds;
-        this.principalId = principalId;
-        this.tenantId = tenantId;
-        this.type = type;
-    }
-
+    private GetLinuxWebAppIdentity() {}
     /**
      * @return The list of User Assigned Managed Identity IDs assigned to this Linux Web App.
      * 
@@ -79,17 +68,13 @@ public final class GetLinuxWebAppIdentity {
     public static Builder builder(GetLinuxWebAppIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> identityIds;
         private String principalId;
         private String tenantId;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxWebAppIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
@@ -98,6 +83,7 @@ public final class GetLinuxWebAppIdentity {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder identityIds(List<String> identityIds) {
             this.identityIds = Objects.requireNonNull(identityIds);
             return this;
@@ -105,19 +91,28 @@ public final class GetLinuxWebAppIdentity {
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
+        @CustomType.Setter
         public Builder principalId(String principalId) {
             this.principalId = Objects.requireNonNull(principalId);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetLinuxWebAppIdentity build() {
-            return new GetLinuxWebAppIdentity(identityIds, principalId, tenantId, type);
+        }
+        public GetLinuxWebAppIdentity build() {
+            final var o = new GetLinuxWebAppIdentity();
+            o.identityIds = identityIds;
+            o.principalId = principalId;
+            o.tenantId = tenantId;
+            o.type = type;
+            return o;
         }
     }
 }

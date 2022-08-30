@@ -11,48 +11,31 @@ import java.util.Objects;
 
 @CustomType
 public final class GetIntVariableResult {
-    private final String automationAccountName;
+    private String automationAccountName;
     /**
      * @return The description of the Automation Variable.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Specifies if the Automation Variable is encrypted. Defaults to `false`.
      * 
      */
-    private final Boolean encrypted;
+    private Boolean encrypted;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
-    private final String resourceGroupName;
+    private String id;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return The value of the Automation Variable as a `integer`.
      * 
      */
-    private final Integer value;
+    private Integer value;
 
-    @CustomType.Constructor
-    private GetIntVariableResult(
-        @CustomType.Parameter("automationAccountName") String automationAccountName,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("encrypted") Boolean encrypted,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("value") Integer value) {
-        this.automationAccountName = automationAccountName;
-        this.description = description;
-        this.encrypted = encrypted;
-        this.id = id;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.value = value;
-    }
-
+    private GetIntVariableResult() {}
     public String automationAccountName() {
         return this.automationAccountName;
     }
@@ -98,7 +81,7 @@ public final class GetIntVariableResult {
     public static Builder builder(GetIntVariableResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String automationAccountName;
         private String description;
@@ -107,11 +90,7 @@ public final class GetIntVariableResult {
         private String name;
         private String resourceGroupName;
         private Integer value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetIntVariableResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.automationAccountName = defaults.automationAccountName;
@@ -123,35 +102,51 @@ public final class GetIntVariableResult {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder automationAccountName(String automationAccountName) {
             this.automationAccountName = Objects.requireNonNull(automationAccountName);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder encrypted(Boolean encrypted) {
             this.encrypted = Objects.requireNonNull(encrypted);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder value(Integer value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public GetIntVariableResult build() {
-            return new GetIntVariableResult(automationAccountName, description, encrypted, id, name, resourceGroupName, value);
+        }
+        public GetIntVariableResult build() {
+            final var o = new GetIntVariableResult();
+            o.automationAccountName = automationAccountName;
+            o.description = description;
+            o.encrypted = encrypted;
+            o.id = id;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.value = value;
+            return o;
         }
     }
 }

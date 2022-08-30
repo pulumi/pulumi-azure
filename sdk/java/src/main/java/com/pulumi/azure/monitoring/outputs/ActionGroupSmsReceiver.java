@@ -13,28 +13,19 @@ public final class ActionGroupSmsReceiver {
      * @return The country code of the SMS receiver.
      * 
      */
-    private final String countryCode;
+    private String countryCode;
     /**
      * @return The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The phone number of the SMS receiver.
      * 
      */
-    private final String phoneNumber;
+    private String phoneNumber;
 
-    @CustomType.Constructor
-    private ActionGroupSmsReceiver(
-        @CustomType.Parameter("countryCode") String countryCode,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("phoneNumber") String phoneNumber) {
-        this.countryCode = countryCode;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-    }
-
+    private ActionGroupSmsReceiver() {}
     /**
      * @return The country code of the SMS receiver.
      * 
@@ -64,16 +55,12 @@ public final class ActionGroupSmsReceiver {
     public static Builder builder(ActionGroupSmsReceiver defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String countryCode;
         private String name;
         private String phoneNumber;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ActionGroupSmsReceiver defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.countryCode = defaults.countryCode;
@@ -81,19 +68,27 @@ public final class ActionGroupSmsReceiver {
     	      this.phoneNumber = defaults.phoneNumber;
         }
 
+        @CustomType.Setter
         public Builder countryCode(String countryCode) {
             this.countryCode = Objects.requireNonNull(countryCode);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder phoneNumber(String phoneNumber) {
             this.phoneNumber = Objects.requireNonNull(phoneNumber);
             return this;
-        }        public ActionGroupSmsReceiver build() {
-            return new ActionGroupSmsReceiver(countryCode, name, phoneNumber);
+        }
+        public ActionGroupSmsReceiver build() {
+            final var o = new ActionGroupSmsReceiver();
+            o.countryCode = countryCode;
+            o.name = name;
+            o.phoneNumber = phoneNumber;
+            return o;
         }
     }
 }

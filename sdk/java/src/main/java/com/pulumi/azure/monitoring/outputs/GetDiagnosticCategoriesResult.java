@@ -14,31 +14,20 @@ public final class GetDiagnosticCategoriesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A list of the Log Categories supported for this Resource.
      * 
      */
-    private final List<String> logs;
+    private List<String> logs;
     /**
      * @return A list of the Metric Categories supported for this Resource.
      * 
      */
-    private final List<String> metrics;
-    private final String resourceId;
+    private List<String> metrics;
+    private String resourceId;
 
-    @CustomType.Constructor
-    private GetDiagnosticCategoriesResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("logs") List<String> logs,
-        @CustomType.Parameter("metrics") List<String> metrics,
-        @CustomType.Parameter("resourceId") String resourceId) {
-        this.id = id;
-        this.logs = logs;
-        this.metrics = metrics;
-        this.resourceId = resourceId;
-    }
-
+    private GetDiagnosticCategoriesResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -71,17 +60,13 @@ public final class GetDiagnosticCategoriesResult {
     public static Builder builder(GetDiagnosticCategoriesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private List<String> logs;
         private List<String> metrics;
         private String resourceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDiagnosticCategoriesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -90,10 +75,12 @@ public final class GetDiagnosticCategoriesResult {
     	      this.resourceId = defaults.resourceId;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder logs(List<String> logs) {
             this.logs = Objects.requireNonNull(logs);
             return this;
@@ -101,6 +88,7 @@ public final class GetDiagnosticCategoriesResult {
         public Builder logs(String... logs) {
             return logs(List.of(logs));
         }
+        @CustomType.Setter
         public Builder metrics(List<String> metrics) {
             this.metrics = Objects.requireNonNull(metrics);
             return this;
@@ -108,11 +96,18 @@ public final class GetDiagnosticCategoriesResult {
         public Builder metrics(String... metrics) {
             return metrics(List.of(metrics));
         }
+        @CustomType.Setter
         public Builder resourceId(String resourceId) {
             this.resourceId = Objects.requireNonNull(resourceId);
             return this;
-        }        public GetDiagnosticCategoriesResult build() {
-            return new GetDiagnosticCategoriesResult(id, logs, metrics, resourceId);
+        }
+        public GetDiagnosticCategoriesResult build() {
+            final var o = new GetDiagnosticCategoriesResult();
+            o.id = id;
+            o.logs = logs;
+            o.metrics = metrics;
+            o.resourceId = resourceId;
+            return o;
         }
     }
 }

@@ -13,52 +13,35 @@ public final class GetKubernetesClusterNetworkProfile {
      * @return IP address within the Kubernetes service address range used by cluster service discovery (kube-dns).
      * 
      */
-    private final String dnsServiceIp;
+    private String dnsServiceIp;
     /**
      * @return IP address (in CIDR notation) used as the Docker bridge IP address on nodes.
      * 
      */
-    private final String dockerBridgeCidr;
-    private final String loadBalancerSku;
+    private String dockerBridgeCidr;
+    private String loadBalancerSku;
     /**
      * @return Network plugin used such as `azure` or `kubenet`.
      * 
      */
-    private final String networkPlugin;
+    private String networkPlugin;
     /**
      * @return Network policy to be used with Azure CNI. e.g. `calico` or `azure`
      * 
      */
-    private final String networkPolicy;
+    private String networkPolicy;
     /**
      * @return The CIDR used for pod IP addresses.
      * 
      */
-    private final String podCidr;
+    private String podCidr;
     /**
      * @return Network range used by the Kubernetes service.
      * 
      */
-    private final String serviceCidr;
+    private String serviceCidr;
 
-    @CustomType.Constructor
-    private GetKubernetesClusterNetworkProfile(
-        @CustomType.Parameter("dnsServiceIp") String dnsServiceIp,
-        @CustomType.Parameter("dockerBridgeCidr") String dockerBridgeCidr,
-        @CustomType.Parameter("loadBalancerSku") String loadBalancerSku,
-        @CustomType.Parameter("networkPlugin") String networkPlugin,
-        @CustomType.Parameter("networkPolicy") String networkPolicy,
-        @CustomType.Parameter("podCidr") String podCidr,
-        @CustomType.Parameter("serviceCidr") String serviceCidr) {
-        this.dnsServiceIp = dnsServiceIp;
-        this.dockerBridgeCidr = dockerBridgeCidr;
-        this.loadBalancerSku = loadBalancerSku;
-        this.networkPlugin = networkPlugin;
-        this.networkPolicy = networkPolicy;
-        this.podCidr = podCidr;
-        this.serviceCidr = serviceCidr;
-    }
-
+    private GetKubernetesClusterNetworkProfile() {}
     /**
      * @return IP address within the Kubernetes service address range used by cluster service discovery (kube-dns).
      * 
@@ -112,7 +95,7 @@ public final class GetKubernetesClusterNetworkProfile {
     public static Builder builder(GetKubernetesClusterNetworkProfile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dnsServiceIp;
         private String dockerBridgeCidr;
@@ -121,11 +104,7 @@ public final class GetKubernetesClusterNetworkProfile {
         private String networkPolicy;
         private String podCidr;
         private String serviceCidr;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKubernetesClusterNetworkProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsServiceIp = defaults.dnsServiceIp;
@@ -137,35 +116,51 @@ public final class GetKubernetesClusterNetworkProfile {
     	      this.serviceCidr = defaults.serviceCidr;
         }
 
+        @CustomType.Setter
         public Builder dnsServiceIp(String dnsServiceIp) {
             this.dnsServiceIp = Objects.requireNonNull(dnsServiceIp);
             return this;
         }
+        @CustomType.Setter
         public Builder dockerBridgeCidr(String dockerBridgeCidr) {
             this.dockerBridgeCidr = Objects.requireNonNull(dockerBridgeCidr);
             return this;
         }
+        @CustomType.Setter
         public Builder loadBalancerSku(String loadBalancerSku) {
             this.loadBalancerSku = Objects.requireNonNull(loadBalancerSku);
             return this;
         }
+        @CustomType.Setter
         public Builder networkPlugin(String networkPlugin) {
             this.networkPlugin = Objects.requireNonNull(networkPlugin);
             return this;
         }
+        @CustomType.Setter
         public Builder networkPolicy(String networkPolicy) {
             this.networkPolicy = Objects.requireNonNull(networkPolicy);
             return this;
         }
+        @CustomType.Setter
         public Builder podCidr(String podCidr) {
             this.podCidr = Objects.requireNonNull(podCidr);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceCidr(String serviceCidr) {
             this.serviceCidr = Objects.requireNonNull(serviceCidr);
             return this;
-        }        public GetKubernetesClusterNetworkProfile build() {
-            return new GetKubernetesClusterNetworkProfile(dnsServiceIp, dockerBridgeCidr, loadBalancerSku, networkPlugin, networkPolicy, podCidr, serviceCidr);
+        }
+        public GetKubernetesClusterNetworkProfile build() {
+            final var o = new GetKubernetesClusterNetworkProfile();
+            o.dnsServiceIp = dnsServiceIp;
+            o.dockerBridgeCidr = dockerBridgeCidr;
+            o.loadBalancerSku = loadBalancerSku;
+            o.networkPlugin = networkPlugin;
+            o.networkPolicy = networkPolicy;
+            o.podCidr = podCidr;
+            o.serviceCidr = serviceCidr;
+            return o;
         }
     }
 }

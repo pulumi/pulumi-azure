@@ -15,21 +15,14 @@ public final class SpringCloudBuildPackBindingLaunch {
      * @return Specifies a map of non-sensitive properties for launchProperties.
      * 
      */
-    private final @Nullable Map<String,String> properties;
+    private @Nullable Map<String,String> properties;
     /**
      * @return Specifies a map of sensitive properties for launchProperties.
      * 
      */
-    private final @Nullable Map<String,String> secrets;
+    private @Nullable Map<String,String> secrets;
 
-    @CustomType.Constructor
-    private SpringCloudBuildPackBindingLaunch(
-        @CustomType.Parameter("properties") @Nullable Map<String,String> properties,
-        @CustomType.Parameter("secrets") @Nullable Map<String,String> secrets) {
-        this.properties = properties;
-        this.secrets = secrets;
-    }
-
+    private SpringCloudBuildPackBindingLaunch() {}
     /**
      * @return Specifies a map of non-sensitive properties for launchProperties.
      * 
@@ -52,30 +45,32 @@ public final class SpringCloudBuildPackBindingLaunch {
     public static Builder builder(SpringCloudBuildPackBindingLaunch defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> properties;
         private @Nullable Map<String,String> secrets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpringCloudBuildPackBindingLaunch defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.properties = defaults.properties;
     	      this.secrets = defaults.secrets;
         }
 
+        @CustomType.Setter
         public Builder properties(@Nullable Map<String,String> properties) {
             this.properties = properties;
             return this;
         }
+        @CustomType.Setter
         public Builder secrets(@Nullable Map<String,String> secrets) {
             this.secrets = secrets;
             return this;
-        }        public SpringCloudBuildPackBindingLaunch build() {
-            return new SpringCloudBuildPackBindingLaunch(properties, secrets);
+        }
+        public SpringCloudBuildPackBindingLaunch build() {
+            final var o = new SpringCloudBuildPackBindingLaunch();
+            o.properties = properties;
+            o.secrets = secrets;
+            return o;
         }
     }
 }

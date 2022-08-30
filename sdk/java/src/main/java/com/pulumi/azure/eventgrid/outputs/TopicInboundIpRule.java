@@ -15,21 +15,14 @@ public final class TopicInboundIpRule {
      * @return The action to take when the rule is matched. Possible values are `Allow`.
      * 
      */
-    private final @Nullable String action;
+    private @Nullable String action;
     /**
      * @return The IP mask (CIDR) to match on.
      * 
      */
-    private final String ipMask;
+    private String ipMask;
 
-    @CustomType.Constructor
-    private TopicInboundIpRule(
-        @CustomType.Parameter("action") @Nullable String action,
-        @CustomType.Parameter("ipMask") String ipMask) {
-        this.action = action;
-        this.ipMask = ipMask;
-    }
-
+    private TopicInboundIpRule() {}
     /**
      * @return The action to take when the rule is matched. Possible values are `Allow`.
      * 
@@ -52,30 +45,32 @@ public final class TopicInboundIpRule {
     public static Builder builder(TopicInboundIpRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String action;
         private String ipMask;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicInboundIpRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
     	      this.ipMask = defaults.ipMask;
         }
 
+        @CustomType.Setter
         public Builder action(@Nullable String action) {
             this.action = action;
             return this;
         }
+        @CustomType.Setter
         public Builder ipMask(String ipMask) {
             this.ipMask = Objects.requireNonNull(ipMask);
             return this;
-        }        public TopicInboundIpRule build() {
-            return new TopicInboundIpRule(action, ipMask);
+        }
+        public TopicInboundIpRule build() {
+            final var o = new TopicInboundIpRule();
+            o.action = action;
+            o.ipMask = ipMask;
+            return o;
         }
     }
 }

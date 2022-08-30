@@ -15,21 +15,14 @@ public final class FlexibleServerHighAvailability {
      * @return The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
      * 
      */
-    private final String mode;
+    private String mode;
     /**
      * @return Specifies the Availability Zone in which the standby Flexible Server should be located.
      * 
      */
-    private final @Nullable String standbyAvailabilityZone;
+    private @Nullable String standbyAvailabilityZone;
 
-    @CustomType.Constructor
-    private FlexibleServerHighAvailability(
-        @CustomType.Parameter("mode") String mode,
-        @CustomType.Parameter("standbyAvailabilityZone") @Nullable String standbyAvailabilityZone) {
-        this.mode = mode;
-        this.standbyAvailabilityZone = standbyAvailabilityZone;
-    }
-
+    private FlexibleServerHighAvailability() {}
     /**
      * @return The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
      * 
@@ -52,30 +45,32 @@ public final class FlexibleServerHighAvailability {
     public static Builder builder(FlexibleServerHighAvailability defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String mode;
         private @Nullable String standbyAvailabilityZone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlexibleServerHighAvailability defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mode = defaults.mode;
     	      this.standbyAvailabilityZone = defaults.standbyAvailabilityZone;
         }
 
+        @CustomType.Setter
         public Builder mode(String mode) {
             this.mode = Objects.requireNonNull(mode);
             return this;
         }
+        @CustomType.Setter
         public Builder standbyAvailabilityZone(@Nullable String standbyAvailabilityZone) {
             this.standbyAvailabilityZone = standbyAvailabilityZone;
             return this;
-        }        public FlexibleServerHighAvailability build() {
-            return new FlexibleServerHighAvailability(mode, standbyAvailabilityZone);
+        }
+        public FlexibleServerHighAvailability build() {
+            final var o = new FlexibleServerHighAvailability();
+            o.mode = mode;
+            o.standbyAvailabilityZone = standbyAvailabilityZone;
+            return o;
         }
     }
 }

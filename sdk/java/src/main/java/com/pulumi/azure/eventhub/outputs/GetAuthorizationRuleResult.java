@@ -12,81 +12,50 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAuthorizationRuleResult {
-    private final String eventhubName;
+    private String eventhubName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable Boolean listen;
-    private final @Nullable Boolean manage;
-    private final String name;
-    private final String namespaceName;
+    private String id;
+    private @Nullable Boolean listen;
+    private @Nullable Boolean manage;
+    private String name;
+    private String namespaceName;
     /**
      * @return The Primary Connection String for the Event Hubs Authorization Rule.
      * 
      */
-    private final String primaryConnectionString;
+    private String primaryConnectionString;
     /**
      * @return The alias of the Primary Connection String for the Event Hubs Authorization Rule.
      * 
      */
-    private final String primaryConnectionStringAlias;
+    private String primaryConnectionStringAlias;
     /**
      * @return The Primary Key for the Event Hubs Authorization Rule.
      * 
      */
-    private final String primaryKey;
-    private final String resourceGroupName;
+    private String primaryKey;
+    private String resourceGroupName;
     /**
      * @return The Secondary Connection String for the Event Hubs Authorization Rule.
      * 
      */
-    private final String secondaryConnectionString;
+    private String secondaryConnectionString;
     /**
      * @return The alias of the Secondary Connection String for the Event Hubs Authorization Rule.
      * 
      */
-    private final String secondaryConnectionStringAlias;
+    private String secondaryConnectionStringAlias;
     /**
      * @return The Secondary Key for the Event Hubs Authorization Rule.
      * 
      */
-    private final String secondaryKey;
-    private final @Nullable Boolean send;
+    private String secondaryKey;
+    private @Nullable Boolean send;
 
-    @CustomType.Constructor
-    private GetAuthorizationRuleResult(
-        @CustomType.Parameter("eventhubName") String eventhubName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("listen") @Nullable Boolean listen,
-        @CustomType.Parameter("manage") @Nullable Boolean manage,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("namespaceName") String namespaceName,
-        @CustomType.Parameter("primaryConnectionString") String primaryConnectionString,
-        @CustomType.Parameter("primaryConnectionStringAlias") String primaryConnectionStringAlias,
-        @CustomType.Parameter("primaryKey") String primaryKey,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("secondaryConnectionString") String secondaryConnectionString,
-        @CustomType.Parameter("secondaryConnectionStringAlias") String secondaryConnectionStringAlias,
-        @CustomType.Parameter("secondaryKey") String secondaryKey,
-        @CustomType.Parameter("send") @Nullable Boolean send) {
-        this.eventhubName = eventhubName;
-        this.id = id;
-        this.listen = listen;
-        this.manage = manage;
-        this.name = name;
-        this.namespaceName = namespaceName;
-        this.primaryConnectionString = primaryConnectionString;
-        this.primaryConnectionStringAlias = primaryConnectionStringAlias;
-        this.primaryKey = primaryKey;
-        this.resourceGroupName = resourceGroupName;
-        this.secondaryConnectionString = secondaryConnectionString;
-        this.secondaryConnectionStringAlias = secondaryConnectionStringAlias;
-        this.secondaryKey = secondaryKey;
-        this.send = send;
-    }
-
+    private GetAuthorizationRuleResult() {}
     public String eventhubName() {
         return this.eventhubName;
     }
@@ -165,7 +134,7 @@ public final class GetAuthorizationRuleResult {
     public static Builder builder(GetAuthorizationRuleResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String eventhubName;
         private String id;
@@ -181,11 +150,7 @@ public final class GetAuthorizationRuleResult {
         private String secondaryConnectionStringAlias;
         private String secondaryKey;
         private @Nullable Boolean send;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAuthorizationRuleResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eventhubName = defaults.eventhubName;
@@ -204,63 +169,93 @@ public final class GetAuthorizationRuleResult {
     	      this.send = defaults.send;
         }
 
+        @CustomType.Setter
         public Builder eventhubName(String eventhubName) {
             this.eventhubName = Objects.requireNonNull(eventhubName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder listen(@Nullable Boolean listen) {
             this.listen = listen;
             return this;
         }
+        @CustomType.Setter
         public Builder manage(@Nullable Boolean manage) {
             this.manage = manage;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder namespaceName(String namespaceName) {
             this.namespaceName = Objects.requireNonNull(namespaceName);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryConnectionString(String primaryConnectionString) {
             this.primaryConnectionString = Objects.requireNonNull(primaryConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryConnectionStringAlias(String primaryConnectionStringAlias) {
             this.primaryConnectionStringAlias = Objects.requireNonNull(primaryConnectionStringAlias);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryKey(String primaryKey) {
             this.primaryKey = Objects.requireNonNull(primaryKey);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryConnectionString(String secondaryConnectionString) {
             this.secondaryConnectionString = Objects.requireNonNull(secondaryConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryConnectionStringAlias(String secondaryConnectionStringAlias) {
             this.secondaryConnectionStringAlias = Objects.requireNonNull(secondaryConnectionStringAlias);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryKey(String secondaryKey) {
             this.secondaryKey = Objects.requireNonNull(secondaryKey);
             return this;
         }
+        @CustomType.Setter
         public Builder send(@Nullable Boolean send) {
             this.send = send;
             return this;
-        }        public GetAuthorizationRuleResult build() {
-            return new GetAuthorizationRuleResult(eventhubName, id, listen, manage, name, namespaceName, primaryConnectionString, primaryConnectionStringAlias, primaryKey, resourceGroupName, secondaryConnectionString, secondaryConnectionStringAlias, secondaryKey, send);
+        }
+        public GetAuthorizationRuleResult build() {
+            final var o = new GetAuthorizationRuleResult();
+            o.eventhubName = eventhubName;
+            o.id = id;
+            o.listen = listen;
+            o.manage = manage;
+            o.name = name;
+            o.namespaceName = namespaceName;
+            o.primaryConnectionString = primaryConnectionString;
+            o.primaryConnectionStringAlias = primaryConnectionStringAlias;
+            o.primaryKey = primaryKey;
+            o.resourceGroupName = resourceGroupName;
+            o.secondaryConnectionString = secondaryConnectionString;
+            o.secondaryConnectionStringAlias = secondaryConnectionStringAlias;
+            o.secondaryKey = secondaryKey;
+            o.send = send;
+            return o;
         }
     }
 }

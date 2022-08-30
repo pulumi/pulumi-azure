@@ -21,231 +21,164 @@ public final class GetLinuxWebAppSiteConfig {
      * @return Is this Linux Web App is Always On enabled.
      * 
      */
-    private final Boolean alwaysOn;
+    private Boolean alwaysOn;
     /**
      * @return The ID of the APIM configuration for this Linux Web App.
      * 
      */
-    private final String apiDefinitionUrl;
+    private String apiDefinitionUrl;
     /**
      * @return The ID of the API Management API for this Linux Web App.
      * 
      */
-    private final String apiManagementApiId;
+    private String apiManagementApiId;
     /**
      * @return The command line used to launch this app.
      * 
      */
-    private final String appCommandLine;
+    private String appCommandLine;
     /**
      * @return A `application_stack` block as defined above.
      * 
      */
-    private final List<GetLinuxWebAppSiteConfigApplicationStack> applicationStacks;
+    private List<GetLinuxWebAppSiteConfigApplicationStack> applicationStacks;
     /**
      * @return Are Auto heal rules be enabled.
      * 
      */
-    private final Boolean autoHealEnabled;
+    private Boolean autoHealEnabled;
     /**
      * @return A `auto_heal_setting` block as defined above.
      * 
      */
-    private final List<GetLinuxWebAppSiteConfigAutoHealSetting> autoHealSettings;
+    private List<GetLinuxWebAppSiteConfigAutoHealSetting> autoHealSettings;
     /**
      * @return The Client ID of the Managed Service Identity used for connections to the Azure Container Registry.
      * 
      */
-    private final String containerRegistryManagedIdentityClientId;
+    private String containerRegistryManagedIdentityClientId;
     /**
      * @return Do connections for Azure Container Registry use Managed Identity.
      * 
      */
-    private final Boolean containerRegistryUseManagedIdentity;
+    private Boolean containerRegistryUseManagedIdentity;
     /**
      * @return A `cors` block as defined above.
      * 
      */
-    private final List<GetLinuxWebAppSiteConfigCor> cors;
+    private List<GetLinuxWebAppSiteConfigCor> cors;
     /**
      * @return The list of Default Documents for the Linux Web App.
      * 
      */
-    private final List<String> defaultDocuments;
+    private List<String> defaultDocuments;
     /**
      * @return Is Detailed Error Logging enabled.
      * 
      */
-    private final Boolean detailedErrorLoggingEnabled;
+    private Boolean detailedErrorLoggingEnabled;
     /**
      * @return The State of FTP / FTPS service.
      * 
      */
-    private final String ftpsState;
+    private String ftpsState;
     /**
      * @return (Optional) The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
      * 
      */
-    private final Integer healthCheckEvictionTimeInMin;
+    private Integer healthCheckEvictionTimeInMin;
     /**
      * @return The path to the Health Check endpoint.
      * 
      */
-    private final String healthCheckPath;
+    private String healthCheckPath;
     /**
      * @return Is HTTP2.0 enabled.
      * 
      */
-    private final Boolean http2Enabled;
+    private Boolean http2Enabled;
     /**
      * @return A `ip_restriction` block as defined above.
      * 
      */
-    private final List<GetLinuxWebAppSiteConfigIpRestriction> ipRestrictions;
+    private List<GetLinuxWebAppSiteConfigIpRestriction> ipRestrictions;
     /**
      * @return The `LinuxFXVersion` string.
      * 
      */
-    private final String linuxFxVersion;
+    private String linuxFxVersion;
     /**
      * @return The site Load Balancing Mode.
      * 
      */
-    private final String loadBalancingMode;
+    private String loadBalancingMode;
     /**
      * @return Is the Local MySQL enabled.
      * 
      */
-    private final Boolean localMysqlEnabled;
+    private Boolean localMysqlEnabled;
     /**
      * @return The Managed Pipeline Mode.
      * 
      */
-    private final String managedPipelineMode;
+    private String managedPipelineMode;
     /**
      * @return The Minimum version of TLS for requests.
      * 
      */
-    private final String minimumTlsVersion;
+    private String minimumTlsVersion;
     /**
      * @return Is Remote Debugging enabled.
      * 
      */
-    private final Boolean remoteDebuggingEnabled;
+    private Boolean remoteDebuggingEnabled;
     /**
      * @return The Remote Debugging Version.
      * 
      */
-    private final String remoteDebuggingVersion;
+    private String remoteDebuggingVersion;
     /**
      * @return A `scm_ip_restriction` block as defined above.
      * 
      */
-    private final List<GetLinuxWebAppSiteConfigScmIpRestriction> scmIpRestrictions;
+    private List<GetLinuxWebAppSiteConfigScmIpRestriction> scmIpRestrictions;
     /**
      * @return The Minimum version of TLS for requests to SCM.
      * 
      */
-    private final String scmMinimumTlsVersion;
+    private String scmMinimumTlsVersion;
     /**
      * @return The Source Control Management Type in use.
      * 
      */
-    private final String scmType;
+    private String scmType;
     /**
      * @return Is the Linux Web App `ip_restriction` configuration used for the SCM also.
      * 
      */
-    private final Boolean scmUseMainIpRestriction;
+    private Boolean scmUseMainIpRestriction;
     /**
      * @return Does the Linux Web App use a 32-bit worker.
      * 
      */
-    private final Boolean use32BitWorker;
+    private Boolean use32BitWorker;
     /**
      * @return Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
      * 
      */
-    private final Boolean vnetRouteAllEnabled;
+    private Boolean vnetRouteAllEnabled;
     /**
      * @return Are Web Sockets enabled?
      * 
      */
-    private final Boolean websocketsEnabled;
+    private Boolean websocketsEnabled;
     /**
      * @return The number of Workers for this Linux App Service.
      * 
      */
-    private final Integer workerCount;
+    private Integer workerCount;
 
-    @CustomType.Constructor
-    private GetLinuxWebAppSiteConfig(
-        @CustomType.Parameter("alwaysOn") Boolean alwaysOn,
-        @CustomType.Parameter("apiDefinitionUrl") String apiDefinitionUrl,
-        @CustomType.Parameter("apiManagementApiId") String apiManagementApiId,
-        @CustomType.Parameter("appCommandLine") String appCommandLine,
-        @CustomType.Parameter("applicationStacks") List<GetLinuxWebAppSiteConfigApplicationStack> applicationStacks,
-        @CustomType.Parameter("autoHealEnabled") Boolean autoHealEnabled,
-        @CustomType.Parameter("autoHealSettings") List<GetLinuxWebAppSiteConfigAutoHealSetting> autoHealSettings,
-        @CustomType.Parameter("containerRegistryManagedIdentityClientId") String containerRegistryManagedIdentityClientId,
-        @CustomType.Parameter("containerRegistryUseManagedIdentity") Boolean containerRegistryUseManagedIdentity,
-        @CustomType.Parameter("cors") List<GetLinuxWebAppSiteConfigCor> cors,
-        @CustomType.Parameter("defaultDocuments") List<String> defaultDocuments,
-        @CustomType.Parameter("detailedErrorLoggingEnabled") Boolean detailedErrorLoggingEnabled,
-        @CustomType.Parameter("ftpsState") String ftpsState,
-        @CustomType.Parameter("healthCheckEvictionTimeInMin") Integer healthCheckEvictionTimeInMin,
-        @CustomType.Parameter("healthCheckPath") String healthCheckPath,
-        @CustomType.Parameter("http2Enabled") Boolean http2Enabled,
-        @CustomType.Parameter("ipRestrictions") List<GetLinuxWebAppSiteConfigIpRestriction> ipRestrictions,
-        @CustomType.Parameter("linuxFxVersion") String linuxFxVersion,
-        @CustomType.Parameter("loadBalancingMode") String loadBalancingMode,
-        @CustomType.Parameter("localMysqlEnabled") Boolean localMysqlEnabled,
-        @CustomType.Parameter("managedPipelineMode") String managedPipelineMode,
-        @CustomType.Parameter("minimumTlsVersion") String minimumTlsVersion,
-        @CustomType.Parameter("remoteDebuggingEnabled") Boolean remoteDebuggingEnabled,
-        @CustomType.Parameter("remoteDebuggingVersion") String remoteDebuggingVersion,
-        @CustomType.Parameter("scmIpRestrictions") List<GetLinuxWebAppSiteConfigScmIpRestriction> scmIpRestrictions,
-        @CustomType.Parameter("scmMinimumTlsVersion") String scmMinimumTlsVersion,
-        @CustomType.Parameter("scmType") String scmType,
-        @CustomType.Parameter("scmUseMainIpRestriction") Boolean scmUseMainIpRestriction,
-        @CustomType.Parameter("use32BitWorker") Boolean use32BitWorker,
-        @CustomType.Parameter("vnetRouteAllEnabled") Boolean vnetRouteAllEnabled,
-        @CustomType.Parameter("websocketsEnabled") Boolean websocketsEnabled,
-        @CustomType.Parameter("workerCount") Integer workerCount) {
-        this.alwaysOn = alwaysOn;
-        this.apiDefinitionUrl = apiDefinitionUrl;
-        this.apiManagementApiId = apiManagementApiId;
-        this.appCommandLine = appCommandLine;
-        this.applicationStacks = applicationStacks;
-        this.autoHealEnabled = autoHealEnabled;
-        this.autoHealSettings = autoHealSettings;
-        this.containerRegistryManagedIdentityClientId = containerRegistryManagedIdentityClientId;
-        this.containerRegistryUseManagedIdentity = containerRegistryUseManagedIdentity;
-        this.cors = cors;
-        this.defaultDocuments = defaultDocuments;
-        this.detailedErrorLoggingEnabled = detailedErrorLoggingEnabled;
-        this.ftpsState = ftpsState;
-        this.healthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
-        this.healthCheckPath = healthCheckPath;
-        this.http2Enabled = http2Enabled;
-        this.ipRestrictions = ipRestrictions;
-        this.linuxFxVersion = linuxFxVersion;
-        this.loadBalancingMode = loadBalancingMode;
-        this.localMysqlEnabled = localMysqlEnabled;
-        this.managedPipelineMode = managedPipelineMode;
-        this.minimumTlsVersion = minimumTlsVersion;
-        this.remoteDebuggingEnabled = remoteDebuggingEnabled;
-        this.remoteDebuggingVersion = remoteDebuggingVersion;
-        this.scmIpRestrictions = scmIpRestrictions;
-        this.scmMinimumTlsVersion = scmMinimumTlsVersion;
-        this.scmType = scmType;
-        this.scmUseMainIpRestriction = scmUseMainIpRestriction;
-        this.use32BitWorker = use32BitWorker;
-        this.vnetRouteAllEnabled = vnetRouteAllEnabled;
-        this.websocketsEnabled = websocketsEnabled;
-        this.workerCount = workerCount;
-    }
-
+    private GetLinuxWebAppSiteConfig() {}
     /**
      * @return Is this Linux Web App is Always On enabled.
      * 
@@ -478,7 +411,7 @@ public final class GetLinuxWebAppSiteConfig {
     public static Builder builder(GetLinuxWebAppSiteConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean alwaysOn;
         private String apiDefinitionUrl;
@@ -512,11 +445,7 @@ public final class GetLinuxWebAppSiteConfig {
         private Boolean vnetRouteAllEnabled;
         private Boolean websocketsEnabled;
         private Integer workerCount;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxWebAppSiteConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alwaysOn = defaults.alwaysOn;
@@ -553,22 +482,27 @@ public final class GetLinuxWebAppSiteConfig {
     	      this.workerCount = defaults.workerCount;
         }
 
+        @CustomType.Setter
         public Builder alwaysOn(Boolean alwaysOn) {
             this.alwaysOn = Objects.requireNonNull(alwaysOn);
             return this;
         }
+        @CustomType.Setter
         public Builder apiDefinitionUrl(String apiDefinitionUrl) {
             this.apiDefinitionUrl = Objects.requireNonNull(apiDefinitionUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder apiManagementApiId(String apiManagementApiId) {
             this.apiManagementApiId = Objects.requireNonNull(apiManagementApiId);
             return this;
         }
+        @CustomType.Setter
         public Builder appCommandLine(String appCommandLine) {
             this.appCommandLine = Objects.requireNonNull(appCommandLine);
             return this;
         }
+        @CustomType.Setter
         public Builder applicationStacks(List<GetLinuxWebAppSiteConfigApplicationStack> applicationStacks) {
             this.applicationStacks = Objects.requireNonNull(applicationStacks);
             return this;
@@ -576,10 +510,12 @@ public final class GetLinuxWebAppSiteConfig {
         public Builder applicationStacks(GetLinuxWebAppSiteConfigApplicationStack... applicationStacks) {
             return applicationStacks(List.of(applicationStacks));
         }
+        @CustomType.Setter
         public Builder autoHealEnabled(Boolean autoHealEnabled) {
             this.autoHealEnabled = Objects.requireNonNull(autoHealEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder autoHealSettings(List<GetLinuxWebAppSiteConfigAutoHealSetting> autoHealSettings) {
             this.autoHealSettings = Objects.requireNonNull(autoHealSettings);
             return this;
@@ -587,14 +523,17 @@ public final class GetLinuxWebAppSiteConfig {
         public Builder autoHealSettings(GetLinuxWebAppSiteConfigAutoHealSetting... autoHealSettings) {
             return autoHealSettings(List.of(autoHealSettings));
         }
+        @CustomType.Setter
         public Builder containerRegistryManagedIdentityClientId(String containerRegistryManagedIdentityClientId) {
             this.containerRegistryManagedIdentityClientId = Objects.requireNonNull(containerRegistryManagedIdentityClientId);
             return this;
         }
+        @CustomType.Setter
         public Builder containerRegistryUseManagedIdentity(Boolean containerRegistryUseManagedIdentity) {
             this.containerRegistryUseManagedIdentity = Objects.requireNonNull(containerRegistryUseManagedIdentity);
             return this;
         }
+        @CustomType.Setter
         public Builder cors(List<GetLinuxWebAppSiteConfigCor> cors) {
             this.cors = Objects.requireNonNull(cors);
             return this;
@@ -602,6 +541,7 @@ public final class GetLinuxWebAppSiteConfig {
         public Builder cors(GetLinuxWebAppSiteConfigCor... cors) {
             return cors(List.of(cors));
         }
+        @CustomType.Setter
         public Builder defaultDocuments(List<String> defaultDocuments) {
             this.defaultDocuments = Objects.requireNonNull(defaultDocuments);
             return this;
@@ -609,26 +549,32 @@ public final class GetLinuxWebAppSiteConfig {
         public Builder defaultDocuments(String... defaultDocuments) {
             return defaultDocuments(List.of(defaultDocuments));
         }
+        @CustomType.Setter
         public Builder detailedErrorLoggingEnabled(Boolean detailedErrorLoggingEnabled) {
             this.detailedErrorLoggingEnabled = Objects.requireNonNull(detailedErrorLoggingEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder ftpsState(String ftpsState) {
             this.ftpsState = Objects.requireNonNull(ftpsState);
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheckEvictionTimeInMin(Integer healthCheckEvictionTimeInMin) {
             this.healthCheckEvictionTimeInMin = Objects.requireNonNull(healthCheckEvictionTimeInMin);
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheckPath(String healthCheckPath) {
             this.healthCheckPath = Objects.requireNonNull(healthCheckPath);
             return this;
         }
+        @CustomType.Setter
         public Builder http2Enabled(Boolean http2Enabled) {
             this.http2Enabled = Objects.requireNonNull(http2Enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder ipRestrictions(List<GetLinuxWebAppSiteConfigIpRestriction> ipRestrictions) {
             this.ipRestrictions = Objects.requireNonNull(ipRestrictions);
             return this;
@@ -636,34 +582,42 @@ public final class GetLinuxWebAppSiteConfig {
         public Builder ipRestrictions(GetLinuxWebAppSiteConfigIpRestriction... ipRestrictions) {
             return ipRestrictions(List.of(ipRestrictions));
         }
+        @CustomType.Setter
         public Builder linuxFxVersion(String linuxFxVersion) {
             this.linuxFxVersion = Objects.requireNonNull(linuxFxVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder loadBalancingMode(String loadBalancingMode) {
             this.loadBalancingMode = Objects.requireNonNull(loadBalancingMode);
             return this;
         }
+        @CustomType.Setter
         public Builder localMysqlEnabled(Boolean localMysqlEnabled) {
             this.localMysqlEnabled = Objects.requireNonNull(localMysqlEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder managedPipelineMode(String managedPipelineMode) {
             this.managedPipelineMode = Objects.requireNonNull(managedPipelineMode);
             return this;
         }
+        @CustomType.Setter
         public Builder minimumTlsVersion(String minimumTlsVersion) {
             this.minimumTlsVersion = Objects.requireNonNull(minimumTlsVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder remoteDebuggingEnabled(Boolean remoteDebuggingEnabled) {
             this.remoteDebuggingEnabled = Objects.requireNonNull(remoteDebuggingEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder remoteDebuggingVersion(String remoteDebuggingVersion) {
             this.remoteDebuggingVersion = Objects.requireNonNull(remoteDebuggingVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder scmIpRestrictions(List<GetLinuxWebAppSiteConfigScmIpRestriction> scmIpRestrictions) {
             this.scmIpRestrictions = Objects.requireNonNull(scmIpRestrictions);
             return this;
@@ -671,35 +625,76 @@ public final class GetLinuxWebAppSiteConfig {
         public Builder scmIpRestrictions(GetLinuxWebAppSiteConfigScmIpRestriction... scmIpRestrictions) {
             return scmIpRestrictions(List.of(scmIpRestrictions));
         }
+        @CustomType.Setter
         public Builder scmMinimumTlsVersion(String scmMinimumTlsVersion) {
             this.scmMinimumTlsVersion = Objects.requireNonNull(scmMinimumTlsVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder scmType(String scmType) {
             this.scmType = Objects.requireNonNull(scmType);
             return this;
         }
+        @CustomType.Setter
         public Builder scmUseMainIpRestriction(Boolean scmUseMainIpRestriction) {
             this.scmUseMainIpRestriction = Objects.requireNonNull(scmUseMainIpRestriction);
             return this;
         }
+        @CustomType.Setter
         public Builder use32BitWorker(Boolean use32BitWorker) {
             this.use32BitWorker = Objects.requireNonNull(use32BitWorker);
             return this;
         }
+        @CustomType.Setter
         public Builder vnetRouteAllEnabled(Boolean vnetRouteAllEnabled) {
             this.vnetRouteAllEnabled = Objects.requireNonNull(vnetRouteAllEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder websocketsEnabled(Boolean websocketsEnabled) {
             this.websocketsEnabled = Objects.requireNonNull(websocketsEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder workerCount(Integer workerCount) {
             this.workerCount = Objects.requireNonNull(workerCount);
             return this;
-        }        public GetLinuxWebAppSiteConfig build() {
-            return new GetLinuxWebAppSiteConfig(alwaysOn, apiDefinitionUrl, apiManagementApiId, appCommandLine, applicationStacks, autoHealEnabled, autoHealSettings, containerRegistryManagedIdentityClientId, containerRegistryUseManagedIdentity, cors, defaultDocuments, detailedErrorLoggingEnabled, ftpsState, healthCheckEvictionTimeInMin, healthCheckPath, http2Enabled, ipRestrictions, linuxFxVersion, loadBalancingMode, localMysqlEnabled, managedPipelineMode, minimumTlsVersion, remoteDebuggingEnabled, remoteDebuggingVersion, scmIpRestrictions, scmMinimumTlsVersion, scmType, scmUseMainIpRestriction, use32BitWorker, vnetRouteAllEnabled, websocketsEnabled, workerCount);
+        }
+        public GetLinuxWebAppSiteConfig build() {
+            final var o = new GetLinuxWebAppSiteConfig();
+            o.alwaysOn = alwaysOn;
+            o.apiDefinitionUrl = apiDefinitionUrl;
+            o.apiManagementApiId = apiManagementApiId;
+            o.appCommandLine = appCommandLine;
+            o.applicationStacks = applicationStacks;
+            o.autoHealEnabled = autoHealEnabled;
+            o.autoHealSettings = autoHealSettings;
+            o.containerRegistryManagedIdentityClientId = containerRegistryManagedIdentityClientId;
+            o.containerRegistryUseManagedIdentity = containerRegistryUseManagedIdentity;
+            o.cors = cors;
+            o.defaultDocuments = defaultDocuments;
+            o.detailedErrorLoggingEnabled = detailedErrorLoggingEnabled;
+            o.ftpsState = ftpsState;
+            o.healthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
+            o.healthCheckPath = healthCheckPath;
+            o.http2Enabled = http2Enabled;
+            o.ipRestrictions = ipRestrictions;
+            o.linuxFxVersion = linuxFxVersion;
+            o.loadBalancingMode = loadBalancingMode;
+            o.localMysqlEnabled = localMysqlEnabled;
+            o.managedPipelineMode = managedPipelineMode;
+            o.minimumTlsVersion = minimumTlsVersion;
+            o.remoteDebuggingEnabled = remoteDebuggingEnabled;
+            o.remoteDebuggingVersion = remoteDebuggingVersion;
+            o.scmIpRestrictions = scmIpRestrictions;
+            o.scmMinimumTlsVersion = scmMinimumTlsVersion;
+            o.scmType = scmType;
+            o.scmUseMainIpRestriction = scmUseMainIpRestriction;
+            o.use32BitWorker = use32BitWorker;
+            o.vnetRouteAllEnabled = vnetRouteAllEnabled;
+            o.websocketsEnabled = websocketsEnabled;
+            o.workerCount = workerCount;
+            return o;
         }
     }
 }

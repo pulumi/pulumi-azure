@@ -23,112 +23,79 @@ public final class GetWindowsWebAppAuthSetting {
      * @return A `active_directory` block as defined above.
      * 
      */
-    private final List<GetWindowsWebAppAuthSettingActiveDirectory> activeDirectories;
+    private List<GetWindowsWebAppAuthSettingActiveDirectory> activeDirectories;
     /**
      * @return A `additional_login_parameters` block as defined above.
      * 
      */
-    private final Map<String,String> additionalLoginParameters;
+    private Map<String,String> additionalLoginParameters;
     /**
      * @return A `allowed_external_redirect_urls` block as defined above.
      * 
      */
-    private final List<String> allowedExternalRedirectUrls;
+    private List<String> allowedExternalRedirectUrls;
     /**
      * @return The default authentication provider in use when multiple providers are configured.
      * 
      */
-    private final String defaultProvider;
+    private String defaultProvider;
     /**
      * @return Is the Backup enabled?
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return A `facebook` block as defined below.
      * 
      */
-    private final List<GetWindowsWebAppAuthSettingFacebook> facebooks;
+    private List<GetWindowsWebAppAuthSettingFacebook> facebooks;
     /**
      * @return A `github` block as defined below.
      * 
      */
-    private final List<GetWindowsWebAppAuthSettingGithub> githubs;
+    private List<GetWindowsWebAppAuthSettingGithub> githubs;
     /**
      * @return A `google` block as defined below.
      * 
      */
-    private final List<GetWindowsWebAppAuthSettingGoogle> googles;
+    private List<GetWindowsWebAppAuthSettingGoogle> googles;
     /**
      * @return The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Web App.
      * 
      */
-    private final String issuer;
+    private String issuer;
     /**
      * @return A `microsoft` block as defined below.
      * 
      */
-    private final List<GetWindowsWebAppAuthSettingMicrosoft> microsofts;
+    private List<GetWindowsWebAppAuthSettingMicrosoft> microsofts;
     /**
      * @return The RuntimeVersion of the Authentication / Authorization feature in use for the Windows Web App.
      * 
      */
-    private final String runtimeVersion;
+    private String runtimeVersion;
     /**
      * @return The number of hours after session token expiration that a session token can be used to call the token refresh API.
      * 
      */
-    private final Double tokenRefreshExtensionHours;
+    private Double tokenRefreshExtensionHours;
     /**
      * @return Does Windows Web App durably store platform-specific security tokens that are obtained during login flows enabled?
      * 
      */
-    private final Boolean tokenStoreEnabled;
+    private Boolean tokenStoreEnabled;
     /**
      * @return A `twitter` block as defined below.
      * 
      */
-    private final List<GetWindowsWebAppAuthSettingTwitter> twitters;
+    private List<GetWindowsWebAppAuthSettingTwitter> twitters;
     /**
      * @return The action to take when an unauthenticated client attempts to access the app.
      * 
      */
-    private final String unauthenticatedClientAction;
+    private String unauthenticatedClientAction;
 
-    @CustomType.Constructor
-    private GetWindowsWebAppAuthSetting(
-        @CustomType.Parameter("activeDirectories") List<GetWindowsWebAppAuthSettingActiveDirectory> activeDirectories,
-        @CustomType.Parameter("additionalLoginParameters") Map<String,String> additionalLoginParameters,
-        @CustomType.Parameter("allowedExternalRedirectUrls") List<String> allowedExternalRedirectUrls,
-        @CustomType.Parameter("defaultProvider") String defaultProvider,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("facebooks") List<GetWindowsWebAppAuthSettingFacebook> facebooks,
-        @CustomType.Parameter("githubs") List<GetWindowsWebAppAuthSettingGithub> githubs,
-        @CustomType.Parameter("googles") List<GetWindowsWebAppAuthSettingGoogle> googles,
-        @CustomType.Parameter("issuer") String issuer,
-        @CustomType.Parameter("microsofts") List<GetWindowsWebAppAuthSettingMicrosoft> microsofts,
-        @CustomType.Parameter("runtimeVersion") String runtimeVersion,
-        @CustomType.Parameter("tokenRefreshExtensionHours") Double tokenRefreshExtensionHours,
-        @CustomType.Parameter("tokenStoreEnabled") Boolean tokenStoreEnabled,
-        @CustomType.Parameter("twitters") List<GetWindowsWebAppAuthSettingTwitter> twitters,
-        @CustomType.Parameter("unauthenticatedClientAction") String unauthenticatedClientAction) {
-        this.activeDirectories = activeDirectories;
-        this.additionalLoginParameters = additionalLoginParameters;
-        this.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
-        this.defaultProvider = defaultProvider;
-        this.enabled = enabled;
-        this.facebooks = facebooks;
-        this.githubs = githubs;
-        this.googles = googles;
-        this.issuer = issuer;
-        this.microsofts = microsofts;
-        this.runtimeVersion = runtimeVersion;
-        this.tokenRefreshExtensionHours = tokenRefreshExtensionHours;
-        this.tokenStoreEnabled = tokenStoreEnabled;
-        this.twitters = twitters;
-        this.unauthenticatedClientAction = unauthenticatedClientAction;
-    }
-
+    private GetWindowsWebAppAuthSetting() {}
     /**
      * @return A `active_directory` block as defined above.
      * 
@@ -242,7 +209,7 @@ public final class GetWindowsWebAppAuthSetting {
     public static Builder builder(GetWindowsWebAppAuthSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetWindowsWebAppAuthSettingActiveDirectory> activeDirectories;
         private Map<String,String> additionalLoginParameters;
@@ -259,11 +226,7 @@ public final class GetWindowsWebAppAuthSetting {
         private Boolean tokenStoreEnabled;
         private List<GetWindowsWebAppAuthSettingTwitter> twitters;
         private String unauthenticatedClientAction;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsWebAppAuthSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.activeDirectories = defaults.activeDirectories;
@@ -283,6 +246,7 @@ public final class GetWindowsWebAppAuthSetting {
     	      this.unauthenticatedClientAction = defaults.unauthenticatedClientAction;
         }
 
+        @CustomType.Setter
         public Builder activeDirectories(List<GetWindowsWebAppAuthSettingActiveDirectory> activeDirectories) {
             this.activeDirectories = Objects.requireNonNull(activeDirectories);
             return this;
@@ -290,10 +254,12 @@ public final class GetWindowsWebAppAuthSetting {
         public Builder activeDirectories(GetWindowsWebAppAuthSettingActiveDirectory... activeDirectories) {
             return activeDirectories(List.of(activeDirectories));
         }
+        @CustomType.Setter
         public Builder additionalLoginParameters(Map<String,String> additionalLoginParameters) {
             this.additionalLoginParameters = Objects.requireNonNull(additionalLoginParameters);
             return this;
         }
+        @CustomType.Setter
         public Builder allowedExternalRedirectUrls(List<String> allowedExternalRedirectUrls) {
             this.allowedExternalRedirectUrls = Objects.requireNonNull(allowedExternalRedirectUrls);
             return this;
@@ -301,14 +267,17 @@ public final class GetWindowsWebAppAuthSetting {
         public Builder allowedExternalRedirectUrls(String... allowedExternalRedirectUrls) {
             return allowedExternalRedirectUrls(List.of(allowedExternalRedirectUrls));
         }
+        @CustomType.Setter
         public Builder defaultProvider(String defaultProvider) {
             this.defaultProvider = Objects.requireNonNull(defaultProvider);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder facebooks(List<GetWindowsWebAppAuthSettingFacebook> facebooks) {
             this.facebooks = Objects.requireNonNull(facebooks);
             return this;
@@ -316,6 +285,7 @@ public final class GetWindowsWebAppAuthSetting {
         public Builder facebooks(GetWindowsWebAppAuthSettingFacebook... facebooks) {
             return facebooks(List.of(facebooks));
         }
+        @CustomType.Setter
         public Builder githubs(List<GetWindowsWebAppAuthSettingGithub> githubs) {
             this.githubs = Objects.requireNonNull(githubs);
             return this;
@@ -323,6 +293,7 @@ public final class GetWindowsWebAppAuthSetting {
         public Builder githubs(GetWindowsWebAppAuthSettingGithub... githubs) {
             return githubs(List.of(githubs));
         }
+        @CustomType.Setter
         public Builder googles(List<GetWindowsWebAppAuthSettingGoogle> googles) {
             this.googles = Objects.requireNonNull(googles);
             return this;
@@ -330,10 +301,12 @@ public final class GetWindowsWebAppAuthSetting {
         public Builder googles(GetWindowsWebAppAuthSettingGoogle... googles) {
             return googles(List.of(googles));
         }
+        @CustomType.Setter
         public Builder issuer(String issuer) {
             this.issuer = Objects.requireNonNull(issuer);
             return this;
         }
+        @CustomType.Setter
         public Builder microsofts(List<GetWindowsWebAppAuthSettingMicrosoft> microsofts) {
             this.microsofts = Objects.requireNonNull(microsofts);
             return this;
@@ -341,18 +314,22 @@ public final class GetWindowsWebAppAuthSetting {
         public Builder microsofts(GetWindowsWebAppAuthSettingMicrosoft... microsofts) {
             return microsofts(List.of(microsofts));
         }
+        @CustomType.Setter
         public Builder runtimeVersion(String runtimeVersion) {
             this.runtimeVersion = Objects.requireNonNull(runtimeVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder tokenRefreshExtensionHours(Double tokenRefreshExtensionHours) {
             this.tokenRefreshExtensionHours = Objects.requireNonNull(tokenRefreshExtensionHours);
             return this;
         }
+        @CustomType.Setter
         public Builder tokenStoreEnabled(Boolean tokenStoreEnabled) {
             this.tokenStoreEnabled = Objects.requireNonNull(tokenStoreEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder twitters(List<GetWindowsWebAppAuthSettingTwitter> twitters) {
             this.twitters = Objects.requireNonNull(twitters);
             return this;
@@ -360,11 +337,29 @@ public final class GetWindowsWebAppAuthSetting {
         public Builder twitters(GetWindowsWebAppAuthSettingTwitter... twitters) {
             return twitters(List.of(twitters));
         }
+        @CustomType.Setter
         public Builder unauthenticatedClientAction(String unauthenticatedClientAction) {
             this.unauthenticatedClientAction = Objects.requireNonNull(unauthenticatedClientAction);
             return this;
-        }        public GetWindowsWebAppAuthSetting build() {
-            return new GetWindowsWebAppAuthSetting(activeDirectories, additionalLoginParameters, allowedExternalRedirectUrls, defaultProvider, enabled, facebooks, githubs, googles, issuer, microsofts, runtimeVersion, tokenRefreshExtensionHours, tokenStoreEnabled, twitters, unauthenticatedClientAction);
+        }
+        public GetWindowsWebAppAuthSetting build() {
+            final var o = new GetWindowsWebAppAuthSetting();
+            o.activeDirectories = activeDirectories;
+            o.additionalLoginParameters = additionalLoginParameters;
+            o.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
+            o.defaultProvider = defaultProvider;
+            o.enabled = enabled;
+            o.facebooks = facebooks;
+            o.githubs = githubs;
+            o.googles = googles;
+            o.issuer = issuer;
+            o.microsofts = microsofts;
+            o.runtimeVersion = runtimeVersion;
+            o.tokenRefreshExtensionHours = tokenRefreshExtensionHours;
+            o.tokenStoreEnabled = tokenStoreEnabled;
+            o.twitters = twitters;
+            o.unauthenticatedClientAction = unauthenticatedClientAction;
+            return o;
         }
     }
 }

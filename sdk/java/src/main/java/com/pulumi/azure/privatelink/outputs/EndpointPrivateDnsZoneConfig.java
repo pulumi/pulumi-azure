@@ -17,35 +17,24 @@ public final class EndpointPrivateDnsZoneConfig {
      * @return The ID of the Private DNS Zone Config.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return A list of IP Addresses
      * 
      */
-    private final @Nullable String privateDnsZoneId;
+    private @Nullable String privateDnsZoneId;
     /**
      * @return A `record_sets` block as defined below.
      * 
      */
-    private final @Nullable List<EndpointPrivateDnsZoneConfigRecordSet> recordSets;
+    private @Nullable List<EndpointPrivateDnsZoneConfigRecordSet> recordSets;
 
-    @CustomType.Constructor
-    private EndpointPrivateDnsZoneConfig(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("privateDnsZoneId") @Nullable String privateDnsZoneId,
-        @CustomType.Parameter("recordSets") @Nullable List<EndpointPrivateDnsZoneConfigRecordSet> recordSets) {
-        this.id = id;
-        this.name = name;
-        this.privateDnsZoneId = privateDnsZoneId;
-        this.recordSets = recordSets;
-    }
-
+    private EndpointPrivateDnsZoneConfig() {}
     /**
      * @return The ID of the Private DNS Zone Config.
      * 
@@ -82,17 +71,13 @@ public final class EndpointPrivateDnsZoneConfig {
     public static Builder builder(EndpointPrivateDnsZoneConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String name;
         private @Nullable String privateDnsZoneId;
         private @Nullable List<EndpointPrivateDnsZoneConfigRecordSet> recordSets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointPrivateDnsZoneConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -101,26 +86,36 @@ public final class EndpointPrivateDnsZoneConfig {
     	      this.recordSets = defaults.recordSets;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder privateDnsZoneId(@Nullable String privateDnsZoneId) {
             this.privateDnsZoneId = privateDnsZoneId;
             return this;
         }
+        @CustomType.Setter
         public Builder recordSets(@Nullable List<EndpointPrivateDnsZoneConfigRecordSet> recordSets) {
             this.recordSets = recordSets;
             return this;
         }
         public Builder recordSets(EndpointPrivateDnsZoneConfigRecordSet... recordSets) {
             return recordSets(List.of(recordSets));
-        }        public EndpointPrivateDnsZoneConfig build() {
-            return new EndpointPrivateDnsZoneConfig(id, name, privateDnsZoneId, recordSets);
+        }
+        public EndpointPrivateDnsZoneConfig build() {
+            final var o = new EndpointPrivateDnsZoneConfig();
+            o.id = id;
+            o.name = name;
+            o.privateDnsZoneId = privateDnsZoneId;
+            o.recordSets = recordSets;
+            return o;
         }
     }
 }

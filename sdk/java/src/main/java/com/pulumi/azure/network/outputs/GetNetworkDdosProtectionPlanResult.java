@@ -16,41 +16,26 @@ public final class GetNetworkDdosProtectionPlanResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Specifies the supported Azure location where the resource exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return A list of IDs of the Virtual Networks associated with this DDoS Protection Plan.
      * 
      */
-    private final List<String> virtualNetworkIds;
+    private List<String> virtualNetworkIds;
 
-    @CustomType.Constructor
-    private GetNetworkDdosProtectionPlanResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags,
-        @CustomType.Parameter("virtualNetworkIds") List<String> virtualNetworkIds) {
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-        this.virtualNetworkIds = virtualNetworkIds;
-    }
-
+    private GetNetworkDdosProtectionPlanResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -93,7 +78,7 @@ public final class GetNetworkDdosProtectionPlanResult {
     public static Builder builder(GetNetworkDdosProtectionPlanResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String location;
@@ -101,11 +86,7 @@ public final class GetNetworkDdosProtectionPlanResult {
         private String resourceGroupName;
         private @Nullable Map<String,String> tags;
         private List<String> virtualNetworkIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetNetworkDdosProtectionPlanResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -116,34 +97,48 @@ public final class GetNetworkDdosProtectionPlanResult {
     	      this.virtualNetworkIds = defaults.virtualNetworkIds;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
         public Builder virtualNetworkIds(List<String> virtualNetworkIds) {
             this.virtualNetworkIds = Objects.requireNonNull(virtualNetworkIds);
             return this;
         }
         public Builder virtualNetworkIds(String... virtualNetworkIds) {
             return virtualNetworkIds(List.of(virtualNetworkIds));
-        }        public GetNetworkDdosProtectionPlanResult build() {
-            return new GetNetworkDdosProtectionPlanResult(id, location, name, resourceGroupName, tags, virtualNetworkIds);
+        }
+        public GetNetworkDdosProtectionPlanResult build() {
+            final var o = new GetNetworkDdosProtectionPlanResult();
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            o.virtualNetworkIds = virtualNetworkIds;
+            return o;
         }
     }
 }

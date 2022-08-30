@@ -15,28 +15,19 @@ public final class InteractiveQueryClusterRoles {
      * @return A `head_node` block as defined above.
      * 
      */
-    private final InteractiveQueryClusterRolesHeadNode headNode;
+    private InteractiveQueryClusterRolesHeadNode headNode;
     /**
      * @return A `worker_node` block as defined below.
      * 
      */
-    private final InteractiveQueryClusterRolesWorkerNode workerNode;
+    private InteractiveQueryClusterRolesWorkerNode workerNode;
     /**
      * @return A `zookeeper_node` block as defined below.
      * 
      */
-    private final InteractiveQueryClusterRolesZookeeperNode zookeeperNode;
+    private InteractiveQueryClusterRolesZookeeperNode zookeeperNode;
 
-    @CustomType.Constructor
-    private InteractiveQueryClusterRoles(
-        @CustomType.Parameter("headNode") InteractiveQueryClusterRolesHeadNode headNode,
-        @CustomType.Parameter("workerNode") InteractiveQueryClusterRolesWorkerNode workerNode,
-        @CustomType.Parameter("zookeeperNode") InteractiveQueryClusterRolesZookeeperNode zookeeperNode) {
-        this.headNode = headNode;
-        this.workerNode = workerNode;
-        this.zookeeperNode = zookeeperNode;
-    }
-
+    private InteractiveQueryClusterRoles() {}
     /**
      * @return A `head_node` block as defined above.
      * 
@@ -66,16 +57,12 @@ public final class InteractiveQueryClusterRoles {
     public static Builder builder(InteractiveQueryClusterRoles defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private InteractiveQueryClusterRolesHeadNode headNode;
         private InteractiveQueryClusterRolesWorkerNode workerNode;
         private InteractiveQueryClusterRolesZookeeperNode zookeeperNode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InteractiveQueryClusterRoles defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.headNode = defaults.headNode;
@@ -83,19 +70,27 @@ public final class InteractiveQueryClusterRoles {
     	      this.zookeeperNode = defaults.zookeeperNode;
         }
 
+        @CustomType.Setter
         public Builder headNode(InteractiveQueryClusterRolesHeadNode headNode) {
             this.headNode = Objects.requireNonNull(headNode);
             return this;
         }
+        @CustomType.Setter
         public Builder workerNode(InteractiveQueryClusterRolesWorkerNode workerNode) {
             this.workerNode = Objects.requireNonNull(workerNode);
             return this;
         }
+        @CustomType.Setter
         public Builder zookeeperNode(InteractiveQueryClusterRolesZookeeperNode zookeeperNode) {
             this.zookeeperNode = Objects.requireNonNull(zookeeperNode);
             return this;
-        }        public InteractiveQueryClusterRoles build() {
-            return new InteractiveQueryClusterRoles(headNode, workerNode, zookeeperNode);
+        }
+        public InteractiveQueryClusterRoles build() {
+            final var o = new InteractiveQueryClusterRoles();
+            o.headNode = headNode;
+            o.workerNode = workerNode;
+            o.zookeeperNode = zookeeperNode;
+            return o;
         }
     }
 }

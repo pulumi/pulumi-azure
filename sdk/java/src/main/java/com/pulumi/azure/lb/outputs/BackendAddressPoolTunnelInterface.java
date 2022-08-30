@@ -14,35 +14,24 @@ public final class BackendAddressPoolTunnelInterface {
      * @return The unique identifier of this Gateway Lodbalancer Tunnel Interface.
      * 
      */
-    private final Integer identifier;
+    private Integer identifier;
     /**
      * @return The port number that this Gateway Lodbalancer Tunnel Interface listens to.
      * 
      */
-    private final Integer port;
+    private Integer port;
     /**
      * @return The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are `Native` and `VXLAN`.
      * 
      */
-    private final String protocol;
+    private String protocol;
     /**
      * @return The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are `Internal` and `External`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private BackendAddressPoolTunnelInterface(
-        @CustomType.Parameter("identifier") Integer identifier,
-        @CustomType.Parameter("port") Integer port,
-        @CustomType.Parameter("protocol") String protocol,
-        @CustomType.Parameter("type") String type) {
-        this.identifier = identifier;
-        this.port = port;
-        this.protocol = protocol;
-        this.type = type;
-    }
-
+    private BackendAddressPoolTunnelInterface() {}
     /**
      * @return The unique identifier of this Gateway Lodbalancer Tunnel Interface.
      * 
@@ -79,17 +68,13 @@ public final class BackendAddressPoolTunnelInterface {
     public static Builder builder(BackendAddressPoolTunnelInterface defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer identifier;
         private Integer port;
         private String protocol;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BackendAddressPoolTunnelInterface defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identifier = defaults.identifier;
@@ -98,23 +83,33 @@ public final class BackendAddressPoolTunnelInterface {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder identifier(Integer identifier) {
             this.identifier = Objects.requireNonNull(identifier);
             return this;
         }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public BackendAddressPoolTunnelInterface build() {
-            return new BackendAddressPoolTunnelInterface(identifier, port, protocol, type);
+        }
+        public BackendAddressPoolTunnelInterface build() {
+            final var o = new BackendAddressPoolTunnelInterface();
+            o.identifier = identifier;
+            o.port = port;
+            o.protocol = protocol;
+            o.type = type;
+            return o;
         }
     }
 }

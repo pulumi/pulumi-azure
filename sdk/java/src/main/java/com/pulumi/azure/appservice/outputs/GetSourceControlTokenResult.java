@@ -13,27 +13,16 @@ public final class GetSourceControlTokenResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The GitHub Token value.
      * 
      */
-    private final String token;
-    private final String tokenSecret;
-    private final String type;
+    private String token;
+    private String tokenSecret;
+    private String type;
 
-    @CustomType.Constructor
-    private GetSourceControlTokenResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("token") String token,
-        @CustomType.Parameter("tokenSecret") String tokenSecret,
-        @CustomType.Parameter("type") String type) {
-        this.id = id;
-        this.token = token;
-        this.tokenSecret = tokenSecret;
-        this.type = type;
-    }
-
+    private GetSourceControlTokenResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -62,17 +51,13 @@ public final class GetSourceControlTokenResult {
     public static Builder builder(GetSourceControlTokenResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String token;
         private String tokenSecret;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSourceControlTokenResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -81,23 +66,33 @@ public final class GetSourceControlTokenResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder token(String token) {
             this.token = Objects.requireNonNull(token);
             return this;
         }
+        @CustomType.Setter
         public Builder tokenSecret(String tokenSecret) {
             this.tokenSecret = Objects.requireNonNull(tokenSecret);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetSourceControlTokenResult build() {
-            return new GetSourceControlTokenResult(id, token, tokenSecret, type);
+        }
+        public GetSourceControlTokenResult build() {
+            final var o = new GetSourceControlTokenResult();
+            o.id = id;
+            o.token = token;
+            o.tokenSecret = tokenSecret;
+            o.type = type;
+            return o;
         }
     }
 }

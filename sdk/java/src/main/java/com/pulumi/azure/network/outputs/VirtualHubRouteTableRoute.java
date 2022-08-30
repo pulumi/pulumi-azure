@@ -16,42 +16,29 @@ public final class VirtualHubRouteTableRoute {
      * @return A list of destination addresses for this route.
      * 
      */
-    private final List<String> destinations;
+    private List<String> destinations;
     /**
      * @return The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`.
      * 
      */
-    private final String destinationsType;
+    private String destinationsType;
     /**
      * @return The name which should be used for this route.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The next hop&#39;s resource ID.
      * 
      */
-    private final String nextHop;
+    private String nextHop;
     /**
      * @return The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`.
      * 
      */
-    private final @Nullable String nextHopType;
+    private @Nullable String nextHopType;
 
-    @CustomType.Constructor
-    private VirtualHubRouteTableRoute(
-        @CustomType.Parameter("destinations") List<String> destinations,
-        @CustomType.Parameter("destinationsType") String destinationsType,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nextHop") String nextHop,
-        @CustomType.Parameter("nextHopType") @Nullable String nextHopType) {
-        this.destinations = destinations;
-        this.destinationsType = destinationsType;
-        this.name = name;
-        this.nextHop = nextHop;
-        this.nextHopType = nextHopType;
-    }
-
+    private VirtualHubRouteTableRoute() {}
     /**
      * @return A list of destination addresses for this route.
      * 
@@ -95,18 +82,14 @@ public final class VirtualHubRouteTableRoute {
     public static Builder builder(VirtualHubRouteTableRoute defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> destinations;
         private String destinationsType;
         private String name;
         private String nextHop;
         private @Nullable String nextHopType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualHubRouteTableRoute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destinations = defaults.destinations;
@@ -116,6 +99,7 @@ public final class VirtualHubRouteTableRoute {
     	      this.nextHopType = defaults.nextHopType;
         }
 
+        @CustomType.Setter
         public Builder destinations(List<String> destinations) {
             this.destinations = Objects.requireNonNull(destinations);
             return this;
@@ -123,23 +107,34 @@ public final class VirtualHubRouteTableRoute {
         public Builder destinations(String... destinations) {
             return destinations(List.of(destinations));
         }
+        @CustomType.Setter
         public Builder destinationsType(String destinationsType) {
             this.destinationsType = Objects.requireNonNull(destinationsType);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nextHop(String nextHop) {
             this.nextHop = Objects.requireNonNull(nextHop);
             return this;
         }
+        @CustomType.Setter
         public Builder nextHopType(@Nullable String nextHopType) {
             this.nextHopType = nextHopType;
             return this;
-        }        public VirtualHubRouteTableRoute build() {
-            return new VirtualHubRouteTableRoute(destinations, destinationsType, name, nextHop, nextHopType);
+        }
+        public VirtualHubRouteTableRoute build() {
+            final var o = new VirtualHubRouteTableRoute();
+            o.destinations = destinations;
+            o.destinationsType = destinationsType;
+            o.name = name;
+            o.nextHop = nextHop;
+            o.nextHopType = nextHopType;
+            return o;
         }
     }
 }

@@ -12,20 +12,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSnapshotEncryptionSetting {
-    private final List<GetSnapshotEncryptionSettingDiskEncryptionKey> diskEncryptionKeys;
-    private final Boolean enabled;
-    private final List<GetSnapshotEncryptionSettingKeyEncryptionKey> keyEncryptionKeys;
+    private List<GetSnapshotEncryptionSettingDiskEncryptionKey> diskEncryptionKeys;
+    private Boolean enabled;
+    private List<GetSnapshotEncryptionSettingKeyEncryptionKey> keyEncryptionKeys;
 
-    @CustomType.Constructor
-    private GetSnapshotEncryptionSetting(
-        @CustomType.Parameter("diskEncryptionKeys") List<GetSnapshotEncryptionSettingDiskEncryptionKey> diskEncryptionKeys,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("keyEncryptionKeys") List<GetSnapshotEncryptionSettingKeyEncryptionKey> keyEncryptionKeys) {
-        this.diskEncryptionKeys = diskEncryptionKeys;
-        this.enabled = enabled;
-        this.keyEncryptionKeys = keyEncryptionKeys;
-    }
-
+    private GetSnapshotEncryptionSetting() {}
     public List<GetSnapshotEncryptionSettingDiskEncryptionKey> diskEncryptionKeys() {
         return this.diskEncryptionKeys;
     }
@@ -43,16 +34,12 @@ public final class GetSnapshotEncryptionSetting {
     public static Builder builder(GetSnapshotEncryptionSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetSnapshotEncryptionSettingDiskEncryptionKey> diskEncryptionKeys;
         private Boolean enabled;
         private List<GetSnapshotEncryptionSettingKeyEncryptionKey> keyEncryptionKeys;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSnapshotEncryptionSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.diskEncryptionKeys = defaults.diskEncryptionKeys;
@@ -60,6 +47,7 @@ public final class GetSnapshotEncryptionSetting {
     	      this.keyEncryptionKeys = defaults.keyEncryptionKeys;
         }
 
+        @CustomType.Setter
         public Builder diskEncryptionKeys(List<GetSnapshotEncryptionSettingDiskEncryptionKey> diskEncryptionKeys) {
             this.diskEncryptionKeys = Objects.requireNonNull(diskEncryptionKeys);
             return this;
@@ -67,18 +55,25 @@ public final class GetSnapshotEncryptionSetting {
         public Builder diskEncryptionKeys(GetSnapshotEncryptionSettingDiskEncryptionKey... diskEncryptionKeys) {
             return diskEncryptionKeys(List.of(diskEncryptionKeys));
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder keyEncryptionKeys(List<GetSnapshotEncryptionSettingKeyEncryptionKey> keyEncryptionKeys) {
             this.keyEncryptionKeys = Objects.requireNonNull(keyEncryptionKeys);
             return this;
         }
         public Builder keyEncryptionKeys(GetSnapshotEncryptionSettingKeyEncryptionKey... keyEncryptionKeys) {
             return keyEncryptionKeys(List.of(keyEncryptionKeys));
-        }        public GetSnapshotEncryptionSetting build() {
-            return new GetSnapshotEncryptionSetting(diskEncryptionKeys, enabled, keyEncryptionKeys);
+        }
+        public GetSnapshotEncryptionSetting build() {
+            final var o = new GetSnapshotEncryptionSetting();
+            o.diskEncryptionKeys = diskEncryptionKeys;
+            o.enabled = enabled;
+            o.keyEncryptionKeys = keyEncryptionKeys;
+            return o;
         }
     }
 }

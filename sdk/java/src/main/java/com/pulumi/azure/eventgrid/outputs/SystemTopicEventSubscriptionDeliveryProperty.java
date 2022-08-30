@@ -16,42 +16,29 @@ public final class SystemTopicEventSubscriptionDeliveryProperty {
      * @return The name of the header to send on to the destination.
      * 
      */
-    private final String headerName;
+    private String headerName;
     /**
      * @return Set to `true` if the `value` is a secret and should be protected, otherwise `false`. If `true` then this value won&#39;t be returned from Azure API calls.
      * 
      */
-    private final @Nullable Boolean secret;
+    private @Nullable Boolean secret;
     /**
      * @return If the `type` is `Dynamic`, then provide the payload field to be used as the value. Valid source fields differ by subscription type.
      * 
      */
-    private final @Nullable String sourceField;
+    private @Nullable String sourceField;
     /**
      * @return Either `Static` or `Dynamic`.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return If the `type` is `Static`, then provide the value to use.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private SystemTopicEventSubscriptionDeliveryProperty(
-        @CustomType.Parameter("headerName") String headerName,
-        @CustomType.Parameter("secret") @Nullable Boolean secret,
-        @CustomType.Parameter("sourceField") @Nullable String sourceField,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.headerName = headerName;
-        this.secret = secret;
-        this.sourceField = sourceField;
-        this.type = type;
-        this.value = value;
-    }
-
+    private SystemTopicEventSubscriptionDeliveryProperty() {}
     /**
      * @return The name of the header to send on to the destination.
      * 
@@ -95,18 +82,14 @@ public final class SystemTopicEventSubscriptionDeliveryProperty {
     public static Builder builder(SystemTopicEventSubscriptionDeliveryProperty defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String headerName;
         private @Nullable Boolean secret;
         private @Nullable String sourceField;
         private String type;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SystemTopicEventSubscriptionDeliveryProperty defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.headerName = defaults.headerName;
@@ -116,27 +99,39 @@ public final class SystemTopicEventSubscriptionDeliveryProperty {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder headerName(String headerName) {
             this.headerName = Objects.requireNonNull(headerName);
             return this;
         }
+        @CustomType.Setter
         public Builder secret(@Nullable Boolean secret) {
             this.secret = secret;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceField(@Nullable String sourceField) {
             this.sourceField = sourceField;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public SystemTopicEventSubscriptionDeliveryProperty build() {
-            return new SystemTopicEventSubscriptionDeliveryProperty(headerName, secret, sourceField, type, value);
+        }
+        public SystemTopicEventSubscriptionDeliveryProperty build() {
+            final var o = new SystemTopicEventSubscriptionDeliveryProperty();
+            o.headerName = headerName;
+            o.secret = secret;
+            o.sourceField = sourceField;
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

@@ -18,28 +18,19 @@ public final class VirtualHubConnectionRouting {
      * @return The ID of the route table associated with this Virtual Hub connection.
      * 
      */
-    private final @Nullable String associatedRouteTableId;
+    private @Nullable String associatedRouteTableId;
     /**
      * @return A `propagated_route_table` block as defined below.
      * 
      */
-    private final @Nullable VirtualHubConnectionRoutingPropagatedRouteTable propagatedRouteTable;
+    private @Nullable VirtualHubConnectionRoutingPropagatedRouteTable propagatedRouteTable;
     /**
      * @return A `static_vnet_route` block as defined below.
      * 
      */
-    private final @Nullable List<VirtualHubConnectionRoutingStaticVnetRoute> staticVnetRoutes;
+    private @Nullable List<VirtualHubConnectionRoutingStaticVnetRoute> staticVnetRoutes;
 
-    @CustomType.Constructor
-    private VirtualHubConnectionRouting(
-        @CustomType.Parameter("associatedRouteTableId") @Nullable String associatedRouteTableId,
-        @CustomType.Parameter("propagatedRouteTable") @Nullable VirtualHubConnectionRoutingPropagatedRouteTable propagatedRouteTable,
-        @CustomType.Parameter("staticVnetRoutes") @Nullable List<VirtualHubConnectionRoutingStaticVnetRoute> staticVnetRoutes) {
-        this.associatedRouteTableId = associatedRouteTableId;
-        this.propagatedRouteTable = propagatedRouteTable;
-        this.staticVnetRoutes = staticVnetRoutes;
-    }
-
+    private VirtualHubConnectionRouting() {}
     /**
      * @return The ID of the route table associated with this Virtual Hub connection.
      * 
@@ -69,16 +60,12 @@ public final class VirtualHubConnectionRouting {
     public static Builder builder(VirtualHubConnectionRouting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String associatedRouteTableId;
         private @Nullable VirtualHubConnectionRoutingPropagatedRouteTable propagatedRouteTable;
         private @Nullable List<VirtualHubConnectionRoutingStaticVnetRoute> staticVnetRoutes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualHubConnectionRouting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.associatedRouteTableId = defaults.associatedRouteTableId;
@@ -86,22 +73,30 @@ public final class VirtualHubConnectionRouting {
     	      this.staticVnetRoutes = defaults.staticVnetRoutes;
         }
 
+        @CustomType.Setter
         public Builder associatedRouteTableId(@Nullable String associatedRouteTableId) {
             this.associatedRouteTableId = associatedRouteTableId;
             return this;
         }
+        @CustomType.Setter
         public Builder propagatedRouteTable(@Nullable VirtualHubConnectionRoutingPropagatedRouteTable propagatedRouteTable) {
             this.propagatedRouteTable = propagatedRouteTable;
             return this;
         }
+        @CustomType.Setter
         public Builder staticVnetRoutes(@Nullable List<VirtualHubConnectionRoutingStaticVnetRoute> staticVnetRoutes) {
             this.staticVnetRoutes = staticVnetRoutes;
             return this;
         }
         public Builder staticVnetRoutes(VirtualHubConnectionRoutingStaticVnetRoute... staticVnetRoutes) {
             return staticVnetRoutes(List.of(staticVnetRoutes));
-        }        public VirtualHubConnectionRouting build() {
-            return new VirtualHubConnectionRouting(associatedRouteTableId, propagatedRouteTable, staticVnetRoutes);
+        }
+        public VirtualHubConnectionRouting build() {
+            final var o = new VirtualHubConnectionRouting();
+            o.associatedRouteTableId = associatedRouteTableId;
+            o.propagatedRouteTable = propagatedRouteTable;
+            o.staticVnetRoutes = staticVnetRoutes;
+            return o;
         }
     }
 }

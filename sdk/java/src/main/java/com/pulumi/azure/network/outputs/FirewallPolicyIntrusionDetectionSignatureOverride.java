@@ -15,21 +15,14 @@ public final class FirewallPolicyIntrusionDetectionSignatureOverride {
      * @return 12-digit number (id) which identifies your signature.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return state can be any of `Off`, `Alert` or `Deny`.
      * 
      */
-    private final @Nullable String state;
+    private @Nullable String state;
 
-    @CustomType.Constructor
-    private FirewallPolicyIntrusionDetectionSignatureOverride(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("state") @Nullable String state) {
-        this.id = id;
-        this.state = state;
-    }
-
+    private FirewallPolicyIntrusionDetectionSignatureOverride() {}
     /**
      * @return 12-digit number (id) which identifies your signature.
      * 
@@ -52,30 +45,32 @@ public final class FirewallPolicyIntrusionDetectionSignatureOverride {
     public static Builder builder(FirewallPolicyIntrusionDetectionSignatureOverride defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String state;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyIntrusionDetectionSignatureOverride defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.state = defaults.state;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder state(@Nullable String state) {
             this.state = state;
             return this;
-        }        public FirewallPolicyIntrusionDetectionSignatureOverride build() {
-            return new FirewallPolicyIntrusionDetectionSignatureOverride(id, state);
+        }
+        public FirewallPolicyIntrusionDetectionSignatureOverride build() {
+            final var o = new FirewallPolicyIntrusionDetectionSignatureOverride();
+            o.id = id;
+            o.state = state;
+            return o;
         }
     }
 }

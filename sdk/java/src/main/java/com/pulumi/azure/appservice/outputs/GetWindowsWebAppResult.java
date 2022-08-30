@@ -25,206 +25,145 @@ public final class GetWindowsWebAppResult {
      * @return A map of key-value pairs of App Settings.
      * 
      */
-    private final Map<String,String> appSettings;
+    private Map<String,String> appSettings;
     /**
      * @return A `auth_settings` block as defined below.
      * 
      */
-    private final List<GetWindowsWebAppAuthSetting> authSettings;
+    private List<GetWindowsWebAppAuthSetting> authSettings;
     /**
      * @return A `backup` block as defined below.
      * 
      */
-    private final List<GetWindowsWebAppBackup> backups;
+    private List<GetWindowsWebAppBackup> backups;
     /**
      * @return Is Client Affinity enabled?
      * 
      */
-    private final Boolean clientAffinityEnabled;
+    private Boolean clientAffinityEnabled;
     /**
      * @return Are Client Certificates enabled?
      * 
      */
-    private final Boolean clientCertificateEnabled;
+    private Boolean clientCertificateEnabled;
     /**
      * @return The Client Certificate mode.
      * 
      */
-    private final String clientCertificateMode;
+    private String clientCertificateMode;
     /**
      * @return A `connection_string` block as defined below.
      * 
      */
-    private final List<GetWindowsWebAppConnectionString> connectionStrings;
+    private List<GetWindowsWebAppConnectionString> connectionStrings;
     /**
      * @return The identifier used by App Service to perform domain ownership verification via DNS TXT record.
      * 
      */
-    private final String customDomainVerificationId;
+    private String customDomainVerificationId;
     /**
      * @return The Default Hostname of the Windows Web App.
      * 
      */
-    private final String defaultHostname;
+    private String defaultHostname;
     /**
      * @return Is the Backup enabled?
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Does the Windows Web App require HTTPS connections.
      * 
      */
-    private final Boolean httpsOnly;
+    private Boolean httpsOnly;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A `identity` block as defined below.
      * 
      */
-    private final List<GetWindowsWebAppIdentity> identities;
+    private List<GetWindowsWebAppIdentity> identities;
     /**
      * @return The string representation of the Windows Web App Kind.
      * 
      */
-    private final String kind;
+    private String kind;
     /**
      * @return The Azure Region where the Windows Web App exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return A `logs` block as defined below.
      * 
      */
-    private final List<GetWindowsWebAppLog> logs;
+    private List<GetWindowsWebAppLog> logs;
     /**
      * @return The name of this Storage Account.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The list of Outbound IP Addresses for this Windows Web App.
      * 
      */
-    private final List<String> outboundIpAddressLists;
+    private List<String> outboundIpAddressLists;
     /**
      * @return A string representation of the list of Outbound IP Addresses for this Windows Web App.
      * 
      */
-    private final String outboundIpAddresses;
+    private String outboundIpAddresses;
     /**
      * @return The list of Possible Outbound IP Addresses that could be used by this Windows Web App.
      * 
      */
-    private final List<String> possibleOutboundIpAddressLists;
+    private List<String> possibleOutboundIpAddressLists;
     /**
      * @return The string representation of the list of Possible Outbound IP Addresses that could be used by this Windows Web App.
      * 
      */
-    private final String possibleOutboundIpAddresses;
-    private final String resourceGroupName;
+    private String possibleOutboundIpAddresses;
+    private String resourceGroupName;
     /**
      * @return The ID of the Service Plan in which this Windows Web App resides.
      * 
      */
-    private final String servicePlanId;
+    private String servicePlanId;
     /**
      * @return A `site_config` block as defined below.
      * 
      */
-    private final List<GetWindowsWebAppSiteConfig> siteConfigs;
+    private List<GetWindowsWebAppSiteConfig> siteConfigs;
     /**
      * @return A `site_credential` block as defined below.
      * 
      */
-    private final List<GetWindowsWebAppSiteCredential> siteCredentials;
+    private List<GetWindowsWebAppSiteCredential> siteCredentials;
     /**
      * @return A `sticky_settings` block as defined below.
      * 
      */
-    private final List<GetWindowsWebAppStickySetting> stickySettings;
+    private List<GetWindowsWebAppStickySetting> stickySettings;
     /**
      * @return A `storage_account` block as defined below.
      * 
      */
-    private final List<GetWindowsWebAppStorageAccount> storageAccounts;
+    private List<GetWindowsWebAppStorageAccount> storageAccounts;
     /**
      * @return A mapping of tags assigned to the Windows Web App.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The subnet id which the Windows Web App is vNet Integrated with.
      * 
      */
-    private final String virtualNetworkSubnetId;
+    private String virtualNetworkSubnetId;
 
-    @CustomType.Constructor
-    private GetWindowsWebAppResult(
-        @CustomType.Parameter("appSettings") Map<String,String> appSettings,
-        @CustomType.Parameter("authSettings") List<GetWindowsWebAppAuthSetting> authSettings,
-        @CustomType.Parameter("backups") List<GetWindowsWebAppBackup> backups,
-        @CustomType.Parameter("clientAffinityEnabled") Boolean clientAffinityEnabled,
-        @CustomType.Parameter("clientCertificateEnabled") Boolean clientCertificateEnabled,
-        @CustomType.Parameter("clientCertificateMode") String clientCertificateMode,
-        @CustomType.Parameter("connectionStrings") List<GetWindowsWebAppConnectionString> connectionStrings,
-        @CustomType.Parameter("customDomainVerificationId") String customDomainVerificationId,
-        @CustomType.Parameter("defaultHostname") String defaultHostname,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("httpsOnly") Boolean httpsOnly,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetWindowsWebAppIdentity> identities,
-        @CustomType.Parameter("kind") String kind,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("logs") List<GetWindowsWebAppLog> logs,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("outboundIpAddressLists") List<String> outboundIpAddressLists,
-        @CustomType.Parameter("outboundIpAddresses") String outboundIpAddresses,
-        @CustomType.Parameter("possibleOutboundIpAddressLists") List<String> possibleOutboundIpAddressLists,
-        @CustomType.Parameter("possibleOutboundIpAddresses") String possibleOutboundIpAddresses,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("servicePlanId") String servicePlanId,
-        @CustomType.Parameter("siteConfigs") List<GetWindowsWebAppSiteConfig> siteConfigs,
-        @CustomType.Parameter("siteCredentials") List<GetWindowsWebAppSiteCredential> siteCredentials,
-        @CustomType.Parameter("stickySettings") List<GetWindowsWebAppStickySetting> stickySettings,
-        @CustomType.Parameter("storageAccounts") List<GetWindowsWebAppStorageAccount> storageAccounts,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("virtualNetworkSubnetId") String virtualNetworkSubnetId) {
-        this.appSettings = appSettings;
-        this.authSettings = authSettings;
-        this.backups = backups;
-        this.clientAffinityEnabled = clientAffinityEnabled;
-        this.clientCertificateEnabled = clientCertificateEnabled;
-        this.clientCertificateMode = clientCertificateMode;
-        this.connectionStrings = connectionStrings;
-        this.customDomainVerificationId = customDomainVerificationId;
-        this.defaultHostname = defaultHostname;
-        this.enabled = enabled;
-        this.httpsOnly = httpsOnly;
-        this.id = id;
-        this.identities = identities;
-        this.kind = kind;
-        this.location = location;
-        this.logs = logs;
-        this.name = name;
-        this.outboundIpAddressLists = outboundIpAddressLists;
-        this.outboundIpAddresses = outboundIpAddresses;
-        this.possibleOutboundIpAddressLists = possibleOutboundIpAddressLists;
-        this.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
-        this.resourceGroupName = resourceGroupName;
-        this.servicePlanId = servicePlanId;
-        this.siteConfigs = siteConfigs;
-        this.siteCredentials = siteCredentials;
-        this.stickySettings = stickySettings;
-        this.storageAccounts = storageAccounts;
-        this.tags = tags;
-        this.virtualNetworkSubnetId = virtualNetworkSubnetId;
-    }
-
+    private GetWindowsWebAppResult() {}
     /**
      * @return A map of key-value pairs of App Settings.
      * 
@@ -432,7 +371,7 @@ public final class GetWindowsWebAppResult {
     public static Builder builder(GetWindowsWebAppResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Map<String,String> appSettings;
         private List<GetWindowsWebAppAuthSetting> authSettings;
@@ -463,11 +402,7 @@ public final class GetWindowsWebAppResult {
         private List<GetWindowsWebAppStorageAccount> storageAccounts;
         private Map<String,String> tags;
         private String virtualNetworkSubnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsWebAppResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appSettings = defaults.appSettings;
@@ -501,10 +436,12 @@ public final class GetWindowsWebAppResult {
     	      this.virtualNetworkSubnetId = defaults.virtualNetworkSubnetId;
         }
 
+        @CustomType.Setter
         public Builder appSettings(Map<String,String> appSettings) {
             this.appSettings = Objects.requireNonNull(appSettings);
             return this;
         }
+        @CustomType.Setter
         public Builder authSettings(List<GetWindowsWebAppAuthSetting> authSettings) {
             this.authSettings = Objects.requireNonNull(authSettings);
             return this;
@@ -512,6 +449,7 @@ public final class GetWindowsWebAppResult {
         public Builder authSettings(GetWindowsWebAppAuthSetting... authSettings) {
             return authSettings(List.of(authSettings));
         }
+        @CustomType.Setter
         public Builder backups(List<GetWindowsWebAppBackup> backups) {
             this.backups = Objects.requireNonNull(backups);
             return this;
@@ -519,18 +457,22 @@ public final class GetWindowsWebAppResult {
         public Builder backups(GetWindowsWebAppBackup... backups) {
             return backups(List.of(backups));
         }
+        @CustomType.Setter
         public Builder clientAffinityEnabled(Boolean clientAffinityEnabled) {
             this.clientAffinityEnabled = Objects.requireNonNull(clientAffinityEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder clientCertificateEnabled(Boolean clientCertificateEnabled) {
             this.clientCertificateEnabled = Objects.requireNonNull(clientCertificateEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder clientCertificateMode(String clientCertificateMode) {
             this.clientCertificateMode = Objects.requireNonNull(clientCertificateMode);
             return this;
         }
+        @CustomType.Setter
         public Builder connectionStrings(List<GetWindowsWebAppConnectionString> connectionStrings) {
             this.connectionStrings = Objects.requireNonNull(connectionStrings);
             return this;
@@ -538,26 +480,32 @@ public final class GetWindowsWebAppResult {
         public Builder connectionStrings(GetWindowsWebAppConnectionString... connectionStrings) {
             return connectionStrings(List.of(connectionStrings));
         }
+        @CustomType.Setter
         public Builder customDomainVerificationId(String customDomainVerificationId) {
             this.customDomainVerificationId = Objects.requireNonNull(customDomainVerificationId);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultHostname(String defaultHostname) {
             this.defaultHostname = Objects.requireNonNull(defaultHostname);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder httpsOnly(Boolean httpsOnly) {
             this.httpsOnly = Objects.requireNonNull(httpsOnly);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetWindowsWebAppIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -565,14 +513,17 @@ public final class GetWindowsWebAppResult {
         public Builder identities(GetWindowsWebAppIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder kind(String kind) {
             this.kind = Objects.requireNonNull(kind);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder logs(List<GetWindowsWebAppLog> logs) {
             this.logs = Objects.requireNonNull(logs);
             return this;
@@ -580,10 +531,12 @@ public final class GetWindowsWebAppResult {
         public Builder logs(GetWindowsWebAppLog... logs) {
             return logs(List.of(logs));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder outboundIpAddressLists(List<String> outboundIpAddressLists) {
             this.outboundIpAddressLists = Objects.requireNonNull(outboundIpAddressLists);
             return this;
@@ -591,10 +544,12 @@ public final class GetWindowsWebAppResult {
         public Builder outboundIpAddressLists(String... outboundIpAddressLists) {
             return outboundIpAddressLists(List.of(outboundIpAddressLists));
         }
+        @CustomType.Setter
         public Builder outboundIpAddresses(String outboundIpAddresses) {
             this.outboundIpAddresses = Objects.requireNonNull(outboundIpAddresses);
             return this;
         }
+        @CustomType.Setter
         public Builder possibleOutboundIpAddressLists(List<String> possibleOutboundIpAddressLists) {
             this.possibleOutboundIpAddressLists = Objects.requireNonNull(possibleOutboundIpAddressLists);
             return this;
@@ -602,18 +557,22 @@ public final class GetWindowsWebAppResult {
         public Builder possibleOutboundIpAddressLists(String... possibleOutboundIpAddressLists) {
             return possibleOutboundIpAddressLists(List.of(possibleOutboundIpAddressLists));
         }
+        @CustomType.Setter
         public Builder possibleOutboundIpAddresses(String possibleOutboundIpAddresses) {
             this.possibleOutboundIpAddresses = Objects.requireNonNull(possibleOutboundIpAddresses);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder servicePlanId(String servicePlanId) {
             this.servicePlanId = Objects.requireNonNull(servicePlanId);
             return this;
         }
+        @CustomType.Setter
         public Builder siteConfigs(List<GetWindowsWebAppSiteConfig> siteConfigs) {
             this.siteConfigs = Objects.requireNonNull(siteConfigs);
             return this;
@@ -621,6 +580,7 @@ public final class GetWindowsWebAppResult {
         public Builder siteConfigs(GetWindowsWebAppSiteConfig... siteConfigs) {
             return siteConfigs(List.of(siteConfigs));
         }
+        @CustomType.Setter
         public Builder siteCredentials(List<GetWindowsWebAppSiteCredential> siteCredentials) {
             this.siteCredentials = Objects.requireNonNull(siteCredentials);
             return this;
@@ -628,6 +588,7 @@ public final class GetWindowsWebAppResult {
         public Builder siteCredentials(GetWindowsWebAppSiteCredential... siteCredentials) {
             return siteCredentials(List.of(siteCredentials));
         }
+        @CustomType.Setter
         public Builder stickySettings(List<GetWindowsWebAppStickySetting> stickySettings) {
             this.stickySettings = Objects.requireNonNull(stickySettings);
             return this;
@@ -635,6 +596,7 @@ public final class GetWindowsWebAppResult {
         public Builder stickySettings(GetWindowsWebAppStickySetting... stickySettings) {
             return stickySettings(List.of(stickySettings));
         }
+        @CustomType.Setter
         public Builder storageAccounts(List<GetWindowsWebAppStorageAccount> storageAccounts) {
             this.storageAccounts = Objects.requireNonNull(storageAccounts);
             return this;
@@ -642,15 +604,48 @@ public final class GetWindowsWebAppResult {
         public Builder storageAccounts(GetWindowsWebAppStorageAccount... storageAccounts) {
             return storageAccounts(List.of(storageAccounts));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             this.virtualNetworkSubnetId = Objects.requireNonNull(virtualNetworkSubnetId);
             return this;
-        }        public GetWindowsWebAppResult build() {
-            return new GetWindowsWebAppResult(appSettings, authSettings, backups, clientAffinityEnabled, clientCertificateEnabled, clientCertificateMode, connectionStrings, customDomainVerificationId, defaultHostname, enabled, httpsOnly, id, identities, kind, location, logs, name, outboundIpAddressLists, outboundIpAddresses, possibleOutboundIpAddressLists, possibleOutboundIpAddresses, resourceGroupName, servicePlanId, siteConfigs, siteCredentials, stickySettings, storageAccounts, tags, virtualNetworkSubnetId);
+        }
+        public GetWindowsWebAppResult build() {
+            final var o = new GetWindowsWebAppResult();
+            o.appSettings = appSettings;
+            o.authSettings = authSettings;
+            o.backups = backups;
+            o.clientAffinityEnabled = clientAffinityEnabled;
+            o.clientCertificateEnabled = clientCertificateEnabled;
+            o.clientCertificateMode = clientCertificateMode;
+            o.connectionStrings = connectionStrings;
+            o.customDomainVerificationId = customDomainVerificationId;
+            o.defaultHostname = defaultHostname;
+            o.enabled = enabled;
+            o.httpsOnly = httpsOnly;
+            o.id = id;
+            o.identities = identities;
+            o.kind = kind;
+            o.location = location;
+            o.logs = logs;
+            o.name = name;
+            o.outboundIpAddressLists = outboundIpAddressLists;
+            o.outboundIpAddresses = outboundIpAddresses;
+            o.possibleOutboundIpAddressLists = possibleOutboundIpAddressLists;
+            o.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
+            o.resourceGroupName = resourceGroupName;
+            o.servicePlanId = servicePlanId;
+            o.siteConfigs = siteConfigs;
+            o.siteCredentials = siteCredentials;
+            o.stickySettings = stickySettings;
+            o.storageAccounts = storageAccounts;
+            o.tags = tags;
+            o.virtualNetworkSubnetId = virtualNetworkSubnetId;
+            return o;
         }
     }
 }

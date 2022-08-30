@@ -14,28 +14,19 @@ public final class GetScheduledQueryRulesLogCriteriaDimension {
      * @return Specifies the name of the scheduled query rule.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Operator for dimension values.
      * 
      */
-    private final String operator;
+    private String operator;
     /**
      * @return List of dimension values.
      * 
      */
-    private final List<String> values;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private GetScheduledQueryRulesLogCriteriaDimension(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("operator") String operator,
-        @CustomType.Parameter("values") List<String> values) {
-        this.name = name;
-        this.operator = operator;
-        this.values = values;
-    }
-
+    private GetScheduledQueryRulesLogCriteriaDimension() {}
     /**
      * @return Specifies the name of the scheduled query rule.
      * 
@@ -65,16 +56,12 @@ public final class GetScheduledQueryRulesLogCriteriaDimension {
     public static Builder builder(GetScheduledQueryRulesLogCriteriaDimension defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String operator;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetScheduledQueryRulesLogCriteriaDimension defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -82,22 +69,30 @@ public final class GetScheduledQueryRulesLogCriteriaDimension {
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder operator(String operator) {
             this.operator = Objects.requireNonNull(operator);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public GetScheduledQueryRulesLogCriteriaDimension build() {
-            return new GetScheduledQueryRulesLogCriteriaDimension(name, operator, values);
+        }
+        public GetScheduledQueryRulesLogCriteriaDimension build() {
+            final var o = new GetScheduledQueryRulesLogCriteriaDimension();
+            o.name = name;
+            o.operator = operator;
+            o.values = values;
+            return o;
         }
     }
 }

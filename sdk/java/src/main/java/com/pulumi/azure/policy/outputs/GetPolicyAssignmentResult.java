@@ -17,90 +17,61 @@ public final class GetPolicyAssignmentResult {
      * @return The description of this Policy Assignment.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The display name of this Policy Assignment.
      * 
      */
-    private final String displayName;
+    private String displayName;
     /**
      * @return Whether this Policy is enforced or not?
      * 
      */
-    private final Boolean enforce;
+    private Boolean enforce;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A `identity` block as defined below.
      * 
      */
-    private final List<GetPolicyAssignmentIdentity> identities;
+    private List<GetPolicyAssignmentIdentity> identities;
     /**
      * @return The Azure Region where the Policy Assignment exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return A JSON mapping of any Metadata for this Policy.
      * 
      */
-    private final String metadata;
-    private final String name;
+    private String metadata;
+    private String name;
     /**
      * @return A `non_compliance_message` block as defined below.
      * 
      */
-    private final List<GetPolicyAssignmentNonComplianceMessage> nonComplianceMessages;
+    private List<GetPolicyAssignmentNonComplianceMessage> nonComplianceMessages;
     /**
      * @return A `not_scopes` block as defined below.
      * 
      */
-    private final List<String> notScopes;
+    private List<String> notScopes;
     /**
      * @return A JSON mapping of any Parameters for this Policy.
      * 
      */
-    private final String parameters;
+    private String parameters;
     /**
      * @return The ID of the assigned Policy Definition.
      * 
      */
-    private final String policyDefinitionId;
-    private final String scopeId;
+    private String policyDefinitionId;
+    private String scopeId;
 
-    @CustomType.Constructor
-    private GetPolicyAssignmentResult(
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("enforce") Boolean enforce,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetPolicyAssignmentIdentity> identities,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("metadata") String metadata,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nonComplianceMessages") List<GetPolicyAssignmentNonComplianceMessage> nonComplianceMessages,
-        @CustomType.Parameter("notScopes") List<String> notScopes,
-        @CustomType.Parameter("parameters") String parameters,
-        @CustomType.Parameter("policyDefinitionId") String policyDefinitionId,
-        @CustomType.Parameter("scopeId") String scopeId) {
-        this.description = description;
-        this.displayName = displayName;
-        this.enforce = enforce;
-        this.id = id;
-        this.identities = identities;
-        this.location = location;
-        this.metadata = metadata;
-        this.name = name;
-        this.nonComplianceMessages = nonComplianceMessages;
-        this.notScopes = notScopes;
-        this.parameters = parameters;
-        this.policyDefinitionId = policyDefinitionId;
-        this.scopeId = scopeId;
-    }
-
+    private GetPolicyAssignmentResult() {}
     /**
      * @return The description of this Policy Assignment.
      * 
@@ -192,7 +163,7 @@ public final class GetPolicyAssignmentResult {
     public static Builder builder(GetPolicyAssignmentResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String description;
         private String displayName;
@@ -207,11 +178,7 @@ public final class GetPolicyAssignmentResult {
         private String parameters;
         private String policyDefinitionId;
         private String scopeId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPolicyAssignmentResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -229,22 +196,27 @@ public final class GetPolicyAssignmentResult {
     	      this.scopeId = defaults.scopeId;
         }
 
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder enforce(Boolean enforce) {
             this.enforce = Objects.requireNonNull(enforce);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetPolicyAssignmentIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -252,18 +224,22 @@ public final class GetPolicyAssignmentResult {
         public Builder identities(GetPolicyAssignmentIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder metadata(String metadata) {
             this.metadata = Objects.requireNonNull(metadata);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nonComplianceMessages(List<GetPolicyAssignmentNonComplianceMessage> nonComplianceMessages) {
             this.nonComplianceMessages = Objects.requireNonNull(nonComplianceMessages);
             return this;
@@ -271,6 +247,7 @@ public final class GetPolicyAssignmentResult {
         public Builder nonComplianceMessages(GetPolicyAssignmentNonComplianceMessage... nonComplianceMessages) {
             return nonComplianceMessages(List.of(nonComplianceMessages));
         }
+        @CustomType.Setter
         public Builder notScopes(List<String> notScopes) {
             this.notScopes = Objects.requireNonNull(notScopes);
             return this;
@@ -278,19 +255,37 @@ public final class GetPolicyAssignmentResult {
         public Builder notScopes(String... notScopes) {
             return notScopes(List.of(notScopes));
         }
+        @CustomType.Setter
         public Builder parameters(String parameters) {
             this.parameters = Objects.requireNonNull(parameters);
             return this;
         }
+        @CustomType.Setter
         public Builder policyDefinitionId(String policyDefinitionId) {
             this.policyDefinitionId = Objects.requireNonNull(policyDefinitionId);
             return this;
         }
+        @CustomType.Setter
         public Builder scopeId(String scopeId) {
             this.scopeId = Objects.requireNonNull(scopeId);
             return this;
-        }        public GetPolicyAssignmentResult build() {
-            return new GetPolicyAssignmentResult(description, displayName, enforce, id, identities, location, metadata, name, nonComplianceMessages, notScopes, parameters, policyDefinitionId, scopeId);
+        }
+        public GetPolicyAssignmentResult build() {
+            final var o = new GetPolicyAssignmentResult();
+            o.description = description;
+            o.displayName = displayName;
+            o.enforce = enforce;
+            o.id = id;
+            o.identities = identities;
+            o.location = location;
+            o.metadata = metadata;
+            o.name = name;
+            o.nonComplianceMessages = nonComplianceMessages;
+            o.notScopes = notScopes;
+            o.parameters = parameters;
+            o.policyDefinitionId = policyDefinitionId;
+            o.scopeId = scopeId;
+            return o;
         }
     }
 }

@@ -14,35 +14,24 @@ public final class VirtualMachineAutoBackupManualSchedule {
      * @return Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backup_schedule_automated` is false.
      * 
      */
-    private final String fullBackupFrequency;
+    private String fullBackupFrequency;
     /**
      * @return Start hour of a given day during which full backups can take place. Valid values are from `0` to `23`. Required when `backup_schedule_automated` is false.
      * 
      */
-    private final Integer fullBackupStartHour;
+    private Integer fullBackupStartHour;
     /**
      * @return Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between `1` and `23`. Required when `backup_schedule_automated` is false.
      * 
      */
-    private final Integer fullBackupWindowInHours;
+    private Integer fullBackupWindowInHours;
     /**
      * @return Frequency of log backups, in minutes. Valid values are from `5` to `60`. Required when `backup_schedule_automated` is false.
      * 
      */
-    private final Integer logBackupFrequencyInMinutes;
+    private Integer logBackupFrequencyInMinutes;
 
-    @CustomType.Constructor
-    private VirtualMachineAutoBackupManualSchedule(
-        @CustomType.Parameter("fullBackupFrequency") String fullBackupFrequency,
-        @CustomType.Parameter("fullBackupStartHour") Integer fullBackupStartHour,
-        @CustomType.Parameter("fullBackupWindowInHours") Integer fullBackupWindowInHours,
-        @CustomType.Parameter("logBackupFrequencyInMinutes") Integer logBackupFrequencyInMinutes) {
-        this.fullBackupFrequency = fullBackupFrequency;
-        this.fullBackupStartHour = fullBackupStartHour;
-        this.fullBackupWindowInHours = fullBackupWindowInHours;
-        this.logBackupFrequencyInMinutes = logBackupFrequencyInMinutes;
-    }
-
+    private VirtualMachineAutoBackupManualSchedule() {}
     /**
      * @return Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backup_schedule_automated` is false.
      * 
@@ -79,17 +68,13 @@ public final class VirtualMachineAutoBackupManualSchedule {
     public static Builder builder(VirtualMachineAutoBackupManualSchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String fullBackupFrequency;
         private Integer fullBackupStartHour;
         private Integer fullBackupWindowInHours;
         private Integer logBackupFrequencyInMinutes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualMachineAutoBackupManualSchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fullBackupFrequency = defaults.fullBackupFrequency;
@@ -98,23 +83,33 @@ public final class VirtualMachineAutoBackupManualSchedule {
     	      this.logBackupFrequencyInMinutes = defaults.logBackupFrequencyInMinutes;
         }
 
+        @CustomType.Setter
         public Builder fullBackupFrequency(String fullBackupFrequency) {
             this.fullBackupFrequency = Objects.requireNonNull(fullBackupFrequency);
             return this;
         }
+        @CustomType.Setter
         public Builder fullBackupStartHour(Integer fullBackupStartHour) {
             this.fullBackupStartHour = Objects.requireNonNull(fullBackupStartHour);
             return this;
         }
+        @CustomType.Setter
         public Builder fullBackupWindowInHours(Integer fullBackupWindowInHours) {
             this.fullBackupWindowInHours = Objects.requireNonNull(fullBackupWindowInHours);
             return this;
         }
+        @CustomType.Setter
         public Builder logBackupFrequencyInMinutes(Integer logBackupFrequencyInMinutes) {
             this.logBackupFrequencyInMinutes = Objects.requireNonNull(logBackupFrequencyInMinutes);
             return this;
-        }        public VirtualMachineAutoBackupManualSchedule build() {
-            return new VirtualMachineAutoBackupManualSchedule(fullBackupFrequency, fullBackupStartHour, fullBackupWindowInHours, logBackupFrequencyInMinutes);
+        }
+        public VirtualMachineAutoBackupManualSchedule build() {
+            final var o = new VirtualMachineAutoBackupManualSchedule();
+            o.fullBackupFrequency = fullBackupFrequency;
+            o.fullBackupStartHour = fullBackupStartHour;
+            o.fullBackupWindowInHours = fullBackupWindowInHours;
+            o.logBackupFrequencyInMinutes = logBackupFrequencyInMinutes;
+            return o;
         }
     }
 }

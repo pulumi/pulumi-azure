@@ -15,35 +15,24 @@ public final class GatewayLocationData {
      * @return The city or locality where the resource is located.
      * 
      */
-    private final @Nullable String city;
+    private @Nullable String city;
     /**
      * @return The district, state, or province where the resource is located.
      * 
      */
-    private final @Nullable String district;
+    private @Nullable String district;
     /**
      * @return A canonical name for the geographic or physical location.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The country or region where the resource is located.
      * 
      */
-    private final @Nullable String region;
+    private @Nullable String region;
 
-    @CustomType.Constructor
-    private GatewayLocationData(
-        @CustomType.Parameter("city") @Nullable String city,
-        @CustomType.Parameter("district") @Nullable String district,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("region") @Nullable String region) {
-        this.city = city;
-        this.district = district;
-        this.name = name;
-        this.region = region;
-    }
-
+    private GatewayLocationData() {}
     /**
      * @return The city or locality where the resource is located.
      * 
@@ -80,17 +69,13 @@ public final class GatewayLocationData {
     public static Builder builder(GatewayLocationData defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String city;
         private @Nullable String district;
         private String name;
         private @Nullable String region;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GatewayLocationData defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.city = defaults.city;
@@ -99,23 +84,33 @@ public final class GatewayLocationData {
     	      this.region = defaults.region;
         }
 
+        @CustomType.Setter
         public Builder city(@Nullable String city) {
             this.city = city;
             return this;
         }
+        @CustomType.Setter
         public Builder district(@Nullable String district) {
             this.district = district;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder region(@Nullable String region) {
             this.region = region;
             return this;
-        }        public GatewayLocationData build() {
-            return new GatewayLocationData(city, district, name, region);
+        }
+        public GatewayLocationData build() {
+            final var o = new GatewayLocationData();
+            o.city = city;
+            o.district = district;
+            o.name = name;
+            o.region = region;
+            return o;
         }
     }
 }

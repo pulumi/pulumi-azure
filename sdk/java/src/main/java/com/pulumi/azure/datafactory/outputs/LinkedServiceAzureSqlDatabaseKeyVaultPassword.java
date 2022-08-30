@@ -13,21 +13,14 @@ public final class LinkedServiceAzureSqlDatabaseKeyVaultPassword {
      * @return Specifies the name of an existing Key Vault Data Factory Linked Service.
      * 
      */
-    private final String linkedServiceName;
+    private String linkedServiceName;
     /**
      * @return Specifies the secret name in Azure Key Vault that stores SQL Server password.
      * 
      */
-    private final String secretName;
+    private String secretName;
 
-    @CustomType.Constructor
-    private LinkedServiceAzureSqlDatabaseKeyVaultPassword(
-        @CustomType.Parameter("linkedServiceName") String linkedServiceName,
-        @CustomType.Parameter("secretName") String secretName) {
-        this.linkedServiceName = linkedServiceName;
-        this.secretName = secretName;
-    }
-
+    private LinkedServiceAzureSqlDatabaseKeyVaultPassword() {}
     /**
      * @return Specifies the name of an existing Key Vault Data Factory Linked Service.
      * 
@@ -50,30 +43,32 @@ public final class LinkedServiceAzureSqlDatabaseKeyVaultPassword {
     public static Builder builder(LinkedServiceAzureSqlDatabaseKeyVaultPassword defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String linkedServiceName;
         private String secretName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinkedServiceAzureSqlDatabaseKeyVaultPassword defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.linkedServiceName = defaults.linkedServiceName;
     	      this.secretName = defaults.secretName;
         }
 
+        @CustomType.Setter
         public Builder linkedServiceName(String linkedServiceName) {
             this.linkedServiceName = Objects.requireNonNull(linkedServiceName);
             return this;
         }
+        @CustomType.Setter
         public Builder secretName(String secretName) {
             this.secretName = Objects.requireNonNull(secretName);
             return this;
-        }        public LinkedServiceAzureSqlDatabaseKeyVaultPassword build() {
-            return new LinkedServiceAzureSqlDatabaseKeyVaultPassword(linkedServiceName, secretName);
+        }
+        public LinkedServiceAzureSqlDatabaseKeyVaultPassword build() {
+            final var o = new LinkedServiceAzureSqlDatabaseKeyVaultPassword();
+            o.linkedServiceName = linkedServiceName;
+            o.secretName = secretName;
+            return o;
         }
     }
 }

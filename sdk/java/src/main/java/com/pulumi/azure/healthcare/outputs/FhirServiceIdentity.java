@@ -11,24 +11,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FhirServiceIdentity {
-    private final @Nullable String principalId;
-    private final @Nullable String tenantId;
+    private @Nullable String principalId;
+    private @Nullable String tenantId;
     /**
      * @return The type of identity used for the Healthcare FHIR service. Possible values are `SystemAssigned`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private FhirServiceIdentity(
-        @CustomType.Parameter("principalId") @Nullable String principalId,
-        @CustomType.Parameter("tenantId") @Nullable String tenantId,
-        @CustomType.Parameter("type") String type) {
-        this.principalId = principalId;
-        this.tenantId = tenantId;
-        this.type = type;
-    }
-
+    private FhirServiceIdentity() {}
     public Optional<String> principalId() {
         return Optional.ofNullable(this.principalId);
     }
@@ -50,16 +41,12 @@ public final class FhirServiceIdentity {
     public static Builder builder(FhirServiceIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String principalId;
         private @Nullable String tenantId;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FhirServiceIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.principalId = defaults.principalId;
@@ -67,19 +54,27 @@ public final class FhirServiceIdentity {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder principalId(@Nullable String principalId) {
             this.principalId = principalId;
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
             this.tenantId = tenantId;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public FhirServiceIdentity build() {
-            return new FhirServiceIdentity(principalId, tenantId, type);
+        }
+        public FhirServiceIdentity build() {
+            final var o = new FhirServiceIdentity();
+            o.principalId = principalId;
+            o.tenantId = tenantId;
+            o.type = type;
+            return o;
         }
     }
 }

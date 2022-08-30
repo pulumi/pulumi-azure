@@ -24,105 +24,74 @@ public final class AppServiceAuthSettings {
      * @return A `active_directory` block as defined below.
      * 
      */
-    private final @Nullable AppServiceAuthSettingsActiveDirectory activeDirectory;
+    private @Nullable AppServiceAuthSettingsActiveDirectory activeDirectory;
     /**
      * @return Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form &#34;key=value&#34;.
      * 
      */
-    private final @Nullable Map<String,String> additionalLoginParams;
+    private @Nullable Map<String,String> additionalLoginParams;
     /**
      * @return External URLs that can be redirected to as part of logging in or logging out of the app.
      * 
      */
-    private final @Nullable List<String> allowedExternalRedirectUrls;
+    private @Nullable List<String> allowedExternalRedirectUrls;
     /**
      * @return The default provider to use when multiple providers have been set up. Possible values are `AzureActiveDirectory`, `Facebook`, `Google`, `MicrosoftAccount` and `Twitter`.
      * 
      */
-    private final @Nullable String defaultProvider;
+    private @Nullable String defaultProvider;
     /**
      * @return Is Authentication enabled?
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return A `facebook` block as defined below.
      * 
      */
-    private final @Nullable AppServiceAuthSettingsFacebook facebook;
+    private @Nullable AppServiceAuthSettingsFacebook facebook;
     /**
      * @return A `google` block as defined below.
      * 
      */
-    private final @Nullable AppServiceAuthSettingsGoogle google;
+    private @Nullable AppServiceAuthSettingsGoogle google;
     /**
      * @return Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.
      * 
      */
-    private final @Nullable String issuer;
+    private @Nullable String issuer;
     /**
      * @return A `microsoft` block as defined below.
      * 
      */
-    private final @Nullable AppServiceAuthSettingsMicrosoft microsoft;
+    private @Nullable AppServiceAuthSettingsMicrosoft microsoft;
     /**
      * @return The runtime version of the Authentication/Authorization module.
      * 
      */
-    private final @Nullable String runtimeVersion;
+    private @Nullable String runtimeVersion;
     /**
      * @return The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to 72.
      * 
      */
-    private final @Nullable Double tokenRefreshExtensionHours;
+    private @Nullable Double tokenRefreshExtensionHours;
     /**
      * @return If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to false.
      * 
      */
-    private final @Nullable Boolean tokenStoreEnabled;
+    private @Nullable Boolean tokenStoreEnabled;
     /**
      * @return A `twitter` block as defined below.
      * 
      */
-    private final @Nullable AppServiceAuthSettingsTwitter twitter;
+    private @Nullable AppServiceAuthSettingsTwitter twitter;
     /**
      * @return The action to take when an unauthenticated client attempts to access the app. Possible values are `AllowAnonymous` and `RedirectToLoginPage`.
      * 
      */
-    private final @Nullable String unauthenticatedClientAction;
+    private @Nullable String unauthenticatedClientAction;
 
-    @CustomType.Constructor
-    private AppServiceAuthSettings(
-        @CustomType.Parameter("activeDirectory") @Nullable AppServiceAuthSettingsActiveDirectory activeDirectory,
-        @CustomType.Parameter("additionalLoginParams") @Nullable Map<String,String> additionalLoginParams,
-        @CustomType.Parameter("allowedExternalRedirectUrls") @Nullable List<String> allowedExternalRedirectUrls,
-        @CustomType.Parameter("defaultProvider") @Nullable String defaultProvider,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("facebook") @Nullable AppServiceAuthSettingsFacebook facebook,
-        @CustomType.Parameter("google") @Nullable AppServiceAuthSettingsGoogle google,
-        @CustomType.Parameter("issuer") @Nullable String issuer,
-        @CustomType.Parameter("microsoft") @Nullable AppServiceAuthSettingsMicrosoft microsoft,
-        @CustomType.Parameter("runtimeVersion") @Nullable String runtimeVersion,
-        @CustomType.Parameter("tokenRefreshExtensionHours") @Nullable Double tokenRefreshExtensionHours,
-        @CustomType.Parameter("tokenStoreEnabled") @Nullable Boolean tokenStoreEnabled,
-        @CustomType.Parameter("twitter") @Nullable AppServiceAuthSettingsTwitter twitter,
-        @CustomType.Parameter("unauthenticatedClientAction") @Nullable String unauthenticatedClientAction) {
-        this.activeDirectory = activeDirectory;
-        this.additionalLoginParams = additionalLoginParams;
-        this.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
-        this.defaultProvider = defaultProvider;
-        this.enabled = enabled;
-        this.facebook = facebook;
-        this.google = google;
-        this.issuer = issuer;
-        this.microsoft = microsoft;
-        this.runtimeVersion = runtimeVersion;
-        this.tokenRefreshExtensionHours = tokenRefreshExtensionHours;
-        this.tokenStoreEnabled = tokenStoreEnabled;
-        this.twitter = twitter;
-        this.unauthenticatedClientAction = unauthenticatedClientAction;
-    }
-
+    private AppServiceAuthSettings() {}
     /**
      * @return A `active_directory` block as defined below.
      * 
@@ -229,7 +198,7 @@ public final class AppServiceAuthSettings {
     public static Builder builder(AppServiceAuthSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable AppServiceAuthSettingsActiveDirectory activeDirectory;
         private @Nullable Map<String,String> additionalLoginParams;
@@ -245,11 +214,7 @@ public final class AppServiceAuthSettings {
         private @Nullable Boolean tokenStoreEnabled;
         private @Nullable AppServiceAuthSettingsTwitter twitter;
         private @Nullable String unauthenticatedClientAction;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppServiceAuthSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.activeDirectory = defaults.activeDirectory;
@@ -268,14 +233,17 @@ public final class AppServiceAuthSettings {
     	      this.unauthenticatedClientAction = defaults.unauthenticatedClientAction;
         }
 
+        @CustomType.Setter
         public Builder activeDirectory(@Nullable AppServiceAuthSettingsActiveDirectory activeDirectory) {
             this.activeDirectory = activeDirectory;
             return this;
         }
+        @CustomType.Setter
         public Builder additionalLoginParams(@Nullable Map<String,String> additionalLoginParams) {
             this.additionalLoginParams = additionalLoginParams;
             return this;
         }
+        @CustomType.Setter
         public Builder allowedExternalRedirectUrls(@Nullable List<String> allowedExternalRedirectUrls) {
             this.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
             return this;
@@ -283,51 +251,78 @@ public final class AppServiceAuthSettings {
         public Builder allowedExternalRedirectUrls(String... allowedExternalRedirectUrls) {
             return allowedExternalRedirectUrls(List.of(allowedExternalRedirectUrls));
         }
+        @CustomType.Setter
         public Builder defaultProvider(@Nullable String defaultProvider) {
             this.defaultProvider = defaultProvider;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder facebook(@Nullable AppServiceAuthSettingsFacebook facebook) {
             this.facebook = facebook;
             return this;
         }
+        @CustomType.Setter
         public Builder google(@Nullable AppServiceAuthSettingsGoogle google) {
             this.google = google;
             return this;
         }
+        @CustomType.Setter
         public Builder issuer(@Nullable String issuer) {
             this.issuer = issuer;
             return this;
         }
+        @CustomType.Setter
         public Builder microsoft(@Nullable AppServiceAuthSettingsMicrosoft microsoft) {
             this.microsoft = microsoft;
             return this;
         }
+        @CustomType.Setter
         public Builder runtimeVersion(@Nullable String runtimeVersion) {
             this.runtimeVersion = runtimeVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder tokenRefreshExtensionHours(@Nullable Double tokenRefreshExtensionHours) {
             this.tokenRefreshExtensionHours = tokenRefreshExtensionHours;
             return this;
         }
+        @CustomType.Setter
         public Builder tokenStoreEnabled(@Nullable Boolean tokenStoreEnabled) {
             this.tokenStoreEnabled = tokenStoreEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder twitter(@Nullable AppServiceAuthSettingsTwitter twitter) {
             this.twitter = twitter;
             return this;
         }
+        @CustomType.Setter
         public Builder unauthenticatedClientAction(@Nullable String unauthenticatedClientAction) {
             this.unauthenticatedClientAction = unauthenticatedClientAction;
             return this;
-        }        public AppServiceAuthSettings build() {
-            return new AppServiceAuthSettings(activeDirectory, additionalLoginParams, allowedExternalRedirectUrls, defaultProvider, enabled, facebook, google, issuer, microsoft, runtimeVersion, tokenRefreshExtensionHours, tokenStoreEnabled, twitter, unauthenticatedClientAction);
+        }
+        public AppServiceAuthSettings build() {
+            final var o = new AppServiceAuthSettings();
+            o.activeDirectory = activeDirectory;
+            o.additionalLoginParams = additionalLoginParams;
+            o.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
+            o.defaultProvider = defaultProvider;
+            o.enabled = enabled;
+            o.facebook = facebook;
+            o.google = google;
+            o.issuer = issuer;
+            o.microsoft = microsoft;
+            o.runtimeVersion = runtimeVersion;
+            o.tokenRefreshExtensionHours = tokenRefreshExtensionHours;
+            o.tokenStoreEnabled = tokenStoreEnabled;
+            o.twitter = twitter;
+            o.unauthenticatedClientAction = unauthenticatedClientAction;
+            return o;
         }
     }
 }

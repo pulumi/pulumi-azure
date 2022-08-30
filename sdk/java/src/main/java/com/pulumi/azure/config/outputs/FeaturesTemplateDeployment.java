@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class FeaturesTemplateDeployment {
-    private final Boolean deleteNestedItemsDuringDeletion;
+    private Boolean deleteNestedItemsDuringDeletion;
 
-    @CustomType.Constructor
-    private FeaturesTemplateDeployment(@CustomType.Parameter("deleteNestedItemsDuringDeletion") Boolean deleteNestedItemsDuringDeletion) {
-        this.deleteNestedItemsDuringDeletion = deleteNestedItemsDuringDeletion;
-    }
-
+    private FeaturesTemplateDeployment() {}
     public Boolean deleteNestedItemsDuringDeletion() {
         return this.deleteNestedItemsDuringDeletion;
     }
@@ -27,24 +23,24 @@ public final class FeaturesTemplateDeployment {
     public static Builder builder(FeaturesTemplateDeployment defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean deleteNestedItemsDuringDeletion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FeaturesTemplateDeployment defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deleteNestedItemsDuringDeletion = defaults.deleteNestedItemsDuringDeletion;
         }
 
+        @CustomType.Setter
         public Builder deleteNestedItemsDuringDeletion(Boolean deleteNestedItemsDuringDeletion) {
             this.deleteNestedItemsDuringDeletion = Objects.requireNonNull(deleteNestedItemsDuringDeletion);
             return this;
-        }        public FeaturesTemplateDeployment build() {
-            return new FeaturesTemplateDeployment(deleteNestedItemsDuringDeletion);
+        }
+        public FeaturesTemplateDeployment build() {
+            final var o = new FeaturesTemplateDeployment();
+            o.deleteNestedItemsDuringDeletion = deleteNestedItemsDuringDeletion;
+            return o;
         }
     }
 }

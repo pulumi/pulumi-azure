@@ -16,21 +16,14 @@ public final class AutomationSource {
      * @return Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `AssessmentsSnapshot`, `RegulatoryComplianceAssessment`, `RegulatoryComplianceAssessmentSnapshot`, `SecureScoreControls`, `SecureScoreControlsSnapshot`, `SecureScores`, `SecureScoresSnapshot`, `SubAssessments` or `SubAssessmentsSnapshot`. Note. assessments are also referred to as recommendations
      * 
      */
-    private final String eventSource;
+    private String eventSource;
     /**
      * @return A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
      * 
      */
-    private final @Nullable List<AutomationSourceRuleSet> ruleSets;
+    private @Nullable List<AutomationSourceRuleSet> ruleSets;
 
-    @CustomType.Constructor
-    private AutomationSource(
-        @CustomType.Parameter("eventSource") String eventSource,
-        @CustomType.Parameter("ruleSets") @Nullable List<AutomationSourceRuleSet> ruleSets) {
-        this.eventSource = eventSource;
-        this.ruleSets = ruleSets;
-    }
-
+    private AutomationSource() {}
     /**
      * @return Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `AssessmentsSnapshot`, `RegulatoryComplianceAssessment`, `RegulatoryComplianceAssessmentSnapshot`, `SecureScoreControls`, `SecureScoreControlsSnapshot`, `SecureScores`, `SecureScoresSnapshot`, `SubAssessments` or `SubAssessmentsSnapshot`. Note. assessments are also referred to as recommendations
      * 
@@ -53,33 +46,35 @@ public final class AutomationSource {
     public static Builder builder(AutomationSource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String eventSource;
         private @Nullable List<AutomationSourceRuleSet> ruleSets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AutomationSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eventSource = defaults.eventSource;
     	      this.ruleSets = defaults.ruleSets;
         }
 
+        @CustomType.Setter
         public Builder eventSource(String eventSource) {
             this.eventSource = Objects.requireNonNull(eventSource);
             return this;
         }
+        @CustomType.Setter
         public Builder ruleSets(@Nullable List<AutomationSourceRuleSet> ruleSets) {
             this.ruleSets = ruleSets;
             return this;
         }
         public Builder ruleSets(AutomationSourceRuleSet... ruleSets) {
             return ruleSets(List.of(ruleSets));
-        }        public AutomationSource build() {
-            return new AutomationSource(eventSource, ruleSets);
+        }
+        public AutomationSource build() {
+            final var o = new AutomationSource();
+            o.eventSource = eventSource;
+            o.ruleSets = ruleSets;
+            return o;
         }
     }
 }

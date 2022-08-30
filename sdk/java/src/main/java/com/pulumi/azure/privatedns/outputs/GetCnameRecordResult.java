@@ -15,54 +15,33 @@ public final class GetCnameRecordResult {
      * @return The FQDN of the Private DNS CName Record.
      * 
      */
-    private final String fqdn;
+    private String fqdn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return The target of the CNAME.
      * 
      */
-    private final String record;
-    private final String resourceGroupName;
+    private String record;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
-    private final String targetResourceId;
+    private Map<String,String> tags;
+    private String targetResourceId;
     /**
      * @return The Time To Live (TTL) of the Private DNS record in seconds.
      * 
      */
-    private final Integer ttl;
-    private final String zoneName;
+    private Integer ttl;
+    private String zoneName;
 
-    @CustomType.Constructor
-    private GetCnameRecordResult(
-        @CustomType.Parameter("fqdn") String fqdn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("record") String record,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("targetResourceId") String targetResourceId,
-        @CustomType.Parameter("ttl") Integer ttl,
-        @CustomType.Parameter("zoneName") String zoneName) {
-        this.fqdn = fqdn;
-        this.id = id;
-        this.name = name;
-        this.record = record;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-        this.targetResourceId = targetResourceId;
-        this.ttl = ttl;
-        this.zoneName = zoneName;
-    }
-
+    private GetCnameRecordResult() {}
     /**
      * @return The FQDN of the Private DNS CName Record.
      * 
@@ -118,7 +97,7 @@ public final class GetCnameRecordResult {
     public static Builder builder(GetCnameRecordResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String fqdn;
         private String id;
@@ -129,11 +108,7 @@ public final class GetCnameRecordResult {
         private String targetResourceId;
         private Integer ttl;
         private String zoneName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCnameRecordResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fqdn = defaults.fqdn;
@@ -147,43 +122,63 @@ public final class GetCnameRecordResult {
     	      this.zoneName = defaults.zoneName;
         }
 
+        @CustomType.Setter
         public Builder fqdn(String fqdn) {
             this.fqdn = Objects.requireNonNull(fqdn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder record(String record) {
             this.record = Objects.requireNonNull(record);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder targetResourceId(String targetResourceId) {
             this.targetResourceId = Objects.requireNonNull(targetResourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder ttl(Integer ttl) {
             this.ttl = Objects.requireNonNull(ttl);
             return this;
         }
+        @CustomType.Setter
         public Builder zoneName(String zoneName) {
             this.zoneName = Objects.requireNonNull(zoneName);
             return this;
-        }        public GetCnameRecordResult build() {
-            return new GetCnameRecordResult(fqdn, id, name, record, resourceGroupName, tags, targetResourceId, ttl, zoneName);
+        }
+        public GetCnameRecordResult build() {
+            final var o = new GetCnameRecordResult();
+            o.fqdn = fqdn;
+            o.id = id;
+            o.name = name;
+            o.record = record;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            o.targetResourceId = targetResourceId;
+            o.ttl = ttl;
+            o.zoneName = zoneName;
+            return o;
         }
     }
 }

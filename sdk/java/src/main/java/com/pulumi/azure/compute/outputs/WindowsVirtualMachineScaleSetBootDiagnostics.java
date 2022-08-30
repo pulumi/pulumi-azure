@@ -15,13 +15,9 @@ public final class WindowsVirtualMachineScaleSetBootDiagnostics {
      * @return The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
      * 
      */
-    private final @Nullable String storageAccountUri;
+    private @Nullable String storageAccountUri;
 
-    @CustomType.Constructor
-    private WindowsVirtualMachineScaleSetBootDiagnostics(@CustomType.Parameter("storageAccountUri") @Nullable String storageAccountUri) {
-        this.storageAccountUri = storageAccountUri;
-    }
-
+    private WindowsVirtualMachineScaleSetBootDiagnostics() {}
     /**
      * @return The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
      * 
@@ -37,24 +33,24 @@ public final class WindowsVirtualMachineScaleSetBootDiagnostics {
     public static Builder builder(WindowsVirtualMachineScaleSetBootDiagnostics defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String storageAccountUri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsVirtualMachineScaleSetBootDiagnostics defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.storageAccountUri = defaults.storageAccountUri;
         }
 
+        @CustomType.Setter
         public Builder storageAccountUri(@Nullable String storageAccountUri) {
             this.storageAccountUri = storageAccountUri;
             return this;
-        }        public WindowsVirtualMachineScaleSetBootDiagnostics build() {
-            return new WindowsVirtualMachineScaleSetBootDiagnostics(storageAccountUri);
+        }
+        public WindowsVirtualMachineScaleSetBootDiagnostics build() {
+            final var o = new WindowsVirtualMachineScaleSetBootDiagnostics();
+            o.storageAccountUri = storageAccountUri;
+            return o;
         }
     }
 }

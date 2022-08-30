@@ -15,21 +15,14 @@ public final class VpnGatewayConnectionRoutingPropagatedRouteTable {
      * @return A list of labels to assign to this route table.
      * 
      */
-    private final @Nullable List<String> labels;
+    private @Nullable List<String> labels;
     /**
      * @return A list of Route Table IDs to associated with this VPN Gateway Connection.
      * 
      */
-    private final List<String> routeTableIds;
+    private List<String> routeTableIds;
 
-    @CustomType.Constructor
-    private VpnGatewayConnectionRoutingPropagatedRouteTable(
-        @CustomType.Parameter("labels") @Nullable List<String> labels,
-        @CustomType.Parameter("routeTableIds") List<String> routeTableIds) {
-        this.labels = labels;
-        this.routeTableIds = routeTableIds;
-    }
-
+    private VpnGatewayConnectionRoutingPropagatedRouteTable() {}
     /**
      * @return A list of labels to assign to this route table.
      * 
@@ -52,21 +45,18 @@ public final class VpnGatewayConnectionRoutingPropagatedRouteTable {
     public static Builder builder(VpnGatewayConnectionRoutingPropagatedRouteTable defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> labels;
         private List<String> routeTableIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpnGatewayConnectionRoutingPropagatedRouteTable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.labels = defaults.labels;
     	      this.routeTableIds = defaults.routeTableIds;
         }
 
+        @CustomType.Setter
         public Builder labels(@Nullable List<String> labels) {
             this.labels = labels;
             return this;
@@ -74,14 +64,19 @@ public final class VpnGatewayConnectionRoutingPropagatedRouteTable {
         public Builder labels(String... labels) {
             return labels(List.of(labels));
         }
+        @CustomType.Setter
         public Builder routeTableIds(List<String> routeTableIds) {
             this.routeTableIds = Objects.requireNonNull(routeTableIds);
             return this;
         }
         public Builder routeTableIds(String... routeTableIds) {
             return routeTableIds(List.of(routeTableIds));
-        }        public VpnGatewayConnectionRoutingPropagatedRouteTable build() {
-            return new VpnGatewayConnectionRoutingPropagatedRouteTable(labels, routeTableIds);
+        }
+        public VpnGatewayConnectionRoutingPropagatedRouteTable build() {
+            final var o = new VpnGatewayConnectionRoutingPropagatedRouteTable();
+            o.labels = labels;
+            o.routeTableIds = routeTableIds;
+            return o;
         }
     }
 }

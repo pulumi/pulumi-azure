@@ -13,13 +13,9 @@ public final class GroupDiagnostics {
      * @return A `log_analytics` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    private final GroupDiagnosticsLogAnalytics logAnalytics;
+    private GroupDiagnosticsLogAnalytics logAnalytics;
 
-    @CustomType.Constructor
-    private GroupDiagnostics(@CustomType.Parameter("logAnalytics") GroupDiagnosticsLogAnalytics logAnalytics) {
-        this.logAnalytics = logAnalytics;
-    }
-
+    private GroupDiagnostics() {}
     /**
      * @return A `log_analytics` block as defined below. Changing this forces a new resource to be created.
      * 
@@ -35,24 +31,24 @@ public final class GroupDiagnostics {
     public static Builder builder(GroupDiagnostics defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private GroupDiagnosticsLogAnalytics logAnalytics;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupDiagnostics defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.logAnalytics = defaults.logAnalytics;
         }
 
+        @CustomType.Setter
         public Builder logAnalytics(GroupDiagnosticsLogAnalytics logAnalytics) {
             this.logAnalytics = Objects.requireNonNull(logAnalytics);
             return this;
-        }        public GroupDiagnostics build() {
-            return new GroupDiagnostics(logAnalytics);
+        }
+        public GroupDiagnostics build() {
+            final var o = new GroupDiagnostics();
+            o.logAnalytics = logAnalytics;
+            return o;
         }
     }
 }

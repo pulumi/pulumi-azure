@@ -17,28 +17,19 @@ public final class ManagedDiskEncryptionSettings {
      * @return A `disk_encryption_key` block as defined above.
      * 
      */
-    private final @Nullable ManagedDiskEncryptionSettingsDiskEncryptionKey diskEncryptionKey;
+    private @Nullable ManagedDiskEncryptionSettingsDiskEncryptionKey diskEncryptionKey;
     /**
      * @return Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return A `key_encryption_key` block as defined below.
      * 
      */
-    private final @Nullable ManagedDiskEncryptionSettingsKeyEncryptionKey keyEncryptionKey;
+    private @Nullable ManagedDiskEncryptionSettingsKeyEncryptionKey keyEncryptionKey;
 
-    @CustomType.Constructor
-    private ManagedDiskEncryptionSettings(
-        @CustomType.Parameter("diskEncryptionKey") @Nullable ManagedDiskEncryptionSettingsDiskEncryptionKey diskEncryptionKey,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("keyEncryptionKey") @Nullable ManagedDiskEncryptionSettingsKeyEncryptionKey keyEncryptionKey) {
-        this.diskEncryptionKey = diskEncryptionKey;
-        this.enabled = enabled;
-        this.keyEncryptionKey = keyEncryptionKey;
-    }
-
+    private ManagedDiskEncryptionSettings() {}
     /**
      * @return A `disk_encryption_key` block as defined above.
      * 
@@ -68,16 +59,12 @@ public final class ManagedDiskEncryptionSettings {
     public static Builder builder(ManagedDiskEncryptionSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ManagedDiskEncryptionSettingsDiskEncryptionKey diskEncryptionKey;
         private Boolean enabled;
         private @Nullable ManagedDiskEncryptionSettingsKeyEncryptionKey keyEncryptionKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ManagedDiskEncryptionSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.diskEncryptionKey = defaults.diskEncryptionKey;
@@ -85,19 +72,27 @@ public final class ManagedDiskEncryptionSettings {
     	      this.keyEncryptionKey = defaults.keyEncryptionKey;
         }
 
+        @CustomType.Setter
         public Builder diskEncryptionKey(@Nullable ManagedDiskEncryptionSettingsDiskEncryptionKey diskEncryptionKey) {
             this.diskEncryptionKey = diskEncryptionKey;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder keyEncryptionKey(@Nullable ManagedDiskEncryptionSettingsKeyEncryptionKey keyEncryptionKey) {
             this.keyEncryptionKey = keyEncryptionKey;
             return this;
-        }        public ManagedDiskEncryptionSettings build() {
-            return new ManagedDiskEncryptionSettings(diskEncryptionKey, enabled, keyEncryptionKey);
+        }
+        public ManagedDiskEncryptionSettings build() {
+            final var o = new ManagedDiskEncryptionSettings();
+            o.diskEncryptionKey = diskEncryptionKey;
+            o.enabled = enabled;
+            o.keyEncryptionKey = keyEncryptionKey;
+            return o;
         }
     }
 }

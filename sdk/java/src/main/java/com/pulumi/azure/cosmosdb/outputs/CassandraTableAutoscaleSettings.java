@@ -15,13 +15,9 @@ public final class CassandraTableAutoscaleSettings {
      * @return The maximum throughput of the Cassandra Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
      * 
      */
-    private final @Nullable Integer maxThroughput;
+    private @Nullable Integer maxThroughput;
 
-    @CustomType.Constructor
-    private CassandraTableAutoscaleSettings(@CustomType.Parameter("maxThroughput") @Nullable Integer maxThroughput) {
-        this.maxThroughput = maxThroughput;
-    }
-
+    private CassandraTableAutoscaleSettings() {}
     /**
      * @return The maximum throughput of the Cassandra Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
      * 
@@ -37,24 +33,24 @@ public final class CassandraTableAutoscaleSettings {
     public static Builder builder(CassandraTableAutoscaleSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer maxThroughput;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CassandraTableAutoscaleSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxThroughput = defaults.maxThroughput;
         }
 
+        @CustomType.Setter
         public Builder maxThroughput(@Nullable Integer maxThroughput) {
             this.maxThroughput = maxThroughput;
             return this;
-        }        public CassandraTableAutoscaleSettings build() {
-            return new CassandraTableAutoscaleSettings(maxThroughput);
+        }
+        public CassandraTableAutoscaleSettings build() {
+            final var o = new CassandraTableAutoscaleSettings();
+            o.maxThroughput = maxThroughput;
+            return o;
         }
     }
 }

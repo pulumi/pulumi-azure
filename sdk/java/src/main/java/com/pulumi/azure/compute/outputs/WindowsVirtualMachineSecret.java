@@ -15,21 +15,14 @@ public final class WindowsVirtualMachineSecret {
      * @return One or more `certificate` blocks as defined above.
      * 
      */
-    private final List<WindowsVirtualMachineSecretCertificate> certificates;
+    private List<WindowsVirtualMachineSecretCertificate> certificates;
     /**
      * @return The ID of the Key Vault from which all Secrets should be sourced.
      * 
      */
-    private final String keyVaultId;
+    private String keyVaultId;
 
-    @CustomType.Constructor
-    private WindowsVirtualMachineSecret(
-        @CustomType.Parameter("certificates") List<WindowsVirtualMachineSecretCertificate> certificates,
-        @CustomType.Parameter("keyVaultId") String keyVaultId) {
-        this.certificates = certificates;
-        this.keyVaultId = keyVaultId;
-    }
-
+    private WindowsVirtualMachineSecret() {}
     /**
      * @return One or more `certificate` blocks as defined above.
      * 
@@ -52,21 +45,18 @@ public final class WindowsVirtualMachineSecret {
     public static Builder builder(WindowsVirtualMachineSecret defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<WindowsVirtualMachineSecretCertificate> certificates;
         private String keyVaultId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsVirtualMachineSecret defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificates = defaults.certificates;
     	      this.keyVaultId = defaults.keyVaultId;
         }
 
+        @CustomType.Setter
         public Builder certificates(List<WindowsVirtualMachineSecretCertificate> certificates) {
             this.certificates = Objects.requireNonNull(certificates);
             return this;
@@ -74,11 +64,16 @@ public final class WindowsVirtualMachineSecret {
         public Builder certificates(WindowsVirtualMachineSecretCertificate... certificates) {
             return certificates(List.of(certificates));
         }
+        @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
             this.keyVaultId = Objects.requireNonNull(keyVaultId);
             return this;
-        }        public WindowsVirtualMachineSecret build() {
-            return new WindowsVirtualMachineSecret(certificates, keyVaultId);
+        }
+        public WindowsVirtualMachineSecret build() {
+            final var o = new WindowsVirtualMachineSecret();
+            o.certificates = certificates;
+            o.keyVaultId = keyVaultId;
+            return o;
         }
     }
 }

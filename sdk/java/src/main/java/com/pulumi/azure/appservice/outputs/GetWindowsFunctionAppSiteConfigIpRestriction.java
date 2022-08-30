@@ -12,40 +12,23 @@ import java.util.Objects;
 
 @CustomType
 public final class GetWindowsFunctionAppSiteConfigIpRestriction {
-    private final String action;
-    private final List<GetWindowsFunctionAppSiteConfigIpRestrictionHeader> headers;
-    private final String ipAddress;
+    private String action;
+    private List<GetWindowsFunctionAppSiteConfigIpRestrictionHeader> headers;
+    private String ipAddress;
     /**
      * @return The name of this Windows Function App.
      * 
      */
-    private final String name;
-    private final Integer priority;
-    private final String serviceTag;
+    private String name;
+    private Integer priority;
+    private String serviceTag;
     /**
      * @return The subnet id which the Windows Function App is vNet Integrated with.
      * 
      */
-    private final String virtualNetworkSubnetId;
+    private String virtualNetworkSubnetId;
 
-    @CustomType.Constructor
-    private GetWindowsFunctionAppSiteConfigIpRestriction(
-        @CustomType.Parameter("action") String action,
-        @CustomType.Parameter("headers") List<GetWindowsFunctionAppSiteConfigIpRestrictionHeader> headers,
-        @CustomType.Parameter("ipAddress") String ipAddress,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("priority") Integer priority,
-        @CustomType.Parameter("serviceTag") String serviceTag,
-        @CustomType.Parameter("virtualNetworkSubnetId") String virtualNetworkSubnetId) {
-        this.action = action;
-        this.headers = headers;
-        this.ipAddress = ipAddress;
-        this.name = name;
-        this.priority = priority;
-        this.serviceTag = serviceTag;
-        this.virtualNetworkSubnetId = virtualNetworkSubnetId;
-    }
-
+    private GetWindowsFunctionAppSiteConfigIpRestriction() {}
     public String action() {
         return this.action;
     }
@@ -83,7 +66,7 @@ public final class GetWindowsFunctionAppSiteConfigIpRestriction {
     public static Builder builder(GetWindowsFunctionAppSiteConfigIpRestriction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String action;
         private List<GetWindowsFunctionAppSiteConfigIpRestrictionHeader> headers;
@@ -92,11 +75,7 @@ public final class GetWindowsFunctionAppSiteConfigIpRestriction {
         private Integer priority;
         private String serviceTag;
         private String virtualNetworkSubnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsFunctionAppSiteConfigIpRestriction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -108,10 +87,12 @@ public final class GetWindowsFunctionAppSiteConfigIpRestriction {
     	      this.virtualNetworkSubnetId = defaults.virtualNetworkSubnetId;
         }
 
+        @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder headers(List<GetWindowsFunctionAppSiteConfigIpRestrictionHeader> headers) {
             this.headers = Objects.requireNonNull(headers);
             return this;
@@ -119,27 +100,41 @@ public final class GetWindowsFunctionAppSiteConfigIpRestriction {
         public Builder headers(GetWindowsFunctionAppSiteConfigIpRestrictionHeader... headers) {
             return headers(List.of(headers));
         }
+        @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
             this.ipAddress = Objects.requireNonNull(ipAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder priority(Integer priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceTag(String serviceTag) {
             this.serviceTag = Objects.requireNonNull(serviceTag);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             this.virtualNetworkSubnetId = Objects.requireNonNull(virtualNetworkSubnetId);
             return this;
-        }        public GetWindowsFunctionAppSiteConfigIpRestriction build() {
-            return new GetWindowsFunctionAppSiteConfigIpRestriction(action, headers, ipAddress, name, priority, serviceTag, virtualNetworkSubnetId);
+        }
+        public GetWindowsFunctionAppSiteConfigIpRestriction build() {
+            final var o = new GetWindowsFunctionAppSiteConfigIpRestriction();
+            o.action = action;
+            o.headers = headers;
+            o.ipAddress = ipAddress;
+            o.name = name;
+            o.priority = priority;
+            o.serviceTag = serviceTag;
+            o.virtualNetworkSubnetId = virtualNetworkSubnetId;
+            return o;
         }
     }
 }

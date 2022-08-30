@@ -13,21 +13,14 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingAction {
      * @return The predefined action to be taken to an Auto Heal trigger.
      * 
      */
-    private final String actionType;
+    private String actionType;
     /**
      * @return The minimum amount of time in `hh:mm:ss` the Linux Web App must have been running before the defined action will be run in the event of a trigger.
      * 
      */
-    private final String minimumProcessExecutionTime;
+    private String minimumProcessExecutionTime;
 
-    @CustomType.Constructor
-    private GetLinuxWebAppSiteConfigAutoHealSettingAction(
-        @CustomType.Parameter("actionType") String actionType,
-        @CustomType.Parameter("minimumProcessExecutionTime") String minimumProcessExecutionTime) {
-        this.actionType = actionType;
-        this.minimumProcessExecutionTime = minimumProcessExecutionTime;
-    }
-
+    private GetLinuxWebAppSiteConfigAutoHealSettingAction() {}
     /**
      * @return The predefined action to be taken to an Auto Heal trigger.
      * 
@@ -50,30 +43,32 @@ public final class GetLinuxWebAppSiteConfigAutoHealSettingAction {
     public static Builder builder(GetLinuxWebAppSiteConfigAutoHealSettingAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String actionType;
         private String minimumProcessExecutionTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxWebAppSiteConfigAutoHealSettingAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionType = defaults.actionType;
     	      this.minimumProcessExecutionTime = defaults.minimumProcessExecutionTime;
         }
 
+        @CustomType.Setter
         public Builder actionType(String actionType) {
             this.actionType = Objects.requireNonNull(actionType);
             return this;
         }
+        @CustomType.Setter
         public Builder minimumProcessExecutionTime(String minimumProcessExecutionTime) {
             this.minimumProcessExecutionTime = Objects.requireNonNull(minimumProcessExecutionTime);
             return this;
-        }        public GetLinuxWebAppSiteConfigAutoHealSettingAction build() {
-            return new GetLinuxWebAppSiteConfigAutoHealSettingAction(actionType, minimumProcessExecutionTime);
+        }
+        public GetLinuxWebAppSiteConfigAutoHealSettingAction build() {
+            final var o = new GetLinuxWebAppSiteConfigAutoHealSettingAction();
+            o.actionType = actionType;
+            o.minimumProcessExecutionTime = minimumProcessExecutionTime;
+            return o;
         }
     }
 }

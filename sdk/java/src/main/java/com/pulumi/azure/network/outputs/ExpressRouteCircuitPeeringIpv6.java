@@ -17,42 +17,29 @@ public final class ExpressRouteCircuitPeeringIpv6 {
      * @return A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return A `microsoft_peering` block as defined below.
      * 
      */
-    private final @Nullable ExpressRouteCircuitPeeringIpv6MicrosoftPeering microsoftPeering;
+    private @Nullable ExpressRouteCircuitPeeringIpv6MicrosoftPeering microsoftPeering;
     /**
      * @return A subnet for the primary link.
      * 
      */
-    private final String primaryPeerAddressPrefix;
+    private String primaryPeerAddressPrefix;
     /**
      * @return The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
      * 
      */
-    private final @Nullable String routeFilterId;
+    private @Nullable String routeFilterId;
     /**
      * @return A subnet for the secondary link.
      * 
      */
-    private final String secondaryPeerAddressPrefix;
+    private String secondaryPeerAddressPrefix;
 
-    @CustomType.Constructor
-    private ExpressRouteCircuitPeeringIpv6(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("microsoftPeering") @Nullable ExpressRouteCircuitPeeringIpv6MicrosoftPeering microsoftPeering,
-        @CustomType.Parameter("primaryPeerAddressPrefix") String primaryPeerAddressPrefix,
-        @CustomType.Parameter("routeFilterId") @Nullable String routeFilterId,
-        @CustomType.Parameter("secondaryPeerAddressPrefix") String secondaryPeerAddressPrefix) {
-        this.enabled = enabled;
-        this.microsoftPeering = microsoftPeering;
-        this.primaryPeerAddressPrefix = primaryPeerAddressPrefix;
-        this.routeFilterId = routeFilterId;
-        this.secondaryPeerAddressPrefix = secondaryPeerAddressPrefix;
-    }
-
+    private ExpressRouteCircuitPeeringIpv6() {}
     /**
      * @return A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
      * 
@@ -96,18 +83,14 @@ public final class ExpressRouteCircuitPeeringIpv6 {
     public static Builder builder(ExpressRouteCircuitPeeringIpv6 defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable ExpressRouteCircuitPeeringIpv6MicrosoftPeering microsoftPeering;
         private String primaryPeerAddressPrefix;
         private @Nullable String routeFilterId;
         private String secondaryPeerAddressPrefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ExpressRouteCircuitPeeringIpv6 defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -117,27 +100,39 @@ public final class ExpressRouteCircuitPeeringIpv6 {
     	      this.secondaryPeerAddressPrefix = defaults.secondaryPeerAddressPrefix;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder microsoftPeering(@Nullable ExpressRouteCircuitPeeringIpv6MicrosoftPeering microsoftPeering) {
             this.microsoftPeering = microsoftPeering;
             return this;
         }
+        @CustomType.Setter
         public Builder primaryPeerAddressPrefix(String primaryPeerAddressPrefix) {
             this.primaryPeerAddressPrefix = Objects.requireNonNull(primaryPeerAddressPrefix);
             return this;
         }
+        @CustomType.Setter
         public Builder routeFilterId(@Nullable String routeFilterId) {
             this.routeFilterId = routeFilterId;
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryPeerAddressPrefix(String secondaryPeerAddressPrefix) {
             this.secondaryPeerAddressPrefix = Objects.requireNonNull(secondaryPeerAddressPrefix);
             return this;
-        }        public ExpressRouteCircuitPeeringIpv6 build() {
-            return new ExpressRouteCircuitPeeringIpv6(enabled, microsoftPeering, primaryPeerAddressPrefix, routeFilterId, secondaryPeerAddressPrefix);
+        }
+        public ExpressRouteCircuitPeeringIpv6 build() {
+            final var o = new ExpressRouteCircuitPeeringIpv6();
+            o.enabled = enabled;
+            o.microsoftPeering = microsoftPeering;
+            o.primaryPeerAddressPrefix = primaryPeerAddressPrefix;
+            o.routeFilterId = routeFilterId;
+            o.secondaryPeerAddressPrefix = secondaryPeerAddressPrefix;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class WindowsWebAppSiteConfigAutoHealSettingActionCustomAction {
      * @return The executable to run for the `custom_action`.
      * 
      */
-    private final String executable;
+    private String executable;
     /**
      * @return The parameters to pass to the specified `executable`.
      * 
      */
-    private final @Nullable String parameters;
+    private @Nullable String parameters;
 
-    @CustomType.Constructor
-    private WindowsWebAppSiteConfigAutoHealSettingActionCustomAction(
-        @CustomType.Parameter("executable") String executable,
-        @CustomType.Parameter("parameters") @Nullable String parameters) {
-        this.executable = executable;
-        this.parameters = parameters;
-    }
-
+    private WindowsWebAppSiteConfigAutoHealSettingActionCustomAction() {}
     /**
      * @return The executable to run for the `custom_action`.
      * 
@@ -52,30 +45,32 @@ public final class WindowsWebAppSiteConfigAutoHealSettingActionCustomAction {
     public static Builder builder(WindowsWebAppSiteConfigAutoHealSettingActionCustomAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String executable;
         private @Nullable String parameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsWebAppSiteConfigAutoHealSettingActionCustomAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.executable = defaults.executable;
     	      this.parameters = defaults.parameters;
         }
 
+        @CustomType.Setter
         public Builder executable(String executable) {
             this.executable = Objects.requireNonNull(executable);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable String parameters) {
             this.parameters = parameters;
             return this;
-        }        public WindowsWebAppSiteConfigAutoHealSettingActionCustomAction build() {
-            return new WindowsWebAppSiteConfigAutoHealSettingActionCustomAction(executable, parameters);
+        }
+        public WindowsWebAppSiteConfigAutoHealSettingActionCustomAction build() {
+            final var o = new WindowsWebAppSiteConfigAutoHealSettingActionCustomAction();
+            o.executable = executable;
+            o.parameters = parameters;
+            return o;
         }
     }
 }

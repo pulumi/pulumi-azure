@@ -16,28 +16,19 @@ public final class LiveEventInputIpAccessControlAllow {
      * @return The IP address or CIDR range.
      * 
      */
-    private final @Nullable String address;
+    private @Nullable String address;
     /**
      * @return The friendly name for the IP address range.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The subnet mask prefix length (see CIDR notation).
      * 
      */
-    private final @Nullable Integer subnetPrefixLength;
+    private @Nullable Integer subnetPrefixLength;
 
-    @CustomType.Constructor
-    private LiveEventInputIpAccessControlAllow(
-        @CustomType.Parameter("address") @Nullable String address,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("subnetPrefixLength") @Nullable Integer subnetPrefixLength) {
-        this.address = address;
-        this.name = name;
-        this.subnetPrefixLength = subnetPrefixLength;
-    }
-
+    private LiveEventInputIpAccessControlAllow() {}
     /**
      * @return The IP address or CIDR range.
      * 
@@ -67,16 +58,12 @@ public final class LiveEventInputIpAccessControlAllow {
     public static Builder builder(LiveEventInputIpAccessControlAllow defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String address;
         private @Nullable String name;
         private @Nullable Integer subnetPrefixLength;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LiveEventInputIpAccessControlAllow defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.address = defaults.address;
@@ -84,19 +71,27 @@ public final class LiveEventInputIpAccessControlAllow {
     	      this.subnetPrefixLength = defaults.subnetPrefixLength;
         }
 
+        @CustomType.Setter
         public Builder address(@Nullable String address) {
             this.address = address;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder subnetPrefixLength(@Nullable Integer subnetPrefixLength) {
             this.subnetPrefixLength = subnetPrefixLength;
             return this;
-        }        public LiveEventInputIpAccessControlAllow build() {
-            return new LiveEventInputIpAccessControlAllow(address, name, subnetPrefixLength);
+        }
+        public LiveEventInputIpAccessControlAllow build() {
+            final var o = new LiveEventInputIpAccessControlAllow();
+            o.address = address;
+            o.name = name;
+            o.subnetPrefixLength = subnetPrefixLength;
+            return o;
         }
     }
 }

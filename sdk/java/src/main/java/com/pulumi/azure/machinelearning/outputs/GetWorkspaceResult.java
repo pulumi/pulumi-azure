@@ -16,41 +16,26 @@ public final class GetWorkspaceResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return An `identity` block as defined below.
      * 
      */
-    private final List<GetWorkspaceIdentity> identities;
+    private List<GetWorkspaceIdentity> identities;
     /**
      * @return The location where the Machine Learning Workspace exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags assigned to the Machine Learning Workspace.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetWorkspaceResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetWorkspaceIdentity> identities,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.id = id;
-        this.identities = identities;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-    }
-
+    private GetWorkspaceResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -93,7 +78,7 @@ public final class GetWorkspaceResult {
     public static Builder builder(GetWorkspaceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private List<GetWorkspaceIdentity> identities;
@@ -101,11 +86,7 @@ public final class GetWorkspaceResult {
         private String name;
         private String resourceGroupName;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWorkspaceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -116,10 +97,12 @@ public final class GetWorkspaceResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetWorkspaceIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -127,23 +110,35 @@ public final class GetWorkspaceResult {
         public Builder identities(GetWorkspaceIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetWorkspaceResult build() {
-            return new GetWorkspaceResult(id, identities, location, name, resourceGroupName, tags);
+        }
+        public GetWorkspaceResult build() {
+            final var o = new GetWorkspaceResult();
+            o.id = id;
+            o.identities = identities;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            return o;
         }
     }
 }

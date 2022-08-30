@@ -18,44 +18,27 @@ public final class GetShareResult {
      * @return One or more acl blocks as defined below.
      * 
      */
-    private final @Nullable List<GetShareAcl> acls;
+    private @Nullable List<GetShareAcl> acls;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A map of custom file share metadata.
      * 
      */
-    private final Map<String,String> metadata;
-    private final String name;
+    private Map<String,String> metadata;
+    private String name;
     /**
      * @return The quota of the File Share in GB.
      * 
      */
-    private final Integer quota;
-    private final String resourceManagerId;
-    private final String storageAccountName;
+    private Integer quota;
+    private String resourceManagerId;
+    private String storageAccountName;
 
-    @CustomType.Constructor
-    private GetShareResult(
-        @CustomType.Parameter("acls") @Nullable List<GetShareAcl> acls,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("metadata") Map<String,String> metadata,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("quota") Integer quota,
-        @CustomType.Parameter("resourceManagerId") String resourceManagerId,
-        @CustomType.Parameter("storageAccountName") String storageAccountName) {
-        this.acls = acls;
-        this.id = id;
-        this.metadata = metadata;
-        this.name = name;
-        this.quota = quota;
-        this.resourceManagerId = resourceManagerId;
-        this.storageAccountName = storageAccountName;
-    }
-
+    private GetShareResult() {}
     /**
      * @return One or more acl blocks as defined below.
      * 
@@ -101,7 +84,7 @@ public final class GetShareResult {
     public static Builder builder(GetShareResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<GetShareAcl> acls;
         private String id;
@@ -110,11 +93,7 @@ public final class GetShareResult {
         private Integer quota;
         private String resourceManagerId;
         private String storageAccountName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetShareResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acls = defaults.acls;
@@ -126,6 +105,7 @@ public final class GetShareResult {
     	      this.storageAccountName = defaults.storageAccountName;
         }
 
+        @CustomType.Setter
         public Builder acls(@Nullable List<GetShareAcl> acls) {
             this.acls = acls;
             return this;
@@ -133,31 +113,46 @@ public final class GetShareResult {
         public Builder acls(GetShareAcl... acls) {
             return acls(List.of(acls));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder metadata(Map<String,String> metadata) {
             this.metadata = Objects.requireNonNull(metadata);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder quota(Integer quota) {
             this.quota = Objects.requireNonNull(quota);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceManagerId(String resourceManagerId) {
             this.resourceManagerId = Objects.requireNonNull(resourceManagerId);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountName(String storageAccountName) {
             this.storageAccountName = Objects.requireNonNull(storageAccountName);
             return this;
-        }        public GetShareResult build() {
-            return new GetShareResult(acls, id, metadata, name, quota, resourceManagerId, storageAccountName);
+        }
+        public GetShareResult build() {
+            final var o = new GetShareResult();
+            o.acls = acls;
+            o.id = id;
+            o.metadata = metadata;
+            o.name = name;
+            o.quota = quota;
+            o.resourceManagerId = resourceManagerId;
+            o.storageAccountName = storageAccountName;
+            return o;
         }
     }
 }

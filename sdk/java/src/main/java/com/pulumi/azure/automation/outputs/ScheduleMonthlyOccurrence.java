@@ -14,21 +14,14 @@ public final class ScheduleMonthlyOccurrence {
      * @return Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
      * 
      */
-    private final String day;
+    private String day;
     /**
      * @return Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
      * 
      */
-    private final Integer occurrence;
+    private Integer occurrence;
 
-    @CustomType.Constructor
-    private ScheduleMonthlyOccurrence(
-        @CustomType.Parameter("day") String day,
-        @CustomType.Parameter("occurrence") Integer occurrence) {
-        this.day = day;
-        this.occurrence = occurrence;
-    }
-
+    private ScheduleMonthlyOccurrence() {}
     /**
      * @return Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
      * 
@@ -51,30 +44,32 @@ public final class ScheduleMonthlyOccurrence {
     public static Builder builder(ScheduleMonthlyOccurrence defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String day;
         private Integer occurrence;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScheduleMonthlyOccurrence defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.day = defaults.day;
     	      this.occurrence = defaults.occurrence;
         }
 
+        @CustomType.Setter
         public Builder day(String day) {
             this.day = Objects.requireNonNull(day);
             return this;
         }
+        @CustomType.Setter
         public Builder occurrence(Integer occurrence) {
             this.occurrence = Objects.requireNonNull(occurrence);
             return this;
-        }        public ScheduleMonthlyOccurrence build() {
-            return new ScheduleMonthlyOccurrence(day, occurrence);
+        }
+        public ScheduleMonthlyOccurrence build() {
+            final var o = new ScheduleMonthlyOccurrence();
+            o.day = day;
+            o.occurrence = occurrence;
+            return o;
         }
     }
 }

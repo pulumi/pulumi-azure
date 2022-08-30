@@ -21,220 +21,155 @@ public final class AppServiceSiteConfig {
      * @return Are Managed Identity Credentials used for Azure Container Registry pull
      * 
      */
-    private final @Nullable Boolean acrUseManagedIdentityCredentials;
+    private @Nullable Boolean acrUseManagedIdentityCredentials;
     /**
      * @return If using User Managed Identity, the User Managed Identity Client Id
      * 
      */
-    private final @Nullable String acrUserManagedIdentityClientId;
+    private @Nullable String acrUserManagedIdentityClientId;
     /**
      * @return Should the app be loaded at all times? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean alwaysOn;
+    private @Nullable Boolean alwaysOn;
     /**
      * @return App command line to launch, e.g. `/sbin/myserver -b 0.0.0.0`.
      * 
      */
-    private final @Nullable String appCommandLine;
-    private final @Nullable String autoSwapSlotName;
+    private @Nullable String appCommandLine;
+    private @Nullable String autoSwapSlotName;
     /**
      * @return A `cors` block as defined below.
      * 
      */
-    private final @Nullable AppServiceSiteConfigCors cors;
+    private @Nullable AppServiceSiteConfigCors cors;
     /**
      * @return The ordering of default documents to load, if an address isn&#39;t specified.
      * 
      */
-    private final @Nullable List<String> defaultDocuments;
+    private @Nullable List<String> defaultDocuments;
     /**
      * @return The version of the .NET framework&#39;s CLR used in this App Service. Possible values are `v2.0` (which will use the latest version of the .NET framework for the .NET CLR v2 - currently `.net 3.5`), `v4.0` (which corresponds to the latest version of the .NET CLR v4 - which at the time of writing is `.net 4.7.1`), `v5.0` and `v6.0`. [For more information on which .NET CLR version to use based on the .NET framework you&#39;re targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to `v4.0`.
      * 
      */
-    private final @Nullable String dotnetFrameworkVersion;
+    private @Nullable String dotnetFrameworkVersion;
     /**
      * @return State of FTP / FTPS service for this App Service. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
      * 
      */
-    private final @Nullable String ftpsState;
+    private @Nullable String ftpsState;
     /**
      * @return The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
      * 
      */
-    private final @Nullable String healthCheckPath;
+    private @Nullable String healthCheckPath;
     /**
      * @return Is HTTP2 Enabled on this App Service? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean http2Enabled;
+    private @Nullable Boolean http2Enabled;
     /**
      * @return A list of objects representing ip restrictions as defined below.
      * 
      */
-    private final @Nullable List<AppServiceSiteConfigIpRestriction> ipRestrictions;
+    private @Nullable List<AppServiceSiteConfigIpRestriction> ipRestrictions;
     /**
      * @return The Java Container to use. If specified `java_version` and `java_container_version` must also be specified. Possible values are `JAVA`, `JETTY`, and `TOMCAT`.
      * 
      */
-    private final @Nullable String javaContainer;
+    private @Nullable String javaContainer;
     /**
      * @return The version of the Java Container to use. If specified `java_version` and `java_container` must also be specified.
      * 
      */
-    private final @Nullable String javaContainerVersion;
+    private @Nullable String javaContainerVersion;
     /**
      * @return The version of Java to use. If specified `java_container` and `java_container_version` must also be specified. Possible values are `1.7`, `1.8` and `11` and their specific versions - except for Java 11 (e.g. `1.7.0_80`, `1.8.0_181`, `11`)
      * 
      */
-    private final @Nullable String javaVersion;
+    private @Nullable String javaVersion;
     /**
      * @return Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|&lt;user/image:tag&gt;`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64(&#34;compose.yml&#34;)}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64(&#34;kubernetes.yml&#34;)}`).
      * 
      */
-    private final @Nullable String linuxFxVersion;
+    private @Nullable String linuxFxVersion;
     /**
      * @return Is &#34;MySQL In App&#34; Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
      * 
      */
-    private final @Nullable Boolean localMysqlEnabled;
+    private @Nullable Boolean localMysqlEnabled;
     /**
      * @return The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
      * 
      */
-    private final @Nullable String managedPipelineMode;
+    private @Nullable String managedPipelineMode;
     /**
      * @return The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
      * 
      */
-    private final @Nullable String minTlsVersion;
+    private @Nullable String minTlsVersion;
     /**
      * @return The scaled number of workers (for per site scaling) of this App Service. Requires that `per_site_scaling` is enabled on the `azure.appservice.Plan`. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
      * 
      */
-    private final @Nullable Integer numberOfWorkers;
+    private @Nullable Integer numberOfWorkers;
     /**
      * @return The version of PHP to use in this App Service. Possible values are `5.5`, `5.6`, `7.0`, `7.1`, `7.2`, `7.3` and `7.4`.
      * 
      */
-    private final @Nullable String phpVersion;
+    private @Nullable String phpVersion;
     /**
      * @return The version of Python to use in this App Service. Possible values are `2.7` and `3.4`.
      * 
      */
-    private final @Nullable String pythonVersion;
+    private @Nullable String pythonVersion;
     /**
      * @return Is Remote Debugging Enabled? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean remoteDebuggingEnabled;
+    private @Nullable Boolean remoteDebuggingEnabled;
     /**
      * @return Which version of Visual Studio should the Remote Debugger be compatible with? Possible values are `VS2012`, `VS2013`, `VS2015` and `VS2017`.
      * 
      */
-    private final @Nullable String remoteDebuggingVersion;
+    private @Nullable String remoteDebuggingVersion;
     /**
      * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
      * 
      */
-    private final @Nullable List<AppServiceSiteConfigScmIpRestriction> scmIpRestrictions;
+    private @Nullable List<AppServiceSiteConfigScmIpRestriction> scmIpRestrictions;
     /**
      * @return The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
      * 
      */
-    private final @Nullable String scmType;
+    private @Nullable String scmType;
     /**
      * @return IP security restrictions for scm to use main. Defaults to false.
      * 
      */
-    private final @Nullable Boolean scmUseMainIpRestriction;
+    private @Nullable Boolean scmUseMainIpRestriction;
     /**
      * @return Should the App Service run in 32 bit mode, rather than 64 bit mode?
      * 
      */
-    private final @Nullable Boolean use32BitWorkerProcess;
+    private @Nullable Boolean use32BitWorkerProcess;
     /**
      * @return Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean vnetRouteAllEnabled;
+    private @Nullable Boolean vnetRouteAllEnabled;
     /**
      * @return Should WebSockets be enabled?
      * 
      */
-    private final @Nullable Boolean websocketsEnabled;
+    private @Nullable Boolean websocketsEnabled;
     /**
      * @return The Windows Docker container image (`DOCKER|&lt;user/image:tag&gt;`)
      * 
      */
-    private final @Nullable String windowsFxVersion;
+    private @Nullable String windowsFxVersion;
 
-    @CustomType.Constructor
-    private AppServiceSiteConfig(
-        @CustomType.Parameter("acrUseManagedIdentityCredentials") @Nullable Boolean acrUseManagedIdentityCredentials,
-        @CustomType.Parameter("acrUserManagedIdentityClientId") @Nullable String acrUserManagedIdentityClientId,
-        @CustomType.Parameter("alwaysOn") @Nullable Boolean alwaysOn,
-        @CustomType.Parameter("appCommandLine") @Nullable String appCommandLine,
-        @CustomType.Parameter("autoSwapSlotName") @Nullable String autoSwapSlotName,
-        @CustomType.Parameter("cors") @Nullable AppServiceSiteConfigCors cors,
-        @CustomType.Parameter("defaultDocuments") @Nullable List<String> defaultDocuments,
-        @CustomType.Parameter("dotnetFrameworkVersion") @Nullable String dotnetFrameworkVersion,
-        @CustomType.Parameter("ftpsState") @Nullable String ftpsState,
-        @CustomType.Parameter("healthCheckPath") @Nullable String healthCheckPath,
-        @CustomType.Parameter("http2Enabled") @Nullable Boolean http2Enabled,
-        @CustomType.Parameter("ipRestrictions") @Nullable List<AppServiceSiteConfigIpRestriction> ipRestrictions,
-        @CustomType.Parameter("javaContainer") @Nullable String javaContainer,
-        @CustomType.Parameter("javaContainerVersion") @Nullable String javaContainerVersion,
-        @CustomType.Parameter("javaVersion") @Nullable String javaVersion,
-        @CustomType.Parameter("linuxFxVersion") @Nullable String linuxFxVersion,
-        @CustomType.Parameter("localMysqlEnabled") @Nullable Boolean localMysqlEnabled,
-        @CustomType.Parameter("managedPipelineMode") @Nullable String managedPipelineMode,
-        @CustomType.Parameter("minTlsVersion") @Nullable String minTlsVersion,
-        @CustomType.Parameter("numberOfWorkers") @Nullable Integer numberOfWorkers,
-        @CustomType.Parameter("phpVersion") @Nullable String phpVersion,
-        @CustomType.Parameter("pythonVersion") @Nullable String pythonVersion,
-        @CustomType.Parameter("remoteDebuggingEnabled") @Nullable Boolean remoteDebuggingEnabled,
-        @CustomType.Parameter("remoteDebuggingVersion") @Nullable String remoteDebuggingVersion,
-        @CustomType.Parameter("scmIpRestrictions") @Nullable List<AppServiceSiteConfigScmIpRestriction> scmIpRestrictions,
-        @CustomType.Parameter("scmType") @Nullable String scmType,
-        @CustomType.Parameter("scmUseMainIpRestriction") @Nullable Boolean scmUseMainIpRestriction,
-        @CustomType.Parameter("use32BitWorkerProcess") @Nullable Boolean use32BitWorkerProcess,
-        @CustomType.Parameter("vnetRouteAllEnabled") @Nullable Boolean vnetRouteAllEnabled,
-        @CustomType.Parameter("websocketsEnabled") @Nullable Boolean websocketsEnabled,
-        @CustomType.Parameter("windowsFxVersion") @Nullable String windowsFxVersion) {
-        this.acrUseManagedIdentityCredentials = acrUseManagedIdentityCredentials;
-        this.acrUserManagedIdentityClientId = acrUserManagedIdentityClientId;
-        this.alwaysOn = alwaysOn;
-        this.appCommandLine = appCommandLine;
-        this.autoSwapSlotName = autoSwapSlotName;
-        this.cors = cors;
-        this.defaultDocuments = defaultDocuments;
-        this.dotnetFrameworkVersion = dotnetFrameworkVersion;
-        this.ftpsState = ftpsState;
-        this.healthCheckPath = healthCheckPath;
-        this.http2Enabled = http2Enabled;
-        this.ipRestrictions = ipRestrictions;
-        this.javaContainer = javaContainer;
-        this.javaContainerVersion = javaContainerVersion;
-        this.javaVersion = javaVersion;
-        this.linuxFxVersion = linuxFxVersion;
-        this.localMysqlEnabled = localMysqlEnabled;
-        this.managedPipelineMode = managedPipelineMode;
-        this.minTlsVersion = minTlsVersion;
-        this.numberOfWorkers = numberOfWorkers;
-        this.phpVersion = phpVersion;
-        this.pythonVersion = pythonVersion;
-        this.remoteDebuggingEnabled = remoteDebuggingEnabled;
-        this.remoteDebuggingVersion = remoteDebuggingVersion;
-        this.scmIpRestrictions = scmIpRestrictions;
-        this.scmType = scmType;
-        this.scmUseMainIpRestriction = scmUseMainIpRestriction;
-        this.use32BitWorkerProcess = use32BitWorkerProcess;
-        this.vnetRouteAllEnabled = vnetRouteAllEnabled;
-        this.websocketsEnabled = websocketsEnabled;
-        this.windowsFxVersion = windowsFxVersion;
-    }
-
+    private AppServiceSiteConfig() {}
     /**
      * @return Are Managed Identity Credentials used for Azure Container Registry pull
      * 
@@ -456,7 +391,7 @@ public final class AppServiceSiteConfig {
     public static Builder builder(AppServiceSiteConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean acrUseManagedIdentityCredentials;
         private @Nullable String acrUserManagedIdentityClientId;
@@ -489,11 +424,7 @@ public final class AppServiceSiteConfig {
         private @Nullable Boolean vnetRouteAllEnabled;
         private @Nullable Boolean websocketsEnabled;
         private @Nullable String windowsFxVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppServiceSiteConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acrUseManagedIdentityCredentials = defaults.acrUseManagedIdentityCredentials;
@@ -529,30 +460,37 @@ public final class AppServiceSiteConfig {
     	      this.windowsFxVersion = defaults.windowsFxVersion;
         }
 
+        @CustomType.Setter
         public Builder acrUseManagedIdentityCredentials(@Nullable Boolean acrUseManagedIdentityCredentials) {
             this.acrUseManagedIdentityCredentials = acrUseManagedIdentityCredentials;
             return this;
         }
+        @CustomType.Setter
         public Builder acrUserManagedIdentityClientId(@Nullable String acrUserManagedIdentityClientId) {
             this.acrUserManagedIdentityClientId = acrUserManagedIdentityClientId;
             return this;
         }
+        @CustomType.Setter
         public Builder alwaysOn(@Nullable Boolean alwaysOn) {
             this.alwaysOn = alwaysOn;
             return this;
         }
+        @CustomType.Setter
         public Builder appCommandLine(@Nullable String appCommandLine) {
             this.appCommandLine = appCommandLine;
             return this;
         }
+        @CustomType.Setter
         public Builder autoSwapSlotName(@Nullable String autoSwapSlotName) {
             this.autoSwapSlotName = autoSwapSlotName;
             return this;
         }
+        @CustomType.Setter
         public Builder cors(@Nullable AppServiceSiteConfigCors cors) {
             this.cors = cors;
             return this;
         }
+        @CustomType.Setter
         public Builder defaultDocuments(@Nullable List<String> defaultDocuments) {
             this.defaultDocuments = defaultDocuments;
             return this;
@@ -560,22 +498,27 @@ public final class AppServiceSiteConfig {
         public Builder defaultDocuments(String... defaultDocuments) {
             return defaultDocuments(List.of(defaultDocuments));
         }
+        @CustomType.Setter
         public Builder dotnetFrameworkVersion(@Nullable String dotnetFrameworkVersion) {
             this.dotnetFrameworkVersion = dotnetFrameworkVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder ftpsState(@Nullable String ftpsState) {
             this.ftpsState = ftpsState;
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheckPath(@Nullable String healthCheckPath) {
             this.healthCheckPath = healthCheckPath;
             return this;
         }
+        @CustomType.Setter
         public Builder http2Enabled(@Nullable Boolean http2Enabled) {
             this.http2Enabled = http2Enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder ipRestrictions(@Nullable List<AppServiceSiteConfigIpRestriction> ipRestrictions) {
             this.ipRestrictions = ipRestrictions;
             return this;
@@ -583,54 +526,67 @@ public final class AppServiceSiteConfig {
         public Builder ipRestrictions(AppServiceSiteConfigIpRestriction... ipRestrictions) {
             return ipRestrictions(List.of(ipRestrictions));
         }
+        @CustomType.Setter
         public Builder javaContainer(@Nullable String javaContainer) {
             this.javaContainer = javaContainer;
             return this;
         }
+        @CustomType.Setter
         public Builder javaContainerVersion(@Nullable String javaContainerVersion) {
             this.javaContainerVersion = javaContainerVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder javaVersion(@Nullable String javaVersion) {
             this.javaVersion = javaVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder linuxFxVersion(@Nullable String linuxFxVersion) {
             this.linuxFxVersion = linuxFxVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder localMysqlEnabled(@Nullable Boolean localMysqlEnabled) {
             this.localMysqlEnabled = localMysqlEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder managedPipelineMode(@Nullable String managedPipelineMode) {
             this.managedPipelineMode = managedPipelineMode;
             return this;
         }
+        @CustomType.Setter
         public Builder minTlsVersion(@Nullable String minTlsVersion) {
             this.minTlsVersion = minTlsVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder numberOfWorkers(@Nullable Integer numberOfWorkers) {
             this.numberOfWorkers = numberOfWorkers;
             return this;
         }
+        @CustomType.Setter
         public Builder phpVersion(@Nullable String phpVersion) {
             this.phpVersion = phpVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder pythonVersion(@Nullable String pythonVersion) {
             this.pythonVersion = pythonVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder remoteDebuggingEnabled(@Nullable Boolean remoteDebuggingEnabled) {
             this.remoteDebuggingEnabled = remoteDebuggingEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder remoteDebuggingVersion(@Nullable String remoteDebuggingVersion) {
             this.remoteDebuggingVersion = remoteDebuggingVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder scmIpRestrictions(@Nullable List<AppServiceSiteConfigScmIpRestriction> scmIpRestrictions) {
             this.scmIpRestrictions = scmIpRestrictions;
             return this;
@@ -638,31 +594,70 @@ public final class AppServiceSiteConfig {
         public Builder scmIpRestrictions(AppServiceSiteConfigScmIpRestriction... scmIpRestrictions) {
             return scmIpRestrictions(List.of(scmIpRestrictions));
         }
+        @CustomType.Setter
         public Builder scmType(@Nullable String scmType) {
             this.scmType = scmType;
             return this;
         }
+        @CustomType.Setter
         public Builder scmUseMainIpRestriction(@Nullable Boolean scmUseMainIpRestriction) {
             this.scmUseMainIpRestriction = scmUseMainIpRestriction;
             return this;
         }
+        @CustomType.Setter
         public Builder use32BitWorkerProcess(@Nullable Boolean use32BitWorkerProcess) {
             this.use32BitWorkerProcess = use32BitWorkerProcess;
             return this;
         }
+        @CustomType.Setter
         public Builder vnetRouteAllEnabled(@Nullable Boolean vnetRouteAllEnabled) {
             this.vnetRouteAllEnabled = vnetRouteAllEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder websocketsEnabled(@Nullable Boolean websocketsEnabled) {
             this.websocketsEnabled = websocketsEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder windowsFxVersion(@Nullable String windowsFxVersion) {
             this.windowsFxVersion = windowsFxVersion;
             return this;
-        }        public AppServiceSiteConfig build() {
-            return new AppServiceSiteConfig(acrUseManagedIdentityCredentials, acrUserManagedIdentityClientId, alwaysOn, appCommandLine, autoSwapSlotName, cors, defaultDocuments, dotnetFrameworkVersion, ftpsState, healthCheckPath, http2Enabled, ipRestrictions, javaContainer, javaContainerVersion, javaVersion, linuxFxVersion, localMysqlEnabled, managedPipelineMode, minTlsVersion, numberOfWorkers, phpVersion, pythonVersion, remoteDebuggingEnabled, remoteDebuggingVersion, scmIpRestrictions, scmType, scmUseMainIpRestriction, use32BitWorkerProcess, vnetRouteAllEnabled, websocketsEnabled, windowsFxVersion);
+        }
+        public AppServiceSiteConfig build() {
+            final var o = new AppServiceSiteConfig();
+            o.acrUseManagedIdentityCredentials = acrUseManagedIdentityCredentials;
+            o.acrUserManagedIdentityClientId = acrUserManagedIdentityClientId;
+            o.alwaysOn = alwaysOn;
+            o.appCommandLine = appCommandLine;
+            o.autoSwapSlotName = autoSwapSlotName;
+            o.cors = cors;
+            o.defaultDocuments = defaultDocuments;
+            o.dotnetFrameworkVersion = dotnetFrameworkVersion;
+            o.ftpsState = ftpsState;
+            o.healthCheckPath = healthCheckPath;
+            o.http2Enabled = http2Enabled;
+            o.ipRestrictions = ipRestrictions;
+            o.javaContainer = javaContainer;
+            o.javaContainerVersion = javaContainerVersion;
+            o.javaVersion = javaVersion;
+            o.linuxFxVersion = linuxFxVersion;
+            o.localMysqlEnabled = localMysqlEnabled;
+            o.managedPipelineMode = managedPipelineMode;
+            o.minTlsVersion = minTlsVersion;
+            o.numberOfWorkers = numberOfWorkers;
+            o.phpVersion = phpVersion;
+            o.pythonVersion = pythonVersion;
+            o.remoteDebuggingEnabled = remoteDebuggingEnabled;
+            o.remoteDebuggingVersion = remoteDebuggingVersion;
+            o.scmIpRestrictions = scmIpRestrictions;
+            o.scmType = scmType;
+            o.scmUseMainIpRestriction = scmUseMainIpRestriction;
+            o.use32BitWorkerProcess = use32BitWorkerProcess;
+            o.vnetRouteAllEnabled = vnetRouteAllEnabled;
+            o.websocketsEnabled = websocketsEnabled;
+            o.windowsFxVersion = windowsFxVersion;
+            return o;
         }
     }
 }

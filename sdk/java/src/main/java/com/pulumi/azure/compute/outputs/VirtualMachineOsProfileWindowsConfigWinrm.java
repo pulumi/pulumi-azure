@@ -15,21 +15,14 @@ public final class VirtualMachineOsProfileWindowsConfigWinrm {
      * @return The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the `vault_certificates` block within the `os_profile_secrets` block.
      * 
      */
-    private final @Nullable String certificateUrl;
+    private @Nullable String certificateUrl;
     /**
      * @return Specifies the protocol of listener. Possible values are `HTTP` or `HTTPS`.
      * 
      */
-    private final String protocol;
+    private String protocol;
 
-    @CustomType.Constructor
-    private VirtualMachineOsProfileWindowsConfigWinrm(
-        @CustomType.Parameter("certificateUrl") @Nullable String certificateUrl,
-        @CustomType.Parameter("protocol") String protocol) {
-        this.certificateUrl = certificateUrl;
-        this.protocol = protocol;
-    }
-
+    private VirtualMachineOsProfileWindowsConfigWinrm() {}
     /**
      * @return The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the `vault_certificates` block within the `os_profile_secrets` block.
      * 
@@ -52,30 +45,32 @@ public final class VirtualMachineOsProfileWindowsConfigWinrm {
     public static Builder builder(VirtualMachineOsProfileWindowsConfigWinrm defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String certificateUrl;
         private String protocol;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualMachineOsProfileWindowsConfigWinrm defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateUrl = defaults.certificateUrl;
     	      this.protocol = defaults.protocol;
         }
 
+        @CustomType.Setter
         public Builder certificateUrl(@Nullable String certificateUrl) {
             this.certificateUrl = certificateUrl;
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
-        }        public VirtualMachineOsProfileWindowsConfigWinrm build() {
-            return new VirtualMachineOsProfileWindowsConfigWinrm(certificateUrl, protocol);
+        }
+        public VirtualMachineOsProfileWindowsConfigWinrm build() {
+            final var o = new VirtualMachineOsProfileWindowsConfigWinrm();
+            o.certificateUrl = certificateUrl;
+            o.protocol = protocol;
+            return o;
         }
     }
 }

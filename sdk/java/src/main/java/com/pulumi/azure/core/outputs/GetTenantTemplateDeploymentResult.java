@@ -13,24 +13,15 @@ public final class GetTenantTemplateDeploymentResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return The JSON Content of the Outputs of the ARM Template Deployment.
      * 
      */
-    private final String outputContent;
+    private String outputContent;
 
-    @CustomType.Constructor
-    private GetTenantTemplateDeploymentResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("outputContent") String outputContent) {
-        this.id = id;
-        this.name = name;
-        this.outputContent = outputContent;
-    }
-
+    private GetTenantTemplateDeploymentResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -56,16 +47,12 @@ public final class GetTenantTemplateDeploymentResult {
     public static Builder builder(GetTenantTemplateDeploymentResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String name;
         private String outputContent;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTenantTemplateDeploymentResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -73,19 +60,27 @@ public final class GetTenantTemplateDeploymentResult {
     	      this.outputContent = defaults.outputContent;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder outputContent(String outputContent) {
             this.outputContent = Objects.requireNonNull(outputContent);
             return this;
-        }        public GetTenantTemplateDeploymentResult build() {
-            return new GetTenantTemplateDeploymentResult(id, name, outputContent);
+        }
+        public GetTenantTemplateDeploymentResult build() {
+            final var o = new GetTenantTemplateDeploymentResult();
+            o.id = id;
+            o.name = name;
+            o.outputContent = outputContent;
+            return o;
         }
     }
 }

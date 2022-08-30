@@ -13,35 +13,24 @@ public final class GetVolumeDataProtectionReplication {
      * @return The endpoint type.
      * 
      */
-    private final String endpointType;
+    private String endpointType;
     /**
      * @return Location of the primary volume.
      * 
      */
-    private final String remoteVolumeLocation;
+    private String remoteVolumeLocation;
     /**
      * @return Resource ID of the primary volume.
      * 
      */
-    private final String remoteVolumeResourceId;
+    private String remoteVolumeResourceId;
     /**
      * @return Frequency of replication.
      * 
      */
-    private final String replicationFrequency;
+    private String replicationFrequency;
 
-    @CustomType.Constructor
-    private GetVolumeDataProtectionReplication(
-        @CustomType.Parameter("endpointType") String endpointType,
-        @CustomType.Parameter("remoteVolumeLocation") String remoteVolumeLocation,
-        @CustomType.Parameter("remoteVolumeResourceId") String remoteVolumeResourceId,
-        @CustomType.Parameter("replicationFrequency") String replicationFrequency) {
-        this.endpointType = endpointType;
-        this.remoteVolumeLocation = remoteVolumeLocation;
-        this.remoteVolumeResourceId = remoteVolumeResourceId;
-        this.replicationFrequency = replicationFrequency;
-    }
-
+    private GetVolumeDataProtectionReplication() {}
     /**
      * @return The endpoint type.
      * 
@@ -78,17 +67,13 @@ public final class GetVolumeDataProtectionReplication {
     public static Builder builder(GetVolumeDataProtectionReplication defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String endpointType;
         private String remoteVolumeLocation;
         private String remoteVolumeResourceId;
         private String replicationFrequency;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVolumeDataProtectionReplication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpointType = defaults.endpointType;
@@ -97,23 +82,33 @@ public final class GetVolumeDataProtectionReplication {
     	      this.replicationFrequency = defaults.replicationFrequency;
         }
 
+        @CustomType.Setter
         public Builder endpointType(String endpointType) {
             this.endpointType = Objects.requireNonNull(endpointType);
             return this;
         }
+        @CustomType.Setter
         public Builder remoteVolumeLocation(String remoteVolumeLocation) {
             this.remoteVolumeLocation = Objects.requireNonNull(remoteVolumeLocation);
             return this;
         }
+        @CustomType.Setter
         public Builder remoteVolumeResourceId(String remoteVolumeResourceId) {
             this.remoteVolumeResourceId = Objects.requireNonNull(remoteVolumeResourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder replicationFrequency(String replicationFrequency) {
             this.replicationFrequency = Objects.requireNonNull(replicationFrequency);
             return this;
-        }        public GetVolumeDataProtectionReplication build() {
-            return new GetVolumeDataProtectionReplication(endpointType, remoteVolumeLocation, remoteVolumeResourceId, replicationFrequency);
+        }
+        public GetVolumeDataProtectionReplication build() {
+            final var o = new GetVolumeDataProtectionReplication();
+            o.endpointType = endpointType;
+            o.remoteVolumeLocation = remoteVolumeLocation;
+            o.remoteVolumeResourceId = remoteVolumeResourceId;
+            o.replicationFrequency = replicationFrequency;
+            return o;
         }
     }
 }

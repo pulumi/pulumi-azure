@@ -16,21 +16,14 @@ public final class LinuxWebAppSlotLogsHttpLogs {
      * @return A `azure_blob_storage` block as defined above.
      * 
      */
-    private final @Nullable LinuxWebAppSlotLogsHttpLogsAzureBlobStorage azureBlobStorage;
+    private @Nullable LinuxWebAppSlotLogsHttpLogsAzureBlobStorage azureBlobStorage;
     /**
      * @return A `file_system` block as defined above.
      * 
      */
-    private final @Nullable LinuxWebAppSlotLogsHttpLogsFileSystem fileSystem;
+    private @Nullable LinuxWebAppSlotLogsHttpLogsFileSystem fileSystem;
 
-    @CustomType.Constructor
-    private LinuxWebAppSlotLogsHttpLogs(
-        @CustomType.Parameter("azureBlobStorage") @Nullable LinuxWebAppSlotLogsHttpLogsAzureBlobStorage azureBlobStorage,
-        @CustomType.Parameter("fileSystem") @Nullable LinuxWebAppSlotLogsHttpLogsFileSystem fileSystem) {
-        this.azureBlobStorage = azureBlobStorage;
-        this.fileSystem = fileSystem;
-    }
-
+    private LinuxWebAppSlotLogsHttpLogs() {}
     /**
      * @return A `azure_blob_storage` block as defined above.
      * 
@@ -53,30 +46,32 @@ public final class LinuxWebAppSlotLogsHttpLogs {
     public static Builder builder(LinuxWebAppSlotLogsHttpLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable LinuxWebAppSlotLogsHttpLogsAzureBlobStorage azureBlobStorage;
         private @Nullable LinuxWebAppSlotLogsHttpLogsFileSystem fileSystem;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxWebAppSlotLogsHttpLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.azureBlobStorage = defaults.azureBlobStorage;
     	      this.fileSystem = defaults.fileSystem;
         }
 
+        @CustomType.Setter
         public Builder azureBlobStorage(@Nullable LinuxWebAppSlotLogsHttpLogsAzureBlobStorage azureBlobStorage) {
             this.azureBlobStorage = azureBlobStorage;
             return this;
         }
+        @CustomType.Setter
         public Builder fileSystem(@Nullable LinuxWebAppSlotLogsHttpLogsFileSystem fileSystem) {
             this.fileSystem = fileSystem;
             return this;
-        }        public LinuxWebAppSlotLogsHttpLogs build() {
-            return new LinuxWebAppSlotLogsHttpLogs(azureBlobStorage, fileSystem);
+        }
+        public LinuxWebAppSlotLogsHttpLogs build() {
+            final var o = new LinuxWebAppSlotLogsHttpLogs();
+            o.azureBlobStorage = azureBlobStorage;
+            o.fileSystem = fileSystem;
+            return o;
         }
     }
 }

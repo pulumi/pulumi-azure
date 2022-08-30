@@ -15,35 +15,24 @@ public final class GetElasticsearchLog {
      * @return A list of `filtering_tag` blocks as defined above.
      * 
      */
-    private final List<GetElasticsearchLogFilteringTag> filteringTags;
+    private List<GetElasticsearchLogFilteringTag> filteringTags;
     /**
      * @return Should the Azure Activity Logs should be sent to the Elasticsearch cluster?
      * 
      */
-    private final Boolean sendActivityLogs;
+    private Boolean sendActivityLogs;
     /**
      * @return Should the AzureAD Logs should be sent to the Elasticsearch cluster?
      * 
      */
-    private final Boolean sendAzureadLogs;
+    private Boolean sendAzureadLogs;
     /**
      * @return Should the Azure Subscription Logs should be sent to the Elasticsearch cluster?
      * 
      */
-    private final Boolean sendSubscriptionLogs;
+    private Boolean sendSubscriptionLogs;
 
-    @CustomType.Constructor
-    private GetElasticsearchLog(
-        @CustomType.Parameter("filteringTags") List<GetElasticsearchLogFilteringTag> filteringTags,
-        @CustomType.Parameter("sendActivityLogs") Boolean sendActivityLogs,
-        @CustomType.Parameter("sendAzureadLogs") Boolean sendAzureadLogs,
-        @CustomType.Parameter("sendSubscriptionLogs") Boolean sendSubscriptionLogs) {
-        this.filteringTags = filteringTags;
-        this.sendActivityLogs = sendActivityLogs;
-        this.sendAzureadLogs = sendAzureadLogs;
-        this.sendSubscriptionLogs = sendSubscriptionLogs;
-    }
-
+    private GetElasticsearchLog() {}
     /**
      * @return A list of `filtering_tag` blocks as defined above.
      * 
@@ -80,17 +69,13 @@ public final class GetElasticsearchLog {
     public static Builder builder(GetElasticsearchLog defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetElasticsearchLogFilteringTag> filteringTags;
         private Boolean sendActivityLogs;
         private Boolean sendAzureadLogs;
         private Boolean sendSubscriptionLogs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetElasticsearchLog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filteringTags = defaults.filteringTags;
@@ -99,6 +84,7 @@ public final class GetElasticsearchLog {
     	      this.sendSubscriptionLogs = defaults.sendSubscriptionLogs;
         }
 
+        @CustomType.Setter
         public Builder filteringTags(List<GetElasticsearchLogFilteringTag> filteringTags) {
             this.filteringTags = Objects.requireNonNull(filteringTags);
             return this;
@@ -106,19 +92,28 @@ public final class GetElasticsearchLog {
         public Builder filteringTags(GetElasticsearchLogFilteringTag... filteringTags) {
             return filteringTags(List.of(filteringTags));
         }
+        @CustomType.Setter
         public Builder sendActivityLogs(Boolean sendActivityLogs) {
             this.sendActivityLogs = Objects.requireNonNull(sendActivityLogs);
             return this;
         }
+        @CustomType.Setter
         public Builder sendAzureadLogs(Boolean sendAzureadLogs) {
             this.sendAzureadLogs = Objects.requireNonNull(sendAzureadLogs);
             return this;
         }
+        @CustomType.Setter
         public Builder sendSubscriptionLogs(Boolean sendSubscriptionLogs) {
             this.sendSubscriptionLogs = Objects.requireNonNull(sendSubscriptionLogs);
             return this;
-        }        public GetElasticsearchLog build() {
-            return new GetElasticsearchLog(filteringTags, sendActivityLogs, sendAzureadLogs, sendSubscriptionLogs);
+        }
+        public GetElasticsearchLog build() {
+            final var o = new GetElasticsearchLog();
+            o.filteringTags = filteringTags;
+            o.sendActivityLogs = sendActivityLogs;
+            o.sendAzureadLogs = sendAzureadLogs;
+            o.sendSubscriptionLogs = sendSubscriptionLogs;
+            return o;
         }
     }
 }

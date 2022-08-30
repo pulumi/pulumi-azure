@@ -11,30 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetEncryptedValueResult {
-    private final String algorithm;
-    private final @Nullable String encryptedData;
+    private String algorithm;
+    private @Nullable String encryptedData;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String keyVaultKeyId;
-    private final @Nullable String plainTextValue;
+    private String id;
+    private String keyVaultKeyId;
+    private @Nullable String plainTextValue;
 
-    @CustomType.Constructor
-    private GetEncryptedValueResult(
-        @CustomType.Parameter("algorithm") String algorithm,
-        @CustomType.Parameter("encryptedData") @Nullable String encryptedData,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("keyVaultKeyId") String keyVaultKeyId,
-        @CustomType.Parameter("plainTextValue") @Nullable String plainTextValue) {
-        this.algorithm = algorithm;
-        this.encryptedData = encryptedData;
-        this.id = id;
-        this.keyVaultKeyId = keyVaultKeyId;
-        this.plainTextValue = plainTextValue;
-    }
-
+    private GetEncryptedValueResult() {}
     public String algorithm() {
         return this.algorithm;
     }
@@ -62,18 +49,14 @@ public final class GetEncryptedValueResult {
     public static Builder builder(GetEncryptedValueResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String algorithm;
         private @Nullable String encryptedData;
         private String id;
         private String keyVaultKeyId;
         private @Nullable String plainTextValue;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEncryptedValueResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.algorithm = defaults.algorithm;
@@ -83,27 +66,39 @@ public final class GetEncryptedValueResult {
     	      this.plainTextValue = defaults.plainTextValue;
         }
 
+        @CustomType.Setter
         public Builder algorithm(String algorithm) {
             this.algorithm = Objects.requireNonNull(algorithm);
             return this;
         }
+        @CustomType.Setter
         public Builder encryptedData(@Nullable String encryptedData) {
             this.encryptedData = encryptedData;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultKeyId(String keyVaultKeyId) {
             this.keyVaultKeyId = Objects.requireNonNull(keyVaultKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder plainTextValue(@Nullable String plainTextValue) {
             this.plainTextValue = plainTextValue;
             return this;
-        }        public GetEncryptedValueResult build() {
-            return new GetEncryptedValueResult(algorithm, encryptedData, id, keyVaultKeyId, plainTextValue);
+        }
+        public GetEncryptedValueResult build() {
+            final var o = new GetEncryptedValueResult();
+            o.algorithm = algorithm;
+            o.encryptedData = encryptedData;
+            o.id = id;
+            o.keyVaultKeyId = keyVaultKeyId;
+            o.plainTextValue = plainTextValue;
+            return o;
         }
     }
 }

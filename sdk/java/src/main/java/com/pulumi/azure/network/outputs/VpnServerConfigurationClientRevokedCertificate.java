@@ -13,21 +13,14 @@ public final class VpnServerConfigurationClientRevokedCertificate {
      * @return A name used to uniquely identify this certificate.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Thumbprint of the Certificate.
      * 
      */
-    private final String thumbprint;
+    private String thumbprint;
 
-    @CustomType.Constructor
-    private VpnServerConfigurationClientRevokedCertificate(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("thumbprint") String thumbprint) {
-        this.name = name;
-        this.thumbprint = thumbprint;
-    }
-
+    private VpnServerConfigurationClientRevokedCertificate() {}
     /**
      * @return A name used to uniquely identify this certificate.
      * 
@@ -50,30 +43,32 @@ public final class VpnServerConfigurationClientRevokedCertificate {
     public static Builder builder(VpnServerConfigurationClientRevokedCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String thumbprint;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpnServerConfigurationClientRevokedCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.thumbprint = defaults.thumbprint;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder thumbprint(String thumbprint) {
             this.thumbprint = Objects.requireNonNull(thumbprint);
             return this;
-        }        public VpnServerConfigurationClientRevokedCertificate build() {
-            return new VpnServerConfigurationClientRevokedCertificate(name, thumbprint);
+        }
+        public VpnServerConfigurationClientRevokedCertificate build() {
+            final var o = new VpnServerConfigurationClientRevokedCertificate();
+            o.name = name;
+            o.thumbprint = thumbprint;
+            return o;
         }
     }
 }

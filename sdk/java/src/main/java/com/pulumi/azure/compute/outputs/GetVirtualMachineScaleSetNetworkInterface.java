@@ -16,56 +16,39 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
      * @return An array of the DNS servers in use.
      * 
      */
-    private final List<String> dnsServers;
+    private List<String> dnsServers;
     /**
      * @return Whether to enable accelerated networking or not.
      * 
      */
-    private final Boolean enableAcceleratedNetworking;
+    private Boolean enableAcceleratedNetworking;
     /**
      * @return Whether IP forwarding is enabled on this NIC.
      * 
      */
-    private final Boolean enableIpForwarding;
+    private Boolean enableIpForwarding;
     /**
      * @return An `ip_configuration` block as documented below.
      * 
      */
-    private final List<GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations;
+    private List<GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations;
     /**
      * @return The name of this Virtual Machine Scale Set.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The identifier for the network security group.
      * 
      */
-    private final String networkSecurityGroupId;
+    private String networkSecurityGroupId;
     /**
      * @return If this ip_configuration is the primary one.
      * 
      */
-    private final Boolean primary;
+    private Boolean primary;
 
-    @CustomType.Constructor
-    private GetVirtualMachineScaleSetNetworkInterface(
-        @CustomType.Parameter("dnsServers") List<String> dnsServers,
-        @CustomType.Parameter("enableAcceleratedNetworking") Boolean enableAcceleratedNetworking,
-        @CustomType.Parameter("enableIpForwarding") Boolean enableIpForwarding,
-        @CustomType.Parameter("ipConfigurations") List<GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("networkSecurityGroupId") String networkSecurityGroupId,
-        @CustomType.Parameter("primary") Boolean primary) {
-        this.dnsServers = dnsServers;
-        this.enableAcceleratedNetworking = enableAcceleratedNetworking;
-        this.enableIpForwarding = enableIpForwarding;
-        this.ipConfigurations = ipConfigurations;
-        this.name = name;
-        this.networkSecurityGroupId = networkSecurityGroupId;
-        this.primary = primary;
-    }
-
+    private GetVirtualMachineScaleSetNetworkInterface() {}
     /**
      * @return An array of the DNS servers in use.
      * 
@@ -123,7 +106,7 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
     public static Builder builder(GetVirtualMachineScaleSetNetworkInterface defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> dnsServers;
         private Boolean enableAcceleratedNetworking;
@@ -132,11 +115,7 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
         private String name;
         private String networkSecurityGroupId;
         private Boolean primary;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualMachineScaleSetNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsServers = defaults.dnsServers;
@@ -148,6 +127,7 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
     	      this.primary = defaults.primary;
         }
 
+        @CustomType.Setter
         public Builder dnsServers(List<String> dnsServers) {
             this.dnsServers = Objects.requireNonNull(dnsServers);
             return this;
@@ -155,14 +135,17 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
         public Builder dnsServers(String... dnsServers) {
             return dnsServers(List.of(dnsServers));
         }
+        @CustomType.Setter
         public Builder enableAcceleratedNetworking(Boolean enableAcceleratedNetworking) {
             this.enableAcceleratedNetworking = Objects.requireNonNull(enableAcceleratedNetworking);
             return this;
         }
+        @CustomType.Setter
         public Builder enableIpForwarding(Boolean enableIpForwarding) {
             this.enableIpForwarding = Objects.requireNonNull(enableIpForwarding);
             return this;
         }
+        @CustomType.Setter
         public Builder ipConfigurations(List<GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations) {
             this.ipConfigurations = Objects.requireNonNull(ipConfigurations);
             return this;
@@ -170,19 +153,31 @@ public final class GetVirtualMachineScaleSetNetworkInterface {
         public Builder ipConfigurations(GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration... ipConfigurations) {
             return ipConfigurations(List.of(ipConfigurations));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder networkSecurityGroupId(String networkSecurityGroupId) {
             this.networkSecurityGroupId = Objects.requireNonNull(networkSecurityGroupId);
             return this;
         }
+        @CustomType.Setter
         public Builder primary(Boolean primary) {
             this.primary = Objects.requireNonNull(primary);
             return this;
-        }        public GetVirtualMachineScaleSetNetworkInterface build() {
-            return new GetVirtualMachineScaleSetNetworkInterface(dnsServers, enableAcceleratedNetworking, enableIpForwarding, ipConfigurations, name, networkSecurityGroupId, primary);
+        }
+        public GetVirtualMachineScaleSetNetworkInterface build() {
+            final var o = new GetVirtualMachineScaleSetNetworkInterface();
+            o.dnsServers = dnsServers;
+            o.enableAcceleratedNetworking = enableAcceleratedNetworking;
+            o.enableIpForwarding = enableIpForwarding;
+            o.ipConfigurations = ipConfigurations;
+            o.name = name;
+            o.networkSecurityGroupId = networkSecurityGroupId;
+            o.primary = primary;
+            return o;
         }
     }
 }

@@ -15,76 +15,51 @@ public final class GetRegistryResult {
      * @return Is the Administrator account enabled for this Container Registry.
      * 
      */
-    private final Boolean adminEnabled;
+    private Boolean adminEnabled;
     /**
      * @return The Password associated with the Container Registry Admin account - if the admin account is enabled.
      * 
      */
-    private final String adminPassword;
+    private String adminPassword;
     /**
      * @return The Username associated with the Container Registry Admin account - if the admin account is enabled.
      * 
      */
-    private final String adminUsername;
+    private String adminUsername;
     /**
      * @return Whether dedicated data endpoints for this Container Registry are enabled?
      * 
      */
-    private final Boolean dataEndpointEnabled;
+    private Boolean dataEndpointEnabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region in which this Container Registry exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The URL that can be used to log into the container registry.
      * 
      */
-    private final String loginServer;
-    private final String name;
-    private final String resourceGroupName;
+    private String loginServer;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return The SKU of this Container Registry, such as `Basic`.
      * 
      */
-    private final String sku;
+    private String sku;
     /**
      * @return A map of tags assigned to the Container Registry.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetRegistryResult(
-        @CustomType.Parameter("adminEnabled") Boolean adminEnabled,
-        @CustomType.Parameter("adminPassword") String adminPassword,
-        @CustomType.Parameter("adminUsername") String adminUsername,
-        @CustomType.Parameter("dataEndpointEnabled") Boolean dataEndpointEnabled,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("loginServer") String loginServer,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("sku") String sku,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.adminEnabled = adminEnabled;
-        this.adminPassword = adminPassword;
-        this.adminUsername = adminUsername;
-        this.dataEndpointEnabled = dataEndpointEnabled;
-        this.id = id;
-        this.location = location;
-        this.loginServer = loginServer;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.sku = sku;
-        this.tags = tags;
-    }
-
+    private GetRegistryResult() {}
     /**
      * @return Is the Administrator account enabled for this Container Registry.
      * 
@@ -162,7 +137,7 @@ public final class GetRegistryResult {
     public static Builder builder(GetRegistryResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean adminEnabled;
         private String adminPassword;
@@ -175,11 +150,7 @@ public final class GetRegistryResult {
         private String resourceGroupName;
         private String sku;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRegistryResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.adminEnabled = defaults.adminEnabled;
@@ -195,51 +166,75 @@ public final class GetRegistryResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder adminEnabled(Boolean adminEnabled) {
             this.adminEnabled = Objects.requireNonNull(adminEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder adminPassword(String adminPassword) {
             this.adminPassword = Objects.requireNonNull(adminPassword);
             return this;
         }
+        @CustomType.Setter
         public Builder adminUsername(String adminUsername) {
             this.adminUsername = Objects.requireNonNull(adminUsername);
             return this;
         }
+        @CustomType.Setter
         public Builder dataEndpointEnabled(Boolean dataEndpointEnabled) {
             this.dataEndpointEnabled = Objects.requireNonNull(dataEndpointEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder loginServer(String loginServer) {
             this.loginServer = Objects.requireNonNull(loginServer);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder sku(String sku) {
             this.sku = Objects.requireNonNull(sku);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetRegistryResult build() {
-            return new GetRegistryResult(adminEnabled, adminPassword, adminUsername, dataEndpointEnabled, id, location, loginServer, name, resourceGroupName, sku, tags);
+        }
+        public GetRegistryResult build() {
+            final var o = new GetRegistryResult();
+            o.adminEnabled = adminEnabled;
+            o.adminPassword = adminPassword;
+            o.adminUsername = adminUsername;
+            o.dataEndpointEnabled = dataEndpointEnabled;
+            o.id = id;
+            o.location = location;
+            o.loginServer = loginServer;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.sku = sku;
+            o.tags = tags;
+            return o;
         }
     }
 }

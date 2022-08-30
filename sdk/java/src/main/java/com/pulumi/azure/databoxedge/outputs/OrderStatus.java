@@ -16,35 +16,24 @@ public final class OrderStatus {
      * @return Dictionary to hold generic information which is not stored by the already existing properties.
      * 
      */
-    private final @Nullable Map<String,String> additionalDetails;
+    private @Nullable Map<String,String> additionalDetails;
     /**
      * @return Comments related to this status change.
      * 
      */
-    private final @Nullable String comments;
+    private @Nullable String comments;
     /**
      * @return The current status of the order. Possible values include `Untracked`, `AwaitingFulfilment`, `AwaitingPreparation`, `AwaitingShipment`, `Shipped`, `Arriving`, `Delivered`, `ReplacementRequested`, `LostDevice`, `Declined`, `ReturnInitiated`, `AwaitingReturnShipment`, `ShippedBack` or `CollectedAtMicrosoft`.
      * 
      */
-    private final @Nullable String info;
+    private @Nullable String info;
     /**
      * @return Time of status update.
      * 
      */
-    private final @Nullable String lastUpdate;
+    private @Nullable String lastUpdate;
 
-    @CustomType.Constructor
-    private OrderStatus(
-        @CustomType.Parameter("additionalDetails") @Nullable Map<String,String> additionalDetails,
-        @CustomType.Parameter("comments") @Nullable String comments,
-        @CustomType.Parameter("info") @Nullable String info,
-        @CustomType.Parameter("lastUpdate") @Nullable String lastUpdate) {
-        this.additionalDetails = additionalDetails;
-        this.comments = comments;
-        this.info = info;
-        this.lastUpdate = lastUpdate;
-    }
-
+    private OrderStatus() {}
     /**
      * @return Dictionary to hold generic information which is not stored by the already existing properties.
      * 
@@ -81,17 +70,13 @@ public final class OrderStatus {
     public static Builder builder(OrderStatus defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> additionalDetails;
         private @Nullable String comments;
         private @Nullable String info;
         private @Nullable String lastUpdate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrderStatus defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.additionalDetails = defaults.additionalDetails;
@@ -100,23 +85,33 @@ public final class OrderStatus {
     	      this.lastUpdate = defaults.lastUpdate;
         }
 
+        @CustomType.Setter
         public Builder additionalDetails(@Nullable Map<String,String> additionalDetails) {
             this.additionalDetails = additionalDetails;
             return this;
         }
+        @CustomType.Setter
         public Builder comments(@Nullable String comments) {
             this.comments = comments;
             return this;
         }
+        @CustomType.Setter
         public Builder info(@Nullable String info) {
             this.info = info;
             return this;
         }
+        @CustomType.Setter
         public Builder lastUpdate(@Nullable String lastUpdate) {
             this.lastUpdate = lastUpdate;
             return this;
-        }        public OrderStatus build() {
-            return new OrderStatus(additionalDetails, comments, info, lastUpdate);
+        }
+        public OrderStatus build() {
+            final var o = new OrderStatus();
+            o.additionalDetails = additionalDetails;
+            o.comments = comments;
+            o.info = info;
+            o.lastUpdate = lastUpdate;
+            return o;
         }
     }
 }

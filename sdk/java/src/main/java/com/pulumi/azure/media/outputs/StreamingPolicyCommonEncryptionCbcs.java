@@ -17,28 +17,19 @@ public final class StreamingPolicyCommonEncryptionCbcs {
      * @return A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
      * 
      */
-    private final @Nullable StreamingPolicyCommonEncryptionCbcsDefaultContentKey defaultContentKey;
+    private @Nullable StreamingPolicyCommonEncryptionCbcsDefaultContentKey defaultContentKey;
     /**
      * @return A `drm_fairplay` block as defined below. Changing this forces a new Streaming Policy to be created.
      * 
      */
-    private final @Nullable StreamingPolicyCommonEncryptionCbcsDrmFairplay drmFairplay;
+    private @Nullable StreamingPolicyCommonEncryptionCbcsDrmFairplay drmFairplay;
     /**
      * @return A `enabled_protocols` block as defined below. Changing this forces a new Streaming Policy to be created.
      * 
      */
-    private final @Nullable StreamingPolicyCommonEncryptionCbcsEnabledProtocols enabledProtocols;
+    private @Nullable StreamingPolicyCommonEncryptionCbcsEnabledProtocols enabledProtocols;
 
-    @CustomType.Constructor
-    private StreamingPolicyCommonEncryptionCbcs(
-        @CustomType.Parameter("defaultContentKey") @Nullable StreamingPolicyCommonEncryptionCbcsDefaultContentKey defaultContentKey,
-        @CustomType.Parameter("drmFairplay") @Nullable StreamingPolicyCommonEncryptionCbcsDrmFairplay drmFairplay,
-        @CustomType.Parameter("enabledProtocols") @Nullable StreamingPolicyCommonEncryptionCbcsEnabledProtocols enabledProtocols) {
-        this.defaultContentKey = defaultContentKey;
-        this.drmFairplay = drmFairplay;
-        this.enabledProtocols = enabledProtocols;
-    }
-
+    private StreamingPolicyCommonEncryptionCbcs() {}
     /**
      * @return A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
      * 
@@ -68,16 +59,12 @@ public final class StreamingPolicyCommonEncryptionCbcs {
     public static Builder builder(StreamingPolicyCommonEncryptionCbcs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable StreamingPolicyCommonEncryptionCbcsDefaultContentKey defaultContentKey;
         private @Nullable StreamingPolicyCommonEncryptionCbcsDrmFairplay drmFairplay;
         private @Nullable StreamingPolicyCommonEncryptionCbcsEnabledProtocols enabledProtocols;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StreamingPolicyCommonEncryptionCbcs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultContentKey = defaults.defaultContentKey;
@@ -85,19 +72,27 @@ public final class StreamingPolicyCommonEncryptionCbcs {
     	      this.enabledProtocols = defaults.enabledProtocols;
         }
 
+        @CustomType.Setter
         public Builder defaultContentKey(@Nullable StreamingPolicyCommonEncryptionCbcsDefaultContentKey defaultContentKey) {
             this.defaultContentKey = defaultContentKey;
             return this;
         }
+        @CustomType.Setter
         public Builder drmFairplay(@Nullable StreamingPolicyCommonEncryptionCbcsDrmFairplay drmFairplay) {
             this.drmFairplay = drmFairplay;
             return this;
         }
+        @CustomType.Setter
         public Builder enabledProtocols(@Nullable StreamingPolicyCommonEncryptionCbcsEnabledProtocols enabledProtocols) {
             this.enabledProtocols = enabledProtocols;
             return this;
-        }        public StreamingPolicyCommonEncryptionCbcs build() {
-            return new StreamingPolicyCommonEncryptionCbcs(defaultContentKey, drmFairplay, enabledProtocols);
+        }
+        public StreamingPolicyCommonEncryptionCbcs build() {
+            final var o = new StreamingPolicyCommonEncryptionCbcs();
+            o.defaultContentKey = defaultContentKey;
+            o.drmFairplay = drmFairplay;
+            o.enabledProtocols = enabledProtocols;
+            return o;
         }
     }
 }

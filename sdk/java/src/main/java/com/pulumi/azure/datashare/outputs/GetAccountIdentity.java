@@ -13,28 +13,19 @@ public final class GetAccountIdentity {
      * @return The Principal ID associated with this Managed Service Identity.
      * 
      */
-    private final String principalId;
+    private String principalId;
     /**
      * @return The Tenant ID associated with this Managed Service Identity.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
     /**
      * @return The identity type of this Managed Service Identity.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetAccountIdentity(
-        @CustomType.Parameter("principalId") String principalId,
-        @CustomType.Parameter("tenantId") String tenantId,
-        @CustomType.Parameter("type") String type) {
-        this.principalId = principalId;
-        this.tenantId = tenantId;
-        this.type = type;
-    }
-
+    private GetAccountIdentity() {}
     /**
      * @return The Principal ID associated with this Managed Service Identity.
      * 
@@ -64,16 +55,12 @@ public final class GetAccountIdentity {
     public static Builder builder(GetAccountIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String principalId;
         private String tenantId;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccountIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.principalId = defaults.principalId;
@@ -81,19 +68,27 @@ public final class GetAccountIdentity {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder principalId(String principalId) {
             this.principalId = Objects.requireNonNull(principalId);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetAccountIdentity build() {
-            return new GetAccountIdentity(principalId, tenantId, type);
+        }
+        public GetAccountIdentity build() {
+            final var o = new GetAccountIdentity();
+            o.principalId = principalId;
+            o.tenantId = tenantId;
+            o.type = type;
+            return o;
         }
     }
 }

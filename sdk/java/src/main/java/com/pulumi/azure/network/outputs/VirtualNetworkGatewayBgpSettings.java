@@ -17,29 +17,20 @@ public final class VirtualNetworkGatewayBgpSettings {
      * @return The Autonomous System Number (ASN) to use as part of the BGP.
      * 
      */
-    private final @Nullable Integer asn;
+    private @Nullable Integer asn;
     /**
      * @return The weight added to routes which have been learned
      * through BGP peering. Valid values can be between `0` and `100`.
      * 
      */
-    private final @Nullable Integer peerWeight;
+    private @Nullable Integer peerWeight;
     /**
      * @return A list of `peering_addresses` as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
      * 
      */
-    private final @Nullable List<VirtualNetworkGatewayBgpSettingsPeeringAddress> peeringAddresses;
+    private @Nullable List<VirtualNetworkGatewayBgpSettingsPeeringAddress> peeringAddresses;
 
-    @CustomType.Constructor
-    private VirtualNetworkGatewayBgpSettings(
-        @CustomType.Parameter("asn") @Nullable Integer asn,
-        @CustomType.Parameter("peerWeight") @Nullable Integer peerWeight,
-        @CustomType.Parameter("peeringAddresses") @Nullable List<VirtualNetworkGatewayBgpSettingsPeeringAddress> peeringAddresses) {
-        this.asn = asn;
-        this.peerWeight = peerWeight;
-        this.peeringAddresses = peeringAddresses;
-    }
-
+    private VirtualNetworkGatewayBgpSettings() {}
     /**
      * @return The Autonomous System Number (ASN) to use as part of the BGP.
      * 
@@ -70,16 +61,12 @@ public final class VirtualNetworkGatewayBgpSettings {
     public static Builder builder(VirtualNetworkGatewayBgpSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer asn;
         private @Nullable Integer peerWeight;
         private @Nullable List<VirtualNetworkGatewayBgpSettingsPeeringAddress> peeringAddresses;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNetworkGatewayBgpSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.asn = defaults.asn;
@@ -87,22 +74,30 @@ public final class VirtualNetworkGatewayBgpSettings {
     	      this.peeringAddresses = defaults.peeringAddresses;
         }
 
+        @CustomType.Setter
         public Builder asn(@Nullable Integer asn) {
             this.asn = asn;
             return this;
         }
+        @CustomType.Setter
         public Builder peerWeight(@Nullable Integer peerWeight) {
             this.peerWeight = peerWeight;
             return this;
         }
+        @CustomType.Setter
         public Builder peeringAddresses(@Nullable List<VirtualNetworkGatewayBgpSettingsPeeringAddress> peeringAddresses) {
             this.peeringAddresses = peeringAddresses;
             return this;
         }
         public Builder peeringAddresses(VirtualNetworkGatewayBgpSettingsPeeringAddress... peeringAddresses) {
             return peeringAddresses(List.of(peeringAddresses));
-        }        public VirtualNetworkGatewayBgpSettings build() {
-            return new VirtualNetworkGatewayBgpSettings(asn, peerWeight, peeringAddresses);
+        }
+        public VirtualNetworkGatewayBgpSettings build() {
+            final var o = new VirtualNetworkGatewayBgpSettings();
+            o.asn = asn;
+            o.peerWeight = peerWeight;
+            o.peeringAddresses = peeringAddresses;
+            return o;
         }
     }
 }

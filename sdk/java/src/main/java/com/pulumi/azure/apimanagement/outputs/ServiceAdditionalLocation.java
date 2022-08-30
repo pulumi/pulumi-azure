@@ -18,63 +18,44 @@ public final class ServiceAdditionalLocation {
      * @return The number of compute units in this region. Defaults to the capacity of the main region.
      * 
      */
-    private final @Nullable Integer capacity;
+    private @Nullable Integer capacity;
     /**
      * @return The URL of the Regional Gateway for the API Management Service in the specified region.
      * 
      */
-    private final @Nullable String gatewayRegionalUrl;
+    private @Nullable String gatewayRegionalUrl;
     /**
      * @return The name of the Azure Region in which the API Management Service should be expanded to.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
      * 
      */
-    private final @Nullable List<String> privateIpAddresses;
+    private @Nullable List<String> privateIpAddresses;
     /**
      * @return ID of a standard SKU IPv4 Public IP.
      * 
      */
-    private final @Nullable String publicIpAddressId;
+    private @Nullable String publicIpAddressId;
     /**
      * @return Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
      * 
      */
-    private final @Nullable List<String> publicIpAddresses;
+    private @Nullable List<String> publicIpAddresses;
     /**
      * @return A `virtual_network_configuration` block as defined below.  Required when `virtual_network_type` is `External` or `Internal`.
      * 
      */
-    private final @Nullable ServiceAdditionalLocationVirtualNetworkConfiguration virtualNetworkConfiguration;
+    private @Nullable ServiceAdditionalLocationVirtualNetworkConfiguration virtualNetworkConfiguration;
     /**
      * @return A list of availability zones.
      * 
      */
-    private final @Nullable List<String> zones;
+    private @Nullable List<String> zones;
 
-    @CustomType.Constructor
-    private ServiceAdditionalLocation(
-        @CustomType.Parameter("capacity") @Nullable Integer capacity,
-        @CustomType.Parameter("gatewayRegionalUrl") @Nullable String gatewayRegionalUrl,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("privateIpAddresses") @Nullable List<String> privateIpAddresses,
-        @CustomType.Parameter("publicIpAddressId") @Nullable String publicIpAddressId,
-        @CustomType.Parameter("publicIpAddresses") @Nullable List<String> publicIpAddresses,
-        @CustomType.Parameter("virtualNetworkConfiguration") @Nullable ServiceAdditionalLocationVirtualNetworkConfiguration virtualNetworkConfiguration,
-        @CustomType.Parameter("zones") @Nullable List<String> zones) {
-        this.capacity = capacity;
-        this.gatewayRegionalUrl = gatewayRegionalUrl;
-        this.location = location;
-        this.privateIpAddresses = privateIpAddresses;
-        this.publicIpAddressId = publicIpAddressId;
-        this.publicIpAddresses = publicIpAddresses;
-        this.virtualNetworkConfiguration = virtualNetworkConfiguration;
-        this.zones = zones;
-    }
-
+    private ServiceAdditionalLocation() {}
     /**
      * @return The number of compute units in this region. Defaults to the capacity of the main region.
      * 
@@ -139,7 +120,7 @@ public final class ServiceAdditionalLocation {
     public static Builder builder(ServiceAdditionalLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer capacity;
         private @Nullable String gatewayRegionalUrl;
@@ -149,11 +130,7 @@ public final class ServiceAdditionalLocation {
         private @Nullable List<String> publicIpAddresses;
         private @Nullable ServiceAdditionalLocationVirtualNetworkConfiguration virtualNetworkConfiguration;
         private @Nullable List<String> zones;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceAdditionalLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacity = defaults.capacity;
@@ -166,18 +143,22 @@ public final class ServiceAdditionalLocation {
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
         public Builder capacity(@Nullable Integer capacity) {
             this.capacity = capacity;
             return this;
         }
+        @CustomType.Setter
         public Builder gatewayRegionalUrl(@Nullable String gatewayRegionalUrl) {
             this.gatewayRegionalUrl = gatewayRegionalUrl;
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddresses(@Nullable List<String> privateIpAddresses) {
             this.privateIpAddresses = privateIpAddresses;
             return this;
@@ -185,10 +166,12 @@ public final class ServiceAdditionalLocation {
         public Builder privateIpAddresses(String... privateIpAddresses) {
             return privateIpAddresses(List.of(privateIpAddresses));
         }
+        @CustomType.Setter
         public Builder publicIpAddressId(@Nullable String publicIpAddressId) {
             this.publicIpAddressId = publicIpAddressId;
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpAddresses(@Nullable List<String> publicIpAddresses) {
             this.publicIpAddresses = publicIpAddresses;
             return this;
@@ -196,18 +179,30 @@ public final class ServiceAdditionalLocation {
         public Builder publicIpAddresses(String... publicIpAddresses) {
             return publicIpAddresses(List.of(publicIpAddresses));
         }
+        @CustomType.Setter
         public Builder virtualNetworkConfiguration(@Nullable ServiceAdditionalLocationVirtualNetworkConfiguration virtualNetworkConfiguration) {
             this.virtualNetworkConfiguration = virtualNetworkConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder zones(@Nullable List<String> zones) {
             this.zones = zones;
             return this;
         }
         public Builder zones(String... zones) {
             return zones(List.of(zones));
-        }        public ServiceAdditionalLocation build() {
-            return new ServiceAdditionalLocation(capacity, gatewayRegionalUrl, location, privateIpAddresses, publicIpAddressId, publicIpAddresses, virtualNetworkConfiguration, zones);
+        }
+        public ServiceAdditionalLocation build() {
+            final var o = new ServiceAdditionalLocation();
+            o.capacity = capacity;
+            o.gatewayRegionalUrl = gatewayRegionalUrl;
+            o.location = location;
+            o.privateIpAddresses = privateIpAddresses;
+            o.publicIpAddressId = publicIpAddressId;
+            o.publicIpAddresses = publicIpAddresses;
+            o.virtualNetworkConfiguration = virtualNetworkConfiguration;
+            o.zones = zones;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class ChannelLineLineChannel {
      * @return The access token which is used to call the Line Channel API.
      * 
      */
-    private final String accessToken;
+    private String accessToken;
     /**
      * @return The secret which is used to access the Line Channel.
      * 
      */
-    private final String secret;
+    private String secret;
 
-    @CustomType.Constructor
-    private ChannelLineLineChannel(
-        @CustomType.Parameter("accessToken") String accessToken,
-        @CustomType.Parameter("secret") String secret) {
-        this.accessToken = accessToken;
-        this.secret = secret;
-    }
-
+    private ChannelLineLineChannel() {}
     /**
      * @return The access token which is used to call the Line Channel API.
      * 
@@ -50,30 +43,32 @@ public final class ChannelLineLineChannel {
     public static Builder builder(ChannelLineLineChannel defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accessToken;
         private String secret;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ChannelLineLineChannel defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessToken = defaults.accessToken;
     	      this.secret = defaults.secret;
         }
 
+        @CustomType.Setter
         public Builder accessToken(String accessToken) {
             this.accessToken = Objects.requireNonNull(accessToken);
             return this;
         }
+        @CustomType.Setter
         public Builder secret(String secret) {
             this.secret = Objects.requireNonNull(secret);
             return this;
-        }        public ChannelLineLineChannel build() {
-            return new ChannelLineLineChannel(accessToken, secret);
+        }
+        public ChannelLineLineChannel build() {
+            final var o = new ChannelLineLineChannel();
+            o.accessToken = accessToken;
+            o.secret = secret;
+            return o;
         }
     }
 }

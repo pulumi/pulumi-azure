@@ -11,20 +11,11 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFirewallPolicyDn {
-    private final Boolean networkRuleFqdnEnabled;
-    private final Boolean proxyEnabled;
-    private final List<String> servers;
+    private Boolean networkRuleFqdnEnabled;
+    private Boolean proxyEnabled;
+    private List<String> servers;
 
-    @CustomType.Constructor
-    private GetFirewallPolicyDn(
-        @CustomType.Parameter("networkRuleFqdnEnabled") Boolean networkRuleFqdnEnabled,
-        @CustomType.Parameter("proxyEnabled") Boolean proxyEnabled,
-        @CustomType.Parameter("servers") List<String> servers) {
-        this.networkRuleFqdnEnabled = networkRuleFqdnEnabled;
-        this.proxyEnabled = proxyEnabled;
-        this.servers = servers;
-    }
-
+    private GetFirewallPolicyDn() {}
     public Boolean networkRuleFqdnEnabled() {
         return this.networkRuleFqdnEnabled;
     }
@@ -42,16 +33,12 @@ public final class GetFirewallPolicyDn {
     public static Builder builder(GetFirewallPolicyDn defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean networkRuleFqdnEnabled;
         private Boolean proxyEnabled;
         private List<String> servers;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFirewallPolicyDn defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.networkRuleFqdnEnabled = defaults.networkRuleFqdnEnabled;
@@ -59,22 +46,30 @@ public final class GetFirewallPolicyDn {
     	      this.servers = defaults.servers;
         }
 
+        @CustomType.Setter
         public Builder networkRuleFqdnEnabled(Boolean networkRuleFqdnEnabled) {
             this.networkRuleFqdnEnabled = Objects.requireNonNull(networkRuleFqdnEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder proxyEnabled(Boolean proxyEnabled) {
             this.proxyEnabled = Objects.requireNonNull(proxyEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder servers(List<String> servers) {
             this.servers = Objects.requireNonNull(servers);
             return this;
         }
         public Builder servers(String... servers) {
             return servers(List.of(servers));
-        }        public GetFirewallPolicyDn build() {
-            return new GetFirewallPolicyDn(networkRuleFqdnEnabled, proxyEnabled, servers);
+        }
+        public GetFirewallPolicyDn build() {
+            final var o = new GetFirewallPolicyDn();
+            o.networkRuleFqdnEnabled = networkRuleFqdnEnabled;
+            o.proxyEnabled = proxyEnabled;
+            o.servers = servers;
+            return o;
         }
     }
 }

@@ -15,28 +15,19 @@ public final class EndpointCustomDomainCdnManagedHttps {
      * @return The type of HTTPS certificate. Possible values are `Shared` and `Dedicated`.
      * 
      */
-    private final String certificateType;
+    private String certificateType;
     /**
      * @return The type of protocol. Possible values are `ServerNameIndication` and `IPBased`.
      * 
      */
-    private final String protocolType;
+    private String protocolType;
     /**
      * @return The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
      * 
      */
-    private final @Nullable String tlsVersion;
+    private @Nullable String tlsVersion;
 
-    @CustomType.Constructor
-    private EndpointCustomDomainCdnManagedHttps(
-        @CustomType.Parameter("certificateType") String certificateType,
-        @CustomType.Parameter("protocolType") String protocolType,
-        @CustomType.Parameter("tlsVersion") @Nullable String tlsVersion) {
-        this.certificateType = certificateType;
-        this.protocolType = protocolType;
-        this.tlsVersion = tlsVersion;
-    }
-
+    private EndpointCustomDomainCdnManagedHttps() {}
     /**
      * @return The type of HTTPS certificate. Possible values are `Shared` and `Dedicated`.
      * 
@@ -66,16 +57,12 @@ public final class EndpointCustomDomainCdnManagedHttps {
     public static Builder builder(EndpointCustomDomainCdnManagedHttps defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String certificateType;
         private String protocolType;
         private @Nullable String tlsVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointCustomDomainCdnManagedHttps defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateType = defaults.certificateType;
@@ -83,19 +70,27 @@ public final class EndpointCustomDomainCdnManagedHttps {
     	      this.tlsVersion = defaults.tlsVersion;
         }
 
+        @CustomType.Setter
         public Builder certificateType(String certificateType) {
             this.certificateType = Objects.requireNonNull(certificateType);
             return this;
         }
+        @CustomType.Setter
         public Builder protocolType(String protocolType) {
             this.protocolType = Objects.requireNonNull(protocolType);
             return this;
         }
+        @CustomType.Setter
         public Builder tlsVersion(@Nullable String tlsVersion) {
             this.tlsVersion = tlsVersion;
             return this;
-        }        public EndpointCustomDomainCdnManagedHttps build() {
-            return new EndpointCustomDomainCdnManagedHttps(certificateType, protocolType, tlsVersion);
+        }
+        public EndpointCustomDomainCdnManagedHttps build() {
+            final var o = new EndpointCustomDomainCdnManagedHttps();
+            o.certificateType = certificateType;
+            o.protocolType = protocolType;
+            o.tlsVersion = tlsVersion;
+            return o;
         }
     }
 }

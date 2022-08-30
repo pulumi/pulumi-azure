@@ -87,6 +87,10 @@ __all__ = [
     'ScheduledQueryRulesAlertActionArgs',
     'ScheduledQueryRulesAlertTriggerArgs',
     'ScheduledQueryRulesAlertTriggerMetricTriggerArgs',
+    'ScheduledQueryRulesAlertV2ActionArgs',
+    'ScheduledQueryRulesAlertV2CriteriaArgs',
+    'ScheduledQueryRulesAlertV2CriteriaDimensionArgs',
+    'ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs',
     'ScheduledQueryRulesLogCriteriaArgs',
     'ScheduledQueryRulesLogCriteriaDimensionArgs',
     'SmartDetectorAlertRuleActionGroupArgs',
@@ -4654,6 +4658,265 @@ class ScheduledQueryRulesAlertTriggerMetricTriggerArgs:
     @threshold.setter
     def threshold(self, value: pulumi.Input[float]):
         pulumi.set(self, "threshold", value)
+
+
+@pulumi.input_type
+class ScheduledQueryRulesAlertV2ActionArgs:
+    def __init__(__self__, *,
+                 action_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 custom_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] action_groups: List of Action Group resource ids to invoke when the alert fires.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_properties: Specifies the properties of an alert payload.
+        """
+        if action_groups is not None:
+            pulumi.set(__self__, "action_groups", action_groups)
+        if custom_properties is not None:
+            pulumi.set(__self__, "custom_properties", custom_properties)
+
+    @property
+    @pulumi.getter(name="actionGroups")
+    def action_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Action Group resource ids to invoke when the alert fires.
+        """
+        return pulumi.get(self, "action_groups")
+
+    @action_groups.setter
+    def action_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "action_groups", value)
+
+    @property
+    @pulumi.getter(name="customProperties")
+    def custom_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Specifies the properties of an alert payload.
+        """
+        return pulumi.get(self, "custom_properties")
+
+    @custom_properties.setter
+    def custom_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_properties", value)
+
+
+@pulumi.input_type
+class ScheduledQueryRulesAlertV2CriteriaArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 query: pulumi.Input[str],
+                 threshold: pulumi.Input[float],
+                 time_aggregation_method: pulumi.Input[str],
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaDimensionArgs']]]] = None,
+                 failing_periods: Optional[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs']] = None,
+                 metric_measure_column: Optional[pulumi.Input[str]] = None,
+                 resource_id_column: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] operator: Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+        :param pulumi.Input[str] query: The query to run on logs. The results returned by this query are used to populate the alert.
+        :param pulumi.Input[float] threshold: Specifies the criteria threshold value that activates the alert.
+        :param pulumi.Input[str] time_aggregation_method: The type of aggregation to apply to the data points in aggregation granularity. Possible values are `Average`, `Count`, `Maximum`, `Minimum`,and `Total`.
+        :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaDimensionArgs']]] dimensions: A `dimension` block as defined below.
+        :param pulumi.Input['ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs'] failing_periods: A `failing_periods` block as defined below.
+        :param pulumi.Input[str] metric_measure_column: Specifies the column containing the metric measure number.
+        :param pulumi.Input[str] resource_id_column: Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "query", query)
+        pulumi.set(__self__, "threshold", threshold)
+        pulumi.set(__self__, "time_aggregation_method", time_aggregation_method)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if failing_periods is not None:
+            pulumi.set(__self__, "failing_periods", failing_periods)
+        if metric_measure_column is not None:
+            pulumi.set(__self__, "metric_measure_column", metric_measure_column)
+        if resource_id_column is not None:
+            pulumi.set(__self__, "resource_id_column", resource_id_column)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[str]:
+        """
+        The query to run on logs. The results returned by this query are used to populate the alert.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query", value)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> pulumi.Input[float]:
+        """
+        Specifies the criteria threshold value that activates the alert.
+        """
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: pulumi.Input[float]):
+        pulumi.set(self, "threshold", value)
+
+    @property
+    @pulumi.getter(name="timeAggregationMethod")
+    def time_aggregation_method(self) -> pulumi.Input[str]:
+        """
+        The type of aggregation to apply to the data points in aggregation granularity. Possible values are `Average`, `Count`, `Maximum`, `Minimum`,and `Total`.
+        """
+        return pulumi.get(self, "time_aggregation_method")
+
+    @time_aggregation_method.setter
+    def time_aggregation_method(self, value: pulumi.Input[str]):
+        pulumi.set(self, "time_aggregation_method", value)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaDimensionArgs']]]]:
+        """
+        A `dimension` block as defined below.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaDimensionArgs']]]]):
+        pulumi.set(self, "dimensions", value)
+
+    @property
+    @pulumi.getter(name="failingPeriods")
+    def failing_periods(self) -> Optional[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs']]:
+        """
+        A `failing_periods` block as defined below.
+        """
+        return pulumi.get(self, "failing_periods")
+
+    @failing_periods.setter
+    def failing_periods(self, value: Optional[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs']]):
+        pulumi.set(self, "failing_periods", value)
+
+    @property
+    @pulumi.getter(name="metricMeasureColumn")
+    def metric_measure_column(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the column containing the metric measure number.
+        """
+        return pulumi.get(self, "metric_measure_column")
+
+    @metric_measure_column.setter
+    def metric_measure_column(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric_measure_column", value)
+
+    @property
+    @pulumi.getter(name="resourceIdColumn")
+    def resource_id_column(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+        """
+        return pulumi.get(self, "resource_id_column")
+
+    @resource_id_column.setter
+    def resource_id_column(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id_column", value)
+
+
+@pulumi.input_type
+class ScheduledQueryRulesAlertV2CriteriaDimensionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] name: Name of the dimension.
+        :param pulumi.Input[str] operator: Operator for dimension values. Possible values are `Exclude`,and `Include`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: List of dimension values. Use a wildcard `*` to collect all.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the dimension.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        Operator for dimension values. Possible values are `Exclude`,and `Include`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of dimension values. Use a wildcard `*` to collect all.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs:
+    def __init__(__self__, *,
+                 minimum_failing_periods_to_trigger_alert: pulumi.Input[int],
+                 number_of_evaluation_periods: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] minimum_failing_periods_to_trigger_alert: Specifies the number of violations to trigger an alert. Should be smaller or equal to `number_of_evaluation_periods`. Possible value is integer between 1 and 6.
+        :param pulumi.Input[int] number_of_evaluation_periods: Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `window_duration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
+        """
+        pulumi.set(__self__, "minimum_failing_periods_to_trigger_alert", minimum_failing_periods_to_trigger_alert)
+        pulumi.set(__self__, "number_of_evaluation_periods", number_of_evaluation_periods)
+
+    @property
+    @pulumi.getter(name="minimumFailingPeriodsToTriggerAlert")
+    def minimum_failing_periods_to_trigger_alert(self) -> pulumi.Input[int]:
+        """
+        Specifies the number of violations to trigger an alert. Should be smaller or equal to `number_of_evaluation_periods`. Possible value is integer between 1 and 6.
+        """
+        return pulumi.get(self, "minimum_failing_periods_to_trigger_alert")
+
+    @minimum_failing_periods_to_trigger_alert.setter
+    def minimum_failing_periods_to_trigger_alert(self, value: pulumi.Input[int]):
+        pulumi.set(self, "minimum_failing_periods_to_trigger_alert", value)
+
+    @property
+    @pulumi.getter(name="numberOfEvaluationPeriods")
+    def number_of_evaluation_periods(self) -> pulumi.Input[int]:
+        """
+        Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `window_duration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
+        """
+        return pulumi.get(self, "number_of_evaluation_periods")
+
+    @number_of_evaluation_periods.setter
+    def number_of_evaluation_periods(self, value: pulumi.Input[int]):
+        pulumi.set(self, "number_of_evaluation_periods", value)
 
 
 @pulumi.input_type

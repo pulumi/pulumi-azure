@@ -14,28 +14,19 @@ public final class GetActionGroupArmRoleReceiver {
      * @return Specifies the name of the Action Group.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The arm role id.
      * 
      */
-    private final String roleId;
+    private String roleId;
     /**
      * @return Indicates whether to use common alert schema.
      * 
      */
-    private final Boolean useCommonAlertSchema;
+    private Boolean useCommonAlertSchema;
 
-    @CustomType.Constructor
-    private GetActionGroupArmRoleReceiver(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("roleId") String roleId,
-        @CustomType.Parameter("useCommonAlertSchema") Boolean useCommonAlertSchema) {
-        this.name = name;
-        this.roleId = roleId;
-        this.useCommonAlertSchema = useCommonAlertSchema;
-    }
-
+    private GetActionGroupArmRoleReceiver() {}
     /**
      * @return Specifies the name of the Action Group.
      * 
@@ -65,16 +56,12 @@ public final class GetActionGroupArmRoleReceiver {
     public static Builder builder(GetActionGroupArmRoleReceiver defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String roleId;
         private Boolean useCommonAlertSchema;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetActionGroupArmRoleReceiver defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -82,19 +69,27 @@ public final class GetActionGroupArmRoleReceiver {
     	      this.useCommonAlertSchema = defaults.useCommonAlertSchema;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder roleId(String roleId) {
             this.roleId = Objects.requireNonNull(roleId);
             return this;
         }
+        @CustomType.Setter
         public Builder useCommonAlertSchema(Boolean useCommonAlertSchema) {
             this.useCommonAlertSchema = Objects.requireNonNull(useCommonAlertSchema);
             return this;
-        }        public GetActionGroupArmRoleReceiver build() {
-            return new GetActionGroupArmRoleReceiver(name, roleId, useCommonAlertSchema);
+        }
+        public GetActionGroupArmRoleReceiver build() {
+            final var o = new GetActionGroupArmRoleReceiver();
+            o.name = name;
+            o.roleId = roleId;
+            o.useCommonAlertSchema = useCommonAlertSchema;
+            return o;
         }
     }
 }

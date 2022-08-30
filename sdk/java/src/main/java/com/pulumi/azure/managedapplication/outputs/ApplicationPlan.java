@@ -15,42 +15,29 @@ public final class ApplicationPlan {
      * @return Specifies the name of the plan from the marketplace.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Specifies the product of the plan from the marketplace.
      * 
      */
-    private final String product;
+    private String product;
     /**
      * @return Specifies the promotion code to use with the plan.
      * 
      */
-    private final @Nullable String promotionCode;
+    private @Nullable String promotionCode;
     /**
      * @return Specifies the publisher of the plan.
      * 
      */
-    private final String publisher;
+    private String publisher;
     /**
      * @return Specifies the version of the plan from the marketplace.
      * 
      */
-    private final String version;
+    private String version;
 
-    @CustomType.Constructor
-    private ApplicationPlan(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("product") String product,
-        @CustomType.Parameter("promotionCode") @Nullable String promotionCode,
-        @CustomType.Parameter("publisher") String publisher,
-        @CustomType.Parameter("version") String version) {
-        this.name = name;
-        this.product = product;
-        this.promotionCode = promotionCode;
-        this.publisher = publisher;
-        this.version = version;
-    }
-
+    private ApplicationPlan() {}
     /**
      * @return Specifies the name of the plan from the marketplace.
      * 
@@ -94,18 +81,14 @@ public final class ApplicationPlan {
     public static Builder builder(ApplicationPlan defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String product;
         private @Nullable String promotionCode;
         private String publisher;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationPlan defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -115,27 +98,39 @@ public final class ApplicationPlan {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder product(String product) {
             this.product = Objects.requireNonNull(product);
             return this;
         }
+        @CustomType.Setter
         public Builder promotionCode(@Nullable String promotionCode) {
             this.promotionCode = promotionCode;
             return this;
         }
+        @CustomType.Setter
         public Builder publisher(String publisher) {
             this.publisher = Objects.requireNonNull(publisher);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public ApplicationPlan build() {
-            return new ApplicationPlan(name, product, promotionCode, publisher, version);
+        }
+        public ApplicationPlan build() {
+            final var o = new ApplicationPlan();
+            o.name = name;
+            o.product = product;
+            o.promotionCode = promotionCode;
+            o.publisher = publisher;
+            o.version = version;
+            return o;
         }
     }
 }

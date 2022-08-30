@@ -13,76 +13,51 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConfigurationKeyResult {
-    private final String configurationStoreId;
+    private String configurationStoreId;
     /**
      * @return The content type of the App Configuration Key.
      * 
      */
-    private final String contentType;
+    private String contentType;
     /**
      * @return The ETag of the key.
      * 
      */
-    private final String etag;
+    private String etag;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String key;
-    private final @Nullable String label;
+    private String id;
+    private String key;
+    private @Nullable String label;
     /**
      * @return Is this App Configuration Key be Locked to prevent changes.
      * 
      */
-    private final Boolean locked;
+    private Boolean locked;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return The value of the App Configuration Key.
      * 
      */
-    private final String value;
+    private String value;
     /**
      * @return The ID of the vault secret this App Configuration Key refers to, when `type` is `vault`.
      * 
      */
-    private final String vaultKeyReference;
+    private String vaultKeyReference;
 
-    @CustomType.Constructor
-    private GetConfigurationKeyResult(
-        @CustomType.Parameter("configurationStoreId") String configurationStoreId,
-        @CustomType.Parameter("contentType") String contentType,
-        @CustomType.Parameter("etag") String etag,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("label") @Nullable String label,
-        @CustomType.Parameter("locked") Boolean locked,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("value") String value,
-        @CustomType.Parameter("vaultKeyReference") String vaultKeyReference) {
-        this.configurationStoreId = configurationStoreId;
-        this.contentType = contentType;
-        this.etag = etag;
-        this.id = id;
-        this.key = key;
-        this.label = label;
-        this.locked = locked;
-        this.tags = tags;
-        this.type = type;
-        this.value = value;
-        this.vaultKeyReference = vaultKeyReference;
-    }
-
+    private GetConfigurationKeyResult() {}
     public String configurationStoreId() {
         return this.configurationStoreId;
     }
@@ -156,7 +131,7 @@ public final class GetConfigurationKeyResult {
     public static Builder builder(GetConfigurationKeyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String configurationStoreId;
         private String contentType;
@@ -169,11 +144,7 @@ public final class GetConfigurationKeyResult {
         private String type;
         private String value;
         private String vaultKeyReference;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetConfigurationKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.configurationStoreId = defaults.configurationStoreId;
@@ -189,51 +160,75 @@ public final class GetConfigurationKeyResult {
     	      this.vaultKeyReference = defaults.vaultKeyReference;
         }
 
+        @CustomType.Setter
         public Builder configurationStoreId(String configurationStoreId) {
             this.configurationStoreId = Objects.requireNonNull(configurationStoreId);
             return this;
         }
+        @CustomType.Setter
         public Builder contentType(String contentType) {
             this.contentType = Objects.requireNonNull(contentType);
             return this;
         }
+        @CustomType.Setter
         public Builder etag(String etag) {
             this.etag = Objects.requireNonNull(etag);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder label(@Nullable String label) {
             this.label = label;
             return this;
         }
+        @CustomType.Setter
         public Builder locked(Boolean locked) {
             this.locked = Objects.requireNonNull(locked);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
         }
+        @CustomType.Setter
         public Builder vaultKeyReference(String vaultKeyReference) {
             this.vaultKeyReference = Objects.requireNonNull(vaultKeyReference);
             return this;
-        }        public GetConfigurationKeyResult build() {
-            return new GetConfigurationKeyResult(configurationStoreId, contentType, etag, id, key, label, locked, tags, type, value, vaultKeyReference);
+        }
+        public GetConfigurationKeyResult build() {
+            final var o = new GetConfigurationKeyResult();
+            o.configurationStoreId = configurationStoreId;
+            o.contentType = contentType;
+            o.etag = etag;
+            o.id = id;
+            o.key = key;
+            o.label = label;
+            o.locked = locked;
+            o.tags = tags;
+            o.type = type;
+            o.value = value;
+            o.vaultKeyReference = vaultKeyReference;
+            return o;
         }
     }
 }

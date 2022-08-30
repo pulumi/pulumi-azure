@@ -16,58 +16,41 @@ public final class ScaleSetStorageProfileOsDisk {
      * @return Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
      * 
      */
-    private final @Nullable String caching;
+    private @Nullable String caching;
     /**
      * @return Specifies how the virtual machine should be created. The only possible option is `FromImage`.
      * 
      */
-    private final String createOption;
+    private String createOption;
     /**
      * @return Specifies the blob URI for user image. A virtual machine scale set creates an os disk in the same container as the user image.
      * Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them.
      * When setting this field `os_type` needs to be specified. Cannot be used when `vhd_containers`, `managed_disk_type` or `storage_profile_image_reference` are specified.
      * 
      */
-    private final @Nullable String image;
+    private @Nullable String image;
     /**
      * @return Specifies the type of managed disk to create. Value you must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`. Cannot be used when `vhd_containers` or `image` is specified.
      * 
      */
-    private final @Nullable String managedDiskType;
+    private @Nullable String managedDiskType;
     /**
      * @return Specifies the disk name. Must be specified when using unmanaged disk (&#39;managed_disk_type&#39; property not set).
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return Specifies the operating system Type, valid values are windows, Linux.
      * 
      */
-    private final @Nullable String osType;
+    private @Nullable String osType;
     /**
      * @return Specifies the VHD URI. Cannot be used when `image` or `managed_disk_type` is specified.
      * 
      */
-    private final @Nullable List<String> vhdContainers;
+    private @Nullable List<String> vhdContainers;
 
-    @CustomType.Constructor
-    private ScaleSetStorageProfileOsDisk(
-        @CustomType.Parameter("caching") @Nullable String caching,
-        @CustomType.Parameter("createOption") String createOption,
-        @CustomType.Parameter("image") @Nullable String image,
-        @CustomType.Parameter("managedDiskType") @Nullable String managedDiskType,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("osType") @Nullable String osType,
-        @CustomType.Parameter("vhdContainers") @Nullable List<String> vhdContainers) {
-        this.caching = caching;
-        this.createOption = createOption;
-        this.image = image;
-        this.managedDiskType = managedDiskType;
-        this.name = name;
-        this.osType = osType;
-        this.vhdContainers = vhdContainers;
-    }
-
+    private ScaleSetStorageProfileOsDisk() {}
     /**
      * @return Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
      * 
@@ -127,7 +110,7 @@ public final class ScaleSetStorageProfileOsDisk {
     public static Builder builder(ScaleSetStorageProfileOsDisk defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String caching;
         private String createOption;
@@ -136,11 +119,7 @@ public final class ScaleSetStorageProfileOsDisk {
         private @Nullable String name;
         private @Nullable String osType;
         private @Nullable List<String> vhdContainers;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScaleSetStorageProfileOsDisk defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.caching = defaults.caching;
@@ -152,38 +131,54 @@ public final class ScaleSetStorageProfileOsDisk {
     	      this.vhdContainers = defaults.vhdContainers;
         }
 
+        @CustomType.Setter
         public Builder caching(@Nullable String caching) {
             this.caching = caching;
             return this;
         }
+        @CustomType.Setter
         public Builder createOption(String createOption) {
             this.createOption = Objects.requireNonNull(createOption);
             return this;
         }
+        @CustomType.Setter
         public Builder image(@Nullable String image) {
             this.image = image;
             return this;
         }
+        @CustomType.Setter
         public Builder managedDiskType(@Nullable String managedDiskType) {
             this.managedDiskType = managedDiskType;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder osType(@Nullable String osType) {
             this.osType = osType;
             return this;
         }
+        @CustomType.Setter
         public Builder vhdContainers(@Nullable List<String> vhdContainers) {
             this.vhdContainers = vhdContainers;
             return this;
         }
         public Builder vhdContainers(String... vhdContainers) {
             return vhdContainers(List.of(vhdContainers));
-        }        public ScaleSetStorageProfileOsDisk build() {
-            return new ScaleSetStorageProfileOsDisk(caching, createOption, image, managedDiskType, name, osType, vhdContainers);
+        }
+        public ScaleSetStorageProfileOsDisk build() {
+            final var o = new ScaleSetStorageProfileOsDisk();
+            o.caching = caching;
+            o.createOption = createOption;
+            o.image = image;
+            o.managedDiskType = managedDiskType;
+            o.name = name;
+            o.osType = osType;
+            o.vhdContainers = vhdContainers;
+            return o;
         }
     }
 }

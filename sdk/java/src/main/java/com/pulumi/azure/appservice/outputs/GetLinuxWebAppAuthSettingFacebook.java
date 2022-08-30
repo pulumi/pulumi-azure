@@ -14,35 +14,24 @@ public final class GetLinuxWebAppAuthSettingFacebook {
      * @return The App ID of the Facebook app used for login.
      * 
      */
-    private final String appId;
+    private String appId;
     /**
      * @return The App Secret of the Facebook app used for Facebook login.
      * 
      */
-    private final String appSecret;
+    private String appSecret;
     /**
      * @return The app setting name that contains the `app_secret` value used for Facebook login.
      * 
      */
-    private final String appSecretSettingName;
+    private String appSecretSettingName;
     /**
      * @return A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
      * 
      */
-    private final List<String> oauthScopes;
+    private List<String> oauthScopes;
 
-    @CustomType.Constructor
-    private GetLinuxWebAppAuthSettingFacebook(
-        @CustomType.Parameter("appId") String appId,
-        @CustomType.Parameter("appSecret") String appSecret,
-        @CustomType.Parameter("appSecretSettingName") String appSecretSettingName,
-        @CustomType.Parameter("oauthScopes") List<String> oauthScopes) {
-        this.appId = appId;
-        this.appSecret = appSecret;
-        this.appSecretSettingName = appSecretSettingName;
-        this.oauthScopes = oauthScopes;
-    }
-
+    private GetLinuxWebAppAuthSettingFacebook() {}
     /**
      * @return The App ID of the Facebook app used for login.
      * 
@@ -79,17 +68,13 @@ public final class GetLinuxWebAppAuthSettingFacebook {
     public static Builder builder(GetLinuxWebAppAuthSettingFacebook defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String appId;
         private String appSecret;
         private String appSecretSettingName;
         private List<String> oauthScopes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxWebAppAuthSettingFacebook defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appId = defaults.appId;
@@ -98,26 +83,36 @@ public final class GetLinuxWebAppAuthSettingFacebook {
     	      this.oauthScopes = defaults.oauthScopes;
         }
 
+        @CustomType.Setter
         public Builder appId(String appId) {
             this.appId = Objects.requireNonNull(appId);
             return this;
         }
+        @CustomType.Setter
         public Builder appSecret(String appSecret) {
             this.appSecret = Objects.requireNonNull(appSecret);
             return this;
         }
+        @CustomType.Setter
         public Builder appSecretSettingName(String appSecretSettingName) {
             this.appSecretSettingName = Objects.requireNonNull(appSecretSettingName);
             return this;
         }
+        @CustomType.Setter
         public Builder oauthScopes(List<String> oauthScopes) {
             this.oauthScopes = Objects.requireNonNull(oauthScopes);
             return this;
         }
         public Builder oauthScopes(String... oauthScopes) {
             return oauthScopes(List.of(oauthScopes));
-        }        public GetLinuxWebAppAuthSettingFacebook build() {
-            return new GetLinuxWebAppAuthSettingFacebook(appId, appSecret, appSecretSettingName, oauthScopes);
+        }
+        public GetLinuxWebAppAuthSettingFacebook build() {
+            final var o = new GetLinuxWebAppAuthSettingFacebook();
+            o.appId = appId;
+            o.appSecret = appSecret;
+            o.appSecretSettingName = appSecretSettingName;
+            o.oauthScopes = oauthScopes;
+            return o;
         }
     }
 }

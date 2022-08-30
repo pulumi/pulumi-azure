@@ -15,49 +15,34 @@ public final class SlotStorageAccount {
      * @return The access key for the storage account.
      * 
      */
-    private final String accessKey;
+    private String accessKey;
     /**
      * @return The name of the storage account.
      * 
      */
-    private final String accountName;
+    private String accountName;
     /**
      * @return The path to mount the storage within the site&#39;s runtime environment.
      * 
      */
-    private final @Nullable String mountPath;
+    private @Nullable String mountPath;
     /**
      * @return The name of the storage account identifier.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The name of the file share (container name, for Blob storage).
      * 
      */
-    private final String shareName;
+    private String shareName;
     /**
      * @return The type of storage. Possible values are `AzureBlob` and `AzureFiles`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private SlotStorageAccount(
-        @CustomType.Parameter("accessKey") String accessKey,
-        @CustomType.Parameter("accountName") String accountName,
-        @CustomType.Parameter("mountPath") @Nullable String mountPath,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("shareName") String shareName,
-        @CustomType.Parameter("type") String type) {
-        this.accessKey = accessKey;
-        this.accountName = accountName;
-        this.mountPath = mountPath;
-        this.name = name;
-        this.shareName = shareName;
-        this.type = type;
-    }
-
+    private SlotStorageAccount() {}
     /**
      * @return The access key for the storage account.
      * 
@@ -108,7 +93,7 @@ public final class SlotStorageAccount {
     public static Builder builder(SlotStorageAccount defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accessKey;
         private String accountName;
@@ -116,11 +101,7 @@ public final class SlotStorageAccount {
         private String name;
         private String shareName;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SlotStorageAccount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessKey = defaults.accessKey;
@@ -131,31 +112,45 @@ public final class SlotStorageAccount {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder accessKey(String accessKey) {
             this.accessKey = Objects.requireNonNull(accessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder accountName(String accountName) {
             this.accountName = Objects.requireNonNull(accountName);
             return this;
         }
+        @CustomType.Setter
         public Builder mountPath(@Nullable String mountPath) {
             this.mountPath = mountPath;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder shareName(String shareName) {
             this.shareName = Objects.requireNonNull(shareName);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public SlotStorageAccount build() {
-            return new SlotStorageAccount(accessKey, accountName, mountPath, name, shareName, type);
+        }
+        public SlotStorageAccount build() {
+            final var o = new SlotStorageAccount();
+            o.accessKey = accessKey;
+            o.accountName = accountName;
+            o.mountPath = mountPath;
+            o.name = name;
+            o.shareName = shareName;
+            o.type = type;
+            return o;
         }
     }
 }

@@ -14,42 +14,29 @@ public final class GetImageDataDisk {
      * @return the URI in Azure storage of the blob used to create the image.
      * 
      */
-    private final String blobUri;
+    private String blobUri;
     /**
      * @return the caching mode for the Data Disk, such as `ReadWrite`, `ReadOnly`, or `None`.
      * 
      */
-    private final String caching;
+    private String caching;
     /**
      * @return the logical unit number of the data disk.
      * 
      */
-    private final Integer lun;
+    private Integer lun;
     /**
      * @return the ID of the Managed Disk used as the Data Disk Image.
      * 
      */
-    private final String managedDiskId;
+    private String managedDiskId;
     /**
      * @return the size of this Data Disk in GB.
      * 
      */
-    private final Integer sizeGb;
+    private Integer sizeGb;
 
-    @CustomType.Constructor
-    private GetImageDataDisk(
-        @CustomType.Parameter("blobUri") String blobUri,
-        @CustomType.Parameter("caching") String caching,
-        @CustomType.Parameter("lun") Integer lun,
-        @CustomType.Parameter("managedDiskId") String managedDiskId,
-        @CustomType.Parameter("sizeGb") Integer sizeGb) {
-        this.blobUri = blobUri;
-        this.caching = caching;
-        this.lun = lun;
-        this.managedDiskId = managedDiskId;
-        this.sizeGb = sizeGb;
-    }
-
+    private GetImageDataDisk() {}
     /**
      * @return the URI in Azure storage of the blob used to create the image.
      * 
@@ -93,18 +80,14 @@ public final class GetImageDataDisk {
     public static Builder builder(GetImageDataDisk defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String blobUri;
         private String caching;
         private Integer lun;
         private String managedDiskId;
         private Integer sizeGb;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetImageDataDisk defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.blobUri = defaults.blobUri;
@@ -114,27 +97,39 @@ public final class GetImageDataDisk {
     	      this.sizeGb = defaults.sizeGb;
         }
 
+        @CustomType.Setter
         public Builder blobUri(String blobUri) {
             this.blobUri = Objects.requireNonNull(blobUri);
             return this;
         }
+        @CustomType.Setter
         public Builder caching(String caching) {
             this.caching = Objects.requireNonNull(caching);
             return this;
         }
+        @CustomType.Setter
         public Builder lun(Integer lun) {
             this.lun = Objects.requireNonNull(lun);
             return this;
         }
+        @CustomType.Setter
         public Builder managedDiskId(String managedDiskId) {
             this.managedDiskId = Objects.requireNonNull(managedDiskId);
             return this;
         }
+        @CustomType.Setter
         public Builder sizeGb(Integer sizeGb) {
             this.sizeGb = Objects.requireNonNull(sizeGb);
             return this;
-        }        public GetImageDataDisk build() {
-            return new GetImageDataDisk(blobUri, caching, lun, managedDiskId, sizeGb);
+        }
+        public GetImageDataDisk build() {
+            final var o = new GetImageDataDisk();
+            o.blobUri = blobUri;
+            o.caching = caching;
+            o.lun = lun;
+            o.managedDiskId = managedDiskId;
+            o.sizeGb = sizeGb;
+            return o;
         }
     }
 }

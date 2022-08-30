@@ -16,21 +16,14 @@ public final class NamespaceNetworkRuleSetNetworkRule {
      * @return Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean ignoreMissingVnetServiceEndpoint;
+    private @Nullable Boolean ignoreMissingVnetServiceEndpoint;
     /**
      * @return The Subnet ID which should be able to access this ServiceBus Namespace.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private NamespaceNetworkRuleSetNetworkRule(
-        @CustomType.Parameter("ignoreMissingVnetServiceEndpoint") @Nullable Boolean ignoreMissingVnetServiceEndpoint,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.ignoreMissingVnetServiceEndpoint = ignoreMissingVnetServiceEndpoint;
-        this.subnetId = subnetId;
-    }
-
+    private NamespaceNetworkRuleSetNetworkRule() {}
     /**
      * @return Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
      * 
@@ -53,30 +46,32 @@ public final class NamespaceNetworkRuleSetNetworkRule {
     public static Builder builder(NamespaceNetworkRuleSetNetworkRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean ignoreMissingVnetServiceEndpoint;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NamespaceNetworkRuleSetNetworkRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ignoreMissingVnetServiceEndpoint = defaults.ignoreMissingVnetServiceEndpoint;
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder ignoreMissingVnetServiceEndpoint(@Nullable Boolean ignoreMissingVnetServiceEndpoint) {
             this.ignoreMissingVnetServiceEndpoint = ignoreMissingVnetServiceEndpoint;
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public NamespaceNetworkRuleSetNetworkRule build() {
-            return new NamespaceNetworkRuleSetNetworkRule(ignoreMissingVnetServiceEndpoint, subnetId);
+        }
+        public NamespaceNetworkRuleSetNetworkRule build() {
+            final var o = new NamespaceNetworkRuleSetNetworkRule();
+            o.ignoreMissingVnetServiceEndpoint = ignoreMissingVnetServiceEndpoint;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

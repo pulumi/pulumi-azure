@@ -17,35 +17,24 @@ public final class PoolNetworkConfiguration {
      * @return A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable List<PoolNetworkConfigurationEndpointConfiguration> endpointConfigurations;
+    private @Nullable List<PoolNetworkConfigurationEndpointConfiguration> endpointConfigurations;
     /**
      * @return Type of public IP address provisioning. Supported values are `BatchManaged`, `UserManaged` and `NoPublicIPAddresses`.
      * 
      */
-    private final @Nullable String publicAddressProvisioningType;
+    private @Nullable String publicAddressProvisioningType;
     /**
      * @return A list of public IP ids that will be allocated to nodes. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable List<String> publicIps;
+    private @Nullable List<String> publicIps;
     /**
      * @return The ARM resource identifier of the virtual network subnet which the compute nodes of the pool will join. Changing this forces a new resource to be created.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private PoolNetworkConfiguration(
-        @CustomType.Parameter("endpointConfigurations") @Nullable List<PoolNetworkConfigurationEndpointConfiguration> endpointConfigurations,
-        @CustomType.Parameter("publicAddressProvisioningType") @Nullable String publicAddressProvisioningType,
-        @CustomType.Parameter("publicIps") @Nullable List<String> publicIps,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.endpointConfigurations = endpointConfigurations;
-        this.publicAddressProvisioningType = publicAddressProvisioningType;
-        this.publicIps = publicIps;
-        this.subnetId = subnetId;
-    }
-
+    private PoolNetworkConfiguration() {}
     /**
      * @return A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
      * 
@@ -82,17 +71,13 @@ public final class PoolNetworkConfiguration {
     public static Builder builder(PoolNetworkConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<PoolNetworkConfigurationEndpointConfiguration> endpointConfigurations;
         private @Nullable String publicAddressProvisioningType;
         private @Nullable List<String> publicIps;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PoolNetworkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpointConfigurations = defaults.endpointConfigurations;
@@ -101,6 +86,7 @@ public final class PoolNetworkConfiguration {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder endpointConfigurations(@Nullable List<PoolNetworkConfigurationEndpointConfiguration> endpointConfigurations) {
             this.endpointConfigurations = endpointConfigurations;
             return this;
@@ -108,10 +94,12 @@ public final class PoolNetworkConfiguration {
         public Builder endpointConfigurations(PoolNetworkConfigurationEndpointConfiguration... endpointConfigurations) {
             return endpointConfigurations(List.of(endpointConfigurations));
         }
+        @CustomType.Setter
         public Builder publicAddressProvisioningType(@Nullable String publicAddressProvisioningType) {
             this.publicAddressProvisioningType = publicAddressProvisioningType;
             return this;
         }
+        @CustomType.Setter
         public Builder publicIps(@Nullable List<String> publicIps) {
             this.publicIps = publicIps;
             return this;
@@ -119,11 +107,18 @@ public final class PoolNetworkConfiguration {
         public Builder publicIps(String... publicIps) {
             return publicIps(List.of(publicIps));
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public PoolNetworkConfiguration build() {
-            return new PoolNetworkConfiguration(endpointConfigurations, publicAddressProvisioningType, publicIps, subnetId);
+        }
+        public PoolNetworkConfiguration build() {
+            final var o = new PoolNetworkConfiguration();
+            o.endpointConfigurations = endpointConfigurations;
+            o.publicAddressProvisioningType = publicAddressProvisioningType;
+            o.publicIps = publicIps;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

@@ -12,107 +12,64 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceResult {
-    private final Boolean aadAuthEnabled;
-    private final Integer capacity;
-    private final String externalIp;
+    private Boolean aadAuthEnabled;
+    private Integer capacity;
+    private String externalIp;
     /**
      * @return The FQDN of the Web Pubsub service.
      * 
      */
-    private final String hostname;
+    private String hostname;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final Boolean localAuthEnabled;
+    private String id;
+    private Boolean localAuthEnabled;
     /**
      * @return The Azure location where the Web Pubsub service exists.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return The primary access key of the Web Pubsub service.
      * 
      */
-    private final String primaryAccessKey;
+    private String primaryAccessKey;
     /**
      * @return The primary connection string of the Web Pubsub service.
      * 
      */
-    private final String primaryConnectionString;
-    private final Boolean publicNetworkAccessEnabled;
+    private String primaryConnectionString;
+    private Boolean publicNetworkAccessEnabled;
     /**
      * @return The publicly accessible port of the Web Pubsub service which is designed for browser/client use.
      * 
      */
-    private final Integer publicPort;
-    private final String resourceGroupName;
+    private Integer publicPort;
+    private String resourceGroupName;
     /**
      * @return The secondary access key of the Web Pubsub service.
      * 
      */
-    private final String secondaryAccessKey;
+    private String secondaryAccessKey;
     /**
      * @return The secondary connection string of the Web Pubsub service.
      * 
      */
-    private final String secondaryConnectionString;
+    private String secondaryConnectionString;
     /**
      * @return The publicly accessible port of the Web Pubsub service which is designed for customer server side use.
      * 
      */
-    private final Integer serverPort;
-    private final String sku;
-    private final Map<String,String> tags;
-    private final Boolean tlsClientCertEnabled;
-    private final String version;
+    private Integer serverPort;
+    private String sku;
+    private Map<String,String> tags;
+    private Boolean tlsClientCertEnabled;
+    private String version;
 
-    @CustomType.Constructor
-    private GetServiceResult(
-        @CustomType.Parameter("aadAuthEnabled") Boolean aadAuthEnabled,
-        @CustomType.Parameter("capacity") Integer capacity,
-        @CustomType.Parameter("externalIp") String externalIp,
-        @CustomType.Parameter("hostname") String hostname,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("localAuthEnabled") Boolean localAuthEnabled,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("primaryAccessKey") String primaryAccessKey,
-        @CustomType.Parameter("primaryConnectionString") String primaryConnectionString,
-        @CustomType.Parameter("publicNetworkAccessEnabled") Boolean publicNetworkAccessEnabled,
-        @CustomType.Parameter("publicPort") Integer publicPort,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("secondaryAccessKey") String secondaryAccessKey,
-        @CustomType.Parameter("secondaryConnectionString") String secondaryConnectionString,
-        @CustomType.Parameter("serverPort") Integer serverPort,
-        @CustomType.Parameter("sku") String sku,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("tlsClientCertEnabled") Boolean tlsClientCertEnabled,
-        @CustomType.Parameter("version") String version) {
-        this.aadAuthEnabled = aadAuthEnabled;
-        this.capacity = capacity;
-        this.externalIp = externalIp;
-        this.hostname = hostname;
-        this.id = id;
-        this.localAuthEnabled = localAuthEnabled;
-        this.location = location;
-        this.name = name;
-        this.primaryAccessKey = primaryAccessKey;
-        this.primaryConnectionString = primaryConnectionString;
-        this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-        this.publicPort = publicPort;
-        this.resourceGroupName = resourceGroupName;
-        this.secondaryAccessKey = secondaryAccessKey;
-        this.secondaryConnectionString = secondaryConnectionString;
-        this.serverPort = serverPort;
-        this.sku = sku;
-        this.tags = tags;
-        this.tlsClientCertEnabled = tlsClientCertEnabled;
-        this.version = version;
-    }
-
+    private GetServiceResult() {}
     public Boolean aadAuthEnabled() {
         return this.aadAuthEnabled;
     }
@@ -217,7 +174,7 @@ public final class GetServiceResult {
     public static Builder builder(GetServiceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean aadAuthEnabled;
         private Integer capacity;
@@ -239,11 +196,7 @@ public final class GetServiceResult {
         private Map<String,String> tags;
         private Boolean tlsClientCertEnabled;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aadAuthEnabled = defaults.aadAuthEnabled;
@@ -268,87 +221,129 @@ public final class GetServiceResult {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder aadAuthEnabled(Boolean aadAuthEnabled) {
             this.aadAuthEnabled = Objects.requireNonNull(aadAuthEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder capacity(Integer capacity) {
             this.capacity = Objects.requireNonNull(capacity);
             return this;
         }
+        @CustomType.Setter
         public Builder externalIp(String externalIp) {
             this.externalIp = Objects.requireNonNull(externalIp);
             return this;
         }
+        @CustomType.Setter
         public Builder hostname(String hostname) {
             this.hostname = Objects.requireNonNull(hostname);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder localAuthEnabled(Boolean localAuthEnabled) {
             this.localAuthEnabled = Objects.requireNonNull(localAuthEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryAccessKey(String primaryAccessKey) {
             this.primaryAccessKey = Objects.requireNonNull(primaryAccessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryConnectionString(String primaryConnectionString) {
             this.primaryConnectionString = Objects.requireNonNull(primaryConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
             this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder publicPort(Integer publicPort) {
             this.publicPort = Objects.requireNonNull(publicPort);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryAccessKey(String secondaryAccessKey) {
             this.secondaryAccessKey = Objects.requireNonNull(secondaryAccessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryConnectionString(String secondaryConnectionString) {
             this.secondaryConnectionString = Objects.requireNonNull(secondaryConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder serverPort(Integer serverPort) {
             this.serverPort = Objects.requireNonNull(serverPort);
             return this;
         }
+        @CustomType.Setter
         public Builder sku(String sku) {
             this.sku = Objects.requireNonNull(sku);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder tlsClientCertEnabled(Boolean tlsClientCertEnabled) {
             this.tlsClientCertEnabled = Objects.requireNonNull(tlsClientCertEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public GetServiceResult build() {
-            return new GetServiceResult(aadAuthEnabled, capacity, externalIp, hostname, id, localAuthEnabled, location, name, primaryAccessKey, primaryConnectionString, publicNetworkAccessEnabled, publicPort, resourceGroupName, secondaryAccessKey, secondaryConnectionString, serverPort, sku, tags, tlsClientCertEnabled, version);
+        }
+        public GetServiceResult build() {
+            final var o = new GetServiceResult();
+            o.aadAuthEnabled = aadAuthEnabled;
+            o.capacity = capacity;
+            o.externalIp = externalIp;
+            o.hostname = hostname;
+            o.id = id;
+            o.localAuthEnabled = localAuthEnabled;
+            o.location = location;
+            o.name = name;
+            o.primaryAccessKey = primaryAccessKey;
+            o.primaryConnectionString = primaryConnectionString;
+            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            o.publicPort = publicPort;
+            o.resourceGroupName = resourceGroupName;
+            o.secondaryAccessKey = secondaryAccessKey;
+            o.secondaryConnectionString = secondaryConnectionString;
+            o.serverPort = serverPort;
+            o.sku = sku;
+            o.tags = tags;
+            o.tlsClientCertEnabled = tlsClientCertEnabled;
+            o.version = version;
+            return o;
         }
     }
 }

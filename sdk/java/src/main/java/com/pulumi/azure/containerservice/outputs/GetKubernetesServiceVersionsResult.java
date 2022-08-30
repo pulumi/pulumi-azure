@@ -17,37 +17,22 @@ public final class GetKubernetesServiceVersionsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable Boolean includePreview;
+    private String id;
+    private @Nullable Boolean includePreview;
     /**
      * @return The most recent version available. If `include_preview == false`, this is the most recent non-preview version available.
      * 
      */
-    private final String latestVersion;
-    private final String location;
-    private final @Nullable String versionPrefix;
+    private String latestVersion;
+    private String location;
+    private @Nullable String versionPrefix;
     /**
      * @return The list of all supported versions.
      * 
      */
-    private final List<String> versions;
+    private List<String> versions;
 
-    @CustomType.Constructor
-    private GetKubernetesServiceVersionsResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("includePreview") @Nullable Boolean includePreview,
-        @CustomType.Parameter("latestVersion") String latestVersion,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("versionPrefix") @Nullable String versionPrefix,
-        @CustomType.Parameter("versions") List<String> versions) {
-        this.id = id;
-        this.includePreview = includePreview;
-        this.latestVersion = latestVersion;
-        this.location = location;
-        this.versionPrefix = versionPrefix;
-        this.versions = versions;
-    }
-
+    private GetKubernetesServiceVersionsResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -86,7 +71,7 @@ public final class GetKubernetesServiceVersionsResult {
     public static Builder builder(GetKubernetesServiceVersionsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private @Nullable Boolean includePreview;
@@ -94,11 +79,7 @@ public final class GetKubernetesServiceVersionsResult {
         private String location;
         private @Nullable String versionPrefix;
         private List<String> versions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKubernetesServiceVersionsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -109,34 +90,48 @@ public final class GetKubernetesServiceVersionsResult {
     	      this.versions = defaults.versions;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder includePreview(@Nullable Boolean includePreview) {
             this.includePreview = includePreview;
             return this;
         }
+        @CustomType.Setter
         public Builder latestVersion(String latestVersion) {
             this.latestVersion = Objects.requireNonNull(latestVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder versionPrefix(@Nullable String versionPrefix) {
             this.versionPrefix = versionPrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder versions(List<String> versions) {
             this.versions = Objects.requireNonNull(versions);
             return this;
         }
         public Builder versions(String... versions) {
             return versions(List.of(versions));
-        }        public GetKubernetesServiceVersionsResult build() {
-            return new GetKubernetesServiceVersionsResult(id, includePreview, latestVersion, location, versionPrefix, versions);
+        }
+        public GetKubernetesServiceVersionsResult build() {
+            final var o = new GetKubernetesServiceVersionsResult();
+            o.id = id;
+            o.includePreview = includePreview;
+            o.latestVersion = latestVersion;
+            o.location = location;
+            o.versionPrefix = versionPrefix;
+            o.versions = versions;
+            return o;
         }
     }
 }

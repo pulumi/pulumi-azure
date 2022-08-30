@@ -19,35 +19,24 @@ public final class FirewallPolicyInsights {
      * @return The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `log_analytics_workspace`.
      * 
      */
-    private final String defaultLogAnalyticsWorkspaceId;
+    private String defaultLogAnalyticsWorkspaceId;
     /**
      * @return Whether the insights functionality is enabled for this Firewall Policy.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return A list of `log_analytics_workspace` block as defined below.
      * 
      */
-    private final @Nullable List<FirewallPolicyInsightsLogAnalyticsWorkspace> logAnalyticsWorkspaces;
+    private @Nullable List<FirewallPolicyInsightsLogAnalyticsWorkspace> logAnalyticsWorkspaces;
     /**
      * @return The log retention period in days.
      * 
      */
-    private final @Nullable Integer retentionInDays;
+    private @Nullable Integer retentionInDays;
 
-    @CustomType.Constructor
-    private FirewallPolicyInsights(
-        @CustomType.Parameter("defaultLogAnalyticsWorkspaceId") String defaultLogAnalyticsWorkspaceId,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("logAnalyticsWorkspaces") @Nullable List<FirewallPolicyInsightsLogAnalyticsWorkspace> logAnalyticsWorkspaces,
-        @CustomType.Parameter("retentionInDays") @Nullable Integer retentionInDays) {
-        this.defaultLogAnalyticsWorkspaceId = defaultLogAnalyticsWorkspaceId;
-        this.enabled = enabled;
-        this.logAnalyticsWorkspaces = logAnalyticsWorkspaces;
-        this.retentionInDays = retentionInDays;
-    }
-
+    private FirewallPolicyInsights() {}
     /**
      * @return The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `log_analytics_workspace`.
      * 
@@ -84,17 +73,13 @@ public final class FirewallPolicyInsights {
     public static Builder builder(FirewallPolicyInsights defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String defaultLogAnalyticsWorkspaceId;
         private Boolean enabled;
         private @Nullable List<FirewallPolicyInsightsLogAnalyticsWorkspace> logAnalyticsWorkspaces;
         private @Nullable Integer retentionInDays;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyInsights defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultLogAnalyticsWorkspaceId = defaults.defaultLogAnalyticsWorkspaceId;
@@ -103,14 +88,17 @@ public final class FirewallPolicyInsights {
     	      this.retentionInDays = defaults.retentionInDays;
         }
 
+        @CustomType.Setter
         public Builder defaultLogAnalyticsWorkspaceId(String defaultLogAnalyticsWorkspaceId) {
             this.defaultLogAnalyticsWorkspaceId = Objects.requireNonNull(defaultLogAnalyticsWorkspaceId);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder logAnalyticsWorkspaces(@Nullable List<FirewallPolicyInsightsLogAnalyticsWorkspace> logAnalyticsWorkspaces) {
             this.logAnalyticsWorkspaces = logAnalyticsWorkspaces;
             return this;
@@ -118,11 +106,18 @@ public final class FirewallPolicyInsights {
         public Builder logAnalyticsWorkspaces(FirewallPolicyInsightsLogAnalyticsWorkspace... logAnalyticsWorkspaces) {
             return logAnalyticsWorkspaces(List.of(logAnalyticsWorkspaces));
         }
+        @CustomType.Setter
         public Builder retentionInDays(@Nullable Integer retentionInDays) {
             this.retentionInDays = retentionInDays;
             return this;
-        }        public FirewallPolicyInsights build() {
-            return new FirewallPolicyInsights(defaultLogAnalyticsWorkspaceId, enabled, logAnalyticsWorkspaces, retentionInDays);
+        }
+        public FirewallPolicyInsights build() {
+            final var o = new FirewallPolicyInsights();
+            o.defaultLogAnalyticsWorkspaceId = defaultLogAnalyticsWorkspaceId;
+            o.enabled = enabled;
+            o.logAnalyticsWorkspaces = logAnalyticsWorkspaces;
+            o.retentionInDays = retentionInDays;
+            return o;
         }
     }
 }

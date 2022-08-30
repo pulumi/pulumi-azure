@@ -13,21 +13,14 @@ public final class SparkPoolLibraryRequirement {
      * @return The content of library requirements.
      * 
      */
-    private final String content;
+    private String content;
     /**
      * @return The name of the library requirements file.
      * 
      */
-    private final String filename;
+    private String filename;
 
-    @CustomType.Constructor
-    private SparkPoolLibraryRequirement(
-        @CustomType.Parameter("content") String content,
-        @CustomType.Parameter("filename") String filename) {
-        this.content = content;
-        this.filename = filename;
-    }
-
+    private SparkPoolLibraryRequirement() {}
     /**
      * @return The content of library requirements.
      * 
@@ -50,30 +43,32 @@ public final class SparkPoolLibraryRequirement {
     public static Builder builder(SparkPoolLibraryRequirement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String content;
         private String filename;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SparkPoolLibraryRequirement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.content = defaults.content;
     	      this.filename = defaults.filename;
         }
 
+        @CustomType.Setter
         public Builder content(String content) {
             this.content = Objects.requireNonNull(content);
             return this;
         }
+        @CustomType.Setter
         public Builder filename(String filename) {
             this.filename = Objects.requireNonNull(filename);
             return this;
-        }        public SparkPoolLibraryRequirement build() {
-            return new SparkPoolLibraryRequirement(content, filename);
+        }
+        public SparkPoolLibraryRequirement build() {
+            final var o = new SparkPoolLibraryRequirement();
+            o.content = content;
+            o.filename = filename;
+            return o;
         }
     }
 }

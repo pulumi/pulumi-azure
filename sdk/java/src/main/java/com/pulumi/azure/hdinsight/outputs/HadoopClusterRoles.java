@@ -18,35 +18,24 @@ public final class HadoopClusterRoles {
      * @return A `edge_node` block as defined below.
      * 
      */
-    private final @Nullable HadoopClusterRolesEdgeNode edgeNode;
+    private @Nullable HadoopClusterRolesEdgeNode edgeNode;
     /**
      * @return A `head_node` block as defined above.
      * 
      */
-    private final HadoopClusterRolesHeadNode headNode;
+    private HadoopClusterRolesHeadNode headNode;
     /**
      * @return A `worker_node` block as defined below.
      * 
      */
-    private final HadoopClusterRolesWorkerNode workerNode;
+    private HadoopClusterRolesWorkerNode workerNode;
     /**
      * @return A `zookeeper_node` block as defined below.
      * 
      */
-    private final HadoopClusterRolesZookeeperNode zookeeperNode;
+    private HadoopClusterRolesZookeeperNode zookeeperNode;
 
-    @CustomType.Constructor
-    private HadoopClusterRoles(
-        @CustomType.Parameter("edgeNode") @Nullable HadoopClusterRolesEdgeNode edgeNode,
-        @CustomType.Parameter("headNode") HadoopClusterRolesHeadNode headNode,
-        @CustomType.Parameter("workerNode") HadoopClusterRolesWorkerNode workerNode,
-        @CustomType.Parameter("zookeeperNode") HadoopClusterRolesZookeeperNode zookeeperNode) {
-        this.edgeNode = edgeNode;
-        this.headNode = headNode;
-        this.workerNode = workerNode;
-        this.zookeeperNode = zookeeperNode;
-    }
-
+    private HadoopClusterRoles() {}
     /**
      * @return A `edge_node` block as defined below.
      * 
@@ -83,17 +72,13 @@ public final class HadoopClusterRoles {
     public static Builder builder(HadoopClusterRoles defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable HadoopClusterRolesEdgeNode edgeNode;
         private HadoopClusterRolesHeadNode headNode;
         private HadoopClusterRolesWorkerNode workerNode;
         private HadoopClusterRolesZookeeperNode zookeeperNode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(HadoopClusterRoles defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.edgeNode = defaults.edgeNode;
@@ -102,23 +87,33 @@ public final class HadoopClusterRoles {
     	      this.zookeeperNode = defaults.zookeeperNode;
         }
 
+        @CustomType.Setter
         public Builder edgeNode(@Nullable HadoopClusterRolesEdgeNode edgeNode) {
             this.edgeNode = edgeNode;
             return this;
         }
+        @CustomType.Setter
         public Builder headNode(HadoopClusterRolesHeadNode headNode) {
             this.headNode = Objects.requireNonNull(headNode);
             return this;
         }
+        @CustomType.Setter
         public Builder workerNode(HadoopClusterRolesWorkerNode workerNode) {
             this.workerNode = Objects.requireNonNull(workerNode);
             return this;
         }
+        @CustomType.Setter
         public Builder zookeeperNode(HadoopClusterRolesZookeeperNode zookeeperNode) {
             this.zookeeperNode = Objects.requireNonNull(zookeeperNode);
             return this;
-        }        public HadoopClusterRoles build() {
-            return new HadoopClusterRoles(edgeNode, headNode, workerNode, zookeeperNode);
+        }
+        public HadoopClusterRoles build() {
+            final var o = new HadoopClusterRoles();
+            o.edgeNode = edgeNode;
+            o.headNode = headNode;
+            o.workerNode = workerNode;
+            o.zookeeperNode = zookeeperNode;
+            return o;
         }
     }
 }

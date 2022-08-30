@@ -16,104 +16,71 @@ public final class GetClusterResult {
      * @return The version of HDInsights which is used on this HDInsight Cluster.
      * 
      */
-    private final String clusterVersion;
+    private String clusterVersion;
     /**
      * @return A map of versions of software used on this HDInsights Cluster.
      * 
      */
-    private final Map<String,String> componentVersions;
+    private Map<String,String> componentVersions;
     /**
      * @return The SSH Endpoint of the Edge Node for this HDInsight Cluster, if an Edge Node exists.
      * 
      */
-    private final String edgeSshEndpoint;
+    private String edgeSshEndpoint;
     /**
      * @return A `gateway` block as defined below.
      * 
      */
-    private final List<GetClusterGateway> gateways;
+    private List<GetClusterGateway> gateways;
     /**
      * @return The HTTPS Endpoint for this HDInsight Cluster.
      * 
      */
-    private final String httpsEndpoint;
+    private String httpsEndpoint;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Kafka Rest Proxy Endpoint for this HDInsight Cluster.
      * 
      */
-    private final String kafkaRestProxyEndpoint;
+    private String kafkaRestProxyEndpoint;
     /**
      * @return The kind of HDInsight Cluster this is, such as a Spark or Storm cluster.
      * 
      */
-    private final String kind;
+    private String kind;
     /**
      * @return The Azure Region in which this HDInsight Cluster exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return The SSH Endpoint for this HDInsight Cluster.
      * 
      */
-    private final String sshEndpoint;
+    private String sshEndpoint;
     /**
      * @return A map of tags assigned to the HDInsight Cluster.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The SKU / Tier of this HDInsight Cluster.
      * 
      */
-    private final String tier;
+    private String tier;
     /**
      * @return The minimal supported TLS version.
      * 
      */
-    private final String tlsMinVersion;
+    private String tlsMinVersion;
 
-    @CustomType.Constructor
-    private GetClusterResult(
-        @CustomType.Parameter("clusterVersion") String clusterVersion,
-        @CustomType.Parameter("componentVersions") Map<String,String> componentVersions,
-        @CustomType.Parameter("edgeSshEndpoint") String edgeSshEndpoint,
-        @CustomType.Parameter("gateways") List<GetClusterGateway> gateways,
-        @CustomType.Parameter("httpsEndpoint") String httpsEndpoint,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kafkaRestProxyEndpoint") String kafkaRestProxyEndpoint,
-        @CustomType.Parameter("kind") String kind,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("sshEndpoint") String sshEndpoint,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("tier") String tier,
-        @CustomType.Parameter("tlsMinVersion") String tlsMinVersion) {
-        this.clusterVersion = clusterVersion;
-        this.componentVersions = componentVersions;
-        this.edgeSshEndpoint = edgeSshEndpoint;
-        this.gateways = gateways;
-        this.httpsEndpoint = httpsEndpoint;
-        this.id = id;
-        this.kafkaRestProxyEndpoint = kafkaRestProxyEndpoint;
-        this.kind = kind;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.sshEndpoint = sshEndpoint;
-        this.tags = tags;
-        this.tier = tier;
-        this.tlsMinVersion = tlsMinVersion;
-    }
-
+    private GetClusterResult() {}
     /**
      * @return The version of HDInsights which is used on this HDInsight Cluster.
      * 
@@ -219,7 +186,7 @@ public final class GetClusterResult {
     public static Builder builder(GetClusterResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clusterVersion;
         private Map<String,String> componentVersions;
@@ -236,11 +203,7 @@ public final class GetClusterResult {
         private Map<String,String> tags;
         private String tier;
         private String tlsMinVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusterVersion = defaults.clusterVersion;
@@ -260,18 +223,22 @@ public final class GetClusterResult {
     	      this.tlsMinVersion = defaults.tlsMinVersion;
         }
 
+        @CustomType.Setter
         public Builder clusterVersion(String clusterVersion) {
             this.clusterVersion = Objects.requireNonNull(clusterVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder componentVersions(Map<String,String> componentVersions) {
             this.componentVersions = Objects.requireNonNull(componentVersions);
             return this;
         }
+        @CustomType.Setter
         public Builder edgeSshEndpoint(String edgeSshEndpoint) {
             this.edgeSshEndpoint = Objects.requireNonNull(edgeSshEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder gateways(List<GetClusterGateway> gateways) {
             this.gateways = Objects.requireNonNull(gateways);
             return this;
@@ -279,51 +246,79 @@ public final class GetClusterResult {
         public Builder gateways(GetClusterGateway... gateways) {
             return gateways(List.of(gateways));
         }
+        @CustomType.Setter
         public Builder httpsEndpoint(String httpsEndpoint) {
             this.httpsEndpoint = Objects.requireNonNull(httpsEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kafkaRestProxyEndpoint(String kafkaRestProxyEndpoint) {
             this.kafkaRestProxyEndpoint = Objects.requireNonNull(kafkaRestProxyEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder kind(String kind) {
             this.kind = Objects.requireNonNull(kind);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder sshEndpoint(String sshEndpoint) {
             this.sshEndpoint = Objects.requireNonNull(sshEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder tier(String tier) {
             this.tier = Objects.requireNonNull(tier);
             return this;
         }
+        @CustomType.Setter
         public Builder tlsMinVersion(String tlsMinVersion) {
             this.tlsMinVersion = Objects.requireNonNull(tlsMinVersion);
             return this;
-        }        public GetClusterResult build() {
-            return new GetClusterResult(clusterVersion, componentVersions, edgeSshEndpoint, gateways, httpsEndpoint, id, kafkaRestProxyEndpoint, kind, location, name, resourceGroupName, sshEndpoint, tags, tier, tlsMinVersion);
+        }
+        public GetClusterResult build() {
+            final var o = new GetClusterResult();
+            o.clusterVersion = clusterVersion;
+            o.componentVersions = componentVersions;
+            o.edgeSshEndpoint = edgeSshEndpoint;
+            o.gateways = gateways;
+            o.httpsEndpoint = httpsEndpoint;
+            o.id = id;
+            o.kafkaRestProxyEndpoint = kafkaRestProxyEndpoint;
+            o.kind = kind;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.sshEndpoint = sshEndpoint;
+            o.tags = tags;
+            o.tier = tier;
+            o.tlsMinVersion = tlsMinVersion;
+            return o;
         }
     }
 }

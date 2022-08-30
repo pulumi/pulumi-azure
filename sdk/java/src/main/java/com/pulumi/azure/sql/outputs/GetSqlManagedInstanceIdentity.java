@@ -13,24 +13,15 @@ public final class GetSqlManagedInstanceIdentity {
      * @return The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
      * 
      */
-    private final String principalId;
+    private String principalId;
     /**
      * @return The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
      * 
      */
-    private final String tenantId;
-    private final String type;
+    private String tenantId;
+    private String type;
 
-    @CustomType.Constructor
-    private GetSqlManagedInstanceIdentity(
-        @CustomType.Parameter("principalId") String principalId,
-        @CustomType.Parameter("tenantId") String tenantId,
-        @CustomType.Parameter("type") String type) {
-        this.principalId = principalId;
-        this.tenantId = tenantId;
-        this.type = type;
-    }
-
+    private GetSqlManagedInstanceIdentity() {}
     /**
      * @return The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
      * 
@@ -56,16 +47,12 @@ public final class GetSqlManagedInstanceIdentity {
     public static Builder builder(GetSqlManagedInstanceIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String principalId;
         private String tenantId;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSqlManagedInstanceIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.principalId = defaults.principalId;
@@ -73,19 +60,27 @@ public final class GetSqlManagedInstanceIdentity {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder principalId(String principalId) {
             this.principalId = Objects.requireNonNull(principalId);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetSqlManagedInstanceIdentity build() {
-            return new GetSqlManagedInstanceIdentity(principalId, tenantId, type);
+        }
+        public GetSqlManagedInstanceIdentity build() {
+            final var o = new GetSqlManagedInstanceIdentity();
+            o.principalId = principalId;
+            o.tenantId = tenantId;
+            o.type = type;
+            return o;
         }
     }
 }

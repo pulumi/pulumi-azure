@@ -19,49 +19,34 @@ public final class FlowletDataFlowSink {
      * @return A `dataset` block as defined below.
      * 
      */
-    private final @Nullable FlowletDataFlowSinkDataset dataset;
+    private @Nullable FlowletDataFlowSinkDataset dataset;
     /**
      * @return The description for the Data Flow Source.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return A `flowlet` block as defined below.
      * 
      */
-    private final @Nullable FlowletDataFlowSinkFlowlet flowlet;
+    private @Nullable FlowletDataFlowSinkFlowlet flowlet;
     /**
      * @return A `linked_service` block as defined below.
      * 
      */
-    private final @Nullable FlowletDataFlowSinkLinkedService linkedService;
+    private @Nullable FlowletDataFlowSinkLinkedService linkedService;
     /**
      * @return The name for the Data Flow Source.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A `schema_linked_service` block as defined below.
      * 
      */
-    private final @Nullable FlowletDataFlowSinkSchemaLinkedService schemaLinkedService;
+    private @Nullable FlowletDataFlowSinkSchemaLinkedService schemaLinkedService;
 
-    @CustomType.Constructor
-    private FlowletDataFlowSink(
-        @CustomType.Parameter("dataset") @Nullable FlowletDataFlowSinkDataset dataset,
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("flowlet") @Nullable FlowletDataFlowSinkFlowlet flowlet,
-        @CustomType.Parameter("linkedService") @Nullable FlowletDataFlowSinkLinkedService linkedService,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("schemaLinkedService") @Nullable FlowletDataFlowSinkSchemaLinkedService schemaLinkedService) {
-        this.dataset = dataset;
-        this.description = description;
-        this.flowlet = flowlet;
-        this.linkedService = linkedService;
-        this.name = name;
-        this.schemaLinkedService = schemaLinkedService;
-    }
-
+    private FlowletDataFlowSink() {}
     /**
      * @return A `dataset` block as defined below.
      * 
@@ -112,7 +97,7 @@ public final class FlowletDataFlowSink {
     public static Builder builder(FlowletDataFlowSink defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable FlowletDataFlowSinkDataset dataset;
         private @Nullable String description;
@@ -120,11 +105,7 @@ public final class FlowletDataFlowSink {
         private @Nullable FlowletDataFlowSinkLinkedService linkedService;
         private String name;
         private @Nullable FlowletDataFlowSinkSchemaLinkedService schemaLinkedService;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowletDataFlowSink defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataset = defaults.dataset;
@@ -135,31 +116,45 @@ public final class FlowletDataFlowSink {
     	      this.schemaLinkedService = defaults.schemaLinkedService;
         }
 
+        @CustomType.Setter
         public Builder dataset(@Nullable FlowletDataFlowSinkDataset dataset) {
             this.dataset = dataset;
             return this;
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder flowlet(@Nullable FlowletDataFlowSinkFlowlet flowlet) {
             this.flowlet = flowlet;
             return this;
         }
+        @CustomType.Setter
         public Builder linkedService(@Nullable FlowletDataFlowSinkLinkedService linkedService) {
             this.linkedService = linkedService;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder schemaLinkedService(@Nullable FlowletDataFlowSinkSchemaLinkedService schemaLinkedService) {
             this.schemaLinkedService = schemaLinkedService;
             return this;
-        }        public FlowletDataFlowSink build() {
-            return new FlowletDataFlowSink(dataset, description, flowlet, linkedService, name, schemaLinkedService);
+        }
+        public FlowletDataFlowSink build() {
+            final var o = new FlowletDataFlowSink();
+            o.dataset = dataset;
+            o.description = description;
+            o.flowlet = flowlet;
+            o.linkedService = linkedService;
+            o.name = name;
+            o.schemaLinkedService = schemaLinkedService;
+            return o;
         }
     }
 }

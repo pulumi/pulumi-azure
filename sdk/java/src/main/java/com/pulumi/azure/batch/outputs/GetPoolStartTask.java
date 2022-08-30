@@ -20,49 +20,34 @@ public final class GetPoolStartTask {
      * @return The command line executed by the start task.
      * 
      */
-    private final String commandLine;
+    private String commandLine;
     /**
      * @return A map of strings (key,value) that represents the environment variables to set in the start task.
      * 
      */
-    private final @Nullable Map<String,String> commonEnvironmentProperties;
+    private @Nullable Map<String,String> commonEnvironmentProperties;
     /**
      * @return One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
      * 
      */
-    private final List<GetPoolStartTaskResourceFile> resourceFiles;
+    private List<GetPoolStartTaskResourceFile> resourceFiles;
     /**
      * @return The number of retry count
      * 
      */
-    private final Integer taskRetryMaximum;
+    private Integer taskRetryMaximum;
     /**
      * @return A `user_identity` block that describes the user identity under which the start task runs.
      * 
      */
-    private final List<GetPoolStartTaskUserIdentity> userIdentities;
+    private List<GetPoolStartTaskUserIdentity> userIdentities;
     /**
      * @return A flag that indicates if the Batch pool should wait for the start task to be completed.
      * 
      */
-    private final Boolean waitForSuccess;
+    private Boolean waitForSuccess;
 
-    @CustomType.Constructor
-    private GetPoolStartTask(
-        @CustomType.Parameter("commandLine") String commandLine,
-        @CustomType.Parameter("commonEnvironmentProperties") @Nullable Map<String,String> commonEnvironmentProperties,
-        @CustomType.Parameter("resourceFiles") List<GetPoolStartTaskResourceFile> resourceFiles,
-        @CustomType.Parameter("taskRetryMaximum") Integer taskRetryMaximum,
-        @CustomType.Parameter("userIdentities") List<GetPoolStartTaskUserIdentity> userIdentities,
-        @CustomType.Parameter("waitForSuccess") Boolean waitForSuccess) {
-        this.commandLine = commandLine;
-        this.commonEnvironmentProperties = commonEnvironmentProperties;
-        this.resourceFiles = resourceFiles;
-        this.taskRetryMaximum = taskRetryMaximum;
-        this.userIdentities = userIdentities;
-        this.waitForSuccess = waitForSuccess;
-    }
-
+    private GetPoolStartTask() {}
     /**
      * @return The command line executed by the start task.
      * 
@@ -113,7 +98,7 @@ public final class GetPoolStartTask {
     public static Builder builder(GetPoolStartTask defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String commandLine;
         private @Nullable Map<String,String> commonEnvironmentProperties;
@@ -121,11 +106,7 @@ public final class GetPoolStartTask {
         private Integer taskRetryMaximum;
         private List<GetPoolStartTaskUserIdentity> userIdentities;
         private Boolean waitForSuccess;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPoolStartTask defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.commandLine = defaults.commandLine;
@@ -136,14 +117,17 @@ public final class GetPoolStartTask {
     	      this.waitForSuccess = defaults.waitForSuccess;
         }
 
+        @CustomType.Setter
         public Builder commandLine(String commandLine) {
             this.commandLine = Objects.requireNonNull(commandLine);
             return this;
         }
+        @CustomType.Setter
         public Builder commonEnvironmentProperties(@Nullable Map<String,String> commonEnvironmentProperties) {
             this.commonEnvironmentProperties = commonEnvironmentProperties;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceFiles(List<GetPoolStartTaskResourceFile> resourceFiles) {
             this.resourceFiles = Objects.requireNonNull(resourceFiles);
             return this;
@@ -151,10 +135,12 @@ public final class GetPoolStartTask {
         public Builder resourceFiles(GetPoolStartTaskResourceFile... resourceFiles) {
             return resourceFiles(List.of(resourceFiles));
         }
+        @CustomType.Setter
         public Builder taskRetryMaximum(Integer taskRetryMaximum) {
             this.taskRetryMaximum = Objects.requireNonNull(taskRetryMaximum);
             return this;
         }
+        @CustomType.Setter
         public Builder userIdentities(List<GetPoolStartTaskUserIdentity> userIdentities) {
             this.userIdentities = Objects.requireNonNull(userIdentities);
             return this;
@@ -162,11 +148,20 @@ public final class GetPoolStartTask {
         public Builder userIdentities(GetPoolStartTaskUserIdentity... userIdentities) {
             return userIdentities(List.of(userIdentities));
         }
+        @CustomType.Setter
         public Builder waitForSuccess(Boolean waitForSuccess) {
             this.waitForSuccess = Objects.requireNonNull(waitForSuccess);
             return this;
-        }        public GetPoolStartTask build() {
-            return new GetPoolStartTask(commandLine, commonEnvironmentProperties, resourceFiles, taskRetryMaximum, userIdentities, waitForSuccess);
+        }
+        public GetPoolStartTask build() {
+            final var o = new GetPoolStartTask();
+            o.commandLine = commandLine;
+            o.commonEnvironmentProperties = commonEnvironmentProperties;
+            o.resourceFiles = resourceFiles;
+            o.taskRetryMaximum = taskRetryMaximum;
+            o.userIdentities = userIdentities;
+            o.waitForSuccess = waitForSuccess;
+            return o;
         }
     }
 }

@@ -19,35 +19,24 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTrigger {
      * @return The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
      * 
      */
-    private final @Nullable Integer privateMemoryKb;
+    private @Nullable Integer privateMemoryKb;
     /**
      * @return A `requests` block as defined above.
      * 
      */
-    private final @Nullable WindowsWebAppSiteConfigAutoHealSettingTriggerRequests requests;
+    private @Nullable WindowsWebAppSiteConfigAutoHealSettingTriggerRequests requests;
     /**
      * @return One or more `slow_request` blocks as defined above.
      * 
      */
-    private final @Nullable List<WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
+    private @Nullable List<WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
     /**
      * @return One or more `status_code` blocks as defined above.
      * 
      */
-    private final @Nullable List<WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
+    private @Nullable List<WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
 
-    @CustomType.Constructor
-    private WindowsWebAppSiteConfigAutoHealSettingTrigger(
-        @CustomType.Parameter("privateMemoryKb") @Nullable Integer privateMemoryKb,
-        @CustomType.Parameter("requests") @Nullable WindowsWebAppSiteConfigAutoHealSettingTriggerRequests requests,
-        @CustomType.Parameter("slowRequests") @Nullable List<WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests,
-        @CustomType.Parameter("statusCodes") @Nullable List<WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes) {
-        this.privateMemoryKb = privateMemoryKb;
-        this.requests = requests;
-        this.slowRequests = slowRequests;
-        this.statusCodes = statusCodes;
-    }
-
+    private WindowsWebAppSiteConfigAutoHealSettingTrigger() {}
     /**
      * @return The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and  `13631488`.
      * 
@@ -84,17 +73,13 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTrigger {
     public static Builder builder(WindowsWebAppSiteConfigAutoHealSettingTrigger defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer privateMemoryKb;
         private @Nullable WindowsWebAppSiteConfigAutoHealSettingTriggerRequests requests;
         private @Nullable List<WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
         private @Nullable List<WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsWebAppSiteConfigAutoHealSettingTrigger defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.privateMemoryKb = defaults.privateMemoryKb;
@@ -103,14 +88,17 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTrigger {
     	      this.statusCodes = defaults.statusCodes;
         }
 
+        @CustomType.Setter
         public Builder privateMemoryKb(@Nullable Integer privateMemoryKb) {
             this.privateMemoryKb = privateMemoryKb;
             return this;
         }
+        @CustomType.Setter
         public Builder requests(@Nullable WindowsWebAppSiteConfigAutoHealSettingTriggerRequests requests) {
             this.requests = requests;
             return this;
         }
+        @CustomType.Setter
         public Builder slowRequests(@Nullable List<WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests) {
             this.slowRequests = slowRequests;
             return this;
@@ -118,14 +106,21 @@ public final class WindowsWebAppSiteConfigAutoHealSettingTrigger {
         public Builder slowRequests(WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest... slowRequests) {
             return slowRequests(List.of(slowRequests));
         }
+        @CustomType.Setter
         public Builder statusCodes(@Nullable List<WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes) {
             this.statusCodes = statusCodes;
             return this;
         }
         public Builder statusCodes(WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode... statusCodes) {
             return statusCodes(List.of(statusCodes));
-        }        public WindowsWebAppSiteConfigAutoHealSettingTrigger build() {
-            return new WindowsWebAppSiteConfigAutoHealSettingTrigger(privateMemoryKb, requests, slowRequests, statusCodes);
+        }
+        public WindowsWebAppSiteConfigAutoHealSettingTrigger build() {
+            final var o = new WindowsWebAppSiteConfigAutoHealSettingTrigger();
+            o.privateMemoryKb = privateMemoryKb;
+            o.requests = requests;
+            o.slowRequests = slowRequests;
+            o.statusCodes = statusCodes;
+            return o;
         }
     }
 }

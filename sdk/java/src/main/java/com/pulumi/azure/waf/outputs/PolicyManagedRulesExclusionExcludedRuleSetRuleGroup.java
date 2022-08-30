@@ -15,21 +15,14 @@ public final class PolicyManagedRulesExclusionExcludedRuleSetRuleGroup {
      * @return One or more Rule IDs for exclusion.
      * 
      */
-    private final @Nullable List<String> excludedRules;
+    private @Nullable List<String> excludedRules;
     /**
      * @return The name of rule group for exclusion.
      * 
      */
-    private final String ruleGroupName;
+    private String ruleGroupName;
 
-    @CustomType.Constructor
-    private PolicyManagedRulesExclusionExcludedRuleSetRuleGroup(
-        @CustomType.Parameter("excludedRules") @Nullable List<String> excludedRules,
-        @CustomType.Parameter("ruleGroupName") String ruleGroupName) {
-        this.excludedRules = excludedRules;
-        this.ruleGroupName = ruleGroupName;
-    }
-
+    private PolicyManagedRulesExclusionExcludedRuleSetRuleGroup() {}
     /**
      * @return One or more Rule IDs for exclusion.
      * 
@@ -52,21 +45,18 @@ public final class PolicyManagedRulesExclusionExcludedRuleSetRuleGroup {
     public static Builder builder(PolicyManagedRulesExclusionExcludedRuleSetRuleGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> excludedRules;
         private String ruleGroupName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyManagedRulesExclusionExcludedRuleSetRuleGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.excludedRules = defaults.excludedRules;
     	      this.ruleGroupName = defaults.ruleGroupName;
         }
 
+        @CustomType.Setter
         public Builder excludedRules(@Nullable List<String> excludedRules) {
             this.excludedRules = excludedRules;
             return this;
@@ -74,11 +64,16 @@ public final class PolicyManagedRulesExclusionExcludedRuleSetRuleGroup {
         public Builder excludedRules(String... excludedRules) {
             return excludedRules(List.of(excludedRules));
         }
+        @CustomType.Setter
         public Builder ruleGroupName(String ruleGroupName) {
             this.ruleGroupName = Objects.requireNonNull(ruleGroupName);
             return this;
-        }        public PolicyManagedRulesExclusionExcludedRuleSetRuleGroup build() {
-            return new PolicyManagedRulesExclusionExcludedRuleSetRuleGroup(excludedRules, ruleGroupName);
+        }
+        public PolicyManagedRulesExclusionExcludedRuleSetRuleGroup build() {
+            final var o = new PolicyManagedRulesExclusionExcludedRuleSetRuleGroup();
+            o.excludedRules = excludedRules;
+            o.ruleGroupName = ruleGroupName;
+            return o;
         }
     }
 }

@@ -16,56 +16,39 @@ public final class GetLinuxFunctionAppSiteConfigIpRestriction {
      * @return The action taken.
      * 
      */
-    private final String action;
+    private String action;
     /**
      * @return A `headers` block as defined above.
      * 
      */
-    private final List<GetLinuxFunctionAppSiteConfigIpRestrictionHeader> headers;
+    private List<GetLinuxFunctionAppSiteConfigIpRestrictionHeader> headers;
     /**
      * @return The CIDR notation of the IP or IP Range matched.
      * 
      */
-    private final String ipAddress;
+    private String ipAddress;
     /**
      * @return The name which should be used for this Linux Function App.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The priority value of this `ip_restriction`.
      * 
      */
-    private final Integer priority;
+    private Integer priority;
     /**
      * @return The Service Tag used for this IP Restriction.
      * 
      */
-    private final String serviceTag;
+    private String serviceTag;
     /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
      */
-    private final String virtualNetworkSubnetId;
+    private String virtualNetworkSubnetId;
 
-    @CustomType.Constructor
-    private GetLinuxFunctionAppSiteConfigIpRestriction(
-        @CustomType.Parameter("action") String action,
-        @CustomType.Parameter("headers") List<GetLinuxFunctionAppSiteConfigIpRestrictionHeader> headers,
-        @CustomType.Parameter("ipAddress") String ipAddress,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("priority") Integer priority,
-        @CustomType.Parameter("serviceTag") String serviceTag,
-        @CustomType.Parameter("virtualNetworkSubnetId") String virtualNetworkSubnetId) {
-        this.action = action;
-        this.headers = headers;
-        this.ipAddress = ipAddress;
-        this.name = name;
-        this.priority = priority;
-        this.serviceTag = serviceTag;
-        this.virtualNetworkSubnetId = virtualNetworkSubnetId;
-    }
-
+    private GetLinuxFunctionAppSiteConfigIpRestriction() {}
     /**
      * @return The action taken.
      * 
@@ -123,7 +106,7 @@ public final class GetLinuxFunctionAppSiteConfigIpRestriction {
     public static Builder builder(GetLinuxFunctionAppSiteConfigIpRestriction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String action;
         private List<GetLinuxFunctionAppSiteConfigIpRestrictionHeader> headers;
@@ -132,11 +115,7 @@ public final class GetLinuxFunctionAppSiteConfigIpRestriction {
         private Integer priority;
         private String serviceTag;
         private String virtualNetworkSubnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxFunctionAppSiteConfigIpRestriction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -148,10 +127,12 @@ public final class GetLinuxFunctionAppSiteConfigIpRestriction {
     	      this.virtualNetworkSubnetId = defaults.virtualNetworkSubnetId;
         }
 
+        @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder headers(List<GetLinuxFunctionAppSiteConfigIpRestrictionHeader> headers) {
             this.headers = Objects.requireNonNull(headers);
             return this;
@@ -159,27 +140,41 @@ public final class GetLinuxFunctionAppSiteConfigIpRestriction {
         public Builder headers(GetLinuxFunctionAppSiteConfigIpRestrictionHeader... headers) {
             return headers(List.of(headers));
         }
+        @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
             this.ipAddress = Objects.requireNonNull(ipAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder priority(Integer priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceTag(String serviceTag) {
             this.serviceTag = Objects.requireNonNull(serviceTag);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             this.virtualNetworkSubnetId = Objects.requireNonNull(virtualNetworkSubnetId);
             return this;
-        }        public GetLinuxFunctionAppSiteConfigIpRestriction build() {
-            return new GetLinuxFunctionAppSiteConfigIpRestriction(action, headers, ipAddress, name, priority, serviceTag, virtualNetworkSubnetId);
+        }
+        public GetLinuxFunctionAppSiteConfigIpRestriction build() {
+            final var o = new GetLinuxFunctionAppSiteConfigIpRestriction();
+            o.action = action;
+            o.headers = headers;
+            o.ipAddress = ipAddress;
+            o.name = name;
+            o.priority = priority;
+            o.serviceTag = serviceTag;
+            o.virtualNetworkSubnetId = virtualNetworkSubnetId;
+            return o;
         }
     }
 }

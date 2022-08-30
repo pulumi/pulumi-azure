@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class SlotAuthSettingsTwitter {
-    private final String consumerKey;
-    private final String consumerSecret;
+    private String consumerKey;
+    private String consumerSecret;
 
-    @CustomType.Constructor
-    private SlotAuthSettingsTwitter(
-        @CustomType.Parameter("consumerKey") String consumerKey,
-        @CustomType.Parameter("consumerSecret") String consumerSecret) {
-        this.consumerKey = consumerKey;
-        this.consumerSecret = consumerSecret;
-    }
-
+    private SlotAuthSettingsTwitter() {}
     public String consumerKey() {
         return this.consumerKey;
     }
@@ -34,30 +27,32 @@ public final class SlotAuthSettingsTwitter {
     public static Builder builder(SlotAuthSettingsTwitter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String consumerKey;
         private String consumerSecret;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SlotAuthSettingsTwitter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.consumerKey = defaults.consumerKey;
     	      this.consumerSecret = defaults.consumerSecret;
         }
 
+        @CustomType.Setter
         public Builder consumerKey(String consumerKey) {
             this.consumerKey = Objects.requireNonNull(consumerKey);
             return this;
         }
+        @CustomType.Setter
         public Builder consumerSecret(String consumerSecret) {
             this.consumerSecret = Objects.requireNonNull(consumerSecret);
             return this;
-        }        public SlotAuthSettingsTwitter build() {
-            return new SlotAuthSettingsTwitter(consumerKey, consumerSecret);
+        }
+        public SlotAuthSettingsTwitter build() {
+            final var o = new SlotAuthSettingsTwitter();
+            o.consumerKey = consumerKey;
+            o.consumerSecret = consumerSecret;
+            return o;
         }
     }
 }

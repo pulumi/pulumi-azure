@@ -9,55 +9,36 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupResult {
-    private final String apiManagementName;
+    private String apiManagementName;
     /**
      * @return The description of this API Management Group.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The display name of this API Management Group.
      * 
      */
-    private final String displayName;
+    private String displayName;
     /**
      * @return The identifier of the external Group.
      * 
      */
-    private final String externalId;
+    private String externalId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
-    private final String resourceGroupName;
+    private String id;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return The type of this API Management Group, such as `custom` or `external`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetGroupResult(
-        @CustomType.Parameter("apiManagementName") String apiManagementName,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("externalId") String externalId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("type") String type) {
-        this.apiManagementName = apiManagementName;
-        this.description = description;
-        this.displayName = displayName;
-        this.externalId = externalId;
-        this.id = id;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.type = type;
-    }
-
+    private GetGroupResult() {}
     public String apiManagementName() {
         return this.apiManagementName;
     }
@@ -110,7 +91,7 @@ public final class GetGroupResult {
     public static Builder builder(GetGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiManagementName;
         private String description;
@@ -120,11 +101,7 @@ public final class GetGroupResult {
         private String name;
         private String resourceGroupName;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiManagementName = defaults.apiManagementName;
@@ -137,39 +114,57 @@ public final class GetGroupResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder apiManagementName(String apiManagementName) {
             this.apiManagementName = Objects.requireNonNull(apiManagementName);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder externalId(String externalId) {
             this.externalId = Objects.requireNonNull(externalId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetGroupResult build() {
-            return new GetGroupResult(apiManagementName, description, displayName, externalId, id, name, resourceGroupName, type);
+        }
+        public GetGroupResult build() {
+            final var o = new GetGroupResult();
+            o.apiManagementName = apiManagementName;
+            o.description = description;
+            o.displayName = displayName;
+            o.externalId = externalId;
+            o.id = id;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.type = type;
+            return o;
         }
     }
 }

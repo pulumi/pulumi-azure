@@ -14,21 +14,14 @@ public final class NetworkWatcherFlowLogRetentionPolicy {
      * @return The number of days to retain flow log records.
      * 
      */
-    private final Integer days;
+    private Integer days;
     /**
      * @return Boolean flag to enable/disable traffic analytics.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private NetworkWatcherFlowLogRetentionPolicy(
-        @CustomType.Parameter("days") Integer days,
-        @CustomType.Parameter("enabled") Boolean enabled) {
-        this.days = days;
-        this.enabled = enabled;
-    }
-
+    private NetworkWatcherFlowLogRetentionPolicy() {}
     /**
      * @return The number of days to retain flow log records.
      * 
@@ -51,30 +44,32 @@ public final class NetworkWatcherFlowLogRetentionPolicy {
     public static Builder builder(NetworkWatcherFlowLogRetentionPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer days;
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NetworkWatcherFlowLogRetentionPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.days = defaults.days;
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder days(Integer days) {
             this.days = Objects.requireNonNull(days);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public NetworkWatcherFlowLogRetentionPolicy build() {
-            return new NetworkWatcherFlowLogRetentionPolicy(days, enabled);
+        }
+        public NetworkWatcherFlowLogRetentionPolicy build() {
+            final var o = new NetworkWatcherFlowLogRetentionPolicy();
+            o.days = days;
+            o.enabled = enabled;
+            return o;
         }
     }
 }

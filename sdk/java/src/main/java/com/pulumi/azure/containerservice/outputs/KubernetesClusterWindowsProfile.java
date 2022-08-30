@@ -15,28 +15,19 @@ public final class KubernetesClusterWindowsProfile {
      * @return The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
      * 
      */
-    private final @Nullable String adminPassword;
+    private @Nullable String adminPassword;
     /**
      * @return The Admin Username for Windows VMs.
      * 
      */
-    private final String adminUsername;
+    private String adminUsername;
     /**
      * @return Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
      * 
      */
-    private final @Nullable String license;
+    private @Nullable String license;
 
-    @CustomType.Constructor
-    private KubernetesClusterWindowsProfile(
-        @CustomType.Parameter("adminPassword") @Nullable String adminPassword,
-        @CustomType.Parameter("adminUsername") String adminUsername,
-        @CustomType.Parameter("license") @Nullable String license) {
-        this.adminPassword = adminPassword;
-        this.adminUsername = adminUsername;
-        this.license = license;
-    }
-
+    private KubernetesClusterWindowsProfile() {}
     /**
      * @return The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
      * 
@@ -66,16 +57,12 @@ public final class KubernetesClusterWindowsProfile {
     public static Builder builder(KubernetesClusterWindowsProfile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String adminPassword;
         private String adminUsername;
         private @Nullable String license;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KubernetesClusterWindowsProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.adminPassword = defaults.adminPassword;
@@ -83,19 +70,27 @@ public final class KubernetesClusterWindowsProfile {
     	      this.license = defaults.license;
         }
 
+        @CustomType.Setter
         public Builder adminPassword(@Nullable String adminPassword) {
             this.adminPassword = adminPassword;
             return this;
         }
+        @CustomType.Setter
         public Builder adminUsername(String adminUsername) {
             this.adminUsername = Objects.requireNonNull(adminUsername);
             return this;
         }
+        @CustomType.Setter
         public Builder license(@Nullable String license) {
             this.license = license;
             return this;
-        }        public KubernetesClusterWindowsProfile build() {
-            return new KubernetesClusterWindowsProfile(adminPassword, adminUsername, license);
+        }
+        public KubernetesClusterWindowsProfile build() {
+            final var o = new KubernetesClusterWindowsProfile();
+            o.adminPassword = adminPassword;
+            o.adminUsername = adminUsername;
+            o.license = license;
+            return o;
         }
     }
 }

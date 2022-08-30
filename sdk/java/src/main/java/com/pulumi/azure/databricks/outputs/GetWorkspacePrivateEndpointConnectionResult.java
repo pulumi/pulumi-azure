@@ -15,35 +15,24 @@ public final class GetWorkspacePrivateEndpointConnectionResult {
      * @return A `connections` block as documented below.
      * 
      */
-    private final List<GetWorkspacePrivateEndpointConnectionConnection> connections;
+    private List<GetWorkspacePrivateEndpointConnectionConnection> connections;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The resource ID of the Private Endpoint.
      * 
      */
-    private final String privateEndpointId;
+    private String privateEndpointId;
     /**
      * @return The resource ID of the Databricks Workspace.
      * 
      */
-    private final String workspaceId;
+    private String workspaceId;
 
-    @CustomType.Constructor
-    private GetWorkspacePrivateEndpointConnectionResult(
-        @CustomType.Parameter("connections") List<GetWorkspacePrivateEndpointConnectionConnection> connections,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("privateEndpointId") String privateEndpointId,
-        @CustomType.Parameter("workspaceId") String workspaceId) {
-        this.connections = connections;
-        this.id = id;
-        this.privateEndpointId = privateEndpointId;
-        this.workspaceId = workspaceId;
-    }
-
+    private GetWorkspacePrivateEndpointConnectionResult() {}
     /**
      * @return A `connections` block as documented below.
      * 
@@ -80,17 +69,13 @@ public final class GetWorkspacePrivateEndpointConnectionResult {
     public static Builder builder(GetWorkspacePrivateEndpointConnectionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetWorkspacePrivateEndpointConnectionConnection> connections;
         private String id;
         private String privateEndpointId;
         private String workspaceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWorkspacePrivateEndpointConnectionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connections = defaults.connections;
@@ -99,6 +84,7 @@ public final class GetWorkspacePrivateEndpointConnectionResult {
     	      this.workspaceId = defaults.workspaceId;
         }
 
+        @CustomType.Setter
         public Builder connections(List<GetWorkspacePrivateEndpointConnectionConnection> connections) {
             this.connections = Objects.requireNonNull(connections);
             return this;
@@ -106,19 +92,28 @@ public final class GetWorkspacePrivateEndpointConnectionResult {
         public Builder connections(GetWorkspacePrivateEndpointConnectionConnection... connections) {
             return connections(List.of(connections));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder privateEndpointId(String privateEndpointId) {
             this.privateEndpointId = Objects.requireNonNull(privateEndpointId);
             return this;
         }
+        @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
             this.workspaceId = Objects.requireNonNull(workspaceId);
             return this;
-        }        public GetWorkspacePrivateEndpointConnectionResult build() {
-            return new GetWorkspacePrivateEndpointConnectionResult(connections, id, privateEndpointId, workspaceId);
+        }
+        public GetWorkspacePrivateEndpointConnectionResult build() {
+            final var o = new GetWorkspacePrivateEndpointConnectionResult();
+            o.connections = connections;
+            o.id = id;
+            o.privateEndpointId = privateEndpointId;
+            o.workspaceId = workspaceId;
+            return o;
         }
     }
 }

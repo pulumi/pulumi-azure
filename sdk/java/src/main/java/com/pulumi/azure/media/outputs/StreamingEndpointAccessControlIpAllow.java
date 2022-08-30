@@ -16,28 +16,19 @@ public final class StreamingEndpointAccessControlIpAllow {
      * @return The IP address to allow.
      * 
      */
-    private final @Nullable String address;
+    private @Nullable String address;
     /**
      * @return The friendly name for the IP address range.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The subnet mask prefix length (see CIDR notation).
      * 
      */
-    private final @Nullable Integer subnetPrefixLength;
+    private @Nullable Integer subnetPrefixLength;
 
-    @CustomType.Constructor
-    private StreamingEndpointAccessControlIpAllow(
-        @CustomType.Parameter("address") @Nullable String address,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("subnetPrefixLength") @Nullable Integer subnetPrefixLength) {
-        this.address = address;
-        this.name = name;
-        this.subnetPrefixLength = subnetPrefixLength;
-    }
-
+    private StreamingEndpointAccessControlIpAllow() {}
     /**
      * @return The IP address to allow.
      * 
@@ -67,16 +58,12 @@ public final class StreamingEndpointAccessControlIpAllow {
     public static Builder builder(StreamingEndpointAccessControlIpAllow defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String address;
         private @Nullable String name;
         private @Nullable Integer subnetPrefixLength;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StreamingEndpointAccessControlIpAllow defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.address = defaults.address;
@@ -84,19 +71,27 @@ public final class StreamingEndpointAccessControlIpAllow {
     	      this.subnetPrefixLength = defaults.subnetPrefixLength;
         }
 
+        @CustomType.Setter
         public Builder address(@Nullable String address) {
             this.address = address;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder subnetPrefixLength(@Nullable Integer subnetPrefixLength) {
             this.subnetPrefixLength = subnetPrefixLength;
             return this;
-        }        public StreamingEndpointAccessControlIpAllow build() {
-            return new StreamingEndpointAccessControlIpAllow(address, name, subnetPrefixLength);
+        }
+        public StreamingEndpointAccessControlIpAllow build() {
+            final var o = new StreamingEndpointAccessControlIpAllow();
+            o.address = address;
+            o.name = name;
+            o.subnetPrefixLength = subnetPrefixLength;
+            return o;
         }
     }
 }

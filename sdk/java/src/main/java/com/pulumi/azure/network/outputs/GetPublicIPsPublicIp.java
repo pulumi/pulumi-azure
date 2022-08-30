@@ -13,42 +13,29 @@ public final class GetPublicIPsPublicIp {
      * @return The Domain Name Label of the Public IP Address
      * 
      */
-    private final String domainNameLabel;
+    private String domainNameLabel;
     /**
      * @return The FQDN of the Public IP Address
      * 
      */
-    private final String fqdn;
+    private String fqdn;
     /**
      * @return The ID of the Public IP Address
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The IP address of the Public IP Address
      * 
      */
-    private final String ipAddress;
+    private String ipAddress;
     /**
      * @return The Name of the Public IP Address
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private GetPublicIPsPublicIp(
-        @CustomType.Parameter("domainNameLabel") String domainNameLabel,
-        @CustomType.Parameter("fqdn") String fqdn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ipAddress") String ipAddress,
-        @CustomType.Parameter("name") String name) {
-        this.domainNameLabel = domainNameLabel;
-        this.fqdn = fqdn;
-        this.id = id;
-        this.ipAddress = ipAddress;
-        this.name = name;
-    }
-
+    private GetPublicIPsPublicIp() {}
     /**
      * @return The Domain Name Label of the Public IP Address
      * 
@@ -92,18 +79,14 @@ public final class GetPublicIPsPublicIp {
     public static Builder builder(GetPublicIPsPublicIp defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String domainNameLabel;
         private String fqdn;
         private String id;
         private String ipAddress;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPublicIPsPublicIp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.domainNameLabel = defaults.domainNameLabel;
@@ -113,27 +96,39 @@ public final class GetPublicIPsPublicIp {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder domainNameLabel(String domainNameLabel) {
             this.domainNameLabel = Objects.requireNonNull(domainNameLabel);
             return this;
         }
+        @CustomType.Setter
         public Builder fqdn(String fqdn) {
             this.fqdn = Objects.requireNonNull(fqdn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
             this.ipAddress = Objects.requireNonNull(ipAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetPublicIPsPublicIp build() {
-            return new GetPublicIPsPublicIp(domainNameLabel, fqdn, id, ipAddress, name);
+        }
+        public GetPublicIPsPublicIp build() {
+            final var o = new GetPublicIPsPublicIp();
+            o.domainNameLabel = domainNameLabel;
+            o.fqdn = fqdn;
+            o.id = id;
+            o.ipAddress = ipAddress;
+            o.name = name;
+            return o;
         }
     }
 }

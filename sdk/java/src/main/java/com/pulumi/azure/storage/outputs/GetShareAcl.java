@@ -15,21 +15,14 @@ public final class GetShareAcl {
      * @return An `access_policy` block as defined below.
      * 
      */
-    private final List<GetShareAclAccessPolicy> accessPolicies;
+    private List<GetShareAclAccessPolicy> accessPolicies;
     /**
      * @return The ID which should be used for this Shared Identifier.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetShareAcl(
-        @CustomType.Parameter("accessPolicies") List<GetShareAclAccessPolicy> accessPolicies,
-        @CustomType.Parameter("id") String id) {
-        this.accessPolicies = accessPolicies;
-        this.id = id;
-    }
-
+    private GetShareAcl() {}
     /**
      * @return An `access_policy` block as defined below.
      * 
@@ -52,21 +45,18 @@ public final class GetShareAcl {
     public static Builder builder(GetShareAcl defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetShareAclAccessPolicy> accessPolicies;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetShareAcl defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessPolicies = defaults.accessPolicies;
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder accessPolicies(List<GetShareAclAccessPolicy> accessPolicies) {
             this.accessPolicies = Objects.requireNonNull(accessPolicies);
             return this;
@@ -74,11 +64,16 @@ public final class GetShareAcl {
         public Builder accessPolicies(GetShareAclAccessPolicy... accessPolicies) {
             return accessPolicies(List.of(accessPolicies));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetShareAcl build() {
-            return new GetShareAcl(accessPolicies, id);
+        }
+        public GetShareAcl build() {
+            final var o = new GetShareAcl();
+            o.accessPolicies = accessPolicies;
+            o.id = id;
+            return o;
         }
     }
 }

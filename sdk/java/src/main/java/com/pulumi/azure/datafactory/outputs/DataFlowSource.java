@@ -19,49 +19,34 @@ public final class DataFlowSource {
      * @return A `dataset` block as defined below.
      * 
      */
-    private final @Nullable DataFlowSourceDataset dataset;
+    private @Nullable DataFlowSourceDataset dataset;
     /**
      * @return The description for the Data Flow Source.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return A `flowlet` block as defined below.
      * 
      */
-    private final @Nullable DataFlowSourceFlowlet flowlet;
+    private @Nullable DataFlowSourceFlowlet flowlet;
     /**
      * @return A `linked_service` block as defined below.
      * 
      */
-    private final @Nullable DataFlowSourceLinkedService linkedService;
+    private @Nullable DataFlowSourceLinkedService linkedService;
     /**
      * @return The name for the Data Flow Source.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A `schema_linked_service` block as defined below.
      * 
      */
-    private final @Nullable DataFlowSourceSchemaLinkedService schemaLinkedService;
+    private @Nullable DataFlowSourceSchemaLinkedService schemaLinkedService;
 
-    @CustomType.Constructor
-    private DataFlowSource(
-        @CustomType.Parameter("dataset") @Nullable DataFlowSourceDataset dataset,
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("flowlet") @Nullable DataFlowSourceFlowlet flowlet,
-        @CustomType.Parameter("linkedService") @Nullable DataFlowSourceLinkedService linkedService,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("schemaLinkedService") @Nullable DataFlowSourceSchemaLinkedService schemaLinkedService) {
-        this.dataset = dataset;
-        this.description = description;
-        this.flowlet = flowlet;
-        this.linkedService = linkedService;
-        this.name = name;
-        this.schemaLinkedService = schemaLinkedService;
-    }
-
+    private DataFlowSource() {}
     /**
      * @return A `dataset` block as defined below.
      * 
@@ -112,7 +97,7 @@ public final class DataFlowSource {
     public static Builder builder(DataFlowSource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable DataFlowSourceDataset dataset;
         private @Nullable String description;
@@ -120,11 +105,7 @@ public final class DataFlowSource {
         private @Nullable DataFlowSourceLinkedService linkedService;
         private String name;
         private @Nullable DataFlowSourceSchemaLinkedService schemaLinkedService;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataFlowSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataset = defaults.dataset;
@@ -135,31 +116,45 @@ public final class DataFlowSource {
     	      this.schemaLinkedService = defaults.schemaLinkedService;
         }
 
+        @CustomType.Setter
         public Builder dataset(@Nullable DataFlowSourceDataset dataset) {
             this.dataset = dataset;
             return this;
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder flowlet(@Nullable DataFlowSourceFlowlet flowlet) {
             this.flowlet = flowlet;
             return this;
         }
+        @CustomType.Setter
         public Builder linkedService(@Nullable DataFlowSourceLinkedService linkedService) {
             this.linkedService = linkedService;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder schemaLinkedService(@Nullable DataFlowSourceSchemaLinkedService schemaLinkedService) {
             this.schemaLinkedService = schemaLinkedService;
             return this;
-        }        public DataFlowSource build() {
-            return new DataFlowSource(dataset, description, flowlet, linkedService, name, schemaLinkedService);
+        }
+        public DataFlowSource build() {
+            final var o = new DataFlowSource();
+            o.dataset = dataset;
+            o.description = description;
+            o.flowlet = flowlet;
+            o.linkedService = linkedService;
+            o.name = name;
+            o.schemaLinkedService = schemaLinkedService;
+            return o;
         }
     }
 }

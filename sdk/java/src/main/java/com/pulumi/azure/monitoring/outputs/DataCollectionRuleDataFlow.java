@@ -14,21 +14,14 @@ public final class DataCollectionRuleDataFlow {
      * @return Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
      * 
      */
-    private final List<String> destinations;
+    private List<String> destinations;
     /**
      * @return Specifies a list of streams. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
      * 
      */
-    private final List<String> streams;
+    private List<String> streams;
 
-    @CustomType.Constructor
-    private DataCollectionRuleDataFlow(
-        @CustomType.Parameter("destinations") List<String> destinations,
-        @CustomType.Parameter("streams") List<String> streams) {
-        this.destinations = destinations;
-        this.streams = streams;
-    }
-
+    private DataCollectionRuleDataFlow() {}
     /**
      * @return Specifies a list of destination names. A `azure_monitor_metrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
      * 
@@ -51,21 +44,18 @@ public final class DataCollectionRuleDataFlow {
     public static Builder builder(DataCollectionRuleDataFlow defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> destinations;
         private List<String> streams;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataCollectionRuleDataFlow defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destinations = defaults.destinations;
     	      this.streams = defaults.streams;
         }
 
+        @CustomType.Setter
         public Builder destinations(List<String> destinations) {
             this.destinations = Objects.requireNonNull(destinations);
             return this;
@@ -73,14 +63,19 @@ public final class DataCollectionRuleDataFlow {
         public Builder destinations(String... destinations) {
             return destinations(List.of(destinations));
         }
+        @CustomType.Setter
         public Builder streams(List<String> streams) {
             this.streams = Objects.requireNonNull(streams);
             return this;
         }
         public Builder streams(String... streams) {
             return streams(List.of(streams));
-        }        public DataCollectionRuleDataFlow build() {
-            return new DataCollectionRuleDataFlow(destinations, streams);
+        }
+        public DataCollectionRuleDataFlow build() {
+            final var o = new DataCollectionRuleDataFlow();
+            o.destinations = destinations;
+            o.streams = streams;
+            return o;
         }
     }
 }

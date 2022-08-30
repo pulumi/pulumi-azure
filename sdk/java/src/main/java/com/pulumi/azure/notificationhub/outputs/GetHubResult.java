@@ -17,51 +17,32 @@ public final class GetHubResult {
      * @return A `apns_credential` block as defined below.
      * 
      */
-    private final List<GetHubApnsCredential> apnsCredentials;
+    private List<GetHubApnsCredential> apnsCredentials;
     /**
      * @return A `gcm_credential` block as defined below.
      * 
      */
-    private final List<GetHubGcmCredential> gcmCredentials;
+    private List<GetHubGcmCredential> gcmCredentials;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region in which this Notification Hub exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String namespaceName;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String namespaceName;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags to assign to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetHubResult(
-        @CustomType.Parameter("apnsCredentials") List<GetHubApnsCredential> apnsCredentials,
-        @CustomType.Parameter("gcmCredentials") List<GetHubGcmCredential> gcmCredentials,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("namespaceName") String namespaceName,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.apnsCredentials = apnsCredentials;
-        this.gcmCredentials = gcmCredentials;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.namespaceName = namespaceName;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-    }
-
+    private GetHubResult() {}
     /**
      * @return A `apns_credential` block as defined below.
      * 
@@ -114,7 +95,7 @@ public final class GetHubResult {
     public static Builder builder(GetHubResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetHubApnsCredential> apnsCredentials;
         private List<GetHubGcmCredential> gcmCredentials;
@@ -124,11 +105,7 @@ public final class GetHubResult {
         private String namespaceName;
         private String resourceGroupName;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetHubResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apnsCredentials = defaults.apnsCredentials;
@@ -141,6 +118,7 @@ public final class GetHubResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder apnsCredentials(List<GetHubApnsCredential> apnsCredentials) {
             this.apnsCredentials = Objects.requireNonNull(apnsCredentials);
             return this;
@@ -148,6 +126,7 @@ public final class GetHubResult {
         public Builder apnsCredentials(GetHubApnsCredential... apnsCredentials) {
             return apnsCredentials(List.of(apnsCredentials));
         }
+        @CustomType.Setter
         public Builder gcmCredentials(List<GetHubGcmCredential> gcmCredentials) {
             this.gcmCredentials = Objects.requireNonNull(gcmCredentials);
             return this;
@@ -155,31 +134,47 @@ public final class GetHubResult {
         public Builder gcmCredentials(GetHubGcmCredential... gcmCredentials) {
             return gcmCredentials(List.of(gcmCredentials));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder namespaceName(String namespaceName) {
             this.namespaceName = Objects.requireNonNull(namespaceName);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetHubResult build() {
-            return new GetHubResult(apnsCredentials, gcmCredentials, id, location, name, namespaceName, resourceGroupName, tags);
+        }
+        public GetHubResult build() {
+            final var o = new GetHubResult();
+            o.apnsCredentials = apnsCredentials;
+            o.gcmCredentials = gcmCredentials;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.namespaceName = namespaceName;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            return o;
         }
     }
 }

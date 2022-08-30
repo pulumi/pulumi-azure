@@ -16,35 +16,24 @@ public final class SpringCloudServiceConfigServerGitSettingSshAuth {
      * @return The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`.
      * 
      */
-    private final @Nullable String hostKey;
+    private @Nullable String hostKey;
     /**
      * @return The host key algorithm, should be `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Required only if `host-key` exists.
      * 
      */
-    private final @Nullable String hostKeyAlgorithm;
+    private @Nullable String hostKeyAlgorithm;
     /**
      * @return The SSH private key to access the Git repository, required when the URI starts with `git@` or `ssh://`.
      * 
      */
-    private final String privateKey;
+    private String privateKey;
     /**
      * @return Indicates whether the Config Server instance will fail to start if the host_key does not match.
      * 
      */
-    private final @Nullable Boolean strictHostKeyCheckingEnabled;
+    private @Nullable Boolean strictHostKeyCheckingEnabled;
 
-    @CustomType.Constructor
-    private SpringCloudServiceConfigServerGitSettingSshAuth(
-        @CustomType.Parameter("hostKey") @Nullable String hostKey,
-        @CustomType.Parameter("hostKeyAlgorithm") @Nullable String hostKeyAlgorithm,
-        @CustomType.Parameter("privateKey") String privateKey,
-        @CustomType.Parameter("strictHostKeyCheckingEnabled") @Nullable Boolean strictHostKeyCheckingEnabled) {
-        this.hostKey = hostKey;
-        this.hostKeyAlgorithm = hostKeyAlgorithm;
-        this.privateKey = privateKey;
-        this.strictHostKeyCheckingEnabled = strictHostKeyCheckingEnabled;
-    }
-
+    private SpringCloudServiceConfigServerGitSettingSshAuth() {}
     /**
      * @return The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`.
      * 
@@ -81,17 +70,13 @@ public final class SpringCloudServiceConfigServerGitSettingSshAuth {
     public static Builder builder(SpringCloudServiceConfigServerGitSettingSshAuth defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String hostKey;
         private @Nullable String hostKeyAlgorithm;
         private String privateKey;
         private @Nullable Boolean strictHostKeyCheckingEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpringCloudServiceConfigServerGitSettingSshAuth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostKey = defaults.hostKey;
@@ -100,23 +85,33 @@ public final class SpringCloudServiceConfigServerGitSettingSshAuth {
     	      this.strictHostKeyCheckingEnabled = defaults.strictHostKeyCheckingEnabled;
         }
 
+        @CustomType.Setter
         public Builder hostKey(@Nullable String hostKey) {
             this.hostKey = hostKey;
             return this;
         }
+        @CustomType.Setter
         public Builder hostKeyAlgorithm(@Nullable String hostKeyAlgorithm) {
             this.hostKeyAlgorithm = hostKeyAlgorithm;
             return this;
         }
+        @CustomType.Setter
         public Builder privateKey(String privateKey) {
             this.privateKey = Objects.requireNonNull(privateKey);
             return this;
         }
+        @CustomType.Setter
         public Builder strictHostKeyCheckingEnabled(@Nullable Boolean strictHostKeyCheckingEnabled) {
             this.strictHostKeyCheckingEnabled = strictHostKeyCheckingEnabled;
             return this;
-        }        public SpringCloudServiceConfigServerGitSettingSshAuth build() {
-            return new SpringCloudServiceConfigServerGitSettingSshAuth(hostKey, hostKeyAlgorithm, privateKey, strictHostKeyCheckingEnabled);
+        }
+        public SpringCloudServiceConfigServerGitSettingSshAuth build() {
+            final var o = new SpringCloudServiceConfigServerGitSettingSshAuth();
+            o.hostKey = hostKey;
+            o.hostKeyAlgorithm = hostKeyAlgorithm;
+            o.privateKey = privateKey;
+            o.strictHostKeyCheckingEnabled = strictHostKeyCheckingEnabled;
+            return o;
         }
     }
 }

@@ -14,49 +14,34 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode {
      * @return The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
      * 
      */
-    private final Integer count;
+    private Integer count;
     /**
      * @return The time interval in the form `hh:mm:ss`.
      * 
      */
-    private final String interval;
+    private String interval;
     /**
      * @return The path to which this rule status code applies.
      * 
      */
-    private final String path;
+    private String path;
     /**
      * @return The status code or range for this rule.
      * 
      */
-    private final String statusCodeRange;
+    private String statusCodeRange;
     /**
      * @return The Request Sub Status of the Status Code.
      * 
      */
-    private final Integer subStatus;
+    private Integer subStatus;
     /**
      * @return The Win32 Status Code of the Request.
      * 
      */
-    private final String win32Status;
+    private String win32Status;
 
-    @CustomType.Constructor
-    private GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode(
-        @CustomType.Parameter("count") Integer count,
-        @CustomType.Parameter("interval") String interval,
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("statusCodeRange") String statusCodeRange,
-        @CustomType.Parameter("subStatus") Integer subStatus,
-        @CustomType.Parameter("win32Status") String win32Status) {
-        this.count = count;
-        this.interval = interval;
-        this.path = path;
-        this.statusCodeRange = statusCodeRange;
-        this.subStatus = subStatus;
-        this.win32Status = win32Status;
-    }
-
+    private GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode() {}
     /**
      * @return The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
      * 
@@ -107,7 +92,7 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode {
     public static Builder builder(GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer count;
         private String interval;
@@ -115,11 +100,7 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode {
         private String statusCodeRange;
         private Integer subStatus;
         private String win32Status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
@@ -130,31 +111,45 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode {
     	      this.win32Status = defaults.win32Status;
         }
 
+        @CustomType.Setter
         public Builder count(Integer count) {
             this.count = Objects.requireNonNull(count);
             return this;
         }
+        @CustomType.Setter
         public Builder interval(String interval) {
             this.interval = Objects.requireNonNull(interval);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder statusCodeRange(String statusCodeRange) {
             this.statusCodeRange = Objects.requireNonNull(statusCodeRange);
             return this;
         }
+        @CustomType.Setter
         public Builder subStatus(Integer subStatus) {
             this.subStatus = Objects.requireNonNull(subStatus);
             return this;
         }
+        @CustomType.Setter
         public Builder win32Status(String win32Status) {
             this.win32Status = Objects.requireNonNull(win32Status);
             return this;
-        }        public GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode build() {
-            return new GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode(count, interval, path, statusCodeRange, subStatus, win32Status);
+        }
+        public GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode build() {
+            final var o = new GetWindowsWebAppSiteConfigAutoHealSettingTriggerStatusCode();
+            o.count = count;
+            o.interval = interval;
+            o.path = path;
+            o.statusCodeRange = statusCodeRange;
+            o.subStatus = subStatus;
+            o.win32Status = win32Status;
+            return o;
         }
     }
 }

@@ -11,42 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGatewayResult {
-    private final String apiManagementId;
+    private String apiManagementId;
     /**
      * @return The description of the API Management Gateway.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A `location_data` block as documented below.
      * 
      */
-    private final List<GetGatewayLocationData> locationDatas;
+    private List<GetGatewayLocationData> locationDatas;
     /**
      * @return A canonical name for the geographic or physical location.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private GetGatewayResult(
-        @CustomType.Parameter("apiManagementId") String apiManagementId,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("locationDatas") List<GetGatewayLocationData> locationDatas,
-        @CustomType.Parameter("name") String name) {
-        this.apiManagementId = apiManagementId;
-        this.description = description;
-        this.id = id;
-        this.locationDatas = locationDatas;
-        this.name = name;
-    }
-
+    private GetGatewayResult() {}
     public String apiManagementId() {
         return this.apiManagementId;
     }
@@ -86,18 +73,14 @@ public final class GetGatewayResult {
     public static Builder builder(GetGatewayResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiManagementId;
         private String description;
         private String id;
         private List<GetGatewayLocationData> locationDatas;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetGatewayResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiManagementId = defaults.apiManagementId;
@@ -107,18 +90,22 @@ public final class GetGatewayResult {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder apiManagementId(String apiManagementId) {
             this.apiManagementId = Objects.requireNonNull(apiManagementId);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder locationDatas(List<GetGatewayLocationData> locationDatas) {
             this.locationDatas = Objects.requireNonNull(locationDatas);
             return this;
@@ -126,11 +113,19 @@ public final class GetGatewayResult {
         public Builder locationDatas(GetGatewayLocationData... locationDatas) {
             return locationDatas(List.of(locationDatas));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetGatewayResult build() {
-            return new GetGatewayResult(apiManagementId, description, id, locationDatas, name);
+        }
+        public GetGatewayResult build() {
+            final var o = new GetGatewayResult();
+            o.apiManagementId = apiManagementId;
+            o.description = description;
+            o.id = id;
+            o.locationDatas = locationDatas;
+            o.name = name;
+            return o;
         }
     }
 }

@@ -16,56 +16,39 @@ public final class ReplicatedVMManagedDisk {
      * @return Id of disk that should be replicated.
      * 
      */
-    private final String diskId;
+    private String diskId;
     /**
      * @return Storage account that should be used for caching.
      * 
      */
-    private final String stagingStorageAccountId;
+    private String stagingStorageAccountId;
     /**
      * @return A `target_disk_encryption` block as defined below.
      * 
      */
-    private final @Nullable ReplicatedVMManagedDiskTargetDiskEncryption targetDiskEncryption;
+    private @Nullable ReplicatedVMManagedDiskTargetDiskEncryption targetDiskEncryption;
     /**
      * @return The Disk Encryption Set that the Managed Disk will be associated with.
      * 
      */
-    private final @Nullable String targetDiskEncryptionSetId;
+    private @Nullable String targetDiskEncryptionSetId;
     /**
      * @return What type should the disk be when a failover is done.
      * 
      */
-    private final String targetDiskType;
+    private String targetDiskType;
     /**
      * @return What type should the disk be that holds the replication data.
      * 
      */
-    private final String targetReplicaDiskType;
+    private String targetReplicaDiskType;
     /**
      * @return Resource group disk should belong to when a failover is done.
      * 
      */
-    private final String targetResourceGroupId;
+    private String targetResourceGroupId;
 
-    @CustomType.Constructor
-    private ReplicatedVMManagedDisk(
-        @CustomType.Parameter("diskId") String diskId,
-        @CustomType.Parameter("stagingStorageAccountId") String stagingStorageAccountId,
-        @CustomType.Parameter("targetDiskEncryption") @Nullable ReplicatedVMManagedDiskTargetDiskEncryption targetDiskEncryption,
-        @CustomType.Parameter("targetDiskEncryptionSetId") @Nullable String targetDiskEncryptionSetId,
-        @CustomType.Parameter("targetDiskType") String targetDiskType,
-        @CustomType.Parameter("targetReplicaDiskType") String targetReplicaDiskType,
-        @CustomType.Parameter("targetResourceGroupId") String targetResourceGroupId) {
-        this.diskId = diskId;
-        this.stagingStorageAccountId = stagingStorageAccountId;
-        this.targetDiskEncryption = targetDiskEncryption;
-        this.targetDiskEncryptionSetId = targetDiskEncryptionSetId;
-        this.targetDiskType = targetDiskType;
-        this.targetReplicaDiskType = targetReplicaDiskType;
-        this.targetResourceGroupId = targetResourceGroupId;
-    }
-
+    private ReplicatedVMManagedDisk() {}
     /**
      * @return Id of disk that should be replicated.
      * 
@@ -123,7 +106,7 @@ public final class ReplicatedVMManagedDisk {
     public static Builder builder(ReplicatedVMManagedDisk defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String diskId;
         private String stagingStorageAccountId;
@@ -132,11 +115,7 @@ public final class ReplicatedVMManagedDisk {
         private String targetDiskType;
         private String targetReplicaDiskType;
         private String targetResourceGroupId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReplicatedVMManagedDisk defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.diskId = defaults.diskId;
@@ -148,35 +127,51 @@ public final class ReplicatedVMManagedDisk {
     	      this.targetResourceGroupId = defaults.targetResourceGroupId;
         }
 
+        @CustomType.Setter
         public Builder diskId(String diskId) {
             this.diskId = Objects.requireNonNull(diskId);
             return this;
         }
+        @CustomType.Setter
         public Builder stagingStorageAccountId(String stagingStorageAccountId) {
             this.stagingStorageAccountId = Objects.requireNonNull(stagingStorageAccountId);
             return this;
         }
+        @CustomType.Setter
         public Builder targetDiskEncryption(@Nullable ReplicatedVMManagedDiskTargetDiskEncryption targetDiskEncryption) {
             this.targetDiskEncryption = targetDiskEncryption;
             return this;
         }
+        @CustomType.Setter
         public Builder targetDiskEncryptionSetId(@Nullable String targetDiskEncryptionSetId) {
             this.targetDiskEncryptionSetId = targetDiskEncryptionSetId;
             return this;
         }
+        @CustomType.Setter
         public Builder targetDiskType(String targetDiskType) {
             this.targetDiskType = Objects.requireNonNull(targetDiskType);
             return this;
         }
+        @CustomType.Setter
         public Builder targetReplicaDiskType(String targetReplicaDiskType) {
             this.targetReplicaDiskType = Objects.requireNonNull(targetReplicaDiskType);
             return this;
         }
+        @CustomType.Setter
         public Builder targetResourceGroupId(String targetResourceGroupId) {
             this.targetResourceGroupId = Objects.requireNonNull(targetResourceGroupId);
             return this;
-        }        public ReplicatedVMManagedDisk build() {
-            return new ReplicatedVMManagedDisk(diskId, stagingStorageAccountId, targetDiskEncryption, targetDiskEncryptionSetId, targetDiskType, targetReplicaDiskType, targetResourceGroupId);
+        }
+        public ReplicatedVMManagedDisk build() {
+            final var o = new ReplicatedVMManagedDisk();
+            o.diskId = diskId;
+            o.stagingStorageAccountId = stagingStorageAccountId;
+            o.targetDiskEncryption = targetDiskEncryption;
+            o.targetDiskEncryptionSetId = targetDiskEncryptionSetId;
+            o.targetDiskType = targetDiskType;
+            o.targetReplicaDiskType = targetReplicaDiskType;
+            o.targetResourceGroupId = targetResourceGroupId;
+            return o;
         }
     }
 }

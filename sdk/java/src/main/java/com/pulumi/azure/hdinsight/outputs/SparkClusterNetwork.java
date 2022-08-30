@@ -16,21 +16,14 @@ public final class SparkClusterNetwork {
      * @return The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String connectionDirection;
+    private @Nullable String connectionDirection;
     /**
      * @return Is the private link enabled? Possible values include `True` or `False`. Defaults to `False`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Boolean privateLinkEnabled;
+    private @Nullable Boolean privateLinkEnabled;
 
-    @CustomType.Constructor
-    private SparkClusterNetwork(
-        @CustomType.Parameter("connectionDirection") @Nullable String connectionDirection,
-        @CustomType.Parameter("privateLinkEnabled") @Nullable Boolean privateLinkEnabled) {
-        this.connectionDirection = connectionDirection;
-        this.privateLinkEnabled = privateLinkEnabled;
-    }
-
+    private SparkClusterNetwork() {}
     /**
      * @return The direction of the resource provider connection. Possible values include `Inbound` or `Outbound`. Defaults to `Inbound`. Changing this forces a new resource to be created.
      * 
@@ -53,30 +46,32 @@ public final class SparkClusterNetwork {
     public static Builder builder(SparkClusterNetwork defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String connectionDirection;
         private @Nullable Boolean privateLinkEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SparkClusterNetwork defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectionDirection = defaults.connectionDirection;
     	      this.privateLinkEnabled = defaults.privateLinkEnabled;
         }
 
+        @CustomType.Setter
         public Builder connectionDirection(@Nullable String connectionDirection) {
             this.connectionDirection = connectionDirection;
             return this;
         }
+        @CustomType.Setter
         public Builder privateLinkEnabled(@Nullable Boolean privateLinkEnabled) {
             this.privateLinkEnabled = privateLinkEnabled;
             return this;
-        }        public SparkClusterNetwork build() {
-            return new SparkClusterNetwork(connectionDirection, privateLinkEnabled);
+        }
+        public SparkClusterNetwork build() {
+            final var o = new SparkClusterNetwork();
+            o.connectionDirection = connectionDirection;
+            o.privateLinkEnabled = privateLinkEnabled;
+            return o;
         }
     }
 }

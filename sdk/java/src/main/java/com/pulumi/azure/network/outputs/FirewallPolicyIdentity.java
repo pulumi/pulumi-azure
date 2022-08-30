@@ -14,21 +14,14 @@ public final class FirewallPolicyIdentity {
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
      * 
      */
-    private final List<String> identityIds;
+    private List<String> identityIds;
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is `UserAssigned`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private FirewallPolicyIdentity(
-        @CustomType.Parameter("identityIds") List<String> identityIds,
-        @CustomType.Parameter("type") String type) {
-        this.identityIds = identityIds;
-        this.type = type;
-    }
-
+    private FirewallPolicyIdentity() {}
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
      * 
@@ -51,21 +44,18 @@ public final class FirewallPolicyIdentity {
     public static Builder builder(FirewallPolicyIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> identityIds;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder identityIds(List<String> identityIds) {
             this.identityIds = Objects.requireNonNull(identityIds);
             return this;
@@ -73,11 +63,16 @@ public final class FirewallPolicyIdentity {
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public FirewallPolicyIdentity build() {
-            return new FirewallPolicyIdentity(identityIds, type);
+        }
+        public FirewallPolicyIdentity build() {
+            final var o = new FirewallPolicyIdentity();
+            o.identityIds = identityIds;
+            o.type = type;
+            return o;
         }
     }
 }

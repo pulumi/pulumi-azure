@@ -15,21 +15,14 @@ public final class GetLinuxWebAppSiteConfigAutoHealSetting {
      * @return A `action` block as defined above.
      * 
      */
-    private final List<GetLinuxWebAppSiteConfigAutoHealSettingAction> actions;
+    private List<GetLinuxWebAppSiteConfigAutoHealSettingAction> actions;
     /**
      * @return A `trigger` block as defined below.
      * 
      */
-    private final List<GetLinuxWebAppSiteConfigAutoHealSettingTrigger> triggers;
+    private List<GetLinuxWebAppSiteConfigAutoHealSettingTrigger> triggers;
 
-    @CustomType.Constructor
-    private GetLinuxWebAppSiteConfigAutoHealSetting(
-        @CustomType.Parameter("actions") List<GetLinuxWebAppSiteConfigAutoHealSettingAction> actions,
-        @CustomType.Parameter("triggers") List<GetLinuxWebAppSiteConfigAutoHealSettingTrigger> triggers) {
-        this.actions = actions;
-        this.triggers = triggers;
-    }
-
+    private GetLinuxWebAppSiteConfigAutoHealSetting() {}
     /**
      * @return A `action` block as defined above.
      * 
@@ -52,21 +45,18 @@ public final class GetLinuxWebAppSiteConfigAutoHealSetting {
     public static Builder builder(GetLinuxWebAppSiteConfigAutoHealSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetLinuxWebAppSiteConfigAutoHealSettingAction> actions;
         private List<GetLinuxWebAppSiteConfigAutoHealSettingTrigger> triggers;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxWebAppSiteConfigAutoHealSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
     	      this.triggers = defaults.triggers;
         }
 
+        @CustomType.Setter
         public Builder actions(List<GetLinuxWebAppSiteConfigAutoHealSettingAction> actions) {
             this.actions = Objects.requireNonNull(actions);
             return this;
@@ -74,14 +64,19 @@ public final class GetLinuxWebAppSiteConfigAutoHealSetting {
         public Builder actions(GetLinuxWebAppSiteConfigAutoHealSettingAction... actions) {
             return actions(List.of(actions));
         }
+        @CustomType.Setter
         public Builder triggers(List<GetLinuxWebAppSiteConfigAutoHealSettingTrigger> triggers) {
             this.triggers = Objects.requireNonNull(triggers);
             return this;
         }
         public Builder triggers(GetLinuxWebAppSiteConfigAutoHealSettingTrigger... triggers) {
             return triggers(List.of(triggers));
-        }        public GetLinuxWebAppSiteConfigAutoHealSetting build() {
-            return new GetLinuxWebAppSiteConfigAutoHealSetting(actions, triggers);
+        }
+        public GetLinuxWebAppSiteConfigAutoHealSetting build() {
+            final var o = new GetLinuxWebAppSiteConfigAutoHealSetting();
+            o.actions = actions;
+            o.triggers = triggers;
+            return o;
         }
     }
 }

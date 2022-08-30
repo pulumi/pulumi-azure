@@ -16,28 +16,19 @@ public final class AccountRestore {
      * @return A `database` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable List<AccountRestoreDatabase> databases;
+    private @Nullable List<AccountRestoreDatabase> databases;
     /**
      * @return The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
      * 
      */
-    private final String restoreTimestampInUtc;
+    private String restoreTimestampInUtc;
     /**
      * @return The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
      * 
      */
-    private final String sourceCosmosdbAccountId;
+    private String sourceCosmosdbAccountId;
 
-    @CustomType.Constructor
-    private AccountRestore(
-        @CustomType.Parameter("databases") @Nullable List<AccountRestoreDatabase> databases,
-        @CustomType.Parameter("restoreTimestampInUtc") String restoreTimestampInUtc,
-        @CustomType.Parameter("sourceCosmosdbAccountId") String sourceCosmosdbAccountId) {
-        this.databases = databases;
-        this.restoreTimestampInUtc = restoreTimestampInUtc;
-        this.sourceCosmosdbAccountId = sourceCosmosdbAccountId;
-    }
-
+    private AccountRestore() {}
     /**
      * @return A `database` block as defined below. Changing this forces a new resource to be created.
      * 
@@ -67,16 +58,12 @@ public final class AccountRestore {
     public static Builder builder(AccountRestore defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<AccountRestoreDatabase> databases;
         private String restoreTimestampInUtc;
         private String sourceCosmosdbAccountId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountRestore defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.databases = defaults.databases;
@@ -84,6 +71,7 @@ public final class AccountRestore {
     	      this.sourceCosmosdbAccountId = defaults.sourceCosmosdbAccountId;
         }
 
+        @CustomType.Setter
         public Builder databases(@Nullable List<AccountRestoreDatabase> databases) {
             this.databases = databases;
             return this;
@@ -91,15 +79,22 @@ public final class AccountRestore {
         public Builder databases(AccountRestoreDatabase... databases) {
             return databases(List.of(databases));
         }
+        @CustomType.Setter
         public Builder restoreTimestampInUtc(String restoreTimestampInUtc) {
             this.restoreTimestampInUtc = Objects.requireNonNull(restoreTimestampInUtc);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceCosmosdbAccountId(String sourceCosmosdbAccountId) {
             this.sourceCosmosdbAccountId = Objects.requireNonNull(sourceCosmosdbAccountId);
             return this;
-        }        public AccountRestore build() {
-            return new AccountRestore(databases, restoreTimestampInUtc, sourceCosmosdbAccountId);
+        }
+        public AccountRestore build() {
+            final var o = new AccountRestore();
+            o.databases = databases;
+            o.restoreTimestampInUtc = restoreTimestampInUtc;
+            o.sourceCosmosdbAccountId = sourceCosmosdbAccountId;
+            return o;
         }
     }
 }

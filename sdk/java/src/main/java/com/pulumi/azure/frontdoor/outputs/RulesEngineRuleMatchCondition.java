@@ -17,49 +17,34 @@ public final class RulesEngineRuleMatchCondition {
      * @return can be set to `true` or `false` to negate the given condition. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean negateCondition;
+    private @Nullable Boolean negateCondition;
     /**
      * @return can be set to `Any`, `IPMatch`, `GeoMatch`, `Equal`, `Contains`, `LessThan`, `GreaterThan`, `LessThanOrEqual`, `GreaterThanOrEqual`, `BeginsWith` or `EndsWith`
      * 
      */
-    private final String operator;
+    private String operator;
     /**
      * @return match against a specific key when `variable` is set to `PostArgs` or `RequestHeader`. It cannot be used with `QueryString` and `RequestMethod`. Defaults to `null`.
      * 
      */
-    private final @Nullable String selector;
+    private @Nullable String selector;
     /**
      * @return can be set to one or more values out of `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` and `UrlEncode`
      * 
      */
-    private final @Nullable List<String> transforms;
+    private @Nullable List<String> transforms;
     /**
      * @return can contain one or more strings.
      * 
      */
-    private final @Nullable List<String> values;
+    private @Nullable List<String> values;
     /**
      * @return can be set to `IsMobile`, `RemoteAddr`, `RequestMethod`, `QueryString`, `PostArgs`, `RequestURI`, `RequestPath`, `RequestFilename`, `RequestFilenameExtension`,`RequestHeader`,`RequestBody` or `RequestScheme`.
      * 
      */
-    private final @Nullable String variable;
+    private @Nullable String variable;
 
-    @CustomType.Constructor
-    private RulesEngineRuleMatchCondition(
-        @CustomType.Parameter("negateCondition") @Nullable Boolean negateCondition,
-        @CustomType.Parameter("operator") String operator,
-        @CustomType.Parameter("selector") @Nullable String selector,
-        @CustomType.Parameter("transforms") @Nullable List<String> transforms,
-        @CustomType.Parameter("values") @Nullable List<String> values,
-        @CustomType.Parameter("variable") @Nullable String variable) {
-        this.negateCondition = negateCondition;
-        this.operator = operator;
-        this.selector = selector;
-        this.transforms = transforms;
-        this.values = values;
-        this.variable = variable;
-    }
-
+    private RulesEngineRuleMatchCondition() {}
     /**
      * @return can be set to `true` or `false` to negate the given condition. Defaults to `true`.
      * 
@@ -110,7 +95,7 @@ public final class RulesEngineRuleMatchCondition {
     public static Builder builder(RulesEngineRuleMatchCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean negateCondition;
         private String operator;
@@ -118,11 +103,7 @@ public final class RulesEngineRuleMatchCondition {
         private @Nullable List<String> transforms;
         private @Nullable List<String> values;
         private @Nullable String variable;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RulesEngineRuleMatchCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.negateCondition = defaults.negateCondition;
@@ -133,18 +114,22 @@ public final class RulesEngineRuleMatchCondition {
     	      this.variable = defaults.variable;
         }
 
+        @CustomType.Setter
         public Builder negateCondition(@Nullable Boolean negateCondition) {
             this.negateCondition = negateCondition;
             return this;
         }
+        @CustomType.Setter
         public Builder operator(String operator) {
             this.operator = Objects.requireNonNull(operator);
             return this;
         }
+        @CustomType.Setter
         public Builder selector(@Nullable String selector) {
             this.selector = selector;
             return this;
         }
+        @CustomType.Setter
         public Builder transforms(@Nullable List<String> transforms) {
             this.transforms = transforms;
             return this;
@@ -152,6 +137,7 @@ public final class RulesEngineRuleMatchCondition {
         public Builder transforms(String... transforms) {
             return transforms(List.of(transforms));
         }
+        @CustomType.Setter
         public Builder values(@Nullable List<String> values) {
             this.values = values;
             return this;
@@ -159,11 +145,20 @@ public final class RulesEngineRuleMatchCondition {
         public Builder values(String... values) {
             return values(List.of(values));
         }
+        @CustomType.Setter
         public Builder variable(@Nullable String variable) {
             this.variable = variable;
             return this;
-        }        public RulesEngineRuleMatchCondition build() {
-            return new RulesEngineRuleMatchCondition(negateCondition, operator, selector, transforms, values, variable);
+        }
+        public RulesEngineRuleMatchCondition build() {
+            final var o = new RulesEngineRuleMatchCondition();
+            o.negateCondition = negateCondition;
+            o.operator = operator;
+            o.selector = selector;
+            o.transforms = transforms;
+            o.values = values;
+            o.variable = variable;
+            return o;
         }
     }
 }

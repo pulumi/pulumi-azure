@@ -14,13 +14,9 @@ public final class GremlinGraphUniqueKey {
      * @return A list of paths to use for this unique key.
      * 
      */
-    private final List<String> paths;
+    private List<String> paths;
 
-    @CustomType.Constructor
-    private GremlinGraphUniqueKey(@CustomType.Parameter("paths") List<String> paths) {
-        this.paths = paths;
-    }
-
+    private GremlinGraphUniqueKey() {}
     /**
      * @return A list of paths to use for this unique key.
      * 
@@ -36,27 +32,27 @@ public final class GremlinGraphUniqueKey {
     public static Builder builder(GremlinGraphUniqueKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> paths;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GremlinGraphUniqueKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.paths = defaults.paths;
         }
 
+        @CustomType.Setter
         public Builder paths(List<String> paths) {
             this.paths = Objects.requireNonNull(paths);
             return this;
         }
         public Builder paths(String... paths) {
             return paths(List.of(paths));
-        }        public GremlinGraphUniqueKey build() {
-            return new GremlinGraphUniqueKey(paths);
+        }
+        public GremlinGraphUniqueKey build() {
+            final var o = new GremlinGraphUniqueKey();
+            o.paths = paths;
+            return o;
         }
     }
 }

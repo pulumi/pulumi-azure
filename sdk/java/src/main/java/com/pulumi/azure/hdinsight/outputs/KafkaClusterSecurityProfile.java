@@ -15,56 +15,39 @@ public final class KafkaClusterSecurityProfile {
      * @return The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
      * 
      */
-    private final String aaddsResourceId;
+    private String aaddsResourceId;
     /**
      * @return A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable List<String> clusterUsersGroupDns;
+    private @Nullable List<String> clusterUsersGroupDns;
     /**
      * @return The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.
      * 
      */
-    private final String domainName;
+    private String domainName;
     /**
      * @return The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.
      * 
      */
-    private final String domainUserPassword;
+    private String domainUserPassword;
     /**
      * @return The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.
      * 
      */
-    private final String domainUsername;
+    private String domainUsername;
     /**
      * @return A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.
      * 
      */
-    private final List<String> ldapsUrls;
+    private List<String> ldapsUrls;
     /**
      * @return The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.
      * 
      */
-    private final String msiResourceId;
+    private String msiResourceId;
 
-    @CustomType.Constructor
-    private KafkaClusterSecurityProfile(
-        @CustomType.Parameter("aaddsResourceId") String aaddsResourceId,
-        @CustomType.Parameter("clusterUsersGroupDns") @Nullable List<String> clusterUsersGroupDns,
-        @CustomType.Parameter("domainName") String domainName,
-        @CustomType.Parameter("domainUserPassword") String domainUserPassword,
-        @CustomType.Parameter("domainUsername") String domainUsername,
-        @CustomType.Parameter("ldapsUrls") List<String> ldapsUrls,
-        @CustomType.Parameter("msiResourceId") String msiResourceId) {
-        this.aaddsResourceId = aaddsResourceId;
-        this.clusterUsersGroupDns = clusterUsersGroupDns;
-        this.domainName = domainName;
-        this.domainUserPassword = domainUserPassword;
-        this.domainUsername = domainUsername;
-        this.ldapsUrls = ldapsUrls;
-        this.msiResourceId = msiResourceId;
-    }
-
+    private KafkaClusterSecurityProfile() {}
     /**
      * @return The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
      * 
@@ -122,7 +105,7 @@ public final class KafkaClusterSecurityProfile {
     public static Builder builder(KafkaClusterSecurityProfile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String aaddsResourceId;
         private @Nullable List<String> clusterUsersGroupDns;
@@ -131,11 +114,7 @@ public final class KafkaClusterSecurityProfile {
         private String domainUsername;
         private List<String> ldapsUrls;
         private String msiResourceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KafkaClusterSecurityProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aaddsResourceId = defaults.aaddsResourceId;
@@ -147,10 +126,12 @@ public final class KafkaClusterSecurityProfile {
     	      this.msiResourceId = defaults.msiResourceId;
         }
 
+        @CustomType.Setter
         public Builder aaddsResourceId(String aaddsResourceId) {
             this.aaddsResourceId = Objects.requireNonNull(aaddsResourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterUsersGroupDns(@Nullable List<String> clusterUsersGroupDns) {
             this.clusterUsersGroupDns = clusterUsersGroupDns;
             return this;
@@ -158,18 +139,22 @@ public final class KafkaClusterSecurityProfile {
         public Builder clusterUsersGroupDns(String... clusterUsersGroupDns) {
             return clusterUsersGroupDns(List.of(clusterUsersGroupDns));
         }
+        @CustomType.Setter
         public Builder domainName(String domainName) {
             this.domainName = Objects.requireNonNull(domainName);
             return this;
         }
+        @CustomType.Setter
         public Builder domainUserPassword(String domainUserPassword) {
             this.domainUserPassword = Objects.requireNonNull(domainUserPassword);
             return this;
         }
+        @CustomType.Setter
         public Builder domainUsername(String domainUsername) {
             this.domainUsername = Objects.requireNonNull(domainUsername);
             return this;
         }
+        @CustomType.Setter
         public Builder ldapsUrls(List<String> ldapsUrls) {
             this.ldapsUrls = Objects.requireNonNull(ldapsUrls);
             return this;
@@ -177,11 +162,21 @@ public final class KafkaClusterSecurityProfile {
         public Builder ldapsUrls(String... ldapsUrls) {
             return ldapsUrls(List.of(ldapsUrls));
         }
+        @CustomType.Setter
         public Builder msiResourceId(String msiResourceId) {
             this.msiResourceId = Objects.requireNonNull(msiResourceId);
             return this;
-        }        public KafkaClusterSecurityProfile build() {
-            return new KafkaClusterSecurityProfile(aaddsResourceId, clusterUsersGroupDns, domainName, domainUserPassword, domainUsername, ldapsUrls, msiResourceId);
+        }
+        public KafkaClusterSecurityProfile build() {
+            final var o = new KafkaClusterSecurityProfile();
+            o.aaddsResourceId = aaddsResourceId;
+            o.clusterUsersGroupDns = clusterUsersGroupDns;
+            o.domainName = domainName;
+            o.domainUserPassword = domainUserPassword;
+            o.domainUsername = domainUsername;
+            o.ldapsUrls = ldapsUrls;
+            o.msiResourceId = msiResourceId;
+            return o;
         }
     }
 }

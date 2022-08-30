@@ -15,21 +15,14 @@ public final class ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRenta
      * @return Playback duration.
      * 
      */
-    private final @Nullable Integer playbackDurationSeconds;
+    private @Nullable Integer playbackDurationSeconds;
     /**
      * @return Storage duration.
      * 
      */
-    private final @Nullable Integer storageDurationSeconds;
+    private @Nullable Integer storageDurationSeconds;
 
-    @CustomType.Constructor
-    private ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration(
-        @CustomType.Parameter("playbackDurationSeconds") @Nullable Integer playbackDurationSeconds,
-        @CustomType.Parameter("storageDurationSeconds") @Nullable Integer storageDurationSeconds) {
-        this.playbackDurationSeconds = playbackDurationSeconds;
-        this.storageDurationSeconds = storageDurationSeconds;
-    }
-
+    private ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration() {}
     /**
      * @return Playback duration.
      * 
@@ -52,30 +45,32 @@ public final class ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRenta
     public static Builder builder(ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer playbackDurationSeconds;
         private @Nullable Integer storageDurationSeconds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.playbackDurationSeconds = defaults.playbackDurationSeconds;
     	      this.storageDurationSeconds = defaults.storageDurationSeconds;
         }
 
+        @CustomType.Setter
         public Builder playbackDurationSeconds(@Nullable Integer playbackDurationSeconds) {
             this.playbackDurationSeconds = playbackDurationSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder storageDurationSeconds(@Nullable Integer storageDurationSeconds) {
             this.storageDurationSeconds = storageDurationSeconds;
             return this;
-        }        public ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration build() {
-            return new ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration(playbackDurationSeconds, storageDurationSeconds);
+        }
+        public ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration build() {
+            final var o = new ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration();
+            o.playbackDurationSeconds = playbackDurationSeconds;
+            o.storageDurationSeconds = storageDurationSeconds;
+            return o;
         }
     }
 }

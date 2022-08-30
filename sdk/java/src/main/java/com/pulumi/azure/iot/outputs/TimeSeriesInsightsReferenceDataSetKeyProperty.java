@@ -13,21 +13,14 @@ public final class TimeSeriesInsightsReferenceDataSetKeyProperty {
      * @return The name of the key property. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`. Changing this forces a new resource to be created.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private TimeSeriesInsightsReferenceDataSetKeyProperty(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") String type) {
-        this.name = name;
-        this.type = type;
-    }
-
+    private TimeSeriesInsightsReferenceDataSetKeyProperty() {}
     /**
      * @return The name of the key property. Changing this forces a new resource to be created.
      * 
@@ -50,30 +43,32 @@ public final class TimeSeriesInsightsReferenceDataSetKeyProperty {
     public static Builder builder(TimeSeriesInsightsReferenceDataSetKeyProperty defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TimeSeriesInsightsReferenceDataSetKeyProperty defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public TimeSeriesInsightsReferenceDataSetKeyProperty build() {
-            return new TimeSeriesInsightsReferenceDataSetKeyProperty(name, type);
+        }
+        public TimeSeriesInsightsReferenceDataSetKeyProperty build() {
+            final var o = new TimeSeriesInsightsReferenceDataSetKeyProperty();
+            o.name = name;
+            o.type = type;
+            return o;
         }
     }
 }

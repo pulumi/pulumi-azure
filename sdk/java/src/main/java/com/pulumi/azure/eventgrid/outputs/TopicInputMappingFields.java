@@ -15,49 +15,34 @@ public final class TopicInputMappingFields {
      * @return Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String dataVersion;
+    private @Nullable String dataVersion;
     /**
      * @return Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String eventTime;
+    private @Nullable String eventTime;
     /**
      * @return Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String eventType;
+    private @Nullable String eventType;
     /**
      * @return Specifies the id of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String subject;
+    private @Nullable String subject;
     /**
      * @return Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String topic;
+    private @Nullable String topic;
 
-    @CustomType.Constructor
-    private TopicInputMappingFields(
-        @CustomType.Parameter("dataVersion") @Nullable String dataVersion,
-        @CustomType.Parameter("eventTime") @Nullable String eventTime,
-        @CustomType.Parameter("eventType") @Nullable String eventType,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("subject") @Nullable String subject,
-        @CustomType.Parameter("topic") @Nullable String topic) {
-        this.dataVersion = dataVersion;
-        this.eventTime = eventTime;
-        this.eventType = eventType;
-        this.id = id;
-        this.subject = subject;
-        this.topic = topic;
-    }
-
+    private TopicInputMappingFields() {}
     /**
      * @return Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
      * 
@@ -108,7 +93,7 @@ public final class TopicInputMappingFields {
     public static Builder builder(TopicInputMappingFields defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String dataVersion;
         private @Nullable String eventTime;
@@ -116,11 +101,7 @@ public final class TopicInputMappingFields {
         private @Nullable String id;
         private @Nullable String subject;
         private @Nullable String topic;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TopicInputMappingFields defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataVersion = defaults.dataVersion;
@@ -131,31 +112,45 @@ public final class TopicInputMappingFields {
     	      this.topic = defaults.topic;
         }
 
+        @CustomType.Setter
         public Builder dataVersion(@Nullable String dataVersion) {
             this.dataVersion = dataVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder eventTime(@Nullable String eventTime) {
             this.eventTime = eventTime;
             return this;
         }
+        @CustomType.Setter
         public Builder eventType(@Nullable String eventType) {
             this.eventType = eventType;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder subject(@Nullable String subject) {
             this.subject = subject;
             return this;
         }
+        @CustomType.Setter
         public Builder topic(@Nullable String topic) {
             this.topic = topic;
             return this;
-        }        public TopicInputMappingFields build() {
-            return new TopicInputMappingFields(dataVersion, eventTime, eventType, id, subject, topic);
+        }
+        public TopicInputMappingFields build() {
+            final var o = new TopicInputMappingFields();
+            o.dataVersion = dataVersion;
+            o.eventTime = eventTime;
+            o.eventType = eventType;
+            o.id = id;
+            o.subject = subject;
+            o.topic = topic;
+            return o;
         }
     }
 }

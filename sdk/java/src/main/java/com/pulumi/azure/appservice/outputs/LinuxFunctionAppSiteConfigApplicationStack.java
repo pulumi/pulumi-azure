@@ -18,63 +18,44 @@ public final class LinuxFunctionAppSiteConfigApplicationStack {
      * @return One or more `docker` blocks as defined below.
      * 
      */
-    private final @Nullable List<LinuxFunctionAppSiteConfigApplicationStackDocker> dockers;
+    private @Nullable List<LinuxFunctionAppSiteConfigApplicationStackDocker> dockers;
     /**
      * @return The version of .NET to use. Possible values include `3.1` and `6.0`.
      * 
      */
-    private final @Nullable String dotnetVersion;
+    private @Nullable String dotnetVersion;
     /**
      * @return The Version of Java to use. Supported versions include `8`, and `11`.
      * 
      */
-    private final @Nullable String javaVersion;
+    private @Nullable String javaVersion;
     /**
      * @return The version of Node to run. Possible values include `12`, `14`, and `16`.
      * 
      */
-    private final @Nullable String nodeVersion;
+    private @Nullable String nodeVersion;
     /**
      * @return The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
      * 
      */
-    private final @Nullable String powershellCoreVersion;
+    private @Nullable String powershellCoreVersion;
     /**
      * @return The version of Python to run. Possible values include `3.6`, `3.7`, `3.8`, and `3.9`.
      * 
      */
-    private final @Nullable String pythonVersion;
+    private @Nullable String pythonVersion;
     /**
      * @return Should the Linux Function App use a custom runtime?
      * 
      */
-    private final @Nullable Boolean useCustomRuntime;
+    private @Nullable Boolean useCustomRuntime;
     /**
      * @return Should the DotNet process use an isolated runtime. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean useDotnetIsolatedRuntime;
+    private @Nullable Boolean useDotnetIsolatedRuntime;
 
-    @CustomType.Constructor
-    private LinuxFunctionAppSiteConfigApplicationStack(
-        @CustomType.Parameter("dockers") @Nullable List<LinuxFunctionAppSiteConfigApplicationStackDocker> dockers,
-        @CustomType.Parameter("dotnetVersion") @Nullable String dotnetVersion,
-        @CustomType.Parameter("javaVersion") @Nullable String javaVersion,
-        @CustomType.Parameter("nodeVersion") @Nullable String nodeVersion,
-        @CustomType.Parameter("powershellCoreVersion") @Nullable String powershellCoreVersion,
-        @CustomType.Parameter("pythonVersion") @Nullable String pythonVersion,
-        @CustomType.Parameter("useCustomRuntime") @Nullable Boolean useCustomRuntime,
-        @CustomType.Parameter("useDotnetIsolatedRuntime") @Nullable Boolean useDotnetIsolatedRuntime) {
-        this.dockers = dockers;
-        this.dotnetVersion = dotnetVersion;
-        this.javaVersion = javaVersion;
-        this.nodeVersion = nodeVersion;
-        this.powershellCoreVersion = powershellCoreVersion;
-        this.pythonVersion = pythonVersion;
-        this.useCustomRuntime = useCustomRuntime;
-        this.useDotnetIsolatedRuntime = useDotnetIsolatedRuntime;
-    }
-
+    private LinuxFunctionAppSiteConfigApplicationStack() {}
     /**
      * @return One or more `docker` blocks as defined below.
      * 
@@ -139,7 +120,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStack {
     public static Builder builder(LinuxFunctionAppSiteConfigApplicationStack defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<LinuxFunctionAppSiteConfigApplicationStackDocker> dockers;
         private @Nullable String dotnetVersion;
@@ -149,11 +130,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStack {
         private @Nullable String pythonVersion;
         private @Nullable Boolean useCustomRuntime;
         private @Nullable Boolean useDotnetIsolatedRuntime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxFunctionAppSiteConfigApplicationStack defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dockers = defaults.dockers;
@@ -166,6 +143,7 @@ public final class LinuxFunctionAppSiteConfigApplicationStack {
     	      this.useDotnetIsolatedRuntime = defaults.useDotnetIsolatedRuntime;
         }
 
+        @CustomType.Setter
         public Builder dockers(@Nullable List<LinuxFunctionAppSiteConfigApplicationStackDocker> dockers) {
             this.dockers = dockers;
             return this;
@@ -173,35 +151,52 @@ public final class LinuxFunctionAppSiteConfigApplicationStack {
         public Builder dockers(LinuxFunctionAppSiteConfigApplicationStackDocker... dockers) {
             return dockers(List.of(dockers));
         }
+        @CustomType.Setter
         public Builder dotnetVersion(@Nullable String dotnetVersion) {
             this.dotnetVersion = dotnetVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder javaVersion(@Nullable String javaVersion) {
             this.javaVersion = javaVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder nodeVersion(@Nullable String nodeVersion) {
             this.nodeVersion = nodeVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder powershellCoreVersion(@Nullable String powershellCoreVersion) {
             this.powershellCoreVersion = powershellCoreVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder pythonVersion(@Nullable String pythonVersion) {
             this.pythonVersion = pythonVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder useCustomRuntime(@Nullable Boolean useCustomRuntime) {
             this.useCustomRuntime = useCustomRuntime;
             return this;
         }
+        @CustomType.Setter
         public Builder useDotnetIsolatedRuntime(@Nullable Boolean useDotnetIsolatedRuntime) {
             this.useDotnetIsolatedRuntime = useDotnetIsolatedRuntime;
             return this;
-        }        public LinuxFunctionAppSiteConfigApplicationStack build() {
-            return new LinuxFunctionAppSiteConfigApplicationStack(dockers, dotnetVersion, javaVersion, nodeVersion, powershellCoreVersion, pythonVersion, useCustomRuntime, useDotnetIsolatedRuntime);
+        }
+        public LinuxFunctionAppSiteConfigApplicationStack build() {
+            final var o = new LinuxFunctionAppSiteConfigApplicationStack();
+            o.dockers = dockers;
+            o.dotnetVersion = dotnetVersion;
+            o.javaVersion = javaVersion;
+            o.nodeVersion = nodeVersion;
+            o.powershellCoreVersion = powershellCoreVersion;
+            o.pythonVersion = pythonVersion;
+            o.useCustomRuntime = useCustomRuntime;
+            o.useDotnetIsolatedRuntime = useDotnetIsolatedRuntime;
+            return o;
         }
     }
 }

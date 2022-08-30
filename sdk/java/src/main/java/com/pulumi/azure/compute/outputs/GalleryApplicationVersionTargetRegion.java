@@ -16,28 +16,19 @@ public final class GalleryApplicationVersionTargetRegion {
      * @return The Azure Region in which the Gallery Application Version exists.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The number of replicas of the Gallery Application Version to be created per region. Possible values are between `1` and `10`.
      * 
      */
-    private final Integer regionalReplicaCount;
+    private Integer regionalReplicaCount;
     /**
      * @return The storage account type for the Gallery Application Version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`.
      * 
      */
-    private final @Nullable String storageAccountType;
+    private @Nullable String storageAccountType;
 
-    @CustomType.Constructor
-    private GalleryApplicationVersionTargetRegion(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("regionalReplicaCount") Integer regionalReplicaCount,
-        @CustomType.Parameter("storageAccountType") @Nullable String storageAccountType) {
-        this.name = name;
-        this.regionalReplicaCount = regionalReplicaCount;
-        this.storageAccountType = storageAccountType;
-    }
-
+    private GalleryApplicationVersionTargetRegion() {}
     /**
      * @return The Azure Region in which the Gallery Application Version exists.
      * 
@@ -67,16 +58,12 @@ public final class GalleryApplicationVersionTargetRegion {
     public static Builder builder(GalleryApplicationVersionTargetRegion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private Integer regionalReplicaCount;
         private @Nullable String storageAccountType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GalleryApplicationVersionTargetRegion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -84,19 +71,27 @@ public final class GalleryApplicationVersionTargetRegion {
     	      this.storageAccountType = defaults.storageAccountType;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder regionalReplicaCount(Integer regionalReplicaCount) {
             this.regionalReplicaCount = Objects.requireNonNull(regionalReplicaCount);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountType(@Nullable String storageAccountType) {
             this.storageAccountType = storageAccountType;
             return this;
-        }        public GalleryApplicationVersionTargetRegion build() {
-            return new GalleryApplicationVersionTargetRegion(name, regionalReplicaCount, storageAccountType);
+        }
+        public GalleryApplicationVersionTargetRegion build() {
+            final var o = new GalleryApplicationVersionTargetRegion();
+            o.name = name;
+            o.regionalReplicaCount = regionalReplicaCount;
+            o.storageAccountType = storageAccountType;
+            return o;
         }
     }
 }

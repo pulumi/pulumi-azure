@@ -17,42 +17,29 @@ public final class EndpointPrivateDnsZoneConfigRecordSet {
      * @return The fully qualified domain name to the `private_dns_zone`.
      * 
      */
-    private final @Nullable String fqdn;
+    private @Nullable String fqdn;
     /**
      * @return A list of all IP Addresses that map to the `private_dns_zone` fqdn.
      * 
      */
-    private final @Nullable List<String> ipAddresses;
+    private @Nullable List<String> ipAddresses;
     /**
      * @return Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The time to live for each connection to the `private_dns_zone`.
      * 
      */
-    private final @Nullable Integer ttl;
+    private @Nullable Integer ttl;
     /**
      * @return The type of DNS record.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private EndpointPrivateDnsZoneConfigRecordSet(
-        @CustomType.Parameter("fqdn") @Nullable String fqdn,
-        @CustomType.Parameter("ipAddresses") @Nullable List<String> ipAddresses,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("ttl") @Nullable Integer ttl,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.fqdn = fqdn;
-        this.ipAddresses = ipAddresses;
-        this.name = name;
-        this.ttl = ttl;
-        this.type = type;
-    }
-
+    private EndpointPrivateDnsZoneConfigRecordSet() {}
     /**
      * @return The fully qualified domain name to the `private_dns_zone`.
      * 
@@ -96,18 +83,14 @@ public final class EndpointPrivateDnsZoneConfigRecordSet {
     public static Builder builder(EndpointPrivateDnsZoneConfigRecordSet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String fqdn;
         private @Nullable List<String> ipAddresses;
         private @Nullable String name;
         private @Nullable Integer ttl;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointPrivateDnsZoneConfigRecordSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fqdn = defaults.fqdn;
@@ -117,10 +100,12 @@ public final class EndpointPrivateDnsZoneConfigRecordSet {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder fqdn(@Nullable String fqdn) {
             this.fqdn = fqdn;
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddresses(@Nullable List<String> ipAddresses) {
             this.ipAddresses = ipAddresses;
             return this;
@@ -128,19 +113,29 @@ public final class EndpointPrivateDnsZoneConfigRecordSet {
         public Builder ipAddresses(String... ipAddresses) {
             return ipAddresses(List.of(ipAddresses));
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder ttl(@Nullable Integer ttl) {
             this.ttl = ttl;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public EndpointPrivateDnsZoneConfigRecordSet build() {
-            return new EndpointPrivateDnsZoneConfigRecordSet(fqdn, ipAddresses, name, ttl, type);
+        }
+        public EndpointPrivateDnsZoneConfigRecordSet build() {
+            final var o = new EndpointPrivateDnsZoneConfigRecordSet();
+            o.fqdn = fqdn;
+            o.ipAddresses = ipAddresses;
+            o.name = name;
+            o.ttl = ttl;
+            o.type = type;
+            return o;
         }
     }
 }

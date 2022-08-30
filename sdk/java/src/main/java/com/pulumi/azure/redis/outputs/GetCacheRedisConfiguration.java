@@ -11,89 +11,58 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCacheRedisConfiguration {
-    private final Boolean aofBackupEnabled;
-    private final String aofStorageConnectionString0;
-    private final String aofStorageConnectionString1;
+    private Boolean aofBackupEnabled;
+    private String aofStorageConnectionString0;
+    private String aofStorageConnectionString1;
     /**
      * @return Specifies if authentication is enabled
      * 
      */
-    private final Boolean enableAuthentication;
-    private final Integer maxclients;
+    private Boolean enableAuthentication;
+    private Integer maxclients;
     /**
      * @return Value in megabytes reserved to accommodate for memory fragmentation.
      * 
      */
-    private final Integer maxfragmentationmemoryReserved;
+    private Integer maxfragmentationmemoryReserved;
     /**
      * @return The max-memory delta for this Redis instance.
      * 
      */
-    private final Integer maxmemoryDelta;
+    private Integer maxmemoryDelta;
     /**
      * @return How Redis will select what to remove when `maxmemory` is reached.
      * 
      */
-    private final String maxmemoryPolicy;
+    private String maxmemoryPolicy;
     /**
      * @return The value in megabytes reserved for non-cache usage e.g. failover
      * 
      */
-    private final Integer maxmemoryReserved;
-    private final String notifyKeyspaceEvents;
+    private Integer maxmemoryReserved;
+    private String notifyKeyspaceEvents;
     /**
      * @return Is Backup Enabled? Only supported on Premium SKUs.
      * 
      */
-    private final Boolean rdbBackupEnabled;
+    private Boolean rdbBackupEnabled;
     /**
      * @return The Backup Frequency in Minutes. Only supported on Premium SKUs.
      * 
      */
-    private final Integer rdbBackupFrequency;
+    private Integer rdbBackupFrequency;
     /**
      * @return The maximum number of snapshots that can be created as a backup.
      * 
      */
-    private final Integer rdbBackupMaxSnapshotCount;
+    private Integer rdbBackupMaxSnapshotCount;
     /**
      * @return The Connection String to the Storage Account. Only supported for Premium SKUs.
      * 
      */
-    private final String rdbStorageConnectionString;
+    private String rdbStorageConnectionString;
 
-    @CustomType.Constructor
-    private GetCacheRedisConfiguration(
-        @CustomType.Parameter("aofBackupEnabled") Boolean aofBackupEnabled,
-        @CustomType.Parameter("aofStorageConnectionString0") String aofStorageConnectionString0,
-        @CustomType.Parameter("aofStorageConnectionString1") String aofStorageConnectionString1,
-        @CustomType.Parameter("enableAuthentication") Boolean enableAuthentication,
-        @CustomType.Parameter("maxclients") Integer maxclients,
-        @CustomType.Parameter("maxfragmentationmemoryReserved") Integer maxfragmentationmemoryReserved,
-        @CustomType.Parameter("maxmemoryDelta") Integer maxmemoryDelta,
-        @CustomType.Parameter("maxmemoryPolicy") String maxmemoryPolicy,
-        @CustomType.Parameter("maxmemoryReserved") Integer maxmemoryReserved,
-        @CustomType.Parameter("notifyKeyspaceEvents") String notifyKeyspaceEvents,
-        @CustomType.Parameter("rdbBackupEnabled") Boolean rdbBackupEnabled,
-        @CustomType.Parameter("rdbBackupFrequency") Integer rdbBackupFrequency,
-        @CustomType.Parameter("rdbBackupMaxSnapshotCount") Integer rdbBackupMaxSnapshotCount,
-        @CustomType.Parameter("rdbStorageConnectionString") String rdbStorageConnectionString) {
-        this.aofBackupEnabled = aofBackupEnabled;
-        this.aofStorageConnectionString0 = aofStorageConnectionString0;
-        this.aofStorageConnectionString1 = aofStorageConnectionString1;
-        this.enableAuthentication = enableAuthentication;
-        this.maxclients = maxclients;
-        this.maxfragmentationmemoryReserved = maxfragmentationmemoryReserved;
-        this.maxmemoryDelta = maxmemoryDelta;
-        this.maxmemoryPolicy = maxmemoryPolicy;
-        this.maxmemoryReserved = maxmemoryReserved;
-        this.notifyKeyspaceEvents = notifyKeyspaceEvents;
-        this.rdbBackupEnabled = rdbBackupEnabled;
-        this.rdbBackupFrequency = rdbBackupFrequency;
-        this.rdbBackupMaxSnapshotCount = rdbBackupMaxSnapshotCount;
-        this.rdbStorageConnectionString = rdbStorageConnectionString;
-    }
-
+    private GetCacheRedisConfiguration() {}
     public Boolean aofBackupEnabled() {
         return this.aofBackupEnabled;
     }
@@ -180,7 +149,7 @@ public final class GetCacheRedisConfiguration {
     public static Builder builder(GetCacheRedisConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean aofBackupEnabled;
         private String aofStorageConnectionString0;
@@ -196,11 +165,7 @@ public final class GetCacheRedisConfiguration {
         private Integer rdbBackupFrequency;
         private Integer rdbBackupMaxSnapshotCount;
         private String rdbStorageConnectionString;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCacheRedisConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aofBackupEnabled = defaults.aofBackupEnabled;
@@ -219,63 +184,93 @@ public final class GetCacheRedisConfiguration {
     	      this.rdbStorageConnectionString = defaults.rdbStorageConnectionString;
         }
 
+        @CustomType.Setter
         public Builder aofBackupEnabled(Boolean aofBackupEnabled) {
             this.aofBackupEnabled = Objects.requireNonNull(aofBackupEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder aofStorageConnectionString0(String aofStorageConnectionString0) {
             this.aofStorageConnectionString0 = Objects.requireNonNull(aofStorageConnectionString0);
             return this;
         }
+        @CustomType.Setter
         public Builder aofStorageConnectionString1(String aofStorageConnectionString1) {
             this.aofStorageConnectionString1 = Objects.requireNonNull(aofStorageConnectionString1);
             return this;
         }
+        @CustomType.Setter
         public Builder enableAuthentication(Boolean enableAuthentication) {
             this.enableAuthentication = Objects.requireNonNull(enableAuthentication);
             return this;
         }
+        @CustomType.Setter
         public Builder maxclients(Integer maxclients) {
             this.maxclients = Objects.requireNonNull(maxclients);
             return this;
         }
+        @CustomType.Setter
         public Builder maxfragmentationmemoryReserved(Integer maxfragmentationmemoryReserved) {
             this.maxfragmentationmemoryReserved = Objects.requireNonNull(maxfragmentationmemoryReserved);
             return this;
         }
+        @CustomType.Setter
         public Builder maxmemoryDelta(Integer maxmemoryDelta) {
             this.maxmemoryDelta = Objects.requireNonNull(maxmemoryDelta);
             return this;
         }
+        @CustomType.Setter
         public Builder maxmemoryPolicy(String maxmemoryPolicy) {
             this.maxmemoryPolicy = Objects.requireNonNull(maxmemoryPolicy);
             return this;
         }
+        @CustomType.Setter
         public Builder maxmemoryReserved(Integer maxmemoryReserved) {
             this.maxmemoryReserved = Objects.requireNonNull(maxmemoryReserved);
             return this;
         }
+        @CustomType.Setter
         public Builder notifyKeyspaceEvents(String notifyKeyspaceEvents) {
             this.notifyKeyspaceEvents = Objects.requireNonNull(notifyKeyspaceEvents);
             return this;
         }
+        @CustomType.Setter
         public Builder rdbBackupEnabled(Boolean rdbBackupEnabled) {
             this.rdbBackupEnabled = Objects.requireNonNull(rdbBackupEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder rdbBackupFrequency(Integer rdbBackupFrequency) {
             this.rdbBackupFrequency = Objects.requireNonNull(rdbBackupFrequency);
             return this;
         }
+        @CustomType.Setter
         public Builder rdbBackupMaxSnapshotCount(Integer rdbBackupMaxSnapshotCount) {
             this.rdbBackupMaxSnapshotCount = Objects.requireNonNull(rdbBackupMaxSnapshotCount);
             return this;
         }
+        @CustomType.Setter
         public Builder rdbStorageConnectionString(String rdbStorageConnectionString) {
             this.rdbStorageConnectionString = Objects.requireNonNull(rdbStorageConnectionString);
             return this;
-        }        public GetCacheRedisConfiguration build() {
-            return new GetCacheRedisConfiguration(aofBackupEnabled, aofStorageConnectionString0, aofStorageConnectionString1, enableAuthentication, maxclients, maxfragmentationmemoryReserved, maxmemoryDelta, maxmemoryPolicy, maxmemoryReserved, notifyKeyspaceEvents, rdbBackupEnabled, rdbBackupFrequency, rdbBackupMaxSnapshotCount, rdbStorageConnectionString);
+        }
+        public GetCacheRedisConfiguration build() {
+            final var o = new GetCacheRedisConfiguration();
+            o.aofBackupEnabled = aofBackupEnabled;
+            o.aofStorageConnectionString0 = aofStorageConnectionString0;
+            o.aofStorageConnectionString1 = aofStorageConnectionString1;
+            o.enableAuthentication = enableAuthentication;
+            o.maxclients = maxclients;
+            o.maxfragmentationmemoryReserved = maxfragmentationmemoryReserved;
+            o.maxmemoryDelta = maxmemoryDelta;
+            o.maxmemoryPolicy = maxmemoryPolicy;
+            o.maxmemoryReserved = maxmemoryReserved;
+            o.notifyKeyspaceEvents = notifyKeyspaceEvents;
+            o.rdbBackupEnabled = rdbBackupEnabled;
+            o.rdbBackupFrequency = rdbBackupFrequency;
+            o.rdbBackupMaxSnapshotCount = rdbBackupMaxSnapshotCount;
+            o.rdbStorageConnectionString = rdbStorageConnectionString;
+            return o;
         }
     }
 }

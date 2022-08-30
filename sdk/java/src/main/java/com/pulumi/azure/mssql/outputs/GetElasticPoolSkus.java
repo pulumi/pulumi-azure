@@ -14,35 +14,24 @@ public final class GetElasticPoolSkus {
      * @return The scale up/out capacity, representing server&#39;s compute units.
      * 
      */
-    private final Integer capacity;
+    private Integer capacity;
     /**
      * @return The `family` of hardware.
      * 
      */
-    private final String family;
+    private String family;
     /**
      * @return The name of the elastic pool.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The tier of the particular SKU.
      * 
      */
-    private final String tier;
+    private String tier;
 
-    @CustomType.Constructor
-    private GetElasticPoolSkus(
-        @CustomType.Parameter("capacity") Integer capacity,
-        @CustomType.Parameter("family") String family,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("tier") String tier) {
-        this.capacity = capacity;
-        this.family = family;
-        this.name = name;
-        this.tier = tier;
-    }
-
+    private GetElasticPoolSkus() {}
     /**
      * @return The scale up/out capacity, representing server&#39;s compute units.
      * 
@@ -79,17 +68,13 @@ public final class GetElasticPoolSkus {
     public static Builder builder(GetElasticPoolSkus defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer capacity;
         private String family;
         private String name;
         private String tier;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetElasticPoolSkus defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacity = defaults.capacity;
@@ -98,23 +83,33 @@ public final class GetElasticPoolSkus {
     	      this.tier = defaults.tier;
         }
 
+        @CustomType.Setter
         public Builder capacity(Integer capacity) {
             this.capacity = Objects.requireNonNull(capacity);
             return this;
         }
+        @CustomType.Setter
         public Builder family(String family) {
             this.family = Objects.requireNonNull(family);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder tier(String tier) {
             this.tier = Objects.requireNonNull(tier);
             return this;
-        }        public GetElasticPoolSkus build() {
-            return new GetElasticPoolSkus(capacity, family, name, tier);
+        }
+        public GetElasticPoolSkus build() {
+            final var o = new GetElasticPoolSkus();
+            o.capacity = capacity;
+            o.family = family;
+            o.name = name;
+            o.tier = tier;
+            return o;
         }
     }
 }

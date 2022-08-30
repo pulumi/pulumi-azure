@@ -15,28 +15,19 @@ public final class DatasetCosmosDBApiSchemaColumn {
      * @return The description of the column.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return The name of the column.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Type of the column. Valid values are `Byte`, `Byte[]`, `Boolean`, `Date`, `DateTime`,`DateTimeOffset`, `Decimal`, `Double`, `Guid`, `Int16`, `Int32`, `Int64`, `Single`, `String`, `TimeSpan`. Please note these values are case sensitive.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private DatasetCosmosDBApiSchemaColumn(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.description = description;
-        this.name = name;
-        this.type = type;
-    }
-
+    private DatasetCosmosDBApiSchemaColumn() {}
     /**
      * @return The description of the column.
      * 
@@ -66,16 +57,12 @@ public final class DatasetCosmosDBApiSchemaColumn {
     public static Builder builder(DatasetCosmosDBApiSchemaColumn defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private String name;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DatasetCosmosDBApiSchemaColumn defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -83,19 +70,27 @@ public final class DatasetCosmosDBApiSchemaColumn {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public DatasetCosmosDBApiSchemaColumn build() {
-            return new DatasetCosmosDBApiSchemaColumn(description, name, type);
+        }
+        public DatasetCosmosDBApiSchemaColumn build() {
+            final var o = new DatasetCosmosDBApiSchemaColumn();
+            o.description = description;
+            o.name = name;
+            o.type = type;
+            return o;
         }
     }
 }

@@ -12,17 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DiagnosticFrontendRequestDataMasking {
-    private final @Nullable List<DiagnosticFrontendRequestDataMaskingHeader> headers;
-    private final @Nullable List<DiagnosticFrontendRequestDataMaskingQueryParam> queryParams;
+    private @Nullable List<DiagnosticFrontendRequestDataMaskingHeader> headers;
+    private @Nullable List<DiagnosticFrontendRequestDataMaskingQueryParam> queryParams;
 
-    @CustomType.Constructor
-    private DiagnosticFrontendRequestDataMasking(
-        @CustomType.Parameter("headers") @Nullable List<DiagnosticFrontendRequestDataMaskingHeader> headers,
-        @CustomType.Parameter("queryParams") @Nullable List<DiagnosticFrontendRequestDataMaskingQueryParam> queryParams) {
-        this.headers = headers;
-        this.queryParams = queryParams;
-    }
-
+    private DiagnosticFrontendRequestDataMasking() {}
     public List<DiagnosticFrontendRequestDataMaskingHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
@@ -37,21 +30,18 @@ public final class DiagnosticFrontendRequestDataMasking {
     public static Builder builder(DiagnosticFrontendRequestDataMasking defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<DiagnosticFrontendRequestDataMaskingHeader> headers;
         private @Nullable List<DiagnosticFrontendRequestDataMaskingQueryParam> queryParams;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DiagnosticFrontendRequestDataMasking defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.headers = defaults.headers;
     	      this.queryParams = defaults.queryParams;
         }
 
+        @CustomType.Setter
         public Builder headers(@Nullable List<DiagnosticFrontendRequestDataMaskingHeader> headers) {
             this.headers = headers;
             return this;
@@ -59,14 +49,19 @@ public final class DiagnosticFrontendRequestDataMasking {
         public Builder headers(DiagnosticFrontendRequestDataMaskingHeader... headers) {
             return headers(List.of(headers));
         }
+        @CustomType.Setter
         public Builder queryParams(@Nullable List<DiagnosticFrontendRequestDataMaskingQueryParam> queryParams) {
             this.queryParams = queryParams;
             return this;
         }
         public Builder queryParams(DiagnosticFrontendRequestDataMaskingQueryParam... queryParams) {
             return queryParams(List.of(queryParams));
-        }        public DiagnosticFrontendRequestDataMasking build() {
-            return new DiagnosticFrontendRequestDataMasking(headers, queryParams);
+        }
+        public DiagnosticFrontendRequestDataMasking build() {
+            final var o = new DiagnosticFrontendRequestDataMasking();
+            o.headers = headers;
+            o.queryParams = queryParams;
+            return o;
         }
     }
 }

@@ -13,35 +13,24 @@ public final class LogzSubAccountUser {
      * @return Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
      * 
      */
-    private final String email;
+    private String email;
     /**
      * @return First Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
      * 
      */
-    private final String firstName;
+    private String firstName;
     /**
      * @return Last Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created.
      * 
      */
-    private final String lastName;
+    private String lastName;
     /**
      * @return Phone number of the user used by Logz for contacting them if needed. Possible values must be between 1 and 40 characters in length. Changing this forces a new logz Sub Account to be created.
      * 
      */
-    private final String phoneNumber;
+    private String phoneNumber;
 
-    @CustomType.Constructor
-    private LogzSubAccountUser(
-        @CustomType.Parameter("email") String email,
-        @CustomType.Parameter("firstName") String firstName,
-        @CustomType.Parameter("lastName") String lastName,
-        @CustomType.Parameter("phoneNumber") String phoneNumber) {
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-    }
-
+    private LogzSubAccountUser() {}
     /**
      * @return Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
      * 
@@ -78,17 +67,13 @@ public final class LogzSubAccountUser {
     public static Builder builder(LogzSubAccountUser defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String email;
         private String firstName;
         private String lastName;
         private String phoneNumber;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LogzSubAccountUser defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.email = defaults.email;
@@ -97,23 +82,33 @@ public final class LogzSubAccountUser {
     	      this.phoneNumber = defaults.phoneNumber;
         }
 
+        @CustomType.Setter
         public Builder email(String email) {
             this.email = Objects.requireNonNull(email);
             return this;
         }
+        @CustomType.Setter
         public Builder firstName(String firstName) {
             this.firstName = Objects.requireNonNull(firstName);
             return this;
         }
+        @CustomType.Setter
         public Builder lastName(String lastName) {
             this.lastName = Objects.requireNonNull(lastName);
             return this;
         }
+        @CustomType.Setter
         public Builder phoneNumber(String phoneNumber) {
             this.phoneNumber = Objects.requireNonNull(phoneNumber);
             return this;
-        }        public LogzSubAccountUser build() {
-            return new LogzSubAccountUser(email, firstName, lastName, phoneNumber);
+        }
+        public LogzSubAccountUser build() {
+            final var o = new LogzSubAccountUser();
+            o.email = email;
+            o.firstName = firstName;
+            o.lastName = lastName;
+            o.phoneNumber = phoneNumber;
+            return o;
         }
     }
 }

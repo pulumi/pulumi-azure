@@ -15,48 +15,31 @@ public final class GetFrontdoorProfileResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
-    private final String resourceGroupName;
+    private String id;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return The UUID of this CDN FrontDoor Profile.
      * 
      */
-    private final String resourceGuid;
+    private String resourceGuid;
     /**
      * @return Specifies the maximum response timeout in seconds.
      * 
      */
-    private final Integer responseTimeoutSeconds;
+    private Integer responseTimeoutSeconds;
     /**
      * @return Specifies the SKU for this CDN FrontDoor Profile.
      * 
      */
-    private final String skuName;
+    private String skuName;
     /**
      * @return Specifies a mapping of Tags assigned to this CDN FrontDoor Profile.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetFrontdoorProfileResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("resourceGuid") String resourceGuid,
-        @CustomType.Parameter("responseTimeoutSeconds") Integer responseTimeoutSeconds,
-        @CustomType.Parameter("skuName") String skuName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.id = id;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.resourceGuid = resourceGuid;
-        this.responseTimeoutSeconds = responseTimeoutSeconds;
-        this.skuName = skuName;
-        this.tags = tags;
-    }
-
+    private GetFrontdoorProfileResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -106,7 +89,7 @@ public final class GetFrontdoorProfileResult {
     public static Builder builder(GetFrontdoorProfileResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String name;
@@ -115,11 +98,7 @@ public final class GetFrontdoorProfileResult {
         private Integer responseTimeoutSeconds;
         private String skuName;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFrontdoorProfileResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -131,35 +110,51 @@ public final class GetFrontdoorProfileResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGuid(String resourceGuid) {
             this.resourceGuid = Objects.requireNonNull(resourceGuid);
             return this;
         }
+        @CustomType.Setter
         public Builder responseTimeoutSeconds(Integer responseTimeoutSeconds) {
             this.responseTimeoutSeconds = Objects.requireNonNull(responseTimeoutSeconds);
             return this;
         }
+        @CustomType.Setter
         public Builder skuName(String skuName) {
             this.skuName = Objects.requireNonNull(skuName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetFrontdoorProfileResult build() {
-            return new GetFrontdoorProfileResult(id, name, resourceGroupName, resourceGuid, responseTimeoutSeconds, skuName, tags);
+        }
+        public GetFrontdoorProfileResult build() {
+            final var o = new GetFrontdoorProfileResult();
+            o.id = id;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.resourceGuid = resourceGuid;
+            o.responseTimeoutSeconds = responseTimeoutSeconds;
+            o.skuName = skuName;
+            o.tags = tags;
+            return o;
         }
     }
 }

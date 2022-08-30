@@ -18,139 +18,96 @@ public final class GetCertificateOrderResult {
      * @return Reasons why App Service Certificate is not renewable at the current moment.
      * 
      */
-    private final List<String> appServiceCertificateNotRenewableReasons;
+    private List<String> appServiceCertificateNotRenewableReasons;
     /**
      * @return true if the certificate should be automatically renewed when it expires; otherwise, false.
      * 
      */
-    private final Boolean autoRenew;
+    private Boolean autoRenew;
     /**
      * @return State of the Key Vault secret. A `certificates` block as defined below.
      * 
      */
-    private final List<GetCertificateOrderCertificate> certificates;
+    private List<GetCertificateOrderCertificate> certificates;
     /**
      * @return Last CSR that was created for this order.
      * 
      */
-    private final String csr;
+    private String csr;
     /**
      * @return The Distinguished Name for the App Service Certificate Order.
      * 
      */
-    private final String distinguishedName;
+    private String distinguishedName;
     /**
      * @return Domain verification token.
      * 
      */
-    private final String domainVerificationToken;
+    private String domainVerificationToken;
     /**
      * @return Certificate expiration time.
      * 
      */
-    private final String expirationTime;
+    private String expirationTime;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Certificate thumbprint intermediate certificate.
      * 
      */
-    private final String intermediateThumbprint;
+    private String intermediateThumbprint;
     /**
      * @return Whether the private key is external or not.
      * 
      */
-    private final Boolean isPrivateKeyExternal;
+    private Boolean isPrivateKeyExternal;
     /**
      * @return Certificate key size.
      * 
      */
-    private final Integer keySize;
+    private Integer keySize;
     /**
      * @return The Azure location where the App Service exists.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return Certificate product type, such as `Standard` or `WildCard`.
      * 
      */
-    private final String productType;
-    private final String resourceGroupName;
+    private String productType;
+    private String resourceGroupName;
     /**
      * @return Certificate thumbprint for root certificate.
      * 
      */
-    private final String rootThumbprint;
+    private String rootThumbprint;
     /**
      * @return Certificate thumbprint for signed certificate.
      * 
      */
-    private final String signedCertificateThumbprint;
+    private String signedCertificateThumbprint;
     /**
      * @return Current order status.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return A mapping of tags to assign to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return Duration in years (must be between 1 and 3).
      * 
      */
-    private final Integer validityInYears;
+    private Integer validityInYears;
 
-    @CustomType.Constructor
-    private GetCertificateOrderResult(
-        @CustomType.Parameter("appServiceCertificateNotRenewableReasons") List<String> appServiceCertificateNotRenewableReasons,
-        @CustomType.Parameter("autoRenew") Boolean autoRenew,
-        @CustomType.Parameter("certificates") List<GetCertificateOrderCertificate> certificates,
-        @CustomType.Parameter("csr") String csr,
-        @CustomType.Parameter("distinguishedName") String distinguishedName,
-        @CustomType.Parameter("domainVerificationToken") String domainVerificationToken,
-        @CustomType.Parameter("expirationTime") String expirationTime,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("intermediateThumbprint") String intermediateThumbprint,
-        @CustomType.Parameter("isPrivateKeyExternal") Boolean isPrivateKeyExternal,
-        @CustomType.Parameter("keySize") Integer keySize,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("productType") String productType,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("rootThumbprint") String rootThumbprint,
-        @CustomType.Parameter("signedCertificateThumbprint") String signedCertificateThumbprint,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("validityInYears") Integer validityInYears) {
-        this.appServiceCertificateNotRenewableReasons = appServiceCertificateNotRenewableReasons;
-        this.autoRenew = autoRenew;
-        this.certificates = certificates;
-        this.csr = csr;
-        this.distinguishedName = distinguishedName;
-        this.domainVerificationToken = domainVerificationToken;
-        this.expirationTime = expirationTime;
-        this.id = id;
-        this.intermediateThumbprint = intermediateThumbprint;
-        this.isPrivateKeyExternal = isPrivateKeyExternal;
-        this.keySize = keySize;
-        this.location = location;
-        this.name = name;
-        this.productType = productType;
-        this.resourceGroupName = resourceGroupName;
-        this.rootThumbprint = rootThumbprint;
-        this.signedCertificateThumbprint = signedCertificateThumbprint;
-        this.status = status;
-        this.tags = tags;
-        this.validityInYears = validityInYears;
-    }
-
+    private GetCertificateOrderResult() {}
     /**
      * @return Reasons why App Service Certificate is not renewable at the current moment.
      * 
@@ -291,7 +248,7 @@ public final class GetCertificateOrderResult {
     public static Builder builder(GetCertificateOrderResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> appServiceCertificateNotRenewableReasons;
         private Boolean autoRenew;
@@ -313,11 +270,7 @@ public final class GetCertificateOrderResult {
         private String status;
         private Map<String,String> tags;
         private Integer validityInYears;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCertificateOrderResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appServiceCertificateNotRenewableReasons = defaults.appServiceCertificateNotRenewableReasons;
@@ -342,6 +295,7 @@ public final class GetCertificateOrderResult {
     	      this.validityInYears = defaults.validityInYears;
         }
 
+        @CustomType.Setter
         public Builder appServiceCertificateNotRenewableReasons(List<String> appServiceCertificateNotRenewableReasons) {
             this.appServiceCertificateNotRenewableReasons = Objects.requireNonNull(appServiceCertificateNotRenewableReasons);
             return this;
@@ -349,10 +303,12 @@ public final class GetCertificateOrderResult {
         public Builder appServiceCertificateNotRenewableReasons(String... appServiceCertificateNotRenewableReasons) {
             return appServiceCertificateNotRenewableReasons(List.of(appServiceCertificateNotRenewableReasons));
         }
+        @CustomType.Setter
         public Builder autoRenew(Boolean autoRenew) {
             this.autoRenew = Objects.requireNonNull(autoRenew);
             return this;
         }
+        @CustomType.Setter
         public Builder certificates(List<GetCertificateOrderCertificate> certificates) {
             this.certificates = Objects.requireNonNull(certificates);
             return this;
@@ -360,75 +316,114 @@ public final class GetCertificateOrderResult {
         public Builder certificates(GetCertificateOrderCertificate... certificates) {
             return certificates(List.of(certificates));
         }
+        @CustomType.Setter
         public Builder csr(String csr) {
             this.csr = Objects.requireNonNull(csr);
             return this;
         }
+        @CustomType.Setter
         public Builder distinguishedName(String distinguishedName) {
             this.distinguishedName = Objects.requireNonNull(distinguishedName);
             return this;
         }
+        @CustomType.Setter
         public Builder domainVerificationToken(String domainVerificationToken) {
             this.domainVerificationToken = Objects.requireNonNull(domainVerificationToken);
             return this;
         }
+        @CustomType.Setter
         public Builder expirationTime(String expirationTime) {
             this.expirationTime = Objects.requireNonNull(expirationTime);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder intermediateThumbprint(String intermediateThumbprint) {
             this.intermediateThumbprint = Objects.requireNonNull(intermediateThumbprint);
             return this;
         }
+        @CustomType.Setter
         public Builder isPrivateKeyExternal(Boolean isPrivateKeyExternal) {
             this.isPrivateKeyExternal = Objects.requireNonNull(isPrivateKeyExternal);
             return this;
         }
+        @CustomType.Setter
         public Builder keySize(Integer keySize) {
             this.keySize = Objects.requireNonNull(keySize);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder productType(String productType) {
             this.productType = Objects.requireNonNull(productType);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder rootThumbprint(String rootThumbprint) {
             this.rootThumbprint = Objects.requireNonNull(rootThumbprint);
             return this;
         }
+        @CustomType.Setter
         public Builder signedCertificateThumbprint(String signedCertificateThumbprint) {
             this.signedCertificateThumbprint = Objects.requireNonNull(signedCertificateThumbprint);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder validityInYears(Integer validityInYears) {
             this.validityInYears = Objects.requireNonNull(validityInYears);
             return this;
-        }        public GetCertificateOrderResult build() {
-            return new GetCertificateOrderResult(appServiceCertificateNotRenewableReasons, autoRenew, certificates, csr, distinguishedName, domainVerificationToken, expirationTime, id, intermediateThumbprint, isPrivateKeyExternal, keySize, location, name, productType, resourceGroupName, rootThumbprint, signedCertificateThumbprint, status, tags, validityInYears);
+        }
+        public GetCertificateOrderResult build() {
+            final var o = new GetCertificateOrderResult();
+            o.appServiceCertificateNotRenewableReasons = appServiceCertificateNotRenewableReasons;
+            o.autoRenew = autoRenew;
+            o.certificates = certificates;
+            o.csr = csr;
+            o.distinguishedName = distinguishedName;
+            o.domainVerificationToken = domainVerificationToken;
+            o.expirationTime = expirationTime;
+            o.id = id;
+            o.intermediateThumbprint = intermediateThumbprint;
+            o.isPrivateKeyExternal = isPrivateKeyExternal;
+            o.keySize = keySize;
+            o.location = location;
+            o.name = name;
+            o.productType = productType;
+            o.resourceGroupName = resourceGroupName;
+            o.rootThumbprint = rootThumbprint;
+            o.signedCertificateThumbprint = signedCertificateThumbprint;
+            o.status = status;
+            o.tags = tags;
+            o.validityInYears = validityInYears;
+            return o;
         }
     }
 }

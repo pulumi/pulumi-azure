@@ -16,28 +16,19 @@ public final class IoTHubCloudToDeviceFeedback {
      * @return The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT60S`.
      * 
      */
-    private final @Nullable String lockDuration;
+    private @Nullable String lockDuration;
     /**
      * @return The maximum delivery count for the feedback queue. This value must be between `1` and `100`. Defaults to `10`.
      * 
      */
-    private final @Nullable Integer maxDeliveryCount;
+    private @Nullable Integer maxDeliveryCount;
     /**
      * @return The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
      * 
      */
-    private final @Nullable String timeToLive;
+    private @Nullable String timeToLive;
 
-    @CustomType.Constructor
-    private IoTHubCloudToDeviceFeedback(
-        @CustomType.Parameter("lockDuration") @Nullable String lockDuration,
-        @CustomType.Parameter("maxDeliveryCount") @Nullable Integer maxDeliveryCount,
-        @CustomType.Parameter("timeToLive") @Nullable String timeToLive) {
-        this.lockDuration = lockDuration;
-        this.maxDeliveryCount = maxDeliveryCount;
-        this.timeToLive = timeToLive;
-    }
-
+    private IoTHubCloudToDeviceFeedback() {}
     /**
      * @return The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to `PT60S`.
      * 
@@ -67,16 +58,12 @@ public final class IoTHubCloudToDeviceFeedback {
     public static Builder builder(IoTHubCloudToDeviceFeedback defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String lockDuration;
         private @Nullable Integer maxDeliveryCount;
         private @Nullable String timeToLive;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IoTHubCloudToDeviceFeedback defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.lockDuration = defaults.lockDuration;
@@ -84,19 +71,27 @@ public final class IoTHubCloudToDeviceFeedback {
     	      this.timeToLive = defaults.timeToLive;
         }
 
+        @CustomType.Setter
         public Builder lockDuration(@Nullable String lockDuration) {
             this.lockDuration = lockDuration;
             return this;
         }
+        @CustomType.Setter
         public Builder maxDeliveryCount(@Nullable Integer maxDeliveryCount) {
             this.maxDeliveryCount = maxDeliveryCount;
             return this;
         }
+        @CustomType.Setter
         public Builder timeToLive(@Nullable String timeToLive) {
             this.timeToLive = timeToLive;
             return this;
-        }        public IoTHubCloudToDeviceFeedback build() {
-            return new IoTHubCloudToDeviceFeedback(lockDuration, maxDeliveryCount, timeToLive);
+        }
+        public IoTHubCloudToDeviceFeedback build() {
+            final var o = new IoTHubCloudToDeviceFeedback();
+            o.lockDuration = lockDuration;
+            o.maxDeliveryCount = maxDeliveryCount;
+            o.timeToLive = timeToLive;
+            return o;
         }
     }
 }

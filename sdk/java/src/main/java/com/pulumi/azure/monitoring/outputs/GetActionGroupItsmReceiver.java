@@ -13,42 +13,29 @@ public final class GetActionGroupItsmReceiver {
      * @return The unique connection identifier of the ITSM connection.
      * 
      */
-    private final String connectionId;
+    private String connectionId;
     /**
      * @return Specifies the name of the Action Group.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The region of the workspace.
      * 
      */
-    private final String region;
+    private String region;
     /**
      * @return A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
      * 
      */
-    private final String ticketConfiguration;
+    private String ticketConfiguration;
     /**
      * @return The Azure Log Analytics workspace ID where this connection is defined.
      * 
      */
-    private final String workspaceId;
+    private String workspaceId;
 
-    @CustomType.Constructor
-    private GetActionGroupItsmReceiver(
-        @CustomType.Parameter("connectionId") String connectionId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("region") String region,
-        @CustomType.Parameter("ticketConfiguration") String ticketConfiguration,
-        @CustomType.Parameter("workspaceId") String workspaceId) {
-        this.connectionId = connectionId;
-        this.name = name;
-        this.region = region;
-        this.ticketConfiguration = ticketConfiguration;
-        this.workspaceId = workspaceId;
-    }
-
+    private GetActionGroupItsmReceiver() {}
     /**
      * @return The unique connection identifier of the ITSM connection.
      * 
@@ -92,18 +79,14 @@ public final class GetActionGroupItsmReceiver {
     public static Builder builder(GetActionGroupItsmReceiver defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String connectionId;
         private String name;
         private String region;
         private String ticketConfiguration;
         private String workspaceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetActionGroupItsmReceiver defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectionId = defaults.connectionId;
@@ -113,27 +96,39 @@ public final class GetActionGroupItsmReceiver {
     	      this.workspaceId = defaults.workspaceId;
         }
 
+        @CustomType.Setter
         public Builder connectionId(String connectionId) {
             this.connectionId = Objects.requireNonNull(connectionId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder region(String region) {
             this.region = Objects.requireNonNull(region);
             return this;
         }
+        @CustomType.Setter
         public Builder ticketConfiguration(String ticketConfiguration) {
             this.ticketConfiguration = Objects.requireNonNull(ticketConfiguration);
             return this;
         }
+        @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
             this.workspaceId = Objects.requireNonNull(workspaceId);
             return this;
-        }        public GetActionGroupItsmReceiver build() {
-            return new GetActionGroupItsmReceiver(connectionId, name, region, ticketConfiguration, workspaceId);
+        }
+        public GetActionGroupItsmReceiver build() {
+            final var o = new GetActionGroupItsmReceiver();
+            o.connectionId = connectionId;
+            o.name = name;
+            o.region = region;
+            o.ticketConfiguration = ticketConfiguration;
+            o.workspaceId = workspaceId;
+            return o;
         }
     }
 }

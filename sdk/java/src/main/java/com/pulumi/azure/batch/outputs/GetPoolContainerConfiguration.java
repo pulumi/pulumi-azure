@@ -15,28 +15,19 @@ public final class GetPoolContainerConfiguration {
      * @return A list of container image names to use, as would be specified by `docker pull`.
      * 
      */
-    private final List<String> containerImageNames;
+    private List<String> containerImageNames;
     /**
      * @return Additional container registries from which container images can be pulled by the pool&#39;s VMs.
      * 
      */
-    private final List<GetPoolContainerConfigurationContainerRegistry> containerRegistries;
+    private List<GetPoolContainerConfigurationContainerRegistry> containerRegistries;
     /**
      * @return The type of container configuration.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetPoolContainerConfiguration(
-        @CustomType.Parameter("containerImageNames") List<String> containerImageNames,
-        @CustomType.Parameter("containerRegistries") List<GetPoolContainerConfigurationContainerRegistry> containerRegistries,
-        @CustomType.Parameter("type") String type) {
-        this.containerImageNames = containerImageNames;
-        this.containerRegistries = containerRegistries;
-        this.type = type;
-    }
-
+    private GetPoolContainerConfiguration() {}
     /**
      * @return A list of container image names to use, as would be specified by `docker pull`.
      * 
@@ -66,16 +57,12 @@ public final class GetPoolContainerConfiguration {
     public static Builder builder(GetPoolContainerConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> containerImageNames;
         private List<GetPoolContainerConfigurationContainerRegistry> containerRegistries;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPoolContainerConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.containerImageNames = defaults.containerImageNames;
@@ -83,6 +70,7 @@ public final class GetPoolContainerConfiguration {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder containerImageNames(List<String> containerImageNames) {
             this.containerImageNames = Objects.requireNonNull(containerImageNames);
             return this;
@@ -90,6 +78,7 @@ public final class GetPoolContainerConfiguration {
         public Builder containerImageNames(String... containerImageNames) {
             return containerImageNames(List.of(containerImageNames));
         }
+        @CustomType.Setter
         public Builder containerRegistries(List<GetPoolContainerConfigurationContainerRegistry> containerRegistries) {
             this.containerRegistries = Objects.requireNonNull(containerRegistries);
             return this;
@@ -97,11 +86,17 @@ public final class GetPoolContainerConfiguration {
         public Builder containerRegistries(GetPoolContainerConfigurationContainerRegistry... containerRegistries) {
             return containerRegistries(List.of(containerRegistries));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetPoolContainerConfiguration build() {
-            return new GetPoolContainerConfiguration(containerImageNames, containerRegistries, type);
+        }
+        public GetPoolContainerConfiguration build() {
+            final var o = new GetPoolContainerConfiguration();
+            o.containerImageNames = containerImageNames;
+            o.containerRegistries = containerRegistries;
+            o.type = type;
+            return o;
         }
     }
 }

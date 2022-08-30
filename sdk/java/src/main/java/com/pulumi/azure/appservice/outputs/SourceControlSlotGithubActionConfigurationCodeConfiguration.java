@@ -13,21 +13,14 @@ public final class SourceControlSlotGithubActionConfigurationCodeConfiguration {
      * @return The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
      * 
      */
-    private final String runtimeStack;
+    private String runtimeStack;
     /**
      * @return The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created.
      * 
      */
-    private final String runtimeVersion;
+    private String runtimeVersion;
 
-    @CustomType.Constructor
-    private SourceControlSlotGithubActionConfigurationCodeConfiguration(
-        @CustomType.Parameter("runtimeStack") String runtimeStack,
-        @CustomType.Parameter("runtimeVersion") String runtimeVersion) {
-        this.runtimeStack = runtimeStack;
-        this.runtimeVersion = runtimeVersion;
-    }
-
+    private SourceControlSlotGithubActionConfigurationCodeConfiguration() {}
     /**
      * @return The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created.
      * 
@@ -50,30 +43,32 @@ public final class SourceControlSlotGithubActionConfigurationCodeConfiguration {
     public static Builder builder(SourceControlSlotGithubActionConfigurationCodeConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String runtimeStack;
         private String runtimeVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SourceControlSlotGithubActionConfigurationCodeConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.runtimeStack = defaults.runtimeStack;
     	      this.runtimeVersion = defaults.runtimeVersion;
         }
 
+        @CustomType.Setter
         public Builder runtimeStack(String runtimeStack) {
             this.runtimeStack = Objects.requireNonNull(runtimeStack);
             return this;
         }
+        @CustomType.Setter
         public Builder runtimeVersion(String runtimeVersion) {
             this.runtimeVersion = Objects.requireNonNull(runtimeVersion);
             return this;
-        }        public SourceControlSlotGithubActionConfigurationCodeConfiguration build() {
-            return new SourceControlSlotGithubActionConfigurationCodeConfiguration(runtimeStack, runtimeVersion);
+        }
+        public SourceControlSlotGithubActionConfigurationCodeConfiguration build() {
+            final var o = new SourceControlSlotGithubActionConfigurationCodeConfiguration();
+            o.runtimeStack = runtimeStack;
+            o.runtimeVersion = runtimeVersion;
+            return o;
         }
     }
 }

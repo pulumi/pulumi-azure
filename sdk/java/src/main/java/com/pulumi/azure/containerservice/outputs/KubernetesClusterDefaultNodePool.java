@@ -22,212 +22,147 @@ public final class KubernetesClusterDefaultNodePool {
      * @return Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String capacityReservationGroupId;
+    private @Nullable String capacityReservationGroupId;
     /**
      * @return Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean enableAutoScaling;
+    private @Nullable Boolean enableAutoScaling;
     /**
      * @return Should the nodes in the Default Node Pool have host encryption enabled? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean enableHostEncryption;
+    private @Nullable Boolean enableHostEncryption;
     /**
      * @return Should nodes in this Node Pool have a Public IP Address? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Boolean enableNodePublicIp;
+    private @Nullable Boolean enableNodePublicIp;
     /**
      * @return Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Boolean fipsEnabled;
-    private final @Nullable String hostGroupId;
+    private @Nullable Boolean fipsEnabled;
+    private @Nullable String hostGroupId;
     /**
      * @return A `kubelet_config` block as defined below.
      * 
      */
-    private final @Nullable KubernetesClusterDefaultNodePoolKubeletConfig kubeletConfig;
+    private @Nullable KubernetesClusterDefaultNodePoolKubeletConfig kubeletConfig;
     /**
      * @return The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
      * 
      */
-    private final @Nullable String kubeletDiskType;
+    private @Nullable String kubeletDiskType;
     /**
      * @return A `linux_os_config` block as defined below.
      * 
      */
-    private final @Nullable KubernetesClusterDefaultNodePoolLinuxOsConfig linuxOsConfig;
+    private @Nullable KubernetesClusterDefaultNodePoolLinuxOsConfig linuxOsConfig;
     /**
      * @return The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
      * 
      */
-    private final @Nullable Integer maxCount;
+    private @Nullable Integer maxCount;
     /**
      * @return The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer maxPods;
+    private @Nullable Integer maxPods;
     /**
      * @return The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
      * 
      */
-    private final @Nullable Integer minCount;
+    private @Nullable Integer minCount;
     /**
      * @return The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
      * 
      */
-    private final @Nullable Integer nodeCount;
+    private @Nullable Integer nodeCount;
     /**
      * @return A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
      * 
      */
-    private final @Nullable Map<String,String> nodeLabels;
+    private @Nullable Map<String,String> nodeLabels;
     /**
      * @return Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String nodePublicIpPrefixId;
-    private final @Nullable List<String> nodeTaints;
+    private @Nullable String nodePublicIpPrefixId;
+    private @Nullable List<String> nodeTaints;
     /**
      * @return Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Boolean onlyCriticalAddonsEnabled;
+    private @Nullable Boolean onlyCriticalAddonsEnabled;
     /**
      * @return Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by `kubernetes_version`. If both are unspecified, the latest recommended version will be used at provisioning time (but won&#39;t auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version&#39;s latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
      * 
      */
-    private final @Nullable String orchestratorVersion;
+    private @Nullable String orchestratorVersion;
     /**
      * @return The size of the OS Disk which should be used for each agent in the Node Pool. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer osDiskSizeGb;
+    private @Nullable Integer osDiskSizeGb;
     /**
      * @return The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String osDiskType;
+    private @Nullable String osDiskType;
     /**
      * @return OsSKU to be used to specify Linux OSType. Not applicable to Windows OSType. Possible values include: `Ubuntu`, `CBLMariner`. Defaults to `Ubuntu`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String osSku;
+    private @Nullable String osSku;
     /**
      * @return The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String podSubnetId;
-    private final @Nullable String proximityPlacementGroupId;
+    private @Nullable String podSubnetId;
+    private @Nullable String proximityPlacementGroupId;
     /**
      * @return A mapping of tags to assign to the Node Pool.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
     /**
      * @return Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information.
      * 
      */
-    private final @Nullable Boolean ultraSsdEnabled;
+    private @Nullable Boolean ultraSsdEnabled;
     /**
      * @return A `upgrade_settings` block as documented below.
      * 
      */
-    private final @Nullable KubernetesClusterDefaultNodePoolUpgradeSettings upgradeSettings;
+    private @Nullable KubernetesClusterDefaultNodePoolUpgradeSettings upgradeSettings;
     /**
      * @return The size of the Virtual Machine, such as `Standard_DS2_v2`. Changing this forces a new resource to be created.
      * 
      */
-    private final String vmSize;
+    private String vmSize;
     /**
      * @return The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String vnetSubnetId;
+    private @Nullable String vnetSubnetId;
     /**
      * @return Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
      * 
      */
-    private final @Nullable List<String> zones;
+    private @Nullable List<String> zones;
 
-    @CustomType.Constructor
-    private KubernetesClusterDefaultNodePool(
-        @CustomType.Parameter("capacityReservationGroupId") @Nullable String capacityReservationGroupId,
-        @CustomType.Parameter("enableAutoScaling") @Nullable Boolean enableAutoScaling,
-        @CustomType.Parameter("enableHostEncryption") @Nullable Boolean enableHostEncryption,
-        @CustomType.Parameter("enableNodePublicIp") @Nullable Boolean enableNodePublicIp,
-        @CustomType.Parameter("fipsEnabled") @Nullable Boolean fipsEnabled,
-        @CustomType.Parameter("hostGroupId") @Nullable String hostGroupId,
-        @CustomType.Parameter("kubeletConfig") @Nullable KubernetesClusterDefaultNodePoolKubeletConfig kubeletConfig,
-        @CustomType.Parameter("kubeletDiskType") @Nullable String kubeletDiskType,
-        @CustomType.Parameter("linuxOsConfig") @Nullable KubernetesClusterDefaultNodePoolLinuxOsConfig linuxOsConfig,
-        @CustomType.Parameter("maxCount") @Nullable Integer maxCount,
-        @CustomType.Parameter("maxPods") @Nullable Integer maxPods,
-        @CustomType.Parameter("minCount") @Nullable Integer minCount,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nodeCount") @Nullable Integer nodeCount,
-        @CustomType.Parameter("nodeLabels") @Nullable Map<String,String> nodeLabels,
-        @CustomType.Parameter("nodePublicIpPrefixId") @Nullable String nodePublicIpPrefixId,
-        @CustomType.Parameter("nodeTaints") @Nullable List<String> nodeTaints,
-        @CustomType.Parameter("onlyCriticalAddonsEnabled") @Nullable Boolean onlyCriticalAddonsEnabled,
-        @CustomType.Parameter("orchestratorVersion") @Nullable String orchestratorVersion,
-        @CustomType.Parameter("osDiskSizeGb") @Nullable Integer osDiskSizeGb,
-        @CustomType.Parameter("osDiskType") @Nullable String osDiskType,
-        @CustomType.Parameter("osSku") @Nullable String osSku,
-        @CustomType.Parameter("podSubnetId") @Nullable String podSubnetId,
-        @CustomType.Parameter("proximityPlacementGroupId") @Nullable String proximityPlacementGroupId,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags,
-        @CustomType.Parameter("type") @Nullable String type,
-        @CustomType.Parameter("ultraSsdEnabled") @Nullable Boolean ultraSsdEnabled,
-        @CustomType.Parameter("upgradeSettings") @Nullable KubernetesClusterDefaultNodePoolUpgradeSettings upgradeSettings,
-        @CustomType.Parameter("vmSize") String vmSize,
-        @CustomType.Parameter("vnetSubnetId") @Nullable String vnetSubnetId,
-        @CustomType.Parameter("zones") @Nullable List<String> zones) {
-        this.capacityReservationGroupId = capacityReservationGroupId;
-        this.enableAutoScaling = enableAutoScaling;
-        this.enableHostEncryption = enableHostEncryption;
-        this.enableNodePublicIp = enableNodePublicIp;
-        this.fipsEnabled = fipsEnabled;
-        this.hostGroupId = hostGroupId;
-        this.kubeletConfig = kubeletConfig;
-        this.kubeletDiskType = kubeletDiskType;
-        this.linuxOsConfig = linuxOsConfig;
-        this.maxCount = maxCount;
-        this.maxPods = maxPods;
-        this.minCount = minCount;
-        this.name = name;
-        this.nodeCount = nodeCount;
-        this.nodeLabels = nodeLabels;
-        this.nodePublicIpPrefixId = nodePublicIpPrefixId;
-        this.nodeTaints = nodeTaints;
-        this.onlyCriticalAddonsEnabled = onlyCriticalAddonsEnabled;
-        this.orchestratorVersion = orchestratorVersion;
-        this.osDiskSizeGb = osDiskSizeGb;
-        this.osDiskType = osDiskType;
-        this.osSku = osSku;
-        this.podSubnetId = podSubnetId;
-        this.proximityPlacementGroupId = proximityPlacementGroupId;
-        this.tags = tags;
-        this.type = type;
-        this.ultraSsdEnabled = ultraSsdEnabled;
-        this.upgradeSettings = upgradeSettings;
-        this.vmSize = vmSize;
-        this.vnetSubnetId = vnetSubnetId;
-        this.zones = zones;
-    }
-
+    private KubernetesClusterDefaultNodePool() {}
     /**
      * @return Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
      * 
@@ -441,7 +376,7 @@ public final class KubernetesClusterDefaultNodePool {
     public static Builder builder(KubernetesClusterDefaultNodePool defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String capacityReservationGroupId;
         private @Nullable Boolean enableAutoScaling;
@@ -474,11 +409,7 @@ public final class KubernetesClusterDefaultNodePool {
         private String vmSize;
         private @Nullable String vnetSubnetId;
         private @Nullable List<String> zones;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KubernetesClusterDefaultNodePool defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacityReservationGroupId = defaults.capacityReservationGroupId;
@@ -514,70 +445,87 @@ public final class KubernetesClusterDefaultNodePool {
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
         public Builder capacityReservationGroupId(@Nullable String capacityReservationGroupId) {
             this.capacityReservationGroupId = capacityReservationGroupId;
             return this;
         }
+        @CustomType.Setter
         public Builder enableAutoScaling(@Nullable Boolean enableAutoScaling) {
             this.enableAutoScaling = enableAutoScaling;
             return this;
         }
+        @CustomType.Setter
         public Builder enableHostEncryption(@Nullable Boolean enableHostEncryption) {
             this.enableHostEncryption = enableHostEncryption;
             return this;
         }
+        @CustomType.Setter
         public Builder enableNodePublicIp(@Nullable Boolean enableNodePublicIp) {
             this.enableNodePublicIp = enableNodePublicIp;
             return this;
         }
+        @CustomType.Setter
         public Builder fipsEnabled(@Nullable Boolean fipsEnabled) {
             this.fipsEnabled = fipsEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder hostGroupId(@Nullable String hostGroupId) {
             this.hostGroupId = hostGroupId;
             return this;
         }
+        @CustomType.Setter
         public Builder kubeletConfig(@Nullable KubernetesClusterDefaultNodePoolKubeletConfig kubeletConfig) {
             this.kubeletConfig = kubeletConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder kubeletDiskType(@Nullable String kubeletDiskType) {
             this.kubeletDiskType = kubeletDiskType;
             return this;
         }
+        @CustomType.Setter
         public Builder linuxOsConfig(@Nullable KubernetesClusterDefaultNodePoolLinuxOsConfig linuxOsConfig) {
             this.linuxOsConfig = linuxOsConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder maxCount(@Nullable Integer maxCount) {
             this.maxCount = maxCount;
             return this;
         }
+        @CustomType.Setter
         public Builder maxPods(@Nullable Integer maxPods) {
             this.maxPods = maxPods;
             return this;
         }
+        @CustomType.Setter
         public Builder minCount(@Nullable Integer minCount) {
             this.minCount = minCount;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nodeCount(@Nullable Integer nodeCount) {
             this.nodeCount = nodeCount;
             return this;
         }
+        @CustomType.Setter
         public Builder nodeLabels(@Nullable Map<String,String> nodeLabels) {
             this.nodeLabels = nodeLabels;
             return this;
         }
+        @CustomType.Setter
         public Builder nodePublicIpPrefixId(@Nullable String nodePublicIpPrefixId) {
             this.nodePublicIpPrefixId = nodePublicIpPrefixId;
             return this;
         }
+        @CustomType.Setter
         public Builder nodeTaints(@Nullable List<String> nodeTaints) {
             this.nodeTaints = nodeTaints;
             return this;
@@ -585,66 +533,113 @@ public final class KubernetesClusterDefaultNodePool {
         public Builder nodeTaints(String... nodeTaints) {
             return nodeTaints(List.of(nodeTaints));
         }
+        @CustomType.Setter
         public Builder onlyCriticalAddonsEnabled(@Nullable Boolean onlyCriticalAddonsEnabled) {
             this.onlyCriticalAddonsEnabled = onlyCriticalAddonsEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder orchestratorVersion(@Nullable String orchestratorVersion) {
             this.orchestratorVersion = orchestratorVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder osDiskSizeGb(@Nullable Integer osDiskSizeGb) {
             this.osDiskSizeGb = osDiskSizeGb;
             return this;
         }
+        @CustomType.Setter
         public Builder osDiskType(@Nullable String osDiskType) {
             this.osDiskType = osDiskType;
             return this;
         }
+        @CustomType.Setter
         public Builder osSku(@Nullable String osSku) {
             this.osSku = osSku;
             return this;
         }
+        @CustomType.Setter
         public Builder podSubnetId(@Nullable String podSubnetId) {
             this.podSubnetId = podSubnetId;
             return this;
         }
+        @CustomType.Setter
         public Builder proximityPlacementGroupId(@Nullable String proximityPlacementGroupId) {
             this.proximityPlacementGroupId = proximityPlacementGroupId;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
         public Builder ultraSsdEnabled(@Nullable Boolean ultraSsdEnabled) {
             this.ultraSsdEnabled = ultraSsdEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder upgradeSettings(@Nullable KubernetesClusterDefaultNodePoolUpgradeSettings upgradeSettings) {
             this.upgradeSettings = upgradeSettings;
             return this;
         }
+        @CustomType.Setter
         public Builder vmSize(String vmSize) {
             this.vmSize = Objects.requireNonNull(vmSize);
             return this;
         }
+        @CustomType.Setter
         public Builder vnetSubnetId(@Nullable String vnetSubnetId) {
             this.vnetSubnetId = vnetSubnetId;
             return this;
         }
+        @CustomType.Setter
         public Builder zones(@Nullable List<String> zones) {
             this.zones = zones;
             return this;
         }
         public Builder zones(String... zones) {
             return zones(List.of(zones));
-        }        public KubernetesClusterDefaultNodePool build() {
-            return new KubernetesClusterDefaultNodePool(capacityReservationGroupId, enableAutoScaling, enableHostEncryption, enableNodePublicIp, fipsEnabled, hostGroupId, kubeletConfig, kubeletDiskType, linuxOsConfig, maxCount, maxPods, minCount, name, nodeCount, nodeLabels, nodePublicIpPrefixId, nodeTaints, onlyCriticalAddonsEnabled, orchestratorVersion, osDiskSizeGb, osDiskType, osSku, podSubnetId, proximityPlacementGroupId, tags, type, ultraSsdEnabled, upgradeSettings, vmSize, vnetSubnetId, zones);
+        }
+        public KubernetesClusterDefaultNodePool build() {
+            final var o = new KubernetesClusterDefaultNodePool();
+            o.capacityReservationGroupId = capacityReservationGroupId;
+            o.enableAutoScaling = enableAutoScaling;
+            o.enableHostEncryption = enableHostEncryption;
+            o.enableNodePublicIp = enableNodePublicIp;
+            o.fipsEnabled = fipsEnabled;
+            o.hostGroupId = hostGroupId;
+            o.kubeletConfig = kubeletConfig;
+            o.kubeletDiskType = kubeletDiskType;
+            o.linuxOsConfig = linuxOsConfig;
+            o.maxCount = maxCount;
+            o.maxPods = maxPods;
+            o.minCount = minCount;
+            o.name = name;
+            o.nodeCount = nodeCount;
+            o.nodeLabels = nodeLabels;
+            o.nodePublicIpPrefixId = nodePublicIpPrefixId;
+            o.nodeTaints = nodeTaints;
+            o.onlyCriticalAddonsEnabled = onlyCriticalAddonsEnabled;
+            o.orchestratorVersion = orchestratorVersion;
+            o.osDiskSizeGb = osDiskSizeGb;
+            o.osDiskType = osDiskType;
+            o.osSku = osSku;
+            o.podSubnetId = podSubnetId;
+            o.proximityPlacementGroupId = proximityPlacementGroupId;
+            o.tags = tags;
+            o.type = type;
+            o.ultraSsdEnabled = ultraSsdEnabled;
+            o.upgradeSettings = upgradeSettings;
+            o.vmSize = vmSize;
+            o.vnetSubnetId = vnetSubnetId;
+            o.zones = zones;
+            return o;
         }
     }
 }

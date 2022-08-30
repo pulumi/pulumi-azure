@@ -16,91 +16,64 @@ public final class WorkspaceCustomParameters {
      * @return The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String machineLearningWorkspaceId;
+    private @Nullable String machineLearningWorkspaceId;
     /**
      * @return Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to `nat-gateway`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String natGatewayName;
+    private @Nullable String natGatewayName;
     /**
      * @return Are public IP Addresses not allowed? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Boolean noPublicIp;
+    private @Nullable Boolean noPublicIp;
     /**
      * @return The name of the Private Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String privateSubnetName;
+    private @Nullable String privateSubnetName;
     /**
      * @return The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `private_subnet_name` field. This is the same as the ID of the subnet referred to by the `private_subnet_name` field. Required if `virtual_network_id` is set.
      * 
      */
-    private final @Nullable String privateSubnetNetworkSecurityGroupAssociationId;
+    private @Nullable String privateSubnetNetworkSecurityGroupAssociationId;
     /**
      * @return Name of the Public IP for No Public IP workspace with managed vNet. Defaults to `nat-gw-public-ip`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String publicIpName;
+    private @Nullable String publicIpName;
     /**
      * @return The name of the Public Subnet within the Virtual Network. Required if `virtual_network_id` is set. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String publicSubnetName;
+    private @Nullable String publicSubnetName;
     /**
      * @return The resource ID of the `azure.network.SubnetNetworkSecurityGroupAssociation` resource which is referred to by the `public_subnet_name` field. This is the same as the ID of the subnet referred to by the `public_subnet_name` field. Required if `virtual_network_id` is set.
      * 
      */
-    private final @Nullable String publicSubnetNetworkSecurityGroupAssociationId;
+    private @Nullable String publicSubnetNetworkSecurityGroupAssociationId;
     /**
      * @return Default Databricks File Storage account name. Defaults to a randomized name(e.g. `dbstoragel6mfeghoe5kxu`). Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String storageAccountName;
+    private @Nullable String storageAccountName;
     /**
      * @return Storage account SKU name. Possible values include `Standard_LRS`, `Standard_GRS`, `Standard_RAGRS`, `Standard_GZRS`, `Standard_RAGZRS`, `Standard_ZRS`, `Premium_LRS` or `Premium_ZRS`. Defaults to `Standard_GRS`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String storageAccountSkuName;
+    private @Nullable String storageAccountSkuName;
     /**
      * @return The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String virtualNetworkId;
+    private @Nullable String virtualNetworkId;
     /**
      * @return Address prefix for Managed virtual network. Defaults to `10.139`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String vnetAddressPrefix;
+    private @Nullable String vnetAddressPrefix;
 
-    @CustomType.Constructor
-    private WorkspaceCustomParameters(
-        @CustomType.Parameter("machineLearningWorkspaceId") @Nullable String machineLearningWorkspaceId,
-        @CustomType.Parameter("natGatewayName") @Nullable String natGatewayName,
-        @CustomType.Parameter("noPublicIp") @Nullable Boolean noPublicIp,
-        @CustomType.Parameter("privateSubnetName") @Nullable String privateSubnetName,
-        @CustomType.Parameter("privateSubnetNetworkSecurityGroupAssociationId") @Nullable String privateSubnetNetworkSecurityGroupAssociationId,
-        @CustomType.Parameter("publicIpName") @Nullable String publicIpName,
-        @CustomType.Parameter("publicSubnetName") @Nullable String publicSubnetName,
-        @CustomType.Parameter("publicSubnetNetworkSecurityGroupAssociationId") @Nullable String publicSubnetNetworkSecurityGroupAssociationId,
-        @CustomType.Parameter("storageAccountName") @Nullable String storageAccountName,
-        @CustomType.Parameter("storageAccountSkuName") @Nullable String storageAccountSkuName,
-        @CustomType.Parameter("virtualNetworkId") @Nullable String virtualNetworkId,
-        @CustomType.Parameter("vnetAddressPrefix") @Nullable String vnetAddressPrefix) {
-        this.machineLearningWorkspaceId = machineLearningWorkspaceId;
-        this.natGatewayName = natGatewayName;
-        this.noPublicIp = noPublicIp;
-        this.privateSubnetName = privateSubnetName;
-        this.privateSubnetNetworkSecurityGroupAssociationId = privateSubnetNetworkSecurityGroupAssociationId;
-        this.publicIpName = publicIpName;
-        this.publicSubnetName = publicSubnetName;
-        this.publicSubnetNetworkSecurityGroupAssociationId = publicSubnetNetworkSecurityGroupAssociationId;
-        this.storageAccountName = storageAccountName;
-        this.storageAccountSkuName = storageAccountSkuName;
-        this.virtualNetworkId = virtualNetworkId;
-        this.vnetAddressPrefix = vnetAddressPrefix;
-    }
-
+    private WorkspaceCustomParameters() {}
     /**
      * @return The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.
      * 
@@ -193,7 +166,7 @@ public final class WorkspaceCustomParameters {
     public static Builder builder(WorkspaceCustomParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String machineLearningWorkspaceId;
         private @Nullable String natGatewayName;
@@ -207,11 +180,7 @@ public final class WorkspaceCustomParameters {
         private @Nullable String storageAccountSkuName;
         private @Nullable String virtualNetworkId;
         private @Nullable String vnetAddressPrefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkspaceCustomParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.machineLearningWorkspaceId = defaults.machineLearningWorkspaceId;
@@ -228,55 +197,81 @@ public final class WorkspaceCustomParameters {
     	      this.vnetAddressPrefix = defaults.vnetAddressPrefix;
         }
 
+        @CustomType.Setter
         public Builder machineLearningWorkspaceId(@Nullable String machineLearningWorkspaceId) {
             this.machineLearningWorkspaceId = machineLearningWorkspaceId;
             return this;
         }
+        @CustomType.Setter
         public Builder natGatewayName(@Nullable String natGatewayName) {
             this.natGatewayName = natGatewayName;
             return this;
         }
+        @CustomType.Setter
         public Builder noPublicIp(@Nullable Boolean noPublicIp) {
             this.noPublicIp = noPublicIp;
             return this;
         }
+        @CustomType.Setter
         public Builder privateSubnetName(@Nullable String privateSubnetName) {
             this.privateSubnetName = privateSubnetName;
             return this;
         }
+        @CustomType.Setter
         public Builder privateSubnetNetworkSecurityGroupAssociationId(@Nullable String privateSubnetNetworkSecurityGroupAssociationId) {
             this.privateSubnetNetworkSecurityGroupAssociationId = privateSubnetNetworkSecurityGroupAssociationId;
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpName(@Nullable String publicIpName) {
             this.publicIpName = publicIpName;
             return this;
         }
+        @CustomType.Setter
         public Builder publicSubnetName(@Nullable String publicSubnetName) {
             this.publicSubnetName = publicSubnetName;
             return this;
         }
+        @CustomType.Setter
         public Builder publicSubnetNetworkSecurityGroupAssociationId(@Nullable String publicSubnetNetworkSecurityGroupAssociationId) {
             this.publicSubnetNetworkSecurityGroupAssociationId = publicSubnetNetworkSecurityGroupAssociationId;
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountName(@Nullable String storageAccountName) {
             this.storageAccountName = storageAccountName;
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountSkuName(@Nullable String storageAccountSkuName) {
             this.storageAccountSkuName = storageAccountSkuName;
             return this;
         }
+        @CustomType.Setter
         public Builder virtualNetworkId(@Nullable String virtualNetworkId) {
             this.virtualNetworkId = virtualNetworkId;
             return this;
         }
+        @CustomType.Setter
         public Builder vnetAddressPrefix(@Nullable String vnetAddressPrefix) {
             this.vnetAddressPrefix = vnetAddressPrefix;
             return this;
-        }        public WorkspaceCustomParameters build() {
-            return new WorkspaceCustomParameters(machineLearningWorkspaceId, natGatewayName, noPublicIp, privateSubnetName, privateSubnetNetworkSecurityGroupAssociationId, publicIpName, publicSubnetName, publicSubnetNetworkSecurityGroupAssociationId, storageAccountName, storageAccountSkuName, virtualNetworkId, vnetAddressPrefix);
+        }
+        public WorkspaceCustomParameters build() {
+            final var o = new WorkspaceCustomParameters();
+            o.machineLearningWorkspaceId = machineLearningWorkspaceId;
+            o.natGatewayName = natGatewayName;
+            o.noPublicIp = noPublicIp;
+            o.privateSubnetName = privateSubnetName;
+            o.privateSubnetNetworkSecurityGroupAssociationId = privateSubnetNetworkSecurityGroupAssociationId;
+            o.publicIpName = publicIpName;
+            o.publicSubnetName = publicSubnetName;
+            o.publicSubnetNetworkSecurityGroupAssociationId = publicSubnetNetworkSecurityGroupAssociationId;
+            o.storageAccountName = storageAccountName;
+            o.storageAccountSkuName = storageAccountSkuName;
+            o.virtualNetworkId = virtualNetworkId;
+            o.vnetAddressPrefix = vnetAddressPrefix;
+            return o;
         }
     }
 }

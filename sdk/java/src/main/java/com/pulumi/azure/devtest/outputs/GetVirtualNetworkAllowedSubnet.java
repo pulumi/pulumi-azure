@@ -13,28 +13,19 @@ public final class GetVirtualNetworkAllowedSubnet {
      * @return Indicates if this subnet allows public IP addresses. Possible values are `Allow`, `Default` and `Deny`.
      * 
      */
-    private final String allowPublicIp;
+    private String allowPublicIp;
     /**
      * @return The name of the subnet.
      * 
      */
-    private final String labSubnetName;
+    private String labSubnetName;
     /**
      * @return The resource identifier for the subnet.
      * 
      */
-    private final String resourceId;
+    private String resourceId;
 
-    @CustomType.Constructor
-    private GetVirtualNetworkAllowedSubnet(
-        @CustomType.Parameter("allowPublicIp") String allowPublicIp,
-        @CustomType.Parameter("labSubnetName") String labSubnetName,
-        @CustomType.Parameter("resourceId") String resourceId) {
-        this.allowPublicIp = allowPublicIp;
-        this.labSubnetName = labSubnetName;
-        this.resourceId = resourceId;
-    }
-
+    private GetVirtualNetworkAllowedSubnet() {}
     /**
      * @return Indicates if this subnet allows public IP addresses. Possible values are `Allow`, `Default` and `Deny`.
      * 
@@ -64,16 +55,12 @@ public final class GetVirtualNetworkAllowedSubnet {
     public static Builder builder(GetVirtualNetworkAllowedSubnet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String allowPublicIp;
         private String labSubnetName;
         private String resourceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualNetworkAllowedSubnet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowPublicIp = defaults.allowPublicIp;
@@ -81,19 +68,27 @@ public final class GetVirtualNetworkAllowedSubnet {
     	      this.resourceId = defaults.resourceId;
         }
 
+        @CustomType.Setter
         public Builder allowPublicIp(String allowPublicIp) {
             this.allowPublicIp = Objects.requireNonNull(allowPublicIp);
             return this;
         }
+        @CustomType.Setter
         public Builder labSubnetName(String labSubnetName) {
             this.labSubnetName = Objects.requireNonNull(labSubnetName);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceId(String resourceId) {
             this.resourceId = Objects.requireNonNull(resourceId);
             return this;
-        }        public GetVirtualNetworkAllowedSubnet build() {
-            return new GetVirtualNetworkAllowedSubnet(allowPublicIp, labSubnetName, resourceId);
+        }
+        public GetVirtualNetworkAllowedSubnet build() {
+            final var o = new GetVirtualNetworkAllowedSubnet();
+            o.allowPublicIp = allowPublicIp;
+            o.labSubnetName = labSubnetName;
+            o.resourceId = resourceId;
+            return o;
         }
     }
 }

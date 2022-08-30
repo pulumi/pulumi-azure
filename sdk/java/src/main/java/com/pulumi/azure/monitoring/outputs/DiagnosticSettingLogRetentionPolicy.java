@@ -16,21 +16,14 @@ public final class DiagnosticSettingLogRetentionPolicy {
      * @return The number of days for which this Retention Policy should apply.
      * 
      */
-    private final @Nullable Integer days;
+    private @Nullable Integer days;
     /**
      * @return Is this Retention Policy enabled?
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private DiagnosticSettingLogRetentionPolicy(
-        @CustomType.Parameter("days") @Nullable Integer days,
-        @CustomType.Parameter("enabled") Boolean enabled) {
-        this.days = days;
-        this.enabled = enabled;
-    }
-
+    private DiagnosticSettingLogRetentionPolicy() {}
     /**
      * @return The number of days for which this Retention Policy should apply.
      * 
@@ -53,30 +46,32 @@ public final class DiagnosticSettingLogRetentionPolicy {
     public static Builder builder(DiagnosticSettingLogRetentionPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer days;
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DiagnosticSettingLogRetentionPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.days = defaults.days;
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder days(@Nullable Integer days) {
             this.days = days;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public DiagnosticSettingLogRetentionPolicy build() {
-            return new DiagnosticSettingLogRetentionPolicy(days, enabled);
+        }
+        public DiagnosticSettingLogRetentionPolicy build() {
+            final var o = new DiagnosticSettingLogRetentionPolicy();
+            o.days = days;
+            o.enabled = enabled;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class FunctionAppSlotSiteCredential {
      * @return The password associated with the username, which can be used to publish to this App Service.
      * 
      */
-    private final @Nullable String password;
+    private @Nullable String password;
     /**
      * @return The username which can be used to publish to this App Service
      * 
      */
-    private final @Nullable String username;
+    private @Nullable String username;
 
-    @CustomType.Constructor
-    private FunctionAppSlotSiteCredential(
-        @CustomType.Parameter("password") @Nullable String password,
-        @CustomType.Parameter("username") @Nullable String username) {
-        this.password = password;
-        this.username = username;
-    }
-
+    private FunctionAppSlotSiteCredential() {}
     /**
      * @return The password associated with the username, which can be used to publish to this App Service.
      * 
@@ -52,30 +45,32 @@ public final class FunctionAppSlotSiteCredential {
     public static Builder builder(FunctionAppSlotSiteCredential defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String password;
         private @Nullable String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FunctionAppSlotSiteCredential defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.password = defaults.password;
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
         }
+        @CustomType.Setter
         public Builder username(@Nullable String username) {
             this.username = username;
             return this;
-        }        public FunctionAppSlotSiteCredential build() {
-            return new FunctionAppSlotSiteCredential(password, username);
+        }
+        public FunctionAppSlotSiteCredential build() {
+            final var o = new FunctionAppSlotSiteCredential();
+            o.password = password;
+            o.username = username;
+            return o;
         }
     }
 }

@@ -16,70 +16,49 @@ public final class FirewallNatRuleCollectionRule {
      * @return Specifies a description for the rule.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return A list of destination IP addresses and/or IP ranges.
      * 
      */
-    private final List<String> destinationAddresses;
+    private List<String> destinationAddresses;
     /**
      * @return A list of destination ports.
      * 
      */
-    private final List<String> destinationPorts;
+    private List<String> destinationPorts;
     /**
      * @return Specifies the name of the rule.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A list of protocols. Possible values are `Any`, `ICMP`, `TCP` and `UDP`.  If `action` is `Dnat`, protocols can only be `TCP` and `UDP`.
      * 
      */
-    private final List<String> protocols;
+    private List<String> protocols;
     /**
      * @return A list of source IP addresses and/or IP ranges.
      * 
      */
-    private final @Nullable List<String> sourceAddresses;
+    private @Nullable List<String> sourceAddresses;
     /**
      * @return A list of source IP Group IDs for the rule.
      * 
      */
-    private final @Nullable List<String> sourceIpGroups;
+    private @Nullable List<String> sourceIpGroups;
     /**
      * @return The address of the service behind the Firewall.
      * 
      */
-    private final String translatedAddress;
+    private String translatedAddress;
     /**
      * @return The port of the service behind the Firewall.
      * 
      */
-    private final String translatedPort;
+    private String translatedPort;
 
-    @CustomType.Constructor
-    private FirewallNatRuleCollectionRule(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("destinationAddresses") List<String> destinationAddresses,
-        @CustomType.Parameter("destinationPorts") List<String> destinationPorts,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("protocols") List<String> protocols,
-        @CustomType.Parameter("sourceAddresses") @Nullable List<String> sourceAddresses,
-        @CustomType.Parameter("sourceIpGroups") @Nullable List<String> sourceIpGroups,
-        @CustomType.Parameter("translatedAddress") String translatedAddress,
-        @CustomType.Parameter("translatedPort") String translatedPort) {
-        this.description = description;
-        this.destinationAddresses = destinationAddresses;
-        this.destinationPorts = destinationPorts;
-        this.name = name;
-        this.protocols = protocols;
-        this.sourceAddresses = sourceAddresses;
-        this.sourceIpGroups = sourceIpGroups;
-        this.translatedAddress = translatedAddress;
-        this.translatedPort = translatedPort;
-    }
-
+    private FirewallNatRuleCollectionRule() {}
     /**
      * @return Specifies a description for the rule.
      * 
@@ -151,7 +130,7 @@ public final class FirewallNatRuleCollectionRule {
     public static Builder builder(FirewallNatRuleCollectionRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private List<String> destinationAddresses;
@@ -162,11 +141,7 @@ public final class FirewallNatRuleCollectionRule {
         private @Nullable List<String> sourceIpGroups;
         private String translatedAddress;
         private String translatedPort;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallNatRuleCollectionRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -180,10 +155,12 @@ public final class FirewallNatRuleCollectionRule {
     	      this.translatedPort = defaults.translatedPort;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder destinationAddresses(List<String> destinationAddresses) {
             this.destinationAddresses = Objects.requireNonNull(destinationAddresses);
             return this;
@@ -191,6 +168,7 @@ public final class FirewallNatRuleCollectionRule {
         public Builder destinationAddresses(String... destinationAddresses) {
             return destinationAddresses(List.of(destinationAddresses));
         }
+        @CustomType.Setter
         public Builder destinationPorts(List<String> destinationPorts) {
             this.destinationPorts = Objects.requireNonNull(destinationPorts);
             return this;
@@ -198,10 +176,12 @@ public final class FirewallNatRuleCollectionRule {
         public Builder destinationPorts(String... destinationPorts) {
             return destinationPorts(List.of(destinationPorts));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder protocols(List<String> protocols) {
             this.protocols = Objects.requireNonNull(protocols);
             return this;
@@ -209,6 +189,7 @@ public final class FirewallNatRuleCollectionRule {
         public Builder protocols(String... protocols) {
             return protocols(List.of(protocols));
         }
+        @CustomType.Setter
         public Builder sourceAddresses(@Nullable List<String> sourceAddresses) {
             this.sourceAddresses = sourceAddresses;
             return this;
@@ -216,6 +197,7 @@ public final class FirewallNatRuleCollectionRule {
         public Builder sourceAddresses(String... sourceAddresses) {
             return sourceAddresses(List.of(sourceAddresses));
         }
+        @CustomType.Setter
         public Builder sourceIpGroups(@Nullable List<String> sourceIpGroups) {
             this.sourceIpGroups = sourceIpGroups;
             return this;
@@ -223,15 +205,28 @@ public final class FirewallNatRuleCollectionRule {
         public Builder sourceIpGroups(String... sourceIpGroups) {
             return sourceIpGroups(List.of(sourceIpGroups));
         }
+        @CustomType.Setter
         public Builder translatedAddress(String translatedAddress) {
             this.translatedAddress = Objects.requireNonNull(translatedAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder translatedPort(String translatedPort) {
             this.translatedPort = Objects.requireNonNull(translatedPort);
             return this;
-        }        public FirewallNatRuleCollectionRule build() {
-            return new FirewallNatRuleCollectionRule(description, destinationAddresses, destinationPorts, name, protocols, sourceAddresses, sourceIpGroups, translatedAddress, translatedPort);
+        }
+        public FirewallNatRuleCollectionRule build() {
+            final var o = new FirewallNatRuleCollectionRule();
+            o.description = description;
+            o.destinationAddresses = destinationAddresses;
+            o.destinationPorts = destinationPorts;
+            o.name = name;
+            o.protocols = protocols;
+            o.sourceAddresses = sourceAddresses;
+            o.sourceIpGroups = sourceIpGroups;
+            o.translatedAddress = translatedAddress;
+            o.translatedPort = translatedPort;
+            return o;
         }
     }
 }

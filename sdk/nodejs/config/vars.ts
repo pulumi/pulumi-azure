@@ -135,7 +135,7 @@ Object.defineProperty(exports, "msiEndpoint", {
 });
 
 /**
- * The bearer token for the request to the OIDC provider. For use When authenticating as a Service Principal using OpenID
+ * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
  * Connect.
  */
 export declare const oidcRequestToken: string | undefined;
@@ -147,13 +147,24 @@ Object.defineProperty(exports, "oidcRequestToken", {
 });
 
 /**
- * The URL for the OIDC provider from which to request an ID token. For use When authenticating as a Service Principal
+ * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
  * using OpenID Connect.
  */
 export declare const oidcRequestUrl: string | undefined;
 Object.defineProperty(exports, "oidcRequestUrl", {
     get() {
         return __config.get("oidcRequestUrl");
+    },
+    enumerable: true,
+});
+
+/**
+ * The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+ */
+export declare const oidcToken: string | undefined;
+Object.defineProperty(exports, "oidcToken", {
+    get() {
+        return __config.get("oidcToken");
     },
     enumerable: true,
 });

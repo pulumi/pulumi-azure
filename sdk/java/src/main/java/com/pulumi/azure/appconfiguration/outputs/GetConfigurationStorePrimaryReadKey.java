@@ -13,28 +13,19 @@ public final class GetConfigurationStorePrimaryReadKey {
      * @return The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
      * 
      */
-    private final String connectionString;
+    private String connectionString;
     /**
      * @return The ID of the Access Key.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Secret of the Access Key.
      * 
      */
-    private final String secret;
+    private String secret;
 
-    @CustomType.Constructor
-    private GetConfigurationStorePrimaryReadKey(
-        @CustomType.Parameter("connectionString") String connectionString,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("secret") String secret) {
-        this.connectionString = connectionString;
-        this.id = id;
-        this.secret = secret;
-    }
-
+    private GetConfigurationStorePrimaryReadKey() {}
     /**
      * @return The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
      * 
@@ -64,16 +55,12 @@ public final class GetConfigurationStorePrimaryReadKey {
     public static Builder builder(GetConfigurationStorePrimaryReadKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String connectionString;
         private String id;
         private String secret;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetConfigurationStorePrimaryReadKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectionString = defaults.connectionString;
@@ -81,19 +68,27 @@ public final class GetConfigurationStorePrimaryReadKey {
     	      this.secret = defaults.secret;
         }
 
+        @CustomType.Setter
         public Builder connectionString(String connectionString) {
             this.connectionString = Objects.requireNonNull(connectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder secret(String secret) {
             this.secret = Objects.requireNonNull(secret);
             return this;
-        }        public GetConfigurationStorePrimaryReadKey build() {
-            return new GetConfigurationStorePrimaryReadKey(connectionString, id, secret);
+        }
+        public GetConfigurationStorePrimaryReadKey build() {
+            final var o = new GetConfigurationStorePrimaryReadKey();
+            o.connectionString = connectionString;
+            o.id = id;
+            o.secret = secret;
+            return o;
         }
     }
 }

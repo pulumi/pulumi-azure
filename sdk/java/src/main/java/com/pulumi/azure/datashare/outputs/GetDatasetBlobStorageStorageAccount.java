@@ -13,28 +13,19 @@ public final class GetDatasetBlobStorageStorageAccount {
      * @return The name of this Data Share Blob Storage Dataset.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The resource group name of the storage account to be shared with the receiver.
      * 
      */
-    private final String resourceGroupName;
+    private String resourceGroupName;
     /**
      * @return The subscription id of the storage account to be shared with the receiver.
      * 
      */
-    private final String subscriptionId;
+    private String subscriptionId;
 
-    @CustomType.Constructor
-    private GetDatasetBlobStorageStorageAccount(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("subscriptionId") String subscriptionId) {
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.subscriptionId = subscriptionId;
-    }
-
+    private GetDatasetBlobStorageStorageAccount() {}
     /**
      * @return The name of this Data Share Blob Storage Dataset.
      * 
@@ -64,16 +55,12 @@ public final class GetDatasetBlobStorageStorageAccount {
     public static Builder builder(GetDatasetBlobStorageStorageAccount defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String resourceGroupName;
         private String subscriptionId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDatasetBlobStorageStorageAccount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -81,19 +68,27 @@ public final class GetDatasetBlobStorageStorageAccount {
     	      this.subscriptionId = defaults.subscriptionId;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder subscriptionId(String subscriptionId) {
             this.subscriptionId = Objects.requireNonNull(subscriptionId);
             return this;
-        }        public GetDatasetBlobStorageStorageAccount build() {
-            return new GetDatasetBlobStorageStorageAccount(name, resourceGroupName, subscriptionId);
+        }
+        public GetDatasetBlobStorageStorageAccount build() {
+            final var o = new GetDatasetBlobStorageStorageAccount();
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.subscriptionId = subscriptionId;
+            return o;
         }
     }
 }

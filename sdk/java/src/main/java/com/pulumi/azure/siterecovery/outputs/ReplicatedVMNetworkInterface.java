@@ -15,35 +15,24 @@ public final class ReplicatedVMNetworkInterface {
      * @return Id of the public IP object to use when a failover is done.
      * 
      */
-    private final @Nullable String recoveryPublicIpAddressId;
+    private @Nullable String recoveryPublicIpAddressId;
     /**
      * @return Id source network interface.
      * 
      */
-    private final @Nullable String sourceNetworkInterfaceId;
+    private @Nullable String sourceNetworkInterfaceId;
     /**
      * @return Static IP to assign when a failover is done.
      * 
      */
-    private final @Nullable String targetStaticIp;
+    private @Nullable String targetStaticIp;
     /**
      * @return Name of the subnet to to use when a failover is done.
      * 
      */
-    private final @Nullable String targetSubnetName;
+    private @Nullable String targetSubnetName;
 
-    @CustomType.Constructor
-    private ReplicatedVMNetworkInterface(
-        @CustomType.Parameter("recoveryPublicIpAddressId") @Nullable String recoveryPublicIpAddressId,
-        @CustomType.Parameter("sourceNetworkInterfaceId") @Nullable String sourceNetworkInterfaceId,
-        @CustomType.Parameter("targetStaticIp") @Nullable String targetStaticIp,
-        @CustomType.Parameter("targetSubnetName") @Nullable String targetSubnetName) {
-        this.recoveryPublicIpAddressId = recoveryPublicIpAddressId;
-        this.sourceNetworkInterfaceId = sourceNetworkInterfaceId;
-        this.targetStaticIp = targetStaticIp;
-        this.targetSubnetName = targetSubnetName;
-    }
-
+    private ReplicatedVMNetworkInterface() {}
     /**
      * @return Id of the public IP object to use when a failover is done.
      * 
@@ -80,17 +69,13 @@ public final class ReplicatedVMNetworkInterface {
     public static Builder builder(ReplicatedVMNetworkInterface defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String recoveryPublicIpAddressId;
         private @Nullable String sourceNetworkInterfaceId;
         private @Nullable String targetStaticIp;
         private @Nullable String targetSubnetName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReplicatedVMNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.recoveryPublicIpAddressId = defaults.recoveryPublicIpAddressId;
@@ -99,23 +84,33 @@ public final class ReplicatedVMNetworkInterface {
     	      this.targetSubnetName = defaults.targetSubnetName;
         }
 
+        @CustomType.Setter
         public Builder recoveryPublicIpAddressId(@Nullable String recoveryPublicIpAddressId) {
             this.recoveryPublicIpAddressId = recoveryPublicIpAddressId;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceNetworkInterfaceId(@Nullable String sourceNetworkInterfaceId) {
             this.sourceNetworkInterfaceId = sourceNetworkInterfaceId;
             return this;
         }
+        @CustomType.Setter
         public Builder targetStaticIp(@Nullable String targetStaticIp) {
             this.targetStaticIp = targetStaticIp;
             return this;
         }
+        @CustomType.Setter
         public Builder targetSubnetName(@Nullable String targetSubnetName) {
             this.targetSubnetName = targetSubnetName;
             return this;
-        }        public ReplicatedVMNetworkInterface build() {
-            return new ReplicatedVMNetworkInterface(recoveryPublicIpAddressId, sourceNetworkInterfaceId, targetStaticIp, targetSubnetName);
+        }
+        public ReplicatedVMNetworkInterface build() {
+            final var o = new ReplicatedVMNetworkInterface();
+            o.recoveryPublicIpAddressId = recoveryPublicIpAddressId;
+            o.sourceNetworkInterfaceId = sourceNetworkInterfaceId;
+            o.targetStaticIp = targetStaticIp;
+            o.targetSubnetName = targetSubnetName;
+            return o;
         }
     }
 }

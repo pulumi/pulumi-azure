@@ -15,13 +15,9 @@ public final class VpnSiteO365Policy {
      * @return A `traffic_category` block as defined above.
      * 
      */
-    private final @Nullable VpnSiteO365PolicyTrafficCategory trafficCategory;
+    private @Nullable VpnSiteO365PolicyTrafficCategory trafficCategory;
 
-    @CustomType.Constructor
-    private VpnSiteO365Policy(@CustomType.Parameter("trafficCategory") @Nullable VpnSiteO365PolicyTrafficCategory trafficCategory) {
-        this.trafficCategory = trafficCategory;
-    }
-
+    private VpnSiteO365Policy() {}
     /**
      * @return A `traffic_category` block as defined above.
      * 
@@ -37,24 +33,24 @@ public final class VpnSiteO365Policy {
     public static Builder builder(VpnSiteO365Policy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable VpnSiteO365PolicyTrafficCategory trafficCategory;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpnSiteO365Policy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.trafficCategory = defaults.trafficCategory;
         }
 
+        @CustomType.Setter
         public Builder trafficCategory(@Nullable VpnSiteO365PolicyTrafficCategory trafficCategory) {
             this.trafficCategory = trafficCategory;
             return this;
-        }        public VpnSiteO365Policy build() {
-            return new VpnSiteO365Policy(trafficCategory);
+        }
+        public VpnSiteO365Policy build() {
+            final var o = new VpnSiteO365Policy();
+            o.trafficCategory = trafficCategory;
+            return o;
         }
     }
 }

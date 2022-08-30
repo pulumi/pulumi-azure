@@ -17,28 +17,19 @@ public final class ApplicationGatewayRewriteRuleSet {
      * @return The ID of the Rewrite Rule Set
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Unique name of the rewrite rule set block
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return One or more `rewrite_rule` blocks as defined above.
      * 
      */
-    private final @Nullable List<ApplicationGatewayRewriteRuleSetRewriteRule> rewriteRules;
+    private @Nullable List<ApplicationGatewayRewriteRuleSetRewriteRule> rewriteRules;
 
-    @CustomType.Constructor
-    private ApplicationGatewayRewriteRuleSet(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("rewriteRules") @Nullable List<ApplicationGatewayRewriteRuleSetRewriteRule> rewriteRules) {
-        this.id = id;
-        this.name = name;
-        this.rewriteRules = rewriteRules;
-    }
-
+    private ApplicationGatewayRewriteRuleSet() {}
     /**
      * @return The ID of the Rewrite Rule Set
      * 
@@ -68,16 +59,12 @@ public final class ApplicationGatewayRewriteRuleSet {
     public static Builder builder(ApplicationGatewayRewriteRuleSet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private String name;
         private @Nullable List<ApplicationGatewayRewriteRuleSetRewriteRule> rewriteRules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayRewriteRuleSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -85,22 +72,30 @@ public final class ApplicationGatewayRewriteRuleSet {
     	      this.rewriteRules = defaults.rewriteRules;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder rewriteRules(@Nullable List<ApplicationGatewayRewriteRuleSetRewriteRule> rewriteRules) {
             this.rewriteRules = rewriteRules;
             return this;
         }
         public Builder rewriteRules(ApplicationGatewayRewriteRuleSetRewriteRule... rewriteRules) {
             return rewriteRules(List.of(rewriteRules));
-        }        public ApplicationGatewayRewriteRuleSet build() {
-            return new ApplicationGatewayRewriteRuleSet(id, name, rewriteRules);
+        }
+        public ApplicationGatewayRewriteRuleSet build() {
+            final var o = new ApplicationGatewayRewriteRuleSet();
+            o.id = id;
+            o.name = name;
+            o.rewriteRules = rewriteRules;
+            return o;
         }
     }
 }

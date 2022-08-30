@@ -16,21 +16,14 @@ public final class BudgetManagementGroupFilterNot {
      * @return One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
      * 
      */
-    private final @Nullable BudgetManagementGroupFilterNotDimension dimension;
+    private @Nullable BudgetManagementGroupFilterNotDimension dimension;
     /**
      * @return One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
      * 
      */
-    private final @Nullable BudgetManagementGroupFilterNotTag tag;
+    private @Nullable BudgetManagementGroupFilterNotTag tag;
 
-    @CustomType.Constructor
-    private BudgetManagementGroupFilterNot(
-        @CustomType.Parameter("dimension") @Nullable BudgetManagementGroupFilterNotDimension dimension,
-        @CustomType.Parameter("tag") @Nullable BudgetManagementGroupFilterNotTag tag) {
-        this.dimension = dimension;
-        this.tag = tag;
-    }
-
+    private BudgetManagementGroupFilterNot() {}
     /**
      * @return One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
      * 
@@ -53,30 +46,32 @@ public final class BudgetManagementGroupFilterNot {
     public static Builder builder(BudgetManagementGroupFilterNot defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable BudgetManagementGroupFilterNotDimension dimension;
         private @Nullable BudgetManagementGroupFilterNotTag tag;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BudgetManagementGroupFilterNot defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dimension = defaults.dimension;
     	      this.tag = defaults.tag;
         }
 
+        @CustomType.Setter
         public Builder dimension(@Nullable BudgetManagementGroupFilterNotDimension dimension) {
             this.dimension = dimension;
             return this;
         }
+        @CustomType.Setter
         public Builder tag(@Nullable BudgetManagementGroupFilterNotTag tag) {
             this.tag = tag;
             return this;
-        }        public BudgetManagementGroupFilterNot build() {
-            return new BudgetManagementGroupFilterNot(dimension, tag);
+        }
+        public BudgetManagementGroupFilterNot build() {
+            final var o = new BudgetManagementGroupFilterNot();
+            o.dimension = dimension;
+            o.tag = tag;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class DatabaseShortTermRetentionPolicy {
      * @return The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
      * 
      */
-    private final @Nullable Integer backupIntervalInHours;
+    private @Nullable Integer backupIntervalInHours;
     /**
      * @return Point In Time Restore configuration. Value has to be between `7` and `35`.
      * 
      */
-    private final Integer retentionDays;
+    private Integer retentionDays;
 
-    @CustomType.Constructor
-    private DatabaseShortTermRetentionPolicy(
-        @CustomType.Parameter("backupIntervalInHours") @Nullable Integer backupIntervalInHours,
-        @CustomType.Parameter("retentionDays") Integer retentionDays) {
-        this.backupIntervalInHours = backupIntervalInHours;
-        this.retentionDays = retentionDays;
-    }
-
+    private DatabaseShortTermRetentionPolicy() {}
     /**
      * @return The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
      * 
@@ -52,30 +45,32 @@ public final class DatabaseShortTermRetentionPolicy {
     public static Builder builder(DatabaseShortTermRetentionPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer backupIntervalInHours;
         private Integer retentionDays;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DatabaseShortTermRetentionPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.backupIntervalInHours = defaults.backupIntervalInHours;
     	      this.retentionDays = defaults.retentionDays;
         }
 
+        @CustomType.Setter
         public Builder backupIntervalInHours(@Nullable Integer backupIntervalInHours) {
             this.backupIntervalInHours = backupIntervalInHours;
             return this;
         }
+        @CustomType.Setter
         public Builder retentionDays(Integer retentionDays) {
             this.retentionDays = Objects.requireNonNull(retentionDays);
             return this;
-        }        public DatabaseShortTermRetentionPolicy build() {
-            return new DatabaseShortTermRetentionPolicy(backupIntervalInHours, retentionDays);
+        }
+        public DatabaseShortTermRetentionPolicy build() {
+            final var o = new DatabaseShortTermRetentionPolicy();
+            o.backupIntervalInHours = backupIntervalInHours;
+            o.retentionDays = retentionDays;
+            return o;
         }
     }
 }

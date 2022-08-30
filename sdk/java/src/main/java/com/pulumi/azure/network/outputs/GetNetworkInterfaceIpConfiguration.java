@@ -15,83 +15,56 @@ public final class GetNetworkInterfaceIpConfiguration {
      * @return A list of Backend Address Pool IDs within a Application Gateway that this Network Interface is connected to.
      * 
      */
-    private final List<String> applicationGatewayBackendAddressPoolsIds;
-    private final List<String> applicationSecurityGroupIds;
+    private List<String> applicationGatewayBackendAddressPoolsIds;
+    private List<String> applicationSecurityGroupIds;
     /**
      * @return The Frontend IP Configuration ID of a Gateway SKU Load Balancer the Network Interface is consuming.
      * 
      */
-    private final String gatewayLoadBalancerFrontendIpConfigurationId;
+    private String gatewayLoadBalancerFrontendIpConfigurationId;
     /**
      * @return A list of Backend Address Pool IDs within a Load Balancer that this Network Interface is connected to.
      * 
      */
-    private final List<String> loadBalancerBackendAddressPoolsIds;
+    private List<String> loadBalancerBackendAddressPoolsIds;
     /**
      * @return A list of Inbound NAT Rule IDs within a Load Balancer that this Network Interface is connected to.
      * 
      */
-    private final List<String> loadBalancerInboundNatRulesIds;
+    private List<String> loadBalancerInboundNatRulesIds;
     /**
      * @return Specifies the name of the Network Interface.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return is this the Primary IP Configuration for this Network Interface?
      * 
      */
-    private final Boolean primary;
+    private Boolean primary;
     /**
      * @return The Private IP Address assigned to this Network Interface.
      * 
      */
-    private final String privateIpAddress;
+    private String privateIpAddress;
     /**
      * @return The IP Address allocation type for the Private address, such as `Dynamic` or `Static`.
      * 
      */
-    private final String privateIpAddressAllocation;
-    private final String privateIpAddressVersion;
+    private String privateIpAddressAllocation;
+    private String privateIpAddressVersion;
     /**
      * @return The ID of the Public IP Address which is connected to this Network Interface.
      * 
      */
-    private final String publicIpAddressId;
+    private String publicIpAddressId;
     /**
      * @return The ID of the Subnet which the Network Interface is connected to.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private GetNetworkInterfaceIpConfiguration(
-        @CustomType.Parameter("applicationGatewayBackendAddressPoolsIds") List<String> applicationGatewayBackendAddressPoolsIds,
-        @CustomType.Parameter("applicationSecurityGroupIds") List<String> applicationSecurityGroupIds,
-        @CustomType.Parameter("gatewayLoadBalancerFrontendIpConfigurationId") String gatewayLoadBalancerFrontendIpConfigurationId,
-        @CustomType.Parameter("loadBalancerBackendAddressPoolsIds") List<String> loadBalancerBackendAddressPoolsIds,
-        @CustomType.Parameter("loadBalancerInboundNatRulesIds") List<String> loadBalancerInboundNatRulesIds,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("primary") Boolean primary,
-        @CustomType.Parameter("privateIpAddress") String privateIpAddress,
-        @CustomType.Parameter("privateIpAddressAllocation") String privateIpAddressAllocation,
-        @CustomType.Parameter("privateIpAddressVersion") String privateIpAddressVersion,
-        @CustomType.Parameter("publicIpAddressId") String publicIpAddressId,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.applicationGatewayBackendAddressPoolsIds = applicationGatewayBackendAddressPoolsIds;
-        this.applicationSecurityGroupIds = applicationSecurityGroupIds;
-        this.gatewayLoadBalancerFrontendIpConfigurationId = gatewayLoadBalancerFrontendIpConfigurationId;
-        this.loadBalancerBackendAddressPoolsIds = loadBalancerBackendAddressPoolsIds;
-        this.loadBalancerInboundNatRulesIds = loadBalancerInboundNatRulesIds;
-        this.name = name;
-        this.primary = primary;
-        this.privateIpAddress = privateIpAddress;
-        this.privateIpAddressAllocation = privateIpAddressAllocation;
-        this.privateIpAddressVersion = privateIpAddressVersion;
-        this.publicIpAddressId = publicIpAddressId;
-        this.subnetId = subnetId;
-    }
-
+    private GetNetworkInterfaceIpConfiguration() {}
     /**
      * @return A list of Backend Address Pool IDs within a Application Gateway that this Network Interface is connected to.
      * 
@@ -176,7 +149,7 @@ public final class GetNetworkInterfaceIpConfiguration {
     public static Builder builder(GetNetworkInterfaceIpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> applicationGatewayBackendAddressPoolsIds;
         private List<String> applicationSecurityGroupIds;
@@ -190,11 +163,7 @@ public final class GetNetworkInterfaceIpConfiguration {
         private String privateIpAddressVersion;
         private String publicIpAddressId;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetNetworkInterfaceIpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationGatewayBackendAddressPoolsIds = defaults.applicationGatewayBackendAddressPoolsIds;
@@ -211,6 +180,7 @@ public final class GetNetworkInterfaceIpConfiguration {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder applicationGatewayBackendAddressPoolsIds(List<String> applicationGatewayBackendAddressPoolsIds) {
             this.applicationGatewayBackendAddressPoolsIds = Objects.requireNonNull(applicationGatewayBackendAddressPoolsIds);
             return this;
@@ -218,6 +188,7 @@ public final class GetNetworkInterfaceIpConfiguration {
         public Builder applicationGatewayBackendAddressPoolsIds(String... applicationGatewayBackendAddressPoolsIds) {
             return applicationGatewayBackendAddressPoolsIds(List.of(applicationGatewayBackendAddressPoolsIds));
         }
+        @CustomType.Setter
         public Builder applicationSecurityGroupIds(List<String> applicationSecurityGroupIds) {
             this.applicationSecurityGroupIds = Objects.requireNonNull(applicationSecurityGroupIds);
             return this;
@@ -225,10 +196,12 @@ public final class GetNetworkInterfaceIpConfiguration {
         public Builder applicationSecurityGroupIds(String... applicationSecurityGroupIds) {
             return applicationSecurityGroupIds(List.of(applicationSecurityGroupIds));
         }
+        @CustomType.Setter
         public Builder gatewayLoadBalancerFrontendIpConfigurationId(String gatewayLoadBalancerFrontendIpConfigurationId) {
             this.gatewayLoadBalancerFrontendIpConfigurationId = Objects.requireNonNull(gatewayLoadBalancerFrontendIpConfigurationId);
             return this;
         }
+        @CustomType.Setter
         public Builder loadBalancerBackendAddressPoolsIds(List<String> loadBalancerBackendAddressPoolsIds) {
             this.loadBalancerBackendAddressPoolsIds = Objects.requireNonNull(loadBalancerBackendAddressPoolsIds);
             return this;
@@ -236,6 +209,7 @@ public final class GetNetworkInterfaceIpConfiguration {
         public Builder loadBalancerBackendAddressPoolsIds(String... loadBalancerBackendAddressPoolsIds) {
             return loadBalancerBackendAddressPoolsIds(List.of(loadBalancerBackendAddressPoolsIds));
         }
+        @CustomType.Setter
         public Builder loadBalancerInboundNatRulesIds(List<String> loadBalancerInboundNatRulesIds) {
             this.loadBalancerInboundNatRulesIds = Objects.requireNonNull(loadBalancerInboundNatRulesIds);
             return this;
@@ -243,35 +217,56 @@ public final class GetNetworkInterfaceIpConfiguration {
         public Builder loadBalancerInboundNatRulesIds(String... loadBalancerInboundNatRulesIds) {
             return loadBalancerInboundNatRulesIds(List.of(loadBalancerInboundNatRulesIds));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder primary(Boolean primary) {
             this.primary = Objects.requireNonNull(primary);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
             this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddressAllocation(String privateIpAddressAllocation) {
             this.privateIpAddressAllocation = Objects.requireNonNull(privateIpAddressAllocation);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddressVersion(String privateIpAddressVersion) {
             this.privateIpAddressVersion = Objects.requireNonNull(privateIpAddressVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpAddressId(String publicIpAddressId) {
             this.publicIpAddressId = Objects.requireNonNull(publicIpAddressId);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public GetNetworkInterfaceIpConfiguration build() {
-            return new GetNetworkInterfaceIpConfiguration(applicationGatewayBackendAddressPoolsIds, applicationSecurityGroupIds, gatewayLoadBalancerFrontendIpConfigurationId, loadBalancerBackendAddressPoolsIds, loadBalancerInboundNatRulesIds, name, primary, privateIpAddress, privateIpAddressAllocation, privateIpAddressVersion, publicIpAddressId, subnetId);
+        }
+        public GetNetworkInterfaceIpConfiguration build() {
+            final var o = new GetNetworkInterfaceIpConfiguration();
+            o.applicationGatewayBackendAddressPoolsIds = applicationGatewayBackendAddressPoolsIds;
+            o.applicationSecurityGroupIds = applicationSecurityGroupIds;
+            o.gatewayLoadBalancerFrontendIpConfigurationId = gatewayLoadBalancerFrontendIpConfigurationId;
+            o.loadBalancerBackendAddressPoolsIds = loadBalancerBackendAddressPoolsIds;
+            o.loadBalancerInboundNatRulesIds = loadBalancerInboundNatRulesIds;
+            o.name = name;
+            o.primary = primary;
+            o.privateIpAddress = privateIpAddress;
+            o.privateIpAddressAllocation = privateIpAddressAllocation;
+            o.privateIpAddressVersion = privateIpAddressVersion;
+            o.publicIpAddressId = publicIpAddressId;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

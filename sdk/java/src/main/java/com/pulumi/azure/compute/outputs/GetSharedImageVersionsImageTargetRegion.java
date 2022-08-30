@@ -14,28 +14,19 @@ public final class GetSharedImageVersionsImageTargetRegion {
      * @return The Azure Region in which this Image Version exists.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The number of replicas of the Image Version to be created per region.
      * 
      */
-    private final Integer regionalReplicaCount;
+    private Integer regionalReplicaCount;
     /**
      * @return The storage account type for the image version.
      * 
      */
-    private final String storageAccountType;
+    private String storageAccountType;
 
-    @CustomType.Constructor
-    private GetSharedImageVersionsImageTargetRegion(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("regionalReplicaCount") Integer regionalReplicaCount,
-        @CustomType.Parameter("storageAccountType") String storageAccountType) {
-        this.name = name;
-        this.regionalReplicaCount = regionalReplicaCount;
-        this.storageAccountType = storageAccountType;
-    }
-
+    private GetSharedImageVersionsImageTargetRegion() {}
     /**
      * @return The Azure Region in which this Image Version exists.
      * 
@@ -65,16 +56,12 @@ public final class GetSharedImageVersionsImageTargetRegion {
     public static Builder builder(GetSharedImageVersionsImageTargetRegion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private Integer regionalReplicaCount;
         private String storageAccountType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSharedImageVersionsImageTargetRegion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -82,19 +69,27 @@ public final class GetSharedImageVersionsImageTargetRegion {
     	      this.storageAccountType = defaults.storageAccountType;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder regionalReplicaCount(Integer regionalReplicaCount) {
             this.regionalReplicaCount = Objects.requireNonNull(regionalReplicaCount);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountType(String storageAccountType) {
             this.storageAccountType = Objects.requireNonNull(storageAccountType);
             return this;
-        }        public GetSharedImageVersionsImageTargetRegion build() {
-            return new GetSharedImageVersionsImageTargetRegion(name, regionalReplicaCount, storageAccountType);
+        }
+        public GetSharedImageVersionsImageTargetRegion build() {
+            final var o = new GetSharedImageVersionsImageTargetRegion();
+            o.name = name;
+            o.regionalReplicaCount = regionalReplicaCount;
+            o.storageAccountType = storageAccountType;
+            return o;
         }
     }
 }

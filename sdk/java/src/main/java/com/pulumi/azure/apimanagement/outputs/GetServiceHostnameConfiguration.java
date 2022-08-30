@@ -18,42 +18,29 @@ public final class GetServiceHostnameConfiguration {
      * @return One or more `developer_portal` blocks as documented below.
      * 
      */
-    private final List<GetServiceHostnameConfigurationDeveloperPortal> developerPortals;
+    private List<GetServiceHostnameConfigurationDeveloperPortal> developerPortals;
     /**
      * @return One or more `management` blocks as documented below.
      * 
      */
-    private final List<GetServiceHostnameConfigurationManagement> managements;
+    private List<GetServiceHostnameConfigurationManagement> managements;
     /**
      * @return One or more `portal` blocks as documented below.
      * 
      */
-    private final List<GetServiceHostnameConfigurationPortal> portals;
+    private List<GetServiceHostnameConfigurationPortal> portals;
     /**
      * @return One or more `proxy` blocks as documented below.
      * 
      */
-    private final List<GetServiceHostnameConfigurationProxy> proxies;
+    private List<GetServiceHostnameConfigurationProxy> proxies;
     /**
      * @return One or more `scm` blocks as documented below.
      * 
      */
-    private final List<GetServiceHostnameConfigurationScm> scms;
+    private List<GetServiceHostnameConfigurationScm> scms;
 
-    @CustomType.Constructor
-    private GetServiceHostnameConfiguration(
-        @CustomType.Parameter("developerPortals") List<GetServiceHostnameConfigurationDeveloperPortal> developerPortals,
-        @CustomType.Parameter("managements") List<GetServiceHostnameConfigurationManagement> managements,
-        @CustomType.Parameter("portals") List<GetServiceHostnameConfigurationPortal> portals,
-        @CustomType.Parameter("proxies") List<GetServiceHostnameConfigurationProxy> proxies,
-        @CustomType.Parameter("scms") List<GetServiceHostnameConfigurationScm> scms) {
-        this.developerPortals = developerPortals;
-        this.managements = managements;
-        this.portals = portals;
-        this.proxies = proxies;
-        this.scms = scms;
-    }
-
+    private GetServiceHostnameConfiguration() {}
     /**
      * @return One or more `developer_portal` blocks as documented below.
      * 
@@ -97,18 +84,14 @@ public final class GetServiceHostnameConfiguration {
     public static Builder builder(GetServiceHostnameConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetServiceHostnameConfigurationDeveloperPortal> developerPortals;
         private List<GetServiceHostnameConfigurationManagement> managements;
         private List<GetServiceHostnameConfigurationPortal> portals;
         private List<GetServiceHostnameConfigurationProxy> proxies;
         private List<GetServiceHostnameConfigurationScm> scms;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceHostnameConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.developerPortals = defaults.developerPortals;
@@ -118,6 +101,7 @@ public final class GetServiceHostnameConfiguration {
     	      this.scms = defaults.scms;
         }
 
+        @CustomType.Setter
         public Builder developerPortals(List<GetServiceHostnameConfigurationDeveloperPortal> developerPortals) {
             this.developerPortals = Objects.requireNonNull(developerPortals);
             return this;
@@ -125,6 +109,7 @@ public final class GetServiceHostnameConfiguration {
         public Builder developerPortals(GetServiceHostnameConfigurationDeveloperPortal... developerPortals) {
             return developerPortals(List.of(developerPortals));
         }
+        @CustomType.Setter
         public Builder managements(List<GetServiceHostnameConfigurationManagement> managements) {
             this.managements = Objects.requireNonNull(managements);
             return this;
@@ -132,6 +117,7 @@ public final class GetServiceHostnameConfiguration {
         public Builder managements(GetServiceHostnameConfigurationManagement... managements) {
             return managements(List.of(managements));
         }
+        @CustomType.Setter
         public Builder portals(List<GetServiceHostnameConfigurationPortal> portals) {
             this.portals = Objects.requireNonNull(portals);
             return this;
@@ -139,6 +125,7 @@ public final class GetServiceHostnameConfiguration {
         public Builder portals(GetServiceHostnameConfigurationPortal... portals) {
             return portals(List.of(portals));
         }
+        @CustomType.Setter
         public Builder proxies(List<GetServiceHostnameConfigurationProxy> proxies) {
             this.proxies = Objects.requireNonNull(proxies);
             return this;
@@ -146,14 +133,22 @@ public final class GetServiceHostnameConfiguration {
         public Builder proxies(GetServiceHostnameConfigurationProxy... proxies) {
             return proxies(List.of(proxies));
         }
+        @CustomType.Setter
         public Builder scms(List<GetServiceHostnameConfigurationScm> scms) {
             this.scms = Objects.requireNonNull(scms);
             return this;
         }
         public Builder scms(GetServiceHostnameConfigurationScm... scms) {
             return scms(List.of(scms));
-        }        public GetServiceHostnameConfiguration build() {
-            return new GetServiceHostnameConfiguration(developerPortals, managements, portals, proxies, scms);
+        }
+        public GetServiceHostnameConfiguration build() {
+            final var o = new GetServiceHostnameConfiguration();
+            o.developerPortals = developerPortals;
+            o.managements = managements;
+            o.portals = portals;
+            o.proxies = proxies;
+            o.scms = scms;
+            return o;
         }
     }
 }

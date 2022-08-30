@@ -175,7 +175,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The bearer token for the request to the OIDC provider. For use When authenticating as a Service Principal using OpenID
+     * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
      * Connect.
      * 
      */
@@ -183,7 +183,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> oidcRequestToken;
 
     /**
-     * @return The bearer token for the request to the OIDC provider. For use When authenticating as a Service Principal using OpenID
+     * @return The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
      * Connect.
      * 
      */
@@ -192,7 +192,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The URL for the OIDC provider from which to request an ID token. For use When authenticating as a Service Principal
+     * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
      * using OpenID Connect.
      * 
      */
@@ -200,12 +200,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> oidcRequestUrl;
 
     /**
-     * @return The URL for the OIDC provider from which to request an ID token. For use When authenticating as a Service Principal
+     * @return The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
      * using OpenID Connect.
      * 
      */
     public Optional<Output<String>> oidcRequestUrl() {
         return Optional.ofNullable(this.oidcRequestUrl);
+    }
+
+    /**
+     * The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+     * 
+     */
+    @Import(name="oidcToken")
+    private @Nullable Output<String> oidcToken;
+
+    /**
+     * @return The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+     * 
+     */
+    public Optional<Output<String>> oidcToken() {
+        return Optional.ofNullable(this.oidcToken);
     }
 
     /**
@@ -331,6 +346,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.msiEndpoint = $.msiEndpoint;
         this.oidcRequestToken = $.oidcRequestToken;
         this.oidcRequestUrl = $.oidcRequestUrl;
+        this.oidcToken = $.oidcToken;
         this.partnerId = $.partnerId;
         this.skipProviderRegistration = $.skipProviderRegistration;
         this.storageUseAzuread = $.storageUseAzuread;
@@ -576,7 +592,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oidcRequestToken The bearer token for the request to the OIDC provider. For use When authenticating as a Service Principal using OpenID
+         * @param oidcRequestToken The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
          * Connect.
          * 
          * @return builder
@@ -588,7 +604,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oidcRequestToken The bearer token for the request to the OIDC provider. For use When authenticating as a Service Principal using OpenID
+         * @param oidcRequestToken The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
          * Connect.
          * 
          * @return builder
@@ -599,7 +615,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oidcRequestUrl The URL for the OIDC provider from which to request an ID token. For use When authenticating as a Service Principal
+         * @param oidcRequestUrl The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
          * using OpenID Connect.
          * 
          * @return builder
@@ -611,7 +627,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param oidcRequestUrl The URL for the OIDC provider from which to request an ID token. For use When authenticating as a Service Principal
+         * @param oidcRequestUrl The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
          * using OpenID Connect.
          * 
          * @return builder
@@ -619,6 +635,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder oidcRequestUrl(String oidcRequestUrl) {
             return oidcRequestUrl(Output.of(oidcRequestUrl));
+        }
+
+        /**
+         * @param oidcToken The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oidcToken(@Nullable Output<String> oidcToken) {
+            $.oidcToken = oidcToken;
+            return this;
+        }
+
+        /**
+         * @param oidcToken The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oidcToken(String oidcToken) {
+            return oidcToken(Output.of(oidcToken));
         }
 
         /**

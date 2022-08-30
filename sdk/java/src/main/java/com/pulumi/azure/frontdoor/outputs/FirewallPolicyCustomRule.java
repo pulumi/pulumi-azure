@@ -19,63 +19,44 @@ public final class FirewallPolicyCustomRule {
      * @return The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
      * 
      */
-    private final String action;
+    private String action;
     /**
      * @return Is the rule is enabled or disabled? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
      * 
      */
-    private final @Nullable List<FirewallPolicyCustomRuleMatchCondition> matchConditions;
+    private @Nullable List<FirewallPolicyCustomRuleMatchCondition> matchConditions;
     /**
      * @return Gets name of the resource that is unique within a policy. This name can be used to access the resource.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
      * 
      */
-    private final @Nullable Integer priority;
+    private @Nullable Integer priority;
     /**
      * @return The rate limit duration in minutes. Defaults to `1`.
      * 
      */
-    private final @Nullable Integer rateLimitDurationInMinutes;
+    private @Nullable Integer rateLimitDurationInMinutes;
     /**
      * @return The rate limit threshold. Defaults to `10`.
      * 
      */
-    private final @Nullable Integer rateLimitThreshold;
+    private @Nullable Integer rateLimitThreshold;
     /**
      * @return The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private FirewallPolicyCustomRule(
-        @CustomType.Parameter("action") String action,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("matchConditions") @Nullable List<FirewallPolicyCustomRuleMatchCondition> matchConditions,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("priority") @Nullable Integer priority,
-        @CustomType.Parameter("rateLimitDurationInMinutes") @Nullable Integer rateLimitDurationInMinutes,
-        @CustomType.Parameter("rateLimitThreshold") @Nullable Integer rateLimitThreshold,
-        @CustomType.Parameter("type") String type) {
-        this.action = action;
-        this.enabled = enabled;
-        this.matchConditions = matchConditions;
-        this.name = name;
-        this.priority = priority;
-        this.rateLimitDurationInMinutes = rateLimitDurationInMinutes;
-        this.rateLimitThreshold = rateLimitThreshold;
-        this.type = type;
-    }
-
+    private FirewallPolicyCustomRule() {}
     /**
      * @return The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
      * 
@@ -140,7 +121,7 @@ public final class FirewallPolicyCustomRule {
     public static Builder builder(FirewallPolicyCustomRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String action;
         private @Nullable Boolean enabled;
@@ -150,11 +131,7 @@ public final class FirewallPolicyCustomRule {
         private @Nullable Integer rateLimitDurationInMinutes;
         private @Nullable Integer rateLimitThreshold;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyCustomRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -167,14 +144,17 @@ public final class FirewallPolicyCustomRule {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder matchConditions(@Nullable List<FirewallPolicyCustomRuleMatchCondition> matchConditions) {
             this.matchConditions = matchConditions;
             return this;
@@ -182,27 +162,42 @@ public final class FirewallPolicyCustomRule {
         public Builder matchConditions(FirewallPolicyCustomRuleMatchCondition... matchConditions) {
             return matchConditions(List.of(matchConditions));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
             this.priority = priority;
             return this;
         }
+        @CustomType.Setter
         public Builder rateLimitDurationInMinutes(@Nullable Integer rateLimitDurationInMinutes) {
             this.rateLimitDurationInMinutes = rateLimitDurationInMinutes;
             return this;
         }
+        @CustomType.Setter
         public Builder rateLimitThreshold(@Nullable Integer rateLimitThreshold) {
             this.rateLimitThreshold = rateLimitThreshold;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public FirewallPolicyCustomRule build() {
-            return new FirewallPolicyCustomRule(action, enabled, matchConditions, name, priority, rateLimitDurationInMinutes, rateLimitThreshold, type);
+        }
+        public FirewallPolicyCustomRule build() {
+            final var o = new FirewallPolicyCustomRule();
+            o.action = action;
+            o.enabled = enabled;
+            o.matchConditions = matchConditions;
+            o.name = name;
+            o.priority = priority;
+            o.rateLimitDurationInMinutes = rateLimitDurationInMinutes;
+            o.rateLimitThreshold = rateLimitThreshold;
+            o.type = type;
+            return o;
         }
     }
 }

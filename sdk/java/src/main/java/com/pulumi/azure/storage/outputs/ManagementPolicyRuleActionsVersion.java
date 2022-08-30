@@ -15,28 +15,19 @@ public final class ManagementPolicyRuleActionsVersion {
      * @return The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999.
      * 
      */
-    private final @Nullable Integer changeTierToArchiveAfterDaysSinceCreation;
+    private @Nullable Integer changeTierToArchiveAfterDaysSinceCreation;
     /**
      * @return The age in days creation create to  tier blob version to cool storage. Must be between 0 and 99999.
      * 
      */
-    private final @Nullable Integer changeTierToCoolAfterDaysSinceCreation;
+    private @Nullable Integer changeTierToCoolAfterDaysSinceCreation;
     /**
      * @return The age in days after creation to delete the blob version. Must be between 0 and 99999.
      * 
      */
-    private final @Nullable Integer deleteAfterDaysSinceCreation;
+    private @Nullable Integer deleteAfterDaysSinceCreation;
 
-    @CustomType.Constructor
-    private ManagementPolicyRuleActionsVersion(
-        @CustomType.Parameter("changeTierToArchiveAfterDaysSinceCreation") @Nullable Integer changeTierToArchiveAfterDaysSinceCreation,
-        @CustomType.Parameter("changeTierToCoolAfterDaysSinceCreation") @Nullable Integer changeTierToCoolAfterDaysSinceCreation,
-        @CustomType.Parameter("deleteAfterDaysSinceCreation") @Nullable Integer deleteAfterDaysSinceCreation) {
-        this.changeTierToArchiveAfterDaysSinceCreation = changeTierToArchiveAfterDaysSinceCreation;
-        this.changeTierToCoolAfterDaysSinceCreation = changeTierToCoolAfterDaysSinceCreation;
-        this.deleteAfterDaysSinceCreation = deleteAfterDaysSinceCreation;
-    }
-
+    private ManagementPolicyRuleActionsVersion() {}
     /**
      * @return The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999.
      * 
@@ -66,16 +57,12 @@ public final class ManagementPolicyRuleActionsVersion {
     public static Builder builder(ManagementPolicyRuleActionsVersion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer changeTierToArchiveAfterDaysSinceCreation;
         private @Nullable Integer changeTierToCoolAfterDaysSinceCreation;
         private @Nullable Integer deleteAfterDaysSinceCreation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ManagementPolicyRuleActionsVersion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.changeTierToArchiveAfterDaysSinceCreation = defaults.changeTierToArchiveAfterDaysSinceCreation;
@@ -83,19 +70,27 @@ public final class ManagementPolicyRuleActionsVersion {
     	      this.deleteAfterDaysSinceCreation = defaults.deleteAfterDaysSinceCreation;
         }
 
+        @CustomType.Setter
         public Builder changeTierToArchiveAfterDaysSinceCreation(@Nullable Integer changeTierToArchiveAfterDaysSinceCreation) {
             this.changeTierToArchiveAfterDaysSinceCreation = changeTierToArchiveAfterDaysSinceCreation;
             return this;
         }
+        @CustomType.Setter
         public Builder changeTierToCoolAfterDaysSinceCreation(@Nullable Integer changeTierToCoolAfterDaysSinceCreation) {
             this.changeTierToCoolAfterDaysSinceCreation = changeTierToCoolAfterDaysSinceCreation;
             return this;
         }
+        @CustomType.Setter
         public Builder deleteAfterDaysSinceCreation(@Nullable Integer deleteAfterDaysSinceCreation) {
             this.deleteAfterDaysSinceCreation = deleteAfterDaysSinceCreation;
             return this;
-        }        public ManagementPolicyRuleActionsVersion build() {
-            return new ManagementPolicyRuleActionsVersion(changeTierToArchiveAfterDaysSinceCreation, changeTierToCoolAfterDaysSinceCreation, deleteAfterDaysSinceCreation);
+        }
+        public ManagementPolicyRuleActionsVersion build() {
+            final var o = new ManagementPolicyRuleActionsVersion();
+            o.changeTierToArchiveAfterDaysSinceCreation = changeTierToArchiveAfterDaysSinceCreation;
+            o.changeTierToCoolAfterDaysSinceCreation = changeTierToCoolAfterDaysSinceCreation;
+            o.deleteAfterDaysSinceCreation = deleteAfterDaysSinceCreation;
+            return o;
         }
     }
 }

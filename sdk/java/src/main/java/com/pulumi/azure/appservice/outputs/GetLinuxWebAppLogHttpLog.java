@@ -15,21 +15,14 @@ public final class GetLinuxWebAppLogHttpLog {
      * @return A `azure_blob_storage` block as defined above.
      * 
      */
-    private final List<GetLinuxWebAppLogHttpLogAzureBlobStorage> azureBlobStorages;
+    private List<GetLinuxWebAppLogHttpLogAzureBlobStorage> azureBlobStorages;
     /**
      * @return A `file_system` block as defined above.
      * 
      */
-    private final List<GetLinuxWebAppLogHttpLogFileSystem> fileSystems;
+    private List<GetLinuxWebAppLogHttpLogFileSystem> fileSystems;
 
-    @CustomType.Constructor
-    private GetLinuxWebAppLogHttpLog(
-        @CustomType.Parameter("azureBlobStorages") List<GetLinuxWebAppLogHttpLogAzureBlobStorage> azureBlobStorages,
-        @CustomType.Parameter("fileSystems") List<GetLinuxWebAppLogHttpLogFileSystem> fileSystems) {
-        this.azureBlobStorages = azureBlobStorages;
-        this.fileSystems = fileSystems;
-    }
-
+    private GetLinuxWebAppLogHttpLog() {}
     /**
      * @return A `azure_blob_storage` block as defined above.
      * 
@@ -52,21 +45,18 @@ public final class GetLinuxWebAppLogHttpLog {
     public static Builder builder(GetLinuxWebAppLogHttpLog defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetLinuxWebAppLogHttpLogAzureBlobStorage> azureBlobStorages;
         private List<GetLinuxWebAppLogHttpLogFileSystem> fileSystems;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxWebAppLogHttpLog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.azureBlobStorages = defaults.azureBlobStorages;
     	      this.fileSystems = defaults.fileSystems;
         }
 
+        @CustomType.Setter
         public Builder azureBlobStorages(List<GetLinuxWebAppLogHttpLogAzureBlobStorage> azureBlobStorages) {
             this.azureBlobStorages = Objects.requireNonNull(azureBlobStorages);
             return this;
@@ -74,14 +64,19 @@ public final class GetLinuxWebAppLogHttpLog {
         public Builder azureBlobStorages(GetLinuxWebAppLogHttpLogAzureBlobStorage... azureBlobStorages) {
             return azureBlobStorages(List.of(azureBlobStorages));
         }
+        @CustomType.Setter
         public Builder fileSystems(List<GetLinuxWebAppLogHttpLogFileSystem> fileSystems) {
             this.fileSystems = Objects.requireNonNull(fileSystems);
             return this;
         }
         public Builder fileSystems(GetLinuxWebAppLogHttpLogFileSystem... fileSystems) {
             return fileSystems(List.of(fileSystems));
-        }        public GetLinuxWebAppLogHttpLog build() {
-            return new GetLinuxWebAppLogHttpLog(azureBlobStorages, fileSystems);
+        }
+        public GetLinuxWebAppLogHttpLog build() {
+            final var o = new GetLinuxWebAppLogHttpLog();
+            o.azureBlobStorages = azureBlobStorages;
+            o.fileSystems = fileSystems;
+            return o;
         }
     }
 }

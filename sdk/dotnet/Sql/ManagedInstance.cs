@@ -269,7 +269,7 @@ namespace Pulumi.Azure.Sql
         public Output<string?> Collation { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+        /// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azure.sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
         /// </summary>
         [Output("dnsZonePartnerId")]
         public Output<string?> DnsZonePartnerId { get; private set; } = null!;
@@ -435,7 +435,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+        /// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azure.sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
         /// </summary>
         [Input("dnsZonePartnerId")]
         public Input<string>? DnsZonePartnerId { get; set; }
@@ -563,7 +563,7 @@ namespace Pulumi.Azure.Sql
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+        /// The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azure.sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
         /// </summary>
         [Input("dnsZonePartnerId")]
         public Input<string>? DnsZonePartnerId { get; set; }

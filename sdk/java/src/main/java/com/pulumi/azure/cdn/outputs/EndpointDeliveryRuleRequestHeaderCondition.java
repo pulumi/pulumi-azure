@@ -17,42 +17,29 @@ public final class EndpointDeliveryRuleRequestHeaderCondition {
      * @return List of header values. This is required if `operator` is not `Any`.
      * 
      */
-    private final @Nullable List<String> matchValues;
+    private @Nullable List<String> matchValues;
     /**
      * @return Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean negateCondition;
+    private @Nullable Boolean negateCondition;
     /**
      * @return Valid values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
      * 
      */
-    private final String operator;
+    private String operator;
     /**
      * @return Header name.
      * 
      */
-    private final String selector;
+    private String selector;
     /**
      * @return A list of transforms. Valid values are `Lowercase` and `Uppercase`.
      * 
      */
-    private final @Nullable List<String> transforms;
+    private @Nullable List<String> transforms;
 
-    @CustomType.Constructor
-    private EndpointDeliveryRuleRequestHeaderCondition(
-        @CustomType.Parameter("matchValues") @Nullable List<String> matchValues,
-        @CustomType.Parameter("negateCondition") @Nullable Boolean negateCondition,
-        @CustomType.Parameter("operator") String operator,
-        @CustomType.Parameter("selector") String selector,
-        @CustomType.Parameter("transforms") @Nullable List<String> transforms) {
-        this.matchValues = matchValues;
-        this.negateCondition = negateCondition;
-        this.operator = operator;
-        this.selector = selector;
-        this.transforms = transforms;
-    }
-
+    private EndpointDeliveryRuleRequestHeaderCondition() {}
     /**
      * @return List of header values. This is required if `operator` is not `Any`.
      * 
@@ -96,18 +83,14 @@ public final class EndpointDeliveryRuleRequestHeaderCondition {
     public static Builder builder(EndpointDeliveryRuleRequestHeaderCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> matchValues;
         private @Nullable Boolean negateCondition;
         private String operator;
         private String selector;
         private @Nullable List<String> transforms;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointDeliveryRuleRequestHeaderCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.matchValues = defaults.matchValues;
@@ -117,6 +100,7 @@ public final class EndpointDeliveryRuleRequestHeaderCondition {
     	      this.transforms = defaults.transforms;
         }
 
+        @CustomType.Setter
         public Builder matchValues(@Nullable List<String> matchValues) {
             this.matchValues = matchValues;
             return this;
@@ -124,26 +108,37 @@ public final class EndpointDeliveryRuleRequestHeaderCondition {
         public Builder matchValues(String... matchValues) {
             return matchValues(List.of(matchValues));
         }
+        @CustomType.Setter
         public Builder negateCondition(@Nullable Boolean negateCondition) {
             this.negateCondition = negateCondition;
             return this;
         }
+        @CustomType.Setter
         public Builder operator(String operator) {
             this.operator = Objects.requireNonNull(operator);
             return this;
         }
+        @CustomType.Setter
         public Builder selector(String selector) {
             this.selector = Objects.requireNonNull(selector);
             return this;
         }
+        @CustomType.Setter
         public Builder transforms(@Nullable List<String> transforms) {
             this.transforms = transforms;
             return this;
         }
         public Builder transforms(String... transforms) {
             return transforms(List.of(transforms));
-        }        public EndpointDeliveryRuleRequestHeaderCondition build() {
-            return new EndpointDeliveryRuleRequestHeaderCondition(matchValues, negateCondition, operator, selector, transforms);
+        }
+        public EndpointDeliveryRuleRequestHeaderCondition build() {
+            final var o = new EndpointDeliveryRuleRequestHeaderCondition();
+            o.matchValues = matchValues;
+            o.negateCondition = negateCondition;
+            o.operator = operator;
+            o.selector = selector;
+            o.transforms = transforms;
+            return o;
         }
     }
 }

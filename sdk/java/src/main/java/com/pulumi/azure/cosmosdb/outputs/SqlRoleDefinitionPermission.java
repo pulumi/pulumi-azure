@@ -14,13 +14,9 @@ public final class SqlRoleDefinitionPermission {
      * @return A list of data actions that are allowed for the Cosmos DB SQL Role Definition.
      * 
      */
-    private final List<String> dataActions;
+    private List<String> dataActions;
 
-    @CustomType.Constructor
-    private SqlRoleDefinitionPermission(@CustomType.Parameter("dataActions") List<String> dataActions) {
-        this.dataActions = dataActions;
-    }
-
+    private SqlRoleDefinitionPermission() {}
     /**
      * @return A list of data actions that are allowed for the Cosmos DB SQL Role Definition.
      * 
@@ -36,27 +32,27 @@ public final class SqlRoleDefinitionPermission {
     public static Builder builder(SqlRoleDefinitionPermission defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> dataActions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SqlRoleDefinitionPermission defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataActions = defaults.dataActions;
         }
 
+        @CustomType.Setter
         public Builder dataActions(List<String> dataActions) {
             this.dataActions = Objects.requireNonNull(dataActions);
             return this;
         }
         public Builder dataActions(String... dataActions) {
             return dataActions(List.of(dataActions));
-        }        public SqlRoleDefinitionPermission build() {
-            return new SqlRoleDefinitionPermission(dataActions);
+        }
+        public SqlRoleDefinitionPermission build() {
+            final var o = new SqlRoleDefinitionPermission();
+            o.dataActions = dataActions;
+            return o;
         }
     }
 }

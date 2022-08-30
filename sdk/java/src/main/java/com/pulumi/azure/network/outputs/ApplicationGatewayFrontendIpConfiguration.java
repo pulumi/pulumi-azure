@@ -15,63 +15,44 @@ public final class ApplicationGatewayFrontendIpConfiguration {
      * @return The ID of the Rewrite Rule Set
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The name of the Frontend IP Configuration.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Private IP Address to use for the Application Gateway.
      * 
      */
-    private final @Nullable String privateIpAddress;
+    private @Nullable String privateIpAddress;
     /**
      * @return The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
      * 
      */
-    private final @Nullable String privateIpAddressAllocation;
+    private @Nullable String privateIpAddressAllocation;
     /**
      * @return The ID of the associated private link configuration.
      * 
      */
-    private final @Nullable String privateLinkConfigurationId;
+    private @Nullable String privateLinkConfigurationId;
     /**
      * @return The name of the private link configuration to use for this frontend IP configuration.
      * 
      */
-    private final @Nullable String privateLinkConfigurationName;
+    private @Nullable String privateLinkConfigurationName;
     /**
      * @return The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the `sku` of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#application-gateways) for details.
      * 
      */
-    private final @Nullable String publicIpAddressId;
+    private @Nullable String publicIpAddressId;
     /**
      * @return The ID of the Subnet.
      * 
      */
-    private final @Nullable String subnetId;
+    private @Nullable String subnetId;
 
-    @CustomType.Constructor
-    private ApplicationGatewayFrontendIpConfiguration(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("privateIpAddress") @Nullable String privateIpAddress,
-        @CustomType.Parameter("privateIpAddressAllocation") @Nullable String privateIpAddressAllocation,
-        @CustomType.Parameter("privateLinkConfigurationId") @Nullable String privateLinkConfigurationId,
-        @CustomType.Parameter("privateLinkConfigurationName") @Nullable String privateLinkConfigurationName,
-        @CustomType.Parameter("publicIpAddressId") @Nullable String publicIpAddressId,
-        @CustomType.Parameter("subnetId") @Nullable String subnetId) {
-        this.id = id;
-        this.name = name;
-        this.privateIpAddress = privateIpAddress;
-        this.privateIpAddressAllocation = privateIpAddressAllocation;
-        this.privateLinkConfigurationId = privateLinkConfigurationId;
-        this.privateLinkConfigurationName = privateLinkConfigurationName;
-        this.publicIpAddressId = publicIpAddressId;
-        this.subnetId = subnetId;
-    }
-
+    private ApplicationGatewayFrontendIpConfiguration() {}
     /**
      * @return The ID of the Rewrite Rule Set
      * 
@@ -136,7 +117,7 @@ public final class ApplicationGatewayFrontendIpConfiguration {
     public static Builder builder(ApplicationGatewayFrontendIpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private String name;
@@ -146,11 +127,7 @@ public final class ApplicationGatewayFrontendIpConfiguration {
         private @Nullable String privateLinkConfigurationName;
         private @Nullable String publicIpAddressId;
         private @Nullable String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayFrontendIpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -163,39 +140,57 @@ public final class ApplicationGatewayFrontendIpConfiguration {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
             this.privateIpAddress = privateIpAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddressAllocation(@Nullable String privateIpAddressAllocation) {
             this.privateIpAddressAllocation = privateIpAddressAllocation;
             return this;
         }
+        @CustomType.Setter
         public Builder privateLinkConfigurationId(@Nullable String privateLinkConfigurationId) {
             this.privateLinkConfigurationId = privateLinkConfigurationId;
             return this;
         }
+        @CustomType.Setter
         public Builder privateLinkConfigurationName(@Nullable String privateLinkConfigurationName) {
             this.privateLinkConfigurationName = privateLinkConfigurationName;
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpAddressId(@Nullable String publicIpAddressId) {
             this.publicIpAddressId = publicIpAddressId;
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
             this.subnetId = subnetId;
             return this;
-        }        public ApplicationGatewayFrontendIpConfiguration build() {
-            return new ApplicationGatewayFrontendIpConfiguration(id, name, privateIpAddress, privateIpAddressAllocation, privateLinkConfigurationId, privateLinkConfigurationName, publicIpAddressId, subnetId);
+        }
+        public ApplicationGatewayFrontendIpConfiguration build() {
+            final var o = new ApplicationGatewayFrontendIpConfiguration();
+            o.id = id;
+            o.name = name;
+            o.privateIpAddress = privateIpAddress;
+            o.privateIpAddressAllocation = privateIpAddressAllocation;
+            o.privateLinkConfigurationId = privateLinkConfigurationId;
+            o.privateLinkConfigurationName = privateLinkConfigurationName;
+            o.publicIpAddressId = publicIpAddressId;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

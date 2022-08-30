@@ -15,28 +15,19 @@ public final class ServiceNetworkAclPrivateEndpoint {
      * @return The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
      * 
      */
-    private final @Nullable List<String> allowedRequestTypes;
+    private @Nullable List<String> allowedRequestTypes;
     /**
      * @return The denied request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
      * 
      */
-    private final @Nullable List<String> deniedRequestTypes;
+    private @Nullable List<String> deniedRequestTypes;
     /**
      * @return The ID of the Private Endpoint which is based on the SignalR service.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private ServiceNetworkAclPrivateEndpoint(
-        @CustomType.Parameter("allowedRequestTypes") @Nullable List<String> allowedRequestTypes,
-        @CustomType.Parameter("deniedRequestTypes") @Nullable List<String> deniedRequestTypes,
-        @CustomType.Parameter("id") String id) {
-        this.allowedRequestTypes = allowedRequestTypes;
-        this.deniedRequestTypes = deniedRequestTypes;
-        this.id = id;
-    }
-
+    private ServiceNetworkAclPrivateEndpoint() {}
     /**
      * @return The allowed request types for the Private Endpoint Connection. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
      * 
@@ -66,16 +57,12 @@ public final class ServiceNetworkAclPrivateEndpoint {
     public static Builder builder(ServiceNetworkAclPrivateEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> allowedRequestTypes;
         private @Nullable List<String> deniedRequestTypes;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceNetworkAclPrivateEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedRequestTypes = defaults.allowedRequestTypes;
@@ -83,6 +70,7 @@ public final class ServiceNetworkAclPrivateEndpoint {
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder allowedRequestTypes(@Nullable List<String> allowedRequestTypes) {
             this.allowedRequestTypes = allowedRequestTypes;
             return this;
@@ -90,6 +78,7 @@ public final class ServiceNetworkAclPrivateEndpoint {
         public Builder allowedRequestTypes(String... allowedRequestTypes) {
             return allowedRequestTypes(List.of(allowedRequestTypes));
         }
+        @CustomType.Setter
         public Builder deniedRequestTypes(@Nullable List<String> deniedRequestTypes) {
             this.deniedRequestTypes = deniedRequestTypes;
             return this;
@@ -97,11 +86,17 @@ public final class ServiceNetworkAclPrivateEndpoint {
         public Builder deniedRequestTypes(String... deniedRequestTypes) {
             return deniedRequestTypes(List.of(deniedRequestTypes));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public ServiceNetworkAclPrivateEndpoint build() {
-            return new ServiceNetworkAclPrivateEndpoint(allowedRequestTypes, deniedRequestTypes, id);
+        }
+        public ServiceNetworkAclPrivateEndpoint build() {
+            final var o = new ServiceNetworkAclPrivateEndpoint();
+            o.allowedRequestTypes = allowedRequestTypes;
+            o.deniedRequestTypes = deniedRequestTypes;
+            o.id = id;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class KafkaClusterGateway {
      * @return The password used for the Ambari Portal.
      * 
      */
-    private final String password;
+    private String password;
     /**
      * @return The username used for the Ambari Portal. Changing this forces a new resource to be created.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private KafkaClusterGateway(
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("username") String username) {
-        this.password = password;
-        this.username = username;
-    }
-
+    private KafkaClusterGateway() {}
     /**
      * @return The password used for the Ambari Portal.
      * 
@@ -50,30 +43,32 @@ public final class KafkaClusterGateway {
     public static Builder builder(KafkaClusterGateway defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String password;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KafkaClusterGateway defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.password = defaults.password;
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public KafkaClusterGateway build() {
-            return new KafkaClusterGateway(password, username);
+        }
+        public KafkaClusterGateway build() {
+            final var o = new KafkaClusterGateway();
+            o.password = password;
+            o.username = username;
+            return o;
         }
     }
 }

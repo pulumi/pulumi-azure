@@ -16,70 +16,49 @@ public final class SubscriptionRuleCorrelationFilter {
      * @return Content type of the message.
      * 
      */
-    private final @Nullable String contentType;
+    private @Nullable String contentType;
     /**
      * @return Identifier of the correlation.
      * 
      */
-    private final @Nullable String correlationId;
+    private @Nullable String correlationId;
     /**
      * @return Application specific label.
      * 
      */
-    private final @Nullable String label;
+    private @Nullable String label;
     /**
      * @return Identifier of the message.
      * 
      */
-    private final @Nullable String messageId;
+    private @Nullable String messageId;
     /**
      * @return A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
      * 
      */
-    private final @Nullable Map<String,String> properties;
+    private @Nullable Map<String,String> properties;
     /**
      * @return Address of the queue to reply to.
      * 
      */
-    private final @Nullable String replyTo;
+    private @Nullable String replyTo;
     /**
      * @return Session identifier to reply to.
      * 
      */
-    private final @Nullable String replyToSessionId;
+    private @Nullable String replyToSessionId;
     /**
      * @return Session identifier.
      * 
      */
-    private final @Nullable String sessionId;
+    private @Nullable String sessionId;
     /**
      * @return Address to send to.
      * 
      */
-    private final @Nullable String to;
+    private @Nullable String to;
 
-    @CustomType.Constructor
-    private SubscriptionRuleCorrelationFilter(
-        @CustomType.Parameter("contentType") @Nullable String contentType,
-        @CustomType.Parameter("correlationId") @Nullable String correlationId,
-        @CustomType.Parameter("label") @Nullable String label,
-        @CustomType.Parameter("messageId") @Nullable String messageId,
-        @CustomType.Parameter("properties") @Nullable Map<String,String> properties,
-        @CustomType.Parameter("replyTo") @Nullable String replyTo,
-        @CustomType.Parameter("replyToSessionId") @Nullable String replyToSessionId,
-        @CustomType.Parameter("sessionId") @Nullable String sessionId,
-        @CustomType.Parameter("to") @Nullable String to) {
-        this.contentType = contentType;
-        this.correlationId = correlationId;
-        this.label = label;
-        this.messageId = messageId;
-        this.properties = properties;
-        this.replyTo = replyTo;
-        this.replyToSessionId = replyToSessionId;
-        this.sessionId = sessionId;
-        this.to = to;
-    }
-
+    private SubscriptionRuleCorrelationFilter() {}
     /**
      * @return Content type of the message.
      * 
@@ -151,7 +130,7 @@ public final class SubscriptionRuleCorrelationFilter {
     public static Builder builder(SubscriptionRuleCorrelationFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String contentType;
         private @Nullable String correlationId;
@@ -162,11 +141,7 @@ public final class SubscriptionRuleCorrelationFilter {
         private @Nullable String replyToSessionId;
         private @Nullable String sessionId;
         private @Nullable String to;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SubscriptionRuleCorrelationFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contentType = defaults.contentType;
@@ -180,43 +155,63 @@ public final class SubscriptionRuleCorrelationFilter {
     	      this.to = defaults.to;
         }
 
+        @CustomType.Setter
         public Builder contentType(@Nullable String contentType) {
             this.contentType = contentType;
             return this;
         }
+        @CustomType.Setter
         public Builder correlationId(@Nullable String correlationId) {
             this.correlationId = correlationId;
             return this;
         }
+        @CustomType.Setter
         public Builder label(@Nullable String label) {
             this.label = label;
             return this;
         }
+        @CustomType.Setter
         public Builder messageId(@Nullable String messageId) {
             this.messageId = messageId;
             return this;
         }
+        @CustomType.Setter
         public Builder properties(@Nullable Map<String,String> properties) {
             this.properties = properties;
             return this;
         }
+        @CustomType.Setter
         public Builder replyTo(@Nullable String replyTo) {
             this.replyTo = replyTo;
             return this;
         }
+        @CustomType.Setter
         public Builder replyToSessionId(@Nullable String replyToSessionId) {
             this.replyToSessionId = replyToSessionId;
             return this;
         }
+        @CustomType.Setter
         public Builder sessionId(@Nullable String sessionId) {
             this.sessionId = sessionId;
             return this;
         }
+        @CustomType.Setter
         public Builder to(@Nullable String to) {
             this.to = to;
             return this;
-        }        public SubscriptionRuleCorrelationFilter build() {
-            return new SubscriptionRuleCorrelationFilter(contentType, correlationId, label, messageId, properties, replyTo, replyToSessionId, sessionId, to);
+        }
+        public SubscriptionRuleCorrelationFilter build() {
+            final var o = new SubscriptionRuleCorrelationFilter();
+            o.contentType = contentType;
+            o.correlationId = correlationId;
+            o.label = label;
+            o.messageId = messageId;
+            o.properties = properties;
+            o.replyTo = replyTo;
+            o.replyToSessionId = replyToSessionId;
+            o.sessionId = sessionId;
+            o.to = to;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class RegistryNetworkRuleSetVirtualNetwork {
      * @return The behaviour for requests matching this rule. At this time the only supported value is `Allow`
      * 
      */
-    private final String action;
+    private String action;
     /**
      * @return The subnet id from which requests will match the rule.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private RegistryNetworkRuleSetVirtualNetwork(
-        @CustomType.Parameter("action") String action,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.action = action;
-        this.subnetId = subnetId;
-    }
-
+    private RegistryNetworkRuleSetVirtualNetwork() {}
     /**
      * @return The behaviour for requests matching this rule. At this time the only supported value is `Allow`
      * 
@@ -50,30 +43,32 @@ public final class RegistryNetworkRuleSetVirtualNetwork {
     public static Builder builder(RegistryNetworkRuleSetVirtualNetwork defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String action;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegistryNetworkRuleSetVirtualNetwork defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public RegistryNetworkRuleSetVirtualNetwork build() {
-            return new RegistryNetworkRuleSetVirtualNetwork(action, subnetId);
+        }
+        public RegistryNetworkRuleSetVirtualNetwork build() {
+            final var o = new RegistryNetworkRuleSetVirtualNetwork();
+            o.action = action;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

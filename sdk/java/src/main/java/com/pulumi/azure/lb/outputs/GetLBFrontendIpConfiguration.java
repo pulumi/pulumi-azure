@@ -14,63 +14,44 @@ public final class GetLBFrontendIpConfiguration {
      * @return The id of the Frontend IP Configuration.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Specifies the name of the Load Balancer.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Private IP Address to assign to the Load Balancer.
      * 
      */
-    private final String privateIpAddress;
+    private String privateIpAddress;
     /**
      * @return The allocation method for the Private IP Address used by this Load Balancer.
      * 
      */
-    private final String privateIpAddressAllocation;
+    private String privateIpAddressAllocation;
     /**
      * @return The Private IP Address Version, either `IPv4` or `IPv6`.
      * 
      */
-    private final String privateIpAddressVersion;
+    private String privateIpAddressVersion;
     /**
      * @return The ID of a  Public IP Address which is associated with this Load Balancer.
      * 
      */
-    private final String publicIpAddressId;
+    private String publicIpAddressId;
     /**
      * @return The ID of the Subnet which is associated with the IP Configuration.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
     /**
      * @return A list of Availability Zones which the Load Balancer&#39;s IP Addresses should be created in.
      * 
      */
-    private final List<String> zones;
+    private List<String> zones;
 
-    @CustomType.Constructor
-    private GetLBFrontendIpConfiguration(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("privateIpAddress") String privateIpAddress,
-        @CustomType.Parameter("privateIpAddressAllocation") String privateIpAddressAllocation,
-        @CustomType.Parameter("privateIpAddressVersion") String privateIpAddressVersion,
-        @CustomType.Parameter("publicIpAddressId") String publicIpAddressId,
-        @CustomType.Parameter("subnetId") String subnetId,
-        @CustomType.Parameter("zones") List<String> zones) {
-        this.id = id;
-        this.name = name;
-        this.privateIpAddress = privateIpAddress;
-        this.privateIpAddressAllocation = privateIpAddressAllocation;
-        this.privateIpAddressVersion = privateIpAddressVersion;
-        this.publicIpAddressId = publicIpAddressId;
-        this.subnetId = subnetId;
-        this.zones = zones;
-    }
-
+    private GetLBFrontendIpConfiguration() {}
     /**
      * @return The id of the Frontend IP Configuration.
      * 
@@ -135,7 +116,7 @@ public final class GetLBFrontendIpConfiguration {
     public static Builder builder(GetLBFrontendIpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String name;
@@ -145,11 +126,7 @@ public final class GetLBFrontendIpConfiguration {
         private String publicIpAddressId;
         private String subnetId;
         private List<String> zones;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLBFrontendIpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -162,42 +139,60 @@ public final class GetLBFrontendIpConfiguration {
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
             this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddressAllocation(String privateIpAddressAllocation) {
             this.privateIpAddressAllocation = Objects.requireNonNull(privateIpAddressAllocation);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddressVersion(String privateIpAddressVersion) {
             this.privateIpAddressVersion = Objects.requireNonNull(privateIpAddressVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpAddressId(String publicIpAddressId) {
             this.publicIpAddressId = Objects.requireNonNull(publicIpAddressId);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
         }
+        @CustomType.Setter
         public Builder zones(List<String> zones) {
             this.zones = Objects.requireNonNull(zones);
             return this;
         }
         public Builder zones(String... zones) {
             return zones(List.of(zones));
-        }        public GetLBFrontendIpConfiguration build() {
-            return new GetLBFrontendIpConfiguration(id, name, privateIpAddress, privateIpAddressAllocation, privateIpAddressVersion, publicIpAddressId, subnetId, zones);
+        }
+        public GetLBFrontendIpConfiguration build() {
+            final var o = new GetLBFrontendIpConfiguration();
+            o.id = id;
+            o.name = name;
+            o.privateIpAddress = privateIpAddress;
+            o.privateIpAddressAllocation = privateIpAddressAllocation;
+            o.privateIpAddressVersion = privateIpAddressVersion;
+            o.publicIpAddressId = publicIpAddressId;
+            o.subnetId = subnetId;
+            o.zones = zones;
+            return o;
         }
     }
 }

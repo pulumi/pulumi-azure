@@ -13,13 +13,9 @@ public final class DataCollectionRuleDestinationsAzureMonitorMetrics {
      * @return The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private DataCollectionRuleDestinationsAzureMonitorMetrics(@CustomType.Parameter("name") String name) {
-        this.name = name;
-    }
-
+    private DataCollectionRuleDestinationsAzureMonitorMetrics() {}
     /**
      * @return The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
      * 
@@ -35,24 +31,24 @@ public final class DataCollectionRuleDestinationsAzureMonitorMetrics {
     public static Builder builder(DataCollectionRuleDestinationsAzureMonitorMetrics defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataCollectionRuleDestinationsAzureMonitorMetrics defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public DataCollectionRuleDestinationsAzureMonitorMetrics build() {
-            return new DataCollectionRuleDestinationsAzureMonitorMetrics(name);
+        }
+        public DataCollectionRuleDestinationsAzureMonitorMetrics build() {
+            final var o = new DataCollectionRuleDestinationsAzureMonitorMetrics();
+            o.name = name;
+            return o;
         }
     }
 }

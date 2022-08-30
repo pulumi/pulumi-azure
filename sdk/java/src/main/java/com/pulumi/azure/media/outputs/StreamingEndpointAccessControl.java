@@ -16,21 +16,14 @@ public final class StreamingEndpointAccessControl {
      * @return One or more `akamai_signature_header_authentication_key` blocks as defined below.
      * 
      */
-    private final @Nullable List<StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey> akamaiSignatureHeaderAuthenticationKeys;
+    private @Nullable List<StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey> akamaiSignatureHeaderAuthenticationKeys;
     /**
      * @return A `ip` block as defined below.
      * 
      */
-    private final @Nullable List<StreamingEndpointAccessControlIpAllow> ipAllows;
+    private @Nullable List<StreamingEndpointAccessControlIpAllow> ipAllows;
 
-    @CustomType.Constructor
-    private StreamingEndpointAccessControl(
-        @CustomType.Parameter("akamaiSignatureHeaderAuthenticationKeys") @Nullable List<StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey> akamaiSignatureHeaderAuthenticationKeys,
-        @CustomType.Parameter("ipAllows") @Nullable List<StreamingEndpointAccessControlIpAllow> ipAllows) {
-        this.akamaiSignatureHeaderAuthenticationKeys = akamaiSignatureHeaderAuthenticationKeys;
-        this.ipAllows = ipAllows;
-    }
-
+    private StreamingEndpointAccessControl() {}
     /**
      * @return One or more `akamai_signature_header_authentication_key` blocks as defined below.
      * 
@@ -53,21 +46,18 @@ public final class StreamingEndpointAccessControl {
     public static Builder builder(StreamingEndpointAccessControl defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey> akamaiSignatureHeaderAuthenticationKeys;
         private @Nullable List<StreamingEndpointAccessControlIpAllow> ipAllows;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StreamingEndpointAccessControl defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.akamaiSignatureHeaderAuthenticationKeys = defaults.akamaiSignatureHeaderAuthenticationKeys;
     	      this.ipAllows = defaults.ipAllows;
         }
 
+        @CustomType.Setter
         public Builder akamaiSignatureHeaderAuthenticationKeys(@Nullable List<StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey> akamaiSignatureHeaderAuthenticationKeys) {
             this.akamaiSignatureHeaderAuthenticationKeys = akamaiSignatureHeaderAuthenticationKeys;
             return this;
@@ -75,14 +65,19 @@ public final class StreamingEndpointAccessControl {
         public Builder akamaiSignatureHeaderAuthenticationKeys(StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey... akamaiSignatureHeaderAuthenticationKeys) {
             return akamaiSignatureHeaderAuthenticationKeys(List.of(akamaiSignatureHeaderAuthenticationKeys));
         }
+        @CustomType.Setter
         public Builder ipAllows(@Nullable List<StreamingEndpointAccessControlIpAllow> ipAllows) {
             this.ipAllows = ipAllows;
             return this;
         }
         public Builder ipAllows(StreamingEndpointAccessControlIpAllow... ipAllows) {
             return ipAllows(List.of(ipAllows));
-        }        public StreamingEndpointAccessControl build() {
-            return new StreamingEndpointAccessControl(akamaiSignatureHeaderAuthenticationKeys, ipAllows);
+        }
+        public StreamingEndpointAccessControl build() {
+            final var o = new StreamingEndpointAccessControl();
+            o.akamaiSignatureHeaderAuthenticationKeys = akamaiSignatureHeaderAuthenticationKeys;
+            o.ipAllows = ipAllows;
+            return o;
         }
     }
 }

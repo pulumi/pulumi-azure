@@ -13,12 +13,12 @@ public final class GetEndpointConnectionPrivateServiceConnection {
      * @return Specifies the Name of the private endpoint.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
      * 
      */
-    private final String privateIpAddress;
+    private String privateIpAddress;
     /**
      * @return Possible values are as follows:
      * Value | Meaning
@@ -28,25 +28,14 @@ public final class GetEndpointConnectionPrivateServiceConnection {
      * `request/response message` | If you submitted a manual private endpoint connection request, while in the `Pending` status the `request_response` will display the same text from your `request_message` in the `private_service_connection` block above. If the private endpoint connection request was `Rejected` by the owner of the remote resource, the text for the rejection will be displayed as the `request_response` text, if the private endpoint connection request was `Approved` by the owner of the remote resource, the text for the approval will be displayed as the `request_response` text
      * 
      */
-    private final String requestResponse;
+    private String requestResponse;
     /**
      * @return The current status of the private endpoint request, possible values will be `Pending`, `Approved`, `Rejected`, or `Disconnected`.
      * 
      */
-    private final String status;
+    private String status;
 
-    @CustomType.Constructor
-    private GetEndpointConnectionPrivateServiceConnection(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("privateIpAddress") String privateIpAddress,
-        @CustomType.Parameter("requestResponse") String requestResponse,
-        @CustomType.Parameter("status") String status) {
-        this.name = name;
-        this.privateIpAddress = privateIpAddress;
-        this.requestResponse = requestResponse;
-        this.status = status;
-    }
-
+    private GetEndpointConnectionPrivateServiceConnection() {}
     /**
      * @return Specifies the Name of the private endpoint.
      * 
@@ -88,17 +77,13 @@ public final class GetEndpointConnectionPrivateServiceConnection {
     public static Builder builder(GetEndpointConnectionPrivateServiceConnection defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String privateIpAddress;
         private String requestResponse;
         private String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEndpointConnectionPrivateServiceConnection defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -107,23 +92,33 @@ public final class GetEndpointConnectionPrivateServiceConnection {
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
             this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder requestResponse(String requestResponse) {
             this.requestResponse = Objects.requireNonNull(requestResponse);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
-        }        public GetEndpointConnectionPrivateServiceConnection build() {
-            return new GetEndpointConnectionPrivateServiceConnection(name, privateIpAddress, requestResponse, status);
+        }
+        public GetEndpointConnectionPrivateServiceConnection build() {
+            final var o = new GetEndpointConnectionPrivateServiceConnection();
+            o.name = name;
+            o.privateIpAddress = privateIpAddress;
+            o.requestResponse = requestResponse;
+            o.status = status;
+            return o;
         }
     }
 }

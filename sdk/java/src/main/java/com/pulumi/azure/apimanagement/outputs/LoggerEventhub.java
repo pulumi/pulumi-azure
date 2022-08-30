@@ -13,21 +13,14 @@ public final class LoggerEventhub {
      * @return The connection string of an EventHub Namespace.
      * 
      */
-    private final String connectionString;
+    private String connectionString;
     /**
      * @return The name of an EventHub.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private LoggerEventhub(
-        @CustomType.Parameter("connectionString") String connectionString,
-        @CustomType.Parameter("name") String name) {
-        this.connectionString = connectionString;
-        this.name = name;
-    }
-
+    private LoggerEventhub() {}
     /**
      * @return The connection string of an EventHub Namespace.
      * 
@@ -50,30 +43,32 @@ public final class LoggerEventhub {
     public static Builder builder(LoggerEventhub defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String connectionString;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LoggerEventhub defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectionString = defaults.connectionString;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder connectionString(String connectionString) {
             this.connectionString = Objects.requireNonNull(connectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public LoggerEventhub build() {
-            return new LoggerEventhub(connectionString, name);
+        }
+        public LoggerEventhub build() {
+            final var o = new LoggerEventhub();
+            o.connectionString = connectionString;
+            o.name = name;
+            return o;
         }
     }
 }

@@ -13,49 +13,34 @@ public final class GetAccountBlobContainerSASPermissions {
      * @return Should Add permissions be enabled for this SAS?
      * 
      */
-    private final Boolean add;
+    private Boolean add;
     /**
      * @return Should Create permissions be enabled for this SAS?
      * 
      */
-    private final Boolean create;
+    private Boolean create;
     /**
      * @return Should Delete permissions be enabled for this SAS?
      * 
      */
-    private final Boolean delete;
+    private Boolean delete;
     /**
      * @return Should List permissions be enabled for this SAS?
      * 
      */
-    private final Boolean list;
+    private Boolean list;
     /**
      * @return Should Read permissions be enabled for this SAS?
      * 
      */
-    private final Boolean read;
+    private Boolean read;
     /**
      * @return Should Write permissions be enabled for this SAS?
      * 
      */
-    private final Boolean write;
+    private Boolean write;
 
-    @CustomType.Constructor
-    private GetAccountBlobContainerSASPermissions(
-        @CustomType.Parameter("add") Boolean add,
-        @CustomType.Parameter("create") Boolean create,
-        @CustomType.Parameter("delete") Boolean delete,
-        @CustomType.Parameter("list") Boolean list,
-        @CustomType.Parameter("read") Boolean read,
-        @CustomType.Parameter("write") Boolean write) {
-        this.add = add;
-        this.create = create;
-        this.delete = delete;
-        this.list = list;
-        this.read = read;
-        this.write = write;
-    }
-
+    private GetAccountBlobContainerSASPermissions() {}
     /**
      * @return Should Add permissions be enabled for this SAS?
      * 
@@ -106,7 +91,7 @@ public final class GetAccountBlobContainerSASPermissions {
     public static Builder builder(GetAccountBlobContainerSASPermissions defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean add;
         private Boolean create;
@@ -114,11 +99,7 @@ public final class GetAccountBlobContainerSASPermissions {
         private Boolean list;
         private Boolean read;
         private Boolean write;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccountBlobContainerSASPermissions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.add = defaults.add;
@@ -129,31 +110,45 @@ public final class GetAccountBlobContainerSASPermissions {
     	      this.write = defaults.write;
         }
 
+        @CustomType.Setter
         public Builder add(Boolean add) {
             this.add = Objects.requireNonNull(add);
             return this;
         }
+        @CustomType.Setter
         public Builder create(Boolean create) {
             this.create = Objects.requireNonNull(create);
             return this;
         }
+        @CustomType.Setter
         public Builder delete(Boolean delete) {
             this.delete = Objects.requireNonNull(delete);
             return this;
         }
+        @CustomType.Setter
         public Builder list(Boolean list) {
             this.list = Objects.requireNonNull(list);
             return this;
         }
+        @CustomType.Setter
         public Builder read(Boolean read) {
             this.read = Objects.requireNonNull(read);
             return this;
         }
+        @CustomType.Setter
         public Builder write(Boolean write) {
             this.write = Objects.requireNonNull(write);
             return this;
-        }        public GetAccountBlobContainerSASPermissions build() {
-            return new GetAccountBlobContainerSASPermissions(add, create, delete, list, read, write);
+        }
+        public GetAccountBlobContainerSASPermissions build() {
+            final var o = new GetAccountBlobContainerSASPermissions();
+            o.add = add;
+            o.create = create;
+            o.delete = delete;
+            o.list = list;
+            o.read = read;
+            o.write = write;
+            return o;
         }
     }
 }

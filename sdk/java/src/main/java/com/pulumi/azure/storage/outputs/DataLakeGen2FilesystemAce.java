@@ -15,35 +15,24 @@ public final class DataLakeGen2FilesystemAce {
      * @return Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Specifies the permissions for the entry in `rwx` form. For example, `rwx` gives full permissions but `r--` only gives read permissions.
      * 
      */
-    private final String permissions;
+    private String permissions;
     /**
      * @return Specifies whether the ACE represents an `access` entry or a `default` entry. Default value is `access`.
      * 
      */
-    private final @Nullable String scope;
+    private @Nullable String scope;
     /**
      * @return Specifies the type of entry. Can be `user`, `group`, `mask` or `other`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private DataLakeGen2FilesystemAce(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("permissions") String permissions,
-        @CustomType.Parameter("scope") @Nullable String scope,
-        @CustomType.Parameter("type") String type) {
-        this.id = id;
-        this.permissions = permissions;
-        this.scope = scope;
-        this.type = type;
-    }
-
+    private DataLakeGen2FilesystemAce() {}
     /**
      * @return Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
      * 
@@ -80,17 +69,13 @@ public final class DataLakeGen2FilesystemAce {
     public static Builder builder(DataLakeGen2FilesystemAce defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private String permissions;
         private @Nullable String scope;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataLakeGen2FilesystemAce defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -99,23 +84,33 @@ public final class DataLakeGen2FilesystemAce {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder permissions(String permissions) {
             this.permissions = Objects.requireNonNull(permissions);
             return this;
         }
+        @CustomType.Setter
         public Builder scope(@Nullable String scope) {
             this.scope = scope;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public DataLakeGen2FilesystemAce build() {
-            return new DataLakeGen2FilesystemAce(id, permissions, scope, type);
+        }
+        public DataLakeGen2FilesystemAce build() {
+            final var o = new DataLakeGen2FilesystemAce();
+            o.id = id;
+            o.permissions = permissions;
+            o.scope = scope;
+            o.type = type;
+            return o;
         }
     }
 }

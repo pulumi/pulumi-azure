@@ -16,21 +16,14 @@ public final class GroupExposedPort {
      * @return The port number the container will expose. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer port;
+    private @Nullable Integer port;
     /**
      * @return The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String protocol;
+    private @Nullable String protocol;
 
-    @CustomType.Constructor
-    private GroupExposedPort(
-        @CustomType.Parameter("port") @Nullable Integer port,
-        @CustomType.Parameter("protocol") @Nullable String protocol) {
-        this.port = port;
-        this.protocol = protocol;
-    }
-
+    private GroupExposedPort() {}
     /**
      * @return The port number the container will expose. Changing this forces a new resource to be created.
      * 
@@ -53,30 +46,32 @@ public final class GroupExposedPort {
     public static Builder builder(GroupExposedPort defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer port;
         private @Nullable String protocol;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupExposedPort defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.port = defaults.port;
     	      this.protocol = defaults.protocol;
         }
 
+        @CustomType.Setter
         public Builder port(@Nullable Integer port) {
             this.port = port;
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
             this.protocol = protocol;
             return this;
-        }        public GroupExposedPort build() {
-            return new GroupExposedPort(port, protocol);
+        }
+        public GroupExposedPort build() {
+            final var o = new GroupExposedPort();
+            o.port = port;
+            o.protocol = protocol;
+            return o;
         }
     }
 }

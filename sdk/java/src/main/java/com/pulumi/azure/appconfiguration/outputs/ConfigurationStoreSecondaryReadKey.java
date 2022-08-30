@@ -15,28 +15,19 @@ public final class ConfigurationStoreSecondaryReadKey {
      * @return The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
      * 
      */
-    private final @Nullable String connectionString;
+    private @Nullable String connectionString;
     /**
      * @return The ID of the Access Key.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The Secret of the Access Key.
      * 
      */
-    private final @Nullable String secret;
+    private @Nullable String secret;
 
-    @CustomType.Constructor
-    private ConfigurationStoreSecondaryReadKey(
-        @CustomType.Parameter("connectionString") @Nullable String connectionString,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("secret") @Nullable String secret) {
-        this.connectionString = connectionString;
-        this.id = id;
-        this.secret = secret;
-    }
-
+    private ConfigurationStoreSecondaryReadKey() {}
     /**
      * @return The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
      * 
@@ -66,16 +57,12 @@ public final class ConfigurationStoreSecondaryReadKey {
     public static Builder builder(ConfigurationStoreSecondaryReadKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String connectionString;
         private @Nullable String id;
         private @Nullable String secret;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConfigurationStoreSecondaryReadKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectionString = defaults.connectionString;
@@ -83,19 +70,27 @@ public final class ConfigurationStoreSecondaryReadKey {
     	      this.secret = defaults.secret;
         }
 
+        @CustomType.Setter
         public Builder connectionString(@Nullable String connectionString) {
             this.connectionString = connectionString;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder secret(@Nullable String secret) {
             this.secret = secret;
             return this;
-        }        public ConfigurationStoreSecondaryReadKey build() {
-            return new ConfigurationStoreSecondaryReadKey(connectionString, id, secret);
+        }
+        public ConfigurationStoreSecondaryReadKey build() {
+            final var o = new ConfigurationStoreSecondaryReadKey();
+            o.connectionString = connectionString;
+            o.id = id;
+            o.secret = secret;
+            return o;
         }
     }
 }

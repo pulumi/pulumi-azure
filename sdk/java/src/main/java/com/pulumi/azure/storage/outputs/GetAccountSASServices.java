@@ -13,35 +13,24 @@ public final class GetAccountSASServices {
      * @return Should permission be granted to `blob` services within this storage account?
      * 
      */
-    private final Boolean blob;
+    private Boolean blob;
     /**
      * @return Should permission be granted to `file` services within this storage account?
      * 
      */
-    private final Boolean file;
+    private Boolean file;
     /**
      * @return Should permission be granted to `queue` services within this storage account?
      * 
      */
-    private final Boolean queue;
+    private Boolean queue;
     /**
      * @return Should permission be granted to `table` services within this storage account?
      * 
      */
-    private final Boolean table;
+    private Boolean table;
 
-    @CustomType.Constructor
-    private GetAccountSASServices(
-        @CustomType.Parameter("blob") Boolean blob,
-        @CustomType.Parameter("file") Boolean file,
-        @CustomType.Parameter("queue") Boolean queue,
-        @CustomType.Parameter("table") Boolean table) {
-        this.blob = blob;
-        this.file = file;
-        this.queue = queue;
-        this.table = table;
-    }
-
+    private GetAccountSASServices() {}
     /**
      * @return Should permission be granted to `blob` services within this storage account?
      * 
@@ -78,17 +67,13 @@ public final class GetAccountSASServices {
     public static Builder builder(GetAccountSASServices defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean blob;
         private Boolean file;
         private Boolean queue;
         private Boolean table;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccountSASServices defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.blob = defaults.blob;
@@ -97,23 +82,33 @@ public final class GetAccountSASServices {
     	      this.table = defaults.table;
         }
 
+        @CustomType.Setter
         public Builder blob(Boolean blob) {
             this.blob = Objects.requireNonNull(blob);
             return this;
         }
+        @CustomType.Setter
         public Builder file(Boolean file) {
             this.file = Objects.requireNonNull(file);
             return this;
         }
+        @CustomType.Setter
         public Builder queue(Boolean queue) {
             this.queue = Objects.requireNonNull(queue);
             return this;
         }
+        @CustomType.Setter
         public Builder table(Boolean table) {
             this.table = Objects.requireNonNull(table);
             return this;
-        }        public GetAccountSASServices build() {
-            return new GetAccountSASServices(blob, file, queue, table);
+        }
+        public GetAccountSASServices build() {
+            final var o = new GetAccountSASServices();
+            o.blob = blob;
+            o.file = file;
+            o.queue = queue;
+            o.table = table;
+            return o;
         }
     }
 }

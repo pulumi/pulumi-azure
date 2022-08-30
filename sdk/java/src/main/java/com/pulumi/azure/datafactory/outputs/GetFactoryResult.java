@@ -18,55 +18,36 @@ public final class GetFactoryResult {
      * @return A `github_configuration` block as defined below.
      * 
      */
-    private final List<GetFactoryGithubConfiguration> githubConfigurations;
+    private List<GetFactoryGithubConfiguration> githubConfigurations;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return An `identity` block as defined below.
      * 
      */
-    private final List<GetFactoryIdentity> identities;
+    private List<GetFactoryIdentity> identities;
     /**
      * @return The Azure Region where the Azure Data Factory exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags assigned to the Azure Data Factory.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return A `vsts_configuration` block as defined below.
      * 
      */
-    private final List<GetFactoryVstsConfiguration> vstsConfigurations;
+    private List<GetFactoryVstsConfiguration> vstsConfigurations;
 
-    @CustomType.Constructor
-    private GetFactoryResult(
-        @CustomType.Parameter("githubConfigurations") List<GetFactoryGithubConfiguration> githubConfigurations,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetFactoryIdentity> identities,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("vstsConfigurations") List<GetFactoryVstsConfiguration> vstsConfigurations) {
-        this.githubConfigurations = githubConfigurations;
-        this.id = id;
-        this.identities = identities;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-        this.vstsConfigurations = vstsConfigurations;
-    }
-
+    private GetFactoryResult() {}
     /**
      * @return A `github_configuration` block as defined below.
      * 
@@ -123,7 +104,7 @@ public final class GetFactoryResult {
     public static Builder builder(GetFactoryResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetFactoryGithubConfiguration> githubConfigurations;
         private String id;
@@ -133,11 +114,7 @@ public final class GetFactoryResult {
         private String resourceGroupName;
         private Map<String,String> tags;
         private List<GetFactoryVstsConfiguration> vstsConfigurations;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFactoryResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.githubConfigurations = defaults.githubConfigurations;
@@ -150,6 +127,7 @@ public final class GetFactoryResult {
     	      this.vstsConfigurations = defaults.vstsConfigurations;
         }
 
+        @CustomType.Setter
         public Builder githubConfigurations(List<GetFactoryGithubConfiguration> githubConfigurations) {
             this.githubConfigurations = Objects.requireNonNull(githubConfigurations);
             return this;
@@ -157,10 +135,12 @@ public final class GetFactoryResult {
         public Builder githubConfigurations(GetFactoryGithubConfiguration... githubConfigurations) {
             return githubConfigurations(List.of(githubConfigurations));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetFactoryIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -168,30 +148,45 @@ public final class GetFactoryResult {
         public Builder identities(GetFactoryIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder vstsConfigurations(List<GetFactoryVstsConfiguration> vstsConfigurations) {
             this.vstsConfigurations = Objects.requireNonNull(vstsConfigurations);
             return this;
         }
         public Builder vstsConfigurations(GetFactoryVstsConfiguration... vstsConfigurations) {
             return vstsConfigurations(List.of(vstsConfigurations));
-        }        public GetFactoryResult build() {
-            return new GetFactoryResult(githubConfigurations, id, identities, location, name, resourceGroupName, tags, vstsConfigurations);
+        }
+        public GetFactoryResult build() {
+            final var o = new GetFactoryResult();
+            o.githubConfigurations = githubConfigurations;
+            o.id = id;
+            o.identities = identities;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            o.vstsConfigurations = vstsConfigurations;
+            return o;
         }
     }
 }

@@ -16,35 +16,24 @@ public final class ApplicationGatewayBackendAddressPool {
      * @return A list of FQDN&#39;s which should be part of the Backend Address Pool.
      * 
      */
-    private final @Nullable List<String> fqdns;
+    private @Nullable List<String> fqdns;
     /**
      * @return The ID of the Rewrite Rule Set
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return A list of IP Addresses which should be part of the Backend Address Pool.
      * 
      */
-    private final @Nullable List<String> ipAddresses;
+    private @Nullable List<String> ipAddresses;
     /**
      * @return The name of the Backend Address Pool.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private ApplicationGatewayBackendAddressPool(
-        @CustomType.Parameter("fqdns") @Nullable List<String> fqdns,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("ipAddresses") @Nullable List<String> ipAddresses,
-        @CustomType.Parameter("name") String name) {
-        this.fqdns = fqdns;
-        this.id = id;
-        this.ipAddresses = ipAddresses;
-        this.name = name;
-    }
-
+    private ApplicationGatewayBackendAddressPool() {}
     /**
      * @return A list of FQDN&#39;s which should be part of the Backend Address Pool.
      * 
@@ -81,17 +70,13 @@ public final class ApplicationGatewayBackendAddressPool {
     public static Builder builder(ApplicationGatewayBackendAddressPool defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> fqdns;
         private @Nullable String id;
         private @Nullable List<String> ipAddresses;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayBackendAddressPool defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fqdns = defaults.fqdns;
@@ -100,6 +85,7 @@ public final class ApplicationGatewayBackendAddressPool {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder fqdns(@Nullable List<String> fqdns) {
             this.fqdns = fqdns;
             return this;
@@ -107,10 +93,12 @@ public final class ApplicationGatewayBackendAddressPool {
         public Builder fqdns(String... fqdns) {
             return fqdns(List.of(fqdns));
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddresses(@Nullable List<String> ipAddresses) {
             this.ipAddresses = ipAddresses;
             return this;
@@ -118,11 +106,18 @@ public final class ApplicationGatewayBackendAddressPool {
         public Builder ipAddresses(String... ipAddresses) {
             return ipAddresses(List.of(ipAddresses));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public ApplicationGatewayBackendAddressPool build() {
-            return new ApplicationGatewayBackendAddressPool(fqdns, id, ipAddresses, name);
+        }
+        public ApplicationGatewayBackendAddressPool build() {
+            final var o = new ApplicationGatewayBackendAddressPool();
+            o.fqdns = fqdns;
+            o.id = id;
+            o.ipAddresses = ipAddresses;
+            o.name = name;
+            return o;
         }
     }
 }

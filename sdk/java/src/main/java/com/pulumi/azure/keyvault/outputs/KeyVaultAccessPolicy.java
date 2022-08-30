@@ -16,56 +16,39 @@ public final class KeyVaultAccessPolicy {
      * @return The object ID of an Application in Azure Active Directory.
      * 
      */
-    private final @Nullable String applicationId;
+    private @Nullable String applicationId;
     /**
      * @return List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
      * 
      */
-    private final @Nullable List<String> certificatePermissions;
+    private @Nullable List<String> certificatePermissions;
     /**
      * @return List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
      * 
      */
-    private final @Nullable List<String> keyPermissions;
+    private @Nullable List<String> keyPermissions;
     /**
      * @return The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID must be unique for the list of access policies.
      * 
      */
-    private final String objectId;
+    private String objectId;
     /**
      * @return List of secret permissions, must be one or more from the following: `Backup`, `Delete`, `Get`, `List`, `Purge`, `Recover`, `Restore` and `Set`.
      * 
      */
-    private final @Nullable List<String> secretPermissions;
+    private @Nullable List<String> secretPermissions;
     /**
      * @return List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`.
      * 
      */
-    private final @Nullable List<String> storagePermissions;
+    private @Nullable List<String> storagePermissions;
     /**
      * @return The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Must match the `tenant_id` used above.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
 
-    @CustomType.Constructor
-    private KeyVaultAccessPolicy(
-        @CustomType.Parameter("applicationId") @Nullable String applicationId,
-        @CustomType.Parameter("certificatePermissions") @Nullable List<String> certificatePermissions,
-        @CustomType.Parameter("keyPermissions") @Nullable List<String> keyPermissions,
-        @CustomType.Parameter("objectId") String objectId,
-        @CustomType.Parameter("secretPermissions") @Nullable List<String> secretPermissions,
-        @CustomType.Parameter("storagePermissions") @Nullable List<String> storagePermissions,
-        @CustomType.Parameter("tenantId") String tenantId) {
-        this.applicationId = applicationId;
-        this.certificatePermissions = certificatePermissions;
-        this.keyPermissions = keyPermissions;
-        this.objectId = objectId;
-        this.secretPermissions = secretPermissions;
-        this.storagePermissions = storagePermissions;
-        this.tenantId = tenantId;
-    }
-
+    private KeyVaultAccessPolicy() {}
     /**
      * @return The object ID of an Application in Azure Active Directory.
      * 
@@ -123,7 +106,7 @@ public final class KeyVaultAccessPolicy {
     public static Builder builder(KeyVaultAccessPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String applicationId;
         private @Nullable List<String> certificatePermissions;
@@ -132,11 +115,7 @@ public final class KeyVaultAccessPolicy {
         private @Nullable List<String> secretPermissions;
         private @Nullable List<String> storagePermissions;
         private String tenantId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KeyVaultAccessPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationId = defaults.applicationId;
@@ -148,10 +127,12 @@ public final class KeyVaultAccessPolicy {
     	      this.tenantId = defaults.tenantId;
         }
 
+        @CustomType.Setter
         public Builder applicationId(@Nullable String applicationId) {
             this.applicationId = applicationId;
             return this;
         }
+        @CustomType.Setter
         public Builder certificatePermissions(@Nullable List<String> certificatePermissions) {
             this.certificatePermissions = certificatePermissions;
             return this;
@@ -159,6 +140,7 @@ public final class KeyVaultAccessPolicy {
         public Builder certificatePermissions(String... certificatePermissions) {
             return certificatePermissions(List.of(certificatePermissions));
         }
+        @CustomType.Setter
         public Builder keyPermissions(@Nullable List<String> keyPermissions) {
             this.keyPermissions = keyPermissions;
             return this;
@@ -166,10 +148,12 @@ public final class KeyVaultAccessPolicy {
         public Builder keyPermissions(String... keyPermissions) {
             return keyPermissions(List.of(keyPermissions));
         }
+        @CustomType.Setter
         public Builder objectId(String objectId) {
             this.objectId = Objects.requireNonNull(objectId);
             return this;
         }
+        @CustomType.Setter
         public Builder secretPermissions(@Nullable List<String> secretPermissions) {
             this.secretPermissions = secretPermissions;
             return this;
@@ -177,6 +161,7 @@ public final class KeyVaultAccessPolicy {
         public Builder secretPermissions(String... secretPermissions) {
             return secretPermissions(List.of(secretPermissions));
         }
+        @CustomType.Setter
         public Builder storagePermissions(@Nullable List<String> storagePermissions) {
             this.storagePermissions = storagePermissions;
             return this;
@@ -184,11 +169,21 @@ public final class KeyVaultAccessPolicy {
         public Builder storagePermissions(String... storagePermissions) {
             return storagePermissions(List.of(storagePermissions));
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
-        }        public KeyVaultAccessPolicy build() {
-            return new KeyVaultAccessPolicy(applicationId, certificatePermissions, keyPermissions, objectId, secretPermissions, storagePermissions, tenantId);
+        }
+        public KeyVaultAccessPolicy build() {
+            final var o = new KeyVaultAccessPolicy();
+            o.applicationId = applicationId;
+            o.certificatePermissions = certificatePermissions;
+            o.keyPermissions = keyPermissions;
+            o.objectId = objectId;
+            o.secretPermissions = secretPermissions;
+            o.storagePermissions = storagePermissions;
+            o.tenantId = tenantId;
+            return o;
         }
     }
 }

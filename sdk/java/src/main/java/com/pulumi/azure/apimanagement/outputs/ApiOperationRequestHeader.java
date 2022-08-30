@@ -17,49 +17,34 @@ public final class ApiOperationRequestHeader {
      * @return The default value for this Header.
      * 
      */
-    private final @Nullable String defaultValue;
+    private @Nullable String defaultValue;
     /**
      * @return A description of this Header.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return The Name of this Header.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Is this Header Required?
      * 
      */
-    private final Boolean required;
+    private Boolean required;
     /**
      * @return The Type of this Header, such as a `string`.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return One or more acceptable values for this Header.
      * 
      */
-    private final @Nullable List<String> values;
+    private @Nullable List<String> values;
 
-    @CustomType.Constructor
-    private ApiOperationRequestHeader(
-        @CustomType.Parameter("defaultValue") @Nullable String defaultValue,
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("required") Boolean required,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("values") @Nullable List<String> values) {
-        this.defaultValue = defaultValue;
-        this.description = description;
-        this.name = name;
-        this.required = required;
-        this.type = type;
-        this.values = values;
-    }
-
+    private ApiOperationRequestHeader() {}
     /**
      * @return The default value for this Header.
      * 
@@ -110,7 +95,7 @@ public final class ApiOperationRequestHeader {
     public static Builder builder(ApiOperationRequestHeader defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String defaultValue;
         private @Nullable String description;
@@ -118,11 +103,7 @@ public final class ApiOperationRequestHeader {
         private Boolean required;
         private String type;
         private @Nullable List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApiOperationRequestHeader defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultValue = defaults.defaultValue;
@@ -133,34 +114,48 @@ public final class ApiOperationRequestHeader {
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder defaultValue(@Nullable String defaultValue) {
             this.defaultValue = defaultValue;
             return this;
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder required(Boolean required) {
             this.required = Objects.requireNonNull(required);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder values(@Nullable List<String> values) {
             this.values = values;
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public ApiOperationRequestHeader build() {
-            return new ApiOperationRequestHeader(defaultValue, description, name, required, type, values);
+        }
+        public ApiOperationRequestHeader build() {
+            final var o = new ApiOperationRequestHeader();
+            o.defaultValue = defaultValue;
+            o.description = description;
+            o.name = name;
+            o.required = required;
+            o.type = type;
+            o.values = values;
+            return o;
         }
     }
 }

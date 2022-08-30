@@ -19,83 +19,56 @@ public final class GetAccountResult {
      * @return The account endpoint used to interact with the Batch service.
      * 
      */
-    private final String accountEndpoint;
-    private final @Nullable GetAccountEncryption encryption;
+    private String accountEndpoint;
+    private @Nullable GetAccountEncryption encryption;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
      * 
      */
-    private final List<GetAccountKeyVaultReference> keyVaultReferences;
+    private List<GetAccountKeyVaultReference> keyVaultReferences;
     /**
      * @return The Azure Region in which this Batch account exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The Batch account name.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The pool allocation mode configured for this Batch account.
      * 
      */
-    private final String poolAllocationMode;
+    private String poolAllocationMode;
     /**
      * @return The Batch account primary access key.
      * 
      */
-    private final String primaryAccessKey;
-    private final String resourceGroupName;
+    private String primaryAccessKey;
+    private String resourceGroupName;
     /**
      * @return The Batch account secondary access key.
      * 
      */
-    private final String secondaryAccessKey;
+    private String secondaryAccessKey;
     /**
      * @return The ID of the Storage Account used for this Batch account.
      * 
      */
-    private final String storageAccountId;
+    private String storageAccountId;
     /**
      * @return A map of tags assigned to the Batch account.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetAccountResult(
-        @CustomType.Parameter("accountEndpoint") String accountEndpoint,
-        @CustomType.Parameter("encryption") @Nullable GetAccountEncryption encryption,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("keyVaultReferences") List<GetAccountKeyVaultReference> keyVaultReferences,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("poolAllocationMode") String poolAllocationMode,
-        @CustomType.Parameter("primaryAccessKey") String primaryAccessKey,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("secondaryAccessKey") String secondaryAccessKey,
-        @CustomType.Parameter("storageAccountId") String storageAccountId,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.accountEndpoint = accountEndpoint;
-        this.encryption = encryption;
-        this.id = id;
-        this.keyVaultReferences = keyVaultReferences;
-        this.location = location;
-        this.name = name;
-        this.poolAllocationMode = poolAllocationMode;
-        this.primaryAccessKey = primaryAccessKey;
-        this.resourceGroupName = resourceGroupName;
-        this.secondaryAccessKey = secondaryAccessKey;
-        this.storageAccountId = storageAccountId;
-        this.tags = tags;
-    }
-
+    private GetAccountResult() {}
     /**
      * @return The account endpoint used to interact with the Batch service.
      * 
@@ -180,7 +153,7 @@ public final class GetAccountResult {
     public static Builder builder(GetAccountResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountEndpoint;
         private @Nullable GetAccountEncryption encryption;
@@ -194,11 +167,7 @@ public final class GetAccountResult {
         private String secondaryAccessKey;
         private String storageAccountId;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccountResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountEndpoint = defaults.accountEndpoint;
@@ -215,18 +184,22 @@ public final class GetAccountResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder accountEndpoint(String accountEndpoint) {
             this.accountEndpoint = Objects.requireNonNull(accountEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder encryption(@Nullable GetAccountEncryption encryption) {
             this.encryption = encryption;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultReferences(List<GetAccountKeyVaultReference> keyVaultReferences) {
             this.keyVaultReferences = Objects.requireNonNull(keyVaultReferences);
             return this;
@@ -234,39 +207,61 @@ public final class GetAccountResult {
         public Builder keyVaultReferences(GetAccountKeyVaultReference... keyVaultReferences) {
             return keyVaultReferences(List.of(keyVaultReferences));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder poolAllocationMode(String poolAllocationMode) {
             this.poolAllocationMode = Objects.requireNonNull(poolAllocationMode);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryAccessKey(String primaryAccessKey) {
             this.primaryAccessKey = Objects.requireNonNull(primaryAccessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryAccessKey(String secondaryAccessKey) {
             this.secondaryAccessKey = Objects.requireNonNull(secondaryAccessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
             this.storageAccountId = Objects.requireNonNull(storageAccountId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetAccountResult build() {
-            return new GetAccountResult(accountEndpoint, encryption, id, keyVaultReferences, location, name, poolAllocationMode, primaryAccessKey, resourceGroupName, secondaryAccessKey, storageAccountId, tags);
+        }
+        public GetAccountResult build() {
+            final var o = new GetAccountResult();
+            o.accountEndpoint = accountEndpoint;
+            o.encryption = encryption;
+            o.id = id;
+            o.keyVaultReferences = keyVaultReferences;
+            o.location = location;
+            o.name = name;
+            o.poolAllocationMode = poolAllocationMode;
+            o.primaryAccessKey = primaryAccessKey;
+            o.resourceGroupName = resourceGroupName;
+            o.secondaryAccessKey = secondaryAccessKey;
+            o.storageAccountId = storageAccountId;
+            o.tags = tags;
+            return o;
         }
     }
 }

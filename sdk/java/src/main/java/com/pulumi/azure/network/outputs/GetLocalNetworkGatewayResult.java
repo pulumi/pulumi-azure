@@ -16,62 +16,41 @@ public final class GetLocalNetworkGatewayResult {
      * @return The list of string CIDRs representing the address spaces the gateway exposes.
      * 
      */
-    private final List<String> addressSpaces;
+    private List<String> addressSpaces;
     /**
      * @return A `bgp_settings` block as defined below containing the Local Network Gateway&#39;s BGP speaker settings.
      * 
      */
-    private final List<GetLocalNetworkGatewayBgpSetting> bgpSettings;
+    private List<GetLocalNetworkGatewayBgpSetting> bgpSettings;
     /**
      * @return The gateway IP address the Local Network Gateway uses.
      * 
      */
-    private final String gatewayAddress;
+    private String gatewayAddress;
     /**
      * @return The gateway FQDN the Local Network Gateway uses.
      * 
      */
-    private final String gatewayFqdn;
+    private String gatewayFqdn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region where the Local Network Gateway exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags assigned to the Local Network Gateway.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetLocalNetworkGatewayResult(
-        @CustomType.Parameter("addressSpaces") List<String> addressSpaces,
-        @CustomType.Parameter("bgpSettings") List<GetLocalNetworkGatewayBgpSetting> bgpSettings,
-        @CustomType.Parameter("gatewayAddress") String gatewayAddress,
-        @CustomType.Parameter("gatewayFqdn") String gatewayFqdn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.addressSpaces = addressSpaces;
-        this.bgpSettings = bgpSettings;
-        this.gatewayAddress = gatewayAddress;
-        this.gatewayFqdn = gatewayFqdn;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-    }
-
+    private GetLocalNetworkGatewayResult() {}
     /**
      * @return The list of string CIDRs representing the address spaces the gateway exposes.
      * 
@@ -135,7 +114,7 @@ public final class GetLocalNetworkGatewayResult {
     public static Builder builder(GetLocalNetworkGatewayResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> addressSpaces;
         private List<GetLocalNetworkGatewayBgpSetting> bgpSettings;
@@ -146,11 +125,7 @@ public final class GetLocalNetworkGatewayResult {
         private String name;
         private String resourceGroupName;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLocalNetworkGatewayResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addressSpaces = defaults.addressSpaces;
@@ -164,6 +139,7 @@ public final class GetLocalNetworkGatewayResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder addressSpaces(List<String> addressSpaces) {
             this.addressSpaces = Objects.requireNonNull(addressSpaces);
             return this;
@@ -171,6 +147,7 @@ public final class GetLocalNetworkGatewayResult {
         public Builder addressSpaces(String... addressSpaces) {
             return addressSpaces(List.of(addressSpaces));
         }
+        @CustomType.Setter
         public Builder bgpSettings(List<GetLocalNetworkGatewayBgpSetting> bgpSettings) {
             this.bgpSettings = Objects.requireNonNull(bgpSettings);
             return this;
@@ -178,35 +155,53 @@ public final class GetLocalNetworkGatewayResult {
         public Builder bgpSettings(GetLocalNetworkGatewayBgpSetting... bgpSettings) {
             return bgpSettings(List.of(bgpSettings));
         }
+        @CustomType.Setter
         public Builder gatewayAddress(String gatewayAddress) {
             this.gatewayAddress = Objects.requireNonNull(gatewayAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder gatewayFqdn(String gatewayFqdn) {
             this.gatewayFqdn = Objects.requireNonNull(gatewayFqdn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetLocalNetworkGatewayResult build() {
-            return new GetLocalNetworkGatewayResult(addressSpaces, bgpSettings, gatewayAddress, gatewayFqdn, id, location, name, resourceGroupName, tags);
+        }
+        public GetLocalNetworkGatewayResult build() {
+            final var o = new GetLocalNetworkGatewayResult();
+            o.addressSpaces = addressSpaces;
+            o.bgpSettings = bgpSettings;
+            o.gatewayAddress = gatewayAddress;
+            o.gatewayFqdn = gatewayFqdn;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            return o;
         }
     }
 }

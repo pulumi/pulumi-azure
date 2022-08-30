@@ -13,21 +13,14 @@ public final class ApiImportWsdlSelector {
      * @return The name of endpoint (port) to import from WSDL.
      * 
      */
-    private final String endpointName;
+    private String endpointName;
     /**
      * @return The name of service to import from WSDL.
      * 
      */
-    private final String serviceName;
+    private String serviceName;
 
-    @CustomType.Constructor
-    private ApiImportWsdlSelector(
-        @CustomType.Parameter("endpointName") String endpointName,
-        @CustomType.Parameter("serviceName") String serviceName) {
-        this.endpointName = endpointName;
-        this.serviceName = serviceName;
-    }
-
+    private ApiImportWsdlSelector() {}
     /**
      * @return The name of endpoint (port) to import from WSDL.
      * 
@@ -50,30 +43,32 @@ public final class ApiImportWsdlSelector {
     public static Builder builder(ApiImportWsdlSelector defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String endpointName;
         private String serviceName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApiImportWsdlSelector defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpointName = defaults.endpointName;
     	      this.serviceName = defaults.serviceName;
         }
 
+        @CustomType.Setter
         public Builder endpointName(String endpointName) {
             this.endpointName = Objects.requireNonNull(endpointName);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceName(String serviceName) {
             this.serviceName = Objects.requireNonNull(serviceName);
             return this;
-        }        public ApiImportWsdlSelector build() {
-            return new ApiImportWsdlSelector(endpointName, serviceName);
+        }
+        public ApiImportWsdlSelector build() {
+            final var o = new ApiImportWsdlSelector();
+            o.endpointName = endpointName;
+            o.serviceName = serviceName;
+            return o;
         }
     }
 }

@@ -15,28 +15,19 @@ public final class MonitorUser {
      * @return Email of the user used by Datadog for contacting them if needed. Changing this forces a new Datadog Monitor to be created.
      * 
      */
-    private final String email;
+    private String email;
     /**
      * @return The name which should be used for this user_info.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Phone number of the user used by Datadog for contacting them if needed.
      * 
      */
-    private final @Nullable String phoneNumber;
+    private @Nullable String phoneNumber;
 
-    @CustomType.Constructor
-    private MonitorUser(
-        @CustomType.Parameter("email") String email,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("phoneNumber") @Nullable String phoneNumber) {
-        this.email = email;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-    }
-
+    private MonitorUser() {}
     /**
      * @return Email of the user used by Datadog for contacting them if needed. Changing this forces a new Datadog Monitor to be created.
      * 
@@ -66,16 +57,12 @@ public final class MonitorUser {
     public static Builder builder(MonitorUser defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String email;
         private String name;
         private @Nullable String phoneNumber;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MonitorUser defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.email = defaults.email;
@@ -83,19 +70,27 @@ public final class MonitorUser {
     	      this.phoneNumber = defaults.phoneNumber;
         }
 
+        @CustomType.Setter
         public Builder email(String email) {
             this.email = Objects.requireNonNull(email);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder phoneNumber(@Nullable String phoneNumber) {
             this.phoneNumber = phoneNumber;
             return this;
-        }        public MonitorUser build() {
-            return new MonitorUser(email, name, phoneNumber);
+        }
+        public MonitorUser build() {
+            final var o = new MonitorUser();
+            o.email = email;
+            o.name = name;
+            o.phoneNumber = phoneNumber;
+            return o;
         }
     }
 }

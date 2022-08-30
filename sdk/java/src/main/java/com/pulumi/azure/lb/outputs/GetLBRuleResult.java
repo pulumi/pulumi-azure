@@ -15,97 +15,66 @@ public final class GetLBRuleResult {
      * @return A reference to a Backend Address Pool over which this Load Balancing Rule operates.
      * 
      */
-    private final String backendAddressPoolId;
+    private String backendAddressPoolId;
     /**
      * @return The port used for internal connections on the endpoint.
      * 
      */
-    private final Integer backendPort;
+    private Integer backendPort;
     /**
      * @return If outbound SNAT is enabled for this Load Balancer Rule.
      * 
      */
-    private final Boolean disableOutboundSnat;
+    private Boolean disableOutboundSnat;
     /**
      * @return If Floating IPs are enabled for this Load Balancer Rule
      * 
      */
-    private final Boolean enableFloatingIp;
+    private Boolean enableFloatingIp;
     /**
      * @return If TCP Reset is enabled for this Load Balancer Rule.
      * 
      */
-    private final Boolean enableTcpReset;
+    private Boolean enableTcpReset;
     /**
      * @return The name of the frontend IP configuration to which the rule is associated.
      * 
      */
-    private final String frontendIpConfigurationName;
+    private String frontendIpConfigurationName;
     /**
      * @return The port for the external endpoint.
      * 
      */
-    private final Integer frontendPort;
+    private Integer frontendPort;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Specifies the idle timeout in minutes for TCP connections.
      * 
      */
-    private final Integer idleTimeoutInMinutes;
+    private Integer idleTimeoutInMinutes;
     /**
      * @return Specifies the load balancing distribution type used by the Load Balancer.
      * 
      */
-    private final String loadDistribution;
-    private final String loadbalancerId;
-    private final String name;
+    private String loadDistribution;
+    private String loadbalancerId;
+    private String name;
     /**
      * @return A reference to a Probe used by this Load Balancing Rule.
      * 
      */
-    private final String probeId;
+    private String probeId;
     /**
      * @return The transport protocol for the external endpoint.
      * 
      */
-    private final String protocol;
+    private String protocol;
 
-    @CustomType.Constructor
-    private GetLBRuleResult(
-        @CustomType.Parameter("backendAddressPoolId") String backendAddressPoolId,
-        @CustomType.Parameter("backendPort") Integer backendPort,
-        @CustomType.Parameter("disableOutboundSnat") Boolean disableOutboundSnat,
-        @CustomType.Parameter("enableFloatingIp") Boolean enableFloatingIp,
-        @CustomType.Parameter("enableTcpReset") Boolean enableTcpReset,
-        @CustomType.Parameter("frontendIpConfigurationName") String frontendIpConfigurationName,
-        @CustomType.Parameter("frontendPort") Integer frontendPort,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("idleTimeoutInMinutes") Integer idleTimeoutInMinutes,
-        @CustomType.Parameter("loadDistribution") String loadDistribution,
-        @CustomType.Parameter("loadbalancerId") String loadbalancerId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("probeId") String probeId,
-        @CustomType.Parameter("protocol") String protocol) {
-        this.backendAddressPoolId = backendAddressPoolId;
-        this.backendPort = backendPort;
-        this.disableOutboundSnat = disableOutboundSnat;
-        this.enableFloatingIp = enableFloatingIp;
-        this.enableTcpReset = enableTcpReset;
-        this.frontendIpConfigurationName = frontendIpConfigurationName;
-        this.frontendPort = frontendPort;
-        this.id = id;
-        this.idleTimeoutInMinutes = idleTimeoutInMinutes;
-        this.loadDistribution = loadDistribution;
-        this.loadbalancerId = loadbalancerId;
-        this.name = name;
-        this.probeId = probeId;
-        this.protocol = protocol;
-    }
-
+    private GetLBRuleResult() {}
     /**
      * @return A reference to a Backend Address Pool over which this Load Balancing Rule operates.
      * 
@@ -204,7 +173,7 @@ public final class GetLBRuleResult {
     public static Builder builder(GetLBRuleResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String backendAddressPoolId;
         private Integer backendPort;
@@ -220,11 +189,7 @@ public final class GetLBRuleResult {
         private String name;
         private String probeId;
         private String protocol;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLBRuleResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.backendAddressPoolId = defaults.backendAddressPoolId;
@@ -243,63 +208,93 @@ public final class GetLBRuleResult {
     	      this.protocol = defaults.protocol;
         }
 
+        @CustomType.Setter
         public Builder backendAddressPoolId(String backendAddressPoolId) {
             this.backendAddressPoolId = Objects.requireNonNull(backendAddressPoolId);
             return this;
         }
+        @CustomType.Setter
         public Builder backendPort(Integer backendPort) {
             this.backendPort = Objects.requireNonNull(backendPort);
             return this;
         }
+        @CustomType.Setter
         public Builder disableOutboundSnat(Boolean disableOutboundSnat) {
             this.disableOutboundSnat = Objects.requireNonNull(disableOutboundSnat);
             return this;
         }
+        @CustomType.Setter
         public Builder enableFloatingIp(Boolean enableFloatingIp) {
             this.enableFloatingIp = Objects.requireNonNull(enableFloatingIp);
             return this;
         }
+        @CustomType.Setter
         public Builder enableTcpReset(Boolean enableTcpReset) {
             this.enableTcpReset = Objects.requireNonNull(enableTcpReset);
             return this;
         }
+        @CustomType.Setter
         public Builder frontendIpConfigurationName(String frontendIpConfigurationName) {
             this.frontendIpConfigurationName = Objects.requireNonNull(frontendIpConfigurationName);
             return this;
         }
+        @CustomType.Setter
         public Builder frontendPort(Integer frontendPort) {
             this.frontendPort = Objects.requireNonNull(frontendPort);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder idleTimeoutInMinutes(Integer idleTimeoutInMinutes) {
             this.idleTimeoutInMinutes = Objects.requireNonNull(idleTimeoutInMinutes);
             return this;
         }
+        @CustomType.Setter
         public Builder loadDistribution(String loadDistribution) {
             this.loadDistribution = Objects.requireNonNull(loadDistribution);
             return this;
         }
+        @CustomType.Setter
         public Builder loadbalancerId(String loadbalancerId) {
             this.loadbalancerId = Objects.requireNonNull(loadbalancerId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder probeId(String probeId) {
             this.probeId = Objects.requireNonNull(probeId);
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
-        }        public GetLBRuleResult build() {
-            return new GetLBRuleResult(backendAddressPoolId, backendPort, disableOutboundSnat, enableFloatingIp, enableTcpReset, frontendIpConfigurationName, frontendPort, id, idleTimeoutInMinutes, loadDistribution, loadbalancerId, name, probeId, protocol);
+        }
+        public GetLBRuleResult build() {
+            final var o = new GetLBRuleResult();
+            o.backendAddressPoolId = backendAddressPoolId;
+            o.backendPort = backendPort;
+            o.disableOutboundSnat = disableOutboundSnat;
+            o.enableFloatingIp = enableFloatingIp;
+            o.enableTcpReset = enableTcpReset;
+            o.frontendIpConfigurationName = frontendIpConfigurationName;
+            o.frontendPort = frontendPort;
+            o.id = id;
+            o.idleTimeoutInMinutes = idleTimeoutInMinutes;
+            o.loadDistribution = loadDistribution;
+            o.loadbalancerId = loadbalancerId;
+            o.name = name;
+            o.probeId = probeId;
+            o.protocol = protocol;
+            return o;
         }
     }
 }

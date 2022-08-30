@@ -16,210 +16,149 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
      * @return The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer fsAioMaxNr;
+    private @Nullable Integer fsAioMaxNr;
     /**
      * @return The sysctl setting fs.file-max. Must be between `8192` and `12000500`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer fsFileMax;
+    private @Nullable Integer fsFileMax;
     /**
      * @return The sysctl setting fs.inotify.max_user_watches. Must be between `781250` and `2097152`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer fsInotifyMaxUserWatches;
+    private @Nullable Integer fsInotifyMaxUserWatches;
     /**
      * @return The sysctl setting fs.nr_open. Must be between `8192` and `20000500`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer fsNrOpen;
+    private @Nullable Integer fsNrOpen;
     /**
      * @return The sysctl setting kernel.threads-max. Must be between `20` and `513785`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer kernelThreadsMax;
+    private @Nullable Integer kernelThreadsMax;
     /**
      * @return The sysctl setting net.core.netdev_max_backlog. Must be between `1000` and `3240000`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer netCoreNetdevMaxBacklog;
+    private @Nullable Integer netCoreNetdevMaxBacklog;
     /**
      * @return The sysctl setting net.core.optmem_max. Must be between `20480` and `4194304`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer netCoreOptmemMax;
+    private @Nullable Integer netCoreOptmemMax;
     /**
      * @return The sysctl setting net.core.rmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer netCoreRmemDefault;
+    private @Nullable Integer netCoreRmemDefault;
     /**
      * @return The sysctl setting net.core.rmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer netCoreRmemMax;
+    private @Nullable Integer netCoreRmemMax;
     /**
      * @return The sysctl setting net.core.somaxconn. Must be between `4096` and `3240000`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer netCoreSomaxconn;
+    private @Nullable Integer netCoreSomaxconn;
     /**
      * @return The sysctl setting net.core.wmem_default. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer netCoreWmemDefault;
+    private @Nullable Integer netCoreWmemDefault;
     /**
      * @return The sysctl setting net.core.wmem_max. Must be between `212992` and `134217728`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer netCoreWmemMax;
+    private @Nullable Integer netCoreWmemMax;
     /**
      * @return The sysctl setting net.ipv4.ip_local_port_range max value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer netIpv4IpLocalPortRangeMax;
+    private @Nullable Integer netIpv4IpLocalPortRangeMax;
     /**
      * @return The sysctl setting net.ipv4.ip_local_port_range min value. Must be between `1024` and `60999`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer netIpv4IpLocalPortRangeMin;
+    private @Nullable Integer netIpv4IpLocalPortRangeMin;
     /**
      * @return The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between `128` and `80000`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer netIpv4NeighDefaultGcThresh1;
+    private @Nullable Integer netIpv4NeighDefaultGcThresh1;
     /**
      * @return The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between `512` and `90000`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer netIpv4NeighDefaultGcThresh2;
+    private @Nullable Integer netIpv4NeighDefaultGcThresh2;
     /**
      * @return The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between `1024` and `100000`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer netIpv4NeighDefaultGcThresh3;
+    private @Nullable Integer netIpv4NeighDefaultGcThresh3;
     /**
      * @return The sysctl setting net.ipv4.tcp_fin_timeout. Must be between `5` and `120`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer netIpv4TcpFinTimeout;
+    private @Nullable Integer netIpv4TcpFinTimeout;
     /**
      * @return The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between `10` and `75`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer netIpv4TcpKeepaliveIntvl;
+    private @Nullable Integer netIpv4TcpKeepaliveIntvl;
     /**
      * @return The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between `1` and `15`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer netIpv4TcpKeepaliveProbes;
+    private @Nullable Integer netIpv4TcpKeepaliveProbes;
     /**
      * @return The sysctl setting net.ipv4.tcp_keepalive_time. Must be between `30` and `432000`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer netIpv4TcpKeepaliveTime;
+    private @Nullable Integer netIpv4TcpKeepaliveTime;
     /**
      * @return The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between `128` and `3240000`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer netIpv4TcpMaxSynBacklog;
+    private @Nullable Integer netIpv4TcpMaxSynBacklog;
     /**
      * @return The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between `8000` and `1440000`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer netIpv4TcpMaxTwBuckets;
+    private @Nullable Integer netIpv4TcpMaxTwBuckets;
     /**
      * @return Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Boolean netIpv4TcpTwReuse;
+    private @Nullable Boolean netIpv4TcpTwReuse;
     /**
      * @return The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between `65536` and `147456`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer netNetfilterNfConntrackBuckets;
+    private @Nullable Integer netNetfilterNfConntrackBuckets;
     /**
      * @return The sysctl setting net.netfilter.nf_conntrack_max. Must be between `131072` and `1048576`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer netNetfilterNfConntrackMax;
+    private @Nullable Integer netNetfilterNfConntrackMax;
     /**
      * @return The sysctl setting vm.max_map_count. Must be between `65530` and `262144`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer vmMaxMapCount;
+    private @Nullable Integer vmMaxMapCount;
     /**
      * @return The sysctl setting vm.swappiness. Must be between `0` and `100`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer vmSwappiness;
+    private @Nullable Integer vmSwappiness;
     /**
      * @return The sysctl setting vm.vfs_cache_pressure. Must be between `0` and `100`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer vmVfsCachePressure;
+    private @Nullable Integer vmVfsCachePressure;
 
-    @CustomType.Constructor
-    private KubernetesClusterNodePoolLinuxOsConfigSysctlConfig(
-        @CustomType.Parameter("fsAioMaxNr") @Nullable Integer fsAioMaxNr,
-        @CustomType.Parameter("fsFileMax") @Nullable Integer fsFileMax,
-        @CustomType.Parameter("fsInotifyMaxUserWatches") @Nullable Integer fsInotifyMaxUserWatches,
-        @CustomType.Parameter("fsNrOpen") @Nullable Integer fsNrOpen,
-        @CustomType.Parameter("kernelThreadsMax") @Nullable Integer kernelThreadsMax,
-        @CustomType.Parameter("netCoreNetdevMaxBacklog") @Nullable Integer netCoreNetdevMaxBacklog,
-        @CustomType.Parameter("netCoreOptmemMax") @Nullable Integer netCoreOptmemMax,
-        @CustomType.Parameter("netCoreRmemDefault") @Nullable Integer netCoreRmemDefault,
-        @CustomType.Parameter("netCoreRmemMax") @Nullable Integer netCoreRmemMax,
-        @CustomType.Parameter("netCoreSomaxconn") @Nullable Integer netCoreSomaxconn,
-        @CustomType.Parameter("netCoreWmemDefault") @Nullable Integer netCoreWmemDefault,
-        @CustomType.Parameter("netCoreWmemMax") @Nullable Integer netCoreWmemMax,
-        @CustomType.Parameter("netIpv4IpLocalPortRangeMax") @Nullable Integer netIpv4IpLocalPortRangeMax,
-        @CustomType.Parameter("netIpv4IpLocalPortRangeMin") @Nullable Integer netIpv4IpLocalPortRangeMin,
-        @CustomType.Parameter("netIpv4NeighDefaultGcThresh1") @Nullable Integer netIpv4NeighDefaultGcThresh1,
-        @CustomType.Parameter("netIpv4NeighDefaultGcThresh2") @Nullable Integer netIpv4NeighDefaultGcThresh2,
-        @CustomType.Parameter("netIpv4NeighDefaultGcThresh3") @Nullable Integer netIpv4NeighDefaultGcThresh3,
-        @CustomType.Parameter("netIpv4TcpFinTimeout") @Nullable Integer netIpv4TcpFinTimeout,
-        @CustomType.Parameter("netIpv4TcpKeepaliveIntvl") @Nullable Integer netIpv4TcpKeepaliveIntvl,
-        @CustomType.Parameter("netIpv4TcpKeepaliveProbes") @Nullable Integer netIpv4TcpKeepaliveProbes,
-        @CustomType.Parameter("netIpv4TcpKeepaliveTime") @Nullable Integer netIpv4TcpKeepaliveTime,
-        @CustomType.Parameter("netIpv4TcpMaxSynBacklog") @Nullable Integer netIpv4TcpMaxSynBacklog,
-        @CustomType.Parameter("netIpv4TcpMaxTwBuckets") @Nullable Integer netIpv4TcpMaxTwBuckets,
-        @CustomType.Parameter("netIpv4TcpTwReuse") @Nullable Boolean netIpv4TcpTwReuse,
-        @CustomType.Parameter("netNetfilterNfConntrackBuckets") @Nullable Integer netNetfilterNfConntrackBuckets,
-        @CustomType.Parameter("netNetfilterNfConntrackMax") @Nullable Integer netNetfilterNfConntrackMax,
-        @CustomType.Parameter("vmMaxMapCount") @Nullable Integer vmMaxMapCount,
-        @CustomType.Parameter("vmSwappiness") @Nullable Integer vmSwappiness,
-        @CustomType.Parameter("vmVfsCachePressure") @Nullable Integer vmVfsCachePressure) {
-        this.fsAioMaxNr = fsAioMaxNr;
-        this.fsFileMax = fsFileMax;
-        this.fsInotifyMaxUserWatches = fsInotifyMaxUserWatches;
-        this.fsNrOpen = fsNrOpen;
-        this.kernelThreadsMax = kernelThreadsMax;
-        this.netCoreNetdevMaxBacklog = netCoreNetdevMaxBacklog;
-        this.netCoreOptmemMax = netCoreOptmemMax;
-        this.netCoreRmemDefault = netCoreRmemDefault;
-        this.netCoreRmemMax = netCoreRmemMax;
-        this.netCoreSomaxconn = netCoreSomaxconn;
-        this.netCoreWmemDefault = netCoreWmemDefault;
-        this.netCoreWmemMax = netCoreWmemMax;
-        this.netIpv4IpLocalPortRangeMax = netIpv4IpLocalPortRangeMax;
-        this.netIpv4IpLocalPortRangeMin = netIpv4IpLocalPortRangeMin;
-        this.netIpv4NeighDefaultGcThresh1 = netIpv4NeighDefaultGcThresh1;
-        this.netIpv4NeighDefaultGcThresh2 = netIpv4NeighDefaultGcThresh2;
-        this.netIpv4NeighDefaultGcThresh3 = netIpv4NeighDefaultGcThresh3;
-        this.netIpv4TcpFinTimeout = netIpv4TcpFinTimeout;
-        this.netIpv4TcpKeepaliveIntvl = netIpv4TcpKeepaliveIntvl;
-        this.netIpv4TcpKeepaliveProbes = netIpv4TcpKeepaliveProbes;
-        this.netIpv4TcpKeepaliveTime = netIpv4TcpKeepaliveTime;
-        this.netIpv4TcpMaxSynBacklog = netIpv4TcpMaxSynBacklog;
-        this.netIpv4TcpMaxTwBuckets = netIpv4TcpMaxTwBuckets;
-        this.netIpv4TcpTwReuse = netIpv4TcpTwReuse;
-        this.netNetfilterNfConntrackBuckets = netNetfilterNfConntrackBuckets;
-        this.netNetfilterNfConntrackMax = netNetfilterNfConntrackMax;
-        this.vmMaxMapCount = vmMaxMapCount;
-        this.vmSwappiness = vmSwappiness;
-        this.vmVfsCachePressure = vmVfsCachePressure;
-    }
-
+    private KubernetesClusterNodePoolLinuxOsConfigSysctlConfig() {}
     /**
      * @return The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
      * 
@@ -431,7 +370,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
     public static Builder builder(KubernetesClusterNodePoolLinuxOsConfigSysctlConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer fsAioMaxNr;
         private @Nullable Integer fsFileMax;
@@ -462,11 +401,7 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
         private @Nullable Integer vmMaxMapCount;
         private @Nullable Integer vmSwappiness;
         private @Nullable Integer vmVfsCachePressure;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KubernetesClusterNodePoolLinuxOsConfigSysctlConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fsAioMaxNr = defaults.fsAioMaxNr;
@@ -500,123 +435,183 @@ public final class KubernetesClusterNodePoolLinuxOsConfigSysctlConfig {
     	      this.vmVfsCachePressure = defaults.vmVfsCachePressure;
         }
 
+        @CustomType.Setter
         public Builder fsAioMaxNr(@Nullable Integer fsAioMaxNr) {
             this.fsAioMaxNr = fsAioMaxNr;
             return this;
         }
+        @CustomType.Setter
         public Builder fsFileMax(@Nullable Integer fsFileMax) {
             this.fsFileMax = fsFileMax;
             return this;
         }
+        @CustomType.Setter
         public Builder fsInotifyMaxUserWatches(@Nullable Integer fsInotifyMaxUserWatches) {
             this.fsInotifyMaxUserWatches = fsInotifyMaxUserWatches;
             return this;
         }
+        @CustomType.Setter
         public Builder fsNrOpen(@Nullable Integer fsNrOpen) {
             this.fsNrOpen = fsNrOpen;
             return this;
         }
+        @CustomType.Setter
         public Builder kernelThreadsMax(@Nullable Integer kernelThreadsMax) {
             this.kernelThreadsMax = kernelThreadsMax;
             return this;
         }
+        @CustomType.Setter
         public Builder netCoreNetdevMaxBacklog(@Nullable Integer netCoreNetdevMaxBacklog) {
             this.netCoreNetdevMaxBacklog = netCoreNetdevMaxBacklog;
             return this;
         }
+        @CustomType.Setter
         public Builder netCoreOptmemMax(@Nullable Integer netCoreOptmemMax) {
             this.netCoreOptmemMax = netCoreOptmemMax;
             return this;
         }
+        @CustomType.Setter
         public Builder netCoreRmemDefault(@Nullable Integer netCoreRmemDefault) {
             this.netCoreRmemDefault = netCoreRmemDefault;
             return this;
         }
+        @CustomType.Setter
         public Builder netCoreRmemMax(@Nullable Integer netCoreRmemMax) {
             this.netCoreRmemMax = netCoreRmemMax;
             return this;
         }
+        @CustomType.Setter
         public Builder netCoreSomaxconn(@Nullable Integer netCoreSomaxconn) {
             this.netCoreSomaxconn = netCoreSomaxconn;
             return this;
         }
+        @CustomType.Setter
         public Builder netCoreWmemDefault(@Nullable Integer netCoreWmemDefault) {
             this.netCoreWmemDefault = netCoreWmemDefault;
             return this;
         }
+        @CustomType.Setter
         public Builder netCoreWmemMax(@Nullable Integer netCoreWmemMax) {
             this.netCoreWmemMax = netCoreWmemMax;
             return this;
         }
+        @CustomType.Setter
         public Builder netIpv4IpLocalPortRangeMax(@Nullable Integer netIpv4IpLocalPortRangeMax) {
             this.netIpv4IpLocalPortRangeMax = netIpv4IpLocalPortRangeMax;
             return this;
         }
+        @CustomType.Setter
         public Builder netIpv4IpLocalPortRangeMin(@Nullable Integer netIpv4IpLocalPortRangeMin) {
             this.netIpv4IpLocalPortRangeMin = netIpv4IpLocalPortRangeMin;
             return this;
         }
+        @CustomType.Setter
         public Builder netIpv4NeighDefaultGcThresh1(@Nullable Integer netIpv4NeighDefaultGcThresh1) {
             this.netIpv4NeighDefaultGcThresh1 = netIpv4NeighDefaultGcThresh1;
             return this;
         }
+        @CustomType.Setter
         public Builder netIpv4NeighDefaultGcThresh2(@Nullable Integer netIpv4NeighDefaultGcThresh2) {
             this.netIpv4NeighDefaultGcThresh2 = netIpv4NeighDefaultGcThresh2;
             return this;
         }
+        @CustomType.Setter
         public Builder netIpv4NeighDefaultGcThresh3(@Nullable Integer netIpv4NeighDefaultGcThresh3) {
             this.netIpv4NeighDefaultGcThresh3 = netIpv4NeighDefaultGcThresh3;
             return this;
         }
+        @CustomType.Setter
         public Builder netIpv4TcpFinTimeout(@Nullable Integer netIpv4TcpFinTimeout) {
             this.netIpv4TcpFinTimeout = netIpv4TcpFinTimeout;
             return this;
         }
+        @CustomType.Setter
         public Builder netIpv4TcpKeepaliveIntvl(@Nullable Integer netIpv4TcpKeepaliveIntvl) {
             this.netIpv4TcpKeepaliveIntvl = netIpv4TcpKeepaliveIntvl;
             return this;
         }
+        @CustomType.Setter
         public Builder netIpv4TcpKeepaliveProbes(@Nullable Integer netIpv4TcpKeepaliveProbes) {
             this.netIpv4TcpKeepaliveProbes = netIpv4TcpKeepaliveProbes;
             return this;
         }
+        @CustomType.Setter
         public Builder netIpv4TcpKeepaliveTime(@Nullable Integer netIpv4TcpKeepaliveTime) {
             this.netIpv4TcpKeepaliveTime = netIpv4TcpKeepaliveTime;
             return this;
         }
+        @CustomType.Setter
         public Builder netIpv4TcpMaxSynBacklog(@Nullable Integer netIpv4TcpMaxSynBacklog) {
             this.netIpv4TcpMaxSynBacklog = netIpv4TcpMaxSynBacklog;
             return this;
         }
+        @CustomType.Setter
         public Builder netIpv4TcpMaxTwBuckets(@Nullable Integer netIpv4TcpMaxTwBuckets) {
             this.netIpv4TcpMaxTwBuckets = netIpv4TcpMaxTwBuckets;
             return this;
         }
+        @CustomType.Setter
         public Builder netIpv4TcpTwReuse(@Nullable Boolean netIpv4TcpTwReuse) {
             this.netIpv4TcpTwReuse = netIpv4TcpTwReuse;
             return this;
         }
+        @CustomType.Setter
         public Builder netNetfilterNfConntrackBuckets(@Nullable Integer netNetfilterNfConntrackBuckets) {
             this.netNetfilterNfConntrackBuckets = netNetfilterNfConntrackBuckets;
             return this;
         }
+        @CustomType.Setter
         public Builder netNetfilterNfConntrackMax(@Nullable Integer netNetfilterNfConntrackMax) {
             this.netNetfilterNfConntrackMax = netNetfilterNfConntrackMax;
             return this;
         }
+        @CustomType.Setter
         public Builder vmMaxMapCount(@Nullable Integer vmMaxMapCount) {
             this.vmMaxMapCount = vmMaxMapCount;
             return this;
         }
+        @CustomType.Setter
         public Builder vmSwappiness(@Nullable Integer vmSwappiness) {
             this.vmSwappiness = vmSwappiness;
             return this;
         }
+        @CustomType.Setter
         public Builder vmVfsCachePressure(@Nullable Integer vmVfsCachePressure) {
             this.vmVfsCachePressure = vmVfsCachePressure;
             return this;
-        }        public KubernetesClusterNodePoolLinuxOsConfigSysctlConfig build() {
-            return new KubernetesClusterNodePoolLinuxOsConfigSysctlConfig(fsAioMaxNr, fsFileMax, fsInotifyMaxUserWatches, fsNrOpen, kernelThreadsMax, netCoreNetdevMaxBacklog, netCoreOptmemMax, netCoreRmemDefault, netCoreRmemMax, netCoreSomaxconn, netCoreWmemDefault, netCoreWmemMax, netIpv4IpLocalPortRangeMax, netIpv4IpLocalPortRangeMin, netIpv4NeighDefaultGcThresh1, netIpv4NeighDefaultGcThresh2, netIpv4NeighDefaultGcThresh3, netIpv4TcpFinTimeout, netIpv4TcpKeepaliveIntvl, netIpv4TcpKeepaliveProbes, netIpv4TcpKeepaliveTime, netIpv4TcpMaxSynBacklog, netIpv4TcpMaxTwBuckets, netIpv4TcpTwReuse, netNetfilterNfConntrackBuckets, netNetfilterNfConntrackMax, vmMaxMapCount, vmSwappiness, vmVfsCachePressure);
+        }
+        public KubernetesClusterNodePoolLinuxOsConfigSysctlConfig build() {
+            final var o = new KubernetesClusterNodePoolLinuxOsConfigSysctlConfig();
+            o.fsAioMaxNr = fsAioMaxNr;
+            o.fsFileMax = fsFileMax;
+            o.fsInotifyMaxUserWatches = fsInotifyMaxUserWatches;
+            o.fsNrOpen = fsNrOpen;
+            o.kernelThreadsMax = kernelThreadsMax;
+            o.netCoreNetdevMaxBacklog = netCoreNetdevMaxBacklog;
+            o.netCoreOptmemMax = netCoreOptmemMax;
+            o.netCoreRmemDefault = netCoreRmemDefault;
+            o.netCoreRmemMax = netCoreRmemMax;
+            o.netCoreSomaxconn = netCoreSomaxconn;
+            o.netCoreWmemDefault = netCoreWmemDefault;
+            o.netCoreWmemMax = netCoreWmemMax;
+            o.netIpv4IpLocalPortRangeMax = netIpv4IpLocalPortRangeMax;
+            o.netIpv4IpLocalPortRangeMin = netIpv4IpLocalPortRangeMin;
+            o.netIpv4NeighDefaultGcThresh1 = netIpv4NeighDefaultGcThresh1;
+            o.netIpv4NeighDefaultGcThresh2 = netIpv4NeighDefaultGcThresh2;
+            o.netIpv4NeighDefaultGcThresh3 = netIpv4NeighDefaultGcThresh3;
+            o.netIpv4TcpFinTimeout = netIpv4TcpFinTimeout;
+            o.netIpv4TcpKeepaliveIntvl = netIpv4TcpKeepaliveIntvl;
+            o.netIpv4TcpKeepaliveProbes = netIpv4TcpKeepaliveProbes;
+            o.netIpv4TcpKeepaliveTime = netIpv4TcpKeepaliveTime;
+            o.netIpv4TcpMaxSynBacklog = netIpv4TcpMaxSynBacklog;
+            o.netIpv4TcpMaxTwBuckets = netIpv4TcpMaxTwBuckets;
+            o.netIpv4TcpTwReuse = netIpv4TcpTwReuse;
+            o.netNetfilterNfConntrackBuckets = netNetfilterNfConntrackBuckets;
+            o.netNetfilterNfConntrackMax = netNetfilterNfConntrackMax;
+            o.vmMaxMapCount = vmMaxMapCount;
+            o.vmSwappiness = vmSwappiness;
+            o.vmVfsCachePressure = vmVfsCachePressure;
+            return o;
         }
     }
 }

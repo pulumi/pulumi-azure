@@ -16,91 +16,64 @@ public final class GetDatabaseResult {
      * @return The name of the collation.
      * 
      */
-    private final String collation;
+    private String collation;
     /**
      * @return The default secondary location of the SQL Database.
      * 
      */
-    private final String defaultSecondaryLocation;
+    private String defaultSecondaryLocation;
     /**
      * @return The edition of the database.
      * 
      */
-    private final String edition;
+    private String edition;
     /**
      * @return The name of the elastic database pool the database belongs to.
      * 
      */
-    private final String elasticPoolName;
+    private String elasticPoolName;
     /**
      * @return The ID of the failover group the database belongs to.
      * 
      */
-    private final String failoverGroupId;
+    private String failoverGroupId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The location of the Resource Group in which the SQL Server exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The name of the database.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Indicate if read-only connections will be redirected to a high-available replica.
      * 
      */
-    private final Boolean readScale;
+    private Boolean readScale;
     /**
      * @return The name of the resource group in which the database resides. This will always be the same resource group as the Database Server.
      * 
      */
-    private final String resourceGroupName;
+    private String resourceGroupName;
     /**
      * @return The name of the SQL Server on which to create the database.
      * 
      */
-    private final String serverName;
+    private String serverName;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetDatabaseResult(
-        @CustomType.Parameter("collation") String collation,
-        @CustomType.Parameter("defaultSecondaryLocation") String defaultSecondaryLocation,
-        @CustomType.Parameter("edition") String edition,
-        @CustomType.Parameter("elasticPoolName") String elasticPoolName,
-        @CustomType.Parameter("failoverGroupId") String failoverGroupId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("readScale") Boolean readScale,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("serverName") String serverName,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.collation = collation;
-        this.defaultSecondaryLocation = defaultSecondaryLocation;
-        this.edition = edition;
-        this.elasticPoolName = elasticPoolName;
-        this.failoverGroupId = failoverGroupId;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.readScale = readScale;
-        this.resourceGroupName = resourceGroupName;
-        this.serverName = serverName;
-        this.tags = tags;
-    }
-
+    private GetDatabaseResult() {}
     /**
      * @return The name of the collation.
      * 
@@ -193,7 +166,7 @@ public final class GetDatabaseResult {
     public static Builder builder(GetDatabaseResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String collation;
         private String defaultSecondaryLocation;
@@ -207,11 +180,7 @@ public final class GetDatabaseResult {
         private String resourceGroupName;
         private String serverName;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDatabaseResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.collation = defaults.collation;
@@ -228,55 +197,81 @@ public final class GetDatabaseResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder collation(String collation) {
             this.collation = Objects.requireNonNull(collation);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultSecondaryLocation(String defaultSecondaryLocation) {
             this.defaultSecondaryLocation = Objects.requireNonNull(defaultSecondaryLocation);
             return this;
         }
+        @CustomType.Setter
         public Builder edition(String edition) {
             this.edition = Objects.requireNonNull(edition);
             return this;
         }
+        @CustomType.Setter
         public Builder elasticPoolName(String elasticPoolName) {
             this.elasticPoolName = Objects.requireNonNull(elasticPoolName);
             return this;
         }
+        @CustomType.Setter
         public Builder failoverGroupId(String failoverGroupId) {
             this.failoverGroupId = Objects.requireNonNull(failoverGroupId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder readScale(Boolean readScale) {
             this.readScale = Objects.requireNonNull(readScale);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder serverName(String serverName) {
             this.serverName = Objects.requireNonNull(serverName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public GetDatabaseResult build() {
-            return new GetDatabaseResult(collation, defaultSecondaryLocation, edition, elasticPoolName, failoverGroupId, id, location, name, readScale, resourceGroupName, serverName, tags);
+        }
+        public GetDatabaseResult build() {
+            final var o = new GetDatabaseResult();
+            o.collation = collation;
+            o.defaultSecondaryLocation = defaultSecondaryLocation;
+            o.edition = edition;
+            o.elasticPoolName = elasticPoolName;
+            o.failoverGroupId = failoverGroupId;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.readScale = readScale;
+            o.resourceGroupName = resourceGroupName;
+            o.serverName = serverName;
+            o.tags = tags;
+            return o;
         }
     }
 }

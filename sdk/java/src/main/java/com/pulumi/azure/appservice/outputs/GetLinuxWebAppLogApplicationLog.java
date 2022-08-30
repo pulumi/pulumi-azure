@@ -15,21 +15,14 @@ public final class GetLinuxWebAppLogApplicationLog {
      * @return A `azure_blob_storage` block as defined above.
      * 
      */
-    private final List<GetLinuxWebAppLogApplicationLogAzureBlobStorage> azureBlobStorages;
+    private List<GetLinuxWebAppLogApplicationLogAzureBlobStorage> azureBlobStorages;
     /**
      * @return The logging level.
      * 
      */
-    private final String fileSystemLevel;
+    private String fileSystemLevel;
 
-    @CustomType.Constructor
-    private GetLinuxWebAppLogApplicationLog(
-        @CustomType.Parameter("azureBlobStorages") List<GetLinuxWebAppLogApplicationLogAzureBlobStorage> azureBlobStorages,
-        @CustomType.Parameter("fileSystemLevel") String fileSystemLevel) {
-        this.azureBlobStorages = azureBlobStorages;
-        this.fileSystemLevel = fileSystemLevel;
-    }
-
+    private GetLinuxWebAppLogApplicationLog() {}
     /**
      * @return A `azure_blob_storage` block as defined above.
      * 
@@ -52,21 +45,18 @@ public final class GetLinuxWebAppLogApplicationLog {
     public static Builder builder(GetLinuxWebAppLogApplicationLog defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetLinuxWebAppLogApplicationLogAzureBlobStorage> azureBlobStorages;
         private String fileSystemLevel;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxWebAppLogApplicationLog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.azureBlobStorages = defaults.azureBlobStorages;
     	      this.fileSystemLevel = defaults.fileSystemLevel;
         }
 
+        @CustomType.Setter
         public Builder azureBlobStorages(List<GetLinuxWebAppLogApplicationLogAzureBlobStorage> azureBlobStorages) {
             this.azureBlobStorages = Objects.requireNonNull(azureBlobStorages);
             return this;
@@ -74,11 +64,16 @@ public final class GetLinuxWebAppLogApplicationLog {
         public Builder azureBlobStorages(GetLinuxWebAppLogApplicationLogAzureBlobStorage... azureBlobStorages) {
             return azureBlobStorages(List.of(azureBlobStorages));
         }
+        @CustomType.Setter
         public Builder fileSystemLevel(String fileSystemLevel) {
             this.fileSystemLevel = Objects.requireNonNull(fileSystemLevel);
             return this;
-        }        public GetLinuxWebAppLogApplicationLog build() {
-            return new GetLinuxWebAppLogApplicationLog(azureBlobStorages, fileSystemLevel);
+        }
+        public GetLinuxWebAppLogApplicationLog build() {
+            final var o = new GetLinuxWebAppLogApplicationLog();
+            o.azureBlobStorages = azureBlobStorages;
+            o.fileSystemLevel = fileSystemLevel;
+            return o;
         }
     }
 }

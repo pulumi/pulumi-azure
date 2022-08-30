@@ -16,45 +16,30 @@ public final class GetRouteFilterResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region where the Route Filter exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The Name of Route Filter Rule
      * 
      */
-    private final String name;
-    private final String resourceGroupName;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return A `rule` block as defined below.
      * 
      */
-    private final List<GetRouteFilterRule> rules;
+    private List<GetRouteFilterRule> rules;
     /**
      * @return A mapping of tags assigned to the Route Filter.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetRouteFilterResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("rules") List<GetRouteFilterRule> rules,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.rules = rules;
-        this.tags = tags;
-    }
-
+    private GetRouteFilterResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -101,7 +86,7 @@ public final class GetRouteFilterResult {
     public static Builder builder(GetRouteFilterResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String location;
@@ -109,11 +94,7 @@ public final class GetRouteFilterResult {
         private String resourceGroupName;
         private List<GetRouteFilterRule> rules;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRouteFilterResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -124,22 +105,27 @@ public final class GetRouteFilterResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder rules(List<GetRouteFilterRule> rules) {
             this.rules = Objects.requireNonNull(rules);
             return this;
@@ -147,11 +133,20 @@ public final class GetRouteFilterResult {
         public Builder rules(GetRouteFilterRule... rules) {
             return rules(List.of(rules));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetRouteFilterResult build() {
-            return new GetRouteFilterResult(id, location, name, resourceGroupName, rules, tags);
+        }
+        public GetRouteFilterResult build() {
+            final var o = new GetRouteFilterResult();
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.rules = rules;
+            o.tags = tags;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class BackendServiceFabricClusterServerX509Name {
      * @return The thumbprint for the issuer of the certificate.
      * 
      */
-    private final String issuerCertificateThumbprint;
+    private String issuerCertificateThumbprint;
     /**
      * @return The name of the API Management backend. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private BackendServiceFabricClusterServerX509Name(
-        @CustomType.Parameter("issuerCertificateThumbprint") String issuerCertificateThumbprint,
-        @CustomType.Parameter("name") String name) {
-        this.issuerCertificateThumbprint = issuerCertificateThumbprint;
-        this.name = name;
-    }
-
+    private BackendServiceFabricClusterServerX509Name() {}
     /**
      * @return The thumbprint for the issuer of the certificate.
      * 
@@ -50,30 +43,32 @@ public final class BackendServiceFabricClusterServerX509Name {
     public static Builder builder(BackendServiceFabricClusterServerX509Name defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String issuerCertificateThumbprint;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BackendServiceFabricClusterServerX509Name defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.issuerCertificateThumbprint = defaults.issuerCertificateThumbprint;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder issuerCertificateThumbprint(String issuerCertificateThumbprint) {
             this.issuerCertificateThumbprint = Objects.requireNonNull(issuerCertificateThumbprint);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public BackendServiceFabricClusterServerX509Name build() {
-            return new BackendServiceFabricClusterServerX509Name(issuerCertificateThumbprint, name);
+        }
+        public BackendServiceFabricClusterServerX509Name build() {
+            final var o = new BackendServiceFabricClusterServerX509Name();
+            o.issuerCertificateThumbprint = issuerCertificateThumbprint;
+            o.name = name;
+            return o;
         }
     }
 }

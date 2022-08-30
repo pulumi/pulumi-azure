@@ -13,13 +13,9 @@ public final class PolicyVMRetentionDaily {
      * @return The number of yearly backups to keep. Must be between `1` and `9999`
      * 
      */
-    private final Integer count;
+    private Integer count;
 
-    @CustomType.Constructor
-    private PolicyVMRetentionDaily(@CustomType.Parameter("count") Integer count) {
-        this.count = count;
-    }
-
+    private PolicyVMRetentionDaily() {}
     /**
      * @return The number of yearly backups to keep. Must be between `1` and `9999`
      * 
@@ -35,24 +31,24 @@ public final class PolicyVMRetentionDaily {
     public static Builder builder(PolicyVMRetentionDaily defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer count;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyVMRetentionDaily defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
         }
 
+        @CustomType.Setter
         public Builder count(Integer count) {
             this.count = Objects.requireNonNull(count);
             return this;
-        }        public PolicyVMRetentionDaily build() {
-            return new PolicyVMRetentionDaily(count);
+        }
+        public PolicyVMRetentionDaily build() {
+            final var o = new PolicyVMRetentionDaily();
+            o.count = count;
+            return o;
         }
     }
 }

@@ -16,28 +16,19 @@ public final class OrderShipmentHistory {
      * @return Dictionary to hold generic information which is not stored by the already existing properties.
      * 
      */
-    private final @Nullable Map<String,String> additionalDetails;
+    private @Nullable Map<String,String> additionalDetails;
     /**
      * @return Comments related to this status change.
      * 
      */
-    private final @Nullable String comments;
+    private @Nullable String comments;
     /**
      * @return Time of status update.
      * 
      */
-    private final @Nullable String lastUpdate;
+    private @Nullable String lastUpdate;
 
-    @CustomType.Constructor
-    private OrderShipmentHistory(
-        @CustomType.Parameter("additionalDetails") @Nullable Map<String,String> additionalDetails,
-        @CustomType.Parameter("comments") @Nullable String comments,
-        @CustomType.Parameter("lastUpdate") @Nullable String lastUpdate) {
-        this.additionalDetails = additionalDetails;
-        this.comments = comments;
-        this.lastUpdate = lastUpdate;
-    }
-
+    private OrderShipmentHistory() {}
     /**
      * @return Dictionary to hold generic information which is not stored by the already existing properties.
      * 
@@ -67,16 +58,12 @@ public final class OrderShipmentHistory {
     public static Builder builder(OrderShipmentHistory defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> additionalDetails;
         private @Nullable String comments;
         private @Nullable String lastUpdate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrderShipmentHistory defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.additionalDetails = defaults.additionalDetails;
@@ -84,19 +71,27 @@ public final class OrderShipmentHistory {
     	      this.lastUpdate = defaults.lastUpdate;
         }
 
+        @CustomType.Setter
         public Builder additionalDetails(@Nullable Map<String,String> additionalDetails) {
             this.additionalDetails = additionalDetails;
             return this;
         }
+        @CustomType.Setter
         public Builder comments(@Nullable String comments) {
             this.comments = comments;
             return this;
         }
+        @CustomType.Setter
         public Builder lastUpdate(@Nullable String lastUpdate) {
             this.lastUpdate = lastUpdate;
             return this;
-        }        public OrderShipmentHistory build() {
-            return new OrderShipmentHistory(additionalDetails, comments, lastUpdate);
+        }
+        public OrderShipmentHistory build() {
+            final var o = new OrderShipmentHistory();
+            o.additionalDetails = additionalDetails;
+            o.comments = comments;
+            o.lastUpdate = lastUpdate;
+            return o;
         }
     }
 }

@@ -17,28 +17,19 @@ public final class InteractiveQueryClusterMetastores {
      * @return An `ambari` block as defined below.
      * 
      */
-    private final @Nullable InteractiveQueryClusterMetastoresAmbari ambari;
+    private @Nullable InteractiveQueryClusterMetastoresAmbari ambari;
     /**
      * @return A `hive` block as defined below.
      * 
      */
-    private final @Nullable InteractiveQueryClusterMetastoresHive hive;
+    private @Nullable InteractiveQueryClusterMetastoresHive hive;
     /**
      * @return An `oozie` block as defined below.
      * 
      */
-    private final @Nullable InteractiveQueryClusterMetastoresOozie oozie;
+    private @Nullable InteractiveQueryClusterMetastoresOozie oozie;
 
-    @CustomType.Constructor
-    private InteractiveQueryClusterMetastores(
-        @CustomType.Parameter("ambari") @Nullable InteractiveQueryClusterMetastoresAmbari ambari,
-        @CustomType.Parameter("hive") @Nullable InteractiveQueryClusterMetastoresHive hive,
-        @CustomType.Parameter("oozie") @Nullable InteractiveQueryClusterMetastoresOozie oozie) {
-        this.ambari = ambari;
-        this.hive = hive;
-        this.oozie = oozie;
-    }
-
+    private InteractiveQueryClusterMetastores() {}
     /**
      * @return An `ambari` block as defined below.
      * 
@@ -68,16 +59,12 @@ public final class InteractiveQueryClusterMetastores {
     public static Builder builder(InteractiveQueryClusterMetastores defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable InteractiveQueryClusterMetastoresAmbari ambari;
         private @Nullable InteractiveQueryClusterMetastoresHive hive;
         private @Nullable InteractiveQueryClusterMetastoresOozie oozie;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InteractiveQueryClusterMetastores defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ambari = defaults.ambari;
@@ -85,19 +72,27 @@ public final class InteractiveQueryClusterMetastores {
     	      this.oozie = defaults.oozie;
         }
 
+        @CustomType.Setter
         public Builder ambari(@Nullable InteractiveQueryClusterMetastoresAmbari ambari) {
             this.ambari = ambari;
             return this;
         }
+        @CustomType.Setter
         public Builder hive(@Nullable InteractiveQueryClusterMetastoresHive hive) {
             this.hive = hive;
             return this;
         }
+        @CustomType.Setter
         public Builder oozie(@Nullable InteractiveQueryClusterMetastoresOozie oozie) {
             this.oozie = oozie;
             return this;
-        }        public InteractiveQueryClusterMetastores build() {
-            return new InteractiveQueryClusterMetastores(ambari, hive, oozie);
+        }
+        public InteractiveQueryClusterMetastores build() {
+            final var o = new InteractiveQueryClusterMetastores();
+            o.ambari = ambari;
+            o.hive = hive;
+            o.oozie = oozie;
+            return o;
         }
     }
 }

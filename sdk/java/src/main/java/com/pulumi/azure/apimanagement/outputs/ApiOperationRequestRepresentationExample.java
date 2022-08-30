@@ -15,42 +15,29 @@ public final class ApiOperationRequestRepresentationExample {
      * @return A long description for this example.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return A URL that points to the literal example.
      * 
      */
-    private final @Nullable String externalValue;
+    private @Nullable String externalValue;
     /**
      * @return The name of this example.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A short description for this example.
      * 
      */
-    private final @Nullable String summary;
+    private @Nullable String summary;
     /**
      * @return The example of the representation.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private ApiOperationRequestRepresentationExample(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("externalValue") @Nullable String externalValue,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("summary") @Nullable String summary,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.description = description;
-        this.externalValue = externalValue;
-        this.name = name;
-        this.summary = summary;
-        this.value = value;
-    }
-
+    private ApiOperationRequestRepresentationExample() {}
     /**
      * @return A long description for this example.
      * 
@@ -94,18 +81,14 @@ public final class ApiOperationRequestRepresentationExample {
     public static Builder builder(ApiOperationRequestRepresentationExample defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private @Nullable String externalValue;
         private String name;
         private @Nullable String summary;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApiOperationRequestRepresentationExample defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -115,27 +98,39 @@ public final class ApiOperationRequestRepresentationExample {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder externalValue(@Nullable String externalValue) {
             this.externalValue = externalValue;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder summary(@Nullable String summary) {
             this.summary = summary;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public ApiOperationRequestRepresentationExample build() {
-            return new ApiOperationRequestRepresentationExample(description, externalValue, name, summary, value);
+        }
+        public ApiOperationRequestRepresentationExample build() {
+            final var o = new ApiOperationRequestRepresentationExample();
+            o.description = description;
+            o.externalValue = externalValue;
+            o.name = name;
+            o.summary = summary;
+            o.value = value;
+            return o;
         }
     }
 }

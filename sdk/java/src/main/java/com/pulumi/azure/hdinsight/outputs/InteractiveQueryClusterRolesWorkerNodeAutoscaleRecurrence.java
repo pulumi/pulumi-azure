@@ -15,21 +15,14 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence {
      * @return A list of `schedule` blocks as defined below.
      * 
      */
-    private final List<InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule> schedules;
+    private List<InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule> schedules;
     /**
      * @return The time zone for the autoscale schedule times.
      * 
      */
-    private final String timezone;
+    private String timezone;
 
-    @CustomType.Constructor
-    private InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence(
-        @CustomType.Parameter("schedules") List<InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule> schedules,
-        @CustomType.Parameter("timezone") String timezone) {
-        this.schedules = schedules;
-        this.timezone = timezone;
-    }
-
+    private InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence() {}
     /**
      * @return A list of `schedule` blocks as defined below.
      * 
@@ -52,21 +45,18 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence {
     public static Builder builder(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule> schedules;
         private String timezone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.schedules = defaults.schedules;
     	      this.timezone = defaults.timezone;
         }
 
+        @CustomType.Setter
         public Builder schedules(List<InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule> schedules) {
             this.schedules = Objects.requireNonNull(schedules);
             return this;
@@ -74,11 +64,16 @@ public final class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence {
         public Builder schedules(InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceSchedule... schedules) {
             return schedules(List.of(schedules));
         }
+        @CustomType.Setter
         public Builder timezone(String timezone) {
             this.timezone = Objects.requireNonNull(timezone);
             return this;
-        }        public InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence build() {
-            return new InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence(schedules, timezone);
+        }
+        public InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence build() {
+            final var o = new InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrence();
+            o.schedules = schedules;
+            o.timezone = timezone;
+            return o;
         }
     }
 }

@@ -16,42 +16,29 @@ public final class GetServiceCorsConfiguration {
      * @return Are credentials are allowed via CORS?
      * 
      */
-    private final Boolean allowCredentials;
+    private Boolean allowCredentials;
     /**
      * @return The set of headers to be allowed via CORS.
      * 
      */
-    private final List<String> allowedHeaders;
+    private List<String> allowedHeaders;
     /**
      * @return The methods to be allowed via CORS.
      * 
      */
-    private final List<String> allowedMethods;
+    private List<String> allowedMethods;
     /**
      * @return The set of origins to be allowed via CORS.
      * 
      */
-    private final List<String> allowedOrigins;
+    private List<String> allowedOrigins;
     /**
      * @return The max age to be allowed via CORS.
      * 
      */
-    private final Integer maxAgeInSeconds;
+    private Integer maxAgeInSeconds;
 
-    @CustomType.Constructor
-    private GetServiceCorsConfiguration(
-        @CustomType.Parameter("allowCredentials") Boolean allowCredentials,
-        @CustomType.Parameter("allowedHeaders") List<String> allowedHeaders,
-        @CustomType.Parameter("allowedMethods") List<String> allowedMethods,
-        @CustomType.Parameter("allowedOrigins") List<String> allowedOrigins,
-        @CustomType.Parameter("maxAgeInSeconds") Integer maxAgeInSeconds) {
-        this.allowCredentials = allowCredentials;
-        this.allowedHeaders = allowedHeaders;
-        this.allowedMethods = allowedMethods;
-        this.allowedOrigins = allowedOrigins;
-        this.maxAgeInSeconds = maxAgeInSeconds;
-    }
-
+    private GetServiceCorsConfiguration() {}
     /**
      * @return Are credentials are allowed via CORS?
      * 
@@ -95,18 +82,14 @@ public final class GetServiceCorsConfiguration {
     public static Builder builder(GetServiceCorsConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean allowCredentials;
         private List<String> allowedHeaders;
         private List<String> allowedMethods;
         private List<String> allowedOrigins;
         private Integer maxAgeInSeconds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceCorsConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowCredentials = defaults.allowCredentials;
@@ -116,10 +99,12 @@ public final class GetServiceCorsConfiguration {
     	      this.maxAgeInSeconds = defaults.maxAgeInSeconds;
         }
 
+        @CustomType.Setter
         public Builder allowCredentials(Boolean allowCredentials) {
             this.allowCredentials = Objects.requireNonNull(allowCredentials);
             return this;
         }
+        @CustomType.Setter
         public Builder allowedHeaders(List<String> allowedHeaders) {
             this.allowedHeaders = Objects.requireNonNull(allowedHeaders);
             return this;
@@ -127,6 +112,7 @@ public final class GetServiceCorsConfiguration {
         public Builder allowedHeaders(String... allowedHeaders) {
             return allowedHeaders(List.of(allowedHeaders));
         }
+        @CustomType.Setter
         public Builder allowedMethods(List<String> allowedMethods) {
             this.allowedMethods = Objects.requireNonNull(allowedMethods);
             return this;
@@ -134,6 +120,7 @@ public final class GetServiceCorsConfiguration {
         public Builder allowedMethods(String... allowedMethods) {
             return allowedMethods(List.of(allowedMethods));
         }
+        @CustomType.Setter
         public Builder allowedOrigins(List<String> allowedOrigins) {
             this.allowedOrigins = Objects.requireNonNull(allowedOrigins);
             return this;
@@ -141,11 +128,19 @@ public final class GetServiceCorsConfiguration {
         public Builder allowedOrigins(String... allowedOrigins) {
             return allowedOrigins(List.of(allowedOrigins));
         }
+        @CustomType.Setter
         public Builder maxAgeInSeconds(Integer maxAgeInSeconds) {
             this.maxAgeInSeconds = Objects.requireNonNull(maxAgeInSeconds);
             return this;
-        }        public GetServiceCorsConfiguration build() {
-            return new GetServiceCorsConfiguration(allowCredentials, allowedHeaders, allowedMethods, allowedOrigins, maxAgeInSeconds);
+        }
+        public GetServiceCorsConfiguration build() {
+            final var o = new GetServiceCorsConfiguration();
+            o.allowCredentials = allowCredentials;
+            o.allowedHeaders = allowedHeaders;
+            o.allowedMethods = allowedMethods;
+            o.allowedOrigins = allowedOrigins;
+            o.maxAgeInSeconds = maxAgeInSeconds;
+            return o;
         }
     }
 }

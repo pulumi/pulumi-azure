@@ -15,21 +15,14 @@ public final class VirtualMachineStorageConfigurationDataSettings {
      * @return The SQL Server default path
      * 
      */
-    private final String defaultFilePath;
+    private String defaultFilePath;
     /**
      * @return A list of Logical Unit Numbers for the disks.
      * 
      */
-    private final List<Integer> luns;
+    private List<Integer> luns;
 
-    @CustomType.Constructor
-    private VirtualMachineStorageConfigurationDataSettings(
-        @CustomType.Parameter("defaultFilePath") String defaultFilePath,
-        @CustomType.Parameter("luns") List<Integer> luns) {
-        this.defaultFilePath = defaultFilePath;
-        this.luns = luns;
-    }
-
+    private VirtualMachineStorageConfigurationDataSettings() {}
     /**
      * @return The SQL Server default path
      * 
@@ -52,33 +45,35 @@ public final class VirtualMachineStorageConfigurationDataSettings {
     public static Builder builder(VirtualMachineStorageConfigurationDataSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String defaultFilePath;
         private List<Integer> luns;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualMachineStorageConfigurationDataSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultFilePath = defaults.defaultFilePath;
     	      this.luns = defaults.luns;
         }
 
+        @CustomType.Setter
         public Builder defaultFilePath(String defaultFilePath) {
             this.defaultFilePath = Objects.requireNonNull(defaultFilePath);
             return this;
         }
+        @CustomType.Setter
         public Builder luns(List<Integer> luns) {
             this.luns = Objects.requireNonNull(luns);
             return this;
         }
         public Builder luns(Integer... luns) {
             return luns(List.of(luns));
-        }        public VirtualMachineStorageConfigurationDataSettings build() {
-            return new VirtualMachineStorageConfigurationDataSettings(defaultFilePath, luns);
+        }
+        public VirtualMachineStorageConfigurationDataSettings build() {
+            final var o = new VirtualMachineStorageConfigurationDataSettings();
+            o.defaultFilePath = defaultFilePath;
+            o.luns = luns;
+            return o;
         }
     }
 }

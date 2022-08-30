@@ -13,21 +13,14 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPubli
      * @return The IP Tag associated with the Public IP.
      * 
      */
-    private final String tag;
+    private String tag;
     /**
      * @return The Type of IP Tag.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag(
-        @CustomType.Parameter("tag") String tag,
-        @CustomType.Parameter("type") String type) {
-        this.tag = tag;
-        this.type = type;
-    }
-
+    private GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag() {}
     /**
      * @return The IP Tag associated with the Public IP.
      * 
@@ -50,30 +43,32 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPubli
     public static Builder builder(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String tag;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.tag = defaults.tag;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder tag(String tag) {
             this.tag = Objects.requireNonNull(tag);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag build() {
-            return new GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag(tag, type);
+        }
+        public GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag build() {
+            final var o = new GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag();
+            o.tag = tag;
+            o.type = type;
+            return o;
         }
     }
 }

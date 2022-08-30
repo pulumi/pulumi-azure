@@ -18,49 +18,34 @@ public final class SpringCloudGatewayCors {
      * @return Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
      * 
      */
-    private final @Nullable List<String> allowedHeaders;
+    private @Nullable List<String> allowedHeaders;
     /**
      * @return Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default.
      * 
      */
-    private final @Nullable List<String> allowedMethods;
+    private @Nullable List<String> allowedMethods;
     /**
      * @return Allowed origins to make cross-site requests. The special value `*` allows all domains.
      * 
      */
-    private final @Nullable List<String> allowedOrigins;
+    private @Nullable List<String> allowedOrigins;
     /**
      * @return is user credentials are supported on cross-site requests?
      * 
      */
-    private final @Nullable Boolean credentialsAllowed;
+    private @Nullable Boolean credentialsAllowed;
     /**
      * @return HTTP response headers to expose for cross-site requests.
      * 
      */
-    private final @Nullable List<String> exposedHeaders;
+    private @Nullable List<String> exposedHeaders;
     /**
      * @return How long, in seconds, the response from a pre-flight request can be cached by clients.
      * 
      */
-    private final @Nullable Integer maxAgeSeconds;
+    private @Nullable Integer maxAgeSeconds;
 
-    @CustomType.Constructor
-    private SpringCloudGatewayCors(
-        @CustomType.Parameter("allowedHeaders") @Nullable List<String> allowedHeaders,
-        @CustomType.Parameter("allowedMethods") @Nullable List<String> allowedMethods,
-        @CustomType.Parameter("allowedOrigins") @Nullable List<String> allowedOrigins,
-        @CustomType.Parameter("credentialsAllowed") @Nullable Boolean credentialsAllowed,
-        @CustomType.Parameter("exposedHeaders") @Nullable List<String> exposedHeaders,
-        @CustomType.Parameter("maxAgeSeconds") @Nullable Integer maxAgeSeconds) {
-        this.allowedHeaders = allowedHeaders;
-        this.allowedMethods = allowedMethods;
-        this.allowedOrigins = allowedOrigins;
-        this.credentialsAllowed = credentialsAllowed;
-        this.exposedHeaders = exposedHeaders;
-        this.maxAgeSeconds = maxAgeSeconds;
-    }
-
+    private SpringCloudGatewayCors() {}
     /**
      * @return Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header.
      * 
@@ -111,7 +96,7 @@ public final class SpringCloudGatewayCors {
     public static Builder builder(SpringCloudGatewayCors defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> allowedHeaders;
         private @Nullable List<String> allowedMethods;
@@ -119,11 +104,7 @@ public final class SpringCloudGatewayCors {
         private @Nullable Boolean credentialsAllowed;
         private @Nullable List<String> exposedHeaders;
         private @Nullable Integer maxAgeSeconds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpringCloudGatewayCors defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedHeaders = defaults.allowedHeaders;
@@ -134,6 +115,7 @@ public final class SpringCloudGatewayCors {
     	      this.maxAgeSeconds = defaults.maxAgeSeconds;
         }
 
+        @CustomType.Setter
         public Builder allowedHeaders(@Nullable List<String> allowedHeaders) {
             this.allowedHeaders = allowedHeaders;
             return this;
@@ -141,6 +123,7 @@ public final class SpringCloudGatewayCors {
         public Builder allowedHeaders(String... allowedHeaders) {
             return allowedHeaders(List.of(allowedHeaders));
         }
+        @CustomType.Setter
         public Builder allowedMethods(@Nullable List<String> allowedMethods) {
             this.allowedMethods = allowedMethods;
             return this;
@@ -148,6 +131,7 @@ public final class SpringCloudGatewayCors {
         public Builder allowedMethods(String... allowedMethods) {
             return allowedMethods(List.of(allowedMethods));
         }
+        @CustomType.Setter
         public Builder allowedOrigins(@Nullable List<String> allowedOrigins) {
             this.allowedOrigins = allowedOrigins;
             return this;
@@ -155,10 +139,12 @@ public final class SpringCloudGatewayCors {
         public Builder allowedOrigins(String... allowedOrigins) {
             return allowedOrigins(List.of(allowedOrigins));
         }
+        @CustomType.Setter
         public Builder credentialsAllowed(@Nullable Boolean credentialsAllowed) {
             this.credentialsAllowed = credentialsAllowed;
             return this;
         }
+        @CustomType.Setter
         public Builder exposedHeaders(@Nullable List<String> exposedHeaders) {
             this.exposedHeaders = exposedHeaders;
             return this;
@@ -166,11 +152,20 @@ public final class SpringCloudGatewayCors {
         public Builder exposedHeaders(String... exposedHeaders) {
             return exposedHeaders(List.of(exposedHeaders));
         }
+        @CustomType.Setter
         public Builder maxAgeSeconds(@Nullable Integer maxAgeSeconds) {
             this.maxAgeSeconds = maxAgeSeconds;
             return this;
-        }        public SpringCloudGatewayCors build() {
-            return new SpringCloudGatewayCors(allowedHeaders, allowedMethods, allowedOrigins, credentialsAllowed, exposedHeaders, maxAgeSeconds);
+        }
+        public SpringCloudGatewayCors build() {
+            final var o = new SpringCloudGatewayCors();
+            o.allowedHeaders = allowedHeaders;
+            o.allowedMethods = allowedMethods;
+            o.allowedOrigins = allowedOrigins;
+            o.credentialsAllowed = credentialsAllowed;
+            o.exposedHeaders = exposedHeaders;
+            o.maxAgeSeconds = maxAgeSeconds;
+            return o;
         }
     }
 }

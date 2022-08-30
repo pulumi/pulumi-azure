@@ -19,35 +19,24 @@ public final class RulesEngineRule {
      * @return A `rule_action` block as defined below.
      * 
      */
-    private final @Nullable RulesEngineRuleAction action;
+    private @Nullable RulesEngineRuleAction action;
     /**
      * @return One or more `match_condition` block as defined below.
      * 
      */
-    private final @Nullable List<RulesEngineRuleMatchCondition> matchConditions;
+    private @Nullable List<RulesEngineRuleMatchCondition> matchConditions;
     /**
      * @return The name of the rule.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Priority of the rule, must be unique per rules engine definition.
      * 
      */
-    private final Integer priority;
+    private Integer priority;
 
-    @CustomType.Constructor
-    private RulesEngineRule(
-        @CustomType.Parameter("action") @Nullable RulesEngineRuleAction action,
-        @CustomType.Parameter("matchConditions") @Nullable List<RulesEngineRuleMatchCondition> matchConditions,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("priority") Integer priority) {
-        this.action = action;
-        this.matchConditions = matchConditions;
-        this.name = name;
-        this.priority = priority;
-    }
-
+    private RulesEngineRule() {}
     /**
      * @return A `rule_action` block as defined below.
      * 
@@ -84,17 +73,13 @@ public final class RulesEngineRule {
     public static Builder builder(RulesEngineRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable RulesEngineRuleAction action;
         private @Nullable List<RulesEngineRuleMatchCondition> matchConditions;
         private String name;
         private Integer priority;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RulesEngineRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -103,10 +88,12 @@ public final class RulesEngineRule {
     	      this.priority = defaults.priority;
         }
 
+        @CustomType.Setter
         public Builder action(@Nullable RulesEngineRuleAction action) {
             this.action = action;
             return this;
         }
+        @CustomType.Setter
         public Builder matchConditions(@Nullable List<RulesEngineRuleMatchCondition> matchConditions) {
             this.matchConditions = matchConditions;
             return this;
@@ -114,15 +101,23 @@ public final class RulesEngineRule {
         public Builder matchConditions(RulesEngineRuleMatchCondition... matchConditions) {
             return matchConditions(List.of(matchConditions));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder priority(Integer priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
-        }        public RulesEngineRule build() {
-            return new RulesEngineRule(action, matchConditions, name, priority);
+        }
+        public RulesEngineRule build() {
+            final var o = new RulesEngineRule();
+            o.action = action;
+            o.matchConditions = matchConditions;
+            o.name = name;
+            o.priority = priority;
+            return o;
         }
     }
 }

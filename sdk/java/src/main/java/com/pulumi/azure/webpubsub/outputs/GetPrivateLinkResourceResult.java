@@ -15,24 +15,15 @@ public final class GetPrivateLinkResourceResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A `shared_private_link_resource_types` block as defined below.
      * 
      */
-    private final List<GetPrivateLinkResourceSharedPrivateLinkResourceType> sharedPrivateLinkResourceTypes;
-    private final String webPubsubId;
+    private List<GetPrivateLinkResourceSharedPrivateLinkResourceType> sharedPrivateLinkResourceTypes;
+    private String webPubsubId;
 
-    @CustomType.Constructor
-    private GetPrivateLinkResourceResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("sharedPrivateLinkResourceTypes") List<GetPrivateLinkResourceSharedPrivateLinkResourceType> sharedPrivateLinkResourceTypes,
-        @CustomType.Parameter("webPubsubId") String webPubsubId) {
-        this.id = id;
-        this.sharedPrivateLinkResourceTypes = sharedPrivateLinkResourceTypes;
-        this.webPubsubId = webPubsubId;
-    }
-
+    private GetPrivateLinkResourceResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -58,16 +49,12 @@ public final class GetPrivateLinkResourceResult {
     public static Builder builder(GetPrivateLinkResourceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private List<GetPrivateLinkResourceSharedPrivateLinkResourceType> sharedPrivateLinkResourceTypes;
         private String webPubsubId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPrivateLinkResourceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -75,10 +62,12 @@ public final class GetPrivateLinkResourceResult {
     	      this.webPubsubId = defaults.webPubsubId;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder sharedPrivateLinkResourceTypes(List<GetPrivateLinkResourceSharedPrivateLinkResourceType> sharedPrivateLinkResourceTypes) {
             this.sharedPrivateLinkResourceTypes = Objects.requireNonNull(sharedPrivateLinkResourceTypes);
             return this;
@@ -86,11 +75,17 @@ public final class GetPrivateLinkResourceResult {
         public Builder sharedPrivateLinkResourceTypes(GetPrivateLinkResourceSharedPrivateLinkResourceType... sharedPrivateLinkResourceTypes) {
             return sharedPrivateLinkResourceTypes(List.of(sharedPrivateLinkResourceTypes));
         }
+        @CustomType.Setter
         public Builder webPubsubId(String webPubsubId) {
             this.webPubsubId = Objects.requireNonNull(webPubsubId);
             return this;
-        }        public GetPrivateLinkResourceResult build() {
-            return new GetPrivateLinkResourceResult(id, sharedPrivateLinkResourceTypes, webPubsubId);
+        }
+        public GetPrivateLinkResourceResult build() {
+            final var o = new GetPrivateLinkResourceResult();
+            o.id = id;
+            o.sharedPrivateLinkResourceTypes = sharedPrivateLinkResourceTypes;
+            o.webPubsubId = webPubsubId;
+            return o;
         }
     }
 }

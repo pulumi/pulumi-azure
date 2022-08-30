@@ -18,73 +18,50 @@ public final class GetServiceResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return An `identity` block as defined below.
      * 
      */
-    private final List<GetServiceIdentity> identities;
+    private List<GetServiceIdentity> identities;
     /**
      * @return The name of this Query Key.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The number of partitions which have been created.
      * 
      */
-    private final Integer partitionCount;
+    private Integer partitionCount;
     /**
      * @return The Primary Key used for Search Service Administration.
      * 
      */
-    private final String primaryKey;
+    private String primaryKey;
     /**
      * @return Whether or not public network access is enabled for this resource.
      * 
      */
-    private final Boolean publicNetworkAccessEnabled;
+    private Boolean publicNetworkAccessEnabled;
     /**
      * @return A `query_keys` block as defined below.
      * 
      */
-    private final List<GetServiceQueryKey> queryKeys;
+    private List<GetServiceQueryKey> queryKeys;
     /**
      * @return The number of replica&#39;s which have been created.
      * 
      */
-    private final Integer replicaCount;
-    private final String resourceGroupName;
+    private Integer replicaCount;
+    private String resourceGroupName;
     /**
      * @return The Secondary Key used for Search Service Administration.
      * 
      */
-    private final String secondaryKey;
+    private String secondaryKey;
 
-    @CustomType.Constructor
-    private GetServiceResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetServiceIdentity> identities,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("partitionCount") Integer partitionCount,
-        @CustomType.Parameter("primaryKey") String primaryKey,
-        @CustomType.Parameter("publicNetworkAccessEnabled") Boolean publicNetworkAccessEnabled,
-        @CustomType.Parameter("queryKeys") List<GetServiceQueryKey> queryKeys,
-        @CustomType.Parameter("replicaCount") Integer replicaCount,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("secondaryKey") String secondaryKey) {
-        this.id = id;
-        this.identities = identities;
-        this.name = name;
-        this.partitionCount = partitionCount;
-        this.primaryKey = primaryKey;
-        this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-        this.queryKeys = queryKeys;
-        this.replicaCount = replicaCount;
-        this.resourceGroupName = resourceGroupName;
-        this.secondaryKey = secondaryKey;
-    }
-
+    private GetServiceResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -159,7 +136,7 @@ public final class GetServiceResult {
     public static Builder builder(GetServiceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private List<GetServiceIdentity> identities;
@@ -171,11 +148,7 @@ public final class GetServiceResult {
         private Integer replicaCount;
         private String resourceGroupName;
         private String secondaryKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -190,10 +163,12 @@ public final class GetServiceResult {
     	      this.secondaryKey = defaults.secondaryKey;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetServiceIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -201,22 +176,27 @@ public final class GetServiceResult {
         public Builder identities(GetServiceIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder partitionCount(Integer partitionCount) {
             this.partitionCount = Objects.requireNonNull(partitionCount);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryKey(String primaryKey) {
             this.primaryKey = Objects.requireNonNull(primaryKey);
             return this;
         }
+        @CustomType.Setter
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
             this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder queryKeys(List<GetServiceQueryKey> queryKeys) {
             this.queryKeys = Objects.requireNonNull(queryKeys);
             return this;
@@ -224,19 +204,34 @@ public final class GetServiceResult {
         public Builder queryKeys(GetServiceQueryKey... queryKeys) {
             return queryKeys(List.of(queryKeys));
         }
+        @CustomType.Setter
         public Builder replicaCount(Integer replicaCount) {
             this.replicaCount = Objects.requireNonNull(replicaCount);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryKey(String secondaryKey) {
             this.secondaryKey = Objects.requireNonNull(secondaryKey);
             return this;
-        }        public GetServiceResult build() {
-            return new GetServiceResult(id, identities, name, partitionCount, primaryKey, publicNetworkAccessEnabled, queryKeys, replicaCount, resourceGroupName, secondaryKey);
+        }
+        public GetServiceResult build() {
+            final var o = new GetServiceResult();
+            o.id = id;
+            o.identities = identities;
+            o.name = name;
+            o.partitionCount = partitionCount;
+            o.primaryKey = primaryKey;
+            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            o.queryKeys = queryKeys;
+            o.replicaCount = replicaCount;
+            o.resourceGroupName = resourceGroupName;
+            o.secondaryKey = secondaryKey;
+            return o;
         }
     }
 }

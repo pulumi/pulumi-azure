@@ -15,28 +15,19 @@ public final class AutoscaleSettingProfileFixedDate {
      * @return Specifies the end date for the profile, formatted as an RFC3339 date string.
      * 
      */
-    private final String end;
+    private String end;
     /**
      * @return Specifies the start date for the profile, formatted as an RFC3339 date string.
      * 
      */
-    private final String start;
+    private String start;
     /**
      * @return The Time Zone of the `start` and `end` times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to `UTC`.
      * 
      */
-    private final @Nullable String timezone;
+    private @Nullable String timezone;
 
-    @CustomType.Constructor
-    private AutoscaleSettingProfileFixedDate(
-        @CustomType.Parameter("end") String end,
-        @CustomType.Parameter("start") String start,
-        @CustomType.Parameter("timezone") @Nullable String timezone) {
-        this.end = end;
-        this.start = start;
-        this.timezone = timezone;
-    }
-
+    private AutoscaleSettingProfileFixedDate() {}
     /**
      * @return Specifies the end date for the profile, formatted as an RFC3339 date string.
      * 
@@ -66,16 +57,12 @@ public final class AutoscaleSettingProfileFixedDate {
     public static Builder builder(AutoscaleSettingProfileFixedDate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String end;
         private String start;
         private @Nullable String timezone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AutoscaleSettingProfileFixedDate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.end = defaults.end;
@@ -83,19 +70,27 @@ public final class AutoscaleSettingProfileFixedDate {
     	      this.timezone = defaults.timezone;
         }
 
+        @CustomType.Setter
         public Builder end(String end) {
             this.end = Objects.requireNonNull(end);
             return this;
         }
+        @CustomType.Setter
         public Builder start(String start) {
             this.start = Objects.requireNonNull(start);
             return this;
         }
+        @CustomType.Setter
         public Builder timezone(@Nullable String timezone) {
             this.timezone = timezone;
             return this;
-        }        public AutoscaleSettingProfileFixedDate build() {
-            return new AutoscaleSettingProfileFixedDate(end, start, timezone);
+        }
+        public AutoscaleSettingProfileFixedDate build() {
+            final var o = new AutoscaleSettingProfileFixedDate();
+            o.end = end;
+            o.start = start;
+            o.timezone = timezone;
+            return o;
         }
     }
 }

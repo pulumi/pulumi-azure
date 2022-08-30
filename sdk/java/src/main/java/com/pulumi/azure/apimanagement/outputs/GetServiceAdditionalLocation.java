@@ -15,56 +15,39 @@ public final class GetServiceAdditionalLocation {
      * @return Specifies the number of units associated with this API Management service.
      * 
      */
-    private final Integer capacity;
+    private Integer capacity;
     /**
      * @return Gateway URL of the API Management service in the Region.
      * 
      */
-    private final String gatewayRegionalUrl;
+    private String gatewayRegionalUrl;
     /**
      * @return The location name of the additional region among Azure Data center regions.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return Private IP addresses of the API Management service in the additional location, for instances using virtual network mode.
      * 
      */
-    private final List<String> privateIpAddresses;
+    private List<String> privateIpAddresses;
     /**
      * @return ID of the standard SKU IPv4 Public IP. Available only for Premium SKU deployed in a virtual network.
      * 
      */
-    private final String publicIpAddressId;
+    private String publicIpAddressId;
     /**
      * @return Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
      * 
      */
-    private final List<String> publicIpAddresses;
+    private List<String> publicIpAddresses;
     /**
      * @return List of the availability zones where API Management is deployed in the additional region exists.
      * 
      */
-    private final List<String> zones;
+    private List<String> zones;
 
-    @CustomType.Constructor
-    private GetServiceAdditionalLocation(
-        @CustomType.Parameter("capacity") Integer capacity,
-        @CustomType.Parameter("gatewayRegionalUrl") String gatewayRegionalUrl,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("privateIpAddresses") List<String> privateIpAddresses,
-        @CustomType.Parameter("publicIpAddressId") String publicIpAddressId,
-        @CustomType.Parameter("publicIpAddresses") List<String> publicIpAddresses,
-        @CustomType.Parameter("zones") List<String> zones) {
-        this.capacity = capacity;
-        this.gatewayRegionalUrl = gatewayRegionalUrl;
-        this.location = location;
-        this.privateIpAddresses = privateIpAddresses;
-        this.publicIpAddressId = publicIpAddressId;
-        this.publicIpAddresses = publicIpAddresses;
-        this.zones = zones;
-    }
-
+    private GetServiceAdditionalLocation() {}
     /**
      * @return Specifies the number of units associated with this API Management service.
      * 
@@ -122,7 +105,7 @@ public final class GetServiceAdditionalLocation {
     public static Builder builder(GetServiceAdditionalLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer capacity;
         private String gatewayRegionalUrl;
@@ -131,11 +114,7 @@ public final class GetServiceAdditionalLocation {
         private String publicIpAddressId;
         private List<String> publicIpAddresses;
         private List<String> zones;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceAdditionalLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacity = defaults.capacity;
@@ -147,18 +126,22 @@ public final class GetServiceAdditionalLocation {
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
         public Builder capacity(Integer capacity) {
             this.capacity = Objects.requireNonNull(capacity);
             return this;
         }
+        @CustomType.Setter
         public Builder gatewayRegionalUrl(String gatewayRegionalUrl) {
             this.gatewayRegionalUrl = Objects.requireNonNull(gatewayRegionalUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddresses(List<String> privateIpAddresses) {
             this.privateIpAddresses = Objects.requireNonNull(privateIpAddresses);
             return this;
@@ -166,10 +149,12 @@ public final class GetServiceAdditionalLocation {
         public Builder privateIpAddresses(String... privateIpAddresses) {
             return privateIpAddresses(List.of(privateIpAddresses));
         }
+        @CustomType.Setter
         public Builder publicIpAddressId(String publicIpAddressId) {
             this.publicIpAddressId = Objects.requireNonNull(publicIpAddressId);
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpAddresses(List<String> publicIpAddresses) {
             this.publicIpAddresses = Objects.requireNonNull(publicIpAddresses);
             return this;
@@ -177,14 +162,24 @@ public final class GetServiceAdditionalLocation {
         public Builder publicIpAddresses(String... publicIpAddresses) {
             return publicIpAddresses(List.of(publicIpAddresses));
         }
+        @CustomType.Setter
         public Builder zones(List<String> zones) {
             this.zones = Objects.requireNonNull(zones);
             return this;
         }
         public Builder zones(String... zones) {
             return zones(List.of(zones));
-        }        public GetServiceAdditionalLocation build() {
-            return new GetServiceAdditionalLocation(capacity, gatewayRegionalUrl, location, privateIpAddresses, publicIpAddressId, publicIpAddresses, zones);
+        }
+        public GetServiceAdditionalLocation build() {
+            final var o = new GetServiceAdditionalLocation();
+            o.capacity = capacity;
+            o.gatewayRegionalUrl = gatewayRegionalUrl;
+            o.location = location;
+            o.privateIpAddresses = privateIpAddresses;
+            o.publicIpAddressId = publicIpAddressId;
+            o.publicIpAddresses = publicIpAddresses;
+            o.zones = zones;
+            return o;
         }
     }
 }

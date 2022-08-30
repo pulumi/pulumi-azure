@@ -13,35 +13,24 @@ public final class GetRouteTableRoute {
      * @return The destination CIDR to which the route applies.
      * 
      */
-    private final String addressPrefix;
+    private String addressPrefix;
     /**
      * @return The name of the Route Table.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Contains the IP address packets should be forwarded to.
      * 
      */
-    private final String nextHopInIpAddress;
+    private String nextHopInIpAddress;
     /**
      * @return The type of Azure hop the packet should be sent to.
      * 
      */
-    private final String nextHopType;
+    private String nextHopType;
 
-    @CustomType.Constructor
-    private GetRouteTableRoute(
-        @CustomType.Parameter("addressPrefix") String addressPrefix,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nextHopInIpAddress") String nextHopInIpAddress,
-        @CustomType.Parameter("nextHopType") String nextHopType) {
-        this.addressPrefix = addressPrefix;
-        this.name = name;
-        this.nextHopInIpAddress = nextHopInIpAddress;
-        this.nextHopType = nextHopType;
-    }
-
+    private GetRouteTableRoute() {}
     /**
      * @return The destination CIDR to which the route applies.
      * 
@@ -78,17 +67,13 @@ public final class GetRouteTableRoute {
     public static Builder builder(GetRouteTableRoute defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String addressPrefix;
         private String name;
         private String nextHopInIpAddress;
         private String nextHopType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRouteTableRoute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addressPrefix = defaults.addressPrefix;
@@ -97,23 +82,33 @@ public final class GetRouteTableRoute {
     	      this.nextHopType = defaults.nextHopType;
         }
 
+        @CustomType.Setter
         public Builder addressPrefix(String addressPrefix) {
             this.addressPrefix = Objects.requireNonNull(addressPrefix);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nextHopInIpAddress(String nextHopInIpAddress) {
             this.nextHopInIpAddress = Objects.requireNonNull(nextHopInIpAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder nextHopType(String nextHopType) {
             this.nextHopType = Objects.requireNonNull(nextHopType);
             return this;
-        }        public GetRouteTableRoute build() {
-            return new GetRouteTableRoute(addressPrefix, name, nextHopInIpAddress, nextHopType);
+        }
+        public GetRouteTableRoute build() {
+            final var o = new GetRouteTableRoute();
+            o.addressPrefix = addressPrefix;
+            o.name = name;
+            o.nextHopInIpAddress = nextHopInIpAddress;
+            o.nextHopType = nextHopType;
+            return o;
         }
     }
 }

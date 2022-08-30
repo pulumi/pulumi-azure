@@ -15,59 +15,38 @@ public final class GetVirtualMachineResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A `identity` block as defined below.
      * *
      * 
      */
-    private final List<GetVirtualMachineIdentity> identities;
-    private final String location;
-    private final String name;
+    private List<GetVirtualMachineIdentity> identities;
+    private String location;
+    private String name;
     /**
      * @return The Primary Private IP Address assigned to this Virtual Machine.
      * 
      */
-    private final String privateIpAddress;
+    private String privateIpAddress;
     /**
      * @return A list of Private IP Addresses assigned to this Virtual Machine.
      * 
      */
-    private final List<String> privateIpAddresses;
+    private List<String> privateIpAddresses;
     /**
      * @return The Primary Public IP Address assigned to this Virtual Machine.
      * 
      */
-    private final String publicIpAddress;
+    private String publicIpAddress;
     /**
      * @return A list of the Public IP Addresses assigned to this Virtual Machine.
      * 
      */
-    private final List<String> publicIpAddresses;
-    private final String resourceGroupName;
+    private List<String> publicIpAddresses;
+    private String resourceGroupName;
 
-    @CustomType.Constructor
-    private GetVirtualMachineResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetVirtualMachineIdentity> identities,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("privateIpAddress") String privateIpAddress,
-        @CustomType.Parameter("privateIpAddresses") List<String> privateIpAddresses,
-        @CustomType.Parameter("publicIpAddress") String publicIpAddress,
-        @CustomType.Parameter("publicIpAddresses") List<String> publicIpAddresses,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName) {
-        this.id = id;
-        this.identities = identities;
-        this.location = location;
-        this.name = name;
-        this.privateIpAddress = privateIpAddress;
-        this.privateIpAddresses = privateIpAddresses;
-        this.publicIpAddress = publicIpAddress;
-        this.publicIpAddresses = publicIpAddresses;
-        this.resourceGroupName = resourceGroupName;
-    }
-
+    private GetVirtualMachineResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -128,7 +107,7 @@ public final class GetVirtualMachineResult {
     public static Builder builder(GetVirtualMachineResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private List<GetVirtualMachineIdentity> identities;
@@ -139,11 +118,7 @@ public final class GetVirtualMachineResult {
         private String publicIpAddress;
         private List<String> publicIpAddresses;
         private String resourceGroupName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualMachineResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -157,10 +132,12 @@ public final class GetVirtualMachineResult {
     	      this.resourceGroupName = defaults.resourceGroupName;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetVirtualMachineIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -168,18 +145,22 @@ public final class GetVirtualMachineResult {
         public Builder identities(GetVirtualMachineIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
             this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddresses(List<String> privateIpAddresses) {
             this.privateIpAddresses = Objects.requireNonNull(privateIpAddresses);
             return this;
@@ -187,10 +168,12 @@ public final class GetVirtualMachineResult {
         public Builder privateIpAddresses(String... privateIpAddresses) {
             return privateIpAddresses(List.of(privateIpAddresses));
         }
+        @CustomType.Setter
         public Builder publicIpAddress(String publicIpAddress) {
             this.publicIpAddress = Objects.requireNonNull(publicIpAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpAddresses(List<String> publicIpAddresses) {
             this.publicIpAddresses = Objects.requireNonNull(publicIpAddresses);
             return this;
@@ -198,11 +181,23 @@ public final class GetVirtualMachineResult {
         public Builder publicIpAddresses(String... publicIpAddresses) {
             return publicIpAddresses(List.of(publicIpAddresses));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
-        }        public GetVirtualMachineResult build() {
-            return new GetVirtualMachineResult(id, identities, location, name, privateIpAddress, privateIpAddresses, publicIpAddress, publicIpAddresses, resourceGroupName);
+        }
+        public GetVirtualMachineResult build() {
+            final var o = new GetVirtualMachineResult();
+            o.id = id;
+            o.identities = identities;
+            o.location = location;
+            o.name = name;
+            o.privateIpAddress = privateIpAddress;
+            o.privateIpAddresses = privateIpAddresses;
+            o.publicIpAddress = publicIpAddress;
+            o.publicIpAddresses = publicIpAddresses;
+            o.resourceGroupName = resourceGroupName;
+            return o;
         }
     }
 }

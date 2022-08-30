@@ -15,21 +15,14 @@ public final class ManagedInstanceFailoverGroupPartnerRegion {
      * @return The Azure Region where the SQL Instance Failover Group exists.
      * 
      */
-    private final @Nullable String location;
+    private @Nullable String location;
     /**
      * @return The partner replication role of the SQL Instance Failover Group.
      * 
      */
-    private final @Nullable String role;
+    private @Nullable String role;
 
-    @CustomType.Constructor
-    private ManagedInstanceFailoverGroupPartnerRegion(
-        @CustomType.Parameter("location") @Nullable String location,
-        @CustomType.Parameter("role") @Nullable String role) {
-        this.location = location;
-        this.role = role;
-    }
-
+    private ManagedInstanceFailoverGroupPartnerRegion() {}
     /**
      * @return The Azure Region where the SQL Instance Failover Group exists.
      * 
@@ -52,30 +45,32 @@ public final class ManagedInstanceFailoverGroupPartnerRegion {
     public static Builder builder(ManagedInstanceFailoverGroupPartnerRegion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String location;
         private @Nullable String role;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ManagedInstanceFailoverGroupPartnerRegion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.location = defaults.location;
     	      this.role = defaults.role;
         }
 
+        @CustomType.Setter
         public Builder location(@Nullable String location) {
             this.location = location;
             return this;
         }
+        @CustomType.Setter
         public Builder role(@Nullable String role) {
             this.role = role;
             return this;
-        }        public ManagedInstanceFailoverGroupPartnerRegion build() {
-            return new ManagedInstanceFailoverGroupPartnerRegion(location, role);
+        }
+        public ManagedInstanceFailoverGroupPartnerRegion build() {
+            final var o = new ManagedInstanceFailoverGroupPartnerRegion();
+            o.location = location;
+            o.role = role;
+            return o;
         }
     }
 }

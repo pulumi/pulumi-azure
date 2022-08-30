@@ -15,49 +15,34 @@ public final class FrontdoorRoutingRuleRedirectConfiguration {
      * @return The destination fragment in the portion of URL after &#39;#&#39;. Set this to add a fragment to the redirect URL.
      * 
      */
-    private final @Nullable String customFragment;
+    private @Nullable String customFragment;
     /**
      * @return Set this to change the URL for the redirection.
      * 
      */
-    private final @Nullable String customHost;
+    private @Nullable String customHost;
     /**
      * @return The path to retain as per the incoming request, or update in the URL for the redirection.
      * 
      */
-    private final @Nullable String customPath;
+    private @Nullable String customPath;
     /**
      * @return Replace any existing query string from the incoming request URL.
      * 
      */
-    private final @Nullable String customQueryString;
+    private @Nullable String customQueryString;
     /**
      * @return Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `MatchRequest`
      * 
      */
-    private final String redirectProtocol;
+    private String redirectProtocol;
     /**
      * @return Status code for the redirect. Valida options are `Moved`, `Found`, `TemporaryRedirect`, `PermanentRedirect`.
      * 
      */
-    private final String redirectType;
+    private String redirectType;
 
-    @CustomType.Constructor
-    private FrontdoorRoutingRuleRedirectConfiguration(
-        @CustomType.Parameter("customFragment") @Nullable String customFragment,
-        @CustomType.Parameter("customHost") @Nullable String customHost,
-        @CustomType.Parameter("customPath") @Nullable String customPath,
-        @CustomType.Parameter("customQueryString") @Nullable String customQueryString,
-        @CustomType.Parameter("redirectProtocol") String redirectProtocol,
-        @CustomType.Parameter("redirectType") String redirectType) {
-        this.customFragment = customFragment;
-        this.customHost = customHost;
-        this.customPath = customPath;
-        this.customQueryString = customQueryString;
-        this.redirectProtocol = redirectProtocol;
-        this.redirectType = redirectType;
-    }
-
+    private FrontdoorRoutingRuleRedirectConfiguration() {}
     /**
      * @return The destination fragment in the portion of URL after &#39;#&#39;. Set this to add a fragment to the redirect URL.
      * 
@@ -108,7 +93,7 @@ public final class FrontdoorRoutingRuleRedirectConfiguration {
     public static Builder builder(FrontdoorRoutingRuleRedirectConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String customFragment;
         private @Nullable String customHost;
@@ -116,11 +101,7 @@ public final class FrontdoorRoutingRuleRedirectConfiguration {
         private @Nullable String customQueryString;
         private String redirectProtocol;
         private String redirectType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrontdoorRoutingRuleRedirectConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customFragment = defaults.customFragment;
@@ -131,31 +112,45 @@ public final class FrontdoorRoutingRuleRedirectConfiguration {
     	      this.redirectType = defaults.redirectType;
         }
 
+        @CustomType.Setter
         public Builder customFragment(@Nullable String customFragment) {
             this.customFragment = customFragment;
             return this;
         }
+        @CustomType.Setter
         public Builder customHost(@Nullable String customHost) {
             this.customHost = customHost;
             return this;
         }
+        @CustomType.Setter
         public Builder customPath(@Nullable String customPath) {
             this.customPath = customPath;
             return this;
         }
+        @CustomType.Setter
         public Builder customQueryString(@Nullable String customQueryString) {
             this.customQueryString = customQueryString;
             return this;
         }
+        @CustomType.Setter
         public Builder redirectProtocol(String redirectProtocol) {
             this.redirectProtocol = Objects.requireNonNull(redirectProtocol);
             return this;
         }
+        @CustomType.Setter
         public Builder redirectType(String redirectType) {
             this.redirectType = Objects.requireNonNull(redirectType);
             return this;
-        }        public FrontdoorRoutingRuleRedirectConfiguration build() {
-            return new FrontdoorRoutingRuleRedirectConfiguration(customFragment, customHost, customPath, customQueryString, redirectProtocol, redirectType);
+        }
+        public FrontdoorRoutingRuleRedirectConfiguration build() {
+            final var o = new FrontdoorRoutingRuleRedirectConfiguration();
+            o.customFragment = customFragment;
+            o.customHost = customHost;
+            o.customPath = customPath;
+            o.customQueryString = customQueryString;
+            o.redirectProtocol = redirectProtocol;
+            o.redirectType = redirectType;
+            return o;
         }
     }
 }

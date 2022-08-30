@@ -14,21 +14,14 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSetting {
      * @return A `action` block as defined above.
      * 
      */
-    private final WindowsWebAppSlotSiteConfigAutoHealSettingAction action;
+    private WindowsWebAppSlotSiteConfigAutoHealSettingAction action;
     /**
      * @return A `trigger` block as defined below.
      * 
      */
-    private final WindowsWebAppSlotSiteConfigAutoHealSettingTrigger trigger;
+    private WindowsWebAppSlotSiteConfigAutoHealSettingTrigger trigger;
 
-    @CustomType.Constructor
-    private WindowsWebAppSlotSiteConfigAutoHealSetting(
-        @CustomType.Parameter("action") WindowsWebAppSlotSiteConfigAutoHealSettingAction action,
-        @CustomType.Parameter("trigger") WindowsWebAppSlotSiteConfigAutoHealSettingTrigger trigger) {
-        this.action = action;
-        this.trigger = trigger;
-    }
-
+    private WindowsWebAppSlotSiteConfigAutoHealSetting() {}
     /**
      * @return A `action` block as defined above.
      * 
@@ -51,30 +44,32 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSetting {
     public static Builder builder(WindowsWebAppSlotSiteConfigAutoHealSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private WindowsWebAppSlotSiteConfigAutoHealSettingAction action;
         private WindowsWebAppSlotSiteConfigAutoHealSettingTrigger trigger;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsWebAppSlotSiteConfigAutoHealSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
     	      this.trigger = defaults.trigger;
         }
 
+        @CustomType.Setter
         public Builder action(WindowsWebAppSlotSiteConfigAutoHealSettingAction action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder trigger(WindowsWebAppSlotSiteConfigAutoHealSettingTrigger trigger) {
             this.trigger = Objects.requireNonNull(trigger);
             return this;
-        }        public WindowsWebAppSlotSiteConfigAutoHealSetting build() {
-            return new WindowsWebAppSlotSiteConfigAutoHealSetting(action, trigger);
+        }
+        public WindowsWebAppSlotSiteConfigAutoHealSetting build() {
+            final var o = new WindowsWebAppSlotSiteConfigAutoHealSetting();
+            o.action = action;
+            o.trigger = trigger;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class RegistryTaskRegistryCredentialSource {
      * @return The login mode for the source registry. Possible values are `None` and `Default`.
      * 
      */
-    private final String loginMode;
+    private String loginMode;
 
-    @CustomType.Constructor
-    private RegistryTaskRegistryCredentialSource(@CustomType.Parameter("loginMode") String loginMode) {
-        this.loginMode = loginMode;
-    }
-
+    private RegistryTaskRegistryCredentialSource() {}
     /**
      * @return The login mode for the source registry. Possible values are `None` and `Default`.
      * 
@@ -35,24 +31,24 @@ public final class RegistryTaskRegistryCredentialSource {
     public static Builder builder(RegistryTaskRegistryCredentialSource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String loginMode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegistryTaskRegistryCredentialSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.loginMode = defaults.loginMode;
         }
 
+        @CustomType.Setter
         public Builder loginMode(String loginMode) {
             this.loginMode = Objects.requireNonNull(loginMode);
             return this;
-        }        public RegistryTaskRegistryCredentialSource build() {
-            return new RegistryTaskRegistryCredentialSource(loginMode);
+        }
+        public RegistryTaskRegistryCredentialSource build() {
+            final var o = new RegistryTaskRegistryCredentialSource();
+            o.loginMode = loginMode;
+            return o;
         }
     }
 }

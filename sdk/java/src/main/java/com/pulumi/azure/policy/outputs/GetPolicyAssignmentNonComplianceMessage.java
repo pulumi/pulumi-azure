@@ -13,21 +13,14 @@ public final class GetPolicyAssignmentNonComplianceMessage {
      * @return The non-compliance message text.
      * 
      */
-    private final String content;
+    private String content;
     /**
      * @return The ID of the Policy Definition that the non-compliance message applies to.
      * 
      */
-    private final String policyDefinitionReferenceId;
+    private String policyDefinitionReferenceId;
 
-    @CustomType.Constructor
-    private GetPolicyAssignmentNonComplianceMessage(
-        @CustomType.Parameter("content") String content,
-        @CustomType.Parameter("policyDefinitionReferenceId") String policyDefinitionReferenceId) {
-        this.content = content;
-        this.policyDefinitionReferenceId = policyDefinitionReferenceId;
-    }
-
+    private GetPolicyAssignmentNonComplianceMessage() {}
     /**
      * @return The non-compliance message text.
      * 
@@ -50,30 +43,32 @@ public final class GetPolicyAssignmentNonComplianceMessage {
     public static Builder builder(GetPolicyAssignmentNonComplianceMessage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String content;
         private String policyDefinitionReferenceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPolicyAssignmentNonComplianceMessage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.content = defaults.content;
     	      this.policyDefinitionReferenceId = defaults.policyDefinitionReferenceId;
         }
 
+        @CustomType.Setter
         public Builder content(String content) {
             this.content = Objects.requireNonNull(content);
             return this;
         }
+        @CustomType.Setter
         public Builder policyDefinitionReferenceId(String policyDefinitionReferenceId) {
             this.policyDefinitionReferenceId = Objects.requireNonNull(policyDefinitionReferenceId);
             return this;
-        }        public GetPolicyAssignmentNonComplianceMessage build() {
-            return new GetPolicyAssignmentNonComplianceMessage(content, policyDefinitionReferenceId);
+        }
+        public GetPolicyAssignmentNonComplianceMessage build() {
+            final var o = new GetPolicyAssignmentNonComplianceMessage();
+            o.content = content;
+            o.policyDefinitionReferenceId = policyDefinitionReferenceId;
+            return o;
         }
     }
 }

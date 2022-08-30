@@ -13,21 +13,14 @@ public final class LedgerCertificateBasedSecurityPrincipal {
      * @return Specifies the Ledger Role to grant this Certificate Security Principal. Possible values are `Administrator`, `Contributor` and `Reader`.
      * 
      */
-    private final String ledgerRoleName;
+    private String ledgerRoleName;
     /**
      * @return The public key, in PEM format, of the certificate used by this identity to authenticate with the Confidential Ledger.
      * 
      */
-    private final String pemPublicKey;
+    private String pemPublicKey;
 
-    @CustomType.Constructor
-    private LedgerCertificateBasedSecurityPrincipal(
-        @CustomType.Parameter("ledgerRoleName") String ledgerRoleName,
-        @CustomType.Parameter("pemPublicKey") String pemPublicKey) {
-        this.ledgerRoleName = ledgerRoleName;
-        this.pemPublicKey = pemPublicKey;
-    }
-
+    private LedgerCertificateBasedSecurityPrincipal() {}
     /**
      * @return Specifies the Ledger Role to grant this Certificate Security Principal. Possible values are `Administrator`, `Contributor` and `Reader`.
      * 
@@ -50,30 +43,32 @@ public final class LedgerCertificateBasedSecurityPrincipal {
     public static Builder builder(LedgerCertificateBasedSecurityPrincipal defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String ledgerRoleName;
         private String pemPublicKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LedgerCertificateBasedSecurityPrincipal defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ledgerRoleName = defaults.ledgerRoleName;
     	      this.pemPublicKey = defaults.pemPublicKey;
         }
 
+        @CustomType.Setter
         public Builder ledgerRoleName(String ledgerRoleName) {
             this.ledgerRoleName = Objects.requireNonNull(ledgerRoleName);
             return this;
         }
+        @CustomType.Setter
         public Builder pemPublicKey(String pemPublicKey) {
             this.pemPublicKey = Objects.requireNonNull(pemPublicKey);
             return this;
-        }        public LedgerCertificateBasedSecurityPrincipal build() {
-            return new LedgerCertificateBasedSecurityPrincipal(ledgerRoleName, pemPublicKey);
+        }
+        public LedgerCertificateBasedSecurityPrincipal build() {
+            final var o = new LedgerCertificateBasedSecurityPrincipal();
+            o.ledgerRoleName = ledgerRoleName;
+            o.pemPublicKey = pemPublicKey;
+            return o;
         }
     }
 }

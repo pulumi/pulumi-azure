@@ -15,28 +15,19 @@ public final class FunctionAppAuthSettingsMicrosoft {
      * @return The OAuth 2.0 client ID that was created for the app used for authentication.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return The OAuth 2.0 client secret that was created for the app used for authentication.
      * 
      */
-    private final String clientSecret;
+    private String clientSecret;
     /**
      * @return The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. https://msdn.microsoft.com/en-us/library/dn631845.aspx
      * 
      */
-    private final @Nullable List<String> oauthScopes;
+    private @Nullable List<String> oauthScopes;
 
-    @CustomType.Constructor
-    private FunctionAppAuthSettingsMicrosoft(
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("clientSecret") String clientSecret,
-        @CustomType.Parameter("oauthScopes") @Nullable List<String> oauthScopes) {
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
-        this.oauthScopes = oauthScopes;
-    }
-
+    private FunctionAppAuthSettingsMicrosoft() {}
     /**
      * @return The OAuth 2.0 client ID that was created for the app used for authentication.
      * 
@@ -66,16 +57,12 @@ public final class FunctionAppAuthSettingsMicrosoft {
     public static Builder builder(FunctionAppAuthSettingsMicrosoft defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clientId;
         private String clientSecret;
         private @Nullable List<String> oauthScopes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FunctionAppAuthSettingsMicrosoft defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientId = defaults.clientId;
@@ -83,22 +70,30 @@ public final class FunctionAppAuthSettingsMicrosoft {
     	      this.oauthScopes = defaults.oauthScopes;
         }
 
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
             this.clientSecret = Objects.requireNonNull(clientSecret);
             return this;
         }
+        @CustomType.Setter
         public Builder oauthScopes(@Nullable List<String> oauthScopes) {
             this.oauthScopes = oauthScopes;
             return this;
         }
         public Builder oauthScopes(String... oauthScopes) {
             return oauthScopes(List.of(oauthScopes));
-        }        public FunctionAppAuthSettingsMicrosoft build() {
-            return new FunctionAppAuthSettingsMicrosoft(clientId, clientSecret, oauthScopes);
+        }
+        public FunctionAppAuthSettingsMicrosoft build() {
+            final var o = new FunctionAppAuthSettingsMicrosoft();
+            o.clientId = clientId;
+            o.clientSecret = clientSecret;
+            o.oauthScopes = oauthScopes;
+            return o;
         }
     }
 }

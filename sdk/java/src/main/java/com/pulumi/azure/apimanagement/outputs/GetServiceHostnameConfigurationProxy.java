@@ -14,35 +14,24 @@ public final class GetServiceHostnameConfigurationProxy {
      * @return Is this the default SSL Binding?
      * 
      */
-    private final Boolean defaultSslBinding;
+    private Boolean defaultSslBinding;
     /**
      * @return The Hostname used for the SCM URL.
      * 
      */
-    private final String hostName;
+    private String hostName;
     /**
      * @return The ID of the Key Vault Secret which contains the SSL Certificate.
      * 
      */
-    private final String keyVaultId;
+    private String keyVaultId;
     /**
      * @return Is Client Certificate Negotiation enabled?
      * 
      */
-    private final Boolean negotiateClientCertificate;
+    private Boolean negotiateClientCertificate;
 
-    @CustomType.Constructor
-    private GetServiceHostnameConfigurationProxy(
-        @CustomType.Parameter("defaultSslBinding") Boolean defaultSslBinding,
-        @CustomType.Parameter("hostName") String hostName,
-        @CustomType.Parameter("keyVaultId") String keyVaultId,
-        @CustomType.Parameter("negotiateClientCertificate") Boolean negotiateClientCertificate) {
-        this.defaultSslBinding = defaultSslBinding;
-        this.hostName = hostName;
-        this.keyVaultId = keyVaultId;
-        this.negotiateClientCertificate = negotiateClientCertificate;
-    }
-
+    private GetServiceHostnameConfigurationProxy() {}
     /**
      * @return Is this the default SSL Binding?
      * 
@@ -79,17 +68,13 @@ public final class GetServiceHostnameConfigurationProxy {
     public static Builder builder(GetServiceHostnameConfigurationProxy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean defaultSslBinding;
         private String hostName;
         private String keyVaultId;
         private Boolean negotiateClientCertificate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceHostnameConfigurationProxy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultSslBinding = defaults.defaultSslBinding;
@@ -98,23 +83,33 @@ public final class GetServiceHostnameConfigurationProxy {
     	      this.negotiateClientCertificate = defaults.negotiateClientCertificate;
         }
 
+        @CustomType.Setter
         public Builder defaultSslBinding(Boolean defaultSslBinding) {
             this.defaultSslBinding = Objects.requireNonNull(defaultSslBinding);
             return this;
         }
+        @CustomType.Setter
         public Builder hostName(String hostName) {
             this.hostName = Objects.requireNonNull(hostName);
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
             this.keyVaultId = Objects.requireNonNull(keyVaultId);
             return this;
         }
+        @CustomType.Setter
         public Builder negotiateClientCertificate(Boolean negotiateClientCertificate) {
             this.negotiateClientCertificate = Objects.requireNonNull(negotiateClientCertificate);
             return this;
-        }        public GetServiceHostnameConfigurationProxy build() {
-            return new GetServiceHostnameConfigurationProxy(defaultSslBinding, hostName, keyVaultId, negotiateClientCertificate);
+        }
+        public GetServiceHostnameConfigurationProxy build() {
+            final var o = new GetServiceHostnameConfigurationProxy();
+            o.defaultSslBinding = defaultSslBinding;
+            o.hostName = hostName;
+            o.keyVaultId = keyVaultId;
+            o.negotiateClientCertificate = negotiateClientCertificate;
+            return o;
         }
     }
 }

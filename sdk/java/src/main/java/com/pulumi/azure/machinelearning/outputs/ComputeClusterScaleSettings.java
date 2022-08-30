@@ -14,28 +14,19 @@ public final class ComputeClusterScaleSettings {
      * @return Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
-    private final Integer maxNodeCount;
+    private Integer maxNodeCount;
     /**
      * @return Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
-    private final Integer minNodeCount;
+    private Integer minNodeCount;
     /**
      * @return Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
-    private final String scaleDownNodesAfterIdleDuration;
+    private String scaleDownNodesAfterIdleDuration;
 
-    @CustomType.Constructor
-    private ComputeClusterScaleSettings(
-        @CustomType.Parameter("maxNodeCount") Integer maxNodeCount,
-        @CustomType.Parameter("minNodeCount") Integer minNodeCount,
-        @CustomType.Parameter("scaleDownNodesAfterIdleDuration") String scaleDownNodesAfterIdleDuration) {
-        this.maxNodeCount = maxNodeCount;
-        this.minNodeCount = minNodeCount;
-        this.scaleDownNodesAfterIdleDuration = scaleDownNodesAfterIdleDuration;
-    }
-
+    private ComputeClusterScaleSettings() {}
     /**
      * @return Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
@@ -65,16 +56,12 @@ public final class ComputeClusterScaleSettings {
     public static Builder builder(ComputeClusterScaleSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer maxNodeCount;
         private Integer minNodeCount;
         private String scaleDownNodesAfterIdleDuration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ComputeClusterScaleSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxNodeCount = defaults.maxNodeCount;
@@ -82,19 +69,27 @@ public final class ComputeClusterScaleSettings {
     	      this.scaleDownNodesAfterIdleDuration = defaults.scaleDownNodesAfterIdleDuration;
         }
 
+        @CustomType.Setter
         public Builder maxNodeCount(Integer maxNodeCount) {
             this.maxNodeCount = Objects.requireNonNull(maxNodeCount);
             return this;
         }
+        @CustomType.Setter
         public Builder minNodeCount(Integer minNodeCount) {
             this.minNodeCount = Objects.requireNonNull(minNodeCount);
             return this;
         }
+        @CustomType.Setter
         public Builder scaleDownNodesAfterIdleDuration(String scaleDownNodesAfterIdleDuration) {
             this.scaleDownNodesAfterIdleDuration = Objects.requireNonNull(scaleDownNodesAfterIdleDuration);
             return this;
-        }        public ComputeClusterScaleSettings build() {
-            return new ComputeClusterScaleSettings(maxNodeCount, minNodeCount, scaleDownNodesAfterIdleDuration);
+        }
+        public ComputeClusterScaleSettings build() {
+            final var o = new ComputeClusterScaleSettings();
+            o.maxNodeCount = maxNodeCount;
+            o.minNodeCount = minNodeCount;
+            o.scaleDownNodesAfterIdleDuration = scaleDownNodesAfterIdleDuration;
+            return o;
         }
     }
 }

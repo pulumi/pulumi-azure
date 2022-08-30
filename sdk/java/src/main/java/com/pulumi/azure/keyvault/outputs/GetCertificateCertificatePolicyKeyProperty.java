@@ -11,42 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCertificateCertificatePolicyKeyProperty {
-    private final String curve;
+    private String curve;
     /**
      * @return Is this Certificate Exportable?
      * 
      */
-    private final Boolean exportable;
+    private Boolean exportable;
     /**
      * @return The size of the Key used in the Certificate.
      * 
      */
-    private final Integer keySize;
+    private Integer keySize;
     /**
      * @return Specifies the Type of Key, for example `RSA`.
      * 
      */
-    private final String keyType;
+    private String keyType;
     /**
      * @return Is the key reusable?
      * 
      */
-    private final Boolean reuseKey;
+    private Boolean reuseKey;
 
-    @CustomType.Constructor
-    private GetCertificateCertificatePolicyKeyProperty(
-        @CustomType.Parameter("curve") String curve,
-        @CustomType.Parameter("exportable") Boolean exportable,
-        @CustomType.Parameter("keySize") Integer keySize,
-        @CustomType.Parameter("keyType") String keyType,
-        @CustomType.Parameter("reuseKey") Boolean reuseKey) {
-        this.curve = curve;
-        this.exportable = exportable;
-        this.keySize = keySize;
-        this.keyType = keyType;
-        this.reuseKey = reuseKey;
-    }
-
+    private GetCertificateCertificatePolicyKeyProperty() {}
     public String curve() {
         return this.curve;
     }
@@ -86,18 +73,14 @@ public final class GetCertificateCertificatePolicyKeyProperty {
     public static Builder builder(GetCertificateCertificatePolicyKeyProperty defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String curve;
         private Boolean exportable;
         private Integer keySize;
         private String keyType;
         private Boolean reuseKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCertificateCertificatePolicyKeyProperty defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.curve = defaults.curve;
@@ -107,27 +90,39 @@ public final class GetCertificateCertificatePolicyKeyProperty {
     	      this.reuseKey = defaults.reuseKey;
         }
 
+        @CustomType.Setter
         public Builder curve(String curve) {
             this.curve = Objects.requireNonNull(curve);
             return this;
         }
+        @CustomType.Setter
         public Builder exportable(Boolean exportable) {
             this.exportable = Objects.requireNonNull(exportable);
             return this;
         }
+        @CustomType.Setter
         public Builder keySize(Integer keySize) {
             this.keySize = Objects.requireNonNull(keySize);
             return this;
         }
+        @CustomType.Setter
         public Builder keyType(String keyType) {
             this.keyType = Objects.requireNonNull(keyType);
             return this;
         }
+        @CustomType.Setter
         public Builder reuseKey(Boolean reuseKey) {
             this.reuseKey = Objects.requireNonNull(reuseKey);
             return this;
-        }        public GetCertificateCertificatePolicyKeyProperty build() {
-            return new GetCertificateCertificatePolicyKeyProperty(curve, exportable, keySize, keyType, reuseKey);
+        }
+        public GetCertificateCertificatePolicyKeyProperty build() {
+            final var o = new GetCertificateCertificatePolicyKeyProperty();
+            o.curve = curve;
+            o.exportable = exportable;
+            o.keySize = keySize;
+            o.keyType = keyType;
+            o.reuseKey = reuseKey;
+            return o;
         }
     }
 }

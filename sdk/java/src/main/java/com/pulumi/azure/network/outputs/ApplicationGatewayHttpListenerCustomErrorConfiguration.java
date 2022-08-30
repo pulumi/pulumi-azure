@@ -15,28 +15,19 @@ public final class ApplicationGatewayHttpListenerCustomErrorConfiguration {
      * @return Error page URL of the application gateway customer error.
      * 
      */
-    private final String customErrorPageUrl;
+    private String customErrorPageUrl;
     /**
      * @return The ID of the Rewrite Rule Set
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Status code of the application gateway customer error. Possible values are `HttpStatus403` and `HttpStatus502`
      * 
      */
-    private final String statusCode;
+    private String statusCode;
 
-    @CustomType.Constructor
-    private ApplicationGatewayHttpListenerCustomErrorConfiguration(
-        @CustomType.Parameter("customErrorPageUrl") String customErrorPageUrl,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("statusCode") String statusCode) {
-        this.customErrorPageUrl = customErrorPageUrl;
-        this.id = id;
-        this.statusCode = statusCode;
-    }
-
+    private ApplicationGatewayHttpListenerCustomErrorConfiguration() {}
     /**
      * @return Error page URL of the application gateway customer error.
      * 
@@ -66,16 +57,12 @@ public final class ApplicationGatewayHttpListenerCustomErrorConfiguration {
     public static Builder builder(ApplicationGatewayHttpListenerCustomErrorConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String customErrorPageUrl;
         private @Nullable String id;
         private String statusCode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayHttpListenerCustomErrorConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customErrorPageUrl = defaults.customErrorPageUrl;
@@ -83,19 +70,27 @@ public final class ApplicationGatewayHttpListenerCustomErrorConfiguration {
     	      this.statusCode = defaults.statusCode;
         }
 
+        @CustomType.Setter
         public Builder customErrorPageUrl(String customErrorPageUrl) {
             this.customErrorPageUrl = Objects.requireNonNull(customErrorPageUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder statusCode(String statusCode) {
             this.statusCode = Objects.requireNonNull(statusCode);
             return this;
-        }        public ApplicationGatewayHttpListenerCustomErrorConfiguration build() {
-            return new ApplicationGatewayHttpListenerCustomErrorConfiguration(customErrorPageUrl, id, statusCode);
+        }
+        public ApplicationGatewayHttpListenerCustomErrorConfiguration build() {
+            final var o = new ApplicationGatewayHttpListenerCustomErrorConfiguration();
+            o.customErrorPageUrl = customErrorPageUrl;
+            o.id = id;
+            o.statusCode = statusCode;
+            return o;
         }
     }
 }

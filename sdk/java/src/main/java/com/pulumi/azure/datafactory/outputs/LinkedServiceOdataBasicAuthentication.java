@@ -13,21 +13,14 @@ public final class LinkedServiceOdataBasicAuthentication {
      * @return The password associated with the username, which can be used to authenticate to the OData endpoint.
      * 
      */
-    private final String password;
+    private String password;
     /**
      * @return The username which can be used to authenticate to the OData endpoint.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private LinkedServiceOdataBasicAuthentication(
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("username") String username) {
-        this.password = password;
-        this.username = username;
-    }
-
+    private LinkedServiceOdataBasicAuthentication() {}
     /**
      * @return The password associated with the username, which can be used to authenticate to the OData endpoint.
      * 
@@ -50,30 +43,32 @@ public final class LinkedServiceOdataBasicAuthentication {
     public static Builder builder(LinkedServiceOdataBasicAuthentication defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String password;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinkedServiceOdataBasicAuthentication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.password = defaults.password;
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public LinkedServiceOdataBasicAuthentication build() {
-            return new LinkedServiceOdataBasicAuthentication(password, username);
+        }
+        public LinkedServiceOdataBasicAuthentication build() {
+            final var o = new LinkedServiceOdataBasicAuthentication();
+            o.password = password;
+            o.username = username;
+            return o;
         }
     }
 }

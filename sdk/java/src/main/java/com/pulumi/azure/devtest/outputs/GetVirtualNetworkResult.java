@@ -16,44 +16,27 @@ public final class GetVirtualNetworkResult {
      * @return The list of subnets enabled for the virtual network as defined below.
      * 
      */
-    private final List<GetVirtualNetworkAllowedSubnet> allowedSubnets;
+    private List<GetVirtualNetworkAllowedSubnet> allowedSubnets;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String labName;
-    private final String name;
-    private final String resourceGroupName;
+    private String id;
+    private String labName;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return The list of permission overrides for the subnets as defined below.
      * 
      */
-    private final List<GetVirtualNetworkSubnetOverride> subnetOverrides;
+    private List<GetVirtualNetworkSubnetOverride> subnetOverrides;
     /**
      * @return The unique immutable identifier of the virtual network.
      * 
      */
-    private final String uniqueIdentifier;
+    private String uniqueIdentifier;
 
-    @CustomType.Constructor
-    private GetVirtualNetworkResult(
-        @CustomType.Parameter("allowedSubnets") List<GetVirtualNetworkAllowedSubnet> allowedSubnets,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("labName") String labName,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("subnetOverrides") List<GetVirtualNetworkSubnetOverride> subnetOverrides,
-        @CustomType.Parameter("uniqueIdentifier") String uniqueIdentifier) {
-        this.allowedSubnets = allowedSubnets;
-        this.id = id;
-        this.labName = labName;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.subnetOverrides = subnetOverrides;
-        this.uniqueIdentifier = uniqueIdentifier;
-    }
-
+    private GetVirtualNetworkResult() {}
     /**
      * @return The list of subnets enabled for the virtual network as defined below.
      * 
@@ -99,7 +82,7 @@ public final class GetVirtualNetworkResult {
     public static Builder builder(GetVirtualNetworkResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetVirtualNetworkAllowedSubnet> allowedSubnets;
         private String id;
@@ -108,11 +91,7 @@ public final class GetVirtualNetworkResult {
         private String resourceGroupName;
         private List<GetVirtualNetworkSubnetOverride> subnetOverrides;
         private String uniqueIdentifier;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualNetworkResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedSubnets = defaults.allowedSubnets;
@@ -124,6 +103,7 @@ public final class GetVirtualNetworkResult {
     	      this.uniqueIdentifier = defaults.uniqueIdentifier;
         }
 
+        @CustomType.Setter
         public Builder allowedSubnets(List<GetVirtualNetworkAllowedSubnet> allowedSubnets) {
             this.allowedSubnets = Objects.requireNonNull(allowedSubnets);
             return this;
@@ -131,22 +111,27 @@ public final class GetVirtualNetworkResult {
         public Builder allowedSubnets(GetVirtualNetworkAllowedSubnet... allowedSubnets) {
             return allowedSubnets(List.of(allowedSubnets));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder labName(String labName) {
             this.labName = Objects.requireNonNull(labName);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetOverrides(List<GetVirtualNetworkSubnetOverride> subnetOverrides) {
             this.subnetOverrides = Objects.requireNonNull(subnetOverrides);
             return this;
@@ -154,11 +139,21 @@ public final class GetVirtualNetworkResult {
         public Builder subnetOverrides(GetVirtualNetworkSubnetOverride... subnetOverrides) {
             return subnetOverrides(List.of(subnetOverrides));
         }
+        @CustomType.Setter
         public Builder uniqueIdentifier(String uniqueIdentifier) {
             this.uniqueIdentifier = Objects.requireNonNull(uniqueIdentifier);
             return this;
-        }        public GetVirtualNetworkResult build() {
-            return new GetVirtualNetworkResult(allowedSubnets, id, labName, name, resourceGroupName, subnetOverrides, uniqueIdentifier);
+        }
+        public GetVirtualNetworkResult build() {
+            final var o = new GetVirtualNetworkResult();
+            o.allowedSubnets = allowedSubnets;
+            o.id = id;
+            o.labName = labName;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.subnetOverrides = subnetOverrides;
+            o.uniqueIdentifier = uniqueIdentifier;
+            return o;
         }
     }
 }

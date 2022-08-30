@@ -15,13 +15,9 @@ public final class MongoDatabaseAutoscaleSettings {
      * @return The maximum throughput of the MongoDB database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
      * 
      */
-    private final @Nullable Integer maxThroughput;
+    private @Nullable Integer maxThroughput;
 
-    @CustomType.Constructor
-    private MongoDatabaseAutoscaleSettings(@CustomType.Parameter("maxThroughput") @Nullable Integer maxThroughput) {
-        this.maxThroughput = maxThroughput;
-    }
-
+    private MongoDatabaseAutoscaleSettings() {}
     /**
      * @return The maximum throughput of the MongoDB database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
      * 
@@ -37,24 +33,24 @@ public final class MongoDatabaseAutoscaleSettings {
     public static Builder builder(MongoDatabaseAutoscaleSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer maxThroughput;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MongoDatabaseAutoscaleSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxThroughput = defaults.maxThroughput;
         }
 
+        @CustomType.Setter
         public Builder maxThroughput(@Nullable Integer maxThroughput) {
             this.maxThroughput = maxThroughput;
             return this;
-        }        public MongoDatabaseAutoscaleSettings build() {
-            return new MongoDatabaseAutoscaleSettings(maxThroughput);
+        }
+        public MongoDatabaseAutoscaleSettings build() {
+            final var o = new MongoDatabaseAutoscaleSettings();
+            o.maxThroughput = maxThroughput;
+            return o;
         }
     }
 }

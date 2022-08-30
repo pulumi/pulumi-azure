@@ -13,28 +13,19 @@ public final class AutoscaleSettingProfileCapacity {
      * @return The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
      * 
      */
-    private final Integer default_;
+    private Integer default_;
     /**
      * @return The maximum number of instances for this resource. Valid values are between `0` and `1000`.
      * 
      */
-    private final Integer maximum;
+    private Integer maximum;
     /**
      * @return The minimum number of instances for this resource. Valid values are between `0` and `1000`.
      * 
      */
-    private final Integer minimum;
+    private Integer minimum;
 
-    @CustomType.Constructor
-    private AutoscaleSettingProfileCapacity(
-        @CustomType.Parameter("default") Integer default_,
-        @CustomType.Parameter("maximum") Integer maximum,
-        @CustomType.Parameter("minimum") Integer minimum) {
-        this.default_ = default_;
-        this.maximum = maximum;
-        this.minimum = minimum;
-    }
-
+    private AutoscaleSettingProfileCapacity() {}
     /**
      * @return The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
      * 
@@ -64,16 +55,12 @@ public final class AutoscaleSettingProfileCapacity {
     public static Builder builder(AutoscaleSettingProfileCapacity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer default_;
         private Integer maximum;
         private Integer minimum;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AutoscaleSettingProfileCapacity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.default_ = defaults.default_;
@@ -81,19 +68,27 @@ public final class AutoscaleSettingProfileCapacity {
     	      this.minimum = defaults.minimum;
         }
 
+        @CustomType.Setter("default")
         public Builder default_(Integer default_) {
             this.default_ = Objects.requireNonNull(default_);
             return this;
         }
+        @CustomType.Setter
         public Builder maximum(Integer maximum) {
             this.maximum = Objects.requireNonNull(maximum);
             return this;
         }
+        @CustomType.Setter
         public Builder minimum(Integer minimum) {
             this.minimum = Objects.requireNonNull(minimum);
             return this;
-        }        public AutoscaleSettingProfileCapacity build() {
-            return new AutoscaleSettingProfileCapacity(default_, maximum, minimum);
+        }
+        public AutoscaleSettingProfileCapacity build() {
+            final var o = new AutoscaleSettingProfileCapacity();
+            o.default_ = default_;
+            o.maximum = maximum;
+            o.minimum = minimum;
+            return o;
         }
     }
 }

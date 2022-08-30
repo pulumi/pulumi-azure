@@ -16,76 +16,51 @@ public final class GetNatGatewayResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The idle timeout in minutes which is used for the NAT Gateway.
      * 
      */
-    private final Integer idleTimeoutInMinutes;
+    private Integer idleTimeoutInMinutes;
     /**
      * @return The location where the NAT Gateway exists.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return A list of existing Public IP Address resource IDs which the NAT Gateway is using.
      * 
      */
-    private final List<String> publicIpAddressIds;
+    private List<String> publicIpAddressIds;
     /**
      * @return A list of existing Public IP Prefix resource IDs which the NAT Gateway is using.
      * 
      */
-    private final List<String> publicIpPrefixIds;
-    private final String resourceGroupName;
+    private List<String> publicIpPrefixIds;
+    private String resourceGroupName;
     /**
      * @return The Resource GUID of the NAT Gateway.
      * 
      */
-    private final String resourceGuid;
+    private String resourceGuid;
     /**
      * @return The SKU used by the NAT Gateway.
      * 
      */
-    private final String skuName;
+    private String skuName;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return A list of Availability Zones which the NAT Gateway exists in.
      * 
      */
-    private final List<String> zones;
+    private List<String> zones;
 
-    @CustomType.Constructor
-    private GetNatGatewayResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("idleTimeoutInMinutes") Integer idleTimeoutInMinutes,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("publicIpAddressIds") List<String> publicIpAddressIds,
-        @CustomType.Parameter("publicIpPrefixIds") List<String> publicIpPrefixIds,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("resourceGuid") String resourceGuid,
-        @CustomType.Parameter("skuName") String skuName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("zones") List<String> zones) {
-        this.id = id;
-        this.idleTimeoutInMinutes = idleTimeoutInMinutes;
-        this.location = location;
-        this.name = name;
-        this.publicIpAddressIds = publicIpAddressIds;
-        this.publicIpPrefixIds = publicIpPrefixIds;
-        this.resourceGroupName = resourceGroupName;
-        this.resourceGuid = resourceGuid;
-        this.skuName = skuName;
-        this.tags = tags;
-        this.zones = zones;
-    }
-
+    private GetNatGatewayResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -163,7 +138,7 @@ public final class GetNatGatewayResult {
     public static Builder builder(GetNatGatewayResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private Integer idleTimeoutInMinutes;
@@ -176,11 +151,7 @@ public final class GetNatGatewayResult {
         private String skuName;
         private Map<String,String> tags;
         private List<String> zones;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetNatGatewayResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -196,22 +167,27 @@ public final class GetNatGatewayResult {
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder idleTimeoutInMinutes(Integer idleTimeoutInMinutes) {
             this.idleTimeoutInMinutes = Objects.requireNonNull(idleTimeoutInMinutes);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpAddressIds(List<String> publicIpAddressIds) {
             this.publicIpAddressIds = Objects.requireNonNull(publicIpAddressIds);
             return this;
@@ -219,6 +195,7 @@ public final class GetNatGatewayResult {
         public Builder publicIpAddressIds(String... publicIpAddressIds) {
             return publicIpAddressIds(List.of(publicIpAddressIds));
         }
+        @CustomType.Setter
         public Builder publicIpPrefixIds(List<String> publicIpPrefixIds) {
             this.publicIpPrefixIds = Objects.requireNonNull(publicIpPrefixIds);
             return this;
@@ -226,30 +203,48 @@ public final class GetNatGatewayResult {
         public Builder publicIpPrefixIds(String... publicIpPrefixIds) {
             return publicIpPrefixIds(List.of(publicIpPrefixIds));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGuid(String resourceGuid) {
             this.resourceGuid = Objects.requireNonNull(resourceGuid);
             return this;
         }
+        @CustomType.Setter
         public Builder skuName(String skuName) {
             this.skuName = Objects.requireNonNull(skuName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder zones(List<String> zones) {
             this.zones = Objects.requireNonNull(zones);
             return this;
         }
         public Builder zones(String... zones) {
             return zones(List.of(zones));
-        }        public GetNatGatewayResult build() {
-            return new GetNatGatewayResult(id, idleTimeoutInMinutes, location, name, publicIpAddressIds, publicIpPrefixIds, resourceGroupName, resourceGuid, skuName, tags, zones);
+        }
+        public GetNatGatewayResult build() {
+            final var o = new GetNatGatewayResult();
+            o.id = id;
+            o.idleTimeoutInMinutes = idleTimeoutInMinutes;
+            o.location = location;
+            o.name = name;
+            o.publicIpAddressIds = publicIpAddressIds;
+            o.publicIpPrefixIds = publicIpPrefixIds;
+            o.resourceGroupName = resourceGroupName;
+            o.resourceGuid = resourceGuid;
+            o.skuName = skuName;
+            o.tags = tags;
+            o.zones = zones;
+            return o;
         }
     }
 }

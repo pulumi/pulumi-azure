@@ -15,13 +15,9 @@ public final class TransformOutputBuiltinPreset {
      * @return The built-in preset to be used for encoding videos. The allowed values are `AACGoodQualityAudio`, `AdaptiveStreaming`,`ContentAwareEncoding`, `ContentAwareEncodingExperimental`,`CopyAllBitrateNonInterleaved`, `H264MultipleBitrate1080p`,`H264MultipleBitrate720p`, `H264MultipleBitrateSD`,`H264SingleBitrate1080p`, `H264SingleBitrate720p` and `H264SingleBitrateSD`.
      * 
      */
-    private final @Nullable String presetName;
+    private @Nullable String presetName;
 
-    @CustomType.Constructor
-    private TransformOutputBuiltinPreset(@CustomType.Parameter("presetName") @Nullable String presetName) {
-        this.presetName = presetName;
-    }
-
+    private TransformOutputBuiltinPreset() {}
     /**
      * @return The built-in preset to be used for encoding videos. The allowed values are `AACGoodQualityAudio`, `AdaptiveStreaming`,`ContentAwareEncoding`, `ContentAwareEncodingExperimental`,`CopyAllBitrateNonInterleaved`, `H264MultipleBitrate1080p`,`H264MultipleBitrate720p`, `H264MultipleBitrateSD`,`H264SingleBitrate1080p`, `H264SingleBitrate720p` and `H264SingleBitrateSD`.
      * 
@@ -37,24 +33,24 @@ public final class TransformOutputBuiltinPreset {
     public static Builder builder(TransformOutputBuiltinPreset defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String presetName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TransformOutputBuiltinPreset defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.presetName = defaults.presetName;
         }
 
+        @CustomType.Setter
         public Builder presetName(@Nullable String presetName) {
             this.presetName = presetName;
             return this;
-        }        public TransformOutputBuiltinPreset build() {
-            return new TransformOutputBuiltinPreset(presetName);
+        }
+        public TransformOutputBuiltinPreset build() {
+            final var o = new TransformOutputBuiltinPreset();
+            o.presetName = presetName;
+            return o;
         }
     }
 }

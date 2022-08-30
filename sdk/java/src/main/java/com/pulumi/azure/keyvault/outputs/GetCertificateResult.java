@@ -16,101 +16,70 @@ public final class GetCertificateResult {
      * @return The raw Key Vault Certificate data represented as a hexadecimal string.
      * 
      */
-    private final String certificateData;
+    private String certificateData;
     /**
      * @return The raw Key Vault Certificate data represented as a base64 string.
      * 
      */
-    private final String certificateDataBase64;
+    private String certificateDataBase64;
     /**
      * @return A `certificate_policy` block as defined below.
      * 
      */
-    private final List<GetCertificateCertificatePolicy> certificatePolicies;
+    private List<GetCertificateCertificatePolicy> certificatePolicies;
     /**
      * @return Expiry date of certificate in RFC3339 format.
      * 
      */
-    private final String expires;
+    private String expires;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String keyVaultId;
+    private String id;
+    private String keyVaultId;
     /**
      * @return The name of the Certificate Issuer.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Not Before date of certificate in RFC3339 format.
      * 
      */
-    private final String notBefore;
+    private String notBefore;
     /**
      * @return The ID of the associated Key Vault Secret.
      * 
      */
-    private final String secretId;
+    private String secretId;
     /**
      * @return A mapping of tags to assign to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The X509 Thumbprint of the Key Vault Certificate represented as a hexadecimal string.
      * 
      */
-    private final String thumbprint;
+    private String thumbprint;
     /**
      * @return The current version of the Key Vault Certificate.
      * 
      */
-    private final String version;
+    private String version;
     /**
      * @return The Base ID of the Key Vault Certificate.
      * 
      */
-    private final String versionlessId;
+    private String versionlessId;
     /**
      * @return The Base ID of the Key Vault Secret.
      * 
      */
-    private final String versionlessSecretId;
+    private String versionlessSecretId;
 
-    @CustomType.Constructor
-    private GetCertificateResult(
-        @CustomType.Parameter("certificateData") String certificateData,
-        @CustomType.Parameter("certificateDataBase64") String certificateDataBase64,
-        @CustomType.Parameter("certificatePolicies") List<GetCertificateCertificatePolicy> certificatePolicies,
-        @CustomType.Parameter("expires") String expires,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("keyVaultId") String keyVaultId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("notBefore") String notBefore,
-        @CustomType.Parameter("secretId") String secretId,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("thumbprint") String thumbprint,
-        @CustomType.Parameter("version") String version,
-        @CustomType.Parameter("versionlessId") String versionlessId,
-        @CustomType.Parameter("versionlessSecretId") String versionlessSecretId) {
-        this.certificateData = certificateData;
-        this.certificateDataBase64 = certificateDataBase64;
-        this.certificatePolicies = certificatePolicies;
-        this.expires = expires;
-        this.id = id;
-        this.keyVaultId = keyVaultId;
-        this.name = name;
-        this.notBefore = notBefore;
-        this.secretId = secretId;
-        this.tags = tags;
-        this.thumbprint = thumbprint;
-        this.version = version;
-        this.versionlessId = versionlessId;
-        this.versionlessSecretId = versionlessSecretId;
-    }
-
+    private GetCertificateResult() {}
     /**
      * @return The raw Key Vault Certificate data represented as a hexadecimal string.
      * 
@@ -213,7 +182,7 @@ public final class GetCertificateResult {
     public static Builder builder(GetCertificateResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String certificateData;
         private String certificateDataBase64;
@@ -229,11 +198,7 @@ public final class GetCertificateResult {
         private String version;
         private String versionlessId;
         private String versionlessSecretId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCertificateResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateData = defaults.certificateData;
@@ -252,14 +217,17 @@ public final class GetCertificateResult {
     	      this.versionlessSecretId = defaults.versionlessSecretId;
         }
 
+        @CustomType.Setter
         public Builder certificateData(String certificateData) {
             this.certificateData = Objects.requireNonNull(certificateData);
             return this;
         }
+        @CustomType.Setter
         public Builder certificateDataBase64(String certificateDataBase64) {
             this.certificateDataBase64 = Objects.requireNonNull(certificateDataBase64);
             return this;
         }
+        @CustomType.Setter
         public Builder certificatePolicies(List<GetCertificateCertificatePolicy> certificatePolicies) {
             this.certificatePolicies = Objects.requireNonNull(certificatePolicies);
             return this;
@@ -267,51 +235,78 @@ public final class GetCertificateResult {
         public Builder certificatePolicies(GetCertificateCertificatePolicy... certificatePolicies) {
             return certificatePolicies(List.of(certificatePolicies));
         }
+        @CustomType.Setter
         public Builder expires(String expires) {
             this.expires = Objects.requireNonNull(expires);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
             this.keyVaultId = Objects.requireNonNull(keyVaultId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder notBefore(String notBefore) {
             this.notBefore = Objects.requireNonNull(notBefore);
             return this;
         }
+        @CustomType.Setter
         public Builder secretId(String secretId) {
             this.secretId = Objects.requireNonNull(secretId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder thumbprint(String thumbprint) {
             this.thumbprint = Objects.requireNonNull(thumbprint);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
         }
+        @CustomType.Setter
         public Builder versionlessId(String versionlessId) {
             this.versionlessId = Objects.requireNonNull(versionlessId);
             return this;
         }
+        @CustomType.Setter
         public Builder versionlessSecretId(String versionlessSecretId) {
             this.versionlessSecretId = Objects.requireNonNull(versionlessSecretId);
             return this;
-        }        public GetCertificateResult build() {
-            return new GetCertificateResult(certificateData, certificateDataBase64, certificatePolicies, expires, id, keyVaultId, name, notBefore, secretId, tags, thumbprint, version, versionlessId, versionlessSecretId);
+        }
+        public GetCertificateResult build() {
+            final var o = new GetCertificateResult();
+            o.certificateData = certificateData;
+            o.certificateDataBase64 = certificateDataBase64;
+            o.certificatePolicies = certificatePolicies;
+            o.expires = expires;
+            o.id = id;
+            o.keyVaultId = keyVaultId;
+            o.name = name;
+            o.notBefore = notBefore;
+            o.secretId = secretId;
+            o.tags = tags;
+            o.thumbprint = thumbprint;
+            o.version = version;
+            o.versionlessId = versionlessId;
+            o.versionlessSecretId = versionlessSecretId;
+            return o;
         }
     }
 }

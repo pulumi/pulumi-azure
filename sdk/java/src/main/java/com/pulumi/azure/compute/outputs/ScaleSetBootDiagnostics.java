@@ -12,17 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ScaleSetBootDiagnostics {
-    private final @Nullable Boolean enabled;
-    private final String storageUri;
+    private @Nullable Boolean enabled;
+    private String storageUri;
 
-    @CustomType.Constructor
-    private ScaleSetBootDiagnostics(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("storageUri") String storageUri) {
-        this.enabled = enabled;
-        this.storageUri = storageUri;
-    }
-
+    private ScaleSetBootDiagnostics() {}
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -37,30 +30,32 @@ public final class ScaleSetBootDiagnostics {
     public static Builder builder(ScaleSetBootDiagnostics defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private String storageUri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScaleSetBootDiagnostics defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.storageUri = defaults.storageUri;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder storageUri(String storageUri) {
             this.storageUri = Objects.requireNonNull(storageUri);
             return this;
-        }        public ScaleSetBootDiagnostics build() {
-            return new ScaleSetBootDiagnostics(enabled, storageUri);
+        }
+        public ScaleSetBootDiagnostics build() {
+            final var o = new ScaleSetBootDiagnostics();
+            o.enabled = enabled;
+            o.storageUri = storageUri;
+            return o;
         }
     }
 }

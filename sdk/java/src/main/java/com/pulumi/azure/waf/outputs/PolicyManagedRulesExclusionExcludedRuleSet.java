@@ -17,28 +17,19 @@ public final class PolicyManagedRulesExclusionExcludedRuleSet {
      * @return One or more `rule_group` block defined below.
      * 
      */
-    private final @Nullable List<PolicyManagedRulesExclusionExcludedRuleSetRuleGroup> ruleGroups;
+    private @Nullable List<PolicyManagedRulesExclusionExcludedRuleSetRuleGroup> ruleGroups;
     /**
      * @return The rule set type. The only possible value is `OWASP` . Defaults to `OWASP`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
     /**
      * @return The rule set version. The only possible value is `3.2` . Defaults to `3.2`.
      * 
      */
-    private final @Nullable String version;
+    private @Nullable String version;
 
-    @CustomType.Constructor
-    private PolicyManagedRulesExclusionExcludedRuleSet(
-        @CustomType.Parameter("ruleGroups") @Nullable List<PolicyManagedRulesExclusionExcludedRuleSetRuleGroup> ruleGroups,
-        @CustomType.Parameter("type") @Nullable String type,
-        @CustomType.Parameter("version") @Nullable String version) {
-        this.ruleGroups = ruleGroups;
-        this.type = type;
-        this.version = version;
-    }
-
+    private PolicyManagedRulesExclusionExcludedRuleSet() {}
     /**
      * @return One or more `rule_group` block defined below.
      * 
@@ -68,16 +59,12 @@ public final class PolicyManagedRulesExclusionExcludedRuleSet {
     public static Builder builder(PolicyManagedRulesExclusionExcludedRuleSet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<PolicyManagedRulesExclusionExcludedRuleSetRuleGroup> ruleGroups;
         private @Nullable String type;
         private @Nullable String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyManagedRulesExclusionExcludedRuleSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ruleGroups = defaults.ruleGroups;
@@ -85,6 +72,7 @@ public final class PolicyManagedRulesExclusionExcludedRuleSet {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder ruleGroups(@Nullable List<PolicyManagedRulesExclusionExcludedRuleSetRuleGroup> ruleGroups) {
             this.ruleGroups = ruleGroups;
             return this;
@@ -92,15 +80,22 @@ public final class PolicyManagedRulesExclusionExcludedRuleSet {
         public Builder ruleGroups(PolicyManagedRulesExclusionExcludedRuleSetRuleGroup... ruleGroups) {
             return ruleGroups(List.of(ruleGroups));
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
-        }        public PolicyManagedRulesExclusionExcludedRuleSet build() {
-            return new PolicyManagedRulesExclusionExcludedRuleSet(ruleGroups, type, version);
+        }
+        public PolicyManagedRulesExclusionExcludedRuleSet build() {
+            final var o = new PolicyManagedRulesExclusionExcludedRuleSet();
+            o.ruleGroups = ruleGroups;
+            o.type = type;
+            o.version = version;
+            return o;
         }
     }
 }

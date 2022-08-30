@@ -9799,6 +9799,142 @@ export namespace backup {
          */
         weeks: pulumi.Input<pulumi.Input<string>[]>;
     }
+
+    export interface PolicyVMWorkloadProtectionPolicy {
+        /**
+         * A `backup` block as defined below.
+         */
+        backup: pulumi.Input<inputs.backup.PolicyVMWorkloadProtectionPolicyBackup>;
+        /**
+         * The type of the VM Workload Backup Policy. Possible values are `Differential`, `Full`, `Incremental` and `Log`.
+         */
+        policyType: pulumi.Input<string>;
+        /**
+         * A `retentionDaily` block as defined below.
+         */
+        retentionDaily?: pulumi.Input<inputs.backup.PolicyVMWorkloadProtectionPolicyRetentionDaily>;
+        /**
+         * A `retentionMonthly` block as defined below.
+         */
+        retentionMonthly?: pulumi.Input<inputs.backup.PolicyVMWorkloadProtectionPolicyRetentionMonthly>;
+        /**
+         * A `retentionWeekly` block as defined below.
+         */
+        retentionWeekly?: pulumi.Input<inputs.backup.PolicyVMWorkloadProtectionPolicyRetentionWeekly>;
+        /**
+         * A `retentionYearly` block as defined below.
+         */
+        retentionYearly?: pulumi.Input<inputs.backup.PolicyVMWorkloadProtectionPolicyRetentionYearly>;
+        /**
+         * A `simpleRetention` block as defined below.
+         */
+        simpleRetention?: pulumi.Input<inputs.backup.PolicyVMWorkloadProtectionPolicySimpleRetention>;
+    }
+
+    export interface PolicyVMWorkloadProtectionPolicyBackup {
+        /**
+         * The backup frequency for the VM Workload Backup Policy. Possible values are `Daily` and `Weekly`.
+         */
+        frequency?: pulumi.Input<string>;
+        /**
+         * The backup frequency in minutes for the VM Workload Backup Policy. Possible values are `15`, `30`, `60`, `120`, `240`, `480`, `720` and `1440`.
+         */
+        frequencyInMinutes?: pulumi.Input<number>;
+        /**
+         * The time of day to perform the backup in 24hour format.
+         */
+        time?: pulumi.Input<string>;
+        /**
+         * The days of the week to perform backups on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
+         */
+        weekdays?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface PolicyVMWorkloadProtectionPolicyRetentionDaily {
+        /**
+         * The number of daily backups to keep. Possible values are between `7` and `9999`.
+         */
+        count: pulumi.Input<number>;
+    }
+
+    export interface PolicyVMWorkloadProtectionPolicyRetentionMonthly {
+        /**
+         * The number of monthly backups to keep. Must be between `1` and `1188`.
+         */
+        count: pulumi.Input<number>;
+        /**
+         * The retention schedule format type for monthly retention policy. Possible values are `Daily` and `Weekly`.
+         */
+        formatType: pulumi.Input<string>;
+        /**
+         * The monthday backups to retain. Possible values are between `0` and `28`.
+         */
+        monthdays?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         */
+        weekdays?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The weeks of the month to retain backups of. Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`.
+         */
+        weeks?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface PolicyVMWorkloadProtectionPolicyRetentionWeekly {
+        /**
+         * The number of weekly backups to keep. Possible values are between `1` and `5163`.
+         */
+        count: pulumi.Input<number>;
+        /**
+         * The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         */
+        weekdays: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface PolicyVMWorkloadProtectionPolicyRetentionYearly {
+        /**
+         * The number of yearly backups to keep. Possible values are between `1` and `99`
+         */
+        count: pulumi.Input<number>;
+        /**
+         * The retention schedule format type for yearly retention policy. Possible values are `Daily` and `Weekly`.
+         */
+        formatType: pulumi.Input<string>;
+        /**
+         * The monthday backups to retain. Possible values are between `0` and `28`.
+         */
+        monthdays?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * The months of the year to retain backups of. Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
+         */
+        months: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         */
+        weekdays?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The weeks of the month to retain backups of. Possible values are `First`, `Second`, `Third`, `Fourth`, `Last`.
+         */
+        weeks?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface PolicyVMWorkloadProtectionPolicySimpleRetention {
+        /**
+         * The count that is used to count retention duration with duration type `Days`. Possible values are between `7` and `35`.
+         */
+        count: pulumi.Input<number>;
+    }
+
+    export interface PolicyVMWorkloadSettings {
+        /**
+         * The compression setting for the VM Workload Backup Policy. Defaults to `false`.
+         */
+        compressionEnabled?: pulumi.Input<boolean>;
+        /**
+         * The timezone for the VM Workload Backup Policy. [The possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+         */
+        timeZone: pulumi.Input<string>;
+    }
 }
 
 export namespace batch {
@@ -26615,25 +26751,6 @@ export namespace monitoring {
         enabled: pulumi.Input<boolean>;
     }
 
-    export interface GetActionGroupEventHubReceiver {
-        /**
-         * The resource ID of the respective Event Hub.
-         */
-        eventHubId: string;
-        /**
-         * Specifies the name of the Action Group.
-         */
-        name: string;
-        /**
-         * The Tenant ID for the subscription containing this Event Hub.
-         */
-        tenantId?: string;
-        /**
-         * Indicates whether to use common alert schema.
-         */
-        useCommonAlertSchema?: boolean;
-    }
-
     export interface GetActionGroupEventHubReceiverArgs {
         /**
          * The resource ID of the respective Event Hub.
@@ -26651,6 +26768,25 @@ export namespace monitoring {
          * Indicates whether to use common alert schema.
          */
         useCommonAlertSchema?: pulumi.Input<boolean>;
+    }
+
+    export interface GetActionGroupEventHubReceiver {
+        /**
+         * The resource ID of the respective Event Hub.
+         */
+        eventHubId: string;
+        /**
+         * Specifies the name of the Action Group.
+         */
+        name: string;
+        /**
+         * The Tenant ID for the subscription containing this Event Hub.
+         */
+        tenantId?: string;
+        /**
+         * Indicates whether to use common alert schema.
+         */
+        useCommonAlertSchema?: boolean;
     }
 
     export interface LogProfileRetentionPolicy {
@@ -26928,6 +27064,78 @@ export namespace monitoring {
          * The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
          */
         threshold: pulumi.Input<number>;
+    }
+
+    export interface ScheduledQueryRulesAlertV2Action {
+        /**
+         * List of Action Group resource ids to invoke when the alert fires.
+         */
+        actionGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the properties of an alert payload.
+         */
+        customProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface ScheduledQueryRulesAlertV2Criteria {
+        /**
+         * A `dimension` block as defined below.
+         */
+        dimensions?: pulumi.Input<pulumi.Input<inputs.monitoring.ScheduledQueryRulesAlertV2CriteriaDimension>[]>;
+        /**
+         * A `failingPeriods` block as defined below.
+         */
+        failingPeriods?: pulumi.Input<inputs.monitoring.ScheduledQueryRulesAlertV2CriteriaFailingPeriods>;
+        /**
+         * Specifies the column containing the metric measure number.
+         */
+        metricMeasureColumn?: pulumi.Input<string>;
+        /**
+         * Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * The query to run on logs. The results returned by this query are used to populate the alert.
+         */
+        query: pulumi.Input<string>;
+        /**
+         * Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+         */
+        resourceIdColumn?: pulumi.Input<string>;
+        /**
+         * Specifies the criteria threshold value that activates the alert.
+         */
+        threshold: pulumi.Input<number>;
+        /**
+         * The type of aggregation to apply to the data points in aggregation granularity. Possible values are `Average`, `Count`, `Maximum`, `Minimum`,and `Total`.
+         */
+        timeAggregationMethod: pulumi.Input<string>;
+    }
+
+    export interface ScheduledQueryRulesAlertV2CriteriaDimension {
+        /**
+         * Name of the dimension.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Operator for dimension values. Possible values are `Exclude`,and `Include`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * List of dimension values. Use a wildcard `*` to collect all.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ScheduledQueryRulesAlertV2CriteriaFailingPeriods {
+        /**
+         * Specifies the number of violations to trigger an alert. Should be smaller or equal to `numberOfEvaluationPeriods`. Possible value is integer between 1 and 6.
+         */
+        minimumFailingPeriodsToTriggerAlert: pulumi.Input<number>;
+        /**
+         * Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `windowDuration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
+         */
+        numberOfEvaluationPeriods: pulumi.Input<number>;
     }
 
     export interface ScheduledQueryRulesLogCriteria {

@@ -13,21 +13,14 @@ public final class GetManagedDiskEncryptionSettingKeyEncryptionKey {
      * @return The URL to the Key Vault Key used as the Key Encryption Key.
      * 
      */
-    private final String keyUrl;
+    private String keyUrl;
     /**
      * @return The ID of the source Key Vault.
      * 
      */
-    private final String sourceVaultId;
+    private String sourceVaultId;
 
-    @CustomType.Constructor
-    private GetManagedDiskEncryptionSettingKeyEncryptionKey(
-        @CustomType.Parameter("keyUrl") String keyUrl,
-        @CustomType.Parameter("sourceVaultId") String sourceVaultId) {
-        this.keyUrl = keyUrl;
-        this.sourceVaultId = sourceVaultId;
-    }
-
+    private GetManagedDiskEncryptionSettingKeyEncryptionKey() {}
     /**
      * @return The URL to the Key Vault Key used as the Key Encryption Key.
      * 
@@ -50,30 +43,32 @@ public final class GetManagedDiskEncryptionSettingKeyEncryptionKey {
     public static Builder builder(GetManagedDiskEncryptionSettingKeyEncryptionKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String keyUrl;
         private String sourceVaultId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetManagedDiskEncryptionSettingKeyEncryptionKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyUrl = defaults.keyUrl;
     	      this.sourceVaultId = defaults.sourceVaultId;
         }
 
+        @CustomType.Setter
         public Builder keyUrl(String keyUrl) {
             this.keyUrl = Objects.requireNonNull(keyUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceVaultId(String sourceVaultId) {
             this.sourceVaultId = Objects.requireNonNull(sourceVaultId);
             return this;
-        }        public GetManagedDiskEncryptionSettingKeyEncryptionKey build() {
-            return new GetManagedDiskEncryptionSettingKeyEncryptionKey(keyUrl, sourceVaultId);
+        }
+        public GetManagedDiskEncryptionSettingKeyEncryptionKey build() {
+            final var o = new GetManagedDiskEncryptionSettingKeyEncryptionKey();
+            o.keyUrl = keyUrl;
+            o.sourceVaultId = sourceVaultId;
+            return o;
         }
     }
 }

@@ -14,21 +14,14 @@ public final class PoolIdentity {
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
      * 
      */
-    private final List<String> identityIds;
+    private List<String> identityIds;
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Batch Account. Only possible value is `UserAssigned`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private PoolIdentity(
-        @CustomType.Parameter("identityIds") List<String> identityIds,
-        @CustomType.Parameter("type") String type) {
-        this.identityIds = identityIds;
-        this.type = type;
-    }
-
+    private PoolIdentity() {}
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Batch Account.
      * 
@@ -51,21 +44,18 @@ public final class PoolIdentity {
     public static Builder builder(PoolIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> identityIds;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PoolIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder identityIds(List<String> identityIds) {
             this.identityIds = Objects.requireNonNull(identityIds);
             return this;
@@ -73,11 +63,16 @@ public final class PoolIdentity {
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public PoolIdentity build() {
-            return new PoolIdentity(identityIds, type);
+        }
+        public PoolIdentity build() {
+            final var o = new PoolIdentity();
+            o.identityIds = identityIds;
+            o.type = type;
+            return o;
         }
     }
 }

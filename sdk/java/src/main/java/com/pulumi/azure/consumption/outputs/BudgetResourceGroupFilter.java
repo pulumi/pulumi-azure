@@ -18,28 +18,19 @@ public final class BudgetResourceGroupFilter {
      * @return One or more `dimension` blocks as defined below to filter the budget on.
      * 
      */
-    private final @Nullable List<BudgetResourceGroupFilterDimension> dimensions;
+    private @Nullable List<BudgetResourceGroupFilterDimension> dimensions;
     /**
      * @return A `not` block as defined below to filter the budget on.
      * 
      */
-    private final @Nullable BudgetResourceGroupFilterNot not;
+    private @Nullable BudgetResourceGroupFilterNot not;
     /**
      * @return One or more `tag` blocks as defined below to filter the budget on.
      * 
      */
-    private final @Nullable List<BudgetResourceGroupFilterTag> tags;
+    private @Nullable List<BudgetResourceGroupFilterTag> tags;
 
-    @CustomType.Constructor
-    private BudgetResourceGroupFilter(
-        @CustomType.Parameter("dimensions") @Nullable List<BudgetResourceGroupFilterDimension> dimensions,
-        @CustomType.Parameter("not") @Nullable BudgetResourceGroupFilterNot not,
-        @CustomType.Parameter("tags") @Nullable List<BudgetResourceGroupFilterTag> tags) {
-        this.dimensions = dimensions;
-        this.not = not;
-        this.tags = tags;
-    }
-
+    private BudgetResourceGroupFilter() {}
     /**
      * @return One or more `dimension` blocks as defined below to filter the budget on.
      * 
@@ -69,16 +60,12 @@ public final class BudgetResourceGroupFilter {
     public static Builder builder(BudgetResourceGroupFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<BudgetResourceGroupFilterDimension> dimensions;
         private @Nullable BudgetResourceGroupFilterNot not;
         private @Nullable List<BudgetResourceGroupFilterTag> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BudgetResourceGroupFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dimensions = defaults.dimensions;
@@ -86,6 +73,7 @@ public final class BudgetResourceGroupFilter {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder dimensions(@Nullable List<BudgetResourceGroupFilterDimension> dimensions) {
             this.dimensions = dimensions;
             return this;
@@ -93,18 +81,25 @@ public final class BudgetResourceGroupFilter {
         public Builder dimensions(BudgetResourceGroupFilterDimension... dimensions) {
             return dimensions(List.of(dimensions));
         }
+        @CustomType.Setter
         public Builder not(@Nullable BudgetResourceGroupFilterNot not) {
             this.not = not;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable List<BudgetResourceGroupFilterTag> tags) {
             this.tags = tags;
             return this;
         }
         public Builder tags(BudgetResourceGroupFilterTag... tags) {
             return tags(List.of(tags));
-        }        public BudgetResourceGroupFilter build() {
-            return new BudgetResourceGroupFilter(dimensions, not, tags);
+        }
+        public BudgetResourceGroupFilter build() {
+            final var o = new BudgetResourceGroupFilter();
+            o.dimensions = dimensions;
+            o.not = not;
+            o.tags = tags;
+            return o;
         }
     }
 }

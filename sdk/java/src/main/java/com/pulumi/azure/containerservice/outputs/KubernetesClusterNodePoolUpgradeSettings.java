@@ -13,13 +13,9 @@ public final class KubernetesClusterNodePoolUpgradeSettings {
      * @return The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
      * 
      */
-    private final String maxSurge;
+    private String maxSurge;
 
-    @CustomType.Constructor
-    private KubernetesClusterNodePoolUpgradeSettings(@CustomType.Parameter("maxSurge") String maxSurge) {
-        this.maxSurge = maxSurge;
-    }
-
+    private KubernetesClusterNodePoolUpgradeSettings() {}
     /**
      * @return The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
      * 
@@ -35,24 +31,24 @@ public final class KubernetesClusterNodePoolUpgradeSettings {
     public static Builder builder(KubernetesClusterNodePoolUpgradeSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String maxSurge;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KubernetesClusterNodePoolUpgradeSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxSurge = defaults.maxSurge;
         }
 
+        @CustomType.Setter
         public Builder maxSurge(String maxSurge) {
             this.maxSurge = Objects.requireNonNull(maxSurge);
             return this;
-        }        public KubernetesClusterNodePoolUpgradeSettings build() {
-            return new KubernetesClusterNodePoolUpgradeSettings(maxSurge);
+        }
+        public KubernetesClusterNodePoolUpgradeSettings build() {
+            final var o = new KubernetesClusterNodePoolUpgradeSettings();
+            o.maxSurge = maxSurge;
+            return o;
         }
     }
 }

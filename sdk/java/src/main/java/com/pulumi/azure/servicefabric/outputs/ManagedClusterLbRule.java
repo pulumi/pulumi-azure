@@ -16,42 +16,29 @@ public final class ManagedClusterLbRule {
      * @return LB Backend port.
      * 
      */
-    private final Integer backendPort;
+    private Integer backendPort;
     /**
      * @return LB Frontend port.
      * 
      */
-    private final Integer frontendPort;
+    private Integer frontendPort;
     /**
      * @return Protocol for the probe. Can be one of `tcp`, `udp`, `http`, or `https`.
      * 
      */
-    private final String probeProtocol;
+    private String probeProtocol;
     /**
      * @return Path for the probe to check, when probe protocol is set to `http`.
      * 
      */
-    private final @Nullable String probeRequestPath;
+    private @Nullable String probeRequestPath;
     /**
      * @return The transport protocol used in this rule. Can be one of `tcp` or `udp`.
      * 
      */
-    private final String protocol;
+    private String protocol;
 
-    @CustomType.Constructor
-    private ManagedClusterLbRule(
-        @CustomType.Parameter("backendPort") Integer backendPort,
-        @CustomType.Parameter("frontendPort") Integer frontendPort,
-        @CustomType.Parameter("probeProtocol") String probeProtocol,
-        @CustomType.Parameter("probeRequestPath") @Nullable String probeRequestPath,
-        @CustomType.Parameter("protocol") String protocol) {
-        this.backendPort = backendPort;
-        this.frontendPort = frontendPort;
-        this.probeProtocol = probeProtocol;
-        this.probeRequestPath = probeRequestPath;
-        this.protocol = protocol;
-    }
-
+    private ManagedClusterLbRule() {}
     /**
      * @return LB Backend port.
      * 
@@ -95,18 +82,14 @@ public final class ManagedClusterLbRule {
     public static Builder builder(ManagedClusterLbRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer backendPort;
         private Integer frontendPort;
         private String probeProtocol;
         private @Nullable String probeRequestPath;
         private String protocol;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ManagedClusterLbRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.backendPort = defaults.backendPort;
@@ -116,27 +99,39 @@ public final class ManagedClusterLbRule {
     	      this.protocol = defaults.protocol;
         }
 
+        @CustomType.Setter
         public Builder backendPort(Integer backendPort) {
             this.backendPort = Objects.requireNonNull(backendPort);
             return this;
         }
+        @CustomType.Setter
         public Builder frontendPort(Integer frontendPort) {
             this.frontendPort = Objects.requireNonNull(frontendPort);
             return this;
         }
+        @CustomType.Setter
         public Builder probeProtocol(String probeProtocol) {
             this.probeProtocol = Objects.requireNonNull(probeProtocol);
             return this;
         }
+        @CustomType.Setter
         public Builder probeRequestPath(@Nullable String probeRequestPath) {
             this.probeRequestPath = probeRequestPath;
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
-        }        public ManagedClusterLbRule build() {
-            return new ManagedClusterLbRule(backendPort, frontendPort, probeProtocol, probeRequestPath, protocol);
+        }
+        public ManagedClusterLbRule build() {
+            final var o = new ManagedClusterLbRule();
+            o.backendPort = backendPort;
+            o.frontendPort = frontendPort;
+            o.probeProtocol = probeProtocol;
+            o.probeRequestPath = probeRequestPath;
+            o.protocol = protocol;
+            return o;
         }
     }
 }

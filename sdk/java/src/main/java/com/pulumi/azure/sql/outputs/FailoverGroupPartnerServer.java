@@ -15,28 +15,19 @@ public final class FailoverGroupPartnerServer {
      * @return the SQL server ID
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return the location of the failover group.
      * 
      */
-    private final @Nullable String location;
+    private @Nullable String location;
     /**
      * @return local replication role of the failover group instance.
      * 
      */
-    private final @Nullable String role;
+    private @Nullable String role;
 
-    @CustomType.Constructor
-    private FailoverGroupPartnerServer(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") @Nullable String location,
-        @CustomType.Parameter("role") @Nullable String role) {
-        this.id = id;
-        this.location = location;
-        this.role = role;
-    }
-
+    private FailoverGroupPartnerServer() {}
     /**
      * @return the SQL server ID
      * 
@@ -66,16 +57,12 @@ public final class FailoverGroupPartnerServer {
     public static Builder builder(FailoverGroupPartnerServer defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private @Nullable String location;
         private @Nullable String role;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FailoverGroupPartnerServer defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -83,19 +70,27 @@ public final class FailoverGroupPartnerServer {
     	      this.role = defaults.role;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(@Nullable String location) {
             this.location = location;
             return this;
         }
+        @CustomType.Setter
         public Builder role(@Nullable String role) {
             this.role = role;
             return this;
-        }        public FailoverGroupPartnerServer build() {
-            return new FailoverGroupPartnerServer(id, location, role);
+        }
+        public FailoverGroupPartnerServer build() {
+            final var o = new FailoverGroupPartnerServer();
+            o.id = id;
+            o.location = location;
+            o.role = role;
+            return o;
         }
     }
 }

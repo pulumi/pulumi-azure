@@ -10,48 +10,31 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPoolResult {
-    private final String accountName;
+    private String accountName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region where the NetApp Pool exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return The service level of the file system.
      * 
      */
-    private final String serviceLevel;
+    private String serviceLevel;
     /**
      * @return Provisioned size of the pool in TB.
      * 
      */
-    private final Integer sizeInTb;
+    private Integer sizeInTb;
 
-    @CustomType.Constructor
-    private GetPoolResult(
-        @CustomType.Parameter("accountName") String accountName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("serviceLevel") String serviceLevel,
-        @CustomType.Parameter("sizeInTb") Integer sizeInTb) {
-        this.accountName = accountName;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.serviceLevel = serviceLevel;
-        this.sizeInTb = sizeInTb;
-    }
-
+    private GetPoolResult() {}
     public String accountName() {
         return this.accountName;
     }
@@ -97,7 +80,7 @@ public final class GetPoolResult {
     public static Builder builder(GetPoolResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountName;
         private String id;
@@ -106,11 +89,7 @@ public final class GetPoolResult {
         private String resourceGroupName;
         private String serviceLevel;
         private Integer sizeInTb;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPoolResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountName = defaults.accountName;
@@ -122,35 +101,51 @@ public final class GetPoolResult {
     	      this.sizeInTb = defaults.sizeInTb;
         }
 
+        @CustomType.Setter
         public Builder accountName(String accountName) {
             this.accountName = Objects.requireNonNull(accountName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceLevel(String serviceLevel) {
             this.serviceLevel = Objects.requireNonNull(serviceLevel);
             return this;
         }
+        @CustomType.Setter
         public Builder sizeInTb(Integer sizeInTb) {
             this.sizeInTb = Objects.requireNonNull(sizeInTb);
             return this;
-        }        public GetPoolResult build() {
-            return new GetPoolResult(accountName, id, location, name, resourceGroupName, serviceLevel, sizeInTb);
+        }
+        public GetPoolResult build() {
+            final var o = new GetPoolResult();
+            o.accountName = accountName;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.serviceLevel = serviceLevel;
+            o.sizeInTb = sizeInTb;
+            return o;
         }
     }
 }

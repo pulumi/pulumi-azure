@@ -13,21 +13,14 @@ public final class IntegrationRuntimeSsisPackageStore {
      * @return Name of the Linked Service to associate with the packages.
      * 
      */
-    private final String linkedServiceName;
+    private String linkedServiceName;
     /**
      * @return Name of the package store.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private IntegrationRuntimeSsisPackageStore(
-        @CustomType.Parameter("linkedServiceName") String linkedServiceName,
-        @CustomType.Parameter("name") String name) {
-        this.linkedServiceName = linkedServiceName;
-        this.name = name;
-    }
-
+    private IntegrationRuntimeSsisPackageStore() {}
     /**
      * @return Name of the Linked Service to associate with the packages.
      * 
@@ -50,30 +43,32 @@ public final class IntegrationRuntimeSsisPackageStore {
     public static Builder builder(IntegrationRuntimeSsisPackageStore defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String linkedServiceName;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationRuntimeSsisPackageStore defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.linkedServiceName = defaults.linkedServiceName;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder linkedServiceName(String linkedServiceName) {
             this.linkedServiceName = Objects.requireNonNull(linkedServiceName);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public IntegrationRuntimeSsisPackageStore build() {
-            return new IntegrationRuntimeSsisPackageStore(linkedServiceName, name);
+        }
+        public IntegrationRuntimeSsisPackageStore build() {
+            final var o = new IntegrationRuntimeSsisPackageStore();
+            o.linkedServiceName = linkedServiceName;
+            o.name = name;
+            return o;
         }
     }
 }

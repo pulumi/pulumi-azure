@@ -15,28 +15,19 @@ public final class ManagementPolicyRuleFiltersMatchBlobIndexTag {
      * @return The filter tag name used for tag based filtering for blob objects.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The comparison operator which is used for object comparison and filtering. Possible value is `==`. Defaults to `==`.
      * 
      */
-    private final @Nullable String operation;
+    private @Nullable String operation;
     /**
      * @return The filter tag value used for tag based filtering for blob objects.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private ManagementPolicyRuleFiltersMatchBlobIndexTag(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("operation") @Nullable String operation,
-        @CustomType.Parameter("value") String value) {
-        this.name = name;
-        this.operation = operation;
-        this.value = value;
-    }
-
+    private ManagementPolicyRuleFiltersMatchBlobIndexTag() {}
     /**
      * @return The filter tag name used for tag based filtering for blob objects.
      * 
@@ -66,16 +57,12 @@ public final class ManagementPolicyRuleFiltersMatchBlobIndexTag {
     public static Builder builder(ManagementPolicyRuleFiltersMatchBlobIndexTag defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private @Nullable String operation;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ManagementPolicyRuleFiltersMatchBlobIndexTag defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -83,19 +70,27 @@ public final class ManagementPolicyRuleFiltersMatchBlobIndexTag {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder operation(@Nullable String operation) {
             this.operation = operation;
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public ManagementPolicyRuleFiltersMatchBlobIndexTag build() {
-            return new ManagementPolicyRuleFiltersMatchBlobIndexTag(name, operation, value);
+        }
+        public ManagementPolicyRuleFiltersMatchBlobIndexTag build() {
+            final var o = new ManagementPolicyRuleFiltersMatchBlobIndexTag();
+            o.name = name;
+            o.operation = operation;
+            o.value = value;
+            return o;
         }
     }
 }

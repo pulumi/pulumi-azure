@@ -15,28 +15,19 @@ public final class AccountEncryption {
      * @return The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
      * 
      */
-    private final @Nullable String keySource;
+    private @Nullable String keySource;
     /**
      * @return The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
      * 
      */
-    private final String keyVaultKeyId;
+    private String keyVaultKeyId;
     /**
      * @return The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
      * 
      */
-    private final @Nullable String userAssignedIdentityId;
+    private @Nullable String userAssignedIdentityId;
 
-    @CustomType.Constructor
-    private AccountEncryption(
-        @CustomType.Parameter("keySource") @Nullable String keySource,
-        @CustomType.Parameter("keyVaultKeyId") String keyVaultKeyId,
-        @CustomType.Parameter("userAssignedIdentityId") @Nullable String userAssignedIdentityId) {
-        this.keySource = keySource;
-        this.keyVaultKeyId = keyVaultKeyId;
-        this.userAssignedIdentityId = userAssignedIdentityId;
-    }
-
+    private AccountEncryption() {}
     /**
      * @return The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
      * 
@@ -66,16 +57,12 @@ public final class AccountEncryption {
     public static Builder builder(AccountEncryption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String keySource;
         private String keyVaultKeyId;
         private @Nullable String userAssignedIdentityId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountEncryption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keySource = defaults.keySource;
@@ -83,19 +70,27 @@ public final class AccountEncryption {
     	      this.userAssignedIdentityId = defaults.userAssignedIdentityId;
         }
 
+        @CustomType.Setter
         public Builder keySource(@Nullable String keySource) {
             this.keySource = keySource;
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultKeyId(String keyVaultKeyId) {
             this.keyVaultKeyId = Objects.requireNonNull(keyVaultKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder userAssignedIdentityId(@Nullable String userAssignedIdentityId) {
             this.userAssignedIdentityId = userAssignedIdentityId;
             return this;
-        }        public AccountEncryption build() {
-            return new AccountEncryption(keySource, keyVaultKeyId, userAssignedIdentityId);
+        }
+        public AccountEncryption build() {
+            final var o = new AccountEncryption();
+            o.keySource = keySource;
+            o.keyVaultKeyId = keyVaultKeyId;
+            o.userAssignedIdentityId = userAssignedIdentityId;
+            return o;
         }
     }
 }

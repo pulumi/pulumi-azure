@@ -10,35 +10,24 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSpringCloudAppIdentity {
-    private final List<String> identityIds;
+    private List<String> identityIds;
     /**
      * @return The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
      * 
      */
-    private final String principalId;
+    private String principalId;
     /**
      * @return The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
     /**
      * @return The Type of Managed Identity assigned to the Spring Cloud Application.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetSpringCloudAppIdentity(
-        @CustomType.Parameter("identityIds") List<String> identityIds,
-        @CustomType.Parameter("principalId") String principalId,
-        @CustomType.Parameter("tenantId") String tenantId,
-        @CustomType.Parameter("type") String type) {
-        this.identityIds = identityIds;
-        this.principalId = principalId;
-        this.tenantId = tenantId;
-        this.type = type;
-    }
-
+    private GetSpringCloudAppIdentity() {}
     public List<String> identityIds() {
         return this.identityIds;
     }
@@ -71,17 +60,13 @@ public final class GetSpringCloudAppIdentity {
     public static Builder builder(GetSpringCloudAppIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> identityIds;
         private String principalId;
         private String tenantId;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSpringCloudAppIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
@@ -90,6 +75,7 @@ public final class GetSpringCloudAppIdentity {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder identityIds(List<String> identityIds) {
             this.identityIds = Objects.requireNonNull(identityIds);
             return this;
@@ -97,19 +83,28 @@ public final class GetSpringCloudAppIdentity {
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
+        @CustomType.Setter
         public Builder principalId(String principalId) {
             this.principalId = Objects.requireNonNull(principalId);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetSpringCloudAppIdentity build() {
-            return new GetSpringCloudAppIdentity(identityIds, principalId, tenantId, type);
+        }
+        public GetSpringCloudAppIdentity build() {
+            final var o = new GetSpringCloudAppIdentity();
+            o.identityIds = identityIds;
+            o.principalId = principalId;
+            o.tenantId = tenantId;
+            o.type = type;
+            return o;
         }
     }
 }

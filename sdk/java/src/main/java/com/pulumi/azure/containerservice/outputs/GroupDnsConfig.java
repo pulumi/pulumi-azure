@@ -15,28 +15,19 @@ public final class GroupDnsConfig {
      * @return A list of nameservers the containers will search out to resolve requests.
      * 
      */
-    private final List<String> nameservers;
+    private List<String> nameservers;
     /**
      * @return A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html).
      * 
      */
-    private final @Nullable List<String> options;
+    private @Nullable List<String> options;
     /**
      * @return A list of search domains that DNS requests will search along.
      * 
      */
-    private final @Nullable List<String> searchDomains;
+    private @Nullable List<String> searchDomains;
 
-    @CustomType.Constructor
-    private GroupDnsConfig(
-        @CustomType.Parameter("nameservers") List<String> nameservers,
-        @CustomType.Parameter("options") @Nullable List<String> options,
-        @CustomType.Parameter("searchDomains") @Nullable List<String> searchDomains) {
-        this.nameservers = nameservers;
-        this.options = options;
-        this.searchDomains = searchDomains;
-    }
-
+    private GroupDnsConfig() {}
     /**
      * @return A list of nameservers the containers will search out to resolve requests.
      * 
@@ -66,16 +57,12 @@ public final class GroupDnsConfig {
     public static Builder builder(GroupDnsConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> nameservers;
         private @Nullable List<String> options;
         private @Nullable List<String> searchDomains;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupDnsConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.nameservers = defaults.nameservers;
@@ -83,6 +70,7 @@ public final class GroupDnsConfig {
     	      this.searchDomains = defaults.searchDomains;
         }
 
+        @CustomType.Setter
         public Builder nameservers(List<String> nameservers) {
             this.nameservers = Objects.requireNonNull(nameservers);
             return this;
@@ -90,6 +78,7 @@ public final class GroupDnsConfig {
         public Builder nameservers(String... nameservers) {
             return nameservers(List.of(nameservers));
         }
+        @CustomType.Setter
         public Builder options(@Nullable List<String> options) {
             this.options = options;
             return this;
@@ -97,14 +86,20 @@ public final class GroupDnsConfig {
         public Builder options(String... options) {
             return options(List.of(options));
         }
+        @CustomType.Setter
         public Builder searchDomains(@Nullable List<String> searchDomains) {
             this.searchDomains = searchDomains;
             return this;
         }
         public Builder searchDomains(String... searchDomains) {
             return searchDomains(List.of(searchDomains));
-        }        public GroupDnsConfig build() {
-            return new GroupDnsConfig(nameservers, options, searchDomains);
+        }
+        public GroupDnsConfig build() {
+            final var o = new GroupDnsConfig();
+            o.nameservers = nameservers;
+            o.options = options;
+            o.searchDomains = searchDomains;
+            return o;
         }
     }
 }

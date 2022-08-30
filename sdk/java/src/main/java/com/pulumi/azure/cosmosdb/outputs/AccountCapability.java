@@ -13,13 +13,9 @@ public final class AccountCapability {
      * @return Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private AccountCapability(@CustomType.Parameter("name") String name) {
-        this.name = name;
-    }
-
+    private AccountCapability() {}
     /**
      * @return Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
      * 
@@ -35,24 +31,24 @@ public final class AccountCapability {
     public static Builder builder(AccountCapability defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountCapability defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public AccountCapability build() {
-            return new AccountCapability(name);
+        }
+        public AccountCapability build() {
+            final var o = new AccountCapability();
+            o.name = name;
+            return o;
         }
     }
 }

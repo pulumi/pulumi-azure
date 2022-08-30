@@ -17,49 +17,34 @@ public final class WindowsFunctionAppSlotBackupSchedule {
      * @return How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
      * 
      */
-    private final Integer frequencyInterval;
+    private Integer frequencyInterval;
     /**
      * @return The unit of time for how often the backup should take place. Possible values include: `Day` and `Hour`.
      * 
      */
-    private final String frequencyUnit;
+    private String frequencyUnit;
     /**
      * @return Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean keepAtLeastOneBackup;
+    private @Nullable Boolean keepAtLeastOneBackup;
     /**
      * @return The time the backup was last attempted.
      * 
      */
-    private final @Nullable String lastExecutionTime;
+    private @Nullable String lastExecutionTime;
     /**
      * @return After how many days backups should be deleted.
      * 
      */
-    private final @Nullable Integer retentionPeriodDays;
+    private @Nullable Integer retentionPeriodDays;
     /**
      * @return When the schedule should start working in RFC-3339 format.
      * 
      */
-    private final @Nullable String startTime;
+    private @Nullable String startTime;
 
-    @CustomType.Constructor
-    private WindowsFunctionAppSlotBackupSchedule(
-        @CustomType.Parameter("frequencyInterval") Integer frequencyInterval,
-        @CustomType.Parameter("frequencyUnit") String frequencyUnit,
-        @CustomType.Parameter("keepAtLeastOneBackup") @Nullable Boolean keepAtLeastOneBackup,
-        @CustomType.Parameter("lastExecutionTime") @Nullable String lastExecutionTime,
-        @CustomType.Parameter("retentionPeriodDays") @Nullable Integer retentionPeriodDays,
-        @CustomType.Parameter("startTime") @Nullable String startTime) {
-        this.frequencyInterval = frequencyInterval;
-        this.frequencyUnit = frequencyUnit;
-        this.keepAtLeastOneBackup = keepAtLeastOneBackup;
-        this.lastExecutionTime = lastExecutionTime;
-        this.retentionPeriodDays = retentionPeriodDays;
-        this.startTime = startTime;
-    }
-
+    private WindowsFunctionAppSlotBackupSchedule() {}
     /**
      * @return How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
      * 
@@ -110,7 +95,7 @@ public final class WindowsFunctionAppSlotBackupSchedule {
     public static Builder builder(WindowsFunctionAppSlotBackupSchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer frequencyInterval;
         private String frequencyUnit;
@@ -118,11 +103,7 @@ public final class WindowsFunctionAppSlotBackupSchedule {
         private @Nullable String lastExecutionTime;
         private @Nullable Integer retentionPeriodDays;
         private @Nullable String startTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsFunctionAppSlotBackupSchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.frequencyInterval = defaults.frequencyInterval;
@@ -133,31 +114,45 @@ public final class WindowsFunctionAppSlotBackupSchedule {
     	      this.startTime = defaults.startTime;
         }
 
+        @CustomType.Setter
         public Builder frequencyInterval(Integer frequencyInterval) {
             this.frequencyInterval = Objects.requireNonNull(frequencyInterval);
             return this;
         }
+        @CustomType.Setter
         public Builder frequencyUnit(String frequencyUnit) {
             this.frequencyUnit = Objects.requireNonNull(frequencyUnit);
             return this;
         }
+        @CustomType.Setter
         public Builder keepAtLeastOneBackup(@Nullable Boolean keepAtLeastOneBackup) {
             this.keepAtLeastOneBackup = keepAtLeastOneBackup;
             return this;
         }
+        @CustomType.Setter
         public Builder lastExecutionTime(@Nullable String lastExecutionTime) {
             this.lastExecutionTime = lastExecutionTime;
             return this;
         }
+        @CustomType.Setter
         public Builder retentionPeriodDays(@Nullable Integer retentionPeriodDays) {
             this.retentionPeriodDays = retentionPeriodDays;
             return this;
         }
+        @CustomType.Setter
         public Builder startTime(@Nullable String startTime) {
             this.startTime = startTime;
             return this;
-        }        public WindowsFunctionAppSlotBackupSchedule build() {
-            return new WindowsFunctionAppSlotBackupSchedule(frequencyInterval, frequencyUnit, keepAtLeastOneBackup, lastExecutionTime, retentionPeriodDays, startTime);
+        }
+        public WindowsFunctionAppSlotBackupSchedule build() {
+            final var o = new WindowsFunctionAppSlotBackupSchedule();
+            o.frequencyInterval = frequencyInterval;
+            o.frequencyUnit = frequencyUnit;
+            o.keepAtLeastOneBackup = keepAtLeastOneBackup;
+            o.lastExecutionTime = lastExecutionTime;
+            o.retentionPeriodDays = retentionPeriodDays;
+            o.startTime = startTime;
+            return o;
         }
     }
 }

@@ -13,35 +13,24 @@ public final class DefinitionPlan {
      * @return The plan name of the marketplace offer.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The product code of the plan.
      * 
      */
-    private final String product;
+    private String product;
     /**
      * @return The publisher ID of the plan.
      * 
      */
-    private final String publisher;
+    private String publisher;
     /**
      * @return The version of the plan.
      * 
      */
-    private final String version;
+    private String version;
 
-    @CustomType.Constructor
-    private DefinitionPlan(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("product") String product,
-        @CustomType.Parameter("publisher") String publisher,
-        @CustomType.Parameter("version") String version) {
-        this.name = name;
-        this.product = product;
-        this.publisher = publisher;
-        this.version = version;
-    }
-
+    private DefinitionPlan() {}
     /**
      * @return The plan name of the marketplace offer.
      * 
@@ -78,17 +67,13 @@ public final class DefinitionPlan {
     public static Builder builder(DefinitionPlan defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String product;
         private String publisher;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DefinitionPlan defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -97,23 +82,33 @@ public final class DefinitionPlan {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder product(String product) {
             this.product = Objects.requireNonNull(product);
             return this;
         }
+        @CustomType.Setter
         public Builder publisher(String publisher) {
             this.publisher = Objects.requireNonNull(publisher);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public DefinitionPlan build() {
-            return new DefinitionPlan(name, product, publisher, version);
+        }
+        public DefinitionPlan build() {
+            final var o = new DefinitionPlan();
+            o.name = name;
+            o.product = product;
+            o.publisher = publisher;
+            o.version = version;
+            return o;
         }
     }
 }

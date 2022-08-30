@@ -14,28 +14,19 @@ public final class DataCollectionRuleDataSourcesWindowsEventLog {
      * @return The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
      * 
      */
-    private final List<String> streams;
+    private List<String> streams;
     /**
      * @return Specifies a list of Windows Event Log queries in XPath expression.
      * 
      */
-    private final List<String> xPathQueries;
+    private List<String> xPathQueries;
 
-    @CustomType.Constructor
-    private DataCollectionRuleDataSourcesWindowsEventLog(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("streams") List<String> streams,
-        @CustomType.Parameter("xPathQueries") List<String> xPathQueries) {
-        this.name = name;
-        this.streams = streams;
-        this.xPathQueries = xPathQueries;
-    }
-
+    private DataCollectionRuleDataSourcesWindowsEventLog() {}
     /**
      * @return The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
      * 
@@ -65,16 +56,12 @@ public final class DataCollectionRuleDataSourcesWindowsEventLog {
     public static Builder builder(DataCollectionRuleDataSourcesWindowsEventLog defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private List<String> streams;
         private List<String> xPathQueries;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataCollectionRuleDataSourcesWindowsEventLog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -82,10 +69,12 @@ public final class DataCollectionRuleDataSourcesWindowsEventLog {
     	      this.xPathQueries = defaults.xPathQueries;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder streams(List<String> streams) {
             this.streams = Objects.requireNonNull(streams);
             return this;
@@ -93,14 +82,20 @@ public final class DataCollectionRuleDataSourcesWindowsEventLog {
         public Builder streams(String... streams) {
             return streams(List.of(streams));
         }
+        @CustomType.Setter
         public Builder xPathQueries(List<String> xPathQueries) {
             this.xPathQueries = Objects.requireNonNull(xPathQueries);
             return this;
         }
         public Builder xPathQueries(String... xPathQueries) {
             return xPathQueries(List.of(xPathQueries));
-        }        public DataCollectionRuleDataSourcesWindowsEventLog build() {
-            return new DataCollectionRuleDataSourcesWindowsEventLog(name, streams, xPathQueries);
+        }
+        public DataCollectionRuleDataSourcesWindowsEventLog build() {
+            final var o = new DataCollectionRuleDataSourcesWindowsEventLog();
+            o.name = name;
+            o.streams = streams;
+            o.xPathQueries = xPathQueries;
+            return o;
         }
     }
 }

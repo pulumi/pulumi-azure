@@ -14,31 +14,22 @@ public final class GetVirtualNetworkGatewayBgpSetting {
      * @return The Autonomous System Number (ASN) to use as part of the BGP.
      * 
      */
-    private final Integer asn;
+    private Integer asn;
     /**
      * @return The weight added to routes which have been learned
      * through BGP peering.
      * 
      */
-    private final Integer peerWeight;
+    private Integer peerWeight;
     /**
      * @return The BGP peer IP address of the virtual network
      * gateway. This address is needed to configure the created gateway as a BGP Peer
      * on the on-premises VPN devices.
      * 
      */
-    private final String peeringAddress;
+    private String peeringAddress;
 
-    @CustomType.Constructor
-    private GetVirtualNetworkGatewayBgpSetting(
-        @CustomType.Parameter("asn") Integer asn,
-        @CustomType.Parameter("peerWeight") Integer peerWeight,
-        @CustomType.Parameter("peeringAddress") String peeringAddress) {
-        this.asn = asn;
-        this.peerWeight = peerWeight;
-        this.peeringAddress = peeringAddress;
-    }
-
+    private GetVirtualNetworkGatewayBgpSetting() {}
     /**
      * @return The Autonomous System Number (ASN) to use as part of the BGP.
      * 
@@ -71,16 +62,12 @@ public final class GetVirtualNetworkGatewayBgpSetting {
     public static Builder builder(GetVirtualNetworkGatewayBgpSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer asn;
         private Integer peerWeight;
         private String peeringAddress;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualNetworkGatewayBgpSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.asn = defaults.asn;
@@ -88,19 +75,27 @@ public final class GetVirtualNetworkGatewayBgpSetting {
     	      this.peeringAddress = defaults.peeringAddress;
         }
 
+        @CustomType.Setter
         public Builder asn(Integer asn) {
             this.asn = Objects.requireNonNull(asn);
             return this;
         }
+        @CustomType.Setter
         public Builder peerWeight(Integer peerWeight) {
             this.peerWeight = Objects.requireNonNull(peerWeight);
             return this;
         }
+        @CustomType.Setter
         public Builder peeringAddress(String peeringAddress) {
             this.peeringAddress = Objects.requireNonNull(peeringAddress);
             return this;
-        }        public GetVirtualNetworkGatewayBgpSetting build() {
-            return new GetVirtualNetworkGatewayBgpSetting(asn, peerWeight, peeringAddress);
+        }
+        public GetVirtualNetworkGatewayBgpSetting build() {
+            final var o = new GetVirtualNetworkGatewayBgpSetting();
+            o.asn = asn;
+            o.peerWeight = peerWeight;
+            o.peeringAddress = peeringAddress;
+            return o;
         }
     }
 }

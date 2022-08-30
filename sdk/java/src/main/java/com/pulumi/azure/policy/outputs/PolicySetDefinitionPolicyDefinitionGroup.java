@@ -15,42 +15,29 @@ public final class PolicySetDefinitionPolicyDefinitionGroup {
      * @return The ID of a resource that contains additional metadata about this policy definition group.
      * 
      */
-    private final @Nullable String additionalMetadataResourceId;
+    private @Nullable String additionalMetadataResourceId;
     /**
      * @return The category of this policy definition group.
      * 
      */
-    private final @Nullable String category;
+    private @Nullable String category;
     /**
      * @return The description of this policy definition group.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return The display name of this policy definition group.
      * 
      */
-    private final @Nullable String displayName;
+    private @Nullable String displayName;
     /**
      * @return The name of this policy definition group.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private PolicySetDefinitionPolicyDefinitionGroup(
-        @CustomType.Parameter("additionalMetadataResourceId") @Nullable String additionalMetadataResourceId,
-        @CustomType.Parameter("category") @Nullable String category,
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("displayName") @Nullable String displayName,
-        @CustomType.Parameter("name") String name) {
-        this.additionalMetadataResourceId = additionalMetadataResourceId;
-        this.category = category;
-        this.description = description;
-        this.displayName = displayName;
-        this.name = name;
-    }
-
+    private PolicySetDefinitionPolicyDefinitionGroup() {}
     /**
      * @return The ID of a resource that contains additional metadata about this policy definition group.
      * 
@@ -94,18 +81,14 @@ public final class PolicySetDefinitionPolicyDefinitionGroup {
     public static Builder builder(PolicySetDefinitionPolicyDefinitionGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String additionalMetadataResourceId;
         private @Nullable String category;
         private @Nullable String description;
         private @Nullable String displayName;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicySetDefinitionPolicyDefinitionGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.additionalMetadataResourceId = defaults.additionalMetadataResourceId;
@@ -115,27 +98,39 @@ public final class PolicySetDefinitionPolicyDefinitionGroup {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder additionalMetadataResourceId(@Nullable String additionalMetadataResourceId) {
             this.additionalMetadataResourceId = additionalMetadataResourceId;
             return this;
         }
+        @CustomType.Setter
         public Builder category(@Nullable String category) {
             this.category = category;
             return this;
         }
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder displayName(@Nullable String displayName) {
             this.displayName = displayName;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public PolicySetDefinitionPolicyDefinitionGroup build() {
-            return new PolicySetDefinitionPolicyDefinitionGroup(additionalMetadataResourceId, category, description, displayName, name);
+        }
+        public PolicySetDefinitionPolicyDefinitionGroup build() {
+            final var o = new PolicySetDefinitionPolicyDefinitionGroup();
+            o.additionalMetadataResourceId = additionalMetadataResourceId;
+            o.category = category;
+            o.description = description;
+            o.displayName = displayName;
+            o.name = name;
+            return o;
         }
     }
 }

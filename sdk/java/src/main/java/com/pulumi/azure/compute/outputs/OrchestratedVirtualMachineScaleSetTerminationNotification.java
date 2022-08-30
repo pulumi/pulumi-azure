@@ -12,17 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetTerminationNotification {
-    private final Boolean enabled;
-    private final @Nullable String timeout;
+    private Boolean enabled;
+    private @Nullable String timeout;
 
-    @CustomType.Constructor
-    private OrchestratedVirtualMachineScaleSetTerminationNotification(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("timeout") @Nullable String timeout) {
-        this.enabled = enabled;
-        this.timeout = timeout;
-    }
-
+    private OrchestratedVirtualMachineScaleSetTerminationNotification() {}
     public Boolean enabled() {
         return this.enabled;
     }
@@ -37,30 +30,32 @@ public final class OrchestratedVirtualMachineScaleSetTerminationNotification {
     public static Builder builder(OrchestratedVirtualMachineScaleSetTerminationNotification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private @Nullable String timeout;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetTerminationNotification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.timeout = defaults.timeout;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder timeout(@Nullable String timeout) {
             this.timeout = timeout;
             return this;
-        }        public OrchestratedVirtualMachineScaleSetTerminationNotification build() {
-            return new OrchestratedVirtualMachineScaleSetTerminationNotification(enabled, timeout);
+        }
+        public OrchestratedVirtualMachineScaleSetTerminationNotification build() {
+            final var o = new OrchestratedVirtualMachineScaleSetTerminationNotification();
+            o.enabled = enabled;
+            o.timeout = timeout;
+            return o;
         }
     }
 }

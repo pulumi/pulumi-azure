@@ -64,18 +64,24 @@ namespace Pulumi.Azure
         public Output<string?> MsiEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The bearer token for the request to the OIDC provider. For use When authenticating as a Service Principal using OpenID
+        /// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
         /// Connect.
         /// </summary>
         [Output("oidcRequestToken")]
         public Output<string?> OidcRequestToken { get; private set; } = null!;
 
         /// <summary>
-        /// The URL for the OIDC provider from which to request an ID token. For use When authenticating as a Service Principal
+        /// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
         /// using OpenID Connect.
         /// </summary>
         [Output("oidcRequestUrl")]
         public Output<string?> OidcRequestUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+        /// </summary>
+        [Output("oidcToken")]
+        public Output<string?> OidcToken { get; private set; } = null!;
 
         /// <summary>
         /// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
@@ -192,18 +198,24 @@ namespace Pulumi.Azure
         public Input<string>? MsiEndpoint { get; set; }
 
         /// <summary>
-        /// The bearer token for the request to the OIDC provider. For use When authenticating as a Service Principal using OpenID
+        /// The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
         /// Connect.
         /// </summary>
         [Input("oidcRequestToken")]
         public Input<string>? OidcRequestToken { get; set; }
 
         /// <summary>
-        /// The URL for the OIDC provider from which to request an ID token. For use When authenticating as a Service Principal
+        /// The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
         /// using OpenID Connect.
         /// </summary>
         [Input("oidcRequestUrl")]
         public Input<string>? OidcRequestUrl { get; set; }
+
+        /// <summary>
+        /// The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+        /// </summary>
+        [Input("oidcToken")]
+        public Input<string>? OidcToken { get; set; }
 
         /// <summary>
         /// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.

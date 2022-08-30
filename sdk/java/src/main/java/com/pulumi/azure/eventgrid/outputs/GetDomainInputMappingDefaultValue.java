@@ -13,28 +13,19 @@ public final class GetDomainInputMappingDefaultValue {
      * @return Specifies the default data version of the EventGrid Event associated with the domain.
      * 
      */
-    private final String dataVersion;
+    private String dataVersion;
     /**
      * @return Specifies the default event type of the EventGrid Event associated with the domain.
      * 
      */
-    private final String eventType;
+    private String eventType;
     /**
      * @return Specifies the default subject of the EventGrid Event associated with the domain.
      * 
      */
-    private final String subject;
+    private String subject;
 
-    @CustomType.Constructor
-    private GetDomainInputMappingDefaultValue(
-        @CustomType.Parameter("dataVersion") String dataVersion,
-        @CustomType.Parameter("eventType") String eventType,
-        @CustomType.Parameter("subject") String subject) {
-        this.dataVersion = dataVersion;
-        this.eventType = eventType;
-        this.subject = subject;
-    }
-
+    private GetDomainInputMappingDefaultValue() {}
     /**
      * @return Specifies the default data version of the EventGrid Event associated with the domain.
      * 
@@ -64,16 +55,12 @@ public final class GetDomainInputMappingDefaultValue {
     public static Builder builder(GetDomainInputMappingDefaultValue defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dataVersion;
         private String eventType;
         private String subject;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDomainInputMappingDefaultValue defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataVersion = defaults.dataVersion;
@@ -81,19 +68,27 @@ public final class GetDomainInputMappingDefaultValue {
     	      this.subject = defaults.subject;
         }
 
+        @CustomType.Setter
         public Builder dataVersion(String dataVersion) {
             this.dataVersion = Objects.requireNonNull(dataVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder eventType(String eventType) {
             this.eventType = Objects.requireNonNull(eventType);
             return this;
         }
+        @CustomType.Setter
         public Builder subject(String subject) {
             this.subject = Objects.requireNonNull(subject);
             return this;
-        }        public GetDomainInputMappingDefaultValue build() {
-            return new GetDomainInputMappingDefaultValue(dataVersion, eventType, subject);
+        }
+        public GetDomainInputMappingDefaultValue build() {
+            final var o = new GetDomainInputMappingDefaultValue();
+            o.dataVersion = dataVersion;
+            o.eventType = eventType;
+            o.subject = subject;
+            return o;
         }
     }
 }

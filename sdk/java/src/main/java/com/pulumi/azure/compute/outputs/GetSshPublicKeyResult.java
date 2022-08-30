@@ -15,30 +15,17 @@ public final class GetSshPublicKeyResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return The SSH public key used to authenticate to a virtual machine through ssh.
      * 
      */
-    private final String publicKey;
-    private final String resourceGroupName;
-    private final @Nullable Map<String,String> tags;
+    private String publicKey;
+    private String resourceGroupName;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetSshPublicKeyResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("publicKey") String publicKey,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.id = id;
-        this.name = name;
-        this.publicKey = publicKey;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-    }
-
+    private GetSshPublicKeyResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -70,18 +57,14 @@ public final class GetSshPublicKeyResult {
     public static Builder builder(GetSshPublicKeyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String name;
         private String publicKey;
         private String resourceGroupName;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSshPublicKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -91,27 +74,39 @@ public final class GetSshPublicKeyResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder publicKey(String publicKey) {
             this.publicKey = Objects.requireNonNull(publicKey);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public GetSshPublicKeyResult build() {
-            return new GetSshPublicKeyResult(id, name, publicKey, resourceGroupName, tags);
+        }
+        public GetSshPublicKeyResult build() {
+            final var o = new GetSshPublicKeyResult();
+            o.id = id;
+            o.name = name;
+            o.publicKey = publicKey;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            return o;
         }
     }
 }

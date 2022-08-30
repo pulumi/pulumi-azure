@@ -15,48 +15,31 @@ public final class GetLogProfileResult {
      * @return List of categories of the logs.
      * 
      */
-    private final List<String> categories;
+    private List<String> categories;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return List of regions for which Activity Log events are stored or streamed.
      * 
      */
-    private final List<String> locations;
-    private final String name;
-    private final List<GetLogProfileRetentionPolicy> retentionPolicies;
+    private List<String> locations;
+    private String name;
+    private List<GetLogProfileRetentionPolicy> retentionPolicies;
     /**
      * @return The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to.
      * 
      */
-    private final String servicebusRuleId;
+    private String servicebusRuleId;
     /**
      * @return The resource id of the storage account in which the Activity Log is stored.
      * 
      */
-    private final String storageAccountId;
+    private String storageAccountId;
 
-    @CustomType.Constructor
-    private GetLogProfileResult(
-        @CustomType.Parameter("categories") List<String> categories,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("locations") List<String> locations,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("retentionPolicies") List<GetLogProfileRetentionPolicy> retentionPolicies,
-        @CustomType.Parameter("servicebusRuleId") String servicebusRuleId,
-        @CustomType.Parameter("storageAccountId") String storageAccountId) {
-        this.categories = categories;
-        this.id = id;
-        this.locations = locations;
-        this.name = name;
-        this.retentionPolicies = retentionPolicies;
-        this.servicebusRuleId = servicebusRuleId;
-        this.storageAccountId = storageAccountId;
-    }
-
+    private GetLogProfileResult() {}
     /**
      * @return List of categories of the logs.
      * 
@@ -106,7 +89,7 @@ public final class GetLogProfileResult {
     public static Builder builder(GetLogProfileResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> categories;
         private String id;
@@ -115,11 +98,7 @@ public final class GetLogProfileResult {
         private List<GetLogProfileRetentionPolicy> retentionPolicies;
         private String servicebusRuleId;
         private String storageAccountId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLogProfileResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.categories = defaults.categories;
@@ -131,6 +110,7 @@ public final class GetLogProfileResult {
     	      this.storageAccountId = defaults.storageAccountId;
         }
 
+        @CustomType.Setter
         public Builder categories(List<String> categories) {
             this.categories = Objects.requireNonNull(categories);
             return this;
@@ -138,10 +118,12 @@ public final class GetLogProfileResult {
         public Builder categories(String... categories) {
             return categories(List.of(categories));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder locations(List<String> locations) {
             this.locations = Objects.requireNonNull(locations);
             return this;
@@ -149,10 +131,12 @@ public final class GetLogProfileResult {
         public Builder locations(String... locations) {
             return locations(List.of(locations));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder retentionPolicies(List<GetLogProfileRetentionPolicy> retentionPolicies) {
             this.retentionPolicies = Objects.requireNonNull(retentionPolicies);
             return this;
@@ -160,15 +144,26 @@ public final class GetLogProfileResult {
         public Builder retentionPolicies(GetLogProfileRetentionPolicy... retentionPolicies) {
             return retentionPolicies(List.of(retentionPolicies));
         }
+        @CustomType.Setter
         public Builder servicebusRuleId(String servicebusRuleId) {
             this.servicebusRuleId = Objects.requireNonNull(servicebusRuleId);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
             this.storageAccountId = Objects.requireNonNull(storageAccountId);
             return this;
-        }        public GetLogProfileResult build() {
-            return new GetLogProfileResult(categories, id, locations, name, retentionPolicies, servicebusRuleId, storageAccountId);
+        }
+        public GetLogProfileResult build() {
+            final var o = new GetLogProfileResult();
+            o.categories = categories;
+            o.id = id;
+            o.locations = locations;
+            o.name = name;
+            o.retentionPolicies = retentionPolicies;
+            o.servicebusRuleId = servicebusRuleId;
+            o.storageAccountId = storageAccountId;
+            return o;
         }
     }
 }

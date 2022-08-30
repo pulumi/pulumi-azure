@@ -15,17 +15,10 @@ public final class GremlinGraphIndexPolicySpatialIndex {
      * @return Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
      * 
      */
-    private final String path;
-    private final @Nullable List<String> types;
+    private String path;
+    private @Nullable List<String> types;
 
-    @CustomType.Constructor
-    private GremlinGraphIndexPolicySpatialIndex(
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("types") @Nullable List<String> types) {
-        this.path = path;
-        this.types = types;
-    }
-
+    private GremlinGraphIndexPolicySpatialIndex() {}
     /**
      * @return Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
      * 
@@ -44,33 +37,35 @@ public final class GremlinGraphIndexPolicySpatialIndex {
     public static Builder builder(GremlinGraphIndexPolicySpatialIndex defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String path;
         private @Nullable List<String> types;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GremlinGraphIndexPolicySpatialIndex defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.path = defaults.path;
     	      this.types = defaults.types;
         }
 
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder types(@Nullable List<String> types) {
             this.types = types;
             return this;
         }
         public Builder types(String... types) {
             return types(List.of(types));
-        }        public GremlinGraphIndexPolicySpatialIndex build() {
-            return new GremlinGraphIndexPolicySpatialIndex(path, types);
+        }
+        public GremlinGraphIndexPolicySpatialIndex build() {
+            final var o = new GremlinGraphIndexPolicySpatialIndex();
+            o.path = path;
+            o.types = types;
+            return o;
         }
     }
 }

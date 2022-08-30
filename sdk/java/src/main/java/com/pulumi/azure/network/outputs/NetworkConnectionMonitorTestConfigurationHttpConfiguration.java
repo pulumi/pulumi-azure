@@ -19,49 +19,34 @@ public final class NetworkConnectionMonitorTestConfigurationHttpConfiguration {
      * @return The HTTP method for the HTTP request. Possible values are `Get` and `Post`. Defaults to `Get`.
      * 
      */
-    private final @Nullable String method;
+    private @Nullable String method;
     /**
      * @return The path component of the URI. It only accepts the absolute path.
      * 
      */
-    private final @Nullable String path;
+    private @Nullable String path;
     /**
      * @return The port for the HTTP connection.
      * 
      */
-    private final @Nullable Integer port;
+    private @Nullable Integer port;
     /**
      * @return Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean preferHttps;
+    private @Nullable Boolean preferHttps;
     /**
      * @return A `request_header` block as defined below.
      * 
      */
-    private final @Nullable List<NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader> requestHeaders;
+    private @Nullable List<NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader> requestHeaders;
     /**
      * @return The HTTP status codes to consider successful. For instance, `2xx`, `301-304` and `418`.
      * 
      */
-    private final @Nullable List<String> validStatusCodeRanges;
+    private @Nullable List<String> validStatusCodeRanges;
 
-    @CustomType.Constructor
-    private NetworkConnectionMonitorTestConfigurationHttpConfiguration(
-        @CustomType.Parameter("method") @Nullable String method,
-        @CustomType.Parameter("path") @Nullable String path,
-        @CustomType.Parameter("port") @Nullable Integer port,
-        @CustomType.Parameter("preferHttps") @Nullable Boolean preferHttps,
-        @CustomType.Parameter("requestHeaders") @Nullable List<NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader> requestHeaders,
-        @CustomType.Parameter("validStatusCodeRanges") @Nullable List<String> validStatusCodeRanges) {
-        this.method = method;
-        this.path = path;
-        this.port = port;
-        this.preferHttps = preferHttps;
-        this.requestHeaders = requestHeaders;
-        this.validStatusCodeRanges = validStatusCodeRanges;
-    }
-
+    private NetworkConnectionMonitorTestConfigurationHttpConfiguration() {}
     /**
      * @return The HTTP method for the HTTP request. Possible values are `Get` and `Post`. Defaults to `Get`.
      * 
@@ -112,7 +97,7 @@ public final class NetworkConnectionMonitorTestConfigurationHttpConfiguration {
     public static Builder builder(NetworkConnectionMonitorTestConfigurationHttpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String method;
         private @Nullable String path;
@@ -120,11 +105,7 @@ public final class NetworkConnectionMonitorTestConfigurationHttpConfiguration {
         private @Nullable Boolean preferHttps;
         private @Nullable List<NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader> requestHeaders;
         private @Nullable List<String> validStatusCodeRanges;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NetworkConnectionMonitorTestConfigurationHttpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.method = defaults.method;
@@ -135,22 +116,27 @@ public final class NetworkConnectionMonitorTestConfigurationHttpConfiguration {
     	      this.validStatusCodeRanges = defaults.validStatusCodeRanges;
         }
 
+        @CustomType.Setter
         public Builder method(@Nullable String method) {
             this.method = method;
             return this;
         }
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
         }
+        @CustomType.Setter
         public Builder port(@Nullable Integer port) {
             this.port = port;
             return this;
         }
+        @CustomType.Setter
         public Builder preferHttps(@Nullable Boolean preferHttps) {
             this.preferHttps = preferHttps;
             return this;
         }
+        @CustomType.Setter
         public Builder requestHeaders(@Nullable List<NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader> requestHeaders) {
             this.requestHeaders = requestHeaders;
             return this;
@@ -158,14 +144,23 @@ public final class NetworkConnectionMonitorTestConfigurationHttpConfiguration {
         public Builder requestHeaders(NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeader... requestHeaders) {
             return requestHeaders(List.of(requestHeaders));
         }
+        @CustomType.Setter
         public Builder validStatusCodeRanges(@Nullable List<String> validStatusCodeRanges) {
             this.validStatusCodeRanges = validStatusCodeRanges;
             return this;
         }
         public Builder validStatusCodeRanges(String... validStatusCodeRanges) {
             return validStatusCodeRanges(List.of(validStatusCodeRanges));
-        }        public NetworkConnectionMonitorTestConfigurationHttpConfiguration build() {
-            return new NetworkConnectionMonitorTestConfigurationHttpConfiguration(method, path, port, preferHttps, requestHeaders, validStatusCodeRanges);
+        }
+        public NetworkConnectionMonitorTestConfigurationHttpConfiguration build() {
+            final var o = new NetworkConnectionMonitorTestConfigurationHttpConfiguration();
+            o.method = method;
+            o.path = path;
+            o.port = port;
+            o.preferHttps = preferHttps;
+            o.requestHeaders = requestHeaders;
+            o.validStatusCodeRanges = validStatusCodeRanges;
+            return o;
         }
     }
 }

@@ -14,62 +14,41 @@ public final class GetDefinitionResult {
      * @return The description of the Blueprint Definition.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The display name of the Blueprint Definition.
      * 
      */
-    private final String displayName;
+    private String displayName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The timestamp of when this last modification was saved to the Blueprint Definition.
      * 
      */
-    private final String lastModified;
-    private final String name;
-    private final String scopeId;
+    private String lastModified;
+    private String name;
+    private String scopeId;
     /**
      * @return The target scope.
      * 
      */
-    private final String targetScope;
+    private String targetScope;
     /**
      * @return The timestamp of when this Blueprint Definition was created.
      * 
      */
-    private final String timeCreated;
+    private String timeCreated;
     /**
      * @return A list of versions published for this Blueprint Definition.
      * 
      */
-    private final List<String> versions;
+    private List<String> versions;
 
-    @CustomType.Constructor
-    private GetDefinitionResult(
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("lastModified") String lastModified,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("scopeId") String scopeId,
-        @CustomType.Parameter("targetScope") String targetScope,
-        @CustomType.Parameter("timeCreated") String timeCreated,
-        @CustomType.Parameter("versions") List<String> versions) {
-        this.description = description;
-        this.displayName = displayName;
-        this.id = id;
-        this.lastModified = lastModified;
-        this.name = name;
-        this.scopeId = scopeId;
-        this.targetScope = targetScope;
-        this.timeCreated = timeCreated;
-        this.versions = versions;
-    }
-
+    private GetDefinitionResult() {}
     /**
      * @return The description of the Blueprint Definition.
      * 
@@ -133,7 +112,7 @@ public final class GetDefinitionResult {
     public static Builder builder(GetDefinitionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String description;
         private String displayName;
@@ -144,11 +123,7 @@ public final class GetDefinitionResult {
         private String targetScope;
         private String timeCreated;
         private List<String> versions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDefinitionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -162,46 +137,66 @@ public final class GetDefinitionResult {
     	      this.versions = defaults.versions;
         }
 
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder lastModified(String lastModified) {
             this.lastModified = Objects.requireNonNull(lastModified);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder scopeId(String scopeId) {
             this.scopeId = Objects.requireNonNull(scopeId);
             return this;
         }
+        @CustomType.Setter
         public Builder targetScope(String targetScope) {
             this.targetScope = Objects.requireNonNull(targetScope);
             return this;
         }
+        @CustomType.Setter
         public Builder timeCreated(String timeCreated) {
             this.timeCreated = Objects.requireNonNull(timeCreated);
             return this;
         }
+        @CustomType.Setter
         public Builder versions(List<String> versions) {
             this.versions = Objects.requireNonNull(versions);
             return this;
         }
         public Builder versions(String... versions) {
             return versions(List.of(versions));
-        }        public GetDefinitionResult build() {
-            return new GetDefinitionResult(description, displayName, id, lastModified, name, scopeId, targetScope, timeCreated, versions);
+        }
+        public GetDefinitionResult build() {
+            final var o = new GetDefinitionResult();
+            o.description = description;
+            o.displayName = displayName;
+            o.id = id;
+            o.lastModified = lastModified;
+            o.name = name;
+            o.scopeId = scopeId;
+            o.targetScope = targetScope;
+            o.timeCreated = timeCreated;
+            o.versions = versions;
+            return o;
         }
     }
 }

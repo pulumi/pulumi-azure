@@ -17,35 +17,24 @@ public final class ElasticsearchLogs {
      * @return A list of `filtering_tag` blocks as defined above.
      * 
      */
-    private final @Nullable List<ElasticsearchLogsFilteringTag> filteringTags;
+    private @Nullable List<ElasticsearchLogsFilteringTag> filteringTags;
     /**
      * @return Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean sendActivityLogs;
+    private @Nullable Boolean sendActivityLogs;
     /**
      * @return Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean sendAzureadLogs;
+    private @Nullable Boolean sendAzureadLogs;
     /**
      * @return Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean sendSubscriptionLogs;
+    private @Nullable Boolean sendSubscriptionLogs;
 
-    @CustomType.Constructor
-    private ElasticsearchLogs(
-        @CustomType.Parameter("filteringTags") @Nullable List<ElasticsearchLogsFilteringTag> filteringTags,
-        @CustomType.Parameter("sendActivityLogs") @Nullable Boolean sendActivityLogs,
-        @CustomType.Parameter("sendAzureadLogs") @Nullable Boolean sendAzureadLogs,
-        @CustomType.Parameter("sendSubscriptionLogs") @Nullable Boolean sendSubscriptionLogs) {
-        this.filteringTags = filteringTags;
-        this.sendActivityLogs = sendActivityLogs;
-        this.sendAzureadLogs = sendAzureadLogs;
-        this.sendSubscriptionLogs = sendSubscriptionLogs;
-    }
-
+    private ElasticsearchLogs() {}
     /**
      * @return A list of `filtering_tag` blocks as defined above.
      * 
@@ -82,17 +71,13 @@ public final class ElasticsearchLogs {
     public static Builder builder(ElasticsearchLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ElasticsearchLogsFilteringTag> filteringTags;
         private @Nullable Boolean sendActivityLogs;
         private @Nullable Boolean sendAzureadLogs;
         private @Nullable Boolean sendSubscriptionLogs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ElasticsearchLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filteringTags = defaults.filteringTags;
@@ -101,6 +86,7 @@ public final class ElasticsearchLogs {
     	      this.sendSubscriptionLogs = defaults.sendSubscriptionLogs;
         }
 
+        @CustomType.Setter
         public Builder filteringTags(@Nullable List<ElasticsearchLogsFilteringTag> filteringTags) {
             this.filteringTags = filteringTags;
             return this;
@@ -108,19 +94,28 @@ public final class ElasticsearchLogs {
         public Builder filteringTags(ElasticsearchLogsFilteringTag... filteringTags) {
             return filteringTags(List.of(filteringTags));
         }
+        @CustomType.Setter
         public Builder sendActivityLogs(@Nullable Boolean sendActivityLogs) {
             this.sendActivityLogs = sendActivityLogs;
             return this;
         }
+        @CustomType.Setter
         public Builder sendAzureadLogs(@Nullable Boolean sendAzureadLogs) {
             this.sendAzureadLogs = sendAzureadLogs;
             return this;
         }
+        @CustomType.Setter
         public Builder sendSubscriptionLogs(@Nullable Boolean sendSubscriptionLogs) {
             this.sendSubscriptionLogs = sendSubscriptionLogs;
             return this;
-        }        public ElasticsearchLogs build() {
-            return new ElasticsearchLogs(filteringTags, sendActivityLogs, sendAzureadLogs, sendSubscriptionLogs);
+        }
+        public ElasticsearchLogs build() {
+            final var o = new ElasticsearchLogs();
+            o.filteringTags = filteringTags;
+            o.sendActivityLogs = sendActivityLogs;
+            o.sendAzureadLogs = sendAzureadLogs;
+            o.sendSubscriptionLogs = sendSubscriptionLogs;
+            return o;
         }
     }
 }

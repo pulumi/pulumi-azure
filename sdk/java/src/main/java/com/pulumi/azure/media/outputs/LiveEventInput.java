@@ -18,38 +18,25 @@ public final class LiveEventInput {
      * @return A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created.
      * 
      */
-    private final @Nullable String accessToken;
-    private final @Nullable List<LiveEventInputEndpoint> endpoints;
+    private @Nullable String accessToken;
+    private @Nullable List<LiveEventInputEndpoint> endpoints;
     /**
      * @return One or more `ip_access_control_allow` blocks as defined below.
      * 
      */
-    private final @Nullable List<LiveEventInputIpAccessControlAllow> ipAccessControlAllows;
+    private @Nullable List<LiveEventInputIpAccessControlAllow> ipAccessControlAllows;
     /**
      * @return ISO 8601 time duration of the key frame interval duration of the input. This value sets the `EXT-X-TARGETDURATION` property in the HLS output. For example, use PT2S to indicate 2 seconds. This field cannot be set when `type` is set to `Encoding`.
      * 
      */
-    private final @Nullable String keyFrameIntervalDuration;
+    private @Nullable String keyFrameIntervalDuration;
     /**
      * @return The input protocol for the live event. Allowed values are `FragmentedMP4` and `RTMP`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String streamingProtocol;
+    private @Nullable String streamingProtocol;
 
-    @CustomType.Constructor
-    private LiveEventInput(
-        @CustomType.Parameter("accessToken") @Nullable String accessToken,
-        @CustomType.Parameter("endpoints") @Nullable List<LiveEventInputEndpoint> endpoints,
-        @CustomType.Parameter("ipAccessControlAllows") @Nullable List<LiveEventInputIpAccessControlAllow> ipAccessControlAllows,
-        @CustomType.Parameter("keyFrameIntervalDuration") @Nullable String keyFrameIntervalDuration,
-        @CustomType.Parameter("streamingProtocol") @Nullable String streamingProtocol) {
-        this.accessToken = accessToken;
-        this.endpoints = endpoints;
-        this.ipAccessControlAllows = ipAccessControlAllows;
-        this.keyFrameIntervalDuration = keyFrameIntervalDuration;
-        this.streamingProtocol = streamingProtocol;
-    }
-
+    private LiveEventInput() {}
     /**
      * @return A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created.
      * 
@@ -89,18 +76,14 @@ public final class LiveEventInput {
     public static Builder builder(LiveEventInput defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String accessToken;
         private @Nullable List<LiveEventInputEndpoint> endpoints;
         private @Nullable List<LiveEventInputIpAccessControlAllow> ipAccessControlAllows;
         private @Nullable String keyFrameIntervalDuration;
         private @Nullable String streamingProtocol;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LiveEventInput defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessToken = defaults.accessToken;
@@ -110,10 +93,12 @@ public final class LiveEventInput {
     	      this.streamingProtocol = defaults.streamingProtocol;
         }
 
+        @CustomType.Setter
         public Builder accessToken(@Nullable String accessToken) {
             this.accessToken = accessToken;
             return this;
         }
+        @CustomType.Setter
         public Builder endpoints(@Nullable List<LiveEventInputEndpoint> endpoints) {
             this.endpoints = endpoints;
             return this;
@@ -121,6 +106,7 @@ public final class LiveEventInput {
         public Builder endpoints(LiveEventInputEndpoint... endpoints) {
             return endpoints(List.of(endpoints));
         }
+        @CustomType.Setter
         public Builder ipAccessControlAllows(@Nullable List<LiveEventInputIpAccessControlAllow> ipAccessControlAllows) {
             this.ipAccessControlAllows = ipAccessControlAllows;
             return this;
@@ -128,15 +114,24 @@ public final class LiveEventInput {
         public Builder ipAccessControlAllows(LiveEventInputIpAccessControlAllow... ipAccessControlAllows) {
             return ipAccessControlAllows(List.of(ipAccessControlAllows));
         }
+        @CustomType.Setter
         public Builder keyFrameIntervalDuration(@Nullable String keyFrameIntervalDuration) {
             this.keyFrameIntervalDuration = keyFrameIntervalDuration;
             return this;
         }
+        @CustomType.Setter
         public Builder streamingProtocol(@Nullable String streamingProtocol) {
             this.streamingProtocol = streamingProtocol;
             return this;
-        }        public LiveEventInput build() {
-            return new LiveEventInput(accessToken, endpoints, ipAccessControlAllows, keyFrameIntervalDuration, streamingProtocol);
+        }
+        public LiveEventInput build() {
+            final var o = new LiveEventInput();
+            o.accessToken = accessToken;
+            o.endpoints = endpoints;
+            o.ipAccessControlAllows = ipAccessControlAllows;
+            o.keyFrameIntervalDuration = keyFrameIntervalDuration;
+            o.streamingProtocol = streamingProtocol;
+            return o;
         }
     }
 }

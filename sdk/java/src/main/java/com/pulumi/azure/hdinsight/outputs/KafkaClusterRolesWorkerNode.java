@@ -17,63 +17,44 @@ public final class KafkaClusterRolesWorkerNode {
      * @return The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
      * 
      */
-    private final Integer numberOfDisksPerNode;
+    private Integer numberOfDisksPerNode;
     /**
      * @return The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String password;
+    private @Nullable String password;
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable List<String> sshKeys;
+    private @Nullable List<String> sshKeys;
     /**
      * @return The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String subnetId;
+    private @Nullable String subnetId;
     /**
      * @return The number of instances which should be run for the Worker Nodes.
      * 
      */
-    private final Integer targetInstanceCount;
+    private Integer targetInstanceCount;
     /**
      * @return The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
      * 
      */
-    private final String username;
+    private String username;
     /**
      * @return The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String virtualNetworkId;
+    private @Nullable String virtualNetworkId;
     /**
      * @return The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
      * 
      */
-    private final String vmSize;
+    private String vmSize;
 
-    @CustomType.Constructor
-    private KafkaClusterRolesWorkerNode(
-        @CustomType.Parameter("numberOfDisksPerNode") Integer numberOfDisksPerNode,
-        @CustomType.Parameter("password") @Nullable String password,
-        @CustomType.Parameter("sshKeys") @Nullable List<String> sshKeys,
-        @CustomType.Parameter("subnetId") @Nullable String subnetId,
-        @CustomType.Parameter("targetInstanceCount") Integer targetInstanceCount,
-        @CustomType.Parameter("username") String username,
-        @CustomType.Parameter("virtualNetworkId") @Nullable String virtualNetworkId,
-        @CustomType.Parameter("vmSize") String vmSize) {
-        this.numberOfDisksPerNode = numberOfDisksPerNode;
-        this.password = password;
-        this.sshKeys = sshKeys;
-        this.subnetId = subnetId;
-        this.targetInstanceCount = targetInstanceCount;
-        this.username = username;
-        this.virtualNetworkId = virtualNetworkId;
-        this.vmSize = vmSize;
-    }
-
+    private KafkaClusterRolesWorkerNode() {}
     /**
      * @return The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
      * 
@@ -138,7 +119,7 @@ public final class KafkaClusterRolesWorkerNode {
     public static Builder builder(KafkaClusterRolesWorkerNode defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer numberOfDisksPerNode;
         private @Nullable String password;
@@ -148,11 +129,7 @@ public final class KafkaClusterRolesWorkerNode {
         private String username;
         private @Nullable String virtualNetworkId;
         private String vmSize;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KafkaClusterRolesWorkerNode defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.numberOfDisksPerNode = defaults.numberOfDisksPerNode;
@@ -165,14 +142,17 @@ public final class KafkaClusterRolesWorkerNode {
     	      this.vmSize = defaults.vmSize;
         }
 
+        @CustomType.Setter
         public Builder numberOfDisksPerNode(Integer numberOfDisksPerNode) {
             this.numberOfDisksPerNode = Objects.requireNonNull(numberOfDisksPerNode);
             return this;
         }
+        @CustomType.Setter
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
         }
+        @CustomType.Setter
         public Builder sshKeys(@Nullable List<String> sshKeys) {
             this.sshKeys = sshKeys;
             return this;
@@ -180,27 +160,42 @@ public final class KafkaClusterRolesWorkerNode {
         public Builder sshKeys(String... sshKeys) {
             return sshKeys(List.of(sshKeys));
         }
+        @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
             this.subnetId = subnetId;
             return this;
         }
+        @CustomType.Setter
         public Builder targetInstanceCount(Integer targetInstanceCount) {
             this.targetInstanceCount = Objects.requireNonNull(targetInstanceCount);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualNetworkId(@Nullable String virtualNetworkId) {
             this.virtualNetworkId = virtualNetworkId;
             return this;
         }
+        @CustomType.Setter
         public Builder vmSize(String vmSize) {
             this.vmSize = Objects.requireNonNull(vmSize);
             return this;
-        }        public KafkaClusterRolesWorkerNode build() {
-            return new KafkaClusterRolesWorkerNode(numberOfDisksPerNode, password, sshKeys, subnetId, targetInstanceCount, username, virtualNetworkId, vmSize);
+        }
+        public KafkaClusterRolesWorkerNode build() {
+            final var o = new KafkaClusterRolesWorkerNode();
+            o.numberOfDisksPerNode = numberOfDisksPerNode;
+            o.password = password;
+            o.sshKeys = sshKeys;
+            o.subnetId = subnetId;
+            o.targetInstanceCount = targetInstanceCount;
+            o.username = username;
+            o.virtualNetworkId = virtualNetworkId;
+            o.vmSize = vmSize;
+            return o;
         }
     }
 }

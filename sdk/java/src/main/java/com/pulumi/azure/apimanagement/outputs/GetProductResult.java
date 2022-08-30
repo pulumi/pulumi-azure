@@ -11,76 +11,51 @@ import java.util.Objects;
 
 @CustomType
 public final class GetProductResult {
-    private final String apiManagementName;
+    private String apiManagementName;
     /**
      * @return Do subscribers need to be approved prior to being able to use the Product?
      * 
      */
-    private final Boolean approvalRequired;
+    private Boolean approvalRequired;
     /**
      * @return The description of this Product, which may include HTML formatting tags.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The Display Name for this API Management Product.
      * 
      */
-    private final String displayName;
+    private String displayName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String productId;
+    private String id;
+    private String productId;
     /**
      * @return Is this Product Published?
      * 
      */
-    private final Boolean published;
-    private final String resourceGroupName;
+    private Boolean published;
+    private String resourceGroupName;
     /**
      * @return Is a Subscription required to access API&#39;s included in this Product?
      * 
      */
-    private final Boolean subscriptionRequired;
+    private Boolean subscriptionRequired;
     /**
      * @return The number of subscriptions a user can have to this Product at the same time.
      * 
      */
-    private final Integer subscriptionsLimit;
+    private Integer subscriptionsLimit;
     /**
      * @return Any Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process.
      * 
      */
-    private final String terms;
+    private String terms;
 
-    @CustomType.Constructor
-    private GetProductResult(
-        @CustomType.Parameter("apiManagementName") String apiManagementName,
-        @CustomType.Parameter("approvalRequired") Boolean approvalRequired,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("productId") String productId,
-        @CustomType.Parameter("published") Boolean published,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("subscriptionRequired") Boolean subscriptionRequired,
-        @CustomType.Parameter("subscriptionsLimit") Integer subscriptionsLimit,
-        @CustomType.Parameter("terms") String terms) {
-        this.apiManagementName = apiManagementName;
-        this.approvalRequired = approvalRequired;
-        this.description = description;
-        this.displayName = displayName;
-        this.id = id;
-        this.productId = productId;
-        this.published = published;
-        this.resourceGroupName = resourceGroupName;
-        this.subscriptionRequired = subscriptionRequired;
-        this.subscriptionsLimit = subscriptionsLimit;
-        this.terms = terms;
-    }
-
+    private GetProductResult() {}
     public String apiManagementName() {
         return this.apiManagementName;
     }
@@ -154,7 +129,7 @@ public final class GetProductResult {
     public static Builder builder(GetProductResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiManagementName;
         private Boolean approvalRequired;
@@ -167,11 +142,7 @@ public final class GetProductResult {
         private Boolean subscriptionRequired;
         private Integer subscriptionsLimit;
         private String terms;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetProductResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiManagementName = defaults.apiManagementName;
@@ -187,51 +158,75 @@ public final class GetProductResult {
     	      this.terms = defaults.terms;
         }
 
+        @CustomType.Setter
         public Builder apiManagementName(String apiManagementName) {
             this.apiManagementName = Objects.requireNonNull(apiManagementName);
             return this;
         }
+        @CustomType.Setter
         public Builder approvalRequired(Boolean approvalRequired) {
             this.approvalRequired = Objects.requireNonNull(approvalRequired);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder productId(String productId) {
             this.productId = Objects.requireNonNull(productId);
             return this;
         }
+        @CustomType.Setter
         public Builder published(Boolean published) {
             this.published = Objects.requireNonNull(published);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder subscriptionRequired(Boolean subscriptionRequired) {
             this.subscriptionRequired = Objects.requireNonNull(subscriptionRequired);
             return this;
         }
+        @CustomType.Setter
         public Builder subscriptionsLimit(Integer subscriptionsLimit) {
             this.subscriptionsLimit = Objects.requireNonNull(subscriptionsLimit);
             return this;
         }
+        @CustomType.Setter
         public Builder terms(String terms) {
             this.terms = Objects.requireNonNull(terms);
             return this;
-        }        public GetProductResult build() {
-            return new GetProductResult(apiManagementName, approvalRequired, description, displayName, id, productId, published, resourceGroupName, subscriptionRequired, subscriptionsLimit, terms);
+        }
+        public GetProductResult build() {
+            final var o = new GetProductResult();
+            o.apiManagementName = apiManagementName;
+            o.approvalRequired = approvalRequired;
+            o.description = description;
+            o.displayName = displayName;
+            o.id = id;
+            o.productId = productId;
+            o.published = published;
+            o.resourceGroupName = resourceGroupName;
+            o.subscriptionRequired = subscriptionRequired;
+            o.subscriptionsLimit = subscriptionsLimit;
+            o.terms = terms;
+            return o;
         }
     }
 }

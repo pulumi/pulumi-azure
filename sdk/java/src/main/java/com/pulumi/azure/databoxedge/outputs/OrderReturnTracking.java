@@ -15,35 +15,24 @@ public final class OrderReturnTracking {
      * @return Name of the carrier used in the delivery.
      * 
      */
-    private final @Nullable String carrierName;
+    private @Nullable String carrierName;
     /**
      * @return Serial number of the device being tracked.
      * 
      */
-    private final @Nullable String serialNumber;
+    private @Nullable String serialNumber;
     /**
      * @return The ID of the tracking.
      * 
      */
-    private final @Nullable String trackingId;
+    private @Nullable String trackingId;
     /**
      * @return Tracking URL of the shipment.
      * 
      */
-    private final @Nullable String trackingUrl;
+    private @Nullable String trackingUrl;
 
-    @CustomType.Constructor
-    private OrderReturnTracking(
-        @CustomType.Parameter("carrierName") @Nullable String carrierName,
-        @CustomType.Parameter("serialNumber") @Nullable String serialNumber,
-        @CustomType.Parameter("trackingId") @Nullable String trackingId,
-        @CustomType.Parameter("trackingUrl") @Nullable String trackingUrl) {
-        this.carrierName = carrierName;
-        this.serialNumber = serialNumber;
-        this.trackingId = trackingId;
-        this.trackingUrl = trackingUrl;
-    }
-
+    private OrderReturnTracking() {}
     /**
      * @return Name of the carrier used in the delivery.
      * 
@@ -80,17 +69,13 @@ public final class OrderReturnTracking {
     public static Builder builder(OrderReturnTracking defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String carrierName;
         private @Nullable String serialNumber;
         private @Nullable String trackingId;
         private @Nullable String trackingUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrderReturnTracking defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.carrierName = defaults.carrierName;
@@ -99,23 +84,33 @@ public final class OrderReturnTracking {
     	      this.trackingUrl = defaults.trackingUrl;
         }
 
+        @CustomType.Setter
         public Builder carrierName(@Nullable String carrierName) {
             this.carrierName = carrierName;
             return this;
         }
+        @CustomType.Setter
         public Builder serialNumber(@Nullable String serialNumber) {
             this.serialNumber = serialNumber;
             return this;
         }
+        @CustomType.Setter
         public Builder trackingId(@Nullable String trackingId) {
             this.trackingId = trackingId;
             return this;
         }
+        @CustomType.Setter
         public Builder trackingUrl(@Nullable String trackingUrl) {
             this.trackingUrl = trackingUrl;
             return this;
-        }        public OrderReturnTracking build() {
-            return new OrderReturnTracking(carrierName, serialNumber, trackingId, trackingUrl);
+        }
+        public OrderReturnTracking build() {
+            final var o = new OrderReturnTracking();
+            o.carrierName = carrierName;
+            o.serialNumber = serialNumber;
+            o.trackingId = trackingId;
+            o.trackingUrl = trackingUrl;
+            return o;
         }
     }
 }

@@ -13,46 +13,25 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetExtension {
-    private final @Nullable Boolean autoUpgradeMinorVersionEnabled;
+    private @Nullable Boolean autoUpgradeMinorVersionEnabled;
     /**
      * @return An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
      * 
      */
-    private final @Nullable List<String> extensionsToProvisionAfterVmCreations;
-    private final @Nullable String forceExtensionExecutionOnChange;
+    private @Nullable List<String> extensionsToProvisionAfterVmCreations;
+    private @Nullable String forceExtensionExecutionOnChange;
     /**
      * @return The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
-    private final @Nullable String protectedSettings;
-    private final String publisher;
-    private final @Nullable String settings;
-    private final String type;
-    private final String typeHandlerVersion;
+    private String name;
+    private @Nullable String protectedSettings;
+    private String publisher;
+    private @Nullable String settings;
+    private String type;
+    private String typeHandlerVersion;
 
-    @CustomType.Constructor
-    private OrchestratedVirtualMachineScaleSetExtension(
-        @CustomType.Parameter("autoUpgradeMinorVersionEnabled") @Nullable Boolean autoUpgradeMinorVersionEnabled,
-        @CustomType.Parameter("extensionsToProvisionAfterVmCreations") @Nullable List<String> extensionsToProvisionAfterVmCreations,
-        @CustomType.Parameter("forceExtensionExecutionOnChange") @Nullable String forceExtensionExecutionOnChange,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("protectedSettings") @Nullable String protectedSettings,
-        @CustomType.Parameter("publisher") String publisher,
-        @CustomType.Parameter("settings") @Nullable String settings,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("typeHandlerVersion") String typeHandlerVersion) {
-        this.autoUpgradeMinorVersionEnabled = autoUpgradeMinorVersionEnabled;
-        this.extensionsToProvisionAfterVmCreations = extensionsToProvisionAfterVmCreations;
-        this.forceExtensionExecutionOnChange = forceExtensionExecutionOnChange;
-        this.name = name;
-        this.protectedSettings = protectedSettings;
-        this.publisher = publisher;
-        this.settings = settings;
-        this.type = type;
-        this.typeHandlerVersion = typeHandlerVersion;
-    }
-
+    private OrchestratedVirtualMachineScaleSetExtension() {}
     public Optional<Boolean> autoUpgradeMinorVersionEnabled() {
         return Optional.ofNullable(this.autoUpgradeMinorVersionEnabled);
     }
@@ -96,7 +75,7 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
     public static Builder builder(OrchestratedVirtualMachineScaleSetExtension defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean autoUpgradeMinorVersionEnabled;
         private @Nullable List<String> extensionsToProvisionAfterVmCreations;
@@ -107,11 +86,7 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
         private @Nullable String settings;
         private String type;
         private String typeHandlerVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetExtension defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoUpgradeMinorVersionEnabled = defaults.autoUpgradeMinorVersionEnabled;
@@ -125,10 +100,12 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
     	      this.typeHandlerVersion = defaults.typeHandlerVersion;
         }
 
+        @CustomType.Setter
         public Builder autoUpgradeMinorVersionEnabled(@Nullable Boolean autoUpgradeMinorVersionEnabled) {
             this.autoUpgradeMinorVersionEnabled = autoUpgradeMinorVersionEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder extensionsToProvisionAfterVmCreations(@Nullable List<String> extensionsToProvisionAfterVmCreations) {
             this.extensionsToProvisionAfterVmCreations = extensionsToProvisionAfterVmCreations;
             return this;
@@ -136,35 +113,53 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
         public Builder extensionsToProvisionAfterVmCreations(String... extensionsToProvisionAfterVmCreations) {
             return extensionsToProvisionAfterVmCreations(List.of(extensionsToProvisionAfterVmCreations));
         }
+        @CustomType.Setter
         public Builder forceExtensionExecutionOnChange(@Nullable String forceExtensionExecutionOnChange) {
             this.forceExtensionExecutionOnChange = forceExtensionExecutionOnChange;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder protectedSettings(@Nullable String protectedSettings) {
             this.protectedSettings = protectedSettings;
             return this;
         }
+        @CustomType.Setter
         public Builder publisher(String publisher) {
             this.publisher = Objects.requireNonNull(publisher);
             return this;
         }
+        @CustomType.Setter
         public Builder settings(@Nullable String settings) {
             this.settings = settings;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder typeHandlerVersion(String typeHandlerVersion) {
             this.typeHandlerVersion = Objects.requireNonNull(typeHandlerVersion);
             return this;
-        }        public OrchestratedVirtualMachineScaleSetExtension build() {
-            return new OrchestratedVirtualMachineScaleSetExtension(autoUpgradeMinorVersionEnabled, extensionsToProvisionAfterVmCreations, forceExtensionExecutionOnChange, name, protectedSettings, publisher, settings, type, typeHandlerVersion);
+        }
+        public OrchestratedVirtualMachineScaleSetExtension build() {
+            final var o = new OrchestratedVirtualMachineScaleSetExtension();
+            o.autoUpgradeMinorVersionEnabled = autoUpgradeMinorVersionEnabled;
+            o.extensionsToProvisionAfterVmCreations = extensionsToProvisionAfterVmCreations;
+            o.forceExtensionExecutionOnChange = forceExtensionExecutionOnChange;
+            o.name = name;
+            o.protectedSettings = protectedSettings;
+            o.publisher = publisher;
+            o.settings = settings;
+            o.type = type;
+            o.typeHandlerVersion = typeHandlerVersion;
+            return o;
         }
     }
 }

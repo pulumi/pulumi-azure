@@ -13,13 +13,9 @@ public final class SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined {
      * @return Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
      * 
      */
-    private final String key;
+    private String key;
 
-    @CustomType.Constructor
-    private SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined(@CustomType.Parameter("key") String key) {
-        this.key = key;
-    }
-
+    private SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined() {}
     /**
      * @return Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
      * 
@@ -35,24 +31,24 @@ public final class SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined {
     public static Builder builder(SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
-        }        public SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined build() {
-            return new SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined(key);
+        }
+        public SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined build() {
+            final var o = new SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefined();
+            o.key = key;
+            return o;
         }
     }
 }

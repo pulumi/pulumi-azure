@@ -20,159 +20,108 @@ public final class GetAccountResult {
      * @return Capabilities enabled on this Cosmos DB account.
      * 
      */
-    private final List<GetAccountCapability> capabilities;
-    private final List<GetAccountConsistencyPolicy> consistencyPolicies;
+    private List<GetAccountCapability> capabilities;
+    private List<GetAccountConsistencyPolicy> consistencyPolicies;
     /**
      * @return If automatic failover is enabled for this CosmosDB Account.
      * 
      */
-    private final Boolean enableAutomaticFailover;
+    private Boolean enableAutomaticFailover;
     /**
      * @return If Free Tier pricing option is enabled for this CosmosDB Account. You can have up to one free tier Azure Cosmos DB account per Azure subscription.
      * 
      */
-    private final Boolean enableFreeTier;
+    private Boolean enableFreeTier;
     /**
      * @return If multiple write locations are enabled for this Cosmos DB account.
      * 
      */
-    private final Boolean enableMultipleWriteLocations;
+    private Boolean enableMultipleWriteLocations;
     /**
      * @return The endpoint used to connect to the CosmosDB account.
      * 
      */
-    private final String endpoint;
-    private final List<GetAccountGeoLocation> geoLocations;
+    private String endpoint;
+    private List<GetAccountGeoLocation> geoLocations;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The current IP Filter for this CosmosDB account
      * 
      */
-    private final String ipRangeFilter;
+    private String ipRangeFilter;
     /**
      * @return If virtual network filtering is enabled for this Cosmos DB account.
      * 
      */
-    private final Boolean isVirtualNetworkFilterEnabled;
+    private Boolean isVirtualNetworkFilterEnabled;
     /**
      * @return The Key Vault key URI for CMK encryption.
      * 
      */
-    private final String keyVaultKeyId;
+    private String keyVaultKeyId;
     /**
      * @return The Kind of the CosmosDB account.
      * 
      */
-    private final String kind;
+    private String kind;
     /**
      * @return The name of the Azure region hosting replicated data.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return The Offer Type to used by this CosmosDB Account.
      * 
      */
-    private final String offerType;
+    private String offerType;
     /**
      * @return The Primary key for the CosmosDB Account.
      * 
      */
-    private final String primaryKey;
+    private String primaryKey;
     /**
      * @return The Primary read-only Key for the CosmosDB Account.
      * 
      */
-    private final String primaryReadonlyKey;
+    private String primaryReadonlyKey;
     /**
      * @return A list of read endpoints available for this CosmosDB account.
      * 
      */
-    private final List<String> readEndpoints;
-    private final String resourceGroupName;
+    private List<String> readEndpoints;
+    private String resourceGroupName;
     /**
      * @return The Secondary key for the CosmosDB Account.
      * 
      */
-    private final String secondaryKey;
+    private String secondaryKey;
     /**
      * @return The Secondary read-only key for the CosmosDB Account.
      * 
      */
-    private final String secondaryReadonlyKey;
+    private String secondaryReadonlyKey;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return Subnets that are allowed to access this CosmosDB account.
      * 
      */
-    private final List<GetAccountVirtualNetworkRule> virtualNetworkRules;
+    private List<GetAccountVirtualNetworkRule> virtualNetworkRules;
     /**
      * @return A list of write endpoints available for this CosmosDB account.
      * 
      */
-    private final List<String> writeEndpoints;
+    private List<String> writeEndpoints;
 
-    @CustomType.Constructor
-    private GetAccountResult(
-        @CustomType.Parameter("capabilities") List<GetAccountCapability> capabilities,
-        @CustomType.Parameter("consistencyPolicies") List<GetAccountConsistencyPolicy> consistencyPolicies,
-        @CustomType.Parameter("enableAutomaticFailover") Boolean enableAutomaticFailover,
-        @CustomType.Parameter("enableFreeTier") Boolean enableFreeTier,
-        @CustomType.Parameter("enableMultipleWriteLocations") Boolean enableMultipleWriteLocations,
-        @CustomType.Parameter("endpoint") String endpoint,
-        @CustomType.Parameter("geoLocations") List<GetAccountGeoLocation> geoLocations,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ipRangeFilter") String ipRangeFilter,
-        @CustomType.Parameter("isVirtualNetworkFilterEnabled") Boolean isVirtualNetworkFilterEnabled,
-        @CustomType.Parameter("keyVaultKeyId") String keyVaultKeyId,
-        @CustomType.Parameter("kind") String kind,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("offerType") String offerType,
-        @CustomType.Parameter("primaryKey") String primaryKey,
-        @CustomType.Parameter("primaryReadonlyKey") String primaryReadonlyKey,
-        @CustomType.Parameter("readEndpoints") List<String> readEndpoints,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("secondaryKey") String secondaryKey,
-        @CustomType.Parameter("secondaryReadonlyKey") String secondaryReadonlyKey,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("virtualNetworkRules") List<GetAccountVirtualNetworkRule> virtualNetworkRules,
-        @CustomType.Parameter("writeEndpoints") List<String> writeEndpoints) {
-        this.capabilities = capabilities;
-        this.consistencyPolicies = consistencyPolicies;
-        this.enableAutomaticFailover = enableAutomaticFailover;
-        this.enableFreeTier = enableFreeTier;
-        this.enableMultipleWriteLocations = enableMultipleWriteLocations;
-        this.endpoint = endpoint;
-        this.geoLocations = geoLocations;
-        this.id = id;
-        this.ipRangeFilter = ipRangeFilter;
-        this.isVirtualNetworkFilterEnabled = isVirtualNetworkFilterEnabled;
-        this.keyVaultKeyId = keyVaultKeyId;
-        this.kind = kind;
-        this.location = location;
-        this.name = name;
-        this.offerType = offerType;
-        this.primaryKey = primaryKey;
-        this.primaryReadonlyKey = primaryReadonlyKey;
-        this.readEndpoints = readEndpoints;
-        this.resourceGroupName = resourceGroupName;
-        this.secondaryKey = secondaryKey;
-        this.secondaryReadonlyKey = secondaryReadonlyKey;
-        this.tags = tags;
-        this.virtualNetworkRules = virtualNetworkRules;
-        this.writeEndpoints = writeEndpoints;
-    }
-
+    private GetAccountResult() {}
     /**
      * @return Capabilities enabled on this Cosmos DB account.
      * 
@@ -333,7 +282,7 @@ public final class GetAccountResult {
     public static Builder builder(GetAccountResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetAccountCapability> capabilities;
         private List<GetAccountConsistencyPolicy> consistencyPolicies;
@@ -359,11 +308,7 @@ public final class GetAccountResult {
         private Map<String,String> tags;
         private List<GetAccountVirtualNetworkRule> virtualNetworkRules;
         private List<String> writeEndpoints;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccountResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capabilities = defaults.capabilities;
@@ -392,6 +337,7 @@ public final class GetAccountResult {
     	      this.writeEndpoints = defaults.writeEndpoints;
         }
 
+        @CustomType.Setter
         public Builder capabilities(List<GetAccountCapability> capabilities) {
             this.capabilities = Objects.requireNonNull(capabilities);
             return this;
@@ -399,6 +345,7 @@ public final class GetAccountResult {
         public Builder capabilities(GetAccountCapability... capabilities) {
             return capabilities(List.of(capabilities));
         }
+        @CustomType.Setter
         public Builder consistencyPolicies(List<GetAccountConsistencyPolicy> consistencyPolicies) {
             this.consistencyPolicies = Objects.requireNonNull(consistencyPolicies);
             return this;
@@ -406,22 +353,27 @@ public final class GetAccountResult {
         public Builder consistencyPolicies(GetAccountConsistencyPolicy... consistencyPolicies) {
             return consistencyPolicies(List.of(consistencyPolicies));
         }
+        @CustomType.Setter
         public Builder enableAutomaticFailover(Boolean enableAutomaticFailover) {
             this.enableAutomaticFailover = Objects.requireNonNull(enableAutomaticFailover);
             return this;
         }
+        @CustomType.Setter
         public Builder enableFreeTier(Boolean enableFreeTier) {
             this.enableFreeTier = Objects.requireNonNull(enableFreeTier);
             return this;
         }
+        @CustomType.Setter
         public Builder enableMultipleWriteLocations(Boolean enableMultipleWriteLocations) {
             this.enableMultipleWriteLocations = Objects.requireNonNull(enableMultipleWriteLocations);
             return this;
         }
+        @CustomType.Setter
         public Builder endpoint(String endpoint) {
             this.endpoint = Objects.requireNonNull(endpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder geoLocations(List<GetAccountGeoLocation> geoLocations) {
             this.geoLocations = Objects.requireNonNull(geoLocations);
             return this;
@@ -429,46 +381,57 @@ public final class GetAccountResult {
         public Builder geoLocations(GetAccountGeoLocation... geoLocations) {
             return geoLocations(List.of(geoLocations));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ipRangeFilter(String ipRangeFilter) {
             this.ipRangeFilter = Objects.requireNonNull(ipRangeFilter);
             return this;
         }
+        @CustomType.Setter
         public Builder isVirtualNetworkFilterEnabled(Boolean isVirtualNetworkFilterEnabled) {
             this.isVirtualNetworkFilterEnabled = Objects.requireNonNull(isVirtualNetworkFilterEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultKeyId(String keyVaultKeyId) {
             this.keyVaultKeyId = Objects.requireNonNull(keyVaultKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder kind(String kind) {
             this.kind = Objects.requireNonNull(kind);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder offerType(String offerType) {
             this.offerType = Objects.requireNonNull(offerType);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryKey(String primaryKey) {
             this.primaryKey = Objects.requireNonNull(primaryKey);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryReadonlyKey(String primaryReadonlyKey) {
             this.primaryReadonlyKey = Objects.requireNonNull(primaryReadonlyKey);
             return this;
         }
+        @CustomType.Setter
         public Builder readEndpoints(List<String> readEndpoints) {
             this.readEndpoints = Objects.requireNonNull(readEndpoints);
             return this;
@@ -476,22 +439,27 @@ public final class GetAccountResult {
         public Builder readEndpoints(String... readEndpoints) {
             return readEndpoints(List.of(readEndpoints));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryKey(String secondaryKey) {
             this.secondaryKey = Objects.requireNonNull(secondaryKey);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryReadonlyKey(String secondaryReadonlyKey) {
             this.secondaryReadonlyKey = Objects.requireNonNull(secondaryReadonlyKey);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualNetworkRules(List<GetAccountVirtualNetworkRule> virtualNetworkRules) {
             this.virtualNetworkRules = Objects.requireNonNull(virtualNetworkRules);
             return this;
@@ -499,14 +467,41 @@ public final class GetAccountResult {
         public Builder virtualNetworkRules(GetAccountVirtualNetworkRule... virtualNetworkRules) {
             return virtualNetworkRules(List.of(virtualNetworkRules));
         }
+        @CustomType.Setter
         public Builder writeEndpoints(List<String> writeEndpoints) {
             this.writeEndpoints = Objects.requireNonNull(writeEndpoints);
             return this;
         }
         public Builder writeEndpoints(String... writeEndpoints) {
             return writeEndpoints(List.of(writeEndpoints));
-        }        public GetAccountResult build() {
-            return new GetAccountResult(capabilities, consistencyPolicies, enableAutomaticFailover, enableFreeTier, enableMultipleWriteLocations, endpoint, geoLocations, id, ipRangeFilter, isVirtualNetworkFilterEnabled, keyVaultKeyId, kind, location, name, offerType, primaryKey, primaryReadonlyKey, readEndpoints, resourceGroupName, secondaryKey, secondaryReadonlyKey, tags, virtualNetworkRules, writeEndpoints);
+        }
+        public GetAccountResult build() {
+            final var o = new GetAccountResult();
+            o.capabilities = capabilities;
+            o.consistencyPolicies = consistencyPolicies;
+            o.enableAutomaticFailover = enableAutomaticFailover;
+            o.enableFreeTier = enableFreeTier;
+            o.enableMultipleWriteLocations = enableMultipleWriteLocations;
+            o.endpoint = endpoint;
+            o.geoLocations = geoLocations;
+            o.id = id;
+            o.ipRangeFilter = ipRangeFilter;
+            o.isVirtualNetworkFilterEnabled = isVirtualNetworkFilterEnabled;
+            o.keyVaultKeyId = keyVaultKeyId;
+            o.kind = kind;
+            o.location = location;
+            o.name = name;
+            o.offerType = offerType;
+            o.primaryKey = primaryKey;
+            o.primaryReadonlyKey = primaryReadonlyKey;
+            o.readEndpoints = readEndpoints;
+            o.resourceGroupName = resourceGroupName;
+            o.secondaryKey = secondaryKey;
+            o.secondaryReadonlyKey = secondaryReadonlyKey;
+            o.tags = tags;
+            o.virtualNetworkRules = virtualNetworkRules;
+            o.writeEndpoints = writeEndpoints;
+            return o;
         }
     }
 }

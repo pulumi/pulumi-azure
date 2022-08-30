@@ -16,59 +16,40 @@ public final class ApplicationGatewayRedirectConfiguration {
      * @return The ID of the Rewrite Rule Set
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Whether or not to include the path in the redirected Url. Defaults to `false`
      * 
      */
-    private final @Nullable Boolean includePath;
+    private @Nullable Boolean includePath;
     /**
      * @return Whether or not to include the query string in the redirected Url. Default to `false`
      * 
      */
-    private final @Nullable Boolean includeQueryString;
+    private @Nullable Boolean includeQueryString;
     /**
      * @return Unique name of the redirect configuration block
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The type of redirect. Possible values are `Permanent`, `Temporary`, `Found` and `SeeOther`
      * 
      */
-    private final String redirectType;
-    private final @Nullable String targetListenerId;
+    private String redirectType;
+    private @Nullable String targetListenerId;
     /**
      * @return The name of the listener to redirect to. Cannot be set if `target_url` is set.
      * 
      */
-    private final @Nullable String targetListenerName;
+    private @Nullable String targetListenerName;
     /**
      * @return The Url to redirect the request to. Cannot be set if `target_listener_name` is set.
      * 
      */
-    private final @Nullable String targetUrl;
+    private @Nullable String targetUrl;
 
-    @CustomType.Constructor
-    private ApplicationGatewayRedirectConfiguration(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("includePath") @Nullable Boolean includePath,
-        @CustomType.Parameter("includeQueryString") @Nullable Boolean includeQueryString,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("redirectType") String redirectType,
-        @CustomType.Parameter("targetListenerId") @Nullable String targetListenerId,
-        @CustomType.Parameter("targetListenerName") @Nullable String targetListenerName,
-        @CustomType.Parameter("targetUrl") @Nullable String targetUrl) {
-        this.id = id;
-        this.includePath = includePath;
-        this.includeQueryString = includeQueryString;
-        this.name = name;
-        this.redirectType = redirectType;
-        this.targetListenerId = targetListenerId;
-        this.targetListenerName = targetListenerName;
-        this.targetUrl = targetUrl;
-    }
-
+    private ApplicationGatewayRedirectConfiguration() {}
     /**
      * @return The ID of the Rewrite Rule Set
      * 
@@ -129,7 +110,7 @@ public final class ApplicationGatewayRedirectConfiguration {
     public static Builder builder(ApplicationGatewayRedirectConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable Boolean includePath;
@@ -139,11 +120,7 @@ public final class ApplicationGatewayRedirectConfiguration {
         private @Nullable String targetListenerId;
         private @Nullable String targetListenerName;
         private @Nullable String targetUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayRedirectConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -156,39 +133,57 @@ public final class ApplicationGatewayRedirectConfiguration {
     	      this.targetUrl = defaults.targetUrl;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder includePath(@Nullable Boolean includePath) {
             this.includePath = includePath;
             return this;
         }
+        @CustomType.Setter
         public Builder includeQueryString(@Nullable Boolean includeQueryString) {
             this.includeQueryString = includeQueryString;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder redirectType(String redirectType) {
             this.redirectType = Objects.requireNonNull(redirectType);
             return this;
         }
+        @CustomType.Setter
         public Builder targetListenerId(@Nullable String targetListenerId) {
             this.targetListenerId = targetListenerId;
             return this;
         }
+        @CustomType.Setter
         public Builder targetListenerName(@Nullable String targetListenerName) {
             this.targetListenerName = targetListenerName;
             return this;
         }
+        @CustomType.Setter
         public Builder targetUrl(@Nullable String targetUrl) {
             this.targetUrl = targetUrl;
             return this;
-        }        public ApplicationGatewayRedirectConfiguration build() {
-            return new ApplicationGatewayRedirectConfiguration(id, includePath, includeQueryString, name, redirectType, targetListenerId, targetListenerName, targetUrl);
+        }
+        public ApplicationGatewayRedirectConfiguration build() {
+            final var o = new ApplicationGatewayRedirectConfiguration();
+            o.id = id;
+            o.includePath = includePath;
+            o.includeQueryString = includeQueryString;
+            o.name = name;
+            o.redirectType = redirectType;
+            o.targetListenerId = targetListenerId;
+            o.targetListenerName = targetListenerName;
+            o.targetUrl = targetUrl;
+            return o;
         }
     }
 }

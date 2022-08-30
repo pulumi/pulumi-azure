@@ -16,42 +16,29 @@ public final class DataCollectionRuleDataSourcesExtension {
      * @return A JSON String which specifies the extension setting.
      * 
      */
-    private final @Nullable String extensionJson;
+    private @Nullable String extensionJson;
     /**
      * @return The name of the VM extension.
      * 
      */
-    private final String extensionName;
+    private String extensionName;
     /**
      * @return Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performance_counter`, `windows_event_log`,and `syslog`.
      * 
      */
-    private final @Nullable List<String> inputDataSources;
+    private @Nullable List<String> inputDataSources;
     /**
      * @return The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`, `Microsoft-InsightsMetrics`, `Microsoft-Perf`, `Microsoft-Syslog`,and `Microsoft-WindowsEvent`.
      * 
      */
-    private final List<String> streams;
+    private List<String> streams;
 
-    @CustomType.Constructor
-    private DataCollectionRuleDataSourcesExtension(
-        @CustomType.Parameter("extensionJson") @Nullable String extensionJson,
-        @CustomType.Parameter("extensionName") String extensionName,
-        @CustomType.Parameter("inputDataSources") @Nullable List<String> inputDataSources,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("streams") List<String> streams) {
-        this.extensionJson = extensionJson;
-        this.extensionName = extensionName;
-        this.inputDataSources = inputDataSources;
-        this.name = name;
-        this.streams = streams;
-    }
-
+    private DataCollectionRuleDataSourcesExtension() {}
     /**
      * @return A JSON String which specifies the extension setting.
      * 
@@ -95,18 +82,14 @@ public final class DataCollectionRuleDataSourcesExtension {
     public static Builder builder(DataCollectionRuleDataSourcesExtension defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String extensionJson;
         private String extensionName;
         private @Nullable List<String> inputDataSources;
         private String name;
         private List<String> streams;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataCollectionRuleDataSourcesExtension defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.extensionJson = defaults.extensionJson;
@@ -116,14 +99,17 @@ public final class DataCollectionRuleDataSourcesExtension {
     	      this.streams = defaults.streams;
         }
 
+        @CustomType.Setter
         public Builder extensionJson(@Nullable String extensionJson) {
             this.extensionJson = extensionJson;
             return this;
         }
+        @CustomType.Setter
         public Builder extensionName(String extensionName) {
             this.extensionName = Objects.requireNonNull(extensionName);
             return this;
         }
+        @CustomType.Setter
         public Builder inputDataSources(@Nullable List<String> inputDataSources) {
             this.inputDataSources = inputDataSources;
             return this;
@@ -131,18 +117,27 @@ public final class DataCollectionRuleDataSourcesExtension {
         public Builder inputDataSources(String... inputDataSources) {
             return inputDataSources(List.of(inputDataSources));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder streams(List<String> streams) {
             this.streams = Objects.requireNonNull(streams);
             return this;
         }
         public Builder streams(String... streams) {
             return streams(List.of(streams));
-        }        public DataCollectionRuleDataSourcesExtension build() {
-            return new DataCollectionRuleDataSourcesExtension(extensionJson, extensionName, inputDataSources, name, streams);
+        }
+        public DataCollectionRuleDataSourcesExtension build() {
+            final var o = new DataCollectionRuleDataSourcesExtension();
+            o.extensionJson = extensionJson;
+            o.extensionName = extensionName;
+            o.inputDataSources = inputDataSources;
+            o.name = name;
+            o.streams = streams;
+            return o;
         }
     }
 }

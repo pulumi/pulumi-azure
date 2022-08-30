@@ -16,35 +16,24 @@ public final class AccountBackup {
      * @return The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
      * 
      */
-    private final @Nullable Integer intervalInMinutes;
+    private @Nullable Integer intervalInMinutes;
     /**
      * @return The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
      * 
      */
-    private final @Nullable Integer retentionInHours;
+    private @Nullable Integer retentionInHours;
     /**
      * @return The storage redundancy which is used to indicate type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
      * 
      */
-    private final @Nullable String storageRedundancy;
+    private @Nullable String storageRedundancy;
     /**
      * @return The type of the `backup`. Possible values are `Continuous` and `Periodic`. Defaults to `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private AccountBackup(
-        @CustomType.Parameter("intervalInMinutes") @Nullable Integer intervalInMinutes,
-        @CustomType.Parameter("retentionInHours") @Nullable Integer retentionInHours,
-        @CustomType.Parameter("storageRedundancy") @Nullable String storageRedundancy,
-        @CustomType.Parameter("type") String type) {
-        this.intervalInMinutes = intervalInMinutes;
-        this.retentionInHours = retentionInHours;
-        this.storageRedundancy = storageRedundancy;
-        this.type = type;
-    }
-
+    private AccountBackup() {}
     /**
      * @return The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
      * 
@@ -81,17 +70,13 @@ public final class AccountBackup {
     public static Builder builder(AccountBackup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer intervalInMinutes;
         private @Nullable Integer retentionInHours;
         private @Nullable String storageRedundancy;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountBackup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.intervalInMinutes = defaults.intervalInMinutes;
@@ -100,23 +85,33 @@ public final class AccountBackup {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder intervalInMinutes(@Nullable Integer intervalInMinutes) {
             this.intervalInMinutes = intervalInMinutes;
             return this;
         }
+        @CustomType.Setter
         public Builder retentionInHours(@Nullable Integer retentionInHours) {
             this.retentionInHours = retentionInHours;
             return this;
         }
+        @CustomType.Setter
         public Builder storageRedundancy(@Nullable String storageRedundancy) {
             this.storageRedundancy = storageRedundancy;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public AccountBackup build() {
-            return new AccountBackup(intervalInMinutes, retentionInHours, storageRedundancy, type);
+        }
+        public AccountBackup build() {
+            final var o = new AccountBackup();
+            o.intervalInMinutes = intervalInMinutes;
+            o.retentionInHours = retentionInHours;
+            o.storageRedundancy = storageRedundancy;
+            o.type = type;
+            return o;
         }
     }
 }

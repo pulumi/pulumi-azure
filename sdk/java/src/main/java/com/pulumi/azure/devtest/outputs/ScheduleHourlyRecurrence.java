@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ScheduleHourlyRecurrence {
-    private final Integer minute;
+    private Integer minute;
 
-    @CustomType.Constructor
-    private ScheduleHourlyRecurrence(@CustomType.Parameter("minute") Integer minute) {
-        this.minute = minute;
-    }
-
+    private ScheduleHourlyRecurrence() {}
     public Integer minute() {
         return this.minute;
     }
@@ -27,24 +23,24 @@ public final class ScheduleHourlyRecurrence {
     public static Builder builder(ScheduleHourlyRecurrence defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer minute;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScheduleHourlyRecurrence defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.minute = defaults.minute;
         }
 
+        @CustomType.Setter
         public Builder minute(Integer minute) {
             this.minute = Objects.requireNonNull(minute);
             return this;
-        }        public ScheduleHourlyRecurrence build() {
-            return new ScheduleHourlyRecurrence(minute);
+        }
+        public ScheduleHourlyRecurrence build() {
+            final var o = new ScheduleHourlyRecurrence();
+            o.minute = minute;
+            return o;
         }
     }
 }

@@ -19,49 +19,34 @@ public final class SpringCloudServiceConfigServerGitSetting {
      * @return A `http_basic_auth` block as defined below.
      * 
      */
-    private final @Nullable SpringCloudServiceConfigServerGitSettingHttpBasicAuth httpBasicAuth;
+    private @Nullable SpringCloudServiceConfigServerGitSettingHttpBasicAuth httpBasicAuth;
     /**
      * @return The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
      * 
      */
-    private final @Nullable String label;
+    private @Nullable String label;
     /**
      * @return One or more `repository` blocks as defined below.
      * 
      */
-    private final @Nullable List<SpringCloudServiceConfigServerGitSettingRepository> repositories;
+    private @Nullable List<SpringCloudServiceConfigServerGitSettingRepository> repositories;
     /**
      * @return An array of strings used to search subdirectories of the Git repository.
      * 
      */
-    private final @Nullable List<String> searchPaths;
+    private @Nullable List<String> searchPaths;
     /**
      * @return A `ssh_auth` block as defined below.
      * 
      */
-    private final @Nullable SpringCloudServiceConfigServerGitSettingSshAuth sshAuth;
+    private @Nullable SpringCloudServiceConfigServerGitSettingSshAuth sshAuth;
     /**
      * @return The URI of the default Git repository used as the Config Server back end, should be started with `http://`, `https://`, `git@`, or `ssh://`.
      * 
      */
-    private final String uri;
+    private String uri;
 
-    @CustomType.Constructor
-    private SpringCloudServiceConfigServerGitSetting(
-        @CustomType.Parameter("httpBasicAuth") @Nullable SpringCloudServiceConfigServerGitSettingHttpBasicAuth httpBasicAuth,
-        @CustomType.Parameter("label") @Nullable String label,
-        @CustomType.Parameter("repositories") @Nullable List<SpringCloudServiceConfigServerGitSettingRepository> repositories,
-        @CustomType.Parameter("searchPaths") @Nullable List<String> searchPaths,
-        @CustomType.Parameter("sshAuth") @Nullable SpringCloudServiceConfigServerGitSettingSshAuth sshAuth,
-        @CustomType.Parameter("uri") String uri) {
-        this.httpBasicAuth = httpBasicAuth;
-        this.label = label;
-        this.repositories = repositories;
-        this.searchPaths = searchPaths;
-        this.sshAuth = sshAuth;
-        this.uri = uri;
-    }
-
+    private SpringCloudServiceConfigServerGitSetting() {}
     /**
      * @return A `http_basic_auth` block as defined below.
      * 
@@ -112,7 +97,7 @@ public final class SpringCloudServiceConfigServerGitSetting {
     public static Builder builder(SpringCloudServiceConfigServerGitSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable SpringCloudServiceConfigServerGitSettingHttpBasicAuth httpBasicAuth;
         private @Nullable String label;
@@ -120,11 +105,7 @@ public final class SpringCloudServiceConfigServerGitSetting {
         private @Nullable List<String> searchPaths;
         private @Nullable SpringCloudServiceConfigServerGitSettingSshAuth sshAuth;
         private String uri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpringCloudServiceConfigServerGitSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.httpBasicAuth = defaults.httpBasicAuth;
@@ -135,14 +116,17 @@ public final class SpringCloudServiceConfigServerGitSetting {
     	      this.uri = defaults.uri;
         }
 
+        @CustomType.Setter
         public Builder httpBasicAuth(@Nullable SpringCloudServiceConfigServerGitSettingHttpBasicAuth httpBasicAuth) {
             this.httpBasicAuth = httpBasicAuth;
             return this;
         }
+        @CustomType.Setter
         public Builder label(@Nullable String label) {
             this.label = label;
             return this;
         }
+        @CustomType.Setter
         public Builder repositories(@Nullable List<SpringCloudServiceConfigServerGitSettingRepository> repositories) {
             this.repositories = repositories;
             return this;
@@ -150,6 +134,7 @@ public final class SpringCloudServiceConfigServerGitSetting {
         public Builder repositories(SpringCloudServiceConfigServerGitSettingRepository... repositories) {
             return repositories(List.of(repositories));
         }
+        @CustomType.Setter
         public Builder searchPaths(@Nullable List<String> searchPaths) {
             this.searchPaths = searchPaths;
             return this;
@@ -157,15 +142,25 @@ public final class SpringCloudServiceConfigServerGitSetting {
         public Builder searchPaths(String... searchPaths) {
             return searchPaths(List.of(searchPaths));
         }
+        @CustomType.Setter
         public Builder sshAuth(@Nullable SpringCloudServiceConfigServerGitSettingSshAuth sshAuth) {
             this.sshAuth = sshAuth;
             return this;
         }
+        @CustomType.Setter
         public Builder uri(String uri) {
             this.uri = Objects.requireNonNull(uri);
             return this;
-        }        public SpringCloudServiceConfigServerGitSetting build() {
-            return new SpringCloudServiceConfigServerGitSetting(httpBasicAuth, label, repositories, searchPaths, sshAuth, uri);
+        }
+        public SpringCloudServiceConfigServerGitSetting build() {
+            final var o = new SpringCloudServiceConfigServerGitSetting();
+            o.httpBasicAuth = httpBasicAuth;
+            o.label = label;
+            o.repositories = repositories;
+            o.searchPaths = searchPaths;
+            o.sshAuth = sshAuth;
+            o.uri = uri;
+            return o;
         }
     }
 }

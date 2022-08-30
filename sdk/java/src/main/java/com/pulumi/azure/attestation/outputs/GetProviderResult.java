@@ -14,48 +14,31 @@ public final class GetProviderResult {
      * @return The (Endpoint|URI) of the Attestation Service.
      * 
      */
-    private final String attestationUri;
+    private String attestationUri;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region where the Attestation Provider exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags assigned to the Attestation Provider.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return Trust model used for the Attestation Service.
      * 
      */
-    private final String trustModel;
+    private String trustModel;
 
-    @CustomType.Constructor
-    private GetProviderResult(
-        @CustomType.Parameter("attestationUri") String attestationUri,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("trustModel") String trustModel) {
-        this.attestationUri = attestationUri;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-        this.trustModel = trustModel;
-    }
-
+    private GetProviderResult() {}
     /**
      * @return The (Endpoint|URI) of the Attestation Service.
      * 
@@ -105,7 +88,7 @@ public final class GetProviderResult {
     public static Builder builder(GetProviderResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String attestationUri;
         private String id;
@@ -114,11 +97,7 @@ public final class GetProviderResult {
         private String resourceGroupName;
         private Map<String,String> tags;
         private String trustModel;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetProviderResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.attestationUri = defaults.attestationUri;
@@ -130,35 +109,51 @@ public final class GetProviderResult {
     	      this.trustModel = defaults.trustModel;
         }
 
+        @CustomType.Setter
         public Builder attestationUri(String attestationUri) {
             this.attestationUri = Objects.requireNonNull(attestationUri);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder trustModel(String trustModel) {
             this.trustModel = Objects.requireNonNull(trustModel);
             return this;
-        }        public GetProviderResult build() {
-            return new GetProviderResult(attestationUri, id, location, name, resourceGroupName, tags, trustModel);
+        }
+        public GetProviderResult build() {
+            final var o = new GetProviderResult();
+            o.attestationUri = attestationUri;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            o.trustModel = trustModel;
+            return o;
         }
     }
 }

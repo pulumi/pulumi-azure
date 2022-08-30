@@ -13,35 +13,24 @@ public final class GetCertificateIssuerAdmin {
      * @return E-mail address of the admin.
      * 
      */
-    private final String emailAddress;
+    private String emailAddress;
     /**
      * @return First name of the admin.
      * 
      */
-    private final String firstName;
+    private String firstName;
     /**
      * @return Last name of the admin.
      * 
      */
-    private final String lastName;
+    private String lastName;
     /**
      * @return Phone number of the admin.
      * 
      */
-    private final String phone;
+    private String phone;
 
-    @CustomType.Constructor
-    private GetCertificateIssuerAdmin(
-        @CustomType.Parameter("emailAddress") String emailAddress,
-        @CustomType.Parameter("firstName") String firstName,
-        @CustomType.Parameter("lastName") String lastName,
-        @CustomType.Parameter("phone") String phone) {
-        this.emailAddress = emailAddress;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phone = phone;
-    }
-
+    private GetCertificateIssuerAdmin() {}
     /**
      * @return E-mail address of the admin.
      * 
@@ -78,17 +67,13 @@ public final class GetCertificateIssuerAdmin {
     public static Builder builder(GetCertificateIssuerAdmin defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String emailAddress;
         private String firstName;
         private String lastName;
         private String phone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCertificateIssuerAdmin defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.emailAddress = defaults.emailAddress;
@@ -97,23 +82,33 @@ public final class GetCertificateIssuerAdmin {
     	      this.phone = defaults.phone;
         }
 
+        @CustomType.Setter
         public Builder emailAddress(String emailAddress) {
             this.emailAddress = Objects.requireNonNull(emailAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder firstName(String firstName) {
             this.firstName = Objects.requireNonNull(firstName);
             return this;
         }
+        @CustomType.Setter
         public Builder lastName(String lastName) {
             this.lastName = Objects.requireNonNull(lastName);
             return this;
         }
+        @CustomType.Setter
         public Builder phone(String phone) {
             this.phone = Objects.requireNonNull(phone);
             return this;
-        }        public GetCertificateIssuerAdmin build() {
-            return new GetCertificateIssuerAdmin(emailAddress, firstName, lastName, phone);
+        }
+        public GetCertificateIssuerAdmin build() {
+            final var o = new GetCertificateIssuerAdmin();
+            o.emailAddress = emailAddress;
+            o.firstName = firstName;
+            o.lastName = lastName;
+            o.phone = phone;
+            return o;
         }
     }
 }

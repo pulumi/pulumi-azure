@@ -17,77 +17,54 @@ public final class VirtualMachineStorageOsDisk {
      * @return Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
      * 
      */
-    private final @Nullable String caching;
+    private @Nullable String caching;
     /**
      * @return Specifies how the OS Disk should be created. Possible values are `Attach` (managed disks only) and `FromImage`.
      * 
      */
-    private final String createOption;
+    private String createOption;
     /**
      * @return Specifies the size of the OS Disk in gigabytes.
      * 
      */
-    private final @Nullable Integer diskSizeGb;
+    private @Nullable Integer diskSizeGb;
     /**
      * @return Specifies the Image URI in the format `publisherName:offer:skus:version`. This field can also specify the [VHD URI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the `os_type` field must be set.
      * 
      */
-    private final @Nullable String imageUri;
+    private @Nullable String imageUri;
     /**
      * @return Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the `create_option` must be set to `Attach`.
      * 
      */
-    private final @Nullable String managedDiskId;
+    private @Nullable String managedDiskId;
     /**
      * @return Specifies the type of Managed Disk which should be created. Possible values are `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
      * 
      */
-    private final @Nullable String managedDiskType;
+    private @Nullable String managedDiskType;
     /**
      * @return Specifies the name of the OS Disk.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Specifies the Operating System on the OS Disk. Possible values are `Linux` and `Windows`.
      * 
      */
-    private final @Nullable String osType;
+    private @Nullable String osType;
     /**
      * @return Specifies the URI of the VHD file backing this Unmanaged OS Disk. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String vhdUri;
+    private @Nullable String vhdUri;
     /**
      * @return Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean writeAcceleratorEnabled;
+    private @Nullable Boolean writeAcceleratorEnabled;
 
-    @CustomType.Constructor
-    private VirtualMachineStorageOsDisk(
-        @CustomType.Parameter("caching") @Nullable String caching,
-        @CustomType.Parameter("createOption") String createOption,
-        @CustomType.Parameter("diskSizeGb") @Nullable Integer diskSizeGb,
-        @CustomType.Parameter("imageUri") @Nullable String imageUri,
-        @CustomType.Parameter("managedDiskId") @Nullable String managedDiskId,
-        @CustomType.Parameter("managedDiskType") @Nullable String managedDiskType,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("osType") @Nullable String osType,
-        @CustomType.Parameter("vhdUri") @Nullable String vhdUri,
-        @CustomType.Parameter("writeAcceleratorEnabled") @Nullable Boolean writeAcceleratorEnabled) {
-        this.caching = caching;
-        this.createOption = createOption;
-        this.diskSizeGb = diskSizeGb;
-        this.imageUri = imageUri;
-        this.managedDiskId = managedDiskId;
-        this.managedDiskType = managedDiskType;
-        this.name = name;
-        this.osType = osType;
-        this.vhdUri = vhdUri;
-        this.writeAcceleratorEnabled = writeAcceleratorEnabled;
-    }
-
+    private VirtualMachineStorageOsDisk() {}
     /**
      * @return Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
      * 
@@ -166,7 +143,7 @@ public final class VirtualMachineStorageOsDisk {
     public static Builder builder(VirtualMachineStorageOsDisk defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String caching;
         private String createOption;
@@ -178,11 +155,7 @@ public final class VirtualMachineStorageOsDisk {
         private @Nullable String osType;
         private @Nullable String vhdUri;
         private @Nullable Boolean writeAcceleratorEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualMachineStorageOsDisk defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.caching = defaults.caching;
@@ -197,47 +170,69 @@ public final class VirtualMachineStorageOsDisk {
     	      this.writeAcceleratorEnabled = defaults.writeAcceleratorEnabled;
         }
 
+        @CustomType.Setter
         public Builder caching(@Nullable String caching) {
             this.caching = caching;
             return this;
         }
+        @CustomType.Setter
         public Builder createOption(String createOption) {
             this.createOption = Objects.requireNonNull(createOption);
             return this;
         }
+        @CustomType.Setter
         public Builder diskSizeGb(@Nullable Integer diskSizeGb) {
             this.diskSizeGb = diskSizeGb;
             return this;
         }
+        @CustomType.Setter
         public Builder imageUri(@Nullable String imageUri) {
             this.imageUri = imageUri;
             return this;
         }
+        @CustomType.Setter
         public Builder managedDiskId(@Nullable String managedDiskId) {
             this.managedDiskId = managedDiskId;
             return this;
         }
+        @CustomType.Setter
         public Builder managedDiskType(@Nullable String managedDiskType) {
             this.managedDiskType = managedDiskType;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder osType(@Nullable String osType) {
             this.osType = osType;
             return this;
         }
+        @CustomType.Setter
         public Builder vhdUri(@Nullable String vhdUri) {
             this.vhdUri = vhdUri;
             return this;
         }
+        @CustomType.Setter
         public Builder writeAcceleratorEnabled(@Nullable Boolean writeAcceleratorEnabled) {
             this.writeAcceleratorEnabled = writeAcceleratorEnabled;
             return this;
-        }        public VirtualMachineStorageOsDisk build() {
-            return new VirtualMachineStorageOsDisk(caching, createOption, diskSizeGb, imageUri, managedDiskId, managedDiskType, name, osType, vhdUri, writeAcceleratorEnabled);
+        }
+        public VirtualMachineStorageOsDisk build() {
+            final var o = new VirtualMachineStorageOsDisk();
+            o.caching = caching;
+            o.createOption = createOption;
+            o.diskSizeGb = diskSizeGb;
+            o.imageUri = imageUri;
+            o.managedDiskId = managedDiskId;
+            o.managedDiskType = managedDiskType;
+            o.name = name;
+            o.osType = osType;
+            o.vhdUri = vhdUri;
+            o.writeAcceleratorEnabled = writeAcceleratorEnabled;
+            return o;
         }
     }
 }

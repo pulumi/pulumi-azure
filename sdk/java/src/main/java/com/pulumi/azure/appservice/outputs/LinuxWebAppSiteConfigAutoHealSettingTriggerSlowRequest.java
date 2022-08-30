@@ -16,35 +16,24 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
      * @return The number of Slow Requests in the time `interval` to trigger this rule.
      * 
      */
-    private final Integer count;
+    private Integer count;
     /**
      * @return The time interval in the form `hh:mm:ss`.
      * 
      */
-    private final String interval;
+    private String interval;
     /**
      * @return The path for which this slow request rule applies.
      * 
      */
-    private final @Nullable String path;
+    private @Nullable String path;
     /**
      * @return The threshold of time passed to qualify as a Slow Request in `hh:mm:ss`.
      * 
      */
-    private final String timeTaken;
+    private String timeTaken;
 
-    @CustomType.Constructor
-    private LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest(
-        @CustomType.Parameter("count") Integer count,
-        @CustomType.Parameter("interval") String interval,
-        @CustomType.Parameter("path") @Nullable String path,
-        @CustomType.Parameter("timeTaken") String timeTaken) {
-        this.count = count;
-        this.interval = interval;
-        this.path = path;
-        this.timeTaken = timeTaken;
-    }
-
+    private LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest() {}
     /**
      * @return The number of Slow Requests in the time `interval` to trigger this rule.
      * 
@@ -81,17 +70,13 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
     public static Builder builder(LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer count;
         private String interval;
         private @Nullable String path;
         private String timeTaken;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
@@ -100,23 +85,33 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
     	      this.timeTaken = defaults.timeTaken;
         }
 
+        @CustomType.Setter
         public Builder count(Integer count) {
             this.count = Objects.requireNonNull(count);
             return this;
         }
+        @CustomType.Setter
         public Builder interval(String interval) {
             this.interval = Objects.requireNonNull(interval);
             return this;
         }
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
         }
+        @CustomType.Setter
         public Builder timeTaken(String timeTaken) {
             this.timeTaken = Objects.requireNonNull(timeTaken);
             return this;
-        }        public LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest build() {
-            return new LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest(count, interval, path, timeTaken);
+        }
+        public LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest build() {
+            final var o = new LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest();
+            o.count = count;
+            o.interval = interval;
+            o.path = path;
+            o.timeTaken = timeTaken;
+            return o;
         }
     }
 }

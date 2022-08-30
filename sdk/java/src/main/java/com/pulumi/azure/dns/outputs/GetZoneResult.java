@@ -16,48 +16,31 @@ public final class GetZoneResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Maximum number of Records in the zone.
      * 
      */
-    private final Integer maxNumberOfRecordSets;
-    private final String name;
+    private Integer maxNumberOfRecordSets;
+    private String name;
     /**
      * @return A list of values that make up the NS record for the zone.
      * 
      */
-    private final List<String> nameServers;
+    private List<String> nameServers;
     /**
      * @return The number of records already in the zone.
      * 
      */
-    private final Integer numberOfRecordSets;
-    private final String resourceGroupName;
+    private Integer numberOfRecordSets;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags assigned to the DNS Zone.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetZoneResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("maxNumberOfRecordSets") Integer maxNumberOfRecordSets,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nameServers") List<String> nameServers,
-        @CustomType.Parameter("numberOfRecordSets") Integer numberOfRecordSets,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.id = id;
-        this.maxNumberOfRecordSets = maxNumberOfRecordSets;
-        this.name = name;
-        this.nameServers = nameServers;
-        this.numberOfRecordSets = numberOfRecordSets;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-    }
-
+    private GetZoneResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -107,7 +90,7 @@ public final class GetZoneResult {
     public static Builder builder(GetZoneResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private Integer maxNumberOfRecordSets;
@@ -116,11 +99,7 @@ public final class GetZoneResult {
         private Integer numberOfRecordSets;
         private String resourceGroupName;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetZoneResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -132,18 +111,22 @@ public final class GetZoneResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder maxNumberOfRecordSets(Integer maxNumberOfRecordSets) {
             this.maxNumberOfRecordSets = Objects.requireNonNull(maxNumberOfRecordSets);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nameServers(List<String> nameServers) {
             this.nameServers = Objects.requireNonNull(nameServers);
             return this;
@@ -151,19 +134,31 @@ public final class GetZoneResult {
         public Builder nameServers(String... nameServers) {
             return nameServers(List.of(nameServers));
         }
+        @CustomType.Setter
         public Builder numberOfRecordSets(Integer numberOfRecordSets) {
             this.numberOfRecordSets = Objects.requireNonNull(numberOfRecordSets);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetZoneResult build() {
-            return new GetZoneResult(id, maxNumberOfRecordSets, name, nameServers, numberOfRecordSets, resourceGroupName, tags);
+        }
+        public GetZoneResult build() {
+            final var o = new GetZoneResult();
+            o.id = id;
+            o.maxNumberOfRecordSets = maxNumberOfRecordSets;
+            o.name = name;
+            o.nameServers = nameServers;
+            o.numberOfRecordSets = numberOfRecordSets;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            return o;
         }
     }
 }

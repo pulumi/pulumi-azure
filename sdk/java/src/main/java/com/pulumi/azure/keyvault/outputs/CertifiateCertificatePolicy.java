@@ -20,42 +20,29 @@ public final class CertifiateCertificatePolicy {
      * @return A `issuer_parameters` block as defined below.
      * 
      */
-    private final CertifiateCertificatePolicyIssuerParameters issuerParameters;
+    private CertifiateCertificatePolicyIssuerParameters issuerParameters;
     /**
      * @return A `key_properties` block as defined below.
      * 
      */
-    private final CertifiateCertificatePolicyKeyProperties keyProperties;
+    private CertifiateCertificatePolicyKeyProperties keyProperties;
     /**
      * @return A `lifetime_action` block as defined below.
      * 
      */
-    private final @Nullable List<CertifiateCertificatePolicyLifetimeAction> lifetimeActions;
+    private @Nullable List<CertifiateCertificatePolicyLifetimeAction> lifetimeActions;
     /**
      * @return A `secret_properties` block as defined below.
      * 
      */
-    private final CertifiateCertificatePolicySecretProperties secretProperties;
+    private CertifiateCertificatePolicySecretProperties secretProperties;
     /**
      * @return A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
      * 
      */
-    private final @Nullable CertifiateCertificatePolicyX509CertificateProperties x509CertificateProperties;
+    private @Nullable CertifiateCertificatePolicyX509CertificateProperties x509CertificateProperties;
 
-    @CustomType.Constructor
-    private CertifiateCertificatePolicy(
-        @CustomType.Parameter("issuerParameters") CertifiateCertificatePolicyIssuerParameters issuerParameters,
-        @CustomType.Parameter("keyProperties") CertifiateCertificatePolicyKeyProperties keyProperties,
-        @CustomType.Parameter("lifetimeActions") @Nullable List<CertifiateCertificatePolicyLifetimeAction> lifetimeActions,
-        @CustomType.Parameter("secretProperties") CertifiateCertificatePolicySecretProperties secretProperties,
-        @CustomType.Parameter("x509CertificateProperties") @Nullable CertifiateCertificatePolicyX509CertificateProperties x509CertificateProperties) {
-        this.issuerParameters = issuerParameters;
-        this.keyProperties = keyProperties;
-        this.lifetimeActions = lifetimeActions;
-        this.secretProperties = secretProperties;
-        this.x509CertificateProperties = x509CertificateProperties;
-    }
-
+    private CertifiateCertificatePolicy() {}
     /**
      * @return A `issuer_parameters` block as defined below.
      * 
@@ -99,18 +86,14 @@ public final class CertifiateCertificatePolicy {
     public static Builder builder(CertifiateCertificatePolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private CertifiateCertificatePolicyIssuerParameters issuerParameters;
         private CertifiateCertificatePolicyKeyProperties keyProperties;
         private @Nullable List<CertifiateCertificatePolicyLifetimeAction> lifetimeActions;
         private CertifiateCertificatePolicySecretProperties secretProperties;
         private @Nullable CertifiateCertificatePolicyX509CertificateProperties x509CertificateProperties;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CertifiateCertificatePolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.issuerParameters = defaults.issuerParameters;
@@ -120,14 +103,17 @@ public final class CertifiateCertificatePolicy {
     	      this.x509CertificateProperties = defaults.x509CertificateProperties;
         }
 
+        @CustomType.Setter
         public Builder issuerParameters(CertifiateCertificatePolicyIssuerParameters issuerParameters) {
             this.issuerParameters = Objects.requireNonNull(issuerParameters);
             return this;
         }
+        @CustomType.Setter
         public Builder keyProperties(CertifiateCertificatePolicyKeyProperties keyProperties) {
             this.keyProperties = Objects.requireNonNull(keyProperties);
             return this;
         }
+        @CustomType.Setter
         public Builder lifetimeActions(@Nullable List<CertifiateCertificatePolicyLifetimeAction> lifetimeActions) {
             this.lifetimeActions = lifetimeActions;
             return this;
@@ -135,15 +121,24 @@ public final class CertifiateCertificatePolicy {
         public Builder lifetimeActions(CertifiateCertificatePolicyLifetimeAction... lifetimeActions) {
             return lifetimeActions(List.of(lifetimeActions));
         }
+        @CustomType.Setter
         public Builder secretProperties(CertifiateCertificatePolicySecretProperties secretProperties) {
             this.secretProperties = Objects.requireNonNull(secretProperties);
             return this;
         }
+        @CustomType.Setter
         public Builder x509CertificateProperties(@Nullable CertifiateCertificatePolicyX509CertificateProperties x509CertificateProperties) {
             this.x509CertificateProperties = x509CertificateProperties;
             return this;
-        }        public CertifiateCertificatePolicy build() {
-            return new CertifiateCertificatePolicy(issuerParameters, keyProperties, lifetimeActions, secretProperties, x509CertificateProperties);
+        }
+        public CertifiateCertificatePolicy build() {
+            final var o = new CertifiateCertificatePolicy();
+            o.issuerParameters = issuerParameters;
+            o.keyProperties = keyProperties;
+            o.lifetimeActions = lifetimeActions;
+            o.secretProperties = secretProperties;
+            o.x509CertificateProperties = x509CertificateProperties;
+            return o;
         }
     }
 }

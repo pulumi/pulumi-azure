@@ -14,21 +14,14 @@ public final class VirtualHubRoute {
      * @return A list of Address Prefixes.
      * 
      */
-    private final List<String> addressPrefixes;
+    private List<String> addressPrefixes;
     /**
      * @return The IP Address that Packets should be forwarded to as the Next Hop.
      * 
      */
-    private final String nextHopIpAddress;
+    private String nextHopIpAddress;
 
-    @CustomType.Constructor
-    private VirtualHubRoute(
-        @CustomType.Parameter("addressPrefixes") List<String> addressPrefixes,
-        @CustomType.Parameter("nextHopIpAddress") String nextHopIpAddress) {
-        this.addressPrefixes = addressPrefixes;
-        this.nextHopIpAddress = nextHopIpAddress;
-    }
-
+    private VirtualHubRoute() {}
     /**
      * @return A list of Address Prefixes.
      * 
@@ -51,21 +44,18 @@ public final class VirtualHubRoute {
     public static Builder builder(VirtualHubRoute defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> addressPrefixes;
         private String nextHopIpAddress;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualHubRoute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addressPrefixes = defaults.addressPrefixes;
     	      this.nextHopIpAddress = defaults.nextHopIpAddress;
         }
 
+        @CustomType.Setter
         public Builder addressPrefixes(List<String> addressPrefixes) {
             this.addressPrefixes = Objects.requireNonNull(addressPrefixes);
             return this;
@@ -73,11 +63,16 @@ public final class VirtualHubRoute {
         public Builder addressPrefixes(String... addressPrefixes) {
             return addressPrefixes(List.of(addressPrefixes));
         }
+        @CustomType.Setter
         public Builder nextHopIpAddress(String nextHopIpAddress) {
             this.nextHopIpAddress = Objects.requireNonNull(nextHopIpAddress);
             return this;
-        }        public VirtualHubRoute build() {
-            return new VirtualHubRoute(addressPrefixes, nextHopIpAddress);
+        }
+        public VirtualHubRoute build() {
+            final var o = new VirtualHubRoute();
+            o.addressPrefixes = addressPrefixes;
+            o.nextHopIpAddress = nextHopIpAddress;
+            return o;
         }
     }
 }

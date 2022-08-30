@@ -13,21 +13,14 @@ public final class ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey 
      * @return The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `azure.keyvault.Secret` resource. Changing this forces a new resource to be created.
      * 
      */
-    private final String secretUrl;
+    private String secretUrl;
     /**
      * @return The ID of the Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource. Changing this forces a new resource to be created.
      * 
      */
-    private final String vaultId;
+    private String vaultId;
 
-    @CustomType.Constructor
-    private ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey(
-        @CustomType.Parameter("secretUrl") String secretUrl,
-        @CustomType.Parameter("vaultId") String vaultId) {
-        this.secretUrl = secretUrl;
-        this.vaultId = vaultId;
-    }
-
+    private ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey() {}
     /**
      * @return The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `azure.keyvault.Secret` resource. Changing this forces a new resource to be created.
      * 
@@ -50,30 +43,32 @@ public final class ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey 
     public static Builder builder(ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String secretUrl;
         private String vaultId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.secretUrl = defaults.secretUrl;
     	      this.vaultId = defaults.vaultId;
         }
 
+        @CustomType.Setter
         public Builder secretUrl(String secretUrl) {
             this.secretUrl = Objects.requireNonNull(secretUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder vaultId(String vaultId) {
             this.vaultId = Objects.requireNonNull(vaultId);
             return this;
-        }        public ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey build() {
-            return new ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey(secretUrl, vaultId);
+        }
+        public ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey build() {
+            final var o = new ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey();
+            o.secretUrl = secretUrl;
+            o.vaultId = vaultId;
+            return o;
         }
     }
 }

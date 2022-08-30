@@ -12,20 +12,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CachePatchSchedule {
-    private final String dayOfWeek;
-    private final @Nullable String maintenanceWindow;
-    private final @Nullable Integer startHourUtc;
+    private String dayOfWeek;
+    private @Nullable String maintenanceWindow;
+    private @Nullable Integer startHourUtc;
 
-    @CustomType.Constructor
-    private CachePatchSchedule(
-        @CustomType.Parameter("dayOfWeek") String dayOfWeek,
-        @CustomType.Parameter("maintenanceWindow") @Nullable String maintenanceWindow,
-        @CustomType.Parameter("startHourUtc") @Nullable Integer startHourUtc) {
-        this.dayOfWeek = dayOfWeek;
-        this.maintenanceWindow = maintenanceWindow;
-        this.startHourUtc = startHourUtc;
-    }
-
+    private CachePatchSchedule() {}
     public String dayOfWeek() {
         return this.dayOfWeek;
     }
@@ -43,16 +34,12 @@ public final class CachePatchSchedule {
     public static Builder builder(CachePatchSchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dayOfWeek;
         private @Nullable String maintenanceWindow;
         private @Nullable Integer startHourUtc;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CachePatchSchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dayOfWeek = defaults.dayOfWeek;
@@ -60,19 +47,27 @@ public final class CachePatchSchedule {
     	      this.startHourUtc = defaults.startHourUtc;
         }
 
+        @CustomType.Setter
         public Builder dayOfWeek(String dayOfWeek) {
             this.dayOfWeek = Objects.requireNonNull(dayOfWeek);
             return this;
         }
+        @CustomType.Setter
         public Builder maintenanceWindow(@Nullable String maintenanceWindow) {
             this.maintenanceWindow = maintenanceWindow;
             return this;
         }
+        @CustomType.Setter
         public Builder startHourUtc(@Nullable Integer startHourUtc) {
             this.startHourUtc = startHourUtc;
             return this;
-        }        public CachePatchSchedule build() {
-            return new CachePatchSchedule(dayOfWeek, maintenanceWindow, startHourUtc);
+        }
+        public CachePatchSchedule build() {
+            final var o = new CachePatchSchedule();
+            o.dayOfWeek = dayOfWeek;
+            o.maintenanceWindow = maintenanceWindow;
+            o.startHourUtc = startHourUtc;
+            return o;
         }
     }
 }

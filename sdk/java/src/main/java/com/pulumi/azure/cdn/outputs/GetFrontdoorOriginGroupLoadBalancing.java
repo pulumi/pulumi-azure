@@ -13,28 +13,19 @@ public final class GetFrontdoorOriginGroupLoadBalancing {
      * @return Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket.
      * 
      */
-    private final Integer additionalLatencyInMilliseconds;
+    private Integer additionalLatencyInMilliseconds;
     /**
      * @return Specifies the number of samples to consider for load balancing decisions.
      * 
      */
-    private final Integer sampleSize;
+    private Integer sampleSize;
     /**
      * @return Specifies the number of samples within the sample period that must succeed.
      * 
      */
-    private final Integer successfulSamplesRequired;
+    private Integer successfulSamplesRequired;
 
-    @CustomType.Constructor
-    private GetFrontdoorOriginGroupLoadBalancing(
-        @CustomType.Parameter("additionalLatencyInMilliseconds") Integer additionalLatencyInMilliseconds,
-        @CustomType.Parameter("sampleSize") Integer sampleSize,
-        @CustomType.Parameter("successfulSamplesRequired") Integer successfulSamplesRequired) {
-        this.additionalLatencyInMilliseconds = additionalLatencyInMilliseconds;
-        this.sampleSize = sampleSize;
-        this.successfulSamplesRequired = successfulSamplesRequired;
-    }
-
+    private GetFrontdoorOriginGroupLoadBalancing() {}
     /**
      * @return Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket.
      * 
@@ -64,16 +55,12 @@ public final class GetFrontdoorOriginGroupLoadBalancing {
     public static Builder builder(GetFrontdoorOriginGroupLoadBalancing defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer additionalLatencyInMilliseconds;
         private Integer sampleSize;
         private Integer successfulSamplesRequired;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFrontdoorOriginGroupLoadBalancing defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.additionalLatencyInMilliseconds = defaults.additionalLatencyInMilliseconds;
@@ -81,19 +68,27 @@ public final class GetFrontdoorOriginGroupLoadBalancing {
     	      this.successfulSamplesRequired = defaults.successfulSamplesRequired;
         }
 
+        @CustomType.Setter
         public Builder additionalLatencyInMilliseconds(Integer additionalLatencyInMilliseconds) {
             this.additionalLatencyInMilliseconds = Objects.requireNonNull(additionalLatencyInMilliseconds);
             return this;
         }
+        @CustomType.Setter
         public Builder sampleSize(Integer sampleSize) {
             this.sampleSize = Objects.requireNonNull(sampleSize);
             return this;
         }
+        @CustomType.Setter
         public Builder successfulSamplesRequired(Integer successfulSamplesRequired) {
             this.successfulSamplesRequired = Objects.requireNonNull(successfulSamplesRequired);
             return this;
-        }        public GetFrontdoorOriginGroupLoadBalancing build() {
-            return new GetFrontdoorOriginGroupLoadBalancing(additionalLatencyInMilliseconds, sampleSize, successfulSamplesRequired);
+        }
+        public GetFrontdoorOriginGroupLoadBalancing build() {
+            final var o = new GetFrontdoorOriginGroupLoadBalancing();
+            o.additionalLatencyInMilliseconds = additionalLatencyInMilliseconds;
+            o.sampleSize = sampleSize;
+            o.successfulSamplesRequired = successfulSamplesRequired;
+            return o;
         }
     }
 }

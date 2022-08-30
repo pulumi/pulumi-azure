@@ -16,76 +16,51 @@ public final class GetVirtualWanResult {
      * @return Is branch to branch traffic is allowed?
      * 
      */
-    private final Boolean allowBranchToBranchTraffic;
+    private Boolean allowBranchToBranchTraffic;
     /**
      * @return Is VPN Encryption disabled?
      * 
      */
-    private final Boolean disableVpnEncryption;
+    private Boolean disableVpnEncryption;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region where the Virtual Wan exists.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return The Office365 Local Breakout Category.
      * 
      */
-    private final String office365LocalBreakoutCategory;
-    private final String resourceGroupName;
+    private String office365LocalBreakoutCategory;
+    private String resourceGroupName;
     /**
      * @return Type of Virtual Wan (Basic or Standard).
      * 
      */
-    private final String sku;
+    private String sku;
     /**
      * @return A mapping of tags assigned to the Virtual Wan.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return A list of Virtual Hubs IDs attached to this Virtual WAN.
      * 
      */
-    private final List<String> virtualHubIds;
+    private List<String> virtualHubIds;
     /**
      * @return A list of VPN Site IDs attached to this Virtual WAN.
      * 
      */
-    private final List<String> vpnSiteIds;
+    private List<String> vpnSiteIds;
 
-    @CustomType.Constructor
-    private GetVirtualWanResult(
-        @CustomType.Parameter("allowBranchToBranchTraffic") Boolean allowBranchToBranchTraffic,
-        @CustomType.Parameter("disableVpnEncryption") Boolean disableVpnEncryption,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("office365LocalBreakoutCategory") String office365LocalBreakoutCategory,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("sku") String sku,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("virtualHubIds") List<String> virtualHubIds,
-        @CustomType.Parameter("vpnSiteIds") List<String> vpnSiteIds) {
-        this.allowBranchToBranchTraffic = allowBranchToBranchTraffic;
-        this.disableVpnEncryption = disableVpnEncryption;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.office365LocalBreakoutCategory = office365LocalBreakoutCategory;
-        this.resourceGroupName = resourceGroupName;
-        this.sku = sku;
-        this.tags = tags;
-        this.virtualHubIds = virtualHubIds;
-        this.vpnSiteIds = vpnSiteIds;
-    }
-
+    private GetVirtualWanResult() {}
     /**
      * @return Is branch to branch traffic is allowed?
      * 
@@ -163,7 +138,7 @@ public final class GetVirtualWanResult {
     public static Builder builder(GetVirtualWanResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean allowBranchToBranchTraffic;
         private Boolean disableVpnEncryption;
@@ -176,11 +151,7 @@ public final class GetVirtualWanResult {
         private Map<String,String> tags;
         private List<String> virtualHubIds;
         private List<String> vpnSiteIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualWanResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowBranchToBranchTraffic = defaults.allowBranchToBranchTraffic;
@@ -196,42 +167,52 @@ public final class GetVirtualWanResult {
     	      this.vpnSiteIds = defaults.vpnSiteIds;
         }
 
+        @CustomType.Setter
         public Builder allowBranchToBranchTraffic(Boolean allowBranchToBranchTraffic) {
             this.allowBranchToBranchTraffic = Objects.requireNonNull(allowBranchToBranchTraffic);
             return this;
         }
+        @CustomType.Setter
         public Builder disableVpnEncryption(Boolean disableVpnEncryption) {
             this.disableVpnEncryption = Objects.requireNonNull(disableVpnEncryption);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder office365LocalBreakoutCategory(String office365LocalBreakoutCategory) {
             this.office365LocalBreakoutCategory = Objects.requireNonNull(office365LocalBreakoutCategory);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder sku(String sku) {
             this.sku = Objects.requireNonNull(sku);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualHubIds(List<String> virtualHubIds) {
             this.virtualHubIds = Objects.requireNonNull(virtualHubIds);
             return this;
@@ -239,14 +220,28 @@ public final class GetVirtualWanResult {
         public Builder virtualHubIds(String... virtualHubIds) {
             return virtualHubIds(List.of(virtualHubIds));
         }
+        @CustomType.Setter
         public Builder vpnSiteIds(List<String> vpnSiteIds) {
             this.vpnSiteIds = Objects.requireNonNull(vpnSiteIds);
             return this;
         }
         public Builder vpnSiteIds(String... vpnSiteIds) {
             return vpnSiteIds(List.of(vpnSiteIds));
-        }        public GetVirtualWanResult build() {
-            return new GetVirtualWanResult(allowBranchToBranchTraffic, disableVpnEncryption, id, location, name, office365LocalBreakoutCategory, resourceGroupName, sku, tags, virtualHubIds, vpnSiteIds);
+        }
+        public GetVirtualWanResult build() {
+            final var o = new GetVirtualWanResult();
+            o.allowBranchToBranchTraffic = allowBranchToBranchTraffic;
+            o.disableVpnEncryption = disableVpnEncryption;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.office365LocalBreakoutCategory = office365LocalBreakoutCategory;
+            o.resourceGroupName = resourceGroupName;
+            o.sku = sku;
+            o.tags = tags;
+            o.virtualHubIds = virtualHubIds;
+            o.vpnSiteIds = vpnSiteIds;
+            return o;
         }
     }
 }

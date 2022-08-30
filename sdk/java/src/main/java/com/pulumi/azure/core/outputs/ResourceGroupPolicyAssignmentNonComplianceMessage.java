@@ -15,21 +15,14 @@ public final class ResourceGroupPolicyAssignmentNonComplianceMessage {
      * @return The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
      * 
      */
-    private final String content;
+    private String content;
     /**
      * @return When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
      * 
      */
-    private final @Nullable String policyDefinitionReferenceId;
+    private @Nullable String policyDefinitionReferenceId;
 
-    @CustomType.Constructor
-    private ResourceGroupPolicyAssignmentNonComplianceMessage(
-        @CustomType.Parameter("content") String content,
-        @CustomType.Parameter("policyDefinitionReferenceId") @Nullable String policyDefinitionReferenceId) {
-        this.content = content;
-        this.policyDefinitionReferenceId = policyDefinitionReferenceId;
-    }
-
+    private ResourceGroupPolicyAssignmentNonComplianceMessage() {}
     /**
      * @return The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
      * 
@@ -52,30 +45,32 @@ public final class ResourceGroupPolicyAssignmentNonComplianceMessage {
     public static Builder builder(ResourceGroupPolicyAssignmentNonComplianceMessage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String content;
         private @Nullable String policyDefinitionReferenceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ResourceGroupPolicyAssignmentNonComplianceMessage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.content = defaults.content;
     	      this.policyDefinitionReferenceId = defaults.policyDefinitionReferenceId;
         }
 
+        @CustomType.Setter
         public Builder content(String content) {
             this.content = Objects.requireNonNull(content);
             return this;
         }
+        @CustomType.Setter
         public Builder policyDefinitionReferenceId(@Nullable String policyDefinitionReferenceId) {
             this.policyDefinitionReferenceId = policyDefinitionReferenceId;
             return this;
-        }        public ResourceGroupPolicyAssignmentNonComplianceMessage build() {
-            return new ResourceGroupPolicyAssignmentNonComplianceMessage(content, policyDefinitionReferenceId);
+        }
+        public ResourceGroupPolicyAssignmentNonComplianceMessage build() {
+            final var o = new ResourceGroupPolicyAssignmentNonComplianceMessage();
+            o.content = content;
+            o.policyDefinitionReferenceId = policyDefinitionReferenceId;
+            return o;
         }
     }
 }

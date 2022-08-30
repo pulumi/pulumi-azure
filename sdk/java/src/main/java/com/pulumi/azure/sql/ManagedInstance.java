@@ -295,14 +295,14 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.collation);
     }
     /**
-     * The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+     * The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azure.sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
      * 
      */
     @Export(name="dnsZonePartnerId", type=String.class, parameters={})
     private Output</* @Nullable */ String> dnsZonePartnerId;
 
     /**
-     * @return The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+     * @return The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azure.sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> dnsZonePartnerId() {

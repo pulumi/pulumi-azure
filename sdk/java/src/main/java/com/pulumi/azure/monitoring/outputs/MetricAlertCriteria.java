@@ -19,56 +19,39 @@ public final class MetricAlertCriteria {
      * @return The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
      * 
      */
-    private final String aggregation;
+    private String aggregation;
     /**
      * @return One or more `dimension` blocks as defined below.
      * 
      */
-    private final @Nullable List<MetricAlertCriteriaDimension> dimensions;
+    private @Nullable List<MetricAlertCriteriaDimension> dimensions;
     /**
      * @return One of the metric names to be monitored.
      * 
      */
-    private final String metricName;
+    private String metricName;
     /**
      * @return One of the metric namespaces to be monitored.
      * 
      */
-    private final String metricNamespace;
+    private String metricNamespace;
     /**
      * @return The criteria operator. Possible values are `Equals`, `NotEquals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan` and `LessThanOrEqual`.
      * 
      */
-    private final String operator;
+    private String operator;
     /**
      * @return Skip the metric validation to allow creating an alert rule on a custom metric that isn&#39;t yet emitted? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean skipMetricValidation;
+    private @Nullable Boolean skipMetricValidation;
     /**
      * @return The criteria threshold value that activates the alert.
      * 
      */
-    private final Double threshold;
+    private Double threshold;
 
-    @CustomType.Constructor
-    private MetricAlertCriteria(
-        @CustomType.Parameter("aggregation") String aggregation,
-        @CustomType.Parameter("dimensions") @Nullable List<MetricAlertCriteriaDimension> dimensions,
-        @CustomType.Parameter("metricName") String metricName,
-        @CustomType.Parameter("metricNamespace") String metricNamespace,
-        @CustomType.Parameter("operator") String operator,
-        @CustomType.Parameter("skipMetricValidation") @Nullable Boolean skipMetricValidation,
-        @CustomType.Parameter("threshold") Double threshold) {
-        this.aggregation = aggregation;
-        this.dimensions = dimensions;
-        this.metricName = metricName;
-        this.metricNamespace = metricNamespace;
-        this.operator = operator;
-        this.skipMetricValidation = skipMetricValidation;
-        this.threshold = threshold;
-    }
-
+    private MetricAlertCriteria() {}
     /**
      * @return The statistic that runs over the metric values. Possible values are `Average`, `Count`, `Minimum`, `Maximum` and `Total`.
      * 
@@ -126,7 +109,7 @@ public final class MetricAlertCriteria {
     public static Builder builder(MetricAlertCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String aggregation;
         private @Nullable List<MetricAlertCriteriaDimension> dimensions;
@@ -135,11 +118,7 @@ public final class MetricAlertCriteria {
         private String operator;
         private @Nullable Boolean skipMetricValidation;
         private Double threshold;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MetricAlertCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aggregation = defaults.aggregation;
@@ -151,10 +130,12 @@ public final class MetricAlertCriteria {
     	      this.threshold = defaults.threshold;
         }
 
+        @CustomType.Setter
         public Builder aggregation(String aggregation) {
             this.aggregation = Objects.requireNonNull(aggregation);
             return this;
         }
+        @CustomType.Setter
         public Builder dimensions(@Nullable List<MetricAlertCriteriaDimension> dimensions) {
             this.dimensions = dimensions;
             return this;
@@ -162,27 +143,41 @@ public final class MetricAlertCriteria {
         public Builder dimensions(MetricAlertCriteriaDimension... dimensions) {
             return dimensions(List.of(dimensions));
         }
+        @CustomType.Setter
         public Builder metricName(String metricName) {
             this.metricName = Objects.requireNonNull(metricName);
             return this;
         }
+        @CustomType.Setter
         public Builder metricNamespace(String metricNamespace) {
             this.metricNamespace = Objects.requireNonNull(metricNamespace);
             return this;
         }
+        @CustomType.Setter
         public Builder operator(String operator) {
             this.operator = Objects.requireNonNull(operator);
             return this;
         }
+        @CustomType.Setter
         public Builder skipMetricValidation(@Nullable Boolean skipMetricValidation) {
             this.skipMetricValidation = skipMetricValidation;
             return this;
         }
+        @CustomType.Setter
         public Builder threshold(Double threshold) {
             this.threshold = Objects.requireNonNull(threshold);
             return this;
-        }        public MetricAlertCriteria build() {
-            return new MetricAlertCriteria(aggregation, dimensions, metricName, metricNamespace, operator, skipMetricValidation, threshold);
+        }
+        public MetricAlertCriteria build() {
+            final var o = new MetricAlertCriteria();
+            o.aggregation = aggregation;
+            o.dimensions = dimensions;
+            o.metricName = metricName;
+            o.metricNamespace = metricNamespace;
+            o.operator = operator;
+            o.skipMetricValidation = skipMetricValidation;
+            o.threshold = threshold;
+            return o;
         }
     }
 }

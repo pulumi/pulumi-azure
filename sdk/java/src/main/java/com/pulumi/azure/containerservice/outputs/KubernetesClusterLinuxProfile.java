@@ -14,21 +14,14 @@ public final class KubernetesClusterLinuxProfile {
      * @return The Admin Username for the Cluster. Changing this forces a new resource to be created.
      * 
      */
-    private final String adminUsername;
+    private String adminUsername;
     /**
      * @return An `ssh_key` block. Only one is currently allowed. Changing this forces a new resource to be created.
      * 
      */
-    private final KubernetesClusterLinuxProfileSshKey sshKey;
+    private KubernetesClusterLinuxProfileSshKey sshKey;
 
-    @CustomType.Constructor
-    private KubernetesClusterLinuxProfile(
-        @CustomType.Parameter("adminUsername") String adminUsername,
-        @CustomType.Parameter("sshKey") KubernetesClusterLinuxProfileSshKey sshKey) {
-        this.adminUsername = adminUsername;
-        this.sshKey = sshKey;
-    }
-
+    private KubernetesClusterLinuxProfile() {}
     /**
      * @return The Admin Username for the Cluster. Changing this forces a new resource to be created.
      * 
@@ -51,30 +44,32 @@ public final class KubernetesClusterLinuxProfile {
     public static Builder builder(KubernetesClusterLinuxProfile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String adminUsername;
         private KubernetesClusterLinuxProfileSshKey sshKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KubernetesClusterLinuxProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.adminUsername = defaults.adminUsername;
     	      this.sshKey = defaults.sshKey;
         }
 
+        @CustomType.Setter
         public Builder adminUsername(String adminUsername) {
             this.adminUsername = Objects.requireNonNull(adminUsername);
             return this;
         }
+        @CustomType.Setter
         public Builder sshKey(KubernetesClusterLinuxProfileSshKey sshKey) {
             this.sshKey = Objects.requireNonNull(sshKey);
             return this;
-        }        public KubernetesClusterLinuxProfile build() {
-            return new KubernetesClusterLinuxProfile(adminUsername, sshKey);
+        }
+        public KubernetesClusterLinuxProfile build() {
+            final var o = new KubernetesClusterLinuxProfile();
+            o.adminUsername = adminUsername;
+            o.sshKey = sshKey;
+            return o;
         }
     }
 }

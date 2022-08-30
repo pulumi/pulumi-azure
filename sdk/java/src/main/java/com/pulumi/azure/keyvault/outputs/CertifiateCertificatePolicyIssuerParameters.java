@@ -13,13 +13,9 @@ public final class CertifiateCertificatePolicyIssuerParameters {
      * @return The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let&#39;s Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private CertifiateCertificatePolicyIssuerParameters(@CustomType.Parameter("name") String name) {
-        this.name = name;
-    }
-
+    private CertifiateCertificatePolicyIssuerParameters() {}
     /**
      * @return The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let&#39;s Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
      * 
@@ -35,24 +31,24 @@ public final class CertifiateCertificatePolicyIssuerParameters {
     public static Builder builder(CertifiateCertificatePolicyIssuerParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CertifiateCertificatePolicyIssuerParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public CertifiateCertificatePolicyIssuerParameters build() {
-            return new CertifiateCertificatePolicyIssuerParameters(name);
+        }
+        public CertifiateCertificatePolicyIssuerParameters build() {
+            final var o = new CertifiateCertificatePolicyIssuerParameters();
+            o.name = name;
+            return o;
         }
     }
 }

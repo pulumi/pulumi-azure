@@ -15,13 +15,9 @@ public final class ServiceProtocols {
      * @return Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean enableHttp2;
+    private @Nullable Boolean enableHttp2;
 
-    @CustomType.Constructor
-    private ServiceProtocols(@CustomType.Parameter("enableHttp2") @Nullable Boolean enableHttp2) {
-        this.enableHttp2 = enableHttp2;
-    }
-
+    private ServiceProtocols() {}
     /**
      * @return Should HTTP/2 be supported by the API Management Service? Defaults to `false`.
      * 
@@ -37,24 +33,24 @@ public final class ServiceProtocols {
     public static Builder builder(ServiceProtocols defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enableHttp2;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceProtocols defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enableHttp2 = defaults.enableHttp2;
         }
 
+        @CustomType.Setter
         public Builder enableHttp2(@Nullable Boolean enableHttp2) {
             this.enableHttp2 = enableHttp2;
             return this;
-        }        public ServiceProtocols build() {
-            return new ServiceProtocols(enableHttp2);
+        }
+        public ServiceProtocols build() {
+            final var o = new ServiceProtocols();
+            o.enableHttp2 = enableHttp2;
+            return o;
         }
     }
 }

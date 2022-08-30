@@ -14,28 +14,19 @@ public final class GetActionGroupEmailReceiver {
      * @return The email address of this receiver.
      * 
      */
-    private final String emailAddress;
+    private String emailAddress;
     /**
      * @return Specifies the name of the Action Group.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Indicates whether to use common alert schema.
      * 
      */
-    private final Boolean useCommonAlertSchema;
+    private Boolean useCommonAlertSchema;
 
-    @CustomType.Constructor
-    private GetActionGroupEmailReceiver(
-        @CustomType.Parameter("emailAddress") String emailAddress,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("useCommonAlertSchema") Boolean useCommonAlertSchema) {
-        this.emailAddress = emailAddress;
-        this.name = name;
-        this.useCommonAlertSchema = useCommonAlertSchema;
-    }
-
+    private GetActionGroupEmailReceiver() {}
     /**
      * @return The email address of this receiver.
      * 
@@ -65,16 +56,12 @@ public final class GetActionGroupEmailReceiver {
     public static Builder builder(GetActionGroupEmailReceiver defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String emailAddress;
         private String name;
         private Boolean useCommonAlertSchema;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetActionGroupEmailReceiver defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.emailAddress = defaults.emailAddress;
@@ -82,19 +69,27 @@ public final class GetActionGroupEmailReceiver {
     	      this.useCommonAlertSchema = defaults.useCommonAlertSchema;
         }
 
+        @CustomType.Setter
         public Builder emailAddress(String emailAddress) {
             this.emailAddress = Objects.requireNonNull(emailAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder useCommonAlertSchema(Boolean useCommonAlertSchema) {
             this.useCommonAlertSchema = Objects.requireNonNull(useCommonAlertSchema);
             return this;
-        }        public GetActionGroupEmailReceiver build() {
-            return new GetActionGroupEmailReceiver(emailAddress, name, useCommonAlertSchema);
+        }
+        public GetActionGroupEmailReceiver build() {
+            final var o = new GetActionGroupEmailReceiver();
+            o.emailAddress = emailAddress;
+            o.name = name;
+            o.useCommonAlertSchema = useCommonAlertSchema;
+            return o;
         }
     }
 }

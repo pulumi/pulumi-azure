@@ -13,21 +13,14 @@ public final class GetPrivateLinkResourceSharedPrivateLinkResourceType {
      * @return The description of the resource type that has been onboarded to private link service.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The  name for the resource that has been onboarded to private link service.
      * 
      */
-    private final String subresourceName;
+    private String subresourceName;
 
-    @CustomType.Constructor
-    private GetPrivateLinkResourceSharedPrivateLinkResourceType(
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("subresourceName") String subresourceName) {
-        this.description = description;
-        this.subresourceName = subresourceName;
-    }
-
+    private GetPrivateLinkResourceSharedPrivateLinkResourceType() {}
     /**
      * @return The description of the resource type that has been onboarded to private link service.
      * 
@@ -50,30 +43,32 @@ public final class GetPrivateLinkResourceSharedPrivateLinkResourceType {
     public static Builder builder(GetPrivateLinkResourceSharedPrivateLinkResourceType defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String description;
         private String subresourceName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPrivateLinkResourceSharedPrivateLinkResourceType defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
     	      this.subresourceName = defaults.subresourceName;
         }
 
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder subresourceName(String subresourceName) {
             this.subresourceName = Objects.requireNonNull(subresourceName);
             return this;
-        }        public GetPrivateLinkResourceSharedPrivateLinkResourceType build() {
-            return new GetPrivateLinkResourceSharedPrivateLinkResourceType(description, subresourceName);
+        }
+        public GetPrivateLinkResourceSharedPrivateLinkResourceType build() {
+            final var o = new GetPrivateLinkResourceSharedPrivateLinkResourceType();
+            o.description = description;
+            o.subresourceName = subresourceName;
+            return o;
         }
     }
 }

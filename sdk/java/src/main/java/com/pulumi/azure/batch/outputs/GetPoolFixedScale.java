@@ -14,28 +14,19 @@ public final class GetPoolFixedScale {
      * @return The timeout for resize operations.
      * 
      */
-    private final String resizeTimeout;
+    private String resizeTimeout;
     /**
      * @return The number of nodes in the Batch pool.
      * 
      */
-    private final Integer targetDedicatedNodes;
+    private Integer targetDedicatedNodes;
     /**
      * @return The number of low priority nodes in the Batch pool.
      * 
      */
-    private final Integer targetLowPriorityNodes;
+    private Integer targetLowPriorityNodes;
 
-    @CustomType.Constructor
-    private GetPoolFixedScale(
-        @CustomType.Parameter("resizeTimeout") String resizeTimeout,
-        @CustomType.Parameter("targetDedicatedNodes") Integer targetDedicatedNodes,
-        @CustomType.Parameter("targetLowPriorityNodes") Integer targetLowPriorityNodes) {
-        this.resizeTimeout = resizeTimeout;
-        this.targetDedicatedNodes = targetDedicatedNodes;
-        this.targetLowPriorityNodes = targetLowPriorityNodes;
-    }
-
+    private GetPoolFixedScale() {}
     /**
      * @return The timeout for resize operations.
      * 
@@ -65,16 +56,12 @@ public final class GetPoolFixedScale {
     public static Builder builder(GetPoolFixedScale defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String resizeTimeout;
         private Integer targetDedicatedNodes;
         private Integer targetLowPriorityNodes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPoolFixedScale defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.resizeTimeout = defaults.resizeTimeout;
@@ -82,19 +69,27 @@ public final class GetPoolFixedScale {
     	      this.targetLowPriorityNodes = defaults.targetLowPriorityNodes;
         }
 
+        @CustomType.Setter
         public Builder resizeTimeout(String resizeTimeout) {
             this.resizeTimeout = Objects.requireNonNull(resizeTimeout);
             return this;
         }
+        @CustomType.Setter
         public Builder targetDedicatedNodes(Integer targetDedicatedNodes) {
             this.targetDedicatedNodes = Objects.requireNonNull(targetDedicatedNodes);
             return this;
         }
+        @CustomType.Setter
         public Builder targetLowPriorityNodes(Integer targetLowPriorityNodes) {
             this.targetLowPriorityNodes = Objects.requireNonNull(targetLowPriorityNodes);
             return this;
-        }        public GetPoolFixedScale build() {
-            return new GetPoolFixedScale(resizeTimeout, targetDedicatedNodes, targetLowPriorityNodes);
+        }
+        public GetPoolFixedScale build() {
+            final var o = new GetPoolFixedScale();
+            o.resizeTimeout = resizeTimeout;
+            o.targetDedicatedNodes = targetDedicatedNodes;
+            o.targetLowPriorityNodes = targetLowPriorityNodes;
+            return o;
         }
     }
 }

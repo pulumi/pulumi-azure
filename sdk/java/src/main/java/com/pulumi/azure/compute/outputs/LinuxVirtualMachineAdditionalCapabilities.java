@@ -15,13 +15,9 @@ public final class LinuxVirtualMachineAdditionalCapabilities {
      * @return Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean ultraSsdEnabled;
+    private @Nullable Boolean ultraSsdEnabled;
 
-    @CustomType.Constructor
-    private LinuxVirtualMachineAdditionalCapabilities(@CustomType.Parameter("ultraSsdEnabled") @Nullable Boolean ultraSsdEnabled) {
-        this.ultraSsdEnabled = ultraSsdEnabled;
-    }
-
+    private LinuxVirtualMachineAdditionalCapabilities() {}
     /**
      * @return Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
      * 
@@ -37,24 +33,24 @@ public final class LinuxVirtualMachineAdditionalCapabilities {
     public static Builder builder(LinuxVirtualMachineAdditionalCapabilities defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean ultraSsdEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxVirtualMachineAdditionalCapabilities defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ultraSsdEnabled = defaults.ultraSsdEnabled;
         }
 
+        @CustomType.Setter
         public Builder ultraSsdEnabled(@Nullable Boolean ultraSsdEnabled) {
             this.ultraSsdEnabled = ultraSsdEnabled;
             return this;
-        }        public LinuxVirtualMachineAdditionalCapabilities build() {
-            return new LinuxVirtualMachineAdditionalCapabilities(ultraSsdEnabled);
+        }
+        public LinuxVirtualMachineAdditionalCapabilities build() {
+            final var o = new LinuxVirtualMachineAdditionalCapabilities();
+            o.ultraSsdEnabled = ultraSsdEnabled;
+            return o;
         }
     }
 }

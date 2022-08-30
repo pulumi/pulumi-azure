@@ -16,85 +16,58 @@ public final class GetNamespaceResult {
      * @return The capacity of the ServiceBus Namespace.
      * 
      */
-    private final Integer capacity;
+    private Integer capacity;
     /**
      * @return The primary connection string for the authorization
      * rule `RootManageSharedAccessKey`.
      * 
      */
-    private final String defaultPrimaryConnectionString;
+    private String defaultPrimaryConnectionString;
     /**
      * @return The primary access key for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
-    private final String defaultPrimaryKey;
+    private String defaultPrimaryKey;
     /**
      * @return The secondary connection string for the
      * authorization rule `RootManageSharedAccessKey`.
      * 
      */
-    private final String defaultSecondaryConnectionString;
+    private String defaultSecondaryConnectionString;
     /**
      * @return The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
-    private final String defaultSecondaryKey;
+    private String defaultSecondaryKey;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The location of the Resource Group in which the ServiceBus Namespace exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return The Tier used for the ServiceBus Namespace.
      * 
      */
-    private final String sku;
+    private String sku;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return Whether or not this ServiceBus Namespace is zone redundant.
      * 
      */
-    private final Boolean zoneRedundant;
+    private Boolean zoneRedundant;
 
-    @CustomType.Constructor
-    private GetNamespaceResult(
-        @CustomType.Parameter("capacity") Integer capacity,
-        @CustomType.Parameter("defaultPrimaryConnectionString") String defaultPrimaryConnectionString,
-        @CustomType.Parameter("defaultPrimaryKey") String defaultPrimaryKey,
-        @CustomType.Parameter("defaultSecondaryConnectionString") String defaultSecondaryConnectionString,
-        @CustomType.Parameter("defaultSecondaryKey") String defaultSecondaryKey,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("sku") String sku,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("zoneRedundant") Boolean zoneRedundant) {
-        this.capacity = capacity;
-        this.defaultPrimaryConnectionString = defaultPrimaryConnectionString;
-        this.defaultPrimaryKey = defaultPrimaryKey;
-        this.defaultSecondaryConnectionString = defaultSecondaryConnectionString;
-        this.defaultSecondaryKey = defaultSecondaryKey;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.sku = sku;
-        this.tags = tags;
-        this.zoneRedundant = zoneRedundant;
-    }
-
+    private GetNamespaceResult() {}
     /**
      * @return The capacity of the ServiceBus Namespace.
      * 
@@ -181,7 +154,7 @@ public final class GetNamespaceResult {
     public static Builder builder(GetNamespaceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer capacity;
         private String defaultPrimaryConnectionString;
@@ -195,11 +168,7 @@ public final class GetNamespaceResult {
         private String sku;
         private Map<String,String> tags;
         private Boolean zoneRedundant;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetNamespaceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacity = defaults.capacity;
@@ -216,55 +185,81 @@ public final class GetNamespaceResult {
     	      this.zoneRedundant = defaults.zoneRedundant;
         }
 
+        @CustomType.Setter
         public Builder capacity(Integer capacity) {
             this.capacity = Objects.requireNonNull(capacity);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultPrimaryConnectionString(String defaultPrimaryConnectionString) {
             this.defaultPrimaryConnectionString = Objects.requireNonNull(defaultPrimaryConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultPrimaryKey(String defaultPrimaryKey) {
             this.defaultPrimaryKey = Objects.requireNonNull(defaultPrimaryKey);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultSecondaryConnectionString(String defaultSecondaryConnectionString) {
             this.defaultSecondaryConnectionString = Objects.requireNonNull(defaultSecondaryConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultSecondaryKey(String defaultSecondaryKey) {
             this.defaultSecondaryKey = Objects.requireNonNull(defaultSecondaryKey);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder sku(String sku) {
             this.sku = Objects.requireNonNull(sku);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder zoneRedundant(Boolean zoneRedundant) {
             this.zoneRedundant = Objects.requireNonNull(zoneRedundant);
             return this;
-        }        public GetNamespaceResult build() {
-            return new GetNamespaceResult(capacity, defaultPrimaryConnectionString, defaultPrimaryKey, defaultSecondaryConnectionString, defaultSecondaryKey, id, location, name, resourceGroupName, sku, tags, zoneRedundant);
+        }
+        public GetNamespaceResult build() {
+            final var o = new GetNamespaceResult();
+            o.capacity = capacity;
+            o.defaultPrimaryConnectionString = defaultPrimaryConnectionString;
+            o.defaultPrimaryKey = defaultPrimaryKey;
+            o.defaultSecondaryConnectionString = defaultSecondaryConnectionString;
+            o.defaultSecondaryKey = defaultSecondaryKey;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.sku = sku;
+            o.tags = tags;
+            o.zoneRedundant = zoneRedundant;
+            return o;
         }
     }
 }

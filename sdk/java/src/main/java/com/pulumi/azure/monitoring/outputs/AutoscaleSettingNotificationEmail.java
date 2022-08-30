@@ -17,28 +17,19 @@ public final class AutoscaleSettingNotificationEmail {
      * @return Specifies a list of custom email addresses to which the email notifications will be sent.
      * 
      */
-    private final @Nullable List<String> customEmails;
+    private @Nullable List<String> customEmails;
     /**
      * @return Should email notifications be sent to the subscription administrator? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean sendToSubscriptionAdministrator;
+    private @Nullable Boolean sendToSubscriptionAdministrator;
     /**
      * @return Should email notifications be sent to the subscription co-administrator? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean sendToSubscriptionCoAdministrator;
+    private @Nullable Boolean sendToSubscriptionCoAdministrator;
 
-    @CustomType.Constructor
-    private AutoscaleSettingNotificationEmail(
-        @CustomType.Parameter("customEmails") @Nullable List<String> customEmails,
-        @CustomType.Parameter("sendToSubscriptionAdministrator") @Nullable Boolean sendToSubscriptionAdministrator,
-        @CustomType.Parameter("sendToSubscriptionCoAdministrator") @Nullable Boolean sendToSubscriptionCoAdministrator) {
-        this.customEmails = customEmails;
-        this.sendToSubscriptionAdministrator = sendToSubscriptionAdministrator;
-        this.sendToSubscriptionCoAdministrator = sendToSubscriptionCoAdministrator;
-    }
-
+    private AutoscaleSettingNotificationEmail() {}
     /**
      * @return Specifies a list of custom email addresses to which the email notifications will be sent.
      * 
@@ -68,16 +59,12 @@ public final class AutoscaleSettingNotificationEmail {
     public static Builder builder(AutoscaleSettingNotificationEmail defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> customEmails;
         private @Nullable Boolean sendToSubscriptionAdministrator;
         private @Nullable Boolean sendToSubscriptionCoAdministrator;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AutoscaleSettingNotificationEmail defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customEmails = defaults.customEmails;
@@ -85,6 +72,7 @@ public final class AutoscaleSettingNotificationEmail {
     	      this.sendToSubscriptionCoAdministrator = defaults.sendToSubscriptionCoAdministrator;
         }
 
+        @CustomType.Setter
         public Builder customEmails(@Nullable List<String> customEmails) {
             this.customEmails = customEmails;
             return this;
@@ -92,15 +80,22 @@ public final class AutoscaleSettingNotificationEmail {
         public Builder customEmails(String... customEmails) {
             return customEmails(List.of(customEmails));
         }
+        @CustomType.Setter
         public Builder sendToSubscriptionAdministrator(@Nullable Boolean sendToSubscriptionAdministrator) {
             this.sendToSubscriptionAdministrator = sendToSubscriptionAdministrator;
             return this;
         }
+        @CustomType.Setter
         public Builder sendToSubscriptionCoAdministrator(@Nullable Boolean sendToSubscriptionCoAdministrator) {
             this.sendToSubscriptionCoAdministrator = sendToSubscriptionCoAdministrator;
             return this;
-        }        public AutoscaleSettingNotificationEmail build() {
-            return new AutoscaleSettingNotificationEmail(customEmails, sendToSubscriptionAdministrator, sendToSubscriptionCoAdministrator);
+        }
+        public AutoscaleSettingNotificationEmail build() {
+            final var o = new AutoscaleSettingNotificationEmail();
+            o.customEmails = customEmails;
+            o.sendToSubscriptionAdministrator = sendToSubscriptionAdministrator;
+            o.sendToSubscriptionCoAdministrator = sendToSubscriptionCoAdministrator;
+            return o;
         }
     }
 }

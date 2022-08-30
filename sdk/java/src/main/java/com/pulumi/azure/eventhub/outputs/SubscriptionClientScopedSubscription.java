@@ -16,28 +16,19 @@ public final class SubscriptionClientScopedSubscription {
      * @return Specifies the Client ID of the application that created the client-scoped subscription.
      * 
      */
-    private final @Nullable String clientId;
+    private @Nullable String clientId;
     /**
      * @return Whether the client scoped subscription is durable. This property can only be controlled from the application side.
      * 
      */
-    private final @Nullable Boolean isClientScopedSubscriptionDurable;
+    private @Nullable Boolean isClientScopedSubscriptionDurable;
     /**
      * @return Whether the client scoped subscription is shareable. Defaults to `true`
      * 
      */
-    private final @Nullable Boolean isClientScopedSubscriptionShareable;
+    private @Nullable Boolean isClientScopedSubscriptionShareable;
 
-    @CustomType.Constructor
-    private SubscriptionClientScopedSubscription(
-        @CustomType.Parameter("clientId") @Nullable String clientId,
-        @CustomType.Parameter("isClientScopedSubscriptionDurable") @Nullable Boolean isClientScopedSubscriptionDurable,
-        @CustomType.Parameter("isClientScopedSubscriptionShareable") @Nullable Boolean isClientScopedSubscriptionShareable) {
-        this.clientId = clientId;
-        this.isClientScopedSubscriptionDurable = isClientScopedSubscriptionDurable;
-        this.isClientScopedSubscriptionShareable = isClientScopedSubscriptionShareable;
-    }
-
+    private SubscriptionClientScopedSubscription() {}
     /**
      * @return Specifies the Client ID of the application that created the client-scoped subscription.
      * 
@@ -67,16 +58,12 @@ public final class SubscriptionClientScopedSubscription {
     public static Builder builder(SubscriptionClientScopedSubscription defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String clientId;
         private @Nullable Boolean isClientScopedSubscriptionDurable;
         private @Nullable Boolean isClientScopedSubscriptionShareable;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SubscriptionClientScopedSubscription defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientId = defaults.clientId;
@@ -84,19 +71,27 @@ public final class SubscriptionClientScopedSubscription {
     	      this.isClientScopedSubscriptionShareable = defaults.isClientScopedSubscriptionShareable;
         }
 
+        @CustomType.Setter
         public Builder clientId(@Nullable String clientId) {
             this.clientId = clientId;
             return this;
         }
+        @CustomType.Setter
         public Builder isClientScopedSubscriptionDurable(@Nullable Boolean isClientScopedSubscriptionDurable) {
             this.isClientScopedSubscriptionDurable = isClientScopedSubscriptionDurable;
             return this;
         }
+        @CustomType.Setter
         public Builder isClientScopedSubscriptionShareable(@Nullable Boolean isClientScopedSubscriptionShareable) {
             this.isClientScopedSubscriptionShareable = isClientScopedSubscriptionShareable;
             return this;
-        }        public SubscriptionClientScopedSubscription build() {
-            return new SubscriptionClientScopedSubscription(clientId, isClientScopedSubscriptionDurable, isClientScopedSubscriptionShareable);
+        }
+        public SubscriptionClientScopedSubscription build() {
+            final var o = new SubscriptionClientScopedSubscription();
+            o.clientId = clientId;
+            o.isClientScopedSubscriptionDurable = isClientScopedSubscriptionDurable;
+            o.isClientScopedSubscriptionShareable = isClientScopedSubscriptionShareable;
+            return o;
         }
     }
 }

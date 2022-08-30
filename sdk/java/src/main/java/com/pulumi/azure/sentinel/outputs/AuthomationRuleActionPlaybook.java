@@ -16,28 +16,19 @@ public final class AuthomationRuleActionPlaybook {
      * @return The ID of the Logic App that defines the playbook&#39;s logic.
      * 
      */
-    private final String logicAppId;
+    private String logicAppId;
     /**
      * @return The execution order of this action.
      * 
      */
-    private final Integer order;
+    private Integer order;
     /**
      * @return The ID of the Tenant that owns the playbook.
      * 
      */
-    private final @Nullable String tenantId;
+    private @Nullable String tenantId;
 
-    @CustomType.Constructor
-    private AuthomationRuleActionPlaybook(
-        @CustomType.Parameter("logicAppId") String logicAppId,
-        @CustomType.Parameter("order") Integer order,
-        @CustomType.Parameter("tenantId") @Nullable String tenantId) {
-        this.logicAppId = logicAppId;
-        this.order = order;
-        this.tenantId = tenantId;
-    }
-
+    private AuthomationRuleActionPlaybook() {}
     /**
      * @return The ID of the Logic App that defines the playbook&#39;s logic.
      * 
@@ -67,16 +58,12 @@ public final class AuthomationRuleActionPlaybook {
     public static Builder builder(AuthomationRuleActionPlaybook defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String logicAppId;
         private Integer order;
         private @Nullable String tenantId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AuthomationRuleActionPlaybook defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.logicAppId = defaults.logicAppId;
@@ -84,19 +71,27 @@ public final class AuthomationRuleActionPlaybook {
     	      this.tenantId = defaults.tenantId;
         }
 
+        @CustomType.Setter
         public Builder logicAppId(String logicAppId) {
             this.logicAppId = Objects.requireNonNull(logicAppId);
             return this;
         }
+        @CustomType.Setter
         public Builder order(Integer order) {
             this.order = Objects.requireNonNull(order);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
             this.tenantId = tenantId;
             return this;
-        }        public AuthomationRuleActionPlaybook build() {
-            return new AuthomationRuleActionPlaybook(logicAppId, order, tenantId);
+        }
+        public AuthomationRuleActionPlaybook build() {
+            final var o = new AuthomationRuleActionPlaybook();
+            o.logicAppId = logicAppId;
+            o.order = order;
+            o.tenantId = tenantId;
+            return o;
         }
     }
 }

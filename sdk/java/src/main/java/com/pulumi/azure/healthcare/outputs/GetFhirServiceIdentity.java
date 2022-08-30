@@ -13,28 +13,19 @@ public final class GetFhirServiceIdentity {
      * @return The Principal ID associated with this System Assigned Managed Service Identity.
      * 
      */
-    private final String principalId;
+    private String principalId;
     /**
      * @return The Tenant ID associated with this System Assigned Managed Service Identity.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
     /**
      * @return The type of identity used for the Healthcare FHIR service.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetFhirServiceIdentity(
-        @CustomType.Parameter("principalId") String principalId,
-        @CustomType.Parameter("tenantId") String tenantId,
-        @CustomType.Parameter("type") String type) {
-        this.principalId = principalId;
-        this.tenantId = tenantId;
-        this.type = type;
-    }
-
+    private GetFhirServiceIdentity() {}
     /**
      * @return The Principal ID associated with this System Assigned Managed Service Identity.
      * 
@@ -64,16 +55,12 @@ public final class GetFhirServiceIdentity {
     public static Builder builder(GetFhirServiceIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String principalId;
         private String tenantId;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFhirServiceIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.principalId = defaults.principalId;
@@ -81,19 +68,27 @@ public final class GetFhirServiceIdentity {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder principalId(String principalId) {
             this.principalId = Objects.requireNonNull(principalId);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetFhirServiceIdentity build() {
-            return new GetFhirServiceIdentity(principalId, tenantId, type);
+        }
+        public GetFhirServiceIdentity build() {
+            final var o = new GetFhirServiceIdentity();
+            o.principalId = principalId;
+            o.tenantId = tenantId;
+            o.type = type;
+            return o;
         }
     }
 }

@@ -1703,6 +1703,1277 @@ func (o PolicyVMRetentionYearlyPtrOutput) Weeks() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type PolicyVMWorkloadProtectionPolicy struct {
+	// A `backup` block as defined below.
+	Backup PolicyVMWorkloadProtectionPolicyBackup `pulumi:"backup"`
+	// The type of the VM Workload Backup Policy. Possible values are `Differential`, `Full`, `Incremental` and `Log`.
+	PolicyType string `pulumi:"policyType"`
+	// A `retentionDaily` block as defined below.
+	RetentionDaily *PolicyVMWorkloadProtectionPolicyRetentionDaily `pulumi:"retentionDaily"`
+	// A `retentionMonthly` block as defined below.
+	RetentionMonthly *PolicyVMWorkloadProtectionPolicyRetentionMonthly `pulumi:"retentionMonthly"`
+	// A `retentionWeekly` block as defined below.
+	RetentionWeekly *PolicyVMWorkloadProtectionPolicyRetentionWeekly `pulumi:"retentionWeekly"`
+	// A `retentionYearly` block as defined below.
+	RetentionYearly *PolicyVMWorkloadProtectionPolicyRetentionYearly `pulumi:"retentionYearly"`
+	// A `simpleRetention` block as defined below.
+	SimpleRetention *PolicyVMWorkloadProtectionPolicySimpleRetention `pulumi:"simpleRetention"`
+}
+
+// PolicyVMWorkloadProtectionPolicyInput is an input type that accepts PolicyVMWorkloadProtectionPolicyArgs and PolicyVMWorkloadProtectionPolicyOutput values.
+// You can construct a concrete instance of `PolicyVMWorkloadProtectionPolicyInput` via:
+//
+//	PolicyVMWorkloadProtectionPolicyArgs{...}
+type PolicyVMWorkloadProtectionPolicyInput interface {
+	pulumi.Input
+
+	ToPolicyVMWorkloadProtectionPolicyOutput() PolicyVMWorkloadProtectionPolicyOutput
+	ToPolicyVMWorkloadProtectionPolicyOutputWithContext(context.Context) PolicyVMWorkloadProtectionPolicyOutput
+}
+
+type PolicyVMWorkloadProtectionPolicyArgs struct {
+	// A `backup` block as defined below.
+	Backup PolicyVMWorkloadProtectionPolicyBackupInput `pulumi:"backup"`
+	// The type of the VM Workload Backup Policy. Possible values are `Differential`, `Full`, `Incremental` and `Log`.
+	PolicyType pulumi.StringInput `pulumi:"policyType"`
+	// A `retentionDaily` block as defined below.
+	RetentionDaily PolicyVMWorkloadProtectionPolicyRetentionDailyPtrInput `pulumi:"retentionDaily"`
+	// A `retentionMonthly` block as defined below.
+	RetentionMonthly PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrInput `pulumi:"retentionMonthly"`
+	// A `retentionWeekly` block as defined below.
+	RetentionWeekly PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrInput `pulumi:"retentionWeekly"`
+	// A `retentionYearly` block as defined below.
+	RetentionYearly PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrInput `pulumi:"retentionYearly"`
+	// A `simpleRetention` block as defined below.
+	SimpleRetention PolicyVMWorkloadProtectionPolicySimpleRetentionPtrInput `pulumi:"simpleRetention"`
+}
+
+func (PolicyVMWorkloadProtectionPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMWorkloadProtectionPolicy)(nil)).Elem()
+}
+
+func (i PolicyVMWorkloadProtectionPolicyArgs) ToPolicyVMWorkloadProtectionPolicyOutput() PolicyVMWorkloadProtectionPolicyOutput {
+	return i.ToPolicyVMWorkloadProtectionPolicyOutputWithContext(context.Background())
+}
+
+func (i PolicyVMWorkloadProtectionPolicyArgs) ToPolicyVMWorkloadProtectionPolicyOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyOutput)
+}
+
+// PolicyVMWorkloadProtectionPolicyArrayInput is an input type that accepts PolicyVMWorkloadProtectionPolicyArray and PolicyVMWorkloadProtectionPolicyArrayOutput values.
+// You can construct a concrete instance of `PolicyVMWorkloadProtectionPolicyArrayInput` via:
+//
+//	PolicyVMWorkloadProtectionPolicyArray{ PolicyVMWorkloadProtectionPolicyArgs{...} }
+type PolicyVMWorkloadProtectionPolicyArrayInput interface {
+	pulumi.Input
+
+	ToPolicyVMWorkloadProtectionPolicyArrayOutput() PolicyVMWorkloadProtectionPolicyArrayOutput
+	ToPolicyVMWorkloadProtectionPolicyArrayOutputWithContext(context.Context) PolicyVMWorkloadProtectionPolicyArrayOutput
+}
+
+type PolicyVMWorkloadProtectionPolicyArray []PolicyVMWorkloadProtectionPolicyInput
+
+func (PolicyVMWorkloadProtectionPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyVMWorkloadProtectionPolicy)(nil)).Elem()
+}
+
+func (i PolicyVMWorkloadProtectionPolicyArray) ToPolicyVMWorkloadProtectionPolicyArrayOutput() PolicyVMWorkloadProtectionPolicyArrayOutput {
+	return i.ToPolicyVMWorkloadProtectionPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyVMWorkloadProtectionPolicyArray) ToPolicyVMWorkloadProtectionPolicyArrayOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyArrayOutput)
+}
+
+type PolicyVMWorkloadProtectionPolicyOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMWorkloadProtectionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMWorkloadProtectionPolicy)(nil)).Elem()
+}
+
+func (o PolicyVMWorkloadProtectionPolicyOutput) ToPolicyVMWorkloadProtectionPolicyOutput() PolicyVMWorkloadProtectionPolicyOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicyOutput) ToPolicyVMWorkloadProtectionPolicyOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyOutput {
+	return o
+}
+
+// A `backup` block as defined below.
+func (o PolicyVMWorkloadProtectionPolicyOutput) Backup() PolicyVMWorkloadProtectionPolicyBackupOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicy) PolicyVMWorkloadProtectionPolicyBackup { return v.Backup }).(PolicyVMWorkloadProtectionPolicyBackupOutput)
+}
+
+// The type of the VM Workload Backup Policy. Possible values are `Differential`, `Full`, `Incremental` and `Log`.
+func (o PolicyVMWorkloadProtectionPolicyOutput) PolicyType() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicy) string { return v.PolicyType }).(pulumi.StringOutput)
+}
+
+// A `retentionDaily` block as defined below.
+func (o PolicyVMWorkloadProtectionPolicyOutput) RetentionDaily() PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicy) *PolicyVMWorkloadProtectionPolicyRetentionDaily {
+		return v.RetentionDaily
+	}).(PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput)
+}
+
+// A `retentionMonthly` block as defined below.
+func (o PolicyVMWorkloadProtectionPolicyOutput) RetentionMonthly() PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicy) *PolicyVMWorkloadProtectionPolicyRetentionMonthly {
+		return v.RetentionMonthly
+	}).(PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput)
+}
+
+// A `retentionWeekly` block as defined below.
+func (o PolicyVMWorkloadProtectionPolicyOutput) RetentionWeekly() PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicy) *PolicyVMWorkloadProtectionPolicyRetentionWeekly {
+		return v.RetentionWeekly
+	}).(PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput)
+}
+
+// A `retentionYearly` block as defined below.
+func (o PolicyVMWorkloadProtectionPolicyOutput) RetentionYearly() PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicy) *PolicyVMWorkloadProtectionPolicyRetentionYearly {
+		return v.RetentionYearly
+	}).(PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput)
+}
+
+// A `simpleRetention` block as defined below.
+func (o PolicyVMWorkloadProtectionPolicyOutput) SimpleRetention() PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicy) *PolicyVMWorkloadProtectionPolicySimpleRetention {
+		return v.SimpleRetention
+	}).(PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput)
+}
+
+type PolicyVMWorkloadProtectionPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMWorkloadProtectionPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyVMWorkloadProtectionPolicy)(nil)).Elem()
+}
+
+func (o PolicyVMWorkloadProtectionPolicyArrayOutput) ToPolicyVMWorkloadProtectionPolicyArrayOutput() PolicyVMWorkloadProtectionPolicyArrayOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicyArrayOutput) ToPolicyVMWorkloadProtectionPolicyArrayOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyArrayOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicyArrayOutput) Index(i pulumi.IntInput) PolicyVMWorkloadProtectionPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyVMWorkloadProtectionPolicy {
+		return vs[0].([]PolicyVMWorkloadProtectionPolicy)[vs[1].(int)]
+	}).(PolicyVMWorkloadProtectionPolicyOutput)
+}
+
+type PolicyVMWorkloadProtectionPolicyBackup struct {
+	// The backup frequency for the VM Workload Backup Policy. Possible values are `Daily` and `Weekly`.
+	Frequency *string `pulumi:"frequency"`
+	// The backup frequency in minutes for the VM Workload Backup Policy. Possible values are `15`, `30`, `60`, `120`, `240`, `480`, `720` and `1440`.
+	FrequencyInMinutes *int `pulumi:"frequencyInMinutes"`
+	// The time of day to perform the backup in 24hour format.
+	Time *string `pulumi:"time"`
+	// The days of the week to perform backups on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
+	Weekdays []string `pulumi:"weekdays"`
+}
+
+// PolicyVMWorkloadProtectionPolicyBackupInput is an input type that accepts PolicyVMWorkloadProtectionPolicyBackupArgs and PolicyVMWorkloadProtectionPolicyBackupOutput values.
+// You can construct a concrete instance of `PolicyVMWorkloadProtectionPolicyBackupInput` via:
+//
+//	PolicyVMWorkloadProtectionPolicyBackupArgs{...}
+type PolicyVMWorkloadProtectionPolicyBackupInput interface {
+	pulumi.Input
+
+	ToPolicyVMWorkloadProtectionPolicyBackupOutput() PolicyVMWorkloadProtectionPolicyBackupOutput
+	ToPolicyVMWorkloadProtectionPolicyBackupOutputWithContext(context.Context) PolicyVMWorkloadProtectionPolicyBackupOutput
+}
+
+type PolicyVMWorkloadProtectionPolicyBackupArgs struct {
+	// The backup frequency for the VM Workload Backup Policy. Possible values are `Daily` and `Weekly`.
+	Frequency pulumi.StringPtrInput `pulumi:"frequency"`
+	// The backup frequency in minutes for the VM Workload Backup Policy. Possible values are `15`, `30`, `60`, `120`, `240`, `480`, `720` and `1440`.
+	FrequencyInMinutes pulumi.IntPtrInput `pulumi:"frequencyInMinutes"`
+	// The time of day to perform the backup in 24hour format.
+	Time pulumi.StringPtrInput `pulumi:"time"`
+	// The days of the week to perform backups on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
+	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
+}
+
+func (PolicyVMWorkloadProtectionPolicyBackupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyBackup)(nil)).Elem()
+}
+
+func (i PolicyVMWorkloadProtectionPolicyBackupArgs) ToPolicyVMWorkloadProtectionPolicyBackupOutput() PolicyVMWorkloadProtectionPolicyBackupOutput {
+	return i.ToPolicyVMWorkloadProtectionPolicyBackupOutputWithContext(context.Background())
+}
+
+func (i PolicyVMWorkloadProtectionPolicyBackupArgs) ToPolicyVMWorkloadProtectionPolicyBackupOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyBackupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyBackupOutput)
+}
+
+type PolicyVMWorkloadProtectionPolicyBackupOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMWorkloadProtectionPolicyBackupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyBackup)(nil)).Elem()
+}
+
+func (o PolicyVMWorkloadProtectionPolicyBackupOutput) ToPolicyVMWorkloadProtectionPolicyBackupOutput() PolicyVMWorkloadProtectionPolicyBackupOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicyBackupOutput) ToPolicyVMWorkloadProtectionPolicyBackupOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyBackupOutput {
+	return o
+}
+
+// The backup frequency for the VM Workload Backup Policy. Possible values are `Daily` and `Weekly`.
+func (o PolicyVMWorkloadProtectionPolicyBackupOutput) Frequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicyBackup) *string { return v.Frequency }).(pulumi.StringPtrOutput)
+}
+
+// The backup frequency in minutes for the VM Workload Backup Policy. Possible values are `15`, `30`, `60`, `120`, `240`, `480`, `720` and `1440`.
+func (o PolicyVMWorkloadProtectionPolicyBackupOutput) FrequencyInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicyBackup) *int { return v.FrequencyInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// The time of day to perform the backup in 24hour format.
+func (o PolicyVMWorkloadProtectionPolicyBackupOutput) Time() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicyBackup) *string { return v.Time }).(pulumi.StringPtrOutput)
+}
+
+// The days of the week to perform backups on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
+func (o PolicyVMWorkloadProtectionPolicyBackupOutput) Weekdays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicyBackup) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
+}
+
+type PolicyVMWorkloadProtectionPolicyRetentionDaily struct {
+	// The number of daily backups to keep. Possible values are between `7` and `9999`.
+	Count int `pulumi:"count"`
+}
+
+// PolicyVMWorkloadProtectionPolicyRetentionDailyInput is an input type that accepts PolicyVMWorkloadProtectionPolicyRetentionDailyArgs and PolicyVMWorkloadProtectionPolicyRetentionDailyOutput values.
+// You can construct a concrete instance of `PolicyVMWorkloadProtectionPolicyRetentionDailyInput` via:
+//
+//	PolicyVMWorkloadProtectionPolicyRetentionDailyArgs{...}
+type PolicyVMWorkloadProtectionPolicyRetentionDailyInput interface {
+	pulumi.Input
+
+	ToPolicyVMWorkloadProtectionPolicyRetentionDailyOutput() PolicyVMWorkloadProtectionPolicyRetentionDailyOutput
+	ToPolicyVMWorkloadProtectionPolicyRetentionDailyOutputWithContext(context.Context) PolicyVMWorkloadProtectionPolicyRetentionDailyOutput
+}
+
+type PolicyVMWorkloadProtectionPolicyRetentionDailyArgs struct {
+	// The number of daily backups to keep. Possible values are between `7` and `9999`.
+	Count pulumi.IntInput `pulumi:"count"`
+}
+
+func (PolicyVMWorkloadProtectionPolicyRetentionDailyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyRetentionDaily)(nil)).Elem()
+}
+
+func (i PolicyVMWorkloadProtectionPolicyRetentionDailyArgs) ToPolicyVMWorkloadProtectionPolicyRetentionDailyOutput() PolicyVMWorkloadProtectionPolicyRetentionDailyOutput {
+	return i.ToPolicyVMWorkloadProtectionPolicyRetentionDailyOutputWithContext(context.Background())
+}
+
+func (i PolicyVMWorkloadProtectionPolicyRetentionDailyArgs) ToPolicyVMWorkloadProtectionPolicyRetentionDailyOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionDailyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyRetentionDailyOutput)
+}
+
+func (i PolicyVMWorkloadProtectionPolicyRetentionDailyArgs) ToPolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput {
+	return i.ToPolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyVMWorkloadProtectionPolicyRetentionDailyArgs) ToPolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyRetentionDailyOutput).ToPolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutputWithContext(ctx)
+}
+
+// PolicyVMWorkloadProtectionPolicyRetentionDailyPtrInput is an input type that accepts PolicyVMWorkloadProtectionPolicyRetentionDailyArgs, PolicyVMWorkloadProtectionPolicyRetentionDailyPtr and PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput values.
+// You can construct a concrete instance of `PolicyVMWorkloadProtectionPolicyRetentionDailyPtrInput` via:
+//
+//	        PolicyVMWorkloadProtectionPolicyRetentionDailyArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyVMWorkloadProtectionPolicyRetentionDailyPtrInput interface {
+	pulumi.Input
+
+	ToPolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput
+	ToPolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutputWithContext(context.Context) PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput
+}
+
+type policyVMWorkloadProtectionPolicyRetentionDailyPtrType PolicyVMWorkloadProtectionPolicyRetentionDailyArgs
+
+func PolicyVMWorkloadProtectionPolicyRetentionDailyPtr(v *PolicyVMWorkloadProtectionPolicyRetentionDailyArgs) PolicyVMWorkloadProtectionPolicyRetentionDailyPtrInput {
+	return (*policyVMWorkloadProtectionPolicyRetentionDailyPtrType)(v)
+}
+
+func (*policyVMWorkloadProtectionPolicyRetentionDailyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyVMWorkloadProtectionPolicyRetentionDaily)(nil)).Elem()
+}
+
+func (i *policyVMWorkloadProtectionPolicyRetentionDailyPtrType) ToPolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput {
+	return i.ToPolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutputWithContext(context.Background())
+}
+
+func (i *policyVMWorkloadProtectionPolicyRetentionDailyPtrType) ToPolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput)
+}
+
+type PolicyVMWorkloadProtectionPolicyRetentionDailyOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMWorkloadProtectionPolicyRetentionDailyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyRetentionDaily)(nil)).Elem()
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionDailyOutput) ToPolicyVMWorkloadProtectionPolicyRetentionDailyOutput() PolicyVMWorkloadProtectionPolicyRetentionDailyOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionDailyOutput) ToPolicyVMWorkloadProtectionPolicyRetentionDailyOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionDailyOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionDailyOutput) ToPolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput {
+	return o.ToPolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionDailyOutput) ToPolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyVMWorkloadProtectionPolicyRetentionDaily) *PolicyVMWorkloadProtectionPolicyRetentionDaily {
+		return &v
+	}).(PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput)
+}
+
+// The number of daily backups to keep. Possible values are between `7` and `9999`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionDailyOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicyRetentionDaily) int { return v.Count }).(pulumi.IntOutput)
+}
+
+type PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyVMWorkloadProtectionPolicyRetentionDaily)(nil)).Elem()
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput) ToPolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput) ToPolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput) Elem() PolicyVMWorkloadProtectionPolicyRetentionDailyOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadProtectionPolicyRetentionDaily) PolicyVMWorkloadProtectionPolicyRetentionDaily {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyVMWorkloadProtectionPolicyRetentionDaily
+		return ret
+	}).(PolicyVMWorkloadProtectionPolicyRetentionDailyOutput)
+}
+
+// The number of daily backups to keep. Possible values are between `7` and `9999`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadProtectionPolicyRetentionDaily) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+type PolicyVMWorkloadProtectionPolicyRetentionMonthly struct {
+	// The number of monthly backups to keep. Must be between `1` and `1188`.
+	Count int `pulumi:"count"`
+	// The retention schedule format type for monthly retention policy. Possible values are `Daily` and `Weekly`.
+	FormatType string `pulumi:"formatType"`
+	// The monthday backups to retain. Possible values are between `0` and `28`.
+	Monthdays []int `pulumi:"monthdays"`
+	// The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+	Weekdays []string `pulumi:"weekdays"`
+	// The weeks of the month to retain backups of. Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`.
+	Weeks []string `pulumi:"weeks"`
+}
+
+// PolicyVMWorkloadProtectionPolicyRetentionMonthlyInput is an input type that accepts PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs and PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput values.
+// You can construct a concrete instance of `PolicyVMWorkloadProtectionPolicyRetentionMonthlyInput` via:
+//
+//	PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs{...}
+type PolicyVMWorkloadProtectionPolicyRetentionMonthlyInput interface {
+	pulumi.Input
+
+	ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput() PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput
+	ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyOutputWithContext(context.Context) PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput
+}
+
+type PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs struct {
+	// The number of monthly backups to keep. Must be between `1` and `1188`.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The retention schedule format type for monthly retention policy. Possible values are `Daily` and `Weekly`.
+	FormatType pulumi.StringInput `pulumi:"formatType"`
+	// The monthday backups to retain. Possible values are between `0` and `28`.
+	Monthdays pulumi.IntArrayInput `pulumi:"monthdays"`
+	// The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
+	// The weeks of the month to retain backups of. Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`.
+	Weeks pulumi.StringArrayInput `pulumi:"weeks"`
+}
+
+func (PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyRetentionMonthly)(nil)).Elem()
+}
+
+func (i PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs) ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput() PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput {
+	return i.ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyOutputWithContext(context.Background())
+}
+
+func (i PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs) ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput)
+}
+
+func (i PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs) ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput {
+	return i.ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs) ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput).ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutputWithContext(ctx)
+}
+
+// PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrInput is an input type that accepts PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs, PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtr and PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput values.
+// You can construct a concrete instance of `PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrInput` via:
+//
+//	        PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrInput interface {
+	pulumi.Input
+
+	ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput
+	ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutputWithContext(context.Context) PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput
+}
+
+type policyVMWorkloadProtectionPolicyRetentionMonthlyPtrType PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs
+
+func PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtr(v *PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs) PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrInput {
+	return (*policyVMWorkloadProtectionPolicyRetentionMonthlyPtrType)(v)
+}
+
+func (*policyVMWorkloadProtectionPolicyRetentionMonthlyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyVMWorkloadProtectionPolicyRetentionMonthly)(nil)).Elem()
+}
+
+func (i *policyVMWorkloadProtectionPolicyRetentionMonthlyPtrType) ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput {
+	return i.ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutputWithContext(context.Background())
+}
+
+func (i *policyVMWorkloadProtectionPolicyRetentionMonthlyPtrType) ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput)
+}
+
+type PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyRetentionMonthly)(nil)).Elem()
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput) ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput() PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput) ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput) ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput {
+	return o.ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput) ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyVMWorkloadProtectionPolicyRetentionMonthly) *PolicyVMWorkloadProtectionPolicyRetentionMonthly {
+		return &v
+	}).(PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput)
+}
+
+// The number of monthly backups to keep. Must be between `1` and `1188`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicyRetentionMonthly) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The retention schedule format type for monthly retention policy. Possible values are `Daily` and `Weekly`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput) FormatType() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicyRetentionMonthly) string { return v.FormatType }).(pulumi.StringOutput)
+}
+
+// The monthday backups to retain. Possible values are between `0` and `28`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput) Monthdays() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicyRetentionMonthly) []int { return v.Monthdays }).(pulumi.IntArrayOutput)
+}
+
+// The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput) Weekdays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicyRetentionMonthly) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
+}
+
+// The weeks of the month to retain backups of. Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput) Weeks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicyRetentionMonthly) []string { return v.Weeks }).(pulumi.StringArrayOutput)
+}
+
+type PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyVMWorkloadProtectionPolicyRetentionMonthly)(nil)).Elem()
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput) ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput) ToPolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput) Elem() PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadProtectionPolicyRetentionMonthly) PolicyVMWorkloadProtectionPolicyRetentionMonthly {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyVMWorkloadProtectionPolicyRetentionMonthly
+		return ret
+	}).(PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput)
+}
+
+// The number of monthly backups to keep. Must be between `1` and `1188`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadProtectionPolicyRetentionMonthly) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+// The retention schedule format type for monthly retention policy. Possible values are `Daily` and `Weekly`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput) FormatType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadProtectionPolicyRetentionMonthly) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FormatType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The monthday backups to retain. Possible values are between `0` and `28`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput) Monthdays() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadProtectionPolicyRetentionMonthly) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Monthdays
+	}).(pulumi.IntArrayOutput)
+}
+
+// The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput) Weekdays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadProtectionPolicyRetentionMonthly) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Weekdays
+	}).(pulumi.StringArrayOutput)
+}
+
+// The weeks of the month to retain backups of. Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput) Weeks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadProtectionPolicyRetentionMonthly) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Weeks
+	}).(pulumi.StringArrayOutput)
+}
+
+type PolicyVMWorkloadProtectionPolicyRetentionWeekly struct {
+	// The number of weekly backups to keep. Possible values are between `1` and `5163`.
+	Count int `pulumi:"count"`
+	// The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+	Weekdays []string `pulumi:"weekdays"`
+}
+
+// PolicyVMWorkloadProtectionPolicyRetentionWeeklyInput is an input type that accepts PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs and PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput values.
+// You can construct a concrete instance of `PolicyVMWorkloadProtectionPolicyRetentionWeeklyInput` via:
+//
+//	PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs{...}
+type PolicyVMWorkloadProtectionPolicyRetentionWeeklyInput interface {
+	pulumi.Input
+
+	ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput() PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput
+	ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyOutputWithContext(context.Context) PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput
+}
+
+type PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs struct {
+	// The number of weekly backups to keep. Possible values are between `1` and `5163`.
+	Count pulumi.IntInput `pulumi:"count"`
+	// The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
+}
+
+func (PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyRetentionWeekly)(nil)).Elem()
+}
+
+func (i PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs) ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput() PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput {
+	return i.ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyOutputWithContext(context.Background())
+}
+
+func (i PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs) ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput)
+}
+
+func (i PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs) ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput {
+	return i.ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs) ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput).ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutputWithContext(ctx)
+}
+
+// PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrInput is an input type that accepts PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs, PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtr and PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput values.
+// You can construct a concrete instance of `PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrInput` via:
+//
+//	        PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrInput interface {
+	pulumi.Input
+
+	ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput
+	ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutputWithContext(context.Context) PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput
+}
+
+type policyVMWorkloadProtectionPolicyRetentionWeeklyPtrType PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs
+
+func PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtr(v *PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs) PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrInput {
+	return (*policyVMWorkloadProtectionPolicyRetentionWeeklyPtrType)(v)
+}
+
+func (*policyVMWorkloadProtectionPolicyRetentionWeeklyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyVMWorkloadProtectionPolicyRetentionWeekly)(nil)).Elem()
+}
+
+func (i *policyVMWorkloadProtectionPolicyRetentionWeeklyPtrType) ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput {
+	return i.ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutputWithContext(context.Background())
+}
+
+func (i *policyVMWorkloadProtectionPolicyRetentionWeeklyPtrType) ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput)
+}
+
+type PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyRetentionWeekly)(nil)).Elem()
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput) ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput() PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput) ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput) ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput {
+	return o.ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput) ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyVMWorkloadProtectionPolicyRetentionWeekly) *PolicyVMWorkloadProtectionPolicyRetentionWeekly {
+		return &v
+	}).(PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput)
+}
+
+// The number of weekly backups to keep. Possible values are between `1` and `5163`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicyRetentionWeekly) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput) Weekdays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicyRetentionWeekly) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
+}
+
+type PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyVMWorkloadProtectionPolicyRetentionWeekly)(nil)).Elem()
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput) ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput) ToPolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput) Elem() PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadProtectionPolicyRetentionWeekly) PolicyVMWorkloadProtectionPolicyRetentionWeekly {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyVMWorkloadProtectionPolicyRetentionWeekly
+		return ret
+	}).(PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput)
+}
+
+// The number of weekly backups to keep. Possible values are between `1` and `5163`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadProtectionPolicyRetentionWeekly) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+// The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput) Weekdays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadProtectionPolicyRetentionWeekly) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Weekdays
+	}).(pulumi.StringArrayOutput)
+}
+
+type PolicyVMWorkloadProtectionPolicyRetentionYearly struct {
+	// The number of yearly backups to keep. Possible values are between `1` and `99`
+	Count int `pulumi:"count"`
+	// The retention schedule format type for yearly retention policy. Possible values are `Daily` and `Weekly`.
+	FormatType string `pulumi:"formatType"`
+	// The monthday backups to retain. Possible values are between `0` and `28`.
+	Monthdays []int `pulumi:"monthdays"`
+	// The months of the year to retain backups of. Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
+	Months []string `pulumi:"months"`
+	// The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+	Weekdays []string `pulumi:"weekdays"`
+	// The weeks of the month to retain backups of. Possible values are `First`, `Second`, `Third`, `Fourth`, `Last`.
+	Weeks []string `pulumi:"weeks"`
+}
+
+// PolicyVMWorkloadProtectionPolicyRetentionYearlyInput is an input type that accepts PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs and PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput values.
+// You can construct a concrete instance of `PolicyVMWorkloadProtectionPolicyRetentionYearlyInput` via:
+//
+//	PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs{...}
+type PolicyVMWorkloadProtectionPolicyRetentionYearlyInput interface {
+	pulumi.Input
+
+	ToPolicyVMWorkloadProtectionPolicyRetentionYearlyOutput() PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput
+	ToPolicyVMWorkloadProtectionPolicyRetentionYearlyOutputWithContext(context.Context) PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput
+}
+
+type PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs struct {
+	// The number of yearly backups to keep. Possible values are between `1` and `99`
+	Count pulumi.IntInput `pulumi:"count"`
+	// The retention schedule format type for yearly retention policy. Possible values are `Daily` and `Weekly`.
+	FormatType pulumi.StringInput `pulumi:"formatType"`
+	// The monthday backups to retain. Possible values are between `0` and `28`.
+	Monthdays pulumi.IntArrayInput `pulumi:"monthdays"`
+	// The months of the year to retain backups of. Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
+	Months pulumi.StringArrayInput `pulumi:"months"`
+	// The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+	Weekdays pulumi.StringArrayInput `pulumi:"weekdays"`
+	// The weeks of the month to retain backups of. Possible values are `First`, `Second`, `Third`, `Fourth`, `Last`.
+	Weeks pulumi.StringArrayInput `pulumi:"weeks"`
+}
+
+func (PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyRetentionYearly)(nil)).Elem()
+}
+
+func (i PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs) ToPolicyVMWorkloadProtectionPolicyRetentionYearlyOutput() PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput {
+	return i.ToPolicyVMWorkloadProtectionPolicyRetentionYearlyOutputWithContext(context.Background())
+}
+
+func (i PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs) ToPolicyVMWorkloadProtectionPolicyRetentionYearlyOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput)
+}
+
+func (i PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs) ToPolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput {
+	return i.ToPolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs) ToPolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput).ToPolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutputWithContext(ctx)
+}
+
+// PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrInput is an input type that accepts PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs, PolicyVMWorkloadProtectionPolicyRetentionYearlyPtr and PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput values.
+// You can construct a concrete instance of `PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrInput` via:
+//
+//	        PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrInput interface {
+	pulumi.Input
+
+	ToPolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput
+	ToPolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutputWithContext(context.Context) PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput
+}
+
+type policyVMWorkloadProtectionPolicyRetentionYearlyPtrType PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs
+
+func PolicyVMWorkloadProtectionPolicyRetentionYearlyPtr(v *PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs) PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrInput {
+	return (*policyVMWorkloadProtectionPolicyRetentionYearlyPtrType)(v)
+}
+
+func (*policyVMWorkloadProtectionPolicyRetentionYearlyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyVMWorkloadProtectionPolicyRetentionYearly)(nil)).Elem()
+}
+
+func (i *policyVMWorkloadProtectionPolicyRetentionYearlyPtrType) ToPolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput {
+	return i.ToPolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutputWithContext(context.Background())
+}
+
+func (i *policyVMWorkloadProtectionPolicyRetentionYearlyPtrType) ToPolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput)
+}
+
+type PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyRetentionYearly)(nil)).Elem()
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput) ToPolicyVMWorkloadProtectionPolicyRetentionYearlyOutput() PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput) ToPolicyVMWorkloadProtectionPolicyRetentionYearlyOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput) ToPolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput {
+	return o.ToPolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput) ToPolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyVMWorkloadProtectionPolicyRetentionYearly) *PolicyVMWorkloadProtectionPolicyRetentionYearly {
+		return &v
+	}).(PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput)
+}
+
+// The number of yearly backups to keep. Possible values are between `1` and `99`
+func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicyRetentionYearly) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// The retention schedule format type for yearly retention policy. Possible values are `Daily` and `Weekly`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput) FormatType() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicyRetentionYearly) string { return v.FormatType }).(pulumi.StringOutput)
+}
+
+// The monthday backups to retain. Possible values are between `0` and `28`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput) Monthdays() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicyRetentionYearly) []int { return v.Monthdays }).(pulumi.IntArrayOutput)
+}
+
+// The months of the year to retain backups of. Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput) Months() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicyRetentionYearly) []string { return v.Months }).(pulumi.StringArrayOutput)
+}
+
+// The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput) Weekdays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicyRetentionYearly) []string { return v.Weekdays }).(pulumi.StringArrayOutput)
+}
+
+// The weeks of the month to retain backups of. Possible values are `First`, `Second`, `Third`, `Fourth`, `Last`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput) Weeks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicyRetentionYearly) []string { return v.Weeks }).(pulumi.StringArrayOutput)
+}
+
+type PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyVMWorkloadProtectionPolicyRetentionYearly)(nil)).Elem()
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput) ToPolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput() PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput) ToPolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput) Elem() PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadProtectionPolicyRetentionYearly) PolicyVMWorkloadProtectionPolicyRetentionYearly {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyVMWorkloadProtectionPolicyRetentionYearly
+		return ret
+	}).(PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput)
+}
+
+// The number of yearly backups to keep. Possible values are between `1` and `99`
+func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadProtectionPolicyRetentionYearly) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+// The retention schedule format type for yearly retention policy. Possible values are `Daily` and `Weekly`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput) FormatType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadProtectionPolicyRetentionYearly) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FormatType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The monthday backups to retain. Possible values are between `0` and `28`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput) Monthdays() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadProtectionPolicyRetentionYearly) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Monthdays
+	}).(pulumi.IntArrayOutput)
+}
+
+// The months of the year to retain backups of. Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput) Months() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadProtectionPolicyRetentionYearly) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Months
+	}).(pulumi.StringArrayOutput)
+}
+
+// The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput) Weekdays() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadProtectionPolicyRetentionYearly) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Weekdays
+	}).(pulumi.StringArrayOutput)
+}
+
+// The weeks of the month to retain backups of. Possible values are `First`, `Second`, `Third`, `Fourth`, `Last`.
+func (o PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput) Weeks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadProtectionPolicyRetentionYearly) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Weeks
+	}).(pulumi.StringArrayOutput)
+}
+
+type PolicyVMWorkloadProtectionPolicySimpleRetention struct {
+	// The count that is used to count retention duration with duration type `Days`. Possible values are between `7` and `35`.
+	Count int `pulumi:"count"`
+}
+
+// PolicyVMWorkloadProtectionPolicySimpleRetentionInput is an input type that accepts PolicyVMWorkloadProtectionPolicySimpleRetentionArgs and PolicyVMWorkloadProtectionPolicySimpleRetentionOutput values.
+// You can construct a concrete instance of `PolicyVMWorkloadProtectionPolicySimpleRetentionInput` via:
+//
+//	PolicyVMWorkloadProtectionPolicySimpleRetentionArgs{...}
+type PolicyVMWorkloadProtectionPolicySimpleRetentionInput interface {
+	pulumi.Input
+
+	ToPolicyVMWorkloadProtectionPolicySimpleRetentionOutput() PolicyVMWorkloadProtectionPolicySimpleRetentionOutput
+	ToPolicyVMWorkloadProtectionPolicySimpleRetentionOutputWithContext(context.Context) PolicyVMWorkloadProtectionPolicySimpleRetentionOutput
+}
+
+type PolicyVMWorkloadProtectionPolicySimpleRetentionArgs struct {
+	// The count that is used to count retention duration with duration type `Days`. Possible values are between `7` and `35`.
+	Count pulumi.IntInput `pulumi:"count"`
+}
+
+func (PolicyVMWorkloadProtectionPolicySimpleRetentionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMWorkloadProtectionPolicySimpleRetention)(nil)).Elem()
+}
+
+func (i PolicyVMWorkloadProtectionPolicySimpleRetentionArgs) ToPolicyVMWorkloadProtectionPolicySimpleRetentionOutput() PolicyVMWorkloadProtectionPolicySimpleRetentionOutput {
+	return i.ToPolicyVMWorkloadProtectionPolicySimpleRetentionOutputWithContext(context.Background())
+}
+
+func (i PolicyVMWorkloadProtectionPolicySimpleRetentionArgs) ToPolicyVMWorkloadProtectionPolicySimpleRetentionOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicySimpleRetentionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicySimpleRetentionOutput)
+}
+
+func (i PolicyVMWorkloadProtectionPolicySimpleRetentionArgs) ToPolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput() PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput {
+	return i.ToPolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyVMWorkloadProtectionPolicySimpleRetentionArgs) ToPolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicySimpleRetentionOutput).ToPolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutputWithContext(ctx)
+}
+
+// PolicyVMWorkloadProtectionPolicySimpleRetentionPtrInput is an input type that accepts PolicyVMWorkloadProtectionPolicySimpleRetentionArgs, PolicyVMWorkloadProtectionPolicySimpleRetentionPtr and PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput values.
+// You can construct a concrete instance of `PolicyVMWorkloadProtectionPolicySimpleRetentionPtrInput` via:
+//
+//	        PolicyVMWorkloadProtectionPolicySimpleRetentionArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyVMWorkloadProtectionPolicySimpleRetentionPtrInput interface {
+	pulumi.Input
+
+	ToPolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput() PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput
+	ToPolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutputWithContext(context.Context) PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput
+}
+
+type policyVMWorkloadProtectionPolicySimpleRetentionPtrType PolicyVMWorkloadProtectionPolicySimpleRetentionArgs
+
+func PolicyVMWorkloadProtectionPolicySimpleRetentionPtr(v *PolicyVMWorkloadProtectionPolicySimpleRetentionArgs) PolicyVMWorkloadProtectionPolicySimpleRetentionPtrInput {
+	return (*policyVMWorkloadProtectionPolicySimpleRetentionPtrType)(v)
+}
+
+func (*policyVMWorkloadProtectionPolicySimpleRetentionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyVMWorkloadProtectionPolicySimpleRetention)(nil)).Elem()
+}
+
+func (i *policyVMWorkloadProtectionPolicySimpleRetentionPtrType) ToPolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput() PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput {
+	return i.ToPolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutputWithContext(context.Background())
+}
+
+func (i *policyVMWorkloadProtectionPolicySimpleRetentionPtrType) ToPolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput)
+}
+
+type PolicyVMWorkloadProtectionPolicySimpleRetentionOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMWorkloadProtectionPolicySimpleRetentionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMWorkloadProtectionPolicySimpleRetention)(nil)).Elem()
+}
+
+func (o PolicyVMWorkloadProtectionPolicySimpleRetentionOutput) ToPolicyVMWorkloadProtectionPolicySimpleRetentionOutput() PolicyVMWorkloadProtectionPolicySimpleRetentionOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicySimpleRetentionOutput) ToPolicyVMWorkloadProtectionPolicySimpleRetentionOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicySimpleRetentionOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicySimpleRetentionOutput) ToPolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput() PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput {
+	return o.ToPolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyVMWorkloadProtectionPolicySimpleRetentionOutput) ToPolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyVMWorkloadProtectionPolicySimpleRetention) *PolicyVMWorkloadProtectionPolicySimpleRetention {
+		return &v
+	}).(PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput)
+}
+
+// The count that is used to count retention duration with duration type `Days`. Possible values are between `7` and `35`.
+func (o PolicyVMWorkloadProtectionPolicySimpleRetentionOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadProtectionPolicySimpleRetention) int { return v.Count }).(pulumi.IntOutput)
+}
+
+type PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyVMWorkloadProtectionPolicySimpleRetention)(nil)).Elem()
+}
+
+func (o PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput) ToPolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput() PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput) ToPolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput) Elem() PolicyVMWorkloadProtectionPolicySimpleRetentionOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadProtectionPolicySimpleRetention) PolicyVMWorkloadProtectionPolicySimpleRetention {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyVMWorkloadProtectionPolicySimpleRetention
+		return ret
+	}).(PolicyVMWorkloadProtectionPolicySimpleRetentionOutput)
+}
+
+// The count that is used to count retention duration with duration type `Days`. Possible values are between `7` and `35`.
+func (o PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadProtectionPolicySimpleRetention) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+type PolicyVMWorkloadSettings struct {
+	// The compression setting for the VM Workload Backup Policy. Defaults to `false`.
+	CompressionEnabled *bool `pulumi:"compressionEnabled"`
+	// The timezone for the VM Workload Backup Policy. [The possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+	TimeZone string `pulumi:"timeZone"`
+}
+
+// PolicyVMWorkloadSettingsInput is an input type that accepts PolicyVMWorkloadSettingsArgs and PolicyVMWorkloadSettingsOutput values.
+// You can construct a concrete instance of `PolicyVMWorkloadSettingsInput` via:
+//
+//	PolicyVMWorkloadSettingsArgs{...}
+type PolicyVMWorkloadSettingsInput interface {
+	pulumi.Input
+
+	ToPolicyVMWorkloadSettingsOutput() PolicyVMWorkloadSettingsOutput
+	ToPolicyVMWorkloadSettingsOutputWithContext(context.Context) PolicyVMWorkloadSettingsOutput
+}
+
+type PolicyVMWorkloadSettingsArgs struct {
+	// The compression setting for the VM Workload Backup Policy. Defaults to `false`.
+	CompressionEnabled pulumi.BoolPtrInput `pulumi:"compressionEnabled"`
+	// The timezone for the VM Workload Backup Policy. [The possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+	TimeZone pulumi.StringInput `pulumi:"timeZone"`
+}
+
+func (PolicyVMWorkloadSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMWorkloadSettings)(nil)).Elem()
+}
+
+func (i PolicyVMWorkloadSettingsArgs) ToPolicyVMWorkloadSettingsOutput() PolicyVMWorkloadSettingsOutput {
+	return i.ToPolicyVMWorkloadSettingsOutputWithContext(context.Background())
+}
+
+func (i PolicyVMWorkloadSettingsArgs) ToPolicyVMWorkloadSettingsOutputWithContext(ctx context.Context) PolicyVMWorkloadSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadSettingsOutput)
+}
+
+func (i PolicyVMWorkloadSettingsArgs) ToPolicyVMWorkloadSettingsPtrOutput() PolicyVMWorkloadSettingsPtrOutput {
+	return i.ToPolicyVMWorkloadSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyVMWorkloadSettingsArgs) ToPolicyVMWorkloadSettingsPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadSettingsOutput).ToPolicyVMWorkloadSettingsPtrOutputWithContext(ctx)
+}
+
+// PolicyVMWorkloadSettingsPtrInput is an input type that accepts PolicyVMWorkloadSettingsArgs, PolicyVMWorkloadSettingsPtr and PolicyVMWorkloadSettingsPtrOutput values.
+// You can construct a concrete instance of `PolicyVMWorkloadSettingsPtrInput` via:
+//
+//	        PolicyVMWorkloadSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyVMWorkloadSettingsPtrInput interface {
+	pulumi.Input
+
+	ToPolicyVMWorkloadSettingsPtrOutput() PolicyVMWorkloadSettingsPtrOutput
+	ToPolicyVMWorkloadSettingsPtrOutputWithContext(context.Context) PolicyVMWorkloadSettingsPtrOutput
+}
+
+type policyVMWorkloadSettingsPtrType PolicyVMWorkloadSettingsArgs
+
+func PolicyVMWorkloadSettingsPtr(v *PolicyVMWorkloadSettingsArgs) PolicyVMWorkloadSettingsPtrInput {
+	return (*policyVMWorkloadSettingsPtrType)(v)
+}
+
+func (*policyVMWorkloadSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyVMWorkloadSettings)(nil)).Elem()
+}
+
+func (i *policyVMWorkloadSettingsPtrType) ToPolicyVMWorkloadSettingsPtrOutput() PolicyVMWorkloadSettingsPtrOutput {
+	return i.ToPolicyVMWorkloadSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *policyVMWorkloadSettingsPtrType) ToPolicyVMWorkloadSettingsPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyVMWorkloadSettingsPtrOutput)
+}
+
+type PolicyVMWorkloadSettingsOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMWorkloadSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyVMWorkloadSettings)(nil)).Elem()
+}
+
+func (o PolicyVMWorkloadSettingsOutput) ToPolicyVMWorkloadSettingsOutput() PolicyVMWorkloadSettingsOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadSettingsOutput) ToPolicyVMWorkloadSettingsOutputWithContext(ctx context.Context) PolicyVMWorkloadSettingsOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadSettingsOutput) ToPolicyVMWorkloadSettingsPtrOutput() PolicyVMWorkloadSettingsPtrOutput {
+	return o.ToPolicyVMWorkloadSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyVMWorkloadSettingsOutput) ToPolicyVMWorkloadSettingsPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyVMWorkloadSettings) *PolicyVMWorkloadSettings {
+		return &v
+	}).(PolicyVMWorkloadSettingsPtrOutput)
+}
+
+// The compression setting for the VM Workload Backup Policy. Defaults to `false`.
+func (o PolicyVMWorkloadSettingsOutput) CompressionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadSettings) *bool { return v.CompressionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The timezone for the VM Workload Backup Policy. [The possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+func (o PolicyVMWorkloadSettingsOutput) TimeZone() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyVMWorkloadSettings) string { return v.TimeZone }).(pulumi.StringOutput)
+}
+
+type PolicyVMWorkloadSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyVMWorkloadSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyVMWorkloadSettings)(nil)).Elem()
+}
+
+func (o PolicyVMWorkloadSettingsPtrOutput) ToPolicyVMWorkloadSettingsPtrOutput() PolicyVMWorkloadSettingsPtrOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadSettingsPtrOutput) ToPolicyVMWorkloadSettingsPtrOutputWithContext(ctx context.Context) PolicyVMWorkloadSettingsPtrOutput {
+	return o
+}
+
+func (o PolicyVMWorkloadSettingsPtrOutput) Elem() PolicyVMWorkloadSettingsOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadSettings) PolicyVMWorkloadSettings {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyVMWorkloadSettings
+		return ret
+	}).(PolicyVMWorkloadSettingsOutput)
+}
+
+// The compression setting for the VM Workload Backup Policy. Defaults to `false`.
+func (o PolicyVMWorkloadSettingsPtrOutput) CompressionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CompressionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The timezone for the VM Workload Backup Policy. [The possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+func (o PolicyVMWorkloadSettingsPtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyVMWorkloadSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeZone
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFileShareBackupInput)(nil)).Elem(), PolicyFileShareBackupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFileShareBackupPtrInput)(nil)).Elem(), PolicyFileShareBackupArgs{})
@@ -1724,6 +2995,21 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMRetentionWeeklyPtrInput)(nil)).Elem(), PolicyVMRetentionWeeklyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMRetentionYearlyInput)(nil)).Elem(), PolicyVMRetentionYearlyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMRetentionYearlyPtrInput)(nil)).Elem(), PolicyVMRetentionYearlyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyInput)(nil)).Elem(), PolicyVMWorkloadProtectionPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyArrayInput)(nil)).Elem(), PolicyVMWorkloadProtectionPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyBackupInput)(nil)).Elem(), PolicyVMWorkloadProtectionPolicyBackupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyRetentionDailyInput)(nil)).Elem(), PolicyVMWorkloadProtectionPolicyRetentionDailyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyRetentionDailyPtrInput)(nil)).Elem(), PolicyVMWorkloadProtectionPolicyRetentionDailyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyRetentionMonthlyInput)(nil)).Elem(), PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrInput)(nil)).Elem(), PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyRetentionWeeklyInput)(nil)).Elem(), PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrInput)(nil)).Elem(), PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyRetentionYearlyInput)(nil)).Elem(), PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrInput)(nil)).Elem(), PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMWorkloadProtectionPolicySimpleRetentionInput)(nil)).Elem(), PolicyVMWorkloadProtectionPolicySimpleRetentionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMWorkloadProtectionPolicySimpleRetentionPtrInput)(nil)).Elem(), PolicyVMWorkloadProtectionPolicySimpleRetentionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMWorkloadSettingsInput)(nil)).Elem(), PolicyVMWorkloadSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyVMWorkloadSettingsPtrInput)(nil)).Elem(), PolicyVMWorkloadSettingsArgs{})
 	pulumi.RegisterOutputType(PolicyFileShareBackupOutput{})
 	pulumi.RegisterOutputType(PolicyFileShareBackupPtrOutput{})
 	pulumi.RegisterOutputType(PolicyFileShareRetentionDailyOutput{})
@@ -1744,4 +3030,19 @@ func init() {
 	pulumi.RegisterOutputType(PolicyVMRetentionWeeklyPtrOutput{})
 	pulumi.RegisterOutputType(PolicyVMRetentionYearlyOutput{})
 	pulumi.RegisterOutputType(PolicyVMRetentionYearlyPtrOutput{})
+	pulumi.RegisterOutputType(PolicyVMWorkloadProtectionPolicyOutput{})
+	pulumi.RegisterOutputType(PolicyVMWorkloadProtectionPolicyArrayOutput{})
+	pulumi.RegisterOutputType(PolicyVMWorkloadProtectionPolicyBackupOutput{})
+	pulumi.RegisterOutputType(PolicyVMWorkloadProtectionPolicyRetentionDailyOutput{})
+	pulumi.RegisterOutputType(PolicyVMWorkloadProtectionPolicyRetentionDailyPtrOutput{})
+	pulumi.RegisterOutputType(PolicyVMWorkloadProtectionPolicyRetentionMonthlyOutput{})
+	pulumi.RegisterOutputType(PolicyVMWorkloadProtectionPolicyRetentionMonthlyPtrOutput{})
+	pulumi.RegisterOutputType(PolicyVMWorkloadProtectionPolicyRetentionWeeklyOutput{})
+	pulumi.RegisterOutputType(PolicyVMWorkloadProtectionPolicyRetentionWeeklyPtrOutput{})
+	pulumi.RegisterOutputType(PolicyVMWorkloadProtectionPolicyRetentionYearlyOutput{})
+	pulumi.RegisterOutputType(PolicyVMWorkloadProtectionPolicyRetentionYearlyPtrOutput{})
+	pulumi.RegisterOutputType(PolicyVMWorkloadProtectionPolicySimpleRetentionOutput{})
+	pulumi.RegisterOutputType(PolicyVMWorkloadProtectionPolicySimpleRetentionPtrOutput{})
+	pulumi.RegisterOutputType(PolicyVMWorkloadSettingsOutput{})
+	pulumi.RegisterOutputType(PolicyVMWorkloadSettingsPtrOutput{})
 }

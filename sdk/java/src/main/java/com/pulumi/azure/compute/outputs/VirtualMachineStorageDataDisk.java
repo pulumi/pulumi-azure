@@ -17,70 +17,49 @@ public final class VirtualMachineStorageDataDisk {
      * @return Specifies the caching requirements for the Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
      * 
      */
-    private final @Nullable String caching;
+    private @Nullable String caching;
     /**
      * @return Specifies how the data disk should be created. Possible values are `Attach`, `FromImage` and `Empty`.
      * 
      */
-    private final String createOption;
+    private String createOption;
     /**
      * @return Specifies the size of the data disk in gigabytes.
      * 
      */
-    private final @Nullable Integer diskSizeGb;
+    private @Nullable Integer diskSizeGb;
     /**
      * @return Specifies the logical unit number of the data disk. This needs to be unique within all the Data Disks on the Virtual Machine.
      * 
      */
-    private final Integer lun;
+    private Integer lun;
     /**
      * @return Specifies the ID of an Existing Managed Disk which should be attached to this Virtual Machine. When this field is set `create_option` must be set to `Attach`.
      * 
      */
-    private final @Nullable String managedDiskId;
+    private @Nullable String managedDiskId;
     /**
      * @return Specifies the type of managed disk to create. Possible values are either `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` or `UltraSSD_LRS`.
      * 
      */
-    private final @Nullable String managedDiskType;
+    private @Nullable String managedDiskType;
     /**
      * @return The name of the Data Disk.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Specifies the URI of the VHD file backing this Unmanaged Data Disk. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String vhdUri;
+    private @Nullable String vhdUri;
     /**
      * @return Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean writeAcceleratorEnabled;
+    private @Nullable Boolean writeAcceleratorEnabled;
 
-    @CustomType.Constructor
-    private VirtualMachineStorageDataDisk(
-        @CustomType.Parameter("caching") @Nullable String caching,
-        @CustomType.Parameter("createOption") String createOption,
-        @CustomType.Parameter("diskSizeGb") @Nullable Integer diskSizeGb,
-        @CustomType.Parameter("lun") Integer lun,
-        @CustomType.Parameter("managedDiskId") @Nullable String managedDiskId,
-        @CustomType.Parameter("managedDiskType") @Nullable String managedDiskType,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("vhdUri") @Nullable String vhdUri,
-        @CustomType.Parameter("writeAcceleratorEnabled") @Nullable Boolean writeAcceleratorEnabled) {
-        this.caching = caching;
-        this.createOption = createOption;
-        this.diskSizeGb = diskSizeGb;
-        this.lun = lun;
-        this.managedDiskId = managedDiskId;
-        this.managedDiskType = managedDiskType;
-        this.name = name;
-        this.vhdUri = vhdUri;
-        this.writeAcceleratorEnabled = writeAcceleratorEnabled;
-    }
-
+    private VirtualMachineStorageDataDisk() {}
     /**
      * @return Specifies the caching requirements for the Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
      * 
@@ -152,7 +131,7 @@ public final class VirtualMachineStorageDataDisk {
     public static Builder builder(VirtualMachineStorageDataDisk defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String caching;
         private String createOption;
@@ -163,11 +142,7 @@ public final class VirtualMachineStorageDataDisk {
         private String name;
         private @Nullable String vhdUri;
         private @Nullable Boolean writeAcceleratorEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualMachineStorageDataDisk defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.caching = defaults.caching;
@@ -181,43 +156,63 @@ public final class VirtualMachineStorageDataDisk {
     	      this.writeAcceleratorEnabled = defaults.writeAcceleratorEnabled;
         }
 
+        @CustomType.Setter
         public Builder caching(@Nullable String caching) {
             this.caching = caching;
             return this;
         }
+        @CustomType.Setter
         public Builder createOption(String createOption) {
             this.createOption = Objects.requireNonNull(createOption);
             return this;
         }
+        @CustomType.Setter
         public Builder diskSizeGb(@Nullable Integer diskSizeGb) {
             this.diskSizeGb = diskSizeGb;
             return this;
         }
+        @CustomType.Setter
         public Builder lun(Integer lun) {
             this.lun = Objects.requireNonNull(lun);
             return this;
         }
+        @CustomType.Setter
         public Builder managedDiskId(@Nullable String managedDiskId) {
             this.managedDiskId = managedDiskId;
             return this;
         }
+        @CustomType.Setter
         public Builder managedDiskType(@Nullable String managedDiskType) {
             this.managedDiskType = managedDiskType;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder vhdUri(@Nullable String vhdUri) {
             this.vhdUri = vhdUri;
             return this;
         }
+        @CustomType.Setter
         public Builder writeAcceleratorEnabled(@Nullable Boolean writeAcceleratorEnabled) {
             this.writeAcceleratorEnabled = writeAcceleratorEnabled;
             return this;
-        }        public VirtualMachineStorageDataDisk build() {
-            return new VirtualMachineStorageDataDisk(caching, createOption, diskSizeGb, lun, managedDiskId, managedDiskType, name, vhdUri, writeAcceleratorEnabled);
+        }
+        public VirtualMachineStorageDataDisk build() {
+            final var o = new VirtualMachineStorageDataDisk();
+            o.caching = caching;
+            o.createOption = createOption;
+            o.diskSizeGb = diskSizeGb;
+            o.lun = lun;
+            o.managedDiskId = managedDiskId;
+            o.managedDiskType = managedDiskType;
+            o.name = name;
+            o.vhdUri = vhdUri;
+            o.writeAcceleratorEnabled = writeAcceleratorEnabled;
+            return o;
         }
     }
 }

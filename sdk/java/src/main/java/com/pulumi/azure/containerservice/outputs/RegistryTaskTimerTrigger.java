@@ -16,28 +16,19 @@ public final class RegistryTaskTimerTrigger {
      * @return Should the trigger be enabled? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return The name which should be used for this trigger.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The CRON expression for the task schedule.
      * 
      */
-    private final String schedule;
+    private String schedule;
 
-    @CustomType.Constructor
-    private RegistryTaskTimerTrigger(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("schedule") String schedule) {
-        this.enabled = enabled;
-        this.name = name;
-        this.schedule = schedule;
-    }
-
+    private RegistryTaskTimerTrigger() {}
     /**
      * @return Should the trigger be enabled? Defaults to `true`.
      * 
@@ -67,16 +58,12 @@ public final class RegistryTaskTimerTrigger {
     public static Builder builder(RegistryTaskTimerTrigger defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private String name;
         private String schedule;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegistryTaskTimerTrigger defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -84,19 +71,27 @@ public final class RegistryTaskTimerTrigger {
     	      this.schedule = defaults.schedule;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder schedule(String schedule) {
             this.schedule = Objects.requireNonNull(schedule);
             return this;
-        }        public RegistryTaskTimerTrigger build() {
-            return new RegistryTaskTimerTrigger(enabled, name, schedule);
+        }
+        public RegistryTaskTimerTrigger build() {
+            final var o = new RegistryTaskTimerTrigger();
+            o.enabled = enabled;
+            o.name = name;
+            o.schedule = schedule;
+            return o;
         }
     }
 }

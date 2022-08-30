@@ -13,20 +13,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SnapshotEncryptionSettings {
-    private final @Nullable SnapshotEncryptionSettingsDiskEncryptionKey diskEncryptionKey;
-    private final Boolean enabled;
-    private final @Nullable SnapshotEncryptionSettingsKeyEncryptionKey keyEncryptionKey;
+    private @Nullable SnapshotEncryptionSettingsDiskEncryptionKey diskEncryptionKey;
+    private Boolean enabled;
+    private @Nullable SnapshotEncryptionSettingsKeyEncryptionKey keyEncryptionKey;
 
-    @CustomType.Constructor
-    private SnapshotEncryptionSettings(
-        @CustomType.Parameter("diskEncryptionKey") @Nullable SnapshotEncryptionSettingsDiskEncryptionKey diskEncryptionKey,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("keyEncryptionKey") @Nullable SnapshotEncryptionSettingsKeyEncryptionKey keyEncryptionKey) {
-        this.diskEncryptionKey = diskEncryptionKey;
-        this.enabled = enabled;
-        this.keyEncryptionKey = keyEncryptionKey;
-    }
-
+    private SnapshotEncryptionSettings() {}
     public Optional<SnapshotEncryptionSettingsDiskEncryptionKey> diskEncryptionKey() {
         return Optional.ofNullable(this.diskEncryptionKey);
     }
@@ -44,16 +35,12 @@ public final class SnapshotEncryptionSettings {
     public static Builder builder(SnapshotEncryptionSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable SnapshotEncryptionSettingsDiskEncryptionKey diskEncryptionKey;
         private Boolean enabled;
         private @Nullable SnapshotEncryptionSettingsKeyEncryptionKey keyEncryptionKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SnapshotEncryptionSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.diskEncryptionKey = defaults.diskEncryptionKey;
@@ -61,19 +48,27 @@ public final class SnapshotEncryptionSettings {
     	      this.keyEncryptionKey = defaults.keyEncryptionKey;
         }
 
+        @CustomType.Setter
         public Builder diskEncryptionKey(@Nullable SnapshotEncryptionSettingsDiskEncryptionKey diskEncryptionKey) {
             this.diskEncryptionKey = diskEncryptionKey;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder keyEncryptionKey(@Nullable SnapshotEncryptionSettingsKeyEncryptionKey keyEncryptionKey) {
             this.keyEncryptionKey = keyEncryptionKey;
             return this;
-        }        public SnapshotEncryptionSettings build() {
-            return new SnapshotEncryptionSettings(diskEncryptionKey, enabled, keyEncryptionKey);
+        }
+        public SnapshotEncryptionSettings build() {
+            final var o = new SnapshotEncryptionSettings();
+            o.diskEncryptionKey = diskEncryptionKey;
+            o.enabled = enabled;
+            o.keyEncryptionKey = keyEncryptionKey;
+            return o;
         }
     }
 }

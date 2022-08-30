@@ -15,21 +15,14 @@ public final class ClusterReverseProxyCertificateCommonNamesCommonName {
      * @return The common or subject name of the certificate.
      * 
      */
-    private final String certificateCommonName;
+    private String certificateCommonName;
     /**
      * @return The Issuer Thumbprint of the Certificate.
      * 
      */
-    private final @Nullable String certificateIssuerThumbprint;
+    private @Nullable String certificateIssuerThumbprint;
 
-    @CustomType.Constructor
-    private ClusterReverseProxyCertificateCommonNamesCommonName(
-        @CustomType.Parameter("certificateCommonName") String certificateCommonName,
-        @CustomType.Parameter("certificateIssuerThumbprint") @Nullable String certificateIssuerThumbprint) {
-        this.certificateCommonName = certificateCommonName;
-        this.certificateIssuerThumbprint = certificateIssuerThumbprint;
-    }
-
+    private ClusterReverseProxyCertificateCommonNamesCommonName() {}
     /**
      * @return The common or subject name of the certificate.
      * 
@@ -52,30 +45,32 @@ public final class ClusterReverseProxyCertificateCommonNamesCommonName {
     public static Builder builder(ClusterReverseProxyCertificateCommonNamesCommonName defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String certificateCommonName;
         private @Nullable String certificateIssuerThumbprint;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterReverseProxyCertificateCommonNamesCommonName defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateCommonName = defaults.certificateCommonName;
     	      this.certificateIssuerThumbprint = defaults.certificateIssuerThumbprint;
         }
 
+        @CustomType.Setter
         public Builder certificateCommonName(String certificateCommonName) {
             this.certificateCommonName = Objects.requireNonNull(certificateCommonName);
             return this;
         }
+        @CustomType.Setter
         public Builder certificateIssuerThumbprint(@Nullable String certificateIssuerThumbprint) {
             this.certificateIssuerThumbprint = certificateIssuerThumbprint;
             return this;
-        }        public ClusterReverseProxyCertificateCommonNamesCommonName build() {
-            return new ClusterReverseProxyCertificateCommonNamesCommonName(certificateCommonName, certificateIssuerThumbprint);
+        }
+        public ClusterReverseProxyCertificateCommonNamesCommonName build() {
+            final var o = new ClusterReverseProxyCertificateCommonNamesCommonName();
+            o.certificateCommonName = certificateCommonName;
+            o.certificateIssuerThumbprint = certificateIssuerThumbprint;
+            return o;
         }
     }
 }

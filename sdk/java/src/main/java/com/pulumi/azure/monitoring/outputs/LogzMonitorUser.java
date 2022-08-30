@@ -13,35 +13,24 @@ public final class LogzMonitorUser {
      * @return Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
      * 
      */
-    private final String email;
+    private String email;
     /**
      * @return First Name of the user. Changing this forces a new logz Monitor to be created.
      * 
      */
-    private final String firstName;
+    private String firstName;
     /**
      * @return Last Name of the user. Changing this forces a new logz Monitor to be created.
      * 
      */
-    private final String lastName;
+    private String lastName;
     /**
      * @return Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
      * 
      */
-    private final String phoneNumber;
+    private String phoneNumber;
 
-    @CustomType.Constructor
-    private LogzMonitorUser(
-        @CustomType.Parameter("email") String email,
-        @CustomType.Parameter("firstName") String firstName,
-        @CustomType.Parameter("lastName") String lastName,
-        @CustomType.Parameter("phoneNumber") String phoneNumber) {
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-    }
-
+    private LogzMonitorUser() {}
     /**
      * @return Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
      * 
@@ -78,17 +67,13 @@ public final class LogzMonitorUser {
     public static Builder builder(LogzMonitorUser defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String email;
         private String firstName;
         private String lastName;
         private String phoneNumber;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LogzMonitorUser defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.email = defaults.email;
@@ -97,23 +82,33 @@ public final class LogzMonitorUser {
     	      this.phoneNumber = defaults.phoneNumber;
         }
 
+        @CustomType.Setter
         public Builder email(String email) {
             this.email = Objects.requireNonNull(email);
             return this;
         }
+        @CustomType.Setter
         public Builder firstName(String firstName) {
             this.firstName = Objects.requireNonNull(firstName);
             return this;
         }
+        @CustomType.Setter
         public Builder lastName(String lastName) {
             this.lastName = Objects.requireNonNull(lastName);
             return this;
         }
+        @CustomType.Setter
         public Builder phoneNumber(String phoneNumber) {
             this.phoneNumber = Objects.requireNonNull(phoneNumber);
             return this;
-        }        public LogzMonitorUser build() {
-            return new LogzMonitorUser(email, firstName, lastName, phoneNumber);
+        }
+        public LogzMonitorUser build() {
+            final var o = new LogzMonitorUser();
+            o.email = email;
+            o.firstName = firstName;
+            o.lastName = lastName;
+            o.phoneNumber = phoneNumber;
+            return o;
         }
     }
 }

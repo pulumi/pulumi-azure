@@ -16,21 +16,14 @@ public final class WindowsWebAppSlotLogsHttpLogs {
      * @return A `azure_blob_storage` block as defined above.
      * 
      */
-    private final @Nullable WindowsWebAppSlotLogsHttpLogsAzureBlobStorage azureBlobStorage;
+    private @Nullable WindowsWebAppSlotLogsHttpLogsAzureBlobStorage azureBlobStorage;
     /**
      * @return A `file_system` block as defined above.
      * 
      */
-    private final @Nullable WindowsWebAppSlotLogsHttpLogsFileSystem fileSystem;
+    private @Nullable WindowsWebAppSlotLogsHttpLogsFileSystem fileSystem;
 
-    @CustomType.Constructor
-    private WindowsWebAppSlotLogsHttpLogs(
-        @CustomType.Parameter("azureBlobStorage") @Nullable WindowsWebAppSlotLogsHttpLogsAzureBlobStorage azureBlobStorage,
-        @CustomType.Parameter("fileSystem") @Nullable WindowsWebAppSlotLogsHttpLogsFileSystem fileSystem) {
-        this.azureBlobStorage = azureBlobStorage;
-        this.fileSystem = fileSystem;
-    }
-
+    private WindowsWebAppSlotLogsHttpLogs() {}
     /**
      * @return A `azure_blob_storage` block as defined above.
      * 
@@ -53,30 +46,32 @@ public final class WindowsWebAppSlotLogsHttpLogs {
     public static Builder builder(WindowsWebAppSlotLogsHttpLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable WindowsWebAppSlotLogsHttpLogsAzureBlobStorage azureBlobStorage;
         private @Nullable WindowsWebAppSlotLogsHttpLogsFileSystem fileSystem;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsWebAppSlotLogsHttpLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.azureBlobStorage = defaults.azureBlobStorage;
     	      this.fileSystem = defaults.fileSystem;
         }
 
+        @CustomType.Setter
         public Builder azureBlobStorage(@Nullable WindowsWebAppSlotLogsHttpLogsAzureBlobStorage azureBlobStorage) {
             this.azureBlobStorage = azureBlobStorage;
             return this;
         }
+        @CustomType.Setter
         public Builder fileSystem(@Nullable WindowsWebAppSlotLogsHttpLogsFileSystem fileSystem) {
             this.fileSystem = fileSystem;
             return this;
-        }        public WindowsWebAppSlotLogsHttpLogs build() {
-            return new WindowsWebAppSlotLogsHttpLogs(azureBlobStorage, fileSystem);
+        }
+        public WindowsWebAppSlotLogsHttpLogs build() {
+            final var o = new WindowsWebAppSlotLogsHttpLogs();
+            o.azureBlobStorage = azureBlobStorage;
+            o.fileSystem = fileSystem;
+            return o;
         }
     }
 }

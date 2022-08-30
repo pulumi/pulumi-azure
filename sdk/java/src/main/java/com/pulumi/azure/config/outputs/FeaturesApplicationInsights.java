@@ -11,13 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FeaturesApplicationInsights {
-    private final @Nullable Boolean disableGeneratedRule;
+    private @Nullable Boolean disableGeneratedRule;
 
-    @CustomType.Constructor
-    private FeaturesApplicationInsights(@CustomType.Parameter("disableGeneratedRule") @Nullable Boolean disableGeneratedRule) {
-        this.disableGeneratedRule = disableGeneratedRule;
-    }
-
+    private FeaturesApplicationInsights() {}
     public Optional<Boolean> disableGeneratedRule() {
         return Optional.ofNullable(this.disableGeneratedRule);
     }
@@ -29,24 +25,24 @@ public final class FeaturesApplicationInsights {
     public static Builder builder(FeaturesApplicationInsights defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean disableGeneratedRule;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FeaturesApplicationInsights defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.disableGeneratedRule = defaults.disableGeneratedRule;
         }
 
+        @CustomType.Setter
         public Builder disableGeneratedRule(@Nullable Boolean disableGeneratedRule) {
             this.disableGeneratedRule = disableGeneratedRule;
             return this;
-        }        public FeaturesApplicationInsights build() {
-            return new FeaturesApplicationInsights(disableGeneratedRule);
+        }
+        public FeaturesApplicationInsights build() {
+            final var o = new FeaturesApplicationInsights();
+            o.disableGeneratedRule = disableGeneratedRule;
+            return o;
         }
     }
 }

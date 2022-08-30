@@ -17,35 +17,24 @@ public final class GroupContainerReadinessProbeHttpGet {
      * @return A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Map<String,String> httpHeaders;
+    private @Nullable Map<String,String> httpHeaders;
     /**
      * @return Path to access on the HTTP server. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String path;
+    private @Nullable String path;
     /**
      * @return The port number the container will expose. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer port;
+    private @Nullable Integer port;
     /**
      * @return Scheme to use for connecting to the host. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String scheme;
+    private @Nullable String scheme;
 
-    @CustomType.Constructor
-    private GroupContainerReadinessProbeHttpGet(
-        @CustomType.Parameter("httpHeaders") @Nullable Map<String,String> httpHeaders,
-        @CustomType.Parameter("path") @Nullable String path,
-        @CustomType.Parameter("port") @Nullable Integer port,
-        @CustomType.Parameter("scheme") @Nullable String scheme) {
-        this.httpHeaders = httpHeaders;
-        this.path = path;
-        this.port = port;
-        this.scheme = scheme;
-    }
-
+    private GroupContainerReadinessProbeHttpGet() {}
     /**
      * @return A map of HTTP headers used to access on the container. Changing this forces a new resource to be created.
      * 
@@ -82,17 +71,13 @@ public final class GroupContainerReadinessProbeHttpGet {
     public static Builder builder(GroupContainerReadinessProbeHttpGet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> httpHeaders;
         private @Nullable String path;
         private @Nullable Integer port;
         private @Nullable String scheme;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupContainerReadinessProbeHttpGet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.httpHeaders = defaults.httpHeaders;
@@ -101,23 +86,33 @@ public final class GroupContainerReadinessProbeHttpGet {
     	      this.scheme = defaults.scheme;
         }
 
+        @CustomType.Setter
         public Builder httpHeaders(@Nullable Map<String,String> httpHeaders) {
             this.httpHeaders = httpHeaders;
             return this;
         }
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
         }
+        @CustomType.Setter
         public Builder port(@Nullable Integer port) {
             this.port = port;
             return this;
         }
+        @CustomType.Setter
         public Builder scheme(@Nullable String scheme) {
             this.scheme = scheme;
             return this;
-        }        public GroupContainerReadinessProbeHttpGet build() {
-            return new GroupContainerReadinessProbeHttpGet(httpHeaders, path, port, scheme);
+        }
+        public GroupContainerReadinessProbeHttpGet build() {
+            final var o = new GroupContainerReadinessProbeHttpGet();
+            o.httpHeaders = httpHeaders;
+            o.path = path;
+            o.port = port;
+            o.scheme = scheme;
+            return o;
         }
     }
 }

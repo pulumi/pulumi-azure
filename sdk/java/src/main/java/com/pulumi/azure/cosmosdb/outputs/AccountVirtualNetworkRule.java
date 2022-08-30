@@ -16,21 +16,14 @@ public final class AccountVirtualNetworkRule {
      * @return The ID of the virtual network subnet.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return If set to true, the specified subnet will be added as a virtual network rule even if its CosmosDB service endpoint is not active. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean ignoreMissingVnetServiceEndpoint;
+    private @Nullable Boolean ignoreMissingVnetServiceEndpoint;
 
-    @CustomType.Constructor
-    private AccountVirtualNetworkRule(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ignoreMissingVnetServiceEndpoint") @Nullable Boolean ignoreMissingVnetServiceEndpoint) {
-        this.id = id;
-        this.ignoreMissingVnetServiceEndpoint = ignoreMissingVnetServiceEndpoint;
-    }
-
+    private AccountVirtualNetworkRule() {}
     /**
      * @return The ID of the virtual network subnet.
      * 
@@ -53,30 +46,32 @@ public final class AccountVirtualNetworkRule {
     public static Builder builder(AccountVirtualNetworkRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private @Nullable Boolean ignoreMissingVnetServiceEndpoint;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountVirtualNetworkRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.ignoreMissingVnetServiceEndpoint = defaults.ignoreMissingVnetServiceEndpoint;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ignoreMissingVnetServiceEndpoint(@Nullable Boolean ignoreMissingVnetServiceEndpoint) {
             this.ignoreMissingVnetServiceEndpoint = ignoreMissingVnetServiceEndpoint;
             return this;
-        }        public AccountVirtualNetworkRule build() {
-            return new AccountVirtualNetworkRule(id, ignoreMissingVnetServiceEndpoint);
+        }
+        public AccountVirtualNetworkRule build() {
+            final var o = new AccountVirtualNetworkRule();
+            o.id = id;
+            o.ignoreMissingVnetServiceEndpoint = ignoreMissingVnetServiceEndpoint;
+            return o;
         }
     }
 }

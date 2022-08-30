@@ -18,42 +18,29 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPub
      * @return The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
      * 
      */
-    private final @Nullable String domainNameLabel;
+    private @Nullable String domainNameLabel;
     /**
      * @return The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
      * 
      */
-    private final @Nullable Integer idleTimeoutInMinutes;
+    private @Nullable Integer idleTimeoutInMinutes;
     /**
      * @return One or more `ip_tag` blocks as defined above.
      * 
      */
-    private final @Nullable List<LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags;
+    private @Nullable List<LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags;
     /**
      * @return The Name of the Public IP Address Configuration.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String publicIpPrefixId;
+    private @Nullable String publicIpPrefixId;
 
-    @CustomType.Constructor
-    private LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(
-        @CustomType.Parameter("domainNameLabel") @Nullable String domainNameLabel,
-        @CustomType.Parameter("idleTimeoutInMinutes") @Nullable Integer idleTimeoutInMinutes,
-        @CustomType.Parameter("ipTags") @Nullable List<LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("publicIpPrefixId") @Nullable String publicIpPrefixId) {
-        this.domainNameLabel = domainNameLabel;
-        this.idleTimeoutInMinutes = idleTimeoutInMinutes;
-        this.ipTags = ipTags;
-        this.name = name;
-        this.publicIpPrefixId = publicIpPrefixId;
-    }
-
+    private LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress() {}
     /**
      * @return The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
      * 
@@ -97,18 +84,14 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPub
     public static Builder builder(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String domainNameLabel;
         private @Nullable Integer idleTimeoutInMinutes;
         private @Nullable List<LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags;
         private String name;
         private @Nullable String publicIpPrefixId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.domainNameLabel = defaults.domainNameLabel;
@@ -118,14 +101,17 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPub
     	      this.publicIpPrefixId = defaults.publicIpPrefixId;
         }
 
+        @CustomType.Setter
         public Builder domainNameLabel(@Nullable String domainNameLabel) {
             this.domainNameLabel = domainNameLabel;
             return this;
         }
+        @CustomType.Setter
         public Builder idleTimeoutInMinutes(@Nullable Integer idleTimeoutInMinutes) {
             this.idleTimeoutInMinutes = idleTimeoutInMinutes;
             return this;
         }
+        @CustomType.Setter
         public Builder ipTags(@Nullable List<LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags) {
             this.ipTags = ipTags;
             return this;
@@ -133,15 +119,24 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPub
         public Builder ipTags(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag... ipTags) {
             return ipTags(List.of(ipTags));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpPrefixId(@Nullable String publicIpPrefixId) {
             this.publicIpPrefixId = publicIpPrefixId;
             return this;
-        }        public LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress build() {
-            return new LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(domainNameLabel, idleTimeoutInMinutes, ipTags, name, publicIpPrefixId);
+        }
+        public LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress build() {
+            final var o = new LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress();
+            o.domainNameLabel = domainNameLabel;
+            o.idleTimeoutInMinutes = idleTimeoutInMinutes;
+            o.ipTags = ipTags;
+            o.name = name;
+            o.publicIpPrefixId = publicIpPrefixId;
+            return o;
         }
     }
 }

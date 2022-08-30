@@ -13,13 +13,9 @@ public final class AccountAnalyticalStorage {
      * @return The schema type of the Analytical Storage for this Cosmos DB account. Possible values are `FullFidelity` and `WellDefined`.
      * 
      */
-    private final String schemaType;
+    private String schemaType;
 
-    @CustomType.Constructor
-    private AccountAnalyticalStorage(@CustomType.Parameter("schemaType") String schemaType) {
-        this.schemaType = schemaType;
-    }
-
+    private AccountAnalyticalStorage() {}
     /**
      * @return The schema type of the Analytical Storage for this Cosmos DB account. Possible values are `FullFidelity` and `WellDefined`.
      * 
@@ -35,24 +31,24 @@ public final class AccountAnalyticalStorage {
     public static Builder builder(AccountAnalyticalStorage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String schemaType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountAnalyticalStorage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.schemaType = defaults.schemaType;
         }
 
+        @CustomType.Setter
         public Builder schemaType(String schemaType) {
             this.schemaType = Objects.requireNonNull(schemaType);
             return this;
-        }        public AccountAnalyticalStorage build() {
-            return new AccountAnalyticalStorage(schemaType);
+        }
+        public AccountAnalyticalStorage build() {
+            final var o = new AccountAnalyticalStorage();
+            o.schemaType = schemaType;
+            return o;
         }
     }
 }

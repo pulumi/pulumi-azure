@@ -16,35 +16,24 @@ public final class DatabaseLongTermRetentionPolicy {
      * @return The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
      * 
      */
-    private final @Nullable String monthlyRetention;
+    private @Nullable String monthlyRetention;
     /**
      * @return The week of year to take the yearly backup. Value has to be between `1` and `52`.
      * 
      */
-    private final @Nullable Integer weekOfYear;
+    private @Nullable Integer weekOfYear;
     /**
      * @return The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
      * 
      */
-    private final @Nullable String weeklyRetention;
+    private @Nullable String weeklyRetention;
     /**
      * @return The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
      * 
      */
-    private final @Nullable String yearlyRetention;
+    private @Nullable String yearlyRetention;
 
-    @CustomType.Constructor
-    private DatabaseLongTermRetentionPolicy(
-        @CustomType.Parameter("monthlyRetention") @Nullable String monthlyRetention,
-        @CustomType.Parameter("weekOfYear") @Nullable Integer weekOfYear,
-        @CustomType.Parameter("weeklyRetention") @Nullable String weeklyRetention,
-        @CustomType.Parameter("yearlyRetention") @Nullable String yearlyRetention) {
-        this.monthlyRetention = monthlyRetention;
-        this.weekOfYear = weekOfYear;
-        this.weeklyRetention = weeklyRetention;
-        this.yearlyRetention = yearlyRetention;
-    }
-
+    private DatabaseLongTermRetentionPolicy() {}
     /**
      * @return The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
      * 
@@ -81,17 +70,13 @@ public final class DatabaseLongTermRetentionPolicy {
     public static Builder builder(DatabaseLongTermRetentionPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String monthlyRetention;
         private @Nullable Integer weekOfYear;
         private @Nullable String weeklyRetention;
         private @Nullable String yearlyRetention;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DatabaseLongTermRetentionPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.monthlyRetention = defaults.monthlyRetention;
@@ -100,23 +85,33 @@ public final class DatabaseLongTermRetentionPolicy {
     	      this.yearlyRetention = defaults.yearlyRetention;
         }
 
+        @CustomType.Setter
         public Builder monthlyRetention(@Nullable String monthlyRetention) {
             this.monthlyRetention = monthlyRetention;
             return this;
         }
+        @CustomType.Setter
         public Builder weekOfYear(@Nullable Integer weekOfYear) {
             this.weekOfYear = weekOfYear;
             return this;
         }
+        @CustomType.Setter
         public Builder weeklyRetention(@Nullable String weeklyRetention) {
             this.weeklyRetention = weeklyRetention;
             return this;
         }
+        @CustomType.Setter
         public Builder yearlyRetention(@Nullable String yearlyRetention) {
             this.yearlyRetention = yearlyRetention;
             return this;
-        }        public DatabaseLongTermRetentionPolicy build() {
-            return new DatabaseLongTermRetentionPolicy(monthlyRetention, weekOfYear, weeklyRetention, yearlyRetention);
+        }
+        public DatabaseLongTermRetentionPolicy build() {
+            final var o = new DatabaseLongTermRetentionPolicy();
+            o.monthlyRetention = monthlyRetention;
+            o.weekOfYear = weekOfYear;
+            o.weeklyRetention = weeklyRetention;
+            o.yearlyRetention = yearlyRetention;
+            return o;
         }
     }
 }

@@ -15,28 +15,19 @@ public final class GroupContainerVolumeGitRepo {
      * @return Specifies the directory into which the repository should be cloned. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String directory;
+    private @Nullable String directory;
     /**
      * @return Specifies the commit hash of the revision to be cloned. If unspecified, the HEAD revision is cloned. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String revision;
+    private @Nullable String revision;
     /**
      * @return Specifies the Git repository to be cloned. Changing this forces a new resource to be created.
      * 
      */
-    private final String url;
+    private String url;
 
-    @CustomType.Constructor
-    private GroupContainerVolumeGitRepo(
-        @CustomType.Parameter("directory") @Nullable String directory,
-        @CustomType.Parameter("revision") @Nullable String revision,
-        @CustomType.Parameter("url") String url) {
-        this.directory = directory;
-        this.revision = revision;
-        this.url = url;
-    }
-
+    private GroupContainerVolumeGitRepo() {}
     /**
      * @return Specifies the directory into which the repository should be cloned. Changing this forces a new resource to be created.
      * 
@@ -66,16 +57,12 @@ public final class GroupContainerVolumeGitRepo {
     public static Builder builder(GroupContainerVolumeGitRepo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String directory;
         private @Nullable String revision;
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupContainerVolumeGitRepo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.directory = defaults.directory;
@@ -83,19 +70,27 @@ public final class GroupContainerVolumeGitRepo {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder directory(@Nullable String directory) {
             this.directory = directory;
             return this;
         }
+        @CustomType.Setter
         public Builder revision(@Nullable String revision) {
             this.revision = revision;
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public GroupContainerVolumeGitRepo build() {
-            return new GroupContainerVolumeGitRepo(directory, revision, url);
+        }
+        public GroupContainerVolumeGitRepo build() {
+            final var o = new GroupContainerVolumeGitRepo();
+            o.directory = directory;
+            o.revision = revision;
+            o.url = url;
+            return o;
         }
     }
 }

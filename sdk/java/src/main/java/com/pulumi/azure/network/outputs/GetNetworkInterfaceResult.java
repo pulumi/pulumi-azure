@@ -17,115 +17,80 @@ public final class GetNetworkInterfaceResult {
      * @return List of DNS servers applied to the specified Network Interface.
      * 
      */
-    private final List<String> appliedDnsServers;
+    private List<String> appliedDnsServers;
     /**
      * @return The list of DNS servers used by the specified Network Interface.
      * 
      */
-    private final List<String> dnsServers;
+    private List<String> dnsServers;
     /**
      * @return Indicates if accelerated networking is set on the specified Network Interface.
      * 
      */
-    private final Boolean enableAcceleratedNetworking;
+    private Boolean enableAcceleratedNetworking;
     /**
      * @return Indicate if IP forwarding is set on the specified Network Interface.
      * 
      */
-    private final Boolean enableIpForwarding;
+    private Boolean enableIpForwarding;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The internal DNS name label of the specified Network Interface.
      * 
      */
-    private final String internalDnsNameLabel;
+    private String internalDnsNameLabel;
     /**
      * @return One or more `ip_configuration` blocks as defined below.
      * 
      */
-    private final List<GetNetworkInterfaceIpConfiguration> ipConfigurations;
+    private List<GetNetworkInterfaceIpConfiguration> ipConfigurations;
     /**
      * @return The location of the specified Network Interface.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The MAC address used by the specified Network Interface.
      * 
      */
-    private final String macAddress;
+    private String macAddress;
     /**
      * @return The name of the IP Configuration.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The ID of the network security group associated to the specified Network Interface.
      * 
      */
-    private final String networkSecurityGroupId;
+    private String networkSecurityGroupId;
     /**
      * @return The Private IP Address assigned to this Network Interface.
      * 
      */
-    private final String privateIpAddress;
+    private String privateIpAddress;
     /**
      * @return The list of private IP addresses associates to the specified Network Interface.
      * 
      */
-    private final List<String> privateIpAddresses;
-    private final String resourceGroupName;
+    private List<String> privateIpAddresses;
+    private String resourceGroupName;
     /**
      * @return List the tags associated to the specified Network Interface.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The ID of the virtual machine that the specified Network Interface is attached to.
      * 
      */
-    private final String virtualMachineId;
+    private String virtualMachineId;
 
-    @CustomType.Constructor
-    private GetNetworkInterfaceResult(
-        @CustomType.Parameter("appliedDnsServers") List<String> appliedDnsServers,
-        @CustomType.Parameter("dnsServers") List<String> dnsServers,
-        @CustomType.Parameter("enableAcceleratedNetworking") Boolean enableAcceleratedNetworking,
-        @CustomType.Parameter("enableIpForwarding") Boolean enableIpForwarding,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("internalDnsNameLabel") String internalDnsNameLabel,
-        @CustomType.Parameter("ipConfigurations") List<GetNetworkInterfaceIpConfiguration> ipConfigurations,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("macAddress") String macAddress,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("networkSecurityGroupId") String networkSecurityGroupId,
-        @CustomType.Parameter("privateIpAddress") String privateIpAddress,
-        @CustomType.Parameter("privateIpAddresses") List<String> privateIpAddresses,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("virtualMachineId") String virtualMachineId) {
-        this.appliedDnsServers = appliedDnsServers;
-        this.dnsServers = dnsServers;
-        this.enableAcceleratedNetworking = enableAcceleratedNetworking;
-        this.enableIpForwarding = enableIpForwarding;
-        this.id = id;
-        this.internalDnsNameLabel = internalDnsNameLabel;
-        this.ipConfigurations = ipConfigurations;
-        this.location = location;
-        this.macAddress = macAddress;
-        this.name = name;
-        this.networkSecurityGroupId = networkSecurityGroupId;
-        this.privateIpAddress = privateIpAddress;
-        this.privateIpAddresses = privateIpAddresses;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-        this.virtualMachineId = virtualMachineId;
-    }
-
+    private GetNetworkInterfaceResult() {}
     /**
      * @return List of DNS servers applied to the specified Network Interface.
      * 
@@ -242,7 +207,7 @@ public final class GetNetworkInterfaceResult {
     public static Builder builder(GetNetworkInterfaceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> appliedDnsServers;
         private List<String> dnsServers;
@@ -260,11 +225,7 @@ public final class GetNetworkInterfaceResult {
         private String resourceGroupName;
         private Map<String,String> tags;
         private String virtualMachineId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetNetworkInterfaceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appliedDnsServers = defaults.appliedDnsServers;
@@ -285,6 +246,7 @@ public final class GetNetworkInterfaceResult {
     	      this.virtualMachineId = defaults.virtualMachineId;
         }
 
+        @CustomType.Setter
         public Builder appliedDnsServers(List<String> appliedDnsServers) {
             this.appliedDnsServers = Objects.requireNonNull(appliedDnsServers);
             return this;
@@ -292,6 +254,7 @@ public final class GetNetworkInterfaceResult {
         public Builder appliedDnsServers(String... appliedDnsServers) {
             return appliedDnsServers(List.of(appliedDnsServers));
         }
+        @CustomType.Setter
         public Builder dnsServers(List<String> dnsServers) {
             this.dnsServers = Objects.requireNonNull(dnsServers);
             return this;
@@ -299,22 +262,27 @@ public final class GetNetworkInterfaceResult {
         public Builder dnsServers(String... dnsServers) {
             return dnsServers(List.of(dnsServers));
         }
+        @CustomType.Setter
         public Builder enableAcceleratedNetworking(Boolean enableAcceleratedNetworking) {
             this.enableAcceleratedNetworking = Objects.requireNonNull(enableAcceleratedNetworking);
             return this;
         }
+        @CustomType.Setter
         public Builder enableIpForwarding(Boolean enableIpForwarding) {
             this.enableIpForwarding = Objects.requireNonNull(enableIpForwarding);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder internalDnsNameLabel(String internalDnsNameLabel) {
             this.internalDnsNameLabel = Objects.requireNonNull(internalDnsNameLabel);
             return this;
         }
+        @CustomType.Setter
         public Builder ipConfigurations(List<GetNetworkInterfaceIpConfiguration> ipConfigurations) {
             this.ipConfigurations = Objects.requireNonNull(ipConfigurations);
             return this;
@@ -322,26 +290,32 @@ public final class GetNetworkInterfaceResult {
         public Builder ipConfigurations(GetNetworkInterfaceIpConfiguration... ipConfigurations) {
             return ipConfigurations(List.of(ipConfigurations));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder macAddress(String macAddress) {
             this.macAddress = Objects.requireNonNull(macAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder networkSecurityGroupId(String networkSecurityGroupId) {
             this.networkSecurityGroupId = Objects.requireNonNull(networkSecurityGroupId);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
             this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddresses(List<String> privateIpAddresses) {
             this.privateIpAddresses = Objects.requireNonNull(privateIpAddresses);
             return this;
@@ -349,19 +323,40 @@ public final class GetNetworkInterfaceResult {
         public Builder privateIpAddresses(String... privateIpAddresses) {
             return privateIpAddresses(List.of(privateIpAddresses));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualMachineId(String virtualMachineId) {
             this.virtualMachineId = Objects.requireNonNull(virtualMachineId);
             return this;
-        }        public GetNetworkInterfaceResult build() {
-            return new GetNetworkInterfaceResult(appliedDnsServers, dnsServers, enableAcceleratedNetworking, enableIpForwarding, id, internalDnsNameLabel, ipConfigurations, location, macAddress, name, networkSecurityGroupId, privateIpAddress, privateIpAddresses, resourceGroupName, tags, virtualMachineId);
+        }
+        public GetNetworkInterfaceResult build() {
+            final var o = new GetNetworkInterfaceResult();
+            o.appliedDnsServers = appliedDnsServers;
+            o.dnsServers = dnsServers;
+            o.enableAcceleratedNetworking = enableAcceleratedNetworking;
+            o.enableIpForwarding = enableIpForwarding;
+            o.id = id;
+            o.internalDnsNameLabel = internalDnsNameLabel;
+            o.ipConfigurations = ipConfigurations;
+            o.location = location;
+            o.macAddress = macAddress;
+            o.name = name;
+            o.networkSecurityGroupId = networkSecurityGroupId;
+            o.privateIpAddress = privateIpAddress;
+            o.privateIpAddresses = privateIpAddresses;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            o.virtualMachineId = virtualMachineId;
+            return o;
         }
     }
 }

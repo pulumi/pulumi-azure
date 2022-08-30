@@ -13,21 +13,14 @@ public final class SparkPoolSparkConfig {
      * @return The contents of a spark configuration.
      * 
      */
-    private final String content;
+    private String content;
     /**
      * @return The name of the file where the spark configuration `content` will be stored.
      * 
      */
-    private final String filename;
+    private String filename;
 
-    @CustomType.Constructor
-    private SparkPoolSparkConfig(
-        @CustomType.Parameter("content") String content,
-        @CustomType.Parameter("filename") String filename) {
-        this.content = content;
-        this.filename = filename;
-    }
-
+    private SparkPoolSparkConfig() {}
     /**
      * @return The contents of a spark configuration.
      * 
@@ -50,30 +43,32 @@ public final class SparkPoolSparkConfig {
     public static Builder builder(SparkPoolSparkConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String content;
         private String filename;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SparkPoolSparkConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.content = defaults.content;
     	      this.filename = defaults.filename;
         }
 
+        @CustomType.Setter
         public Builder content(String content) {
             this.content = Objects.requireNonNull(content);
             return this;
         }
+        @CustomType.Setter
         public Builder filename(String filename) {
             this.filename = Objects.requireNonNull(filename);
             return this;
-        }        public SparkPoolSparkConfig build() {
-            return new SparkPoolSparkConfig(content, filename);
+        }
+        public SparkPoolSparkConfig build() {
+            final var o = new SparkPoolSparkConfig();
+            o.content = content;
+            o.filename = filename;
+            return o;
         }
     }
 }

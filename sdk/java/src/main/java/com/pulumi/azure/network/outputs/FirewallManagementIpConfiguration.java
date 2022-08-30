@@ -15,35 +15,24 @@ public final class FirewallManagementIpConfiguration {
      * @return Specifies the name of the IP Configuration.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The private IP address associated with the Firewall.
      * 
      */
-    private final @Nullable String privateIpAddress;
+    private @Nullable String privateIpAddress;
     /**
      * @return The ID of the Public IP Address associated with the firewall.
      * 
      */
-    private final String publicIpAddressId;
+    private String publicIpAddressId;
     /**
      * @return Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private FirewallManagementIpConfiguration(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("privateIpAddress") @Nullable String privateIpAddress,
-        @CustomType.Parameter("publicIpAddressId") String publicIpAddressId,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.name = name;
-        this.privateIpAddress = privateIpAddress;
-        this.publicIpAddressId = publicIpAddressId;
-        this.subnetId = subnetId;
-    }
-
+    private FirewallManagementIpConfiguration() {}
     /**
      * @return Specifies the name of the IP Configuration.
      * 
@@ -80,17 +69,13 @@ public final class FirewallManagementIpConfiguration {
     public static Builder builder(FirewallManagementIpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private @Nullable String privateIpAddress;
         private String publicIpAddressId;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallManagementIpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -99,23 +84,33 @@ public final class FirewallManagementIpConfiguration {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
             this.privateIpAddress = privateIpAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpAddressId(String publicIpAddressId) {
             this.publicIpAddressId = Objects.requireNonNull(publicIpAddressId);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public FirewallManagementIpConfiguration build() {
-            return new FirewallManagementIpConfiguration(name, privateIpAddress, publicIpAddressId, subnetId);
+        }
+        public FirewallManagementIpConfiguration build() {
+            final var o = new FirewallManagementIpConfiguration();
+            o.name = name;
+            o.privateIpAddress = privateIpAddress;
+            o.publicIpAddressId = publicIpAddressId;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

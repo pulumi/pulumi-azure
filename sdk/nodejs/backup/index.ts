@@ -10,6 +10,7 @@ export * from "./getPolicyFileshare";
 export * from "./getPolicyVM";
 export * from "./policyFileShare";
 export * from "./policyVM";
+export * from "./policyVMWorkload";
 export * from "./protectedFileShare";
 export * from "./protectedVM";
 
@@ -17,6 +18,7 @@ export * from "./protectedVM";
 import { ContainerStorageAccount } from "./containerStorageAccount";
 import { PolicyFileShare } from "./policyFileShare";
 import { PolicyVM } from "./policyVM";
+import { PolicyVMWorkload } from "./policyVMWorkload";
 import { ProtectedFileShare } from "./protectedFileShare";
 import { ProtectedVM } from "./protectedVM";
 
@@ -30,6 +32,8 @@ const _module = {
                 return new PolicyFileShare(name, <any>undefined, { urn })
             case "azure:backup/policyVM:PolicyVM":
                 return new PolicyVM(name, <any>undefined, { urn })
+            case "azure:backup/policyVMWorkload:PolicyVMWorkload":
+                return new PolicyVMWorkload(name, <any>undefined, { urn })
             case "azure:backup/protectedFileShare:ProtectedFileShare":
                 return new ProtectedFileShare(name, <any>undefined, { urn })
             case "azure:backup/protectedVM:ProtectedVM":
@@ -42,5 +46,6 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "backup/containerStorageAccount", _module)
 pulumi.runtime.registerResourceModule("azure", "backup/policyFileShare", _module)
 pulumi.runtime.registerResourceModule("azure", "backup/policyVM", _module)
+pulumi.runtime.registerResourceModule("azure", "backup/policyVMWorkload", _module)
 pulumi.runtime.registerResourceModule("azure", "backup/protectedFileShare", _module)
 pulumi.runtime.registerResourceModule("azure", "backup/protectedVM", _module)

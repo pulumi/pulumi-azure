@@ -15,21 +15,14 @@ public final class GalleryApplicationVersionSource {
      * @return The Storage Blob URI of the default configuration. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String defaultConfigurationLink;
+    private @Nullable String defaultConfigurationLink;
     /**
      * @return The Storage Blob URI of the source application package. Changing this forces a new resource to be created.
      * 
      */
-    private final String mediaLink;
+    private String mediaLink;
 
-    @CustomType.Constructor
-    private GalleryApplicationVersionSource(
-        @CustomType.Parameter("defaultConfigurationLink") @Nullable String defaultConfigurationLink,
-        @CustomType.Parameter("mediaLink") String mediaLink) {
-        this.defaultConfigurationLink = defaultConfigurationLink;
-        this.mediaLink = mediaLink;
-    }
-
+    private GalleryApplicationVersionSource() {}
     /**
      * @return The Storage Blob URI of the default configuration. Changing this forces a new resource to be created.
      * 
@@ -52,30 +45,32 @@ public final class GalleryApplicationVersionSource {
     public static Builder builder(GalleryApplicationVersionSource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String defaultConfigurationLink;
         private String mediaLink;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GalleryApplicationVersionSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultConfigurationLink = defaults.defaultConfigurationLink;
     	      this.mediaLink = defaults.mediaLink;
         }
 
+        @CustomType.Setter
         public Builder defaultConfigurationLink(@Nullable String defaultConfigurationLink) {
             this.defaultConfigurationLink = defaultConfigurationLink;
             return this;
         }
+        @CustomType.Setter
         public Builder mediaLink(String mediaLink) {
             this.mediaLink = Objects.requireNonNull(mediaLink);
             return this;
-        }        public GalleryApplicationVersionSource build() {
-            return new GalleryApplicationVersionSource(defaultConfigurationLink, mediaLink);
+        }
+        public GalleryApplicationVersionSource build() {
+            final var o = new GalleryApplicationVersionSource();
+            o.defaultConfigurationLink = defaultConfigurationLink;
+            o.mediaLink = mediaLink;
+            return o;
         }
     }
 }

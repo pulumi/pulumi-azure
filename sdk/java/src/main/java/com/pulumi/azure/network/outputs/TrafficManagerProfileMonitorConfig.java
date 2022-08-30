@@ -18,63 +18,44 @@ public final class TrafficManagerProfileMonitorConfig {
      * @return One or more `custom_header` blocks as defined below.
      * 
      */
-    private final @Nullable List<TrafficManagerProfileMonitorConfigCustomHeader> customHeaders;
+    private @Nullable List<TrafficManagerProfileMonitorConfigCustomHeader> customHeaders;
     /**
      * @return A list of status code ranges in the format of `100-101`.
      * 
      */
-    private final @Nullable List<String> expectedStatusCodeRanges;
+    private @Nullable List<String> expectedStatusCodeRanges;
     /**
      * @return The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
      * 
      */
-    private final @Nullable Integer intervalInSeconds;
+    private @Nullable Integer intervalInSeconds;
     /**
      * @return The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
      * 
      */
-    private final @Nullable String path;
+    private @Nullable String path;
     /**
      * @return The port number used by the monitoring checks.
      * 
      */
-    private final Integer port;
+    private Integer port;
     /**
      * @return The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
      * 
      */
-    private final String protocol;
+    private String protocol;
     /**
      * @return The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If `interval_in_seconds` is set to `30`, then `timeout_in_seconds` can be between `5` and `10`. The default value is `10`. If `interval_in_seconds` is set to `10`, then valid values are between `5` and `9` and `timeout_in_seconds` is required.
      * 
      */
-    private final @Nullable Integer timeoutInSeconds;
+    private @Nullable Integer timeoutInSeconds;
     /**
      * @return The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between `0` and `9`. The default value is `3`
      * 
      */
-    private final @Nullable Integer toleratedNumberOfFailures;
+    private @Nullable Integer toleratedNumberOfFailures;
 
-    @CustomType.Constructor
-    private TrafficManagerProfileMonitorConfig(
-        @CustomType.Parameter("customHeaders") @Nullable List<TrafficManagerProfileMonitorConfigCustomHeader> customHeaders,
-        @CustomType.Parameter("expectedStatusCodeRanges") @Nullable List<String> expectedStatusCodeRanges,
-        @CustomType.Parameter("intervalInSeconds") @Nullable Integer intervalInSeconds,
-        @CustomType.Parameter("path") @Nullable String path,
-        @CustomType.Parameter("port") Integer port,
-        @CustomType.Parameter("protocol") String protocol,
-        @CustomType.Parameter("timeoutInSeconds") @Nullable Integer timeoutInSeconds,
-        @CustomType.Parameter("toleratedNumberOfFailures") @Nullable Integer toleratedNumberOfFailures) {
-        this.customHeaders = customHeaders;
-        this.expectedStatusCodeRanges = expectedStatusCodeRanges;
-        this.intervalInSeconds = intervalInSeconds;
-        this.path = path;
-        this.port = port;
-        this.protocol = protocol;
-        this.timeoutInSeconds = timeoutInSeconds;
-        this.toleratedNumberOfFailures = toleratedNumberOfFailures;
-    }
-
+    private TrafficManagerProfileMonitorConfig() {}
     /**
      * @return One or more `custom_header` blocks as defined below.
      * 
@@ -139,7 +120,7 @@ public final class TrafficManagerProfileMonitorConfig {
     public static Builder builder(TrafficManagerProfileMonitorConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<TrafficManagerProfileMonitorConfigCustomHeader> customHeaders;
         private @Nullable List<String> expectedStatusCodeRanges;
@@ -149,11 +130,7 @@ public final class TrafficManagerProfileMonitorConfig {
         private String protocol;
         private @Nullable Integer timeoutInSeconds;
         private @Nullable Integer toleratedNumberOfFailures;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TrafficManagerProfileMonitorConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customHeaders = defaults.customHeaders;
@@ -166,6 +143,7 @@ public final class TrafficManagerProfileMonitorConfig {
     	      this.toleratedNumberOfFailures = defaults.toleratedNumberOfFailures;
         }
 
+        @CustomType.Setter
         public Builder customHeaders(@Nullable List<TrafficManagerProfileMonitorConfigCustomHeader> customHeaders) {
             this.customHeaders = customHeaders;
             return this;
@@ -173,6 +151,7 @@ public final class TrafficManagerProfileMonitorConfig {
         public Builder customHeaders(TrafficManagerProfileMonitorConfigCustomHeader... customHeaders) {
             return customHeaders(List.of(customHeaders));
         }
+        @CustomType.Setter
         public Builder expectedStatusCodeRanges(@Nullable List<String> expectedStatusCodeRanges) {
             this.expectedStatusCodeRanges = expectedStatusCodeRanges;
             return this;
@@ -180,31 +159,47 @@ public final class TrafficManagerProfileMonitorConfig {
         public Builder expectedStatusCodeRanges(String... expectedStatusCodeRanges) {
             return expectedStatusCodeRanges(List.of(expectedStatusCodeRanges));
         }
+        @CustomType.Setter
         public Builder intervalInSeconds(@Nullable Integer intervalInSeconds) {
             this.intervalInSeconds = intervalInSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
         }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
         }
+        @CustomType.Setter
         public Builder timeoutInSeconds(@Nullable Integer timeoutInSeconds) {
             this.timeoutInSeconds = timeoutInSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder toleratedNumberOfFailures(@Nullable Integer toleratedNumberOfFailures) {
             this.toleratedNumberOfFailures = toleratedNumberOfFailures;
             return this;
-        }        public TrafficManagerProfileMonitorConfig build() {
-            return new TrafficManagerProfileMonitorConfig(customHeaders, expectedStatusCodeRanges, intervalInSeconds, path, port, protocol, timeoutInSeconds, toleratedNumberOfFailures);
+        }
+        public TrafficManagerProfileMonitorConfig build() {
+            final var o = new TrafficManagerProfileMonitorConfig();
+            o.customHeaders = customHeaders;
+            o.expectedStatusCodeRanges = expectedStatusCodeRanges;
+            o.intervalInSeconds = intervalInSeconds;
+            o.path = path;
+            o.port = port;
+            o.protocol = protocol;
+            o.timeoutInSeconds = timeoutInSeconds;
+            o.toleratedNumberOfFailures = toleratedNumberOfFailures;
+            return o;
         }
     }
 }

@@ -45,7 +45,7 @@ namespace Pulumi.Azure.ServiceBus
     /// Service Bus Namespace can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:servicebus/namespace:Namespace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1
+    ///  $ pulumi import azure:servicebus/namespace:Namespace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceBus/namespaces/sbns1
     /// ```
     /// </summary>
     [AzureResourceType("azure:servicebus/namespace:Namespace")]

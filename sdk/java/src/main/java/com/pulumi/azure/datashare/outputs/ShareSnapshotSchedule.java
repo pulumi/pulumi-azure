@@ -13,28 +13,19 @@ public final class ShareSnapshotSchedule {
      * @return The name of the snapshot schedule.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The interval of the synchronization with the source data. Possible values are `Hour` and `Day`.
      * 
      */
-    private final String recurrence;
+    private String recurrence;
     /**
      * @return The synchronization with the source data&#39;s start time.
      * 
      */
-    private final String startTime;
+    private String startTime;
 
-    @CustomType.Constructor
-    private ShareSnapshotSchedule(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("recurrence") String recurrence,
-        @CustomType.Parameter("startTime") String startTime) {
-        this.name = name;
-        this.recurrence = recurrence;
-        this.startTime = startTime;
-    }
-
+    private ShareSnapshotSchedule() {}
     /**
      * @return The name of the snapshot schedule.
      * 
@@ -64,16 +55,12 @@ public final class ShareSnapshotSchedule {
     public static Builder builder(ShareSnapshotSchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String recurrence;
         private String startTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ShareSnapshotSchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -81,19 +68,27 @@ public final class ShareSnapshotSchedule {
     	      this.startTime = defaults.startTime;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder recurrence(String recurrence) {
             this.recurrence = Objects.requireNonNull(recurrence);
             return this;
         }
+        @CustomType.Setter
         public Builder startTime(String startTime) {
             this.startTime = Objects.requireNonNull(startTime);
             return this;
-        }        public ShareSnapshotSchedule build() {
-            return new ShareSnapshotSchedule(name, recurrence, startTime);
+        }
+        public ShareSnapshotSchedule build() {
+            final var o = new ShareSnapshotSchedule();
+            o.name = name;
+            o.recurrence = recurrence;
+            o.startTime = startTime;
+            return o;
         }
     }
 }

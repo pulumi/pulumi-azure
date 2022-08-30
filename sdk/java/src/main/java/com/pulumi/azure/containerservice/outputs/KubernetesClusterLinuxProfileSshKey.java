@@ -13,13 +13,9 @@ public final class KubernetesClusterLinuxProfileSshKey {
      * @return The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
      * 
      */
-    private final String keyData;
+    private String keyData;
 
-    @CustomType.Constructor
-    private KubernetesClusterLinuxProfileSshKey(@CustomType.Parameter("keyData") String keyData) {
-        this.keyData = keyData;
-    }
-
+    private KubernetesClusterLinuxProfileSshKey() {}
     /**
      * @return The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
      * 
@@ -35,24 +31,24 @@ public final class KubernetesClusterLinuxProfileSshKey {
     public static Builder builder(KubernetesClusterLinuxProfileSshKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String keyData;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KubernetesClusterLinuxProfileSshKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyData = defaults.keyData;
         }
 
+        @CustomType.Setter
         public Builder keyData(String keyData) {
             this.keyData = Objects.requireNonNull(keyData);
             return this;
-        }        public KubernetesClusterLinuxProfileSshKey build() {
-            return new KubernetesClusterLinuxProfileSshKey(keyData);
+        }
+        public KubernetesClusterLinuxProfileSshKey build() {
+            final var o = new KubernetesClusterLinuxProfileSshKey();
+            o.keyData = keyData;
+            return o;
         }
     }
 }

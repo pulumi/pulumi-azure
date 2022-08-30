@@ -13,21 +13,14 @@ public final class DataCollectionRuleDestinationsLogAnalytic {
      * @return The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The ID of a Log Analytic Workspace resource.
      * 
      */
-    private final String workspaceResourceId;
+    private String workspaceResourceId;
 
-    @CustomType.Constructor
-    private DataCollectionRuleDestinationsLogAnalytic(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("workspaceResourceId") String workspaceResourceId) {
-        this.name = name;
-        this.workspaceResourceId = workspaceResourceId;
-    }
-
+    private DataCollectionRuleDestinationsLogAnalytic() {}
     /**
      * @return The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
      * 
@@ -50,30 +43,32 @@ public final class DataCollectionRuleDestinationsLogAnalytic {
     public static Builder builder(DataCollectionRuleDestinationsLogAnalytic defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String workspaceResourceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataCollectionRuleDestinationsLogAnalytic defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.workspaceResourceId = defaults.workspaceResourceId;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder workspaceResourceId(String workspaceResourceId) {
             this.workspaceResourceId = Objects.requireNonNull(workspaceResourceId);
             return this;
-        }        public DataCollectionRuleDestinationsLogAnalytic build() {
-            return new DataCollectionRuleDestinationsLogAnalytic(name, workspaceResourceId);
+        }
+        public DataCollectionRuleDestinationsLogAnalytic build() {
+            final var o = new DataCollectionRuleDestinationsLogAnalytic();
+            o.name = name;
+            o.workspaceResourceId = workspaceResourceId;
+            return o;
         }
     }
 }

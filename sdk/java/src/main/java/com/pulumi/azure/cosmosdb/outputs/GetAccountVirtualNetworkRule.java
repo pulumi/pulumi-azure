@@ -13,13 +13,9 @@ public final class GetAccountVirtualNetworkRule {
      * @return The ID of the virtual network subnet.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetAccountVirtualNetworkRule(@CustomType.Parameter("id") String id) {
-        this.id = id;
-    }
-
+    private GetAccountVirtualNetworkRule() {}
     /**
      * @return The ID of the virtual network subnet.
      * 
@@ -35,24 +31,24 @@ public final class GetAccountVirtualNetworkRule {
     public static Builder builder(GetAccountVirtualNetworkRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccountVirtualNetworkRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetAccountVirtualNetworkRule build() {
-            return new GetAccountVirtualNetworkRule(id);
+        }
+        public GetAccountVirtualNetworkRule build() {
+            final var o = new GetAccountVirtualNetworkRule();
+            o.id = id;
+            return o;
         }
     }
 }

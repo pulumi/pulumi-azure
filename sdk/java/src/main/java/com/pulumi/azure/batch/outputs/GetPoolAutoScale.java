@@ -13,21 +13,14 @@ public final class GetPoolAutoScale {
      * @return The interval to wait before evaluating if the pool needs to be scaled.
      * 
      */
-    private final String evaluationInterval;
+    private String evaluationInterval;
     /**
      * @return The autoscale formula that needs to be used for scaling the Batch pool.
      * 
      */
-    private final String formula;
+    private String formula;
 
-    @CustomType.Constructor
-    private GetPoolAutoScale(
-        @CustomType.Parameter("evaluationInterval") String evaluationInterval,
-        @CustomType.Parameter("formula") String formula) {
-        this.evaluationInterval = evaluationInterval;
-        this.formula = formula;
-    }
-
+    private GetPoolAutoScale() {}
     /**
      * @return The interval to wait before evaluating if the pool needs to be scaled.
      * 
@@ -50,30 +43,32 @@ public final class GetPoolAutoScale {
     public static Builder builder(GetPoolAutoScale defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String evaluationInterval;
         private String formula;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPoolAutoScale defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.evaluationInterval = defaults.evaluationInterval;
     	      this.formula = defaults.formula;
         }
 
+        @CustomType.Setter
         public Builder evaluationInterval(String evaluationInterval) {
             this.evaluationInterval = Objects.requireNonNull(evaluationInterval);
             return this;
         }
+        @CustomType.Setter
         public Builder formula(String formula) {
             this.formula = Objects.requireNonNull(formula);
             return this;
-        }        public GetPoolAutoScale build() {
-            return new GetPoolAutoScale(evaluationInterval, formula);
+        }
+        public GetPoolAutoScale build() {
+            final var o = new GetPoolAutoScale();
+            o.evaluationInterval = evaluationInterval;
+            o.formula = formula;
+            return o;
         }
     }
 }

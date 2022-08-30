@@ -17,21 +17,14 @@ public final class AutoscaleSettingNotification {
      * @return A `email` block as defined below.
      * 
      */
-    private final @Nullable AutoscaleSettingNotificationEmail email;
+    private @Nullable AutoscaleSettingNotificationEmail email;
     /**
      * @return One or more `webhook` blocks as defined below.
      * 
      */
-    private final @Nullable List<AutoscaleSettingNotificationWebhook> webhooks;
+    private @Nullable List<AutoscaleSettingNotificationWebhook> webhooks;
 
-    @CustomType.Constructor
-    private AutoscaleSettingNotification(
-        @CustomType.Parameter("email") @Nullable AutoscaleSettingNotificationEmail email,
-        @CustomType.Parameter("webhooks") @Nullable List<AutoscaleSettingNotificationWebhook> webhooks) {
-        this.email = email;
-        this.webhooks = webhooks;
-    }
-
+    private AutoscaleSettingNotification() {}
     /**
      * @return A `email` block as defined below.
      * 
@@ -54,33 +47,35 @@ public final class AutoscaleSettingNotification {
     public static Builder builder(AutoscaleSettingNotification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable AutoscaleSettingNotificationEmail email;
         private @Nullable List<AutoscaleSettingNotificationWebhook> webhooks;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AutoscaleSettingNotification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.email = defaults.email;
     	      this.webhooks = defaults.webhooks;
         }
 
+        @CustomType.Setter
         public Builder email(@Nullable AutoscaleSettingNotificationEmail email) {
             this.email = email;
             return this;
         }
+        @CustomType.Setter
         public Builder webhooks(@Nullable List<AutoscaleSettingNotificationWebhook> webhooks) {
             this.webhooks = webhooks;
             return this;
         }
         public Builder webhooks(AutoscaleSettingNotificationWebhook... webhooks) {
             return webhooks(List.of(webhooks));
-        }        public AutoscaleSettingNotification build() {
-            return new AutoscaleSettingNotification(email, webhooks);
+        }
+        public AutoscaleSettingNotification build() {
+            final var o = new AutoscaleSettingNotification();
+            o.email = email;
+            o.webhooks = webhooks;
+            return o;
         }
     }
 }

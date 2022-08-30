@@ -21,90 +21,61 @@ public final class GetDomainResult {
      * @return The Endpoint associated with the EventGrid Domain.
      * 
      */
-    private final String endpoint;
+    private String endpoint;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return One or more `inbound_ip_rule` blocks as defined below.
      * 
      */
-    private final @Nullable List<GetDomainInboundIpRule> inboundIpRules;
+    private @Nullable List<GetDomainInboundIpRule> inboundIpRules;
     /**
      * @return A `input_mapping_default_values` block as defined below.
      * 
      */
-    private final List<GetDomainInputMappingDefaultValue> inputMappingDefaultValues;
+    private List<GetDomainInputMappingDefaultValue> inputMappingDefaultValues;
     /**
      * @return A `input_mapping_fields` block as defined below.
      * 
      */
-    private final List<GetDomainInputMappingField> inputMappingFields;
+    private List<GetDomainInputMappingField> inputMappingFields;
     /**
      * @return The schema in which incoming events will be published to this domain. Possible values are `CloudEventSchemaV1_0`, `CustomEventSchema`, or `EventGridSchema`.
      * 
      */
-    private final String inputSchema;
+    private String inputSchema;
     /**
      * @return The Azure Region in which this EventGrid Domain exists.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return The primary access key associated with the EventGrid Domain.
      * 
      */
-    private final String primaryAccessKey;
+    private String primaryAccessKey;
     /**
      * @return Whether or not public network access is allowed for this server.
      * 
      */
-    private final @Nullable Boolean publicNetworkAccessEnabled;
-    private final String resourceGroupName;
+    private @Nullable Boolean publicNetworkAccessEnabled;
+    private String resourceGroupName;
     /**
      * @return The secondary access key associated with the EventGrid Domain.
      * 
      */
-    private final String secondaryAccessKey;
+    private String secondaryAccessKey;
     /**
      * @return A mapping of tags assigned to the EventGrid Domain.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetDomainResult(
-        @CustomType.Parameter("endpoint") String endpoint,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("inboundIpRules") @Nullable List<GetDomainInboundIpRule> inboundIpRules,
-        @CustomType.Parameter("inputMappingDefaultValues") List<GetDomainInputMappingDefaultValue> inputMappingDefaultValues,
-        @CustomType.Parameter("inputMappingFields") List<GetDomainInputMappingField> inputMappingFields,
-        @CustomType.Parameter("inputSchema") String inputSchema,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("primaryAccessKey") String primaryAccessKey,
-        @CustomType.Parameter("publicNetworkAccessEnabled") @Nullable Boolean publicNetworkAccessEnabled,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("secondaryAccessKey") String secondaryAccessKey,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.endpoint = endpoint;
-        this.id = id;
-        this.inboundIpRules = inboundIpRules;
-        this.inputMappingDefaultValues = inputMappingDefaultValues;
-        this.inputMappingFields = inputMappingFields;
-        this.inputSchema = inputSchema;
-        this.location = location;
-        this.name = name;
-        this.primaryAccessKey = primaryAccessKey;
-        this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-        this.resourceGroupName = resourceGroupName;
-        this.secondaryAccessKey = secondaryAccessKey;
-        this.tags = tags;
-    }
-
+    private GetDomainResult() {}
     /**
      * @return The Endpoint associated with the EventGrid Domain.
      * 
@@ -196,7 +167,7 @@ public final class GetDomainResult {
     public static Builder builder(GetDomainResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String endpoint;
         private String id;
@@ -211,11 +182,7 @@ public final class GetDomainResult {
         private String resourceGroupName;
         private String secondaryAccessKey;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDomainResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpoint = defaults.endpoint;
@@ -233,14 +200,17 @@ public final class GetDomainResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder endpoint(String endpoint) {
             this.endpoint = Objects.requireNonNull(endpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder inboundIpRules(@Nullable List<GetDomainInboundIpRule> inboundIpRules) {
             this.inboundIpRules = inboundIpRules;
             return this;
@@ -248,6 +218,7 @@ public final class GetDomainResult {
         public Builder inboundIpRules(GetDomainInboundIpRule... inboundIpRules) {
             return inboundIpRules(List.of(inboundIpRules));
         }
+        @CustomType.Setter
         public Builder inputMappingDefaultValues(List<GetDomainInputMappingDefaultValue> inputMappingDefaultValues) {
             this.inputMappingDefaultValues = Objects.requireNonNull(inputMappingDefaultValues);
             return this;
@@ -255,6 +226,7 @@ public final class GetDomainResult {
         public Builder inputMappingDefaultValues(GetDomainInputMappingDefaultValue... inputMappingDefaultValues) {
             return inputMappingDefaultValues(List.of(inputMappingDefaultValues));
         }
+        @CustomType.Setter
         public Builder inputMappingFields(List<GetDomainInputMappingField> inputMappingFields) {
             this.inputMappingFields = Objects.requireNonNull(inputMappingFields);
             return this;
@@ -262,39 +234,62 @@ public final class GetDomainResult {
         public Builder inputMappingFields(GetDomainInputMappingField... inputMappingFields) {
             return inputMappingFields(List.of(inputMappingFields));
         }
+        @CustomType.Setter
         public Builder inputSchema(String inputSchema) {
             this.inputSchema = Objects.requireNonNull(inputSchema);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryAccessKey(String primaryAccessKey) {
             this.primaryAccessKey = Objects.requireNonNull(primaryAccessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder publicNetworkAccessEnabled(@Nullable Boolean publicNetworkAccessEnabled) {
             this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryAccessKey(String secondaryAccessKey) {
             this.secondaryAccessKey = Objects.requireNonNull(secondaryAccessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public GetDomainResult build() {
-            return new GetDomainResult(endpoint, id, inboundIpRules, inputMappingDefaultValues, inputMappingFields, inputSchema, location, name, primaryAccessKey, publicNetworkAccessEnabled, resourceGroupName, secondaryAccessKey, tags);
+        }
+        public GetDomainResult build() {
+            final var o = new GetDomainResult();
+            o.endpoint = endpoint;
+            o.id = id;
+            o.inboundIpRules = inboundIpRules;
+            o.inputMappingDefaultValues = inputMappingDefaultValues;
+            o.inputMappingFields = inputMappingFields;
+            o.inputSchema = inputSchema;
+            o.location = location;
+            o.name = name;
+            o.primaryAccessKey = primaryAccessKey;
+            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            o.resourceGroupName = resourceGroupName;
+            o.secondaryAccessKey = secondaryAccessKey;
+            o.tags = tags;
+            return o;
         }
     }
 }

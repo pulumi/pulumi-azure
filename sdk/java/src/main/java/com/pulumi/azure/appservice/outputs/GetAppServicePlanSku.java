@@ -14,28 +14,19 @@ public final class GetAppServicePlanSku {
      * @return Specifies the number of workers associated with this App Service Plan.
      * 
      */
-    private final Integer capacity;
+    private Integer capacity;
     /**
      * @return Specifies the plan&#39;s instance size.
      * 
      */
-    private final String size;
+    private String size;
     /**
      * @return Specifies the plan&#39;s pricing tier.
      * 
      */
-    private final String tier;
+    private String tier;
 
-    @CustomType.Constructor
-    private GetAppServicePlanSku(
-        @CustomType.Parameter("capacity") Integer capacity,
-        @CustomType.Parameter("size") String size,
-        @CustomType.Parameter("tier") String tier) {
-        this.capacity = capacity;
-        this.size = size;
-        this.tier = tier;
-    }
-
+    private GetAppServicePlanSku() {}
     /**
      * @return Specifies the number of workers associated with this App Service Plan.
      * 
@@ -65,16 +56,12 @@ public final class GetAppServicePlanSku {
     public static Builder builder(GetAppServicePlanSku defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer capacity;
         private String size;
         private String tier;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAppServicePlanSku defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacity = defaults.capacity;
@@ -82,19 +69,27 @@ public final class GetAppServicePlanSku {
     	      this.tier = defaults.tier;
         }
 
+        @CustomType.Setter
         public Builder capacity(Integer capacity) {
             this.capacity = Objects.requireNonNull(capacity);
             return this;
         }
+        @CustomType.Setter
         public Builder size(String size) {
             this.size = Objects.requireNonNull(size);
             return this;
         }
+        @CustomType.Setter
         public Builder tier(String tier) {
             this.tier = Objects.requireNonNull(tier);
             return this;
-        }        public GetAppServicePlanSku build() {
-            return new GetAppServicePlanSku(capacity, size, tier);
+        }
+        public GetAppServicePlanSku build() {
+            final var o = new GetAppServicePlanSku();
+            o.capacity = capacity;
+            o.size = size;
+            o.tier = tier;
+            return o;
         }
     }
 }
