@@ -271,7 +271,6 @@ func boolValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []stri
 func arrayValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) []string {
 	val, ok := vars[prop]
 	var vals []string
-	fmt.Println(vals)
 	if ok && val.IsArray() {
 		for _, v := range val.ArrayValue() {
 			vals = append(vals, v.StringValue())
