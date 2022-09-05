@@ -10,6 +10,749 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AlertRuleNrtAlertDetailsOverride struct {
+	// The format containing columns name(s) to override the description of this Sentinel Alert Rule.
+	DescriptionFormat *string `pulumi:"descriptionFormat"`
+	// The format containing columns name(s) to override the name of this Sentinel Alert Rule.
+	DisplayNameFormat *string `pulumi:"displayNameFormat"`
+	// The column name to take the alert severity from.
+	SeverityColumnName *string `pulumi:"severityColumnName"`
+	// The column name to take the alert tactics from.
+	TacticsColumnName *string `pulumi:"tacticsColumnName"`
+}
+
+// AlertRuleNrtAlertDetailsOverrideInput is an input type that accepts AlertRuleNrtAlertDetailsOverrideArgs and AlertRuleNrtAlertDetailsOverrideOutput values.
+// You can construct a concrete instance of `AlertRuleNrtAlertDetailsOverrideInput` via:
+//
+//	AlertRuleNrtAlertDetailsOverrideArgs{...}
+type AlertRuleNrtAlertDetailsOverrideInput interface {
+	pulumi.Input
+
+	ToAlertRuleNrtAlertDetailsOverrideOutput() AlertRuleNrtAlertDetailsOverrideOutput
+	ToAlertRuleNrtAlertDetailsOverrideOutputWithContext(context.Context) AlertRuleNrtAlertDetailsOverrideOutput
+}
+
+type AlertRuleNrtAlertDetailsOverrideArgs struct {
+	// The format containing columns name(s) to override the description of this Sentinel Alert Rule.
+	DescriptionFormat pulumi.StringPtrInput `pulumi:"descriptionFormat"`
+	// The format containing columns name(s) to override the name of this Sentinel Alert Rule.
+	DisplayNameFormat pulumi.StringPtrInput `pulumi:"displayNameFormat"`
+	// The column name to take the alert severity from.
+	SeverityColumnName pulumi.StringPtrInput `pulumi:"severityColumnName"`
+	// The column name to take the alert tactics from.
+	TacticsColumnName pulumi.StringPtrInput `pulumi:"tacticsColumnName"`
+}
+
+func (AlertRuleNrtAlertDetailsOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleNrtAlertDetailsOverride)(nil)).Elem()
+}
+
+func (i AlertRuleNrtAlertDetailsOverrideArgs) ToAlertRuleNrtAlertDetailsOverrideOutput() AlertRuleNrtAlertDetailsOverrideOutput {
+	return i.ToAlertRuleNrtAlertDetailsOverrideOutputWithContext(context.Background())
+}
+
+func (i AlertRuleNrtAlertDetailsOverrideArgs) ToAlertRuleNrtAlertDetailsOverrideOutputWithContext(ctx context.Context) AlertRuleNrtAlertDetailsOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtAlertDetailsOverrideOutput)
+}
+
+// AlertRuleNrtAlertDetailsOverrideArrayInput is an input type that accepts AlertRuleNrtAlertDetailsOverrideArray and AlertRuleNrtAlertDetailsOverrideArrayOutput values.
+// You can construct a concrete instance of `AlertRuleNrtAlertDetailsOverrideArrayInput` via:
+//
+//	AlertRuleNrtAlertDetailsOverrideArray{ AlertRuleNrtAlertDetailsOverrideArgs{...} }
+type AlertRuleNrtAlertDetailsOverrideArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleNrtAlertDetailsOverrideArrayOutput() AlertRuleNrtAlertDetailsOverrideArrayOutput
+	ToAlertRuleNrtAlertDetailsOverrideArrayOutputWithContext(context.Context) AlertRuleNrtAlertDetailsOverrideArrayOutput
+}
+
+type AlertRuleNrtAlertDetailsOverrideArray []AlertRuleNrtAlertDetailsOverrideInput
+
+func (AlertRuleNrtAlertDetailsOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleNrtAlertDetailsOverride)(nil)).Elem()
+}
+
+func (i AlertRuleNrtAlertDetailsOverrideArray) ToAlertRuleNrtAlertDetailsOverrideArrayOutput() AlertRuleNrtAlertDetailsOverrideArrayOutput {
+	return i.ToAlertRuleNrtAlertDetailsOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleNrtAlertDetailsOverrideArray) ToAlertRuleNrtAlertDetailsOverrideArrayOutputWithContext(ctx context.Context) AlertRuleNrtAlertDetailsOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtAlertDetailsOverrideArrayOutput)
+}
+
+type AlertRuleNrtAlertDetailsOverrideOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleNrtAlertDetailsOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleNrtAlertDetailsOverride)(nil)).Elem()
+}
+
+func (o AlertRuleNrtAlertDetailsOverrideOutput) ToAlertRuleNrtAlertDetailsOverrideOutput() AlertRuleNrtAlertDetailsOverrideOutput {
+	return o
+}
+
+func (o AlertRuleNrtAlertDetailsOverrideOutput) ToAlertRuleNrtAlertDetailsOverrideOutputWithContext(ctx context.Context) AlertRuleNrtAlertDetailsOverrideOutput {
+	return o
+}
+
+// The format containing columns name(s) to override the description of this Sentinel Alert Rule.
+func (o AlertRuleNrtAlertDetailsOverrideOutput) DescriptionFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleNrtAlertDetailsOverride) *string { return v.DescriptionFormat }).(pulumi.StringPtrOutput)
+}
+
+// The format containing columns name(s) to override the name of this Sentinel Alert Rule.
+func (o AlertRuleNrtAlertDetailsOverrideOutput) DisplayNameFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleNrtAlertDetailsOverride) *string { return v.DisplayNameFormat }).(pulumi.StringPtrOutput)
+}
+
+// The column name to take the alert severity from.
+func (o AlertRuleNrtAlertDetailsOverrideOutput) SeverityColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleNrtAlertDetailsOverride) *string { return v.SeverityColumnName }).(pulumi.StringPtrOutput)
+}
+
+// The column name to take the alert tactics from.
+func (o AlertRuleNrtAlertDetailsOverrideOutput) TacticsColumnName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleNrtAlertDetailsOverride) *string { return v.TacticsColumnName }).(pulumi.StringPtrOutput)
+}
+
+type AlertRuleNrtAlertDetailsOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleNrtAlertDetailsOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleNrtAlertDetailsOverride)(nil)).Elem()
+}
+
+func (o AlertRuleNrtAlertDetailsOverrideArrayOutput) ToAlertRuleNrtAlertDetailsOverrideArrayOutput() AlertRuleNrtAlertDetailsOverrideArrayOutput {
+	return o
+}
+
+func (o AlertRuleNrtAlertDetailsOverrideArrayOutput) ToAlertRuleNrtAlertDetailsOverrideArrayOutputWithContext(ctx context.Context) AlertRuleNrtAlertDetailsOverrideArrayOutput {
+	return o
+}
+
+func (o AlertRuleNrtAlertDetailsOverrideArrayOutput) Index(i pulumi.IntInput) AlertRuleNrtAlertDetailsOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleNrtAlertDetailsOverride {
+		return vs[0].([]AlertRuleNrtAlertDetailsOverride)[vs[1].(int)]
+	}).(AlertRuleNrtAlertDetailsOverrideOutput)
+}
+
+type AlertRuleNrtEntityMapping struct {
+	// The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+	EntityType string `pulumi:"entityType"`
+	// A list of `fieldMapping` blocks as defined below.
+	FieldMappings []AlertRuleNrtEntityMappingFieldMapping `pulumi:"fieldMappings"`
+}
+
+// AlertRuleNrtEntityMappingInput is an input type that accepts AlertRuleNrtEntityMappingArgs and AlertRuleNrtEntityMappingOutput values.
+// You can construct a concrete instance of `AlertRuleNrtEntityMappingInput` via:
+//
+//	AlertRuleNrtEntityMappingArgs{...}
+type AlertRuleNrtEntityMappingInput interface {
+	pulumi.Input
+
+	ToAlertRuleNrtEntityMappingOutput() AlertRuleNrtEntityMappingOutput
+	ToAlertRuleNrtEntityMappingOutputWithContext(context.Context) AlertRuleNrtEntityMappingOutput
+}
+
+type AlertRuleNrtEntityMappingArgs struct {
+	// The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+	EntityType pulumi.StringInput `pulumi:"entityType"`
+	// A list of `fieldMapping` blocks as defined below.
+	FieldMappings AlertRuleNrtEntityMappingFieldMappingArrayInput `pulumi:"fieldMappings"`
+}
+
+func (AlertRuleNrtEntityMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleNrtEntityMapping)(nil)).Elem()
+}
+
+func (i AlertRuleNrtEntityMappingArgs) ToAlertRuleNrtEntityMappingOutput() AlertRuleNrtEntityMappingOutput {
+	return i.ToAlertRuleNrtEntityMappingOutputWithContext(context.Background())
+}
+
+func (i AlertRuleNrtEntityMappingArgs) ToAlertRuleNrtEntityMappingOutputWithContext(ctx context.Context) AlertRuleNrtEntityMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtEntityMappingOutput)
+}
+
+// AlertRuleNrtEntityMappingArrayInput is an input type that accepts AlertRuleNrtEntityMappingArray and AlertRuleNrtEntityMappingArrayOutput values.
+// You can construct a concrete instance of `AlertRuleNrtEntityMappingArrayInput` via:
+//
+//	AlertRuleNrtEntityMappingArray{ AlertRuleNrtEntityMappingArgs{...} }
+type AlertRuleNrtEntityMappingArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleNrtEntityMappingArrayOutput() AlertRuleNrtEntityMappingArrayOutput
+	ToAlertRuleNrtEntityMappingArrayOutputWithContext(context.Context) AlertRuleNrtEntityMappingArrayOutput
+}
+
+type AlertRuleNrtEntityMappingArray []AlertRuleNrtEntityMappingInput
+
+func (AlertRuleNrtEntityMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleNrtEntityMapping)(nil)).Elem()
+}
+
+func (i AlertRuleNrtEntityMappingArray) ToAlertRuleNrtEntityMappingArrayOutput() AlertRuleNrtEntityMappingArrayOutput {
+	return i.ToAlertRuleNrtEntityMappingArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleNrtEntityMappingArray) ToAlertRuleNrtEntityMappingArrayOutputWithContext(ctx context.Context) AlertRuleNrtEntityMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtEntityMappingArrayOutput)
+}
+
+type AlertRuleNrtEntityMappingOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleNrtEntityMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleNrtEntityMapping)(nil)).Elem()
+}
+
+func (o AlertRuleNrtEntityMappingOutput) ToAlertRuleNrtEntityMappingOutput() AlertRuleNrtEntityMappingOutput {
+	return o
+}
+
+func (o AlertRuleNrtEntityMappingOutput) ToAlertRuleNrtEntityMappingOutputWithContext(ctx context.Context) AlertRuleNrtEntityMappingOutput {
+	return o
+}
+
+// The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+func (o AlertRuleNrtEntityMappingOutput) EntityType() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleNrtEntityMapping) string { return v.EntityType }).(pulumi.StringOutput)
+}
+
+// A list of `fieldMapping` blocks as defined below.
+func (o AlertRuleNrtEntityMappingOutput) FieldMappings() AlertRuleNrtEntityMappingFieldMappingArrayOutput {
+	return o.ApplyT(func(v AlertRuleNrtEntityMapping) []AlertRuleNrtEntityMappingFieldMapping { return v.FieldMappings }).(AlertRuleNrtEntityMappingFieldMappingArrayOutput)
+}
+
+type AlertRuleNrtEntityMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleNrtEntityMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleNrtEntityMapping)(nil)).Elem()
+}
+
+func (o AlertRuleNrtEntityMappingArrayOutput) ToAlertRuleNrtEntityMappingArrayOutput() AlertRuleNrtEntityMappingArrayOutput {
+	return o
+}
+
+func (o AlertRuleNrtEntityMappingArrayOutput) ToAlertRuleNrtEntityMappingArrayOutputWithContext(ctx context.Context) AlertRuleNrtEntityMappingArrayOutput {
+	return o
+}
+
+func (o AlertRuleNrtEntityMappingArrayOutput) Index(i pulumi.IntInput) AlertRuleNrtEntityMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleNrtEntityMapping {
+		return vs[0].([]AlertRuleNrtEntityMapping)[vs[1].(int)]
+	}).(AlertRuleNrtEntityMappingOutput)
+}
+
+type AlertRuleNrtEntityMappingFieldMapping struct {
+	// The column name to be mapped to the identifier.
+	ColumnName string `pulumi:"columnName"`
+	// The identifier of the entity.
+	Identifier string `pulumi:"identifier"`
+}
+
+// AlertRuleNrtEntityMappingFieldMappingInput is an input type that accepts AlertRuleNrtEntityMappingFieldMappingArgs and AlertRuleNrtEntityMappingFieldMappingOutput values.
+// You can construct a concrete instance of `AlertRuleNrtEntityMappingFieldMappingInput` via:
+//
+//	AlertRuleNrtEntityMappingFieldMappingArgs{...}
+type AlertRuleNrtEntityMappingFieldMappingInput interface {
+	pulumi.Input
+
+	ToAlertRuleNrtEntityMappingFieldMappingOutput() AlertRuleNrtEntityMappingFieldMappingOutput
+	ToAlertRuleNrtEntityMappingFieldMappingOutputWithContext(context.Context) AlertRuleNrtEntityMappingFieldMappingOutput
+}
+
+type AlertRuleNrtEntityMappingFieldMappingArgs struct {
+	// The column name to be mapped to the identifier.
+	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	// The identifier of the entity.
+	Identifier pulumi.StringInput `pulumi:"identifier"`
+}
+
+func (AlertRuleNrtEntityMappingFieldMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleNrtEntityMappingFieldMapping)(nil)).Elem()
+}
+
+func (i AlertRuleNrtEntityMappingFieldMappingArgs) ToAlertRuleNrtEntityMappingFieldMappingOutput() AlertRuleNrtEntityMappingFieldMappingOutput {
+	return i.ToAlertRuleNrtEntityMappingFieldMappingOutputWithContext(context.Background())
+}
+
+func (i AlertRuleNrtEntityMappingFieldMappingArgs) ToAlertRuleNrtEntityMappingFieldMappingOutputWithContext(ctx context.Context) AlertRuleNrtEntityMappingFieldMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtEntityMappingFieldMappingOutput)
+}
+
+// AlertRuleNrtEntityMappingFieldMappingArrayInput is an input type that accepts AlertRuleNrtEntityMappingFieldMappingArray and AlertRuleNrtEntityMappingFieldMappingArrayOutput values.
+// You can construct a concrete instance of `AlertRuleNrtEntityMappingFieldMappingArrayInput` via:
+//
+//	AlertRuleNrtEntityMappingFieldMappingArray{ AlertRuleNrtEntityMappingFieldMappingArgs{...} }
+type AlertRuleNrtEntityMappingFieldMappingArrayInput interface {
+	pulumi.Input
+
+	ToAlertRuleNrtEntityMappingFieldMappingArrayOutput() AlertRuleNrtEntityMappingFieldMappingArrayOutput
+	ToAlertRuleNrtEntityMappingFieldMappingArrayOutputWithContext(context.Context) AlertRuleNrtEntityMappingFieldMappingArrayOutput
+}
+
+type AlertRuleNrtEntityMappingFieldMappingArray []AlertRuleNrtEntityMappingFieldMappingInput
+
+func (AlertRuleNrtEntityMappingFieldMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleNrtEntityMappingFieldMapping)(nil)).Elem()
+}
+
+func (i AlertRuleNrtEntityMappingFieldMappingArray) ToAlertRuleNrtEntityMappingFieldMappingArrayOutput() AlertRuleNrtEntityMappingFieldMappingArrayOutput {
+	return i.ToAlertRuleNrtEntityMappingFieldMappingArrayOutputWithContext(context.Background())
+}
+
+func (i AlertRuleNrtEntityMappingFieldMappingArray) ToAlertRuleNrtEntityMappingFieldMappingArrayOutputWithContext(ctx context.Context) AlertRuleNrtEntityMappingFieldMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtEntityMappingFieldMappingArrayOutput)
+}
+
+type AlertRuleNrtEntityMappingFieldMappingOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleNrtEntityMappingFieldMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleNrtEntityMappingFieldMapping)(nil)).Elem()
+}
+
+func (o AlertRuleNrtEntityMappingFieldMappingOutput) ToAlertRuleNrtEntityMappingFieldMappingOutput() AlertRuleNrtEntityMappingFieldMappingOutput {
+	return o
+}
+
+func (o AlertRuleNrtEntityMappingFieldMappingOutput) ToAlertRuleNrtEntityMappingFieldMappingOutputWithContext(ctx context.Context) AlertRuleNrtEntityMappingFieldMappingOutput {
+	return o
+}
+
+// The column name to be mapped to the identifier.
+func (o AlertRuleNrtEntityMappingFieldMappingOutput) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleNrtEntityMappingFieldMapping) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+// The identifier of the entity.
+func (o AlertRuleNrtEntityMappingFieldMappingOutput) Identifier() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertRuleNrtEntityMappingFieldMapping) string { return v.Identifier }).(pulumi.StringOutput)
+}
+
+type AlertRuleNrtEntityMappingFieldMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleNrtEntityMappingFieldMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertRuleNrtEntityMappingFieldMapping)(nil)).Elem()
+}
+
+func (o AlertRuleNrtEntityMappingFieldMappingArrayOutput) ToAlertRuleNrtEntityMappingFieldMappingArrayOutput() AlertRuleNrtEntityMappingFieldMappingArrayOutput {
+	return o
+}
+
+func (o AlertRuleNrtEntityMappingFieldMappingArrayOutput) ToAlertRuleNrtEntityMappingFieldMappingArrayOutputWithContext(ctx context.Context) AlertRuleNrtEntityMappingFieldMappingArrayOutput {
+	return o
+}
+
+func (o AlertRuleNrtEntityMappingFieldMappingArrayOutput) Index(i pulumi.IntInput) AlertRuleNrtEntityMappingFieldMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertRuleNrtEntityMappingFieldMapping {
+		return vs[0].([]AlertRuleNrtEntityMappingFieldMapping)[vs[1].(int)]
+	}).(AlertRuleNrtEntityMappingFieldMappingOutput)
+}
+
+type AlertRuleNrtIncident struct {
+	// Whether to create an incident from alerts triggered by this Sentinel NRT Alert Rule?
+	CreateIncidentEnabled bool `pulumi:"createIncidentEnabled"`
+	// A `grouping` block as defined below.
+	Grouping AlertRuleNrtIncidentGrouping `pulumi:"grouping"`
+}
+
+// AlertRuleNrtIncidentInput is an input type that accepts AlertRuleNrtIncidentArgs and AlertRuleNrtIncidentOutput values.
+// You can construct a concrete instance of `AlertRuleNrtIncidentInput` via:
+//
+//	AlertRuleNrtIncidentArgs{...}
+type AlertRuleNrtIncidentInput interface {
+	pulumi.Input
+
+	ToAlertRuleNrtIncidentOutput() AlertRuleNrtIncidentOutput
+	ToAlertRuleNrtIncidentOutputWithContext(context.Context) AlertRuleNrtIncidentOutput
+}
+
+type AlertRuleNrtIncidentArgs struct {
+	// Whether to create an incident from alerts triggered by this Sentinel NRT Alert Rule?
+	CreateIncidentEnabled pulumi.BoolInput `pulumi:"createIncidentEnabled"`
+	// A `grouping` block as defined below.
+	Grouping AlertRuleNrtIncidentGroupingInput `pulumi:"grouping"`
+}
+
+func (AlertRuleNrtIncidentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleNrtIncident)(nil)).Elem()
+}
+
+func (i AlertRuleNrtIncidentArgs) ToAlertRuleNrtIncidentOutput() AlertRuleNrtIncidentOutput {
+	return i.ToAlertRuleNrtIncidentOutputWithContext(context.Background())
+}
+
+func (i AlertRuleNrtIncidentArgs) ToAlertRuleNrtIncidentOutputWithContext(ctx context.Context) AlertRuleNrtIncidentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtIncidentOutput)
+}
+
+func (i AlertRuleNrtIncidentArgs) ToAlertRuleNrtIncidentPtrOutput() AlertRuleNrtIncidentPtrOutput {
+	return i.ToAlertRuleNrtIncidentPtrOutputWithContext(context.Background())
+}
+
+func (i AlertRuleNrtIncidentArgs) ToAlertRuleNrtIncidentPtrOutputWithContext(ctx context.Context) AlertRuleNrtIncidentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtIncidentOutput).ToAlertRuleNrtIncidentPtrOutputWithContext(ctx)
+}
+
+// AlertRuleNrtIncidentPtrInput is an input type that accepts AlertRuleNrtIncidentArgs, AlertRuleNrtIncidentPtr and AlertRuleNrtIncidentPtrOutput values.
+// You can construct a concrete instance of `AlertRuleNrtIncidentPtrInput` via:
+//
+//	        AlertRuleNrtIncidentArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertRuleNrtIncidentPtrInput interface {
+	pulumi.Input
+
+	ToAlertRuleNrtIncidentPtrOutput() AlertRuleNrtIncidentPtrOutput
+	ToAlertRuleNrtIncidentPtrOutputWithContext(context.Context) AlertRuleNrtIncidentPtrOutput
+}
+
+type alertRuleNrtIncidentPtrType AlertRuleNrtIncidentArgs
+
+func AlertRuleNrtIncidentPtr(v *AlertRuleNrtIncidentArgs) AlertRuleNrtIncidentPtrInput {
+	return (*alertRuleNrtIncidentPtrType)(v)
+}
+
+func (*alertRuleNrtIncidentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertRuleNrtIncident)(nil)).Elem()
+}
+
+func (i *alertRuleNrtIncidentPtrType) ToAlertRuleNrtIncidentPtrOutput() AlertRuleNrtIncidentPtrOutput {
+	return i.ToAlertRuleNrtIncidentPtrOutputWithContext(context.Background())
+}
+
+func (i *alertRuleNrtIncidentPtrType) ToAlertRuleNrtIncidentPtrOutputWithContext(ctx context.Context) AlertRuleNrtIncidentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtIncidentPtrOutput)
+}
+
+type AlertRuleNrtIncidentOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleNrtIncidentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleNrtIncident)(nil)).Elem()
+}
+
+func (o AlertRuleNrtIncidentOutput) ToAlertRuleNrtIncidentOutput() AlertRuleNrtIncidentOutput {
+	return o
+}
+
+func (o AlertRuleNrtIncidentOutput) ToAlertRuleNrtIncidentOutputWithContext(ctx context.Context) AlertRuleNrtIncidentOutput {
+	return o
+}
+
+func (o AlertRuleNrtIncidentOutput) ToAlertRuleNrtIncidentPtrOutput() AlertRuleNrtIncidentPtrOutput {
+	return o.ToAlertRuleNrtIncidentPtrOutputWithContext(context.Background())
+}
+
+func (o AlertRuleNrtIncidentOutput) ToAlertRuleNrtIncidentPtrOutputWithContext(ctx context.Context) AlertRuleNrtIncidentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleNrtIncident) *AlertRuleNrtIncident {
+		return &v
+	}).(AlertRuleNrtIncidentPtrOutput)
+}
+
+// Whether to create an incident from alerts triggered by this Sentinel NRT Alert Rule?
+func (o AlertRuleNrtIncidentOutput) CreateIncidentEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v AlertRuleNrtIncident) bool { return v.CreateIncidentEnabled }).(pulumi.BoolOutput)
+}
+
+// A `grouping` block as defined below.
+func (o AlertRuleNrtIncidentOutput) Grouping() AlertRuleNrtIncidentGroupingOutput {
+	return o.ApplyT(func(v AlertRuleNrtIncident) AlertRuleNrtIncidentGrouping { return v.Grouping }).(AlertRuleNrtIncidentGroupingOutput)
+}
+
+type AlertRuleNrtIncidentPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleNrtIncidentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertRuleNrtIncident)(nil)).Elem()
+}
+
+func (o AlertRuleNrtIncidentPtrOutput) ToAlertRuleNrtIncidentPtrOutput() AlertRuleNrtIncidentPtrOutput {
+	return o
+}
+
+func (o AlertRuleNrtIncidentPtrOutput) ToAlertRuleNrtIncidentPtrOutputWithContext(ctx context.Context) AlertRuleNrtIncidentPtrOutput {
+	return o
+}
+
+func (o AlertRuleNrtIncidentPtrOutput) Elem() AlertRuleNrtIncidentOutput {
+	return o.ApplyT(func(v *AlertRuleNrtIncident) AlertRuleNrtIncident {
+		if v != nil {
+			return *v
+		}
+		var ret AlertRuleNrtIncident
+		return ret
+	}).(AlertRuleNrtIncidentOutput)
+}
+
+// Whether to create an incident from alerts triggered by this Sentinel NRT Alert Rule?
+func (o AlertRuleNrtIncidentPtrOutput) CreateIncidentEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlertRuleNrtIncident) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CreateIncidentEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A `grouping` block as defined below.
+func (o AlertRuleNrtIncidentPtrOutput) Grouping() AlertRuleNrtIncidentGroupingPtrOutput {
+	return o.ApplyT(func(v *AlertRuleNrtIncident) *AlertRuleNrtIncidentGrouping {
+		if v == nil {
+			return nil
+		}
+		return &v.Grouping
+	}).(AlertRuleNrtIncidentGroupingPtrOutput)
+}
+
+type AlertRuleNrtIncidentGrouping struct {
+	// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`.
+	ByAlertDetails []string `pulumi:"byAlertDetails"`
+	// A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
+	ByCustomDetails []string `pulumi:"byCustomDetails"`
+	// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+	ByEntities []string `pulumi:"byEntities"`
+	// Enable grouping incidents created from alerts triggered by this Sentinel NRT Alert Rule. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
+	EntityMatchingMethod *string `pulumi:"entityMatchingMethod"`
+	// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
+	LookbackDuration *string `pulumi:"lookbackDuration"`
+	// Whether to re-open closed matching incidents? Defaults to `false`.
+	ReopenClosedIncidents *bool `pulumi:"reopenClosedIncidents"`
+}
+
+// AlertRuleNrtIncidentGroupingInput is an input type that accepts AlertRuleNrtIncidentGroupingArgs and AlertRuleNrtIncidentGroupingOutput values.
+// You can construct a concrete instance of `AlertRuleNrtIncidentGroupingInput` via:
+//
+//	AlertRuleNrtIncidentGroupingArgs{...}
+type AlertRuleNrtIncidentGroupingInput interface {
+	pulumi.Input
+
+	ToAlertRuleNrtIncidentGroupingOutput() AlertRuleNrtIncidentGroupingOutput
+	ToAlertRuleNrtIncidentGroupingOutputWithContext(context.Context) AlertRuleNrtIncidentGroupingOutput
+}
+
+type AlertRuleNrtIncidentGroupingArgs struct {
+	// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`.
+	ByAlertDetails pulumi.StringArrayInput `pulumi:"byAlertDetails"`
+	// A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
+	ByCustomDetails pulumi.StringArrayInput `pulumi:"byCustomDetails"`
+	// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+	ByEntities pulumi.StringArrayInput `pulumi:"byEntities"`
+	// Enable grouping incidents created from alerts triggered by this Sentinel NRT Alert Rule. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
+	EntityMatchingMethod pulumi.StringPtrInput `pulumi:"entityMatchingMethod"`
+	// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
+	LookbackDuration pulumi.StringPtrInput `pulumi:"lookbackDuration"`
+	// Whether to re-open closed matching incidents? Defaults to `false`.
+	ReopenClosedIncidents pulumi.BoolPtrInput `pulumi:"reopenClosedIncidents"`
+}
+
+func (AlertRuleNrtIncidentGroupingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleNrtIncidentGrouping)(nil)).Elem()
+}
+
+func (i AlertRuleNrtIncidentGroupingArgs) ToAlertRuleNrtIncidentGroupingOutput() AlertRuleNrtIncidentGroupingOutput {
+	return i.ToAlertRuleNrtIncidentGroupingOutputWithContext(context.Background())
+}
+
+func (i AlertRuleNrtIncidentGroupingArgs) ToAlertRuleNrtIncidentGroupingOutputWithContext(ctx context.Context) AlertRuleNrtIncidentGroupingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtIncidentGroupingOutput)
+}
+
+func (i AlertRuleNrtIncidentGroupingArgs) ToAlertRuleNrtIncidentGroupingPtrOutput() AlertRuleNrtIncidentGroupingPtrOutput {
+	return i.ToAlertRuleNrtIncidentGroupingPtrOutputWithContext(context.Background())
+}
+
+func (i AlertRuleNrtIncidentGroupingArgs) ToAlertRuleNrtIncidentGroupingPtrOutputWithContext(ctx context.Context) AlertRuleNrtIncidentGroupingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtIncidentGroupingOutput).ToAlertRuleNrtIncidentGroupingPtrOutputWithContext(ctx)
+}
+
+// AlertRuleNrtIncidentGroupingPtrInput is an input type that accepts AlertRuleNrtIncidentGroupingArgs, AlertRuleNrtIncidentGroupingPtr and AlertRuleNrtIncidentGroupingPtrOutput values.
+// You can construct a concrete instance of `AlertRuleNrtIncidentGroupingPtrInput` via:
+//
+//	        AlertRuleNrtIncidentGroupingArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertRuleNrtIncidentGroupingPtrInput interface {
+	pulumi.Input
+
+	ToAlertRuleNrtIncidentGroupingPtrOutput() AlertRuleNrtIncidentGroupingPtrOutput
+	ToAlertRuleNrtIncidentGroupingPtrOutputWithContext(context.Context) AlertRuleNrtIncidentGroupingPtrOutput
+}
+
+type alertRuleNrtIncidentGroupingPtrType AlertRuleNrtIncidentGroupingArgs
+
+func AlertRuleNrtIncidentGroupingPtr(v *AlertRuleNrtIncidentGroupingArgs) AlertRuleNrtIncidentGroupingPtrInput {
+	return (*alertRuleNrtIncidentGroupingPtrType)(v)
+}
+
+func (*alertRuleNrtIncidentGroupingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertRuleNrtIncidentGrouping)(nil)).Elem()
+}
+
+func (i *alertRuleNrtIncidentGroupingPtrType) ToAlertRuleNrtIncidentGroupingPtrOutput() AlertRuleNrtIncidentGroupingPtrOutput {
+	return i.ToAlertRuleNrtIncidentGroupingPtrOutputWithContext(context.Background())
+}
+
+func (i *alertRuleNrtIncidentGroupingPtrType) ToAlertRuleNrtIncidentGroupingPtrOutputWithContext(ctx context.Context) AlertRuleNrtIncidentGroupingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleNrtIncidentGroupingPtrOutput)
+}
+
+type AlertRuleNrtIncidentGroupingOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleNrtIncidentGroupingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertRuleNrtIncidentGrouping)(nil)).Elem()
+}
+
+func (o AlertRuleNrtIncidentGroupingOutput) ToAlertRuleNrtIncidentGroupingOutput() AlertRuleNrtIncidentGroupingOutput {
+	return o
+}
+
+func (o AlertRuleNrtIncidentGroupingOutput) ToAlertRuleNrtIncidentGroupingOutputWithContext(ctx context.Context) AlertRuleNrtIncidentGroupingOutput {
+	return o
+}
+
+func (o AlertRuleNrtIncidentGroupingOutput) ToAlertRuleNrtIncidentGroupingPtrOutput() AlertRuleNrtIncidentGroupingPtrOutput {
+	return o.ToAlertRuleNrtIncidentGroupingPtrOutputWithContext(context.Background())
+}
+
+func (o AlertRuleNrtIncidentGroupingOutput) ToAlertRuleNrtIncidentGroupingPtrOutputWithContext(ctx context.Context) AlertRuleNrtIncidentGroupingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertRuleNrtIncidentGrouping) *AlertRuleNrtIncidentGrouping {
+		return &v
+	}).(AlertRuleNrtIncidentGroupingPtrOutput)
+}
+
+// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`.
+func (o AlertRuleNrtIncidentGroupingOutput) ByAlertDetails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleNrtIncidentGrouping) []string { return v.ByAlertDetails }).(pulumi.StringArrayOutput)
+}
+
+// A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
+func (o AlertRuleNrtIncidentGroupingOutput) ByCustomDetails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleNrtIncidentGrouping) []string { return v.ByCustomDetails }).(pulumi.StringArrayOutput)
+}
+
+// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+func (o AlertRuleNrtIncidentGroupingOutput) ByEntities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertRuleNrtIncidentGrouping) []string { return v.ByEntities }).(pulumi.StringArrayOutput)
+}
+
+// Enable grouping incidents created from alerts triggered by this Sentinel NRT Alert Rule. Defaults to `true`.
+func (o AlertRuleNrtIncidentGroupingOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlertRuleNrtIncidentGrouping) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
+func (o AlertRuleNrtIncidentGroupingOutput) EntityMatchingMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleNrtIncidentGrouping) *string { return v.EntityMatchingMethod }).(pulumi.StringPtrOutput)
+}
+
+// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
+func (o AlertRuleNrtIncidentGroupingOutput) LookbackDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertRuleNrtIncidentGrouping) *string { return v.LookbackDuration }).(pulumi.StringPtrOutput)
+}
+
+// Whether to re-open closed matching incidents? Defaults to `false`.
+func (o AlertRuleNrtIncidentGroupingOutput) ReopenClosedIncidents() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AlertRuleNrtIncidentGrouping) *bool { return v.ReopenClosedIncidents }).(pulumi.BoolPtrOutput)
+}
+
+type AlertRuleNrtIncidentGroupingPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertRuleNrtIncidentGroupingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertRuleNrtIncidentGrouping)(nil)).Elem()
+}
+
+func (o AlertRuleNrtIncidentGroupingPtrOutput) ToAlertRuleNrtIncidentGroupingPtrOutput() AlertRuleNrtIncidentGroupingPtrOutput {
+	return o
+}
+
+func (o AlertRuleNrtIncidentGroupingPtrOutput) ToAlertRuleNrtIncidentGroupingPtrOutputWithContext(ctx context.Context) AlertRuleNrtIncidentGroupingPtrOutput {
+	return o
+}
+
+func (o AlertRuleNrtIncidentGroupingPtrOutput) Elem() AlertRuleNrtIncidentGroupingOutput {
+	return o.ApplyT(func(v *AlertRuleNrtIncidentGrouping) AlertRuleNrtIncidentGrouping {
+		if v != nil {
+			return *v
+		}
+		var ret AlertRuleNrtIncidentGrouping
+		return ret
+	}).(AlertRuleNrtIncidentGroupingOutput)
+}
+
+// A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`.
+func (o AlertRuleNrtIncidentGroupingPtrOutput) ByAlertDetails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertRuleNrtIncidentGrouping) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ByAlertDetails
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
+func (o AlertRuleNrtIncidentGroupingPtrOutput) ByCustomDetails() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertRuleNrtIncidentGrouping) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ByCustomDetails
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+func (o AlertRuleNrtIncidentGroupingPtrOutput) ByEntities() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertRuleNrtIncidentGrouping) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ByEntities
+	}).(pulumi.StringArrayOutput)
+}
+
+// Enable grouping incidents created from alerts triggered by this Sentinel NRT Alert Rule. Defaults to `true`.
+func (o AlertRuleNrtIncidentGroupingPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlertRuleNrtIncidentGrouping) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
+func (o AlertRuleNrtIncidentGroupingPtrOutput) EntityMatchingMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertRuleNrtIncidentGrouping) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EntityMatchingMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
+func (o AlertRuleNrtIncidentGroupingPtrOutput) LookbackDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertRuleNrtIncidentGrouping) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LookbackDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to re-open closed matching incidents? Defaults to `false`.
+func (o AlertRuleNrtIncidentGroupingPtrOutput) ReopenClosedIncidents() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AlertRuleNrtIncidentGrouping) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReopenClosedIncidents
+	}).(pulumi.BoolPtrOutput)
+}
+
 type AlertRuleScheduledAlertDetailsOverride struct {
 	// The format containing columns name(s) to override the description of this Sentinel Alert Rule.
 	DescriptionFormat *string `pulumi:"descriptionFormat"`
@@ -1648,6 +2391,130 @@ func (o AutomationRuleConditionArrayOutput) Index(i pulumi.IntInput) AutomationR
 	}).(AutomationRuleConditionOutput)
 }
 
+type GetAlertRuleTemplateNrtTemplate struct {
+	// The description of this Sentinel Scheduled Alert Rule Template.
+	Description string `pulumi:"description"`
+	// The query of this Sentinel Scheduled Alert Rule Template.
+	Query string `pulumi:"query"`
+	// The alert severity of this Sentinel Scheduled Alert Rule Template.
+	Severity string `pulumi:"severity"`
+	// A list of categories of attacks by which to classify the rule.
+	Tactics []string `pulumi:"tactics"`
+}
+
+// GetAlertRuleTemplateNrtTemplateInput is an input type that accepts GetAlertRuleTemplateNrtTemplateArgs and GetAlertRuleTemplateNrtTemplateOutput values.
+// You can construct a concrete instance of `GetAlertRuleTemplateNrtTemplateInput` via:
+//
+//	GetAlertRuleTemplateNrtTemplateArgs{...}
+type GetAlertRuleTemplateNrtTemplateInput interface {
+	pulumi.Input
+
+	ToGetAlertRuleTemplateNrtTemplateOutput() GetAlertRuleTemplateNrtTemplateOutput
+	ToGetAlertRuleTemplateNrtTemplateOutputWithContext(context.Context) GetAlertRuleTemplateNrtTemplateOutput
+}
+
+type GetAlertRuleTemplateNrtTemplateArgs struct {
+	// The description of this Sentinel Scheduled Alert Rule Template.
+	Description pulumi.StringInput `pulumi:"description"`
+	// The query of this Sentinel Scheduled Alert Rule Template.
+	Query pulumi.StringInput `pulumi:"query"`
+	// The alert severity of this Sentinel Scheduled Alert Rule Template.
+	Severity pulumi.StringInput `pulumi:"severity"`
+	// A list of categories of attacks by which to classify the rule.
+	Tactics pulumi.StringArrayInput `pulumi:"tactics"`
+}
+
+func (GetAlertRuleTemplateNrtTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertRuleTemplateNrtTemplate)(nil)).Elem()
+}
+
+func (i GetAlertRuleTemplateNrtTemplateArgs) ToGetAlertRuleTemplateNrtTemplateOutput() GetAlertRuleTemplateNrtTemplateOutput {
+	return i.ToGetAlertRuleTemplateNrtTemplateOutputWithContext(context.Background())
+}
+
+func (i GetAlertRuleTemplateNrtTemplateArgs) ToGetAlertRuleTemplateNrtTemplateOutputWithContext(ctx context.Context) GetAlertRuleTemplateNrtTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleTemplateNrtTemplateOutput)
+}
+
+// GetAlertRuleTemplateNrtTemplateArrayInput is an input type that accepts GetAlertRuleTemplateNrtTemplateArray and GetAlertRuleTemplateNrtTemplateArrayOutput values.
+// You can construct a concrete instance of `GetAlertRuleTemplateNrtTemplateArrayInput` via:
+//
+//	GetAlertRuleTemplateNrtTemplateArray{ GetAlertRuleTemplateNrtTemplateArgs{...} }
+type GetAlertRuleTemplateNrtTemplateArrayInput interface {
+	pulumi.Input
+
+	ToGetAlertRuleTemplateNrtTemplateArrayOutput() GetAlertRuleTemplateNrtTemplateArrayOutput
+	ToGetAlertRuleTemplateNrtTemplateArrayOutputWithContext(context.Context) GetAlertRuleTemplateNrtTemplateArrayOutput
+}
+
+type GetAlertRuleTemplateNrtTemplateArray []GetAlertRuleTemplateNrtTemplateInput
+
+func (GetAlertRuleTemplateNrtTemplateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertRuleTemplateNrtTemplate)(nil)).Elem()
+}
+
+func (i GetAlertRuleTemplateNrtTemplateArray) ToGetAlertRuleTemplateNrtTemplateArrayOutput() GetAlertRuleTemplateNrtTemplateArrayOutput {
+	return i.ToGetAlertRuleTemplateNrtTemplateArrayOutputWithContext(context.Background())
+}
+
+func (i GetAlertRuleTemplateNrtTemplateArray) ToGetAlertRuleTemplateNrtTemplateArrayOutputWithContext(ctx context.Context) GetAlertRuleTemplateNrtTemplateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAlertRuleTemplateNrtTemplateArrayOutput)
+}
+
+type GetAlertRuleTemplateNrtTemplateOutput struct{ *pulumi.OutputState }
+
+func (GetAlertRuleTemplateNrtTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAlertRuleTemplateNrtTemplate)(nil)).Elem()
+}
+
+func (o GetAlertRuleTemplateNrtTemplateOutput) ToGetAlertRuleTemplateNrtTemplateOutput() GetAlertRuleTemplateNrtTemplateOutput {
+	return o
+}
+
+func (o GetAlertRuleTemplateNrtTemplateOutput) ToGetAlertRuleTemplateNrtTemplateOutputWithContext(ctx context.Context) GetAlertRuleTemplateNrtTemplateOutput {
+	return o
+}
+
+// The description of this Sentinel Scheduled Alert Rule Template.
+func (o GetAlertRuleTemplateNrtTemplateOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleTemplateNrtTemplate) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The query of this Sentinel Scheduled Alert Rule Template.
+func (o GetAlertRuleTemplateNrtTemplateOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleTemplateNrtTemplate) string { return v.Query }).(pulumi.StringOutput)
+}
+
+// The alert severity of this Sentinel Scheduled Alert Rule Template.
+func (o GetAlertRuleTemplateNrtTemplateOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAlertRuleTemplateNrtTemplate) string { return v.Severity }).(pulumi.StringOutput)
+}
+
+// A list of categories of attacks by which to classify the rule.
+func (o GetAlertRuleTemplateNrtTemplateOutput) Tactics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAlertRuleTemplateNrtTemplate) []string { return v.Tactics }).(pulumi.StringArrayOutput)
+}
+
+type GetAlertRuleTemplateNrtTemplateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAlertRuleTemplateNrtTemplateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAlertRuleTemplateNrtTemplate)(nil)).Elem()
+}
+
+func (o GetAlertRuleTemplateNrtTemplateArrayOutput) ToGetAlertRuleTemplateNrtTemplateArrayOutput() GetAlertRuleTemplateNrtTemplateArrayOutput {
+	return o
+}
+
+func (o GetAlertRuleTemplateNrtTemplateArrayOutput) ToGetAlertRuleTemplateNrtTemplateArrayOutputWithContext(ctx context.Context) GetAlertRuleTemplateNrtTemplateArrayOutput {
+	return o
+}
+
+func (o GetAlertRuleTemplateNrtTemplateArrayOutput) Index(i pulumi.IntInput) GetAlertRuleTemplateNrtTemplateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertRuleTemplateNrtTemplate {
+		return vs[0].([]GetAlertRuleTemplateNrtTemplate)[vs[1].(int)]
+	}).(GetAlertRuleTemplateNrtTemplateOutput)
+}
+
 type GetAlertRuleTemplateScheduledTemplate struct {
 	// The description of this Sentinel Scheduled Alert Rule Template.
 	Description string `pulumi:"description"`
@@ -1915,6 +2782,16 @@ func (o GetAlertRuleTemplateSecurityIncidentTemplateArrayOutput) Index(i pulumi.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtAlertDetailsOverrideInput)(nil)).Elem(), AlertRuleNrtAlertDetailsOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtAlertDetailsOverrideArrayInput)(nil)).Elem(), AlertRuleNrtAlertDetailsOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtEntityMappingInput)(nil)).Elem(), AlertRuleNrtEntityMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtEntityMappingArrayInput)(nil)).Elem(), AlertRuleNrtEntityMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtEntityMappingFieldMappingInput)(nil)).Elem(), AlertRuleNrtEntityMappingFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtEntityMappingFieldMappingArrayInput)(nil)).Elem(), AlertRuleNrtEntityMappingFieldMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtIncidentInput)(nil)).Elem(), AlertRuleNrtIncidentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtIncidentPtrInput)(nil)).Elem(), AlertRuleNrtIncidentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtIncidentGroupingInput)(nil)).Elem(), AlertRuleNrtIncidentGroupingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleNrtIncidentGroupingPtrInput)(nil)).Elem(), AlertRuleNrtIncidentGroupingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledAlertDetailsOverrideInput)(nil)).Elem(), AlertRuleScheduledAlertDetailsOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledAlertDetailsOverrideArrayInput)(nil)).Elem(), AlertRuleScheduledAlertDetailsOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertRuleScheduledEntityMappingInput)(nil)).Elem(), AlertRuleScheduledEntityMappingArgs{})
@@ -1939,10 +2816,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionPlaybookArrayInput)(nil)).Elem(), AutomationRuleActionPlaybookArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleConditionInput)(nil)).Elem(), AutomationRuleConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleConditionArrayInput)(nil)).Elem(), AutomationRuleConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateNrtTemplateInput)(nil)).Elem(), GetAlertRuleTemplateNrtTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateNrtTemplateArrayInput)(nil)).Elem(), GetAlertRuleTemplateNrtTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateScheduledTemplateInput)(nil)).Elem(), GetAlertRuleTemplateScheduledTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateScheduledTemplateArrayInput)(nil)).Elem(), GetAlertRuleTemplateScheduledTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateSecurityIncidentTemplateInput)(nil)).Elem(), GetAlertRuleTemplateSecurityIncidentTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertRuleTemplateSecurityIncidentTemplateArrayInput)(nil)).Elem(), GetAlertRuleTemplateSecurityIncidentTemplateArray{})
+	pulumi.RegisterOutputType(AlertRuleNrtAlertDetailsOverrideOutput{})
+	pulumi.RegisterOutputType(AlertRuleNrtAlertDetailsOverrideArrayOutput{})
+	pulumi.RegisterOutputType(AlertRuleNrtEntityMappingOutput{})
+	pulumi.RegisterOutputType(AlertRuleNrtEntityMappingArrayOutput{})
+	pulumi.RegisterOutputType(AlertRuleNrtEntityMappingFieldMappingOutput{})
+	pulumi.RegisterOutputType(AlertRuleNrtEntityMappingFieldMappingArrayOutput{})
+	pulumi.RegisterOutputType(AlertRuleNrtIncidentOutput{})
+	pulumi.RegisterOutputType(AlertRuleNrtIncidentPtrOutput{})
+	pulumi.RegisterOutputType(AlertRuleNrtIncidentGroupingOutput{})
+	pulumi.RegisterOutputType(AlertRuleNrtIncidentGroupingPtrOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledAlertDetailsOverrideOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledAlertDetailsOverrideArrayOutput{})
 	pulumi.RegisterOutputType(AlertRuleScheduledEntityMappingOutput{})
@@ -1967,6 +2856,8 @@ func init() {
 	pulumi.RegisterOutputType(AutomationRuleActionPlaybookArrayOutput{})
 	pulumi.RegisterOutputType(AutomationRuleConditionOutput{})
 	pulumi.RegisterOutputType(AutomationRuleConditionArrayOutput{})
+	pulumi.RegisterOutputType(GetAlertRuleTemplateNrtTemplateOutput{})
+	pulumi.RegisterOutputType(GetAlertRuleTemplateNrtTemplateArrayOutput{})
 	pulumi.RegisterOutputType(GetAlertRuleTemplateScheduledTemplateOutput{})
 	pulumi.RegisterOutputType(GetAlertRuleTemplateScheduledTemplateArrayOutput{})
 	pulumi.RegisterOutputType(GetAlertRuleTemplateSecurityIncidentTemplateOutput{})

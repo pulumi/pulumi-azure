@@ -32,10 +32,13 @@ export class ResourcePolicyRemediation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourcePolicyRemediation.__pulumiType;
     }
 
+    public readonly failurePercentage!: pulumi.Output<number | undefined>;
     public readonly locationFilters!: pulumi.Output<string[] | undefined>;
     public readonly name!: pulumi.Output<string>;
+    public readonly parallelDeployments!: pulumi.Output<number | undefined>;
     public readonly policyAssignmentId!: pulumi.Output<string>;
     public readonly policyDefinitionId!: pulumi.Output<string | undefined>;
+    public readonly resourceCount!: pulumi.Output<number | undefined>;
     public readonly resourceDiscoveryMode!: pulumi.Output<string | undefined>;
     public readonly resourceId!: pulumi.Output<string>;
 
@@ -52,10 +55,13 @@ export class ResourcePolicyRemediation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourcePolicyRemediationState | undefined;
+            resourceInputs["failurePercentage"] = state ? state.failurePercentage : undefined;
             resourceInputs["locationFilters"] = state ? state.locationFilters : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parallelDeployments"] = state ? state.parallelDeployments : undefined;
             resourceInputs["policyAssignmentId"] = state ? state.policyAssignmentId : undefined;
             resourceInputs["policyDefinitionId"] = state ? state.policyDefinitionId : undefined;
+            resourceInputs["resourceCount"] = state ? state.resourceCount : undefined;
             resourceInputs["resourceDiscoveryMode"] = state ? state.resourceDiscoveryMode : undefined;
             resourceInputs["resourceId"] = state ? state.resourceId : undefined;
         } else {
@@ -66,10 +72,13 @@ export class ResourcePolicyRemediation extends pulumi.CustomResource {
             if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
+            resourceInputs["failurePercentage"] = args ? args.failurePercentage : undefined;
             resourceInputs["locationFilters"] = args ? args.locationFilters : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parallelDeployments"] = args ? args.parallelDeployments : undefined;
             resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
             resourceInputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
+            resourceInputs["resourceCount"] = args ? args.resourceCount : undefined;
             resourceInputs["resourceDiscoveryMode"] = args ? args.resourceDiscoveryMode : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
         }
@@ -82,10 +91,13 @@ export class ResourcePolicyRemediation extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResourcePolicyRemediation resources.
  */
 export interface ResourcePolicyRemediationState {
+    failurePercentage?: pulumi.Input<number>;
     locationFilters?: pulumi.Input<pulumi.Input<string>[]>;
     name?: pulumi.Input<string>;
+    parallelDeployments?: pulumi.Input<number>;
     policyAssignmentId?: pulumi.Input<string>;
     policyDefinitionId?: pulumi.Input<string>;
+    resourceCount?: pulumi.Input<number>;
     resourceDiscoveryMode?: pulumi.Input<string>;
     resourceId?: pulumi.Input<string>;
 }
@@ -94,10 +106,13 @@ export interface ResourcePolicyRemediationState {
  * The set of arguments for constructing a ResourcePolicyRemediation resource.
  */
 export interface ResourcePolicyRemediationArgs {
+    failurePercentage?: pulumi.Input<number>;
     locationFilters?: pulumi.Input<pulumi.Input<string>[]>;
     name?: pulumi.Input<string>;
+    parallelDeployments?: pulumi.Input<number>;
     policyAssignmentId: pulumi.Input<string>;
     policyDefinitionId?: pulumi.Input<string>;
+    resourceCount?: pulumi.Input<number>;
     resourceDiscoveryMode?: pulumi.Input<string>;
     resourceId: pulumi.Input<string>;
 }

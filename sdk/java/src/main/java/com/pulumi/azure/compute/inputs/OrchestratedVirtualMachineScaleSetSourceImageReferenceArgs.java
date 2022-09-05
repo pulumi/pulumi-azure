@@ -34,9 +34,17 @@ public final class OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs ex
         return this.sku;
     }
 
+    /**
+     * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+     * 
+     */
     @Import(name="version", required=true)
     private Output<String> version;
 
+    /**
+     * @return The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+     * 
+     */
     public Output<String> version() {
         return this.version;
     }
@@ -95,11 +103,23 @@ public final class OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs ex
             return sku(Output.of(sku));
         }
 
+        /**
+         * @param version The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(Output<String> version) {
             $.version = version;
             return this;
         }
 
+        /**
+         * @param version The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder version(String version) {
             return version(Output.of(version));
         }

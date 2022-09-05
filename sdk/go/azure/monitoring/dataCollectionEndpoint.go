@@ -65,12 +65,16 @@ import (
 type DataCollectionEndpoint struct {
 	pulumi.CustomResourceState
 
+	// The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.
+	ConfigurationAccessEndpoint pulumi.StringOutput `pulumi:"configurationAccessEndpoint"`
 	// Specifies a description for the Data Collection Endpoint.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
 	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// The Azure Region where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
+	LogsIngestionEndpoint pulumi.StringOutput `pulumi:"logsIngestionEndpoint"`
 	// The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether network access from public internet to the Data Collection Endpoint are allowed. Possible values are `true` and `false`. Default to `true`.
@@ -113,12 +117,16 @@ func GetDataCollectionEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataCollectionEndpoint resources.
 type dataCollectionEndpointState struct {
+	// The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.
+	ConfigurationAccessEndpoint *string `pulumi:"configurationAccessEndpoint"`
 	// Specifies a description for the Data Collection Endpoint.
 	Description *string `pulumi:"description"`
 	// The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
 	Kind *string `pulumi:"kind"`
 	// The Azure Region where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
 	Location *string `pulumi:"location"`
+	// The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
+	LogsIngestionEndpoint *string `pulumi:"logsIngestionEndpoint"`
 	// The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.
 	Name *string `pulumi:"name"`
 	// Whether network access from public internet to the Data Collection Endpoint are allowed. Possible values are `true` and `false`. Default to `true`.
@@ -130,12 +138,16 @@ type dataCollectionEndpointState struct {
 }
 
 type DataCollectionEndpointState struct {
+	// The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.
+	ConfigurationAccessEndpoint pulumi.StringPtrInput
 	// Specifies a description for the Data Collection Endpoint.
 	Description pulumi.StringPtrInput
 	// The kind of the Data Collection Endpoint. Possible values are `Linux` and `Windows`.
 	Kind pulumi.StringPtrInput
 	// The Azure Region where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
 	Location pulumi.StringPtrInput
+	// The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
+	LogsIngestionEndpoint pulumi.StringPtrInput
 	// The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.
 	Name pulumi.StringPtrInput
 	// Whether network access from public internet to the Data Collection Endpoint are allowed. Possible values are `true` and `false`. Default to `true`.
@@ -272,6 +284,11 @@ func (o DataCollectionEndpointOutput) ToDataCollectionEndpointOutputWithContext(
 	return o
 }
 
+// The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.
+func (o DataCollectionEndpointOutput) ConfigurationAccessEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCollectionEndpoint) pulumi.StringOutput { return v.ConfigurationAccessEndpoint }).(pulumi.StringOutput)
+}
+
 // Specifies a description for the Data Collection Endpoint.
 func (o DataCollectionEndpointOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCollectionEndpoint) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
@@ -285,6 +302,11 @@ func (o DataCollectionEndpointOutput) Kind() pulumi.StringPtrOutput {
 // The Azure Region where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
 func (o DataCollectionEndpointOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataCollectionEndpoint) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
+func (o DataCollectionEndpointOutput) LogsIngestionEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataCollectionEndpoint) pulumi.StringOutput { return v.LogsIngestionEndpoint }).(pulumi.StringOutput)
 }
 
 // The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.

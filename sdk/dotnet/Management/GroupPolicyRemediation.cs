@@ -12,6 +12,9 @@ namespace Pulumi.Azure.Management
     [AzureResourceType("azure:management/groupPolicyRemediation:GroupPolicyRemediation")]
     public partial class GroupPolicyRemediation : global::Pulumi.CustomResource
     {
+        [Output("failurePercentage")]
+        public Output<double?> FailurePercentage { get; private set; } = null!;
+
         [Output("locationFilters")]
         public Output<ImmutableArray<string>> LocationFilters { get; private set; } = null!;
 
@@ -21,11 +24,17 @@ namespace Pulumi.Azure.Management
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("parallelDeployments")]
+        public Output<int?> ParallelDeployments { get; private set; } = null!;
+
         [Output("policyAssignmentId")]
         public Output<string> PolicyAssignmentId { get; private set; } = null!;
 
         [Output("policyDefinitionId")]
         public Output<string?> PolicyDefinitionId { get; private set; } = null!;
+
+        [Output("resourceCount")]
+        public Output<int?> ResourceCount { get; private set; } = null!;
 
         [Output("resourceDiscoveryMode")]
         public Output<string?> ResourceDiscoveryMode { get; private set; } = null!;
@@ -76,6 +85,9 @@ namespace Pulumi.Azure.Management
 
     public sealed class GroupPolicyRemediationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("failurePercentage")]
+        public Input<double>? FailurePercentage { get; set; }
+
         [Input("locationFilters")]
         private InputList<string>? _locationFilters;
         public InputList<string> LocationFilters
@@ -90,11 +102,17 @@ namespace Pulumi.Azure.Management
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("parallelDeployments")]
+        public Input<int>? ParallelDeployments { get; set; }
+
         [Input("policyAssignmentId", required: true)]
         public Input<string> PolicyAssignmentId { get; set; } = null!;
 
         [Input("policyDefinitionId")]
         public Input<string>? PolicyDefinitionId { get; set; }
+
+        [Input("resourceCount")]
+        public Input<int>? ResourceCount { get; set; }
 
         [Input("resourceDiscoveryMode")]
         public Input<string>? ResourceDiscoveryMode { get; set; }
@@ -107,6 +125,9 @@ namespace Pulumi.Azure.Management
 
     public sealed class GroupPolicyRemediationState : global::Pulumi.ResourceArgs
     {
+        [Input("failurePercentage")]
+        public Input<double>? FailurePercentage { get; set; }
+
         [Input("locationFilters")]
         private InputList<string>? _locationFilters;
         public InputList<string> LocationFilters
@@ -121,11 +142,17 @@ namespace Pulumi.Azure.Management
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("parallelDeployments")]
+        public Input<int>? ParallelDeployments { get; set; }
+
         [Input("policyAssignmentId")]
         public Input<string>? PolicyAssignmentId { get; set; }
 
         [Input("policyDefinitionId")]
         public Input<string>? PolicyDefinitionId { get; set; }
+
+        [Input("resourceCount")]
+        public Input<int>? ResourceCount { get; set; }
 
         [Input("resourceDiscoveryMode")]
         public Input<string>? ResourceDiscoveryMode { get; set; }

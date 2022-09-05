@@ -10,6 +10,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -17,6 +19,12 @@ import javax.annotation.Nullable;
 
 @ResourceType(type="azure:core/resourceGroupPolicyRemediation:ResourceGroupPolicyRemediation")
 public class ResourceGroupPolicyRemediation extends com.pulumi.resources.CustomResource {
+    @Export(name="failurePercentage", type=Double.class, parameters={})
+    private Output</* @Nullable */ Double> failurePercentage;
+
+    public Output<Optional<Double>> failurePercentage() {
+        return Codegen.optional(this.failurePercentage);
+    }
     @Export(name="locationFilters", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> locationFilters;
 
@@ -29,6 +37,12 @@ public class ResourceGroupPolicyRemediation extends com.pulumi.resources.CustomR
     public Output<String> name() {
         return this.name;
     }
+    @Export(name="parallelDeployments", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> parallelDeployments;
+
+    public Output<Optional<Integer>> parallelDeployments() {
+        return Codegen.optional(this.parallelDeployments);
+    }
     @Export(name="policyAssignmentId", type=String.class, parameters={})
     private Output<String> policyAssignmentId;
 
@@ -40,6 +54,12 @@ public class ResourceGroupPolicyRemediation extends com.pulumi.resources.CustomR
 
     public Output<Optional<String>> policyDefinitionId() {
         return Codegen.optional(this.policyDefinitionId);
+    }
+    @Export(name="resourceCount", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> resourceCount;
+
+    public Output<Optional<Integer>> resourceCount() {
+        return Codegen.optional(this.resourceCount);
     }
     @Export(name="resourceDiscoveryMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> resourceDiscoveryMode;

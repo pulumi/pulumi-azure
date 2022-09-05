@@ -94,6 +94,8 @@ import (
 type ReferenceInputBlob struct {
 	pulumi.CustomResourceState
 
+	// The authentication mode for the Stream Analytics Reference Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrOutput `pulumi:"authenticationMode"`
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat pulumi.StringOutput `pulumi:"dateFormat"`
 	// The name of the Reference Input Blob. Changing this forces a new resource to be created.
@@ -172,6 +174,8 @@ func GetReferenceInputBlob(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReferenceInputBlob resources.
 type referenceInputBlobState struct {
+	// The authentication mode for the Stream Analytics Reference Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat *string `pulumi:"dateFormat"`
 	// The name of the Reference Input Blob. Changing this forces a new resource to be created.
@@ -195,6 +199,8 @@ type referenceInputBlobState struct {
 }
 
 type ReferenceInputBlobState struct {
+	// The authentication mode for the Stream Analytics Reference Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrInput
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat pulumi.StringPtrInput
 	// The name of the Reference Input Blob. Changing this forces a new resource to be created.
@@ -222,6 +228,8 @@ func (ReferenceInputBlobState) ElementType() reflect.Type {
 }
 
 type referenceInputBlobArgs struct {
+	// The authentication mode for the Stream Analytics Reference Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat string `pulumi:"dateFormat"`
 	// The name of the Reference Input Blob. Changing this forces a new resource to be created.
@@ -246,6 +254,8 @@ type referenceInputBlobArgs struct {
 
 // The set of arguments for constructing a ReferenceInputBlob resource.
 type ReferenceInputBlobArgs struct {
+	// The authentication mode for the Stream Analytics Reference Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrInput
 	// The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
 	DateFormat pulumi.StringInput
 	// The name of the Reference Input Blob. Changing this forces a new resource to be created.
@@ -353,6 +363,11 @@ func (o ReferenceInputBlobOutput) ToReferenceInputBlobOutput() ReferenceInputBlo
 
 func (o ReferenceInputBlobOutput) ToReferenceInputBlobOutputWithContext(ctx context.Context) ReferenceInputBlobOutput {
 	return o
+}
+
+// The authentication mode for the Stream Analytics Reference Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+func (o ReferenceInputBlobOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReferenceInputBlob) pulumi.StringPtrOutput { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
 }
 
 // The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.

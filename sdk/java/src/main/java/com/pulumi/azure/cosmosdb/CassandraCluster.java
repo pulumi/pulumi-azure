@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -211,6 +212,20 @@ public class CassandraCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> externalSeedNodeIpAddresses() {
         return Codegen.optional(this.externalSeedNodeIpAddresses);
+    }
+    /**
+     * The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+     * 
+     */
+    @Export(name="hoursBetweenBackups", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> hoursBetweenBackups;
+
+    /**
+     * @return The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+     * 
+     */
+    public Output<Optional<Integer>> hoursBetweenBackups() {
+        return Codegen.optional(this.hoursBetweenBackups);
     }
     /**
      * An `identity` block as defined below.

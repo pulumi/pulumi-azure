@@ -111,6 +111,10 @@ export class CassandraCluster extends pulumi.CustomResource {
      */
     public readonly externalSeedNodeIpAddresses!: pulumi.Output<string[] | undefined>;
     /**
+     * The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+     */
+    public readonly hoursBetweenBackups!: pulumi.Output<number | undefined>;
+    /**
      * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.cosmosdb.CassandraClusterIdentity | undefined>;
@@ -158,6 +162,7 @@ export class CassandraCluster extends pulumi.CustomResource {
             resourceInputs["delegatedManagementSubnetId"] = state ? state.delegatedManagementSubnetId : undefined;
             resourceInputs["externalGossipCertificatePems"] = state ? state.externalGossipCertificatePems : undefined;
             resourceInputs["externalSeedNodeIpAddresses"] = state ? state.externalSeedNodeIpAddresses : undefined;
+            resourceInputs["hoursBetweenBackups"] = state ? state.hoursBetweenBackups : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -182,6 +187,7 @@ export class CassandraCluster extends pulumi.CustomResource {
             resourceInputs["delegatedManagementSubnetId"] = args ? args.delegatedManagementSubnetId : undefined;
             resourceInputs["externalGossipCertificatePems"] = args ? args.externalGossipCertificatePems : undefined;
             resourceInputs["externalSeedNodeIpAddresses"] = args ? args.externalSeedNodeIpAddresses : undefined;
+            resourceInputs["hoursBetweenBackups"] = args ? args.hoursBetweenBackups : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -223,6 +229,10 @@ export interface CassandraClusterState {
      * A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
      */
     externalSeedNodeIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+     */
+    hoursBetweenBackups?: pulumi.Input<number>;
     /**
      * An `identity` block as defined below.
      */
@@ -281,6 +291,10 @@ export interface CassandraClusterArgs {
      * A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
      */
     externalSeedNodeIpAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+     */
+    hoursBetweenBackups?: pulumi.Input<number>;
     /**
      * An `identity` block as defined below.
      */

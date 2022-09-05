@@ -43,6 +43,12 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<int> Lun { get; set; } = null!;
 
         /// <summary>
+        /// The name of the Data Disk.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
         /// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
         /// </summary>
         [Input("storageAccountType", required: true)]

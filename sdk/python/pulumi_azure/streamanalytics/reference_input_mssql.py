@@ -24,7 +24,8 @@ class ReferenceInputMssqlArgs:
                  username: pulumi.Input[str],
                  delta_snapshot_query: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 refresh_interval_duration: Optional[pulumi.Input[str]] = None):
+                 refresh_interval_duration: Optional[pulumi.Input[str]] = None,
+                 table: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ReferenceInputMssql resource.
         :param pulumi.Input[str] database: The MS SQL database name where the reference data exists.
@@ -38,6 +39,7 @@ class ReferenceInputMssqlArgs:
         :param pulumi.Input[str] delta_snapshot_query: The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`.
         :param pulumi.Input[str] name: The name of the Reference Input MS SQL data. Changing this forces a new resource to be created.
         :param pulumi.Input[str] refresh_interval_duration: The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
+        :param pulumi.Input[str] table: The name of the table in the Azure SQL database.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "full_snapshot_query", full_snapshot_query)
@@ -53,6 +55,8 @@ class ReferenceInputMssqlArgs:
             pulumi.set(__self__, "name", name)
         if refresh_interval_duration is not None:
             pulumi.set(__self__, "refresh_interval_duration", refresh_interval_duration)
+        if table is not None:
+            pulumi.set(__self__, "table", table)
 
     @property
     @pulumi.getter
@@ -186,6 +190,18 @@ class ReferenceInputMssqlArgs:
     def refresh_interval_duration(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "refresh_interval_duration", value)
 
+    @property
+    @pulumi.getter
+    def table(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the table in the Azure SQL database.
+        """
+        return pulumi.get(self, "table")
+
+    @table.setter
+    def table(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table", value)
+
 
 @pulumi.input_type
 class _ReferenceInputMssqlState:
@@ -200,6 +216,7 @@ class _ReferenceInputMssqlState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server: Optional[pulumi.Input[str]] = None,
                  stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+                 table: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ReferenceInputMssql resources.
@@ -213,6 +230,7 @@ class _ReferenceInputMssqlState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server: The fully qualified domain name of the MS SQL server.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] table: The name of the table in the Azure SQL database.
         :param pulumi.Input[str] username: The username to connect to the MS SQL database.
         """
         if database is not None:
@@ -235,6 +253,8 @@ class _ReferenceInputMssqlState:
             pulumi.set(__self__, "server", server)
         if stream_analytics_job_name is not None:
             pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+        if table is not None:
+            pulumi.set(__self__, "table", table)
         if username is not None:
             pulumi.set(__self__, "username", username)
 
@@ -360,6 +380,18 @@ class _ReferenceInputMssqlState:
 
     @property
     @pulumi.getter
+    def table(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the table in the Azure SQL database.
+        """
+        return pulumi.get(self, "table")
+
+    @table.setter
+    def table(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table", value)
+
+    @property
+    @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
         The username to connect to the MS SQL database.
@@ -386,6 +418,7 @@ class ReferenceInputMssql(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server: Optional[pulumi.Input[str]] = None,
                  stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+                 table: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -442,6 +475,7 @@ class ReferenceInputMssql(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server: The fully qualified domain name of the MS SQL server.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] table: The name of the table in the Azure SQL database.
         :param pulumi.Input[str] username: The username to connect to the MS SQL database.
         """
         ...
@@ -517,6 +551,7 @@ class ReferenceInputMssql(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server: Optional[pulumi.Input[str]] = None,
                  stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+                 table: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -551,6 +586,7 @@ class ReferenceInputMssql(pulumi.CustomResource):
             if stream_analytics_job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_analytics_job_name'")
             __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
+            __props__.__dict__["table"] = table
             if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__.__dict__["username"] = username
@@ -574,6 +610,7 @@ class ReferenceInputMssql(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             server: Optional[pulumi.Input[str]] = None,
             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+            table: Optional[pulumi.Input[str]] = None,
             username: Optional[pulumi.Input[str]] = None) -> 'ReferenceInputMssql':
         """
         Get an existing ReferenceInputMssql resource's state with the given name, id, and optional extra
@@ -592,6 +629,7 @@ class ReferenceInputMssql(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server: The fully qualified domain name of the MS SQL server.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] table: The name of the table in the Azure SQL database.
         :param pulumi.Input[str] username: The username to connect to the MS SQL database.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -608,6 +646,7 @@ class ReferenceInputMssql(pulumi.CustomResource):
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["server"] = server
         __props__.__dict__["stream_analytics_job_name"] = stream_analytics_job_name
+        __props__.__dict__["table"] = table
         __props__.__dict__["username"] = username
         return ReferenceInputMssql(resource_name, opts=opts, __props__=__props__)
 
@@ -690,6 +729,14 @@ class ReferenceInputMssql(pulumi.CustomResource):
         The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "stream_analytics_job_name")
+
+    @property
+    @pulumi.getter
+    def table(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the table in the Azure SQL database.
+        """
+        return pulumi.get(self, "table")
 
     @property
     @pulumi.getter

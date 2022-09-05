@@ -23,6 +23,7 @@ class CassandraClusterArgs:
                  client_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  external_gossip_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  external_seed_node_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 hours_between_backups: Optional[pulumi.Input[int]] = None,
                  identity: Optional[pulumi.Input['CassandraClusterIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -38,6 +39,7 @@ class CassandraClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_certificate_pems: A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_gossip_certificate_pems: A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_seed_node_ip_addresses: A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
+        :param pulumi.Input[int] hours_between_backups: The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
         :param pulumi.Input['CassandraClusterIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
@@ -56,6 +58,8 @@ class CassandraClusterArgs:
             pulumi.set(__self__, "external_gossip_certificate_pems", external_gossip_certificate_pems)
         if external_seed_node_ip_addresses is not None:
             pulumi.set(__self__, "external_seed_node_ip_addresses", external_seed_node_ip_addresses)
+        if hours_between_backups is not None:
+            pulumi.set(__self__, "hours_between_backups", hours_between_backups)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -154,6 +158,18 @@ class CassandraClusterArgs:
         pulumi.set(self, "external_seed_node_ip_addresses", value)
 
     @property
+    @pulumi.getter(name="hoursBetweenBackups")
+    def hours_between_backups(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+        """
+        return pulumi.get(self, "hours_between_backups")
+
+    @hours_between_backups.setter
+    def hours_between_backups(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "hours_between_backups", value)
+
+    @property
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['CassandraClusterIdentityArgs']]:
         """
@@ -235,6 +251,7 @@ class _CassandraClusterState:
                  delegated_management_subnet_id: Optional[pulumi.Input[str]] = None,
                  external_gossip_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  external_seed_node_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 hours_between_backups: Optional[pulumi.Input[int]] = None,
                  identity: Optional[pulumi.Input['CassandraClusterIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -250,6 +267,7 @@ class _CassandraClusterState:
         :param pulumi.Input[str] delegated_management_subnet_id: The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_gossip_certificate_pems: A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_seed_node_ip_addresses: A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
+        :param pulumi.Input[int] hours_between_backups: The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
         :param pulumi.Input['CassandraClusterIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
@@ -270,6 +288,8 @@ class _CassandraClusterState:
             pulumi.set(__self__, "external_gossip_certificate_pems", external_gossip_certificate_pems)
         if external_seed_node_ip_addresses is not None:
             pulumi.set(__self__, "external_seed_node_ip_addresses", external_seed_node_ip_addresses)
+        if hours_between_backups is not None:
+            pulumi.set(__self__, "hours_between_backups", hours_between_backups)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -356,6 +376,18 @@ class _CassandraClusterState:
     @external_seed_node_ip_addresses.setter
     def external_seed_node_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "external_seed_node_ip_addresses", value)
+
+    @property
+    @pulumi.getter(name="hoursBetweenBackups")
+    def hours_between_backups(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+        """
+        return pulumi.get(self, "hours_between_backups")
+
+    @hours_between_backups.setter
+    def hours_between_backups(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "hours_between_backups", value)
 
     @property
     @pulumi.getter
@@ -453,6 +485,7 @@ class CassandraCluster(pulumi.CustomResource):
                  delegated_management_subnet_id: Optional[pulumi.Input[str]] = None,
                  external_gossip_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  external_seed_node_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 hours_between_backups: Optional[pulumi.Input[int]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['CassandraClusterIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -515,6 +548,7 @@ class CassandraCluster(pulumi.CustomResource):
         :param pulumi.Input[str] delegated_management_subnet_id: The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_gossip_certificate_pems: A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_seed_node_ip_addresses: A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
+        :param pulumi.Input[int] hours_between_backups: The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
         :param pulumi.Input[pulumi.InputType['CassandraClusterIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
@@ -596,6 +630,7 @@ class CassandraCluster(pulumi.CustomResource):
                  delegated_management_subnet_id: Optional[pulumi.Input[str]] = None,
                  external_gossip_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  external_seed_node_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 hours_between_backups: Optional[pulumi.Input[int]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['CassandraClusterIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -622,6 +657,7 @@ class CassandraCluster(pulumi.CustomResource):
             __props__.__dict__["delegated_management_subnet_id"] = delegated_management_subnet_id
             __props__.__dict__["external_gossip_certificate_pems"] = external_gossip_certificate_pems
             __props__.__dict__["external_seed_node_ip_addresses"] = external_seed_node_ip_addresses
+            __props__.__dict__["hours_between_backups"] = hours_between_backups
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -647,6 +683,7 @@ class CassandraCluster(pulumi.CustomResource):
             delegated_management_subnet_id: Optional[pulumi.Input[str]] = None,
             external_gossip_certificate_pems: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             external_seed_node_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            hours_between_backups: Optional[pulumi.Input[int]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['CassandraClusterIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -667,6 +704,7 @@ class CassandraCluster(pulumi.CustomResource):
         :param pulumi.Input[str] delegated_management_subnet_id: The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_gossip_certificate_pems: A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_seed_node_ip_addresses: A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
+        :param pulumi.Input[int] hours_between_backups: The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
         :param pulumi.Input[pulumi.InputType['CassandraClusterIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created.
@@ -685,6 +723,7 @@ class CassandraCluster(pulumi.CustomResource):
         __props__.__dict__["delegated_management_subnet_id"] = delegated_management_subnet_id
         __props__.__dict__["external_gossip_certificate_pems"] = external_gossip_certificate_pems
         __props__.__dict__["external_seed_node_ip_addresses"] = external_seed_node_ip_addresses
+        __props__.__dict__["hours_between_backups"] = hours_between_backups
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -741,6 +780,14 @@ class CassandraCluster(pulumi.CustomResource):
         A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
         """
         return pulumi.get(self, "external_seed_node_ip_addresses")
+
+    @property
+    @pulumi.getter(name="hoursBetweenBackups")
+    def hours_between_backups(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+        """
+        return pulumi.get(self, "hours_between_backups")
 
     @property
     @pulumi.getter

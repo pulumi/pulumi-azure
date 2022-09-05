@@ -202,6 +202,8 @@ type Endpoint struct {
 	pulumi.CustomResourceState
 
 	CustomDnsConfigs EndpointCustomDnsConfigArrayOutput `pulumi:"customDnsConfigs"`
+	// An `ipConfiguration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+	IpConfiguration EndpointIpConfigurationPtrOutput `pulumi:"ipConfiguration"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
@@ -259,6 +261,8 @@ func GetEndpoint(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Endpoint resources.
 type endpointState struct {
 	CustomDnsConfigs []EndpointCustomDnsConfig `pulumi:"customDnsConfigs"`
+	// An `ipConfiguration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+	IpConfiguration *EndpointIpConfiguration `pulumi:"ipConfiguration"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
@@ -279,6 +283,8 @@ type endpointState struct {
 
 type EndpointState struct {
 	CustomDnsConfigs EndpointCustomDnsConfigArrayInput
+	// An `ipConfiguration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+	IpConfiguration EndpointIpConfigurationPtrInput
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
@@ -302,6 +308,8 @@ func (EndpointState) ElementType() reflect.Type {
 }
 
 type endpointArgs struct {
+	// An `ipConfiguration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+	IpConfiguration *EndpointIpConfiguration `pulumi:"ipConfiguration"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
@@ -320,6 +328,8 @@ type endpointArgs struct {
 
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
+	// An `ipConfiguration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+	IpConfiguration EndpointIpConfigurationPtrInput
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
@@ -425,6 +435,11 @@ func (o EndpointOutput) ToEndpointOutputWithContext(ctx context.Context) Endpoin
 
 func (o EndpointOutput) CustomDnsConfigs() EndpointCustomDnsConfigArrayOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointCustomDnsConfigArrayOutput { return v.CustomDnsConfigs }).(EndpointCustomDnsConfigArrayOutput)
+}
+
+// An `ipConfiguration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+func (o EndpointOutput) IpConfiguration() EndpointIpConfigurationPtrOutput {
+	return o.ApplyT(func(v *Endpoint) EndpointIpConfigurationPtrOutput { return v.IpConfiguration }).(EndpointIpConfigurationPtrOutput)
 }
 
 // The supported Azure location where the resource exists. Changing this forces a new resource to be created.

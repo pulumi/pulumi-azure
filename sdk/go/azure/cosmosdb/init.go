@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SqlContainer{}
 	case "azure:cosmosdb/sqlDatabase:SqlDatabase":
 		r = &SqlDatabase{}
+	case "azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway":
+		r = &SqlDedicatedGateway{}
 	case "azure:cosmosdb/sqlFunction:SqlFunction":
 		r = &SqlFunction{}
 	case "azure:cosmosdb/sqlRoleAssignment:SqlRoleAssignment":
@@ -128,6 +130,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"cosmosdb/sqlDatabase",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cosmosdb/sqlDedicatedGateway",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

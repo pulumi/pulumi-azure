@@ -600,6 +600,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether the public network access is enabled? Defaults to `true`.
+     * 
+     */
+    @Import(name="publicNetworkAccessEnabled")
+    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Whether the public network access is enabled? Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
+    }
+
+    /**
      * The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      * 
      */
@@ -1015,6 +1030,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.primaryTableHost = $.primaryTableHost;
         this.primaryWebEndpoint = $.primaryWebEndpoint;
         this.primaryWebHost = $.primaryWebHost;
+        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.queueEncryptionKeyType = $.queueEncryptionKeyType;
         this.queueProperties = $.queueProperties;
         this.resourceGroupName = $.resourceGroupName;
@@ -1858,6 +1874,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder primaryWebHost(String primaryWebHost) {
             return primaryWebHost(Output.of(primaryWebHost));
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Whether the public network access is enabled? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
+            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Whether the public network access is enabled? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
         /**

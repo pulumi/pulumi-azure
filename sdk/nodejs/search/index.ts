@@ -7,9 +7,11 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./getService";
 export * from "./service";
+export * from "./sharedPrivateLinkService";
 
 // Import resources to register:
 import { Service } from "./service";
+import { SharedPrivateLinkService } from "./sharedPrivateLinkService";
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +19,12 @@ const _module = {
         switch (type) {
             case "azure:search/service:Service":
                 return new Service(name, <any>undefined, { urn })
+            case "azure:search/sharedPrivateLinkService:SharedPrivateLinkService":
+                return new SharedPrivateLinkService(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "search/service", _module)
+pulumi.runtime.registerResourceModule("azure", "search/sharedPrivateLinkService", _module)

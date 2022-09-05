@@ -109,7 +109,7 @@ export class Schedule extends pulumi.CustomResource {
      */
     public readonly startTime!: pulumi.Output<string>;
     /**
-     * The timezone of the start time. Defaults to `UTC`. For possible values see: https://s2.automation.ext.azure.com/api/Orchestrator/TimeZones?_=1594792230258
+     * The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
      */
     public readonly timezone!: pulumi.Output<string | undefined>;
     /**
@@ -216,7 +216,7 @@ export interface ScheduleState {
      */
     startTime?: pulumi.Input<string>;
     /**
-     * The timezone of the start time. Defaults to `UTC`. For possible values see: https://s2.automation.ext.azure.com/api/Orchestrator/TimeZones?_=1594792230258
+     * The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
      */
     timezone?: pulumi.Input<string>;
     /**
@@ -270,7 +270,7 @@ export interface ScheduleArgs {
      */
     startTime?: pulumi.Input<string>;
     /**
-     * The timezone of the start time. Defaults to `UTC`. For possible values see: https://s2.automation.ext.azure.com/api/Orchestrator/TimeZones?_=1594792230258
+     * The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
      */
     timezone?: pulumi.Input<string>;
     /**

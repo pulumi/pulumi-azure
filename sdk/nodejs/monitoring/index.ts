@@ -15,6 +15,7 @@ export * from "./dataCollectionEndpoint";
 export * from "./dataCollectionRule";
 export * from "./diagnosticSetting";
 export * from "./getActionGroup";
+export * from "./getDataCollectionEndpoint";
 export * from "./getDiagnosticCategories";
 export * from "./getLogProfile";
 export * from "./getScheduledQueryRulesAlert";

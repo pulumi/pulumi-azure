@@ -1448,6 +1448,261 @@ func (o SpringCloudConfigurationServiceRepositoryArrayOutput) Index(i pulumi.Int
 	}).(SpringCloudConfigurationServiceRepositoryOutput)
 }
 
+type SpringCloudConnectionAuthentication struct {
+	// Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
+	// ---
+	Certificate *string `pulumi:"certificate"`
+	// Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `clientId` and `subscriptionId` should be either both specified or both not specified.
+	ClientId *string `pulumi:"clientId"`
+	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+	Name *string `pulumi:"name"`
+	// Principal ID for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`.
+	PrincipalId *string `pulumi:"principalId"`
+	// Password or account key for secret auth. `secret` and `name` should be either both specified or both not specified when `type` is set to `secret`.
+	Secret *string `pulumi:"secret"`
+	// Subscription ID for `userAssignedIdentity`. `subscriptionId` and `clientId` should be either both specified or both not specified.
+	SubscriptionId *string `pulumi:"subscriptionId"`
+	// The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
+	Type string `pulumi:"type"`
+}
+
+// SpringCloudConnectionAuthenticationInput is an input type that accepts SpringCloudConnectionAuthenticationArgs and SpringCloudConnectionAuthenticationOutput values.
+// You can construct a concrete instance of `SpringCloudConnectionAuthenticationInput` via:
+//
+//	SpringCloudConnectionAuthenticationArgs{...}
+type SpringCloudConnectionAuthenticationInput interface {
+	pulumi.Input
+
+	ToSpringCloudConnectionAuthenticationOutput() SpringCloudConnectionAuthenticationOutput
+	ToSpringCloudConnectionAuthenticationOutputWithContext(context.Context) SpringCloudConnectionAuthenticationOutput
+}
+
+type SpringCloudConnectionAuthenticationArgs struct {
+	// Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
+	// ---
+	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
+	// Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `clientId` and `subscriptionId` should be either both specified or both not specified.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Principal ID for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// Password or account key for secret auth. `secret` and `name` should be either both specified or both not specified when `type` is set to `secret`.
+	Secret pulumi.StringPtrInput `pulumi:"secret"`
+	// Subscription ID for `userAssignedIdentity`. `subscriptionId` and `clientId` should be either both specified or both not specified.
+	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
+	// The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (SpringCloudConnectionAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudConnectionAuthentication)(nil)).Elem()
+}
+
+func (i SpringCloudConnectionAuthenticationArgs) ToSpringCloudConnectionAuthenticationOutput() SpringCloudConnectionAuthenticationOutput {
+	return i.ToSpringCloudConnectionAuthenticationOutputWithContext(context.Background())
+}
+
+func (i SpringCloudConnectionAuthenticationArgs) ToSpringCloudConnectionAuthenticationOutputWithContext(ctx context.Context) SpringCloudConnectionAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudConnectionAuthenticationOutput)
+}
+
+func (i SpringCloudConnectionAuthenticationArgs) ToSpringCloudConnectionAuthenticationPtrOutput() SpringCloudConnectionAuthenticationPtrOutput {
+	return i.ToSpringCloudConnectionAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i SpringCloudConnectionAuthenticationArgs) ToSpringCloudConnectionAuthenticationPtrOutputWithContext(ctx context.Context) SpringCloudConnectionAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudConnectionAuthenticationOutput).ToSpringCloudConnectionAuthenticationPtrOutputWithContext(ctx)
+}
+
+// SpringCloudConnectionAuthenticationPtrInput is an input type that accepts SpringCloudConnectionAuthenticationArgs, SpringCloudConnectionAuthenticationPtr and SpringCloudConnectionAuthenticationPtrOutput values.
+// You can construct a concrete instance of `SpringCloudConnectionAuthenticationPtrInput` via:
+//
+//	        SpringCloudConnectionAuthenticationArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpringCloudConnectionAuthenticationPtrInput interface {
+	pulumi.Input
+
+	ToSpringCloudConnectionAuthenticationPtrOutput() SpringCloudConnectionAuthenticationPtrOutput
+	ToSpringCloudConnectionAuthenticationPtrOutputWithContext(context.Context) SpringCloudConnectionAuthenticationPtrOutput
+}
+
+type springCloudConnectionAuthenticationPtrType SpringCloudConnectionAuthenticationArgs
+
+func SpringCloudConnectionAuthenticationPtr(v *SpringCloudConnectionAuthenticationArgs) SpringCloudConnectionAuthenticationPtrInput {
+	return (*springCloudConnectionAuthenticationPtrType)(v)
+}
+
+func (*springCloudConnectionAuthenticationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudConnectionAuthentication)(nil)).Elem()
+}
+
+func (i *springCloudConnectionAuthenticationPtrType) ToSpringCloudConnectionAuthenticationPtrOutput() SpringCloudConnectionAuthenticationPtrOutput {
+	return i.ToSpringCloudConnectionAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (i *springCloudConnectionAuthenticationPtrType) ToSpringCloudConnectionAuthenticationPtrOutputWithContext(ctx context.Context) SpringCloudConnectionAuthenticationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudConnectionAuthenticationPtrOutput)
+}
+
+type SpringCloudConnectionAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudConnectionAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudConnectionAuthentication)(nil)).Elem()
+}
+
+func (o SpringCloudConnectionAuthenticationOutput) ToSpringCloudConnectionAuthenticationOutput() SpringCloudConnectionAuthenticationOutput {
+	return o
+}
+
+func (o SpringCloudConnectionAuthenticationOutput) ToSpringCloudConnectionAuthenticationOutputWithContext(ctx context.Context) SpringCloudConnectionAuthenticationOutput {
+	return o
+}
+
+func (o SpringCloudConnectionAuthenticationOutput) ToSpringCloudConnectionAuthenticationPtrOutput() SpringCloudConnectionAuthenticationPtrOutput {
+	return o.ToSpringCloudConnectionAuthenticationPtrOutputWithContext(context.Background())
+}
+
+func (o SpringCloudConnectionAuthenticationOutput) ToSpringCloudConnectionAuthenticationPtrOutputWithContext(ctx context.Context) SpringCloudConnectionAuthenticationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudConnectionAuthentication) *SpringCloudConnectionAuthentication {
+		return &v
+	}).(SpringCloudConnectionAuthenticationPtrOutput)
+}
+
+// Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
+// ---
+func (o SpringCloudConnectionAuthenticationOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudConnectionAuthentication) *string { return v.Certificate }).(pulumi.StringPtrOutput)
+}
+
+// Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `clientId` and `subscriptionId` should be either both specified or both not specified.
+func (o SpringCloudConnectionAuthenticationOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudConnectionAuthentication) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+func (o SpringCloudConnectionAuthenticationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudConnectionAuthentication) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Principal ID for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`.
+func (o SpringCloudConnectionAuthenticationOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudConnectionAuthentication) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// Password or account key for secret auth. `secret` and `name` should be either both specified or both not specified when `type` is set to `secret`.
+func (o SpringCloudConnectionAuthenticationOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudConnectionAuthentication) *string { return v.Secret }).(pulumi.StringPtrOutput)
+}
+
+// Subscription ID for `userAssignedIdentity`. `subscriptionId` and `clientId` should be either both specified or both not specified.
+func (o SpringCloudConnectionAuthenticationOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudConnectionAuthentication) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
+func (o SpringCloudConnectionAuthenticationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v SpringCloudConnectionAuthentication) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type SpringCloudConnectionAuthenticationPtrOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudConnectionAuthenticationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudConnectionAuthentication)(nil)).Elem()
+}
+
+func (o SpringCloudConnectionAuthenticationPtrOutput) ToSpringCloudConnectionAuthenticationPtrOutput() SpringCloudConnectionAuthenticationPtrOutput {
+	return o
+}
+
+func (o SpringCloudConnectionAuthenticationPtrOutput) ToSpringCloudConnectionAuthenticationPtrOutputWithContext(ctx context.Context) SpringCloudConnectionAuthenticationPtrOutput {
+	return o
+}
+
+func (o SpringCloudConnectionAuthenticationPtrOutput) Elem() SpringCloudConnectionAuthenticationOutput {
+	return o.ApplyT(func(v *SpringCloudConnectionAuthentication) SpringCloudConnectionAuthentication {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudConnectionAuthentication
+		return ret
+	}).(SpringCloudConnectionAuthenticationOutput)
+}
+
+// Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
+// ---
+func (o SpringCloudConnectionAuthenticationPtrOutput) Certificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudConnectionAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Certificate
+	}).(pulumi.StringPtrOutput)
+}
+
+// Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `clientId` and `subscriptionId` should be either both specified or both not specified.
+func (o SpringCloudConnectionAuthenticationPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudConnectionAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+func (o SpringCloudConnectionAuthenticationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudConnectionAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Principal ID for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`.
+func (o SpringCloudConnectionAuthenticationPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudConnectionAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Password or account key for secret auth. `secret` and `name` should be either both specified or both not specified when `type` is set to `secret`.
+func (o SpringCloudConnectionAuthenticationPtrOutput) Secret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudConnectionAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Secret
+	}).(pulumi.StringPtrOutput)
+}
+
+// Subscription ID for `userAssignedIdentity`. `subscriptionId` and `clientId` should be either both specified or both not specified.
+func (o SpringCloudConnectionAuthenticationPtrOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudConnectionAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubscriptionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
+func (o SpringCloudConnectionAuthenticationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudConnectionAuthentication) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type SpringCloudContainerDeploymentQuota struct {
 	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
 	Cpu *string `pulumi:"cpu"`
@@ -5618,6 +5873,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudBuilderStackPtrInput)(nil)).Elem(), SpringCloudBuilderStackArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudConfigurationServiceRepositoryInput)(nil)).Elem(), SpringCloudConfigurationServiceRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudConfigurationServiceRepositoryArrayInput)(nil)).Elem(), SpringCloudConfigurationServiceRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudConnectionAuthenticationInput)(nil)).Elem(), SpringCloudConnectionAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudConnectionAuthenticationPtrInput)(nil)).Elem(), SpringCloudConnectionAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudContainerDeploymentQuotaInput)(nil)).Elem(), SpringCloudContainerDeploymentQuotaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudContainerDeploymentQuotaPtrInput)(nil)).Elem(), SpringCloudContainerDeploymentQuotaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayApiMetadataInput)(nil)).Elem(), SpringCloudGatewayApiMetadataArgs{})
@@ -5688,6 +5945,8 @@ func init() {
 	pulumi.RegisterOutputType(SpringCloudBuilderStackPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudConfigurationServiceRepositoryOutput{})
 	pulumi.RegisterOutputType(SpringCloudConfigurationServiceRepositoryArrayOutput{})
+	pulumi.RegisterOutputType(SpringCloudConnectionAuthenticationOutput{})
+	pulumi.RegisterOutputType(SpringCloudConnectionAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudContainerDeploymentQuotaOutput{})
 	pulumi.RegisterOutputType(SpringCloudContainerDeploymentQuotaPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewayApiMetadataOutput{})

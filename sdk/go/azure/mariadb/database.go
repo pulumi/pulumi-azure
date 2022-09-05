@@ -52,8 +52,8 @@ import (
 //			_, err = mariadb.NewDatabase(ctx, "exampleDatabase", &mariadb.DatabaseArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				ServerName:        exampleServer.Name,
-//				Charset:           pulumi.String("utf8"),
-//				Collation:         pulumi.String("utf8_general_ci"),
+//				Charset:           pulumi.String("utf8mb4"),
+//				Collation:         pulumi.String("utf8mb4_unicode_520_ci"),
 //			})
 //			if err != nil {
 //				return err

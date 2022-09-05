@@ -5,6 +5,8 @@ package com.pulumi.azure.management.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -15,6 +17,13 @@ import javax.annotation.Nullable;
 public final class GroupPolicyRemediationState extends com.pulumi.resources.ResourceArgs {
 
     public static final GroupPolicyRemediationState Empty = new GroupPolicyRemediationState();
+
+    @Import(name="failurePercentage")
+    private @Nullable Output<Double> failurePercentage;
+
+    public Optional<Output<Double>> failurePercentage() {
+        return Optional.ofNullable(this.failurePercentage);
+    }
 
     @Import(name="locationFilters")
     private @Nullable Output<List<String>> locationFilters;
@@ -37,6 +46,13 @@ public final class GroupPolicyRemediationState extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="parallelDeployments")
+    private @Nullable Output<Integer> parallelDeployments;
+
+    public Optional<Output<Integer>> parallelDeployments() {
+        return Optional.ofNullable(this.parallelDeployments);
+    }
+
     @Import(name="policyAssignmentId")
     private @Nullable Output<String> policyAssignmentId;
 
@@ -49,6 +65,13 @@ public final class GroupPolicyRemediationState extends com.pulumi.resources.Reso
 
     public Optional<Output<String>> policyDefinitionId() {
         return Optional.ofNullable(this.policyDefinitionId);
+    }
+
+    @Import(name="resourceCount")
+    private @Nullable Output<Integer> resourceCount;
+
+    public Optional<Output<Integer>> resourceCount() {
+        return Optional.ofNullable(this.resourceCount);
     }
 
     /**
@@ -73,11 +96,14 @@ public final class GroupPolicyRemediationState extends com.pulumi.resources.Reso
     private GroupPolicyRemediationState() {}
 
     private GroupPolicyRemediationState(GroupPolicyRemediationState $) {
+        this.failurePercentage = $.failurePercentage;
         this.locationFilters = $.locationFilters;
         this.managementGroupId = $.managementGroupId;
         this.name = $.name;
+        this.parallelDeployments = $.parallelDeployments;
         this.policyAssignmentId = $.policyAssignmentId;
         this.policyDefinitionId = $.policyDefinitionId;
+        this.resourceCount = $.resourceCount;
         this.resourceDiscoveryMode = $.resourceDiscoveryMode;
     }
 
@@ -97,6 +123,15 @@ public final class GroupPolicyRemediationState extends com.pulumi.resources.Reso
 
         public Builder(GroupPolicyRemediationState defaults) {
             $ = new GroupPolicyRemediationState(Objects.requireNonNull(defaults));
+        }
+
+        public Builder failurePercentage(@Nullable Output<Double> failurePercentage) {
+            $.failurePercentage = failurePercentage;
+            return this;
+        }
+
+        public Builder failurePercentage(Double failurePercentage) {
+            return failurePercentage(Output.of(failurePercentage));
         }
 
         public Builder locationFilters(@Nullable Output<List<String>> locationFilters) {
@@ -130,6 +165,15 @@ public final class GroupPolicyRemediationState extends com.pulumi.resources.Reso
             return name(Output.of(name));
         }
 
+        public Builder parallelDeployments(@Nullable Output<Integer> parallelDeployments) {
+            $.parallelDeployments = parallelDeployments;
+            return this;
+        }
+
+        public Builder parallelDeployments(Integer parallelDeployments) {
+            return parallelDeployments(Output.of(parallelDeployments));
+        }
+
         public Builder policyAssignmentId(@Nullable Output<String> policyAssignmentId) {
             $.policyAssignmentId = policyAssignmentId;
             return this;
@@ -146,6 +190,15 @@ public final class GroupPolicyRemediationState extends com.pulumi.resources.Reso
 
         public Builder policyDefinitionId(String policyDefinitionId) {
             return policyDefinitionId(Output.of(policyDefinitionId));
+        }
+
+        public Builder resourceCount(@Nullable Output<Integer> resourceCount) {
+            $.resourceCount = resourceCount;
+            return this;
+        }
+
+        public Builder resourceCount(Integer resourceCount) {
+            return resourceCount(Output.of(resourceCount));
         }
 
         /**

@@ -57,6 +57,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Gateway{}
 	case "azure:apimanagement/gatewayApi:GatewayApi":
 		r = &GatewayApi{}
+	case "azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority":
+		r = &GatewayCertificateAuthority{}
+	case "azure:apimanagement/gatewayHostNameConfiguration:GatewayHostNameConfiguration":
+		r = &GatewayHostNameConfiguration{}
 	case "azure:apimanagement/group:Group":
 		r = &Group{}
 	case "azure:apimanagement/groupUser:GroupUser":
@@ -93,6 +97,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProductGroup{}
 	case "azure:apimanagement/productPolicy:ProductPolicy":
 		r = &ProductPolicy{}
+	case "azure:apimanagement/productTag:ProductTag":
+		r = &ProductTag{}
 	case "azure:apimanagement/redisCache:RedisCache":
 		r = &RedisCache{}
 	case "azure:apimanagement/service:Service":
@@ -208,6 +214,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"apimanagement/gatewayCertificateAuthority",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"apimanagement/gatewayHostNameConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"apimanagement/group",
 		&module{version},
 	)
@@ -294,6 +310,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"apimanagement/productPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"apimanagement/productTag",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

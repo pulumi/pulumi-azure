@@ -347,6 +347,12 @@ namespace Pulumi.Azure.Storage
         public Output<string> PrimaryWebHost { get; private set; } = null!;
 
         /// <summary>
+        /// Whether the public network access is enabled? Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         /// </summary>
         [Output("queueEncryptionKeyType")]
@@ -676,6 +682,12 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? Nfsv3Enabled { get; set; }
 
         /// <summary>
+        /// Whether the public network access is enabled? Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         /// </summary>
         [Input("queueEncryptionKeyType")]
@@ -971,6 +983,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("primaryWebHost")]
         public Input<string>? PrimaryWebHost { get; set; }
+
+        /// <summary>
+        /// Whether the public network access is enabled? Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.

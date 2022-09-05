@@ -25,6 +25,11 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
      */
     private @Nullable Boolean disablePasswordAuthentication;
     /**
+     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+     * 
+     */
+    private @Nullable String patchAssessmentMode;
+    /**
      * @return Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      * 
      */
@@ -51,6 +56,13 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
      */
     public Optional<Boolean> disablePasswordAuthentication() {
         return Optional.ofNullable(this.disablePasswordAuthentication);
+    }
+    /**
+     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+     * 
+     */
+    public Optional<String> patchAssessmentMode() {
+        return Optional.ofNullable(this.patchAssessmentMode);
     }
     /**
      * @return Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
@@ -80,6 +92,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         private String adminUsername;
         private @Nullable String computerNamePrefix;
         private @Nullable Boolean disablePasswordAuthentication;
+        private @Nullable String patchAssessmentMode;
         private @Nullable String patchMode;
         private @Nullable Boolean provisionVmAgent;
         private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret> secrets;
@@ -91,6 +104,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     	      this.adminUsername = defaults.adminUsername;
     	      this.computerNamePrefix = defaults.computerNamePrefix;
     	      this.disablePasswordAuthentication = defaults.disablePasswordAuthentication;
+    	      this.patchAssessmentMode = defaults.patchAssessmentMode;
     	      this.patchMode = defaults.patchMode;
     	      this.provisionVmAgent = defaults.provisionVmAgent;
     	      this.secrets = defaults.secrets;
@@ -125,6 +139,11 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
             return this;
         }
         @CustomType.Setter
+        public Builder patchAssessmentMode(@Nullable String patchAssessmentMode) {
+            this.patchAssessmentMode = patchAssessmentMode;
+            return this;
+        }
+        @CustomType.Setter
         public Builder patchMode(@Nullable String patchMode) {
             this.patchMode = patchMode;
             return this;
@@ -149,6 +168,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
             o.adminUsername = adminUsername;
             o.computerNamePrefix = computerNamePrefix;
             o.disablePasswordAuthentication = disablePasswordAuthentication;
+            o.patchAssessmentMode = patchAssessmentMode;
             o.patchMode = patchMode;
             o.provisionVmAgent = provisionVmAgent;
             o.secrets = secrets;

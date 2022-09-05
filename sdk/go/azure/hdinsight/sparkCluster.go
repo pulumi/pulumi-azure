@@ -113,7 +113,8 @@ type SparkCluster struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
 	ClusterVersion pulumi.StringOutput `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
-	ComponentVersion SparkClusterComponentVersionOutput `pulumi:"componentVersion"`
+	ComponentVersion SparkClusterComponentVersionOutput    `pulumi:"componentVersion"`
+	DiskEncryptions  SparkClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolOutput `pulumi:"encryptionInTransitEnabled"`
 	// A `gateway` block as defined below.
@@ -200,6 +201,7 @@ type sparkClusterState struct {
 	ClusterVersion *string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion *SparkClusterComponentVersion `pulumi:"componentVersion"`
+	DiskEncryptions  []SparkClusterDiskEncryption  `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
 	// A `gateway` block as defined below.
@@ -240,6 +242,7 @@ type SparkClusterState struct {
 	ClusterVersion pulumi.StringPtrInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion SparkClusterComponentVersionPtrInput
+	DiskEncryptions  SparkClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
 	// A `gateway` block as defined below.
@@ -284,6 +287,7 @@ type sparkClusterArgs struct {
 	ClusterVersion string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion SparkClusterComponentVersion `pulumi:"componentVersion"`
+	DiskEncryptions  []SparkClusterDiskEncryption `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
 	// A `gateway` block as defined below.
@@ -321,6 +325,7 @@ type SparkClusterArgs struct {
 	ClusterVersion pulumi.StringInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion SparkClusterComponentVersionInput
+	DiskEncryptions  SparkClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
 	// A `gateway` block as defined below.
@@ -447,6 +452,10 @@ func (o SparkClusterOutput) ClusterVersion() pulumi.StringOutput {
 // A `componentVersion` block as defined below.
 func (o SparkClusterOutput) ComponentVersion() SparkClusterComponentVersionOutput {
 	return o.ApplyT(func(v *SparkCluster) SparkClusterComponentVersionOutput { return v.ComponentVersion }).(SparkClusterComponentVersionOutput)
+}
+
+func (o SparkClusterOutput) DiskEncryptions() SparkClusterDiskEncryptionArrayOutput {
+	return o.ApplyT(func(v *SparkCluster) SparkClusterDiskEncryptionArrayOutput { return v.DiskEncryptions }).(SparkClusterDiskEncryptionArrayOutput)
 }
 
 // Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.

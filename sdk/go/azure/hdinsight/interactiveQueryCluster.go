@@ -113,7 +113,8 @@ type InteractiveQueryCluster struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
 	ClusterVersion pulumi.StringOutput `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
-	ComponentVersion InteractiveQueryClusterComponentVersionOutput `pulumi:"componentVersion"`
+	ComponentVersion InteractiveQueryClusterComponentVersionOutput    `pulumi:"componentVersion"`
+	DiskEncryptions  InteractiveQueryClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolOutput `pulumi:"encryptionInTransitEnabled"`
 	// A `gateway` block as defined below.
@@ -200,6 +201,7 @@ type interactiveQueryClusterState struct {
 	ClusterVersion *string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion *InteractiveQueryClusterComponentVersion `pulumi:"componentVersion"`
+	DiskEncryptions  []InteractiveQueryClusterDiskEncryption  `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
 	// A `gateway` block as defined below.
@@ -240,6 +242,7 @@ type InteractiveQueryClusterState struct {
 	ClusterVersion pulumi.StringPtrInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion InteractiveQueryClusterComponentVersionPtrInput
+	DiskEncryptions  InteractiveQueryClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
 	// A `gateway` block as defined below.
@@ -284,6 +287,7 @@ type interactiveQueryClusterArgs struct {
 	ClusterVersion string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion InteractiveQueryClusterComponentVersion `pulumi:"componentVersion"`
+	DiskEncryptions  []InteractiveQueryClusterDiskEncryption `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
 	// A `gateway` block as defined below.
@@ -321,6 +325,7 @@ type InteractiveQueryClusterArgs struct {
 	ClusterVersion pulumi.StringInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion InteractiveQueryClusterComponentVersionInput
+	DiskEncryptions  InteractiveQueryClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
 	// A `gateway` block as defined below.
@@ -449,6 +454,12 @@ func (o InteractiveQueryClusterOutput) ComponentVersion() InteractiveQueryCluste
 	return o.ApplyT(func(v *InteractiveQueryCluster) InteractiveQueryClusterComponentVersionOutput {
 		return v.ComponentVersion
 	}).(InteractiveQueryClusterComponentVersionOutput)
+}
+
+func (o InteractiveQueryClusterOutput) DiskEncryptions() InteractiveQueryClusterDiskEncryptionArrayOutput {
+	return o.ApplyT(func(v *InteractiveQueryCluster) InteractiveQueryClusterDiskEncryptionArrayOutput {
+		return v.DiskEncryptions
+	}).(InteractiveQueryClusterDiskEncryptionArrayOutput)
 }
 
 // Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.

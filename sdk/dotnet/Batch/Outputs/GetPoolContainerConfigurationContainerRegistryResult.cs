@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Batch.Outputs
     public sealed class GetPoolContainerConfigurationContainerRegistryResult
     {
         /// <summary>
-        /// The password to log into the registry server.
+        /// The password to use for authentication against the CIFS file system.
         /// </summary>
         public readonly string Password;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string UserAssignedIdentityId;
         /// <summary>
-        /// The user name to log into the registry server.
+        /// The user to use for authentication against the CIFS file system.
         /// </summary>
         public readonly string UserName;
 

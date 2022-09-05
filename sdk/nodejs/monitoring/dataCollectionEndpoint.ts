@@ -63,6 +63,10 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
     }
 
     /**
+     * The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.
+     */
+    public /*out*/ readonly configurationAccessEndpoint!: pulumi.Output<string>;
+    /**
      * Specifies a description for the Data Collection Endpoint.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -74,6 +78,10 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
      * The Azure Region where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
+     */
+    public /*out*/ readonly logsIngestionEndpoint!: pulumi.Output<string>;
     /**
      * The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.
      */
@@ -104,9 +112,11 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataCollectionEndpointState | undefined;
+            resourceInputs["configurationAccessEndpoint"] = state ? state.configurationAccessEndpoint : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["kind"] = state ? state.kind : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["logsIngestionEndpoint"] = state ? state.logsIngestionEndpoint : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -123,6 +133,8 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configurationAccessEndpoint"] = undefined /*out*/;
+            resourceInputs["logsIngestionEndpoint"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(DataCollectionEndpoint.__pulumiType, name, resourceInputs, opts);
@@ -133,6 +145,10 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DataCollectionEndpoint resources.
  */
 export interface DataCollectionEndpointState {
+    /**
+     * The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.
+     */
+    configurationAccessEndpoint?: pulumi.Input<string>;
     /**
      * Specifies a description for the Data Collection Endpoint.
      */
@@ -145,6 +161,10 @@ export interface DataCollectionEndpointState {
      * The Azure Region where the Data Collection Endpoint should exist. Changing this forces a new Data Collection Endpoint to be created.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
+     */
+    logsIngestionEndpoint?: pulumi.Input<string>;
     /**
      * The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.
      */

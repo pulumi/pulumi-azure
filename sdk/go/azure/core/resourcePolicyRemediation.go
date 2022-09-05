@@ -14,10 +14,13 @@ import (
 type ResourcePolicyRemediation struct {
 	pulumi.CustomResourceState
 
+	FailurePercentage     pulumi.Float64PtrOutput  `pulumi:"failurePercentage"`
 	LocationFilters       pulumi.StringArrayOutput `pulumi:"locationFilters"`
 	Name                  pulumi.StringOutput      `pulumi:"name"`
+	ParallelDeployments   pulumi.IntPtrOutput      `pulumi:"parallelDeployments"`
 	PolicyAssignmentId    pulumi.StringOutput      `pulumi:"policyAssignmentId"`
 	PolicyDefinitionId    pulumi.StringPtrOutput   `pulumi:"policyDefinitionId"`
+	ResourceCount         pulumi.IntPtrOutput      `pulumi:"resourceCount"`
 	ResourceDiscoveryMode pulumi.StringPtrOutput   `pulumi:"resourceDiscoveryMode"`
 	ResourceId            pulumi.StringOutput      `pulumi:"resourceId"`
 }
@@ -57,19 +60,25 @@ func GetResourcePolicyRemediation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourcePolicyRemediation resources.
 type resourcePolicyRemediationState struct {
+	FailurePercentage     *float64 `pulumi:"failurePercentage"`
 	LocationFilters       []string `pulumi:"locationFilters"`
 	Name                  *string  `pulumi:"name"`
+	ParallelDeployments   *int     `pulumi:"parallelDeployments"`
 	PolicyAssignmentId    *string  `pulumi:"policyAssignmentId"`
 	PolicyDefinitionId    *string  `pulumi:"policyDefinitionId"`
+	ResourceCount         *int     `pulumi:"resourceCount"`
 	ResourceDiscoveryMode *string  `pulumi:"resourceDiscoveryMode"`
 	ResourceId            *string  `pulumi:"resourceId"`
 }
 
 type ResourcePolicyRemediationState struct {
+	FailurePercentage     pulumi.Float64PtrInput
 	LocationFilters       pulumi.StringArrayInput
 	Name                  pulumi.StringPtrInput
+	ParallelDeployments   pulumi.IntPtrInput
 	PolicyAssignmentId    pulumi.StringPtrInput
 	PolicyDefinitionId    pulumi.StringPtrInput
+	ResourceCount         pulumi.IntPtrInput
 	ResourceDiscoveryMode pulumi.StringPtrInput
 	ResourceId            pulumi.StringPtrInput
 }
@@ -79,20 +88,26 @@ func (ResourcePolicyRemediationState) ElementType() reflect.Type {
 }
 
 type resourcePolicyRemediationArgs struct {
+	FailurePercentage     *float64 `pulumi:"failurePercentage"`
 	LocationFilters       []string `pulumi:"locationFilters"`
 	Name                  *string  `pulumi:"name"`
+	ParallelDeployments   *int     `pulumi:"parallelDeployments"`
 	PolicyAssignmentId    string   `pulumi:"policyAssignmentId"`
 	PolicyDefinitionId    *string  `pulumi:"policyDefinitionId"`
+	ResourceCount         *int     `pulumi:"resourceCount"`
 	ResourceDiscoveryMode *string  `pulumi:"resourceDiscoveryMode"`
 	ResourceId            string   `pulumi:"resourceId"`
 }
 
 // The set of arguments for constructing a ResourcePolicyRemediation resource.
 type ResourcePolicyRemediationArgs struct {
+	FailurePercentage     pulumi.Float64PtrInput
 	LocationFilters       pulumi.StringArrayInput
 	Name                  pulumi.StringPtrInput
+	ParallelDeployments   pulumi.IntPtrInput
 	PolicyAssignmentId    pulumi.StringInput
 	PolicyDefinitionId    pulumi.StringPtrInput
+	ResourceCount         pulumi.IntPtrInput
 	ResourceDiscoveryMode pulumi.StringPtrInput
 	ResourceId            pulumi.StringInput
 }
@@ -184,6 +199,10 @@ func (o ResourcePolicyRemediationOutput) ToResourcePolicyRemediationOutputWithCo
 	return o
 }
 
+func (o ResourcePolicyRemediationOutput) FailurePercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ResourcePolicyRemediation) pulumi.Float64PtrOutput { return v.FailurePercentage }).(pulumi.Float64PtrOutput)
+}
+
 func (o ResourcePolicyRemediationOutput) LocationFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourcePolicyRemediation) pulumi.StringArrayOutput { return v.LocationFilters }).(pulumi.StringArrayOutput)
 }
@@ -192,12 +211,20 @@ func (o ResourcePolicyRemediationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicyRemediation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+func (o ResourcePolicyRemediationOutput) ParallelDeployments() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResourcePolicyRemediation) pulumi.IntPtrOutput { return v.ParallelDeployments }).(pulumi.IntPtrOutput)
+}
+
 func (o ResourcePolicyRemediationOutput) PolicyAssignmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicyRemediation) pulumi.StringOutput { return v.PolicyAssignmentId }).(pulumi.StringOutput)
 }
 
 func (o ResourcePolicyRemediationOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourcePolicyRemediation) pulumi.StringPtrOutput { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+func (o ResourcePolicyRemediationOutput) ResourceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ResourcePolicyRemediation) pulumi.IntPtrOutput { return v.ResourceCount }).(pulumi.IntPtrOutput)
 }
 
 func (o ResourcePolicyRemediationOutput) ResourceDiscoveryMode() pulumi.StringPtrOutput {

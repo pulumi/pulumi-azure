@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'EndpointCustomDnsConfigArgs',
+    'EndpointIpConfigurationArgs',
     'EndpointNetworkInterfaceArgs',
     'EndpointPrivateDnsZoneConfigArgs',
     'EndpointPrivateDnsZoneConfigRecordSetArgs',
@@ -55,6 +56,58 @@ class EndpointCustomDnsConfigArgs:
     @ip_addresses.setter
     def ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ip_addresses", value)
+
+
+@pulumi.input_type
+class EndpointIpConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 private_ip_address: pulumi.Input[str],
+                 subresource_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: Specifies the Name of the IP Configuration. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] private_ip_address: Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] subresource_name: Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id` and in this context is also used for `member_name`. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_ip_address", private_ip_address)
+        pulumi.set(__self__, "subresource_name", subresource_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the Name of the IP Configuration. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> pulumi.Input[str]:
+        """
+        Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "private_ip_address", value)
+
+    @property
+    @pulumi.getter(name="subresourceName")
+    def subresource_name(self) -> pulumi.Input[str]:
+        """
+        Specifies the subresource this IP address applies to. `subresource_names` corresponds to `group_id` and in this context is also used for `member_name`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "subresource_name")
+
+    @subresource_name.setter
+    def subresource_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subresource_name", value)
 
 
 @pulumi.input_type
@@ -322,7 +375,7 @@ class EndpointPrivateServiceConnectionArgs:
         :param pulumi.Input[str] name: Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_connection_resource_alias: The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] private_connection_resource_id: The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `private_connection_resource_id` or `private_connection_resource_alias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
-        :param pulumi.Input[str] private_ip_address: (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+        :param pulumi.Input[str] private_ip_address: Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
         :param pulumi.Input[str] request_message: A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `is_manual_connection` is set to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subresource_names: A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Changing this forces a new resource to be created.
         """
@@ -391,7 +444,7 @@ class EndpointPrivateServiceConnectionArgs:
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[str]]:
         """
-        (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+        Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "private_ip_address")
 

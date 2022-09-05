@@ -5,6 +5,7 @@ package com.pulumi.azure.policy.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -44,6 +45,11 @@ public final class GetPolicyDefintionResult {
      * 
      */
     private String policyType;
+    /**
+     * @return A list of role definition id extracted from `policy_rule` required for remediation.
+     * 
+     */
+    private List<String> roleDefinitionIds;
     /**
      * @return The Type of Policy.
      * 
@@ -103,6 +109,13 @@ public final class GetPolicyDefintionResult {
         return this.policyType;
     }
     /**
+     * @return A list of role definition id extracted from `policy_rule` required for remediation.
+     * 
+     */
+    public List<String> roleDefinitionIds() {
+        return this.roleDefinitionIds;
+    }
+    /**
      * @return The Type of Policy.
      * 
      */
@@ -128,6 +141,7 @@ public final class GetPolicyDefintionResult {
         private String parameters;
         private String policyRule;
         private String policyType;
+        private List<String> roleDefinitionIds;
         private String type;
         public Builder() {}
         public Builder(GetPolicyDefintionResult defaults) {
@@ -141,6 +155,7 @@ public final class GetPolicyDefintionResult {
     	      this.parameters = defaults.parameters;
     	      this.policyRule = defaults.policyRule;
     	      this.policyType = defaults.policyType;
+    	      this.roleDefinitionIds = defaults.roleDefinitionIds;
     	      this.type = defaults.type;
         }
 
@@ -190,6 +205,14 @@ public final class GetPolicyDefintionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder roleDefinitionIds(List<String> roleDefinitionIds) {
+            this.roleDefinitionIds = Objects.requireNonNull(roleDefinitionIds);
+            return this;
+        }
+        public Builder roleDefinitionIds(String... roleDefinitionIds) {
+            return roleDefinitionIds(List.of(roleDefinitionIds));
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
@@ -205,6 +228,7 @@ public final class GetPolicyDefintionResult {
             o.parameters = parameters;
             o.policyRule = policyRule;
             o.policyType = policyType;
+            o.roleDefinitionIds = roleDefinitionIds;
             o.type = type;
             return o;
         }

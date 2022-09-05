@@ -276,14 +276,14 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The point in time to restore from `source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
     @Export(name="pointInTimeRestoreTimeInUtc", type=String.class, parameters={})
     private Output</* @Nullable */ String> pointInTimeRestoreTimeInUtc;
 
     /**
-     * @return The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * @return The point in time to restore from `source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
      * 
      */
     public Output<Optional<String>> pointInTimeRestoreTimeInUtc() {

@@ -9,14 +9,19 @@ export * from "./dicomService";
 export * from "./fhirService";
 export * from "./getDicomService";
 export * from "./getFhirService";
+export * from "./getMedtechService";
 export * from "./getService";
 export * from "./getWorkspace";
+export * from "./medtechService";
+export * from "./medtechServiceFhirDestination";
 export * from "./service";
 export * from "./workspace";
 
 // Import resources to register:
 import { DicomService } from "./dicomService";
 import { FhirService } from "./fhirService";
+import { MedtechService } from "./medtechService";
+import { MedtechServiceFhirDestination } from "./medtechServiceFhirDestination";
 import { Service } from "./service";
 import { Workspace } from "./workspace";
 
@@ -28,6 +33,10 @@ const _module = {
                 return new DicomService(name, <any>undefined, { urn })
             case "azure:healthcare/fhirService:FhirService":
                 return new FhirService(name, <any>undefined, { urn })
+            case "azure:healthcare/medtechService:MedtechService":
+                return new MedtechService(name, <any>undefined, { urn })
+            case "azure:healthcare/medtechServiceFhirDestination:MedtechServiceFhirDestination":
+                return new MedtechServiceFhirDestination(name, <any>undefined, { urn })
             case "azure:healthcare/service:Service":
                 return new Service(name, <any>undefined, { urn })
             case "azure:healthcare/workspace:Workspace":
@@ -39,5 +48,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "healthcare/dicomService", _module)
 pulumi.runtime.registerResourceModule("azure", "healthcare/fhirService", _module)
+pulumi.runtime.registerResourceModule("azure", "healthcare/medtechService", _module)
+pulumi.runtime.registerResourceModule("azure", "healthcare/medtechServiceFhirDestination", _module)
 pulumi.runtime.registerResourceModule("azure", "healthcare/service", _module)
 pulumi.runtime.registerResourceModule("azure", "healthcare/workspace", _module)

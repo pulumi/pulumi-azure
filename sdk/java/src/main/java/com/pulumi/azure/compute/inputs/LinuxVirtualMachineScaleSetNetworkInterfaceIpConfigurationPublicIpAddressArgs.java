@@ -93,6 +93,21 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPub
         return Optional.ofNullable(this.publicIpPrefixId);
     }
 
+    /**
+     * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+     * 
+     */
+    @Import(name="version")
+    private @Nullable Output<String> version;
+
+    /**
+     * @return The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+     * 
+     */
+    public Optional<Output<String>> version() {
+        return Optional.ofNullable(this.version);
+    }
+
     private LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs() {}
 
     private LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs $) {
@@ -101,6 +116,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPub
         this.ipTags = $.ipTags;
         this.name = $.name;
         this.publicIpPrefixId = $.publicIpPrefixId;
+        this.version = $.version;
     }
 
     public static Builder builder() {
@@ -234,6 +250,27 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPub
          */
         public Builder publicIpPrefixId(String publicIpPrefixId) {
             return publicIpPrefixId(Output.of(publicIpPrefixId));
+        }
+
+        /**
+         * @param version The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder version(@Nullable Output<String> version) {
+            $.version = version;
+            return this;
+        }
+
+        /**
+         * @param version The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder version(String version) {
+            return version(Output.of(version));
         }
 
         public LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs build() {

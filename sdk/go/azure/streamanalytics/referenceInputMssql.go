@@ -113,6 +113,8 @@ type ReferenceInputMssql struct {
 	Server pulumi.StringOutput `pulumi:"server"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName pulumi.StringOutput `pulumi:"streamAnalyticsJobName"`
+	// The name of the table in the Azure SQL database.
+	Table pulumi.StringPtrOutput `pulumi:"table"`
 	// The username to connect to the MS SQL database.
 	Username pulumi.StringOutput `pulumi:"username"`
 }
@@ -190,6 +192,8 @@ type referenceInputMssqlState struct {
 	Server *string `pulumi:"server"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName *string `pulumi:"streamAnalyticsJobName"`
+	// The name of the table in the Azure SQL database.
+	Table *string `pulumi:"table"`
 	// The username to connect to the MS SQL database.
 	Username *string `pulumi:"username"`
 }
@@ -215,6 +219,8 @@ type ReferenceInputMssqlState struct {
 	Server pulumi.StringPtrInput
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName pulumi.StringPtrInput
+	// The name of the table in the Azure SQL database.
+	Table pulumi.StringPtrInput
 	// The username to connect to the MS SQL database.
 	Username pulumi.StringPtrInput
 }
@@ -244,6 +250,8 @@ type referenceInputMssqlArgs struct {
 	Server string `pulumi:"server"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName string `pulumi:"streamAnalyticsJobName"`
+	// The name of the table in the Azure SQL database.
+	Table *string `pulumi:"table"`
 	// The username to connect to the MS SQL database.
 	Username string `pulumi:"username"`
 }
@@ -270,6 +278,8 @@ type ReferenceInputMssqlArgs struct {
 	Server pulumi.StringInput
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobName pulumi.StringInput
+	// The name of the table in the Azure SQL database.
+	Table pulumi.StringPtrInput
 	// The username to connect to the MS SQL database.
 	Username pulumi.StringInput
 }
@@ -409,6 +419,11 @@ func (o ReferenceInputMssqlOutput) Server() pulumi.StringOutput {
 // The name of the Stream Analytics Job. Changing this forces a new resource to be created.
 func (o ReferenceInputMssqlOutput) StreamAnalyticsJobName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReferenceInputMssql) pulumi.StringOutput { return v.StreamAnalyticsJobName }).(pulumi.StringOutput)
+}
+
+// The name of the table in the Azure SQL database.
+func (o ReferenceInputMssqlOutput) Table() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReferenceInputMssql) pulumi.StringPtrOutput { return v.Table }).(pulumi.StringPtrOutput)
 }
 
 // The username to connect to the MS SQL database.

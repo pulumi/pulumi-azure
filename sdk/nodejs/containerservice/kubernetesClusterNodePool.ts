@@ -103,6 +103,9 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
      */
     public readonly fipsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
+     */
     public readonly hostGroupId!: pulumi.Output<string | undefined>;
     /**
      * A `kubeletConfig` block as defined below.
@@ -354,6 +357,9 @@ export interface KubernetesClusterNodePoolState {
      * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
      */
     fipsEnabled?: pulumi.Input<boolean>;
+    /**
+     * The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
+     */
     hostGroupId?: pulumi.Input<string>;
     /**
      * A `kubeletConfig` block as defined below.
@@ -505,6 +511,9 @@ export interface KubernetesClusterNodePoolArgs {
      * Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
      */
     fipsEnabled?: pulumi.Input<boolean>;
+    /**
+     * The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
+     */
     hostGroupId?: pulumi.Input<string>;
     /**
      * A `kubeletConfig` block as defined below.

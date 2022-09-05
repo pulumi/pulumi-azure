@@ -13,13 +13,16 @@ import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetAutomaticOsUp
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetBootDiagnostics;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetDataDisk;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetExtension;
+import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetGalleryApplication;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetIdentity;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetNetworkInterface;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetOsDisk;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetPlan;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetRollingUpgradePolicy;
+import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetScaleIn;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetSecret;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetSourceImageReference;
+import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetSpotRestore;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetTerminateNotification;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineScaleSetTerminationNotification;
 import com.pulumi.core.Output;
@@ -141,14 +144,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:compute/linuxVirtualMachineScaleSet:LinuxVirtualMachineScaleSet")
 public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomResource {
     /**
-     * A `additional_capabilities` block as defined below.
+     * An `additional_capabilities` block as defined below.
      * 
      */
     @Export(name="additionalCapabilities", type=LinuxVirtualMachineScaleSetAdditionalCapabilities.class, parameters={})
     private Output</* @Nullable */ LinuxVirtualMachineScaleSetAdditionalCapabilities> additionalCapabilities;
 
     /**
-     * @return A `additional_capabilities` block as defined below.
+     * @return An `additional_capabilities` block as defined below.
      * 
      */
     public Output<Optional<LinuxVirtualMachineScaleSetAdditionalCapabilities>> additionalCapabilities() {
@@ -197,28 +200,28 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
         return this.adminUsername;
     }
     /**
-     * A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+     * An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      * 
      */
     @Export(name="automaticInstanceRepair", type=LinuxVirtualMachineScaleSetAutomaticInstanceRepair.class, parameters={})
     private Output<LinuxVirtualMachineScaleSetAutomaticInstanceRepair> automaticInstanceRepair;
 
     /**
-     * @return A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+     * @return An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      * 
      */
     public Output<LinuxVirtualMachineScaleSetAutomaticInstanceRepair> automaticInstanceRepair() {
         return this.automaticInstanceRepair;
     }
     /**
-     * A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+     * An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
      * 
      */
     @Export(name="automaticOsUpgradePolicy", type=LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy.class, parameters={})
     private Output</* @Nullable */ LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy> automaticOsUpgradePolicy;
 
     /**
-     * @return A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+     * @return An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
      * 
      */
     public Output<Optional<LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy>> automaticOsUpgradePolicy() {
@@ -365,6 +368,20 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.evictionPolicy);
     }
     /**
+     * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+     * 
+     */
+    @Export(name="extensionOperationsEnabled", type=Boolean.class, parameters={})
+    private Output<Boolean> extensionOperationsEnabled;
+
+    /**
+     * @return Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+     * 
+     */
+    public Output<Boolean> extensionOperationsEnabled() {
+        return this.extensionOperationsEnabled;
+    }
+    /**
      * One or more `extension` blocks as defined below
      * 
      */
@@ -393,6 +410,20 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.extensionsTimeBudget);
     }
     /**
+     * A `gallery_applications` block as defined below.
+     * 
+     */
+    @Export(name="galleryApplications", type=List.class, parameters={LinuxVirtualMachineScaleSetGalleryApplication.class})
+    private Output</* @Nullable */ List<LinuxVirtualMachineScaleSetGalleryApplication>> galleryApplications;
+
+    /**
+     * @return A `gallery_applications` block as defined below.
+     * 
+     */
+    public Output<Optional<List<LinuxVirtualMachineScaleSetGalleryApplication>>> galleryApplications() {
+        return Codegen.optional(this.galleryApplications);
+    }
+    /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
      * 
      */
@@ -405,6 +436,20 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      */
     public Output<Optional<String>> healthProbeId() {
         return Codegen.optional(this.healthProbeId);
+    }
+    /**
+     * Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="hostGroupId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> hostGroupId;
+
+    /**
+     * @return Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> hostGroupId() {
+        return Codegen.optional(this.hostGroupId);
     }
     /**
      * An `identity` block as defined below.
@@ -519,14 +564,14 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.overprovision);
     }
     /**
-     * A `plan` block as documented below.
+     * A `plan` block as defined below.
      * 
      */
     @Export(name="plan", type=LinuxVirtualMachineScaleSetPlan.class, parameters={})
     private Output</* @Nullable */ LinuxVirtualMachineScaleSetPlan> plan;
 
     /**
-     * @return A `plan` block as documented below.
+     * @return A `plan` block as defined below.
      * 
      */
     public Output<Optional<LinuxVirtualMachineScaleSetPlan>> plan() {
@@ -617,18 +662,30 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.rollingUpgradePolicy);
     }
     /**
-     * The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+     * A `scale_in` block as defined below.
      * 
      */
-    @Export(name="scaleInPolicy", type=String.class, parameters={})
-    private Output</* @Nullable */ String> scaleInPolicy;
+    @Export(name="scaleIn", type=LinuxVirtualMachineScaleSetScaleIn.class, parameters={})
+    private Output<LinuxVirtualMachineScaleSetScaleIn> scaleIn;
 
     /**
-     * @return The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+     * @return A `scale_in` block as defined below.
      * 
      */
-    public Output<Optional<String>> scaleInPolicy() {
-        return Codegen.optional(this.scaleInPolicy);
+    public Output<LinuxVirtualMachineScaleSetScaleIn> scaleIn() {
+        return this.scaleIn;
+    }
+    /**
+     * @deprecated
+     * `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider. */
+    @Export(name="scaleInPolicy", type=String.class, parameters={})
+    private Output<String> scaleInPolicy;
+
+    public Output<String> scaleInPolicy() {
+        return this.scaleInPolicy;
     }
     /**
      * One or more `secret` blocks as defined below.
@@ -687,14 +744,14 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
         return this.sku;
     }
     /**
-     * The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+     * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      * 
      */
     @Export(name="sourceImageId", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceImageId;
 
     /**
-     * @return The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+     * @return The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      * 
      */
     public Output<Optional<String>> sourceImageId() {
@@ -713,6 +770,20 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
      */
     public Output<Optional<LinuxVirtualMachineScaleSetSourceImageReference>> sourceImageReference() {
         return Codegen.optional(this.sourceImageReference);
+    }
+    /**
+     * A `spot_restore` block as defined below.
+     * 
+     */
+    @Export(name="spotRestore", type=LinuxVirtualMachineScaleSetSpotRestore.class, parameters={})
+    private Output<LinuxVirtualMachineScaleSetSpotRestore> spotRestore;
+
+    /**
+     * @return A `spot_restore` block as defined below.
+     * 
+     */
+    public Output<LinuxVirtualMachineScaleSetSpotRestore> spotRestore() {
+        return this.spotRestore;
     }
     /**
      * A mapping of tags which should be assigned to this Virtual Machine Scale Set.

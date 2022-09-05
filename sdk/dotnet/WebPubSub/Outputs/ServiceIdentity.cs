@@ -14,7 +14,7 @@ namespace Pulumi.Azure.WebPubSub.Outputs
     public sealed class ServiceIdentity
     {
         /// <summary>
-        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

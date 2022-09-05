@@ -11,50 +11,50 @@ import java.util.Objects;
 @CustomType
 public final class GetWorkflowIdentity {
     /**
-     * @return The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+     * @return The list of User Assigned Managed Identity IDs assigned to this Logic App Workflow.
      * 
      */
     private List<String> identityIds;
     /**
-     * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+     * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this Logic App Workflow.
      * 
      */
     private String principalId;
     /**
-     * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+     * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this Logic App Workflow.
      * 
      */
     private String tenantId;
     /**
-     * @return The type of Managed Service Identity that is configured on this API Management Service.
+     * @return The type of Managed Service Identity that is configured on this Logic App Workflow.
      * 
      */
     private String type;
 
     private GetWorkflowIdentity() {}
     /**
-     * @return The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+     * @return The list of User Assigned Managed Identity IDs assigned to this Logic App Workflow.
      * 
      */
     public List<String> identityIds() {
         return this.identityIds;
     }
     /**
-     * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+     * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this Logic App Workflow.
      * 
      */
     public String principalId() {
         return this.principalId;
     }
     /**
-     * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+     * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this Logic App Workflow.
      * 
      */
     public String tenantId() {
         return this.tenantId;
     }
     /**
-     * @return The type of Managed Service Identity that is configured on this API Management Service.
+     * @return The type of Managed Service Identity that is configured on this Logic App Workflow.
      * 
      */
     public String type() {

@@ -135,6 +135,12 @@ namespace Pulumi.Azure.CosmosDB
         public Output<ImmutableArray<string>> ExternalSeedNodeIpAddresses { get; private set; } = null!;
 
         /// <summary>
+        /// The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+        /// </summary>
+        [Output("hoursBetweenBackups")]
+        public Output<int?> HoursBetweenBackups { get; private set; } = null!;
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
@@ -277,6 +283,12 @@ namespace Pulumi.Azure.CosmosDB
         }
 
         /// <summary>
+        /// The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+        /// </summary>
+        [Input("hoursBetweenBackups")]
+        public Input<int>? HoursBetweenBackups { get; set; }
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
@@ -385,6 +397,12 @@ namespace Pulumi.Azure.CosmosDB
             get => _externalSeedNodeIpAddresses ?? (_externalSeedNodeIpAddresses = new InputList<string>());
             set => _externalSeedNodeIpAddresses = value;
         }
+
+        /// <summary>
+        /// The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+        /// </summary>
+        [Input("hoursBetweenBackups")]
+        public Input<int>? HoursBetweenBackups { get; set; }
 
         /// <summary>
         /// An `identity` block as defined below.

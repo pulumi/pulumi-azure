@@ -11,6 +11,11 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AlertRuleNrtAlertDetailsOverride',
+    'AlertRuleNrtEntityMapping',
+    'AlertRuleNrtEntityMappingFieldMapping',
+    'AlertRuleNrtIncident',
+    'AlertRuleNrtIncidentGrouping',
     'AlertRuleScheduledAlertDetailsOverride',
     'AlertRuleScheduledEntityMapping',
     'AlertRuleScheduledEntityMappingFieldMapping',
@@ -23,9 +28,346 @@ __all__ = [
     'AutomationRuleActionIncident',
     'AutomationRuleActionPlaybook',
     'AutomationRuleCondition',
+    'GetAlertRuleTemplateNrtTemplateResult',
     'GetAlertRuleTemplateScheduledTemplateResult',
     'GetAlertRuleTemplateSecurityIncidentTemplateResult',
 ]
+
+@pulumi.output_type
+class AlertRuleNrtAlertDetailsOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "descriptionFormat":
+            suggest = "description_format"
+        elif key == "displayNameFormat":
+            suggest = "display_name_format"
+        elif key == "severityColumnName":
+            suggest = "severity_column_name"
+        elif key == "tacticsColumnName":
+            suggest = "tactics_column_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRuleNrtAlertDetailsOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRuleNrtAlertDetailsOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRuleNrtAlertDetailsOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description_format: Optional[str] = None,
+                 display_name_format: Optional[str] = None,
+                 severity_column_name: Optional[str] = None,
+                 tactics_column_name: Optional[str] = None):
+        """
+        :param str description_format: The format containing columns name(s) to override the description of this Sentinel Alert Rule.
+        :param str display_name_format: The format containing columns name(s) to override the name of this Sentinel Alert Rule.
+        :param str severity_column_name: The column name to take the alert severity from.
+        :param str tactics_column_name: The column name to take the alert tactics from.
+        """
+        if description_format is not None:
+            pulumi.set(__self__, "description_format", description_format)
+        if display_name_format is not None:
+            pulumi.set(__self__, "display_name_format", display_name_format)
+        if severity_column_name is not None:
+            pulumi.set(__self__, "severity_column_name", severity_column_name)
+        if tactics_column_name is not None:
+            pulumi.set(__self__, "tactics_column_name", tactics_column_name)
+
+    @property
+    @pulumi.getter(name="descriptionFormat")
+    def description_format(self) -> Optional[str]:
+        """
+        The format containing columns name(s) to override the description of this Sentinel Alert Rule.
+        """
+        return pulumi.get(self, "description_format")
+
+    @property
+    @pulumi.getter(name="displayNameFormat")
+    def display_name_format(self) -> Optional[str]:
+        """
+        The format containing columns name(s) to override the name of this Sentinel Alert Rule.
+        """
+        return pulumi.get(self, "display_name_format")
+
+    @property
+    @pulumi.getter(name="severityColumnName")
+    def severity_column_name(self) -> Optional[str]:
+        """
+        The column name to take the alert severity from.
+        """
+        return pulumi.get(self, "severity_column_name")
+
+    @property
+    @pulumi.getter(name="tacticsColumnName")
+    def tactics_column_name(self) -> Optional[str]:
+        """
+        The column name to take the alert tactics from.
+        """
+        return pulumi.get(self, "tactics_column_name")
+
+
+@pulumi.output_type
+class AlertRuleNrtEntityMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entityType":
+            suggest = "entity_type"
+        elif key == "fieldMappings":
+            suggest = "field_mappings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRuleNrtEntityMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRuleNrtEntityMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRuleNrtEntityMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 entity_type: str,
+                 field_mappings: Sequence['outputs.AlertRuleNrtEntityMappingFieldMapping']):
+        """
+        :param str entity_type: The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+        :param Sequence['AlertRuleNrtEntityMappingFieldMappingArgs'] field_mappings: A list of `field_mapping` blocks as defined below.
+        """
+        pulumi.set(__self__, "entity_type", entity_type)
+        pulumi.set(__self__, "field_mappings", field_mappings)
+
+    @property
+    @pulumi.getter(name="entityType")
+    def entity_type(self) -> str:
+        """
+        The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+        """
+        return pulumi.get(self, "entity_type")
+
+    @property
+    @pulumi.getter(name="fieldMappings")
+    def field_mappings(self) -> Sequence['outputs.AlertRuleNrtEntityMappingFieldMapping']:
+        """
+        A list of `field_mapping` blocks as defined below.
+        """
+        return pulumi.get(self, "field_mappings")
+
+
+@pulumi.output_type
+class AlertRuleNrtEntityMappingFieldMapping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnName":
+            suggest = "column_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRuleNrtEntityMappingFieldMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRuleNrtEntityMappingFieldMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRuleNrtEntityMappingFieldMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_name: str,
+                 identifier: str):
+        """
+        :param str column_name: The column name to be mapped to the identifier.
+        :param str identifier: The identifier of the entity.
+        """
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "identifier", identifier)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        """
+        The column name to be mapped to the identifier.
+        """
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> str:
+        """
+        The identifier of the entity.
+        """
+        return pulumi.get(self, "identifier")
+
+
+@pulumi.output_type
+class AlertRuleNrtIncident(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createIncidentEnabled":
+            suggest = "create_incident_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRuleNrtIncident. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRuleNrtIncident.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRuleNrtIncident.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 create_incident_enabled: bool,
+                 grouping: 'outputs.AlertRuleNrtIncidentGrouping'):
+        """
+        :param bool create_incident_enabled: Whether to create an incident from alerts triggered by this Sentinel NRT Alert Rule?
+        :param 'AlertRuleNrtIncidentGroupingArgs' grouping: A `grouping` block as defined below.
+        """
+        pulumi.set(__self__, "create_incident_enabled", create_incident_enabled)
+        pulumi.set(__self__, "grouping", grouping)
+
+    @property
+    @pulumi.getter(name="createIncidentEnabled")
+    def create_incident_enabled(self) -> bool:
+        """
+        Whether to create an incident from alerts triggered by this Sentinel NRT Alert Rule?
+        """
+        return pulumi.get(self, "create_incident_enabled")
+
+    @property
+    @pulumi.getter
+    def grouping(self) -> 'outputs.AlertRuleNrtIncidentGrouping':
+        """
+        A `grouping` block as defined below.
+        """
+        return pulumi.get(self, "grouping")
+
+
+@pulumi.output_type
+class AlertRuleNrtIncidentGrouping(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "byAlertDetails":
+            suggest = "by_alert_details"
+        elif key == "byCustomDetails":
+            suggest = "by_custom_details"
+        elif key == "byEntities":
+            suggest = "by_entities"
+        elif key == "entityMatchingMethod":
+            suggest = "entity_matching_method"
+        elif key == "lookbackDuration":
+            suggest = "lookback_duration"
+        elif key == "reopenClosedIncidents":
+            suggest = "reopen_closed_incidents"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertRuleNrtIncidentGrouping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertRuleNrtIncidentGrouping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertRuleNrtIncidentGrouping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 by_alert_details: Optional[Sequence[str]] = None,
+                 by_custom_details: Optional[Sequence[str]] = None,
+                 by_entities: Optional[Sequence[str]] = None,
+                 enabled: Optional[bool] = None,
+                 entity_matching_method: Optional[str] = None,
+                 lookback_duration: Optional[str] = None,
+                 reopen_closed_incidents: Optional[bool] = None):
+        """
+        :param Sequence[str] by_alert_details: A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+        :param Sequence[str] by_custom_details: A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+        :param Sequence[str] by_entities: A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+        :param bool enabled: Enable grouping incidents created from alerts triggered by this Sentinel NRT Alert Rule. Defaults to `true`.
+        :param str entity_matching_method: The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
+        :param str lookback_duration: Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
+        :param bool reopen_closed_incidents: Whether to re-open closed matching incidents? Defaults to `false`.
+        """
+        if by_alert_details is not None:
+            pulumi.set(__self__, "by_alert_details", by_alert_details)
+        if by_custom_details is not None:
+            pulumi.set(__self__, "by_custom_details", by_custom_details)
+        if by_entities is not None:
+            pulumi.set(__self__, "by_entities", by_entities)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if entity_matching_method is not None:
+            pulumi.set(__self__, "entity_matching_method", entity_matching_method)
+        if lookback_duration is not None:
+            pulumi.set(__self__, "lookback_duration", lookback_duration)
+        if reopen_closed_incidents is not None:
+            pulumi.set(__self__, "reopen_closed_incidents", reopen_closed_incidents)
+
+    @property
+    @pulumi.getter(name="byAlertDetails")
+    def by_alert_details(self) -> Optional[Sequence[str]]:
+        """
+        A list of alert details to group by, only when the `entity_matching_method` is `Selected`.
+        """
+        return pulumi.get(self, "by_alert_details")
+
+    @property
+    @pulumi.getter(name="byCustomDetails")
+    def by_custom_details(self) -> Optional[Sequence[str]]:
+        """
+        A list of custom details keys to group by, only when the `entity_matching_method` is `Selected`. Only keys defined in the `custom_details` may be used.
+        """
+        return pulumi.get(self, "by_custom_details")
+
+    @property
+    @pulumi.getter(name="byEntities")
+    def by_entities(self) -> Optional[Sequence[str]]:
+        """
+        A list of entity types to group by, only when the `entity_matching_method` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+        """
+        return pulumi.get(self, "by_entities")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Enable grouping incidents created from alerts triggered by this Sentinel NRT Alert Rule. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="entityMatchingMethod")
+    def entity_matching_method(self) -> Optional[str]:
+        """
+        The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
+        """
+        return pulumi.get(self, "entity_matching_method")
+
+    @property
+    @pulumi.getter(name="lookbackDuration")
+    def lookback_duration(self) -> Optional[str]:
+        """
+        Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
+        """
+        return pulumi.get(self, "lookback_duration")
+
+    @property
+    @pulumi.getter(name="reopenClosedIncidents")
+    def reopen_closed_incidents(self) -> Optional[bool]:
+        """
+        Whether to re-open closed matching incidents? Defaults to `false`.
+        """
+        return pulumi.get(self, "reopen_closed_incidents")
+
 
 @pulumi.output_type
 class AlertRuleScheduledAlertDetailsOverride(dict):
@@ -806,6 +1148,57 @@ class AutomationRuleCondition(dict):
         The property to use for evaluate the condition. Possible values include: `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentDescription`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData`, `Url`.
         """
         return pulumi.get(self, "property")
+
+
+@pulumi.output_type
+class GetAlertRuleTemplateNrtTemplateResult(dict):
+    def __init__(__self__, *,
+                 description: str,
+                 query: str,
+                 severity: str,
+                 tactics: Sequence[str]):
+        """
+        :param str description: The description of this Sentinel Scheduled Alert Rule Template.
+        :param str query: The query of this Sentinel Scheduled Alert Rule Template.
+        :param str severity: The alert severity of this Sentinel Scheduled Alert Rule Template.
+        :param Sequence[str] tactics: A list of categories of attacks by which to classify the rule.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "query", query)
+        pulumi.set(__self__, "severity", severity)
+        pulumi.set(__self__, "tactics", tactics)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The description of this Sentinel Scheduled Alert Rule Template.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def query(self) -> str:
+        """
+        The query of this Sentinel Scheduled Alert Rule Template.
+        """
+        return pulumi.get(self, "query")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> str:
+        """
+        The alert severity of this Sentinel Scheduled Alert Rule Template.
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter
+    def tactics(self) -> Sequence[str]:
+        """
+        A list of categories of attacks by which to classify the rule.
+        """
+        return pulumi.get(self, "tactics")
 
 
 @pulumi.output_type

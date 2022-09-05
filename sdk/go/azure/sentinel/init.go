@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AlertRuleMachineLearningBehaviorAnalytics{}
 	case "azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident":
 		r = &AlertRuleMsSecurityIncident{}
+	case "azure:sentinel/alertRuleNrt:AlertRuleNrt":
+		r = &AlertRuleNrt{}
 	case "azure:sentinel/alertRuleScheduled:AlertRuleScheduled":
 		r = &AlertRuleScheduled{}
 	case "azure:sentinel/authomationRule:AuthomationRule":
@@ -81,6 +83,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"sentinel/alertRuleMsSecurityIncident",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"sentinel/alertRuleNrt",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

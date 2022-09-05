@@ -114,7 +114,8 @@ type KafkaCluster struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
 	ClusterVersion pulumi.StringOutput `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
-	ComponentVersion KafkaClusterComponentVersionOutput `pulumi:"componentVersion"`
+	ComponentVersion KafkaClusterComponentVersionOutput    `pulumi:"componentVersion"`
+	DiskEncryptions  KafkaClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrOutput `pulumi:"encryptionInTransitEnabled"`
 	// A `gateway` block as defined below.
@@ -206,6 +207,7 @@ type kafkaClusterState struct {
 	ClusterVersion *string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion *KafkaClusterComponentVersion `pulumi:"componentVersion"`
+	DiskEncryptions  []KafkaClusterDiskEncryption  `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
 	// A `gateway` block as defined below.
@@ -251,6 +253,7 @@ type KafkaClusterState struct {
 	ClusterVersion pulumi.StringPtrInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion KafkaClusterComponentVersionPtrInput
+	DiskEncryptions  KafkaClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
 	// A `gateway` block as defined below.
@@ -300,6 +303,7 @@ type kafkaClusterArgs struct {
 	ClusterVersion string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion KafkaClusterComponentVersion `pulumi:"componentVersion"`
+	DiskEncryptions  []KafkaClusterDiskEncryption `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
 	// A `gateway` block as defined below.
@@ -340,6 +344,7 @@ type KafkaClusterArgs struct {
 	ClusterVersion pulumi.StringInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion KafkaClusterComponentVersionInput
+	DiskEncryptions  KafkaClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
 	// A `gateway` block as defined below.
@@ -469,6 +474,10 @@ func (o KafkaClusterOutput) ClusterVersion() pulumi.StringOutput {
 // A `componentVersion` block as defined below.
 func (o KafkaClusterOutput) ComponentVersion() KafkaClusterComponentVersionOutput {
 	return o.ApplyT(func(v *KafkaCluster) KafkaClusterComponentVersionOutput { return v.ComponentVersion }).(KafkaClusterComponentVersionOutput)
+}
+
+func (o KafkaClusterOutput) DiskEncryptions() KafkaClusterDiskEncryptionArrayOutput {
+	return o.ApplyT(func(v *KafkaCluster) KafkaClusterDiskEncryptionArrayOutput { return v.DiskEncryptions }).(KafkaClusterDiskEncryptionArrayOutput)
 }
 
 // Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.

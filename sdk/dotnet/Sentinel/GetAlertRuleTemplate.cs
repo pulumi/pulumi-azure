@@ -141,6 +141,10 @@ namespace Pulumi.Azure.Sentinel
         public readonly string LogAnalyticsWorkspaceId;
         public readonly string Name;
         /// <summary>
+        /// A `nrt_template` block as defined below. This only applies to Sentinel NRT Alert Rule Template.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAlertRuleTemplateNrtTemplateResult> NrtTemplates;
+        /// <summary>
         /// A `scheduled_template` block as defined below. This only applies to Sentinel Scheduled Alert Rule Template.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAlertRuleTemplateScheduledTemplateResult> ScheduledTemplates;
@@ -159,6 +163,8 @@ namespace Pulumi.Azure.Sentinel
 
             string name,
 
+            ImmutableArray<Outputs.GetAlertRuleTemplateNrtTemplateResult> nrtTemplates,
+
             ImmutableArray<Outputs.GetAlertRuleTemplateScheduledTemplateResult> scheduledTemplates,
 
             ImmutableArray<Outputs.GetAlertRuleTemplateSecurityIncidentTemplateResult> securityIncidentTemplates)
@@ -167,6 +173,7 @@ namespace Pulumi.Azure.Sentinel
             Id = id;
             LogAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
             Name = name;
+            NrtTemplates = nrtTemplates;
             ScheduledTemplates = scheduledTemplates;
             SecurityIncidentTemplates = securityIncidentTemplates;
         }

@@ -119,6 +119,10 @@ export class ReferenceInputMssql extends pulumi.CustomResource {
      */
     public readonly streamAnalyticsJobName!: pulumi.Output<string>;
     /**
+     * The name of the table in the Azure SQL database.
+     */
+    public readonly table!: pulumi.Output<string | undefined>;
+    /**
      * The username to connect to the MS SQL database.
      */
     public readonly username!: pulumi.Output<string>;
@@ -146,6 +150,7 @@ export class ReferenceInputMssql extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["server"] = state ? state.server : undefined;
             resourceInputs["streamAnalyticsJobName"] = state ? state.streamAnalyticsJobName : undefined;
+            resourceInputs["table"] = state ? state.table : undefined;
             resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as ReferenceInputMssqlArgs | undefined;
@@ -183,6 +188,7 @@ export class ReferenceInputMssql extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["server"] = args ? args.server : undefined;
             resourceInputs["streamAnalyticsJobName"] = args ? args.streamAnalyticsJobName : undefined;
+            resourceInputs["table"] = args ? args.table : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -235,6 +241,10 @@ export interface ReferenceInputMssqlState {
      */
     streamAnalyticsJobName?: pulumi.Input<string>;
     /**
+     * The name of the table in the Azure SQL database.
+     */
+    table?: pulumi.Input<string>;
+    /**
      * The username to connect to the MS SQL database.
      */
     username?: pulumi.Input<string>;
@@ -284,6 +294,10 @@ export interface ReferenceInputMssqlArgs {
      * The name of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
     streamAnalyticsJobName: pulumi.Input<string>;
+    /**
+     * The name of the table in the Azure SQL database.
+     */
+    table?: pulumi.Input<string>;
     /**
      * The username to connect to the MS SQL database.
      */

@@ -80,16 +80,14 @@ public final class DefinitionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The policy mode that allows you to specify which resource
-     * types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+     * The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
      * 
      */
     @Import(name="mode", required=true)
     private Output<String> mode;
 
     /**
-     * @return The policy mode that allows you to specify which resource
-     * types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+     * @return The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
      * 
      */
     public Output<String> mode() {
@@ -285,8 +283,7 @@ public final class DefinitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mode The policy mode that allows you to specify which resource
-         * types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+         * @param mode The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
          * 
          * @return builder
          * 
@@ -297,8 +294,7 @@ public final class DefinitionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mode The policy mode that allows you to specify which resource
-         * types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+         * @param mode The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
          * 
          * @return builder
          * 

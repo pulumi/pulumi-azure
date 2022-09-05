@@ -16,6 +16,7 @@ __all__ = [
     'FhirServiceAuthentication',
     'FhirServiceCors',
     'FhirServiceIdentity',
+    'MedtechServiceIdentity',
     'ServiceAuthenticationConfiguration',
     'ServiceCorsConfiguration',
     'WorkspacePrivateEndpointConnection',
@@ -25,6 +26,7 @@ __all__ = [
     'GetFhirServiceAuthenticationResult',
     'GetFhirServiceCorResult',
     'GetFhirServiceIdentityResult',
+    'GetMedtechServiceIdentityResult',
     'GetServiceAuthenticationConfigurationResult',
     'GetServiceCorsConfigurationResult',
 ]
@@ -343,6 +345,67 @@ class FhirServiceIdentity(dict):
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class MedtechServiceIdentity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MedtechServiceIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MedtechServiceIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MedtechServiceIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 principal_id: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Healthcare Med Tech Service. Possible values are `SystemAssigned`.
+        :param str principal_id: The Principal ID associated with this System Assigned Managed Service Identity.
+        :param str tenant_id: The Tenant ID associated with this System Assigned Managed Service Identity.
+        """
+        pulumi.set(__self__, "type", type)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Healthcare Med Tech Service. Possible values are `SystemAssigned`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The Principal ID associated with this System Assigned Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        The Tenant ID associated with this System Assigned Managed Service Identity.
+        """
         return pulumi.get(self, "tenant_id")
 
 
@@ -749,6 +812,42 @@ class GetFhirServiceIdentityResult(dict):
         """
         The type of identity used for the Healthcare FHIR service.
         """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetMedtechServiceIdentityResult(dict):
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
+        :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Principal ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Tenant ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
         return pulumi.get(self, "type")
 
 

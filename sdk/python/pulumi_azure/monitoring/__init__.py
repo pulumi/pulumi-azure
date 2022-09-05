@@ -15,6 +15,7 @@ from .data_collection_endpoint import *
 from .data_collection_rule import *
 from .diagnostic_setting import *
 from .get_action_group import *
+from .get_data_collection_endpoint import *
 from .get_diagnostic_categories import *
 from .get_log_profile import *
 from .get_scheduled_query_rules_alert import *

@@ -24,6 +24,9 @@ namespace Pulumi.Azure.AppService.Inputs
             set => _identityIds = value;
         }
 
+        /// <summary>
+        /// (Optional) The Principal ID associated with this Managed Service Identity.
+        /// </summary>
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
 

@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.hdinsight.SparkClusterArgs;
 import com.pulumi.azure.hdinsight.inputs.SparkClusterState;
 import com.pulumi.azure.hdinsight.outputs.SparkClusterComponentVersion;
+import com.pulumi.azure.hdinsight.outputs.SparkClusterDiskEncryption;
 import com.pulumi.azure.hdinsight.outputs.SparkClusterGateway;
 import com.pulumi.azure.hdinsight.outputs.SparkClusterMetastores;
 import com.pulumi.azure.hdinsight.outputs.SparkClusterMonitor;
@@ -159,6 +160,12 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<SparkClusterComponentVersion> componentVersion() {
         return this.componentVersion;
+    }
+    @Export(name="diskEncryptions", type=List.class, parameters={SparkClusterDiskEncryption.class})
+    private Output</* @Nullable */ List<SparkClusterDiskEncryption>> diskEncryptions;
+
+    public Output<Optional<List<SparkClusterDiskEncryption>>> diskEncryptions() {
+        return Codegen.optional(this.diskEncryptions);
     }
     /**
      * Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.

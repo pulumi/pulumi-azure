@@ -216,9 +216,17 @@ public class ScheduledQueryRulesAlertV2 extends com.pulumi.resources.CustomResou
     public Output<String> name() {
         return this.name;
     }
+    /**
+     * If specified then overrides the query time range, default is `window_duration`*`number_of_evaluation_periods`.
+     * 
+     */
     @Export(name="queryTimeRangeOverride", type=String.class, parameters={})
     private Output</* @Nullable */ String> queryTimeRangeOverride;
 
+    /**
+     * @return If specified then overrides the query time range, default is `window_duration`*`number_of_evaluation_periods`.
+     * 
+     */
     public Output<Optional<String>> queryTimeRangeOverride() {
         return Codegen.optional(this.queryTimeRangeOverride);
     }

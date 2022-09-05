@@ -83,6 +83,10 @@ export interface GetPolicyDefintionResult {
      */
     readonly policyType: string;
     /**
+     * A list of role definition id extracted from `policyRule` required for remediation.
+     */
+    readonly roleDefinitionIds: string[];
+    /**
      * The Type of Policy.
      */
     readonly type: string;

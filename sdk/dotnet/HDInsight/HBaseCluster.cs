@@ -114,6 +114,9 @@ namespace Pulumi.Azure.HDInsight
         [Output("componentVersion")]
         public Output<Outputs.HBaseClusterComponentVersion> ComponentVersion { get; private set; } = null!;
 
+        [Output("diskEncryptions")]
+        public Output<ImmutableArray<Outputs.HBaseClusterDiskEncryption>> DiskEncryptions { get; private set; } = null!;
+
         /// <summary>
         /// A `gateway` block as defined below.
         /// </summary>
@@ -265,6 +268,14 @@ namespace Pulumi.Azure.HDInsight
         [Input("componentVersion", required: true)]
         public Input<Inputs.HBaseClusterComponentVersionArgs> ComponentVersion { get; set; } = null!;
 
+        [Input("diskEncryptions")]
+        private InputList<Inputs.HBaseClusterDiskEncryptionArgs>? _diskEncryptions;
+        public InputList<Inputs.HBaseClusterDiskEncryptionArgs> DiskEncryptions
+        {
+            get => _diskEncryptions ?? (_diskEncryptions = new InputList<Inputs.HBaseClusterDiskEncryptionArgs>());
+            set => _diskEncryptions = value;
+        }
+
         /// <summary>
         /// A `gateway` block as defined below.
         /// </summary>
@@ -377,6 +388,14 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Input("componentVersion")]
         public Input<Inputs.HBaseClusterComponentVersionGetArgs>? ComponentVersion { get; set; }
+
+        [Input("diskEncryptions")]
+        private InputList<Inputs.HBaseClusterDiskEncryptionGetArgs>? _diskEncryptions;
+        public InputList<Inputs.HBaseClusterDiskEncryptionGetArgs> DiskEncryptions
+        {
+            get => _diskEncryptions ?? (_diskEncryptions = new InputList<Inputs.HBaseClusterDiskEncryptionGetArgs>());
+            set => _diskEncryptions = value;
+        }
 
         /// <summary>
         /// A `gateway` block as defined below.

@@ -111,8 +111,7 @@ export class Definition extends pulumi.CustomResource {
      */
     public readonly metadata!: pulumi.Output<string>;
     /**
-     * The policy mode that allows you to specify which resource
-     * types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+     * The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
      */
     public readonly mode!: pulumi.Output<string>;
     /**
@@ -135,6 +134,10 @@ export class Definition extends pulumi.CustomResource {
      * The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
      */
     public readonly policyType!: pulumi.Output<string>;
+    /**
+     * A list of role definition id extracted from `policyRule` required for remediation.
+     */
+    public /*out*/ readonly roleDefinitionIds!: pulumi.Output<string[]>;
 
     /**
      * Create a Definition resource with the given unique name, arguments, and options.
@@ -158,6 +161,7 @@ export class Definition extends pulumi.CustomResource {
             resourceInputs["parameters"] = state ? state.parameters : undefined;
             resourceInputs["policyRule"] = state ? state.policyRule : undefined;
             resourceInputs["policyType"] = state ? state.policyType : undefined;
+            resourceInputs["roleDefinitionIds"] = state ? state.roleDefinitionIds : undefined;
         } else {
             const args = argsOrState as DefinitionArgs | undefined;
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -178,6 +182,7 @@ export class Definition extends pulumi.CustomResource {
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["policyRule"] = args ? args.policyRule : undefined;
             resourceInputs["policyType"] = args ? args.policyType : undefined;
+            resourceInputs["roleDefinitionIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Definition.__pulumiType, name, resourceInputs, opts);
@@ -207,8 +212,7 @@ export interface DefinitionState {
      */
     metadata?: pulumi.Input<string>;
     /**
-     * The policy mode that allows you to specify which resource
-     * types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+     * The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
      */
     mode?: pulumi.Input<string>;
     /**
@@ -231,6 +235,10 @@ export interface DefinitionState {
      * The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
      */
     policyType?: pulumi.Input<string>;
+    /**
+     * A list of role definition id extracted from `policyRule` required for remediation.
+     */
+    roleDefinitionIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -256,8 +264,7 @@ export interface DefinitionArgs {
      */
     metadata?: pulumi.Input<string>;
     /**
-     * The policy mode that allows you to specify which resource
-     * types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+     * The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
      */
     mode: pulumi.Input<string>;
     /**

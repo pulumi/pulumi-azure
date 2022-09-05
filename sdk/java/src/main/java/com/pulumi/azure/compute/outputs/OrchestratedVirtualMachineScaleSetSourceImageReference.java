@@ -12,6 +12,10 @@ public final class OrchestratedVirtualMachineScaleSetSourceImageReference {
     private String offer;
     private String publisher;
     private String sku;
+    /**
+     * @return The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+     * 
+     */
     private String version;
 
     private OrchestratedVirtualMachineScaleSetSourceImageReference() {}
@@ -24,6 +28,10 @@ public final class OrchestratedVirtualMachineScaleSetSourceImageReference {
     public String sku() {
         return this.sku;
     }
+    /**
+     * @return The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+     * 
+     */
     public String version() {
         return this.version;
     }

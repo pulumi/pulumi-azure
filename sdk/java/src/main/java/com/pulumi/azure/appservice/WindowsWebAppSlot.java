@@ -181,14 +181,14 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientCertificateEnabled);
     }
     /**
-     * The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`
      * 
      */
     @Export(name="clientCertificateMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> clientCertificateMode;
 
     /**
-     * @return The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+     * @return The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`
      * 
      */
     public Output<Optional<String>> clientCertificateMode() {

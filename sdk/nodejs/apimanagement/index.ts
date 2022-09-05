@@ -23,6 +23,8 @@ export * from "./diagnostic";
 export * from "./emailTemplate";
 export * from "./gateway";
 export * from "./gatewayApi";
+export * from "./gatewayCertificateAuthority";
+export * from "./gatewayHostNameConfiguration";
 export * from "./getApi";
 export * from "./getApiVersionSet";
 export * from "./getGateway";
@@ -48,6 +50,7 @@ export * from "./product";
 export * from "./productApi";
 export * from "./productGroup";
 export * from "./productPolicy";
+export * from "./productTag";
 export * from "./redisCache";
 export * from "./service";
 export * from "./subscription";
@@ -73,6 +76,8 @@ import { Diagnostic } from "./diagnostic";
 import { EmailTemplate } from "./emailTemplate";
 import { Gateway } from "./gateway";
 import { GatewayApi } from "./gatewayApi";
+import { GatewayCertificateAuthority } from "./gatewayCertificateAuthority";
+import { GatewayHostNameConfiguration } from "./gatewayHostNameConfiguration";
 import { Group } from "./group";
 import { GroupUser } from "./groupUser";
 import { IdentityProviderAad } from "./identityProviderAad";
@@ -91,6 +96,7 @@ import { Product } from "./product";
 import { ProductApi } from "./productApi";
 import { ProductGroup } from "./productGroup";
 import { ProductPolicy } from "./productPolicy";
+import { ProductTag } from "./productTag";
 import { RedisCache } from "./redisCache";
 import { Service } from "./service";
 import { Subscription } from "./subscription";
@@ -137,6 +143,10 @@ const _module = {
                 return new Gateway(name, <any>undefined, { urn })
             case "azure:apimanagement/gatewayApi:GatewayApi":
                 return new GatewayApi(name, <any>undefined, { urn })
+            case "azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority":
+                return new GatewayCertificateAuthority(name, <any>undefined, { urn })
+            case "azure:apimanagement/gatewayHostNameConfiguration:GatewayHostNameConfiguration":
+                return new GatewayHostNameConfiguration(name, <any>undefined, { urn })
             case "azure:apimanagement/group:Group":
                 return new Group(name, <any>undefined, { urn })
             case "azure:apimanagement/groupUser:GroupUser":
@@ -173,6 +183,8 @@ const _module = {
                 return new ProductGroup(name, <any>undefined, { urn })
             case "azure:apimanagement/productPolicy:ProductPolicy":
                 return new ProductPolicy(name, <any>undefined, { urn })
+            case "azure:apimanagement/productTag:ProductTag":
+                return new ProductTag(name, <any>undefined, { urn })
             case "azure:apimanagement/redisCache:RedisCache":
                 return new RedisCache(name, <any>undefined, { urn })
             case "azure:apimanagement/service:Service":
@@ -206,6 +218,8 @@ pulumi.runtime.registerResourceModule("azure", "apimanagement/diagnostic", _modu
 pulumi.runtime.registerResourceModule("azure", "apimanagement/emailTemplate", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/gateway", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/gatewayApi", _module)
+pulumi.runtime.registerResourceModule("azure", "apimanagement/gatewayCertificateAuthority", _module)
+pulumi.runtime.registerResourceModule("azure", "apimanagement/gatewayHostNameConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/group", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/groupUser", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/identityProviderAad", _module)
@@ -224,6 +238,7 @@ pulumi.runtime.registerResourceModule("azure", "apimanagement/product", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/productApi", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/productGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/productPolicy", _module)
+pulumi.runtime.registerResourceModule("azure", "apimanagement/productTag", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/redisCache", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/service", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/subscription", _module)

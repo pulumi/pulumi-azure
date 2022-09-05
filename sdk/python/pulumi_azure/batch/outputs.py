@@ -20,6 +20,11 @@ __all__ = [
     'PoolContainerConfigurationContainerRegistry',
     'PoolFixedScale',
     'PoolIdentity',
+    'PoolMount',
+    'PoolMountAzureBlobFileSystem',
+    'PoolMountAzureFileShare',
+    'PoolMountCifsMount',
+    'PoolMountNfsMount',
     'PoolNetworkConfiguration',
     'PoolNetworkConfigurationEndpointConfiguration',
     'PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule',
@@ -35,6 +40,11 @@ __all__ = [
     'GetPoolContainerConfigurationResult',
     'GetPoolContainerConfigurationContainerRegistryResult',
     'GetPoolFixedScaleResult',
+    'GetPoolMountResult',
+    'GetPoolMountAzureBlobFileSystemResult',
+    'GetPoolMountAzureFileShareResult',
+    'GetPoolMountCifsMountResult',
+    'GetPoolMountNfsMountResult',
     'GetPoolNetworkConfigurationResult',
     'GetPoolNetworkConfigurationEndpointConfigurationResult',
     'GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleResult',
@@ -397,7 +407,6 @@ class PoolContainerConfigurationContainerRegistry(dict):
         :param str registry_server: The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
         :param str password: The password to log into the registry server. Changing this forces a new resource to be created.
         :param str user_assigned_identity_id: The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
-               ---
         :param str user_name: The user name to log into the registry server. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "registry_server", registry_server)
@@ -429,7 +438,6 @@ class PoolContainerConfigurationContainerRegistry(dict):
     def user_assigned_identity_id(self) -> Optional[str]:
         """
         The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
-        ---
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
@@ -550,6 +558,433 @@ class PoolIdentity(dict):
         Specifies the type of Managed Service Identity that should be configured on this Batch Account. Only possible value is `UserAssigned`.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class PoolMount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureBlobFileSystem":
+            suggest = "azure_blob_file_system"
+        elif key == "azureFileShares":
+            suggest = "azure_file_shares"
+        elif key == "cifsMounts":
+            suggest = "cifs_mounts"
+        elif key == "nfsMounts":
+            suggest = "nfs_mounts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolMount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolMount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolMount.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_blob_file_system: Optional['outputs.PoolMountAzureBlobFileSystem'] = None,
+                 azure_file_shares: Optional[Sequence['outputs.PoolMountAzureFileShare']] = None,
+                 cifs_mounts: Optional[Sequence['outputs.PoolMountCifsMount']] = None,
+                 nfs_mounts: Optional[Sequence['outputs.PoolMountNfsMount']] = None):
+        """
+        :param 'PoolMountAzureBlobFileSystemArgs' azure_blob_file_system: A `azure_blob_file_system` block defined as below.
+        :param Sequence['PoolMountAzureFileShareArgs'] azure_file_shares: A `azure_file_share` block defined as below.
+        :param Sequence['PoolMountCifsMountArgs'] cifs_mounts: A `cifs_mount` block defined as below.
+        :param Sequence['PoolMountNfsMountArgs'] nfs_mounts: A `nfs_mount` block defined as below.
+        """
+        if azure_blob_file_system is not None:
+            pulumi.set(__self__, "azure_blob_file_system", azure_blob_file_system)
+        if azure_file_shares is not None:
+            pulumi.set(__self__, "azure_file_shares", azure_file_shares)
+        if cifs_mounts is not None:
+            pulumi.set(__self__, "cifs_mounts", cifs_mounts)
+        if nfs_mounts is not None:
+            pulumi.set(__self__, "nfs_mounts", nfs_mounts)
+
+    @property
+    @pulumi.getter(name="azureBlobFileSystem")
+    def azure_blob_file_system(self) -> Optional['outputs.PoolMountAzureBlobFileSystem']:
+        """
+        A `azure_blob_file_system` block defined as below.
+        """
+        return pulumi.get(self, "azure_blob_file_system")
+
+    @property
+    @pulumi.getter(name="azureFileShares")
+    def azure_file_shares(self) -> Optional[Sequence['outputs.PoolMountAzureFileShare']]:
+        """
+        A `azure_file_share` block defined as below.
+        """
+        return pulumi.get(self, "azure_file_shares")
+
+    @property
+    @pulumi.getter(name="cifsMounts")
+    def cifs_mounts(self) -> Optional[Sequence['outputs.PoolMountCifsMount']]:
+        """
+        A `cifs_mount` block defined as below.
+        """
+        return pulumi.get(self, "cifs_mounts")
+
+    @property
+    @pulumi.getter(name="nfsMounts")
+    def nfs_mounts(self) -> Optional[Sequence['outputs.PoolMountNfsMount']]:
+        """
+        A `nfs_mount` block defined as below.
+        """
+        return pulumi.get(self, "nfs_mounts")
+
+
+@pulumi.output_type
+class PoolMountAzureBlobFileSystem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountName":
+            suggest = "account_name"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "relativeMountPath":
+            suggest = "relative_mount_path"
+        elif key == "accountKey":
+            suggest = "account_key"
+        elif key == "blobfuseOptions":
+            suggest = "blobfuse_options"
+        elif key == "identityId":
+            suggest = "identity_id"
+        elif key == "sasKey":
+            suggest = "sas_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolMountAzureBlobFileSystem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolMountAzureBlobFileSystem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolMountAzureBlobFileSystem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_name: str,
+                 container_name: str,
+                 relative_mount_path: str,
+                 account_key: Optional[str] = None,
+                 blobfuse_options: Optional[str] = None,
+                 identity_id: Optional[str] = None,
+                 sas_key: Optional[str] = None):
+        """
+        :param str account_name: The Azure Storage Account name.
+        :param str container_name: The Azure Blob Storage Container name.
+        :param str relative_mount_path: The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+        :param str account_key: The Azure Storage Account key. This property is mutually exclusive with both `sas_key` and `identity_id`; exactly one must be specified.
+        :param str blobfuse_options: Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+        :param str identity_id: The ARM resource id of the user assigned identity. This property is mutually exclusive with both `account_key` and `sas_key`; exactly one must be specified.
+        :param str sas_key: The Azure Storage SAS token. This property is mutually exclusive with both `account_key` and `identity_id`; exactly one must be specified.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "relative_mount_path", relative_mount_path)
+        if account_key is not None:
+            pulumi.set(__self__, "account_key", account_key)
+        if blobfuse_options is not None:
+            pulumi.set(__self__, "blobfuse_options", blobfuse_options)
+        if identity_id is not None:
+            pulumi.set(__self__, "identity_id", identity_id)
+        if sas_key is not None:
+            pulumi.set(__self__, "sas_key", sas_key)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        """
+        The Azure Storage Account name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        The Azure Blob Storage Container name.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter(name="relativeMountPath")
+    def relative_mount_path(self) -> str:
+        """
+        The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+        """
+        return pulumi.get(self, "relative_mount_path")
+
+    @property
+    @pulumi.getter(name="accountKey")
+    def account_key(self) -> Optional[str]:
+        """
+        The Azure Storage Account key. This property is mutually exclusive with both `sas_key` and `identity_id`; exactly one must be specified.
+        """
+        return pulumi.get(self, "account_key")
+
+    @property
+    @pulumi.getter(name="blobfuseOptions")
+    def blobfuse_options(self) -> Optional[str]:
+        """
+        Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+        """
+        return pulumi.get(self, "blobfuse_options")
+
+    @property
+    @pulumi.getter(name="identityId")
+    def identity_id(self) -> Optional[str]:
+        """
+        The ARM resource id of the user assigned identity. This property is mutually exclusive with both `account_key` and `sas_key`; exactly one must be specified.
+        """
+        return pulumi.get(self, "identity_id")
+
+    @property
+    @pulumi.getter(name="sasKey")
+    def sas_key(self) -> Optional[str]:
+        """
+        The Azure Storage SAS token. This property is mutually exclusive with both `account_key` and `identity_id`; exactly one must be specified.
+        """
+        return pulumi.get(self, "sas_key")
+
+
+@pulumi.output_type
+class PoolMountAzureFileShare(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountKey":
+            suggest = "account_key"
+        elif key == "accountName":
+            suggest = "account_name"
+        elif key == "azureFileUrl":
+            suggest = "azure_file_url"
+        elif key == "relativeMountPath":
+            suggest = "relative_mount_path"
+        elif key == "mountOptions":
+            suggest = "mount_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolMountAzureFileShare. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolMountAzureFileShare.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolMountAzureFileShare.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_key: str,
+                 account_name: str,
+                 azure_file_url: str,
+                 relative_mount_path: str,
+                 mount_options: Optional[str] = None):
+        """
+        :param str account_key: The Azure Storage Account key.
+        :param str account_name: The Azure Storage Account name.
+        :param str azure_file_url: The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.
+        :param str relative_mount_path: The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+        :param str mount_options: Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+        """
+        pulumi.set(__self__, "account_key", account_key)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "azure_file_url", azure_file_url)
+        pulumi.set(__self__, "relative_mount_path", relative_mount_path)
+        if mount_options is not None:
+            pulumi.set(__self__, "mount_options", mount_options)
+
+    @property
+    @pulumi.getter(name="accountKey")
+    def account_key(self) -> str:
+        """
+        The Azure Storage Account key.
+        """
+        return pulumi.get(self, "account_key")
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        """
+        The Azure Storage Account name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="azureFileUrl")
+    def azure_file_url(self) -> str:
+        """
+        The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.
+        """
+        return pulumi.get(self, "azure_file_url")
+
+    @property
+    @pulumi.getter(name="relativeMountPath")
+    def relative_mount_path(self) -> str:
+        """
+        The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+        """
+        return pulumi.get(self, "relative_mount_path")
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> Optional[str]:
+        """
+        Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+        """
+        return pulumi.get(self, "mount_options")
+
+
+@pulumi.output_type
+class PoolMountCifsMount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "relativeMountPath":
+            suggest = "relative_mount_path"
+        elif key == "userName":
+            suggest = "user_name"
+        elif key == "mountOptions":
+            suggest = "mount_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolMountCifsMount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolMountCifsMount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolMountCifsMount.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 password: str,
+                 relative_mount_path: str,
+                 source: str,
+                 user_name: str,
+                 mount_options: Optional[str] = None):
+        """
+        :param str password: The password to use for authentication against the CIFS file system.
+        :param str relative_mount_path: The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+        :param str source: The URI of the file system to mount.
+        :param str user_name: The user to use for authentication against the CIFS file system.
+        :param str mount_options: Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "relative_mount_path", relative_mount_path)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "user_name", user_name)
+        if mount_options is not None:
+            pulumi.set(__self__, "mount_options", mount_options)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        The password to use for authentication against the CIFS file system.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="relativeMountPath")
+    def relative_mount_path(self) -> str:
+        """
+        The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+        """
+        return pulumi.get(self, "relative_mount_path")
+
+    @property
+    @pulumi.getter
+    def source(self) -> str:
+        """
+        The URI of the file system to mount.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> str:
+        """
+        The user to use for authentication against the CIFS file system.
+        """
+        return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> Optional[str]:
+        """
+        Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+        """
+        return pulumi.get(self, "mount_options")
+
+
+@pulumi.output_type
+class PoolMountNfsMount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "relativeMountPath":
+            suggest = "relative_mount_path"
+        elif key == "mountOptions":
+            suggest = "mount_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PoolMountNfsMount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PoolMountNfsMount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PoolMountNfsMount.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 relative_mount_path: str,
+                 source: str,
+                 mount_options: Optional[str] = None):
+        """
+        :param str relative_mount_path: The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+        :param str source: The URI of the file system to mount.
+        :param str mount_options: Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+        """
+        pulumi.set(__self__, "relative_mount_path", relative_mount_path)
+        pulumi.set(__self__, "source", source)
+        if mount_options is not None:
+            pulumi.set(__self__, "mount_options", mount_options)
+
+    @property
+    @pulumi.getter(name="relativeMountPath")
+    def relative_mount_path(self) -> str:
+        """
+        The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+        """
+        return pulumi.get(self, "relative_mount_path")
+
+    @property
+    @pulumi.getter
+    def source(self) -> str:
+        """
+        The URI of the file system to mount.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> Optional[str]:
+        """
+        Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+        """
+        return pulumi.get(self, "mount_options")
 
 
 @pulumi.output_type
@@ -1316,10 +1751,10 @@ class GetPoolContainerConfigurationContainerRegistryResult(dict):
                  user_assigned_identity_id: str,
                  user_name: str):
         """
-        :param str password: The password to log into the registry server.
+        :param str password: The password to use for authentication against the CIFS file system.
         :param str registry_server: The container registry URL. The default is "docker.io".
         :param str user_assigned_identity_id: The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
-        :param str user_name: The user name to log into the registry server.
+        :param str user_name: The user to use for authentication against the CIFS file system.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "registry_server", registry_server)
@@ -1330,7 +1765,7 @@ class GetPoolContainerConfigurationContainerRegistryResult(dict):
     @pulumi.getter
     def password(self) -> str:
         """
-        The password to log into the registry server.
+        The password to use for authentication against the CIFS file system.
         """
         return pulumi.get(self, "password")
 
@@ -1354,7 +1789,7 @@ class GetPoolContainerConfigurationContainerRegistryResult(dict):
     @pulumi.getter(name="userName")
     def user_name(self) -> str:
         """
-        The user name to log into the registry server.
+        The user to use for authentication against the CIFS file system.
         """
         return pulumi.get(self, "user_name")
 
@@ -1397,6 +1832,307 @@ class GetPoolFixedScaleResult(dict):
         The number of low priority nodes in the Batch pool.
         """
         return pulumi.get(self, "target_low_priority_nodes")
+
+
+@pulumi.output_type
+class GetPoolMountResult(dict):
+    def __init__(__self__, *,
+                 cifs_mounts: Sequence['outputs.GetPoolMountCifsMountResult'],
+                 nfs_mounts: Sequence['outputs.GetPoolMountNfsMountResult'],
+                 azure_blob_file_systems: Optional[Sequence['outputs.GetPoolMountAzureBlobFileSystemResult']] = None,
+                 azure_file_shares: Optional[Sequence['outputs.GetPoolMountAzureFileShareResult']] = None):
+        """
+        :param Sequence['GetPoolMountCifsMountArgs'] cifs_mounts: A `cifs_mount` block defined as below.
+        :param Sequence['GetPoolMountNfsMountArgs'] nfs_mounts: A `nfs_mount` block defined as below.
+        :param Sequence['GetPoolMountAzureBlobFileSystemArgs'] azure_blob_file_systems: A `azure_blob_file_system` block defined as below.
+        :param Sequence['GetPoolMountAzureFileShareArgs'] azure_file_shares: A `azure_file_share` block defined as below.
+        """
+        pulumi.set(__self__, "cifs_mounts", cifs_mounts)
+        pulumi.set(__self__, "nfs_mounts", nfs_mounts)
+        if azure_blob_file_systems is not None:
+            pulumi.set(__self__, "azure_blob_file_systems", azure_blob_file_systems)
+        if azure_file_shares is not None:
+            pulumi.set(__self__, "azure_file_shares", azure_file_shares)
+
+    @property
+    @pulumi.getter(name="cifsMounts")
+    def cifs_mounts(self) -> Sequence['outputs.GetPoolMountCifsMountResult']:
+        """
+        A `cifs_mount` block defined as below.
+        """
+        return pulumi.get(self, "cifs_mounts")
+
+    @property
+    @pulumi.getter(name="nfsMounts")
+    def nfs_mounts(self) -> Sequence['outputs.GetPoolMountNfsMountResult']:
+        """
+        A `nfs_mount` block defined as below.
+        """
+        return pulumi.get(self, "nfs_mounts")
+
+    @property
+    @pulumi.getter(name="azureBlobFileSystems")
+    def azure_blob_file_systems(self) -> Optional[Sequence['outputs.GetPoolMountAzureBlobFileSystemResult']]:
+        """
+        A `azure_blob_file_system` block defined as below.
+        """
+        return pulumi.get(self, "azure_blob_file_systems")
+
+    @property
+    @pulumi.getter(name="azureFileShares")
+    def azure_file_shares(self) -> Optional[Sequence['outputs.GetPoolMountAzureFileShareResult']]:
+        """
+        A `azure_file_share` block defined as below.
+        """
+        return pulumi.get(self, "azure_file_shares")
+
+
+@pulumi.output_type
+class GetPoolMountAzureBlobFileSystemResult(dict):
+    def __init__(__self__, *,
+                 account_key: str,
+                 account_name: str,
+                 blobfuse_options: str,
+                 container_name: str,
+                 identity_id: str,
+                 relative_mount_path: str,
+                 sas_key: str):
+        """
+        :param str account_key: The Azure Storage Account key.
+        :param str account_name: The Azure Storage Account name.
+        :param str blobfuse_options: Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+        :param str container_name: The Azure Blob Storage Container name.
+        :param str identity_id: The ARM resource id of the user assigned identity. This property is mutually exclusive with both `account_key` and `sas_key`; exactly one must be specified.
+        :param str relative_mount_path: The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+        :param str sas_key: The Azure Storage SAS token. This property is mutually exclusive with both `account_key` and `identity_id`; exactly one must be specified.
+        """
+        pulumi.set(__self__, "account_key", account_key)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "blobfuse_options", blobfuse_options)
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "identity_id", identity_id)
+        pulumi.set(__self__, "relative_mount_path", relative_mount_path)
+        pulumi.set(__self__, "sas_key", sas_key)
+
+    @property
+    @pulumi.getter(name="accountKey")
+    def account_key(self) -> str:
+        """
+        The Azure Storage Account key.
+        """
+        return pulumi.get(self, "account_key")
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        """
+        The Azure Storage Account name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="blobfuseOptions")
+    def blobfuse_options(self) -> str:
+        """
+        Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+        """
+        return pulumi.get(self, "blobfuse_options")
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        The Azure Blob Storage Container name.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter(name="identityId")
+    def identity_id(self) -> str:
+        """
+        The ARM resource id of the user assigned identity. This property is mutually exclusive with both `account_key` and `sas_key`; exactly one must be specified.
+        """
+        return pulumi.get(self, "identity_id")
+
+    @property
+    @pulumi.getter(name="relativeMountPath")
+    def relative_mount_path(self) -> str:
+        """
+        The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+        """
+        return pulumi.get(self, "relative_mount_path")
+
+    @property
+    @pulumi.getter(name="sasKey")
+    def sas_key(self) -> str:
+        """
+        The Azure Storage SAS token. This property is mutually exclusive with both `account_key` and `identity_id`; exactly one must be specified.
+        """
+        return pulumi.get(self, "sas_key")
+
+
+@pulumi.output_type
+class GetPoolMountAzureFileShareResult(dict):
+    def __init__(__self__, *,
+                 account_key: str,
+                 account_name: str,
+                 azure_file_url: str,
+                 mount_options: str,
+                 relative_mount_path: str):
+        """
+        :param str account_key: The Azure Storage Account key.
+        :param str account_name: The Azure Storage Account name.
+        :param str azure_file_url: The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.
+        :param str mount_options: Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+        :param str relative_mount_path: The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+        """
+        pulumi.set(__self__, "account_key", account_key)
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "azure_file_url", azure_file_url)
+        pulumi.set(__self__, "mount_options", mount_options)
+        pulumi.set(__self__, "relative_mount_path", relative_mount_path)
+
+    @property
+    @pulumi.getter(name="accountKey")
+    def account_key(self) -> str:
+        """
+        The Azure Storage Account key.
+        """
+        return pulumi.get(self, "account_key")
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        """
+        The Azure Storage Account name.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="azureFileUrl")
+    def azure_file_url(self) -> str:
+        """
+        The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.
+        """
+        return pulumi.get(self, "azure_file_url")
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> str:
+        """
+        Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+        """
+        return pulumi.get(self, "mount_options")
+
+    @property
+    @pulumi.getter(name="relativeMountPath")
+    def relative_mount_path(self) -> str:
+        """
+        The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+        """
+        return pulumi.get(self, "relative_mount_path")
+
+
+@pulumi.output_type
+class GetPoolMountCifsMountResult(dict):
+    def __init__(__self__, *,
+                 mount_options: str,
+                 password: str,
+                 relative_mount_path: str,
+                 source: str,
+                 user_name: str):
+        """
+        :param str mount_options: Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+        :param str password: The password to use for authentication against the CIFS file system.
+        :param str relative_mount_path: The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+        :param str source: The URI of the file system to mount.
+        :param str user_name: The user to use for authentication against the CIFS file system.
+        """
+        pulumi.set(__self__, "mount_options", mount_options)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "relative_mount_path", relative_mount_path)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "user_name", user_name)
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> str:
+        """
+        Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+        """
+        return pulumi.get(self, "mount_options")
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        The password to use for authentication against the CIFS file system.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="relativeMountPath")
+    def relative_mount_path(self) -> str:
+        """
+        The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+        """
+        return pulumi.get(self, "relative_mount_path")
+
+    @property
+    @pulumi.getter
+    def source(self) -> str:
+        """
+        The URI of the file system to mount.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> str:
+        """
+        The user to use for authentication against the CIFS file system.
+        """
+        return pulumi.get(self, "user_name")
+
+
+@pulumi.output_type
+class GetPoolMountNfsMountResult(dict):
+    def __init__(__self__, *,
+                 mount_options: str,
+                 relative_mount_path: str,
+                 source: str):
+        """
+        :param str mount_options: Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+        :param str relative_mount_path: The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+        :param str source: The URI of the file system to mount.
+        """
+        pulumi.set(__self__, "mount_options", mount_options)
+        pulumi.set(__self__, "relative_mount_path", relative_mount_path)
+        pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> str:
+        """
+        Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+        """
+        return pulumi.get(self, "mount_options")
+
+    @property
+    @pulumi.getter(name="relativeMountPath")
+    def relative_mount_path(self) -> str:
+        """
+        The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+        """
+        return pulumi.get(self, "relative_mount_path")
+
+    @property
+    @pulumi.getter
+    def source(self) -> str:
+        """
+        The URI of the file system to mount.
+        """
+        return pulumi.get(self, "source")
 
 
 @pulumi.output_type
@@ -1698,7 +2434,7 @@ class GetPoolStartTaskUserIdentityResult(dict):
                  user_name: str):
         """
         :param Sequence['GetPoolStartTaskUserIdentityAutoUserArgs'] auto_users: A `auto_user` block that describes the user identity under which the start task runs.
-        :param str user_name: The user name to log into the registry server.
+        :param str user_name: The user to use for authentication against the CIFS file system.
         """
         pulumi.set(__self__, "auto_users", auto_users)
         pulumi.set(__self__, "user_name", user_name)
@@ -1715,7 +2451,7 @@ class GetPoolStartTaskUserIdentityResult(dict):
     @pulumi.getter(name="userName")
     def user_name(self) -> str:
         """
-        The user name to log into the registry server.
+        The user to use for authentication against the CIFS file system.
         """
         return pulumi.get(self, "user_name")
 

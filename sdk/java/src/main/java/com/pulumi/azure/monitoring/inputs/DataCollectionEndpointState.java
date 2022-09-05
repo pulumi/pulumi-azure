@@ -18,6 +18,21 @@ public final class DataCollectionEndpointState extends com.pulumi.resources.Reso
     public static final DataCollectionEndpointState Empty = new DataCollectionEndpointState();
 
     /**
+     * The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.
+     * 
+     */
+    @Import(name="configurationAccessEndpoint")
+    private @Nullable Output<String> configurationAccessEndpoint;
+
+    /**
+     * @return The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.
+     * 
+     */
+    public Optional<Output<String>> configurationAccessEndpoint() {
+        return Optional.ofNullable(this.configurationAccessEndpoint);
+    }
+
+    /**
      * Specifies a description for the Data Collection Endpoint.
      * 
      */
@@ -60,6 +75,21 @@ public final class DataCollectionEndpointState extends com.pulumi.resources.Reso
      */
     public Optional<Output<String>> location() {
         return Optional.ofNullable(this.location);
+    }
+
+    /**
+     * The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
+     * 
+     */
+    @Import(name="logsIngestionEndpoint")
+    private @Nullable Output<String> logsIngestionEndpoint;
+
+    /**
+     * @return The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
+     * 
+     */
+    public Optional<Output<String>> logsIngestionEndpoint() {
+        return Optional.ofNullable(this.logsIngestionEndpoint);
     }
 
     /**
@@ -125,9 +155,11 @@ public final class DataCollectionEndpointState extends com.pulumi.resources.Reso
     private DataCollectionEndpointState() {}
 
     private DataCollectionEndpointState(DataCollectionEndpointState $) {
+        this.configurationAccessEndpoint = $.configurationAccessEndpoint;
         this.description = $.description;
         this.kind = $.kind;
         this.location = $.location;
+        this.logsIngestionEndpoint = $.logsIngestionEndpoint;
         this.name = $.name;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
@@ -150,6 +182,27 @@ public final class DataCollectionEndpointState extends com.pulumi.resources.Reso
 
         public Builder(DataCollectionEndpointState defaults) {
             $ = new DataCollectionEndpointState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param configurationAccessEndpoint The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configurationAccessEndpoint(@Nullable Output<String> configurationAccessEndpoint) {
+            $.configurationAccessEndpoint = configurationAccessEndpoint;
+            return this;
+        }
+
+        /**
+         * @param configurationAccessEndpoint The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder configurationAccessEndpoint(String configurationAccessEndpoint) {
+            return configurationAccessEndpoint(Output.of(configurationAccessEndpoint));
         }
 
         /**
@@ -213,6 +266,27 @@ public final class DataCollectionEndpointState extends com.pulumi.resources.Reso
          */
         public Builder location(String location) {
             return location(Output.of(location));
+        }
+
+        /**
+         * @param logsIngestionEndpoint The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logsIngestionEndpoint(@Nullable Output<String> logsIngestionEndpoint) {
+            $.logsIngestionEndpoint = logsIngestionEndpoint;
+            return this;
+        }
+
+        /**
+         * @param logsIngestionEndpoint The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logsIngestionEndpoint(String logsIngestionEndpoint) {
+            return logsIngestionEndpoint(Output.of(logsIngestionEndpoint));
         }
 
         /**

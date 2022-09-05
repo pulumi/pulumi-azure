@@ -17,6 +17,10 @@ public final class StaticSiteIdentity {
      * 
      */
     private @Nullable List<String> identityIds;
+    /**
+     * @return (Optional) The Principal ID associated with this Managed Service Identity.
+     * 
+     */
     private @Nullable String principalId;
     private @Nullable String tenantId;
     /**
@@ -33,6 +37,10 @@ public final class StaticSiteIdentity {
     public List<String> identityIds() {
         return this.identityIds == null ? List.of() : this.identityIds;
     }
+    /**
+     * @return (Optional) The Principal ID associated with this Managed Service Identity.
+     * 
+     */
     public Optional<String> principalId() {
         return Optional.ofNullable(this.principalId);
     }

@@ -12,17 +12,26 @@ namespace Pulumi.Azure.Core
     [AzureResourceType("azure:core/subscriptionPolicyRemediation:SubscriptionPolicyRemediation")]
     public partial class SubscriptionPolicyRemediation : global::Pulumi.CustomResource
     {
+        [Output("failurePercentage")]
+        public Output<double?> FailurePercentage { get; private set; } = null!;
+
         [Output("locationFilters")]
         public Output<ImmutableArray<string>> LocationFilters { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("parallelDeployments")]
+        public Output<int?> ParallelDeployments { get; private set; } = null!;
+
         [Output("policyAssignmentId")]
         public Output<string> PolicyAssignmentId { get; private set; } = null!;
 
         [Output("policyDefinitionId")]
         public Output<string?> PolicyDefinitionId { get; private set; } = null!;
+
+        [Output("resourceCount")]
+        public Output<int?> ResourceCount { get; private set; } = null!;
 
         [Output("resourceDiscoveryMode")]
         public Output<string?> ResourceDiscoveryMode { get; private set; } = null!;
@@ -76,6 +85,9 @@ namespace Pulumi.Azure.Core
 
     public sealed class SubscriptionPolicyRemediationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("failurePercentage")]
+        public Input<double>? FailurePercentage { get; set; }
+
         [Input("locationFilters")]
         private InputList<string>? _locationFilters;
         public InputList<string> LocationFilters
@@ -87,11 +99,17 @@ namespace Pulumi.Azure.Core
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("parallelDeployments")]
+        public Input<int>? ParallelDeployments { get; set; }
+
         [Input("policyAssignmentId", required: true)]
         public Input<string> PolicyAssignmentId { get; set; } = null!;
 
         [Input("policyDefinitionId")]
         public Input<string>? PolicyDefinitionId { get; set; }
+
+        [Input("resourceCount")]
+        public Input<int>? ResourceCount { get; set; }
 
         [Input("resourceDiscoveryMode")]
         public Input<string>? ResourceDiscoveryMode { get; set; }
@@ -107,6 +125,9 @@ namespace Pulumi.Azure.Core
 
     public sealed class SubscriptionPolicyRemediationState : global::Pulumi.ResourceArgs
     {
+        [Input("failurePercentage")]
+        public Input<double>? FailurePercentage { get; set; }
+
         [Input("locationFilters")]
         private InputList<string>? _locationFilters;
         public InputList<string> LocationFilters
@@ -118,11 +139,17 @@ namespace Pulumi.Azure.Core
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("parallelDeployments")]
+        public Input<int>? ParallelDeployments { get; set; }
+
         [Input("policyAssignmentId")]
         public Input<string>? PolicyAssignmentId { get; set; }
 
         [Input("policyDefinitionId")]
         public Input<string>? PolicyDefinitionId { get; set; }
+
+        [Input("resourceCount")]
+        public Input<int>? ResourceCount { get; set; }
 
         [Input("resourceDiscoveryMode")]
         public Input<string>? ResourceDiscoveryMode { get; set; }

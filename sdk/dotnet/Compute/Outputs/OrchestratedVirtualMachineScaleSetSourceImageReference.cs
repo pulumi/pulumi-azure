@@ -16,6 +16,9 @@ namespace Pulumi.Azure.Compute.Outputs
         public readonly string Offer;
         public readonly string Publisher;
         public readonly string Sku;
+        /// <summary>
+        /// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]

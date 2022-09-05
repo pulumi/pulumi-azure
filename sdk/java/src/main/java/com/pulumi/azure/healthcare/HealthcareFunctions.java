@@ -8,12 +8,15 @@ import com.pulumi.azure.healthcare.inputs.GetDicomServiceArgs;
 import com.pulumi.azure.healthcare.inputs.GetDicomServicePlainArgs;
 import com.pulumi.azure.healthcare.inputs.GetFhirServiceArgs;
 import com.pulumi.azure.healthcare.inputs.GetFhirServicePlainArgs;
+import com.pulumi.azure.healthcare.inputs.GetMedtechServiceArgs;
+import com.pulumi.azure.healthcare.inputs.GetMedtechServicePlainArgs;
 import com.pulumi.azure.healthcare.inputs.GetServiceArgs;
 import com.pulumi.azure.healthcare.inputs.GetServicePlainArgs;
 import com.pulumi.azure.healthcare.inputs.GetWorkspaceArgs;
 import com.pulumi.azure.healthcare.inputs.GetWorkspacePlainArgs;
 import com.pulumi.azure.healthcare.outputs.GetDicomServiceResult;
 import com.pulumi.azure.healthcare.outputs.GetFhirServiceResult;
+import com.pulumi.azure.healthcare.outputs.GetMedtechServiceResult;
 import com.pulumi.azure.healthcare.outputs.GetServiceResult;
 import com.pulumi.azure.healthcare.outputs.GetWorkspaceResult;
 import com.pulumi.core.Output;
@@ -206,6 +209,162 @@ public final class HealthcareFunctions {
      */
     public static CompletableFuture<GetFhirServiceResult> getFhirServicePlain(GetFhirServicePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:healthcare/getFhirService:getFhirService", TypeShape.of(GetFhirServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Healthcare Med Tech Service
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.healthcare.HealthcareFunctions;
+     * import com.pulumi.azure.healthcare.inputs.GetMedtechServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = HealthcareFunctions.getMedtechService(GetMedtechServiceArgs.builder()
+     *             .name(&#34;tfexmedtech&#34;)
+     *             .workspaceId(&#34;tfexwks&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;azurermHealthcareMedtechServiceId&#34;, example.applyValue(getMedtechServiceResult -&gt; getMedtechServiceResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetMedtechServiceResult> getMedtechService(GetMedtechServiceArgs args) {
+        return getMedtechService(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Healthcare Med Tech Service
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.healthcare.HealthcareFunctions;
+     * import com.pulumi.azure.healthcare.inputs.GetMedtechServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = HealthcareFunctions.getMedtechService(GetMedtechServiceArgs.builder()
+     *             .name(&#34;tfexmedtech&#34;)
+     *             .workspaceId(&#34;tfexwks&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;azurermHealthcareMedtechServiceId&#34;, example.applyValue(getMedtechServiceResult -&gt; getMedtechServiceResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetMedtechServiceResult> getMedtechServicePlain(GetMedtechServicePlainArgs args) {
+        return getMedtechServicePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Healthcare Med Tech Service
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.healthcare.HealthcareFunctions;
+     * import com.pulumi.azure.healthcare.inputs.GetMedtechServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = HealthcareFunctions.getMedtechService(GetMedtechServiceArgs.builder()
+     *             .name(&#34;tfexmedtech&#34;)
+     *             .workspaceId(&#34;tfexwks&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;azurermHealthcareMedtechServiceId&#34;, example.applyValue(getMedtechServiceResult -&gt; getMedtechServiceResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetMedtechServiceResult> getMedtechService(GetMedtechServiceArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:healthcare/getMedtechService:getMedtechService", TypeShape.of(GetMedtechServiceResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Healthcare Med Tech Service
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.healthcare.HealthcareFunctions;
+     * import com.pulumi.azure.healthcare.inputs.GetMedtechServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = HealthcareFunctions.getMedtechService(GetMedtechServiceArgs.builder()
+     *             .name(&#34;tfexmedtech&#34;)
+     *             .workspaceId(&#34;tfexwks&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;azurermHealthcareMedtechServiceId&#34;, example.applyValue(getMedtechServiceResult -&gt; getMedtechServiceResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetMedtechServiceResult> getMedtechServicePlain(GetMedtechServicePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:healthcare/getMedtechService:getMedtechService", TypeShape.of(GetMedtechServiceResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Healthcare Service

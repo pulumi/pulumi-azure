@@ -960,7 +960,6 @@ type PoolContainerConfigurationContainerRegistry struct {
 	// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
 	RegistryServer string `pulumi:"registryServer"`
 	// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
-	// ---
 	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 	// The user name to log into the registry server. Changing this forces a new resource to be created.
 	UserName *string `pulumi:"userName"`
@@ -983,7 +982,6 @@ type PoolContainerConfigurationContainerRegistryArgs struct {
 	// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
 	RegistryServer pulumi.StringInput `pulumi:"registryServer"`
 	// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
-	// ---
 	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 	// The user name to log into the registry server. Changing this forces a new resource to be created.
 	UserName pulumi.StringPtrInput `pulumi:"userName"`
@@ -1051,7 +1049,6 @@ func (o PoolContainerConfigurationContainerRegistryOutput) RegistryServer() pulu
 }
 
 // The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
-// ---
 func (o PoolContainerConfigurationContainerRegistryOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolContainerConfigurationContainerRegistry) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
@@ -1410,6 +1407,762 @@ func (o PoolIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+type PoolMount struct {
+	// A `azureBlobFileSystem` block defined as below.
+	AzureBlobFileSystem *PoolMountAzureBlobFileSystem `pulumi:"azureBlobFileSystem"`
+	// A `azureFileShare` block defined as below.
+	AzureFileShares []PoolMountAzureFileShare `pulumi:"azureFileShares"`
+	// A `cifsMount` block defined as below.
+	CifsMounts []PoolMountCifsMount `pulumi:"cifsMounts"`
+	// A `nfsMount` block defined as below.
+	NfsMounts []PoolMountNfsMount `pulumi:"nfsMounts"`
+}
+
+// PoolMountInput is an input type that accepts PoolMountArgs and PoolMountOutput values.
+// You can construct a concrete instance of `PoolMountInput` via:
+//
+//	PoolMountArgs{...}
+type PoolMountInput interface {
+	pulumi.Input
+
+	ToPoolMountOutput() PoolMountOutput
+	ToPoolMountOutputWithContext(context.Context) PoolMountOutput
+}
+
+type PoolMountArgs struct {
+	// A `azureBlobFileSystem` block defined as below.
+	AzureBlobFileSystem PoolMountAzureBlobFileSystemPtrInput `pulumi:"azureBlobFileSystem"`
+	// A `azureFileShare` block defined as below.
+	AzureFileShares PoolMountAzureFileShareArrayInput `pulumi:"azureFileShares"`
+	// A `cifsMount` block defined as below.
+	CifsMounts PoolMountCifsMountArrayInput `pulumi:"cifsMounts"`
+	// A `nfsMount` block defined as below.
+	NfsMounts PoolMountNfsMountArrayInput `pulumi:"nfsMounts"`
+}
+
+func (PoolMountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolMount)(nil)).Elem()
+}
+
+func (i PoolMountArgs) ToPoolMountOutput() PoolMountOutput {
+	return i.ToPoolMountOutputWithContext(context.Background())
+}
+
+func (i PoolMountArgs) ToPoolMountOutputWithContext(ctx context.Context) PoolMountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolMountOutput)
+}
+
+// PoolMountArrayInput is an input type that accepts PoolMountArray and PoolMountArrayOutput values.
+// You can construct a concrete instance of `PoolMountArrayInput` via:
+//
+//	PoolMountArray{ PoolMountArgs{...} }
+type PoolMountArrayInput interface {
+	pulumi.Input
+
+	ToPoolMountArrayOutput() PoolMountArrayOutput
+	ToPoolMountArrayOutputWithContext(context.Context) PoolMountArrayOutput
+}
+
+type PoolMountArray []PoolMountInput
+
+func (PoolMountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolMount)(nil)).Elem()
+}
+
+func (i PoolMountArray) ToPoolMountArrayOutput() PoolMountArrayOutput {
+	return i.ToPoolMountArrayOutputWithContext(context.Background())
+}
+
+func (i PoolMountArray) ToPoolMountArrayOutputWithContext(ctx context.Context) PoolMountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolMountArrayOutput)
+}
+
+type PoolMountOutput struct{ *pulumi.OutputState }
+
+func (PoolMountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolMount)(nil)).Elem()
+}
+
+func (o PoolMountOutput) ToPoolMountOutput() PoolMountOutput {
+	return o
+}
+
+func (o PoolMountOutput) ToPoolMountOutputWithContext(ctx context.Context) PoolMountOutput {
+	return o
+}
+
+// A `azureBlobFileSystem` block defined as below.
+func (o PoolMountOutput) AzureBlobFileSystem() PoolMountAzureBlobFileSystemPtrOutput {
+	return o.ApplyT(func(v PoolMount) *PoolMountAzureBlobFileSystem { return v.AzureBlobFileSystem }).(PoolMountAzureBlobFileSystemPtrOutput)
+}
+
+// A `azureFileShare` block defined as below.
+func (o PoolMountOutput) AzureFileShares() PoolMountAzureFileShareArrayOutput {
+	return o.ApplyT(func(v PoolMount) []PoolMountAzureFileShare { return v.AzureFileShares }).(PoolMountAzureFileShareArrayOutput)
+}
+
+// A `cifsMount` block defined as below.
+func (o PoolMountOutput) CifsMounts() PoolMountCifsMountArrayOutput {
+	return o.ApplyT(func(v PoolMount) []PoolMountCifsMount { return v.CifsMounts }).(PoolMountCifsMountArrayOutput)
+}
+
+// A `nfsMount` block defined as below.
+func (o PoolMountOutput) NfsMounts() PoolMountNfsMountArrayOutput {
+	return o.ApplyT(func(v PoolMount) []PoolMountNfsMount { return v.NfsMounts }).(PoolMountNfsMountArrayOutput)
+}
+
+type PoolMountArrayOutput struct{ *pulumi.OutputState }
+
+func (PoolMountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolMount)(nil)).Elem()
+}
+
+func (o PoolMountArrayOutput) ToPoolMountArrayOutput() PoolMountArrayOutput {
+	return o
+}
+
+func (o PoolMountArrayOutput) ToPoolMountArrayOutputWithContext(ctx context.Context) PoolMountArrayOutput {
+	return o
+}
+
+func (o PoolMountArrayOutput) Index(i pulumi.IntInput) PoolMountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolMount {
+		return vs[0].([]PoolMount)[vs[1].(int)]
+	}).(PoolMountOutput)
+}
+
+type PoolMountAzureBlobFileSystem struct {
+	// The Azure Storage Account key. This property is mutually exclusive with both `sasKey` and `identityId`; exactly one must be specified.
+	AccountKey *string `pulumi:"accountKey"`
+	// The Azure Storage Account name.
+	AccountName string `pulumi:"accountName"`
+	// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+	BlobfuseOptions *string `pulumi:"blobfuseOptions"`
+	// The Azure Blob Storage Container name.
+	ContainerName string `pulumi:"containerName"`
+	// The ARM resource id of the user assigned identity. This property is mutually exclusive with both `accountKey` and `sasKey`; exactly one must be specified.
+	IdentityId *string `pulumi:"identityId"`
+	// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+	RelativeMountPath string `pulumi:"relativeMountPath"`
+	// The Azure Storage SAS token. This property is mutually exclusive with both `accountKey` and `identityId`; exactly one must be specified.
+	SasKey *string `pulumi:"sasKey"`
+}
+
+// PoolMountAzureBlobFileSystemInput is an input type that accepts PoolMountAzureBlobFileSystemArgs and PoolMountAzureBlobFileSystemOutput values.
+// You can construct a concrete instance of `PoolMountAzureBlobFileSystemInput` via:
+//
+//	PoolMountAzureBlobFileSystemArgs{...}
+type PoolMountAzureBlobFileSystemInput interface {
+	pulumi.Input
+
+	ToPoolMountAzureBlobFileSystemOutput() PoolMountAzureBlobFileSystemOutput
+	ToPoolMountAzureBlobFileSystemOutputWithContext(context.Context) PoolMountAzureBlobFileSystemOutput
+}
+
+type PoolMountAzureBlobFileSystemArgs struct {
+	// The Azure Storage Account key. This property is mutually exclusive with both `sasKey` and `identityId`; exactly one must be specified.
+	AccountKey pulumi.StringPtrInput `pulumi:"accountKey"`
+	// The Azure Storage Account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+	BlobfuseOptions pulumi.StringPtrInput `pulumi:"blobfuseOptions"`
+	// The Azure Blob Storage Container name.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// The ARM resource id of the user assigned identity. This property is mutually exclusive with both `accountKey` and `sasKey`; exactly one must be specified.
+	IdentityId pulumi.StringPtrInput `pulumi:"identityId"`
+	// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+	RelativeMountPath pulumi.StringInput `pulumi:"relativeMountPath"`
+	// The Azure Storage SAS token. This property is mutually exclusive with both `accountKey` and `identityId`; exactly one must be specified.
+	SasKey pulumi.StringPtrInput `pulumi:"sasKey"`
+}
+
+func (PoolMountAzureBlobFileSystemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolMountAzureBlobFileSystem)(nil)).Elem()
+}
+
+func (i PoolMountAzureBlobFileSystemArgs) ToPoolMountAzureBlobFileSystemOutput() PoolMountAzureBlobFileSystemOutput {
+	return i.ToPoolMountAzureBlobFileSystemOutputWithContext(context.Background())
+}
+
+func (i PoolMountAzureBlobFileSystemArgs) ToPoolMountAzureBlobFileSystemOutputWithContext(ctx context.Context) PoolMountAzureBlobFileSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolMountAzureBlobFileSystemOutput)
+}
+
+func (i PoolMountAzureBlobFileSystemArgs) ToPoolMountAzureBlobFileSystemPtrOutput() PoolMountAzureBlobFileSystemPtrOutput {
+	return i.ToPoolMountAzureBlobFileSystemPtrOutputWithContext(context.Background())
+}
+
+func (i PoolMountAzureBlobFileSystemArgs) ToPoolMountAzureBlobFileSystemPtrOutputWithContext(ctx context.Context) PoolMountAzureBlobFileSystemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolMountAzureBlobFileSystemOutput).ToPoolMountAzureBlobFileSystemPtrOutputWithContext(ctx)
+}
+
+// PoolMountAzureBlobFileSystemPtrInput is an input type that accepts PoolMountAzureBlobFileSystemArgs, PoolMountAzureBlobFileSystemPtr and PoolMountAzureBlobFileSystemPtrOutput values.
+// You can construct a concrete instance of `PoolMountAzureBlobFileSystemPtrInput` via:
+//
+//	        PoolMountAzureBlobFileSystemArgs{...}
+//
+//	or:
+//
+//	        nil
+type PoolMountAzureBlobFileSystemPtrInput interface {
+	pulumi.Input
+
+	ToPoolMountAzureBlobFileSystemPtrOutput() PoolMountAzureBlobFileSystemPtrOutput
+	ToPoolMountAzureBlobFileSystemPtrOutputWithContext(context.Context) PoolMountAzureBlobFileSystemPtrOutput
+}
+
+type poolMountAzureBlobFileSystemPtrType PoolMountAzureBlobFileSystemArgs
+
+func PoolMountAzureBlobFileSystemPtr(v *PoolMountAzureBlobFileSystemArgs) PoolMountAzureBlobFileSystemPtrInput {
+	return (*poolMountAzureBlobFileSystemPtrType)(v)
+}
+
+func (*poolMountAzureBlobFileSystemPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PoolMountAzureBlobFileSystem)(nil)).Elem()
+}
+
+func (i *poolMountAzureBlobFileSystemPtrType) ToPoolMountAzureBlobFileSystemPtrOutput() PoolMountAzureBlobFileSystemPtrOutput {
+	return i.ToPoolMountAzureBlobFileSystemPtrOutputWithContext(context.Background())
+}
+
+func (i *poolMountAzureBlobFileSystemPtrType) ToPoolMountAzureBlobFileSystemPtrOutputWithContext(ctx context.Context) PoolMountAzureBlobFileSystemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolMountAzureBlobFileSystemPtrOutput)
+}
+
+type PoolMountAzureBlobFileSystemOutput struct{ *pulumi.OutputState }
+
+func (PoolMountAzureBlobFileSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolMountAzureBlobFileSystem)(nil)).Elem()
+}
+
+func (o PoolMountAzureBlobFileSystemOutput) ToPoolMountAzureBlobFileSystemOutput() PoolMountAzureBlobFileSystemOutput {
+	return o
+}
+
+func (o PoolMountAzureBlobFileSystemOutput) ToPoolMountAzureBlobFileSystemOutputWithContext(ctx context.Context) PoolMountAzureBlobFileSystemOutput {
+	return o
+}
+
+func (o PoolMountAzureBlobFileSystemOutput) ToPoolMountAzureBlobFileSystemPtrOutput() PoolMountAzureBlobFileSystemPtrOutput {
+	return o.ToPoolMountAzureBlobFileSystemPtrOutputWithContext(context.Background())
+}
+
+func (o PoolMountAzureBlobFileSystemOutput) ToPoolMountAzureBlobFileSystemPtrOutputWithContext(ctx context.Context) PoolMountAzureBlobFileSystemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolMountAzureBlobFileSystem) *PoolMountAzureBlobFileSystem {
+		return &v
+	}).(PoolMountAzureBlobFileSystemPtrOutput)
+}
+
+// The Azure Storage Account key. This property is mutually exclusive with both `sasKey` and `identityId`; exactly one must be specified.
+func (o PoolMountAzureBlobFileSystemOutput) AccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolMountAzureBlobFileSystem) *string { return v.AccountKey }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Storage Account name.
+func (o PoolMountAzureBlobFileSystemOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolMountAzureBlobFileSystem) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+func (o PoolMountAzureBlobFileSystemOutput) BlobfuseOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolMountAzureBlobFileSystem) *string { return v.BlobfuseOptions }).(pulumi.StringPtrOutput)
+}
+
+// The Azure Blob Storage Container name.
+func (o PoolMountAzureBlobFileSystemOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolMountAzureBlobFileSystem) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// The ARM resource id of the user assigned identity. This property is mutually exclusive with both `accountKey` and `sasKey`; exactly one must be specified.
+func (o PoolMountAzureBlobFileSystemOutput) IdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolMountAzureBlobFileSystem) *string { return v.IdentityId }).(pulumi.StringPtrOutput)
+}
+
+// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+func (o PoolMountAzureBlobFileSystemOutput) RelativeMountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolMountAzureBlobFileSystem) string { return v.RelativeMountPath }).(pulumi.StringOutput)
+}
+
+// The Azure Storage SAS token. This property is mutually exclusive with both `accountKey` and `identityId`; exactly one must be specified.
+func (o PoolMountAzureBlobFileSystemOutput) SasKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolMountAzureBlobFileSystem) *string { return v.SasKey }).(pulumi.StringPtrOutput)
+}
+
+type PoolMountAzureBlobFileSystemPtrOutput struct{ *pulumi.OutputState }
+
+func (PoolMountAzureBlobFileSystemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PoolMountAzureBlobFileSystem)(nil)).Elem()
+}
+
+func (o PoolMountAzureBlobFileSystemPtrOutput) ToPoolMountAzureBlobFileSystemPtrOutput() PoolMountAzureBlobFileSystemPtrOutput {
+	return o
+}
+
+func (o PoolMountAzureBlobFileSystemPtrOutput) ToPoolMountAzureBlobFileSystemPtrOutputWithContext(ctx context.Context) PoolMountAzureBlobFileSystemPtrOutput {
+	return o
+}
+
+func (o PoolMountAzureBlobFileSystemPtrOutput) Elem() PoolMountAzureBlobFileSystemOutput {
+	return o.ApplyT(func(v *PoolMountAzureBlobFileSystem) PoolMountAzureBlobFileSystem {
+		if v != nil {
+			return *v
+		}
+		var ret PoolMountAzureBlobFileSystem
+		return ret
+	}).(PoolMountAzureBlobFileSystemOutput)
+}
+
+// The Azure Storage Account key. This property is mutually exclusive with both `sasKey` and `identityId`; exactly one must be specified.
+func (o PoolMountAzureBlobFileSystemPtrOutput) AccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PoolMountAzureBlobFileSystem) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure Storage Account name.
+func (o PoolMountAzureBlobFileSystemPtrOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PoolMountAzureBlobFileSystem) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+func (o PoolMountAzureBlobFileSystemPtrOutput) BlobfuseOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PoolMountAzureBlobFileSystem) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BlobfuseOptions
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure Blob Storage Container name.
+func (o PoolMountAzureBlobFileSystemPtrOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PoolMountAzureBlobFileSystem) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContainerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARM resource id of the user assigned identity. This property is mutually exclusive with both `accountKey` and `sasKey`; exactly one must be specified.
+func (o PoolMountAzureBlobFileSystemPtrOutput) IdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PoolMountAzureBlobFileSystem) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+func (o PoolMountAzureBlobFileSystemPtrOutput) RelativeMountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PoolMountAzureBlobFileSystem) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RelativeMountPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure Storage SAS token. This property is mutually exclusive with both `accountKey` and `identityId`; exactly one must be specified.
+func (o PoolMountAzureBlobFileSystemPtrOutput) SasKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PoolMountAzureBlobFileSystem) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SasKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type PoolMountAzureFileShare struct {
+	// The Azure Storage Account key.
+	AccountKey string `pulumi:"accountKey"`
+	// The Azure Storage Account name.
+	AccountName string `pulumi:"accountName"`
+	// The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.
+	AzureFileUrl string `pulumi:"azureFileUrl"`
+	// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+	MountOptions *string `pulumi:"mountOptions"`
+	// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+	RelativeMountPath string `pulumi:"relativeMountPath"`
+}
+
+// PoolMountAzureFileShareInput is an input type that accepts PoolMountAzureFileShareArgs and PoolMountAzureFileShareOutput values.
+// You can construct a concrete instance of `PoolMountAzureFileShareInput` via:
+//
+//	PoolMountAzureFileShareArgs{...}
+type PoolMountAzureFileShareInput interface {
+	pulumi.Input
+
+	ToPoolMountAzureFileShareOutput() PoolMountAzureFileShareOutput
+	ToPoolMountAzureFileShareOutputWithContext(context.Context) PoolMountAzureFileShareOutput
+}
+
+type PoolMountAzureFileShareArgs struct {
+	// The Azure Storage Account key.
+	AccountKey pulumi.StringInput `pulumi:"accountKey"`
+	// The Azure Storage Account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.
+	AzureFileUrl pulumi.StringInput `pulumi:"azureFileUrl"`
+	// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+	MountOptions pulumi.StringPtrInput `pulumi:"mountOptions"`
+	// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+	RelativeMountPath pulumi.StringInput `pulumi:"relativeMountPath"`
+}
+
+func (PoolMountAzureFileShareArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolMountAzureFileShare)(nil)).Elem()
+}
+
+func (i PoolMountAzureFileShareArgs) ToPoolMountAzureFileShareOutput() PoolMountAzureFileShareOutput {
+	return i.ToPoolMountAzureFileShareOutputWithContext(context.Background())
+}
+
+func (i PoolMountAzureFileShareArgs) ToPoolMountAzureFileShareOutputWithContext(ctx context.Context) PoolMountAzureFileShareOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolMountAzureFileShareOutput)
+}
+
+// PoolMountAzureFileShareArrayInput is an input type that accepts PoolMountAzureFileShareArray and PoolMountAzureFileShareArrayOutput values.
+// You can construct a concrete instance of `PoolMountAzureFileShareArrayInput` via:
+//
+//	PoolMountAzureFileShareArray{ PoolMountAzureFileShareArgs{...} }
+type PoolMountAzureFileShareArrayInput interface {
+	pulumi.Input
+
+	ToPoolMountAzureFileShareArrayOutput() PoolMountAzureFileShareArrayOutput
+	ToPoolMountAzureFileShareArrayOutputWithContext(context.Context) PoolMountAzureFileShareArrayOutput
+}
+
+type PoolMountAzureFileShareArray []PoolMountAzureFileShareInput
+
+func (PoolMountAzureFileShareArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolMountAzureFileShare)(nil)).Elem()
+}
+
+func (i PoolMountAzureFileShareArray) ToPoolMountAzureFileShareArrayOutput() PoolMountAzureFileShareArrayOutput {
+	return i.ToPoolMountAzureFileShareArrayOutputWithContext(context.Background())
+}
+
+func (i PoolMountAzureFileShareArray) ToPoolMountAzureFileShareArrayOutputWithContext(ctx context.Context) PoolMountAzureFileShareArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolMountAzureFileShareArrayOutput)
+}
+
+type PoolMountAzureFileShareOutput struct{ *pulumi.OutputState }
+
+func (PoolMountAzureFileShareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolMountAzureFileShare)(nil)).Elem()
+}
+
+func (o PoolMountAzureFileShareOutput) ToPoolMountAzureFileShareOutput() PoolMountAzureFileShareOutput {
+	return o
+}
+
+func (o PoolMountAzureFileShareOutput) ToPoolMountAzureFileShareOutputWithContext(ctx context.Context) PoolMountAzureFileShareOutput {
+	return o
+}
+
+// The Azure Storage Account key.
+func (o PoolMountAzureFileShareOutput) AccountKey() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolMountAzureFileShare) string { return v.AccountKey }).(pulumi.StringOutput)
+}
+
+// The Azure Storage Account name.
+func (o PoolMountAzureFileShareOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolMountAzureFileShare) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.
+func (o PoolMountAzureFileShareOutput) AzureFileUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolMountAzureFileShare) string { return v.AzureFileUrl }).(pulumi.StringOutput)
+}
+
+// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+func (o PoolMountAzureFileShareOutput) MountOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolMountAzureFileShare) *string { return v.MountOptions }).(pulumi.StringPtrOutput)
+}
+
+// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+func (o PoolMountAzureFileShareOutput) RelativeMountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolMountAzureFileShare) string { return v.RelativeMountPath }).(pulumi.StringOutput)
+}
+
+type PoolMountAzureFileShareArrayOutput struct{ *pulumi.OutputState }
+
+func (PoolMountAzureFileShareArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolMountAzureFileShare)(nil)).Elem()
+}
+
+func (o PoolMountAzureFileShareArrayOutput) ToPoolMountAzureFileShareArrayOutput() PoolMountAzureFileShareArrayOutput {
+	return o
+}
+
+func (o PoolMountAzureFileShareArrayOutput) ToPoolMountAzureFileShareArrayOutputWithContext(ctx context.Context) PoolMountAzureFileShareArrayOutput {
+	return o
+}
+
+func (o PoolMountAzureFileShareArrayOutput) Index(i pulumi.IntInput) PoolMountAzureFileShareOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolMountAzureFileShare {
+		return vs[0].([]PoolMountAzureFileShare)[vs[1].(int)]
+	}).(PoolMountAzureFileShareOutput)
+}
+
+type PoolMountCifsMount struct {
+	// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+	MountOptions *string `pulumi:"mountOptions"`
+	// The password to use for authentication against the CIFS file system.
+	Password string `pulumi:"password"`
+	// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+	RelativeMountPath string `pulumi:"relativeMountPath"`
+	// The URI of the file system to mount.
+	Source string `pulumi:"source"`
+	// The user to use for authentication against the CIFS file system.
+	UserName string `pulumi:"userName"`
+}
+
+// PoolMountCifsMountInput is an input type that accepts PoolMountCifsMountArgs and PoolMountCifsMountOutput values.
+// You can construct a concrete instance of `PoolMountCifsMountInput` via:
+//
+//	PoolMountCifsMountArgs{...}
+type PoolMountCifsMountInput interface {
+	pulumi.Input
+
+	ToPoolMountCifsMountOutput() PoolMountCifsMountOutput
+	ToPoolMountCifsMountOutputWithContext(context.Context) PoolMountCifsMountOutput
+}
+
+type PoolMountCifsMountArgs struct {
+	// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+	MountOptions pulumi.StringPtrInput `pulumi:"mountOptions"`
+	// The password to use for authentication against the CIFS file system.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+	RelativeMountPath pulumi.StringInput `pulumi:"relativeMountPath"`
+	// The URI of the file system to mount.
+	Source pulumi.StringInput `pulumi:"source"`
+	// The user to use for authentication against the CIFS file system.
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (PoolMountCifsMountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolMountCifsMount)(nil)).Elem()
+}
+
+func (i PoolMountCifsMountArgs) ToPoolMountCifsMountOutput() PoolMountCifsMountOutput {
+	return i.ToPoolMountCifsMountOutputWithContext(context.Background())
+}
+
+func (i PoolMountCifsMountArgs) ToPoolMountCifsMountOutputWithContext(ctx context.Context) PoolMountCifsMountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolMountCifsMountOutput)
+}
+
+// PoolMountCifsMountArrayInput is an input type that accepts PoolMountCifsMountArray and PoolMountCifsMountArrayOutput values.
+// You can construct a concrete instance of `PoolMountCifsMountArrayInput` via:
+//
+//	PoolMountCifsMountArray{ PoolMountCifsMountArgs{...} }
+type PoolMountCifsMountArrayInput interface {
+	pulumi.Input
+
+	ToPoolMountCifsMountArrayOutput() PoolMountCifsMountArrayOutput
+	ToPoolMountCifsMountArrayOutputWithContext(context.Context) PoolMountCifsMountArrayOutput
+}
+
+type PoolMountCifsMountArray []PoolMountCifsMountInput
+
+func (PoolMountCifsMountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolMountCifsMount)(nil)).Elem()
+}
+
+func (i PoolMountCifsMountArray) ToPoolMountCifsMountArrayOutput() PoolMountCifsMountArrayOutput {
+	return i.ToPoolMountCifsMountArrayOutputWithContext(context.Background())
+}
+
+func (i PoolMountCifsMountArray) ToPoolMountCifsMountArrayOutputWithContext(ctx context.Context) PoolMountCifsMountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolMountCifsMountArrayOutput)
+}
+
+type PoolMountCifsMountOutput struct{ *pulumi.OutputState }
+
+func (PoolMountCifsMountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolMountCifsMount)(nil)).Elem()
+}
+
+func (o PoolMountCifsMountOutput) ToPoolMountCifsMountOutput() PoolMountCifsMountOutput {
+	return o
+}
+
+func (o PoolMountCifsMountOutput) ToPoolMountCifsMountOutputWithContext(ctx context.Context) PoolMountCifsMountOutput {
+	return o
+}
+
+// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+func (o PoolMountCifsMountOutput) MountOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolMountCifsMount) *string { return v.MountOptions }).(pulumi.StringPtrOutput)
+}
+
+// The password to use for authentication against the CIFS file system.
+func (o PoolMountCifsMountOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolMountCifsMount) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+func (o PoolMountCifsMountOutput) RelativeMountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolMountCifsMount) string { return v.RelativeMountPath }).(pulumi.StringOutput)
+}
+
+// The URI of the file system to mount.
+func (o PoolMountCifsMountOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolMountCifsMount) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// The user to use for authentication against the CIFS file system.
+func (o PoolMountCifsMountOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolMountCifsMount) string { return v.UserName }).(pulumi.StringOutput)
+}
+
+type PoolMountCifsMountArrayOutput struct{ *pulumi.OutputState }
+
+func (PoolMountCifsMountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolMountCifsMount)(nil)).Elem()
+}
+
+func (o PoolMountCifsMountArrayOutput) ToPoolMountCifsMountArrayOutput() PoolMountCifsMountArrayOutput {
+	return o
+}
+
+func (o PoolMountCifsMountArrayOutput) ToPoolMountCifsMountArrayOutputWithContext(ctx context.Context) PoolMountCifsMountArrayOutput {
+	return o
+}
+
+func (o PoolMountCifsMountArrayOutput) Index(i pulumi.IntInput) PoolMountCifsMountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolMountCifsMount {
+		return vs[0].([]PoolMountCifsMount)[vs[1].(int)]
+	}).(PoolMountCifsMountOutput)
+}
+
+type PoolMountNfsMount struct {
+	// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+	MountOptions *string `pulumi:"mountOptions"`
+	// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+	RelativeMountPath string `pulumi:"relativeMountPath"`
+	// The URI of the file system to mount.
+	Source string `pulumi:"source"`
+}
+
+// PoolMountNfsMountInput is an input type that accepts PoolMountNfsMountArgs and PoolMountNfsMountOutput values.
+// You can construct a concrete instance of `PoolMountNfsMountInput` via:
+//
+//	PoolMountNfsMountArgs{...}
+type PoolMountNfsMountInput interface {
+	pulumi.Input
+
+	ToPoolMountNfsMountOutput() PoolMountNfsMountOutput
+	ToPoolMountNfsMountOutputWithContext(context.Context) PoolMountNfsMountOutput
+}
+
+type PoolMountNfsMountArgs struct {
+	// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+	MountOptions pulumi.StringPtrInput `pulumi:"mountOptions"`
+	// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+	RelativeMountPath pulumi.StringInput `pulumi:"relativeMountPath"`
+	// The URI of the file system to mount.
+	Source pulumi.StringInput `pulumi:"source"`
+}
+
+func (PoolMountNfsMountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolMountNfsMount)(nil)).Elem()
+}
+
+func (i PoolMountNfsMountArgs) ToPoolMountNfsMountOutput() PoolMountNfsMountOutput {
+	return i.ToPoolMountNfsMountOutputWithContext(context.Background())
+}
+
+func (i PoolMountNfsMountArgs) ToPoolMountNfsMountOutputWithContext(ctx context.Context) PoolMountNfsMountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolMountNfsMountOutput)
+}
+
+// PoolMountNfsMountArrayInput is an input type that accepts PoolMountNfsMountArray and PoolMountNfsMountArrayOutput values.
+// You can construct a concrete instance of `PoolMountNfsMountArrayInput` via:
+//
+//	PoolMountNfsMountArray{ PoolMountNfsMountArgs{...} }
+type PoolMountNfsMountArrayInput interface {
+	pulumi.Input
+
+	ToPoolMountNfsMountArrayOutput() PoolMountNfsMountArrayOutput
+	ToPoolMountNfsMountArrayOutputWithContext(context.Context) PoolMountNfsMountArrayOutput
+}
+
+type PoolMountNfsMountArray []PoolMountNfsMountInput
+
+func (PoolMountNfsMountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolMountNfsMount)(nil)).Elem()
+}
+
+func (i PoolMountNfsMountArray) ToPoolMountNfsMountArrayOutput() PoolMountNfsMountArrayOutput {
+	return i.ToPoolMountNfsMountArrayOutputWithContext(context.Background())
+}
+
+func (i PoolMountNfsMountArray) ToPoolMountNfsMountArrayOutputWithContext(ctx context.Context) PoolMountNfsMountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolMountNfsMountArrayOutput)
+}
+
+type PoolMountNfsMountOutput struct{ *pulumi.OutputState }
+
+func (PoolMountNfsMountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolMountNfsMount)(nil)).Elem()
+}
+
+func (o PoolMountNfsMountOutput) ToPoolMountNfsMountOutput() PoolMountNfsMountOutput {
+	return o
+}
+
+func (o PoolMountNfsMountOutput) ToPoolMountNfsMountOutputWithContext(ctx context.Context) PoolMountNfsMountOutput {
+	return o
+}
+
+// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+func (o PoolMountNfsMountOutput) MountOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolMountNfsMount) *string { return v.MountOptions }).(pulumi.StringPtrOutput)
+}
+
+// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+func (o PoolMountNfsMountOutput) RelativeMountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolMountNfsMount) string { return v.RelativeMountPath }).(pulumi.StringOutput)
+}
+
+// The URI of the file system to mount.
+func (o PoolMountNfsMountOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolMountNfsMount) string { return v.Source }).(pulumi.StringOutput)
+}
+
+type PoolMountNfsMountArrayOutput struct{ *pulumi.OutputState }
+
+func (PoolMountNfsMountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolMountNfsMount)(nil)).Elem()
+}
+
+func (o PoolMountNfsMountArrayOutput) ToPoolMountNfsMountArrayOutput() PoolMountNfsMountArrayOutput {
+	return o
+}
+
+func (o PoolMountNfsMountArrayOutput) ToPoolMountNfsMountArrayOutputWithContext(ctx context.Context) PoolMountNfsMountArrayOutput {
+	return o
+}
+
+func (o PoolMountNfsMountArrayOutput) Index(i pulumi.IntInput) PoolMountNfsMountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolMountNfsMount {
+		return vs[0].([]PoolMountNfsMount)[vs[1].(int)]
+	}).(PoolMountNfsMountOutput)
 }
 
 type PoolNetworkConfiguration struct {
@@ -3350,13 +4103,13 @@ func (o GetPoolContainerConfigurationArrayOutput) Index(i pulumi.IntInput) GetPo
 }
 
 type GetPoolContainerConfigurationContainerRegistry struct {
-	// The password to log into the registry server.
+	// The password to use for authentication against the CIFS file system.
 	Password string `pulumi:"password"`
 	// The container registry URL. The default is "docker.io".
 	RegistryServer string `pulumi:"registryServer"`
 	// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
 	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
-	// The user name to log into the registry server.
+	// The user to use for authentication against the CIFS file system.
 	UserName string `pulumi:"userName"`
 }
 
@@ -3372,13 +4125,13 @@ type GetPoolContainerConfigurationContainerRegistryInput interface {
 }
 
 type GetPoolContainerConfigurationContainerRegistryArgs struct {
-	// The password to log into the registry server.
+	// The password to use for authentication against the CIFS file system.
 	Password pulumi.StringInput `pulumi:"password"`
 	// The container registry URL. The default is "docker.io".
 	RegistryServer pulumi.StringInput `pulumi:"registryServer"`
 	// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
 	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
-	// The user name to log into the registry server.
+	// The user to use for authentication against the CIFS file system.
 	UserName pulumi.StringInput `pulumi:"userName"`
 }
 
@@ -3433,7 +4186,7 @@ func (o GetPoolContainerConfigurationContainerRegistryOutput) ToGetPoolContainer
 	return o
 }
 
-// The password to log into the registry server.
+// The password to use for authentication against the CIFS file system.
 func (o GetPoolContainerConfigurationContainerRegistryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolContainerConfigurationContainerRegistry) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -3448,7 +4201,7 @@ func (o GetPoolContainerConfigurationContainerRegistryOutput) UserAssignedIdenti
 	return o.ApplyT(func(v GetPoolContainerConfigurationContainerRegistry) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
 }
 
-// The user name to log into the registry server.
+// The user to use for authentication against the CIFS file system.
 func (o GetPoolContainerConfigurationContainerRegistryOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolContainerConfigurationContainerRegistry) string { return v.UserName }).(pulumi.StringOutput)
 }
@@ -3586,6 +4339,662 @@ func (o GetPoolFixedScaleArrayOutput) Index(i pulumi.IntInput) GetPoolFixedScale
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolFixedScale {
 		return vs[0].([]GetPoolFixedScale)[vs[1].(int)]
 	}).(GetPoolFixedScaleOutput)
+}
+
+type GetPoolMount struct {
+	// A `azureBlobFileSystem` block defined as below.
+	AzureBlobFileSystems []GetPoolMountAzureBlobFileSystem `pulumi:"azureBlobFileSystems"`
+	// A `azureFileShare` block defined as below.
+	AzureFileShares []GetPoolMountAzureFileShare `pulumi:"azureFileShares"`
+	// A `cifsMount` block defined as below.
+	CifsMounts []GetPoolMountCifsMount `pulumi:"cifsMounts"`
+	// A `nfsMount` block defined as below.
+	NfsMounts []GetPoolMountNfsMount `pulumi:"nfsMounts"`
+}
+
+// GetPoolMountInput is an input type that accepts GetPoolMountArgs and GetPoolMountOutput values.
+// You can construct a concrete instance of `GetPoolMountInput` via:
+//
+//	GetPoolMountArgs{...}
+type GetPoolMountInput interface {
+	pulumi.Input
+
+	ToGetPoolMountOutput() GetPoolMountOutput
+	ToGetPoolMountOutputWithContext(context.Context) GetPoolMountOutput
+}
+
+type GetPoolMountArgs struct {
+	// A `azureBlobFileSystem` block defined as below.
+	AzureBlobFileSystems GetPoolMountAzureBlobFileSystemArrayInput `pulumi:"azureBlobFileSystems"`
+	// A `azureFileShare` block defined as below.
+	AzureFileShares GetPoolMountAzureFileShareArrayInput `pulumi:"azureFileShares"`
+	// A `cifsMount` block defined as below.
+	CifsMounts GetPoolMountCifsMountArrayInput `pulumi:"cifsMounts"`
+	// A `nfsMount` block defined as below.
+	NfsMounts GetPoolMountNfsMountArrayInput `pulumi:"nfsMounts"`
+}
+
+func (GetPoolMountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolMount)(nil)).Elem()
+}
+
+func (i GetPoolMountArgs) ToGetPoolMountOutput() GetPoolMountOutput {
+	return i.ToGetPoolMountOutputWithContext(context.Background())
+}
+
+func (i GetPoolMountArgs) ToGetPoolMountOutputWithContext(ctx context.Context) GetPoolMountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolMountOutput)
+}
+
+// GetPoolMountArrayInput is an input type that accepts GetPoolMountArray and GetPoolMountArrayOutput values.
+// You can construct a concrete instance of `GetPoolMountArrayInput` via:
+//
+//	GetPoolMountArray{ GetPoolMountArgs{...} }
+type GetPoolMountArrayInput interface {
+	pulumi.Input
+
+	ToGetPoolMountArrayOutput() GetPoolMountArrayOutput
+	ToGetPoolMountArrayOutputWithContext(context.Context) GetPoolMountArrayOutput
+}
+
+type GetPoolMountArray []GetPoolMountInput
+
+func (GetPoolMountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolMount)(nil)).Elem()
+}
+
+func (i GetPoolMountArray) ToGetPoolMountArrayOutput() GetPoolMountArrayOutput {
+	return i.ToGetPoolMountArrayOutputWithContext(context.Background())
+}
+
+func (i GetPoolMountArray) ToGetPoolMountArrayOutputWithContext(ctx context.Context) GetPoolMountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolMountArrayOutput)
+}
+
+type GetPoolMountOutput struct{ *pulumi.OutputState }
+
+func (GetPoolMountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolMount)(nil)).Elem()
+}
+
+func (o GetPoolMountOutput) ToGetPoolMountOutput() GetPoolMountOutput {
+	return o
+}
+
+func (o GetPoolMountOutput) ToGetPoolMountOutputWithContext(ctx context.Context) GetPoolMountOutput {
+	return o
+}
+
+// A `azureBlobFileSystem` block defined as below.
+func (o GetPoolMountOutput) AzureBlobFileSystems() GetPoolMountAzureBlobFileSystemArrayOutput {
+	return o.ApplyT(func(v GetPoolMount) []GetPoolMountAzureBlobFileSystem { return v.AzureBlobFileSystems }).(GetPoolMountAzureBlobFileSystemArrayOutput)
+}
+
+// A `azureFileShare` block defined as below.
+func (o GetPoolMountOutput) AzureFileShares() GetPoolMountAzureFileShareArrayOutput {
+	return o.ApplyT(func(v GetPoolMount) []GetPoolMountAzureFileShare { return v.AzureFileShares }).(GetPoolMountAzureFileShareArrayOutput)
+}
+
+// A `cifsMount` block defined as below.
+func (o GetPoolMountOutput) CifsMounts() GetPoolMountCifsMountArrayOutput {
+	return o.ApplyT(func(v GetPoolMount) []GetPoolMountCifsMount { return v.CifsMounts }).(GetPoolMountCifsMountArrayOutput)
+}
+
+// A `nfsMount` block defined as below.
+func (o GetPoolMountOutput) NfsMounts() GetPoolMountNfsMountArrayOutput {
+	return o.ApplyT(func(v GetPoolMount) []GetPoolMountNfsMount { return v.NfsMounts }).(GetPoolMountNfsMountArrayOutput)
+}
+
+type GetPoolMountArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPoolMountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolMount)(nil)).Elem()
+}
+
+func (o GetPoolMountArrayOutput) ToGetPoolMountArrayOutput() GetPoolMountArrayOutput {
+	return o
+}
+
+func (o GetPoolMountArrayOutput) ToGetPoolMountArrayOutputWithContext(ctx context.Context) GetPoolMountArrayOutput {
+	return o
+}
+
+func (o GetPoolMountArrayOutput) Index(i pulumi.IntInput) GetPoolMountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolMount {
+		return vs[0].([]GetPoolMount)[vs[1].(int)]
+	}).(GetPoolMountOutput)
+}
+
+type GetPoolMountAzureBlobFileSystem struct {
+	// The Azure Storage Account key.
+	AccountKey string `pulumi:"accountKey"`
+	// The Azure Storage Account name.
+	AccountName string `pulumi:"accountName"`
+	// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+	BlobfuseOptions string `pulumi:"blobfuseOptions"`
+	// The Azure Blob Storage Container name.
+	ContainerName string `pulumi:"containerName"`
+	// The ARM resource id of the user assigned identity. This property is mutually exclusive with both `accountKey` and `sasKey`; exactly one must be specified.
+	IdentityId string `pulumi:"identityId"`
+	// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+	RelativeMountPath string `pulumi:"relativeMountPath"`
+	// The Azure Storage SAS token. This property is mutually exclusive with both `accountKey` and `identityId`; exactly one must be specified.
+	SasKey string `pulumi:"sasKey"`
+}
+
+// GetPoolMountAzureBlobFileSystemInput is an input type that accepts GetPoolMountAzureBlobFileSystemArgs and GetPoolMountAzureBlobFileSystemOutput values.
+// You can construct a concrete instance of `GetPoolMountAzureBlobFileSystemInput` via:
+//
+//	GetPoolMountAzureBlobFileSystemArgs{...}
+type GetPoolMountAzureBlobFileSystemInput interface {
+	pulumi.Input
+
+	ToGetPoolMountAzureBlobFileSystemOutput() GetPoolMountAzureBlobFileSystemOutput
+	ToGetPoolMountAzureBlobFileSystemOutputWithContext(context.Context) GetPoolMountAzureBlobFileSystemOutput
+}
+
+type GetPoolMountAzureBlobFileSystemArgs struct {
+	// The Azure Storage Account key.
+	AccountKey pulumi.StringInput `pulumi:"accountKey"`
+	// The Azure Storage Account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+	BlobfuseOptions pulumi.StringInput `pulumi:"blobfuseOptions"`
+	// The Azure Blob Storage Container name.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// The ARM resource id of the user assigned identity. This property is mutually exclusive with both `accountKey` and `sasKey`; exactly one must be specified.
+	IdentityId pulumi.StringInput `pulumi:"identityId"`
+	// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+	RelativeMountPath pulumi.StringInput `pulumi:"relativeMountPath"`
+	// The Azure Storage SAS token. This property is mutually exclusive with both `accountKey` and `identityId`; exactly one must be specified.
+	SasKey pulumi.StringInput `pulumi:"sasKey"`
+}
+
+func (GetPoolMountAzureBlobFileSystemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolMountAzureBlobFileSystem)(nil)).Elem()
+}
+
+func (i GetPoolMountAzureBlobFileSystemArgs) ToGetPoolMountAzureBlobFileSystemOutput() GetPoolMountAzureBlobFileSystemOutput {
+	return i.ToGetPoolMountAzureBlobFileSystemOutputWithContext(context.Background())
+}
+
+func (i GetPoolMountAzureBlobFileSystemArgs) ToGetPoolMountAzureBlobFileSystemOutputWithContext(ctx context.Context) GetPoolMountAzureBlobFileSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolMountAzureBlobFileSystemOutput)
+}
+
+// GetPoolMountAzureBlobFileSystemArrayInput is an input type that accepts GetPoolMountAzureBlobFileSystemArray and GetPoolMountAzureBlobFileSystemArrayOutput values.
+// You can construct a concrete instance of `GetPoolMountAzureBlobFileSystemArrayInput` via:
+//
+//	GetPoolMountAzureBlobFileSystemArray{ GetPoolMountAzureBlobFileSystemArgs{...} }
+type GetPoolMountAzureBlobFileSystemArrayInput interface {
+	pulumi.Input
+
+	ToGetPoolMountAzureBlobFileSystemArrayOutput() GetPoolMountAzureBlobFileSystemArrayOutput
+	ToGetPoolMountAzureBlobFileSystemArrayOutputWithContext(context.Context) GetPoolMountAzureBlobFileSystemArrayOutput
+}
+
+type GetPoolMountAzureBlobFileSystemArray []GetPoolMountAzureBlobFileSystemInput
+
+func (GetPoolMountAzureBlobFileSystemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolMountAzureBlobFileSystem)(nil)).Elem()
+}
+
+func (i GetPoolMountAzureBlobFileSystemArray) ToGetPoolMountAzureBlobFileSystemArrayOutput() GetPoolMountAzureBlobFileSystemArrayOutput {
+	return i.ToGetPoolMountAzureBlobFileSystemArrayOutputWithContext(context.Background())
+}
+
+func (i GetPoolMountAzureBlobFileSystemArray) ToGetPoolMountAzureBlobFileSystemArrayOutputWithContext(ctx context.Context) GetPoolMountAzureBlobFileSystemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolMountAzureBlobFileSystemArrayOutput)
+}
+
+type GetPoolMountAzureBlobFileSystemOutput struct{ *pulumi.OutputState }
+
+func (GetPoolMountAzureBlobFileSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolMountAzureBlobFileSystem)(nil)).Elem()
+}
+
+func (o GetPoolMountAzureBlobFileSystemOutput) ToGetPoolMountAzureBlobFileSystemOutput() GetPoolMountAzureBlobFileSystemOutput {
+	return o
+}
+
+func (o GetPoolMountAzureBlobFileSystemOutput) ToGetPoolMountAzureBlobFileSystemOutputWithContext(ctx context.Context) GetPoolMountAzureBlobFileSystemOutput {
+	return o
+}
+
+// The Azure Storage Account key.
+func (o GetPoolMountAzureBlobFileSystemOutput) AccountKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolMountAzureBlobFileSystem) string { return v.AccountKey }).(pulumi.StringOutput)
+}
+
+// The Azure Storage Account name.
+func (o GetPoolMountAzureBlobFileSystemOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolMountAzureBlobFileSystem) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+func (o GetPoolMountAzureBlobFileSystemOutput) BlobfuseOptions() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolMountAzureBlobFileSystem) string { return v.BlobfuseOptions }).(pulumi.StringOutput)
+}
+
+// The Azure Blob Storage Container name.
+func (o GetPoolMountAzureBlobFileSystemOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolMountAzureBlobFileSystem) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// The ARM resource id of the user assigned identity. This property is mutually exclusive with both `accountKey` and `sasKey`; exactly one must be specified.
+func (o GetPoolMountAzureBlobFileSystemOutput) IdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolMountAzureBlobFileSystem) string { return v.IdentityId }).(pulumi.StringOutput)
+}
+
+// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+func (o GetPoolMountAzureBlobFileSystemOutput) RelativeMountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolMountAzureBlobFileSystem) string { return v.RelativeMountPath }).(pulumi.StringOutput)
+}
+
+// The Azure Storage SAS token. This property is mutually exclusive with both `accountKey` and `identityId`; exactly one must be specified.
+func (o GetPoolMountAzureBlobFileSystemOutput) SasKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolMountAzureBlobFileSystem) string { return v.SasKey }).(pulumi.StringOutput)
+}
+
+type GetPoolMountAzureBlobFileSystemArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPoolMountAzureBlobFileSystemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolMountAzureBlobFileSystem)(nil)).Elem()
+}
+
+func (o GetPoolMountAzureBlobFileSystemArrayOutput) ToGetPoolMountAzureBlobFileSystemArrayOutput() GetPoolMountAzureBlobFileSystemArrayOutput {
+	return o
+}
+
+func (o GetPoolMountAzureBlobFileSystemArrayOutput) ToGetPoolMountAzureBlobFileSystemArrayOutputWithContext(ctx context.Context) GetPoolMountAzureBlobFileSystemArrayOutput {
+	return o
+}
+
+func (o GetPoolMountAzureBlobFileSystemArrayOutput) Index(i pulumi.IntInput) GetPoolMountAzureBlobFileSystemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolMountAzureBlobFileSystem {
+		return vs[0].([]GetPoolMountAzureBlobFileSystem)[vs[1].(int)]
+	}).(GetPoolMountAzureBlobFileSystemOutput)
+}
+
+type GetPoolMountAzureFileShare struct {
+	// The Azure Storage Account key.
+	AccountKey string `pulumi:"accountKey"`
+	// The Azure Storage Account name.
+	AccountName string `pulumi:"accountName"`
+	// The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.
+	AzureFileUrl string `pulumi:"azureFileUrl"`
+	// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+	MountOptions string `pulumi:"mountOptions"`
+	// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+	RelativeMountPath string `pulumi:"relativeMountPath"`
+}
+
+// GetPoolMountAzureFileShareInput is an input type that accepts GetPoolMountAzureFileShareArgs and GetPoolMountAzureFileShareOutput values.
+// You can construct a concrete instance of `GetPoolMountAzureFileShareInput` via:
+//
+//	GetPoolMountAzureFileShareArgs{...}
+type GetPoolMountAzureFileShareInput interface {
+	pulumi.Input
+
+	ToGetPoolMountAzureFileShareOutput() GetPoolMountAzureFileShareOutput
+	ToGetPoolMountAzureFileShareOutputWithContext(context.Context) GetPoolMountAzureFileShareOutput
+}
+
+type GetPoolMountAzureFileShareArgs struct {
+	// The Azure Storage Account key.
+	AccountKey pulumi.StringInput `pulumi:"accountKey"`
+	// The Azure Storage Account name.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.
+	AzureFileUrl pulumi.StringInput `pulumi:"azureFileUrl"`
+	// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+	MountOptions pulumi.StringInput `pulumi:"mountOptions"`
+	// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+	RelativeMountPath pulumi.StringInput `pulumi:"relativeMountPath"`
+}
+
+func (GetPoolMountAzureFileShareArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolMountAzureFileShare)(nil)).Elem()
+}
+
+func (i GetPoolMountAzureFileShareArgs) ToGetPoolMountAzureFileShareOutput() GetPoolMountAzureFileShareOutput {
+	return i.ToGetPoolMountAzureFileShareOutputWithContext(context.Background())
+}
+
+func (i GetPoolMountAzureFileShareArgs) ToGetPoolMountAzureFileShareOutputWithContext(ctx context.Context) GetPoolMountAzureFileShareOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolMountAzureFileShareOutput)
+}
+
+// GetPoolMountAzureFileShareArrayInput is an input type that accepts GetPoolMountAzureFileShareArray and GetPoolMountAzureFileShareArrayOutput values.
+// You can construct a concrete instance of `GetPoolMountAzureFileShareArrayInput` via:
+//
+//	GetPoolMountAzureFileShareArray{ GetPoolMountAzureFileShareArgs{...} }
+type GetPoolMountAzureFileShareArrayInput interface {
+	pulumi.Input
+
+	ToGetPoolMountAzureFileShareArrayOutput() GetPoolMountAzureFileShareArrayOutput
+	ToGetPoolMountAzureFileShareArrayOutputWithContext(context.Context) GetPoolMountAzureFileShareArrayOutput
+}
+
+type GetPoolMountAzureFileShareArray []GetPoolMountAzureFileShareInput
+
+func (GetPoolMountAzureFileShareArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolMountAzureFileShare)(nil)).Elem()
+}
+
+func (i GetPoolMountAzureFileShareArray) ToGetPoolMountAzureFileShareArrayOutput() GetPoolMountAzureFileShareArrayOutput {
+	return i.ToGetPoolMountAzureFileShareArrayOutputWithContext(context.Background())
+}
+
+func (i GetPoolMountAzureFileShareArray) ToGetPoolMountAzureFileShareArrayOutputWithContext(ctx context.Context) GetPoolMountAzureFileShareArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolMountAzureFileShareArrayOutput)
+}
+
+type GetPoolMountAzureFileShareOutput struct{ *pulumi.OutputState }
+
+func (GetPoolMountAzureFileShareOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolMountAzureFileShare)(nil)).Elem()
+}
+
+func (o GetPoolMountAzureFileShareOutput) ToGetPoolMountAzureFileShareOutput() GetPoolMountAzureFileShareOutput {
+	return o
+}
+
+func (o GetPoolMountAzureFileShareOutput) ToGetPoolMountAzureFileShareOutputWithContext(ctx context.Context) GetPoolMountAzureFileShareOutput {
+	return o
+}
+
+// The Azure Storage Account key.
+func (o GetPoolMountAzureFileShareOutput) AccountKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolMountAzureFileShare) string { return v.AccountKey }).(pulumi.StringOutput)
+}
+
+// The Azure Storage Account name.
+func (o GetPoolMountAzureFileShareOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolMountAzureFileShare) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.
+func (o GetPoolMountAzureFileShareOutput) AzureFileUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolMountAzureFileShare) string { return v.AzureFileUrl }).(pulumi.StringOutput)
+}
+
+// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+func (o GetPoolMountAzureFileShareOutput) MountOptions() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolMountAzureFileShare) string { return v.MountOptions }).(pulumi.StringOutput)
+}
+
+// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+func (o GetPoolMountAzureFileShareOutput) RelativeMountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolMountAzureFileShare) string { return v.RelativeMountPath }).(pulumi.StringOutput)
+}
+
+type GetPoolMountAzureFileShareArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPoolMountAzureFileShareArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolMountAzureFileShare)(nil)).Elem()
+}
+
+func (o GetPoolMountAzureFileShareArrayOutput) ToGetPoolMountAzureFileShareArrayOutput() GetPoolMountAzureFileShareArrayOutput {
+	return o
+}
+
+func (o GetPoolMountAzureFileShareArrayOutput) ToGetPoolMountAzureFileShareArrayOutputWithContext(ctx context.Context) GetPoolMountAzureFileShareArrayOutput {
+	return o
+}
+
+func (o GetPoolMountAzureFileShareArrayOutput) Index(i pulumi.IntInput) GetPoolMountAzureFileShareOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolMountAzureFileShare {
+		return vs[0].([]GetPoolMountAzureFileShare)[vs[1].(int)]
+	}).(GetPoolMountAzureFileShareOutput)
+}
+
+type GetPoolMountCifsMount struct {
+	// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+	MountOptions string `pulumi:"mountOptions"`
+	// The password to use for authentication against the CIFS file system.
+	Password string `pulumi:"password"`
+	// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+	RelativeMountPath string `pulumi:"relativeMountPath"`
+	// The URI of the file system to mount.
+	Source string `pulumi:"source"`
+	// The user to use for authentication against the CIFS file system.
+	UserName string `pulumi:"userName"`
+}
+
+// GetPoolMountCifsMountInput is an input type that accepts GetPoolMountCifsMountArgs and GetPoolMountCifsMountOutput values.
+// You can construct a concrete instance of `GetPoolMountCifsMountInput` via:
+//
+//	GetPoolMountCifsMountArgs{...}
+type GetPoolMountCifsMountInput interface {
+	pulumi.Input
+
+	ToGetPoolMountCifsMountOutput() GetPoolMountCifsMountOutput
+	ToGetPoolMountCifsMountOutputWithContext(context.Context) GetPoolMountCifsMountOutput
+}
+
+type GetPoolMountCifsMountArgs struct {
+	// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+	MountOptions pulumi.StringInput `pulumi:"mountOptions"`
+	// The password to use for authentication against the CIFS file system.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+	RelativeMountPath pulumi.StringInput `pulumi:"relativeMountPath"`
+	// The URI of the file system to mount.
+	Source pulumi.StringInput `pulumi:"source"`
+	// The user to use for authentication against the CIFS file system.
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (GetPoolMountCifsMountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolMountCifsMount)(nil)).Elem()
+}
+
+func (i GetPoolMountCifsMountArgs) ToGetPoolMountCifsMountOutput() GetPoolMountCifsMountOutput {
+	return i.ToGetPoolMountCifsMountOutputWithContext(context.Background())
+}
+
+func (i GetPoolMountCifsMountArgs) ToGetPoolMountCifsMountOutputWithContext(ctx context.Context) GetPoolMountCifsMountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolMountCifsMountOutput)
+}
+
+// GetPoolMountCifsMountArrayInput is an input type that accepts GetPoolMountCifsMountArray and GetPoolMountCifsMountArrayOutput values.
+// You can construct a concrete instance of `GetPoolMountCifsMountArrayInput` via:
+//
+//	GetPoolMountCifsMountArray{ GetPoolMountCifsMountArgs{...} }
+type GetPoolMountCifsMountArrayInput interface {
+	pulumi.Input
+
+	ToGetPoolMountCifsMountArrayOutput() GetPoolMountCifsMountArrayOutput
+	ToGetPoolMountCifsMountArrayOutputWithContext(context.Context) GetPoolMountCifsMountArrayOutput
+}
+
+type GetPoolMountCifsMountArray []GetPoolMountCifsMountInput
+
+func (GetPoolMountCifsMountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolMountCifsMount)(nil)).Elem()
+}
+
+func (i GetPoolMountCifsMountArray) ToGetPoolMountCifsMountArrayOutput() GetPoolMountCifsMountArrayOutput {
+	return i.ToGetPoolMountCifsMountArrayOutputWithContext(context.Background())
+}
+
+func (i GetPoolMountCifsMountArray) ToGetPoolMountCifsMountArrayOutputWithContext(ctx context.Context) GetPoolMountCifsMountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolMountCifsMountArrayOutput)
+}
+
+type GetPoolMountCifsMountOutput struct{ *pulumi.OutputState }
+
+func (GetPoolMountCifsMountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolMountCifsMount)(nil)).Elem()
+}
+
+func (o GetPoolMountCifsMountOutput) ToGetPoolMountCifsMountOutput() GetPoolMountCifsMountOutput {
+	return o
+}
+
+func (o GetPoolMountCifsMountOutput) ToGetPoolMountCifsMountOutputWithContext(ctx context.Context) GetPoolMountCifsMountOutput {
+	return o
+}
+
+// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+func (o GetPoolMountCifsMountOutput) MountOptions() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolMountCifsMount) string { return v.MountOptions }).(pulumi.StringOutput)
+}
+
+// The password to use for authentication against the CIFS file system.
+func (o GetPoolMountCifsMountOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolMountCifsMount) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+func (o GetPoolMountCifsMountOutput) RelativeMountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolMountCifsMount) string { return v.RelativeMountPath }).(pulumi.StringOutput)
+}
+
+// The URI of the file system to mount.
+func (o GetPoolMountCifsMountOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolMountCifsMount) string { return v.Source }).(pulumi.StringOutput)
+}
+
+// The user to use for authentication against the CIFS file system.
+func (o GetPoolMountCifsMountOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolMountCifsMount) string { return v.UserName }).(pulumi.StringOutput)
+}
+
+type GetPoolMountCifsMountArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPoolMountCifsMountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolMountCifsMount)(nil)).Elem()
+}
+
+func (o GetPoolMountCifsMountArrayOutput) ToGetPoolMountCifsMountArrayOutput() GetPoolMountCifsMountArrayOutput {
+	return o
+}
+
+func (o GetPoolMountCifsMountArrayOutput) ToGetPoolMountCifsMountArrayOutputWithContext(ctx context.Context) GetPoolMountCifsMountArrayOutput {
+	return o
+}
+
+func (o GetPoolMountCifsMountArrayOutput) Index(i pulumi.IntInput) GetPoolMountCifsMountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolMountCifsMount {
+		return vs[0].([]GetPoolMountCifsMount)[vs[1].(int)]
+	}).(GetPoolMountCifsMountOutput)
+}
+
+type GetPoolMountNfsMount struct {
+	// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+	MountOptions string `pulumi:"mountOptions"`
+	// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+	RelativeMountPath string `pulumi:"relativeMountPath"`
+	// The URI of the file system to mount.
+	Source string `pulumi:"source"`
+}
+
+// GetPoolMountNfsMountInput is an input type that accepts GetPoolMountNfsMountArgs and GetPoolMountNfsMountOutput values.
+// You can construct a concrete instance of `GetPoolMountNfsMountInput` via:
+//
+//	GetPoolMountNfsMountArgs{...}
+type GetPoolMountNfsMountInput interface {
+	pulumi.Input
+
+	ToGetPoolMountNfsMountOutput() GetPoolMountNfsMountOutput
+	ToGetPoolMountNfsMountOutputWithContext(context.Context) GetPoolMountNfsMountOutput
+}
+
+type GetPoolMountNfsMountArgs struct {
+	// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+	MountOptions pulumi.StringInput `pulumi:"mountOptions"`
+	// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+	RelativeMountPath pulumi.StringInput `pulumi:"relativeMountPath"`
+	// The URI of the file system to mount.
+	Source pulumi.StringInput `pulumi:"source"`
+}
+
+func (GetPoolMountNfsMountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolMountNfsMount)(nil)).Elem()
+}
+
+func (i GetPoolMountNfsMountArgs) ToGetPoolMountNfsMountOutput() GetPoolMountNfsMountOutput {
+	return i.ToGetPoolMountNfsMountOutputWithContext(context.Background())
+}
+
+func (i GetPoolMountNfsMountArgs) ToGetPoolMountNfsMountOutputWithContext(ctx context.Context) GetPoolMountNfsMountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolMountNfsMountOutput)
+}
+
+// GetPoolMountNfsMountArrayInput is an input type that accepts GetPoolMountNfsMountArray and GetPoolMountNfsMountArrayOutput values.
+// You can construct a concrete instance of `GetPoolMountNfsMountArrayInput` via:
+//
+//	GetPoolMountNfsMountArray{ GetPoolMountNfsMountArgs{...} }
+type GetPoolMountNfsMountArrayInput interface {
+	pulumi.Input
+
+	ToGetPoolMountNfsMountArrayOutput() GetPoolMountNfsMountArrayOutput
+	ToGetPoolMountNfsMountArrayOutputWithContext(context.Context) GetPoolMountNfsMountArrayOutput
+}
+
+type GetPoolMountNfsMountArray []GetPoolMountNfsMountInput
+
+func (GetPoolMountNfsMountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolMountNfsMount)(nil)).Elem()
+}
+
+func (i GetPoolMountNfsMountArray) ToGetPoolMountNfsMountArrayOutput() GetPoolMountNfsMountArrayOutput {
+	return i.ToGetPoolMountNfsMountArrayOutputWithContext(context.Background())
+}
+
+func (i GetPoolMountNfsMountArray) ToGetPoolMountNfsMountArrayOutputWithContext(ctx context.Context) GetPoolMountNfsMountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolMountNfsMountArrayOutput)
+}
+
+type GetPoolMountNfsMountOutput struct{ *pulumi.OutputState }
+
+func (GetPoolMountNfsMountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolMountNfsMount)(nil)).Elem()
+}
+
+func (o GetPoolMountNfsMountOutput) ToGetPoolMountNfsMountOutput() GetPoolMountNfsMountOutput {
+	return o
+}
+
+func (o GetPoolMountNfsMountOutput) ToGetPoolMountNfsMountOutputWithContext(ctx context.Context) GetPoolMountNfsMountOutput {
+	return o
+}
+
+// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+func (o GetPoolMountNfsMountOutput) MountOptions() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolMountNfsMount) string { return v.MountOptions }).(pulumi.StringOutput)
+}
+
+// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+func (o GetPoolMountNfsMountOutput) RelativeMountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolMountNfsMount) string { return v.RelativeMountPath }).(pulumi.StringOutput)
+}
+
+// The URI of the file system to mount.
+func (o GetPoolMountNfsMountOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolMountNfsMount) string { return v.Source }).(pulumi.StringOutput)
+}
+
+type GetPoolMountNfsMountArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPoolMountNfsMountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolMountNfsMount)(nil)).Elem()
+}
+
+func (o GetPoolMountNfsMountArrayOutput) ToGetPoolMountNfsMountArrayOutput() GetPoolMountNfsMountArrayOutput {
+	return o
+}
+
+func (o GetPoolMountNfsMountArrayOutput) ToGetPoolMountNfsMountArrayOutputWithContext(ctx context.Context) GetPoolMountNfsMountArrayOutput {
+	return o
+}
+
+func (o GetPoolMountNfsMountArrayOutput) Index(i pulumi.IntInput) GetPoolMountNfsMountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolMountNfsMount {
+		return vs[0].([]GetPoolMountNfsMount)[vs[1].(int)]
+	}).(GetPoolMountNfsMountOutput)
 }
 
 type GetPoolNetworkConfiguration struct {
@@ -4251,7 +5660,7 @@ func (o GetPoolStartTaskResourceFileArrayOutput) Index(i pulumi.IntInput) GetPoo
 type GetPoolStartTaskUserIdentity struct {
 	// A `autoUser` block that describes the user identity under which the start task runs.
 	AutoUsers []GetPoolStartTaskUserIdentityAutoUser `pulumi:"autoUsers"`
-	// The user name to log into the registry server.
+	// The user to use for authentication against the CIFS file system.
 	UserName string `pulumi:"userName"`
 }
 
@@ -4269,7 +5678,7 @@ type GetPoolStartTaskUserIdentityInput interface {
 type GetPoolStartTaskUserIdentityArgs struct {
 	// A `autoUser` block that describes the user identity under which the start task runs.
 	AutoUsers GetPoolStartTaskUserIdentityAutoUserArrayInput `pulumi:"autoUsers"`
-	// The user name to log into the registry server.
+	// The user to use for authentication against the CIFS file system.
 	UserName pulumi.StringInput `pulumi:"userName"`
 }
 
@@ -4329,7 +5738,7 @@ func (o GetPoolStartTaskUserIdentityOutput) AutoUsers() GetPoolStartTaskUserIden
 	return o.ApplyT(func(v GetPoolStartTaskUserIdentity) []GetPoolStartTaskUserIdentityAutoUser { return v.AutoUsers }).(GetPoolStartTaskUserIdentityAutoUserArrayOutput)
 }
 
-// The user name to log into the registry server.
+// The user to use for authentication against the CIFS file system.
 func (o GetPoolStartTaskUserIdentityOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolStartTaskUserIdentity) string { return v.UserName }).(pulumi.StringOutput)
 }
@@ -4600,6 +6009,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolFixedScalePtrInput)(nil)).Elem(), PoolFixedScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolIdentityInput)(nil)).Elem(), PoolIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolIdentityPtrInput)(nil)).Elem(), PoolIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolMountInput)(nil)).Elem(), PoolMountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolMountArrayInput)(nil)).Elem(), PoolMountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolMountAzureBlobFileSystemInput)(nil)).Elem(), PoolMountAzureBlobFileSystemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolMountAzureBlobFileSystemPtrInput)(nil)).Elem(), PoolMountAzureBlobFileSystemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolMountAzureFileShareInput)(nil)).Elem(), PoolMountAzureFileShareArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolMountAzureFileShareArrayInput)(nil)).Elem(), PoolMountAzureFileShareArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolMountCifsMountInput)(nil)).Elem(), PoolMountCifsMountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolMountCifsMountArrayInput)(nil)).Elem(), PoolMountCifsMountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolMountNfsMountInput)(nil)).Elem(), PoolMountNfsMountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolMountNfsMountArrayInput)(nil)).Elem(), PoolMountNfsMountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolNetworkConfigurationInput)(nil)).Elem(), PoolNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolNetworkConfigurationPtrInput)(nil)).Elem(), PoolNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolNetworkConfigurationEndpointConfigurationInput)(nil)).Elem(), PoolNetworkConfigurationEndpointConfigurationArgs{})
@@ -4630,6 +6049,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolContainerConfigurationContainerRegistryArrayInput)(nil)).Elem(), GetPoolContainerConfigurationContainerRegistryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolFixedScaleInput)(nil)).Elem(), GetPoolFixedScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolFixedScaleArrayInput)(nil)).Elem(), GetPoolFixedScaleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolMountInput)(nil)).Elem(), GetPoolMountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolMountArrayInput)(nil)).Elem(), GetPoolMountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolMountAzureBlobFileSystemInput)(nil)).Elem(), GetPoolMountAzureBlobFileSystemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolMountAzureBlobFileSystemArrayInput)(nil)).Elem(), GetPoolMountAzureBlobFileSystemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolMountAzureFileShareInput)(nil)).Elem(), GetPoolMountAzureFileShareArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolMountAzureFileShareArrayInput)(nil)).Elem(), GetPoolMountAzureFileShareArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolMountCifsMountInput)(nil)).Elem(), GetPoolMountCifsMountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolMountCifsMountArrayInput)(nil)).Elem(), GetPoolMountCifsMountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolMountNfsMountInput)(nil)).Elem(), GetPoolMountNfsMountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolMountNfsMountArrayInput)(nil)).Elem(), GetPoolMountNfsMountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolNetworkConfigurationInput)(nil)).Elem(), GetPoolNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolNetworkConfigurationArrayInput)(nil)).Elem(), GetPoolNetworkConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolNetworkConfigurationEndpointConfigurationInput)(nil)).Elem(), GetPoolNetworkConfigurationEndpointConfigurationArgs{})
@@ -4664,6 +6093,16 @@ func init() {
 	pulumi.RegisterOutputType(PoolFixedScalePtrOutput{})
 	pulumi.RegisterOutputType(PoolIdentityOutput{})
 	pulumi.RegisterOutputType(PoolIdentityPtrOutput{})
+	pulumi.RegisterOutputType(PoolMountOutput{})
+	pulumi.RegisterOutputType(PoolMountArrayOutput{})
+	pulumi.RegisterOutputType(PoolMountAzureBlobFileSystemOutput{})
+	pulumi.RegisterOutputType(PoolMountAzureBlobFileSystemPtrOutput{})
+	pulumi.RegisterOutputType(PoolMountAzureFileShareOutput{})
+	pulumi.RegisterOutputType(PoolMountAzureFileShareArrayOutput{})
+	pulumi.RegisterOutputType(PoolMountCifsMountOutput{})
+	pulumi.RegisterOutputType(PoolMountCifsMountArrayOutput{})
+	pulumi.RegisterOutputType(PoolMountNfsMountOutput{})
+	pulumi.RegisterOutputType(PoolMountNfsMountArrayOutput{})
 	pulumi.RegisterOutputType(PoolNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(PoolNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PoolNetworkConfigurationEndpointConfigurationOutput{})
@@ -4694,6 +6133,16 @@ func init() {
 	pulumi.RegisterOutputType(GetPoolContainerConfigurationContainerRegistryArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolFixedScaleOutput{})
 	pulumi.RegisterOutputType(GetPoolFixedScaleArrayOutput{})
+	pulumi.RegisterOutputType(GetPoolMountOutput{})
+	pulumi.RegisterOutputType(GetPoolMountArrayOutput{})
+	pulumi.RegisterOutputType(GetPoolMountAzureBlobFileSystemOutput{})
+	pulumi.RegisterOutputType(GetPoolMountAzureBlobFileSystemArrayOutput{})
+	pulumi.RegisterOutputType(GetPoolMountAzureFileShareOutput{})
+	pulumi.RegisterOutputType(GetPoolMountAzureFileShareArrayOutput{})
+	pulumi.RegisterOutputType(GetPoolMountCifsMountOutput{})
+	pulumi.RegisterOutputType(GetPoolMountCifsMountArrayOutput{})
+	pulumi.RegisterOutputType(GetPoolMountNfsMountOutput{})
+	pulumi.RegisterOutputType(GetPoolMountNfsMountArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(GetPoolNetworkConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolNetworkConfigurationEndpointConfigurationOutput{})

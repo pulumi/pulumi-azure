@@ -14,7 +14,7 @@ namespace Pulumi.Azure.MSSql.Outputs
     public sealed class ServerIdentity
     {
         /// <summary>
-        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`.
+        /// Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
         /// </summary>
         public readonly string Type;
 

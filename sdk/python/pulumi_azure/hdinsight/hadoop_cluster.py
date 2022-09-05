@@ -22,6 +22,7 @@ class HadoopClusterArgs:
                  resource_group_name: pulumi.Input[str],
                  roles: pulumi.Input['HadoopClusterRolesArgs'],
                  tier: pulumi.Input[str],
+                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metastores: Optional[pulumi.Input['HadoopClusterMetastoresArgs']] = None,
                  monitor: Optional[pulumi.Input['HadoopClusterMonitorArgs']] = None,
@@ -56,6 +57,8 @@ class HadoopClusterArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "roles", roles)
         pulumi.set(__self__, "tier", tier)
+        if disk_encryptions is not None:
+            pulumi.set(__self__, "disk_encryptions", disk_encryptions)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if metastores is not None:
@@ -148,6 +151,15 @@ class HadoopClusterArgs:
     @tier.setter
     def tier(self, value: pulumi.Input[str]):
         pulumi.set(self, "tier", value)
+
+    @property
+    @pulumi.getter(name="diskEncryptions")
+    def disk_encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]]]:
+        return pulumi.get(self, "disk_encryptions")
+
+    @disk_encryptions.setter
+    def disk_encryptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]]]):
+        pulumi.set(self, "disk_encryptions", value)
 
     @property
     @pulumi.getter
@@ -272,6 +284,7 @@ class _HadoopClusterState:
     def __init__(__self__, *,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input['HadoopClusterComponentVersionArgs']] = None,
+                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]]] = None,
                  gateway: Optional[pulumi.Input['HadoopClusterGatewayArgs']] = None,
                  https_endpoint: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -312,6 +325,8 @@ class _HadoopClusterState:
             pulumi.set(__self__, "cluster_version", cluster_version)
         if component_version is not None:
             pulumi.set(__self__, "component_version", component_version)
+        if disk_encryptions is not None:
+            pulumi.set(__self__, "disk_encryptions", disk_encryptions)
         if gateway is not None:
             pulumi.set(__self__, "gateway", gateway)
         if https_endpoint is not None:
@@ -368,6 +383,15 @@ class _HadoopClusterState:
     @component_version.setter
     def component_version(self, value: Optional[pulumi.Input['HadoopClusterComponentVersionArgs']]):
         pulumi.set(self, "component_version", value)
+
+    @property
+    @pulumi.getter(name="diskEncryptions")
+    def disk_encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]]]:
+        return pulumi.get(self, "disk_encryptions")
+
+    @disk_encryptions.setter
+    def disk_encryptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]]]):
+        pulumi.set(self, "disk_encryptions", value)
 
     @property
     @pulumi.getter
@@ -566,6 +590,7 @@ class HadoopCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input[pulumi.InputType['HadoopClusterComponentVersionArgs']]] = None,
+                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterDiskEncryptionArgs']]]]] = None,
                  gateway: Optional[pulumi.Input[pulumi.InputType['HadoopClusterGatewayArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metastores: Optional[pulumi.Input[pulumi.InputType['HadoopClusterMetastoresArgs']]] = None,
@@ -748,6 +773,7 @@ class HadoopCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input[pulumi.InputType['HadoopClusterComponentVersionArgs']]] = None,
+                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterDiskEncryptionArgs']]]]] = None,
                  gateway: Optional[pulumi.Input[pulumi.InputType['HadoopClusterGatewayArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metastores: Optional[pulumi.Input[pulumi.InputType['HadoopClusterMetastoresArgs']]] = None,
@@ -777,6 +803,7 @@ class HadoopCluster(pulumi.CustomResource):
             if component_version is None and not opts.urn:
                 raise TypeError("Missing required property 'component_version'")
             __props__.__dict__["component_version"] = component_version
+            __props__.__dict__["disk_encryptions"] = disk_encryptions
             if gateway is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway'")
             __props__.__dict__["gateway"] = gateway
@@ -813,6 +840,7 @@ class HadoopCluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cluster_version: Optional[pulumi.Input[str]] = None,
             component_version: Optional[pulumi.Input[pulumi.InputType['HadoopClusterComponentVersionArgs']]] = None,
+            disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterDiskEncryptionArgs']]]]] = None,
             gateway: Optional[pulumi.Input[pulumi.InputType['HadoopClusterGatewayArgs']]] = None,
             https_endpoint: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -860,6 +888,7 @@ class HadoopCluster(pulumi.CustomResource):
 
         __props__.__dict__["cluster_version"] = cluster_version
         __props__.__dict__["component_version"] = component_version
+        __props__.__dict__["disk_encryptions"] = disk_encryptions
         __props__.__dict__["gateway"] = gateway
         __props__.__dict__["https_endpoint"] = https_endpoint
         __props__.__dict__["location"] = location
@@ -893,6 +922,11 @@ class HadoopCluster(pulumi.CustomResource):
         A `component_version` block as defined below.
         """
         return pulumi.get(self, "component_version")
+
+    @property
+    @pulumi.getter(name="diskEncryptions")
+    def disk_encryptions(self) -> pulumi.Output[Optional[Sequence['outputs.HadoopClusterDiskEncryption']]]:
+        return pulumi.get(self, "disk_encryptions")
 
     @property
     @pulumi.getter

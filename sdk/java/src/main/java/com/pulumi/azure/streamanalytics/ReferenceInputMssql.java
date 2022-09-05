@@ -240,6 +240,20 @@ public class ReferenceInputMssql extends com.pulumi.resources.CustomResource {
         return this.streamAnalyticsJobName;
     }
     /**
+     * The name of the table in the Azure SQL database.
+     * 
+     */
+    @Export(name="table", type=String.class, parameters={})
+    private Output</* @Nullable */ String> table;
+
+    /**
+     * @return The name of the table in the Azure SQL database.
+     * 
+     */
+    public Output<Optional<String>> table() {
+        return Codegen.optional(this.table);
+    }
+    /**
      * The username to connect to the MS SQL database.
      * 
      */

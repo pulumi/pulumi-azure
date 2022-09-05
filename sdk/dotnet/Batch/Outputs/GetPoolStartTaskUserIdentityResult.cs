@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolStartTaskUserIdentityAutoUserResult> AutoUsers;
         /// <summary>
-        /// The user name to log into the registry server.
+        /// The user to use for authentication against the CIFS file system.
         /// </summary>
         public readonly string UserName;
 

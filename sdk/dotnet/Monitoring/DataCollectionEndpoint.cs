@@ -54,6 +54,12 @@ namespace Pulumi.Azure.Monitoring
     public partial class DataCollectionEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.
+        /// </summary>
+        [Output("configurationAccessEndpoint")]
+        public Output<string> ConfigurationAccessEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies a description for the Data Collection Endpoint.
         /// </summary>
         [Output("description")]
@@ -70,6 +76,12 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
+        /// </summary>
+        [Output("logsIngestionEndpoint")]
+        public Output<string> LogsIngestionEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.
@@ -198,6 +210,12 @@ namespace Pulumi.Azure.Monitoring
     public sealed class DataCollectionEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.
+        /// </summary>
+        [Input("configurationAccessEndpoint")]
+        public Input<string>? ConfigurationAccessEndpoint { get; set; }
+
+        /// <summary>
         /// Specifies a description for the Data Collection Endpoint.
         /// </summary>
         [Input("description")]
@@ -214,6 +232,12 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
+        /// </summary>
+        [Input("logsIngestionEndpoint")]
+        public Input<string>? LogsIngestionEndpoint { get; set; }
 
         /// <summary>
         /// The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.

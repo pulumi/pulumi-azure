@@ -33,6 +33,10 @@ namespace Pulumi.Azure.Compute.Outputs
         /// The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? PublicIpPrefixId;
+        /// <summary>
+        /// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(
@@ -44,13 +48,16 @@ namespace Pulumi.Azure.Compute.Outputs
 
             string name,
 
-            string? publicIpPrefixId)
+            string? publicIpPrefixId,
+
+            string? version)
         {
             DomainNameLabel = domainNameLabel;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;
             IpTags = ipTags;
             Name = name;
             PublicIpPrefixId = publicIpPrefixId;
+            Version = version;
         }
     }
 }

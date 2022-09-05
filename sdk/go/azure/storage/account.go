@@ -213,6 +213,8 @@ type Account struct {
 	PrimaryWebEndpoint pulumi.StringOutput `pulumi:"primaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the primary location.
 	PrimaryWebHost pulumi.StringOutput `pulumi:"primaryWebHost"`
+	// Whether the public network access is enabled? Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	QueueEncryptionKeyType pulumi.StringPtrOutput `pulumi:"queueEncryptionKeyType"`
 	// A `queueProperties` block as defined below.
@@ -380,6 +382,8 @@ type accountState struct {
 	PrimaryWebEndpoint *string `pulumi:"primaryWebEndpoint"`
 	// The hostname with port if applicable for web storage in the primary location.
 	PrimaryWebHost *string `pulumi:"primaryWebHost"`
+	// Whether the public network access is enabled? Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	QueueEncryptionKeyType *string `pulumi:"queueEncryptionKeyType"`
 	// A `queueProperties` block as defined below.
@@ -510,6 +514,8 @@ type AccountState struct {
 	PrimaryWebEndpoint pulumi.StringPtrInput
 	// The hostname with port if applicable for web storage in the primary location.
 	PrimaryWebHost pulumi.StringPtrInput
+	// Whether the public network access is enabled? Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	QueueEncryptionKeyType pulumi.StringPtrInput
 	// A `queueProperties` block as defined below.
@@ -612,6 +618,8 @@ type accountArgs struct {
 	NetworkRules *AccountNetworkRulesType `pulumi:"networkRules"`
 	// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	Nfsv3Enabled *bool `pulumi:"nfsv3Enabled"`
+	// Whether the public network access is enabled? Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	QueueEncryptionKeyType *string `pulumi:"queueEncryptionKeyType"`
 	// A `queueProperties` block as defined below.
@@ -679,6 +687,8 @@ type AccountArgs struct {
 	NetworkRules AccountNetworkRulesTypePtrInput
 	// Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
 	Nfsv3Enabled pulumi.BoolPtrInput
+	// Whether the public network access is enabled? Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
 	QueueEncryptionKeyType pulumi.StringPtrInput
 	// A `queueProperties` block as defined below.
@@ -975,6 +985,11 @@ func (o AccountOutput) PrimaryWebEndpoint() pulumi.StringOutput {
 // The hostname with port if applicable for web storage in the primary location.
 func (o AccountOutput) PrimaryWebHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.PrimaryWebHost }).(pulumi.StringOutput)
+}
+
+// Whether the public network access is enabled? Defaults to `true`.
+func (o AccountOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.

@@ -8,10 +8,12 @@ import * as utilities from "../utilities";
 export * from "./analyticsSolution";
 export * from "./analyticsWorkspace";
 export * from "./getAnalyticsWorkspace";
+export * from "./queryPackQuery";
 
 // Import resources to register:
 import { AnalyticsSolution } from "./analyticsSolution";
 import { AnalyticsWorkspace } from "./analyticsWorkspace";
+import { QueryPackQuery } from "./queryPackQuery";
 
 const _module = {
     version: utilities.getVersion(),
@@ -21,6 +23,8 @@ const _module = {
                 return new AnalyticsSolution(name, <any>undefined, { urn })
             case "azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace":
                 return new AnalyticsWorkspace(name, <any>undefined, { urn })
+            case "azure:operationalinsights/queryPackQuery:QueryPackQuery":
+                return new QueryPackQuery(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -28,3 +32,4 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "operationalinsights/analyticsSolution", _module)
 pulumi.runtime.registerResourceModule("azure", "operationalinsights/analyticsWorkspace", _module)
+pulumi.runtime.registerResourceModule("azure", "operationalinsights/queryPackQuery", _module)

@@ -11,6 +11,7 @@ from .. import _utilities
 
 __all__ = [
     'HBaseClusterComponentVersionArgs',
+    'HBaseClusterDiskEncryptionArgs',
     'HBaseClusterGatewayArgs',
     'HBaseClusterMetastoresArgs',
     'HBaseClusterMetastoresAmbariArgs',
@@ -29,6 +30,7 @@ __all__ = [
     'HBaseClusterStorageAccountArgs',
     'HBaseClusterStorageAccountGen2Args',
     'HadoopClusterComponentVersionArgs',
+    'HadoopClusterDiskEncryptionArgs',
     'HadoopClusterGatewayArgs',
     'HadoopClusterMetastoresArgs',
     'HadoopClusterMetastoresAmbariArgs',
@@ -52,6 +54,7 @@ __all__ = [
     'HadoopClusterStorageAccountArgs',
     'HadoopClusterStorageAccountGen2Args',
     'InteractiveQueryClusterComponentVersionArgs',
+    'InteractiveQueryClusterDiskEncryptionArgs',
     'InteractiveQueryClusterGatewayArgs',
     'InteractiveQueryClusterMetastoresArgs',
     'InteractiveQueryClusterMetastoresAmbariArgs',
@@ -71,6 +74,7 @@ __all__ = [
     'InteractiveQueryClusterStorageAccountArgs',
     'InteractiveQueryClusterStorageAccountGen2Args',
     'KafkaClusterComponentVersionArgs',
+    'KafkaClusterDiskEncryptionArgs',
     'KafkaClusterGatewayArgs',
     'KafkaClusterMetastoresArgs',
     'KafkaClusterMetastoresAmbariArgs',
@@ -88,6 +92,7 @@ __all__ = [
     'KafkaClusterStorageAccountArgs',
     'KafkaClusterStorageAccountGen2Args',
     'SparkClusterComponentVersionArgs',
+    'SparkClusterDiskEncryptionArgs',
     'SparkClusterGatewayArgs',
     'SparkClusterMetastoresArgs',
     'SparkClusterMetastoresAmbariArgs',
@@ -128,6 +133,77 @@ class HBaseClusterComponentVersionArgs:
     @hbase.setter
     def hbase(self, value: pulumi.Input[str]):
         pulumi.set(self, "hbase", value)
+
+
+@pulumi.input_type
+class HBaseClusterDiskEncryptionArgs:
+    def __init__(__self__, *,
+                 encryption_algorithm: Optional[pulumi.Input[str]] = None,
+                 encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
+                 key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_managed_identity_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] encryption_algorithm: This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        :param pulumi.Input[bool] encryption_at_host_enabled: This is indicator to show whether resource disk encryption is enabled.
+        :param pulumi.Input[str] key_vault_key_id: The ID of the key vault key.
+        :param pulumi.Input[str] key_vault_managed_identity_id: This is the resource ID of Managed Identity used to access the key vault.
+        """
+        if encryption_algorithm is not None:
+            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        if encryption_at_host_enabled is not None:
+            pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
+        if key_vault_key_id is not None:
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if key_vault_managed_identity_id is not None:
+            pulumi.set(__self__, "key_vault_managed_identity_id", key_vault_managed_identity_id)
+
+    @property
+    @pulumi.getter(name="encryptionAlgorithm")
+    def encryption_algorithm(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        """
+        return pulumi.get(self, "encryption_algorithm")
+
+    @encryption_algorithm.setter
+    def encryption_algorithm(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_algorithm", value)
+
+    @property
+    @pulumi.getter(name="encryptionAtHostEnabled")
+    def encryption_at_host_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This is indicator to show whether resource disk encryption is enabled.
+        """
+        return pulumi.get(self, "encryption_at_host_enabled")
+
+    @encryption_at_host_enabled.setter
+    def encryption_at_host_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encryption_at_host_enabled", value)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the key vault key.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_key_id", value)
+
+    @property
+    @pulumi.getter(name="keyVaultManagedIdentityId")
+    def key_vault_managed_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is the resource ID of Managed Identity used to access the key vault.
+        """
+        return pulumi.get(self, "key_vault_managed_identity_id")
+
+    @key_vault_managed_identity_id.setter
+    def key_vault_managed_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_managed_identity_id", value)
 
 
 @pulumi.input_type
@@ -1265,6 +1341,77 @@ class HadoopClusterComponentVersionArgs:
     @hadoop.setter
     def hadoop(self, value: pulumi.Input[str]):
         pulumi.set(self, "hadoop", value)
+
+
+@pulumi.input_type
+class HadoopClusterDiskEncryptionArgs:
+    def __init__(__self__, *,
+                 encryption_algorithm: Optional[pulumi.Input[str]] = None,
+                 encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
+                 key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_managed_identity_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] encryption_algorithm: This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        :param pulumi.Input[bool] encryption_at_host_enabled: This is indicator to show whether resource disk encryption is enabled.
+        :param pulumi.Input[str] key_vault_key_id: The ID of the key vault key.
+        :param pulumi.Input[str] key_vault_managed_identity_id: This is the resource ID of Managed Identity used to access the key vault.
+        """
+        if encryption_algorithm is not None:
+            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        if encryption_at_host_enabled is not None:
+            pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
+        if key_vault_key_id is not None:
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if key_vault_managed_identity_id is not None:
+            pulumi.set(__self__, "key_vault_managed_identity_id", key_vault_managed_identity_id)
+
+    @property
+    @pulumi.getter(name="encryptionAlgorithm")
+    def encryption_algorithm(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        """
+        return pulumi.get(self, "encryption_algorithm")
+
+    @encryption_algorithm.setter
+    def encryption_algorithm(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_algorithm", value)
+
+    @property
+    @pulumi.getter(name="encryptionAtHostEnabled")
+    def encryption_at_host_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This is indicator to show whether resource disk encryption is enabled.
+        """
+        return pulumi.get(self, "encryption_at_host_enabled")
+
+    @encryption_at_host_enabled.setter
+    def encryption_at_host_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encryption_at_host_enabled", value)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the key vault key.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_key_id", value)
+
+    @property
+    @pulumi.getter(name="keyVaultManagedIdentityId")
+    def key_vault_managed_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is the resource ID of Managed Identity used to access the key vault.
+        """
+        return pulumi.get(self, "key_vault_managed_identity_id")
+
+    @key_vault_managed_identity_id.setter
+    def key_vault_managed_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_managed_identity_id", value)
 
 
 @pulumi.input_type
@@ -2737,6 +2884,77 @@ class InteractiveQueryClusterComponentVersionArgs:
 
 
 @pulumi.input_type
+class InteractiveQueryClusterDiskEncryptionArgs:
+    def __init__(__self__, *,
+                 encryption_algorithm: Optional[pulumi.Input[str]] = None,
+                 encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
+                 key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_managed_identity_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] encryption_algorithm: This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        :param pulumi.Input[bool] encryption_at_host_enabled: This is indicator to show whether resource disk encryption is enabled.
+        :param pulumi.Input[str] key_vault_key_id: The ID of the key vault key.
+        :param pulumi.Input[str] key_vault_managed_identity_id: This is the resource ID of Managed Identity used to access the key vault.
+        """
+        if encryption_algorithm is not None:
+            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        if encryption_at_host_enabled is not None:
+            pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
+        if key_vault_key_id is not None:
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if key_vault_managed_identity_id is not None:
+            pulumi.set(__self__, "key_vault_managed_identity_id", key_vault_managed_identity_id)
+
+    @property
+    @pulumi.getter(name="encryptionAlgorithm")
+    def encryption_algorithm(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        """
+        return pulumi.get(self, "encryption_algorithm")
+
+    @encryption_algorithm.setter
+    def encryption_algorithm(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_algorithm", value)
+
+    @property
+    @pulumi.getter(name="encryptionAtHostEnabled")
+    def encryption_at_host_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This is indicator to show whether resource disk encryption is enabled.
+        """
+        return pulumi.get(self, "encryption_at_host_enabled")
+
+    @encryption_at_host_enabled.setter
+    def encryption_at_host_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encryption_at_host_enabled", value)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the key vault key.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_key_id", value)
+
+    @property
+    @pulumi.getter(name="keyVaultManagedIdentityId")
+    def key_vault_managed_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is the resource ID of Managed Identity used to access the key vault.
+        """
+        return pulumi.get(self, "key_vault_managed_identity_id")
+
+    @key_vault_managed_identity_id.setter
+    def key_vault_managed_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_managed_identity_id", value)
+
+
+@pulumi.input_type
 class InteractiveQueryClusterGatewayArgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
@@ -3927,6 +4145,77 @@ class KafkaClusterComponentVersionArgs:
 
 
 @pulumi.input_type
+class KafkaClusterDiskEncryptionArgs:
+    def __init__(__self__, *,
+                 encryption_algorithm: Optional[pulumi.Input[str]] = None,
+                 encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
+                 key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_managed_identity_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] encryption_algorithm: This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        :param pulumi.Input[bool] encryption_at_host_enabled: This is indicator to show whether resource disk encryption is enabled.
+        :param pulumi.Input[str] key_vault_key_id: The ID of the key vault key.
+        :param pulumi.Input[str] key_vault_managed_identity_id: This is the resource ID of Managed Identity used to access the key vault.
+        """
+        if encryption_algorithm is not None:
+            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        if encryption_at_host_enabled is not None:
+            pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
+        if key_vault_key_id is not None:
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if key_vault_managed_identity_id is not None:
+            pulumi.set(__self__, "key_vault_managed_identity_id", key_vault_managed_identity_id)
+
+    @property
+    @pulumi.getter(name="encryptionAlgorithm")
+    def encryption_algorithm(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        """
+        return pulumi.get(self, "encryption_algorithm")
+
+    @encryption_algorithm.setter
+    def encryption_algorithm(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_algorithm", value)
+
+    @property
+    @pulumi.getter(name="encryptionAtHostEnabled")
+    def encryption_at_host_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This is indicator to show whether resource disk encryption is enabled.
+        """
+        return pulumi.get(self, "encryption_at_host_enabled")
+
+    @encryption_at_host_enabled.setter
+    def encryption_at_host_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encryption_at_host_enabled", value)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the key vault key.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_key_id", value)
+
+    @property
+    @pulumi.getter(name="keyVaultManagedIdentityId")
+    def key_vault_managed_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is the resource ID of Managed Identity used to access the key vault.
+        """
+        return pulumi.get(self, "key_vault_managed_identity_id")
+
+    @key_vault_managed_identity_id.setter
+    def key_vault_managed_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_managed_identity_id", value)
+
+
+@pulumi.input_type
 class KafkaClusterGatewayArgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
@@ -5102,6 +5391,77 @@ class SparkClusterComponentVersionArgs:
     @spark.setter
     def spark(self, value: pulumi.Input[str]):
         pulumi.set(self, "spark", value)
+
+
+@pulumi.input_type
+class SparkClusterDiskEncryptionArgs:
+    def __init__(__self__, *,
+                 encryption_algorithm: Optional[pulumi.Input[str]] = None,
+                 encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
+                 key_vault_key_id: Optional[pulumi.Input[str]] = None,
+                 key_vault_managed_identity_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] encryption_algorithm: This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        :param pulumi.Input[bool] encryption_at_host_enabled: This is indicator to show whether resource disk encryption is enabled.
+        :param pulumi.Input[str] key_vault_key_id: The ID of the key vault key.
+        :param pulumi.Input[str] key_vault_managed_identity_id: This is the resource ID of Managed Identity used to access the key vault.
+        """
+        if encryption_algorithm is not None:
+            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        if encryption_at_host_enabled is not None:
+            pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
+        if key_vault_key_id is not None:
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if key_vault_managed_identity_id is not None:
+            pulumi.set(__self__, "key_vault_managed_identity_id", key_vault_managed_identity_id)
+
+    @property
+    @pulumi.getter(name="encryptionAlgorithm")
+    def encryption_algorithm(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        """
+        return pulumi.get(self, "encryption_algorithm")
+
+    @encryption_algorithm.setter
+    def encryption_algorithm(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_algorithm", value)
+
+    @property
+    @pulumi.getter(name="encryptionAtHostEnabled")
+    def encryption_at_host_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This is indicator to show whether resource disk encryption is enabled.
+        """
+        return pulumi.get(self, "encryption_at_host_enabled")
+
+    @encryption_at_host_enabled.setter
+    def encryption_at_host_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encryption_at_host_enabled", value)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the key vault key.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_key_id", value)
+
+    @property
+    @pulumi.getter(name="keyVaultManagedIdentityId")
+    def key_vault_managed_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is the resource ID of Managed Identity used to access the key vault.
+        """
+        return pulumi.get(self, "key_vault_managed_identity_id")
+
+    @key_vault_managed_identity_id.setter
+    def key_vault_managed_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_managed_identity_id", value)
 
 
 @pulumi.input_type

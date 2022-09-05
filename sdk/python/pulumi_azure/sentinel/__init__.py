@@ -8,6 +8,7 @@ import typing
 from .alert_rule_fusion import *
 from .alert_rule_machine_learning_behavior_analytics import *
 from .alert_rule_ms_security_incident import *
+from .alert_rule_nrt import *
 from .alert_rule_scheduled import *
 from .authomation_rule import *
 from .automation_rule import *

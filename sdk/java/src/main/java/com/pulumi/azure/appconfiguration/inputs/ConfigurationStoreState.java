@@ -113,6 +113,21 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
     }
 
     /**
+     * The Public Network Access setting of this App Configuration.
+     * 
+     */
+    @Import(name="publicNetworkAccess")
+    private @Nullable Output<String> publicNetworkAccess;
+
+    /**
+     * @return The Public Network Access setting of this App Configuration.
+     * 
+     */
+    public Optional<Output<String>> publicNetworkAccess() {
+        return Optional.ofNullable(this.publicNetworkAccess);
+    }
+
+    /**
      * The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
      * 
      */
@@ -196,6 +211,7 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
         this.name = $.name;
         this.primaryReadKeys = $.primaryReadKeys;
         this.primaryWriteKeys = $.primaryWriteKeys;
+        this.publicNetworkAccess = $.publicNetworkAccess;
         this.resourceGroupName = $.resourceGroupName;
         this.secondaryReadKeys = $.secondaryReadKeys;
         this.secondaryWriteKeys = $.secondaryWriteKeys;
@@ -365,6 +381,27 @@ public final class ConfigurationStoreState extends com.pulumi.resources.Resource
          */
         public Builder primaryWriteKeys(ConfigurationStorePrimaryWriteKeyArgs... primaryWriteKeys) {
             return primaryWriteKeys(List.of(primaryWriteKeys));
+        }
+
+        /**
+         * @param publicNetworkAccess The Public Network Access setting of this App Configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccess(@Nullable Output<String> publicNetworkAccess) {
+            $.publicNetworkAccess = publicNetworkAccess;
+            return this;
+        }
+
+        /**
+         * @param publicNetworkAccess The Public Network Access setting of this App Configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccess(String publicNetworkAccess) {
+            return publicNetworkAccess(Output.of(publicNetworkAccess));
         }
 
         /**

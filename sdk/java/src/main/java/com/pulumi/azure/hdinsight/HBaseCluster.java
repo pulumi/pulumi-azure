@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.hdinsight.HBaseClusterArgs;
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterState;
 import com.pulumi.azure.hdinsight.outputs.HBaseClusterComponentVersion;
+import com.pulumi.azure.hdinsight.outputs.HBaseClusterDiskEncryption;
 import com.pulumi.azure.hdinsight.outputs.HBaseClusterGateway;
 import com.pulumi.azure.hdinsight.outputs.HBaseClusterMetastores;
 import com.pulumi.azure.hdinsight.outputs.HBaseClusterMonitor;
@@ -158,6 +159,12 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<HBaseClusterComponentVersion> componentVersion() {
         return this.componentVersion;
+    }
+    @Export(name="diskEncryptions", type=List.class, parameters={HBaseClusterDiskEncryption.class})
+    private Output</* @Nullable */ List<HBaseClusterDiskEncryption>> diskEncryptions;
+
+    public Output<Optional<List<HBaseClusterDiskEncryption>>> diskEncryptions() {
+        return Codegen.optional(this.diskEncryptions);
     }
     /**
      * A `gateway` block as defined below.

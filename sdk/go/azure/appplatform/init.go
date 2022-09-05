@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SpringCloudCertificate{}
 	case "azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService":
 		r = &SpringCloudConfigurationService{}
+	case "azure:appplatform/springCloudConnection:SpringCloudConnection":
+		r = &SpringCloudConnection{}
 	case "azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment":
 		r = &SpringCloudContainerDeployment{}
 	case "azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain":
@@ -132,6 +134,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appplatform/springCloudConfigurationService",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appplatform/springCloudConnection",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

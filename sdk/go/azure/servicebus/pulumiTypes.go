@@ -186,7 +186,7 @@ func (o NamespaceCustomerManagedKeyPtrOutput) KeyVaultKeyId() pulumi.StringPtrOu
 }
 
 type NamespaceIdentity struct {
-	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
 	PrincipalId *string `pulumi:"principalId"`
@@ -208,7 +208,7 @@ type NamespaceIdentityInput interface {
 }
 
 type NamespaceIdentityArgs struct {
-	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -295,7 +295,7 @@ func (o NamespaceIdentityOutput) ToNamespaceIdentityPtrOutputWithContext(ctx con
 	}).(NamespaceIdentityPtrOutput)
 }
 
-// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
 func (o NamespaceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v NamespaceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -339,7 +339,7 @@ func (o NamespaceIdentityPtrOutput) Elem() NamespaceIdentityOutput {
 	}).(NamespaceIdentityOutput)
 }
 
-// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
 func (o NamespaceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NamespaceIdentity) []string {
 		if v == nil {

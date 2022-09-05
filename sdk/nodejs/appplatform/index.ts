@@ -19,6 +19,7 @@ export * from "./springCloudBuildPackBinding";
 export * from "./springCloudBuilder";
 export * from "./springCloudCertificate";
 export * from "./springCloudConfigurationService";
+export * from "./springCloudConnection";
 export * from "./springCloudContainerDeployment";
 export * from "./springCloudCustomDomain";
 export * from "./springCloudGateway";
@@ -41,6 +42,7 @@ import { SpringCloudBuildPackBinding } from "./springCloudBuildPackBinding";
 import { SpringCloudBuilder } from "./springCloudBuilder";
 import { SpringCloudCertificate } from "./springCloudCertificate";
 import { SpringCloudConfigurationService } from "./springCloudConfigurationService";
+import { SpringCloudConnection } from "./springCloudConnection";
 import { SpringCloudContainerDeployment } from "./springCloudContainerDeployment";
 import { SpringCloudCustomDomain } from "./springCloudCustomDomain";
 import { SpringCloudGateway } from "./springCloudGateway";
@@ -78,6 +80,8 @@ const _module = {
                 return new SpringCloudCertificate(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudConfigurationService:SpringCloudConfigurationService":
                 return new SpringCloudConfigurationService(name, <any>undefined, { urn })
+            case "azure:appplatform/springCloudConnection:SpringCloudConnection":
+                return new SpringCloudConnection(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment":
                 return new SpringCloudContainerDeployment(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain":
@@ -111,6 +115,7 @@ pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudBuildPack
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudBuilder", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudCertificate", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudConfigurationService", _module)
+pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudConnection", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudContainerDeployment", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudGateway", _module)

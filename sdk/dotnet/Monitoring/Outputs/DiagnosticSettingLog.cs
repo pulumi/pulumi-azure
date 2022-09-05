@@ -16,7 +16,11 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// <summary>
         /// The name of a Diagnostic Log Category for this Resource.
         /// </summary>
-        public readonly string Category;
+        public readonly string? Category;
+        /// <summary>
+        /// The name of a Diagnostic Log Category Group for this Resource.
+        /// </summary>
+        public readonly string? CategoryGroup;
         /// <summary>
         /// Is this Diagnostic Log enabled? Defaults to `true`.
         /// </summary>
@@ -28,13 +32,16 @@ namespace Pulumi.Azure.Monitoring.Outputs
 
         [OutputConstructor]
         private DiagnosticSettingLog(
-            string category,
+            string? category,
+
+            string? categoryGroup,
 
             bool? enabled,
 
             Outputs.DiagnosticSettingLogRetentionPolicy? retentionPolicy)
         {
             Category = category;
+            CategoryGroup = categoryGroup;
             Enabled = enabled;
             RetentionPolicy = retentionPolicy;
         }

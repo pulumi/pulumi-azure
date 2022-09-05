@@ -39,6 +39,21 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
         return Optional.ofNullable(this.extensionsToProvisionAfterVmCreations);
     }
 
+    /**
+     * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
+    @Import(name="failureSuppressionEnabled")
+    private @Nullable Output<Boolean> failureSuppressionEnabled;
+
+    /**
+     * @return Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> failureSuppressionEnabled() {
+        return Optional.ofNullable(this.failureSuppressionEnabled);
+    }
+
     @Import(name="forceExtensionExecutionOnChange")
     private @Nullable Output<String> forceExtensionExecutionOnChange;
 
@@ -101,6 +116,7 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
     private OrchestratedVirtualMachineScaleSetExtensionArgs(OrchestratedVirtualMachineScaleSetExtensionArgs $) {
         this.autoUpgradeMinorVersionEnabled = $.autoUpgradeMinorVersionEnabled;
         this.extensionsToProvisionAfterVmCreations = $.extensionsToProvisionAfterVmCreations;
+        this.failureSuppressionEnabled = $.failureSuppressionEnabled;
         this.forceExtensionExecutionOnChange = $.forceExtensionExecutionOnChange;
         this.name = $.name;
         this.protectedSettings = $.protectedSettings;
@@ -166,6 +182,27 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
          */
         public Builder extensionsToProvisionAfterVmCreations(String... extensionsToProvisionAfterVmCreations) {
             return extensionsToProvisionAfterVmCreations(List.of(extensionsToProvisionAfterVmCreations));
+        }
+
+        /**
+         * @param failureSuppressionEnabled Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder failureSuppressionEnabled(@Nullable Output<Boolean> failureSuppressionEnabled) {
+            $.failureSuppressionEnabled = failureSuppressionEnabled;
+            return this;
+        }
+
+        /**
+         * @param failureSuppressionEnabled Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder failureSuppressionEnabled(Boolean failureSuppressionEnabled) {
+            return failureSuppressionEnabled(Output.of(failureSuppressionEnabled));
         }
 
         public Builder forceExtensionExecutionOnChange(@Nullable Output<String> forceExtensionExecutionOnChange) {

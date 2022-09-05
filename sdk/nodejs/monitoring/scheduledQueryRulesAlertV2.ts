@@ -96,6 +96,9 @@ export class ScheduledQueryRulesAlertV2 extends pulumi.CustomResource {
      * Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * If specified then overrides the query time range, default is `windowDuration`*`numberOfEvaluationPeriods`.
+     */
     public readonly queryTimeRangeOverride!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
@@ -266,6 +269,9 @@ export interface ScheduledQueryRulesAlertV2State {
      * Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * If specified then overrides the query time range, default is `windowDuration`*`numberOfEvaluationPeriods`.
+     */
     queryTimeRangeOverride?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
@@ -345,6 +351,9 @@ export interface ScheduledQueryRulesAlertV2Args {
      * Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * If specified then overrides the query time range, default is `windowDuration`*`numberOfEvaluationPeriods`.
+     */
     queryTimeRangeOverride?: pulumi.Input<string>;
     /**
      * Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.

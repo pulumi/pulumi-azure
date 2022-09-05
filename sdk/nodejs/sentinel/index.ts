@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./alertRuleFusion";
 export * from "./alertRuleMachineLearningBehaviorAnalytics";
 export * from "./alertRuleMsSecurityIncident";
+export * from "./alertRuleNrt";
 export * from "./alertRuleScheduled";
 export * from "./authomationRule";
 export * from "./automationRule";
@@ -29,6 +30,7 @@ export * from "./watchlistItem";
 import { AlertRuleFusion } from "./alertRuleFusion";
 import { AlertRuleMachineLearningBehaviorAnalytics } from "./alertRuleMachineLearningBehaviorAnalytics";
 import { AlertRuleMsSecurityIncident } from "./alertRuleMsSecurityIncident";
+import { AlertRuleNrt } from "./alertRuleNrt";
 import { AlertRuleScheduled } from "./alertRuleScheduled";
 import { AuthomationRule } from "./authomationRule";
 import { AutomationRule } from "./automationRule";
@@ -54,6 +56,8 @@ const _module = {
                 return new AlertRuleMachineLearningBehaviorAnalytics(name, <any>undefined, { urn })
             case "azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident":
                 return new AlertRuleMsSecurityIncident(name, <any>undefined, { urn })
+            case "azure:sentinel/alertRuleNrt:AlertRuleNrt":
+                return new AlertRuleNrt(name, <any>undefined, { urn })
             case "azure:sentinel/alertRuleScheduled:AlertRuleScheduled":
                 return new AlertRuleScheduled(name, <any>undefined, { urn })
             case "azure:sentinel/authomationRule:AuthomationRule":
@@ -90,6 +94,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleFusion", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleMachineLearningBehaviorAnalytics", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleMsSecurityIncident", _module)
+pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleNrt", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/alertRuleScheduled", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/authomationRule", _module)
 pulumi.runtime.registerResourceModule("azure", "sentinel/automationRule", _module)

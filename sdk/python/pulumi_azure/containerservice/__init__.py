@@ -20,6 +20,7 @@ from .registry import *
 from .registry_agent_pool import *
 from .registry_scope_map import *
 from .registry_task import *
+from .registry_task_schedule_run_now import *
 from .registry_token import *
 from .registry_webhook import *
 from .registry_webook import *

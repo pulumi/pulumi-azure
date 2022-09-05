@@ -109,11 +109,23 @@ namespace Pulumi.Azure.EventHub
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        /// </summary>
+        [Output("minimumTlsVersion")]
+        public Output<string> MinimumTlsVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
         /// new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to
@@ -217,11 +229,23 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        /// </summary>
+        [Input("minimumTlsVersion")]
+        public Input<string>? MinimumTlsVersion { get; set; }
+
+        /// <summary>
         /// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
         /// new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to
@@ -319,11 +343,23 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        /// </summary>
+        [Input("minimumTlsVersion")]
+        public Input<string>? MinimumTlsVersion { get; set; }
+
+        /// <summary>
         /// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
         /// new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to

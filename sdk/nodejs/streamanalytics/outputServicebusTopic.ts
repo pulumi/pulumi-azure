@@ -83,6 +83,10 @@ export class OutputServicebusTopic extends pulumi.CustomResource {
     }
 
     /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     */
+    public readonly authenticationMode!: pulumi.Output<string | undefined>;
+    /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -136,6 +140,7 @@ export class OutputServicebusTopic extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutputServicebusTopicState | undefined;
+            resourceInputs["authenticationMode"] = state ? state.authenticationMode : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["propertyColumns"] = state ? state.propertyColumns : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -169,6 +174,7 @@ export class OutputServicebusTopic extends pulumi.CustomResource {
             if ((!args || args.topicName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'topicName'");
             }
+            resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["propertyColumns"] = args ? args.propertyColumns : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -189,6 +195,10 @@ export class OutputServicebusTopic extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OutputServicebusTopic resources.
  */
 export interface OutputServicebusTopicState {
+    /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     */
+    authenticationMode?: pulumi.Input<string>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
@@ -235,6 +245,10 @@ export interface OutputServicebusTopicState {
  * The set of arguments for constructing a OutputServicebusTopic resource.
  */
 export interface OutputServicebusTopicArgs {
+    /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     */
+    authenticationMode?: pulumi.Input<string>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */

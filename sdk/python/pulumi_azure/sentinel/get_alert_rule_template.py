@@ -22,7 +22,7 @@ class GetAlertRuleTemplateResult:
     """
     A collection of values returned by getAlertRuleTemplate.
     """
-    def __init__(__self__, display_name=None, id=None, log_analytics_workspace_id=None, name=None, scheduled_templates=None, security_incident_templates=None):
+    def __init__(__self__, display_name=None, id=None, log_analytics_workspace_id=None, name=None, nrt_templates=None, scheduled_templates=None, security_incident_templates=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -35,6 +35,9 @@ class GetAlertRuleTemplateResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if nrt_templates and not isinstance(nrt_templates, list):
+            raise TypeError("Expected argument 'nrt_templates' to be a list")
+        pulumi.set(__self__, "nrt_templates", nrt_templates)
         if scheduled_templates and not isinstance(scheduled_templates, list):
             raise TypeError("Expected argument 'scheduled_templates' to be a list")
         pulumi.set(__self__, "scheduled_templates", scheduled_templates)
@@ -66,6 +69,14 @@ class GetAlertRuleTemplateResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="nrtTemplates")
+    def nrt_templates(self) -> Sequence['outputs.GetAlertRuleTemplateNrtTemplateResult']:
+        """
+        A `nrt_template` block as defined below. This only applies to Sentinel NRT Alert Rule Template.
+        """
+        return pulumi.get(self, "nrt_templates")
+
+    @property
     @pulumi.getter(name="scheduledTemplates")
     def scheduled_templates(self) -> Sequence['outputs.GetAlertRuleTemplateScheduledTemplateResult']:
         """
@@ -92,6 +103,7 @@ class AwaitableGetAlertRuleTemplateResult(GetAlertRuleTemplateResult):
             id=self.id,
             log_analytics_workspace_id=self.log_analytics_workspace_id,
             name=self.name,
+            nrt_templates=self.nrt_templates,
             scheduled_templates=self.scheduled_templates,
             security_incident_templates=self.security_incident_templates)
 
@@ -131,6 +143,7 @@ def get_alert_rule_template(display_name: Optional[str] = None,
         id=__ret__.id,
         log_analytics_workspace_id=__ret__.log_analytics_workspace_id,
         name=__ret__.name,
+        nrt_templates=__ret__.nrt_templates,
         scheduled_templates=__ret__.scheduled_templates,
         security_incident_templates=__ret__.security_incident_templates)
 

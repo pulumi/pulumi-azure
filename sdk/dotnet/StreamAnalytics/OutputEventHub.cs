@@ -77,6 +77,12 @@ namespace Pulumi.Azure.StreamAnalytics
     public partial class OutputEventHub : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        /// </summary>
+        [Output("authenticationMode")]
+        public Output<string?> AuthenticationMode { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Event Hub.
         /// </summary>
         [Output("eventhubName")]
@@ -183,6 +189,12 @@ namespace Pulumi.Azure.StreamAnalytics
     public sealed class OutputEventHubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        /// </summary>
+        [Input("authenticationMode")]
+        public Input<string>? AuthenticationMode { get; set; }
+
+        /// <summary>
         /// The name of the Event Hub.
         /// </summary>
         [Input("eventhubName", required: true)]
@@ -256,6 +268,12 @@ namespace Pulumi.Azure.StreamAnalytics
 
     public sealed class OutputEventHubState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        /// </summary>
+        [Input("authenticationMode")]
+        public Input<string>? AuthenticationMode { get; set; }
+
         /// <summary>
         /// The name of the Event Hub.
         /// </summary>

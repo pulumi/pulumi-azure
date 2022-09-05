@@ -39,6 +39,11 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
      */
     private Integer lun;
     /**
+     * @return The name of the Data Disk.
+     * 
+     */
+    private @Nullable String name;
+    /**
      * @return The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
      * 
      */
@@ -88,6 +93,13 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
         return this.lun;
     }
     /**
+     * @return The name of the Data Disk.
+     * 
+     */
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
+    }
+    /**
      * @return The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
      * 
      */
@@ -122,6 +134,7 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
         private @Nullable String diskEncryptionSetId;
         private Integer diskSizeGb;
         private Integer lun;
+        private @Nullable String name;
         private String storageAccountType;
         private @Nullable Integer ultraSsdDiskIopsReadWrite;
         private @Nullable Integer ultraSsdDiskMbpsReadWrite;
@@ -134,6 +147,7 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
     	      this.diskEncryptionSetId = defaults.diskEncryptionSetId;
     	      this.diskSizeGb = defaults.diskSizeGb;
     	      this.lun = defaults.lun;
+    	      this.name = defaults.name;
     	      this.storageAccountType = defaults.storageAccountType;
     	      this.ultraSsdDiskIopsReadWrite = defaults.ultraSsdDiskIopsReadWrite;
     	      this.ultraSsdDiskMbpsReadWrite = defaults.ultraSsdDiskMbpsReadWrite;
@@ -166,6 +180,11 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
             return this;
         }
         @CustomType.Setter
+        public Builder name(@Nullable String name) {
+            this.name = name;
+            return this;
+        }
+        @CustomType.Setter
         public Builder storageAccountType(String storageAccountType) {
             this.storageAccountType = Objects.requireNonNull(storageAccountType);
             return this;
@@ -192,6 +211,7 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
             o.diskEncryptionSetId = diskEncryptionSetId;
             o.diskSizeGb = diskSizeGb;
             o.lun = lun;
+            o.name = name;
             o.storageAccountType = storageAccountType;
             o.ultraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
             o.ultraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;

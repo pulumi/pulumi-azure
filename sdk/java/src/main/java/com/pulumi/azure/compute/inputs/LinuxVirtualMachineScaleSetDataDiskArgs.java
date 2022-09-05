@@ -93,6 +93,21 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
     }
 
     /**
+     * The name of the Data Disk.
+     * 
+     */
+    @Import(name="name")
+    private @Nullable Output<String> name;
+
+    /**
+     * @return The name of the Data Disk.
+     * 
+     */
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
+    }
+
+    /**
      * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
      * 
      */
@@ -144,6 +159,7 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
         this.diskEncryptionSetId = $.diskEncryptionSetId;
         this.diskSizeGb = $.diskSizeGb;
         this.lun = $.lun;
+        this.name = $.name;
         this.storageAccountType = $.storageAccountType;
         this.ultraSsdDiskIopsReadWrite = $.ultraSsdDiskIopsReadWrite;
         this.ultraSsdDiskMbpsReadWrite = $.ultraSsdDiskMbpsReadWrite;
@@ -271,6 +287,27 @@ public final class LinuxVirtualMachineScaleSetDataDiskArgs extends com.pulumi.re
          */
         public Builder lun(Integer lun) {
             return lun(Output.of(lun));
+        }
+
+        /**
+         * @param name The name of the Data Disk.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(@Nullable Output<String> name) {
+            $.name = name;
+            return this;
+        }
+
+        /**
+         * @param name The name of the Data Disk.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(String name) {
+            return name(Output.of(name));
         }
 
         /**

@@ -22,6 +22,10 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly bool? HotpatchingEnabled;
         /// <summary>
+        /// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+        /// </summary>
+        public readonly string? PatchAssessmentMode;
+        /// <summary>
         /// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         /// </summary>
         public readonly string? PatchMode;
@@ -42,6 +46,8 @@ namespace Pulumi.Azure.Compute.Outputs
 
             bool? hotpatchingEnabled,
 
+            string? patchAssessmentMode,
+
             string? patchMode,
 
             bool? provisionVmAgent,
@@ -57,6 +63,7 @@ namespace Pulumi.Azure.Compute.Outputs
             ComputerNamePrefix = computerNamePrefix;
             EnableAutomaticUpdates = enableAutomaticUpdates;
             HotpatchingEnabled = hotpatchingEnabled;
+            PatchAssessmentMode = patchAssessmentMode;
             PatchMode = patchMode;
             ProvisionVmAgent = provisionVmAgent;
             Secrets = secrets;

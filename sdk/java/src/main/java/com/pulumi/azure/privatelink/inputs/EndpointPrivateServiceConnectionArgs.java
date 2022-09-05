@@ -78,14 +78,14 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
     }
 
     /**
-     * (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+     * Specifies the static IP address within the private endpoint&#39;s subnet to be used. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="privateIpAddress")
     private @Nullable Output<String> privateIpAddress;
 
     /**
-     * @return (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+     * @return Specifies the static IP address within the private endpoint&#39;s subnet to be used. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> privateIpAddress() {
@@ -237,7 +237,7 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param privateIpAddress (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+         * @param privateIpAddress Specifies the static IP address within the private endpoint&#39;s subnet to be used. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param privateIpAddress (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+         * @param privateIpAddress Specifies the static IP address within the private endpoint&#39;s subnet to be used. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

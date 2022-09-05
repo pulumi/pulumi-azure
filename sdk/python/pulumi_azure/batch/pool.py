@@ -29,6 +29,7 @@ class PoolArgs:
                  identity: Optional[pulumi.Input['PoolIdentityArgs']] = None,
                  max_tasks_per_node: Optional[pulumi.Input[int]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 mounts: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input['PoolNetworkConfigurationArgs']] = None,
                  start_task: Optional[pulumi.Input['PoolStartTaskArgs']] = None,
@@ -48,6 +49,7 @@ class PoolArgs:
         :param pulumi.Input['PoolIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[int] max_tasks_per_node: Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom batch pool metadata.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolMountArgs']]] mounts: A `mount` block defined as below.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input['PoolNetworkConfigurationArgs'] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool.
         :param pulumi.Input['PoolStartTaskArgs'] start_task: A `start_task` block that describes the start task settings for the Batch pool.
@@ -73,6 +75,8 @@ class PoolArgs:
             pulumi.set(__self__, "max_tasks_per_node", max_tasks_per_node)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if mounts is not None:
+            pulumi.set(__self__, "mounts", mounts)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_configuration is not None:
@@ -240,6 +244,18 @@ class PoolArgs:
 
     @property
     @pulumi.getter
+    def mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountArgs']]]]:
+        """
+        A `mount` block defined as below.
+        """
+        return pulumi.get(self, "mounts")
+
+    @mounts.setter
+    def mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountArgs']]]]):
+        pulumi.set(self, "mounts", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the name of the Batch pool. Changing this forces a new resource to be created.
@@ -296,6 +312,7 @@ class _PoolState:
                  identity: Optional[pulumi.Input['PoolIdentityArgs']] = None,
                  max_tasks_per_node: Optional[pulumi.Input[int]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 mounts: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input['PoolNetworkConfigurationArgs']] = None,
                  node_agent_sku_id: Optional[pulumi.Input[str]] = None,
@@ -315,6 +332,7 @@ class _PoolState:
         :param pulumi.Input['PoolIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[int] max_tasks_per_node: Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom batch pool metadata.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolMountArgs']]] mounts: A `mount` block defined as below.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input['PoolNetworkConfigurationArgs'] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool.
         :param pulumi.Input[str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool.
@@ -341,6 +359,8 @@ class _PoolState:
             pulumi.set(__self__, "max_tasks_per_node", max_tasks_per_node)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if mounts is not None:
+            pulumi.set(__self__, "mounts", mounts)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_configuration is not None:
@@ -468,6 +488,18 @@ class _PoolState:
 
     @property
     @pulumi.getter
+    def mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountArgs']]]]:
+        """
+        A `mount` block defined as below.
+        """
+        return pulumi.get(self, "mounts")
+
+    @mounts.setter
+    def mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolMountArgs']]]]):
+        pulumi.set(self, "mounts", value)
+
+    @property
+    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the name of the Batch pool. Changing this forces a new resource to be created.
@@ -574,6 +606,7 @@ class Pool(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['PoolIdentityArgs']]] = None,
                  max_tasks_per_node: Optional[pulumi.Input[int]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 mounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolMountArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['PoolNetworkConfigurationArgs']]] = None,
                  node_agent_sku_id: Optional[pulumi.Input[str]] = None,
@@ -683,6 +716,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PoolIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[int] max_tasks_per_node: Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom batch pool metadata.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolMountArgs']]]] mounts: A `mount` block defined as below.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['PoolNetworkConfigurationArgs']] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool.
         :param pulumi.Input[str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool.
@@ -810,6 +844,7 @@ class Pool(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['PoolIdentityArgs']]] = None,
                  max_tasks_per_node: Optional[pulumi.Input[int]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 mounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolMountArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['PoolNetworkConfigurationArgs']]] = None,
                  node_agent_sku_id: Optional[pulumi.Input[str]] = None,
@@ -838,6 +873,7 @@ class Pool(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["max_tasks_per_node"] = max_tasks_per_node
             __props__.__dict__["metadata"] = metadata
+            __props__.__dict__["mounts"] = mounts
             __props__.__dict__["name"] = name
             __props__.__dict__["network_configuration"] = network_configuration
             if node_agent_sku_id is None and not opts.urn:
@@ -873,6 +909,7 @@ class Pool(pulumi.CustomResource):
             identity: Optional[pulumi.Input[pulumi.InputType['PoolIdentityArgs']]] = None,
             max_tasks_per_node: Optional[pulumi.Input[int]] = None,
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            mounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolMountArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network_configuration: Optional[pulumi.Input[pulumi.InputType['PoolNetworkConfigurationArgs']]] = None,
             node_agent_sku_id: Optional[pulumi.Input[str]] = None,
@@ -897,6 +934,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['PoolIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[int] max_tasks_per_node: Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A map of custom batch pool metadata.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PoolMountArgs']]]] mounts: A `mount` block defined as below.
         :param pulumi.Input[str] name: Specifies the name of the Batch pool. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['PoolNetworkConfigurationArgs']] network_configuration: A `network_configuration` block that describes the network configurations for the Batch pool.
         :param pulumi.Input[str] node_agent_sku_id: Specifies the SKU of the node agents that will be created in the Batch pool.
@@ -918,6 +956,7 @@ class Pool(pulumi.CustomResource):
         __props__.__dict__["identity"] = identity
         __props__.__dict__["max_tasks_per_node"] = max_tasks_per_node
         __props__.__dict__["metadata"] = metadata
+        __props__.__dict__["mounts"] = mounts
         __props__.__dict__["name"] = name
         __props__.__dict__["network_configuration"] = network_configuration
         __props__.__dict__["node_agent_sku_id"] = node_agent_sku_id
@@ -999,6 +1038,14 @@ class Pool(pulumi.CustomResource):
         A map of custom batch pool metadata.
         """
         return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def mounts(self) -> pulumi.Output[Optional[Sequence['outputs.PoolMount']]]:
+        """
+        A `mount` block defined as below.
+        """
+        return pulumi.get(self, "mounts")
 
     @property
     @pulumi.getter

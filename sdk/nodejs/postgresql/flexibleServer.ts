@@ -136,7 +136,7 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The point in time to restore from `sourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     public readonly pointInTimeRestoreTimeInUtc!: pulumi.Output<string | undefined>;
     /**
@@ -292,7 +292,7 @@ export interface FlexibleServerState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The point in time to restore from `sourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     pointInTimeRestoreTimeInUtc?: pulumi.Input<string>;
     /**
@@ -379,7 +379,7 @@ export interface FlexibleServerArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The point in time to restore from `creationSourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+     * The point in time to restore from `sourceServerId` when `createMode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
      */
     pointInTimeRestoreTimeInUtc?: pulumi.Input<string>;
     /**

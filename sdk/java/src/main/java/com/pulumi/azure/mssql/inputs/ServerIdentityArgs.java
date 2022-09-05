@@ -17,14 +17,14 @@ public final class ServerIdentityArgs extends com.pulumi.resources.ResourceArgs 
     public static final ServerIdentityArgs Empty = new ServerIdentityArgs();
 
     /**
-     * Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+     * Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
      * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -62,14 +62,14 @@ public final class ServerIdentityArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`.
+     * Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
      * 
      */
     public Output<String> type() {
@@ -104,7 +104,7 @@ public final class ServerIdentityArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ServerIdentityArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class ServerIdentityArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ServerIdentityArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class ServerIdentityArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
          * 
          * @return builder
          * 

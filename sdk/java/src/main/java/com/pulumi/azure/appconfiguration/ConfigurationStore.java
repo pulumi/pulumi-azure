@@ -157,6 +157,20 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
         return this.primaryWriteKeys;
     }
     /**
+     * The Public Network Access setting of this App Configuration.
+     * 
+     */
+    @Export(name="publicNetworkAccess", type=String.class, parameters={})
+    private Output</* @Nullable */ String> publicNetworkAccess;
+
+    /**
+     * @return The Public Network Access setting of this App Configuration.
+     * 
+     */
+    public Output<Optional<String>> publicNetworkAccess() {
+        return Codegen.optional(this.publicNetworkAccess);
+    }
+    /**
      * The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
      * 
      */

@@ -114,6 +114,9 @@ namespace Pulumi.Azure.HDInsight
         [Output("componentVersion")]
         public Output<Outputs.HadoopClusterComponentVersion> ComponentVersion { get; private set; } = null!;
 
+        [Output("diskEncryptions")]
+        public Output<ImmutableArray<Outputs.HadoopClusterDiskEncryption>> DiskEncryptions { get; private set; } = null!;
+
         /// <summary>
         /// A `gateway` block as defined below.
         /// </summary>
@@ -265,6 +268,14 @@ namespace Pulumi.Azure.HDInsight
         [Input("componentVersion", required: true)]
         public Input<Inputs.HadoopClusterComponentVersionArgs> ComponentVersion { get; set; } = null!;
 
+        [Input("diskEncryptions")]
+        private InputList<Inputs.HadoopClusterDiskEncryptionArgs>? _diskEncryptions;
+        public InputList<Inputs.HadoopClusterDiskEncryptionArgs> DiskEncryptions
+        {
+            get => _diskEncryptions ?? (_diskEncryptions = new InputList<Inputs.HadoopClusterDiskEncryptionArgs>());
+            set => _diskEncryptions = value;
+        }
+
         /// <summary>
         /// A `gateway` block as defined below.
         /// </summary>
@@ -377,6 +388,14 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Input("componentVersion")]
         public Input<Inputs.HadoopClusterComponentVersionGetArgs>? ComponentVersion { get; set; }
+
+        [Input("diskEncryptions")]
+        private InputList<Inputs.HadoopClusterDiskEncryptionGetArgs>? _diskEncryptions;
+        public InputList<Inputs.HadoopClusterDiskEncryptionGetArgs> DiskEncryptions
+        {
+            get => _diskEncryptions ?? (_diskEncryptions = new InputList<Inputs.HadoopClusterDiskEncryptionGetArgs>());
+            set => _diskEncryptions = value;
+        }
 
         /// <summary>
         /// A `gateway` block as defined below.

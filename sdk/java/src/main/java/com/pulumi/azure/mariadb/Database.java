@@ -62,8 +62,8 @@ import javax.annotation.Nullable;
  *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .serverName(exampleServer.name())
- *             .charset(&#34;utf8&#34;)
- *             .collation(&#34;utf8_general_ci&#34;)
+ *             .charset(&#34;utf8mb4&#34;)
+ *             .collation(&#34;utf8mb4_unicode_520_ci&#34;)
  *             .build());
  * 
  *     }

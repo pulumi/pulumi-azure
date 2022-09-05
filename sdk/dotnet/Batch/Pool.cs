@@ -200,6 +200,12 @@ namespace Pulumi.Azure.Batch
         public Output<ImmutableDictionary<string, string>?> Metadata { get; private set; } = null!;
 
         /// <summary>
+        /// A `mount` block defined as below.
+        /// </summary>
+        [Output("mounts")]
+        public Output<ImmutableArray<Outputs.PoolMount>> Mounts { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -356,6 +362,18 @@ namespace Pulumi.Azure.Batch
             set => _metadata = value;
         }
 
+        [Input("mounts")]
+        private InputList<Inputs.PoolMountArgs>? _mounts;
+
+        /// <summary>
+        /// A `mount` block defined as below.
+        /// </summary>
+        public InputList<Inputs.PoolMountArgs> Mounts
+        {
+            get => _mounts ?? (_mounts = new InputList<Inputs.PoolMountArgs>());
+            set => _mounts = value;
+        }
+
         /// <summary>
         /// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
         /// </summary>
@@ -473,6 +491,18 @@ namespace Pulumi.Azure.Batch
         {
             get => _metadata ?? (_metadata = new InputMap<string>());
             set => _metadata = value;
+        }
+
+        [Input("mounts")]
+        private InputList<Inputs.PoolMountGetArgs>? _mounts;
+
+        /// <summary>
+        /// A `mount` block defined as below.
+        /// </summary>
+        public InputList<Inputs.PoolMountGetArgs> Mounts
+        {
+            get => _mounts ?? (_mounts = new InputList<Inputs.PoolMountGetArgs>());
+            set => _mounts = value;
         }
 
         /// <summary>

@@ -34,7 +34,7 @@ public final class EndpointPrivateServiceConnection {
      */
     private @Nullable String privateConnectionResourceId;
     /**
-     * @return (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+     * @return Specifies the static IP address within the private endpoint&#39;s subnet to be used. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String privateIpAddress;
@@ -79,7 +79,7 @@ public final class EndpointPrivateServiceConnection {
         return Optional.ofNullable(this.privateConnectionResourceId);
     }
     /**
-     * @return (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+     * @return Specifies the static IP address within the private endpoint&#39;s subnet to be used. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> privateIpAddress() {

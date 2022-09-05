@@ -6,6 +6,7 @@ package com.pulumi.azure.policy.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -80,16 +81,14 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The policy mode that allows you to specify which resource
-     * types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+     * The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
      * 
      */
     @Import(name="mode")
     private @Nullable Output<String> mode;
 
     /**
-     * @return The policy mode that allows you to specify which resource
-     * types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+     * @return The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
      * 
      */
     public Optional<Output<String>> mode() {
@@ -164,6 +163,21 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.policyType);
     }
 
+    /**
+     * A list of role definition id extracted from `policy_rule` required for remediation.
+     * 
+     */
+    @Import(name="roleDefinitionIds")
+    private @Nullable Output<List<String>> roleDefinitionIds;
+
+    /**
+     * @return A list of role definition id extracted from `policy_rule` required for remediation.
+     * 
+     */
+    public Optional<Output<List<String>>> roleDefinitionIds() {
+        return Optional.ofNullable(this.roleDefinitionIds);
+    }
+
     private DefinitionState() {}
 
     private DefinitionState(DefinitionState $) {
@@ -176,6 +190,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         this.parameters = $.parameters;
         this.policyRule = $.policyRule;
         this.policyType = $.policyType;
+        this.roleDefinitionIds = $.roleDefinitionIds;
     }
 
     public static Builder builder() {
@@ -285,8 +300,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mode The policy mode that allows you to specify which resource
-         * types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+         * @param mode The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
          * 
          * @return builder
          * 
@@ -297,8 +311,7 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mode The policy mode that allows you to specify which resource
-         * types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+         * @param mode The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
          * 
          * @return builder
          * 
@@ -397,6 +410,37 @@ public final class DefinitionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder policyType(String policyType) {
             return policyType(Output.of(policyType));
+        }
+
+        /**
+         * @param roleDefinitionIds A list of role definition id extracted from `policy_rule` required for remediation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder roleDefinitionIds(@Nullable Output<List<String>> roleDefinitionIds) {
+            $.roleDefinitionIds = roleDefinitionIds;
+            return this;
+        }
+
+        /**
+         * @param roleDefinitionIds A list of role definition id extracted from `policy_rule` required for remediation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder roleDefinitionIds(List<String> roleDefinitionIds) {
+            return roleDefinitionIds(Output.of(roleDefinitionIds));
+        }
+
+        /**
+         * @param roleDefinitionIds A list of role definition id extracted from `policy_rule` required for remediation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder roleDefinitionIds(String... roleDefinitionIds) {
+            return roleDefinitionIds(List.of(roleDefinitionIds));
         }
 
         public DefinitionState build() {

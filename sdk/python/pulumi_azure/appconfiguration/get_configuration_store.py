@@ -22,7 +22,7 @@ class GetConfigurationStoreResult:
     """
     A collection of values returned by getConfigurationStore.
     """
-    def __init__(__self__, endpoint=None, id=None, location=None, name=None, primary_read_keys=None, primary_write_keys=None, resource_group_name=None, secondary_read_keys=None, secondary_write_keys=None, sku=None, tags=None):
+    def __init__(__self__, endpoint=None, id=None, location=None, name=None, primary_read_keys=None, primary_write_keys=None, public_network_access=None, resource_group_name=None, secondary_read_keys=None, secondary_write_keys=None, sku=None, tags=None):
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
@@ -41,6 +41,9 @@ class GetConfigurationStoreResult:
         if primary_write_keys and not isinstance(primary_write_keys, list):
             raise TypeError("Expected argument 'primary_write_keys' to be a list")
         pulumi.set(__self__, "primary_write_keys", primary_write_keys)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -103,6 +106,14 @@ class GetConfigurationStoreResult:
         return pulumi.get(self, "primary_write_keys")
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> str:
+        """
+        The Public Network Access setting of this App Configuration.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
@@ -152,6 +163,7 @@ class AwaitableGetConfigurationStoreResult(GetConfigurationStoreResult):
             name=self.name,
             primary_read_keys=self.primary_read_keys,
             primary_write_keys=self.primary_write_keys,
+            public_network_access=self.public_network_access,
             resource_group_name=self.resource_group_name,
             secondary_read_keys=self.secondary_read_keys,
             secondary_write_keys=self.secondary_write_keys,
@@ -193,6 +205,7 @@ def get_configuration_store(name: Optional[str] = None,
         name=__ret__.name,
         primary_read_keys=__ret__.primary_read_keys,
         primary_write_keys=__ret__.primary_write_keys,
+        public_network_access=__ret__.public_network_access,
         resource_group_name=__ret__.resource_group_name,
         secondary_read_keys=__ret__.secondary_read_keys,
         secondary_write_keys=__ret__.secondary_write_keys,

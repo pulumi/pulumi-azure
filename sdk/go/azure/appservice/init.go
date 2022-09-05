@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CertificateBinding{}
 	case "azure:appservice/certificateOrder:CertificateOrder":
 		r = &CertificateOrder{}
+	case "azure:appservice/connection:Connection":
+		r = &Connection{}
 	case "azure:appservice/customHostnameBinding:CustomHostnameBinding":
 		r = &CustomHostnameBinding{}
 	case "azure:appservice/environment:Environment":
@@ -133,6 +135,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"appservice/certificateOrder",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"appservice/connection",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

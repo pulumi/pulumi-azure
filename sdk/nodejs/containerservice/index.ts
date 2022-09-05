@@ -20,6 +20,7 @@ export * from "./registry";
 export * from "./registryAgentPool";
 export * from "./registryScopeMap";
 export * from "./registryTask";
+export * from "./registryTaskScheduleRunNow";
 export * from "./registryToken";
 export * from "./registryWebhook";
 export * from "./registryWebook";
@@ -33,6 +34,7 @@ import { Registry } from "./registry";
 import { RegistryAgentPool } from "./registryAgentPool";
 import { RegistryScopeMap } from "./registryScopeMap";
 import { RegistryTask } from "./registryTask";
+import { RegistryTaskScheduleRunNow } from "./registryTaskScheduleRunNow";
 import { RegistryToken } from "./registryToken";
 import { RegistryWebhook } from "./registryWebhook";
 import { RegistryWebook } from "./registryWebook";
@@ -57,6 +59,8 @@ const _module = {
                 return new RegistryScopeMap(name, <any>undefined, { urn })
             case "azure:containerservice/registryTask:RegistryTask":
                 return new RegistryTask(name, <any>undefined, { urn })
+            case "azure:containerservice/registryTaskScheduleRunNow:RegistryTaskScheduleRunNow":
+                return new RegistryTaskScheduleRunNow(name, <any>undefined, { urn })
             case "azure:containerservice/registryToken:RegistryToken":
                 return new RegistryToken(name, <any>undefined, { urn })
             case "azure:containerservice/registryWebhook:RegistryWebhook":
@@ -76,6 +80,7 @@ pulumi.runtime.registerResourceModule("azure", "containerservice/registry", _mod
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryAgentPool", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryScopeMap", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryTask", _module)
+pulumi.runtime.registerResourceModule("azure", "containerservice/registryTaskScheduleRunNow", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryToken", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryWebhook", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryWebook", _module)

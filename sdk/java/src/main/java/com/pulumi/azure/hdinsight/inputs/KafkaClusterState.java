@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight.inputs;
 
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterComponentVersionArgs;
+import com.pulumi.azure.hdinsight.inputs.KafkaClusterDiskEncryptionArgs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterGatewayArgs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterMetastoresArgs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterMonitorArgs;
@@ -56,6 +57,13 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<KafkaClusterComponentVersionArgs>> componentVersion() {
         return Optional.ofNullable(this.componentVersion);
+    }
+
+    @Import(name="diskEncryptions")
+    private @Nullable Output<List<KafkaClusterDiskEncryptionArgs>> diskEncryptions;
+
+    public Optional<Output<List<KafkaClusterDiskEncryptionArgs>>> diskEncryptions() {
+        return Optional.ofNullable(this.diskEncryptions);
     }
 
     /**
@@ -348,6 +356,7 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
     private KafkaClusterState(KafkaClusterState $) {
         this.clusterVersion = $.clusterVersion;
         this.componentVersion = $.componentVersion;
+        this.diskEncryptions = $.diskEncryptions;
         this.encryptionInTransitEnabled = $.encryptionInTransitEnabled;
         this.gateway = $.gateway;
         this.httpsEndpoint = $.httpsEndpoint;
@@ -427,6 +436,19 @@ public final class KafkaClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder componentVersion(KafkaClusterComponentVersionArgs componentVersion) {
             return componentVersion(Output.of(componentVersion));
+        }
+
+        public Builder diskEncryptions(@Nullable Output<List<KafkaClusterDiskEncryptionArgs>> diskEncryptions) {
+            $.diskEncryptions = diskEncryptions;
+            return this;
+        }
+
+        public Builder diskEncryptions(List<KafkaClusterDiskEncryptionArgs> diskEncryptions) {
+            return diskEncryptions(Output.of(diskEncryptions));
+        }
+
+        public Builder diskEncryptions(KafkaClusterDiskEncryptionArgs... diskEncryptions) {
+            return diskEncryptions(List.of(diskEncryptions));
         }
 
         /**

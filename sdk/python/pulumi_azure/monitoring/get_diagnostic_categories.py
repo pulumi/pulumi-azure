@@ -21,12 +21,22 @@ class GetDiagnosticCategoriesResult:
     """
     A collection of values returned by getDiagnosticCategories.
     """
-    def __init__(__self__, id=None, logs=None, metrics=None, resource_id=None):
+    def __init__(__self__, id=None, log_category_groups=None, log_category_types=None, logs=None, metrics=None, resource_id=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if log_category_groups and not isinstance(log_category_groups, list):
+            raise TypeError("Expected argument 'log_category_groups' to be a list")
+        pulumi.set(__self__, "log_category_groups", log_category_groups)
+        if log_category_types and not isinstance(log_category_types, list):
+            raise TypeError("Expected argument 'log_category_types' to be a list")
+        pulumi.set(__self__, "log_category_types", log_category_types)
         if logs and not isinstance(logs, list):
             raise TypeError("Expected argument 'logs' to be a list")
+        if logs is not None:
+            warnings.warn("""`logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""logs is deprecated: `logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider.""")
+
         pulumi.set(__self__, "logs", logs)
         if metrics and not isinstance(metrics, list):
             raise TypeError("Expected argument 'metrics' to be a list")
@@ -42,6 +52,22 @@ class GetDiagnosticCategoriesResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="logCategoryGroups")
+    def log_category_groups(self) -> Sequence[str]:
+        """
+        A list of the supported log category groups of this resource to send to the destination.
+        """
+        return pulumi.get(self, "log_category_groups")
+
+    @property
+    @pulumi.getter(name="logCategoryTypes")
+    def log_category_types(self) -> Sequence[str]:
+        """
+        A list of the supported log category types of this resource to send to the destination.
+        """
+        return pulumi.get(self, "log_category_types")
 
     @property
     @pulumi.getter
@@ -72,6 +98,8 @@ class AwaitableGetDiagnosticCategoriesResult(GetDiagnosticCategoriesResult):
             yield self
         return GetDiagnosticCategoriesResult(
             id=self.id,
+            log_category_groups=self.log_category_groups,
+            log_category_types=self.log_category_types,
             logs=self.logs,
             metrics=self.metrics,
             resource_id=self.resource_id)
@@ -103,6 +131,8 @@ def get_diagnostic_categories(resource_id: Optional[str] = None,
 
     return AwaitableGetDiagnosticCategoriesResult(
         id=__ret__.id,
+        log_category_groups=__ret__.log_category_groups,
+        log_category_types=__ret__.log_category_types,
         logs=__ret__.logs,
         metrics=__ret__.metrics,
         resource_id=__ret__.resource_id)

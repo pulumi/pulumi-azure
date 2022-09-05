@@ -10,13 +10,16 @@ import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetAutomaticOsU
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetBootDiagnosticsArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetDataDiskArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetExtensionArgs;
+import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetGalleryApplicationArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetIdentityArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetNetworkInterfaceArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetOsDiskArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetPlanArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs;
+import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetScaleInArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetSecretArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetSourceImageReferenceArgs;
+import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetSpotRestoreArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetTerminateNotificationArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetTerminationNotificationArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetWinrmListenerArgs;
@@ -38,14 +41,14 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
     public static final WindowsVirtualMachineScaleSetArgs Empty = new WindowsVirtualMachineScaleSetArgs();
 
     /**
-     * A `additional_capabilities` block as defined below.
+     * An `additional_capabilities` block as defined below.
      * 
      */
     @Import(name="additionalCapabilities")
     private @Nullable Output<WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs> additionalCapabilities;
 
     /**
-     * @return A `additional_capabilities` block as defined below.
+     * @return An `additional_capabilities` block as defined below.
      * 
      */
     public Optional<Output<WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs>> additionalCapabilities() {
@@ -98,14 +101,14 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
     }
 
     /**
-     * A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+     * An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      * 
      */
     @Import(name="automaticInstanceRepair")
     private @Nullable Output<WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs> automaticInstanceRepair;
 
     /**
-     * @return A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+     * @return An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      * 
      */
     public Optional<Output<WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs>> automaticInstanceRepair() {
@@ -113,14 +116,14 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
     }
 
     /**
-     * A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+     * An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
      * 
      */
     @Import(name="automaticOsUpgradePolicy")
     private @Nullable Output<WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs> automaticOsUpgradePolicy;
 
     /**
-     * @return A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+     * @return An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
      * 
      */
     public Optional<Output<WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs>> automaticOsUpgradePolicy() {
@@ -278,6 +281,21 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
     }
 
     /**
+     * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+     * 
+     */
+    @Import(name="extensionOperationsEnabled")
+    private @Nullable Output<Boolean> extensionOperationsEnabled;
+
+    /**
+     * @return Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> extensionOperationsEnabled() {
+        return Optional.ofNullable(this.extensionOperationsEnabled);
+    }
+
+    /**
      * One or more `extension` blocks as defined below
      * 
      */
@@ -308,6 +326,21 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
     }
 
     /**
+     * A `gallery_applications` block as defined below.
+     * 
+     */
+    @Import(name="galleryApplications")
+    private @Nullable Output<List<WindowsVirtualMachineScaleSetGalleryApplicationArgs>> galleryApplications;
+
+    /**
+     * @return A `gallery_applications` block as defined below.
+     * 
+     */
+    public Optional<Output<List<WindowsVirtualMachineScaleSetGalleryApplicationArgs>>> galleryApplications() {
+        return Optional.ofNullable(this.galleryApplications);
+    }
+
+    /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
      * 
      */
@@ -320,6 +353,21 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
      */
     public Optional<Output<String>> healthProbeId() {
         return Optional.ofNullable(this.healthProbeId);
+    }
+
+    /**
+     * Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="hostGroupId")
+    private @Nullable Output<String> hostGroupId;
+
+    /**
+     * @return Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> hostGroupId() {
+        return Optional.ofNullable(this.hostGroupId);
     }
 
     /**
@@ -458,14 +506,14 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
     }
 
     /**
-     * A `plan` block as documented below.
+     * A `plan` block as defined below.
      * 
      */
     @Import(name="plan")
     private @Nullable Output<WindowsVirtualMachineScaleSetPlanArgs> plan;
 
     /**
-     * @return A `plan` block as documented below.
+     * @return A `plan` block as defined below.
      * 
      */
     public Optional<Output<WindowsVirtualMachineScaleSetPlanArgs>> plan() {
@@ -563,16 +611,35 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
     }
 
     /**
-     * The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+     * A `scale_in` block as defined below.
      * 
      */
+    @Import(name="scaleIn")
+    private @Nullable Output<WindowsVirtualMachineScaleSetScaleInArgs> scaleIn;
+
+    /**
+     * @return A `scale_in` block as defined below.
+     * 
+     */
+    public Optional<Output<WindowsVirtualMachineScaleSetScaleInArgs>> scaleIn() {
+        return Optional.ofNullable(this.scaleIn);
+    }
+
+    /**
+     * @deprecated
+     * `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider. */
     @Import(name="scaleInPolicy")
     private @Nullable Output<String> scaleInPolicy;
 
     /**
-     * @return The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+     * @deprecated
+     * `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
      * 
      */
+    @Deprecated /* `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider. */
     public Optional<Output<String>> scaleInPolicy() {
         return Optional.ofNullable(this.scaleInPolicy);
     }
@@ -638,14 +705,14 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
     }
 
     /**
-     * The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+     * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      * 
      */
     @Import(name="sourceImageId")
     private @Nullable Output<String> sourceImageId;
 
     /**
-     * @return The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+     * @return The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      * 
      */
     public Optional<Output<String>> sourceImageId() {
@@ -665,6 +732,21 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
      */
     public Optional<Output<WindowsVirtualMachineScaleSetSourceImageReferenceArgs>> sourceImageReference() {
         return Optional.ofNullable(this.sourceImageReference);
+    }
+
+    /**
+     * A `spot_restore` block as defined below.
+     * 
+     */
+    @Import(name="spotRestore")
+    private @Nullable Output<WindowsVirtualMachineScaleSetSpotRestoreArgs> spotRestore;
+
+    /**
+     * @return A `spot_restore` block as defined below.
+     * 
+     */
+    public Optional<Output<WindowsVirtualMachineScaleSetSpotRestoreArgs>> spotRestore() {
+        return Optional.ofNullable(this.spotRestore);
     }
 
     /**
@@ -844,9 +926,12 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         this.enableAutomaticUpdates = $.enableAutomaticUpdates;
         this.encryptionAtHostEnabled = $.encryptionAtHostEnabled;
         this.evictionPolicy = $.evictionPolicy;
+        this.extensionOperationsEnabled = $.extensionOperationsEnabled;
         this.extensions = $.extensions;
         this.extensionsTimeBudget = $.extensionsTimeBudget;
+        this.galleryApplications = $.galleryApplications;
         this.healthProbeId = $.healthProbeId;
+        this.hostGroupId = $.hostGroupId;
         this.identity = $.identity;
         this.instances = $.instances;
         this.licenseType = $.licenseType;
@@ -863,6 +948,7 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         this.proximityPlacementGroupId = $.proximityPlacementGroupId;
         this.resourceGroupName = $.resourceGroupName;
         this.rollingUpgradePolicy = $.rollingUpgradePolicy;
+        this.scaleIn = $.scaleIn;
         this.scaleInPolicy = $.scaleInPolicy;
         this.secrets = $.secrets;
         this.secureBootEnabled = $.secureBootEnabled;
@@ -870,6 +956,7 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         this.sku = $.sku;
         this.sourceImageId = $.sourceImageId;
         this.sourceImageReference = $.sourceImageReference;
+        this.spotRestore = $.spotRestore;
         this.tags = $.tags;
         this.terminateNotification = $.terminateNotification;
         this.terminationNotification = $.terminationNotification;
@@ -901,7 +988,7 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         }
 
         /**
-         * @param additionalCapabilities A `additional_capabilities` block as defined below.
+         * @param additionalCapabilities An `additional_capabilities` block as defined below.
          * 
          * @return builder
          * 
@@ -912,7 +999,7 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         }
 
         /**
-         * @param additionalCapabilities A `additional_capabilities` block as defined below.
+         * @param additionalCapabilities An `additional_capabilities` block as defined below.
          * 
          * @return builder
          * 
@@ -995,7 +1082,7 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         }
 
         /**
-         * @param automaticInstanceRepair A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+         * @param automaticInstanceRepair An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
          * 
          * @return builder
          * 
@@ -1006,7 +1093,7 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         }
 
         /**
-         * @param automaticInstanceRepair A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+         * @param automaticInstanceRepair An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
          * 
          * @return builder
          * 
@@ -1016,7 +1103,7 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         }
 
         /**
-         * @param automaticOsUpgradePolicy A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+         * @param automaticOsUpgradePolicy An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
          * 
          * @return builder
          * 
@@ -1027,7 +1114,7 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         }
 
         /**
-         * @param automaticOsUpgradePolicy A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+         * @param automaticOsUpgradePolicy An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
          * 
          * @return builder
          * 
@@ -1257,6 +1344,27 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         }
 
         /**
+         * @param extensionOperationsEnabled Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extensionOperationsEnabled(@Nullable Output<Boolean> extensionOperationsEnabled) {
+            $.extensionOperationsEnabled = extensionOperationsEnabled;
+            return this;
+        }
+
+        /**
+         * @param extensionOperationsEnabled Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extensionOperationsEnabled(Boolean extensionOperationsEnabled) {
+            return extensionOperationsEnabled(Output.of(extensionOperationsEnabled));
+        }
+
+        /**
          * @param extensions One or more `extension` blocks as defined below
          * 
          * @return builder
@@ -1309,6 +1417,37 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         }
 
         /**
+         * @param galleryApplications A `gallery_applications` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder galleryApplications(@Nullable Output<List<WindowsVirtualMachineScaleSetGalleryApplicationArgs>> galleryApplications) {
+            $.galleryApplications = galleryApplications;
+            return this;
+        }
+
+        /**
+         * @param galleryApplications A `gallery_applications` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder galleryApplications(List<WindowsVirtualMachineScaleSetGalleryApplicationArgs> galleryApplications) {
+            return galleryApplications(Output.of(galleryApplications));
+        }
+
+        /**
+         * @param galleryApplications A `gallery_applications` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder galleryApplications(WindowsVirtualMachineScaleSetGalleryApplicationArgs... galleryApplications) {
+            return galleryApplications(List.of(galleryApplications));
+        }
+
+        /**
          * @param healthProbeId The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
          * 
          * @return builder
@@ -1327,6 +1466,27 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
          */
         public Builder healthProbeId(String healthProbeId) {
             return healthProbeId(Output.of(healthProbeId));
+        }
+
+        /**
+         * @param hostGroupId Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostGroupId(@Nullable Output<String> hostGroupId) {
+            $.hostGroupId = hostGroupId;
+            return this;
+        }
+
+        /**
+         * @param hostGroupId Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostGroupId(String hostGroupId) {
+            return hostGroupId(Output.of(hostGroupId));
         }
 
         /**
@@ -1529,7 +1689,7 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         }
 
         /**
-         * @param plan A `plan` block as documented below.
+         * @param plan A `plan` block as defined below.
          * 
          * @return builder
          * 
@@ -1540,7 +1700,7 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         }
 
         /**
-         * @param plan A `plan` block as documented below.
+         * @param plan A `plan` block as defined below.
          * 
          * @return builder
          * 
@@ -1676,22 +1836,47 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         }
 
         /**
-         * @param scaleInPolicy The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+         * @param scaleIn A `scale_in` block as defined below.
          * 
          * @return builder
          * 
          */
+        public Builder scaleIn(@Nullable Output<WindowsVirtualMachineScaleSetScaleInArgs> scaleIn) {
+            $.scaleIn = scaleIn;
+            return this;
+        }
+
+        /**
+         * @param scaleIn A `scale_in` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scaleIn(WindowsVirtualMachineScaleSetScaleInArgs scaleIn) {
+            return scaleIn(Output.of(scaleIn));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+         * 
+         */
+        @Deprecated /* `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider. */
         public Builder scaleInPolicy(@Nullable Output<String> scaleInPolicy) {
             $.scaleInPolicy = scaleInPolicy;
             return this;
         }
 
         /**
-         * @param scaleInPolicy The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider. */
         public Builder scaleInPolicy(String scaleInPolicy) {
             return scaleInPolicy(Output.of(scaleInPolicy));
         }
@@ -1791,7 +1976,7 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         }
 
         /**
-         * @param sourceImageId The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+         * @param sourceImageId The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
          * 
          * @return builder
          * 
@@ -1802,7 +1987,7 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         }
 
         /**
-         * @param sourceImageId The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+         * @param sourceImageId The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
          * 
          * @return builder
          * 
@@ -1830,6 +2015,27 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
          */
         public Builder sourceImageReference(WindowsVirtualMachineScaleSetSourceImageReferenceArgs sourceImageReference) {
             return sourceImageReference(Output.of(sourceImageReference));
+        }
+
+        /**
+         * @param spotRestore A `spot_restore` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spotRestore(@Nullable Output<WindowsVirtualMachineScaleSetSpotRestoreArgs> spotRestore) {
+            $.spotRestore = spotRestore;
+            return this;
+        }
+
+        /**
+         * @param spotRestore A `spot_restore` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spotRestore(WindowsVirtualMachineScaleSetSpotRestoreArgs spotRestore) {
+            return spotRestore(Output.of(spotRestore));
         }
 
         /**

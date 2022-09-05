@@ -5148,13 +5148,13 @@ func (o GetStandardSiteCredentialArrayOutput) Index(i pulumi.IntInput) GetStanda
 }
 
 type GetWorkflowIdentity struct {
-	// The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+	// The list of User Assigned Managed Identity IDs assigned to this Logic App Workflow.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Logic App Workflow.
 	PrincipalId string `pulumi:"principalId"`
-	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Logic App Workflow.
 	TenantId string `pulumi:"tenantId"`
-	// The type of Managed Service Identity that is configured on this API Management Service.
+	// The type of Managed Service Identity that is configured on this Logic App Workflow.
 	Type string `pulumi:"type"`
 }
 
@@ -5170,13 +5170,13 @@ type GetWorkflowIdentityInput interface {
 }
 
 type GetWorkflowIdentityArgs struct {
-	// The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+	// The list of User Assigned Managed Identity IDs assigned to this Logic App Workflow.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Logic App Workflow.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Logic App Workflow.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of Managed Service Identity that is configured on this API Management Service.
+	// The type of Managed Service Identity that is configured on this Logic App Workflow.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5231,22 +5231,22 @@ func (o GetWorkflowIdentityOutput) ToGetWorkflowIdentityOutputWithContext(ctx co
 	return o
 }
 
-// The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+// The list of User Assigned Managed Identity IDs assigned to this Logic App Workflow.
 func (o GetWorkflowIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetWorkflowIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Logic App Workflow.
 func (o GetWorkflowIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWorkflowIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Logic App Workflow.
 func (o GetWorkflowIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWorkflowIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of Managed Service Identity that is configured on this API Management Service.
+// The type of Managed Service Identity that is configured on this Logic App Workflow.
 func (o GetWorkflowIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWorkflowIdentity) string { return v.Type }).(pulumi.StringOutput)
 }

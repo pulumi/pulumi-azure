@@ -17,6 +17,21 @@ public final class ReferenceInputBlobState extends com.pulumi.resources.Resource
     public static final ReferenceInputBlobState Empty = new ReferenceInputBlobState();
 
     /**
+     * The authentication mode for the Stream Analytics Reference Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     * 
+     */
+    @Import(name="authenticationMode")
+    private @Nullable Output<String> authenticationMode;
+
+    /**
+     * @return The authentication mode for the Stream Analytics Reference Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     * 
+     */
+    public Optional<Output<String>> authenticationMode() {
+        return Optional.ofNullable(this.authenticationMode);
+    }
+
+    /**
      * The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
      * 
      */
@@ -169,6 +184,7 @@ public final class ReferenceInputBlobState extends com.pulumi.resources.Resource
     private ReferenceInputBlobState() {}
 
     private ReferenceInputBlobState(ReferenceInputBlobState $) {
+        this.authenticationMode = $.authenticationMode;
         this.dateFormat = $.dateFormat;
         this.name = $.name;
         this.pathPattern = $.pathPattern;
@@ -197,6 +213,27 @@ public final class ReferenceInputBlobState extends com.pulumi.resources.Resource
 
         public Builder(ReferenceInputBlobState defaults) {
             $ = new ReferenceInputBlobState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param authenticationMode The authentication mode for the Stream Analytics Reference Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationMode(@Nullable Output<String> authenticationMode) {
+            $.authenticationMode = authenticationMode;
+            return this;
+        }
+
+        /**
+         * @param authenticationMode The authentication mode for the Stream Analytics Reference Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationMode(String authenticationMode) {
+            return authenticationMode(Output.of(authenticationMode));
         }
 
         /**

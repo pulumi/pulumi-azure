@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.sentinel.outputs;
 
+import com.pulumi.azure.sentinel.outputs.GetAlertRuleTemplateNrtTemplate;
 import com.pulumi.azure.sentinel.outputs.GetAlertRuleTemplateScheduledTemplate;
 import com.pulumi.azure.sentinel.outputs.GetAlertRuleTemplateSecurityIncidentTemplate;
 import com.pulumi.core.annotations.CustomType;
@@ -20,6 +21,11 @@ public final class GetAlertRuleTemplateResult {
     private String id;
     private String logAnalyticsWorkspaceId;
     private String name;
+    /**
+     * @return A `nrt_template` block as defined below. This only applies to Sentinel NRT Alert Rule Template.
+     * 
+     */
+    private List<GetAlertRuleTemplateNrtTemplate> nrtTemplates;
     /**
      * @return A `scheduled_template` block as defined below. This only applies to Sentinel Scheduled Alert Rule Template.
      * 
@@ -49,6 +55,13 @@ public final class GetAlertRuleTemplateResult {
         return this.name;
     }
     /**
+     * @return A `nrt_template` block as defined below. This only applies to Sentinel NRT Alert Rule Template.
+     * 
+     */
+    public List<GetAlertRuleTemplateNrtTemplate> nrtTemplates() {
+        return this.nrtTemplates;
+    }
+    /**
      * @return A `scheduled_template` block as defined below. This only applies to Sentinel Scheduled Alert Rule Template.
      * 
      */
@@ -76,6 +89,7 @@ public final class GetAlertRuleTemplateResult {
         private String id;
         private String logAnalyticsWorkspaceId;
         private String name;
+        private List<GetAlertRuleTemplateNrtTemplate> nrtTemplates;
         private List<GetAlertRuleTemplateScheduledTemplate> scheduledTemplates;
         private List<GetAlertRuleTemplateSecurityIncidentTemplate> securityIncidentTemplates;
         public Builder() {}
@@ -85,6 +99,7 @@ public final class GetAlertRuleTemplateResult {
     	      this.id = defaults.id;
     	      this.logAnalyticsWorkspaceId = defaults.logAnalyticsWorkspaceId;
     	      this.name = defaults.name;
+    	      this.nrtTemplates = defaults.nrtTemplates;
     	      this.scheduledTemplates = defaults.scheduledTemplates;
     	      this.securityIncidentTemplates = defaults.securityIncidentTemplates;
         }
@@ -110,6 +125,14 @@ public final class GetAlertRuleTemplateResult {
             return this;
         }
         @CustomType.Setter
+        public Builder nrtTemplates(List<GetAlertRuleTemplateNrtTemplate> nrtTemplates) {
+            this.nrtTemplates = Objects.requireNonNull(nrtTemplates);
+            return this;
+        }
+        public Builder nrtTemplates(GetAlertRuleTemplateNrtTemplate... nrtTemplates) {
+            return nrtTemplates(List.of(nrtTemplates));
+        }
+        @CustomType.Setter
         public Builder scheduledTemplates(List<GetAlertRuleTemplateScheduledTemplate> scheduledTemplates) {
             this.scheduledTemplates = Objects.requireNonNull(scheduledTemplates);
             return this;
@@ -131,6 +154,7 @@ public final class GetAlertRuleTemplateResult {
             o.id = id;
             o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
             o.name = name;
+            o.nrtTemplates = nrtTemplates;
             o.scheduledTemplates = scheduledTemplates;
             o.securityIncidentTemplates = securityIncidentTemplates;
             return o;

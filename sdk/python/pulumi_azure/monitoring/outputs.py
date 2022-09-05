@@ -3409,7 +3409,9 @@ class DiagnosticSettingLog(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "retentionPolicy":
+        if key == "categoryGroup":
+            suggest = "category_group"
+        elif key == "retentionPolicy":
             suggest = "retention_policy"
 
         if suggest:
@@ -3424,15 +3426,20 @@ class DiagnosticSettingLog(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 category: str,
+                 category: Optional[str] = None,
+                 category_group: Optional[str] = None,
                  enabled: Optional[bool] = None,
                  retention_policy: Optional['outputs.DiagnosticSettingLogRetentionPolicy'] = None):
         """
         :param str category: The name of a Diagnostic Log Category for this Resource.
+        :param str category_group: The name of a Diagnostic Log Category Group for this Resource.
         :param bool enabled: Is this Diagnostic Log enabled? Defaults to `true`.
         :param 'DiagnosticSettingLogRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
         """
-        pulumi.set(__self__, "category", category)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if category_group is not None:
+            pulumi.set(__self__, "category_group", category_group)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if retention_policy is not None:
@@ -3440,11 +3447,19 @@ class DiagnosticSettingLog(dict):
 
     @property
     @pulumi.getter
-    def category(self) -> str:
+    def category(self) -> Optional[str]:
         """
         The name of a Diagnostic Log Category for this Resource.
         """
         return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter(name="categoryGroup")
+    def category_group(self) -> Optional[str]:
+        """
+        The name of a Diagnostic Log Category Group for this Resource.
+        """
+        return pulumi.get(self, "category_group")
 
     @property
     @pulumi.getter

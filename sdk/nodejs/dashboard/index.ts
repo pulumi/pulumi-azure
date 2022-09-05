@@ -7,9 +7,11 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./azurerm_portal_dashboard";
 export * from "./dashboard";
+export * from "./grafana";
 
 // Import resources to register:
 import { Dashboard } from "./dashboard";
+import { Grafana } from "./grafana";
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +19,12 @@ const _module = {
         switch (type) {
             case "azure:dashboard/dashboard:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
+            case "azure:dashboard/grafana:Grafana":
+                return new Grafana(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "dashboard/dashboard", _module)
+pulumi.runtime.registerResourceModule("azure", "dashboard/grafana", _module)

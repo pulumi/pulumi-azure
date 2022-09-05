@@ -18,6 +18,21 @@ public final class OutputEventHubState extends com.pulumi.resources.ResourceArgs
     public static final OutputEventHubState Empty = new OutputEventHubState();
 
     /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     * 
+     */
+    @Import(name="authenticationMode")
+    private @Nullable Output<String> authenticationMode;
+
+    /**
+     * @return The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     * 
+     */
+    public Optional<Output<String>> authenticationMode() {
+        return Optional.ofNullable(this.authenticationMode);
+    }
+
+    /**
      * The name of the Event Hub.
      * 
      */
@@ -170,6 +185,7 @@ public final class OutputEventHubState extends com.pulumi.resources.ResourceArgs
     private OutputEventHubState() {}
 
     private OutputEventHubState(OutputEventHubState $) {
+        this.authenticationMode = $.authenticationMode;
         this.eventhubName = $.eventhubName;
         this.name = $.name;
         this.partitionKey = $.partitionKey;
@@ -198,6 +214,27 @@ public final class OutputEventHubState extends com.pulumi.resources.ResourceArgs
 
         public Builder(OutputEventHubState defaults) {
             $ = new OutputEventHubState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param authenticationMode The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationMode(@Nullable Output<String> authenticationMode) {
+            $.authenticationMode = authenticationMode;
+            return this;
+        }
+
+        /**
+         * @param authenticationMode The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationMode(String authenticationMode) {
+            return authenticationMode(Output.of(authenticationMode));
         }
 
         /**

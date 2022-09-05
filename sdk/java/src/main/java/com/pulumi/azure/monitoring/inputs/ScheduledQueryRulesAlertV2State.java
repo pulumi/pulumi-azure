@@ -216,9 +216,17 @@ public final class ScheduledQueryRulesAlertV2State extends com.pulumi.resources.
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * If specified then overrides the query time range, default is `window_duration`*`number_of_evaluation_periods`.
+     * 
+     */
     @Import(name="queryTimeRangeOverride")
     private @Nullable Output<String> queryTimeRangeOverride;
 
+    /**
+     * @return If specified then overrides the query time range, default is `window_duration`*`number_of_evaluation_periods`.
+     * 
+     */
     public Optional<Output<String>> queryTimeRangeOverride() {
         return Optional.ofNullable(this.queryTimeRangeOverride);
     }
@@ -671,11 +679,23 @@ public final class ScheduledQueryRulesAlertV2State extends com.pulumi.resources.
             return name(Output.of(name));
         }
 
+        /**
+         * @param queryTimeRangeOverride If specified then overrides the query time range, default is `window_duration`*`number_of_evaluation_periods`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queryTimeRangeOverride(@Nullable Output<String> queryTimeRangeOverride) {
             $.queryTimeRangeOverride = queryTimeRangeOverride;
             return this;
         }
 
+        /**
+         * @param queryTimeRangeOverride If specified then overrides the query time range, default is `window_duration`*`number_of_evaluation_periods`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder queryTimeRangeOverride(String queryTimeRangeOverride) {
             return queryTimeRangeOverride(Output.of(queryTimeRangeOverride));
         }

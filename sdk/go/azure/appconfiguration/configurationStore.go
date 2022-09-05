@@ -71,6 +71,8 @@ type ConfigurationStore struct {
 	PrimaryReadKeys ConfigurationStorePrimaryReadKeyArrayOutput `pulumi:"primaryReadKeys"`
 	// A `primaryWriteKey` block as defined below containing the primary write access key.
 	PrimaryWriteKeys ConfigurationStorePrimaryWriteKeyArrayOutput `pulumi:"primaryWriteKeys"`
+	// The Public Network Access setting of this App Configuration.
+	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `secondaryReadKey` block as defined below containing the secondary read access key.
@@ -127,6 +129,8 @@ type configurationStoreState struct {
 	PrimaryReadKeys []ConfigurationStorePrimaryReadKey `pulumi:"primaryReadKeys"`
 	// A `primaryWriteKey` block as defined below containing the primary write access key.
 	PrimaryWriteKeys []ConfigurationStorePrimaryWriteKey `pulumi:"primaryWriteKeys"`
+	// The Public Network Access setting of this App Configuration.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `secondaryReadKey` block as defined below containing the secondary read access key.
@@ -152,6 +156,8 @@ type ConfigurationStoreState struct {
 	PrimaryReadKeys ConfigurationStorePrimaryReadKeyArrayInput
 	// A `primaryWriteKey` block as defined below containing the primary write access key.
 	PrimaryWriteKeys ConfigurationStorePrimaryWriteKeyArrayInput
+	// The Public Network Access setting of this App Configuration.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `secondaryReadKey` block as defined below containing the secondary read access key.
@@ -175,6 +181,8 @@ type configurationStoreArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the App Configuration. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The Public Network Access setting of this App Configuration.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU name of the App Configuration. Possible values are `free` and `standard`.
@@ -191,6 +199,8 @@ type ConfigurationStoreArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the App Configuration. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The Public Network Access setting of this App Configuration.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The SKU name of the App Configuration. Possible values are `free` and `standard`.
@@ -314,6 +324,11 @@ func (o ConfigurationStoreOutput) PrimaryReadKeys() ConfigurationStorePrimaryRea
 // A `primaryWriteKey` block as defined below containing the primary write access key.
 func (o ConfigurationStoreOutput) PrimaryWriteKeys() ConfigurationStorePrimaryWriteKeyArrayOutput {
 	return o.ApplyT(func(v *ConfigurationStore) ConfigurationStorePrimaryWriteKeyArrayOutput { return v.PrimaryWriteKeys }).(ConfigurationStorePrimaryWriteKeyArrayOutput)
+}
+
+// The Public Network Access setting of this App Configuration.
+func (o ConfigurationStoreOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationStore) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
 }
 
 // The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.

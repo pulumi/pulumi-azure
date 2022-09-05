@@ -11,6 +11,7 @@ import com.pulumi.azure.batch.outputs.PoolCertificate;
 import com.pulumi.azure.batch.outputs.PoolContainerConfiguration;
 import com.pulumi.azure.batch.outputs.PoolFixedScale;
 import com.pulumi.azure.batch.outputs.PoolIdentity;
+import com.pulumi.azure.batch.outputs.PoolMount;
 import com.pulumi.azure.batch.outputs.PoolNetworkConfiguration;
 import com.pulumi.azure.batch.outputs.PoolStartTask;
 import com.pulumi.azure.batch.outputs.PoolStorageImageReference;
@@ -283,6 +284,20 @@ public class Pool extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Map<String,String>>> metadata() {
         return Codegen.optional(this.metadata);
+    }
+    /**
+     * A `mount` block defined as below.
+     * 
+     */
+    @Export(name="mounts", type=List.class, parameters={PoolMount.class})
+    private Output</* @Nullable */ List<PoolMount>> mounts;
+
+    /**
+     * @return A `mount` block defined as below.
+     * 
+     */
+    public Output<Optional<List<PoolMount>>> mounts() {
+        return Codegen.optional(this.mounts);
     }
     /**
      * Specifies the name of the Batch pool. Changing this forces a new resource to be created.

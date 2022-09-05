@@ -74,6 +74,8 @@ type GetPolicyDefintionResult struct {
 	PolicyRule string `pulumi:"policyRule"`
 	// The Type of the Policy. Possible values are `BuiltIn`, `Custom` and `NotSpecified`.
 	PolicyType string `pulumi:"policyType"`
+	// A list of role definition id extracted from `policyRule` required for remediation.
+	RoleDefinitionIds []string `pulumi:"roleDefinitionIds"`
 	// The Type of Policy.
 	Type string `pulumi:"type"`
 }
@@ -160,6 +162,11 @@ func (o GetPolicyDefintionResultOutput) PolicyRule() pulumi.StringOutput {
 // The Type of the Policy. Possible values are `BuiltIn`, `Custom` and `NotSpecified`.
 func (o GetPolicyDefintionResultOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPolicyDefintionResult) string { return v.PolicyType }).(pulumi.StringOutput)
+}
+
+// A list of role definition id extracted from `policyRule` required for remediation.
+func (o GetPolicyDefintionResultOutput) RoleDefinitionIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPolicyDefintionResult) []string { return v.RoleDefinitionIds }).(pulumi.StringArrayOutput)
 }
 
 // The Type of Policy.

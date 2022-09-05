@@ -17,14 +17,14 @@ public final class ServiceIdentityArgs extends com.pulumi.resources.ResourceArgs
     public static final ServiceIdentityArgs Empty = new ServiceIdentityArgs();
 
     /**
-     * Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+     * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
      * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -104,7 +104,7 @@ public final class ServiceIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ServiceIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class ServiceIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
          * 
          * @return builder
          * 

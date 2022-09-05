@@ -51,6 +51,7 @@ class ScheduledQueryRulesAlertV2Args:
         :param pulumi.Input[str] location: Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mute_actions_after_alert_duration: Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] query_time_range_override: If specified then overrides the query time range, default is `window_duration`*`number_of_evaluation_periods`.
         :param pulumi.Input[bool] skip_query_validation: Specifies the flag which indicates whether the provided query should be validated or not. The default is false.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Monitor Scheduled Query Rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_resource_types: List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria.
@@ -261,6 +262,9 @@ class ScheduledQueryRulesAlertV2Args:
     @property
     @pulumi.getter(name="queryTimeRangeOverride")
     def query_time_range_override(self) -> Optional[pulumi.Input[str]]:
+        """
+        If specified then overrides the query time range, default is `window_duration`*`number_of_evaluation_periods`.
+        """
         return pulumi.get(self, "query_time_range_override")
 
     @query_time_range_override.setter
@@ -356,6 +360,7 @@ class _ScheduledQueryRulesAlertV2State:
         :param pulumi.Input[str] location: Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mute_actions_after_alert_duration: Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] query_time_range_override: If specified then overrides the query time range, default is `window_duration`*`number_of_evaluation_periods`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scopes: Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
         :param pulumi.Input[int] severity: Severity of the alert. Should be an integer between 0 and 4. Value of 0 is severest.
@@ -569,6 +574,9 @@ class _ScheduledQueryRulesAlertV2State:
     @property
     @pulumi.getter(name="queryTimeRangeOverride")
     def query_time_range_override(self) -> Optional[pulumi.Input[str]]:
+        """
+        If specified then overrides the query time range, default is `window_duration`*`number_of_evaluation_periods`.
+        """
         return pulumi.get(self, "query_time_range_override")
 
     @query_time_range_override.setter
@@ -720,6 +728,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mute_actions_after_alert_duration: Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] query_time_range_override: If specified then overrides the query time range, default is `window_duration`*`number_of_evaluation_periods`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scopes: Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
         :param pulumi.Input[int] severity: Severity of the alert. Should be an integer between 0 and 4. Value of 0 is severest.
@@ -873,6 +882,7 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
         :param pulumi.Input[str] location: Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] mute_actions_after_alert_duration: Mute actions for the chosen period of time in ISO 8601 duration format after the alert is fired.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] query_time_range_override: If specified then overrides the query time range, default is `window_duration`*`number_of_evaluation_periods`.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scopes: Specifies the list of resource ids that this scheduled query rule is scoped to. Changing this forces a new resource to be created.
         :param pulumi.Input[int] severity: Severity of the alert. Should be an integer between 0 and 4. Value of 0 is severest.
@@ -1017,6 +1027,9 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
     @property
     @pulumi.getter(name="queryTimeRangeOverride")
     def query_time_range_override(self) -> pulumi.Output[Optional[str]]:
+        """
+        If specified then overrides the query time range, default is `window_duration`*`number_of_evaluation_periods`.
+        """
         return pulumi.get(self, "query_time_range_override")
 
     @property

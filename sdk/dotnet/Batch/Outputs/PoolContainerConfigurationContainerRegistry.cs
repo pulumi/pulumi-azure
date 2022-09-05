@@ -23,7 +23,6 @@ namespace Pulumi.Azure.Batch.Outputs
         public readonly string RegistryServer;
         /// <summary>
         /// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
-        /// ---
         /// </summary>
         public readonly string? UserAssignedIdentityId;
         /// <summary>

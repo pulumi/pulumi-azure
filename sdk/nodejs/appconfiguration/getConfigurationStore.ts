@@ -72,6 +72,10 @@ export interface GetConfigurationStoreResult {
      * A `primaryWriteKey` block as defined below containing the primary write access key.
      */
     readonly primaryWriteKeys: outputs.appconfiguration.GetConfigurationStorePrimaryWriteKey[];
+    /**
+     * The Public Network Access setting of this App Configuration.
+     */
+    readonly publicNetworkAccess: string;
     readonly resourceGroupName: string;
     /**
      * A `secondaryReadKey` block as defined below containing the secondary read access key.

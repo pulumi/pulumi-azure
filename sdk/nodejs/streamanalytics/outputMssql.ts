@@ -81,6 +81,10 @@ export class OutputMssql extends pulumi.CustomResource {
         return obj['__pulumiType'] === OutputMssql.__pulumiType;
     }
 
+    /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     */
+    public readonly authenticationMode!: pulumi.Output<string | undefined>;
     public readonly database!: pulumi.Output<string>;
     /**
      * The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
@@ -132,6 +136,7 @@ export class OutputMssql extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutputMssqlState | undefined;
+            resourceInputs["authenticationMode"] = state ? state.authenticationMode : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["maxBatchCount"] = state ? state.maxBatchCount : undefined;
             resourceInputs["maxWriterCount"] = state ? state.maxWriterCount : undefined;
@@ -165,6 +170,7 @@ export class OutputMssql extends pulumi.CustomResource {
             if ((!args || args.user === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
+            resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["maxBatchCount"] = args ? args.maxBatchCount : undefined;
             resourceInputs["maxWriterCount"] = args ? args.maxWriterCount : undefined;
@@ -185,6 +191,10 @@ export class OutputMssql extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OutputMssql resources.
  */
 export interface OutputMssqlState {
+    /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     */
+    authenticationMode?: pulumi.Input<string>;
     database?: pulumi.Input<string>;
     /**
      * The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
@@ -228,6 +238,10 @@ export interface OutputMssqlState {
  * The set of arguments for constructing a OutputMssql resource.
  */
 export interface OutputMssqlArgs {
+    /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     */
+    authenticationMode?: pulumi.Input<string>;
     database: pulumi.Input<string>;
     /**
      * The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.

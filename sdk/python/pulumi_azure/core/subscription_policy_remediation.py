@@ -16,21 +16,30 @@ class SubscriptionPolicyRemediationArgs:
     def __init__(__self__, *,
                  policy_assignment_id: pulumi.Input[str],
                  subscription_id: pulumi.Input[str],
+                 failure_percentage: Optional[pulumi.Input[float]] = None,
                  location_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 parallel_deployments: Optional[pulumi.Input[int]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
+                 resource_count: Optional[pulumi.Input[int]] = None,
                  resource_discovery_mode: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SubscriptionPolicyRemediation resource.
         """
         pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
         pulumi.set(__self__, "subscription_id", subscription_id)
+        if failure_percentage is not None:
+            pulumi.set(__self__, "failure_percentage", failure_percentage)
         if location_filters is not None:
             pulumi.set(__self__, "location_filters", location_filters)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if parallel_deployments is not None:
+            pulumi.set(__self__, "parallel_deployments", parallel_deployments)
         if policy_definition_id is not None:
             pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        if resource_count is not None:
+            pulumi.set(__self__, "resource_count", resource_count)
         if resource_discovery_mode is not None:
             pulumi.set(__self__, "resource_discovery_mode", resource_discovery_mode)
 
@@ -53,6 +62,15 @@ class SubscriptionPolicyRemediationArgs:
         pulumi.set(self, "subscription_id", value)
 
     @property
+    @pulumi.getter(name="failurePercentage")
+    def failure_percentage(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "failure_percentage")
+
+    @failure_percentage.setter
+    def failure_percentage(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "failure_percentage", value)
+
+    @property
     @pulumi.getter(name="locationFilters")
     def location_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "location_filters")
@@ -71,6 +89,15 @@ class SubscriptionPolicyRemediationArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="parallelDeployments")
+    def parallel_deployments(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "parallel_deployments")
+
+    @parallel_deployments.setter
+    def parallel_deployments(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "parallel_deployments", value)
+
+    @property
     @pulumi.getter(name="policyDefinitionId")
     def policy_definition_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "policy_definition_id")
@@ -78,6 +105,15 @@ class SubscriptionPolicyRemediationArgs:
     @policy_definition_id.setter
     def policy_definition_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_definition_id", value)
+
+    @property
+    @pulumi.getter(name="resourceCount")
+    def resource_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "resource_count")
+
+    @resource_count.setter
+    def resource_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "resource_count", value)
 
     @property
     @pulumi.getter(name="resourceDiscoveryMode")
@@ -92,27 +128,45 @@ class SubscriptionPolicyRemediationArgs:
 @pulumi.input_type
 class _SubscriptionPolicyRemediationState:
     def __init__(__self__, *,
+                 failure_percentage: Optional[pulumi.Input[float]] = None,
                  location_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 parallel_deployments: Optional[pulumi.Input[int]] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
+                 resource_count: Optional[pulumi.Input[int]] = None,
                  resource_discovery_mode: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SubscriptionPolicyRemediation resources.
         """
+        if failure_percentage is not None:
+            pulumi.set(__self__, "failure_percentage", failure_percentage)
         if location_filters is not None:
             pulumi.set(__self__, "location_filters", location_filters)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if parallel_deployments is not None:
+            pulumi.set(__self__, "parallel_deployments", parallel_deployments)
         if policy_assignment_id is not None:
             pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
         if policy_definition_id is not None:
             pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        if resource_count is not None:
+            pulumi.set(__self__, "resource_count", resource_count)
         if resource_discovery_mode is not None:
             pulumi.set(__self__, "resource_discovery_mode", resource_discovery_mode)
         if subscription_id is not None:
             pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter(name="failurePercentage")
+    def failure_percentage(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "failure_percentage")
+
+    @failure_percentage.setter
+    def failure_percentage(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "failure_percentage", value)
 
     @property
     @pulumi.getter(name="locationFilters")
@@ -131,6 +185,15 @@ class _SubscriptionPolicyRemediationState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="parallelDeployments")
+    def parallel_deployments(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "parallel_deployments")
+
+    @parallel_deployments.setter
+    def parallel_deployments(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "parallel_deployments", value)
 
     @property
     @pulumi.getter(name="policyAssignmentId")
@@ -149,6 +212,15 @@ class _SubscriptionPolicyRemediationState:
     @policy_definition_id.setter
     def policy_definition_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_definition_id", value)
+
+    @property
+    @pulumi.getter(name="resourceCount")
+    def resource_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "resource_count")
+
+    @resource_count.setter
+    def resource_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "resource_count", value)
 
     @property
     @pulumi.getter(name="resourceDiscoveryMode")
@@ -174,10 +246,13 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 failure_percentage: Optional[pulumi.Input[float]] = None,
                  location_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 parallel_deployments: Optional[pulumi.Input[int]] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
+                 resource_count: Optional[pulumi.Input[int]] = None,
                  resource_discovery_mode: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -209,10 +284,13 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 failure_percentage: Optional[pulumi.Input[float]] = None,
                  location_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 parallel_deployments: Optional[pulumi.Input[int]] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
+                 resource_count: Optional[pulumi.Input[int]] = None,
                  resource_discovery_mode: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -224,12 +302,15 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SubscriptionPolicyRemediationArgs.__new__(SubscriptionPolicyRemediationArgs)
 
+            __props__.__dict__["failure_percentage"] = failure_percentage
             __props__.__dict__["location_filters"] = location_filters
             __props__.__dict__["name"] = name
+            __props__.__dict__["parallel_deployments"] = parallel_deployments
             if policy_assignment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_assignment_id'")
             __props__.__dict__["policy_assignment_id"] = policy_assignment_id
             __props__.__dict__["policy_definition_id"] = policy_definition_id
+            __props__.__dict__["resource_count"] = resource_count
             __props__.__dict__["resource_discovery_mode"] = resource_discovery_mode
             if subscription_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subscription_id'")
@@ -244,10 +325,13 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            failure_percentage: Optional[pulumi.Input[float]] = None,
             location_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            parallel_deployments: Optional[pulumi.Input[int]] = None,
             policy_assignment_id: Optional[pulumi.Input[str]] = None,
             policy_definition_id: Optional[pulumi.Input[str]] = None,
+            resource_count: Optional[pulumi.Input[int]] = None,
             resource_discovery_mode: Optional[pulumi.Input[str]] = None,
             subscription_id: Optional[pulumi.Input[str]] = None) -> 'SubscriptionPolicyRemediation':
         """
@@ -262,13 +346,21 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
 
         __props__ = _SubscriptionPolicyRemediationState.__new__(_SubscriptionPolicyRemediationState)
 
+        __props__.__dict__["failure_percentage"] = failure_percentage
         __props__.__dict__["location_filters"] = location_filters
         __props__.__dict__["name"] = name
+        __props__.__dict__["parallel_deployments"] = parallel_deployments
         __props__.__dict__["policy_assignment_id"] = policy_assignment_id
         __props__.__dict__["policy_definition_id"] = policy_definition_id
+        __props__.__dict__["resource_count"] = resource_count
         __props__.__dict__["resource_discovery_mode"] = resource_discovery_mode
         __props__.__dict__["subscription_id"] = subscription_id
         return SubscriptionPolicyRemediation(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="failurePercentage")
+    def failure_percentage(self) -> pulumi.Output[Optional[float]]:
+        return pulumi.get(self, "failure_percentage")
 
     @property
     @pulumi.getter(name="locationFilters")
@@ -281,6 +373,11 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="parallelDeployments")
+    def parallel_deployments(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "parallel_deployments")
+
+    @property
     @pulumi.getter(name="policyAssignmentId")
     def policy_assignment_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "policy_assignment_id")
@@ -289,6 +386,11 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
     @pulumi.getter(name="policyDefinitionId")
     def policy_definition_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "policy_definition_id")
+
+    @property
+    @pulumi.getter(name="resourceCount")
+    def resource_count(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "resource_count")
 
     @property
     @pulumi.getter(name="resourceDiscoveryMode")

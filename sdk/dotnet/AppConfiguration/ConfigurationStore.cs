@@ -83,6 +83,12 @@ namespace Pulumi.Azure.AppConfiguration
         public Output<ImmutableArray<Outputs.ConfigurationStorePrimaryWriteKey>> PrimaryWriteKeys { get; private set; } = null!;
 
         /// <summary>
+        /// The Public Network Access setting of this App Configuration.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -177,6 +183,12 @@ namespace Pulumi.Azure.AppConfiguration
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The Public Network Access setting of this App Configuration.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
         /// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -255,6 +267,12 @@ namespace Pulumi.Azure.AppConfiguration
             get => _primaryWriteKeys ?? (_primaryWriteKeys = new InputList<Inputs.ConfigurationStorePrimaryWriteKeyGetArgs>());
             set => _primaryWriteKeys = value;
         }
+
+        /// <summary>
+        /// The Public Network Access setting of this App Configuration.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.

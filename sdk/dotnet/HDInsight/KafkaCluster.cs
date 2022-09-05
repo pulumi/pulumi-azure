@@ -115,6 +115,9 @@ namespace Pulumi.Azure.HDInsight
         [Output("componentVersion")]
         public Output<Outputs.KafkaClusterComponentVersion> ComponentVersion { get; private set; } = null!;
 
+        [Output("diskEncryptions")]
+        public Output<ImmutableArray<Outputs.KafkaClusterDiskEncryption>> DiskEncryptions { get; private set; } = null!;
+
         /// <summary>
         /// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         /// </summary>
@@ -287,6 +290,14 @@ namespace Pulumi.Azure.HDInsight
         [Input("componentVersion", required: true)]
         public Input<Inputs.KafkaClusterComponentVersionArgs> ComponentVersion { get; set; } = null!;
 
+        [Input("diskEncryptions")]
+        private InputList<Inputs.KafkaClusterDiskEncryptionArgs>? _diskEncryptions;
+        public InputList<Inputs.KafkaClusterDiskEncryptionArgs> DiskEncryptions
+        {
+            get => _diskEncryptions ?? (_diskEncryptions = new InputList<Inputs.KafkaClusterDiskEncryptionArgs>());
+            set => _diskEncryptions = value;
+        }
+
         /// <summary>
         /// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         /// </summary>
@@ -414,6 +425,14 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Input("componentVersion")]
         public Input<Inputs.KafkaClusterComponentVersionGetArgs>? ComponentVersion { get; set; }
+
+        [Input("diskEncryptions")]
+        private InputList<Inputs.KafkaClusterDiskEncryptionGetArgs>? _diskEncryptions;
+        public InputList<Inputs.KafkaClusterDiskEncryptionGetArgs> DiskEncryptions
+        {
+            get => _diskEncryptions ?? (_diskEncryptions = new InputList<Inputs.KafkaClusterDiskEncryptionGetArgs>());
+            set => _diskEncryptions = value;
+        }
 
         /// <summary>
         /// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.

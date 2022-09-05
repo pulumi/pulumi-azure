@@ -8472,7 +8472,9 @@ func (o DataCollectionRuleDestinationsLogAnalyticArrayOutput) Index(i pulumi.Int
 
 type DiagnosticSettingLog struct {
 	// The name of a Diagnostic Log Category for this Resource.
-	Category string `pulumi:"category"`
+	Category *string `pulumi:"category"`
+	// The name of a Diagnostic Log Category Group for this Resource.
+	CategoryGroup *string `pulumi:"categoryGroup"`
 	// Is this Diagnostic Log enabled? Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// A `retentionPolicy` block as defined below.
@@ -8492,7 +8494,9 @@ type DiagnosticSettingLogInput interface {
 
 type DiagnosticSettingLogArgs struct {
 	// The name of a Diagnostic Log Category for this Resource.
-	Category pulumi.StringInput `pulumi:"category"`
+	Category pulumi.StringPtrInput `pulumi:"category"`
+	// The name of a Diagnostic Log Category Group for this Resource.
+	CategoryGroup pulumi.StringPtrInput `pulumi:"categoryGroup"`
 	// Is this Diagnostic Log enabled? Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// A `retentionPolicy` block as defined below.
@@ -8551,8 +8555,13 @@ func (o DiagnosticSettingLogOutput) ToDiagnosticSettingLogOutputWithContext(ctx 
 }
 
 // The name of a Diagnostic Log Category for this Resource.
-func (o DiagnosticSettingLogOutput) Category() pulumi.StringOutput {
-	return o.ApplyT(func(v DiagnosticSettingLog) string { return v.Category }).(pulumi.StringOutput)
+func (o DiagnosticSettingLogOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DiagnosticSettingLog) *string { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+// The name of a Diagnostic Log Category Group for this Resource.
+func (o DiagnosticSettingLogOutput) CategoryGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DiagnosticSettingLog) *string { return v.CategoryGroup }).(pulumi.StringPtrOutput)
 }
 
 // Is this Diagnostic Log enabled? Defaults to `true`.

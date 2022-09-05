@@ -81,6 +81,10 @@ type OutputPowerbi struct {
 	StreamAnalyticsJobId pulumi.StringOutput `pulumi:"streamAnalyticsJobId"`
 	// The name of the Power BI table under the specified dataset.
 	Table pulumi.StringOutput `pulumi:"table"`
+	// The user display name of the user that was used to obtain the refresh token.
+	TokenUserDisplayName pulumi.StringPtrOutput `pulumi:"tokenUserDisplayName"`
+	// The user principal name (UPN) of the user that was used to obtain the refresh token.
+	TokenUserPrincipalName pulumi.StringPtrOutput `pulumi:"tokenUserPrincipalName"`
 }
 
 // NewOutputPowerbi registers a new resource with the given unique name, arguments, and options.
@@ -139,6 +143,10 @@ type outputPowerbiState struct {
 	StreamAnalyticsJobId *string `pulumi:"streamAnalyticsJobId"`
 	// The name of the Power BI table under the specified dataset.
 	Table *string `pulumi:"table"`
+	// The user display name of the user that was used to obtain the refresh token.
+	TokenUserDisplayName *string `pulumi:"tokenUserDisplayName"`
+	// The user principal name (UPN) of the user that was used to obtain the refresh token.
+	TokenUserPrincipalName *string `pulumi:"tokenUserPrincipalName"`
 }
 
 type OutputPowerbiState struct {
@@ -154,6 +162,10 @@ type OutputPowerbiState struct {
 	StreamAnalyticsJobId pulumi.StringPtrInput
 	// The name of the Power BI table under the specified dataset.
 	Table pulumi.StringPtrInput
+	// The user display name of the user that was used to obtain the refresh token.
+	TokenUserDisplayName pulumi.StringPtrInput
+	// The user principal name (UPN) of the user that was used to obtain the refresh token.
+	TokenUserPrincipalName pulumi.StringPtrInput
 }
 
 func (OutputPowerbiState) ElementType() reflect.Type {
@@ -173,6 +185,10 @@ type outputPowerbiArgs struct {
 	StreamAnalyticsJobId string `pulumi:"streamAnalyticsJobId"`
 	// The name of the Power BI table under the specified dataset.
 	Table string `pulumi:"table"`
+	// The user display name of the user that was used to obtain the refresh token.
+	TokenUserDisplayName *string `pulumi:"tokenUserDisplayName"`
+	// The user principal name (UPN) of the user that was used to obtain the refresh token.
+	TokenUserPrincipalName *string `pulumi:"tokenUserPrincipalName"`
 }
 
 // The set of arguments for constructing a OutputPowerbi resource.
@@ -189,6 +205,10 @@ type OutputPowerbiArgs struct {
 	StreamAnalyticsJobId pulumi.StringInput
 	// The name of the Power BI table under the specified dataset.
 	Table pulumi.StringInput
+	// The user display name of the user that was used to obtain the refresh token.
+	TokenUserDisplayName pulumi.StringPtrInput
+	// The user principal name (UPN) of the user that was used to obtain the refresh token.
+	TokenUserPrincipalName pulumi.StringPtrInput
 }
 
 func (OutputPowerbiArgs) ElementType() reflect.Type {
@@ -306,6 +326,16 @@ func (o OutputPowerbiOutput) StreamAnalyticsJobId() pulumi.StringOutput {
 // The name of the Power BI table under the specified dataset.
 func (o OutputPowerbiOutput) Table() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutputPowerbi) pulumi.StringOutput { return v.Table }).(pulumi.StringOutput)
+}
+
+// The user display name of the user that was used to obtain the refresh token.
+func (o OutputPowerbiOutput) TokenUserDisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputPowerbi) pulumi.StringPtrOutput { return v.TokenUserDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The user principal name (UPN) of the user that was used to obtain the refresh token.
+func (o OutputPowerbiOutput) TokenUserPrincipalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputPowerbi) pulumi.StringPtrOutput { return v.TokenUserPrincipalName }).(pulumi.StringPtrOutput)
 }
 
 type OutputPowerbiArrayOutput struct{ *pulumi.OutputState }

@@ -9,8 +9,11 @@ from .dicom_service import *
 from .fhir_service import *
 from .get_dicom_service import *
 from .get_fhir_service import *
+from .get_medtech_service import *
 from .get_service import *
 from .get_workspace import *
+from .medtech_service import *
+from .medtech_service_fhir_destination import *
 from .service import *
 from .workspace import *
 from ._inputs import *

@@ -12,6 +12,7 @@ export * from "./connection";
 export * from "./connectionCertificate";
 export * from "./connectionClassicCertificate";
 export * from "./connectionServicePrincipal";
+export * from "./connectionType";
 export * from "./credential";
 export * from "./dateTimeVariable";
 export * from "./dscConfiguration";
@@ -21,6 +22,8 @@ export * from "./getBoolVariable";
 export * from "./getDateTimeVariable";
 export * from "./getIntVariable";
 export * from "./getStringVariable";
+export * from "./hybridRunbookWorker";
+export * from "./hybridRunbookWorkerGroup";
 export * from "./intVariable";
 export * from "./jobSchedule";
 export * from "./module";
@@ -37,10 +40,13 @@ import { Connection } from "./connection";
 import { ConnectionCertificate } from "./connectionCertificate";
 import { ConnectionClassicCertificate } from "./connectionClassicCertificate";
 import { ConnectionServicePrincipal } from "./connectionServicePrincipal";
+import { ConnectionType } from "./connectionType";
 import { Credential } from "./credential";
 import { DateTimeVariable } from "./dateTimeVariable";
 import { DscConfiguration } from "./dscConfiguration";
 import { DscNodeConfiguration } from "./dscNodeConfiguration";
+import { HybridRunbookWorker } from "./hybridRunbookWorker";
+import { HybridRunbookWorkerGroup } from "./hybridRunbookWorkerGroup";
 import { IntVariable } from "./intVariable";
 import { JobSchedule } from "./jobSchedule";
 import { Module } from "./module";
@@ -67,6 +73,8 @@ const _module = {
                 return new ConnectionClassicCertificate(name, <any>undefined, { urn })
             case "azure:automation/connectionServicePrincipal:ConnectionServicePrincipal":
                 return new ConnectionServicePrincipal(name, <any>undefined, { urn })
+            case "azure:automation/connectionType:ConnectionType":
+                return new ConnectionType(name, <any>undefined, { urn })
             case "azure:automation/credential:Credential":
                 return new Credential(name, <any>undefined, { urn })
             case "azure:automation/dateTimeVariable:DateTimeVariable":
@@ -75,6 +83,10 @@ const _module = {
                 return new DscConfiguration(name, <any>undefined, { urn })
             case "azure:automation/dscNodeConfiguration:DscNodeConfiguration":
                 return new DscNodeConfiguration(name, <any>undefined, { urn })
+            case "azure:automation/hybridRunbookWorker:HybridRunbookWorker":
+                return new HybridRunbookWorker(name, <any>undefined, { urn })
+            case "azure:automation/hybridRunbookWorkerGroup:HybridRunbookWorkerGroup":
+                return new HybridRunbookWorkerGroup(name, <any>undefined, { urn })
             case "azure:automation/intVariable:IntVariable":
                 return new IntVariable(name, <any>undefined, { urn })
             case "azure:automation/jobSchedule:JobSchedule":
@@ -101,10 +113,13 @@ pulumi.runtime.registerResourceModule("azure", "automation/connection", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/connectionCertificate", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/connectionClassicCertificate", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/connectionServicePrincipal", _module)
+pulumi.runtime.registerResourceModule("azure", "automation/connectionType", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/credential", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/dateTimeVariable", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/dscConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/dscNodeConfiguration", _module)
+pulumi.runtime.registerResourceModule("azure", "automation/hybridRunbookWorker", _module)
+pulumi.runtime.registerResourceModule("azure", "automation/hybridRunbookWorkerGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/intVariable", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/jobSchedule", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/module", _module)

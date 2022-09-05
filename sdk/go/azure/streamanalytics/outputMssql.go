@@ -95,7 +95,9 @@ import (
 type OutputMssql struct {
 	pulumi.CustomResourceState
 
-	Database pulumi.StringOutput `pulumi:"database"`
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrOutput `pulumi:"authenticationMode"`
+	Database           pulumi.StringOutput    `pulumi:"database"`
 	// The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
 	MaxBatchCount pulumi.Float64PtrOutput `pulumi:"maxBatchCount"`
 	// The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
@@ -166,7 +168,9 @@ func GetOutputMssql(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OutputMssql resources.
 type outputMssqlState struct {
-	Database *string `pulumi:"database"`
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
+	Database           *string `pulumi:"database"`
 	// The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
 	MaxBatchCount *float64 `pulumi:"maxBatchCount"`
 	// The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
@@ -188,7 +192,9 @@ type outputMssqlState struct {
 }
 
 type OutputMssqlState struct {
-	Database pulumi.StringPtrInput
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrInput
+	Database           pulumi.StringPtrInput
 	// The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
 	MaxBatchCount pulumi.Float64PtrInput
 	// The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
@@ -214,7 +220,9 @@ func (OutputMssqlState) ElementType() reflect.Type {
 }
 
 type outputMssqlArgs struct {
-	Database string `pulumi:"database"`
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
+	Database           string  `pulumi:"database"`
 	// The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
 	MaxBatchCount *float64 `pulumi:"maxBatchCount"`
 	// The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
@@ -237,7 +245,9 @@ type outputMssqlArgs struct {
 
 // The set of arguments for constructing a OutputMssql resource.
 type OutputMssqlArgs struct {
-	Database pulumi.StringInput
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrInput
+	Database           pulumi.StringInput
 	// The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
 	MaxBatchCount pulumi.Float64PtrInput
 	// The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
@@ -343,6 +353,11 @@ func (o OutputMssqlOutput) ToOutputMssqlOutput() OutputMssqlOutput {
 
 func (o OutputMssqlOutput) ToOutputMssqlOutputWithContext(ctx context.Context) OutputMssqlOutput {
 	return o
+}
+
+// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+func (o OutputMssqlOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputMssql) pulumi.StringPtrOutput { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
 }
 
 func (o OutputMssqlOutput) Database() pulumi.StringOutput {

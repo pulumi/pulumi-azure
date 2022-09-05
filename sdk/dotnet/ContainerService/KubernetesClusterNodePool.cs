@@ -109,6 +109,9 @@ namespace Pulumi.Azure.ContainerService
         [Output("fipsEnabled")]
         public Output<bool?> FipsEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("hostGroupId")]
         public Output<string?> HostGroupId { get; private set; } = null!;
 
@@ -374,6 +377,9 @@ namespace Pulumi.Azure.ContainerService
         [Input("fipsEnabled")]
         public Input<bool>? FipsEnabled { get; set; }
 
+        /// <summary>
+        /// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("hostGroupId")]
         public Input<string>? HostGroupId { get; set; }
 
@@ -625,6 +631,9 @@ namespace Pulumi.Azure.ContainerService
         [Input("fipsEnabled")]
         public Input<bool>? FipsEnabled { get; set; }
 
+        /// <summary>
+        /// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("hostGroupId")]
         public Input<string>? HostGroupId { get; set; }
 

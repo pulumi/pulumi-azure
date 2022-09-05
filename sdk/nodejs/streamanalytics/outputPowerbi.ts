@@ -89,6 +89,14 @@ export class OutputPowerbi extends pulumi.CustomResource {
      * The name of the Power BI table under the specified dataset.
      */
     public readonly table!: pulumi.Output<string>;
+    /**
+     * The user display name of the user that was used to obtain the refresh token.
+     */
+    public readonly tokenUserDisplayName!: pulumi.Output<string | undefined>;
+    /**
+     * The user principal name (UPN) of the user that was used to obtain the refresh token.
+     */
+    public readonly tokenUserPrincipalName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a OutputPowerbi resource with the given unique name, arguments, and options.
@@ -109,6 +117,8 @@ export class OutputPowerbi extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["streamAnalyticsJobId"] = state ? state.streamAnalyticsJobId : undefined;
             resourceInputs["table"] = state ? state.table : undefined;
+            resourceInputs["tokenUserDisplayName"] = state ? state.tokenUserDisplayName : undefined;
+            resourceInputs["tokenUserPrincipalName"] = state ? state.tokenUserPrincipalName : undefined;
         } else {
             const args = argsOrState as OutputPowerbiArgs | undefined;
             if ((!args || args.dataset === undefined) && !opts.urn) {
@@ -132,6 +142,8 @@ export class OutputPowerbi extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["streamAnalyticsJobId"] = args ? args.streamAnalyticsJobId : undefined;
             resourceInputs["table"] = args ? args.table : undefined;
+            resourceInputs["tokenUserDisplayName"] = args ? args.tokenUserDisplayName : undefined;
+            resourceInputs["tokenUserPrincipalName"] = args ? args.tokenUserPrincipalName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(OutputPowerbi.__pulumiType, name, resourceInputs, opts);
@@ -166,6 +178,14 @@ export interface OutputPowerbiState {
      * The name of the Power BI table under the specified dataset.
      */
     table?: pulumi.Input<string>;
+    /**
+     * The user display name of the user that was used to obtain the refresh token.
+     */
+    tokenUserDisplayName?: pulumi.Input<string>;
+    /**
+     * The user principal name (UPN) of the user that was used to obtain the refresh token.
+     */
+    tokenUserPrincipalName?: pulumi.Input<string>;
 }
 
 /**
@@ -196,4 +216,12 @@ export interface OutputPowerbiArgs {
      * The name of the Power BI table under the specified dataset.
      */
     table: pulumi.Input<string>;
+    /**
+     * The user display name of the user that was used to obtain the refresh token.
+     */
+    tokenUserDisplayName?: pulumi.Input<string>;
+    /**
+     * The user principal name (UPN) of the user that was used to obtain the refresh token.
+     */
+    tokenUserPrincipalName?: pulumi.Input<string>;
 }

@@ -44,8 +44,8 @@ namespace Pulumi.Azure.MariaDB
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         ServerName = exampleServer.Name,
-    ///         Charset = "utf8",
-    ///         Collation = "utf8_general_ci",
+    ///         Charset = "utf8mb4",
+    ///         Collation = "utf8mb4_unicode_520_ci",
     ///     });
     /// 
     /// });

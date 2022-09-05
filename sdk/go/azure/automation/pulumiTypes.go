@@ -425,6 +425,130 @@ func (o AccountPrivateEndpointConnectionArrayOutput) Index(i pulumi.IntInput) Ac
 	}).(AccountPrivateEndpointConnectionOutput)
 }
 
+type ConnectionTypeField struct {
+	// Whether to set the isEncrypted flag of the connection field definition.
+	IsEncrypted *bool `pulumi:"isEncrypted"`
+	// Whether to set the isOptional flag of the connection field definition.
+	IsOptional *bool `pulumi:"isOptional"`
+	// The name which should be used for this connection field definition.
+	Name string `pulumi:"name"`
+	// The type of the connection field definition.
+	Type string `pulumi:"type"`
+}
+
+// ConnectionTypeFieldInput is an input type that accepts ConnectionTypeFieldArgs and ConnectionTypeFieldOutput values.
+// You can construct a concrete instance of `ConnectionTypeFieldInput` via:
+//
+//	ConnectionTypeFieldArgs{...}
+type ConnectionTypeFieldInput interface {
+	pulumi.Input
+
+	ToConnectionTypeFieldOutput() ConnectionTypeFieldOutput
+	ToConnectionTypeFieldOutputWithContext(context.Context) ConnectionTypeFieldOutput
+}
+
+type ConnectionTypeFieldArgs struct {
+	// Whether to set the isEncrypted flag of the connection field definition.
+	IsEncrypted pulumi.BoolPtrInput `pulumi:"isEncrypted"`
+	// Whether to set the isOptional flag of the connection field definition.
+	IsOptional pulumi.BoolPtrInput `pulumi:"isOptional"`
+	// The name which should be used for this connection field definition.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of the connection field definition.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ConnectionTypeFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeField)(nil)).Elem()
+}
+
+func (i ConnectionTypeFieldArgs) ToConnectionTypeFieldOutput() ConnectionTypeFieldOutput {
+	return i.ToConnectionTypeFieldOutputWithContext(context.Background())
+}
+
+func (i ConnectionTypeFieldArgs) ToConnectionTypeFieldOutputWithContext(ctx context.Context) ConnectionTypeFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionTypeFieldOutput)
+}
+
+// ConnectionTypeFieldArrayInput is an input type that accepts ConnectionTypeFieldArray and ConnectionTypeFieldArrayOutput values.
+// You can construct a concrete instance of `ConnectionTypeFieldArrayInput` via:
+//
+//	ConnectionTypeFieldArray{ ConnectionTypeFieldArgs{...} }
+type ConnectionTypeFieldArrayInput interface {
+	pulumi.Input
+
+	ToConnectionTypeFieldArrayOutput() ConnectionTypeFieldArrayOutput
+	ToConnectionTypeFieldArrayOutputWithContext(context.Context) ConnectionTypeFieldArrayOutput
+}
+
+type ConnectionTypeFieldArray []ConnectionTypeFieldInput
+
+func (ConnectionTypeFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionTypeField)(nil)).Elem()
+}
+
+func (i ConnectionTypeFieldArray) ToConnectionTypeFieldArrayOutput() ConnectionTypeFieldArrayOutput {
+	return i.ToConnectionTypeFieldArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectionTypeFieldArray) ToConnectionTypeFieldArrayOutputWithContext(ctx context.Context) ConnectionTypeFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionTypeFieldArrayOutput)
+}
+
+type ConnectionTypeFieldOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeField)(nil)).Elem()
+}
+
+func (o ConnectionTypeFieldOutput) ToConnectionTypeFieldOutput() ConnectionTypeFieldOutput {
+	return o
+}
+
+func (o ConnectionTypeFieldOutput) ToConnectionTypeFieldOutputWithContext(ctx context.Context) ConnectionTypeFieldOutput {
+	return o
+}
+
+// Whether to set the isEncrypted flag of the connection field definition.
+func (o ConnectionTypeFieldOutput) IsEncrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConnectionTypeField) *bool { return v.IsEncrypted }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to set the isOptional flag of the connection field definition.
+func (o ConnectionTypeFieldOutput) IsOptional() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConnectionTypeField) *bool { return v.IsOptional }).(pulumi.BoolPtrOutput)
+}
+
+// The name which should be used for this connection field definition.
+func (o ConnectionTypeFieldOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionTypeField) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of the connection field definition.
+func (o ConnectionTypeFieldOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionTypeField) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ConnectionTypeFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionTypeField)(nil)).Elem()
+}
+
+func (o ConnectionTypeFieldArrayOutput) ToConnectionTypeFieldArrayOutput() ConnectionTypeFieldArrayOutput {
+	return o
+}
+
+func (o ConnectionTypeFieldArrayOutput) ToConnectionTypeFieldArrayOutputWithContext(ctx context.Context) ConnectionTypeFieldArrayOutput {
+	return o
+}
+
+func (o ConnectionTypeFieldArrayOutput) Index(i pulumi.IntInput) ConnectionTypeFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectionTypeField {
+		return vs[0].([]ConnectionTypeField)[vs[1].(int)]
+	}).(ConnectionTypeFieldOutput)
+}
+
 type ModuleModuleLink struct {
 	Hash *ModuleModuleLinkHash `pulumi:"hash"`
 	// The URI of the module content (zip or nupkg).
@@ -1371,6 +1495,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityPtrInput)(nil)).Elem(), AccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountPrivateEndpointConnectionInput)(nil)).Elem(), AccountPrivateEndpointConnectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountPrivateEndpointConnectionArrayInput)(nil)).Elem(), AccountPrivateEndpointConnectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeFieldInput)(nil)).Elem(), ConnectionTypeFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeFieldArrayInput)(nil)).Elem(), ConnectionTypeFieldArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModuleModuleLinkInput)(nil)).Elem(), ModuleModuleLinkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModuleModuleLinkPtrInput)(nil)).Elem(), ModuleModuleLinkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModuleModuleLinkHashInput)(nil)).Elem(), ModuleModuleLinkHashArgs{})
@@ -1391,6 +1517,8 @@ func init() {
 	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(AccountPrivateEndpointConnectionOutput{})
 	pulumi.RegisterOutputType(AccountPrivateEndpointConnectionArrayOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeFieldOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeFieldArrayOutput{})
 	pulumi.RegisterOutputType(ModuleModuleLinkOutput{})
 	pulumi.RegisterOutputType(ModuleModuleLinkPtrOutput{})
 	pulumi.RegisterOutputType(ModuleModuleLinkHashOutput{})

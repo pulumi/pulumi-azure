@@ -34,6 +34,10 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly int Lun;
         /// <summary>
+        /// The name of the Data Disk.
+        /// </summary>
+        public readonly string? Name;
+        /// <summary>
         /// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
         /// </summary>
         public readonly string StorageAccountType;
@@ -56,6 +60,8 @@ namespace Pulumi.Azure.Compute.Outputs
 
             int lun,
 
+            string? name,
+
             string storageAccountType,
 
             int? ultraSsdDiskIopsReadWrite,
@@ -69,6 +75,7 @@ namespace Pulumi.Azure.Compute.Outputs
             DiskEncryptionSetId = diskEncryptionSetId;
             DiskSizeGb = diskSizeGb;
             Lun = lun;
+            Name = name;
             StorageAccountType = storageAccountType;
             UltraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
             UltraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;

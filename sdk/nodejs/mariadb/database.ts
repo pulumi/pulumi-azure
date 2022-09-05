@@ -29,8 +29,8 @@ import * as utilities from "../utilities";
  * const exampleDatabase = new azure.mariadb.Database("exampleDatabase", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     serverName: exampleServer.name,
- *     charset: "utf8",
- *     collation: "utf8_general_ci",
+ *     charset: "utf8mb4",
+ *     collation: "utf8mb4_unicode_520_ci",
  * });
  * ```
  *

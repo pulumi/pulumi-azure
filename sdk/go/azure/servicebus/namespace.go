@@ -83,9 +83,13 @@ type Namespace struct {
 	LocalAuthEnabled pulumi.BoolPtrOutput `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+	MinimumTlsVersion pulumi.StringOutput `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
 	// new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to
 	// create the namespace.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -158,9 +162,13 @@ type namespaceState struct {
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
 	// new resource to be created.
 	Name *string `pulumi:"name"`
+	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to
 	// create the namespace.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -193,9 +201,13 @@ type NamespaceState struct {
 	LocalAuthEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+	MinimumTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
 	// new resource to be created.
 	Name pulumi.StringPtrInput
+	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to
 	// create the namespace.
 	ResourceGroupName pulumi.StringPtrInput
@@ -222,9 +234,13 @@ type namespaceArgs struct {
 	LocalAuthEnabled *bool `pulumi:"localAuthEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
 	// new resource to be created.
 	Name *string `pulumi:"name"`
+	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to
 	// create the namespace.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -248,9 +264,13 @@ type NamespaceArgs struct {
 	LocalAuthEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+	MinimumTlsVersion pulumi.StringPtrInput
 	// Specifies the name of the ServiceBus Namespace resource . Changing this forces a
 	// new resource to be created.
 	Name pulumi.StringPtrInput
+	// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to
 	// create the namespace.
 	ResourceGroupName pulumi.StringInput
@@ -396,10 +416,20 @@ func (o NamespaceOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
+// The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+func (o NamespaceOutput) MinimumTlsVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.MinimumTlsVersion }).(pulumi.StringOutput)
+}
+
 // Specifies the name of the ServiceBus Namespace resource . Changing this forces a
 // new resource to be created.
 func (o NamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+func (o NamespaceOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Namespace) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the resource group in which to

@@ -131,6 +131,8 @@ type CassandraCluster struct {
 	ExternalGossipCertificatePems pulumi.StringArrayOutput `pulumi:"externalGossipCertificatePems"`
 	// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
 	ExternalSeedNodeIpAddresses pulumi.StringArrayOutput `pulumi:"externalSeedNodeIpAddresses"`
+	// The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+	HoursBetweenBackups pulumi.IntPtrOutput `pulumi:"hoursBetweenBackups"`
 	// An `identity` block as defined below.
 	Identity CassandraClusterIdentityPtrOutput `pulumi:"identity"`
 	// The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
@@ -197,6 +199,8 @@ type cassandraClusterState struct {
 	ExternalGossipCertificatePems []string `pulumi:"externalGossipCertificatePems"`
 	// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
 	ExternalSeedNodeIpAddresses []string `pulumi:"externalSeedNodeIpAddresses"`
+	// The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+	HoursBetweenBackups *int `pulumi:"hoursBetweenBackups"`
 	// An `identity` block as defined below.
 	Identity *CassandraClusterIdentity `pulumi:"identity"`
 	// The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
@@ -226,6 +230,8 @@ type CassandraClusterState struct {
 	ExternalGossipCertificatePems pulumi.StringArrayInput
 	// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
 	ExternalSeedNodeIpAddresses pulumi.StringArrayInput
+	// The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+	HoursBetweenBackups pulumi.IntPtrInput
 	// An `identity` block as defined below.
 	Identity CassandraClusterIdentityPtrInput
 	// The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
@@ -259,6 +265,8 @@ type cassandraClusterArgs struct {
 	ExternalGossipCertificatePems []string `pulumi:"externalGossipCertificatePems"`
 	// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
 	ExternalSeedNodeIpAddresses []string `pulumi:"externalSeedNodeIpAddresses"`
+	// The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+	HoursBetweenBackups *int `pulumi:"hoursBetweenBackups"`
 	// An `identity` block as defined below.
 	Identity *CassandraClusterIdentity `pulumi:"identity"`
 	// The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
@@ -289,6 +297,8 @@ type CassandraClusterArgs struct {
 	ExternalGossipCertificatePems pulumi.StringArrayInput
 	// A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
 	ExternalSeedNodeIpAddresses pulumi.StringArrayInput
+	// The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+	HoursBetweenBackups pulumi.IntPtrInput
 	// An `identity` block as defined below.
 	Identity CassandraClusterIdentityPtrInput
 	// The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created.
@@ -420,6 +430,11 @@ func (o CassandraClusterOutput) ExternalGossipCertificatePems() pulumi.StringArr
 // A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes.
 func (o CassandraClusterOutput) ExternalSeedNodeIpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CassandraCluster) pulumi.StringArrayOutput { return v.ExternalSeedNodeIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+func (o CassandraClusterOutput) HoursBetweenBackups() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CassandraCluster) pulumi.IntPtrOutput { return v.HoursBetweenBackups }).(pulumi.IntPtrOutput)
 }
 
 // An `identity` block as defined below.

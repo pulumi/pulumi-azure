@@ -27,6 +27,12 @@ namespace Pulumi.Azure.Compute.Inputs
             set => _extensionsToProvisionAfterVmCreations = value;
         }
 
+        /// <summary>
+        /// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+        /// </summary>
+        [Input("failureSuppressionEnabled")]
+        public Input<bool>? FailureSuppressionEnabled { get; set; }
+
         [Input("forceExtensionExecutionOnChange")]
         public Input<string>? ForceExtensionExecutionOnChange { get; set; }
 

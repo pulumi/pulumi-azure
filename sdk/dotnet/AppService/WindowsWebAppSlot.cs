@@ -99,7 +99,7 @@ namespace Pulumi.Azure.AppService
         public Output<bool?> ClientCertificateEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+        /// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`
         /// </summary>
         [Output("clientCertificateMode")]
         public Output<string?> ClientCertificateMode { get; private set; } = null!;
@@ -313,7 +313,7 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? ClientCertificateEnabled { get; set; }
 
         /// <summary>
-        /// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+        /// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`
         /// </summary>
         [Input("clientCertificateMode")]
         public Input<string>? ClientCertificateMode { get; set; }
@@ -459,7 +459,7 @@ namespace Pulumi.Azure.AppService
         public Input<bool>? ClientCertificateEnabled { get; set; }
 
         /// <summary>
-        /// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+        /// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`
         /// </summary>
         [Input("clientCertificateMode")]
         public Input<string>? ClientCertificateMode { get; set; }

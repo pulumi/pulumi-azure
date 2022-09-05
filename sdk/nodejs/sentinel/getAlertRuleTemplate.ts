@@ -64,6 +64,10 @@ export interface GetAlertRuleTemplateResult {
     readonly logAnalyticsWorkspaceId: string;
     readonly name: string;
     /**
+     * A `nrtTemplate` block as defined below. This only applies to Sentinel NRT Alert Rule Template.
+     */
+    readonly nrtTemplates: outputs.sentinel.GetAlertRuleTemplateNrtTemplate[];
+    /**
      * A `scheduledTemplate` block as defined below. This only applies to Sentinel Scheduled Alert Rule Template.
      */
     readonly scheduledTemplates: outputs.sentinel.GetAlertRuleTemplateScheduledTemplate[];

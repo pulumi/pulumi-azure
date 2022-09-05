@@ -30,7 +30,7 @@ namespace Pulumi.Azure.PrivateLink.Outputs
         /// </summary>
         public readonly string? PrivateConnectionResourceId;
         /// <summary>
-        /// (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+        /// Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? PrivateIpAddress;
         /// <summary>

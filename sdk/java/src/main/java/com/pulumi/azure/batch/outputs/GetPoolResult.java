@@ -7,6 +7,7 @@ import com.pulumi.azure.batch.outputs.GetPoolAutoScale;
 import com.pulumi.azure.batch.outputs.GetPoolCertificate;
 import com.pulumi.azure.batch.outputs.GetPoolContainerConfiguration;
 import com.pulumi.azure.batch.outputs.GetPoolFixedScale;
+import com.pulumi.azure.batch.outputs.GetPoolMount;
 import com.pulumi.azure.batch.outputs.GetPoolNetworkConfiguration;
 import com.pulumi.azure.batch.outputs.GetPoolStartTask;
 import com.pulumi.azure.batch.outputs.GetPoolStorageImageReference;
@@ -20,7 +21,7 @@ import java.util.Objects;
 @CustomType
 public final class GetPoolResult {
     /**
-     * @return The name of the Batch account.
+     * @return The Azure Storage Account name.
      * 
      */
     private String accountName;
@@ -57,6 +58,11 @@ public final class GetPoolResult {
     private Integer maxTasksPerNode;
     private Map<String,String> metadata;
     /**
+     * @return A `mount` block that describes mount configuration.
+     * 
+     */
+    private List<GetPoolMount> mounts;
+    /**
      * @return The name of the endpoint.
      * 
      */
@@ -86,7 +92,7 @@ public final class GetPoolResult {
 
     private GetPoolResult() {}
     /**
-     * @return The name of the Batch account.
+     * @return The Azure Storage Account name.
      * 
      */
     public String accountName() {
@@ -139,6 +145,13 @@ public final class GetPoolResult {
     }
     public Map<String,String> metadata() {
         return this.metadata;
+    }
+    /**
+     * @return A `mount` block that describes mount configuration.
+     * 
+     */
+    public List<GetPoolMount> mounts() {
+        return this.mounts;
     }
     /**
      * @return The name of the endpoint.
@@ -200,6 +213,7 @@ public final class GetPoolResult {
         private String id;
         private Integer maxTasksPerNode;
         private Map<String,String> metadata;
+        private List<GetPoolMount> mounts;
         private String name;
         private List<GetPoolNetworkConfiguration> networkConfigurations;
         private String nodeAgentSkuId;
@@ -219,6 +233,7 @@ public final class GetPoolResult {
     	      this.id = defaults.id;
     	      this.maxTasksPerNode = defaults.maxTasksPerNode;
     	      this.metadata = defaults.metadata;
+    	      this.mounts = defaults.mounts;
     	      this.name = defaults.name;
     	      this.networkConfigurations = defaults.networkConfigurations;
     	      this.nodeAgentSkuId = defaults.nodeAgentSkuId;
@@ -286,6 +301,14 @@ public final class GetPoolResult {
             return this;
         }
         @CustomType.Setter
+        public Builder mounts(List<GetPoolMount> mounts) {
+            this.mounts = Objects.requireNonNull(mounts);
+            return this;
+        }
+        public Builder mounts(GetPoolMount... mounts) {
+            return mounts(List.of(mounts));
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
@@ -340,6 +363,7 @@ public final class GetPoolResult {
             o.id = id;
             o.maxTasksPerNode = maxTasksPerNode;
             o.metadata = metadata;
+            o.mounts = mounts;
             o.name = name;
             o.networkConfigurations = networkConfigurations;
             o.nodeAgentSkuId = nodeAgentSkuId;

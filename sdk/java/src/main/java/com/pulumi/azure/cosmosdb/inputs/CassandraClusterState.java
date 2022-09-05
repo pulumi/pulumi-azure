@@ -7,6 +7,7 @@ import com.pulumi.azure.cosmosdb.inputs.CassandraClusterIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -107,6 +108,21 @@ public final class CassandraClusterState extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<List<String>>> externalSeedNodeIpAddresses() {
         return Optional.ofNullable(this.externalSeedNodeIpAddresses);
+    }
+
+    /**
+     * The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+     * 
+     */
+    @Import(name="hoursBetweenBackups")
+    private @Nullable Output<Integer> hoursBetweenBackups;
+
+    /**
+     * @return The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+     * 
+     */
+    public Optional<Output<Integer>> hoursBetweenBackups() {
+        return Optional.ofNullable(this.hoursBetweenBackups);
     }
 
     /**
@@ -223,6 +239,7 @@ public final class CassandraClusterState extends com.pulumi.resources.ResourceAr
         this.delegatedManagementSubnetId = $.delegatedManagementSubnetId;
         this.externalGossipCertificatePems = $.externalGossipCertificatePems;
         this.externalSeedNodeIpAddresses = $.externalSeedNodeIpAddresses;
+        this.hoursBetweenBackups = $.hoursBetweenBackups;
         this.identity = $.identity;
         this.location = $.location;
         this.name = $.name;
@@ -404,6 +421,27 @@ public final class CassandraClusterState extends com.pulumi.resources.ResourceAr
          */
         public Builder externalSeedNodeIpAddresses(String... externalSeedNodeIpAddresses) {
             return externalSeedNodeIpAddresses(List.of(externalSeedNodeIpAddresses));
+        }
+
+        /**
+         * @param hoursBetweenBackups The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hoursBetweenBackups(@Nullable Output<Integer> hoursBetweenBackups) {
+            $.hoursBetweenBackups = hoursBetweenBackups;
+            return this;
+        }
+
+        /**
+         * @param hoursBetweenBackups The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hoursBetweenBackups(Integer hoursBetweenBackups) {
+            return hoursBetweenBackups(Output.of(hoursBetweenBackups));
         }
 
         /**

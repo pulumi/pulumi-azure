@@ -12,7 +12,9 @@ export * from "./frontdoorFirewallPolicy";
 export * from "./frontdoorOrigin";
 export * from "./frontdoorOriginGroup";
 export * from "./frontdoorProfile";
+export * from "./frontdoorRule";
 export * from "./frontdoorRuleSet";
+export * from "./frontdoorSecret";
 export * from "./frontdoorSecurityPolicy";
 export * from "./getFrontdoorEndpoint";
 export * from "./getFrontdoorOriginGroup";
@@ -29,7 +31,9 @@ import { FrontdoorFirewallPolicy } from "./frontdoorFirewallPolicy";
 import { FrontdoorOrigin } from "./frontdoorOrigin";
 import { FrontdoorOriginGroup } from "./frontdoorOriginGroup";
 import { FrontdoorProfile } from "./frontdoorProfile";
+import { FrontdoorRule } from "./frontdoorRule";
 import { FrontdoorRuleSet } from "./frontdoorRuleSet";
+import { FrontdoorSecret } from "./frontdoorSecret";
 import { FrontdoorSecurityPolicy } from "./frontdoorSecurityPolicy";
 import { Profile } from "./profile";
 
@@ -51,8 +55,12 @@ const _module = {
                 return new FrontdoorOriginGroup(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorProfile:FrontdoorProfile":
                 return new FrontdoorProfile(name, <any>undefined, { urn })
+            case "azure:cdn/frontdoorRule:FrontdoorRule":
+                return new FrontdoorRule(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorRuleSet:FrontdoorRuleSet":
                 return new FrontdoorRuleSet(name, <any>undefined, { urn })
+            case "azure:cdn/frontdoorSecret:FrontdoorSecret":
+                return new FrontdoorSecret(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorSecurityPolicy:FrontdoorSecurityPolicy":
                 return new FrontdoorSecurityPolicy(name, <any>undefined, { urn })
             case "azure:cdn/profile:Profile":
@@ -69,6 +77,8 @@ pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorFirewallPolicy", _m
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorOrigin", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorOriginGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorProfile", _module)
+pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorRule", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorRuleSet", _module)
+pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorSecret", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorSecurityPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/profile", _module)

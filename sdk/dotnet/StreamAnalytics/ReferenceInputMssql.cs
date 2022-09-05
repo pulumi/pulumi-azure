@@ -137,6 +137,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> StreamAnalyticsJobName { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the table in the Azure SQL database.
+        /// </summary>
+        [Output("table")]
+        public Output<string?> Table { get; private set; } = null!;
+
+        /// <summary>
         /// The username to connect to the MS SQL database.
         /// </summary>
         [Output("username")]
@@ -249,6 +255,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string> StreamAnalyticsJobName { get; set; } = null!;
 
         /// <summary>
+        /// The name of the table in the Azure SQL database.
+        /// </summary>
+        [Input("table")]
+        public Input<string>? Table { get; set; }
+
+        /// <summary>
         /// The username to connect to the MS SQL database.
         /// </summary>
         [Input("username", required: true)]
@@ -321,6 +333,12 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Input("streamAnalyticsJobName")]
         public Input<string>? StreamAnalyticsJobName { get; set; }
+
+        /// <summary>
+        /// The name of the table in the Azure SQL database.
+        /// </summary>
+        [Input("table")]
+        public Input<string>? Table { get; set; }
 
         /// <summary>
         /// The username to connect to the MS SQL database.

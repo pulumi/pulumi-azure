@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight;
 
 import com.pulumi.azure.hdinsight.inputs.HadoopClusterComponentVersionArgs;
+import com.pulumi.azure.hdinsight.inputs.HadoopClusterDiskEncryptionArgs;
 import com.pulumi.azure.hdinsight.inputs.HadoopClusterGatewayArgs;
 import com.pulumi.azure.hdinsight.inputs.HadoopClusterMetastoresArgs;
 import com.pulumi.azure.hdinsight.inputs.HadoopClusterMonitorArgs;
@@ -54,6 +55,13 @@ public final class HadoopClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<HadoopClusterComponentVersionArgs> componentVersion() {
         return this.componentVersion;
+    }
+
+    @Import(name="diskEncryptions")
+    private @Nullable Output<List<HadoopClusterDiskEncryptionArgs>> diskEncryptions;
+
+    public Optional<Output<List<HadoopClusterDiskEncryptionArgs>>> diskEncryptions() {
+        return Optional.ofNullable(this.diskEncryptions);
     }
 
     /**
@@ -263,6 +271,7 @@ public final class HadoopClusterArgs extends com.pulumi.resources.ResourceArgs {
     private HadoopClusterArgs(HadoopClusterArgs $) {
         this.clusterVersion = $.clusterVersion;
         this.componentVersion = $.componentVersion;
+        this.diskEncryptions = $.diskEncryptions;
         this.gateway = $.gateway;
         this.location = $.location;
         this.metastores = $.metastores;
@@ -337,6 +346,19 @@ public final class HadoopClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder componentVersion(HadoopClusterComponentVersionArgs componentVersion) {
             return componentVersion(Output.of(componentVersion));
+        }
+
+        public Builder diskEncryptions(@Nullable Output<List<HadoopClusterDiskEncryptionArgs>> diskEncryptions) {
+            $.diskEncryptions = diskEncryptions;
+            return this;
+        }
+
+        public Builder diskEncryptions(List<HadoopClusterDiskEncryptionArgs> diskEncryptions) {
+            return diskEncryptions(Output.of(diskEncryptions));
+        }
+
+        public Builder diskEncryptions(HadoopClusterDiskEncryptionArgs... diskEncryptions) {
+            return diskEncryptions(List.of(diskEncryptions));
         }
 
         /**

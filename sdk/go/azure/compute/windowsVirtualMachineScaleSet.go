@@ -117,7 +117,7 @@ import (
 type WindowsVirtualMachineScaleSet struct {
 	pulumi.CustomResourceState
 
-	// A `additionalCapabilities` block as defined below.
+	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput `pulumi:"additionalCapabilities"`
 	// One or more `additionalUnattendContent` blocks as defined below.
 	AdditionalUnattendContents WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput `pulumi:"additionalUnattendContents"`
@@ -125,9 +125,9 @@ type WindowsVirtualMachineScaleSet struct {
 	AdminPassword pulumi.StringOutput `pulumi:"adminPassword"`
 	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
-	// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+	// An `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput `pulumi:"automaticInstanceRepair"`
-	// A `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
+	// An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
 	AutomaticOsUpgradePolicy WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput `pulumi:"automaticOsUpgradePolicy"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput `pulumi:"bootDiagnostics"`
@@ -149,12 +149,18 @@ type WindowsVirtualMachineScaleSet struct {
 	EncryptionAtHostEnabled pulumi.BoolPtrOutput `pulumi:"encryptionAtHostEnabled"`
 	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
+	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+	ExtensionOperationsEnabled pulumi.BoolOutput `pulumi:"extensionOperationsEnabled"`
 	// One or more `extension` blocks as defined below
 	Extensions WindowsVirtualMachineScaleSetExtensionArrayOutput `pulumi:"extensions"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
+	// A `galleryApplications` block as defined below.
+	GalleryApplications WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput `pulumi:"galleryApplications"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrOutput `pulumi:"healthProbeId"`
+	// Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
+	HostGroupId pulumi.StringPtrOutput `pulumi:"hostGroupId"`
 	// An `identity` block as defined below.
 	Identity WindowsVirtualMachineScaleSetIdentityPtrOutput `pulumi:"identity"`
 	// The number of Virtual Machines in the Scale Set.
@@ -173,7 +179,7 @@ type WindowsVirtualMachineScaleSet struct {
 	OsDisk WindowsVirtualMachineScaleSetOsDiskOutput `pulumi:"osDisk"`
 	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
 	Overprovision pulumi.BoolPtrOutput `pulumi:"overprovision"`
-	// A `plan` block as documented below.
+	// A `plan` block as defined below.
 	Plan WindowsVirtualMachineScaleSetPlanPtrOutput `pulumi:"plan"`
 	// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount pulumi.IntOutput `pulumi:"platformFaultDomainCount"`
@@ -187,8 +193,10 @@ type WindowsVirtualMachineScaleSet struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	RollingUpgradePolicy WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput `pulumi:"rollingUpgradePolicy"`
-	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
-	ScaleInPolicy pulumi.StringPtrOutput `pulumi:"scaleInPolicy"`
+	// A `scaleIn` block as defined below.
+	ScaleIn WindowsVirtualMachineScaleSetScaleInOutput `pulumi:"scaleIn"`
+	// Deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+	ScaleInPolicy pulumi.StringOutput `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets WindowsVirtualMachineScaleSetSecretArrayOutput `pulumi:"secrets"`
 	// Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
@@ -197,10 +205,12 @@ type WindowsVirtualMachineScaleSet struct {
 	SinglePlacementGroup pulumi.BoolPtrOutput `pulumi:"singlePlacementGroup"`
 	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
 	Sku pulumi.StringOutput `pulumi:"sku"`
-	// The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId pulumi.StringPtrOutput `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below.
 	SourceImageReference WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput `pulumi:"sourceImageReference"`
+	// A `spotRestore` block as defined below.
+	SpotRestore WindowsVirtualMachineScaleSetSpotRestoreOutput `pulumi:"spotRestore"`
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `terminateNotification` block as defined below.
@@ -277,7 +287,7 @@ func GetWindowsVirtualMachineScaleSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WindowsVirtualMachineScaleSet resources.
 type windowsVirtualMachineScaleSetState struct {
-	// A `additionalCapabilities` block as defined below.
+	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities *WindowsVirtualMachineScaleSetAdditionalCapabilities `pulumi:"additionalCapabilities"`
 	// One or more `additionalUnattendContent` blocks as defined below.
 	AdditionalUnattendContents []WindowsVirtualMachineScaleSetAdditionalUnattendContent `pulumi:"additionalUnattendContents"`
@@ -285,9 +295,9 @@ type windowsVirtualMachineScaleSetState struct {
 	AdminPassword *string `pulumi:"adminPassword"`
 	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 	AdminUsername *string `pulumi:"adminUsername"`
-	// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+	// An `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair *WindowsVirtualMachineScaleSetAutomaticInstanceRepair `pulumi:"automaticInstanceRepair"`
-	// A `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
+	// An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
 	AutomaticOsUpgradePolicy *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy `pulumi:"automaticOsUpgradePolicy"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *WindowsVirtualMachineScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
@@ -309,12 +319,18 @@ type windowsVirtualMachineScaleSetState struct {
 	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
+	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+	ExtensionOperationsEnabled *bool `pulumi:"extensionOperationsEnabled"`
 	// One or more `extension` blocks as defined below
 	Extensions []WindowsVirtualMachineScaleSetExtension `pulumi:"extensions"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
+	// A `galleryApplications` block as defined below.
+	GalleryApplications []WindowsVirtualMachineScaleSetGalleryApplication `pulumi:"galleryApplications"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId *string `pulumi:"healthProbeId"`
+	// Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
+	HostGroupId *string `pulumi:"hostGroupId"`
 	// An `identity` block as defined below.
 	Identity *WindowsVirtualMachineScaleSetIdentity `pulumi:"identity"`
 	// The number of Virtual Machines in the Scale Set.
@@ -333,7 +349,7 @@ type windowsVirtualMachineScaleSetState struct {
 	OsDisk *WindowsVirtualMachineScaleSetOsDisk `pulumi:"osDisk"`
 	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
 	Overprovision *bool `pulumi:"overprovision"`
-	// A `plan` block as documented below.
+	// A `plan` block as defined below.
 	Plan *WindowsVirtualMachineScaleSetPlan `pulumi:"plan"`
 	// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
@@ -347,7 +363,9 @@ type windowsVirtualMachineScaleSetState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	RollingUpgradePolicy *WindowsVirtualMachineScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
-	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	// A `scaleIn` block as defined below.
+	ScaleIn *WindowsVirtualMachineScaleSetScaleIn `pulumi:"scaleIn"`
+	// Deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
 	ScaleInPolicy *string `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets []WindowsVirtualMachineScaleSetSecret `pulumi:"secrets"`
@@ -357,10 +375,12 @@ type windowsVirtualMachineScaleSetState struct {
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
 	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
 	Sku *string `pulumi:"sku"`
-	// The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId *string `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below.
 	SourceImageReference *WindowsVirtualMachineScaleSetSourceImageReference `pulumi:"sourceImageReference"`
+	// A `spotRestore` block as defined below.
+	SpotRestore *WindowsVirtualMachineScaleSetSpotRestore `pulumi:"spotRestore"`
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags map[string]string `pulumi:"tags"`
 	// A `terminateNotification` block as defined below.
@@ -388,7 +408,7 @@ type windowsVirtualMachineScaleSetState struct {
 }
 
 type WindowsVirtualMachineScaleSetState struct {
-	// A `additionalCapabilities` block as defined below.
+	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrInput
 	// One or more `additionalUnattendContent` blocks as defined below.
 	AdditionalUnattendContents WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayInput
@@ -396,9 +416,9 @@ type WindowsVirtualMachineScaleSetState struct {
 	AdminPassword pulumi.StringPtrInput
 	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringPtrInput
-	// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+	// An `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrInput
-	// A `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
+	// An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
 	AutomaticOsUpgradePolicy WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics WindowsVirtualMachineScaleSetBootDiagnosticsPtrInput
@@ -420,12 +440,18 @@ type WindowsVirtualMachineScaleSetState struct {
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
+	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+	ExtensionOperationsEnabled pulumi.BoolPtrInput
 	// One or more `extension` blocks as defined below
 	Extensions WindowsVirtualMachineScaleSetExtensionArrayInput
 	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrInput
+	// A `galleryApplications` block as defined below.
+	GalleryApplications WindowsVirtualMachineScaleSetGalleryApplicationArrayInput
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrInput
+	// Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
+	HostGroupId pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity WindowsVirtualMachineScaleSetIdentityPtrInput
 	// The number of Virtual Machines in the Scale Set.
@@ -444,7 +470,7 @@ type WindowsVirtualMachineScaleSetState struct {
 	OsDisk WindowsVirtualMachineScaleSetOsDiskPtrInput
 	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
 	Overprovision pulumi.BoolPtrInput
-	// A `plan` block as documented below.
+	// A `plan` block as defined below.
 	Plan WindowsVirtualMachineScaleSetPlanPtrInput
 	// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount pulumi.IntPtrInput
@@ -458,7 +484,9 @@ type WindowsVirtualMachineScaleSetState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	RollingUpgradePolicy WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrInput
-	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	// A `scaleIn` block as defined below.
+	ScaleIn WindowsVirtualMachineScaleSetScaleInPtrInput
+	// Deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
 	ScaleInPolicy pulumi.StringPtrInput
 	// One or more `secret` blocks as defined below.
 	Secrets WindowsVirtualMachineScaleSetSecretArrayInput
@@ -468,10 +496,12 @@ type WindowsVirtualMachineScaleSetState struct {
 	SinglePlacementGroup pulumi.BoolPtrInput
 	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
 	Sku pulumi.StringPtrInput
-	// The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId pulumi.StringPtrInput
 	// A `sourceImageReference` block as defined below.
 	SourceImageReference WindowsVirtualMachineScaleSetSourceImageReferencePtrInput
+	// A `spotRestore` block as defined below.
+	SpotRestore WindowsVirtualMachineScaleSetSpotRestorePtrInput
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags pulumi.StringMapInput
 	// A `terminateNotification` block as defined below.
@@ -503,7 +533,7 @@ func (WindowsVirtualMachineScaleSetState) ElementType() reflect.Type {
 }
 
 type windowsVirtualMachineScaleSetArgs struct {
-	// A `additionalCapabilities` block as defined below.
+	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities *WindowsVirtualMachineScaleSetAdditionalCapabilities `pulumi:"additionalCapabilities"`
 	// One or more `additionalUnattendContent` blocks as defined below.
 	AdditionalUnattendContents []WindowsVirtualMachineScaleSetAdditionalUnattendContent `pulumi:"additionalUnattendContents"`
@@ -511,9 +541,9 @@ type windowsVirtualMachineScaleSetArgs struct {
 	AdminPassword string `pulumi:"adminPassword"`
 	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 	AdminUsername string `pulumi:"adminUsername"`
-	// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+	// An `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair *WindowsVirtualMachineScaleSetAutomaticInstanceRepair `pulumi:"automaticInstanceRepair"`
-	// A `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
+	// An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
 	AutomaticOsUpgradePolicy *WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy `pulumi:"automaticOsUpgradePolicy"`
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics *WindowsVirtualMachineScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
@@ -535,12 +565,18 @@ type windowsVirtualMachineScaleSetArgs struct {
 	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
+	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+	ExtensionOperationsEnabled *bool `pulumi:"extensionOperationsEnabled"`
 	// One or more `extension` blocks as defined below
 	Extensions []WindowsVirtualMachineScaleSetExtension `pulumi:"extensions"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
+	// A `galleryApplications` block as defined below.
+	GalleryApplications []WindowsVirtualMachineScaleSetGalleryApplication `pulumi:"galleryApplications"`
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId *string `pulumi:"healthProbeId"`
+	// Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
+	HostGroupId *string `pulumi:"hostGroupId"`
 	// An `identity` block as defined below.
 	Identity *WindowsVirtualMachineScaleSetIdentity `pulumi:"identity"`
 	// The number of Virtual Machines in the Scale Set.
@@ -559,7 +595,7 @@ type windowsVirtualMachineScaleSetArgs struct {
 	OsDisk WindowsVirtualMachineScaleSetOsDisk `pulumi:"osDisk"`
 	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
 	Overprovision *bool `pulumi:"overprovision"`
-	// A `plan` block as documented below.
+	// A `plan` block as defined below.
 	Plan *WindowsVirtualMachineScaleSetPlan `pulumi:"plan"`
 	// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
@@ -573,7 +609,9 @@ type windowsVirtualMachineScaleSetArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	RollingUpgradePolicy *WindowsVirtualMachineScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
-	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	// A `scaleIn` block as defined below.
+	ScaleIn *WindowsVirtualMachineScaleSetScaleIn `pulumi:"scaleIn"`
+	// Deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
 	ScaleInPolicy *string `pulumi:"scaleInPolicy"`
 	// One or more `secret` blocks as defined below.
 	Secrets []WindowsVirtualMachineScaleSetSecret `pulumi:"secrets"`
@@ -583,10 +621,12 @@ type windowsVirtualMachineScaleSetArgs struct {
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
 	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
 	Sku string `pulumi:"sku"`
-	// The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId *string `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below.
 	SourceImageReference *WindowsVirtualMachineScaleSetSourceImageReference `pulumi:"sourceImageReference"`
+	// A `spotRestore` block as defined below.
+	SpotRestore *WindowsVirtualMachineScaleSetSpotRestore `pulumi:"spotRestore"`
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags map[string]string `pulumi:"tags"`
 	// A `terminateNotification` block as defined below.
@@ -613,7 +653,7 @@ type windowsVirtualMachineScaleSetArgs struct {
 
 // The set of arguments for constructing a WindowsVirtualMachineScaleSet resource.
 type WindowsVirtualMachineScaleSetArgs struct {
-	// A `additionalCapabilities` block as defined below.
+	// An `additionalCapabilities` block as defined below.
 	AdditionalCapabilities WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrInput
 	// One or more `additionalUnattendContent` blocks as defined below.
 	AdditionalUnattendContents WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayInput
@@ -621,9 +661,9 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	AdminPassword pulumi.StringInput
 	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringInput
-	// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+	// An `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 	AutomaticInstanceRepair WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrInput
-	// A `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
+	// An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
 	AutomaticOsUpgradePolicy WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput
 	// A `bootDiagnostics` block as defined below.
 	BootDiagnostics WindowsVirtualMachineScaleSetBootDiagnosticsPtrInput
@@ -645,12 +685,18 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
+	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+	ExtensionOperationsEnabled pulumi.BoolPtrInput
 	// One or more `extension` blocks as defined below
 	Extensions WindowsVirtualMachineScaleSetExtensionArrayInput
 	// Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrInput
+	// A `galleryApplications` block as defined below.
+	GalleryApplications WindowsVirtualMachineScaleSetGalleryApplicationArrayInput
 	// The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	HealthProbeId pulumi.StringPtrInput
+	// Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
+	HostGroupId pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity WindowsVirtualMachineScaleSetIdentityPtrInput
 	// The number of Virtual Machines in the Scale Set.
@@ -669,7 +715,7 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	OsDisk WindowsVirtualMachineScaleSetOsDiskInput
 	// Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
 	Overprovision pulumi.BoolPtrInput
-	// A `plan` block as documented below.
+	// A `plan` block as defined below.
 	Plan WindowsVirtualMachineScaleSetPlanPtrInput
 	// Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	PlatformFaultDomainCount pulumi.IntPtrInput
@@ -683,7 +729,9 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 	RollingUpgradePolicy WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrInput
-	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	// A `scaleIn` block as defined below.
+	ScaleIn WindowsVirtualMachineScaleSetScaleInPtrInput
+	// Deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
 	ScaleInPolicy pulumi.StringPtrInput
 	// One or more `secret` blocks as defined below.
 	Secrets WindowsVirtualMachineScaleSetSecretArrayInput
@@ -693,10 +741,12 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	SinglePlacementGroup pulumi.BoolPtrInput
 	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
 	Sku pulumi.StringInput
-	// The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId pulumi.StringPtrInput
 	// A `sourceImageReference` block as defined below.
 	SourceImageReference WindowsVirtualMachineScaleSetSourceImageReferencePtrInput
+	// A `spotRestore` block as defined below.
+	SpotRestore WindowsVirtualMachineScaleSetSpotRestorePtrInput
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags pulumi.StringMapInput
 	// A `terminateNotification` block as defined below.
@@ -808,7 +858,7 @@ func (o WindowsVirtualMachineScaleSetOutput) ToWindowsVirtualMachineScaleSetOutp
 	return o
 }
 
-// A `additionalCapabilities` block as defined below.
+// An `additionalCapabilities` block as defined below.
 func (o WindowsVirtualMachineScaleSetOutput) AdditionalCapabilities() WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
 		return v.AdditionalCapabilities
@@ -832,14 +882,14 @@ func (o WindowsVirtualMachineScaleSetOutput) AdminUsername() pulumi.StringOutput
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.StringOutput { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+// An `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
 func (o WindowsVirtualMachineScaleSetOutput) AutomaticInstanceRepair() WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput {
 		return v.AutomaticInstanceRepair
 	}).(WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput)
 }
 
-// A `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
+// An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
 func (o WindowsVirtualMachineScaleSetOutput) AutomaticOsUpgradePolicy() WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput {
 		return v.AutomaticOsUpgradePolicy
@@ -902,6 +952,11 @@ func (o WindowsVirtualMachineScaleSetOutput) EvictionPolicy() pulumi.StringPtrOu
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.EvictionPolicy }).(pulumi.StringPtrOutput)
 }
 
+// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+func (o WindowsVirtualMachineScaleSetOutput) ExtensionOperationsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.BoolOutput { return v.ExtensionOperationsEnabled }).(pulumi.BoolOutput)
+}
+
 // One or more `extension` blocks as defined below
 func (o WindowsVirtualMachineScaleSetOutput) Extensions() WindowsVirtualMachineScaleSetExtensionArrayOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) WindowsVirtualMachineScaleSetExtensionArrayOutput {
@@ -914,9 +969,21 @@ func (o WindowsVirtualMachineScaleSetOutput) ExtensionsTimeBudget() pulumi.Strin
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.ExtensionsTimeBudget }).(pulumi.StringPtrOutput)
 }
 
+// A `galleryApplications` block as defined below.
+func (o WindowsVirtualMachineScaleSetOutput) GalleryApplications() WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput {
+		return v.GalleryApplications
+	}).(WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput)
+}
+
 // The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
 func (o WindowsVirtualMachineScaleSetOutput) HealthProbeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.HealthProbeId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetOutput) HostGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.HostGroupId }).(pulumi.StringPtrOutput)
 }
 
 // An `identity` block as defined below.
@@ -968,7 +1035,7 @@ func (o WindowsVirtualMachineScaleSetOutput) Overprovision() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.Overprovision }).(pulumi.BoolPtrOutput)
 }
 
-// A `plan` block as documented below.
+// A `plan` block as defined below.
 func (o WindowsVirtualMachineScaleSetOutput) Plan() WindowsVirtualMachineScaleSetPlanPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) WindowsVirtualMachineScaleSetPlanPtrOutput { return v.Plan }).(WindowsVirtualMachineScaleSetPlanPtrOutput)
 }
@@ -1005,9 +1072,14 @@ func (o WindowsVirtualMachineScaleSetOutput) RollingUpgradePolicy() WindowsVirtu
 	}).(WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput)
 }
 
-// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
-func (o WindowsVirtualMachineScaleSetOutput) ScaleInPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.ScaleInPolicy }).(pulumi.StringPtrOutput)
+// A `scaleIn` block as defined below.
+func (o WindowsVirtualMachineScaleSetOutput) ScaleIn() WindowsVirtualMachineScaleSetScaleInOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) WindowsVirtualMachineScaleSetScaleInOutput { return v.ScaleIn }).(WindowsVirtualMachineScaleSetScaleInOutput)
+}
+
+// Deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+func (o WindowsVirtualMachineScaleSetOutput) ScaleInPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.StringOutput { return v.ScaleInPolicy }).(pulumi.StringOutput)
 }
 
 // One or more `secret` blocks as defined below.
@@ -1032,7 +1104,7 @@ func (o WindowsVirtualMachineScaleSetOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
 }
 
-// The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 func (o WindowsVirtualMachineScaleSetOutput) SourceImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.SourceImageId }).(pulumi.StringPtrOutput)
 }
@@ -1042,6 +1114,13 @@ func (o WindowsVirtualMachineScaleSetOutput) SourceImageReference() WindowsVirtu
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput {
 		return v.SourceImageReference
 	}).(WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput)
+}
+
+// A `spotRestore` block as defined below.
+func (o WindowsVirtualMachineScaleSetOutput) SpotRestore() WindowsVirtualMachineScaleSetSpotRestoreOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) WindowsVirtualMachineScaleSetSpotRestoreOutput {
+		return v.SpotRestore
+	}).(WindowsVirtualMachineScaleSetSpotRestoreOutput)
 }
 
 // A mapping of tags which should be assigned to this Virtual Machine Scale Set.
