@@ -64,7 +64,13 @@ type GetDiagnosticCategoriesArgs struct {
 type GetDiagnosticCategoriesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// A list of the supported log category groups of this resource to send to the destination.
+	LogCategoryGroups []string `pulumi:"logCategoryGroups"`
+	// A list of the supported log category types of this resource to send to the destination.
+	LogCategoryTypes []string `pulumi:"logCategoryTypes"`
 	// A list of the Log Categories supported for this Resource.
+	//
+	// Deprecated: `logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider.
 	Logs []string `pulumi:"logs"`
 	// A list of the Metric Categories supported for this Resource.
 	Metrics    []string `pulumi:"metrics"`
@@ -114,7 +120,19 @@ func (o GetDiagnosticCategoriesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDiagnosticCategoriesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// A list of the supported log category groups of this resource to send to the destination.
+func (o GetDiagnosticCategoriesResultOutput) LogCategoryGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDiagnosticCategoriesResult) []string { return v.LogCategoryGroups }).(pulumi.StringArrayOutput)
+}
+
+// A list of the supported log category types of this resource to send to the destination.
+func (o GetDiagnosticCategoriesResultOutput) LogCategoryTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDiagnosticCategoriesResult) []string { return v.LogCategoryTypes }).(pulumi.StringArrayOutput)
+}
+
 // A list of the Log Categories supported for this Resource.
+//
+// Deprecated: `logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider.
 func (o GetDiagnosticCategoriesResultOutput) Logs() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetDiagnosticCategoriesResult) []string { return v.Logs }).(pulumi.StringArrayOutput)
 }

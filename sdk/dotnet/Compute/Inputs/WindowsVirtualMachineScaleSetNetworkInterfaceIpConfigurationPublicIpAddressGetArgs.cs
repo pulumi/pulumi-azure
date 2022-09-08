@@ -48,6 +48,12 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("publicIpPrefixId")]
         public Input<string>? PublicIpPrefixId { get; set; }
 
+        /// <summary>
+        /// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
         public WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressGetArgs()
         {
         }

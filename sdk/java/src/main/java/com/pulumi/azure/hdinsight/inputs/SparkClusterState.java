@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight.inputs;
 
 import com.pulumi.azure.hdinsight.inputs.SparkClusterComponentVersionArgs;
+import com.pulumi.azure.hdinsight.inputs.SparkClusterDiskEncryptionArgs;
 import com.pulumi.azure.hdinsight.inputs.SparkClusterGatewayArgs;
 import com.pulumi.azure.hdinsight.inputs.SparkClusterMetastoresArgs;
 import com.pulumi.azure.hdinsight.inputs.SparkClusterMonitorArgs;
@@ -55,6 +56,13 @@ public final class SparkClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<SparkClusterComponentVersionArgs>> componentVersion() {
         return Optional.ofNullable(this.componentVersion);
+    }
+
+    @Import(name="diskEncryptions")
+    private @Nullable Output<List<SparkClusterDiskEncryptionArgs>> diskEncryptions;
+
+    public Optional<Output<List<SparkClusterDiskEncryptionArgs>>> diskEncryptions() {
+        return Optional.ofNullable(this.diskEncryptions);
     }
 
     /**
@@ -309,6 +317,7 @@ public final class SparkClusterState extends com.pulumi.resources.ResourceArgs {
     private SparkClusterState(SparkClusterState $) {
         this.clusterVersion = $.clusterVersion;
         this.componentVersion = $.componentVersion;
+        this.diskEncryptions = $.diskEncryptions;
         this.encryptionInTransitEnabled = $.encryptionInTransitEnabled;
         this.gateway = $.gateway;
         this.httpsEndpoint = $.httpsEndpoint;
@@ -386,6 +395,19 @@ public final class SparkClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder componentVersion(SparkClusterComponentVersionArgs componentVersion) {
             return componentVersion(Output.of(componentVersion));
+        }
+
+        public Builder diskEncryptions(@Nullable Output<List<SparkClusterDiskEncryptionArgs>> diskEncryptions) {
+            $.diskEncryptions = diskEncryptions;
+            return this;
+        }
+
+        public Builder diskEncryptions(List<SparkClusterDiskEncryptionArgs> diskEncryptions) {
+            return diskEncryptions(Output.of(diskEncryptions));
+        }
+
+        public Builder diskEncryptions(SparkClusterDiskEncryptionArgs... diskEncryptions) {
+            return diskEncryptions(List.of(diskEncryptions));
         }
 
         /**

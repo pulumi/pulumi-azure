@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight.inputs;
 
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterComponentVersionArgs;
+import com.pulumi.azure.hdinsight.inputs.HBaseClusterDiskEncryptionArgs;
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterGatewayArgs;
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterMetastoresArgs;
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterMonitorArgs;
@@ -54,6 +55,13 @@ public final class HBaseClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<HBaseClusterComponentVersionArgs>> componentVersion() {
         return Optional.ofNullable(this.componentVersion);
+    }
+
+    @Import(name="diskEncryptions")
+    private @Nullable Output<List<HBaseClusterDiskEncryptionArgs>> diskEncryptions;
+
+    public Optional<Output<List<HBaseClusterDiskEncryptionArgs>>> diskEncryptions() {
+        return Optional.ofNullable(this.diskEncryptions);
     }
 
     /**
@@ -293,6 +301,7 @@ public final class HBaseClusterState extends com.pulumi.resources.ResourceArgs {
     private HBaseClusterState(HBaseClusterState $) {
         this.clusterVersion = $.clusterVersion;
         this.componentVersion = $.componentVersion;
+        this.diskEncryptions = $.diskEncryptions;
         this.gateway = $.gateway;
         this.httpsEndpoint = $.httpsEndpoint;
         this.location = $.location;
@@ -369,6 +378,19 @@ public final class HBaseClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder componentVersion(HBaseClusterComponentVersionArgs componentVersion) {
             return componentVersion(Output.of(componentVersion));
+        }
+
+        public Builder diskEncryptions(@Nullable Output<List<HBaseClusterDiskEncryptionArgs>> diskEncryptions) {
+            $.diskEncryptions = diskEncryptions;
+            return this;
+        }
+
+        public Builder diskEncryptions(List<HBaseClusterDiskEncryptionArgs> diskEncryptions) {
+            return diskEncryptions(Output.of(diskEncryptions));
+        }
+
+        public Builder diskEncryptions(HBaseClusterDiskEncryptionArgs... diskEncryptions) {
+            return diskEncryptions(List.of(diskEncryptions));
         }
 
         /**

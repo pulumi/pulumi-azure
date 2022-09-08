@@ -116,6 +116,181 @@ func (o EndpointCustomDnsConfigArrayOutput) Index(i pulumi.IntInput) EndpointCus
 	}).(EndpointCustomDnsConfigOutput)
 }
 
+type EndpointIpConfiguration struct {
+	// Specifies the Name of the IP Configuration. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	// Specifies the subresource this IP address applies to. `subresourceNames` corresponds to `groupId` and in this context is also used for `memberName`. Changing this forces a new resource to be created.
+	SubresourceName string `pulumi:"subresourceName"`
+}
+
+// EndpointIpConfigurationInput is an input type that accepts EndpointIpConfigurationArgs and EndpointIpConfigurationOutput values.
+// You can construct a concrete instance of `EndpointIpConfigurationInput` via:
+//
+//	EndpointIpConfigurationArgs{...}
+type EndpointIpConfigurationInput interface {
+	pulumi.Input
+
+	ToEndpointIpConfigurationOutput() EndpointIpConfigurationOutput
+	ToEndpointIpConfigurationOutputWithContext(context.Context) EndpointIpConfigurationOutput
+}
+
+type EndpointIpConfigurationArgs struct {
+	// Specifies the Name of the IP Configuration. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	// Specifies the subresource this IP address applies to. `subresourceNames` corresponds to `groupId` and in this context is also used for `memberName`. Changing this forces a new resource to be created.
+	SubresourceName pulumi.StringInput `pulumi:"subresourceName"`
+}
+
+func (EndpointIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointIpConfiguration)(nil)).Elem()
+}
+
+func (i EndpointIpConfigurationArgs) ToEndpointIpConfigurationOutput() EndpointIpConfigurationOutput {
+	return i.ToEndpointIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i EndpointIpConfigurationArgs) ToEndpointIpConfigurationOutputWithContext(ctx context.Context) EndpointIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointIpConfigurationOutput)
+}
+
+func (i EndpointIpConfigurationArgs) ToEndpointIpConfigurationPtrOutput() EndpointIpConfigurationPtrOutput {
+	return i.ToEndpointIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointIpConfigurationArgs) ToEndpointIpConfigurationPtrOutputWithContext(ctx context.Context) EndpointIpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointIpConfigurationOutput).ToEndpointIpConfigurationPtrOutputWithContext(ctx)
+}
+
+// EndpointIpConfigurationPtrInput is an input type that accepts EndpointIpConfigurationArgs, EndpointIpConfigurationPtr and EndpointIpConfigurationPtrOutput values.
+// You can construct a concrete instance of `EndpointIpConfigurationPtrInput` via:
+//
+//	        EndpointIpConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointIpConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEndpointIpConfigurationPtrOutput() EndpointIpConfigurationPtrOutput
+	ToEndpointIpConfigurationPtrOutputWithContext(context.Context) EndpointIpConfigurationPtrOutput
+}
+
+type endpointIpConfigurationPtrType EndpointIpConfigurationArgs
+
+func EndpointIpConfigurationPtr(v *EndpointIpConfigurationArgs) EndpointIpConfigurationPtrInput {
+	return (*endpointIpConfigurationPtrType)(v)
+}
+
+func (*endpointIpConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointIpConfiguration)(nil)).Elem()
+}
+
+func (i *endpointIpConfigurationPtrType) ToEndpointIpConfigurationPtrOutput() EndpointIpConfigurationPtrOutput {
+	return i.ToEndpointIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointIpConfigurationPtrType) ToEndpointIpConfigurationPtrOutputWithContext(ctx context.Context) EndpointIpConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointIpConfigurationPtrOutput)
+}
+
+type EndpointIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EndpointIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointIpConfiguration)(nil)).Elem()
+}
+
+func (o EndpointIpConfigurationOutput) ToEndpointIpConfigurationOutput() EndpointIpConfigurationOutput {
+	return o
+}
+
+func (o EndpointIpConfigurationOutput) ToEndpointIpConfigurationOutputWithContext(ctx context.Context) EndpointIpConfigurationOutput {
+	return o
+}
+
+func (o EndpointIpConfigurationOutput) ToEndpointIpConfigurationPtrOutput() EndpointIpConfigurationPtrOutput {
+	return o.ToEndpointIpConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointIpConfigurationOutput) ToEndpointIpConfigurationPtrOutputWithContext(ctx context.Context) EndpointIpConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointIpConfiguration) *EndpointIpConfiguration {
+		return &v
+	}).(EndpointIpConfigurationPtrOutput)
+}
+
+// Specifies the Name of the IP Configuration. Changing this forces a new resource to be created.
+func (o EndpointIpConfigurationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointIpConfiguration) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
+func (o EndpointIpConfigurationOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointIpConfiguration) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+// Specifies the subresource this IP address applies to. `subresourceNames` corresponds to `groupId` and in this context is also used for `memberName`. Changing this forces a new resource to be created.
+func (o EndpointIpConfigurationOutput) SubresourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointIpConfiguration) string { return v.SubresourceName }).(pulumi.StringOutput)
+}
+
+type EndpointIpConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointIpConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointIpConfiguration)(nil)).Elem()
+}
+
+func (o EndpointIpConfigurationPtrOutput) ToEndpointIpConfigurationPtrOutput() EndpointIpConfigurationPtrOutput {
+	return o
+}
+
+func (o EndpointIpConfigurationPtrOutput) ToEndpointIpConfigurationPtrOutputWithContext(ctx context.Context) EndpointIpConfigurationPtrOutput {
+	return o
+}
+
+func (o EndpointIpConfigurationPtrOutput) Elem() EndpointIpConfigurationOutput {
+	return o.ApplyT(func(v *EndpointIpConfiguration) EndpointIpConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointIpConfiguration
+		return ret
+	}).(EndpointIpConfigurationOutput)
+}
+
+// Specifies the Name of the IP Configuration. Changing this forces a new resource to be created.
+func (o EndpointIpConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
+func (o EndpointIpConfigurationPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateIpAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the subresource this IP address applies to. `subresourceNames` corresponds to `groupId` and in this context is also used for `memberName`. Changing this forces a new resource to be created.
+func (o EndpointIpConfigurationPtrOutput) SubresourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointIpConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SubresourceName
+	}).(pulumi.StringPtrOutput)
+}
+
 type EndpointNetworkInterface struct {
 	// The ID of the Private DNS Zone Config.
 	Id *string `pulumi:"id"`
@@ -663,7 +838,7 @@ type EndpointPrivateServiceConnection struct {
 	PrivateConnectionResourceAlias *string `pulumi:"privateConnectionResourceAlias"`
 	// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
 	PrivateConnectionResourceId *string `pulumi:"privateConnectionResourceId"`
-	// (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+	// Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
 	// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
 	RequestMessage *string `pulumi:"requestMessage"`
@@ -691,7 +866,7 @@ type EndpointPrivateServiceConnectionArgs struct {
 	PrivateConnectionResourceAlias pulumi.StringPtrInput `pulumi:"privateConnectionResourceAlias"`
 	// The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of `privateConnectionResourceId` or `privateConnectionResourceAlias` must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
 	PrivateConnectionResourceId pulumi.StringPtrInput `pulumi:"privateConnectionResourceId"`
-	// (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+	// Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
 	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
 	// A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of `140` characters in length. Only valid if `isManualConnection` is set to `true`.
 	RequestMessage pulumi.StringPtrInput `pulumi:"requestMessage"`
@@ -796,7 +971,7 @@ func (o EndpointPrivateServiceConnectionOutput) PrivateConnectionResourceId() pu
 	return o.ApplyT(func(v EndpointPrivateServiceConnection) *string { return v.PrivateConnectionResourceId }).(pulumi.StringPtrOutput)
 }
 
-// (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+// Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
 func (o EndpointPrivateServiceConnectionOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPrivateServiceConnection) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
 }
@@ -875,7 +1050,7 @@ func (o EndpointPrivateServiceConnectionPtrOutput) PrivateConnectionResourceId()
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+// Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
 func (o EndpointPrivateServiceConnectionPtrOutput) PrivateIpAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPrivateServiceConnection) *string {
 		if v == nil {
@@ -1437,6 +1612,8 @@ func (o GetServiceNatIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetSer
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCustomDnsConfigInput)(nil)).Elem(), EndpointCustomDnsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCustomDnsConfigArrayInput)(nil)).Elem(), EndpointCustomDnsConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointIpConfigurationInput)(nil)).Elem(), EndpointIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointIpConfigurationPtrInput)(nil)).Elem(), EndpointIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointNetworkInterfaceInput)(nil)).Elem(), EndpointNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointNetworkInterfaceArrayInput)(nil)).Elem(), EndpointNetworkInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointPrivateDnsZoneConfigInput)(nil)).Elem(), EndpointPrivateDnsZoneConfigArgs{})
@@ -1457,6 +1634,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceNatIpConfigurationArrayInput)(nil)).Elem(), GetServiceNatIpConfigurationArray{})
 	pulumi.RegisterOutputType(EndpointCustomDnsConfigOutput{})
 	pulumi.RegisterOutputType(EndpointCustomDnsConfigArrayOutput{})
+	pulumi.RegisterOutputType(EndpointIpConfigurationOutput{})
+	pulumi.RegisterOutputType(EndpointIpConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EndpointNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(EndpointNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(EndpointPrivateDnsZoneConfigOutput{})

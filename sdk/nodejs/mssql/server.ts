@@ -109,7 +109,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly outboundNetworkRestrictionEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `userAssignedIdentityIds`.
+     * Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identityIds`.
      */
     public readonly primaryUserAssignedIdentityId!: pulumi.Output<string>;
     /**
@@ -237,7 +237,7 @@ export interface ServerState {
      */
     outboundNetworkRestrictionEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `userAssignedIdentityIds`.
+     * Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identityIds`.
      */
     primaryUserAssignedIdentityId?: pulumi.Input<string>;
     /**
@@ -303,7 +303,7 @@ export interface ServerArgs {
      */
     outboundNetworkRestrictionEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `userAssignedIdentityIds`.
+     * Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identityIds`.
      */
     primaryUserAssignedIdentityId?: pulumi.Input<string>;
     /**

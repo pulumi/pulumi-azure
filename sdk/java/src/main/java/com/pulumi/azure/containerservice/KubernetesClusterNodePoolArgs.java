@@ -113,9 +113,17 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.fipsEnabled);
     }
 
+    /**
+     * The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="hostGroupId")
     private @Nullable Output<String> hostGroupId;
 
+    /**
+     * @return The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
+     * 
+     */
     public Optional<Output<String>> hostGroupId() {
         return Optional.ofNullable(this.hostGroupId);
     }
@@ -756,11 +764,23 @@ public final class KubernetesClusterNodePoolArgs extends com.pulumi.resources.Re
             return fipsEnabled(Output.of(fipsEnabled));
         }
 
+        /**
+         * @param hostGroupId The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hostGroupId(@Nullable Output<String> hostGroupId) {
             $.hostGroupId = hostGroupId;
             return this;
         }
 
+        /**
+         * @param hostGroupId The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hostGroupId(String hostGroupId) {
             return hostGroupId(Output.of(hostGroupId));
         }

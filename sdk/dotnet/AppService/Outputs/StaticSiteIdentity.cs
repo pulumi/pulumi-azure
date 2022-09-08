@@ -17,6 +17,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// A list of Managed Identity IDs which should be assigned to this Static Site resource.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
+        /// <summary>
+        /// (Optional) The Principal ID associated with this Managed Service Identity.
+        /// </summary>
         public readonly string? PrincipalId;
         public readonly string? TenantId;
         /// <summary>

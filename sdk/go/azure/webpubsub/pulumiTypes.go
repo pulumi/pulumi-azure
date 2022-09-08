@@ -561,7 +561,7 @@ func (o NetworkAclPublicNetworkPtrOutput) DeniedRequestTypes() pulumi.StringArra
 }
 
 type ServiceIdentity struct {
-	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -583,7 +583,7 @@ type ServiceIdentityInput interface {
 }
 
 type ServiceIdentityArgs struct {
-	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID associated with this Managed Service Identity.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
@@ -670,7 +670,7 @@ func (o ServiceIdentityOutput) ToServiceIdentityPtrOutputWithContext(ctx context
 	}).(ServiceIdentityPtrOutput)
 }
 
-// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
 func (o ServiceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServiceIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -714,7 +714,7 @@ func (o ServiceIdentityPtrOutput) Elem() ServiceIdentityOutput {
 	}).(ServiceIdentityOutput)
 }
 
-// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
 func (o ServiceIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServiceIdentity) []string {
 		if v == nil {

@@ -2524,7 +2524,7 @@ func (o LinuxVirtualMachinePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 }
 
 type LinuxVirtualMachineScaleSetAdditionalCapabilities struct {
-	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
 }
 
@@ -2540,7 +2540,7 @@ type LinuxVirtualMachineScaleSetAdditionalCapabilitiesInput interface {
 }
 
 type LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs struct {
-	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
 }
 
@@ -2621,7 +2621,7 @@ func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput) ToLinuxVirtualM
 	}).(LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput)
 }
 
-// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -2650,7 +2650,7 @@ func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) Elem() Linux
 	}).(LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput)
 }
 
-// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetAdditionalCapabilities) *bool {
 		if v == nil {
@@ -3226,6 +3226,8 @@ type LinuxVirtualMachineScaleSetDataDisk struct {
 	DiskSizeGb int `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 	Lun int `pulumi:"lun"`
+	// The name of the Data Disk.
+	Name *string `pulumi:"name"`
 	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
 	StorageAccountType        string `pulumi:"storageAccountType"`
 	UltraSsdDiskIopsReadWrite *int   `pulumi:"ultraSsdDiskIopsReadWrite"`
@@ -3256,6 +3258,8 @@ type LinuxVirtualMachineScaleSetDataDiskArgs struct {
 	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 	Lun pulumi.IntInput `pulumi:"lun"`
+	// The name of the Data Disk.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
 	StorageAccountType        pulumi.StringInput `pulumi:"storageAccountType"`
 	UltraSsdDiskIopsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskIopsReadWrite"`
@@ -3338,6 +3342,11 @@ func (o LinuxVirtualMachineScaleSetDataDiskOutput) DiskSizeGb() pulumi.IntOutput
 // The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 func (o LinuxVirtualMachineScaleSetDataDiskOutput) Lun() pulumi.IntOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) int { return v.Lun }).(pulumi.IntOutput)
+}
+
+// The name of the Data Disk.
+func (o LinuxVirtualMachineScaleSetDataDiskOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
@@ -3554,6 +3563,130 @@ func (o LinuxVirtualMachineScaleSetExtensionArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSetExtension {
 		return vs[0].([]LinuxVirtualMachineScaleSetExtension)[vs[1].(int)]
 	}).(LinuxVirtualMachineScaleSetExtensionOutput)
+}
+
+type LinuxVirtualMachineScaleSetGalleryApplication struct {
+	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+	ConfigurationReferenceBlobUri *string `pulumi:"configurationReferenceBlobUri"`
+	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
+	Order *int `pulumi:"order"`
+	// Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+	PackageReferenceId string `pulumi:"packageReferenceId"`
+	// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+	Tag *string `pulumi:"tag"`
+}
+
+// LinuxVirtualMachineScaleSetGalleryApplicationInput is an input type that accepts LinuxVirtualMachineScaleSetGalleryApplicationArgs and LinuxVirtualMachineScaleSetGalleryApplicationOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineScaleSetGalleryApplicationInput` via:
+//
+//	LinuxVirtualMachineScaleSetGalleryApplicationArgs{...}
+type LinuxVirtualMachineScaleSetGalleryApplicationInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetGalleryApplicationOutput() LinuxVirtualMachineScaleSetGalleryApplicationOutput
+	ToLinuxVirtualMachineScaleSetGalleryApplicationOutputWithContext(context.Context) LinuxVirtualMachineScaleSetGalleryApplicationOutput
+}
+
+type LinuxVirtualMachineScaleSetGalleryApplicationArgs struct {
+	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+	ConfigurationReferenceBlobUri pulumi.StringPtrInput `pulumi:"configurationReferenceBlobUri"`
+	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
+	Order pulumi.IntPtrInput `pulumi:"order"`
+	// Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+	PackageReferenceId pulumi.StringInput `pulumi:"packageReferenceId"`
+	// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+	Tag pulumi.StringPtrInput `pulumi:"tag"`
+}
+
+func (LinuxVirtualMachineScaleSetGalleryApplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetGalleryApplication)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetGalleryApplicationArgs) ToLinuxVirtualMachineScaleSetGalleryApplicationOutput() LinuxVirtualMachineScaleSetGalleryApplicationOutput {
+	return i.ToLinuxVirtualMachineScaleSetGalleryApplicationOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetGalleryApplicationArgs) ToLinuxVirtualMachineScaleSetGalleryApplicationOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetGalleryApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetGalleryApplicationOutput)
+}
+
+// LinuxVirtualMachineScaleSetGalleryApplicationArrayInput is an input type that accepts LinuxVirtualMachineScaleSetGalleryApplicationArray and LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineScaleSetGalleryApplicationArrayInput` via:
+//
+//	LinuxVirtualMachineScaleSetGalleryApplicationArray{ LinuxVirtualMachineScaleSetGalleryApplicationArgs{...} }
+type LinuxVirtualMachineScaleSetGalleryApplicationArrayInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetGalleryApplicationArrayOutput() LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput
+	ToLinuxVirtualMachineScaleSetGalleryApplicationArrayOutputWithContext(context.Context) LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput
+}
+
+type LinuxVirtualMachineScaleSetGalleryApplicationArray []LinuxVirtualMachineScaleSetGalleryApplicationInput
+
+func (LinuxVirtualMachineScaleSetGalleryApplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetGalleryApplication)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetGalleryApplicationArray) ToLinuxVirtualMachineScaleSetGalleryApplicationArrayOutput() LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput {
+	return i.ToLinuxVirtualMachineScaleSetGalleryApplicationArrayOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetGalleryApplicationArray) ToLinuxVirtualMachineScaleSetGalleryApplicationArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput)
+}
+
+type LinuxVirtualMachineScaleSetGalleryApplicationOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetGalleryApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetGalleryApplication)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) ToLinuxVirtualMachineScaleSetGalleryApplicationOutput() LinuxVirtualMachineScaleSetGalleryApplicationOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) ToLinuxVirtualMachineScaleSetGalleryApplicationOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetGalleryApplicationOutput {
+	return o
+}
+
+// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) ConfigurationReferenceBlobUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) *string { return v.ConfigurationReferenceBlobUri }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) Order() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) *int { return v.Order }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) PackageReferenceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) string { return v.PackageReferenceId }).(pulumi.StringOutput)
+}
+
+// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineScaleSetGalleryApplicationOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetGalleryApplication) *string { return v.Tag }).(pulumi.StringPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineScaleSetGalleryApplication)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput) ToLinuxVirtualMachineScaleSetGalleryApplicationArrayOutput() LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput) ToLinuxVirtualMachineScaleSetGalleryApplicationArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineScaleSetGalleryApplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineScaleSetGalleryApplication {
+		return vs[0].([]LinuxVirtualMachineScaleSetGalleryApplication)[vs[1].(int)]
+	}).(LinuxVirtualMachineScaleSetGalleryApplicationOutput)
 }
 
 type LinuxVirtualMachineScaleSetIdentity struct {
@@ -4093,6 +4226,8 @@ type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress s
 	Name string `pulumi:"name"`
 	// The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
 	PublicIpPrefixId *string `pulumi:"publicIpPrefixId"`
+	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	Version *string `pulumi:"version"`
 }
 
 // LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput is an input type that accepts LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs and LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput values.
@@ -4117,6 +4252,8 @@ type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressAr
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
 	PublicIpPrefixId pulumi.StringPtrInput `pulumi:"publicIpPrefixId"`
+	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs) ElementType() reflect.Type {
@@ -4202,6 +4339,13 @@ func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
 func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) PublicIpPrefixId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
 		return v.PublicIpPrefixId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+func (o LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
+		return v.Version
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4939,6 +5083,8 @@ func (o LinuxVirtualMachineScaleSetPlanPtrOutput) Publisher() pulumi.StringPtrOu
 }
 
 type LinuxVirtualMachineScaleSetRollingUpgradePolicy struct {
+	// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+	CrossZoneUpgradesEnabled *bool `pulumi:"crossZoneUpgradesEnabled"`
 	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
 	MaxBatchInstancePercent int `pulumi:"maxBatchInstancePercent"`
 	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
@@ -4947,6 +5093,8 @@ type LinuxVirtualMachineScaleSetRollingUpgradePolicy struct {
 	MaxUnhealthyUpgradedInstancePercent int `pulumi:"maxUnhealthyUpgradedInstancePercent"`
 	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 	PauseTimeBetweenBatches string `pulumi:"pauseTimeBetweenBatches"`
+	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+	PrioritizeUnhealthyInstancesEnabled *bool `pulumi:"prioritizeUnhealthyInstancesEnabled"`
 }
 
 // LinuxVirtualMachineScaleSetRollingUpgradePolicyInput is an input type that accepts LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs and LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput values.
@@ -4961,6 +5109,8 @@ type LinuxVirtualMachineScaleSetRollingUpgradePolicyInput interface {
 }
 
 type LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs struct {
+	// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+	CrossZoneUpgradesEnabled pulumi.BoolPtrInput `pulumi:"crossZoneUpgradesEnabled"`
 	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
 	MaxBatchInstancePercent pulumi.IntInput `pulumi:"maxBatchInstancePercent"`
 	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
@@ -4969,6 +5119,8 @@ type LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs struct {
 	MaxUnhealthyUpgradedInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyUpgradedInstancePercent"`
 	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 	PauseTimeBetweenBatches pulumi.StringInput `pulumi:"pauseTimeBetweenBatches"`
+	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+	PrioritizeUnhealthyInstancesEnabled pulumi.BoolPtrInput `pulumi:"prioritizeUnhealthyInstancesEnabled"`
 }
 
 func (LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs) ElementType() reflect.Type {
@@ -5048,6 +5200,11 @@ func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) ToLinuxVirtualMac
 	}).(LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput)
 }
 
+// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) CrossZoneUpgradesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) *bool { return v.CrossZoneUpgradesEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxBatchInstancePercent() pulumi.IntOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxBatchInstancePercent }).(pulumi.IntOutput)
@@ -5068,6 +5225,13 @@ func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxUnhealthyUpgra
 // The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) PauseTimeBetweenBatches() pulumi.StringOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) string { return v.PauseTimeBetweenBatches }).(pulumi.StringOutput)
+}
+
+// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput) PrioritizeUnhealthyInstancesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetRollingUpgradePolicy) *bool {
+		return v.PrioritizeUnhealthyInstancesEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput struct{ *pulumi.OutputState }
@@ -5092,6 +5256,16 @@ func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) Elem() LinuxVi
 		var ret LinuxVirtualMachineScaleSetRollingUpgradePolicy
 		return ret
 	}).(LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput)
+}
+
+// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) CrossZoneUpgradesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetRollingUpgradePolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CrossZoneUpgradesEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
@@ -5131,6 +5305,172 @@ func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) PauseTimeBetwe
 			return nil
 		}
 		return &v.PauseTimeBetweenBatches
+	}).(pulumi.StringPtrOutput)
+}
+
+// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+func (o LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) PrioritizeUnhealthyInstancesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetRollingUpgradePolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PrioritizeUnhealthyInstancesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetScaleIn struct {
+	// Should the virtual machines chosen for removal be force deleted when the virtual machine scale set is being scaled-in? Possible values are `true` or `false`. Defaults to `false`.
+	ForceDeletionEnabled *bool `pulumi:"forceDeletionEnabled"`
+	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	Rule *string `pulumi:"rule"`
+}
+
+// LinuxVirtualMachineScaleSetScaleInInput is an input type that accepts LinuxVirtualMachineScaleSetScaleInArgs and LinuxVirtualMachineScaleSetScaleInOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineScaleSetScaleInInput` via:
+//
+//	LinuxVirtualMachineScaleSetScaleInArgs{...}
+type LinuxVirtualMachineScaleSetScaleInInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetScaleInOutput() LinuxVirtualMachineScaleSetScaleInOutput
+	ToLinuxVirtualMachineScaleSetScaleInOutputWithContext(context.Context) LinuxVirtualMachineScaleSetScaleInOutput
+}
+
+type LinuxVirtualMachineScaleSetScaleInArgs struct {
+	// Should the virtual machines chosen for removal be force deleted when the virtual machine scale set is being scaled-in? Possible values are `true` or `false`. Defaults to `false`.
+	ForceDeletionEnabled pulumi.BoolPtrInput `pulumi:"forceDeletionEnabled"`
+	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	Rule pulumi.StringPtrInput `pulumi:"rule"`
+}
+
+func (LinuxVirtualMachineScaleSetScaleInArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetScaleIn)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetScaleInArgs) ToLinuxVirtualMachineScaleSetScaleInOutput() LinuxVirtualMachineScaleSetScaleInOutput {
+	return i.ToLinuxVirtualMachineScaleSetScaleInOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetScaleInArgs) ToLinuxVirtualMachineScaleSetScaleInOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetScaleInOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetScaleInOutput)
+}
+
+func (i LinuxVirtualMachineScaleSetScaleInArgs) ToLinuxVirtualMachineScaleSetScaleInPtrOutput() LinuxVirtualMachineScaleSetScaleInPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetScaleInPtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetScaleInArgs) ToLinuxVirtualMachineScaleSetScaleInPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetScaleInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetScaleInOutput).ToLinuxVirtualMachineScaleSetScaleInPtrOutputWithContext(ctx)
+}
+
+// LinuxVirtualMachineScaleSetScaleInPtrInput is an input type that accepts LinuxVirtualMachineScaleSetScaleInArgs, LinuxVirtualMachineScaleSetScaleInPtr and LinuxVirtualMachineScaleSetScaleInPtrOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineScaleSetScaleInPtrInput` via:
+//
+//	        LinuxVirtualMachineScaleSetScaleInArgs{...}
+//
+//	or:
+//
+//	        nil
+type LinuxVirtualMachineScaleSetScaleInPtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetScaleInPtrOutput() LinuxVirtualMachineScaleSetScaleInPtrOutput
+	ToLinuxVirtualMachineScaleSetScaleInPtrOutputWithContext(context.Context) LinuxVirtualMachineScaleSetScaleInPtrOutput
+}
+
+type linuxVirtualMachineScaleSetScaleInPtrType LinuxVirtualMachineScaleSetScaleInArgs
+
+func LinuxVirtualMachineScaleSetScaleInPtr(v *LinuxVirtualMachineScaleSetScaleInArgs) LinuxVirtualMachineScaleSetScaleInPtrInput {
+	return (*linuxVirtualMachineScaleSetScaleInPtrType)(v)
+}
+
+func (*linuxVirtualMachineScaleSetScaleInPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetScaleIn)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineScaleSetScaleInPtrType) ToLinuxVirtualMachineScaleSetScaleInPtrOutput() LinuxVirtualMachineScaleSetScaleInPtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetScaleInPtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineScaleSetScaleInPtrType) ToLinuxVirtualMachineScaleSetScaleInPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetScaleInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetScaleInPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetScaleInOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetScaleInOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetScaleIn)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetScaleInOutput) ToLinuxVirtualMachineScaleSetScaleInOutput() LinuxVirtualMachineScaleSetScaleInOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetScaleInOutput) ToLinuxVirtualMachineScaleSetScaleInOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetScaleInOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetScaleInOutput) ToLinuxVirtualMachineScaleSetScaleInPtrOutput() LinuxVirtualMachineScaleSetScaleInPtrOutput {
+	return o.ToLinuxVirtualMachineScaleSetScaleInPtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineScaleSetScaleInOutput) ToLinuxVirtualMachineScaleSetScaleInPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetScaleInPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineScaleSetScaleIn) *LinuxVirtualMachineScaleSetScaleIn {
+		return &v
+	}).(LinuxVirtualMachineScaleSetScaleInPtrOutput)
+}
+
+// Should the virtual machines chosen for removal be force deleted when the virtual machine scale set is being scaled-in? Possible values are `true` or `false`. Defaults to `false`.
+func (o LinuxVirtualMachineScaleSetScaleInOutput) ForceDeletionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetScaleIn) *bool { return v.ForceDeletionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+func (o LinuxVirtualMachineScaleSetScaleInOutput) Rule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetScaleIn) *string { return v.Rule }).(pulumi.StringPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetScaleInPtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetScaleInPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetScaleIn)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetScaleInPtrOutput) ToLinuxVirtualMachineScaleSetScaleInPtrOutput() LinuxVirtualMachineScaleSetScaleInPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetScaleInPtrOutput) ToLinuxVirtualMachineScaleSetScaleInPtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetScaleInPtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetScaleInPtrOutput) Elem() LinuxVirtualMachineScaleSetScaleInOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetScaleIn) LinuxVirtualMachineScaleSetScaleIn {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineScaleSetScaleIn
+		return ret
+	}).(LinuxVirtualMachineScaleSetScaleInOutput)
+}
+
+// Should the virtual machines chosen for removal be force deleted when the virtual machine scale set is being scaled-in? Possible values are `true` or `false`. Defaults to `false`.
+func (o LinuxVirtualMachineScaleSetScaleInPtrOutput) ForceDeletionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetScaleIn) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ForceDeletionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+func (o LinuxVirtualMachineScaleSetScaleInPtrOutput) Rule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetScaleIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Rule
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5530,6 +5870,162 @@ func (o LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput) Version() pulu
 			return nil
 		}
 		return &v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetSpotRestore struct {
+	// Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+	Enabled *bool `pulumi:"enabled"`
+	// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+	Timeout *string `pulumi:"timeout"`
+}
+
+// LinuxVirtualMachineScaleSetSpotRestoreInput is an input type that accepts LinuxVirtualMachineScaleSetSpotRestoreArgs and LinuxVirtualMachineScaleSetSpotRestoreOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineScaleSetSpotRestoreInput` via:
+//
+//	LinuxVirtualMachineScaleSetSpotRestoreArgs{...}
+type LinuxVirtualMachineScaleSetSpotRestoreInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetSpotRestoreOutput() LinuxVirtualMachineScaleSetSpotRestoreOutput
+	ToLinuxVirtualMachineScaleSetSpotRestoreOutputWithContext(context.Context) LinuxVirtualMachineScaleSetSpotRestoreOutput
+}
+
+type LinuxVirtualMachineScaleSetSpotRestoreArgs struct {
+	// Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
+}
+
+func (LinuxVirtualMachineScaleSetSpotRestoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetSpotRestore)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineScaleSetSpotRestoreArgs) ToLinuxVirtualMachineScaleSetSpotRestoreOutput() LinuxVirtualMachineScaleSetSpotRestoreOutput {
+	return i.ToLinuxVirtualMachineScaleSetSpotRestoreOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetSpotRestoreArgs) ToLinuxVirtualMachineScaleSetSpotRestoreOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetSpotRestoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetSpotRestoreOutput)
+}
+
+func (i LinuxVirtualMachineScaleSetSpotRestoreArgs) ToLinuxVirtualMachineScaleSetSpotRestorePtrOutput() LinuxVirtualMachineScaleSetSpotRestorePtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetSpotRestorePtrOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineScaleSetSpotRestoreArgs) ToLinuxVirtualMachineScaleSetSpotRestorePtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetSpotRestorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetSpotRestoreOutput).ToLinuxVirtualMachineScaleSetSpotRestorePtrOutputWithContext(ctx)
+}
+
+// LinuxVirtualMachineScaleSetSpotRestorePtrInput is an input type that accepts LinuxVirtualMachineScaleSetSpotRestoreArgs, LinuxVirtualMachineScaleSetSpotRestorePtr and LinuxVirtualMachineScaleSetSpotRestorePtrOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineScaleSetSpotRestorePtrInput` via:
+//
+//	        LinuxVirtualMachineScaleSetSpotRestoreArgs{...}
+//
+//	or:
+//
+//	        nil
+type LinuxVirtualMachineScaleSetSpotRestorePtrInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineScaleSetSpotRestorePtrOutput() LinuxVirtualMachineScaleSetSpotRestorePtrOutput
+	ToLinuxVirtualMachineScaleSetSpotRestorePtrOutputWithContext(context.Context) LinuxVirtualMachineScaleSetSpotRestorePtrOutput
+}
+
+type linuxVirtualMachineScaleSetSpotRestorePtrType LinuxVirtualMachineScaleSetSpotRestoreArgs
+
+func LinuxVirtualMachineScaleSetSpotRestorePtr(v *LinuxVirtualMachineScaleSetSpotRestoreArgs) LinuxVirtualMachineScaleSetSpotRestorePtrInput {
+	return (*linuxVirtualMachineScaleSetSpotRestorePtrType)(v)
+}
+
+func (*linuxVirtualMachineScaleSetSpotRestorePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetSpotRestore)(nil)).Elem()
+}
+
+func (i *linuxVirtualMachineScaleSetSpotRestorePtrType) ToLinuxVirtualMachineScaleSetSpotRestorePtrOutput() LinuxVirtualMachineScaleSetSpotRestorePtrOutput {
+	return i.ToLinuxVirtualMachineScaleSetSpotRestorePtrOutputWithContext(context.Background())
+}
+
+func (i *linuxVirtualMachineScaleSetSpotRestorePtrType) ToLinuxVirtualMachineScaleSetSpotRestorePtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetSpotRestorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineScaleSetSpotRestorePtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetSpotRestoreOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetSpotRestoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineScaleSetSpotRestore)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetSpotRestoreOutput) ToLinuxVirtualMachineScaleSetSpotRestoreOutput() LinuxVirtualMachineScaleSetSpotRestoreOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetSpotRestoreOutput) ToLinuxVirtualMachineScaleSetSpotRestoreOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetSpotRestoreOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetSpotRestoreOutput) ToLinuxVirtualMachineScaleSetSpotRestorePtrOutput() LinuxVirtualMachineScaleSetSpotRestorePtrOutput {
+	return o.ToLinuxVirtualMachineScaleSetSpotRestorePtrOutputWithContext(context.Background())
+}
+
+func (o LinuxVirtualMachineScaleSetSpotRestoreOutput) ToLinuxVirtualMachineScaleSetSpotRestorePtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetSpotRestorePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinuxVirtualMachineScaleSetSpotRestore) *LinuxVirtualMachineScaleSetSpotRestore {
+		return &v
+	}).(LinuxVirtualMachineScaleSetSpotRestorePtrOutput)
+}
+
+// Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineScaleSetSpotRestoreOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSpotRestore) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineScaleSetSpotRestoreOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetSpotRestore) *string { return v.Timeout }).(pulumi.StringPtrOutput)
+}
+
+type LinuxVirtualMachineScaleSetSpotRestorePtrOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineScaleSetSpotRestorePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LinuxVirtualMachineScaleSetSpotRestore)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineScaleSetSpotRestorePtrOutput) ToLinuxVirtualMachineScaleSetSpotRestorePtrOutput() LinuxVirtualMachineScaleSetSpotRestorePtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetSpotRestorePtrOutput) ToLinuxVirtualMachineScaleSetSpotRestorePtrOutputWithContext(ctx context.Context) LinuxVirtualMachineScaleSetSpotRestorePtrOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineScaleSetSpotRestorePtrOutput) Elem() LinuxVirtualMachineScaleSetSpotRestoreOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetSpotRestore) LinuxVirtualMachineScaleSetSpotRestore {
+		if v != nil {
+			return *v
+		}
+		var ret LinuxVirtualMachineScaleSetSpotRestore
+		return ret
+	}).(LinuxVirtualMachineScaleSetSpotRestoreOutput)
+}
+
+// Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineScaleSetSpotRestorePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetSpotRestore) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+func (o LinuxVirtualMachineScaleSetSpotRestorePtrOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSetSpotRestore) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6889,6 +7385,143 @@ func (o ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput) SourceVaultId() 
 	}).(pulumi.StringPtrOutput)
 }
 
+type OrchestratedVirtualMachineScaleSetAdditionalCapabilities struct {
+	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Orchestrated Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
+}
+
+// OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesInput is an input type that accepts OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs and OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesInput` via:
+//
+//	OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs{...}
+type OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput() OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput
+	ToOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput
+}
+
+type OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs struct {
+	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Orchestrated Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
+}
+
+func (OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetAdditionalCapabilities)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs) ToOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput() OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs) ToOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput)
+}
+
+func (i OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs) ToOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput() OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs) ToOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput).ToOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(ctx)
+}
+
+// OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs, OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtr and OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrInput` via:
+//
+//	        OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput() OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput
+	ToOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput
+}
+
+type orchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrType OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs
+
+func OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtr(v *OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs) OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrInput {
+	return (*orchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrType)(v)
+}
+
+func (*orchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetAdditionalCapabilities)(nil)).Elem()
+}
+
+func (i *orchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrType) ToOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput() OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *orchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrType) ToOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetAdditionalCapabilities)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput) ToOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput() OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput) ToOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput) ToOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput() OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return o.ToOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (o OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput) ToOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrchestratedVirtualMachineScaleSetAdditionalCapabilities) *OrchestratedVirtualMachineScaleSetAdditionalCapabilities {
+		return &v
+	}).(OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput)
+}
+
+// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Orchestrated Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+func (o OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrchestratedVirtualMachineScaleSetAdditionalCapabilities)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) ToOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput() OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) ToOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) Elem() OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetAdditionalCapabilities) OrchestratedVirtualMachineScaleSetAdditionalCapabilities {
+		if v != nil {
+			return *v
+		}
+		var ret OrchestratedVirtualMachineScaleSetAdditionalCapabilities
+		return ret
+	}).(OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput)
+}
+
+// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Orchestrated Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+func (o OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetAdditionalCapabilities) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UltraSsdEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair struct {
 	Enabled     bool    `pulumi:"enabled"`
 	GracePeriod *string `pulumi:"gracePeriod"`
@@ -7316,7 +7949,9 @@ type OrchestratedVirtualMachineScaleSetExtension struct {
 	AutoUpgradeMinorVersionEnabled *bool `pulumi:"autoUpgradeMinorVersionEnabled"`
 	// An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
 	ExtensionsToProvisionAfterVmCreations []string `pulumi:"extensionsToProvisionAfterVmCreations"`
-	ForceExtensionExecutionOnChange       *string  `pulumi:"forceExtensionExecutionOnChange"`
+	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	FailureSuppressionEnabled       *bool   `pulumi:"failureSuppressionEnabled"`
+	ForceExtensionExecutionOnChange *string `pulumi:"forceExtensionExecutionOnChange"`
 	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	Name               string  `pulumi:"name"`
 	ProtectedSettings  *string `pulumi:"protectedSettings"`
@@ -7341,7 +7976,9 @@ type OrchestratedVirtualMachineScaleSetExtensionArgs struct {
 	AutoUpgradeMinorVersionEnabled pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersionEnabled"`
 	// An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
 	ExtensionsToProvisionAfterVmCreations pulumi.StringArrayInput `pulumi:"extensionsToProvisionAfterVmCreations"`
-	ForceExtensionExecutionOnChange       pulumi.StringPtrInput   `pulumi:"forceExtensionExecutionOnChange"`
+	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	FailureSuppressionEnabled       pulumi.BoolPtrInput   `pulumi:"failureSuppressionEnabled"`
+	ForceExtensionExecutionOnChange pulumi.StringPtrInput `pulumi:"forceExtensionExecutionOnChange"`
 	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	Name               pulumi.StringInput    `pulumi:"name"`
 	ProtectedSettings  pulumi.StringPtrInput `pulumi:"protectedSettings"`
@@ -7411,6 +8048,11 @@ func (o OrchestratedVirtualMachineScaleSetExtensionOutput) ExtensionsToProvision
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) []string {
 		return v.ExtensionsToProvisionAfterVmCreations
 	}).(pulumi.StringArrayOutput)
+}
+
+// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+func (o OrchestratedVirtualMachineScaleSetExtensionOutput) FailureSuppressionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) *bool { return v.FailureSuppressionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 func (o OrchestratedVirtualMachineScaleSetExtensionOutput) ForceExtensionExecutionOnChange() pulumi.StringPtrOutput {
@@ -7754,7 +8396,8 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
 	Primary           *bool                                                                              `pulumi:"primary"`
 	PublicIpAddresses []OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress `pulumi:"publicIpAddresses"`
 	SubnetId          *string                                                                            `pulumi:"subnetId"`
-	Version           *string                                                                            `pulumi:"version"`
+	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	Version *string `pulumi:"version"`
 }
 
 // OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput is an input type that accepts OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs and OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput values.
@@ -7777,7 +8420,8 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs struc
 	Primary           pulumi.BoolPtrInput                                                                        `pulumi:"primary"`
 	PublicIpAddresses OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput `pulumi:"publicIpAddresses"`
 	SubnetId          pulumi.StringPtrInput                                                                      `pulumi:"subnetId"`
-	Version           pulumi.StringPtrInput                                                                      `pulumi:"version"`
+	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs) ElementType() reflect.Type {
@@ -7868,6 +8512,7 @@ func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput)
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
+// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -7899,6 +8544,10 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAd
 	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	Name             string  `pulumi:"name"`
 	PublicIpPrefixId *string `pulumi:"publicIpPrefixId"`
+	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+	SkuName *string `pulumi:"skuName"`
+	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	Version *string `pulumi:"version"`
 }
 
 // OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput is an input type that accepts OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs and OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput values.
@@ -7919,6 +8568,10 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAd
 	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	Name             pulumi.StringInput    `pulumi:"name"`
 	PublicIpPrefixId pulumi.StringPtrInput `pulumi:"publicIpPrefixId"`
+	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+	SkuName pulumi.StringPtrInput `pulumi:"skuName"`
+	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs) ElementType() reflect.Type {
@@ -8000,6 +8653,20 @@ func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicI
 func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) PublicIpPrefixId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
 		return v.PublicIpPrefixId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) SkuName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
+		return v.SkuName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
+		return v.Version
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8667,6 +9334,8 @@ type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration struct {
 	ComputerNamePrefix *string                                                                    `pulumi:"computerNamePrefix"`
 	// When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`. Defaults to `true`.
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
+	// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+	PatchAssessmentMode *string `pulumi:"patchAssessmentMode"`
 	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	PatchMode        *string                                                               `pulumi:"patchMode"`
 	ProvisionVmAgent *bool                                                                 `pulumi:"provisionVmAgent"`
@@ -8691,6 +9360,8 @@ type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs struct {
 	ComputerNamePrefix pulumi.StringPtrInput                                                              `pulumi:"computerNamePrefix"`
 	// When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`. Defaults to `true`.
 	DisablePasswordAuthentication pulumi.BoolPtrInput `pulumi:"disablePasswordAuthentication"`
+	// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+	PatchAssessmentMode pulumi.StringPtrInput `pulumi:"patchAssessmentMode"`
 	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	PatchMode        pulumi.StringPtrInput                                                         `pulumi:"patchMode"`
 	ProvisionVmAgent pulumi.BoolPtrInput                                                           `pulumi:"provisionVmAgent"`
@@ -8801,6 +9472,13 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) Dis
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) PatchAssessmentMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *string {
+		return v.PatchAssessmentMode
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) PatchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *string { return v.PatchMode }).(pulumi.StringPtrOutput)
@@ -8884,6 +9562,16 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) 
 		}
 		return v.DisablePasswordAuthentication
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) PatchAssessmentMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PatchAssessmentMode
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
@@ -9234,6 +9922,8 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration struct {
 	EnableAutomaticUpdates *bool   `pulumi:"enableAutomaticUpdates"`
 	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 	HotpatchingEnabled *bool `pulumi:"hotpatchingEnabled"`
+	// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+	PatchAssessmentMode *string `pulumi:"patchAssessmentMode"`
 	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	PatchMode        *string                                                                        `pulumi:"patchMode"`
 	ProvisionVmAgent *bool                                                                          `pulumi:"provisionVmAgent"`
@@ -9260,6 +9950,8 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs struct 
 	EnableAutomaticUpdates pulumi.BoolPtrInput   `pulumi:"enableAutomaticUpdates"`
 	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 	HotpatchingEnabled pulumi.BoolPtrInput `pulumi:"hotpatchingEnabled"`
+	// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+	PatchAssessmentMode pulumi.StringPtrInput `pulumi:"patchAssessmentMode"`
 	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	PatchMode        pulumi.StringPtrInput                                                                  `pulumi:"patchMode"`
 	ProvisionVmAgent pulumi.BoolPtrInput                                                                    `pulumi:"provisionVmAgent"`
@@ -9372,6 +10064,13 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) H
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) PatchAssessmentMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *string {
+		return v.PatchAssessmentMode
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) PatchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *string { return v.PatchMode }).(pulumi.StringPtrOutput)
@@ -9467,6 +10166,16 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput
 		}
 		return v.HotpatchingEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) PatchAssessmentMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PatchAssessmentMode
+	}).(pulumi.StringPtrOutput)
 }
 
 // Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
@@ -10001,7 +10710,8 @@ type OrchestratedVirtualMachineScaleSetSourceImageReference struct {
 	Offer     string `pulumi:"offer"`
 	Publisher string `pulumi:"publisher"`
 	Sku       string `pulumi:"sku"`
-	Version   string `pulumi:"version"`
+	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	Version string `pulumi:"version"`
 }
 
 // OrchestratedVirtualMachineScaleSetSourceImageReferenceInput is an input type that accepts OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs and OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput values.
@@ -10019,7 +10729,8 @@ type OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs struct {
 	Offer     pulumi.StringInput `pulumi:"offer"`
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 	Sku       pulumi.StringInput `pulumi:"sku"`
-	Version   pulumi.StringInput `pulumi:"version"`
+	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	Version pulumi.StringInput `pulumi:"version"`
 }
 
 func (OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs) ElementType() reflect.Type {
@@ -10111,6 +10822,7 @@ func (o OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput) Sku() pulu
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
 }
 
+// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 func (o OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -10166,6 +10878,7 @@ func (o OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput) Sku() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 func (o OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetSourceImageReference) *string {
 		if v == nil {
@@ -18258,7 +18971,7 @@ func (o WindowsVirtualMachinePlanPtrOutput) Publisher() pulumi.StringPtrOutput {
 }
 
 type WindowsVirtualMachineScaleSetAdditionalCapabilities struct {
-	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	UltraSsdEnabled *bool `pulumi:"ultraSsdEnabled"`
 }
 
@@ -18274,7 +18987,7 @@ type WindowsVirtualMachineScaleSetAdditionalCapabilitiesInput interface {
 }
 
 type WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs struct {
-	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+	// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 	UltraSsdEnabled pulumi.BoolPtrInput `pulumi:"ultraSsdEnabled"`
 }
 
@@ -18355,7 +19068,7 @@ func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput) ToWindowsVirt
 	}).(WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput)
 }
 
-// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetAdditionalCapabilities) *bool { return v.UltraSsdEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -18384,7 +19097,7 @@ func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) Elem() Win
 	}).(WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput)
 }
 
-// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) UltraSsdEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetAdditionalCapabilities) *bool {
 		if v == nil {
@@ -18960,6 +19673,8 @@ type WindowsVirtualMachineScaleSetDataDisk struct {
 	DiskSizeGb int `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 	Lun int `pulumi:"lun"`
+	// The name of the Data Disk.
+	Name *string `pulumi:"name"`
 	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
 	StorageAccountType        string `pulumi:"storageAccountType"`
 	UltraSsdDiskIopsReadWrite *int   `pulumi:"ultraSsdDiskIopsReadWrite"`
@@ -18990,6 +19705,8 @@ type WindowsVirtualMachineScaleSetDataDiskArgs struct {
 	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 	Lun pulumi.IntInput `pulumi:"lun"`
+	// The name of the Data Disk.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
 	StorageAccountType        pulumi.StringInput `pulumi:"storageAccountType"`
 	UltraSsdDiskIopsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskIopsReadWrite"`
@@ -19072,6 +19789,11 @@ func (o WindowsVirtualMachineScaleSetDataDiskOutput) DiskSizeGb() pulumi.IntOutp
 // The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 func (o WindowsVirtualMachineScaleSetDataDiskOutput) Lun() pulumi.IntOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) int { return v.Lun }).(pulumi.IntOutput)
+}
+
+// The name of the Data Disk.
+func (o WindowsVirtualMachineScaleSetDataDiskOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
@@ -19288,6 +20010,132 @@ func (o WindowsVirtualMachineScaleSetExtensionArrayOutput) Index(i pulumi.IntInp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetExtension {
 		return vs[0].([]WindowsVirtualMachineScaleSetExtension)[vs[1].(int)]
 	}).(WindowsVirtualMachineScaleSetExtensionOutput)
+}
+
+type WindowsVirtualMachineScaleSetGalleryApplication struct {
+	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+	ConfigurationReferenceBlobUri *string `pulumi:"configurationReferenceBlobUri"`
+	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
+	Order *int `pulumi:"order"`
+	// Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+	PackageReferenceId string `pulumi:"packageReferenceId"`
+	// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+	Tag *string `pulumi:"tag"`
+}
+
+// WindowsVirtualMachineScaleSetGalleryApplicationInput is an input type that accepts WindowsVirtualMachineScaleSetGalleryApplicationArgs and WindowsVirtualMachineScaleSetGalleryApplicationOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineScaleSetGalleryApplicationInput` via:
+//
+//	WindowsVirtualMachineScaleSetGalleryApplicationArgs{...}
+type WindowsVirtualMachineScaleSetGalleryApplicationInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetGalleryApplicationOutput() WindowsVirtualMachineScaleSetGalleryApplicationOutput
+	ToWindowsVirtualMachineScaleSetGalleryApplicationOutputWithContext(context.Context) WindowsVirtualMachineScaleSetGalleryApplicationOutput
+}
+
+type WindowsVirtualMachineScaleSetGalleryApplicationArgs struct {
+	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+	ConfigurationReferenceBlobUri pulumi.StringPtrInput `pulumi:"configurationReferenceBlobUri"`
+	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
+	Order pulumi.IntPtrInput `pulumi:"order"`
+	// Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+	PackageReferenceId pulumi.StringInput `pulumi:"packageReferenceId"`
+	// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+	Tag pulumi.StringPtrInput `pulumi:"tag"`
+}
+
+func (WindowsVirtualMachineScaleSetGalleryApplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetGalleryApplication)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetGalleryApplicationArgs) ToWindowsVirtualMachineScaleSetGalleryApplicationOutput() WindowsVirtualMachineScaleSetGalleryApplicationOutput {
+	return i.ToWindowsVirtualMachineScaleSetGalleryApplicationOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetGalleryApplicationArgs) ToWindowsVirtualMachineScaleSetGalleryApplicationOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetGalleryApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetGalleryApplicationOutput)
+}
+
+// WindowsVirtualMachineScaleSetGalleryApplicationArrayInput is an input type that accepts WindowsVirtualMachineScaleSetGalleryApplicationArray and WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineScaleSetGalleryApplicationArrayInput` via:
+//
+//	WindowsVirtualMachineScaleSetGalleryApplicationArray{ WindowsVirtualMachineScaleSetGalleryApplicationArgs{...} }
+type WindowsVirtualMachineScaleSetGalleryApplicationArrayInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetGalleryApplicationArrayOutput() WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput
+	ToWindowsVirtualMachineScaleSetGalleryApplicationArrayOutputWithContext(context.Context) WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput
+}
+
+type WindowsVirtualMachineScaleSetGalleryApplicationArray []WindowsVirtualMachineScaleSetGalleryApplicationInput
+
+func (WindowsVirtualMachineScaleSetGalleryApplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetGalleryApplication)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetGalleryApplicationArray) ToWindowsVirtualMachineScaleSetGalleryApplicationArrayOutput() WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput {
+	return i.ToWindowsVirtualMachineScaleSetGalleryApplicationArrayOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetGalleryApplicationArray) ToWindowsVirtualMachineScaleSetGalleryApplicationArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput)
+}
+
+type WindowsVirtualMachineScaleSetGalleryApplicationOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetGalleryApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetGalleryApplication)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) ToWindowsVirtualMachineScaleSetGalleryApplicationOutput() WindowsVirtualMachineScaleSetGalleryApplicationOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) ToWindowsVirtualMachineScaleSetGalleryApplicationOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetGalleryApplicationOutput {
+	return o
+}
+
+// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) ConfigurationReferenceBlobUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetGalleryApplication) *string {
+		return v.ConfigurationReferenceBlobUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) Order() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetGalleryApplication) *int { return v.Order }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) PackageReferenceId() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetGalleryApplication) string { return v.PackageReferenceId }).(pulumi.StringOutput)
+}
+
+// Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetGalleryApplicationOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetGalleryApplication) *string { return v.Tag }).(pulumi.StringPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineScaleSetGalleryApplication)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput) ToWindowsVirtualMachineScaleSetGalleryApplicationArrayOutput() WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput) ToWindowsVirtualMachineScaleSetGalleryApplicationArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineScaleSetGalleryApplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineScaleSetGalleryApplication {
+		return vs[0].([]WindowsVirtualMachineScaleSetGalleryApplication)[vs[1].(int)]
+	}).(WindowsVirtualMachineScaleSetGalleryApplicationOutput)
 }
 
 type WindowsVirtualMachineScaleSetIdentity struct {
@@ -19827,6 +20675,8 @@ type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress
 	Name string `pulumi:"name"`
 	// The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
 	PublicIpPrefixId *string `pulumi:"publicIpPrefixId"`
+	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	Version *string `pulumi:"version"`
 }
 
 // WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput is an input type that accepts WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs and WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput values.
@@ -19851,6 +20701,8 @@ type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
 	PublicIpPrefixId pulumi.StringPtrInput `pulumi:"publicIpPrefixId"`
+	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs) ElementType() reflect.Type {
@@ -19936,6 +20788,13 @@ func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddr
 func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) PublicIpPrefixId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
 		return v.PublicIpPrefixId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+func (o WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
+		return v.Version
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -20673,6 +21532,8 @@ func (o WindowsVirtualMachineScaleSetPlanPtrOutput) Publisher() pulumi.StringPtr
 }
 
 type WindowsVirtualMachineScaleSetRollingUpgradePolicy struct {
+	// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+	CrossZoneUpgradesEnabled *bool `pulumi:"crossZoneUpgradesEnabled"`
 	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
 	MaxBatchInstancePercent int `pulumi:"maxBatchInstancePercent"`
 	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
@@ -20681,6 +21542,8 @@ type WindowsVirtualMachineScaleSetRollingUpgradePolicy struct {
 	MaxUnhealthyUpgradedInstancePercent int `pulumi:"maxUnhealthyUpgradedInstancePercent"`
 	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 	PauseTimeBetweenBatches string `pulumi:"pauseTimeBetweenBatches"`
+	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+	PrioritizeUnhealthyInstancesEnabled *bool `pulumi:"prioritizeUnhealthyInstancesEnabled"`
 }
 
 // WindowsVirtualMachineScaleSetRollingUpgradePolicyInput is an input type that accepts WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs and WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput values.
@@ -20695,6 +21558,8 @@ type WindowsVirtualMachineScaleSetRollingUpgradePolicyInput interface {
 }
 
 type WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs struct {
+	// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+	CrossZoneUpgradesEnabled pulumi.BoolPtrInput `pulumi:"crossZoneUpgradesEnabled"`
 	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
 	MaxBatchInstancePercent pulumi.IntInput `pulumi:"maxBatchInstancePercent"`
 	// The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
@@ -20703,6 +21568,8 @@ type WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs struct {
 	MaxUnhealthyUpgradedInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyUpgradedInstancePercent"`
 	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 	PauseTimeBetweenBatches pulumi.StringInput `pulumi:"pauseTimeBetweenBatches"`
+	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+	PrioritizeUnhealthyInstancesEnabled pulumi.BoolPtrInput `pulumi:"prioritizeUnhealthyInstancesEnabled"`
 }
 
 func (WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs) ElementType() reflect.Type {
@@ -20782,6 +21649,11 @@ func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) ToWindowsVirtua
 	}).(WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput)
 }
 
+// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) CrossZoneUpgradesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) *bool { return v.CrossZoneUpgradesEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxBatchInstancePercent() pulumi.IntOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) int { return v.MaxBatchInstancePercent }).(pulumi.IntOutput)
@@ -20802,6 +21674,13 @@ func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxUnhealthyUpg
 // The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
 func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) PauseTimeBetweenBatches() pulumi.StringOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) string { return v.PauseTimeBetweenBatches }).(pulumi.StringOutput)
+}
+
+// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput) PrioritizeUnhealthyInstancesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetRollingUpgradePolicy) *bool {
+		return v.PrioritizeUnhealthyInstancesEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput struct{ *pulumi.OutputState }
@@ -20826,6 +21705,16 @@ func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) Elem() Windo
 		var ret WindowsVirtualMachineScaleSetRollingUpgradePolicy
 		return ret
 	}).(WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput)
+}
+
+// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) CrossZoneUpgradesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetRollingUpgradePolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CrossZoneUpgradesEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
@@ -20865,6 +21754,172 @@ func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) PauseTimeBet
 			return nil
 		}
 		return &v.PauseTimeBetweenBatches
+	}).(pulumi.StringPtrOutput)
+}
+
+// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+func (o WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) PrioritizeUnhealthyInstancesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetRollingUpgradePolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PrioritizeUnhealthyInstancesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetScaleIn struct {
+	// Should the virtual machines chosen for removal be force deleted when the virtual machine scale set is being scaled-in? Possible values are `true` or `false`. Defaults to `false`.
+	ForceDeletionEnabled *bool `pulumi:"forceDeletionEnabled"`
+	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	Rule *string `pulumi:"rule"`
+}
+
+// WindowsVirtualMachineScaleSetScaleInInput is an input type that accepts WindowsVirtualMachineScaleSetScaleInArgs and WindowsVirtualMachineScaleSetScaleInOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineScaleSetScaleInInput` via:
+//
+//	WindowsVirtualMachineScaleSetScaleInArgs{...}
+type WindowsVirtualMachineScaleSetScaleInInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetScaleInOutput() WindowsVirtualMachineScaleSetScaleInOutput
+	ToWindowsVirtualMachineScaleSetScaleInOutputWithContext(context.Context) WindowsVirtualMachineScaleSetScaleInOutput
+}
+
+type WindowsVirtualMachineScaleSetScaleInArgs struct {
+	// Should the virtual machines chosen for removal be force deleted when the virtual machine scale set is being scaled-in? Possible values are `true` or `false`. Defaults to `false`.
+	ForceDeletionEnabled pulumi.BoolPtrInput `pulumi:"forceDeletionEnabled"`
+	// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+	Rule pulumi.StringPtrInput `pulumi:"rule"`
+}
+
+func (WindowsVirtualMachineScaleSetScaleInArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetScaleIn)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetScaleInArgs) ToWindowsVirtualMachineScaleSetScaleInOutput() WindowsVirtualMachineScaleSetScaleInOutput {
+	return i.ToWindowsVirtualMachineScaleSetScaleInOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetScaleInArgs) ToWindowsVirtualMachineScaleSetScaleInOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetScaleInOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetScaleInOutput)
+}
+
+func (i WindowsVirtualMachineScaleSetScaleInArgs) ToWindowsVirtualMachineScaleSetScaleInPtrOutput() WindowsVirtualMachineScaleSetScaleInPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetScaleInPtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetScaleInArgs) ToWindowsVirtualMachineScaleSetScaleInPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetScaleInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetScaleInOutput).ToWindowsVirtualMachineScaleSetScaleInPtrOutputWithContext(ctx)
+}
+
+// WindowsVirtualMachineScaleSetScaleInPtrInput is an input type that accepts WindowsVirtualMachineScaleSetScaleInArgs, WindowsVirtualMachineScaleSetScaleInPtr and WindowsVirtualMachineScaleSetScaleInPtrOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineScaleSetScaleInPtrInput` via:
+//
+//	        WindowsVirtualMachineScaleSetScaleInArgs{...}
+//
+//	or:
+//
+//	        nil
+type WindowsVirtualMachineScaleSetScaleInPtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetScaleInPtrOutput() WindowsVirtualMachineScaleSetScaleInPtrOutput
+	ToWindowsVirtualMachineScaleSetScaleInPtrOutputWithContext(context.Context) WindowsVirtualMachineScaleSetScaleInPtrOutput
+}
+
+type windowsVirtualMachineScaleSetScaleInPtrType WindowsVirtualMachineScaleSetScaleInArgs
+
+func WindowsVirtualMachineScaleSetScaleInPtr(v *WindowsVirtualMachineScaleSetScaleInArgs) WindowsVirtualMachineScaleSetScaleInPtrInput {
+	return (*windowsVirtualMachineScaleSetScaleInPtrType)(v)
+}
+
+func (*windowsVirtualMachineScaleSetScaleInPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetScaleIn)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineScaleSetScaleInPtrType) ToWindowsVirtualMachineScaleSetScaleInPtrOutput() WindowsVirtualMachineScaleSetScaleInPtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetScaleInPtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineScaleSetScaleInPtrType) ToWindowsVirtualMachineScaleSetScaleInPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetScaleInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetScaleInPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetScaleInOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetScaleInOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetScaleIn)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetScaleInOutput) ToWindowsVirtualMachineScaleSetScaleInOutput() WindowsVirtualMachineScaleSetScaleInOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetScaleInOutput) ToWindowsVirtualMachineScaleSetScaleInOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetScaleInOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetScaleInOutput) ToWindowsVirtualMachineScaleSetScaleInPtrOutput() WindowsVirtualMachineScaleSetScaleInPtrOutput {
+	return o.ToWindowsVirtualMachineScaleSetScaleInPtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineScaleSetScaleInOutput) ToWindowsVirtualMachineScaleSetScaleInPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetScaleInPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineScaleSetScaleIn) *WindowsVirtualMachineScaleSetScaleIn {
+		return &v
+	}).(WindowsVirtualMachineScaleSetScaleInPtrOutput)
+}
+
+// Should the virtual machines chosen for removal be force deleted when the virtual machine scale set is being scaled-in? Possible values are `true` or `false`. Defaults to `false`.
+func (o WindowsVirtualMachineScaleSetScaleInOutput) ForceDeletionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetScaleIn) *bool { return v.ForceDeletionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+func (o WindowsVirtualMachineScaleSetScaleInOutput) Rule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetScaleIn) *string { return v.Rule }).(pulumi.StringPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetScaleInPtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetScaleInPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetScaleIn)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetScaleInPtrOutput) ToWindowsVirtualMachineScaleSetScaleInPtrOutput() WindowsVirtualMachineScaleSetScaleInPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetScaleInPtrOutput) ToWindowsVirtualMachineScaleSetScaleInPtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetScaleInPtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetScaleInPtrOutput) Elem() WindowsVirtualMachineScaleSetScaleInOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetScaleIn) WindowsVirtualMachineScaleSetScaleIn {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineScaleSetScaleIn
+		return ret
+	}).(WindowsVirtualMachineScaleSetScaleInOutput)
+}
+
+// Should the virtual machines chosen for removal be force deleted when the virtual machine scale set is being scaled-in? Possible values are `true` or `false`. Defaults to `false`.
+func (o WindowsVirtualMachineScaleSetScaleInPtrOutput) ForceDeletionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetScaleIn) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ForceDeletionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+func (o WindowsVirtualMachineScaleSetScaleInPtrOutput) Rule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetScaleIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Rule
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -21273,6 +22328,162 @@ func (o WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput) Version() pu
 			return nil
 		}
 		return &v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetSpotRestore struct {
+	// Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+	Enabled *bool `pulumi:"enabled"`
+	// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+	Timeout *string `pulumi:"timeout"`
+}
+
+// WindowsVirtualMachineScaleSetSpotRestoreInput is an input type that accepts WindowsVirtualMachineScaleSetSpotRestoreArgs and WindowsVirtualMachineScaleSetSpotRestoreOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineScaleSetSpotRestoreInput` via:
+//
+//	WindowsVirtualMachineScaleSetSpotRestoreArgs{...}
+type WindowsVirtualMachineScaleSetSpotRestoreInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetSpotRestoreOutput() WindowsVirtualMachineScaleSetSpotRestoreOutput
+	ToWindowsVirtualMachineScaleSetSpotRestoreOutputWithContext(context.Context) WindowsVirtualMachineScaleSetSpotRestoreOutput
+}
+
+type WindowsVirtualMachineScaleSetSpotRestoreArgs struct {
+	// Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
+}
+
+func (WindowsVirtualMachineScaleSetSpotRestoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetSpotRestore)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineScaleSetSpotRestoreArgs) ToWindowsVirtualMachineScaleSetSpotRestoreOutput() WindowsVirtualMachineScaleSetSpotRestoreOutput {
+	return i.ToWindowsVirtualMachineScaleSetSpotRestoreOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetSpotRestoreArgs) ToWindowsVirtualMachineScaleSetSpotRestoreOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetSpotRestoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetSpotRestoreOutput)
+}
+
+func (i WindowsVirtualMachineScaleSetSpotRestoreArgs) ToWindowsVirtualMachineScaleSetSpotRestorePtrOutput() WindowsVirtualMachineScaleSetSpotRestorePtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetSpotRestorePtrOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineScaleSetSpotRestoreArgs) ToWindowsVirtualMachineScaleSetSpotRestorePtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetSpotRestorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetSpotRestoreOutput).ToWindowsVirtualMachineScaleSetSpotRestorePtrOutputWithContext(ctx)
+}
+
+// WindowsVirtualMachineScaleSetSpotRestorePtrInput is an input type that accepts WindowsVirtualMachineScaleSetSpotRestoreArgs, WindowsVirtualMachineScaleSetSpotRestorePtr and WindowsVirtualMachineScaleSetSpotRestorePtrOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineScaleSetSpotRestorePtrInput` via:
+//
+//	        WindowsVirtualMachineScaleSetSpotRestoreArgs{...}
+//
+//	or:
+//
+//	        nil
+type WindowsVirtualMachineScaleSetSpotRestorePtrInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineScaleSetSpotRestorePtrOutput() WindowsVirtualMachineScaleSetSpotRestorePtrOutput
+	ToWindowsVirtualMachineScaleSetSpotRestorePtrOutputWithContext(context.Context) WindowsVirtualMachineScaleSetSpotRestorePtrOutput
+}
+
+type windowsVirtualMachineScaleSetSpotRestorePtrType WindowsVirtualMachineScaleSetSpotRestoreArgs
+
+func WindowsVirtualMachineScaleSetSpotRestorePtr(v *WindowsVirtualMachineScaleSetSpotRestoreArgs) WindowsVirtualMachineScaleSetSpotRestorePtrInput {
+	return (*windowsVirtualMachineScaleSetSpotRestorePtrType)(v)
+}
+
+func (*windowsVirtualMachineScaleSetSpotRestorePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetSpotRestore)(nil)).Elem()
+}
+
+func (i *windowsVirtualMachineScaleSetSpotRestorePtrType) ToWindowsVirtualMachineScaleSetSpotRestorePtrOutput() WindowsVirtualMachineScaleSetSpotRestorePtrOutput {
+	return i.ToWindowsVirtualMachineScaleSetSpotRestorePtrOutputWithContext(context.Background())
+}
+
+func (i *windowsVirtualMachineScaleSetSpotRestorePtrType) ToWindowsVirtualMachineScaleSetSpotRestorePtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetSpotRestorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineScaleSetSpotRestorePtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetSpotRestoreOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetSpotRestoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineScaleSetSpotRestore)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetSpotRestoreOutput) ToWindowsVirtualMachineScaleSetSpotRestoreOutput() WindowsVirtualMachineScaleSetSpotRestoreOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetSpotRestoreOutput) ToWindowsVirtualMachineScaleSetSpotRestoreOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetSpotRestoreOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetSpotRestoreOutput) ToWindowsVirtualMachineScaleSetSpotRestorePtrOutput() WindowsVirtualMachineScaleSetSpotRestorePtrOutput {
+	return o.ToWindowsVirtualMachineScaleSetSpotRestorePtrOutputWithContext(context.Background())
+}
+
+func (o WindowsVirtualMachineScaleSetSpotRestoreOutput) ToWindowsVirtualMachineScaleSetSpotRestorePtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetSpotRestorePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WindowsVirtualMachineScaleSetSpotRestore) *WindowsVirtualMachineScaleSetSpotRestore {
+		return &v
+	}).(WindowsVirtualMachineScaleSetSpotRestorePtrOutput)
+}
+
+// Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetSpotRestoreOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSpotRestore) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetSpotRestoreOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetSpotRestore) *string { return v.Timeout }).(pulumi.StringPtrOutput)
+}
+
+type WindowsVirtualMachineScaleSetSpotRestorePtrOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineScaleSetSpotRestorePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WindowsVirtualMachineScaleSetSpotRestore)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineScaleSetSpotRestorePtrOutput) ToWindowsVirtualMachineScaleSetSpotRestorePtrOutput() WindowsVirtualMachineScaleSetSpotRestorePtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetSpotRestorePtrOutput) ToWindowsVirtualMachineScaleSetSpotRestorePtrOutputWithContext(ctx context.Context) WindowsVirtualMachineScaleSetSpotRestorePtrOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineScaleSetSpotRestorePtrOutput) Elem() WindowsVirtualMachineScaleSetSpotRestoreOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetSpotRestore) WindowsVirtualMachineScaleSetSpotRestore {
+		if v != nil {
+			return *v
+		}
+		var ret WindowsVirtualMachineScaleSetSpotRestore
+		return ret
+	}).(WindowsVirtualMachineScaleSetSpotRestoreOutput)
+}
+
+// Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetSpotRestorePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetSpotRestore) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+func (o WindowsVirtualMachineScaleSetSpotRestorePtrOutput) Timeout() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachineScaleSetSpotRestore) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -25448,6 +26659,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetDataDiskArrayInput)(nil)).Elem(), LinuxVirtualMachineScaleSetDataDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetExtensionInput)(nil)).Elem(), LinuxVirtualMachineScaleSetExtensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetExtensionArrayInput)(nil)).Elem(), LinuxVirtualMachineScaleSetExtensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetGalleryApplicationInput)(nil)).Elem(), LinuxVirtualMachineScaleSetGalleryApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetGalleryApplicationArrayInput)(nil)).Elem(), LinuxVirtualMachineScaleSetGalleryApplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetIdentityInput)(nil)).Elem(), LinuxVirtualMachineScaleSetIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetIdentityPtrInput)(nil)).Elem(), LinuxVirtualMachineScaleSetIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetNetworkInterfaceInput)(nil)).Elem(), LinuxVirtualMachineScaleSetNetworkInterfaceArgs{})
@@ -25466,12 +26679,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetPlanPtrInput)(nil)).Elem(), LinuxVirtualMachineScaleSetPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetRollingUpgradePolicyInput)(nil)).Elem(), LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrInput)(nil)).Elem(), LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetScaleInInput)(nil)).Elem(), LinuxVirtualMachineScaleSetScaleInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetScaleInPtrInput)(nil)).Elem(), LinuxVirtualMachineScaleSetScaleInArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetSecretInput)(nil)).Elem(), LinuxVirtualMachineScaleSetSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetSecretArrayInput)(nil)).Elem(), LinuxVirtualMachineScaleSetSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetSecretCertificateInput)(nil)).Elem(), LinuxVirtualMachineScaleSetSecretCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetSecretCertificateArrayInput)(nil)).Elem(), LinuxVirtualMachineScaleSetSecretCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetSourceImageReferenceInput)(nil)).Elem(), LinuxVirtualMachineScaleSetSourceImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetSourceImageReferencePtrInput)(nil)).Elem(), LinuxVirtualMachineScaleSetSourceImageReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetSpotRestoreInput)(nil)).Elem(), LinuxVirtualMachineScaleSetSpotRestoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetSpotRestorePtrInput)(nil)).Elem(), LinuxVirtualMachineScaleSetSpotRestoreArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetTerminateNotificationInput)(nil)).Elem(), LinuxVirtualMachineScaleSetTerminateNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetTerminateNotificationPtrInput)(nil)).Elem(), LinuxVirtualMachineScaleSetTerminateNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineScaleSetTerminationNotificationInput)(nil)).Elem(), LinuxVirtualMachineScaleSetTerminationNotificationArgs{})
@@ -25490,6 +26707,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrInput)(nil)).Elem(), ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDiskEncryptionSettingsKeyEncryptionKeyInput)(nil)).Elem(), ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrInput)(nil)).Elem(), ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetBootDiagnosticsInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs{})
@@ -25648,6 +26867,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetDataDiskArrayInput)(nil)).Elem(), WindowsVirtualMachineScaleSetDataDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetExtensionInput)(nil)).Elem(), WindowsVirtualMachineScaleSetExtensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetExtensionArrayInput)(nil)).Elem(), WindowsVirtualMachineScaleSetExtensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetGalleryApplicationInput)(nil)).Elem(), WindowsVirtualMachineScaleSetGalleryApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetGalleryApplicationArrayInput)(nil)).Elem(), WindowsVirtualMachineScaleSetGalleryApplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetIdentityInput)(nil)).Elem(), WindowsVirtualMachineScaleSetIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetIdentityPtrInput)(nil)).Elem(), WindowsVirtualMachineScaleSetIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetNetworkInterfaceInput)(nil)).Elem(), WindowsVirtualMachineScaleSetNetworkInterfaceArgs{})
@@ -25666,12 +26887,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetPlanPtrInput)(nil)).Elem(), WindowsVirtualMachineScaleSetPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetRollingUpgradePolicyInput)(nil)).Elem(), WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrInput)(nil)).Elem(), WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetScaleInInput)(nil)).Elem(), WindowsVirtualMachineScaleSetScaleInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetScaleInPtrInput)(nil)).Elem(), WindowsVirtualMachineScaleSetScaleInArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetSecretInput)(nil)).Elem(), WindowsVirtualMachineScaleSetSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetSecretArrayInput)(nil)).Elem(), WindowsVirtualMachineScaleSetSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetSecretCertificateInput)(nil)).Elem(), WindowsVirtualMachineScaleSetSecretCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetSecretCertificateArrayInput)(nil)).Elem(), WindowsVirtualMachineScaleSetSecretCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetSourceImageReferenceInput)(nil)).Elem(), WindowsVirtualMachineScaleSetSourceImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetSourceImageReferencePtrInput)(nil)).Elem(), WindowsVirtualMachineScaleSetSourceImageReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetSpotRestoreInput)(nil)).Elem(), WindowsVirtualMachineScaleSetSpotRestoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetSpotRestorePtrInput)(nil)).Elem(), WindowsVirtualMachineScaleSetSpotRestoreArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetTerminateNotificationInput)(nil)).Elem(), WindowsVirtualMachineScaleSetTerminateNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetTerminateNotificationPtrInput)(nil)).Elem(), WindowsVirtualMachineScaleSetTerminateNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineScaleSetTerminationNotificationInput)(nil)).Elem(), WindowsVirtualMachineScaleSetTerminationNotificationArgs{})
@@ -25780,6 +27005,8 @@ func init() {
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetExtensionOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetExtensionArrayOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetGalleryApplicationOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetGalleryApplicationArrayOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetIdentityOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetIdentityPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetNetworkInterfaceOutput{})
@@ -25798,12 +27025,16 @@ func init() {
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetPlanPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetScaleInOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetScaleInPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetSecretOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetSecretArrayOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetSecretCertificateOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetSecretCertificateArrayOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetSourceImageReferenceOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetSpotRestoreOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetSpotRestorePtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetTerminateNotificationOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineScaleSetTerminationNotificationOutput{})
@@ -25822,6 +27053,8 @@ func init() {
 	pulumi.RegisterOutputType(ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput{})
 	pulumi.RegisterOutputType(ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput{})
 	pulumi.RegisterOutputType(ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetBootDiagnosticsOutput{})
@@ -25980,6 +27213,8 @@ func init() {
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetExtensionOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetExtensionArrayOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetGalleryApplicationOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetGalleryApplicationArrayOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetIdentityOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetIdentityPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetNetworkInterfaceOutput{})
@@ -25998,12 +27233,16 @@ func init() {
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetPlanPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetScaleInOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetScaleInPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetSecretOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetSecretArrayOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetSecretCertificateOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetSecretCertificateArrayOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetSourceImageReferenceOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetSpotRestoreOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetSpotRestorePtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetTerminateNotificationOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineScaleSetTerminationNotificationOutput{})

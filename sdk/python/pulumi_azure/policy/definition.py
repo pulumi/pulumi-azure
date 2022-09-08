@@ -26,8 +26,7 @@ class DefinitionArgs:
         """
         The set of arguments for constructing a Definition resource.
         :param pulumi.Input[str] display_name: The display name of the policy definition.
-        :param pulumi.Input[str] mode: The policy mode that allows you to specify which resource
-               types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+        :param pulumi.Input[str] mode: The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
         :param pulumi.Input[str] policy_type: The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: The description of the policy definition.
         :param pulumi.Input[str] management_group_id: The id of the Management Group where this policy should be defined. Changing this forces a new resource to be created.
@@ -74,8 +73,7 @@ class DefinitionArgs:
     @pulumi.getter
     def mode(self) -> pulumi.Input[str]:
         """
-        The policy mode that allows you to specify which resource
-        types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+        The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
         """
         return pulumi.get(self, "mode")
 
@@ -185,7 +183,8 @@ class _DefinitionState:
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[str]] = None,
                  policy_rule: Optional[pulumi.Input[str]] = None,
-                 policy_type: Optional[pulumi.Input[str]] = None):
+                 policy_type: Optional[pulumi.Input[str]] = None,
+                 role_definition_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Definition resources.
         :param pulumi.Input[str] description: The description of the policy definition.
@@ -194,8 +193,7 @@ class _DefinitionState:
         :param pulumi.Input[str] metadata: The metadata for the policy definition. This
                is a JSON string representing additional metadata that should be stored
                with the policy definition.
-        :param pulumi.Input[str] mode: The policy mode that allows you to specify which resource
-               types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+        :param pulumi.Input[str] mode: The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
         :param pulumi.Input[str] name: The name of the policy definition. Changing this forces a
                new resource to be created.
         :param pulumi.Input[str] parameters: Parameters for the policy definition. This field
@@ -204,6 +202,7 @@ class _DefinitionState:
                is a JSON string representing the rule that contains an if and
                a then block.
         :param pulumi.Input[str] policy_type: The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] role_definition_ids: A list of role definition id extracted from `policy_rule` required for remediation.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -223,6 +222,8 @@ class _DefinitionState:
             pulumi.set(__self__, "policy_rule", policy_rule)
         if policy_type is not None:
             pulumi.set(__self__, "policy_type", policy_type)
+        if role_definition_ids is not None:
+            pulumi.set(__self__, "role_definition_ids", role_definition_ids)
 
     @property
     @pulumi.getter
@@ -278,8 +279,7 @@ class _DefinitionState:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The policy mode that allows you to specify which resource
-        types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+        The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
         """
         return pulumi.get(self, "mode")
 
@@ -338,6 +338,18 @@ class _DefinitionState:
     @policy_type.setter
     def policy_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_type", value)
+
+    @property
+    @pulumi.getter(name="roleDefinitionIds")
+    def role_definition_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of role definition id extracted from `policy_rule` required for remediation.
+        """
+        return pulumi.get(self, "role_definition_ids")
+
+    @role_definition_ids.setter
+    def role_definition_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "role_definition_ids", value)
 
 
 class Definition(pulumi.CustomResource):
@@ -425,8 +437,7 @@ class Definition(pulumi.CustomResource):
         :param pulumi.Input[str] metadata: The metadata for the policy definition. This
                is a JSON string representing additional metadata that should be stored
                with the policy definition.
-        :param pulumi.Input[str] mode: The policy mode that allows you to specify which resource
-               types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+        :param pulumi.Input[str] mode: The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
         :param pulumi.Input[str] name: The name of the policy definition. Changing this forces a
                new resource to be created.
         :param pulumi.Input[str] parameters: Parameters for the policy definition. This field
@@ -552,6 +563,7 @@ class Definition(pulumi.CustomResource):
             if policy_type is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_type'")
             __props__.__dict__["policy_type"] = policy_type
+            __props__.__dict__["role_definition_ids"] = None
         super(Definition, __self__).__init__(
             'azure:policy/definition:Definition',
             resource_name,
@@ -570,7 +582,8 @@ class Definition(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[str]] = None,
             policy_rule: Optional[pulumi.Input[str]] = None,
-            policy_type: Optional[pulumi.Input[str]] = None) -> 'Definition':
+            policy_type: Optional[pulumi.Input[str]] = None,
+            role_definition_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Definition':
         """
         Get an existing Definition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -584,8 +597,7 @@ class Definition(pulumi.CustomResource):
         :param pulumi.Input[str] metadata: The metadata for the policy definition. This
                is a JSON string representing additional metadata that should be stored
                with the policy definition.
-        :param pulumi.Input[str] mode: The policy mode that allows you to specify which resource
-               types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+        :param pulumi.Input[str] mode: The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
         :param pulumi.Input[str] name: The name of the policy definition. Changing this forces a
                new resource to be created.
         :param pulumi.Input[str] parameters: Parameters for the policy definition. This field
@@ -594,6 +606,7 @@ class Definition(pulumi.CustomResource):
                is a JSON string representing the rule that contains an if and
                a then block.
         :param pulumi.Input[str] policy_type: The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] role_definition_ids: A list of role definition id extracted from `policy_rule` required for remediation.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -608,6 +621,7 @@ class Definition(pulumi.CustomResource):
         __props__.__dict__["parameters"] = parameters
         __props__.__dict__["policy_rule"] = policy_rule
         __props__.__dict__["policy_type"] = policy_type
+        __props__.__dict__["role_definition_ids"] = role_definition_ids
         return Definition(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -648,8 +662,7 @@ class Definition(pulumi.CustomResource):
     @pulumi.getter
     def mode(self) -> pulumi.Output[str]:
         """
-        The policy mode that allows you to specify which resource
-        types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+        The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
         """
         return pulumi.get(self, "mode")
 
@@ -688,4 +701,12 @@ class Definition(pulumi.CustomResource):
         The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "policy_type")
+
+    @property
+    @pulumi.getter(name="roleDefinitionIds")
+    def role_definition_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        A list of role definition id extracted from `policy_rule` required for remediation.
+        """
+        return pulumi.get(self, "role_definition_ids")
 

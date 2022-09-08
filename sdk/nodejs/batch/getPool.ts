@@ -39,7 +39,7 @@ export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetPoolArgs {
     /**
-     * The name of the Batch account.
+     * The Azure Storage Account name.
      */
     accountName: string;
     /**
@@ -54,7 +54,7 @@ export interface GetPoolArgs {
  */
 export interface GetPoolResult {
     /**
-     * The name of the Batch account.
+     * The Azure Storage Account name.
      */
     readonly accountName: string;
     /**
@@ -83,6 +83,10 @@ export interface GetPoolResult {
      */
     readonly maxTasksPerNode: number;
     readonly metadata: {[key: string]: string};
+    /**
+     * A `mount` block that describes mount configuration.
+     */
+    readonly mounts: outputs.batch.GetPoolMount[];
     /**
      * The name of the endpoint.
      */
@@ -116,7 +120,7 @@ export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptio
  */
 export interface GetPoolOutputArgs {
     /**
-     * The name of the Batch account.
+     * The Azure Storage Account name.
      */
     accountName: pulumi.Input<string>;
     /**

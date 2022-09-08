@@ -48,7 +48,7 @@ class WindowsWebAppArgs:
         :param pulumi.Input['WindowsWebAppBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
-        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] enabled: Should the Windows Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Should the Windows Web App require HTTPS connections.
@@ -205,7 +205,7 @@ class WindowsWebAppArgs:
     @pulumi.getter(name="clientCertificateMode")
     def client_certificate_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+        The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`
         """
         return pulumi.get(self, "client_certificate_mode")
 
@@ -410,7 +410,7 @@ class _WindowsWebAppState:
         :param pulumi.Input['WindowsWebAppBackupArgs'] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
-        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`
         :param pulumi.Input[Sequence[pulumi.Input['WindowsWebAppConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[str] default_hostname: The default hostname of the Windows Web App.
@@ -561,7 +561,7 @@ class _WindowsWebAppState:
     @pulumi.getter(name="clientCertificateMode")
     def client_certificate_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+        The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`
         """
         return pulumi.get(self, "client_certificate_mode")
 
@@ -923,7 +923,7 @@ class WindowsWebApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsWebAppBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
-        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[bool] enabled: Should the Windows Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Should the Windows Web App require HTTPS connections.
@@ -1111,7 +1111,7 @@ class WindowsWebApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsWebAppBackupArgs']] backup: A `backup` block as defined below.
         :param pulumi.Input[bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[bool] client_certificate_enabled: Should Client Certificates be enabled?
-        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+        :param pulumi.Input[str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsWebAppConnectionStringArgs']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[str] default_hostname: The default hostname of the Windows Web App.
@@ -1217,7 +1217,7 @@ class WindowsWebApp(pulumi.CustomResource):
     @pulumi.getter(name="clientCertificateMode")
     def client_certificate_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+        The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`
         """
         return pulumi.get(self, "client_certificate_mode")
 

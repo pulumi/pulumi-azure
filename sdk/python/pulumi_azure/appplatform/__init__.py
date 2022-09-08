@@ -19,6 +19,7 @@ from .spring_cloud_build_pack_binding import *
 from .spring_cloud_builder import *
 from .spring_cloud_certificate import *
 from .spring_cloud_configuration_service import *
+from .spring_cloud_connection import *
 from .spring_cloud_container_deployment import *
 from .spring_cloud_custom_domain import *
 from .spring_cloud_gateway import *

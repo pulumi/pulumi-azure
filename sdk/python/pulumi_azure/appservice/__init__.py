@@ -10,6 +10,7 @@ from .app_service import *
 from .certificate import *
 from .certificate_binding import *
 from .certificate_order import *
+from .connection import *
 from .custom_hostname_binding import *
 from .environment import *
 from .environment_v3 import *

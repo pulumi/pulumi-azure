@@ -20,6 +20,7 @@ from .mongo_database import *
 from .notebook_workspace import *
 from .sql_container import *
 from .sql_database import *
+from .sql_dedicated_gateway import *
 from .sql_function import *
 from .sql_role_assignment import *
 from .sql_role_definition import *

@@ -91,6 +91,18 @@ namespace Pulumi.Azure.StreamAnalytics
         [Output("table")]
         public Output<string> Table { get; private set; } = null!;
 
+        /// <summary>
+        /// The user display name of the user that was used to obtain the refresh token.
+        /// </summary>
+        [Output("tokenUserDisplayName")]
+        public Output<string?> TokenUserDisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// The user principal name (UPN) of the user that was used to obtain the refresh token.
+        /// </summary>
+        [Output("tokenUserPrincipalName")]
+        public Output<string?> TokenUserPrincipalName { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a OutputPowerbi resource with the given unique name, arguments, and options.
@@ -173,6 +185,18 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("table", required: true)]
         public Input<string> Table { get; set; } = null!;
 
+        /// <summary>
+        /// The user display name of the user that was used to obtain the refresh token.
+        /// </summary>
+        [Input("tokenUserDisplayName")]
+        public Input<string>? TokenUserDisplayName { get; set; }
+
+        /// <summary>
+        /// The user principal name (UPN) of the user that was used to obtain the refresh token.
+        /// </summary>
+        [Input("tokenUserPrincipalName")]
+        public Input<string>? TokenUserPrincipalName { get; set; }
+
         public OutputPowerbiArgs()
         {
         }
@@ -216,6 +240,18 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Input("table")]
         public Input<string>? Table { get; set; }
+
+        /// <summary>
+        /// The user display name of the user that was used to obtain the refresh token.
+        /// </summary>
+        [Input("tokenUserDisplayName")]
+        public Input<string>? TokenUserDisplayName { get; set; }
+
+        /// <summary>
+        /// The user principal name (UPN) of the user that was used to obtain the refresh token.
+        /// </summary>
+        [Input("tokenUserPrincipalName")]
+        public Input<string>? TokenUserPrincipalName { get; set; }
 
         public OutputPowerbiState()
         {

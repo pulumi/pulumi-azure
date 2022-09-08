@@ -10,6 +10,7 @@ export * from "./appService";
 export * from "./certificate";
 export * from "./certificateBinding";
 export * from "./certificateOrder";
+export * from "./connection";
 export * from "./customHostnameBinding";
 export * from "./environment";
 export * from "./environmentV3";
@@ -69,6 +70,7 @@ import { AppService } from "./appService";
 import { Certificate } from "./certificate";
 import { CertificateBinding } from "./certificateBinding";
 import { CertificateOrder } from "./certificateOrder";
+import { Connection } from "./connection";
 import { CustomHostnameBinding } from "./customHostnameBinding";
 import { Environment } from "./environment";
 import { EnvironmentV3 } from "./environmentV3";
@@ -117,6 +119,8 @@ const _module = {
                 return new CertificateBinding(name, <any>undefined, { urn })
             case "azure:appservice/certificateOrder:CertificateOrder":
                 return new CertificateOrder(name, <any>undefined, { urn })
+            case "azure:appservice/connection:Connection":
+                return new Connection(name, <any>undefined, { urn })
             case "azure:appservice/customHostnameBinding:CustomHostnameBinding":
                 return new CustomHostnameBinding(name, <any>undefined, { urn })
             case "azure:appservice/environment:Environment":
@@ -193,6 +197,7 @@ pulumi.runtime.registerResourceModule("azure", "appservice/appService", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/certificate", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/certificateBinding", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/certificateOrder", _module)
+pulumi.runtime.registerResourceModule("azure", "appservice/connection", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/customHostnameBinding", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/environment", _module)
 pulumi.runtime.registerResourceModule("azure", "appservice/environmentV3", _module)

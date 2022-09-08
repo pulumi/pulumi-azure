@@ -14,7 +14,7 @@ namespace Pulumi.Azure.EventHub.Outputs
     public sealed class NamespaceIdentity
     {
         /// <summary>
-        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>

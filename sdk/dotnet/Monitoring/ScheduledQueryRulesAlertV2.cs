@@ -101,6 +101,9 @@ namespace Pulumi.Azure.Monitoring
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// If specified then overrides the query time range, default is `window_duration`*`number_of_evaluation_periods`.
+        /// </summary>
         [Output("queryTimeRangeOverride")]
         public Output<string?> QueryTimeRangeOverride { get; private set; } = null!;
 
@@ -264,6 +267,9 @@ namespace Pulumi.Azure.Monitoring
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// If specified then overrides the query time range, default is `window_duration`*`number_of_evaluation_periods`.
+        /// </summary>
         [Input("queryTimeRangeOverride")]
         public Input<string>? QueryTimeRangeOverride { get; set; }
 
@@ -419,6 +425,9 @@ namespace Pulumi.Azure.Monitoring
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// If specified then overrides the query time range, default is `window_duration`*`number_of_evaluation_periods`.
+        /// </summary>
         [Input("queryTimeRangeOverride")]
         public Input<string>? QueryTimeRangeOverride { get; set; }
 

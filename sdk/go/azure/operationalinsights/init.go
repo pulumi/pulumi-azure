@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AnalyticsSolution{}
 	case "azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace":
 		r = &AnalyticsWorkspace{}
+	case "azure:operationalinsights/queryPackQuery:QueryPackQuery":
+		r = &QueryPackQuery{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -46,6 +48,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"operationalinsights/analyticsWorkspace",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"operationalinsights/queryPackQuery",
 		&module{version},
 	)
 }

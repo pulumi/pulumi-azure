@@ -8,6 +8,7 @@ import com.pulumi.azure.batch.inputs.PoolCertificateArgs;
 import com.pulumi.azure.batch.inputs.PoolContainerConfigurationArgs;
 import com.pulumi.azure.batch.inputs.PoolFixedScaleArgs;
 import com.pulumi.azure.batch.inputs.PoolIdentityArgs;
+import com.pulumi.azure.batch.inputs.PoolMountArgs;
 import com.pulumi.azure.batch.inputs.PoolNetworkConfigurationArgs;
 import com.pulumi.azure.batch.inputs.PoolStartTaskArgs;
 import com.pulumi.azure.batch.inputs.PoolStorageImageReferenceArgs;
@@ -163,6 +164,21 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `mount` block defined as below.
+     * 
+     */
+    @Import(name="mounts")
+    private @Nullable Output<List<PoolMountArgs>> mounts;
+
+    /**
+     * @return A `mount` block defined as below.
+     * 
+     */
+    public Optional<Output<List<PoolMountArgs>>> mounts() {
+        return Optional.ofNullable(this.mounts);
+    }
+
+    /**
      * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
      * 
      */
@@ -286,6 +302,7 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
         this.identity = $.identity;
         this.maxTasksPerNode = $.maxTasksPerNode;
         this.metadata = $.metadata;
+        this.mounts = $.mounts;
         this.name = $.name;
         this.networkConfiguration = $.networkConfiguration;
         this.nodeAgentSkuId = $.nodeAgentSkuId;
@@ -511,6 +528,37 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder metadata(Map<String,String> metadata) {
             return metadata(Output.of(metadata));
+        }
+
+        /**
+         * @param mounts A `mount` block defined as below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mounts(@Nullable Output<List<PoolMountArgs>> mounts) {
+            $.mounts = mounts;
+            return this;
+        }
+
+        /**
+         * @param mounts A `mount` block defined as below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mounts(List<PoolMountArgs> mounts) {
+            return mounts(Output.of(mounts));
+        }
+
+        /**
+         * @param mounts A `mount` block defined as below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mounts(PoolMountArgs... mounts) {
+            return mounts(List.of(mounts));
         }
 
         /**

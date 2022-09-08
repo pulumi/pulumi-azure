@@ -91,6 +91,21 @@ public final class OutputCosmosdbState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
+     * 
+     */
+    @Import(name="partitionKey")
+    private @Nullable Output<String> partitionKey;
+
+    /**
+     * @return The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
+     * 
+     */
+    public Optional<Output<String>> partitionKey() {
+        return Optional.ofNullable(this.partitionKey);
+    }
+
+    /**
      * The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
      * 
      */
@@ -113,6 +128,7 @@ public final class OutputCosmosdbState extends com.pulumi.resources.ResourceArgs
         this.cosmosdbSqlDatabaseId = $.cosmosdbSqlDatabaseId;
         this.documentId = $.documentId;
         this.name = $.name;
+        this.partitionKey = $.partitionKey;
         this.streamAnalyticsJobId = $.streamAnalyticsJobId;
     }
 
@@ -237,6 +253,27 @@ public final class OutputCosmosdbState extends com.pulumi.resources.ResourceArgs
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param partitionKey The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder partitionKey(@Nullable Output<String> partitionKey) {
+            $.partitionKey = partitionKey;
+            return this;
+        }
+
+        /**
+         * @param partitionKey The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder partitionKey(String partitionKey) {
+            return partitionKey(Output.of(partitionKey));
         }
 
         /**

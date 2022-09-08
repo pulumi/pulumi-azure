@@ -37,6 +37,7 @@ __all__ = [
     'AppServiceSourceControl',
     'AppServiceStorageAccount',
     'CertificateOrderCertificate',
+    'ConnectionAuthentication',
     'EnvironmentClusterSetting',
     'EnvironmentV3ClusterSetting',
     'EnvironmentV3InboundNetworkDependency',
@@ -2732,6 +2733,119 @@ class CertificateOrderCertificate(dict):
         Status of the Key Vault secret.
         """
         return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class ConnectionAuthentication(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionAuthentication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionAuthentication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionAuthentication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 certificate: Optional[str] = None,
+                 client_id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 principal_id: Optional[str] = None,
+                 secret: Optional[str] = None,
+                 subscription_id: Optional[str] = None):
+        """
+        :param str type: The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
+        :param str certificate: Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
+               ---
+        :param str client_id: Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `client_id` and `subscription_id` should be either both specified or both not specified.
+        :param str name: Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+        :param str principal_id: Principal ID for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`.
+        :param str secret: Password or account key for secret auth. `secret` and `name` should be either both specified or both not specified when `type` is set to `secret`.
+        :param str subscription_id: Subscription ID for `userAssignedIdentity`. `subscription_id` and `client_id` should be either both specified or both not specified.
+        """
+        pulumi.set(__self__, "type", type)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if secret is not None:
+            pulumi.set(__self__, "secret", secret)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[str]:
+        """
+        Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
+        ---
+        """
+        return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `client_id` and `subscription_id` should be either both specified or both not specified.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        Principal ID for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter
+    def secret(self) -> Optional[str]:
+        """
+        Password or account key for secret auth. `secret` and `name` should be either both specified or both not specified when `type` is set to `secret`.
+        """
+        return pulumi.get(self, "secret")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[str]:
+        """
+        Subscription ID for `userAssignedIdentity`. `subscription_id` and `client_id` should be either both specified or both not specified.
+        """
+        return pulumi.get(self, "subscription_id")
 
 
 @pulumi.output_type
@@ -18240,6 +18354,7 @@ class StaticSiteIdentity(dict):
         """
         :param str type: The Type of Managed Identity assigned to this Static Site resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
         :param Sequence[str] identity_ids: A list of Managed Identity IDs which should be assigned to this Static Site resource.
+        :param str principal_id: (Optional) The Principal ID associated with this Managed Service Identity.
         """
         pulumi.set(__self__, "type", type)
         if identity_ids is not None:
@@ -18268,6 +18383,9 @@ class StaticSiteIdentity(dict):
     @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[str]:
+        """
+        (Optional) The Principal ID associated with this Managed Service Identity.
+        """
         return pulumi.get(self, "principal_id")
 
     @property

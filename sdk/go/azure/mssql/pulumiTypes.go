@@ -2136,13 +2136,13 @@ func (o ServerAzureadAdministratorPtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 type ServerIdentity struct {
-	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
 	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
 	PrincipalId *string `pulumi:"principalId"`
 	// The tenant id of the Azure AD Administrator of this SQL Server.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -2158,13 +2158,13 @@ type ServerIdentityInput interface {
 }
 
 type ServerIdentityArgs struct {
-	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Identity of this SQL Server.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The tenant id of the Azure AD Administrator of this SQL Server.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2245,7 +2245,7 @@ func (o ServerIdentityOutput) ToServerIdentityPtrOutputWithContext(ctx context.C
 	}).(ServerIdentityPtrOutput)
 }
 
-// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
 func (o ServerIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ServerIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
@@ -2260,7 +2260,7 @@ func (o ServerIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
 func (o ServerIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2289,7 +2289,7 @@ func (o ServerIdentityPtrOutput) Elem() ServerIdentityOutput {
 	}).(ServerIdentityOutput)
 }
 
-// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
 func (o ServerIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerIdentity) []string {
 		if v == nil {
@@ -2319,7 +2319,7 @@ func (o ServerIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
 func (o ServerIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerIdentity) *string {
 		if v == nil {

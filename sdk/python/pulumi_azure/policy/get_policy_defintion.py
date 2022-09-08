@@ -21,7 +21,7 @@ class GetPolicyDefintionResult:
     """
     A collection of values returned by getPolicyDefintion.
     """
-    def __init__(__self__, description=None, display_name=None, id=None, management_group_name=None, metadata=None, name=None, parameters=None, policy_rule=None, policy_type=None, type=None):
+    def __init__(__self__, description=None, display_name=None, id=None, management_group_name=None, metadata=None, name=None, parameters=None, policy_rule=None, policy_type=None, role_definition_ids=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -49,6 +49,9 @@ class GetPolicyDefintionResult:
         if policy_type and not isinstance(policy_type, str):
             raise TypeError("Expected argument 'policy_type' to be a str")
         pulumi.set(__self__, "policy_type", policy_type)
+        if role_definition_ids and not isinstance(role_definition_ids, list):
+            raise TypeError("Expected argument 'role_definition_ids' to be a list")
+        pulumi.set(__self__, "role_definition_ids", role_definition_ids)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -117,6 +120,14 @@ class GetPolicyDefintionResult:
         return pulumi.get(self, "policy_type")
 
     @property
+    @pulumi.getter(name="roleDefinitionIds")
+    def role_definition_ids(self) -> Sequence[str]:
+        """
+        A list of role definition id extracted from `policy_rule` required for remediation.
+        """
+        return pulumi.get(self, "role_definition_ids")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -140,6 +151,7 @@ class AwaitableGetPolicyDefintionResult(GetPolicyDefintionResult):
             parameters=self.parameters,
             policy_rule=self.policy_rule,
             policy_type=self.policy_type,
+            role_definition_ids=self.role_definition_ids,
             type=self.type)
 
 
@@ -182,6 +194,7 @@ def get_policy_defintion(display_name: Optional[str] = None,
         parameters=__ret__.parameters,
         policy_rule=__ret__.policy_rule,
         policy_type=__ret__.policy_type,
+        role_definition_ids=__ret__.role_definition_ids,
         type=__ret__.type)
 
 

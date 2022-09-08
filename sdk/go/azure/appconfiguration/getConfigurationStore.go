@@ -68,8 +68,10 @@ type LookupConfigurationStoreResult struct {
 	// A `primaryReadKey` block as defined below containing the primary read access key.
 	PrimaryReadKeys []GetConfigurationStorePrimaryReadKey `pulumi:"primaryReadKeys"`
 	// A `primaryWriteKey` block as defined below containing the primary write access key.
-	PrimaryWriteKeys  []GetConfigurationStorePrimaryWriteKey `pulumi:"primaryWriteKeys"`
-	ResourceGroupName string                                 `pulumi:"resourceGroupName"`
+	PrimaryWriteKeys []GetConfigurationStorePrimaryWriteKey `pulumi:"primaryWriteKeys"`
+	// The Public Network Access setting of this App Configuration.
+	PublicNetworkAccess string `pulumi:"publicNetworkAccess"`
+	ResourceGroupName   string `pulumi:"resourceGroupName"`
 	// A `secondaryReadKey` block as defined below containing the secondary read access key.
 	SecondaryReadKeys []GetConfigurationStoreSecondaryReadKey `pulumi:"secondaryReadKeys"`
 	// A `secondaryWriteKey` block as defined below containing the secondary write access key.
@@ -149,6 +151,11 @@ func (o LookupConfigurationStoreResultOutput) PrimaryWriteKeys() GetConfiguratio
 	return o.ApplyT(func(v LookupConfigurationStoreResult) []GetConfigurationStorePrimaryWriteKey {
 		return v.PrimaryWriteKeys
 	}).(GetConfigurationStorePrimaryWriteKeyArrayOutput)
+}
+
+// The Public Network Access setting of this App Configuration.
+func (o LookupConfigurationStoreResultOutput) PublicNetworkAccess() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationStoreResult) string { return v.PublicNetworkAccess }).(pulumi.StringOutput)
 }
 
 func (o LookupConfigurationStoreResultOutput) ResourceGroupName() pulumi.StringOutput {

@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -163,16 +164,14 @@ public class Definition extends com.pulumi.resources.CustomResource {
         return this.metadata;
     }
     /**
-     * The policy mode that allows you to specify which resource
-     * types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+     * The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
      * 
      */
     @Export(name="mode", type=String.class, parameters={})
     private Output<String> mode;
 
     /**
-     * @return The policy mode that allows you to specify which resource
-     * types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+     * @return The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
      * 
      */
     public Output<String> mode() {
@@ -241,6 +240,20 @@ public class Definition extends com.pulumi.resources.CustomResource {
      */
     public Output<String> policyType() {
         return this.policyType;
+    }
+    /**
+     * A list of role definition id extracted from `policy_rule` required for remediation.
+     * 
+     */
+    @Export(name="roleDefinitionIds", type=List.class, parameters={String.class})
+    private Output<List<String>> roleDefinitionIds;
+
+    /**
+     * @return A list of role definition id extracted from `policy_rule` required for remediation.
+     * 
+     */
+    public Output<List<String>> roleDefinitionIds() {
+        return this.roleDefinitionIds;
     }
 
     /**

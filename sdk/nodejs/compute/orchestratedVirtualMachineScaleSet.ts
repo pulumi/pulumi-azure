@@ -65,11 +65,26 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
         return obj['__pulumiType'] === OrchestratedVirtualMachineScaleSet.__pulumiType;
     }
 
+    /**
+     * An `additionalCapabilities` block as defined below.
+     */
+    public readonly additionalCapabilities!: pulumi.Output<outputs.compute.OrchestratedVirtualMachineScaleSetAdditionalCapabilities | undefined>;
+    /**
+     * An `automaticInstanceRepair` block as defined below.
+     */
     public readonly automaticInstanceRepair!: pulumi.Output<outputs.compute.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair>;
     public readonly bootDiagnostics!: pulumi.Output<outputs.compute.OrchestratedVirtualMachineScaleSetBootDiagnostics | undefined>;
+    /**
+     * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+     */
+    public readonly capacityReservationGroupId!: pulumi.Output<string | undefined>;
     public readonly dataDisks!: pulumi.Output<outputs.compute.OrchestratedVirtualMachineScaleSetDataDisk[] | undefined>;
     public readonly encryptionAtHostEnabled!: pulumi.Output<boolean | undefined>;
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+     */
+    public readonly extensionOperationsEnabled!: pulumi.Output<boolean>;
     public readonly extensions!: pulumi.Output<outputs.compute.OrchestratedVirtualMachineScaleSetExtension[]>;
     /**
      * Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
@@ -107,6 +122,13 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
      * The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
+    /**
+     * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+     */
+    public readonly singlePlacementGroup!: pulumi.Output<boolean>;
+    /**
+     * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+     */
     public readonly skuName!: pulumi.Output<string | undefined>;
     public readonly sourceImageId!: pulumi.Output<string | undefined>;
     /**
@@ -141,11 +163,14 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrchestratedVirtualMachineScaleSetState | undefined;
+            resourceInputs["additionalCapabilities"] = state ? state.additionalCapabilities : undefined;
             resourceInputs["automaticInstanceRepair"] = state ? state.automaticInstanceRepair : undefined;
             resourceInputs["bootDiagnostics"] = state ? state.bootDiagnostics : undefined;
+            resourceInputs["capacityReservationGroupId"] = state ? state.capacityReservationGroupId : undefined;
             resourceInputs["dataDisks"] = state ? state.dataDisks : undefined;
             resourceInputs["encryptionAtHostEnabled"] = state ? state.encryptionAtHostEnabled : undefined;
             resourceInputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
+            resourceInputs["extensionOperationsEnabled"] = state ? state.extensionOperationsEnabled : undefined;
             resourceInputs["extensions"] = state ? state.extensions : undefined;
             resourceInputs["extensionsTimeBudget"] = state ? state.extensionsTimeBudget : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
@@ -162,6 +187,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["priority"] = state ? state.priority : undefined;
             resourceInputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["singlePlacementGroup"] = state ? state.singlePlacementGroup : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
             resourceInputs["sourceImageId"] = state ? state.sourceImageId : undefined;
             resourceInputs["sourceImageReference"] = state ? state.sourceImageReference : undefined;
@@ -178,11 +204,14 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
             resourceInputs["automaticInstanceRepair"] = args ? args.automaticInstanceRepair : undefined;
             resourceInputs["bootDiagnostics"] = args ? args.bootDiagnostics : undefined;
+            resourceInputs["capacityReservationGroupId"] = args ? args.capacityReservationGroupId : undefined;
             resourceInputs["dataDisks"] = args ? args.dataDisks : undefined;
             resourceInputs["encryptionAtHostEnabled"] = args ? args.encryptionAtHostEnabled : undefined;
             resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
+            resourceInputs["extensionOperationsEnabled"] = args ? args.extensionOperationsEnabled : undefined;
             resourceInputs["extensions"] = args ? args.extensions : undefined;
             resourceInputs["extensionsTimeBudget"] = args ? args.extensionsTimeBudget : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -199,6 +228,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["singlePlacementGroup"] = args ? args.singlePlacementGroup : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
             resourceInputs["sourceImageId"] = args ? args.sourceImageId : undefined;
             resourceInputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
@@ -217,11 +247,26 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OrchestratedVirtualMachineScaleSet resources.
  */
 export interface OrchestratedVirtualMachineScaleSetState {
+    /**
+     * An `additionalCapabilities` block as defined below.
+     */
+    additionalCapabilities?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetAdditionalCapabilities>;
+    /**
+     * An `automaticInstanceRepair` block as defined below.
+     */
     automaticInstanceRepair?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair>;
     bootDiagnostics?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetBootDiagnostics>;
+    /**
+     * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+     */
+    capacityReservationGroupId?: pulumi.Input<string>;
     dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetDataDisk>[]>;
     encryptionAtHostEnabled?: pulumi.Input<boolean>;
     evictionPolicy?: pulumi.Input<string>;
+    /**
+     * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+     */
+    extensionOperationsEnabled?: pulumi.Input<boolean>;
     extensions?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetExtension>[]>;
     /**
      * Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
@@ -259,6 +304,13 @@ export interface OrchestratedVirtualMachineScaleSetState {
      * The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+     */
+    singlePlacementGroup?: pulumi.Input<boolean>;
+    /**
+     * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+     */
     skuName?: pulumi.Input<string>;
     sourceImageId?: pulumi.Input<string>;
     /**
@@ -285,11 +337,26 @@ export interface OrchestratedVirtualMachineScaleSetState {
  * The set of arguments for constructing a OrchestratedVirtualMachineScaleSet resource.
  */
 export interface OrchestratedVirtualMachineScaleSetArgs {
+    /**
+     * An `additionalCapabilities` block as defined below.
+     */
+    additionalCapabilities?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetAdditionalCapabilities>;
+    /**
+     * An `automaticInstanceRepair` block as defined below.
+     */
     automaticInstanceRepair?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair>;
     bootDiagnostics?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetBootDiagnostics>;
+    /**
+     * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+     */
+    capacityReservationGroupId?: pulumi.Input<string>;
     dataDisks?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetDataDisk>[]>;
     encryptionAtHostEnabled?: pulumi.Input<boolean>;
     evictionPolicy?: pulumi.Input<string>;
+    /**
+     * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+     */
+    extensionOperationsEnabled?: pulumi.Input<boolean>;
     extensions?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetExtension>[]>;
     /**
      * Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
@@ -327,6 +394,13 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
      * The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+     */
+    singlePlacementGroup?: pulumi.Input<boolean>;
+    /**
+     * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+     */
     skuName?: pulumi.Input<string>;
     sourceImageId?: pulumi.Input<string>;
     /**

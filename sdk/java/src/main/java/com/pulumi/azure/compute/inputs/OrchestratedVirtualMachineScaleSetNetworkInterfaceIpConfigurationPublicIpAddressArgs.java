@@ -61,6 +61,36 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         return Optional.ofNullable(this.publicIpPrefixId);
     }
 
+    /**
+     * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+     * 
+     */
+    @Import(name="skuName")
+    private @Nullable Output<String> skuName;
+
+    /**
+     * @return Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+     * 
+     */
+    public Optional<Output<String>> skuName() {
+        return Optional.ofNullable(this.skuName);
+    }
+
+    /**
+     * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+     * 
+     */
+    @Import(name="version")
+    private @Nullable Output<String> version;
+
+    /**
+     * @return The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+     * 
+     */
+    public Optional<Output<String>> version() {
+        return Optional.ofNullable(this.version);
+    }
+
     private OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs() {}
 
     private OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs $) {
@@ -69,6 +99,8 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         this.ipTags = $.ipTags;
         this.name = $.name;
         this.publicIpPrefixId = $.publicIpPrefixId;
+        this.skuName = $.skuName;
+        this.version = $.version;
     }
 
     public static Builder builder() {
@@ -148,6 +180,48 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
 
         public Builder publicIpPrefixId(String publicIpPrefixId) {
             return publicIpPrefixId(Output.of(publicIpPrefixId));
+        }
+
+        /**
+         * @param skuName Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skuName(@Nullable Output<String> skuName) {
+            $.skuName = skuName;
+            return this;
+        }
+
+        /**
+         * @param skuName Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skuName(String skuName) {
+            return skuName(Output.of(skuName));
+        }
+
+        /**
+         * @param version The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder version(@Nullable Output<String> version) {
+            $.version = version;
+            return this;
+        }
+
+        /**
+         * @param version The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder version(String version) {
+            return version(Output.of(version));
         }
 
         public OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs build() {

@@ -498,6 +498,22 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "apimanagement/gatewayCertificateAuthority",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority": "GatewayCertificateAuthority"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "apimanagement/gatewayHostNameConfiguration",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/gatewayHostNameConfiguration:GatewayHostNameConfiguration": "GatewayHostNameConfiguration"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "apimanagement/group",
   "fqn": "pulumi_azure.apimanagement",
   "classes": {
@@ -638,6 +654,14 @@ _utilities.register(
   "fqn": "pulumi_azure.apimanagement",
   "classes": {
    "azure:apimanagement/productPolicy:ProductPolicy": "ProductPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "apimanagement/productTag",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/productTag:ProductTag": "ProductTag"
   }
  },
  {
@@ -858,6 +882,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appplatform/springCloudConnection",
+  "fqn": "pulumi_azure.appplatform",
+  "classes": {
+   "azure:appplatform/springCloudConnection:SpringCloudConnection": "SpringCloudConnection"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appplatform/springCloudContainerDeployment",
   "fqn": "pulumi_azure.appplatform",
   "classes": {
@@ -958,6 +990,14 @@ _utilities.register(
   "fqn": "pulumi_azure.appservice",
   "classes": {
    "azure:appservice/certificateOrder:CertificateOrder": "CertificateOrder"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "appservice/connection",
+  "fqn": "pulumi_azure.appservice",
+  "classes": {
+   "azure:appservice/connection:Connection": "Connection"
   }
  },
  {
@@ -1314,6 +1354,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "automation/connectionType",
+  "fqn": "pulumi_azure.automation",
+  "classes": {
+   "azure:automation/connectionType:ConnectionType": "ConnectionType"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "automation/credential",
   "fqn": "pulumi_azure.automation",
   "classes": {
@@ -1342,6 +1390,22 @@ _utilities.register(
   "fqn": "pulumi_azure.automation",
   "classes": {
    "azure:automation/dscNodeConfiguration:DscNodeConfiguration": "DscNodeConfiguration"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "automation/hybridRunbookWorker",
+  "fqn": "pulumi_azure.automation",
+  "classes": {
+   "azure:automation/hybridRunbookWorker:HybridRunbookWorker": "HybridRunbookWorker"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "automation/hybridRunbookWorkerGroup",
+  "fqn": "pulumi_azure.automation",
+  "classes": {
+   "azure:automation/hybridRunbookWorkerGroup:HybridRunbookWorkerGroup": "HybridRunbookWorkerGroup"
   }
  },
  {
@@ -1698,10 +1762,26 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "cdn/frontdoorRule",
+  "fqn": "pulumi_azure.cdn",
+  "classes": {
+   "azure:cdn/frontdoorRule:FrontdoorRule": "FrontdoorRule"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "cdn/frontdoorRuleSet",
   "fqn": "pulumi_azure.cdn",
   "classes": {
    "azure:cdn/frontdoorRuleSet:FrontdoorRuleSet": "FrontdoorRuleSet"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cdn/frontdoorSecret",
+  "fqn": "pulumi_azure.cdn",
+  "classes": {
+   "azure:cdn/frontdoorSecret:FrontdoorSecret": "FrontdoorSecret"
   }
  },
  {
@@ -2106,6 +2186,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "containerservice/registryTaskScheduleRunNow",
+  "fqn": "pulumi_azure.containerservice",
+  "classes": {
+   "azure:containerservice/registryTaskScheduleRunNow:RegistryTaskScheduleRunNow": "RegistryTaskScheduleRunNow"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "containerservice/registryToken",
   "fqn": "pulumi_azure.containerservice",
   "classes": {
@@ -2386,6 +2474,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "cosmosdb/sqlDedicatedGateway",
+  "fqn": "pulumi_azure.cosmosdb",
+  "classes": {
+   "azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway": "SqlDedicatedGateway"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "cosmosdb/sqlFunction",
   "fqn": "pulumi_azure.cosmosdb",
   "classes": {
@@ -2438,6 +2534,14 @@ _utilities.register(
   "fqn": "pulumi_azure.dashboard",
   "classes": {
    "azure:dashboard/dashboard:Dashboard": "Dashboard"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "dashboard/grafana",
+  "fqn": "pulumi_azure.dashboard",
+  "classes": {
+   "azure:dashboard/grafana:Grafana": "Grafana"
   }
  },
  {
@@ -3558,6 +3662,22 @@ _utilities.register(
   "fqn": "pulumi_azure.healthcare",
   "classes": {
    "azure:healthcare/fhirService:FhirService": "FhirService"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "healthcare/medtechService",
+  "fqn": "pulumi_azure.healthcare",
+  "classes": {
+   "azure:healthcare/medtechService:MedtechService": "MedtechService"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "healthcare/medtechServiceFhirDestination",
+  "fqn": "pulumi_azure.healthcare",
+  "classes": {
+   "azure:healthcare/medtechServiceFhirDestination:MedtechServiceFhirDestination": "MedtechServiceFhirDestination"
   }
  },
  {
@@ -5698,6 +5818,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "operationalinsights/queryPackQuery",
+  "fqn": "pulumi_azure.operationalinsights",
+  "classes": {
+   "azure:operationalinsights/queryPackQuery:QueryPackQuery": "QueryPackQuery"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "policy/definition",
   "fqn": "pulumi_azure.policy",
   "classes": {
@@ -6042,6 +6170,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "search/sharedPrivateLinkService",
+  "fqn": "pulumi_azure.search",
+  "classes": {
+   "azure:search/sharedPrivateLinkService:SharedPrivateLinkService": "SharedPrivateLinkService"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "securitycenter/advancedThreatProtection",
   "fqn": "pulumi_azure.securitycenter",
   "classes": {
@@ -6150,6 +6286,14 @@ _utilities.register(
   "fqn": "pulumi_azure.sentinel",
   "classes": {
    "azure:sentinel/alertRuleMsSecurityIncident:AlertRuleMsSecurityIncident": "AlertRuleMsSecurityIncident"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "sentinel/alertRuleNrt",
+  "fqn": "pulumi_azure.sentinel",
+  "classes": {
+   "azure:sentinel/alertRuleNrt:AlertRuleNrt": "AlertRuleNrt"
   }
  },
  {

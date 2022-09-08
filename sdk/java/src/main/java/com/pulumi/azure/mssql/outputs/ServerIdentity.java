@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServerIdentity {
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
      * 
      */
     private @Nullable List<String> identityIds;
@@ -28,14 +28,14 @@ public final class ServerIdentity {
      */
     private @Nullable String tenantId;
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
      * 
      */
     private String type;
 
     private ServerIdentity() {}
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
      * 
      */
     public List<String> identityIds() {
@@ -56,7 +56,7 @@ public final class ServerIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
      * 
      */
     public String type() {

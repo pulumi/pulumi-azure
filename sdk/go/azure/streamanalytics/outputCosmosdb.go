@@ -116,6 +116,8 @@ type OutputCosmosdb struct {
 	DocumentId pulumi.StringPtrOutput `pulumi:"documentId"`
 	// The name of the Stream Analytics Output. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The name of the field in output events used to specify the key for partitioning output across collections. If `containerName` contains `{partition}` token, this property is required to be specified.
+	PartitionKey pulumi.StringPtrOutput `pulumi:"partitionKey"`
 	// The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobId pulumi.StringOutput `pulumi:"streamAnalyticsJobId"`
 }
@@ -171,6 +173,8 @@ type outputCosmosdbState struct {
 	DocumentId *string `pulumi:"documentId"`
 	// The name of the Stream Analytics Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The name of the field in output events used to specify the key for partitioning output across collections. If `containerName` contains `{partition}` token, this property is required to be specified.
+	PartitionKey *string `pulumi:"partitionKey"`
 	// The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobId *string `pulumi:"streamAnalyticsJobId"`
 }
@@ -186,6 +190,8 @@ type OutputCosmosdbState struct {
 	DocumentId pulumi.StringPtrInput
 	// The name of the Stream Analytics Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The name of the field in output events used to specify the key for partitioning output across collections. If `containerName` contains `{partition}` token, this property is required to be specified.
+	PartitionKey pulumi.StringPtrInput
 	// The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobId pulumi.StringPtrInput
 }
@@ -205,6 +211,8 @@ type outputCosmosdbArgs struct {
 	DocumentId *string `pulumi:"documentId"`
 	// The name of the Stream Analytics Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// The name of the field in output events used to specify the key for partitioning output across collections. If `containerName` contains `{partition}` token, this property is required to be specified.
+	PartitionKey *string `pulumi:"partitionKey"`
 	// The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobId string `pulumi:"streamAnalyticsJobId"`
 }
@@ -221,6 +229,8 @@ type OutputCosmosdbArgs struct {
 	DocumentId pulumi.StringPtrInput
 	// The name of the Stream Analytics Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// The name of the field in output events used to specify the key for partitioning output across collections. If `containerName` contains `{partition}` token, this property is required to be specified.
+	PartitionKey pulumi.StringPtrInput
 	// The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
 	StreamAnalyticsJobId pulumi.StringInput
 }
@@ -335,6 +345,11 @@ func (o OutputCosmosdbOutput) DocumentId() pulumi.StringPtrOutput {
 // The name of the Stream Analytics Output. Changing this forces a new resource to be created.
 func (o OutputCosmosdbOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutputCosmosdb) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The name of the field in output events used to specify the key for partitioning output across collections. If `containerName` contains `{partition}` token, this property is required to be specified.
+func (o OutputCosmosdbOutput) PartitionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputCosmosdb) pulumi.StringPtrOutput { return v.PartitionKey }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Stream Analytics Job. Changing this forces a new resource to be created.

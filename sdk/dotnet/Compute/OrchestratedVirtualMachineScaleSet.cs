@@ -57,11 +57,26 @@ namespace Pulumi.Azure.Compute
     [AzureResourceType("azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet")]
     public partial class OrchestratedVirtualMachineScaleSet : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// An `additional_capabilities` block as defined below.
+        /// </summary>
+        [Output("additionalCapabilities")]
+        public Output<Outputs.OrchestratedVirtualMachineScaleSetAdditionalCapabilities?> AdditionalCapabilities { get; private set; } = null!;
+
+        /// <summary>
+        /// An `automatic_instance_repair` block as defined below.
+        /// </summary>
         [Output("automaticInstanceRepair")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair> AutomaticInstanceRepair { get; private set; } = null!;
 
         [Output("bootDiagnostics")]
         public Output<Outputs.OrchestratedVirtualMachineScaleSetBootDiagnostics?> BootDiagnostics { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("capacityReservationGroupId")]
+        public Output<string?> CapacityReservationGroupId { get; private set; } = null!;
 
         [Output("dataDisks")]
         public Output<ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetDataDisk>> DataDisks { get; private set; } = null!;
@@ -71,6 +86,12 @@ namespace Pulumi.Azure.Compute
 
         [Output("evictionPolicy")]
         public Output<string?> EvictionPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+        /// </summary>
+        [Output("extensionOperationsEnabled")]
+        public Output<bool> ExtensionOperationsEnabled { get; private set; } = null!;
 
         [Output("extensions")]
         public Output<ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetExtension>> Extensions { get; private set; } = null!;
@@ -141,6 +162,15 @@ namespace Pulumi.Azure.Compute
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+        /// </summary>
+        [Output("singlePlacementGroup")]
+        public Output<bool> SinglePlacementGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+        /// </summary>
         [Output("skuName")]
         public Output<string?> SkuName { get; private set; } = null!;
 
@@ -223,11 +253,26 @@ namespace Pulumi.Azure.Compute
 
     public sealed class OrchestratedVirtualMachineScaleSetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `additional_capabilities` block as defined below.
+        /// </summary>
+        [Input("additionalCapabilities")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs>? AdditionalCapabilities { get; set; }
+
+        /// <summary>
+        /// An `automatic_instance_repair` block as defined below.
+        /// </summary>
         [Input("automaticInstanceRepair")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs>? AutomaticInstanceRepair { get; set; }
 
         [Input("bootDiagnostics")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs>? BootDiagnostics { get; set; }
+
+        /// <summary>
+        /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("capacityReservationGroupId")]
+        public Input<string>? CapacityReservationGroupId { get; set; }
 
         [Input("dataDisks")]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetDataDiskArgs>? _dataDisks;
@@ -242,6 +287,12 @@ namespace Pulumi.Azure.Compute
 
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
+
+        /// <summary>
+        /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+        /// </summary>
+        [Input("extensionOperationsEnabled")]
+        public Input<bool>? ExtensionOperationsEnabled { get; set; }
 
         [Input("extensions")]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetExtensionArgs>? _extensions;
@@ -322,6 +373,15 @@ namespace Pulumi.Azure.Compute
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+        /// </summary>
+        [Input("singlePlacementGroup")]
+        public Input<bool>? SinglePlacementGroup { get; set; }
+
+        /// <summary>
+        /// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+        /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
 
@@ -372,11 +432,26 @@ namespace Pulumi.Azure.Compute
 
     public sealed class OrchestratedVirtualMachineScaleSetState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `additional_capabilities` block as defined below.
+        /// </summary>
+        [Input("additionalCapabilities")]
+        public Input<Inputs.OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesGetArgs>? AdditionalCapabilities { get; set; }
+
+        /// <summary>
+        /// An `automatic_instance_repair` block as defined below.
+        /// </summary>
         [Input("automaticInstanceRepair")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairGetArgs>? AutomaticInstanceRepair { get; set; }
 
         [Input("bootDiagnostics")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetBootDiagnosticsGetArgs>? BootDiagnostics { get; set; }
+
+        /// <summary>
+        /// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("capacityReservationGroupId")]
+        public Input<string>? CapacityReservationGroupId { get; set; }
 
         [Input("dataDisks")]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetDataDiskGetArgs>? _dataDisks;
@@ -391,6 +466,12 @@ namespace Pulumi.Azure.Compute
 
         [Input("evictionPolicy")]
         public Input<string>? EvictionPolicy { get; set; }
+
+        /// <summary>
+        /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+        /// </summary>
+        [Input("extensionOperationsEnabled")]
+        public Input<bool>? ExtensionOperationsEnabled { get; set; }
 
         [Input("extensions")]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetExtensionGetArgs>? _extensions;
@@ -471,6 +552,15 @@ namespace Pulumi.Azure.Compute
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
 
+        /// <summary>
+        /// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+        /// </summary>
+        [Input("singlePlacementGroup")]
+        public Input<bool>? SinglePlacementGroup { get; set; }
+
+        /// <summary>
+        /// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+        /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
 

@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class LinuxVirtualMachineScaleSetRollingUpgradePolicy
     {
         /// <summary>
+        /// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+        /// </summary>
+        public readonly bool? CrossZoneUpgradesEnabled;
+        /// <summary>
         /// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
         /// </summary>
         public readonly int MaxBatchInstancePercent;
@@ -29,21 +33,31 @@ namespace Pulumi.Azure.Compute.Outputs
         /// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
         /// </summary>
         public readonly string PauseTimeBetweenBatches;
+        /// <summary>
+        /// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+        /// </summary>
+        public readonly bool? PrioritizeUnhealthyInstancesEnabled;
 
         [OutputConstructor]
         private LinuxVirtualMachineScaleSetRollingUpgradePolicy(
+            bool? crossZoneUpgradesEnabled,
+
             int maxBatchInstancePercent,
 
             int maxUnhealthyInstancePercent,
 
             int maxUnhealthyUpgradedInstancePercent,
 
-            string pauseTimeBetweenBatches)
+            string pauseTimeBetweenBatches,
+
+            bool? prioritizeUnhealthyInstancesEnabled)
         {
+            CrossZoneUpgradesEnabled = crossZoneUpgradesEnabled;
             MaxBatchInstancePercent = maxBatchInstancePercent;
             MaxUnhealthyInstancePercent = maxUnhealthyInstancePercent;
             MaxUnhealthyUpgradedInstancePercent = maxUnhealthyUpgradedInstancePercent;
             PauseTimeBetweenBatches = pauseTimeBetweenBatches;
+            PrioritizeUnhealthyInstancesEnabled = prioritizeUnhealthyInstancesEnabled;
         }
     }
 }

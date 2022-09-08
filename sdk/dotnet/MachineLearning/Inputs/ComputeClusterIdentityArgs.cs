@@ -16,7 +16,7 @@ namespace Pulumi.Azure.MachineLearning.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster.
         /// </summary>
         public InputList<string> IdentityIds
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Azure.MachineLearning.Inputs
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        /// Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

@@ -23,7 +23,9 @@ class NamespaceArgs:
                  identity: Optional[pulumi.Input['NamespaceIdentityArgs']] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
@@ -36,8 +38,10 @@ class NamespaceArgs:
         :param pulumi.Input['NamespaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a
                new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Defaults to `false`.
         """
@@ -53,8 +57,12 @@ class NamespaceArgs:
             pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zone_redundant is not None:
@@ -146,6 +154,18 @@ class NamespaceArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @minimum_tls_version.setter
+    def minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimum_tls_version", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -157,6 +177,18 @@ class NamespaceArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
 
     @property
     @pulumi.getter
@@ -195,7 +227,9 @@ class _NamespaceState:
                  identity: Optional[pulumi.Input['NamespaceIdentityArgs']] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -213,8 +247,10 @@ class _NamespaceState:
         :param pulumi.Input['NamespaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a
                new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the namespace.
         :param pulumi.Input[str] sku: Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
@@ -239,8 +275,12 @@ class _NamespaceState:
             pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku is not None:
@@ -361,6 +401,18 @@ class _NamespaceState:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @minimum_tls_version.setter
+    def minimum_tls_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimum_tls_version", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -372,6 +424,18 @@ class _NamespaceState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -433,7 +497,9 @@ class Namespace(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['NamespaceIdentityArgs']]] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -473,8 +539,10 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['NamespaceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a
                new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the namespace.
         :param pulumi.Input[str] sku: Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
@@ -534,7 +602,9 @@ class Namespace(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['NamespaceIdentityArgs']]] = None,
                  local_auth_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -553,7 +623,9 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["local_auth_enabled"] = local_auth_enabled
             __props__.__dict__["location"] = location
+            __props__.__dict__["minimum_tls_version"] = minimum_tls_version
             __props__.__dict__["name"] = name
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -587,7 +659,9 @@ class Namespace(pulumi.CustomResource):
             identity: Optional[pulumi.Input[pulumi.InputType['NamespaceIdentityArgs']]] = None,
             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            minimum_tls_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -610,8 +684,10 @@ class Namespace(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['NamespaceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_auth_enabled: Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] minimum_tls_version: The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Namespace resource . Changing this forces a
                new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
                create the namespace.
         :param pulumi.Input[str] sku: Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
@@ -631,7 +707,9 @@ class Namespace(pulumi.CustomResource):
         __props__.__dict__["identity"] = identity
         __props__.__dict__["local_auth_enabled"] = local_auth_enabled
         __props__.__dict__["location"] = location
+        __props__.__dict__["minimum_tls_version"] = minimum_tls_version
         __props__.__dict__["name"] = name
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku"] = sku
         __props__.__dict__["tags"] = tags
@@ -713,6 +791,14 @@ class Namespace(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> pulumi.Output[str]:
+        """
+        The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -720,6 +806,14 @@ class Namespace(pulumi.CustomResource):
         new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

@@ -14,6 +14,7 @@ __all__ = [
     'AccountEncryption',
     'AccountIdentity',
     'AccountPrivateEndpointConnection',
+    'ConnectionTypeField',
     'ModuleModuleLink',
     'ModuleModuleLinkHash',
     'RunBookJobSchedule',
@@ -190,6 +191,78 @@ class AccountPrivateEndpointConnection(dict):
         Specifies the name of the Automation Account. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ConnectionTypeField(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEncrypted":
+            suggest = "is_encrypted"
+        elif key == "isOptional":
+            suggest = "is_optional"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 is_encrypted: Optional[bool] = None,
+                 is_optional: Optional[bool] = None):
+        """
+        :param str name: The name which should be used for this connection field definition.
+        :param str type: The type of the connection field definition.
+        :param bool is_encrypted: Whether to set the isEncrypted flag of the connection field definition.
+        :param bool is_optional: Whether to set the isOptional flag of the connection field definition.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if is_encrypted is not None:
+            pulumi.set(__self__, "is_encrypted", is_encrypted)
+        if is_optional is not None:
+            pulumi.set(__self__, "is_optional", is_optional)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this connection field definition.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the connection field definition.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="isEncrypted")
+    def is_encrypted(self) -> Optional[bool]:
+        """
+        Whether to set the isEncrypted flag of the connection field definition.
+        """
+        return pulumi.get(self, "is_encrypted")
+
+    @property
+    @pulumi.getter(name="isOptional")
+    def is_optional(self) -> Optional[bool]:
+        """
+        Whether to set the isOptional flag of the connection field definition.
+        """
+        return pulumi.get(self, "is_optional")
 
 
 @pulumi.output_type

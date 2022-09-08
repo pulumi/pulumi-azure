@@ -37,9 +37,12 @@ class WindowsVirtualMachineScaleSetArgs:
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
+                 extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
+                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
+                 host_group_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['WindowsVirtualMachineScaleSetIdentityArgs']] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -52,12 +55,14 @@ class WindowsVirtualMachineScaleSetArgs:
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  rolling_upgrade_policy: Optional[pulumi.Input['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
+                 scale_in: Optional[pulumi.Input['WindowsVirtualMachineScaleSetScaleInArgs']] = None,
                  scale_in_policy: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
                  single_placement_group: Optional[pulumi.Input[bool]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
+                 spot_restore: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSpotRestoreArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  terminate_notification: Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminateNotificationArgs']] = None,
                  termination_notification: Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminationNotificationArgs']] = None,
@@ -77,10 +82,10 @@ class WindowsVirtualMachineScaleSetArgs:
         :param pulumi.Input['WindowsVirtualMachineScaleSetOsDiskArgs'] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
-        :param pulumi.Input['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs'] additional_capabilities: A `additional_capabilities` block as defined below.
+        :param pulumi.Input['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs'] additional_capabilities: An `additional_capabilities` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below.
-        :param pulumi.Input['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs'] automatic_instance_repair: A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
-        :param pulumi.Input['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs'] automatic_os_upgrade_policy: A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+        :param pulumi.Input['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs'] automatic_instance_repair: An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+        :param pulumi.Input['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs'] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
         :param pulumi.Input['WindowsVirtualMachineScaleSetBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
@@ -91,27 +96,31 @@ class WindowsVirtualMachineScaleSetArgs:
         :param pulumi.Input[bool] enable_automatic_updates: Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]] gallery_applications: A `gallery_applications` block as defined below.
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+        :param pulumi.Input[str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineScaleSetIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
         :param pulumi.Input[str] location: The Azure location where the Windows Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `eviction_policy`. Defaults to `-1`, which means that each Virtual Machine in the Scale Set should not be evicted for price reasons.
         :param pulumi.Input[str] name: The name of the Windows Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] overprovision: Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
-        :param pulumi.Input['WindowsVirtualMachineScaleSetPlanArgs'] plan: A `plan` block as documented below.
+        :param pulumi.Input['WindowsVirtualMachineScaleSetPlanArgs'] plan: A `plan` block as defined below.
         :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
-        :param pulumi.Input[str] scale_in_policy: The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+        :param pulumi.Input['WindowsVirtualMachineScaleSetScaleInArgs'] scale_in: A `scale_in` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[bool] secure_boot_enabled: Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
-        :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+        :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         :param pulumi.Input['WindowsVirtualMachineScaleSetSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below.
+        :param pulumi.Input['WindowsVirtualMachineScaleSetSpotRestoreArgs'] spot_restore: A `spot_restore` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         :param pulumi.Input['WindowsVirtualMachineScaleSetTerminateNotificationArgs'] terminate_notification: A `terminate_notification` block as defined below.
         :param pulumi.Input['WindowsVirtualMachineScaleSetTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
@@ -158,12 +167,18 @@ class WindowsVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
         if eviction_policy is not None:
             pulumi.set(__self__, "eviction_policy", eviction_policy)
+        if extension_operations_enabled is not None:
+            pulumi.set(__self__, "extension_operations_enabled", extension_operations_enabled)
         if extensions is not None:
             pulumi.set(__self__, "extensions", extensions)
         if extensions_time_budget is not None:
             pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
+        if gallery_applications is not None:
+            pulumi.set(__self__, "gallery_applications", gallery_applications)
         if health_probe_id is not None:
             pulumi.set(__self__, "health_probe_id", health_probe_id)
+        if host_group_id is not None:
+            pulumi.set(__self__, "host_group_id", host_group_id)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if license_type is not None:
@@ -188,6 +203,11 @@ class WindowsVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
         if rolling_upgrade_policy is not None:
             pulumi.set(__self__, "rolling_upgrade_policy", rolling_upgrade_policy)
+        if scale_in is not None:
+            pulumi.set(__self__, "scale_in", scale_in)
+        if scale_in_policy is not None:
+            warnings.warn("""`scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""scale_in_policy is deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""")
         if scale_in_policy is not None:
             pulumi.set(__self__, "scale_in_policy", scale_in_policy)
         if secrets is not None:
@@ -200,6 +220,8 @@ class WindowsVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "source_image_id", source_image_id)
         if source_image_reference is not None:
             pulumi.set(__self__, "source_image_reference", source_image_reference)
+        if spot_restore is not None:
+            pulumi.set(__self__, "spot_restore", spot_restore)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if terminate_notification is not None:
@@ -312,7 +334,7 @@ class WindowsVirtualMachineScaleSetArgs:
     @pulumi.getter(name="additionalCapabilities")
     def additional_capabilities(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs']]:
         """
-        A `additional_capabilities` block as defined below.
+        An `additional_capabilities` block as defined below.
         """
         return pulumi.get(self, "additional_capabilities")
 
@@ -336,7 +358,7 @@ class WindowsVirtualMachineScaleSetArgs:
     @pulumi.getter(name="automaticInstanceRepair")
     def automatic_instance_repair(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']]:
         """
-        A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+        An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         """
         return pulumi.get(self, "automatic_instance_repair")
 
@@ -348,7 +370,7 @@ class WindowsVirtualMachineScaleSetArgs:
     @pulumi.getter(name="automaticOsUpgradePolicy")
     def automatic_os_upgrade_policy(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]:
         """
-        A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+        An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
         """
         return pulumi.get(self, "automatic_os_upgrade_policy")
 
@@ -477,6 +499,18 @@ class WindowsVirtualMachineScaleSetArgs:
         pulumi.set(self, "eviction_policy", value)
 
     @property
+    @pulumi.getter(name="extensionOperationsEnabled")
+    def extension_operations_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+        """
+        return pulumi.get(self, "extension_operations_enabled")
+
+    @extension_operations_enabled.setter
+    def extension_operations_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "extension_operations_enabled", value)
+
+    @property
     @pulumi.getter
     def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]]:
         """
@@ -501,6 +535,18 @@ class WindowsVirtualMachineScaleSetArgs:
         pulumi.set(self, "extensions_time_budget", value)
 
     @property
+    @pulumi.getter(name="galleryApplications")
+    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]:
+        """
+        A `gallery_applications` block as defined below.
+        """
+        return pulumi.get(self, "gallery_applications")
+
+    @gallery_applications.setter
+    def gallery_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]):
+        pulumi.set(self, "gallery_applications", value)
+
+    @property
     @pulumi.getter(name="healthProbeId")
     def health_probe_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -511,6 +557,18 @@ class WindowsVirtualMachineScaleSetArgs:
     @health_probe_id.setter
     def health_probe_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "health_probe_id", value)
+
+    @property
+    @pulumi.getter(name="hostGroupId")
+    def host_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "host_group_id")
+
+    @host_group_id.setter
+    def host_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_group_id", value)
 
     @property
     @pulumi.getter
@@ -588,7 +646,7 @@ class WindowsVirtualMachineScaleSetArgs:
     @pulumi.getter
     def plan(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetPlanArgs']]:
         """
-        A `plan` block as documented below.
+        A `plan` block as defined below.
         """
         return pulumi.get(self, "plan")
 
@@ -657,11 +715,20 @@ class WindowsVirtualMachineScaleSetArgs:
         pulumi.set(self, "rolling_upgrade_policy", value)
 
     @property
+    @pulumi.getter(name="scaleIn")
+    def scale_in(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetScaleInArgs']]:
+        """
+        A `scale_in` block as defined below.
+        """
+        return pulumi.get(self, "scale_in")
+
+    @scale_in.setter
+    def scale_in(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetScaleInArgs']]):
+        pulumi.set(self, "scale_in", value)
+
+    @property
     @pulumi.getter(name="scaleInPolicy")
     def scale_in_policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
-        """
         return pulumi.get(self, "scale_in_policy")
 
     @scale_in_policy.setter
@@ -708,7 +775,7 @@ class WindowsVirtualMachineScaleSetArgs:
     @pulumi.getter(name="sourceImageId")
     def source_image_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+        The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         """
         return pulumi.get(self, "source_image_id")
 
@@ -727,6 +794,18 @@ class WindowsVirtualMachineScaleSetArgs:
     @source_image_reference.setter
     def source_image_reference(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']]):
         pulumi.set(self, "source_image_reference", value)
+
+    @property
+    @pulumi.getter(name="spotRestore")
+    def spot_restore(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetSpotRestoreArgs']]:
+        """
+        A `spot_restore` block as defined below.
+        """
+        return pulumi.get(self, "spot_restore")
+
+    @spot_restore.setter
+    def spot_restore(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSpotRestoreArgs']]):
+        pulumi.set(self, "spot_restore", value)
 
     @property
     @pulumi.getter
@@ -868,9 +947,12 @@ class _WindowsVirtualMachineScaleSetState:
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
+                 extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
+                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
+                 host_group_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['WindowsVirtualMachineScaleSetIdentityArgs']] = None,
                  instances: Optional[pulumi.Input[int]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
@@ -887,6 +969,7 @@ class _WindowsVirtualMachineScaleSetState:
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rolling_upgrade_policy: Optional[pulumi.Input['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']] = None,
+                 scale_in: Optional[pulumi.Input['WindowsVirtualMachineScaleSetScaleInArgs']] = None,
                  scale_in_policy: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
@@ -894,6 +977,7 @@ class _WindowsVirtualMachineScaleSetState:
                  sku: Optional[pulumi.Input[str]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
+                 spot_restore: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSpotRestoreArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  terminate_notification: Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminateNotificationArgs']] = None,
                  termination_notification: Optional[pulumi.Input['WindowsVirtualMachineScaleSetTerminationNotificationArgs']] = None,
@@ -907,12 +991,12 @@ class _WindowsVirtualMachineScaleSetState:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering WindowsVirtualMachineScaleSet resources.
-        :param pulumi.Input['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs'] additional_capabilities: A `additional_capabilities` block as defined below.
+        :param pulumi.Input['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs'] additional_capabilities: An `additional_capabilities` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below.
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_username: The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
-        :param pulumi.Input['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs'] automatic_instance_repair: A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
-        :param pulumi.Input['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs'] automatic_os_upgrade_policy: A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+        :param pulumi.Input['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs'] automatic_instance_repair: An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+        :param pulumi.Input['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs'] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
         :param pulumi.Input['WindowsVirtualMachineScaleSetBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
@@ -923,9 +1007,12 @@ class _WindowsVirtualMachineScaleSetState:
         :param pulumi.Input[bool] enable_automatic_updates: Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]] gallery_applications: A `gallery_applications` block as defined below.
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+        :param pulumi.Input[str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineScaleSetIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[int] instances: The number of Virtual Machines in the Scale Set.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -935,20 +1022,21 @@ class _WindowsVirtualMachineScaleSetState:
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input['WindowsVirtualMachineScaleSetOsDiskArgs'] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[bool] overprovision: Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
-        :param pulumi.Input['WindowsVirtualMachineScaleSetPlanArgs'] plan: A `plan` block as documented below.
+        :param pulumi.Input['WindowsVirtualMachineScaleSetPlanArgs'] plan: A `plan` block as defined below.
         :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
-        :param pulumi.Input[str] scale_in_policy: The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+        :param pulumi.Input['WindowsVirtualMachineScaleSetScaleInArgs'] scale_in: A `scale_in` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[bool] secure_boot_enabled: Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         :param pulumi.Input[str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
-        :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+        :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         :param pulumi.Input['WindowsVirtualMachineScaleSetSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below.
+        :param pulumi.Input['WindowsVirtualMachineScaleSetSpotRestoreArgs'] spot_restore: A `spot_restore` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         :param pulumi.Input['WindowsVirtualMachineScaleSetTerminateNotificationArgs'] terminate_notification: A `terminate_notification` block as defined below.
         :param pulumi.Input['WindowsVirtualMachineScaleSetTerminationNotificationArgs'] termination_notification: A `termination_notification` block as defined below.
@@ -993,12 +1081,18 @@ class _WindowsVirtualMachineScaleSetState:
             pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
         if eviction_policy is not None:
             pulumi.set(__self__, "eviction_policy", eviction_policy)
+        if extension_operations_enabled is not None:
+            pulumi.set(__self__, "extension_operations_enabled", extension_operations_enabled)
         if extensions is not None:
             pulumi.set(__self__, "extensions", extensions)
         if extensions_time_budget is not None:
             pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
+        if gallery_applications is not None:
+            pulumi.set(__self__, "gallery_applications", gallery_applications)
         if health_probe_id is not None:
             pulumi.set(__self__, "health_probe_id", health_probe_id)
+        if host_group_id is not None:
+            pulumi.set(__self__, "host_group_id", host_group_id)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if instances is not None:
@@ -1031,6 +1125,11 @@ class _WindowsVirtualMachineScaleSetState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if rolling_upgrade_policy is not None:
             pulumi.set(__self__, "rolling_upgrade_policy", rolling_upgrade_policy)
+        if scale_in is not None:
+            pulumi.set(__self__, "scale_in", scale_in)
+        if scale_in_policy is not None:
+            warnings.warn("""`scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""scale_in_policy is deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""")
         if scale_in_policy is not None:
             pulumi.set(__self__, "scale_in_policy", scale_in_policy)
         if secrets is not None:
@@ -1045,6 +1144,8 @@ class _WindowsVirtualMachineScaleSetState:
             pulumi.set(__self__, "source_image_id", source_image_id)
         if source_image_reference is not None:
             pulumi.set(__self__, "source_image_reference", source_image_reference)
+        if spot_restore is not None:
+            pulumi.set(__self__, "spot_restore", spot_restore)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if terminate_notification is not None:
@@ -1075,7 +1176,7 @@ class _WindowsVirtualMachineScaleSetState:
     @pulumi.getter(name="additionalCapabilities")
     def additional_capabilities(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs']]:
         """
-        A `additional_capabilities` block as defined below.
+        An `additional_capabilities` block as defined below.
         """
         return pulumi.get(self, "additional_capabilities")
 
@@ -1123,7 +1224,7 @@ class _WindowsVirtualMachineScaleSetState:
     @pulumi.getter(name="automaticInstanceRepair")
     def automatic_instance_repair(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']]:
         """
-        A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+        An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         """
         return pulumi.get(self, "automatic_instance_repair")
 
@@ -1135,7 +1236,7 @@ class _WindowsVirtualMachineScaleSetState:
     @pulumi.getter(name="automaticOsUpgradePolicy")
     def automatic_os_upgrade_policy(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']]:
         """
-        A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+        An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
         """
         return pulumi.get(self, "automatic_os_upgrade_policy")
 
@@ -1264,6 +1365,18 @@ class _WindowsVirtualMachineScaleSetState:
         pulumi.set(self, "eviction_policy", value)
 
     @property
+    @pulumi.getter(name="extensionOperationsEnabled")
+    def extension_operations_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+        """
+        return pulumi.get(self, "extension_operations_enabled")
+
+    @extension_operations_enabled.setter
+    def extension_operations_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "extension_operations_enabled", value)
+
+    @property
     @pulumi.getter
     def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetExtensionArgs']]]]:
         """
@@ -1288,6 +1401,18 @@ class _WindowsVirtualMachineScaleSetState:
         pulumi.set(self, "extensions_time_budget", value)
 
     @property
+    @pulumi.getter(name="galleryApplications")
+    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]:
+        """
+        A `gallery_applications` block as defined below.
+        """
+        return pulumi.get(self, "gallery_applications")
+
+    @gallery_applications.setter
+    def gallery_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]):
+        pulumi.set(self, "gallery_applications", value)
+
+    @property
     @pulumi.getter(name="healthProbeId")
     def health_probe_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1298,6 +1423,18 @@ class _WindowsVirtualMachineScaleSetState:
     @health_probe_id.setter
     def health_probe_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "health_probe_id", value)
+
+    @property
+    @pulumi.getter(name="hostGroupId")
+    def host_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "host_group_id")
+
+    @host_group_id.setter
+    def host_group_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_group_id", value)
 
     @property
     @pulumi.getter
@@ -1411,7 +1548,7 @@ class _WindowsVirtualMachineScaleSetState:
     @pulumi.getter
     def plan(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetPlanArgs']]:
         """
-        A `plan` block as documented below.
+        A `plan` block as defined below.
         """
         return pulumi.get(self, "plan")
 
@@ -1492,11 +1629,20 @@ class _WindowsVirtualMachineScaleSetState:
         pulumi.set(self, "rolling_upgrade_policy", value)
 
     @property
+    @pulumi.getter(name="scaleIn")
+    def scale_in(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetScaleInArgs']]:
+        """
+        A `scale_in` block as defined below.
+        """
+        return pulumi.get(self, "scale_in")
+
+    @scale_in.setter
+    def scale_in(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetScaleInArgs']]):
+        pulumi.set(self, "scale_in", value)
+
+    @property
     @pulumi.getter(name="scaleInPolicy")
     def scale_in_policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
-        """
         return pulumi.get(self, "scale_in_policy")
 
     @scale_in_policy.setter
@@ -1555,7 +1701,7 @@ class _WindowsVirtualMachineScaleSetState:
     @pulumi.getter(name="sourceImageId")
     def source_image_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+        The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         """
         return pulumi.get(self, "source_image_id")
 
@@ -1574,6 +1720,18 @@ class _WindowsVirtualMachineScaleSetState:
     @source_image_reference.setter
     def source_image_reference(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']]):
         pulumi.set(self, "source_image_reference", value)
+
+    @property
+    @pulumi.getter(name="spotRestore")
+    def spot_restore(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetSpotRestoreArgs']]:
+        """
+        A `spot_restore` block as defined below.
+        """
+        return pulumi.get(self, "spot_restore")
+
+    @spot_restore.setter
+    def spot_restore(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetSpotRestoreArgs']]):
+        pulumi.set(self, "spot_restore", value)
 
     @property
     @pulumi.getter
@@ -1729,9 +1887,12 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
+                 extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetExtensionArgs']]]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
+                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
+                 host_group_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetIdentityArgs']]] = None,
                  instances: Optional[pulumi.Input[int]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
@@ -1748,6 +1909,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rolling_upgrade_policy: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']]] = None,
+                 scale_in: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetScaleInArgs']]] = None,
                  scale_in_policy: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetSecretArgs']]]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1755,6 +1917,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[str]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']]] = None,
+                 spot_restore: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetSpotRestoreArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  terminate_notification: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetTerminateNotificationArgs']]] = None,
                  termination_notification: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetTerminationNotificationArgs']]] = None,
@@ -1832,12 +1995,12 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs']] additional_capabilities: A `additional_capabilities` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs']] additional_capabilities: An `additional_capabilities` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]]] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below.
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_username: The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']] automatic_instance_repair: A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
-        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] automatic_os_upgrade_policy: A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']] automatic_instance_repair: An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
@@ -1848,9 +2011,12 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_automatic_updates: Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] gallery_applications: A `gallery_applications` block as defined below.
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+        :param pulumi.Input[str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[int] instances: The number of Virtual Machines in the Scale Set.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -1860,20 +2026,21 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetOsDiskArgs']] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[bool] overprovision: Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetPlanArgs']] plan: A `plan` block as documented below.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetPlanArgs']] plan: A `plan` block as defined below.
         :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
-        :param pulumi.Input[str] scale_in_policy: The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetScaleInArgs']] scale_in: A `scale_in` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[bool] secure_boot_enabled: Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         :param pulumi.Input[str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
-        :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+        :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetSpotRestoreArgs']] spot_restore: A `spot_restore` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetTerminateNotificationArgs']] terminate_notification: A `terminate_notification` block as defined below.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetTerminationNotificationArgs']] termination_notification: A `termination_notification` block as defined below.
@@ -1986,9 +2153,12 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
+                 extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetExtensionArgs']]]]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
+                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]] = None,
                  health_probe_id: Optional[pulumi.Input[str]] = None,
+                 host_group_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetIdentityArgs']]] = None,
                  instances: Optional[pulumi.Input[int]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
@@ -2005,6 +2175,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rolling_upgrade_policy: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']]] = None,
+                 scale_in: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetScaleInArgs']]] = None,
                  scale_in_policy: Optional[pulumi.Input[str]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetSecretArgs']]]]] = None,
                  secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2012,6 +2183,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[str]] = None,
                  source_image_id: Optional[pulumi.Input[str]] = None,
                  source_image_reference: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']]] = None,
+                 spot_restore: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetSpotRestoreArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  terminate_notification: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetTerminateNotificationArgs']]] = None,
                  termination_notification: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetTerminationNotificationArgs']]] = None,
@@ -2051,9 +2223,12 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["enable_automatic_updates"] = enable_automatic_updates
             __props__.__dict__["encryption_at_host_enabled"] = encryption_at_host_enabled
             __props__.__dict__["eviction_policy"] = eviction_policy
+            __props__.__dict__["extension_operations_enabled"] = extension_operations_enabled
             __props__.__dict__["extensions"] = extensions
             __props__.__dict__["extensions_time_budget"] = extensions_time_budget
+            __props__.__dict__["gallery_applications"] = gallery_applications
             __props__.__dict__["health_probe_id"] = health_probe_id
+            __props__.__dict__["host_group_id"] = host_group_id
             __props__.__dict__["identity"] = identity
             if instances is None and not opts.urn:
                 raise TypeError("Missing required property 'instances'")
@@ -2078,6 +2253,10 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rolling_upgrade_policy"] = rolling_upgrade_policy
+            __props__.__dict__["scale_in"] = scale_in
+            if scale_in_policy is not None and not opts.urn:
+                warnings.warn("""`scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+                pulumi.log.warn("""scale_in_policy is deprecated: `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.""")
             __props__.__dict__["scale_in_policy"] = scale_in_policy
             __props__.__dict__["secrets"] = secrets
             __props__.__dict__["secure_boot_enabled"] = secure_boot_enabled
@@ -2087,6 +2266,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["source_image_id"] = source_image_id
             __props__.__dict__["source_image_reference"] = source_image_reference
+            __props__.__dict__["spot_restore"] = spot_restore
             __props__.__dict__["tags"] = tags
             if terminate_notification is not None and not opts.urn:
                 warnings.warn("""`terminate_notification` has been renamed to `termination_notification` and will be removed in 4.0.""", DeprecationWarning)
@@ -2127,9 +2307,12 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
             encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
+            extension_operations_enabled: Optional[pulumi.Input[bool]] = None,
             extensions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetExtensionArgs']]]]] = None,
             extensions_time_budget: Optional[pulumi.Input[str]] = None,
+            gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]]] = None,
             health_probe_id: Optional[pulumi.Input[str]] = None,
+            host_group_id: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetIdentityArgs']]] = None,
             instances: Optional[pulumi.Input[int]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
@@ -2146,6 +2329,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             rolling_upgrade_policy: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']]] = None,
+            scale_in: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetScaleInArgs']]] = None,
             scale_in_policy: Optional[pulumi.Input[str]] = None,
             secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetSecretArgs']]]]] = None,
             secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
@@ -2153,6 +2337,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             sku: Optional[pulumi.Input[str]] = None,
             source_image_id: Optional[pulumi.Input[str]] = None,
             source_image_reference: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']]] = None,
+            spot_restore: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetSpotRestoreArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             terminate_notification: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetTerminateNotificationArgs']]] = None,
             termination_notification: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetTerminationNotificationArgs']]] = None,
@@ -2171,12 +2356,12 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs']] additional_capabilities: A `additional_capabilities` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs']] additional_capabilities: An `additional_capabilities` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]]] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below.
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_username: The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']] automatic_instance_repair: A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
-        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] automatic_os_upgrade_policy: A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']] automatic_instance_repair: An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`.
@@ -2187,9 +2372,12 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_automatic_updates: Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] extension_operations_enabled: Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetExtensionArgs']]]] extensions: One or more `extension` blocks as defined below
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between `15` minutes and `120` minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `90` minutes (`PT1H30M`).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetGalleryApplicationArgs']]]] gallery_applications: A `gallery_applications` block as defined below.
         :param pulumi.Input[str] health_probe_id: The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
+        :param pulumi.Input[str] host_group_id: Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[int] instances: The number of Virtual Machines in the Scale Set.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing)) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -2199,20 +2387,21 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetNetworkInterfaceArgs']]]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetOsDiskArgs']] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[bool] overprovision: Should Azure over-provision Virtual Machines in this Scale Set? This means that multiple Virtual Machines will be provisioned and Azure will keep the instances which become available first - which improves provisioning success rates and improves deployment time. You're not billed for these over-provisioned VM's and they don't count towards the Subscription Quota. Defaults to `true`.
-        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetPlanArgs']] plan: A `plan` block as documented below.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetPlanArgs']] plan: A `plan` block as defined below.
         :param pulumi.Input[int] platform_fault_domain_count: Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] priority: The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group in which the Virtual Machine Scale Set should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
-        :param pulumi.Input[str] scale_in_policy: The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetScaleInArgs']] scale_in: A `scale_in` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetSecretArgs']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[bool] secure_boot_enabled: Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
         :param pulumi.Input[str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
-        :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+        :param pulumi.Input[str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetSpotRestoreArgs']] spot_restore: A `spot_restore` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Virtual Machine Scale Set.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetTerminateNotificationArgs']] terminate_notification: A `terminate_notification` block as defined below.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineScaleSetTerminationNotificationArgs']] termination_notification: A `termination_notification` block as defined below.
@@ -2245,9 +2434,12 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["enable_automatic_updates"] = enable_automatic_updates
         __props__.__dict__["encryption_at_host_enabled"] = encryption_at_host_enabled
         __props__.__dict__["eviction_policy"] = eviction_policy
+        __props__.__dict__["extension_operations_enabled"] = extension_operations_enabled
         __props__.__dict__["extensions"] = extensions
         __props__.__dict__["extensions_time_budget"] = extensions_time_budget
+        __props__.__dict__["gallery_applications"] = gallery_applications
         __props__.__dict__["health_probe_id"] = health_probe_id
+        __props__.__dict__["host_group_id"] = host_group_id
         __props__.__dict__["identity"] = identity
         __props__.__dict__["instances"] = instances
         __props__.__dict__["license_type"] = license_type
@@ -2264,6 +2456,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["rolling_upgrade_policy"] = rolling_upgrade_policy
+        __props__.__dict__["scale_in"] = scale_in
         __props__.__dict__["scale_in_policy"] = scale_in_policy
         __props__.__dict__["secrets"] = secrets
         __props__.__dict__["secure_boot_enabled"] = secure_boot_enabled
@@ -2271,6 +2464,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["sku"] = sku
         __props__.__dict__["source_image_id"] = source_image_id
         __props__.__dict__["source_image_reference"] = source_image_reference
+        __props__.__dict__["spot_restore"] = spot_restore
         __props__.__dict__["tags"] = tags
         __props__.__dict__["terminate_notification"] = terminate_notification
         __props__.__dict__["termination_notification"] = termination_notification
@@ -2288,7 +2482,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter(name="additionalCapabilities")
     def additional_capabilities(self) -> pulumi.Output[Optional['outputs.WindowsVirtualMachineScaleSetAdditionalCapabilities']]:
         """
-        A `additional_capabilities` block as defined below.
+        An `additional_capabilities` block as defined below.
         """
         return pulumi.get(self, "additional_capabilities")
 
@@ -2320,7 +2514,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter(name="automaticInstanceRepair")
     def automatic_instance_repair(self) -> pulumi.Output['outputs.WindowsVirtualMachineScaleSetAutomaticInstanceRepair']:
         """
-        A `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+        An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
         """
         return pulumi.get(self, "automatic_instance_repair")
 
@@ -2328,7 +2522,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter(name="automaticOsUpgradePolicy")
     def automatic_os_upgrade_policy(self) -> pulumi.Output[Optional['outputs.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy']]:
         """
-        A `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
+        An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to `Automatic`.
         """
         return pulumi.get(self, "automatic_os_upgrade_policy")
 
@@ -2413,6 +2607,14 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         return pulumi.get(self, "eviction_policy")
 
     @property
+    @pulumi.getter(name="extensionOperationsEnabled")
+    def extension_operations_enabled(self) -> pulumi.Output[bool]:
+        """
+        Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Windows Virtual Machine Scale Set to be created.
+        """
+        return pulumi.get(self, "extension_operations_enabled")
+
+    @property
     @pulumi.getter
     def extensions(self) -> pulumi.Output[Sequence['outputs.WindowsVirtualMachineScaleSetExtension']]:
         """
@@ -2429,12 +2631,28 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         return pulumi.get(self, "extensions_time_budget")
 
     @property
+    @pulumi.getter(name="galleryApplications")
+    def gallery_applications(self) -> pulumi.Output[Optional[Sequence['outputs.WindowsVirtualMachineScaleSetGalleryApplication']]]:
+        """
+        A `gallery_applications` block as defined below.
+        """
+        return pulumi.get(self, "gallery_applications")
+
+    @property
     @pulumi.getter(name="healthProbeId")
     def health_probe_id(self) -> pulumi.Output[Optional[str]]:
         """
         The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`.
         """
         return pulumi.get(self, "health_probe_id")
+
+    @property
+    @pulumi.getter(name="hostGroupId")
+    def host_group_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "host_group_id")
 
     @property
     @pulumi.getter
@@ -2512,7 +2730,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter
     def plan(self) -> pulumi.Output[Optional['outputs.WindowsVirtualMachineScaleSetPlan']]:
         """
-        A `plan` block as documented below.
+        A `plan` block as defined below.
         """
         return pulumi.get(self, "plan")
 
@@ -2565,11 +2783,16 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         return pulumi.get(self, "rolling_upgrade_policy")
 
     @property
+    @pulumi.getter(name="scaleIn")
+    def scale_in(self) -> pulumi.Output['outputs.WindowsVirtualMachineScaleSetScaleIn']:
+        """
+        A `scale_in` block as defined below.
+        """
+        return pulumi.get(self, "scale_in")
+
+    @property
     @pulumi.getter(name="scaleInPolicy")
-    def scale_in_policy(self) -> pulumi.Output[Optional[str]]:
-        """
-        The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
-        """
+    def scale_in_policy(self) -> pulumi.Output[str]:
         return pulumi.get(self, "scale_in_policy")
 
     @property
@@ -2608,7 +2831,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter(name="sourceImageId")
     def source_image_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+        The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
         """
         return pulumi.get(self, "source_image_id")
 
@@ -2619,6 +2842,14 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         A `source_image_reference` block as defined below.
         """
         return pulumi.get(self, "source_image_reference")
+
+    @property
+    @pulumi.getter(name="spotRestore")
+    def spot_restore(self) -> pulumi.Output['outputs.WindowsVirtualMachineScaleSetSpotRestore']:
+        """
+        A `spot_restore` block as defined below.
+        """
+        return pulumi.get(self, "spot_restore")
 
     @property
     @pulumi.getter

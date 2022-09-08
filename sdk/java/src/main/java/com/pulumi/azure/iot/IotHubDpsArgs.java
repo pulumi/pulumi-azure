@@ -37,6 +37,21 @@ public final class IotHubDpsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+     * 
+     */
+    @Import(name="dataResidencyEnabled")
+    private @Nullable Output<Boolean> dataResidencyEnabled;
+
+    /**
+     * @return Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> dataResidencyEnabled() {
+        return Optional.ofNullable(this.dataResidencyEnabled);
+    }
+
+    /**
      * An `ip_filter_rule` block as defined below.
      * 
      */
@@ -160,6 +175,7 @@ public final class IotHubDpsArgs extends com.pulumi.resources.ResourceArgs {
 
     private IotHubDpsArgs(IotHubDpsArgs $) {
         this.allocationPolicy = $.allocationPolicy;
+        this.dataResidencyEnabled = $.dataResidencyEnabled;
         this.ipFilterRules = $.ipFilterRules;
         this.linkedHubs = $.linkedHubs;
         this.location = $.location;
@@ -207,6 +223,27 @@ public final class IotHubDpsArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder allocationPolicy(String allocationPolicy) {
             return allocationPolicy(Output.of(allocationPolicy));
+        }
+
+        /**
+         * @param dataResidencyEnabled Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataResidencyEnabled(@Nullable Output<Boolean> dataResidencyEnabled) {
+            $.dataResidencyEnabled = dataResidencyEnabled;
+            return this;
+        }
+
+        /**
+         * @param dataResidencyEnabled Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataResidencyEnabled(Boolean dataResidencyEnabled) {
+            return dataResidencyEnabled(Output.of(dataResidencyEnabled));
         }
 
         /**

@@ -114,6 +114,9 @@ namespace Pulumi.Azure.HDInsight
         [Output("componentVersion")]
         public Output<Outputs.InteractiveQueryClusterComponentVersion> ComponentVersion { get; private set; } = null!;
 
+        [Output("diskEncryptions")]
+        public Output<ImmutableArray<Outputs.InteractiveQueryClusterDiskEncryption>> DiskEncryptions { get; private set; } = null!;
+
         /// <summary>
         /// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         /// </summary>
@@ -271,6 +274,14 @@ namespace Pulumi.Azure.HDInsight
         [Input("componentVersion", required: true)]
         public Input<Inputs.InteractiveQueryClusterComponentVersionArgs> ComponentVersion { get; set; } = null!;
 
+        [Input("diskEncryptions")]
+        private InputList<Inputs.InteractiveQueryClusterDiskEncryptionArgs>? _diskEncryptions;
+        public InputList<Inputs.InteractiveQueryClusterDiskEncryptionArgs> DiskEncryptions
+        {
+            get => _diskEncryptions ?? (_diskEncryptions = new InputList<Inputs.InteractiveQueryClusterDiskEncryptionArgs>());
+            set => _diskEncryptions = value;
+        }
+
         /// <summary>
         /// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         /// </summary>
@@ -389,6 +400,14 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Input("componentVersion")]
         public Input<Inputs.InteractiveQueryClusterComponentVersionGetArgs>? ComponentVersion { get; set; }
+
+        [Input("diskEncryptions")]
+        private InputList<Inputs.InteractiveQueryClusterDiskEncryptionGetArgs>? _diskEncryptions;
+        public InputList<Inputs.InteractiveQueryClusterDiskEncryptionGetArgs> DiskEncryptions
+        {
+            get => _diskEncryptions ?? (_diskEncryptions = new InputList<Inputs.InteractiveQueryClusterDiskEncryptionGetArgs>());
+            set => _diskEncryptions = value;
+        }
 
         /// <summary>
         /// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.

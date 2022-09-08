@@ -16,9 +16,23 @@ public final class GetDiagnosticCategoriesResult {
      */
     private String id;
     /**
-     * @return A list of the Log Categories supported for this Resource.
+     * @return A list of the supported log category groups of this resource to send to the destination.
      * 
      */
+    private List<String> logCategoryGroups;
+    /**
+     * @return A list of the supported log category types of this resource to send to the destination.
+     * 
+     */
+    private List<String> logCategoryTypes;
+    /**
+     * @return A list of the Log Categories supported for this Resource.
+     * 
+     * @deprecated
+     * `logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider. */
     private List<String> logs;
     /**
      * @return A list of the Metric Categories supported for this Resource.
@@ -36,9 +50,27 @@ public final class GetDiagnosticCategoriesResult {
         return this.id;
     }
     /**
-     * @return A list of the Log Categories supported for this Resource.
+     * @return A list of the supported log category groups of this resource to send to the destination.
      * 
      */
+    public List<String> logCategoryGroups() {
+        return this.logCategoryGroups;
+    }
+    /**
+     * @return A list of the supported log category types of this resource to send to the destination.
+     * 
+     */
+    public List<String> logCategoryTypes() {
+        return this.logCategoryTypes;
+    }
+    /**
+     * @return A list of the Log Categories supported for this Resource.
+     * 
+     * @deprecated
+     * `logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider. */
     public List<String> logs() {
         return this.logs;
     }
@@ -63,6 +95,8 @@ public final class GetDiagnosticCategoriesResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private List<String> logCategoryGroups;
+        private List<String> logCategoryTypes;
         private List<String> logs;
         private List<String> metrics;
         private String resourceId;
@@ -70,6 +104,8 @@ public final class GetDiagnosticCategoriesResult {
         public Builder(GetDiagnosticCategoriesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.logCategoryGroups = defaults.logCategoryGroups;
+    	      this.logCategoryTypes = defaults.logCategoryTypes;
     	      this.logs = defaults.logs;
     	      this.metrics = defaults.metrics;
     	      this.resourceId = defaults.resourceId;
@@ -79,6 +115,22 @@ public final class GetDiagnosticCategoriesResult {
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
+        }
+        @CustomType.Setter
+        public Builder logCategoryGroups(List<String> logCategoryGroups) {
+            this.logCategoryGroups = Objects.requireNonNull(logCategoryGroups);
+            return this;
+        }
+        public Builder logCategoryGroups(String... logCategoryGroups) {
+            return logCategoryGroups(List.of(logCategoryGroups));
+        }
+        @CustomType.Setter
+        public Builder logCategoryTypes(List<String> logCategoryTypes) {
+            this.logCategoryTypes = Objects.requireNonNull(logCategoryTypes);
+            return this;
+        }
+        public Builder logCategoryTypes(String... logCategoryTypes) {
+            return logCategoryTypes(List.of(logCategoryTypes));
         }
         @CustomType.Setter
         public Builder logs(List<String> logs) {
@@ -104,6 +156,8 @@ public final class GetDiagnosticCategoriesResult {
         public GetDiagnosticCategoriesResult build() {
             final var o = new GetDiagnosticCategoriesResult();
             o.id = id;
+            o.logCategoryGroups = logCategoryGroups;
+            o.logCategoryTypes = logCategoryTypes;
             o.logs = logs;
             o.metrics = metrics;
             o.resourceId = resourceId;

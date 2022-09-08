@@ -6,6 +6,8 @@ package com.pulumi.azure.monitoring;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.monitoring.inputs.GetActionGroupArgs;
 import com.pulumi.azure.monitoring.inputs.GetActionGroupPlainArgs;
+import com.pulumi.azure.monitoring.inputs.GetDataCollectionEndpointArgs;
+import com.pulumi.azure.monitoring.inputs.GetDataCollectionEndpointPlainArgs;
 import com.pulumi.azure.monitoring.inputs.GetDiagnosticCategoriesArgs;
 import com.pulumi.azure.monitoring.inputs.GetDiagnosticCategoriesPlainArgs;
 import com.pulumi.azure.monitoring.inputs.GetLogProfileArgs;
@@ -15,6 +17,7 @@ import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesAlertPlainArgs;
 import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesLogArgs;
 import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesLogPlainArgs;
 import com.pulumi.azure.monitoring.outputs.GetActionGroupResult;
+import com.pulumi.azure.monitoring.outputs.GetDataCollectionEndpointResult;
 import com.pulumi.azure.monitoring.outputs.GetDiagnosticCategoriesResult;
 import com.pulumi.azure.monitoring.outputs.GetLogProfileResult;
 import com.pulumi.azure.monitoring.outputs.GetScheduledQueryRulesAlertResult;
@@ -181,6 +184,34 @@ public final class MonitoringFunctions {
      */
     public static CompletableFuture<GetActionGroupResult> getActionGroupPlain(GetActionGroupPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:monitoring/getActionGroup:getActionGroup", TypeShape.of(GetActionGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Data Collection Endpoint.
+     * 
+     */
+    public static Output<GetDataCollectionEndpointResult> getDataCollectionEndpoint(GetDataCollectionEndpointArgs args) {
+        return getDataCollectionEndpoint(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Data Collection Endpoint.
+     * 
+     */
+    public static CompletableFuture<GetDataCollectionEndpointResult> getDataCollectionEndpointPlain(GetDataCollectionEndpointPlainArgs args) {
+        return getDataCollectionEndpointPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Data Collection Endpoint.
+     * 
+     */
+    public static Output<GetDataCollectionEndpointResult> getDataCollectionEndpoint(GetDataCollectionEndpointArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:monitoring/getDataCollectionEndpoint:getDataCollectionEndpoint", TypeShape.of(GetDataCollectionEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Data Collection Endpoint.
+     * 
+     */
+    public static CompletableFuture<GetDataCollectionEndpointResult> getDataCollectionEndpointPlain(GetDataCollectionEndpointPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:monitoring/getDataCollectionEndpoint:getDataCollectionEndpoint", TypeShape.of(GetDataCollectionEndpointResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.

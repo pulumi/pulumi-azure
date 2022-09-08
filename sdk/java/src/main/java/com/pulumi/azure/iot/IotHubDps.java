@@ -92,6 +92,20 @@ public class IotHubDps extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allocationPolicy);
     }
     /**
+     * Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+     * 
+     */
+    @Export(name="dataResidencyEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> dataResidencyEnabled;
+
+    /**
+     * @return Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> dataResidencyEnabled() {
+        return Codegen.optional(this.dataResidencyEnabled);
+    }
+    /**
      * The device endpoint of the IoT Device Provisioning Service.
      * 
      */

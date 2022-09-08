@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetPoolContainerConfigurationContainerRegistry {
     /**
-     * @return The password to log into the registry server.
+     * @return The password to use for authentication against the CIFS file system.
      * 
      */
     private String password;
@@ -25,14 +25,14 @@ public final class GetPoolContainerConfigurationContainerRegistry {
      */
     private String userAssignedIdentityId;
     /**
-     * @return The user name to log into the registry server.
+     * @return The user to use for authentication against the CIFS file system.
      * 
      */
     private String userName;
 
     private GetPoolContainerConfigurationContainerRegistry() {}
     /**
-     * @return The password to log into the registry server.
+     * @return The password to use for authentication against the CIFS file system.
      * 
      */
     public String password() {
@@ -53,7 +53,7 @@ public final class GetPoolContainerConfigurationContainerRegistry {
         return this.userAssignedIdentityId;
     }
     /**
-     * @return The user name to log into the registry server.
+     * @return The user to use for authentication against the CIFS file system.
      * 
      */
     public String userName() {

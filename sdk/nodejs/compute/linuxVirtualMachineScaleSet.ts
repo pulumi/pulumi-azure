@@ -101,7 +101,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
     }
 
     /**
-     * A `additionalCapabilities` block as defined below.
+     * An `additionalCapabilities` block as defined below.
      */
     public readonly additionalCapabilities!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetAdditionalCapabilities | undefined>;
     /**
@@ -117,11 +117,11 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly adminUsername!: pulumi.Output<string>;
     /**
-     * A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+     * An `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      */
     public readonly automaticInstanceRepair!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetAutomaticInstanceRepair>;
     /**
-     * A `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
+     * An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
      */
     public readonly automaticOsUpgradePolicy!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy | undefined>;
     /**
@@ -165,6 +165,10 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
     /**
+     * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+     */
+    public readonly extensionOperationsEnabled!: pulumi.Output<boolean>;
+    /**
      * One or more `extension` blocks as defined below
      */
     public readonly extensions!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetExtension[]>;
@@ -173,9 +177,17 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly extensionsTimeBudget!: pulumi.Output<string | undefined>;
     /**
+     * A `galleryApplications` block as defined below.
+     */
+    public readonly galleryApplications!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetGalleryApplication[] | undefined>;
+    /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      */
     public readonly healthProbeId!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
+     */
+    public readonly hostGroupId!: pulumi.Output<string | undefined>;
     /**
      * An `identity` block as defined below.
      */
@@ -209,7 +221,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly overprovision!: pulumi.Output<boolean | undefined>;
     /**
-     * A `plan` block as documented below.
+     * A `plan` block as defined below.
      */
     public readonly plan!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetPlan | undefined>;
     /**
@@ -237,9 +249,13 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly rollingUpgradePolicy!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetRollingUpgradePolicy | undefined>;
     /**
-     * The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+     * A `scaleIn` block as defined below.
      */
-    public readonly scaleInPolicy!: pulumi.Output<string | undefined>;
+    public readonly scaleIn!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetScaleIn>;
+    /**
+     * @deprecated `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
+     */
+    public readonly scaleInPolicy!: pulumi.Output<string>;
     /**
      * One or more `secret` blocks as defined below.
      */
@@ -257,13 +273,17 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<string>;
     /**
-     * The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+     * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      */
     public readonly sourceImageId!: pulumi.Output<string | undefined>;
     /**
      * A `sourceImageReference` block as defined below.
      */
     public readonly sourceImageReference!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetSourceImageReference | undefined>;
+    /**
+     * A `spotRestore` block as defined below.
+     */
+    public readonly spotRestore!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetSpotRestore>;
     /**
      * A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      */
@@ -332,9 +352,12 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
             resourceInputs["encryptionAtHostEnabled"] = state ? state.encryptionAtHostEnabled : undefined;
             resourceInputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
+            resourceInputs["extensionOperationsEnabled"] = state ? state.extensionOperationsEnabled : undefined;
             resourceInputs["extensions"] = state ? state.extensions : undefined;
             resourceInputs["extensionsTimeBudget"] = state ? state.extensionsTimeBudget : undefined;
+            resourceInputs["galleryApplications"] = state ? state.galleryApplications : undefined;
             resourceInputs["healthProbeId"] = state ? state.healthProbeId : undefined;
+            resourceInputs["hostGroupId"] = state ? state.hostGroupId : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["instances"] = state ? state.instances : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -350,6 +373,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["proximityPlacementGroupId"] = state ? state.proximityPlacementGroupId : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["rollingUpgradePolicy"] = state ? state.rollingUpgradePolicy : undefined;
+            resourceInputs["scaleIn"] = state ? state.scaleIn : undefined;
             resourceInputs["scaleInPolicy"] = state ? state.scaleInPolicy : undefined;
             resourceInputs["secrets"] = state ? state.secrets : undefined;
             resourceInputs["secureBootEnabled"] = state ? state.secureBootEnabled : undefined;
@@ -357,6 +381,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["sku"] = state ? state.sku : undefined;
             resourceInputs["sourceImageId"] = state ? state.sourceImageId : undefined;
             resourceInputs["sourceImageReference"] = state ? state.sourceImageReference : undefined;
+            resourceInputs["spotRestore"] = state ? state.spotRestore : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["terminateNotification"] = state ? state.terminateNotification : undefined;
             resourceInputs["terminationNotification"] = state ? state.terminationNotification : undefined;
@@ -399,9 +424,12 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
             resourceInputs["encryptionAtHostEnabled"] = args ? args.encryptionAtHostEnabled : undefined;
             resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
+            resourceInputs["extensionOperationsEnabled"] = args ? args.extensionOperationsEnabled : undefined;
             resourceInputs["extensions"] = args ? args.extensions : undefined;
             resourceInputs["extensionsTimeBudget"] = args ? args.extensionsTimeBudget : undefined;
+            resourceInputs["galleryApplications"] = args ? args.galleryApplications : undefined;
             resourceInputs["healthProbeId"] = args ? args.healthProbeId : undefined;
+            resourceInputs["hostGroupId"] = args ? args.hostGroupId : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["instances"] = args ? args.instances : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -417,6 +445,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["proximityPlacementGroupId"] = args ? args.proximityPlacementGroupId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["rollingUpgradePolicy"] = args ? args.rollingUpgradePolicy : undefined;
+            resourceInputs["scaleIn"] = args ? args.scaleIn : undefined;
             resourceInputs["scaleInPolicy"] = args ? args.scaleInPolicy : undefined;
             resourceInputs["secrets"] = args ? args.secrets : undefined;
             resourceInputs["secureBootEnabled"] = args ? args.secureBootEnabled : undefined;
@@ -424,6 +453,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["sourceImageId"] = args ? args.sourceImageId : undefined;
             resourceInputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
+            resourceInputs["spotRestore"] = args ? args.spotRestore : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["terminateNotification"] = args ? args.terminateNotification : undefined;
             resourceInputs["terminationNotification"] = args ? args.terminationNotification : undefined;
@@ -444,7 +474,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
  */
 export interface LinuxVirtualMachineScaleSetState {
     /**
-     * A `additionalCapabilities` block as defined below.
+     * An `additionalCapabilities` block as defined below.
      */
     additionalCapabilities?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAdditionalCapabilities>;
     /**
@@ -460,11 +490,11 @@ export interface LinuxVirtualMachineScaleSetState {
      */
     adminUsername?: pulumi.Input<string>;
     /**
-     * A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+     * An `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      */
     automaticInstanceRepair?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAutomaticInstanceRepair>;
     /**
-     * A `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
+     * An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
      */
     automaticOsUpgradePolicy?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy>;
     /**
@@ -508,6 +538,10 @@ export interface LinuxVirtualMachineScaleSetState {
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
+     * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+     */
+    extensionOperationsEnabled?: pulumi.Input<boolean>;
+    /**
      * One or more `extension` blocks as defined below
      */
     extensions?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetExtension>[]>;
@@ -516,9 +550,17 @@ export interface LinuxVirtualMachineScaleSetState {
      */
     extensionsTimeBudget?: pulumi.Input<string>;
     /**
+     * A `galleryApplications` block as defined below.
+     */
+    galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetGalleryApplication>[]>;
+    /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      */
     healthProbeId?: pulumi.Input<string>;
+    /**
+     * Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
+     */
+    hostGroupId?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */
@@ -552,7 +594,7 @@ export interface LinuxVirtualMachineScaleSetState {
      */
     overprovision?: pulumi.Input<boolean>;
     /**
-     * A `plan` block as documented below.
+     * A `plan` block as defined below.
      */
     plan?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetPlan>;
     /**
@@ -580,7 +622,11 @@ export interface LinuxVirtualMachineScaleSetState {
      */
     rollingUpgradePolicy?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetRollingUpgradePolicy>;
     /**
-     * The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+     * A `scaleIn` block as defined below.
+     */
+    scaleIn?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetScaleIn>;
+    /**
+     * @deprecated `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
      */
     scaleInPolicy?: pulumi.Input<string>;
     /**
@@ -600,13 +646,17 @@ export interface LinuxVirtualMachineScaleSetState {
      */
     sku?: pulumi.Input<string>;
     /**
-     * The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+     * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      */
     sourceImageId?: pulumi.Input<string>;
     /**
      * A `sourceImageReference` block as defined below.
      */
     sourceImageReference?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSourceImageReference>;
+    /**
+     * A `spotRestore` block as defined below.
+     */
+    spotRestore?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSpotRestore>;
     /**
      * A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      */
@@ -652,7 +702,7 @@ export interface LinuxVirtualMachineScaleSetState {
  */
 export interface LinuxVirtualMachineScaleSetArgs {
     /**
-     * A `additionalCapabilities` block as defined below.
+     * An `additionalCapabilities` block as defined below.
      */
     additionalCapabilities?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAdditionalCapabilities>;
     /**
@@ -668,11 +718,11 @@ export interface LinuxVirtualMachineScaleSetArgs {
      */
     adminUsername: pulumi.Input<string>;
     /**
-     * A `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
+     * An `automaticInstanceRepair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `healthProbeId` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
      */
     automaticInstanceRepair?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAutomaticInstanceRepair>;
     /**
-     * A `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
+     * An `automaticOsUpgradePolicy` block as defined below. This can only be specified when `upgradeMode` is set to `Automatic`.
      */
     automaticOsUpgradePolicy?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy>;
     /**
@@ -716,6 +766,10 @@ export interface LinuxVirtualMachineScaleSetArgs {
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
+     * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+     */
+    extensionOperationsEnabled?: pulumi.Input<boolean>;
+    /**
      * One or more `extension` blocks as defined below
      */
     extensions?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetExtension>[]>;
@@ -724,9 +778,17 @@ export interface LinuxVirtualMachineScaleSetArgs {
      */
     extensionsTimeBudget?: pulumi.Input<string>;
     /**
+     * A `galleryApplications` block as defined below.
+     */
+    galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetGalleryApplication>[]>;
+    /**
      * The ID of a Load Balancer Probe which should be used to determine the health of an instance. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`.
      */
     healthProbeId?: pulumi.Input<string>;
+    /**
+     * Specifies the ID of the dedicated host group that the virtual machine scale set resides in. Changing this forces a new resource to be created.
+     */
+    hostGroupId?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */
@@ -760,7 +822,7 @@ export interface LinuxVirtualMachineScaleSetArgs {
      */
     overprovision?: pulumi.Input<boolean>;
     /**
-     * A `plan` block as documented below.
+     * A `plan` block as defined below.
      */
     plan?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetPlan>;
     /**
@@ -788,7 +850,11 @@ export interface LinuxVirtualMachineScaleSetArgs {
      */
     rollingUpgradePolicy?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetRollingUpgradePolicy>;
     /**
-     * The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+     * A `scaleIn` block as defined below.
+     */
+    scaleIn?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetScaleIn>;
+    /**
+     * @deprecated `scale_in_policy` will be removed in favour of the `scale_in` code block in version 4.0 of the AzureRM Provider.
      */
     scaleInPolicy?: pulumi.Input<string>;
     /**
@@ -808,13 +874,17 @@ export interface LinuxVirtualMachineScaleSetArgs {
      */
     sku: pulumi.Input<string>;
     /**
-     * The ID of an Image which each Virtual Machine in this Scale Set should be based on.
+     * The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      */
     sourceImageId?: pulumi.Input<string>;
     /**
      * A `sourceImageReference` block as defined below.
      */
     sourceImageReference?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSourceImageReference>;
+    /**
+     * A `spotRestore` block as defined below.
+     */
+    spotRestore?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetSpotRestore>;
     /**
      * A mapping of tags which should be assigned to this Virtual Machine Scale Set.
      */

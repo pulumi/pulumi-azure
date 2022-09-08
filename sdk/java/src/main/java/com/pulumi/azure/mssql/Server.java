@@ -221,14 +221,14 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.outboundNetworkRestrictionEnabled);
     }
     /**
-     * Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `user_assigned_identity_ids`.
+     * Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
      * 
      */
     @Export(name="primaryUserAssignedIdentityId", type=String.class, parameters={})
     private Output<String> primaryUserAssignedIdentityId;
 
     /**
-     * @return Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `user_assigned_identity_ids`.
+     * @return Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
      * 
      */
     public Output<String> primaryUserAssignedIdentityId() {

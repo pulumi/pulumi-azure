@@ -182,9 +182,17 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     public Output<Optional<Boolean>> fipsEnabled() {
         return Codegen.optional(this.fipsEnabled);
     }
+    /**
+     * The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="hostGroupId", type=String.class, parameters={})
     private Output</* @Nullable */ String> hostGroupId;
 
+    /**
+     * @return The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<Optional<String>> hostGroupId() {
         return Codegen.optional(this.hostGroupId);
     }

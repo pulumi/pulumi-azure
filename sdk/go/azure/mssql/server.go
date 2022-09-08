@@ -90,7 +90,7 @@ type Server struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether outbound network traffic is restricted for this server. Defaults to `false`.
 	OutboundNetworkRestrictionEnabled pulumi.BoolPtrOutput `pulumi:"outboundNetworkRestrictionEnabled"`
-	// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `userAssignedIdentityIds`.
+	// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identityIds`.
 	PrimaryUserAssignedIdentityId pulumi.StringOutput `pulumi:"primaryUserAssignedIdentityId"`
 	// Whether public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
@@ -159,7 +159,7 @@ type serverState struct {
 	Name *string `pulumi:"name"`
 	// Whether outbound network traffic is restricted for this server. Defaults to `false`.
 	OutboundNetworkRestrictionEnabled *bool `pulumi:"outboundNetworkRestrictionEnabled"`
-	// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `userAssignedIdentityIds`.
+	// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identityIds`.
 	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
 	// Whether public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -194,7 +194,7 @@ type ServerState struct {
 	Name pulumi.StringPtrInput
 	// Whether outbound network traffic is restricted for this server. Defaults to `false`.
 	OutboundNetworkRestrictionEnabled pulumi.BoolPtrInput
-	// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `userAssignedIdentityIds`.
+	// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identityIds`.
 	PrimaryUserAssignedIdentityId pulumi.StringPtrInput
 	// Whether public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -231,7 +231,7 @@ type serverArgs struct {
 	Name *string `pulumi:"name"`
 	// Whether outbound network traffic is restricted for this server. Defaults to `false`.
 	OutboundNetworkRestrictionEnabled *bool `pulumi:"outboundNetworkRestrictionEnabled"`
-	// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `userAssignedIdentityIds`.
+	// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identityIds`.
 	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
 	// Whether public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
@@ -263,7 +263,7 @@ type ServerArgs struct {
 	Name pulumi.StringPtrInput
 	// Whether outbound network traffic is restricted for this server. Defaults to `false`.
 	OutboundNetworkRestrictionEnabled pulumi.BoolPtrInput
-	// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `userAssignedIdentityIds`.
+	// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identityIds`.
 	PrimaryUserAssignedIdentityId pulumi.StringPtrInput
 	// Whether public network access is allowed for this server. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
@@ -412,7 +412,7 @@ func (o ServerOutput) OutboundNetworkRestrictionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Server) pulumi.BoolPtrOutput { return v.OutboundNetworkRestrictionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `userAssignedIdentityIds`.
+// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identityIds`.
 func (o ServerOutput) PrimaryUserAssignedIdentityId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.PrimaryUserAssignedIdentityId }).(pulumi.StringOutput)
 }

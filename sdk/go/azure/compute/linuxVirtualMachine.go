@@ -215,7 +215,7 @@ type LinuxVirtualMachine struct {
 	SecureBootEnabled pulumi.BoolPtrOutput `pulumi:"secureBootEnabled"`
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size pulumi.StringOutput `pulumi:"size"`
-	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
+	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId pulumi.StringPtrOutput `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
 	SourceImageReference LinuxVirtualMachineSourceImageReferencePtrOutput `pulumi:"sourceImageReference"`
@@ -355,7 +355,7 @@ type linuxVirtualMachineState struct {
 	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size *string `pulumi:"size"`
-	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
+	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId *string `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
 	SourceImageReference *LinuxVirtualMachineSourceImageReference `pulumi:"sourceImageReference"`
@@ -452,7 +452,7 @@ type LinuxVirtualMachineState struct {
 	SecureBootEnabled pulumi.BoolPtrInput
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size pulumi.StringPtrInput
-	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
+	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId pulumi.StringPtrInput
 	// A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
 	SourceImageReference LinuxVirtualMachineSourceImageReferencePtrInput
@@ -545,7 +545,7 @@ type linuxVirtualMachineArgs struct {
 	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size string `pulumi:"size"`
-	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
+	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId *string `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
 	SourceImageReference *LinuxVirtualMachineSourceImageReference `pulumi:"sourceImageReference"`
@@ -633,7 +633,7 @@ type LinuxVirtualMachineArgs struct {
 	SecureBootEnabled pulumi.BoolPtrInput
 	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
 	Size pulumi.StringInput
-	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
+	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId pulumi.StringPtrInput
 	// A `sourceImageReference` block as defined below. Changing this forces a new resource to be created.
 	SourceImageReference LinuxVirtualMachineSourceImageReferencePtrInput
@@ -930,7 +930,7 @@ func (o LinuxVirtualMachineOutput) Size() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringOutput { return v.Size }).(pulumi.StringOutput)
 }
 
-// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
+// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 func (o LinuxVirtualMachineOutput) SourceImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringPtrOutput { return v.SourceImageId }).(pulumi.StringPtrOutput)
 }

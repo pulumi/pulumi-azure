@@ -123,6 +123,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
+        /// </summary>
+        [Output("partitionKey")]
+        public Output<string?> PartitionKey { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
         /// </summary>
         [Output("streamAnalyticsJobId")]
@@ -205,6 +211,12 @@ namespace Pulumi.Azure.StreamAnalytics
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
+        /// </summary>
+        [Input("partitionKey")]
+        public Input<string>? PartitionKey { get; set; }
+
+        /// <summary>
         /// The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
         /// </summary>
         [Input("streamAnalyticsJobId", required: true)]
@@ -247,6 +259,12 @@ namespace Pulumi.Azure.StreamAnalytics
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
+        /// </summary>
+        [Input("partitionKey")]
+        public Input<string>? PartitionKey { get; set; }
 
         /// <summary>
         /// The ID of the Stream Analytics Job. Changing this forces a new resource to be created.

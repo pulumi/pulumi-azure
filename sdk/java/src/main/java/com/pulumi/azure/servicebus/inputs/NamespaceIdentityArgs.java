@@ -17,14 +17,14 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
     public static final NamespaceIdentityArgs Empty = new NamespaceIdentityArgs();
 
     /**
-     * Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+     * Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
      * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -104,7 +104,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class NamespaceIdentityArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
          * 
          * @return builder
          * 

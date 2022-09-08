@@ -15,8 +15,14 @@ namespace Pulumi.Azure.Monitoring.Inputs
         /// <summary>
         /// The name of a Diagnostic Log Category for this Resource.
         /// </summary>
-        [Input("category", required: true)]
-        public Input<string> Category { get; set; } = null!;
+        [Input("category")]
+        public Input<string>? Category { get; set; }
+
+        /// <summary>
+        /// The name of a Diagnostic Log Category Group for this Resource.
+        /// </summary>
+        [Input("categoryGroup")]
+        public Input<string>? CategoryGroup { get; set; }
 
         /// <summary>
         /// Is this Diagnostic Log enabled? Defaults to `true`.

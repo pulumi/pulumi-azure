@@ -22,7 +22,7 @@ class GetPoolResult:
     """
     A collection of values returned by getPool.
     """
-    def __init__(__self__, account_name=None, auto_scales=None, certificates=None, container_configurations=None, display_name=None, fixed_scales=None, id=None, max_tasks_per_node=None, metadata=None, name=None, network_configurations=None, node_agent_sku_id=None, resource_group_name=None, start_tasks=None, storage_image_references=None, vm_size=None):
+    def __init__(__self__, account_name=None, auto_scales=None, certificates=None, container_configurations=None, display_name=None, fixed_scales=None, id=None, max_tasks_per_node=None, metadata=None, mounts=None, name=None, network_configurations=None, node_agent_sku_id=None, resource_group_name=None, start_tasks=None, storage_image_references=None, vm_size=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
@@ -50,6 +50,9 @@ class GetPoolResult:
         if metadata and not isinstance(metadata, dict):
             raise TypeError("Expected argument 'metadata' to be a dict")
         pulumi.set(__self__, "metadata", metadata)
+        if mounts and not isinstance(mounts, list):
+            raise TypeError("Expected argument 'mounts' to be a list")
+        pulumi.set(__self__, "mounts", mounts)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -76,7 +79,7 @@ class GetPoolResult:
     @pulumi.getter(name="accountName")
     def account_name(self) -> str:
         """
-        The name of the Batch account.
+        The Azure Storage Account name.
         """
         return pulumi.get(self, "account_name")
 
@@ -137,6 +140,14 @@ class GetPoolResult:
     @pulumi.getter
     def metadata(self) -> Mapping[str, str]:
         return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def mounts(self) -> Sequence['outputs.GetPoolMountResult']:
+        """
+        A `mount` block that describes mount configuration.
+        """
+        return pulumi.get(self, "mounts")
 
     @property
     @pulumi.getter
@@ -204,6 +215,7 @@ class AwaitableGetPoolResult(GetPoolResult):
             id=self.id,
             max_tasks_per_node=self.max_tasks_per_node,
             metadata=self.metadata,
+            mounts=self.mounts,
             name=self.name,
             network_configurations=self.network_configurations,
             node_agent_sku_id=self.node_agent_sku_id,
@@ -232,7 +244,7 @@ def get_pool(account_name: Optional[str] = None,
     ```
 
 
-    :param str account_name: The name of the Batch account.
+    :param str account_name: The Azure Storage Account name.
     :param str name: The name of the endpoint.
     """
     __args__ = dict()
@@ -252,6 +264,7 @@ def get_pool(account_name: Optional[str] = None,
         id=__ret__.id,
         max_tasks_per_node=__ret__.max_tasks_per_node,
         metadata=__ret__.metadata,
+        mounts=__ret__.mounts,
         name=__ret__.name,
         network_configurations=__ret__.network_configurations,
         node_agent_sku_id=__ret__.node_agent_sku_id,
@@ -281,7 +294,7 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str account_name: The name of the Batch account.
+    :param str account_name: The Azure Storage Account name.
     :param str name: The name of the endpoint.
     """
     ...

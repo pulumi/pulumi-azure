@@ -72,6 +72,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:monitoring/dataCollectionEndpoint:DataCollectionEndpoint")
 public class DataCollectionEndpoint extends com.pulumi.resources.CustomResource {
     /**
+     * The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.
+     * 
+     */
+    @Export(name="configurationAccessEndpoint", type=String.class, parameters={})
+    private Output<String> configurationAccessEndpoint;
+
+    /**
+     * @return The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`.
+     * 
+     */
+    public Output<String> configurationAccessEndpoint() {
+        return this.configurationAccessEndpoint;
+    }
+    /**
      * Specifies a description for the Data Collection Endpoint.
      * 
      */
@@ -112,6 +126,20 @@ public class DataCollectionEndpoint extends com.pulumi.resources.CustomResource 
      */
     public Output<String> location() {
         return this.location;
+    }
+    /**
+     * The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
+     * 
+     */
+    @Export(name="logsIngestionEndpoint", type=String.class, parameters={})
+    private Output<String> logsIngestionEndpoint;
+
+    /**
+     * @return The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`.
+     * 
+     */
+    public Output<String> logsIngestionEndpoint() {
+        return this.logsIngestionEndpoint;
     }
     /**
      * The name which should be used for this Data Collection Endpoint. Changing this forces a new Data Collection Endpoint to be created.

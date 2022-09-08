@@ -39,6 +39,11 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPub
      * 
      */
     private @Nullable String publicIpPrefixId;
+    /**
+     * @return The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+     * 
+     */
+    private @Nullable String version;
 
     private LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress() {}
     /**
@@ -76,6 +81,13 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPub
     public Optional<String> publicIpPrefixId() {
         return Optional.ofNullable(this.publicIpPrefixId);
     }
+    /**
+     * @return The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+     * 
+     */
+    public Optional<String> version() {
+        return Optional.ofNullable(this.version);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -91,6 +103,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPub
         private @Nullable List<LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags;
         private String name;
         private @Nullable String publicIpPrefixId;
+        private @Nullable String version;
         public Builder() {}
         public Builder(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress defaults) {
     	      Objects.requireNonNull(defaults);
@@ -99,6 +112,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPub
     	      this.ipTags = defaults.ipTags;
     	      this.name = defaults.name;
     	      this.publicIpPrefixId = defaults.publicIpPrefixId;
+    	      this.version = defaults.version;
         }
 
         @CustomType.Setter
@@ -129,6 +143,11 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPub
             this.publicIpPrefixId = publicIpPrefixId;
             return this;
         }
+        @CustomType.Setter
+        public Builder version(@Nullable String version) {
+            this.version = version;
+            return this;
+        }
         public LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress build() {
             final var o = new LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress();
             o.domainNameLabel = domainNameLabel;
@@ -136,6 +155,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPub
             o.ipTags = ipTags;
             o.name = name;
             o.publicIpPrefixId = publicIpPrefixId;
+            o.version = version;
             return o;
         }
     }

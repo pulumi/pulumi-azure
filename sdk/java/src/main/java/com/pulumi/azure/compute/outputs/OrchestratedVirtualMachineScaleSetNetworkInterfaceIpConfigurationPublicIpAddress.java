@@ -23,6 +23,16 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
      */
     private String name;
     private @Nullable String publicIpPrefixId;
+    /**
+     * @return Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+     * 
+     */
+    private @Nullable String skuName;
+    /**
+     * @return The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+     * 
+     */
+    private @Nullable String version;
 
     private OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress() {}
     public Optional<String> domainNameLabel() {
@@ -44,6 +54,20 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     public Optional<String> publicIpPrefixId() {
         return Optional.ofNullable(this.publicIpPrefixId);
     }
+    /**
+     * @return Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+     * 
+     */
+    public Optional<String> skuName() {
+        return Optional.ofNullable(this.skuName);
+    }
+    /**
+     * @return The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+     * 
+     */
+    public Optional<String> version() {
+        return Optional.ofNullable(this.version);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -59,6 +83,8 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         private @Nullable List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags;
         private String name;
         private @Nullable String publicIpPrefixId;
+        private @Nullable String skuName;
+        private @Nullable String version;
         public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress defaults) {
     	      Objects.requireNonNull(defaults);
@@ -67,6 +93,8 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     	      this.ipTags = defaults.ipTags;
     	      this.name = defaults.name;
     	      this.publicIpPrefixId = defaults.publicIpPrefixId;
+    	      this.skuName = defaults.skuName;
+    	      this.version = defaults.version;
         }
 
         @CustomType.Setter
@@ -97,6 +125,16 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
             this.publicIpPrefixId = publicIpPrefixId;
             return this;
         }
+        @CustomType.Setter
+        public Builder skuName(@Nullable String skuName) {
+            this.skuName = skuName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder version(@Nullable String version) {
+            this.version = version;
+            return this;
+        }
         public OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress build() {
             final var o = new OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress();
             o.domainNameLabel = domainNameLabel;
@@ -104,6 +142,8 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
             o.ipTags = ipTags;
             o.name = name;
             o.publicIpPrefixId = publicIpPrefixId;
+            o.skuName = skuName;
+            o.version = version;
             return o;
         }
     }

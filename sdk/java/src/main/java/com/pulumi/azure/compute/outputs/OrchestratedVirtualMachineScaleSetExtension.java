@@ -19,6 +19,11 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
      * 
      */
     private @Nullable List<String> extensionsToProvisionAfterVmCreations;
+    /**
+     * @return Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean failureSuppressionEnabled;
     private @Nullable String forceExtensionExecutionOnChange;
     /**
      * @return The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
@@ -41,6 +46,13 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
      */
     public List<String> extensionsToProvisionAfterVmCreations() {
         return this.extensionsToProvisionAfterVmCreations == null ? List.of() : this.extensionsToProvisionAfterVmCreations;
+    }
+    /**
+     * @return Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> failureSuppressionEnabled() {
+        return Optional.ofNullable(this.failureSuppressionEnabled);
     }
     public Optional<String> forceExtensionExecutionOnChange() {
         return Optional.ofNullable(this.forceExtensionExecutionOnChange);
@@ -79,6 +91,7 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
     public static final class Builder {
         private @Nullable Boolean autoUpgradeMinorVersionEnabled;
         private @Nullable List<String> extensionsToProvisionAfterVmCreations;
+        private @Nullable Boolean failureSuppressionEnabled;
         private @Nullable String forceExtensionExecutionOnChange;
         private String name;
         private @Nullable String protectedSettings;
@@ -91,6 +104,7 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
     	      Objects.requireNonNull(defaults);
     	      this.autoUpgradeMinorVersionEnabled = defaults.autoUpgradeMinorVersionEnabled;
     	      this.extensionsToProvisionAfterVmCreations = defaults.extensionsToProvisionAfterVmCreations;
+    	      this.failureSuppressionEnabled = defaults.failureSuppressionEnabled;
     	      this.forceExtensionExecutionOnChange = defaults.forceExtensionExecutionOnChange;
     	      this.name = defaults.name;
     	      this.protectedSettings = defaults.protectedSettings;
@@ -112,6 +126,11 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
         }
         public Builder extensionsToProvisionAfterVmCreations(String... extensionsToProvisionAfterVmCreations) {
             return extensionsToProvisionAfterVmCreations(List.of(extensionsToProvisionAfterVmCreations));
+        }
+        @CustomType.Setter
+        public Builder failureSuppressionEnabled(@Nullable Boolean failureSuppressionEnabled) {
+            this.failureSuppressionEnabled = failureSuppressionEnabled;
+            return this;
         }
         @CustomType.Setter
         public Builder forceExtensionExecutionOnChange(@Nullable String forceExtensionExecutionOnChange) {
@@ -152,6 +171,7 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
             final var o = new OrchestratedVirtualMachineScaleSetExtension();
             o.autoUpgradeMinorVersionEnabled = autoUpgradeMinorVersionEnabled;
             o.extensionsToProvisionAfterVmCreations = extensionsToProvisionAfterVmCreations;
+            o.failureSuppressionEnabled = failureSuppressionEnabled;
             o.forceExtensionExecutionOnChange = forceExtensionExecutionOnChange;
             o.name = name;
             o.protectedSettings = protectedSettings;

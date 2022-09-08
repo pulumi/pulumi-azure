@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight.inputs;
 
 import com.pulumi.azure.hdinsight.inputs.HadoopClusterComponentVersionArgs;
+import com.pulumi.azure.hdinsight.inputs.HadoopClusterDiskEncryptionArgs;
 import com.pulumi.azure.hdinsight.inputs.HadoopClusterGatewayArgs;
 import com.pulumi.azure.hdinsight.inputs.HadoopClusterMetastoresArgs;
 import com.pulumi.azure.hdinsight.inputs.HadoopClusterMonitorArgs;
@@ -54,6 +55,13 @@ public final class HadoopClusterState extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<HadoopClusterComponentVersionArgs>> componentVersion() {
         return Optional.ofNullable(this.componentVersion);
+    }
+
+    @Import(name="diskEncryptions")
+    private @Nullable Output<List<HadoopClusterDiskEncryptionArgs>> diskEncryptions;
+
+    public Optional<Output<List<HadoopClusterDiskEncryptionArgs>>> diskEncryptions() {
+        return Optional.ofNullable(this.diskEncryptions);
     }
 
     /**
@@ -293,6 +301,7 @@ public final class HadoopClusterState extends com.pulumi.resources.ResourceArgs 
     private HadoopClusterState(HadoopClusterState $) {
         this.clusterVersion = $.clusterVersion;
         this.componentVersion = $.componentVersion;
+        this.diskEncryptions = $.diskEncryptions;
         this.gateway = $.gateway;
         this.httpsEndpoint = $.httpsEndpoint;
         this.location = $.location;
@@ -369,6 +378,19 @@ public final class HadoopClusterState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder componentVersion(HadoopClusterComponentVersionArgs componentVersion) {
             return componentVersion(Output.of(componentVersion));
+        }
+
+        public Builder diskEncryptions(@Nullable Output<List<HadoopClusterDiskEncryptionArgs>> diskEncryptions) {
+            $.diskEncryptions = diskEncryptions;
+            return this;
+        }
+
+        public Builder diskEncryptions(List<HadoopClusterDiskEncryptionArgs> diskEncryptions) {
+            return diskEncryptions(Output.of(diskEncryptions));
+        }
+
+        public Builder diskEncryptions(HadoopClusterDiskEncryptionArgs... diskEncryptions) {
+            return diskEncryptions(List.of(diskEncryptions));
         }
 
         /**

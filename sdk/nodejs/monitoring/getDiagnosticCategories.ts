@@ -52,7 +52,17 @@ export interface GetDiagnosticCategoriesResult {
      */
     readonly id: string;
     /**
+     * A list of the supported log category groups of this resource to send to the destination.
+     */
+    readonly logCategoryGroups: string[];
+    /**
+     * A list of the supported log category types of this resource to send to the destination.
+     */
+    readonly logCategoryTypes: string[];
+    /**
      * A list of the Log Categories supported for this Resource.
+     *
+     * @deprecated `logs` will be removed in favour of the property `log_category_types` in version 4.0 of the AzureRM Provider.
      */
     readonly logs: string[];
     /**

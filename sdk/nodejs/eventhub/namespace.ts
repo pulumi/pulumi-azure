@@ -103,10 +103,18 @@ export class Namespace extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
+     * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+     */
+    public readonly minimumTlsVersion!: pulumi.Output<string>;
+    /**
      * Specifies the name of the ServiceBus Namespace resource . Changing this forces a
      * new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to
      * create the namespace.
@@ -150,7 +158,9 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["localAuthEnabled"] = state ? state.localAuthEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -168,7 +178,9 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["localAuthEnabled"] = args ? args.localAuthEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -226,10 +238,18 @@ export interface NamespaceState {
      */
     location?: pulumi.Input<string>;
     /**
+     * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+     */
+    minimumTlsVersion?: pulumi.Input<string>;
+    /**
      * Specifies the name of the ServiceBus Namespace resource . Changing this forces a
      * new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to
      * create the namespace.
@@ -274,10 +294,18 @@ export interface NamespaceArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+     */
+    minimumTlsVersion?: pulumi.Input<string>;
+    /**
      * Specifies the name of the ServiceBus Namespace resource . Changing this forces a
      * new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to
      * create the namespace.

@@ -78,6 +78,12 @@ namespace Pulumi.Azure.StreamAnalytics
     public partial class ReferenceInputBlob : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The authentication mode for the Stream Analytics Reference Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        /// </summary>
+        [Output("authenticationMode")]
+        public Output<string?> AuthenticationMode { get; private set; } = null!;
+
+        /// <summary>
         /// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
         /// </summary>
         [Output("dateFormat")]
@@ -184,6 +190,12 @@ namespace Pulumi.Azure.StreamAnalytics
     public sealed class ReferenceInputBlobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The authentication mode for the Stream Analytics Reference Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        /// </summary>
+        [Input("authenticationMode")]
+        public Input<string>? AuthenticationMode { get; set; }
+
+        /// <summary>
         /// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
         /// </summary>
         [Input("dateFormat", required: true)]
@@ -251,6 +263,12 @@ namespace Pulumi.Azure.StreamAnalytics
 
     public sealed class ReferenceInputBlobState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The authentication mode for the Stream Analytics Reference Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        /// </summary>
+        [Input("authenticationMode")]
+        public Input<string>? AuthenticationMode { get; set; }
+
         /// <summary>
         /// The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead.
         /// </summary>

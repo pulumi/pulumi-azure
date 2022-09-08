@@ -23,6 +23,9 @@ namespace Pulumi.Azure.Compute.Outputs
         public readonly bool? Primary;
         public readonly ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> PublicIpAddresses;
         public readonly string? SubnetId;
+        /// <summary>
+        /// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]

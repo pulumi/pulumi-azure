@@ -54,6 +54,34 @@ __all__ = [
     'FrontdoorOriginGroupHealthProbe',
     'FrontdoorOriginGroupLoadBalancing',
     'FrontdoorOriginPrivateLink',
+    'FrontdoorRuleActions',
+    'FrontdoorRuleActionsRequestHeaderAction',
+    'FrontdoorRuleActionsResponseHeaderAction',
+    'FrontdoorRuleActionsRouteConfigurationOverrideAction',
+    'FrontdoorRuleActionsUrlRedirectAction',
+    'FrontdoorRuleActionsUrlRewriteAction',
+    'FrontdoorRuleConditions',
+    'FrontdoorRuleConditionsClientPortCondition',
+    'FrontdoorRuleConditionsCookiesCondition',
+    'FrontdoorRuleConditionsHostNameCondition',
+    'FrontdoorRuleConditionsHttpVersionCondition',
+    'FrontdoorRuleConditionsIsDeviceCondition',
+    'FrontdoorRuleConditionsPostArgsCondition',
+    'FrontdoorRuleConditionsQueryStringCondition',
+    'FrontdoorRuleConditionsRemoteAddressCondition',
+    'FrontdoorRuleConditionsRequestBodyCondition',
+    'FrontdoorRuleConditionsRequestHeaderCondition',
+    'FrontdoorRuleConditionsRequestMethodCondition',
+    'FrontdoorRuleConditionsRequestSchemeCondition',
+    'FrontdoorRuleConditionsRequestUriCondition',
+    'FrontdoorRuleConditionsServerPortCondition',
+    'FrontdoorRuleConditionsSocketAddressCondition',
+    'FrontdoorRuleConditionsSslProtocolCondition',
+    'FrontdoorRuleConditionsUrlFileExtensionCondition',
+    'FrontdoorRuleConditionsUrlFilenameCondition',
+    'FrontdoorRuleConditionsUrlPathCondition',
+    'FrontdoorSecretSecret',
+    'FrontdoorSecretSecretCustomerCertificate',
     'FrontdoorSecurityPolicySecurityPolicies',
     'FrontdoorSecurityPolicySecurityPoliciesFirewall',
     'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation',
@@ -3134,6 +3162,2150 @@ class FrontdoorOriginPrivateLink(dict):
         Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
         """
         return pulumi.get(self, "target_type")
+
+
+@pulumi.output_type
+class FrontdoorRuleActions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requestHeaderActions":
+            suggest = "request_header_actions"
+        elif key == "responseHeaderActions":
+            suggest = "response_header_actions"
+        elif key == "routeConfigurationOverrideAction":
+            suggest = "route_configuration_override_action"
+        elif key == "urlRedirectAction":
+            suggest = "url_redirect_action"
+        elif key == "urlRewriteAction":
+            suggest = "url_rewrite_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleActions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleActions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleActions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 request_header_actions: Optional[Sequence['outputs.FrontdoorRuleActionsRequestHeaderAction']] = None,
+                 response_header_actions: Optional[Sequence['outputs.FrontdoorRuleActionsResponseHeaderAction']] = None,
+                 route_configuration_override_action: Optional['outputs.FrontdoorRuleActionsRouteConfigurationOverrideAction'] = None,
+                 url_redirect_action: Optional['outputs.FrontdoorRuleActionsUrlRedirectAction'] = None,
+                 url_rewrite_action: Optional['outputs.FrontdoorRuleActionsUrlRewriteAction'] = None):
+        """
+        :param Sequence['FrontdoorRuleActionsRequestHeaderActionArgs'] request_header_actions: A `request_header_action` block as defined below.
+        :param Sequence['FrontdoorRuleActionsResponseHeaderActionArgs'] response_header_actions: A `response_header_action` block as defined below.
+        :param 'FrontdoorRuleActionsRouteConfigurationOverrideActionArgs' route_configuration_override_action: A `route_configuration_override_action` block as defined below.
+        :param 'FrontdoorRuleActionsUrlRedirectActionArgs' url_redirect_action: A `url_redirect_action` block as defined below. You may **not** have a `url_redirect_action` **and** a `url_rewrite_action` defined in the same `actions` block.
+        :param 'FrontdoorRuleActionsUrlRewriteActionArgs' url_rewrite_action: A `url_rewrite_action` block as defined below. You may **not** have a `url_rewrite_action` **and** a `url_redirect_action` defined in the same `actions` block.
+        """
+        if request_header_actions is not None:
+            pulumi.set(__self__, "request_header_actions", request_header_actions)
+        if response_header_actions is not None:
+            pulumi.set(__self__, "response_header_actions", response_header_actions)
+        if route_configuration_override_action is not None:
+            pulumi.set(__self__, "route_configuration_override_action", route_configuration_override_action)
+        if url_redirect_action is not None:
+            pulumi.set(__self__, "url_redirect_action", url_redirect_action)
+        if url_rewrite_action is not None:
+            pulumi.set(__self__, "url_rewrite_action", url_rewrite_action)
+
+    @property
+    @pulumi.getter(name="requestHeaderActions")
+    def request_header_actions(self) -> Optional[Sequence['outputs.FrontdoorRuleActionsRequestHeaderAction']]:
+        """
+        A `request_header_action` block as defined below.
+        """
+        return pulumi.get(self, "request_header_actions")
+
+    @property
+    @pulumi.getter(name="responseHeaderActions")
+    def response_header_actions(self) -> Optional[Sequence['outputs.FrontdoorRuleActionsResponseHeaderAction']]:
+        """
+        A `response_header_action` block as defined below.
+        """
+        return pulumi.get(self, "response_header_actions")
+
+    @property
+    @pulumi.getter(name="routeConfigurationOverrideAction")
+    def route_configuration_override_action(self) -> Optional['outputs.FrontdoorRuleActionsRouteConfigurationOverrideAction']:
+        """
+        A `route_configuration_override_action` block as defined below.
+        """
+        return pulumi.get(self, "route_configuration_override_action")
+
+    @property
+    @pulumi.getter(name="urlRedirectAction")
+    def url_redirect_action(self) -> Optional['outputs.FrontdoorRuleActionsUrlRedirectAction']:
+        """
+        A `url_redirect_action` block as defined below. You may **not** have a `url_redirect_action` **and** a `url_rewrite_action` defined in the same `actions` block.
+        """
+        return pulumi.get(self, "url_redirect_action")
+
+    @property
+    @pulumi.getter(name="urlRewriteAction")
+    def url_rewrite_action(self) -> Optional['outputs.FrontdoorRuleActionsUrlRewriteAction']:
+        """
+        A `url_rewrite_action` block as defined below. You may **not** have a `url_rewrite_action` **and** a `url_redirect_action` defined in the same `actions` block.
+        """
+        return pulumi.get(self, "url_rewrite_action")
+
+
+@pulumi.output_type
+class FrontdoorRuleActionsRequestHeaderAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerAction":
+            suggest = "header_action"
+        elif key == "headerName":
+            suggest = "header_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleActionsRequestHeaderAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleActionsRequestHeaderAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleActionsRequestHeaderAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 header_action: str,
+                 header_name: str,
+                 value: Optional[str] = None):
+        """
+        :param str header_action: The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
+        :param str header_name: The name of the header to modify.
+        :param str value: The value to append or overwrite.
+        """
+        pulumi.set(__self__, "header_action", header_action)
+        pulumi.set(__self__, "header_name", header_name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="headerAction")
+    def header_action(self) -> str:
+        """
+        The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
+        """
+        return pulumi.get(self, "header_action")
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> str:
+        """
+        The name of the header to modify.
+        """
+        return pulumi.get(self, "header_name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value to append or overwrite.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FrontdoorRuleActionsResponseHeaderAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerAction":
+            suggest = "header_action"
+        elif key == "headerName":
+            suggest = "header_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleActionsResponseHeaderAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleActionsResponseHeaderAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleActionsResponseHeaderAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 header_action: str,
+                 header_name: str,
+                 value: Optional[str] = None):
+        """
+        :param str header_action: The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
+        :param str header_name: The name of the header to modify.
+        :param str value: The value to append or overwrite.
+        """
+        pulumi.set(__self__, "header_action", header_action)
+        pulumi.set(__self__, "header_name", header_name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="headerAction")
+    def header_action(self) -> str:
+        """
+        The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
+        """
+        return pulumi.get(self, "header_action")
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> str:
+        """
+        The name of the header to modify.
+        """
+        return pulumi.get(self, "header_name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value to append or overwrite.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FrontdoorRuleActionsRouteConfigurationOverrideAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cacheDuration":
+            suggest = "cache_duration"
+        elif key == "cdnFrontdoorOriginGroupId":
+            suggest = "cdn_frontdoor_origin_group_id"
+        elif key == "cacheBehavior":
+            suggest = "cache_behavior"
+        elif key == "compressionEnabled":
+            suggest = "compression_enabled"
+        elif key == "forwardingProtocol":
+            suggest = "forwarding_protocol"
+        elif key == "queryStringCachingBehavior":
+            suggest = "query_string_caching_behavior"
+        elif key == "queryStringParameters":
+            suggest = "query_string_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleActionsRouteConfigurationOverrideAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleActionsRouteConfigurationOverrideAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleActionsRouteConfigurationOverrideAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cache_duration: str,
+                 cdn_frontdoor_origin_group_id: str,
+                 cache_behavior: Optional[str] = None,
+                 compression_enabled: Optional[bool] = None,
+                 forwarding_protocol: Optional[str] = None,
+                 query_string_caching_behavior: Optional[str] = None,
+                 query_string_parameters: Optional[Sequence[str]] = None):
+        """
+        :param str cache_duration: When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
+        :param str cdn_frontdoor_origin_group_id: The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
+        :param str cache_behavior: `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
+        :param bool compression_enabled: Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+        :param str forwarding_protocol: The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
+        :param str query_string_caching_behavior: `IncludeSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`. Defaults to `IgnoreQueryString`.
+        :param Sequence[str] query_string_parameters: A list of query string parameter names.
+        """
+        pulumi.set(__self__, "cache_duration", cache_duration)
+        pulumi.set(__self__, "cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
+        if cache_behavior is not None:
+            pulumi.set(__self__, "cache_behavior", cache_behavior)
+        if compression_enabled is not None:
+            pulumi.set(__self__, "compression_enabled", compression_enabled)
+        if forwarding_protocol is not None:
+            pulumi.set(__self__, "forwarding_protocol", forwarding_protocol)
+        if query_string_caching_behavior is not None:
+            pulumi.set(__self__, "query_string_caching_behavior", query_string_caching_behavior)
+        if query_string_parameters is not None:
+            pulumi.set(__self__, "query_string_parameters", query_string_parameters)
+
+    @property
+    @pulumi.getter(name="cacheDuration")
+    def cache_duration(self) -> str:
+        """
+        When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
+        """
+        return pulumi.get(self, "cache_duration")
+
+    @property
+    @pulumi.getter(name="cdnFrontdoorOriginGroupId")
+    def cdn_frontdoor_origin_group_id(self) -> str:
+        """
+        The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
+        """
+        return pulumi.get(self, "cdn_frontdoor_origin_group_id")
+
+    @property
+    @pulumi.getter(name="cacheBehavior")
+    def cache_behavior(self) -> Optional[str]:
+        """
+        `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
+        """
+        return pulumi.get(self, "cache_behavior")
+
+    @property
+    @pulumi.getter(name="compressionEnabled")
+    def compression_enabled(self) -> Optional[bool]:
+        """
+        Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+        """
+        return pulumi.get(self, "compression_enabled")
+
+    @property
+    @pulumi.getter(name="forwardingProtocol")
+    def forwarding_protocol(self) -> Optional[str]:
+        """
+        The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
+        """
+        return pulumi.get(self, "forwarding_protocol")
+
+    @property
+    @pulumi.getter(name="queryStringCachingBehavior")
+    def query_string_caching_behavior(self) -> Optional[str]:
+        """
+        `IncludeSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`. Defaults to `IgnoreQueryString`.
+        """
+        return pulumi.get(self, "query_string_caching_behavior")
+
+    @property
+    @pulumi.getter(name="queryStringParameters")
+    def query_string_parameters(self) -> Optional[Sequence[str]]:
+        """
+        A list of query string parameter names.
+        """
+        return pulumi.get(self, "query_string_parameters")
+
+
+@pulumi.output_type
+class FrontdoorRuleActionsUrlRedirectAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationHostname":
+            suggest = "destination_hostname"
+        elif key == "redirectType":
+            suggest = "redirect_type"
+        elif key == "destinationFragment":
+            suggest = "destination_fragment"
+        elif key == "destinationPath":
+            suggest = "destination_path"
+        elif key == "queryString":
+            suggest = "query_string"
+        elif key == "redirectProtocol":
+            suggest = "redirect_protocol"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleActionsUrlRedirectAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleActionsUrlRedirectAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleActionsUrlRedirectAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_hostname: str,
+                 redirect_type: str,
+                 destination_fragment: Optional[str] = None,
+                 destination_path: Optional[str] = None,
+                 query_string: Optional[str] = None,
+                 redirect_protocol: Optional[str] = None):
+        """
+        :param str destination_hostname: The host name you want the request to be redirected to. Leave blank to preserve the incoming host.
+        :param str redirect_type: The response type to return to the requestor. Possible values include `Moved`, `Found` , `TemporaryRedirect` or `PermanentRedirect`.
+        :param str destination_fragment: The fragment to use in the redirect. Leave blank to preserve the incoming fragment.
+        :param str destination_path: The path to use in the redirect. Include the leading `/`. Leave blank to preserve the incoming path.
+        :param str query_string: The query string used in the redirect URL. Don't include the leading `?`. Leave blank to preserve the incoming query string.
+        :param str redirect_protocol: The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
+        """
+        pulumi.set(__self__, "destination_hostname", destination_hostname)
+        pulumi.set(__self__, "redirect_type", redirect_type)
+        if destination_fragment is not None:
+            pulumi.set(__self__, "destination_fragment", destination_fragment)
+        if destination_path is not None:
+            pulumi.set(__self__, "destination_path", destination_path)
+        if query_string is not None:
+            pulumi.set(__self__, "query_string", query_string)
+        if redirect_protocol is not None:
+            pulumi.set(__self__, "redirect_protocol", redirect_protocol)
+
+    @property
+    @pulumi.getter(name="destinationHostname")
+    def destination_hostname(self) -> str:
+        """
+        The host name you want the request to be redirected to. Leave blank to preserve the incoming host.
+        """
+        return pulumi.get(self, "destination_hostname")
+
+    @property
+    @pulumi.getter(name="redirectType")
+    def redirect_type(self) -> str:
+        """
+        The response type to return to the requestor. Possible values include `Moved`, `Found` , `TemporaryRedirect` or `PermanentRedirect`.
+        """
+        return pulumi.get(self, "redirect_type")
+
+    @property
+    @pulumi.getter(name="destinationFragment")
+    def destination_fragment(self) -> Optional[str]:
+        """
+        The fragment to use in the redirect. Leave blank to preserve the incoming fragment.
+        """
+        return pulumi.get(self, "destination_fragment")
+
+    @property
+    @pulumi.getter(name="destinationPath")
+    def destination_path(self) -> Optional[str]:
+        """
+        The path to use in the redirect. Include the leading `/`. Leave blank to preserve the incoming path.
+        """
+        return pulumi.get(self, "destination_path")
+
+    @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> Optional[str]:
+        """
+        The query string used in the redirect URL. Don't include the leading `?`. Leave blank to preserve the incoming query string.
+        """
+        return pulumi.get(self, "query_string")
+
+    @property
+    @pulumi.getter(name="redirectProtocol")
+    def redirect_protocol(self) -> Optional[str]:
+        """
+        The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
+        """
+        return pulumi.get(self, "redirect_protocol")
+
+
+@pulumi.output_type
+class FrontdoorRuleActionsUrlRewriteAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourcePattern":
+            suggest = "source_pattern"
+        elif key == "preserveUnmatchedPath":
+            suggest = "preserve_unmatched_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleActionsUrlRewriteAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleActionsUrlRewriteAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleActionsUrlRewriteAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: str,
+                 source_pattern: str,
+                 preserve_unmatched_path: Optional[bool] = None):
+        """
+        :param str destination: The destination path to use in the rewrite. The destination path overwrites the source pattern.
+        :param str source_pattern: The source pattern in the URL path to replace. This uses prefix-based matching. For example, to match all URL paths use a forward slash `"/"` as the source pattern value.
+        :param bool preserve_unmatched_path: Append the remaining path after the source pattern to the new destination path? Possible values `true` or `false`. Defaults to `false`.
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "source_pattern", source_pattern)
+        if preserve_unmatched_path is not None:
+            pulumi.set(__self__, "preserve_unmatched_path", preserve_unmatched_path)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> str:
+        """
+        The destination path to use in the rewrite. The destination path overwrites the source pattern.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="sourcePattern")
+    def source_pattern(self) -> str:
+        """
+        The source pattern in the URL path to replace. This uses prefix-based matching. For example, to match all URL paths use a forward slash `"/"` as the source pattern value.
+        """
+        return pulumi.get(self, "source_pattern")
+
+    @property
+    @pulumi.getter(name="preserveUnmatchedPath")
+    def preserve_unmatched_path(self) -> Optional[bool]:
+        """
+        Append the remaining path after the source pattern to the new destination path? Possible values `true` or `false`. Defaults to `false`.
+        """
+        return pulumi.get(self, "preserve_unmatched_path")
+
+
+@pulumi.output_type
+class FrontdoorRuleConditions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientPortConditions":
+            suggest = "client_port_conditions"
+        elif key == "cookiesConditions":
+            suggest = "cookies_conditions"
+        elif key == "hostNameConditions":
+            suggest = "host_name_conditions"
+        elif key == "httpVersionConditions":
+            suggest = "http_version_conditions"
+        elif key == "isDeviceConditions":
+            suggest = "is_device_conditions"
+        elif key == "postArgsConditions":
+            suggest = "post_args_conditions"
+        elif key == "queryStringConditions":
+            suggest = "query_string_conditions"
+        elif key == "remoteAddressConditions":
+            suggest = "remote_address_conditions"
+        elif key == "requestBodyConditions":
+            suggest = "request_body_conditions"
+        elif key == "requestHeaderConditions":
+            suggest = "request_header_conditions"
+        elif key == "requestMethodConditions":
+            suggest = "request_method_conditions"
+        elif key == "requestSchemeConditions":
+            suggest = "request_scheme_conditions"
+        elif key == "requestUriConditions":
+            suggest = "request_uri_conditions"
+        elif key == "serverPortConditions":
+            suggest = "server_port_conditions"
+        elif key == "socketAddressConditions":
+            suggest = "socket_address_conditions"
+        elif key == "sslProtocolConditions":
+            suggest = "ssl_protocol_conditions"
+        elif key == "urlFileExtensionConditions":
+            suggest = "url_file_extension_conditions"
+        elif key == "urlFilenameConditions":
+            suggest = "url_filename_conditions"
+        elif key == "urlPathConditions":
+            suggest = "url_path_conditions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleConditions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleConditions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleConditions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_port_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsClientPortCondition']] = None,
+                 cookies_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsCookiesCondition']] = None,
+                 host_name_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsHostNameCondition']] = None,
+                 http_version_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsHttpVersionCondition']] = None,
+                 is_device_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsIsDeviceCondition']] = None,
+                 post_args_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsPostArgsCondition']] = None,
+                 query_string_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsQueryStringCondition']] = None,
+                 remote_address_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsRemoteAddressCondition']] = None,
+                 request_body_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsRequestBodyCondition']] = None,
+                 request_header_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsRequestHeaderCondition']] = None,
+                 request_method_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsRequestMethodCondition']] = None,
+                 request_scheme_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsRequestSchemeCondition']] = None,
+                 request_uri_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsRequestUriCondition']] = None,
+                 server_port_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsServerPortCondition']] = None,
+                 socket_address_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsSocketAddressCondition']] = None,
+                 ssl_protocol_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsSslProtocolCondition']] = None,
+                 url_file_extension_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsUrlFileExtensionCondition']] = None,
+                 url_filename_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsUrlFilenameCondition']] = None,
+                 url_path_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsUrlPathCondition']] = None):
+        """
+        :param Sequence['FrontdoorRuleConditionsClientPortConditionArgs'] client_port_conditions: A `client_port_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsCookiesConditionArgs'] cookies_conditions: A `cookies_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsHostNameConditionArgs'] host_name_conditions: A `host_name_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsHttpVersionConditionArgs'] http_version_conditions: A `http_version_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsIsDeviceConditionArgs'] is_device_conditions: A `is_device_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsPostArgsConditionArgs'] post_args_conditions: A `post_args_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsQueryStringConditionArgs'] query_string_conditions: A `query_string_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsRemoteAddressConditionArgs'] remote_address_conditions: A `remote_address_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsRequestBodyConditionArgs'] request_body_conditions: A `request_body_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsRequestHeaderConditionArgs'] request_header_conditions: A `request_header_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsRequestMethodConditionArgs'] request_method_conditions: A `request_method_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsRequestSchemeConditionArgs'] request_scheme_conditions: A `request_scheme_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsRequestUriConditionArgs'] request_uri_conditions: A `request_uri_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsServerPortConditionArgs'] server_port_conditions: A `server_port_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsSocketAddressConditionArgs'] socket_address_conditions: A `socket_address_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsSslProtocolConditionArgs'] ssl_protocol_conditions: A `ssl_protocol_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsUrlFileExtensionConditionArgs'] url_file_extension_conditions: A `url_file_extension_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsUrlFilenameConditionArgs'] url_filename_conditions: A `url_filename_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsUrlPathConditionArgs'] url_path_conditions: A `url_path_condition` block as defined below.
+        """
+        if client_port_conditions is not None:
+            pulumi.set(__self__, "client_port_conditions", client_port_conditions)
+        if cookies_conditions is not None:
+            pulumi.set(__self__, "cookies_conditions", cookies_conditions)
+        if host_name_conditions is not None:
+            pulumi.set(__self__, "host_name_conditions", host_name_conditions)
+        if http_version_conditions is not None:
+            pulumi.set(__self__, "http_version_conditions", http_version_conditions)
+        if is_device_conditions is not None:
+            pulumi.set(__self__, "is_device_conditions", is_device_conditions)
+        if post_args_conditions is not None:
+            pulumi.set(__self__, "post_args_conditions", post_args_conditions)
+        if query_string_conditions is not None:
+            pulumi.set(__self__, "query_string_conditions", query_string_conditions)
+        if remote_address_conditions is not None:
+            pulumi.set(__self__, "remote_address_conditions", remote_address_conditions)
+        if request_body_conditions is not None:
+            pulumi.set(__self__, "request_body_conditions", request_body_conditions)
+        if request_header_conditions is not None:
+            pulumi.set(__self__, "request_header_conditions", request_header_conditions)
+        if request_method_conditions is not None:
+            pulumi.set(__self__, "request_method_conditions", request_method_conditions)
+        if request_scheme_conditions is not None:
+            pulumi.set(__self__, "request_scheme_conditions", request_scheme_conditions)
+        if request_uri_conditions is not None:
+            pulumi.set(__self__, "request_uri_conditions", request_uri_conditions)
+        if server_port_conditions is not None:
+            pulumi.set(__self__, "server_port_conditions", server_port_conditions)
+        if socket_address_conditions is not None:
+            pulumi.set(__self__, "socket_address_conditions", socket_address_conditions)
+        if ssl_protocol_conditions is not None:
+            pulumi.set(__self__, "ssl_protocol_conditions", ssl_protocol_conditions)
+        if url_file_extension_conditions is not None:
+            pulumi.set(__self__, "url_file_extension_conditions", url_file_extension_conditions)
+        if url_filename_conditions is not None:
+            pulumi.set(__self__, "url_filename_conditions", url_filename_conditions)
+        if url_path_conditions is not None:
+            pulumi.set(__self__, "url_path_conditions", url_path_conditions)
+
+    @property
+    @pulumi.getter(name="clientPortConditions")
+    def client_port_conditions(self) -> Optional[Sequence['outputs.FrontdoorRuleConditionsClientPortCondition']]:
+        """
+        A `client_port_condition` block as defined below.
+        """
+        return pulumi.get(self, "client_port_conditions")
+
+    @property
+    @pulumi.getter(name="cookiesConditions")
+    def cookies_conditions(self) -> Optional[Sequence['outputs.FrontdoorRuleConditionsCookiesCondition']]:
+        """
+        A `cookies_condition` block as defined below.
+        """
+        return pulumi.get(self, "cookies_conditions")
+
+    @property
+    @pulumi.getter(name="hostNameConditions")
+    def host_name_conditions(self) -> Optional[Sequence['outputs.FrontdoorRuleConditionsHostNameCondition']]:
+        """
+        A `host_name_condition` block as defined below.
+        """
+        return pulumi.get(self, "host_name_conditions")
+
+    @property
+    @pulumi.getter(name="httpVersionConditions")
+    def http_version_conditions(self) -> Optional[Sequence['outputs.FrontdoorRuleConditionsHttpVersionCondition']]:
+        """
+        A `http_version_condition` block as defined below.
+        """
+        return pulumi.get(self, "http_version_conditions")
+
+    @property
+    @pulumi.getter(name="isDeviceConditions")
+    def is_device_conditions(self) -> Optional[Sequence['outputs.FrontdoorRuleConditionsIsDeviceCondition']]:
+        """
+        A `is_device_condition` block as defined below.
+        """
+        return pulumi.get(self, "is_device_conditions")
+
+    @property
+    @pulumi.getter(name="postArgsConditions")
+    def post_args_conditions(self) -> Optional[Sequence['outputs.FrontdoorRuleConditionsPostArgsCondition']]:
+        """
+        A `post_args_condition` block as defined below.
+        """
+        return pulumi.get(self, "post_args_conditions")
+
+    @property
+    @pulumi.getter(name="queryStringConditions")
+    def query_string_conditions(self) -> Optional[Sequence['outputs.FrontdoorRuleConditionsQueryStringCondition']]:
+        """
+        A `query_string_condition` block as defined below.
+        """
+        return pulumi.get(self, "query_string_conditions")
+
+    @property
+    @pulumi.getter(name="remoteAddressConditions")
+    def remote_address_conditions(self) -> Optional[Sequence['outputs.FrontdoorRuleConditionsRemoteAddressCondition']]:
+        """
+        A `remote_address_condition` block as defined below.
+        """
+        return pulumi.get(self, "remote_address_conditions")
+
+    @property
+    @pulumi.getter(name="requestBodyConditions")
+    def request_body_conditions(self) -> Optional[Sequence['outputs.FrontdoorRuleConditionsRequestBodyCondition']]:
+        """
+        A `request_body_condition` block as defined below.
+        """
+        return pulumi.get(self, "request_body_conditions")
+
+    @property
+    @pulumi.getter(name="requestHeaderConditions")
+    def request_header_conditions(self) -> Optional[Sequence['outputs.FrontdoorRuleConditionsRequestHeaderCondition']]:
+        """
+        A `request_header_condition` block as defined below.
+        """
+        return pulumi.get(self, "request_header_conditions")
+
+    @property
+    @pulumi.getter(name="requestMethodConditions")
+    def request_method_conditions(self) -> Optional[Sequence['outputs.FrontdoorRuleConditionsRequestMethodCondition']]:
+        """
+        A `request_method_condition` block as defined below.
+        """
+        return pulumi.get(self, "request_method_conditions")
+
+    @property
+    @pulumi.getter(name="requestSchemeConditions")
+    def request_scheme_conditions(self) -> Optional[Sequence['outputs.FrontdoorRuleConditionsRequestSchemeCondition']]:
+        """
+        A `request_scheme_condition` block as defined below.
+        """
+        return pulumi.get(self, "request_scheme_conditions")
+
+    @property
+    @pulumi.getter(name="requestUriConditions")
+    def request_uri_conditions(self) -> Optional[Sequence['outputs.FrontdoorRuleConditionsRequestUriCondition']]:
+        """
+        A `request_uri_condition` block as defined below.
+        """
+        return pulumi.get(self, "request_uri_conditions")
+
+    @property
+    @pulumi.getter(name="serverPortConditions")
+    def server_port_conditions(self) -> Optional[Sequence['outputs.FrontdoorRuleConditionsServerPortCondition']]:
+        """
+        A `server_port_condition` block as defined below.
+        """
+        return pulumi.get(self, "server_port_conditions")
+
+    @property
+    @pulumi.getter(name="socketAddressConditions")
+    def socket_address_conditions(self) -> Optional[Sequence['outputs.FrontdoorRuleConditionsSocketAddressCondition']]:
+        """
+        A `socket_address_condition` block as defined below.
+        """
+        return pulumi.get(self, "socket_address_conditions")
+
+    @property
+    @pulumi.getter(name="sslProtocolConditions")
+    def ssl_protocol_conditions(self) -> Optional[Sequence['outputs.FrontdoorRuleConditionsSslProtocolCondition']]:
+        """
+        A `ssl_protocol_condition` block as defined below.
+        """
+        return pulumi.get(self, "ssl_protocol_conditions")
+
+    @property
+    @pulumi.getter(name="urlFileExtensionConditions")
+    def url_file_extension_conditions(self) -> Optional[Sequence['outputs.FrontdoorRuleConditionsUrlFileExtensionCondition']]:
+        """
+        A `url_file_extension_condition` block as defined below.
+        """
+        return pulumi.get(self, "url_file_extension_conditions")
+
+    @property
+    @pulumi.getter(name="urlFilenameConditions")
+    def url_filename_conditions(self) -> Optional[Sequence['outputs.FrontdoorRuleConditionsUrlFilenameCondition']]:
+        """
+        A `url_filename_condition` block as defined below.
+        """
+        return pulumi.get(self, "url_filename_conditions")
+
+    @property
+    @pulumi.getter(name="urlPathConditions")
+    def url_path_conditions(self) -> Optional[Sequence['outputs.FrontdoorRuleConditionsUrlPathCondition']]:
+        """
+        A `url_path_condition` block as defined below.
+        """
+        return pulumi.get(self, "url_path_conditions")
+
+
+@pulumi.output_type
+class FrontdoorRuleConditionsClientPortCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleConditionsClientPortCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleConditionsClientPortCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleConditionsClientPortCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operator: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None):
+        """
+        :param str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param Sequence[str] match_values: One or more integer values(e.g. "1") representing the value of the client port to match. If multiple values are specified, they're evaluated using `OR` logic.
+        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        One or more integer values(e.g. "1") representing the value of the client port to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+
+@pulumi.output_type
+class FrontdoorRuleConditionsCookiesCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cookieName":
+            suggest = "cookie_name"
+        elif key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleConditionsCookiesCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleConditionsCookiesCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleConditionsCookiesCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cookie_name: str,
+                 operator: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        :param str cookie_name: A string value representing the name of the cookie.
+        :param str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param Sequence[str] match_values: One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
+        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "cookie_name", cookie_name)
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="cookieName")
+    def cookie_name(self) -> str:
+        """
+        A string value representing the name of the cookie.
+        """
+        return pulumi.get(self, "cookie_name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "transforms")
+
+
+@pulumi.output_type
+class FrontdoorRuleConditionsHostNameCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleConditionsHostNameCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleConditionsHostNameCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleConditionsHostNameCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operator: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        :param str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param Sequence[str] match_values: A list of one or more string values representing the value of the request hostname to match. If multiple values are specified, they're evaluated using `OR` logic.
+        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        A list of one or more string values representing the value of the request hostname to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "transforms")
+
+
+@pulumi.output_type
+class FrontdoorRuleConditionsHttpVersionCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleConditionsHttpVersionCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleConditionsHttpVersionCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleConditionsHttpVersionCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_values: Sequence[str],
+                 negate_condition: Optional[bool] = None,
+                 operator: Optional[str] = None):
+        """
+        :param Sequence[str] match_values: What HTTP version should this condition match? Possible values `2.0`, `1.1`, `1.0` or `0.9`.
+        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        :param str operator: Possible value `Equal`. Defaults to `Equal`.
+        """
+        pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Sequence[str]:
+        """
+        What HTTP version should this condition match? Possible values `2.0`, `1.1`, `1.0` or `0.9`.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
+        """
+        Possible value `Equal`. Defaults to `Equal`.
+        """
+        return pulumi.get(self, "operator")
+
+
+@pulumi.output_type
+class FrontdoorRuleConditionsIsDeviceCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleConditionsIsDeviceCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleConditionsIsDeviceCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleConditionsIsDeviceCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_values: Optional[str] = None,
+                 negate_condition: Optional[bool] = None,
+                 operator: Optional[str] = None):
+        """
+        :param str match_values: Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        :param str operator: Possible value `Equal`. Defaults to `Equal`.
+        """
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[str]:
+        """
+        Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
+        """
+        Possible value `Equal`. Defaults to `Equal`.
+        """
+        return pulumi.get(self, "operator")
+
+
+@pulumi.output_type
+class FrontdoorRuleConditionsPostArgsCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "postArgsName":
+            suggest = "post_args_name"
+        elif key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleConditionsPostArgsCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleConditionsPostArgsCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleConditionsPostArgsCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operator: str,
+                 post_args_name: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        :param str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param str post_args_name: A string value representing the name of the `POST` argument.
+        :param Sequence[str] match_values: One or more string or integer values(e.g. "1") representing the value of the `POST` argument to match. If multiple values are specified, they're evaluated using `OR` logic.
+        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "post_args_name", post_args_name)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="postArgsName")
+    def post_args_name(self) -> str:
+        """
+        A string value representing the name of the `POST` argument.
+        """
+        return pulumi.get(self, "post_args_name")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        One or more string or integer values(e.g. "1") representing the value of the `POST` argument to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "transforms")
+
+
+@pulumi.output_type
+class FrontdoorRuleConditionsQueryStringCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleConditionsQueryStringCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleConditionsQueryStringCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleConditionsQueryStringCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operator: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        :param str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param Sequence[str] match_values: One or more string or integer values(e.g. "1") representing the value of the query string to match. If multiple values are specified, they're evaluated using `OR` logic.
+        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        One or more string or integer values(e.g. "1") representing the value of the query string to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "transforms")
+
+
+@pulumi.output_type
+class FrontdoorRuleConditionsRemoteAddressCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleConditionsRemoteAddressCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleConditionsRemoteAddressCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleConditionsRemoteAddressCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None,
+                 operator: Optional[str] = None):
+        """
+        :param Sequence[str] match_values: For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
+        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        :param str operator: The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negate_condition` to specify Not `GeoMatch` or Not `IPMatch`.
+        """
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
+        """
+        The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negate_condition` to specify Not `GeoMatch` or Not `IPMatch`.
+        """
+        return pulumi.get(self, "operator")
+
+
+@pulumi.output_type
+class FrontdoorRuleConditionsRequestBodyCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleConditionsRequestBodyCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleConditionsRequestBodyCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleConditionsRequestBodyCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_values: Sequence[str],
+                 operator: str,
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] match_values: A list of one or more string or integer values(e.g. "1") representing the value of the request body text to match. If multiple values are specified, they're evaluated using `OR` logic.
+        :param str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "match_values", match_values)
+        pulumi.set(__self__, "operator", operator)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Sequence[str]:
+        """
+        A list of one or more string or integer values(e.g. "1") representing the value of the request body text to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "transforms")
+
+
+@pulumi.output_type
+class FrontdoorRuleConditionsRequestHeaderCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerName":
+            suggest = "header_name"
+        elif key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleConditionsRequestHeaderCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleConditionsRequestHeaderCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleConditionsRequestHeaderCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 header_name: str,
+                 operator: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        :param str header_name: A string value representing the name of the `POST` argument.
+        :param str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param Sequence[str] match_values: One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
+        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "header_name", header_name)
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> str:
+        """
+        A string value representing the name of the `POST` argument.
+        """
+        return pulumi.get(self, "header_name")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "transforms")
+
+
+@pulumi.output_type
+class FrontdoorRuleConditionsRequestMethodCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleConditionsRequestMethodCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleConditionsRequestMethodCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleConditionsRequestMethodCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_values: Sequence[str],
+                 negate_condition: Optional[bool] = None,
+                 operator: Optional[str] = None):
+        """
+        :param Sequence[str] match_values: A list of one or more HTTP methods. Possible values include `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS` or `TRACE`. If multiple values are specified, they're evaluated using `OR` logic.
+        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        :param str operator: Possible value `Equal`. Defaults to `Equal`.
+        """
+        pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Sequence[str]:
+        """
+        A list of one or more HTTP methods. Possible values include `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS` or `TRACE`. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
+        """
+        Possible value `Equal`. Defaults to `Equal`.
+        """
+        return pulumi.get(self, "operator")
+
+
+@pulumi.output_type
+class FrontdoorRuleConditionsRequestSchemeCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleConditionsRequestSchemeCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleConditionsRequestSchemeCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleConditionsRequestSchemeCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_values: Optional[str] = None,
+                 negate_condition: Optional[bool] = None,
+                 operator: Optional[str] = None):
+        """
+        :param str match_values: The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        :param str operator: Possible value `Equal`. Defaults to `Equal`.
+        """
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[str]:
+        """
+        The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
+        """
+        Possible value `Equal`. Defaults to `Equal`.
+        """
+        return pulumi.get(self, "operator")
+
+
+@pulumi.output_type
+class FrontdoorRuleConditionsRequestUriCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleConditionsRequestUriCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleConditionsRequestUriCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleConditionsRequestUriCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operator: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        :param str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param Sequence[str] match_values: One or more string or integer values(e.g. "1") representing the value of the request URL to match. If multiple values are specified, they're evaluated using `OR` logic.
+        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        One or more string or integer values(e.g. "1") representing the value of the request URL to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "transforms")
+
+
+@pulumi.output_type
+class FrontdoorRuleConditionsServerPortCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleConditionsServerPortCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleConditionsServerPortCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleConditionsServerPortCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_values: Sequence[str],
+                 operator: str,
+                 negate_condition: Optional[bool] = None):
+        """
+        :param Sequence[str] match_values: A list of one or more integer values(e.g. "1") representing the value of the client port to match. Possible values include `80` or `443`. If multiple values are specified, they're evaluated using `OR` logic.
+        :param str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "match_values", match_values)
+        pulumi.set(__self__, "operator", operator)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Sequence[str]:
+        """
+        A list of one or more integer values(e.g. "1") representing the value of the client port to match. Possible values include `80` or `443`. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+
+@pulumi.output_type
+class FrontdoorRuleConditionsSocketAddressCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleConditionsSocketAddressCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleConditionsSocketAddressCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleConditionsSocketAddressCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None,
+                 operator: Optional[str] = None):
+        """
+        :param Sequence[str] match_values: Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic.
+        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        :param str operator: The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+        """
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
+        """
+        The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+        """
+        return pulumi.get(self, "operator")
+
+
+@pulumi.output_type
+class FrontdoorRuleConditionsSslProtocolCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleConditionsSslProtocolCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleConditionsSslProtocolCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleConditionsSslProtocolCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_values: Sequence[str],
+                 negate_condition: Optional[bool] = None,
+                 operator: Optional[str] = None):
+        """
+        :param Sequence[str] match_values: A list of one or more HTTP methods. Possible values include `TLSv1.0`, `TLSv1.1` or `TLS1.2`. If multiple values are specified, they're evaluated using `OR` logic.
+        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        :param str operator: Possible value `Equal`. Defaults to `Equal`.
+        """
+        pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Sequence[str]:
+        """
+        A list of one or more HTTP methods. Possible values include `TLSv1.0`, `TLSv1.1` or `TLS1.2`. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[str]:
+        """
+        Possible value `Equal`. Defaults to `Equal`.
+        """
+        return pulumi.get(self, "operator")
+
+
+@pulumi.output_type
+class FrontdoorRuleConditionsUrlFileExtensionCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleConditionsUrlFileExtensionCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleConditionsUrlFileExtensionCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleConditionsUrlFileExtensionCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_values: Sequence[str],
+                 operator: str,
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] match_values: A list of one or more string or integer values(e.g. "1") representing the value of the request file extension to match. If multiple values are specified, they're evaluated using `OR` logic.
+        :param str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "match_values", match_values)
+        pulumi.set(__self__, "operator", operator)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Sequence[str]:
+        """
+        A list of one or more string or integer values(e.g. "1") representing the value of the request file extension to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "transforms")
+
+
+@pulumi.output_type
+class FrontdoorRuleConditionsUrlFilenameCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleConditionsUrlFilenameCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleConditionsUrlFilenameCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleConditionsUrlFilenameCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_values: Sequence[str],
+                 operator: str,
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] match_values: A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
+        :param str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "match_values", match_values)
+        pulumi.set(__self__, "operator", operator)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Sequence[str]:
+        """
+        A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "transforms")
+
+
+@pulumi.output_type
+class FrontdoorRuleConditionsUrlPathCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "negateCondition":
+            suggest = "negate_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorRuleConditionsUrlPathCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorRuleConditionsUrlPathCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorRuleConditionsUrlPathCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operator: str,
+                 match_values: Optional[Sequence[str]] = None,
+                 negate_condition: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        :param str operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param Sequence[str] match_values: One or more string or integer values(e.g. "1") representing the value of the request path to match. Don't include the leading slash (`/`). If multiple values are specified, they're evaluated using `OR` logic.
+        :param bool negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[Sequence[str]]:
+        """
+        One or more string or integer values(e.g. "1") representing the value of the request path to match. Don't include the leading slash (`/`). If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[bool]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "transforms")
+
+
+@pulumi.output_type
+class FrontdoorSecretSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customerCertificates":
+            suggest = "customer_certificates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorSecretSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorSecretSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorSecretSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 customer_certificates: Sequence['outputs.FrontdoorSecretSecretCustomerCertificate']):
+        """
+        :param Sequence['FrontdoorSecretSecretCustomerCertificateArgs'] customer_certificates: A `customer_certificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+        """
+        pulumi.set(__self__, "customer_certificates", customer_certificates)
+
+    @property
+    @pulumi.getter(name="customerCertificates")
+    def customer_certificates(self) -> Sequence['outputs.FrontdoorSecretSecretCustomerCertificate']:
+        """
+        A `customer_certificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+        """
+        return pulumi.get(self, "customer_certificates")
+
+
+@pulumi.output_type
+class FrontdoorSecretSecretCustomerCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultCertificateId":
+            suggest = "key_vault_certificate_id"
+        elif key == "subjectAlternativeNames":
+            suggest = "subject_alternative_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorSecretSecretCustomerCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorSecretSecretCustomerCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorSecretSecretCustomerCertificate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault_certificate_id: str,
+                 subject_alternative_names: Optional[Sequence[str]] = None):
+        """
+        :param str key_vault_certificate_id: The key vault certificate resources ID attribute. Changing this forces a new Frontdoor Secret to be created.
+        :param Sequence[str] subject_alternative_names: One or more `subject alternative names` contained within the key vault certificate.
+        """
+        pulumi.set(__self__, "key_vault_certificate_id", key_vault_certificate_id)
+        if subject_alternative_names is not None:
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+
+    @property
+    @pulumi.getter(name="keyVaultCertificateId")
+    def key_vault_certificate_id(self) -> str:
+        """
+        The key vault certificate resources ID attribute. Changing this forces a new Frontdoor Secret to be created.
+        """
+        return pulumi.get(self, "key_vault_certificate_id")
+
+    @property
+    @pulumi.getter(name="subjectAlternativeNames")
+    def subject_alternative_names(self) -> Optional[Sequence[str]]:
+        """
+        One or more `subject alternative names` contained within the key vault certificate.
+        """
+        return pulumi.get(self, "subject_alternative_names")
 
 
 @pulumi.output_type

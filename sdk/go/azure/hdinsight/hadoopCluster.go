@@ -113,7 +113,8 @@ type HadoopCluster struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
 	ClusterVersion pulumi.StringOutput `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
-	ComponentVersion HadoopClusterComponentVersionOutput `pulumi:"componentVersion"`
+	ComponentVersion HadoopClusterComponentVersionOutput    `pulumi:"componentVersion"`
+	DiskEncryptions  HadoopClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
 	// A `gateway` block as defined below.
 	Gateway HadoopClusterGatewayOutput `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
@@ -198,6 +199,7 @@ type hadoopClusterState struct {
 	ClusterVersion *string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion *HadoopClusterComponentVersion `pulumi:"componentVersion"`
+	DiskEncryptions  []HadoopClusterDiskEncryption  `pulumi:"diskEncryptions"`
 	// A `gateway` block as defined below.
 	Gateway *HadoopClusterGateway `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
@@ -236,6 +238,7 @@ type HadoopClusterState struct {
 	ClusterVersion pulumi.StringPtrInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion HadoopClusterComponentVersionPtrInput
+	DiskEncryptions  HadoopClusterDiskEncryptionArrayInput
 	// A `gateway` block as defined below.
 	Gateway HadoopClusterGatewayPtrInput
 	// The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
@@ -278,6 +281,7 @@ type hadoopClusterArgs struct {
 	ClusterVersion string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion HadoopClusterComponentVersion `pulumi:"componentVersion"`
+	DiskEncryptions  []HadoopClusterDiskEncryption `pulumi:"diskEncryptions"`
 	// A `gateway` block as defined below.
 	Gateway HadoopClusterGateway `pulumi:"gateway"`
 	// Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
@@ -313,6 +317,7 @@ type HadoopClusterArgs struct {
 	ClusterVersion pulumi.StringInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion HadoopClusterComponentVersionInput
+	DiskEncryptions  HadoopClusterDiskEncryptionArrayInput
 	// A `gateway` block as defined below.
 	Gateway HadoopClusterGatewayInput
 	// Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
@@ -437,6 +442,10 @@ func (o HadoopClusterOutput) ClusterVersion() pulumi.StringOutput {
 // A `componentVersion` block as defined below.
 func (o HadoopClusterOutput) ComponentVersion() HadoopClusterComponentVersionOutput {
 	return o.ApplyT(func(v *HadoopCluster) HadoopClusterComponentVersionOutput { return v.ComponentVersion }).(HadoopClusterComponentVersionOutput)
+}
+
+func (o HadoopClusterOutput) DiskEncryptions() HadoopClusterDiskEncryptionArrayOutput {
+	return o.ApplyT(func(v *HadoopCluster) HadoopClusterDiskEncryptionArrayOutput { return v.DiskEncryptions }).(HadoopClusterDiskEncryptionArrayOutput)
 }
 
 // A `gateway` block as defined below.

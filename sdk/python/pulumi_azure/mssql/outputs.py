@@ -795,8 +795,8 @@ class ServerIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`.
-        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
+        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Server.
         :param str tenant_id: The tenant id of the Azure AD Administrator of this SQL Server.
         """
@@ -812,7 +812,7 @@ class ServerIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -820,7 +820,7 @@ class ServerIdentity(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
         """
         return pulumi.get(self, "identity_ids")
 

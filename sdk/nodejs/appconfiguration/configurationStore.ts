@@ -82,6 +82,10 @@ export class ConfigurationStore extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryWriteKeys!: pulumi.Output<outputs.appconfiguration.ConfigurationStorePrimaryWriteKey[]>;
     /**
+     * The Public Network Access setting of this App Configuration.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -121,6 +125,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["primaryReadKeys"] = state ? state.primaryReadKeys : undefined;
             resourceInputs["primaryWriteKeys"] = state ? state.primaryWriteKeys : undefined;
+            resourceInputs["publicNetworkAccess"] = state ? state.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["secondaryReadKeys"] = state ? state.secondaryReadKeys : undefined;
             resourceInputs["secondaryWriteKeys"] = state ? state.secondaryWriteKeys : undefined;
@@ -134,6 +139,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -177,6 +183,10 @@ export interface ConfigurationStoreState {
      */
     primaryWriteKeys?: pulumi.Input<pulumi.Input<inputs.appconfiguration.ConfigurationStorePrimaryWriteKey>[]>;
     /**
+     * The Public Network Access setting of this App Configuration.
+     */
+    publicNetworkAccess?: pulumi.Input<string>;
+    /**
      * The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
@@ -214,6 +224,10 @@ export interface ConfigurationStoreArgs {
      * Specifies the name of the App Configuration. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The Public Network Access setting of this App Configuration.
+     */
+    publicNetworkAccess?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
      */

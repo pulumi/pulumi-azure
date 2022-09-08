@@ -117,14 +117,14 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`
      * 
      */
     @Import(name="clientCertificateMode")
     private @Nullable Output<String> clientCertificateMode;
 
     /**
-     * @return The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+     * @return The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`
      * 
      */
     public Optional<Output<String>> clientCertificateMode() {
@@ -608,7 +608,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param clientCertificateMode The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`
          * 
          * @return builder
          * 
@@ -619,7 +619,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param clientCertificateMode The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `client_cert_enabled` is `false`
+         * @param clientCertificateMode The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`
          * 
          * @return builder
          * 

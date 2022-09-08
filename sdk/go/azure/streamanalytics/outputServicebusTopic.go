@@ -95,6 +95,8 @@ import (
 type OutputServicebusTopic struct {
 	pulumi.CustomResourceState
 
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrOutput `pulumi:"authenticationMode"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of property columns to add to the Service Bus Topic output.
@@ -167,6 +169,8 @@ func GetOutputServicebusTopic(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OutputServicebusTopic resources.
 type outputServicebusTopicState struct {
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A list of property columns to add to the Service Bus Topic output.
@@ -190,6 +194,8 @@ type outputServicebusTopicState struct {
 }
 
 type OutputServicebusTopicState struct {
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A list of property columns to add to the Service Bus Topic output.
@@ -217,6 +223,8 @@ func (OutputServicebusTopicState) ElementType() reflect.Type {
 }
 
 type outputServicebusTopicArgs struct {
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A list of property columns to add to the Service Bus Topic output.
@@ -241,6 +249,8 @@ type outputServicebusTopicArgs struct {
 
 // The set of arguments for constructing a OutputServicebusTopic resource.
 type OutputServicebusTopicArgs struct {
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A list of property columns to add to the Service Bus Topic output.
@@ -348,6 +358,11 @@ func (o OutputServicebusTopicOutput) ToOutputServicebusTopicOutput() OutputServi
 
 func (o OutputServicebusTopicOutput) ToOutputServicebusTopicOutputWithContext(ctx context.Context) OutputServicebusTopicOutput {
 	return o
+}
+
+// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+func (o OutputServicebusTopicOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputServicebusTopic) pulumi.StringPtrOutput { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Stream Output. Changing this forces a new resource to be created.

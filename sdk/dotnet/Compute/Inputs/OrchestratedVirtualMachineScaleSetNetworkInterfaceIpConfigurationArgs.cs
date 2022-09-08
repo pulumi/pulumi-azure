@@ -56,6 +56,9 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
+        /// <summary>
+        /// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

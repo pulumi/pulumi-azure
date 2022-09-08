@@ -74,7 +74,7 @@ namespace Pulumi.Azure.Batch
     public sealed class GetPoolArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Batch account.
+        /// The Azure Storage Account name.
         /// </summary>
         [Input("accountName", required: true)]
         public string AccountName { get; set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.Azure.Batch
     public sealed class GetPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Batch account.
+        /// The Azure Storage Account name.
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Azure.Batch
     public sealed class GetPoolResult
     {
         /// <summary>
-        /// The name of the Batch account.
+        /// The Azure Storage Account name.
         /// </summary>
         public readonly string AccountName;
         /// <summary>
@@ -151,6 +151,10 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         public readonly int MaxTasksPerNode;
         public readonly ImmutableDictionary<string, string> Metadata;
+        /// <summary>
+        /// A `mount` block that describes mount configuration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPoolMountResult> Mounts;
         /// <summary>
         /// The name of the endpoint.
         /// </summary>
@@ -194,6 +198,8 @@ namespace Pulumi.Azure.Batch
 
             ImmutableDictionary<string, string> metadata,
 
+            ImmutableArray<Outputs.GetPoolMountResult> mounts,
+
             string name,
 
             ImmutableArray<Outputs.GetPoolNetworkConfigurationResult> networkConfigurations,
@@ -217,6 +223,7 @@ namespace Pulumi.Azure.Batch
             Id = id;
             MaxTasksPerNode = maxTasksPerNode;
             Metadata = metadata;
+            Mounts = mounts;
             Name = name;
             NetworkConfigurations = networkConfigurations;
             NodeAgentSkuId = nodeAgentSkuId;

@@ -261,7 +261,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly size!: pulumi.Output<string>;
     /**
-     * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
+     * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      */
     public readonly sourceImageId!: pulumi.Output<string | undefined>;
     /**
@@ -584,7 +584,7 @@ export interface LinuxVirtualMachineState {
      */
     size?: pulumi.Input<string>;
     /**
-     * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
+     * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      */
     sourceImageId?: pulumi.Input<string>;
     /**
@@ -762,7 +762,7 @@ export interface LinuxVirtualMachineArgs {
      */
     size: pulumi.Input<string>;
     /**
-     * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
+     * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      */
     sourceImageId?: pulumi.Input<string>;
     /**

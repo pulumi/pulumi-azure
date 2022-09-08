@@ -86,7 +86,7 @@ export class LinuxWebApp extends pulumi.CustomResource {
      */
     public readonly clientCertificateEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertificateEnabled` is `false`
+     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`
      */
     public readonly clientCertificateMode!: pulumi.Output<string | undefined>;
     /**
@@ -301,7 +301,7 @@ export interface LinuxWebAppState {
      */
     clientCertificateEnabled?: pulumi.Input<boolean>;
     /**
-     * The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertificateEnabled` is `false`
+     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`
      */
     clientCertificateMode?: pulumi.Input<string>;
     /**
@@ -427,7 +427,7 @@ export interface LinuxWebAppArgs {
      */
     clientCertificateEnabled?: pulumi.Input<boolean>;
     /**
-     * The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertificateEnabled` is `false`
+     * The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`
      */
     clientCertificateMode?: pulumi.Input<string>;
     /**

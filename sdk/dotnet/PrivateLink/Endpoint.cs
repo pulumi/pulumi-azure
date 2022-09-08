@@ -177,6 +177,12 @@ namespace Pulumi.Azure.PrivateLink
         public Output<ImmutableArray<Outputs.EndpointCustomDnsConfig>> CustomDnsConfigs { get; private set; } = null!;
 
         /// <summary>
+        /// An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("ipConfiguration")]
+        public Output<Outputs.EndpointIpConfiguration?> IpConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -271,6 +277,12 @@ namespace Pulumi.Azure.PrivateLink
     public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("ipConfiguration")]
+        public Input<Inputs.EndpointIpConfigurationArgs>? IpConfiguration { get; set; }
+
+        /// <summary>
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -333,6 +345,12 @@ namespace Pulumi.Azure.PrivateLink
             get => _customDnsConfigs ?? (_customDnsConfigs = new InputList<Inputs.EndpointCustomDnsConfigGetArgs>());
             set => _customDnsConfigs = value;
         }
+
+        /// <summary>
+        /// An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("ipConfiguration")]
+        public Input<Inputs.EndpointIpConfigurationGetArgs>? IpConfiguration { get; set; }
 
         /// <summary>
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.

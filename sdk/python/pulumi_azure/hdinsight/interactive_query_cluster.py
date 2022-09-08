@@ -22,6 +22,7 @@ class InteractiveQueryClusterArgs:
                  resource_group_name: pulumi.Input[str],
                  roles: pulumi.Input['InteractiveQueryClusterRolesArgs'],
                  tier: pulumi.Input[str],
+                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterDiskEncryptionArgs']]]] = None,
                  encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metastores: Optional[pulumi.Input['InteractiveQueryClusterMetastoresArgs']] = None,
@@ -58,6 +59,8 @@ class InteractiveQueryClusterArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "roles", roles)
         pulumi.set(__self__, "tier", tier)
+        if disk_encryptions is not None:
+            pulumi.set(__self__, "disk_encryptions", disk_encryptions)
         if encryption_in_transit_enabled is not None:
             pulumi.set(__self__, "encryption_in_transit_enabled", encryption_in_transit_enabled)
         if location is not None:
@@ -152,6 +155,15 @@ class InteractiveQueryClusterArgs:
     @tier.setter
     def tier(self, value: pulumi.Input[str]):
         pulumi.set(self, "tier", value)
+
+    @property
+    @pulumi.getter(name="diskEncryptions")
+    def disk_encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterDiskEncryptionArgs']]]]:
+        return pulumi.get(self, "disk_encryptions")
+
+    @disk_encryptions.setter
+    def disk_encryptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterDiskEncryptionArgs']]]]):
+        pulumi.set(self, "disk_encryptions", value)
 
     @property
     @pulumi.getter(name="encryptionInTransitEnabled")
@@ -288,6 +300,7 @@ class _InteractiveQueryClusterState:
     def __init__(__self__, *,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input['InteractiveQueryClusterComponentVersionArgs']] = None,
+                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterDiskEncryptionArgs']]]] = None,
                  encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
                  gateway: Optional[pulumi.Input['InteractiveQueryClusterGatewayArgs']] = None,
                  https_endpoint: Optional[pulumi.Input[str]] = None,
@@ -330,6 +343,8 @@ class _InteractiveQueryClusterState:
             pulumi.set(__self__, "cluster_version", cluster_version)
         if component_version is not None:
             pulumi.set(__self__, "component_version", component_version)
+        if disk_encryptions is not None:
+            pulumi.set(__self__, "disk_encryptions", disk_encryptions)
         if encryption_in_transit_enabled is not None:
             pulumi.set(__self__, "encryption_in_transit_enabled", encryption_in_transit_enabled)
         if gateway is not None:
@@ -388,6 +403,15 @@ class _InteractiveQueryClusterState:
     @component_version.setter
     def component_version(self, value: Optional[pulumi.Input['InteractiveQueryClusterComponentVersionArgs']]):
         pulumi.set(self, "component_version", value)
+
+    @property
+    @pulumi.getter(name="diskEncryptions")
+    def disk_encryptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterDiskEncryptionArgs']]]]:
+        return pulumi.get(self, "disk_encryptions")
+
+    @disk_encryptions.setter
+    def disk_encryptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterDiskEncryptionArgs']]]]):
+        pulumi.set(self, "disk_encryptions", value)
 
     @property
     @pulumi.getter(name="encryptionInTransitEnabled")
@@ -598,6 +622,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']]] = None,
+                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InteractiveQueryClusterDiskEncryptionArgs']]]]] = None,
                  encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
                  gateway: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterGatewayArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -782,6 +807,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']]] = None,
+                 disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InteractiveQueryClusterDiskEncryptionArgs']]]]] = None,
                  encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
                  gateway: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterGatewayArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -812,6 +838,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
             if component_version is None and not opts.urn:
                 raise TypeError("Missing required property 'component_version'")
             __props__.__dict__["component_version"] = component_version
+            __props__.__dict__["disk_encryptions"] = disk_encryptions
             __props__.__dict__["encryption_in_transit_enabled"] = encryption_in_transit_enabled
             if gateway is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway'")
@@ -849,6 +876,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cluster_version: Optional[pulumi.Input[str]] = None,
             component_version: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterComponentVersionArgs']]] = None,
+            disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InteractiveQueryClusterDiskEncryptionArgs']]]]] = None,
             encryption_in_transit_enabled: Optional[pulumi.Input[bool]] = None,
             gateway: Optional[pulumi.Input[pulumi.InputType['InteractiveQueryClusterGatewayArgs']]] = None,
             https_endpoint: Optional[pulumi.Input[str]] = None,
@@ -898,6 +926,7 @@ class InteractiveQueryCluster(pulumi.CustomResource):
 
         __props__.__dict__["cluster_version"] = cluster_version
         __props__.__dict__["component_version"] = component_version
+        __props__.__dict__["disk_encryptions"] = disk_encryptions
         __props__.__dict__["encryption_in_transit_enabled"] = encryption_in_transit_enabled
         __props__.__dict__["gateway"] = gateway
         __props__.__dict__["https_endpoint"] = https_endpoint
@@ -932,6 +961,11 @@ class InteractiveQueryCluster(pulumi.CustomResource):
         A `component_version` block as defined below.
         """
         return pulumi.get(self, "component_version")
+
+    @property
+    @pulumi.getter(name="diskEncryptions")
+    def disk_encryptions(self) -> pulumi.Output[Optional[Sequence['outputs.InteractiveQueryClusterDiskEncryption']]]:
+        return pulumi.get(self, "disk_encryptions")
 
     @property
     @pulumi.getter(name="encryptionInTransitEnabled")

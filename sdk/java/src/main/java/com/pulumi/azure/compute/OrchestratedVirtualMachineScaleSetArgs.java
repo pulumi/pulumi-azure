@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.compute;
 
+import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs;
 import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs;
 import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs;
 import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetDataDiskArgs;
@@ -31,9 +32,32 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
 
     public static final OrchestratedVirtualMachineScaleSetArgs Empty = new OrchestratedVirtualMachineScaleSetArgs();
 
+    /**
+     * An `additional_capabilities` block as defined below.
+     * 
+     */
+    @Import(name="additionalCapabilities")
+    private @Nullable Output<OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs> additionalCapabilities;
+
+    /**
+     * @return An `additional_capabilities` block as defined below.
+     * 
+     */
+    public Optional<Output<OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs>> additionalCapabilities() {
+        return Optional.ofNullable(this.additionalCapabilities);
+    }
+
+    /**
+     * An `automatic_instance_repair` block as defined below.
+     * 
+     */
     @Import(name="automaticInstanceRepair")
     private @Nullable Output<OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs> automaticInstanceRepair;
 
+    /**
+     * @return An `automatic_instance_repair` block as defined below.
+     * 
+     */
     public Optional<Output<OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs>> automaticInstanceRepair() {
         return Optional.ofNullable(this.automaticInstanceRepair);
     }
@@ -43,6 +67,21 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
 
     public Optional<Output<OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs>> bootDiagnostics() {
         return Optional.ofNullable(this.bootDiagnostics);
+    }
+
+    /**
+     * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="capacityReservationGroupId")
+    private @Nullable Output<String> capacityReservationGroupId;
+
+    /**
+     * @return Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> capacityReservationGroupId() {
+        return Optional.ofNullable(this.capacityReservationGroupId);
     }
 
     @Import(name="dataDisks")
@@ -64,6 +103,21 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
 
     public Optional<Output<String>> evictionPolicy() {
         return Optional.ofNullable(this.evictionPolicy);
+    }
+
+    /**
+     * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+     * 
+     */
+    @Import(name="extensionOperationsEnabled")
+    private @Nullable Output<Boolean> extensionOperationsEnabled;
+
+    /**
+     * @return Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+     * 
+     */
+    public Optional<Output<Boolean>> extensionOperationsEnabled() {
+        return Optional.ofNullable(this.extensionOperationsEnabled);
     }
 
     @Import(name="extensions")
@@ -234,9 +288,32 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         return this.resourceGroupName;
     }
 
+    /**
+     * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+     * 
+     */
+    @Import(name="singlePlacementGroup")
+    private @Nullable Output<Boolean> singlePlacementGroup;
+
+    /**
+     * @return Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> singlePlacementGroup() {
+        return Optional.ofNullable(this.singlePlacementGroup);
+    }
+
+    /**
+     * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+     * 
+     */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
+    /**
+     * @return Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+     * 
+     */
     public Optional<Output<String>> skuName() {
         return Optional.ofNullable(this.skuName);
     }
@@ -310,11 +387,14 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
     private OrchestratedVirtualMachineScaleSetArgs() {}
 
     private OrchestratedVirtualMachineScaleSetArgs(OrchestratedVirtualMachineScaleSetArgs $) {
+        this.additionalCapabilities = $.additionalCapabilities;
         this.automaticInstanceRepair = $.automaticInstanceRepair;
         this.bootDiagnostics = $.bootDiagnostics;
+        this.capacityReservationGroupId = $.capacityReservationGroupId;
         this.dataDisks = $.dataDisks;
         this.encryptionAtHostEnabled = $.encryptionAtHostEnabled;
         this.evictionPolicy = $.evictionPolicy;
+        this.extensionOperationsEnabled = $.extensionOperationsEnabled;
         this.extensions = $.extensions;
         this.extensionsTimeBudget = $.extensionsTimeBudget;
         this.identity = $.identity;
@@ -331,6 +411,7 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         this.priority = $.priority;
         this.proximityPlacementGroupId = $.proximityPlacementGroupId;
         this.resourceGroupName = $.resourceGroupName;
+        this.singlePlacementGroup = $.singlePlacementGroup;
         this.skuName = $.skuName;
         this.sourceImageId = $.sourceImageId;
         this.sourceImageReference = $.sourceImageReference;
@@ -358,11 +439,44 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
             $ = new OrchestratedVirtualMachineScaleSetArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param additionalCapabilities An `additional_capabilities` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder additionalCapabilities(@Nullable Output<OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs> additionalCapabilities) {
+            $.additionalCapabilities = additionalCapabilities;
+            return this;
+        }
+
+        /**
+         * @param additionalCapabilities An `additional_capabilities` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder additionalCapabilities(OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs additionalCapabilities) {
+            return additionalCapabilities(Output.of(additionalCapabilities));
+        }
+
+        /**
+         * @param automaticInstanceRepair An `automatic_instance_repair` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder automaticInstanceRepair(@Nullable Output<OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs> automaticInstanceRepair) {
             $.automaticInstanceRepair = automaticInstanceRepair;
             return this;
         }
 
+        /**
+         * @param automaticInstanceRepair An `automatic_instance_repair` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder automaticInstanceRepair(OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs automaticInstanceRepair) {
             return automaticInstanceRepair(Output.of(automaticInstanceRepair));
         }
@@ -374,6 +488,27 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
 
         public Builder bootDiagnostics(OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs bootDiagnostics) {
             return bootDiagnostics(Output.of(bootDiagnostics));
+        }
+
+        /**
+         * @param capacityReservationGroupId Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityReservationGroupId(@Nullable Output<String> capacityReservationGroupId) {
+            $.capacityReservationGroupId = capacityReservationGroupId;
+            return this;
+        }
+
+        /**
+         * @param capacityReservationGroupId Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityReservationGroupId(String capacityReservationGroupId) {
+            return capacityReservationGroupId(Output.of(capacityReservationGroupId));
         }
 
         public Builder dataDisks(@Nullable Output<List<OrchestratedVirtualMachineScaleSetDataDiskArgs>> dataDisks) {
@@ -405,6 +540,27 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
 
         public Builder evictionPolicy(String evictionPolicy) {
             return evictionPolicy(Output.of(evictionPolicy));
+        }
+
+        /**
+         * @param extensionOperationsEnabled Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extensionOperationsEnabled(@Nullable Output<Boolean> extensionOperationsEnabled) {
+            $.extensionOperationsEnabled = extensionOperationsEnabled;
+            return this;
+        }
+
+        /**
+         * @param extensionOperationsEnabled Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extensionOperationsEnabled(Boolean extensionOperationsEnabled) {
+            return extensionOperationsEnabled(Output.of(extensionOperationsEnabled));
         }
 
         public Builder extensions(@Nullable Output<List<OrchestratedVirtualMachineScaleSetExtensionArgs>> extensions) {
@@ -643,11 +799,44 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
+        /**
+         * @param singlePlacementGroup Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder singlePlacementGroup(@Nullable Output<Boolean> singlePlacementGroup) {
+            $.singlePlacementGroup = singlePlacementGroup;
+            return this;
+        }
+
+        /**
+         * @param singlePlacementGroup Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder singlePlacementGroup(Boolean singlePlacementGroup) {
+            return singlePlacementGroup(Output.of(singlePlacementGroup));
+        }
+
+        /**
+         * @param skuName Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+         * 
+         * @return builder
+         * 
+         */
         public Builder skuName(@Nullable Output<String> skuName) {
             $.skuName = skuName;
             return this;
         }
 
+        /**
+         * @param skuName Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+         * 
+         * @return builder
+         * 
+         */
         public Builder skuName(String skuName) {
             return skuName(Output.of(skuName));
         }

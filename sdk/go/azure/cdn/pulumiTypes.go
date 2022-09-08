@@ -6553,6 +6553,4145 @@ func (o FrontdoorOriginPrivateLinkPtrOutput) TargetType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type FrontdoorRuleActions struct {
+	// A `requestHeaderAction` block as defined below.
+	RequestHeaderActions []FrontdoorRuleActionsRequestHeaderAction `pulumi:"requestHeaderActions"`
+	// A `responseHeaderAction` block as defined below.
+	ResponseHeaderActions []FrontdoorRuleActionsResponseHeaderAction `pulumi:"responseHeaderActions"`
+	// A `routeConfigurationOverrideAction` block as defined below.
+	RouteConfigurationOverrideAction *FrontdoorRuleActionsRouteConfigurationOverrideAction `pulumi:"routeConfigurationOverrideAction"`
+	// A `urlRedirectAction` block as defined below. You may **not** have a `urlRedirectAction` **and** a `urlRewriteAction` defined in the same `actions` block.
+	UrlRedirectAction *FrontdoorRuleActionsUrlRedirectAction `pulumi:"urlRedirectAction"`
+	// A `urlRewriteAction` block as defined below. You may **not** have a `urlRewriteAction` **and** a `urlRedirectAction` defined in the same `actions` block.
+	UrlRewriteAction *FrontdoorRuleActionsUrlRewriteAction `pulumi:"urlRewriteAction"`
+}
+
+// FrontdoorRuleActionsInput is an input type that accepts FrontdoorRuleActionsArgs and FrontdoorRuleActionsOutput values.
+// You can construct a concrete instance of `FrontdoorRuleActionsInput` via:
+//
+//	FrontdoorRuleActionsArgs{...}
+type FrontdoorRuleActionsInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleActionsOutput() FrontdoorRuleActionsOutput
+	ToFrontdoorRuleActionsOutputWithContext(context.Context) FrontdoorRuleActionsOutput
+}
+
+type FrontdoorRuleActionsArgs struct {
+	// A `requestHeaderAction` block as defined below.
+	RequestHeaderActions FrontdoorRuleActionsRequestHeaderActionArrayInput `pulumi:"requestHeaderActions"`
+	// A `responseHeaderAction` block as defined below.
+	ResponseHeaderActions FrontdoorRuleActionsResponseHeaderActionArrayInput `pulumi:"responseHeaderActions"`
+	// A `routeConfigurationOverrideAction` block as defined below.
+	RouteConfigurationOverrideAction FrontdoorRuleActionsRouteConfigurationOverrideActionPtrInput `pulumi:"routeConfigurationOverrideAction"`
+	// A `urlRedirectAction` block as defined below. You may **not** have a `urlRedirectAction` **and** a `urlRewriteAction` defined in the same `actions` block.
+	UrlRedirectAction FrontdoorRuleActionsUrlRedirectActionPtrInput `pulumi:"urlRedirectAction"`
+	// A `urlRewriteAction` block as defined below. You may **not** have a `urlRewriteAction` **and** a `urlRedirectAction` defined in the same `actions` block.
+	UrlRewriteAction FrontdoorRuleActionsUrlRewriteActionPtrInput `pulumi:"urlRewriteAction"`
+}
+
+func (FrontdoorRuleActionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleActions)(nil)).Elem()
+}
+
+func (i FrontdoorRuleActionsArgs) ToFrontdoorRuleActionsOutput() FrontdoorRuleActionsOutput {
+	return i.ToFrontdoorRuleActionsOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleActionsArgs) ToFrontdoorRuleActionsOutputWithContext(ctx context.Context) FrontdoorRuleActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleActionsOutput)
+}
+
+func (i FrontdoorRuleActionsArgs) ToFrontdoorRuleActionsPtrOutput() FrontdoorRuleActionsPtrOutput {
+	return i.ToFrontdoorRuleActionsPtrOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleActionsArgs) ToFrontdoorRuleActionsPtrOutputWithContext(ctx context.Context) FrontdoorRuleActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleActionsOutput).ToFrontdoorRuleActionsPtrOutputWithContext(ctx)
+}
+
+// FrontdoorRuleActionsPtrInput is an input type that accepts FrontdoorRuleActionsArgs, FrontdoorRuleActionsPtr and FrontdoorRuleActionsPtrOutput values.
+// You can construct a concrete instance of `FrontdoorRuleActionsPtrInput` via:
+//
+//	        FrontdoorRuleActionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FrontdoorRuleActionsPtrInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleActionsPtrOutput() FrontdoorRuleActionsPtrOutput
+	ToFrontdoorRuleActionsPtrOutputWithContext(context.Context) FrontdoorRuleActionsPtrOutput
+}
+
+type frontdoorRuleActionsPtrType FrontdoorRuleActionsArgs
+
+func FrontdoorRuleActionsPtr(v *FrontdoorRuleActionsArgs) FrontdoorRuleActionsPtrInput {
+	return (*frontdoorRuleActionsPtrType)(v)
+}
+
+func (*frontdoorRuleActionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorRuleActions)(nil)).Elem()
+}
+
+func (i *frontdoorRuleActionsPtrType) ToFrontdoorRuleActionsPtrOutput() FrontdoorRuleActionsPtrOutput {
+	return i.ToFrontdoorRuleActionsPtrOutputWithContext(context.Background())
+}
+
+func (i *frontdoorRuleActionsPtrType) ToFrontdoorRuleActionsPtrOutputWithContext(ctx context.Context) FrontdoorRuleActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleActionsPtrOutput)
+}
+
+type FrontdoorRuleActionsOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleActionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleActions)(nil)).Elem()
+}
+
+func (o FrontdoorRuleActionsOutput) ToFrontdoorRuleActionsOutput() FrontdoorRuleActionsOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsOutput) ToFrontdoorRuleActionsOutputWithContext(ctx context.Context) FrontdoorRuleActionsOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsOutput) ToFrontdoorRuleActionsPtrOutput() FrontdoorRuleActionsPtrOutput {
+	return o.ToFrontdoorRuleActionsPtrOutputWithContext(context.Background())
+}
+
+func (o FrontdoorRuleActionsOutput) ToFrontdoorRuleActionsPtrOutputWithContext(ctx context.Context) FrontdoorRuleActionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorRuleActions) *FrontdoorRuleActions {
+		return &v
+	}).(FrontdoorRuleActionsPtrOutput)
+}
+
+// A `requestHeaderAction` block as defined below.
+func (o FrontdoorRuleActionsOutput) RequestHeaderActions() FrontdoorRuleActionsRequestHeaderActionArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleActions) []FrontdoorRuleActionsRequestHeaderAction { return v.RequestHeaderActions }).(FrontdoorRuleActionsRequestHeaderActionArrayOutput)
+}
+
+// A `responseHeaderAction` block as defined below.
+func (o FrontdoorRuleActionsOutput) ResponseHeaderActions() FrontdoorRuleActionsResponseHeaderActionArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleActions) []FrontdoorRuleActionsResponseHeaderAction {
+		return v.ResponseHeaderActions
+	}).(FrontdoorRuleActionsResponseHeaderActionArrayOutput)
+}
+
+// A `routeConfigurationOverrideAction` block as defined below.
+func (o FrontdoorRuleActionsOutput) RouteConfigurationOverrideAction() FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleActions) *FrontdoorRuleActionsRouteConfigurationOverrideAction {
+		return v.RouteConfigurationOverrideAction
+	}).(FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput)
+}
+
+// A `urlRedirectAction` block as defined below. You may **not** have a `urlRedirectAction` **and** a `urlRewriteAction` defined in the same `actions` block.
+func (o FrontdoorRuleActionsOutput) UrlRedirectAction() FrontdoorRuleActionsUrlRedirectActionPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleActions) *FrontdoorRuleActionsUrlRedirectAction { return v.UrlRedirectAction }).(FrontdoorRuleActionsUrlRedirectActionPtrOutput)
+}
+
+// A `urlRewriteAction` block as defined below. You may **not** have a `urlRewriteAction` **and** a `urlRedirectAction` defined in the same `actions` block.
+func (o FrontdoorRuleActionsOutput) UrlRewriteAction() FrontdoorRuleActionsUrlRewriteActionPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleActions) *FrontdoorRuleActionsUrlRewriteAction { return v.UrlRewriteAction }).(FrontdoorRuleActionsUrlRewriteActionPtrOutput)
+}
+
+type FrontdoorRuleActionsPtrOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleActionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorRuleActions)(nil)).Elem()
+}
+
+func (o FrontdoorRuleActionsPtrOutput) ToFrontdoorRuleActionsPtrOutput() FrontdoorRuleActionsPtrOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsPtrOutput) ToFrontdoorRuleActionsPtrOutputWithContext(ctx context.Context) FrontdoorRuleActionsPtrOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsPtrOutput) Elem() FrontdoorRuleActionsOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActions) FrontdoorRuleActions {
+		if v != nil {
+			return *v
+		}
+		var ret FrontdoorRuleActions
+		return ret
+	}).(FrontdoorRuleActionsOutput)
+}
+
+// A `requestHeaderAction` block as defined below.
+func (o FrontdoorRuleActionsPtrOutput) RequestHeaderActions() FrontdoorRuleActionsRequestHeaderActionArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActions) []FrontdoorRuleActionsRequestHeaderAction {
+		if v == nil {
+			return nil
+		}
+		return v.RequestHeaderActions
+	}).(FrontdoorRuleActionsRequestHeaderActionArrayOutput)
+}
+
+// A `responseHeaderAction` block as defined below.
+func (o FrontdoorRuleActionsPtrOutput) ResponseHeaderActions() FrontdoorRuleActionsResponseHeaderActionArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActions) []FrontdoorRuleActionsResponseHeaderAction {
+		if v == nil {
+			return nil
+		}
+		return v.ResponseHeaderActions
+	}).(FrontdoorRuleActionsResponseHeaderActionArrayOutput)
+}
+
+// A `routeConfigurationOverrideAction` block as defined below.
+func (o FrontdoorRuleActionsPtrOutput) RouteConfigurationOverrideAction() FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActions) *FrontdoorRuleActionsRouteConfigurationOverrideAction {
+		if v == nil {
+			return nil
+		}
+		return v.RouteConfigurationOverrideAction
+	}).(FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput)
+}
+
+// A `urlRedirectAction` block as defined below. You may **not** have a `urlRedirectAction` **and** a `urlRewriteAction` defined in the same `actions` block.
+func (o FrontdoorRuleActionsPtrOutput) UrlRedirectAction() FrontdoorRuleActionsUrlRedirectActionPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActions) *FrontdoorRuleActionsUrlRedirectAction {
+		if v == nil {
+			return nil
+		}
+		return v.UrlRedirectAction
+	}).(FrontdoorRuleActionsUrlRedirectActionPtrOutput)
+}
+
+// A `urlRewriteAction` block as defined below. You may **not** have a `urlRewriteAction` **and** a `urlRedirectAction` defined in the same `actions` block.
+func (o FrontdoorRuleActionsPtrOutput) UrlRewriteAction() FrontdoorRuleActionsUrlRewriteActionPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActions) *FrontdoorRuleActionsUrlRewriteAction {
+		if v == nil {
+			return nil
+		}
+		return v.UrlRewriteAction
+	}).(FrontdoorRuleActionsUrlRewriteActionPtrOutput)
+}
+
+type FrontdoorRuleActionsRequestHeaderAction struct {
+	// The action to be taken on the specified `headerName`. Possible values include `Append`, `Overwrite` or `Delete`.
+	HeaderAction string `pulumi:"headerAction"`
+	// The name of the header to modify.
+	HeaderName string `pulumi:"headerName"`
+	// The value to append or overwrite.
+	Value *string `pulumi:"value"`
+}
+
+// FrontdoorRuleActionsRequestHeaderActionInput is an input type that accepts FrontdoorRuleActionsRequestHeaderActionArgs and FrontdoorRuleActionsRequestHeaderActionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleActionsRequestHeaderActionInput` via:
+//
+//	FrontdoorRuleActionsRequestHeaderActionArgs{...}
+type FrontdoorRuleActionsRequestHeaderActionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleActionsRequestHeaderActionOutput() FrontdoorRuleActionsRequestHeaderActionOutput
+	ToFrontdoorRuleActionsRequestHeaderActionOutputWithContext(context.Context) FrontdoorRuleActionsRequestHeaderActionOutput
+}
+
+type FrontdoorRuleActionsRequestHeaderActionArgs struct {
+	// The action to be taken on the specified `headerName`. Possible values include `Append`, `Overwrite` or `Delete`.
+	HeaderAction pulumi.StringInput `pulumi:"headerAction"`
+	// The name of the header to modify.
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+	// The value to append or overwrite.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (FrontdoorRuleActionsRequestHeaderActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleActionsRequestHeaderAction)(nil)).Elem()
+}
+
+func (i FrontdoorRuleActionsRequestHeaderActionArgs) ToFrontdoorRuleActionsRequestHeaderActionOutput() FrontdoorRuleActionsRequestHeaderActionOutput {
+	return i.ToFrontdoorRuleActionsRequestHeaderActionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleActionsRequestHeaderActionArgs) ToFrontdoorRuleActionsRequestHeaderActionOutputWithContext(ctx context.Context) FrontdoorRuleActionsRequestHeaderActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleActionsRequestHeaderActionOutput)
+}
+
+// FrontdoorRuleActionsRequestHeaderActionArrayInput is an input type that accepts FrontdoorRuleActionsRequestHeaderActionArray and FrontdoorRuleActionsRequestHeaderActionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorRuleActionsRequestHeaderActionArrayInput` via:
+//
+//	FrontdoorRuleActionsRequestHeaderActionArray{ FrontdoorRuleActionsRequestHeaderActionArgs{...} }
+type FrontdoorRuleActionsRequestHeaderActionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleActionsRequestHeaderActionArrayOutput() FrontdoorRuleActionsRequestHeaderActionArrayOutput
+	ToFrontdoorRuleActionsRequestHeaderActionArrayOutputWithContext(context.Context) FrontdoorRuleActionsRequestHeaderActionArrayOutput
+}
+
+type FrontdoorRuleActionsRequestHeaderActionArray []FrontdoorRuleActionsRequestHeaderActionInput
+
+func (FrontdoorRuleActionsRequestHeaderActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleActionsRequestHeaderAction)(nil)).Elem()
+}
+
+func (i FrontdoorRuleActionsRequestHeaderActionArray) ToFrontdoorRuleActionsRequestHeaderActionArrayOutput() FrontdoorRuleActionsRequestHeaderActionArrayOutput {
+	return i.ToFrontdoorRuleActionsRequestHeaderActionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleActionsRequestHeaderActionArray) ToFrontdoorRuleActionsRequestHeaderActionArrayOutputWithContext(ctx context.Context) FrontdoorRuleActionsRequestHeaderActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleActionsRequestHeaderActionArrayOutput)
+}
+
+type FrontdoorRuleActionsRequestHeaderActionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleActionsRequestHeaderActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleActionsRequestHeaderAction)(nil)).Elem()
+}
+
+func (o FrontdoorRuleActionsRequestHeaderActionOutput) ToFrontdoorRuleActionsRequestHeaderActionOutput() FrontdoorRuleActionsRequestHeaderActionOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsRequestHeaderActionOutput) ToFrontdoorRuleActionsRequestHeaderActionOutputWithContext(ctx context.Context) FrontdoorRuleActionsRequestHeaderActionOutput {
+	return o
+}
+
+// The action to be taken on the specified `headerName`. Possible values include `Append`, `Overwrite` or `Delete`.
+func (o FrontdoorRuleActionsRequestHeaderActionOutput) HeaderAction() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsRequestHeaderAction) string { return v.HeaderAction }).(pulumi.StringOutput)
+}
+
+// The name of the header to modify.
+func (o FrontdoorRuleActionsRequestHeaderActionOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsRequestHeaderAction) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+// The value to append or overwrite.
+func (o FrontdoorRuleActionsRequestHeaderActionOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsRequestHeaderAction) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorRuleActionsRequestHeaderActionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleActionsRequestHeaderActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleActionsRequestHeaderAction)(nil)).Elem()
+}
+
+func (o FrontdoorRuleActionsRequestHeaderActionArrayOutput) ToFrontdoorRuleActionsRequestHeaderActionArrayOutput() FrontdoorRuleActionsRequestHeaderActionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsRequestHeaderActionArrayOutput) ToFrontdoorRuleActionsRequestHeaderActionArrayOutputWithContext(ctx context.Context) FrontdoorRuleActionsRequestHeaderActionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsRequestHeaderActionArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleActionsRequestHeaderActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRuleActionsRequestHeaderAction {
+		return vs[0].([]FrontdoorRuleActionsRequestHeaderAction)[vs[1].(int)]
+	}).(FrontdoorRuleActionsRequestHeaderActionOutput)
+}
+
+type FrontdoorRuleActionsResponseHeaderAction struct {
+	// The action to be taken on the specified `headerName`. Possible values include `Append`, `Overwrite` or `Delete`.
+	HeaderAction string `pulumi:"headerAction"`
+	// The name of the header to modify.
+	HeaderName string `pulumi:"headerName"`
+	// The value to append or overwrite.
+	Value *string `pulumi:"value"`
+}
+
+// FrontdoorRuleActionsResponseHeaderActionInput is an input type that accepts FrontdoorRuleActionsResponseHeaderActionArgs and FrontdoorRuleActionsResponseHeaderActionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleActionsResponseHeaderActionInput` via:
+//
+//	FrontdoorRuleActionsResponseHeaderActionArgs{...}
+type FrontdoorRuleActionsResponseHeaderActionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleActionsResponseHeaderActionOutput() FrontdoorRuleActionsResponseHeaderActionOutput
+	ToFrontdoorRuleActionsResponseHeaderActionOutputWithContext(context.Context) FrontdoorRuleActionsResponseHeaderActionOutput
+}
+
+type FrontdoorRuleActionsResponseHeaderActionArgs struct {
+	// The action to be taken on the specified `headerName`. Possible values include `Append`, `Overwrite` or `Delete`.
+	HeaderAction pulumi.StringInput `pulumi:"headerAction"`
+	// The name of the header to modify.
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+	// The value to append or overwrite.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (FrontdoorRuleActionsResponseHeaderActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleActionsResponseHeaderAction)(nil)).Elem()
+}
+
+func (i FrontdoorRuleActionsResponseHeaderActionArgs) ToFrontdoorRuleActionsResponseHeaderActionOutput() FrontdoorRuleActionsResponseHeaderActionOutput {
+	return i.ToFrontdoorRuleActionsResponseHeaderActionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleActionsResponseHeaderActionArgs) ToFrontdoorRuleActionsResponseHeaderActionOutputWithContext(ctx context.Context) FrontdoorRuleActionsResponseHeaderActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleActionsResponseHeaderActionOutput)
+}
+
+// FrontdoorRuleActionsResponseHeaderActionArrayInput is an input type that accepts FrontdoorRuleActionsResponseHeaderActionArray and FrontdoorRuleActionsResponseHeaderActionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorRuleActionsResponseHeaderActionArrayInput` via:
+//
+//	FrontdoorRuleActionsResponseHeaderActionArray{ FrontdoorRuleActionsResponseHeaderActionArgs{...} }
+type FrontdoorRuleActionsResponseHeaderActionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleActionsResponseHeaderActionArrayOutput() FrontdoorRuleActionsResponseHeaderActionArrayOutput
+	ToFrontdoorRuleActionsResponseHeaderActionArrayOutputWithContext(context.Context) FrontdoorRuleActionsResponseHeaderActionArrayOutput
+}
+
+type FrontdoorRuleActionsResponseHeaderActionArray []FrontdoorRuleActionsResponseHeaderActionInput
+
+func (FrontdoorRuleActionsResponseHeaderActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleActionsResponseHeaderAction)(nil)).Elem()
+}
+
+func (i FrontdoorRuleActionsResponseHeaderActionArray) ToFrontdoorRuleActionsResponseHeaderActionArrayOutput() FrontdoorRuleActionsResponseHeaderActionArrayOutput {
+	return i.ToFrontdoorRuleActionsResponseHeaderActionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleActionsResponseHeaderActionArray) ToFrontdoorRuleActionsResponseHeaderActionArrayOutputWithContext(ctx context.Context) FrontdoorRuleActionsResponseHeaderActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleActionsResponseHeaderActionArrayOutput)
+}
+
+type FrontdoorRuleActionsResponseHeaderActionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleActionsResponseHeaderActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleActionsResponseHeaderAction)(nil)).Elem()
+}
+
+func (o FrontdoorRuleActionsResponseHeaderActionOutput) ToFrontdoorRuleActionsResponseHeaderActionOutput() FrontdoorRuleActionsResponseHeaderActionOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsResponseHeaderActionOutput) ToFrontdoorRuleActionsResponseHeaderActionOutputWithContext(ctx context.Context) FrontdoorRuleActionsResponseHeaderActionOutput {
+	return o
+}
+
+// The action to be taken on the specified `headerName`. Possible values include `Append`, `Overwrite` or `Delete`.
+func (o FrontdoorRuleActionsResponseHeaderActionOutput) HeaderAction() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsResponseHeaderAction) string { return v.HeaderAction }).(pulumi.StringOutput)
+}
+
+// The name of the header to modify.
+func (o FrontdoorRuleActionsResponseHeaderActionOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsResponseHeaderAction) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+// The value to append or overwrite.
+func (o FrontdoorRuleActionsResponseHeaderActionOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsResponseHeaderAction) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorRuleActionsResponseHeaderActionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleActionsResponseHeaderActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleActionsResponseHeaderAction)(nil)).Elem()
+}
+
+func (o FrontdoorRuleActionsResponseHeaderActionArrayOutput) ToFrontdoorRuleActionsResponseHeaderActionArrayOutput() FrontdoorRuleActionsResponseHeaderActionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsResponseHeaderActionArrayOutput) ToFrontdoorRuleActionsResponseHeaderActionArrayOutputWithContext(ctx context.Context) FrontdoorRuleActionsResponseHeaderActionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsResponseHeaderActionArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleActionsResponseHeaderActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRuleActionsResponseHeaderAction {
+		return vs[0].([]FrontdoorRuleActionsResponseHeaderAction)[vs[1].(int)]
+	}).(FrontdoorRuleActionsResponseHeaderActionOutput)
+}
+
+type FrontdoorRuleActionsRouteConfigurationOverrideAction struct {
+	// `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
+	CacheBehavior *string `pulumi:"cacheBehavior"`
+	// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
+	CacheDuration string `pulumi:"cacheDuration"`
+	// The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
+	CdnFrontdoorOriginGroupId string `pulumi:"cdnFrontdoorOriginGroupId"`
+	// Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+	CompressionEnabled *bool `pulumi:"compressionEnabled"`
+	// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
+	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
+	// `IncludeSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`. Defaults to `IgnoreQueryString`.
+	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
+	// A list of query string parameter names.
+	QueryStringParameters []string `pulumi:"queryStringParameters"`
+}
+
+// FrontdoorRuleActionsRouteConfigurationOverrideActionInput is an input type that accepts FrontdoorRuleActionsRouteConfigurationOverrideActionArgs and FrontdoorRuleActionsRouteConfigurationOverrideActionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleActionsRouteConfigurationOverrideActionInput` via:
+//
+//	FrontdoorRuleActionsRouteConfigurationOverrideActionArgs{...}
+type FrontdoorRuleActionsRouteConfigurationOverrideActionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleActionsRouteConfigurationOverrideActionOutput() FrontdoorRuleActionsRouteConfigurationOverrideActionOutput
+	ToFrontdoorRuleActionsRouteConfigurationOverrideActionOutputWithContext(context.Context) FrontdoorRuleActionsRouteConfigurationOverrideActionOutput
+}
+
+type FrontdoorRuleActionsRouteConfigurationOverrideActionArgs struct {
+	// `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
+	CacheBehavior pulumi.StringPtrInput `pulumi:"cacheBehavior"`
+	// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
+	CacheDuration pulumi.StringInput `pulumi:"cacheDuration"`
+	// The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
+	CdnFrontdoorOriginGroupId pulumi.StringInput `pulumi:"cdnFrontdoorOriginGroupId"`
+	// Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+	CompressionEnabled pulumi.BoolPtrInput `pulumi:"compressionEnabled"`
+	// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
+	ForwardingProtocol pulumi.StringPtrInput `pulumi:"forwardingProtocol"`
+	// `IncludeSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`. Defaults to `IgnoreQueryString`.
+	QueryStringCachingBehavior pulumi.StringPtrInput `pulumi:"queryStringCachingBehavior"`
+	// A list of query string parameter names.
+	QueryStringParameters pulumi.StringArrayInput `pulumi:"queryStringParameters"`
+}
+
+func (FrontdoorRuleActionsRouteConfigurationOverrideActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleActionsRouteConfigurationOverrideAction)(nil)).Elem()
+}
+
+func (i FrontdoorRuleActionsRouteConfigurationOverrideActionArgs) ToFrontdoorRuleActionsRouteConfigurationOverrideActionOutput() FrontdoorRuleActionsRouteConfigurationOverrideActionOutput {
+	return i.ToFrontdoorRuleActionsRouteConfigurationOverrideActionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleActionsRouteConfigurationOverrideActionArgs) ToFrontdoorRuleActionsRouteConfigurationOverrideActionOutputWithContext(ctx context.Context) FrontdoorRuleActionsRouteConfigurationOverrideActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleActionsRouteConfigurationOverrideActionOutput)
+}
+
+func (i FrontdoorRuleActionsRouteConfigurationOverrideActionArgs) ToFrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput() FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput {
+	return i.ToFrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleActionsRouteConfigurationOverrideActionArgs) ToFrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutputWithContext(ctx context.Context) FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleActionsRouteConfigurationOverrideActionOutput).ToFrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutputWithContext(ctx)
+}
+
+// FrontdoorRuleActionsRouteConfigurationOverrideActionPtrInput is an input type that accepts FrontdoorRuleActionsRouteConfigurationOverrideActionArgs, FrontdoorRuleActionsRouteConfigurationOverrideActionPtr and FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput values.
+// You can construct a concrete instance of `FrontdoorRuleActionsRouteConfigurationOverrideActionPtrInput` via:
+//
+//	        FrontdoorRuleActionsRouteConfigurationOverrideActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type FrontdoorRuleActionsRouteConfigurationOverrideActionPtrInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput() FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput
+	ToFrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutputWithContext(context.Context) FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput
+}
+
+type frontdoorRuleActionsRouteConfigurationOverrideActionPtrType FrontdoorRuleActionsRouteConfigurationOverrideActionArgs
+
+func FrontdoorRuleActionsRouteConfigurationOverrideActionPtr(v *FrontdoorRuleActionsRouteConfigurationOverrideActionArgs) FrontdoorRuleActionsRouteConfigurationOverrideActionPtrInput {
+	return (*frontdoorRuleActionsRouteConfigurationOverrideActionPtrType)(v)
+}
+
+func (*frontdoorRuleActionsRouteConfigurationOverrideActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorRuleActionsRouteConfigurationOverrideAction)(nil)).Elem()
+}
+
+func (i *frontdoorRuleActionsRouteConfigurationOverrideActionPtrType) ToFrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput() FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput {
+	return i.ToFrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutputWithContext(context.Background())
+}
+
+func (i *frontdoorRuleActionsRouteConfigurationOverrideActionPtrType) ToFrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutputWithContext(ctx context.Context) FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput)
+}
+
+type FrontdoorRuleActionsRouteConfigurationOverrideActionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleActionsRouteConfigurationOverrideAction)(nil)).Elem()
+}
+
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) ToFrontdoorRuleActionsRouteConfigurationOverrideActionOutput() FrontdoorRuleActionsRouteConfigurationOverrideActionOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) ToFrontdoorRuleActionsRouteConfigurationOverrideActionOutputWithContext(ctx context.Context) FrontdoorRuleActionsRouteConfigurationOverrideActionOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) ToFrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput() FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput {
+	return o.ToFrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutputWithContext(context.Background())
+}
+
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) ToFrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutputWithContext(ctx context.Context) FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorRuleActionsRouteConfigurationOverrideAction) *FrontdoorRuleActionsRouteConfigurationOverrideAction {
+		return &v
+	}).(FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput)
+}
+
+// `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) CacheBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) *string { return v.CacheBehavior }).(pulumi.StringPtrOutput)
+}
+
+// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) CacheDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) string { return v.CacheDuration }).(pulumi.StringOutput)
+}
+
+// The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) CdnFrontdoorOriginGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) string {
+		return v.CdnFrontdoorOriginGroupId
+	}).(pulumi.StringOutput)
+}
+
+// Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) CompressionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) *bool { return v.CompressionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) ForwardingProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) *string { return v.ForwardingProtocol }).(pulumi.StringPtrOutput)
+}
+
+// `IncludeSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`. Defaults to `IgnoreQueryString`.
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) QueryStringCachingBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) *string {
+		return v.QueryStringCachingBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of query string parameter names.
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionOutput) QueryStringParameters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsRouteConfigurationOverrideAction) []string { return v.QueryStringParameters }).(pulumi.StringArrayOutput)
+}
+
+type FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorRuleActionsRouteConfigurationOverrideAction)(nil)).Elem()
+}
+
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) ToFrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput() FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) ToFrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutputWithContext(ctx context.Context) FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) Elem() FrontdoorRuleActionsRouteConfigurationOverrideActionOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActionsRouteConfigurationOverrideAction) FrontdoorRuleActionsRouteConfigurationOverrideAction {
+		if v != nil {
+			return *v
+		}
+		var ret FrontdoorRuleActionsRouteConfigurationOverrideAction
+		return ret
+	}).(FrontdoorRuleActionsRouteConfigurationOverrideActionOutput)
+}
+
+// `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) CacheBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActionsRouteConfigurationOverrideAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CacheBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) CacheDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActionsRouteConfigurationOverrideAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CacheDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+// The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) CdnFrontdoorOriginGroupId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActionsRouteConfigurationOverrideAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CdnFrontdoorOriginGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) CompressionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActionsRouteConfigurationOverrideAction) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CompressionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) ForwardingProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActionsRouteConfigurationOverrideAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ForwardingProtocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// `IncludeSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`. Defaults to `IgnoreQueryString`.
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) QueryStringCachingBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActionsRouteConfigurationOverrideAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryStringCachingBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of query string parameter names.
+func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) QueryStringParameters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActionsRouteConfigurationOverrideAction) []string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryStringParameters
+	}).(pulumi.StringArrayOutput)
+}
+
+type FrontdoorRuleActionsUrlRedirectAction struct {
+	// The fragment to use in the redirect. Leave blank to preserve the incoming fragment.
+	DestinationFragment *string `pulumi:"destinationFragment"`
+	// The host name you want the request to be redirected to. Leave blank to preserve the incoming host.
+	DestinationHostname string `pulumi:"destinationHostname"`
+	// The path to use in the redirect. Include the leading `/`. Leave blank to preserve the incoming path.
+	DestinationPath *string `pulumi:"destinationPath"`
+	// The query string used in the redirect URL. Don't include the leading `?`. Leave blank to preserve the incoming query string.
+	QueryString *string `pulumi:"queryString"`
+	// The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
+	RedirectProtocol *string `pulumi:"redirectProtocol"`
+	// The response type to return to the requestor. Possible values include `Moved`, `Found` , `TemporaryRedirect` or `PermanentRedirect`.
+	RedirectType string `pulumi:"redirectType"`
+}
+
+// FrontdoorRuleActionsUrlRedirectActionInput is an input type that accepts FrontdoorRuleActionsUrlRedirectActionArgs and FrontdoorRuleActionsUrlRedirectActionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleActionsUrlRedirectActionInput` via:
+//
+//	FrontdoorRuleActionsUrlRedirectActionArgs{...}
+type FrontdoorRuleActionsUrlRedirectActionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleActionsUrlRedirectActionOutput() FrontdoorRuleActionsUrlRedirectActionOutput
+	ToFrontdoorRuleActionsUrlRedirectActionOutputWithContext(context.Context) FrontdoorRuleActionsUrlRedirectActionOutput
+}
+
+type FrontdoorRuleActionsUrlRedirectActionArgs struct {
+	// The fragment to use in the redirect. Leave blank to preserve the incoming fragment.
+	DestinationFragment pulumi.StringPtrInput `pulumi:"destinationFragment"`
+	// The host name you want the request to be redirected to. Leave blank to preserve the incoming host.
+	DestinationHostname pulumi.StringInput `pulumi:"destinationHostname"`
+	// The path to use in the redirect. Include the leading `/`. Leave blank to preserve the incoming path.
+	DestinationPath pulumi.StringPtrInput `pulumi:"destinationPath"`
+	// The query string used in the redirect URL. Don't include the leading `?`. Leave blank to preserve the incoming query string.
+	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
+	// The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
+	RedirectProtocol pulumi.StringPtrInput `pulumi:"redirectProtocol"`
+	// The response type to return to the requestor. Possible values include `Moved`, `Found` , `TemporaryRedirect` or `PermanentRedirect`.
+	RedirectType pulumi.StringInput `pulumi:"redirectType"`
+}
+
+func (FrontdoorRuleActionsUrlRedirectActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleActionsUrlRedirectAction)(nil)).Elem()
+}
+
+func (i FrontdoorRuleActionsUrlRedirectActionArgs) ToFrontdoorRuleActionsUrlRedirectActionOutput() FrontdoorRuleActionsUrlRedirectActionOutput {
+	return i.ToFrontdoorRuleActionsUrlRedirectActionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleActionsUrlRedirectActionArgs) ToFrontdoorRuleActionsUrlRedirectActionOutputWithContext(ctx context.Context) FrontdoorRuleActionsUrlRedirectActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleActionsUrlRedirectActionOutput)
+}
+
+func (i FrontdoorRuleActionsUrlRedirectActionArgs) ToFrontdoorRuleActionsUrlRedirectActionPtrOutput() FrontdoorRuleActionsUrlRedirectActionPtrOutput {
+	return i.ToFrontdoorRuleActionsUrlRedirectActionPtrOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleActionsUrlRedirectActionArgs) ToFrontdoorRuleActionsUrlRedirectActionPtrOutputWithContext(ctx context.Context) FrontdoorRuleActionsUrlRedirectActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleActionsUrlRedirectActionOutput).ToFrontdoorRuleActionsUrlRedirectActionPtrOutputWithContext(ctx)
+}
+
+// FrontdoorRuleActionsUrlRedirectActionPtrInput is an input type that accepts FrontdoorRuleActionsUrlRedirectActionArgs, FrontdoorRuleActionsUrlRedirectActionPtr and FrontdoorRuleActionsUrlRedirectActionPtrOutput values.
+// You can construct a concrete instance of `FrontdoorRuleActionsUrlRedirectActionPtrInput` via:
+//
+//	        FrontdoorRuleActionsUrlRedirectActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type FrontdoorRuleActionsUrlRedirectActionPtrInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleActionsUrlRedirectActionPtrOutput() FrontdoorRuleActionsUrlRedirectActionPtrOutput
+	ToFrontdoorRuleActionsUrlRedirectActionPtrOutputWithContext(context.Context) FrontdoorRuleActionsUrlRedirectActionPtrOutput
+}
+
+type frontdoorRuleActionsUrlRedirectActionPtrType FrontdoorRuleActionsUrlRedirectActionArgs
+
+func FrontdoorRuleActionsUrlRedirectActionPtr(v *FrontdoorRuleActionsUrlRedirectActionArgs) FrontdoorRuleActionsUrlRedirectActionPtrInput {
+	return (*frontdoorRuleActionsUrlRedirectActionPtrType)(v)
+}
+
+func (*frontdoorRuleActionsUrlRedirectActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorRuleActionsUrlRedirectAction)(nil)).Elem()
+}
+
+func (i *frontdoorRuleActionsUrlRedirectActionPtrType) ToFrontdoorRuleActionsUrlRedirectActionPtrOutput() FrontdoorRuleActionsUrlRedirectActionPtrOutput {
+	return i.ToFrontdoorRuleActionsUrlRedirectActionPtrOutputWithContext(context.Background())
+}
+
+func (i *frontdoorRuleActionsUrlRedirectActionPtrType) ToFrontdoorRuleActionsUrlRedirectActionPtrOutputWithContext(ctx context.Context) FrontdoorRuleActionsUrlRedirectActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleActionsUrlRedirectActionPtrOutput)
+}
+
+type FrontdoorRuleActionsUrlRedirectActionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleActionsUrlRedirectActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleActionsUrlRedirectAction)(nil)).Elem()
+}
+
+func (o FrontdoorRuleActionsUrlRedirectActionOutput) ToFrontdoorRuleActionsUrlRedirectActionOutput() FrontdoorRuleActionsUrlRedirectActionOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsUrlRedirectActionOutput) ToFrontdoorRuleActionsUrlRedirectActionOutputWithContext(ctx context.Context) FrontdoorRuleActionsUrlRedirectActionOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsUrlRedirectActionOutput) ToFrontdoorRuleActionsUrlRedirectActionPtrOutput() FrontdoorRuleActionsUrlRedirectActionPtrOutput {
+	return o.ToFrontdoorRuleActionsUrlRedirectActionPtrOutputWithContext(context.Background())
+}
+
+func (o FrontdoorRuleActionsUrlRedirectActionOutput) ToFrontdoorRuleActionsUrlRedirectActionPtrOutputWithContext(ctx context.Context) FrontdoorRuleActionsUrlRedirectActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorRuleActionsUrlRedirectAction) *FrontdoorRuleActionsUrlRedirectAction {
+		return &v
+	}).(FrontdoorRuleActionsUrlRedirectActionPtrOutput)
+}
+
+// The fragment to use in the redirect. Leave blank to preserve the incoming fragment.
+func (o FrontdoorRuleActionsUrlRedirectActionOutput) DestinationFragment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) *string { return v.DestinationFragment }).(pulumi.StringPtrOutput)
+}
+
+// The host name you want the request to be redirected to. Leave blank to preserve the incoming host.
+func (o FrontdoorRuleActionsUrlRedirectActionOutput) DestinationHostname() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) string { return v.DestinationHostname }).(pulumi.StringOutput)
+}
+
+// The path to use in the redirect. Include the leading `/`. Leave blank to preserve the incoming path.
+func (o FrontdoorRuleActionsUrlRedirectActionOutput) DestinationPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) *string { return v.DestinationPath }).(pulumi.StringPtrOutput)
+}
+
+// The query string used in the redirect URL. Don't include the leading `?`. Leave blank to preserve the incoming query string.
+func (o FrontdoorRuleActionsUrlRedirectActionOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) *string { return v.QueryString }).(pulumi.StringPtrOutput)
+}
+
+// The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
+func (o FrontdoorRuleActionsUrlRedirectActionOutput) RedirectProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) *string { return v.RedirectProtocol }).(pulumi.StringPtrOutput)
+}
+
+// The response type to return to the requestor. Possible values include `Moved`, `Found` , `TemporaryRedirect` or `PermanentRedirect`.
+func (o FrontdoorRuleActionsUrlRedirectActionOutput) RedirectType() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) string { return v.RedirectType }).(pulumi.StringOutput)
+}
+
+type FrontdoorRuleActionsUrlRedirectActionPtrOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleActionsUrlRedirectActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorRuleActionsUrlRedirectAction)(nil)).Elem()
+}
+
+func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) ToFrontdoorRuleActionsUrlRedirectActionPtrOutput() FrontdoorRuleActionsUrlRedirectActionPtrOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) ToFrontdoorRuleActionsUrlRedirectActionPtrOutputWithContext(ctx context.Context) FrontdoorRuleActionsUrlRedirectActionPtrOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) Elem() FrontdoorRuleActionsUrlRedirectActionOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRedirectAction) FrontdoorRuleActionsUrlRedirectAction {
+		if v != nil {
+			return *v
+		}
+		var ret FrontdoorRuleActionsUrlRedirectAction
+		return ret
+	}).(FrontdoorRuleActionsUrlRedirectActionOutput)
+}
+
+// The fragment to use in the redirect. Leave blank to preserve the incoming fragment.
+func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) DestinationFragment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRedirectAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationFragment
+	}).(pulumi.StringPtrOutput)
+}
+
+// The host name you want the request to be redirected to. Leave blank to preserve the incoming host.
+func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) DestinationHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRedirectAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationHostname
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path to use in the redirect. Include the leading `/`. Leave blank to preserve the incoming path.
+func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) DestinationPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRedirectAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The query string used in the redirect URL. Don't include the leading `?`. Leave blank to preserve the incoming query string.
+func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRedirectAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryString
+	}).(pulumi.StringPtrOutput)
+}
+
+// The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
+func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) RedirectProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRedirectAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RedirectProtocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// The response type to return to the requestor. Possible values include `Moved`, `Found` , `TemporaryRedirect` or `PermanentRedirect`.
+func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) RedirectType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRedirectAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RedirectType
+	}).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorRuleActionsUrlRewriteAction struct {
+	// The destination path to use in the rewrite. The destination path overwrites the source pattern.
+	Destination string `pulumi:"destination"`
+	// Append the remaining path after the source pattern to the new destination path? Possible values `true` or `false`. Defaults to `false`.
+	PreserveUnmatchedPath *bool `pulumi:"preserveUnmatchedPath"`
+	// The source pattern in the URL path to replace. This uses prefix-based matching. For example, to match all URL paths use a forward slash `"/"` as the source pattern value.
+	SourcePattern string `pulumi:"sourcePattern"`
+}
+
+// FrontdoorRuleActionsUrlRewriteActionInput is an input type that accepts FrontdoorRuleActionsUrlRewriteActionArgs and FrontdoorRuleActionsUrlRewriteActionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleActionsUrlRewriteActionInput` via:
+//
+//	FrontdoorRuleActionsUrlRewriteActionArgs{...}
+type FrontdoorRuleActionsUrlRewriteActionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleActionsUrlRewriteActionOutput() FrontdoorRuleActionsUrlRewriteActionOutput
+	ToFrontdoorRuleActionsUrlRewriteActionOutputWithContext(context.Context) FrontdoorRuleActionsUrlRewriteActionOutput
+}
+
+type FrontdoorRuleActionsUrlRewriteActionArgs struct {
+	// The destination path to use in the rewrite. The destination path overwrites the source pattern.
+	Destination pulumi.StringInput `pulumi:"destination"`
+	// Append the remaining path after the source pattern to the new destination path? Possible values `true` or `false`. Defaults to `false`.
+	PreserveUnmatchedPath pulumi.BoolPtrInput `pulumi:"preserveUnmatchedPath"`
+	// The source pattern in the URL path to replace. This uses prefix-based matching. For example, to match all URL paths use a forward slash `"/"` as the source pattern value.
+	SourcePattern pulumi.StringInput `pulumi:"sourcePattern"`
+}
+
+func (FrontdoorRuleActionsUrlRewriteActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleActionsUrlRewriteAction)(nil)).Elem()
+}
+
+func (i FrontdoorRuleActionsUrlRewriteActionArgs) ToFrontdoorRuleActionsUrlRewriteActionOutput() FrontdoorRuleActionsUrlRewriteActionOutput {
+	return i.ToFrontdoorRuleActionsUrlRewriteActionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleActionsUrlRewriteActionArgs) ToFrontdoorRuleActionsUrlRewriteActionOutputWithContext(ctx context.Context) FrontdoorRuleActionsUrlRewriteActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleActionsUrlRewriteActionOutput)
+}
+
+func (i FrontdoorRuleActionsUrlRewriteActionArgs) ToFrontdoorRuleActionsUrlRewriteActionPtrOutput() FrontdoorRuleActionsUrlRewriteActionPtrOutput {
+	return i.ToFrontdoorRuleActionsUrlRewriteActionPtrOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleActionsUrlRewriteActionArgs) ToFrontdoorRuleActionsUrlRewriteActionPtrOutputWithContext(ctx context.Context) FrontdoorRuleActionsUrlRewriteActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleActionsUrlRewriteActionOutput).ToFrontdoorRuleActionsUrlRewriteActionPtrOutputWithContext(ctx)
+}
+
+// FrontdoorRuleActionsUrlRewriteActionPtrInput is an input type that accepts FrontdoorRuleActionsUrlRewriteActionArgs, FrontdoorRuleActionsUrlRewriteActionPtr and FrontdoorRuleActionsUrlRewriteActionPtrOutput values.
+// You can construct a concrete instance of `FrontdoorRuleActionsUrlRewriteActionPtrInput` via:
+//
+//	        FrontdoorRuleActionsUrlRewriteActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type FrontdoorRuleActionsUrlRewriteActionPtrInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleActionsUrlRewriteActionPtrOutput() FrontdoorRuleActionsUrlRewriteActionPtrOutput
+	ToFrontdoorRuleActionsUrlRewriteActionPtrOutputWithContext(context.Context) FrontdoorRuleActionsUrlRewriteActionPtrOutput
+}
+
+type frontdoorRuleActionsUrlRewriteActionPtrType FrontdoorRuleActionsUrlRewriteActionArgs
+
+func FrontdoorRuleActionsUrlRewriteActionPtr(v *FrontdoorRuleActionsUrlRewriteActionArgs) FrontdoorRuleActionsUrlRewriteActionPtrInput {
+	return (*frontdoorRuleActionsUrlRewriteActionPtrType)(v)
+}
+
+func (*frontdoorRuleActionsUrlRewriteActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorRuleActionsUrlRewriteAction)(nil)).Elem()
+}
+
+func (i *frontdoorRuleActionsUrlRewriteActionPtrType) ToFrontdoorRuleActionsUrlRewriteActionPtrOutput() FrontdoorRuleActionsUrlRewriteActionPtrOutput {
+	return i.ToFrontdoorRuleActionsUrlRewriteActionPtrOutputWithContext(context.Background())
+}
+
+func (i *frontdoorRuleActionsUrlRewriteActionPtrType) ToFrontdoorRuleActionsUrlRewriteActionPtrOutputWithContext(ctx context.Context) FrontdoorRuleActionsUrlRewriteActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleActionsUrlRewriteActionPtrOutput)
+}
+
+type FrontdoorRuleActionsUrlRewriteActionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleActionsUrlRewriteActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleActionsUrlRewriteAction)(nil)).Elem()
+}
+
+func (o FrontdoorRuleActionsUrlRewriteActionOutput) ToFrontdoorRuleActionsUrlRewriteActionOutput() FrontdoorRuleActionsUrlRewriteActionOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsUrlRewriteActionOutput) ToFrontdoorRuleActionsUrlRewriteActionOutputWithContext(ctx context.Context) FrontdoorRuleActionsUrlRewriteActionOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsUrlRewriteActionOutput) ToFrontdoorRuleActionsUrlRewriteActionPtrOutput() FrontdoorRuleActionsUrlRewriteActionPtrOutput {
+	return o.ToFrontdoorRuleActionsUrlRewriteActionPtrOutputWithContext(context.Background())
+}
+
+func (o FrontdoorRuleActionsUrlRewriteActionOutput) ToFrontdoorRuleActionsUrlRewriteActionPtrOutputWithContext(ctx context.Context) FrontdoorRuleActionsUrlRewriteActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorRuleActionsUrlRewriteAction) *FrontdoorRuleActionsUrlRewriteAction {
+		return &v
+	}).(FrontdoorRuleActionsUrlRewriteActionPtrOutput)
+}
+
+// The destination path to use in the rewrite. The destination path overwrites the source pattern.
+func (o FrontdoorRuleActionsUrlRewriteActionOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsUrlRewriteAction) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+// Append the remaining path after the source pattern to the new destination path? Possible values `true` or `false`. Defaults to `false`.
+func (o FrontdoorRuleActionsUrlRewriteActionOutput) PreserveUnmatchedPath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsUrlRewriteAction) *bool { return v.PreserveUnmatchedPath }).(pulumi.BoolPtrOutput)
+}
+
+// The source pattern in the URL path to replace. This uses prefix-based matching. For example, to match all URL paths use a forward slash `"/"` as the source pattern value.
+func (o FrontdoorRuleActionsUrlRewriteActionOutput) SourcePattern() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleActionsUrlRewriteAction) string { return v.SourcePattern }).(pulumi.StringOutput)
+}
+
+type FrontdoorRuleActionsUrlRewriteActionPtrOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleActionsUrlRewriteActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorRuleActionsUrlRewriteAction)(nil)).Elem()
+}
+
+func (o FrontdoorRuleActionsUrlRewriteActionPtrOutput) ToFrontdoorRuleActionsUrlRewriteActionPtrOutput() FrontdoorRuleActionsUrlRewriteActionPtrOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsUrlRewriteActionPtrOutput) ToFrontdoorRuleActionsUrlRewriteActionPtrOutputWithContext(ctx context.Context) FrontdoorRuleActionsUrlRewriteActionPtrOutput {
+	return o
+}
+
+func (o FrontdoorRuleActionsUrlRewriteActionPtrOutput) Elem() FrontdoorRuleActionsUrlRewriteActionOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRewriteAction) FrontdoorRuleActionsUrlRewriteAction {
+		if v != nil {
+			return *v
+		}
+		var ret FrontdoorRuleActionsUrlRewriteAction
+		return ret
+	}).(FrontdoorRuleActionsUrlRewriteActionOutput)
+}
+
+// The destination path to use in the rewrite. The destination path overwrites the source pattern.
+func (o FrontdoorRuleActionsUrlRewriteActionPtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRewriteAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Destination
+	}).(pulumi.StringPtrOutput)
+}
+
+// Append the remaining path after the source pattern to the new destination path? Possible values `true` or `false`. Defaults to `false`.
+func (o FrontdoorRuleActionsUrlRewriteActionPtrOutput) PreserveUnmatchedPath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRewriteAction) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreserveUnmatchedPath
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The source pattern in the URL path to replace. This uses prefix-based matching. For example, to match all URL paths use a forward slash `"/"` as the source pattern value.
+func (o FrontdoorRuleActionsUrlRewriteActionPtrOutput) SourcePattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRewriteAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourcePattern
+	}).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorRuleConditions struct {
+	// A `clientPortCondition` block as defined below.
+	ClientPortConditions []FrontdoorRuleConditionsClientPortCondition `pulumi:"clientPortConditions"`
+	// A `cookiesCondition` block as defined below.
+	CookiesConditions []FrontdoorRuleConditionsCookiesCondition `pulumi:"cookiesConditions"`
+	// A `hostNameCondition` block as defined below.
+	HostNameConditions []FrontdoorRuleConditionsHostNameCondition `pulumi:"hostNameConditions"`
+	// A `httpVersionCondition` block as defined below.
+	HttpVersionConditions []FrontdoorRuleConditionsHttpVersionCondition `pulumi:"httpVersionConditions"`
+	// A `isDeviceCondition` block as defined below.
+	IsDeviceConditions []FrontdoorRuleConditionsIsDeviceCondition `pulumi:"isDeviceConditions"`
+	// A `postArgsCondition` block as defined below.
+	PostArgsConditions []FrontdoorRuleConditionsPostArgsCondition `pulumi:"postArgsConditions"`
+	// A `queryStringCondition` block as defined below.
+	QueryStringConditions []FrontdoorRuleConditionsQueryStringCondition `pulumi:"queryStringConditions"`
+	// A `remoteAddressCondition` block as defined below.
+	RemoteAddressConditions []FrontdoorRuleConditionsRemoteAddressCondition `pulumi:"remoteAddressConditions"`
+	// A `requestBodyCondition` block as defined below.
+	RequestBodyConditions []FrontdoorRuleConditionsRequestBodyCondition `pulumi:"requestBodyConditions"`
+	// A `requestHeaderCondition` block as defined below.
+	RequestHeaderConditions []FrontdoorRuleConditionsRequestHeaderCondition `pulumi:"requestHeaderConditions"`
+	// A `requestMethodCondition` block as defined below.
+	RequestMethodConditions []FrontdoorRuleConditionsRequestMethodCondition `pulumi:"requestMethodConditions"`
+	// A `requestSchemeCondition` block as defined below.
+	RequestSchemeConditions []FrontdoorRuleConditionsRequestSchemeCondition `pulumi:"requestSchemeConditions"`
+	// A `requestUriCondition` block as defined below.
+	RequestUriConditions []FrontdoorRuleConditionsRequestUriCondition `pulumi:"requestUriConditions"`
+	// A `serverPortCondition` block as defined below.
+	ServerPortConditions []FrontdoorRuleConditionsServerPortCondition `pulumi:"serverPortConditions"`
+	// A `socketAddressCondition` block as defined below.
+	SocketAddressConditions []FrontdoorRuleConditionsSocketAddressCondition `pulumi:"socketAddressConditions"`
+	// A `sslProtocolCondition` block as defined below.
+	SslProtocolConditions []FrontdoorRuleConditionsSslProtocolCondition `pulumi:"sslProtocolConditions"`
+	// A `urlFileExtensionCondition` block as defined below.
+	UrlFileExtensionConditions []FrontdoorRuleConditionsUrlFileExtensionCondition `pulumi:"urlFileExtensionConditions"`
+	// A `urlFilenameCondition` block as defined below.
+	UrlFilenameConditions []FrontdoorRuleConditionsUrlFilenameCondition `pulumi:"urlFilenameConditions"`
+	// A `urlPathCondition` block as defined below.
+	UrlPathConditions []FrontdoorRuleConditionsUrlPathCondition `pulumi:"urlPathConditions"`
+}
+
+// FrontdoorRuleConditionsInput is an input type that accepts FrontdoorRuleConditionsArgs and FrontdoorRuleConditionsOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsInput` via:
+//
+//	FrontdoorRuleConditionsArgs{...}
+type FrontdoorRuleConditionsInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsOutput() FrontdoorRuleConditionsOutput
+	ToFrontdoorRuleConditionsOutputWithContext(context.Context) FrontdoorRuleConditionsOutput
+}
+
+type FrontdoorRuleConditionsArgs struct {
+	// A `clientPortCondition` block as defined below.
+	ClientPortConditions FrontdoorRuleConditionsClientPortConditionArrayInput `pulumi:"clientPortConditions"`
+	// A `cookiesCondition` block as defined below.
+	CookiesConditions FrontdoorRuleConditionsCookiesConditionArrayInput `pulumi:"cookiesConditions"`
+	// A `hostNameCondition` block as defined below.
+	HostNameConditions FrontdoorRuleConditionsHostNameConditionArrayInput `pulumi:"hostNameConditions"`
+	// A `httpVersionCondition` block as defined below.
+	HttpVersionConditions FrontdoorRuleConditionsHttpVersionConditionArrayInput `pulumi:"httpVersionConditions"`
+	// A `isDeviceCondition` block as defined below.
+	IsDeviceConditions FrontdoorRuleConditionsIsDeviceConditionArrayInput `pulumi:"isDeviceConditions"`
+	// A `postArgsCondition` block as defined below.
+	PostArgsConditions FrontdoorRuleConditionsPostArgsConditionArrayInput `pulumi:"postArgsConditions"`
+	// A `queryStringCondition` block as defined below.
+	QueryStringConditions FrontdoorRuleConditionsQueryStringConditionArrayInput `pulumi:"queryStringConditions"`
+	// A `remoteAddressCondition` block as defined below.
+	RemoteAddressConditions FrontdoorRuleConditionsRemoteAddressConditionArrayInput `pulumi:"remoteAddressConditions"`
+	// A `requestBodyCondition` block as defined below.
+	RequestBodyConditions FrontdoorRuleConditionsRequestBodyConditionArrayInput `pulumi:"requestBodyConditions"`
+	// A `requestHeaderCondition` block as defined below.
+	RequestHeaderConditions FrontdoorRuleConditionsRequestHeaderConditionArrayInput `pulumi:"requestHeaderConditions"`
+	// A `requestMethodCondition` block as defined below.
+	RequestMethodConditions FrontdoorRuleConditionsRequestMethodConditionArrayInput `pulumi:"requestMethodConditions"`
+	// A `requestSchemeCondition` block as defined below.
+	RequestSchemeConditions FrontdoorRuleConditionsRequestSchemeConditionArrayInput `pulumi:"requestSchemeConditions"`
+	// A `requestUriCondition` block as defined below.
+	RequestUriConditions FrontdoorRuleConditionsRequestUriConditionArrayInput `pulumi:"requestUriConditions"`
+	// A `serverPortCondition` block as defined below.
+	ServerPortConditions FrontdoorRuleConditionsServerPortConditionArrayInput `pulumi:"serverPortConditions"`
+	// A `socketAddressCondition` block as defined below.
+	SocketAddressConditions FrontdoorRuleConditionsSocketAddressConditionArrayInput `pulumi:"socketAddressConditions"`
+	// A `sslProtocolCondition` block as defined below.
+	SslProtocolConditions FrontdoorRuleConditionsSslProtocolConditionArrayInput `pulumi:"sslProtocolConditions"`
+	// A `urlFileExtensionCondition` block as defined below.
+	UrlFileExtensionConditions FrontdoorRuleConditionsUrlFileExtensionConditionArrayInput `pulumi:"urlFileExtensionConditions"`
+	// A `urlFilenameCondition` block as defined below.
+	UrlFilenameConditions FrontdoorRuleConditionsUrlFilenameConditionArrayInput `pulumi:"urlFilenameConditions"`
+	// A `urlPathCondition` block as defined below.
+	UrlPathConditions FrontdoorRuleConditionsUrlPathConditionArrayInput `pulumi:"urlPathConditions"`
+}
+
+func (FrontdoorRuleConditionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditions)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsArgs) ToFrontdoorRuleConditionsOutput() FrontdoorRuleConditionsOutput {
+	return i.ToFrontdoorRuleConditionsOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsArgs) ToFrontdoorRuleConditionsOutputWithContext(ctx context.Context) FrontdoorRuleConditionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsOutput)
+}
+
+func (i FrontdoorRuleConditionsArgs) ToFrontdoorRuleConditionsPtrOutput() FrontdoorRuleConditionsPtrOutput {
+	return i.ToFrontdoorRuleConditionsPtrOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsArgs) ToFrontdoorRuleConditionsPtrOutputWithContext(ctx context.Context) FrontdoorRuleConditionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsOutput).ToFrontdoorRuleConditionsPtrOutputWithContext(ctx)
+}
+
+// FrontdoorRuleConditionsPtrInput is an input type that accepts FrontdoorRuleConditionsArgs, FrontdoorRuleConditionsPtr and FrontdoorRuleConditionsPtrOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsPtrInput` via:
+//
+//	        FrontdoorRuleConditionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FrontdoorRuleConditionsPtrInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsPtrOutput() FrontdoorRuleConditionsPtrOutput
+	ToFrontdoorRuleConditionsPtrOutputWithContext(context.Context) FrontdoorRuleConditionsPtrOutput
+}
+
+type frontdoorRuleConditionsPtrType FrontdoorRuleConditionsArgs
+
+func FrontdoorRuleConditionsPtr(v *FrontdoorRuleConditionsArgs) FrontdoorRuleConditionsPtrInput {
+	return (*frontdoorRuleConditionsPtrType)(v)
+}
+
+func (*frontdoorRuleConditionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorRuleConditions)(nil)).Elem()
+}
+
+func (i *frontdoorRuleConditionsPtrType) ToFrontdoorRuleConditionsPtrOutput() FrontdoorRuleConditionsPtrOutput {
+	return i.ToFrontdoorRuleConditionsPtrOutputWithContext(context.Background())
+}
+
+func (i *frontdoorRuleConditionsPtrType) ToFrontdoorRuleConditionsPtrOutputWithContext(ctx context.Context) FrontdoorRuleConditionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsPtrOutput)
+}
+
+type FrontdoorRuleConditionsOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditions)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsOutput) ToFrontdoorRuleConditionsOutput() FrontdoorRuleConditionsOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsOutput) ToFrontdoorRuleConditionsOutputWithContext(ctx context.Context) FrontdoorRuleConditionsOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsOutput) ToFrontdoorRuleConditionsPtrOutput() FrontdoorRuleConditionsPtrOutput {
+	return o.ToFrontdoorRuleConditionsPtrOutputWithContext(context.Background())
+}
+
+func (o FrontdoorRuleConditionsOutput) ToFrontdoorRuleConditionsPtrOutputWithContext(ctx context.Context) FrontdoorRuleConditionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorRuleConditions) *FrontdoorRuleConditions {
+		return &v
+	}).(FrontdoorRuleConditionsPtrOutput)
+}
+
+// A `clientPortCondition` block as defined below.
+func (o FrontdoorRuleConditionsOutput) ClientPortConditions() FrontdoorRuleConditionsClientPortConditionArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditions) []FrontdoorRuleConditionsClientPortCondition {
+		return v.ClientPortConditions
+	}).(FrontdoorRuleConditionsClientPortConditionArrayOutput)
+}
+
+// A `cookiesCondition` block as defined below.
+func (o FrontdoorRuleConditionsOutput) CookiesConditions() FrontdoorRuleConditionsCookiesConditionArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditions) []FrontdoorRuleConditionsCookiesCondition { return v.CookiesConditions }).(FrontdoorRuleConditionsCookiesConditionArrayOutput)
+}
+
+// A `hostNameCondition` block as defined below.
+func (o FrontdoorRuleConditionsOutput) HostNameConditions() FrontdoorRuleConditionsHostNameConditionArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditions) []FrontdoorRuleConditionsHostNameCondition {
+		return v.HostNameConditions
+	}).(FrontdoorRuleConditionsHostNameConditionArrayOutput)
+}
+
+// A `httpVersionCondition` block as defined below.
+func (o FrontdoorRuleConditionsOutput) HttpVersionConditions() FrontdoorRuleConditionsHttpVersionConditionArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditions) []FrontdoorRuleConditionsHttpVersionCondition {
+		return v.HttpVersionConditions
+	}).(FrontdoorRuleConditionsHttpVersionConditionArrayOutput)
+}
+
+// A `isDeviceCondition` block as defined below.
+func (o FrontdoorRuleConditionsOutput) IsDeviceConditions() FrontdoorRuleConditionsIsDeviceConditionArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditions) []FrontdoorRuleConditionsIsDeviceCondition {
+		return v.IsDeviceConditions
+	}).(FrontdoorRuleConditionsIsDeviceConditionArrayOutput)
+}
+
+// A `postArgsCondition` block as defined below.
+func (o FrontdoorRuleConditionsOutput) PostArgsConditions() FrontdoorRuleConditionsPostArgsConditionArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditions) []FrontdoorRuleConditionsPostArgsCondition {
+		return v.PostArgsConditions
+	}).(FrontdoorRuleConditionsPostArgsConditionArrayOutput)
+}
+
+// A `queryStringCondition` block as defined below.
+func (o FrontdoorRuleConditionsOutput) QueryStringConditions() FrontdoorRuleConditionsQueryStringConditionArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditions) []FrontdoorRuleConditionsQueryStringCondition {
+		return v.QueryStringConditions
+	}).(FrontdoorRuleConditionsQueryStringConditionArrayOutput)
+}
+
+// A `remoteAddressCondition` block as defined below.
+func (o FrontdoorRuleConditionsOutput) RemoteAddressConditions() FrontdoorRuleConditionsRemoteAddressConditionArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditions) []FrontdoorRuleConditionsRemoteAddressCondition {
+		return v.RemoteAddressConditions
+	}).(FrontdoorRuleConditionsRemoteAddressConditionArrayOutput)
+}
+
+// A `requestBodyCondition` block as defined below.
+func (o FrontdoorRuleConditionsOutput) RequestBodyConditions() FrontdoorRuleConditionsRequestBodyConditionArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditions) []FrontdoorRuleConditionsRequestBodyCondition {
+		return v.RequestBodyConditions
+	}).(FrontdoorRuleConditionsRequestBodyConditionArrayOutput)
+}
+
+// A `requestHeaderCondition` block as defined below.
+func (o FrontdoorRuleConditionsOutput) RequestHeaderConditions() FrontdoorRuleConditionsRequestHeaderConditionArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditions) []FrontdoorRuleConditionsRequestHeaderCondition {
+		return v.RequestHeaderConditions
+	}).(FrontdoorRuleConditionsRequestHeaderConditionArrayOutput)
+}
+
+// A `requestMethodCondition` block as defined below.
+func (o FrontdoorRuleConditionsOutput) RequestMethodConditions() FrontdoorRuleConditionsRequestMethodConditionArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditions) []FrontdoorRuleConditionsRequestMethodCondition {
+		return v.RequestMethodConditions
+	}).(FrontdoorRuleConditionsRequestMethodConditionArrayOutput)
+}
+
+// A `requestSchemeCondition` block as defined below.
+func (o FrontdoorRuleConditionsOutput) RequestSchemeConditions() FrontdoorRuleConditionsRequestSchemeConditionArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditions) []FrontdoorRuleConditionsRequestSchemeCondition {
+		return v.RequestSchemeConditions
+	}).(FrontdoorRuleConditionsRequestSchemeConditionArrayOutput)
+}
+
+// A `requestUriCondition` block as defined below.
+func (o FrontdoorRuleConditionsOutput) RequestUriConditions() FrontdoorRuleConditionsRequestUriConditionArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditions) []FrontdoorRuleConditionsRequestUriCondition {
+		return v.RequestUriConditions
+	}).(FrontdoorRuleConditionsRequestUriConditionArrayOutput)
+}
+
+// A `serverPortCondition` block as defined below.
+func (o FrontdoorRuleConditionsOutput) ServerPortConditions() FrontdoorRuleConditionsServerPortConditionArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditions) []FrontdoorRuleConditionsServerPortCondition {
+		return v.ServerPortConditions
+	}).(FrontdoorRuleConditionsServerPortConditionArrayOutput)
+}
+
+// A `socketAddressCondition` block as defined below.
+func (o FrontdoorRuleConditionsOutput) SocketAddressConditions() FrontdoorRuleConditionsSocketAddressConditionArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditions) []FrontdoorRuleConditionsSocketAddressCondition {
+		return v.SocketAddressConditions
+	}).(FrontdoorRuleConditionsSocketAddressConditionArrayOutput)
+}
+
+// A `sslProtocolCondition` block as defined below.
+func (o FrontdoorRuleConditionsOutput) SslProtocolConditions() FrontdoorRuleConditionsSslProtocolConditionArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditions) []FrontdoorRuleConditionsSslProtocolCondition {
+		return v.SslProtocolConditions
+	}).(FrontdoorRuleConditionsSslProtocolConditionArrayOutput)
+}
+
+// A `urlFileExtensionCondition` block as defined below.
+func (o FrontdoorRuleConditionsOutput) UrlFileExtensionConditions() FrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditions) []FrontdoorRuleConditionsUrlFileExtensionCondition {
+		return v.UrlFileExtensionConditions
+	}).(FrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput)
+}
+
+// A `urlFilenameCondition` block as defined below.
+func (o FrontdoorRuleConditionsOutput) UrlFilenameConditions() FrontdoorRuleConditionsUrlFilenameConditionArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditions) []FrontdoorRuleConditionsUrlFilenameCondition {
+		return v.UrlFilenameConditions
+	}).(FrontdoorRuleConditionsUrlFilenameConditionArrayOutput)
+}
+
+// A `urlPathCondition` block as defined below.
+func (o FrontdoorRuleConditionsOutput) UrlPathConditions() FrontdoorRuleConditionsUrlPathConditionArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditions) []FrontdoorRuleConditionsUrlPathCondition { return v.UrlPathConditions }).(FrontdoorRuleConditionsUrlPathConditionArrayOutput)
+}
+
+type FrontdoorRuleConditionsPtrOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorRuleConditions)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsPtrOutput) ToFrontdoorRuleConditionsPtrOutput() FrontdoorRuleConditionsPtrOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsPtrOutput) ToFrontdoorRuleConditionsPtrOutputWithContext(ctx context.Context) FrontdoorRuleConditionsPtrOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsPtrOutput) Elem() FrontdoorRuleConditionsOutput {
+	return o.ApplyT(func(v *FrontdoorRuleConditions) FrontdoorRuleConditions {
+		if v != nil {
+			return *v
+		}
+		var ret FrontdoorRuleConditions
+		return ret
+	}).(FrontdoorRuleConditionsOutput)
+}
+
+// A `clientPortCondition` block as defined below.
+func (o FrontdoorRuleConditionsPtrOutput) ClientPortConditions() FrontdoorRuleConditionsClientPortConditionArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleConditions) []FrontdoorRuleConditionsClientPortCondition {
+		if v == nil {
+			return nil
+		}
+		return v.ClientPortConditions
+	}).(FrontdoorRuleConditionsClientPortConditionArrayOutput)
+}
+
+// A `cookiesCondition` block as defined below.
+func (o FrontdoorRuleConditionsPtrOutput) CookiesConditions() FrontdoorRuleConditionsCookiesConditionArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleConditions) []FrontdoorRuleConditionsCookiesCondition {
+		if v == nil {
+			return nil
+		}
+		return v.CookiesConditions
+	}).(FrontdoorRuleConditionsCookiesConditionArrayOutput)
+}
+
+// A `hostNameCondition` block as defined below.
+func (o FrontdoorRuleConditionsPtrOutput) HostNameConditions() FrontdoorRuleConditionsHostNameConditionArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleConditions) []FrontdoorRuleConditionsHostNameCondition {
+		if v == nil {
+			return nil
+		}
+		return v.HostNameConditions
+	}).(FrontdoorRuleConditionsHostNameConditionArrayOutput)
+}
+
+// A `httpVersionCondition` block as defined below.
+func (o FrontdoorRuleConditionsPtrOutput) HttpVersionConditions() FrontdoorRuleConditionsHttpVersionConditionArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleConditions) []FrontdoorRuleConditionsHttpVersionCondition {
+		if v == nil {
+			return nil
+		}
+		return v.HttpVersionConditions
+	}).(FrontdoorRuleConditionsHttpVersionConditionArrayOutput)
+}
+
+// A `isDeviceCondition` block as defined below.
+func (o FrontdoorRuleConditionsPtrOutput) IsDeviceConditions() FrontdoorRuleConditionsIsDeviceConditionArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleConditions) []FrontdoorRuleConditionsIsDeviceCondition {
+		if v == nil {
+			return nil
+		}
+		return v.IsDeviceConditions
+	}).(FrontdoorRuleConditionsIsDeviceConditionArrayOutput)
+}
+
+// A `postArgsCondition` block as defined below.
+func (o FrontdoorRuleConditionsPtrOutput) PostArgsConditions() FrontdoorRuleConditionsPostArgsConditionArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleConditions) []FrontdoorRuleConditionsPostArgsCondition {
+		if v == nil {
+			return nil
+		}
+		return v.PostArgsConditions
+	}).(FrontdoorRuleConditionsPostArgsConditionArrayOutput)
+}
+
+// A `queryStringCondition` block as defined below.
+func (o FrontdoorRuleConditionsPtrOutput) QueryStringConditions() FrontdoorRuleConditionsQueryStringConditionArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleConditions) []FrontdoorRuleConditionsQueryStringCondition {
+		if v == nil {
+			return nil
+		}
+		return v.QueryStringConditions
+	}).(FrontdoorRuleConditionsQueryStringConditionArrayOutput)
+}
+
+// A `remoteAddressCondition` block as defined below.
+func (o FrontdoorRuleConditionsPtrOutput) RemoteAddressConditions() FrontdoorRuleConditionsRemoteAddressConditionArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleConditions) []FrontdoorRuleConditionsRemoteAddressCondition {
+		if v == nil {
+			return nil
+		}
+		return v.RemoteAddressConditions
+	}).(FrontdoorRuleConditionsRemoteAddressConditionArrayOutput)
+}
+
+// A `requestBodyCondition` block as defined below.
+func (o FrontdoorRuleConditionsPtrOutput) RequestBodyConditions() FrontdoorRuleConditionsRequestBodyConditionArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleConditions) []FrontdoorRuleConditionsRequestBodyCondition {
+		if v == nil {
+			return nil
+		}
+		return v.RequestBodyConditions
+	}).(FrontdoorRuleConditionsRequestBodyConditionArrayOutput)
+}
+
+// A `requestHeaderCondition` block as defined below.
+func (o FrontdoorRuleConditionsPtrOutput) RequestHeaderConditions() FrontdoorRuleConditionsRequestHeaderConditionArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleConditions) []FrontdoorRuleConditionsRequestHeaderCondition {
+		if v == nil {
+			return nil
+		}
+		return v.RequestHeaderConditions
+	}).(FrontdoorRuleConditionsRequestHeaderConditionArrayOutput)
+}
+
+// A `requestMethodCondition` block as defined below.
+func (o FrontdoorRuleConditionsPtrOutput) RequestMethodConditions() FrontdoorRuleConditionsRequestMethodConditionArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleConditions) []FrontdoorRuleConditionsRequestMethodCondition {
+		if v == nil {
+			return nil
+		}
+		return v.RequestMethodConditions
+	}).(FrontdoorRuleConditionsRequestMethodConditionArrayOutput)
+}
+
+// A `requestSchemeCondition` block as defined below.
+func (o FrontdoorRuleConditionsPtrOutput) RequestSchemeConditions() FrontdoorRuleConditionsRequestSchemeConditionArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleConditions) []FrontdoorRuleConditionsRequestSchemeCondition {
+		if v == nil {
+			return nil
+		}
+		return v.RequestSchemeConditions
+	}).(FrontdoorRuleConditionsRequestSchemeConditionArrayOutput)
+}
+
+// A `requestUriCondition` block as defined below.
+func (o FrontdoorRuleConditionsPtrOutput) RequestUriConditions() FrontdoorRuleConditionsRequestUriConditionArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleConditions) []FrontdoorRuleConditionsRequestUriCondition {
+		if v == nil {
+			return nil
+		}
+		return v.RequestUriConditions
+	}).(FrontdoorRuleConditionsRequestUriConditionArrayOutput)
+}
+
+// A `serverPortCondition` block as defined below.
+func (o FrontdoorRuleConditionsPtrOutput) ServerPortConditions() FrontdoorRuleConditionsServerPortConditionArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleConditions) []FrontdoorRuleConditionsServerPortCondition {
+		if v == nil {
+			return nil
+		}
+		return v.ServerPortConditions
+	}).(FrontdoorRuleConditionsServerPortConditionArrayOutput)
+}
+
+// A `socketAddressCondition` block as defined below.
+func (o FrontdoorRuleConditionsPtrOutput) SocketAddressConditions() FrontdoorRuleConditionsSocketAddressConditionArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleConditions) []FrontdoorRuleConditionsSocketAddressCondition {
+		if v == nil {
+			return nil
+		}
+		return v.SocketAddressConditions
+	}).(FrontdoorRuleConditionsSocketAddressConditionArrayOutput)
+}
+
+// A `sslProtocolCondition` block as defined below.
+func (o FrontdoorRuleConditionsPtrOutput) SslProtocolConditions() FrontdoorRuleConditionsSslProtocolConditionArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleConditions) []FrontdoorRuleConditionsSslProtocolCondition {
+		if v == nil {
+			return nil
+		}
+		return v.SslProtocolConditions
+	}).(FrontdoorRuleConditionsSslProtocolConditionArrayOutput)
+}
+
+// A `urlFileExtensionCondition` block as defined below.
+func (o FrontdoorRuleConditionsPtrOutput) UrlFileExtensionConditions() FrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleConditions) []FrontdoorRuleConditionsUrlFileExtensionCondition {
+		if v == nil {
+			return nil
+		}
+		return v.UrlFileExtensionConditions
+	}).(FrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput)
+}
+
+// A `urlFilenameCondition` block as defined below.
+func (o FrontdoorRuleConditionsPtrOutput) UrlFilenameConditions() FrontdoorRuleConditionsUrlFilenameConditionArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleConditions) []FrontdoorRuleConditionsUrlFilenameCondition {
+		if v == nil {
+			return nil
+		}
+		return v.UrlFilenameConditions
+	}).(FrontdoorRuleConditionsUrlFilenameConditionArrayOutput)
+}
+
+// A `urlPathCondition` block as defined below.
+func (o FrontdoorRuleConditionsPtrOutput) UrlPathConditions() FrontdoorRuleConditionsUrlPathConditionArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRuleConditions) []FrontdoorRuleConditionsUrlPathCondition {
+		if v == nil {
+			return nil
+		}
+		return v.UrlPathConditions
+	}).(FrontdoorRuleConditionsUrlPathConditionArrayOutput)
+}
+
+type FrontdoorRuleConditionsClientPortCondition struct {
+	// One or more integer values(e.g. "1") representing the value of the client port to match. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues []string `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator string `pulumi:"operator"`
+}
+
+// FrontdoorRuleConditionsClientPortConditionInput is an input type that accepts FrontdoorRuleConditionsClientPortConditionArgs and FrontdoorRuleConditionsClientPortConditionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsClientPortConditionInput` via:
+//
+//	FrontdoorRuleConditionsClientPortConditionArgs{...}
+type FrontdoorRuleConditionsClientPortConditionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsClientPortConditionOutput() FrontdoorRuleConditionsClientPortConditionOutput
+	ToFrontdoorRuleConditionsClientPortConditionOutputWithContext(context.Context) FrontdoorRuleConditionsClientPortConditionOutput
+}
+
+type FrontdoorRuleConditionsClientPortConditionArgs struct {
+	// One or more integer values(e.g. "1") representing the value of the client port to match. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator pulumi.StringInput `pulumi:"operator"`
+}
+
+func (FrontdoorRuleConditionsClientPortConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsClientPortCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsClientPortConditionArgs) ToFrontdoorRuleConditionsClientPortConditionOutput() FrontdoorRuleConditionsClientPortConditionOutput {
+	return i.ToFrontdoorRuleConditionsClientPortConditionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsClientPortConditionArgs) ToFrontdoorRuleConditionsClientPortConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsClientPortConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsClientPortConditionOutput)
+}
+
+// FrontdoorRuleConditionsClientPortConditionArrayInput is an input type that accepts FrontdoorRuleConditionsClientPortConditionArray and FrontdoorRuleConditionsClientPortConditionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsClientPortConditionArrayInput` via:
+//
+//	FrontdoorRuleConditionsClientPortConditionArray{ FrontdoorRuleConditionsClientPortConditionArgs{...} }
+type FrontdoorRuleConditionsClientPortConditionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsClientPortConditionArrayOutput() FrontdoorRuleConditionsClientPortConditionArrayOutput
+	ToFrontdoorRuleConditionsClientPortConditionArrayOutputWithContext(context.Context) FrontdoorRuleConditionsClientPortConditionArrayOutput
+}
+
+type FrontdoorRuleConditionsClientPortConditionArray []FrontdoorRuleConditionsClientPortConditionInput
+
+func (FrontdoorRuleConditionsClientPortConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsClientPortCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsClientPortConditionArray) ToFrontdoorRuleConditionsClientPortConditionArrayOutput() FrontdoorRuleConditionsClientPortConditionArrayOutput {
+	return i.ToFrontdoorRuleConditionsClientPortConditionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsClientPortConditionArray) ToFrontdoorRuleConditionsClientPortConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsClientPortConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsClientPortConditionArrayOutput)
+}
+
+type FrontdoorRuleConditionsClientPortConditionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsClientPortConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsClientPortCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsClientPortConditionOutput) ToFrontdoorRuleConditionsClientPortConditionOutput() FrontdoorRuleConditionsClientPortConditionOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsClientPortConditionOutput) ToFrontdoorRuleConditionsClientPortConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsClientPortConditionOutput {
+	return o
+}
+
+// One or more integer values(e.g. "1") representing the value of the client port to match. If multiple values are specified, they're evaluated using `OR` logic.
+func (o FrontdoorRuleConditionsClientPortConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsClientPortCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsClientPortConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsClientPortCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsClientPortConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsClientPortCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+type FrontdoorRuleConditionsClientPortConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsClientPortConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsClientPortCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsClientPortConditionArrayOutput) ToFrontdoorRuleConditionsClientPortConditionArrayOutput() FrontdoorRuleConditionsClientPortConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsClientPortConditionArrayOutput) ToFrontdoorRuleConditionsClientPortConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsClientPortConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsClientPortConditionArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleConditionsClientPortConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRuleConditionsClientPortCondition {
+		return vs[0].([]FrontdoorRuleConditionsClientPortCondition)[vs[1].(int)]
+	}).(FrontdoorRuleConditionsClientPortConditionOutput)
+}
+
+type FrontdoorRuleConditionsCookiesCondition struct {
+	// A string value representing the name of the cookie.
+	CookieName string `pulumi:"cookieName"`
+	// One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues []string `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator   string   `pulumi:"operator"`
+	Transforms []string `pulumi:"transforms"`
+}
+
+// FrontdoorRuleConditionsCookiesConditionInput is an input type that accepts FrontdoorRuleConditionsCookiesConditionArgs and FrontdoorRuleConditionsCookiesConditionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsCookiesConditionInput` via:
+//
+//	FrontdoorRuleConditionsCookiesConditionArgs{...}
+type FrontdoorRuleConditionsCookiesConditionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsCookiesConditionOutput() FrontdoorRuleConditionsCookiesConditionOutput
+	ToFrontdoorRuleConditionsCookiesConditionOutputWithContext(context.Context) FrontdoorRuleConditionsCookiesConditionOutput
+}
+
+type FrontdoorRuleConditionsCookiesConditionArgs struct {
+	// A string value representing the name of the cookie.
+	CookieName pulumi.StringInput `pulumi:"cookieName"`
+	// One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator   pulumi.StringInput      `pulumi:"operator"`
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (FrontdoorRuleConditionsCookiesConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsCookiesCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsCookiesConditionArgs) ToFrontdoorRuleConditionsCookiesConditionOutput() FrontdoorRuleConditionsCookiesConditionOutput {
+	return i.ToFrontdoorRuleConditionsCookiesConditionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsCookiesConditionArgs) ToFrontdoorRuleConditionsCookiesConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsCookiesConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsCookiesConditionOutput)
+}
+
+// FrontdoorRuleConditionsCookiesConditionArrayInput is an input type that accepts FrontdoorRuleConditionsCookiesConditionArray and FrontdoorRuleConditionsCookiesConditionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsCookiesConditionArrayInput` via:
+//
+//	FrontdoorRuleConditionsCookiesConditionArray{ FrontdoorRuleConditionsCookiesConditionArgs{...} }
+type FrontdoorRuleConditionsCookiesConditionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsCookiesConditionArrayOutput() FrontdoorRuleConditionsCookiesConditionArrayOutput
+	ToFrontdoorRuleConditionsCookiesConditionArrayOutputWithContext(context.Context) FrontdoorRuleConditionsCookiesConditionArrayOutput
+}
+
+type FrontdoorRuleConditionsCookiesConditionArray []FrontdoorRuleConditionsCookiesConditionInput
+
+func (FrontdoorRuleConditionsCookiesConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsCookiesCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsCookiesConditionArray) ToFrontdoorRuleConditionsCookiesConditionArrayOutput() FrontdoorRuleConditionsCookiesConditionArrayOutput {
+	return i.ToFrontdoorRuleConditionsCookiesConditionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsCookiesConditionArray) ToFrontdoorRuleConditionsCookiesConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsCookiesConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsCookiesConditionArrayOutput)
+}
+
+type FrontdoorRuleConditionsCookiesConditionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsCookiesConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsCookiesCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsCookiesConditionOutput) ToFrontdoorRuleConditionsCookiesConditionOutput() FrontdoorRuleConditionsCookiesConditionOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsCookiesConditionOutput) ToFrontdoorRuleConditionsCookiesConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsCookiesConditionOutput {
+	return o
+}
+
+// A string value representing the name of the cookie.
+func (o FrontdoorRuleConditionsCookiesConditionOutput) CookieName() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsCookiesCondition) string { return v.CookieName }).(pulumi.StringOutput)
+}
+
+// One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
+func (o FrontdoorRuleConditionsCookiesConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsCookiesCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsCookiesConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsCookiesCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsCookiesConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsCookiesCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+func (o FrontdoorRuleConditionsCookiesConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsCookiesCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type FrontdoorRuleConditionsCookiesConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsCookiesConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsCookiesCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsCookiesConditionArrayOutput) ToFrontdoorRuleConditionsCookiesConditionArrayOutput() FrontdoorRuleConditionsCookiesConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsCookiesConditionArrayOutput) ToFrontdoorRuleConditionsCookiesConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsCookiesConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsCookiesConditionArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleConditionsCookiesConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRuleConditionsCookiesCondition {
+		return vs[0].([]FrontdoorRuleConditionsCookiesCondition)[vs[1].(int)]
+	}).(FrontdoorRuleConditionsCookiesConditionOutput)
+}
+
+type FrontdoorRuleConditionsHostNameCondition struct {
+	// A list of one or more string values representing the value of the request hostname to match. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues []string `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator   string   `pulumi:"operator"`
+	Transforms []string `pulumi:"transforms"`
+}
+
+// FrontdoorRuleConditionsHostNameConditionInput is an input type that accepts FrontdoorRuleConditionsHostNameConditionArgs and FrontdoorRuleConditionsHostNameConditionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsHostNameConditionInput` via:
+//
+//	FrontdoorRuleConditionsHostNameConditionArgs{...}
+type FrontdoorRuleConditionsHostNameConditionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsHostNameConditionOutput() FrontdoorRuleConditionsHostNameConditionOutput
+	ToFrontdoorRuleConditionsHostNameConditionOutputWithContext(context.Context) FrontdoorRuleConditionsHostNameConditionOutput
+}
+
+type FrontdoorRuleConditionsHostNameConditionArgs struct {
+	// A list of one or more string values representing the value of the request hostname to match. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator   pulumi.StringInput      `pulumi:"operator"`
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (FrontdoorRuleConditionsHostNameConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsHostNameCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsHostNameConditionArgs) ToFrontdoorRuleConditionsHostNameConditionOutput() FrontdoorRuleConditionsHostNameConditionOutput {
+	return i.ToFrontdoorRuleConditionsHostNameConditionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsHostNameConditionArgs) ToFrontdoorRuleConditionsHostNameConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsHostNameConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsHostNameConditionOutput)
+}
+
+// FrontdoorRuleConditionsHostNameConditionArrayInput is an input type that accepts FrontdoorRuleConditionsHostNameConditionArray and FrontdoorRuleConditionsHostNameConditionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsHostNameConditionArrayInput` via:
+//
+//	FrontdoorRuleConditionsHostNameConditionArray{ FrontdoorRuleConditionsHostNameConditionArgs{...} }
+type FrontdoorRuleConditionsHostNameConditionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsHostNameConditionArrayOutput() FrontdoorRuleConditionsHostNameConditionArrayOutput
+	ToFrontdoorRuleConditionsHostNameConditionArrayOutputWithContext(context.Context) FrontdoorRuleConditionsHostNameConditionArrayOutput
+}
+
+type FrontdoorRuleConditionsHostNameConditionArray []FrontdoorRuleConditionsHostNameConditionInput
+
+func (FrontdoorRuleConditionsHostNameConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsHostNameCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsHostNameConditionArray) ToFrontdoorRuleConditionsHostNameConditionArrayOutput() FrontdoorRuleConditionsHostNameConditionArrayOutput {
+	return i.ToFrontdoorRuleConditionsHostNameConditionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsHostNameConditionArray) ToFrontdoorRuleConditionsHostNameConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsHostNameConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsHostNameConditionArrayOutput)
+}
+
+type FrontdoorRuleConditionsHostNameConditionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsHostNameConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsHostNameCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsHostNameConditionOutput) ToFrontdoorRuleConditionsHostNameConditionOutput() FrontdoorRuleConditionsHostNameConditionOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsHostNameConditionOutput) ToFrontdoorRuleConditionsHostNameConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsHostNameConditionOutput {
+	return o
+}
+
+// A list of one or more string values representing the value of the request hostname to match. If multiple values are specified, they're evaluated using `OR` logic.
+func (o FrontdoorRuleConditionsHostNameConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsHostNameCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsHostNameConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsHostNameCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsHostNameConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsHostNameCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+func (o FrontdoorRuleConditionsHostNameConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsHostNameCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type FrontdoorRuleConditionsHostNameConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsHostNameConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsHostNameCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsHostNameConditionArrayOutput) ToFrontdoorRuleConditionsHostNameConditionArrayOutput() FrontdoorRuleConditionsHostNameConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsHostNameConditionArrayOutput) ToFrontdoorRuleConditionsHostNameConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsHostNameConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsHostNameConditionArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleConditionsHostNameConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRuleConditionsHostNameCondition {
+		return vs[0].([]FrontdoorRuleConditionsHostNameCondition)[vs[1].(int)]
+	}).(FrontdoorRuleConditionsHostNameConditionOutput)
+}
+
+type FrontdoorRuleConditionsHttpVersionCondition struct {
+	// What HTTP version should this condition match? Possible values `2.0`, `1.1`, `1.0` or `0.9`.
+	MatchValues []string `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// Possible value `Equal`. Defaults to `Equal`.
+	Operator *string `pulumi:"operator"`
+}
+
+// FrontdoorRuleConditionsHttpVersionConditionInput is an input type that accepts FrontdoorRuleConditionsHttpVersionConditionArgs and FrontdoorRuleConditionsHttpVersionConditionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsHttpVersionConditionInput` via:
+//
+//	FrontdoorRuleConditionsHttpVersionConditionArgs{...}
+type FrontdoorRuleConditionsHttpVersionConditionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsHttpVersionConditionOutput() FrontdoorRuleConditionsHttpVersionConditionOutput
+	ToFrontdoorRuleConditionsHttpVersionConditionOutputWithContext(context.Context) FrontdoorRuleConditionsHttpVersionConditionOutput
+}
+
+type FrontdoorRuleConditionsHttpVersionConditionArgs struct {
+	// What HTTP version should this condition match? Possible values `2.0`, `1.1`, `1.0` or `0.9`.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// Possible value `Equal`. Defaults to `Equal`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+}
+
+func (FrontdoorRuleConditionsHttpVersionConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsHttpVersionCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsHttpVersionConditionArgs) ToFrontdoorRuleConditionsHttpVersionConditionOutput() FrontdoorRuleConditionsHttpVersionConditionOutput {
+	return i.ToFrontdoorRuleConditionsHttpVersionConditionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsHttpVersionConditionArgs) ToFrontdoorRuleConditionsHttpVersionConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsHttpVersionConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsHttpVersionConditionOutput)
+}
+
+// FrontdoorRuleConditionsHttpVersionConditionArrayInput is an input type that accepts FrontdoorRuleConditionsHttpVersionConditionArray and FrontdoorRuleConditionsHttpVersionConditionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsHttpVersionConditionArrayInput` via:
+//
+//	FrontdoorRuleConditionsHttpVersionConditionArray{ FrontdoorRuleConditionsHttpVersionConditionArgs{...} }
+type FrontdoorRuleConditionsHttpVersionConditionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsHttpVersionConditionArrayOutput() FrontdoorRuleConditionsHttpVersionConditionArrayOutput
+	ToFrontdoorRuleConditionsHttpVersionConditionArrayOutputWithContext(context.Context) FrontdoorRuleConditionsHttpVersionConditionArrayOutput
+}
+
+type FrontdoorRuleConditionsHttpVersionConditionArray []FrontdoorRuleConditionsHttpVersionConditionInput
+
+func (FrontdoorRuleConditionsHttpVersionConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsHttpVersionCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsHttpVersionConditionArray) ToFrontdoorRuleConditionsHttpVersionConditionArrayOutput() FrontdoorRuleConditionsHttpVersionConditionArrayOutput {
+	return i.ToFrontdoorRuleConditionsHttpVersionConditionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsHttpVersionConditionArray) ToFrontdoorRuleConditionsHttpVersionConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsHttpVersionConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsHttpVersionConditionArrayOutput)
+}
+
+type FrontdoorRuleConditionsHttpVersionConditionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsHttpVersionConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsHttpVersionCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsHttpVersionConditionOutput) ToFrontdoorRuleConditionsHttpVersionConditionOutput() FrontdoorRuleConditionsHttpVersionConditionOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsHttpVersionConditionOutput) ToFrontdoorRuleConditionsHttpVersionConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsHttpVersionConditionOutput {
+	return o
+}
+
+// What HTTP version should this condition match? Possible values `2.0`, `1.1`, `1.0` or `0.9`.
+func (o FrontdoorRuleConditionsHttpVersionConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsHttpVersionCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsHttpVersionConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsHttpVersionCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Possible value `Equal`. Defaults to `Equal`.
+func (o FrontdoorRuleConditionsHttpVersionConditionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsHttpVersionCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorRuleConditionsHttpVersionConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsHttpVersionConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsHttpVersionCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsHttpVersionConditionArrayOutput) ToFrontdoorRuleConditionsHttpVersionConditionArrayOutput() FrontdoorRuleConditionsHttpVersionConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsHttpVersionConditionArrayOutput) ToFrontdoorRuleConditionsHttpVersionConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsHttpVersionConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsHttpVersionConditionArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleConditionsHttpVersionConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRuleConditionsHttpVersionCondition {
+		return vs[0].([]FrontdoorRuleConditionsHttpVersionCondition)[vs[1].(int)]
+	}).(FrontdoorRuleConditionsHttpVersionConditionOutput)
+}
+
+type FrontdoorRuleConditionsIsDeviceCondition struct {
+	// Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+	MatchValues *string `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// Possible value `Equal`. Defaults to `Equal`.
+	Operator *string `pulumi:"operator"`
+}
+
+// FrontdoorRuleConditionsIsDeviceConditionInput is an input type that accepts FrontdoorRuleConditionsIsDeviceConditionArgs and FrontdoorRuleConditionsIsDeviceConditionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsIsDeviceConditionInput` via:
+//
+//	FrontdoorRuleConditionsIsDeviceConditionArgs{...}
+type FrontdoorRuleConditionsIsDeviceConditionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsIsDeviceConditionOutput() FrontdoorRuleConditionsIsDeviceConditionOutput
+	ToFrontdoorRuleConditionsIsDeviceConditionOutputWithContext(context.Context) FrontdoorRuleConditionsIsDeviceConditionOutput
+}
+
+type FrontdoorRuleConditionsIsDeviceConditionArgs struct {
+	// Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+	MatchValues pulumi.StringPtrInput `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// Possible value `Equal`. Defaults to `Equal`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+}
+
+func (FrontdoorRuleConditionsIsDeviceConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsIsDeviceCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsIsDeviceConditionArgs) ToFrontdoorRuleConditionsIsDeviceConditionOutput() FrontdoorRuleConditionsIsDeviceConditionOutput {
+	return i.ToFrontdoorRuleConditionsIsDeviceConditionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsIsDeviceConditionArgs) ToFrontdoorRuleConditionsIsDeviceConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsIsDeviceConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsIsDeviceConditionOutput)
+}
+
+// FrontdoorRuleConditionsIsDeviceConditionArrayInput is an input type that accepts FrontdoorRuleConditionsIsDeviceConditionArray and FrontdoorRuleConditionsIsDeviceConditionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsIsDeviceConditionArrayInput` via:
+//
+//	FrontdoorRuleConditionsIsDeviceConditionArray{ FrontdoorRuleConditionsIsDeviceConditionArgs{...} }
+type FrontdoorRuleConditionsIsDeviceConditionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsIsDeviceConditionArrayOutput() FrontdoorRuleConditionsIsDeviceConditionArrayOutput
+	ToFrontdoorRuleConditionsIsDeviceConditionArrayOutputWithContext(context.Context) FrontdoorRuleConditionsIsDeviceConditionArrayOutput
+}
+
+type FrontdoorRuleConditionsIsDeviceConditionArray []FrontdoorRuleConditionsIsDeviceConditionInput
+
+func (FrontdoorRuleConditionsIsDeviceConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsIsDeviceCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsIsDeviceConditionArray) ToFrontdoorRuleConditionsIsDeviceConditionArrayOutput() FrontdoorRuleConditionsIsDeviceConditionArrayOutput {
+	return i.ToFrontdoorRuleConditionsIsDeviceConditionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsIsDeviceConditionArray) ToFrontdoorRuleConditionsIsDeviceConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsIsDeviceConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsIsDeviceConditionArrayOutput)
+}
+
+type FrontdoorRuleConditionsIsDeviceConditionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsIsDeviceConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsIsDeviceCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsIsDeviceConditionOutput) ToFrontdoorRuleConditionsIsDeviceConditionOutput() FrontdoorRuleConditionsIsDeviceConditionOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsIsDeviceConditionOutput) ToFrontdoorRuleConditionsIsDeviceConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsIsDeviceConditionOutput {
+	return o
+}
+
+// Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+func (o FrontdoorRuleConditionsIsDeviceConditionOutput) MatchValues() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsIsDeviceCondition) *string { return v.MatchValues }).(pulumi.StringPtrOutput)
+}
+
+// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsIsDeviceConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsIsDeviceCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Possible value `Equal`. Defaults to `Equal`.
+func (o FrontdoorRuleConditionsIsDeviceConditionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsIsDeviceCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorRuleConditionsIsDeviceConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsIsDeviceConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsIsDeviceCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsIsDeviceConditionArrayOutput) ToFrontdoorRuleConditionsIsDeviceConditionArrayOutput() FrontdoorRuleConditionsIsDeviceConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsIsDeviceConditionArrayOutput) ToFrontdoorRuleConditionsIsDeviceConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsIsDeviceConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsIsDeviceConditionArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleConditionsIsDeviceConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRuleConditionsIsDeviceCondition {
+		return vs[0].([]FrontdoorRuleConditionsIsDeviceCondition)[vs[1].(int)]
+	}).(FrontdoorRuleConditionsIsDeviceConditionOutput)
+}
+
+type FrontdoorRuleConditionsPostArgsCondition struct {
+	// One or more string or integer values(e.g. "1") representing the value of the `POST` argument to match. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues []string `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator string `pulumi:"operator"`
+	// A string value representing the name of the `POST` argument.
+	PostArgsName string   `pulumi:"postArgsName"`
+	Transforms   []string `pulumi:"transforms"`
+}
+
+// FrontdoorRuleConditionsPostArgsConditionInput is an input type that accepts FrontdoorRuleConditionsPostArgsConditionArgs and FrontdoorRuleConditionsPostArgsConditionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsPostArgsConditionInput` via:
+//
+//	FrontdoorRuleConditionsPostArgsConditionArgs{...}
+type FrontdoorRuleConditionsPostArgsConditionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsPostArgsConditionOutput() FrontdoorRuleConditionsPostArgsConditionOutput
+	ToFrontdoorRuleConditionsPostArgsConditionOutputWithContext(context.Context) FrontdoorRuleConditionsPostArgsConditionOutput
+}
+
+type FrontdoorRuleConditionsPostArgsConditionArgs struct {
+	// One or more string or integer values(e.g. "1") representing the value of the `POST` argument to match. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A string value representing the name of the `POST` argument.
+	PostArgsName pulumi.StringInput      `pulumi:"postArgsName"`
+	Transforms   pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (FrontdoorRuleConditionsPostArgsConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsPostArgsCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsPostArgsConditionArgs) ToFrontdoorRuleConditionsPostArgsConditionOutput() FrontdoorRuleConditionsPostArgsConditionOutput {
+	return i.ToFrontdoorRuleConditionsPostArgsConditionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsPostArgsConditionArgs) ToFrontdoorRuleConditionsPostArgsConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsPostArgsConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsPostArgsConditionOutput)
+}
+
+// FrontdoorRuleConditionsPostArgsConditionArrayInput is an input type that accepts FrontdoorRuleConditionsPostArgsConditionArray and FrontdoorRuleConditionsPostArgsConditionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsPostArgsConditionArrayInput` via:
+//
+//	FrontdoorRuleConditionsPostArgsConditionArray{ FrontdoorRuleConditionsPostArgsConditionArgs{...} }
+type FrontdoorRuleConditionsPostArgsConditionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsPostArgsConditionArrayOutput() FrontdoorRuleConditionsPostArgsConditionArrayOutput
+	ToFrontdoorRuleConditionsPostArgsConditionArrayOutputWithContext(context.Context) FrontdoorRuleConditionsPostArgsConditionArrayOutput
+}
+
+type FrontdoorRuleConditionsPostArgsConditionArray []FrontdoorRuleConditionsPostArgsConditionInput
+
+func (FrontdoorRuleConditionsPostArgsConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsPostArgsCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsPostArgsConditionArray) ToFrontdoorRuleConditionsPostArgsConditionArrayOutput() FrontdoorRuleConditionsPostArgsConditionArrayOutput {
+	return i.ToFrontdoorRuleConditionsPostArgsConditionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsPostArgsConditionArray) ToFrontdoorRuleConditionsPostArgsConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsPostArgsConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsPostArgsConditionArrayOutput)
+}
+
+type FrontdoorRuleConditionsPostArgsConditionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsPostArgsConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsPostArgsCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsPostArgsConditionOutput) ToFrontdoorRuleConditionsPostArgsConditionOutput() FrontdoorRuleConditionsPostArgsConditionOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsPostArgsConditionOutput) ToFrontdoorRuleConditionsPostArgsConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsPostArgsConditionOutput {
+	return o
+}
+
+// One or more string or integer values(e.g. "1") representing the value of the `POST` argument to match. If multiple values are specified, they're evaluated using `OR` logic.
+func (o FrontdoorRuleConditionsPostArgsConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsPostArgsCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsPostArgsConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsPostArgsCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsPostArgsConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsPostArgsCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A string value representing the name of the `POST` argument.
+func (o FrontdoorRuleConditionsPostArgsConditionOutput) PostArgsName() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsPostArgsCondition) string { return v.PostArgsName }).(pulumi.StringOutput)
+}
+
+func (o FrontdoorRuleConditionsPostArgsConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsPostArgsCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type FrontdoorRuleConditionsPostArgsConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsPostArgsConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsPostArgsCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsPostArgsConditionArrayOutput) ToFrontdoorRuleConditionsPostArgsConditionArrayOutput() FrontdoorRuleConditionsPostArgsConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsPostArgsConditionArrayOutput) ToFrontdoorRuleConditionsPostArgsConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsPostArgsConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsPostArgsConditionArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleConditionsPostArgsConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRuleConditionsPostArgsCondition {
+		return vs[0].([]FrontdoorRuleConditionsPostArgsCondition)[vs[1].(int)]
+	}).(FrontdoorRuleConditionsPostArgsConditionOutput)
+}
+
+type FrontdoorRuleConditionsQueryStringCondition struct {
+	// One or more string or integer values(e.g. "1") representing the value of the query string to match. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues []string `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator   string   `pulumi:"operator"`
+	Transforms []string `pulumi:"transforms"`
+}
+
+// FrontdoorRuleConditionsQueryStringConditionInput is an input type that accepts FrontdoorRuleConditionsQueryStringConditionArgs and FrontdoorRuleConditionsQueryStringConditionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsQueryStringConditionInput` via:
+//
+//	FrontdoorRuleConditionsQueryStringConditionArgs{...}
+type FrontdoorRuleConditionsQueryStringConditionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsQueryStringConditionOutput() FrontdoorRuleConditionsQueryStringConditionOutput
+	ToFrontdoorRuleConditionsQueryStringConditionOutputWithContext(context.Context) FrontdoorRuleConditionsQueryStringConditionOutput
+}
+
+type FrontdoorRuleConditionsQueryStringConditionArgs struct {
+	// One or more string or integer values(e.g. "1") representing the value of the query string to match. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator   pulumi.StringInput      `pulumi:"operator"`
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (FrontdoorRuleConditionsQueryStringConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsQueryStringCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsQueryStringConditionArgs) ToFrontdoorRuleConditionsQueryStringConditionOutput() FrontdoorRuleConditionsQueryStringConditionOutput {
+	return i.ToFrontdoorRuleConditionsQueryStringConditionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsQueryStringConditionArgs) ToFrontdoorRuleConditionsQueryStringConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsQueryStringConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsQueryStringConditionOutput)
+}
+
+// FrontdoorRuleConditionsQueryStringConditionArrayInput is an input type that accepts FrontdoorRuleConditionsQueryStringConditionArray and FrontdoorRuleConditionsQueryStringConditionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsQueryStringConditionArrayInput` via:
+//
+//	FrontdoorRuleConditionsQueryStringConditionArray{ FrontdoorRuleConditionsQueryStringConditionArgs{...} }
+type FrontdoorRuleConditionsQueryStringConditionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsQueryStringConditionArrayOutput() FrontdoorRuleConditionsQueryStringConditionArrayOutput
+	ToFrontdoorRuleConditionsQueryStringConditionArrayOutputWithContext(context.Context) FrontdoorRuleConditionsQueryStringConditionArrayOutput
+}
+
+type FrontdoorRuleConditionsQueryStringConditionArray []FrontdoorRuleConditionsQueryStringConditionInput
+
+func (FrontdoorRuleConditionsQueryStringConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsQueryStringCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsQueryStringConditionArray) ToFrontdoorRuleConditionsQueryStringConditionArrayOutput() FrontdoorRuleConditionsQueryStringConditionArrayOutput {
+	return i.ToFrontdoorRuleConditionsQueryStringConditionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsQueryStringConditionArray) ToFrontdoorRuleConditionsQueryStringConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsQueryStringConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsQueryStringConditionArrayOutput)
+}
+
+type FrontdoorRuleConditionsQueryStringConditionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsQueryStringConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsQueryStringCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsQueryStringConditionOutput) ToFrontdoorRuleConditionsQueryStringConditionOutput() FrontdoorRuleConditionsQueryStringConditionOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsQueryStringConditionOutput) ToFrontdoorRuleConditionsQueryStringConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsQueryStringConditionOutput {
+	return o
+}
+
+// One or more string or integer values(e.g. "1") representing the value of the query string to match. If multiple values are specified, they're evaluated using `OR` logic.
+func (o FrontdoorRuleConditionsQueryStringConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsQueryStringCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsQueryStringConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsQueryStringCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsQueryStringConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsQueryStringCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+func (o FrontdoorRuleConditionsQueryStringConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsQueryStringCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type FrontdoorRuleConditionsQueryStringConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsQueryStringConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsQueryStringCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsQueryStringConditionArrayOutput) ToFrontdoorRuleConditionsQueryStringConditionArrayOutput() FrontdoorRuleConditionsQueryStringConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsQueryStringConditionArrayOutput) ToFrontdoorRuleConditionsQueryStringConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsQueryStringConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsQueryStringConditionArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleConditionsQueryStringConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRuleConditionsQueryStringCondition {
+		return vs[0].([]FrontdoorRuleConditionsQueryStringCondition)[vs[1].(int)]
+	}).(FrontdoorRuleConditionsQueryStringConditionOutput)
+}
+
+type FrontdoorRuleConditionsRemoteAddressCondition struct {
+	// For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
+	MatchValues []string `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negateCondition` to specify Not `GeoMatch` or Not `IPMatch`.
+	Operator *string `pulumi:"operator"`
+}
+
+// FrontdoorRuleConditionsRemoteAddressConditionInput is an input type that accepts FrontdoorRuleConditionsRemoteAddressConditionArgs and FrontdoorRuleConditionsRemoteAddressConditionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsRemoteAddressConditionInput` via:
+//
+//	FrontdoorRuleConditionsRemoteAddressConditionArgs{...}
+type FrontdoorRuleConditionsRemoteAddressConditionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsRemoteAddressConditionOutput() FrontdoorRuleConditionsRemoteAddressConditionOutput
+	ToFrontdoorRuleConditionsRemoteAddressConditionOutputWithContext(context.Context) FrontdoorRuleConditionsRemoteAddressConditionOutput
+}
+
+type FrontdoorRuleConditionsRemoteAddressConditionArgs struct {
+	// For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negateCondition` to specify Not `GeoMatch` or Not `IPMatch`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+}
+
+func (FrontdoorRuleConditionsRemoteAddressConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsRemoteAddressCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsRemoteAddressConditionArgs) ToFrontdoorRuleConditionsRemoteAddressConditionOutput() FrontdoorRuleConditionsRemoteAddressConditionOutput {
+	return i.ToFrontdoorRuleConditionsRemoteAddressConditionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsRemoteAddressConditionArgs) ToFrontdoorRuleConditionsRemoteAddressConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRemoteAddressConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsRemoteAddressConditionOutput)
+}
+
+// FrontdoorRuleConditionsRemoteAddressConditionArrayInput is an input type that accepts FrontdoorRuleConditionsRemoteAddressConditionArray and FrontdoorRuleConditionsRemoteAddressConditionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsRemoteAddressConditionArrayInput` via:
+//
+//	FrontdoorRuleConditionsRemoteAddressConditionArray{ FrontdoorRuleConditionsRemoteAddressConditionArgs{...} }
+type FrontdoorRuleConditionsRemoteAddressConditionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsRemoteAddressConditionArrayOutput() FrontdoorRuleConditionsRemoteAddressConditionArrayOutput
+	ToFrontdoorRuleConditionsRemoteAddressConditionArrayOutputWithContext(context.Context) FrontdoorRuleConditionsRemoteAddressConditionArrayOutput
+}
+
+type FrontdoorRuleConditionsRemoteAddressConditionArray []FrontdoorRuleConditionsRemoteAddressConditionInput
+
+func (FrontdoorRuleConditionsRemoteAddressConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsRemoteAddressCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsRemoteAddressConditionArray) ToFrontdoorRuleConditionsRemoteAddressConditionArrayOutput() FrontdoorRuleConditionsRemoteAddressConditionArrayOutput {
+	return i.ToFrontdoorRuleConditionsRemoteAddressConditionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsRemoteAddressConditionArray) ToFrontdoorRuleConditionsRemoteAddressConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRemoteAddressConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsRemoteAddressConditionArrayOutput)
+}
+
+type FrontdoorRuleConditionsRemoteAddressConditionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsRemoteAddressConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsRemoteAddressCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsRemoteAddressConditionOutput) ToFrontdoorRuleConditionsRemoteAddressConditionOutput() FrontdoorRuleConditionsRemoteAddressConditionOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsRemoteAddressConditionOutput) ToFrontdoorRuleConditionsRemoteAddressConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRemoteAddressConditionOutput {
+	return o
+}
+
+// For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
+func (o FrontdoorRuleConditionsRemoteAddressConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRemoteAddressCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsRemoteAddressConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRemoteAddressCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negateCondition` to specify Not `GeoMatch` or Not `IPMatch`.
+func (o FrontdoorRuleConditionsRemoteAddressConditionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRemoteAddressCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorRuleConditionsRemoteAddressConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsRemoteAddressConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsRemoteAddressCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsRemoteAddressConditionArrayOutput) ToFrontdoorRuleConditionsRemoteAddressConditionArrayOutput() FrontdoorRuleConditionsRemoteAddressConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsRemoteAddressConditionArrayOutput) ToFrontdoorRuleConditionsRemoteAddressConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRemoteAddressConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsRemoteAddressConditionArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleConditionsRemoteAddressConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRuleConditionsRemoteAddressCondition {
+		return vs[0].([]FrontdoorRuleConditionsRemoteAddressCondition)[vs[1].(int)]
+	}).(FrontdoorRuleConditionsRemoteAddressConditionOutput)
+}
+
+type FrontdoorRuleConditionsRequestBodyCondition struct {
+	// A list of one or more string or integer values(e.g. "1") representing the value of the request body text to match. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues []string `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator   string   `pulumi:"operator"`
+	Transforms []string `pulumi:"transforms"`
+}
+
+// FrontdoorRuleConditionsRequestBodyConditionInput is an input type that accepts FrontdoorRuleConditionsRequestBodyConditionArgs and FrontdoorRuleConditionsRequestBodyConditionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsRequestBodyConditionInput` via:
+//
+//	FrontdoorRuleConditionsRequestBodyConditionArgs{...}
+type FrontdoorRuleConditionsRequestBodyConditionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsRequestBodyConditionOutput() FrontdoorRuleConditionsRequestBodyConditionOutput
+	ToFrontdoorRuleConditionsRequestBodyConditionOutputWithContext(context.Context) FrontdoorRuleConditionsRequestBodyConditionOutput
+}
+
+type FrontdoorRuleConditionsRequestBodyConditionArgs struct {
+	// A list of one or more string or integer values(e.g. "1") representing the value of the request body text to match. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator   pulumi.StringInput      `pulumi:"operator"`
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (FrontdoorRuleConditionsRequestBodyConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsRequestBodyCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsRequestBodyConditionArgs) ToFrontdoorRuleConditionsRequestBodyConditionOutput() FrontdoorRuleConditionsRequestBodyConditionOutput {
+	return i.ToFrontdoorRuleConditionsRequestBodyConditionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsRequestBodyConditionArgs) ToFrontdoorRuleConditionsRequestBodyConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRequestBodyConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsRequestBodyConditionOutput)
+}
+
+// FrontdoorRuleConditionsRequestBodyConditionArrayInput is an input type that accepts FrontdoorRuleConditionsRequestBodyConditionArray and FrontdoorRuleConditionsRequestBodyConditionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsRequestBodyConditionArrayInput` via:
+//
+//	FrontdoorRuleConditionsRequestBodyConditionArray{ FrontdoorRuleConditionsRequestBodyConditionArgs{...} }
+type FrontdoorRuleConditionsRequestBodyConditionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsRequestBodyConditionArrayOutput() FrontdoorRuleConditionsRequestBodyConditionArrayOutput
+	ToFrontdoorRuleConditionsRequestBodyConditionArrayOutputWithContext(context.Context) FrontdoorRuleConditionsRequestBodyConditionArrayOutput
+}
+
+type FrontdoorRuleConditionsRequestBodyConditionArray []FrontdoorRuleConditionsRequestBodyConditionInput
+
+func (FrontdoorRuleConditionsRequestBodyConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsRequestBodyCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsRequestBodyConditionArray) ToFrontdoorRuleConditionsRequestBodyConditionArrayOutput() FrontdoorRuleConditionsRequestBodyConditionArrayOutput {
+	return i.ToFrontdoorRuleConditionsRequestBodyConditionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsRequestBodyConditionArray) ToFrontdoorRuleConditionsRequestBodyConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRequestBodyConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsRequestBodyConditionArrayOutput)
+}
+
+type FrontdoorRuleConditionsRequestBodyConditionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsRequestBodyConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsRequestBodyCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsRequestBodyConditionOutput) ToFrontdoorRuleConditionsRequestBodyConditionOutput() FrontdoorRuleConditionsRequestBodyConditionOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsRequestBodyConditionOutput) ToFrontdoorRuleConditionsRequestBodyConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRequestBodyConditionOutput {
+	return o
+}
+
+// A list of one or more string or integer values(e.g. "1") representing the value of the request body text to match. If multiple values are specified, they're evaluated using `OR` logic.
+func (o FrontdoorRuleConditionsRequestBodyConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRequestBodyCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsRequestBodyConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRequestBodyCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsRequestBodyConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRequestBodyCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+func (o FrontdoorRuleConditionsRequestBodyConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRequestBodyCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type FrontdoorRuleConditionsRequestBodyConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsRequestBodyConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsRequestBodyCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsRequestBodyConditionArrayOutput) ToFrontdoorRuleConditionsRequestBodyConditionArrayOutput() FrontdoorRuleConditionsRequestBodyConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsRequestBodyConditionArrayOutput) ToFrontdoorRuleConditionsRequestBodyConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRequestBodyConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsRequestBodyConditionArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleConditionsRequestBodyConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRuleConditionsRequestBodyCondition {
+		return vs[0].([]FrontdoorRuleConditionsRequestBodyCondition)[vs[1].(int)]
+	}).(FrontdoorRuleConditionsRequestBodyConditionOutput)
+}
+
+type FrontdoorRuleConditionsRequestHeaderCondition struct {
+	// A string value representing the name of the `POST` argument.
+	HeaderName string `pulumi:"headerName"`
+	// One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues []string `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator   string   `pulumi:"operator"`
+	Transforms []string `pulumi:"transforms"`
+}
+
+// FrontdoorRuleConditionsRequestHeaderConditionInput is an input type that accepts FrontdoorRuleConditionsRequestHeaderConditionArgs and FrontdoorRuleConditionsRequestHeaderConditionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsRequestHeaderConditionInput` via:
+//
+//	FrontdoorRuleConditionsRequestHeaderConditionArgs{...}
+type FrontdoorRuleConditionsRequestHeaderConditionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsRequestHeaderConditionOutput() FrontdoorRuleConditionsRequestHeaderConditionOutput
+	ToFrontdoorRuleConditionsRequestHeaderConditionOutputWithContext(context.Context) FrontdoorRuleConditionsRequestHeaderConditionOutput
+}
+
+type FrontdoorRuleConditionsRequestHeaderConditionArgs struct {
+	// A string value representing the name of the `POST` argument.
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+	// One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator   pulumi.StringInput      `pulumi:"operator"`
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (FrontdoorRuleConditionsRequestHeaderConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsRequestHeaderCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsRequestHeaderConditionArgs) ToFrontdoorRuleConditionsRequestHeaderConditionOutput() FrontdoorRuleConditionsRequestHeaderConditionOutput {
+	return i.ToFrontdoorRuleConditionsRequestHeaderConditionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsRequestHeaderConditionArgs) ToFrontdoorRuleConditionsRequestHeaderConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRequestHeaderConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsRequestHeaderConditionOutput)
+}
+
+// FrontdoorRuleConditionsRequestHeaderConditionArrayInput is an input type that accepts FrontdoorRuleConditionsRequestHeaderConditionArray and FrontdoorRuleConditionsRequestHeaderConditionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsRequestHeaderConditionArrayInput` via:
+//
+//	FrontdoorRuleConditionsRequestHeaderConditionArray{ FrontdoorRuleConditionsRequestHeaderConditionArgs{...} }
+type FrontdoorRuleConditionsRequestHeaderConditionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsRequestHeaderConditionArrayOutput() FrontdoorRuleConditionsRequestHeaderConditionArrayOutput
+	ToFrontdoorRuleConditionsRequestHeaderConditionArrayOutputWithContext(context.Context) FrontdoorRuleConditionsRequestHeaderConditionArrayOutput
+}
+
+type FrontdoorRuleConditionsRequestHeaderConditionArray []FrontdoorRuleConditionsRequestHeaderConditionInput
+
+func (FrontdoorRuleConditionsRequestHeaderConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsRequestHeaderCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsRequestHeaderConditionArray) ToFrontdoorRuleConditionsRequestHeaderConditionArrayOutput() FrontdoorRuleConditionsRequestHeaderConditionArrayOutput {
+	return i.ToFrontdoorRuleConditionsRequestHeaderConditionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsRequestHeaderConditionArray) ToFrontdoorRuleConditionsRequestHeaderConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRequestHeaderConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsRequestHeaderConditionArrayOutput)
+}
+
+type FrontdoorRuleConditionsRequestHeaderConditionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsRequestHeaderConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsRequestHeaderCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsRequestHeaderConditionOutput) ToFrontdoorRuleConditionsRequestHeaderConditionOutput() FrontdoorRuleConditionsRequestHeaderConditionOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsRequestHeaderConditionOutput) ToFrontdoorRuleConditionsRequestHeaderConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRequestHeaderConditionOutput {
+	return o
+}
+
+// A string value representing the name of the `POST` argument.
+func (o FrontdoorRuleConditionsRequestHeaderConditionOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRequestHeaderCondition) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+// One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
+func (o FrontdoorRuleConditionsRequestHeaderConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRequestHeaderCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsRequestHeaderConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRequestHeaderCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsRequestHeaderConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRequestHeaderCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+func (o FrontdoorRuleConditionsRequestHeaderConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRequestHeaderCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type FrontdoorRuleConditionsRequestHeaderConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsRequestHeaderConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsRequestHeaderCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsRequestHeaderConditionArrayOutput) ToFrontdoorRuleConditionsRequestHeaderConditionArrayOutput() FrontdoorRuleConditionsRequestHeaderConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsRequestHeaderConditionArrayOutput) ToFrontdoorRuleConditionsRequestHeaderConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRequestHeaderConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsRequestHeaderConditionArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleConditionsRequestHeaderConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRuleConditionsRequestHeaderCondition {
+		return vs[0].([]FrontdoorRuleConditionsRequestHeaderCondition)[vs[1].(int)]
+	}).(FrontdoorRuleConditionsRequestHeaderConditionOutput)
+}
+
+type FrontdoorRuleConditionsRequestMethodCondition struct {
+	// A list of one or more HTTP methods. Possible values include `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS` or `TRACE`. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues []string `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// Possible value `Equal`. Defaults to `Equal`.
+	Operator *string `pulumi:"operator"`
+}
+
+// FrontdoorRuleConditionsRequestMethodConditionInput is an input type that accepts FrontdoorRuleConditionsRequestMethodConditionArgs and FrontdoorRuleConditionsRequestMethodConditionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsRequestMethodConditionInput` via:
+//
+//	FrontdoorRuleConditionsRequestMethodConditionArgs{...}
+type FrontdoorRuleConditionsRequestMethodConditionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsRequestMethodConditionOutput() FrontdoorRuleConditionsRequestMethodConditionOutput
+	ToFrontdoorRuleConditionsRequestMethodConditionOutputWithContext(context.Context) FrontdoorRuleConditionsRequestMethodConditionOutput
+}
+
+type FrontdoorRuleConditionsRequestMethodConditionArgs struct {
+	// A list of one or more HTTP methods. Possible values include `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS` or `TRACE`. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// Possible value `Equal`. Defaults to `Equal`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+}
+
+func (FrontdoorRuleConditionsRequestMethodConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsRequestMethodCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsRequestMethodConditionArgs) ToFrontdoorRuleConditionsRequestMethodConditionOutput() FrontdoorRuleConditionsRequestMethodConditionOutput {
+	return i.ToFrontdoorRuleConditionsRequestMethodConditionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsRequestMethodConditionArgs) ToFrontdoorRuleConditionsRequestMethodConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRequestMethodConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsRequestMethodConditionOutput)
+}
+
+// FrontdoorRuleConditionsRequestMethodConditionArrayInput is an input type that accepts FrontdoorRuleConditionsRequestMethodConditionArray and FrontdoorRuleConditionsRequestMethodConditionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsRequestMethodConditionArrayInput` via:
+//
+//	FrontdoorRuleConditionsRequestMethodConditionArray{ FrontdoorRuleConditionsRequestMethodConditionArgs{...} }
+type FrontdoorRuleConditionsRequestMethodConditionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsRequestMethodConditionArrayOutput() FrontdoorRuleConditionsRequestMethodConditionArrayOutput
+	ToFrontdoorRuleConditionsRequestMethodConditionArrayOutputWithContext(context.Context) FrontdoorRuleConditionsRequestMethodConditionArrayOutput
+}
+
+type FrontdoorRuleConditionsRequestMethodConditionArray []FrontdoorRuleConditionsRequestMethodConditionInput
+
+func (FrontdoorRuleConditionsRequestMethodConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsRequestMethodCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsRequestMethodConditionArray) ToFrontdoorRuleConditionsRequestMethodConditionArrayOutput() FrontdoorRuleConditionsRequestMethodConditionArrayOutput {
+	return i.ToFrontdoorRuleConditionsRequestMethodConditionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsRequestMethodConditionArray) ToFrontdoorRuleConditionsRequestMethodConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRequestMethodConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsRequestMethodConditionArrayOutput)
+}
+
+type FrontdoorRuleConditionsRequestMethodConditionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsRequestMethodConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsRequestMethodCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsRequestMethodConditionOutput) ToFrontdoorRuleConditionsRequestMethodConditionOutput() FrontdoorRuleConditionsRequestMethodConditionOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsRequestMethodConditionOutput) ToFrontdoorRuleConditionsRequestMethodConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRequestMethodConditionOutput {
+	return o
+}
+
+// A list of one or more HTTP methods. Possible values include `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS` or `TRACE`. If multiple values are specified, they're evaluated using `OR` logic.
+func (o FrontdoorRuleConditionsRequestMethodConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRequestMethodCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsRequestMethodConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRequestMethodCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Possible value `Equal`. Defaults to `Equal`.
+func (o FrontdoorRuleConditionsRequestMethodConditionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRequestMethodCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorRuleConditionsRequestMethodConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsRequestMethodConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsRequestMethodCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsRequestMethodConditionArrayOutput) ToFrontdoorRuleConditionsRequestMethodConditionArrayOutput() FrontdoorRuleConditionsRequestMethodConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsRequestMethodConditionArrayOutput) ToFrontdoorRuleConditionsRequestMethodConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRequestMethodConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsRequestMethodConditionArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleConditionsRequestMethodConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRuleConditionsRequestMethodCondition {
+		return vs[0].([]FrontdoorRuleConditionsRequestMethodCondition)[vs[1].(int)]
+	}).(FrontdoorRuleConditionsRequestMethodConditionOutput)
+}
+
+type FrontdoorRuleConditionsRequestSchemeCondition struct {
+	// The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+	MatchValues *string `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// Possible value `Equal`. Defaults to `Equal`.
+	Operator *string `pulumi:"operator"`
+}
+
+// FrontdoorRuleConditionsRequestSchemeConditionInput is an input type that accepts FrontdoorRuleConditionsRequestSchemeConditionArgs and FrontdoorRuleConditionsRequestSchemeConditionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsRequestSchemeConditionInput` via:
+//
+//	FrontdoorRuleConditionsRequestSchemeConditionArgs{...}
+type FrontdoorRuleConditionsRequestSchemeConditionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsRequestSchemeConditionOutput() FrontdoorRuleConditionsRequestSchemeConditionOutput
+	ToFrontdoorRuleConditionsRequestSchemeConditionOutputWithContext(context.Context) FrontdoorRuleConditionsRequestSchemeConditionOutput
+}
+
+type FrontdoorRuleConditionsRequestSchemeConditionArgs struct {
+	// The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+	MatchValues pulumi.StringPtrInput `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// Possible value `Equal`. Defaults to `Equal`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+}
+
+func (FrontdoorRuleConditionsRequestSchemeConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsRequestSchemeCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsRequestSchemeConditionArgs) ToFrontdoorRuleConditionsRequestSchemeConditionOutput() FrontdoorRuleConditionsRequestSchemeConditionOutput {
+	return i.ToFrontdoorRuleConditionsRequestSchemeConditionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsRequestSchemeConditionArgs) ToFrontdoorRuleConditionsRequestSchemeConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRequestSchemeConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsRequestSchemeConditionOutput)
+}
+
+// FrontdoorRuleConditionsRequestSchemeConditionArrayInput is an input type that accepts FrontdoorRuleConditionsRequestSchemeConditionArray and FrontdoorRuleConditionsRequestSchemeConditionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsRequestSchemeConditionArrayInput` via:
+//
+//	FrontdoorRuleConditionsRequestSchemeConditionArray{ FrontdoorRuleConditionsRequestSchemeConditionArgs{...} }
+type FrontdoorRuleConditionsRequestSchemeConditionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsRequestSchemeConditionArrayOutput() FrontdoorRuleConditionsRequestSchemeConditionArrayOutput
+	ToFrontdoorRuleConditionsRequestSchemeConditionArrayOutputWithContext(context.Context) FrontdoorRuleConditionsRequestSchemeConditionArrayOutput
+}
+
+type FrontdoorRuleConditionsRequestSchemeConditionArray []FrontdoorRuleConditionsRequestSchemeConditionInput
+
+func (FrontdoorRuleConditionsRequestSchemeConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsRequestSchemeCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsRequestSchemeConditionArray) ToFrontdoorRuleConditionsRequestSchemeConditionArrayOutput() FrontdoorRuleConditionsRequestSchemeConditionArrayOutput {
+	return i.ToFrontdoorRuleConditionsRequestSchemeConditionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsRequestSchemeConditionArray) ToFrontdoorRuleConditionsRequestSchemeConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRequestSchemeConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsRequestSchemeConditionArrayOutput)
+}
+
+type FrontdoorRuleConditionsRequestSchemeConditionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsRequestSchemeConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsRequestSchemeCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsRequestSchemeConditionOutput) ToFrontdoorRuleConditionsRequestSchemeConditionOutput() FrontdoorRuleConditionsRequestSchemeConditionOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsRequestSchemeConditionOutput) ToFrontdoorRuleConditionsRequestSchemeConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRequestSchemeConditionOutput {
+	return o
+}
+
+// The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+func (o FrontdoorRuleConditionsRequestSchemeConditionOutput) MatchValues() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRequestSchemeCondition) *string { return v.MatchValues }).(pulumi.StringPtrOutput)
+}
+
+// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsRequestSchemeConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRequestSchemeCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Possible value `Equal`. Defaults to `Equal`.
+func (o FrontdoorRuleConditionsRequestSchemeConditionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRequestSchemeCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorRuleConditionsRequestSchemeConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsRequestSchemeConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsRequestSchemeCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsRequestSchemeConditionArrayOutput) ToFrontdoorRuleConditionsRequestSchemeConditionArrayOutput() FrontdoorRuleConditionsRequestSchemeConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsRequestSchemeConditionArrayOutput) ToFrontdoorRuleConditionsRequestSchemeConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRequestSchemeConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsRequestSchemeConditionArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleConditionsRequestSchemeConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRuleConditionsRequestSchemeCondition {
+		return vs[0].([]FrontdoorRuleConditionsRequestSchemeCondition)[vs[1].(int)]
+	}).(FrontdoorRuleConditionsRequestSchemeConditionOutput)
+}
+
+type FrontdoorRuleConditionsRequestUriCondition struct {
+	// One or more string or integer values(e.g. "1") representing the value of the request URL to match. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues []string `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator   string   `pulumi:"operator"`
+	Transforms []string `pulumi:"transforms"`
+}
+
+// FrontdoorRuleConditionsRequestUriConditionInput is an input type that accepts FrontdoorRuleConditionsRequestUriConditionArgs and FrontdoorRuleConditionsRequestUriConditionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsRequestUriConditionInput` via:
+//
+//	FrontdoorRuleConditionsRequestUriConditionArgs{...}
+type FrontdoorRuleConditionsRequestUriConditionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsRequestUriConditionOutput() FrontdoorRuleConditionsRequestUriConditionOutput
+	ToFrontdoorRuleConditionsRequestUriConditionOutputWithContext(context.Context) FrontdoorRuleConditionsRequestUriConditionOutput
+}
+
+type FrontdoorRuleConditionsRequestUriConditionArgs struct {
+	// One or more string or integer values(e.g. "1") representing the value of the request URL to match. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator   pulumi.StringInput      `pulumi:"operator"`
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (FrontdoorRuleConditionsRequestUriConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsRequestUriCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsRequestUriConditionArgs) ToFrontdoorRuleConditionsRequestUriConditionOutput() FrontdoorRuleConditionsRequestUriConditionOutput {
+	return i.ToFrontdoorRuleConditionsRequestUriConditionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsRequestUriConditionArgs) ToFrontdoorRuleConditionsRequestUriConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRequestUriConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsRequestUriConditionOutput)
+}
+
+// FrontdoorRuleConditionsRequestUriConditionArrayInput is an input type that accepts FrontdoorRuleConditionsRequestUriConditionArray and FrontdoorRuleConditionsRequestUriConditionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsRequestUriConditionArrayInput` via:
+//
+//	FrontdoorRuleConditionsRequestUriConditionArray{ FrontdoorRuleConditionsRequestUriConditionArgs{...} }
+type FrontdoorRuleConditionsRequestUriConditionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsRequestUriConditionArrayOutput() FrontdoorRuleConditionsRequestUriConditionArrayOutput
+	ToFrontdoorRuleConditionsRequestUriConditionArrayOutputWithContext(context.Context) FrontdoorRuleConditionsRequestUriConditionArrayOutput
+}
+
+type FrontdoorRuleConditionsRequestUriConditionArray []FrontdoorRuleConditionsRequestUriConditionInput
+
+func (FrontdoorRuleConditionsRequestUriConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsRequestUriCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsRequestUriConditionArray) ToFrontdoorRuleConditionsRequestUriConditionArrayOutput() FrontdoorRuleConditionsRequestUriConditionArrayOutput {
+	return i.ToFrontdoorRuleConditionsRequestUriConditionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsRequestUriConditionArray) ToFrontdoorRuleConditionsRequestUriConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRequestUriConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsRequestUriConditionArrayOutput)
+}
+
+type FrontdoorRuleConditionsRequestUriConditionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsRequestUriConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsRequestUriCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsRequestUriConditionOutput) ToFrontdoorRuleConditionsRequestUriConditionOutput() FrontdoorRuleConditionsRequestUriConditionOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsRequestUriConditionOutput) ToFrontdoorRuleConditionsRequestUriConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRequestUriConditionOutput {
+	return o
+}
+
+// One or more string or integer values(e.g. "1") representing the value of the request URL to match. If multiple values are specified, they're evaluated using `OR` logic.
+func (o FrontdoorRuleConditionsRequestUriConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRequestUriCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsRequestUriConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRequestUriCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsRequestUriConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRequestUriCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+func (o FrontdoorRuleConditionsRequestUriConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsRequestUriCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type FrontdoorRuleConditionsRequestUriConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsRequestUriConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsRequestUriCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsRequestUriConditionArrayOutput) ToFrontdoorRuleConditionsRequestUriConditionArrayOutput() FrontdoorRuleConditionsRequestUriConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsRequestUriConditionArrayOutput) ToFrontdoorRuleConditionsRequestUriConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsRequestUriConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsRequestUriConditionArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleConditionsRequestUriConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRuleConditionsRequestUriCondition {
+		return vs[0].([]FrontdoorRuleConditionsRequestUriCondition)[vs[1].(int)]
+	}).(FrontdoorRuleConditionsRequestUriConditionOutput)
+}
+
+type FrontdoorRuleConditionsServerPortCondition struct {
+	// A list of one or more integer values(e.g. "1") representing the value of the client port to match. Possible values include `80` or `443`. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues []string `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator string `pulumi:"operator"`
+}
+
+// FrontdoorRuleConditionsServerPortConditionInput is an input type that accepts FrontdoorRuleConditionsServerPortConditionArgs and FrontdoorRuleConditionsServerPortConditionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsServerPortConditionInput` via:
+//
+//	FrontdoorRuleConditionsServerPortConditionArgs{...}
+type FrontdoorRuleConditionsServerPortConditionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsServerPortConditionOutput() FrontdoorRuleConditionsServerPortConditionOutput
+	ToFrontdoorRuleConditionsServerPortConditionOutputWithContext(context.Context) FrontdoorRuleConditionsServerPortConditionOutput
+}
+
+type FrontdoorRuleConditionsServerPortConditionArgs struct {
+	// A list of one or more integer values(e.g. "1") representing the value of the client port to match. Possible values include `80` or `443`. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator pulumi.StringInput `pulumi:"operator"`
+}
+
+func (FrontdoorRuleConditionsServerPortConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsServerPortCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsServerPortConditionArgs) ToFrontdoorRuleConditionsServerPortConditionOutput() FrontdoorRuleConditionsServerPortConditionOutput {
+	return i.ToFrontdoorRuleConditionsServerPortConditionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsServerPortConditionArgs) ToFrontdoorRuleConditionsServerPortConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsServerPortConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsServerPortConditionOutput)
+}
+
+// FrontdoorRuleConditionsServerPortConditionArrayInput is an input type that accepts FrontdoorRuleConditionsServerPortConditionArray and FrontdoorRuleConditionsServerPortConditionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsServerPortConditionArrayInput` via:
+//
+//	FrontdoorRuleConditionsServerPortConditionArray{ FrontdoorRuleConditionsServerPortConditionArgs{...} }
+type FrontdoorRuleConditionsServerPortConditionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsServerPortConditionArrayOutput() FrontdoorRuleConditionsServerPortConditionArrayOutput
+	ToFrontdoorRuleConditionsServerPortConditionArrayOutputWithContext(context.Context) FrontdoorRuleConditionsServerPortConditionArrayOutput
+}
+
+type FrontdoorRuleConditionsServerPortConditionArray []FrontdoorRuleConditionsServerPortConditionInput
+
+func (FrontdoorRuleConditionsServerPortConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsServerPortCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsServerPortConditionArray) ToFrontdoorRuleConditionsServerPortConditionArrayOutput() FrontdoorRuleConditionsServerPortConditionArrayOutput {
+	return i.ToFrontdoorRuleConditionsServerPortConditionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsServerPortConditionArray) ToFrontdoorRuleConditionsServerPortConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsServerPortConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsServerPortConditionArrayOutput)
+}
+
+type FrontdoorRuleConditionsServerPortConditionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsServerPortConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsServerPortCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsServerPortConditionOutput) ToFrontdoorRuleConditionsServerPortConditionOutput() FrontdoorRuleConditionsServerPortConditionOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsServerPortConditionOutput) ToFrontdoorRuleConditionsServerPortConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsServerPortConditionOutput {
+	return o
+}
+
+// A list of one or more integer values(e.g. "1") representing the value of the client port to match. Possible values include `80` or `443`. If multiple values are specified, they're evaluated using `OR` logic.
+func (o FrontdoorRuleConditionsServerPortConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsServerPortCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsServerPortConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsServerPortCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsServerPortConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsServerPortCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+type FrontdoorRuleConditionsServerPortConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsServerPortConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsServerPortCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsServerPortConditionArrayOutput) ToFrontdoorRuleConditionsServerPortConditionArrayOutput() FrontdoorRuleConditionsServerPortConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsServerPortConditionArrayOutput) ToFrontdoorRuleConditionsServerPortConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsServerPortConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsServerPortConditionArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleConditionsServerPortConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRuleConditionsServerPortCondition {
+		return vs[0].([]FrontdoorRuleConditionsServerPortCondition)[vs[1].(int)]
+	}).(FrontdoorRuleConditionsServerPortConditionOutput)
+}
+
+type FrontdoorRuleConditionsSocketAddressCondition struct {
+	// Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic.
+	MatchValues []string `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+	Operator *string `pulumi:"operator"`
+}
+
+// FrontdoorRuleConditionsSocketAddressConditionInput is an input type that accepts FrontdoorRuleConditionsSocketAddressConditionArgs and FrontdoorRuleConditionsSocketAddressConditionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsSocketAddressConditionInput` via:
+//
+//	FrontdoorRuleConditionsSocketAddressConditionArgs{...}
+type FrontdoorRuleConditionsSocketAddressConditionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsSocketAddressConditionOutput() FrontdoorRuleConditionsSocketAddressConditionOutput
+	ToFrontdoorRuleConditionsSocketAddressConditionOutputWithContext(context.Context) FrontdoorRuleConditionsSocketAddressConditionOutput
+}
+
+type FrontdoorRuleConditionsSocketAddressConditionArgs struct {
+	// Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+}
+
+func (FrontdoorRuleConditionsSocketAddressConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsSocketAddressCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsSocketAddressConditionArgs) ToFrontdoorRuleConditionsSocketAddressConditionOutput() FrontdoorRuleConditionsSocketAddressConditionOutput {
+	return i.ToFrontdoorRuleConditionsSocketAddressConditionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsSocketAddressConditionArgs) ToFrontdoorRuleConditionsSocketAddressConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsSocketAddressConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsSocketAddressConditionOutput)
+}
+
+// FrontdoorRuleConditionsSocketAddressConditionArrayInput is an input type that accepts FrontdoorRuleConditionsSocketAddressConditionArray and FrontdoorRuleConditionsSocketAddressConditionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsSocketAddressConditionArrayInput` via:
+//
+//	FrontdoorRuleConditionsSocketAddressConditionArray{ FrontdoorRuleConditionsSocketAddressConditionArgs{...} }
+type FrontdoorRuleConditionsSocketAddressConditionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsSocketAddressConditionArrayOutput() FrontdoorRuleConditionsSocketAddressConditionArrayOutput
+	ToFrontdoorRuleConditionsSocketAddressConditionArrayOutputWithContext(context.Context) FrontdoorRuleConditionsSocketAddressConditionArrayOutput
+}
+
+type FrontdoorRuleConditionsSocketAddressConditionArray []FrontdoorRuleConditionsSocketAddressConditionInput
+
+func (FrontdoorRuleConditionsSocketAddressConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsSocketAddressCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsSocketAddressConditionArray) ToFrontdoorRuleConditionsSocketAddressConditionArrayOutput() FrontdoorRuleConditionsSocketAddressConditionArrayOutput {
+	return i.ToFrontdoorRuleConditionsSocketAddressConditionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsSocketAddressConditionArray) ToFrontdoorRuleConditionsSocketAddressConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsSocketAddressConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsSocketAddressConditionArrayOutput)
+}
+
+type FrontdoorRuleConditionsSocketAddressConditionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsSocketAddressConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsSocketAddressCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsSocketAddressConditionOutput) ToFrontdoorRuleConditionsSocketAddressConditionOutput() FrontdoorRuleConditionsSocketAddressConditionOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsSocketAddressConditionOutput) ToFrontdoorRuleConditionsSocketAddressConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsSocketAddressConditionOutput {
+	return o
+}
+
+// Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic.
+func (o FrontdoorRuleConditionsSocketAddressConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsSocketAddressCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsSocketAddressConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsSocketAddressCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+func (o FrontdoorRuleConditionsSocketAddressConditionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsSocketAddressCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorRuleConditionsSocketAddressConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsSocketAddressConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsSocketAddressCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsSocketAddressConditionArrayOutput) ToFrontdoorRuleConditionsSocketAddressConditionArrayOutput() FrontdoorRuleConditionsSocketAddressConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsSocketAddressConditionArrayOutput) ToFrontdoorRuleConditionsSocketAddressConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsSocketAddressConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsSocketAddressConditionArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleConditionsSocketAddressConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRuleConditionsSocketAddressCondition {
+		return vs[0].([]FrontdoorRuleConditionsSocketAddressCondition)[vs[1].(int)]
+	}).(FrontdoorRuleConditionsSocketAddressConditionOutput)
+}
+
+type FrontdoorRuleConditionsSslProtocolCondition struct {
+	// A list of one or more HTTP methods. Possible values include `TLSv1.0`, `TLSv1.1` or `TLS1.2`. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues []string `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// Possible value `Equal`. Defaults to `Equal`.
+	Operator *string `pulumi:"operator"`
+}
+
+// FrontdoorRuleConditionsSslProtocolConditionInput is an input type that accepts FrontdoorRuleConditionsSslProtocolConditionArgs and FrontdoorRuleConditionsSslProtocolConditionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsSslProtocolConditionInput` via:
+//
+//	FrontdoorRuleConditionsSslProtocolConditionArgs{...}
+type FrontdoorRuleConditionsSslProtocolConditionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsSslProtocolConditionOutput() FrontdoorRuleConditionsSslProtocolConditionOutput
+	ToFrontdoorRuleConditionsSslProtocolConditionOutputWithContext(context.Context) FrontdoorRuleConditionsSslProtocolConditionOutput
+}
+
+type FrontdoorRuleConditionsSslProtocolConditionArgs struct {
+	// A list of one or more HTTP methods. Possible values include `TLSv1.0`, `TLSv1.1` or `TLS1.2`. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// Possible value `Equal`. Defaults to `Equal`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+}
+
+func (FrontdoorRuleConditionsSslProtocolConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsSslProtocolCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsSslProtocolConditionArgs) ToFrontdoorRuleConditionsSslProtocolConditionOutput() FrontdoorRuleConditionsSslProtocolConditionOutput {
+	return i.ToFrontdoorRuleConditionsSslProtocolConditionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsSslProtocolConditionArgs) ToFrontdoorRuleConditionsSslProtocolConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsSslProtocolConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsSslProtocolConditionOutput)
+}
+
+// FrontdoorRuleConditionsSslProtocolConditionArrayInput is an input type that accepts FrontdoorRuleConditionsSslProtocolConditionArray and FrontdoorRuleConditionsSslProtocolConditionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsSslProtocolConditionArrayInput` via:
+//
+//	FrontdoorRuleConditionsSslProtocolConditionArray{ FrontdoorRuleConditionsSslProtocolConditionArgs{...} }
+type FrontdoorRuleConditionsSslProtocolConditionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsSslProtocolConditionArrayOutput() FrontdoorRuleConditionsSslProtocolConditionArrayOutput
+	ToFrontdoorRuleConditionsSslProtocolConditionArrayOutputWithContext(context.Context) FrontdoorRuleConditionsSslProtocolConditionArrayOutput
+}
+
+type FrontdoorRuleConditionsSslProtocolConditionArray []FrontdoorRuleConditionsSslProtocolConditionInput
+
+func (FrontdoorRuleConditionsSslProtocolConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsSslProtocolCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsSslProtocolConditionArray) ToFrontdoorRuleConditionsSslProtocolConditionArrayOutput() FrontdoorRuleConditionsSslProtocolConditionArrayOutput {
+	return i.ToFrontdoorRuleConditionsSslProtocolConditionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsSslProtocolConditionArray) ToFrontdoorRuleConditionsSslProtocolConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsSslProtocolConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsSslProtocolConditionArrayOutput)
+}
+
+type FrontdoorRuleConditionsSslProtocolConditionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsSslProtocolConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsSslProtocolCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsSslProtocolConditionOutput) ToFrontdoorRuleConditionsSslProtocolConditionOutput() FrontdoorRuleConditionsSslProtocolConditionOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsSslProtocolConditionOutput) ToFrontdoorRuleConditionsSslProtocolConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsSslProtocolConditionOutput {
+	return o
+}
+
+// A list of one or more HTTP methods. Possible values include `TLSv1.0`, `TLSv1.1` or `TLS1.2`. If multiple values are specified, they're evaluated using `OR` logic.
+func (o FrontdoorRuleConditionsSslProtocolConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsSslProtocolCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsSslProtocolConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsSslProtocolCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Possible value `Equal`. Defaults to `Equal`.
+func (o FrontdoorRuleConditionsSslProtocolConditionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsSslProtocolCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorRuleConditionsSslProtocolConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsSslProtocolConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsSslProtocolCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsSslProtocolConditionArrayOutput) ToFrontdoorRuleConditionsSslProtocolConditionArrayOutput() FrontdoorRuleConditionsSslProtocolConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsSslProtocolConditionArrayOutput) ToFrontdoorRuleConditionsSslProtocolConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsSslProtocolConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsSslProtocolConditionArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleConditionsSslProtocolConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRuleConditionsSslProtocolCondition {
+		return vs[0].([]FrontdoorRuleConditionsSslProtocolCondition)[vs[1].(int)]
+	}).(FrontdoorRuleConditionsSslProtocolConditionOutput)
+}
+
+type FrontdoorRuleConditionsUrlFileExtensionCondition struct {
+	// A list of one or more string or integer values(e.g. "1") representing the value of the request file extension to match. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues []string `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator   string   `pulumi:"operator"`
+	Transforms []string `pulumi:"transforms"`
+}
+
+// FrontdoorRuleConditionsUrlFileExtensionConditionInput is an input type that accepts FrontdoorRuleConditionsUrlFileExtensionConditionArgs and FrontdoorRuleConditionsUrlFileExtensionConditionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsUrlFileExtensionConditionInput` via:
+//
+//	FrontdoorRuleConditionsUrlFileExtensionConditionArgs{...}
+type FrontdoorRuleConditionsUrlFileExtensionConditionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsUrlFileExtensionConditionOutput() FrontdoorRuleConditionsUrlFileExtensionConditionOutput
+	ToFrontdoorRuleConditionsUrlFileExtensionConditionOutputWithContext(context.Context) FrontdoorRuleConditionsUrlFileExtensionConditionOutput
+}
+
+type FrontdoorRuleConditionsUrlFileExtensionConditionArgs struct {
+	// A list of one or more string or integer values(e.g. "1") representing the value of the request file extension to match. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator   pulumi.StringInput      `pulumi:"operator"`
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (FrontdoorRuleConditionsUrlFileExtensionConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsUrlFileExtensionCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsUrlFileExtensionConditionArgs) ToFrontdoorRuleConditionsUrlFileExtensionConditionOutput() FrontdoorRuleConditionsUrlFileExtensionConditionOutput {
+	return i.ToFrontdoorRuleConditionsUrlFileExtensionConditionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsUrlFileExtensionConditionArgs) ToFrontdoorRuleConditionsUrlFileExtensionConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsUrlFileExtensionConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsUrlFileExtensionConditionOutput)
+}
+
+// FrontdoorRuleConditionsUrlFileExtensionConditionArrayInput is an input type that accepts FrontdoorRuleConditionsUrlFileExtensionConditionArray and FrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsUrlFileExtensionConditionArrayInput` via:
+//
+//	FrontdoorRuleConditionsUrlFileExtensionConditionArray{ FrontdoorRuleConditionsUrlFileExtensionConditionArgs{...} }
+type FrontdoorRuleConditionsUrlFileExtensionConditionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput() FrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput
+	ToFrontdoorRuleConditionsUrlFileExtensionConditionArrayOutputWithContext(context.Context) FrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput
+}
+
+type FrontdoorRuleConditionsUrlFileExtensionConditionArray []FrontdoorRuleConditionsUrlFileExtensionConditionInput
+
+func (FrontdoorRuleConditionsUrlFileExtensionConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsUrlFileExtensionCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsUrlFileExtensionConditionArray) ToFrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput() FrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput {
+	return i.ToFrontdoorRuleConditionsUrlFileExtensionConditionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsUrlFileExtensionConditionArray) ToFrontdoorRuleConditionsUrlFileExtensionConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput)
+}
+
+type FrontdoorRuleConditionsUrlFileExtensionConditionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsUrlFileExtensionConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsUrlFileExtensionCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsUrlFileExtensionConditionOutput) ToFrontdoorRuleConditionsUrlFileExtensionConditionOutput() FrontdoorRuleConditionsUrlFileExtensionConditionOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsUrlFileExtensionConditionOutput) ToFrontdoorRuleConditionsUrlFileExtensionConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsUrlFileExtensionConditionOutput {
+	return o
+}
+
+// A list of one or more string or integer values(e.g. "1") representing the value of the request file extension to match. If multiple values are specified, they're evaluated using `OR` logic.
+func (o FrontdoorRuleConditionsUrlFileExtensionConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsUrlFileExtensionCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsUrlFileExtensionConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsUrlFileExtensionCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsUrlFileExtensionConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsUrlFileExtensionCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+func (o FrontdoorRuleConditionsUrlFileExtensionConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsUrlFileExtensionCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type FrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsUrlFileExtensionCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput) ToFrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput() FrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput) ToFrontdoorRuleConditionsUrlFileExtensionConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleConditionsUrlFileExtensionConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRuleConditionsUrlFileExtensionCondition {
+		return vs[0].([]FrontdoorRuleConditionsUrlFileExtensionCondition)[vs[1].(int)]
+	}).(FrontdoorRuleConditionsUrlFileExtensionConditionOutput)
+}
+
+type FrontdoorRuleConditionsUrlFilenameCondition struct {
+	// A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues []string `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator   string   `pulumi:"operator"`
+	Transforms []string `pulumi:"transforms"`
+}
+
+// FrontdoorRuleConditionsUrlFilenameConditionInput is an input type that accepts FrontdoorRuleConditionsUrlFilenameConditionArgs and FrontdoorRuleConditionsUrlFilenameConditionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsUrlFilenameConditionInput` via:
+//
+//	FrontdoorRuleConditionsUrlFilenameConditionArgs{...}
+type FrontdoorRuleConditionsUrlFilenameConditionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsUrlFilenameConditionOutput() FrontdoorRuleConditionsUrlFilenameConditionOutput
+	ToFrontdoorRuleConditionsUrlFilenameConditionOutputWithContext(context.Context) FrontdoorRuleConditionsUrlFilenameConditionOutput
+}
+
+type FrontdoorRuleConditionsUrlFilenameConditionArgs struct {
+	// A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator   pulumi.StringInput      `pulumi:"operator"`
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (FrontdoorRuleConditionsUrlFilenameConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsUrlFilenameCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsUrlFilenameConditionArgs) ToFrontdoorRuleConditionsUrlFilenameConditionOutput() FrontdoorRuleConditionsUrlFilenameConditionOutput {
+	return i.ToFrontdoorRuleConditionsUrlFilenameConditionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsUrlFilenameConditionArgs) ToFrontdoorRuleConditionsUrlFilenameConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsUrlFilenameConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsUrlFilenameConditionOutput)
+}
+
+// FrontdoorRuleConditionsUrlFilenameConditionArrayInput is an input type that accepts FrontdoorRuleConditionsUrlFilenameConditionArray and FrontdoorRuleConditionsUrlFilenameConditionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsUrlFilenameConditionArrayInput` via:
+//
+//	FrontdoorRuleConditionsUrlFilenameConditionArray{ FrontdoorRuleConditionsUrlFilenameConditionArgs{...} }
+type FrontdoorRuleConditionsUrlFilenameConditionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsUrlFilenameConditionArrayOutput() FrontdoorRuleConditionsUrlFilenameConditionArrayOutput
+	ToFrontdoorRuleConditionsUrlFilenameConditionArrayOutputWithContext(context.Context) FrontdoorRuleConditionsUrlFilenameConditionArrayOutput
+}
+
+type FrontdoorRuleConditionsUrlFilenameConditionArray []FrontdoorRuleConditionsUrlFilenameConditionInput
+
+func (FrontdoorRuleConditionsUrlFilenameConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsUrlFilenameCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsUrlFilenameConditionArray) ToFrontdoorRuleConditionsUrlFilenameConditionArrayOutput() FrontdoorRuleConditionsUrlFilenameConditionArrayOutput {
+	return i.ToFrontdoorRuleConditionsUrlFilenameConditionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsUrlFilenameConditionArray) ToFrontdoorRuleConditionsUrlFilenameConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsUrlFilenameConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsUrlFilenameConditionArrayOutput)
+}
+
+type FrontdoorRuleConditionsUrlFilenameConditionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsUrlFilenameConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsUrlFilenameCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsUrlFilenameConditionOutput) ToFrontdoorRuleConditionsUrlFilenameConditionOutput() FrontdoorRuleConditionsUrlFilenameConditionOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsUrlFilenameConditionOutput) ToFrontdoorRuleConditionsUrlFilenameConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsUrlFilenameConditionOutput {
+	return o
+}
+
+// A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
+func (o FrontdoorRuleConditionsUrlFilenameConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsUrlFilenameCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsUrlFilenameConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsUrlFilenameCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsUrlFilenameConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsUrlFilenameCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+func (o FrontdoorRuleConditionsUrlFilenameConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsUrlFilenameCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type FrontdoorRuleConditionsUrlFilenameConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsUrlFilenameConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsUrlFilenameCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsUrlFilenameConditionArrayOutput) ToFrontdoorRuleConditionsUrlFilenameConditionArrayOutput() FrontdoorRuleConditionsUrlFilenameConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsUrlFilenameConditionArrayOutput) ToFrontdoorRuleConditionsUrlFilenameConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsUrlFilenameConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsUrlFilenameConditionArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleConditionsUrlFilenameConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRuleConditionsUrlFilenameCondition {
+		return vs[0].([]FrontdoorRuleConditionsUrlFilenameCondition)[vs[1].(int)]
+	}).(FrontdoorRuleConditionsUrlFilenameConditionOutput)
+}
+
+type FrontdoorRuleConditionsUrlPathCondition struct {
+	// One or more string or integer values(e.g. "1") representing the value of the request path to match. Don't include the leading slash (`/`). If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues []string `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition *bool `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator   string   `pulumi:"operator"`
+	Transforms []string `pulumi:"transforms"`
+}
+
+// FrontdoorRuleConditionsUrlPathConditionInput is an input type that accepts FrontdoorRuleConditionsUrlPathConditionArgs and FrontdoorRuleConditionsUrlPathConditionOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsUrlPathConditionInput` via:
+//
+//	FrontdoorRuleConditionsUrlPathConditionArgs{...}
+type FrontdoorRuleConditionsUrlPathConditionInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsUrlPathConditionOutput() FrontdoorRuleConditionsUrlPathConditionOutput
+	ToFrontdoorRuleConditionsUrlPathConditionOutputWithContext(context.Context) FrontdoorRuleConditionsUrlPathConditionOutput
+}
+
+type FrontdoorRuleConditionsUrlPathConditionArgs struct {
+	// One or more string or integer values(e.g. "1") representing the value of the request path to match. Don't include the leading slash (`/`). If multiple values are specified, they're evaluated using `OR` logic.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
+	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+	Operator   pulumi.StringInput      `pulumi:"operator"`
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (FrontdoorRuleConditionsUrlPathConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsUrlPathCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsUrlPathConditionArgs) ToFrontdoorRuleConditionsUrlPathConditionOutput() FrontdoorRuleConditionsUrlPathConditionOutput {
+	return i.ToFrontdoorRuleConditionsUrlPathConditionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsUrlPathConditionArgs) ToFrontdoorRuleConditionsUrlPathConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsUrlPathConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsUrlPathConditionOutput)
+}
+
+// FrontdoorRuleConditionsUrlPathConditionArrayInput is an input type that accepts FrontdoorRuleConditionsUrlPathConditionArray and FrontdoorRuleConditionsUrlPathConditionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorRuleConditionsUrlPathConditionArrayInput` via:
+//
+//	FrontdoorRuleConditionsUrlPathConditionArray{ FrontdoorRuleConditionsUrlPathConditionArgs{...} }
+type FrontdoorRuleConditionsUrlPathConditionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorRuleConditionsUrlPathConditionArrayOutput() FrontdoorRuleConditionsUrlPathConditionArrayOutput
+	ToFrontdoorRuleConditionsUrlPathConditionArrayOutputWithContext(context.Context) FrontdoorRuleConditionsUrlPathConditionArrayOutput
+}
+
+type FrontdoorRuleConditionsUrlPathConditionArray []FrontdoorRuleConditionsUrlPathConditionInput
+
+func (FrontdoorRuleConditionsUrlPathConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsUrlPathCondition)(nil)).Elem()
+}
+
+func (i FrontdoorRuleConditionsUrlPathConditionArray) ToFrontdoorRuleConditionsUrlPathConditionArrayOutput() FrontdoorRuleConditionsUrlPathConditionArrayOutput {
+	return i.ToFrontdoorRuleConditionsUrlPathConditionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRuleConditionsUrlPathConditionArray) ToFrontdoorRuleConditionsUrlPathConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsUrlPathConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRuleConditionsUrlPathConditionArrayOutput)
+}
+
+type FrontdoorRuleConditionsUrlPathConditionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsUrlPathConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRuleConditionsUrlPathCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsUrlPathConditionOutput) ToFrontdoorRuleConditionsUrlPathConditionOutput() FrontdoorRuleConditionsUrlPathConditionOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsUrlPathConditionOutput) ToFrontdoorRuleConditionsUrlPathConditionOutputWithContext(ctx context.Context) FrontdoorRuleConditionsUrlPathConditionOutput {
+	return o
+}
+
+// One or more string or integer values(e.g. "1") representing the value of the request path to match. Don't include the leading slash (`/`). If multiple values are specified, they're evaluated using `OR` logic.
+func (o FrontdoorRuleConditionsUrlPathConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsUrlPathCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsUrlPathConditionOutput) NegateCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsUrlPathCondition) *bool { return v.NegateCondition }).(pulumi.BoolPtrOutput)
+}
+
+// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+func (o FrontdoorRuleConditionsUrlPathConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsUrlPathCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+func (o FrontdoorRuleConditionsUrlPathConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRuleConditionsUrlPathCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type FrontdoorRuleConditionsUrlPathConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRuleConditionsUrlPathConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorRuleConditionsUrlPathCondition)(nil)).Elem()
+}
+
+func (o FrontdoorRuleConditionsUrlPathConditionArrayOutput) ToFrontdoorRuleConditionsUrlPathConditionArrayOutput() FrontdoorRuleConditionsUrlPathConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsUrlPathConditionArrayOutput) ToFrontdoorRuleConditionsUrlPathConditionArrayOutputWithContext(ctx context.Context) FrontdoorRuleConditionsUrlPathConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorRuleConditionsUrlPathConditionArrayOutput) Index(i pulumi.IntInput) FrontdoorRuleConditionsUrlPathConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorRuleConditionsUrlPathCondition {
+		return vs[0].([]FrontdoorRuleConditionsUrlPathCondition)[vs[1].(int)]
+	}).(FrontdoorRuleConditionsUrlPathConditionOutput)
+}
+
+type FrontdoorSecretSecret struct {
+	// A `customerCertificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+	CustomerCertificates []FrontdoorSecretSecretCustomerCertificate `pulumi:"customerCertificates"`
+}
+
+// FrontdoorSecretSecretInput is an input type that accepts FrontdoorSecretSecretArgs and FrontdoorSecretSecretOutput values.
+// You can construct a concrete instance of `FrontdoorSecretSecretInput` via:
+//
+//	FrontdoorSecretSecretArgs{...}
+type FrontdoorSecretSecretInput interface {
+	pulumi.Input
+
+	ToFrontdoorSecretSecretOutput() FrontdoorSecretSecretOutput
+	ToFrontdoorSecretSecretOutputWithContext(context.Context) FrontdoorSecretSecretOutput
+}
+
+type FrontdoorSecretSecretArgs struct {
+	// A `customerCertificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+	CustomerCertificates FrontdoorSecretSecretCustomerCertificateArrayInput `pulumi:"customerCertificates"`
+}
+
+func (FrontdoorSecretSecretArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorSecretSecret)(nil)).Elem()
+}
+
+func (i FrontdoorSecretSecretArgs) ToFrontdoorSecretSecretOutput() FrontdoorSecretSecretOutput {
+	return i.ToFrontdoorSecretSecretOutputWithContext(context.Background())
+}
+
+func (i FrontdoorSecretSecretArgs) ToFrontdoorSecretSecretOutputWithContext(ctx context.Context) FrontdoorSecretSecretOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorSecretSecretOutput)
+}
+
+func (i FrontdoorSecretSecretArgs) ToFrontdoorSecretSecretPtrOutput() FrontdoorSecretSecretPtrOutput {
+	return i.ToFrontdoorSecretSecretPtrOutputWithContext(context.Background())
+}
+
+func (i FrontdoorSecretSecretArgs) ToFrontdoorSecretSecretPtrOutputWithContext(ctx context.Context) FrontdoorSecretSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorSecretSecretOutput).ToFrontdoorSecretSecretPtrOutputWithContext(ctx)
+}
+
+// FrontdoorSecretSecretPtrInput is an input type that accepts FrontdoorSecretSecretArgs, FrontdoorSecretSecretPtr and FrontdoorSecretSecretPtrOutput values.
+// You can construct a concrete instance of `FrontdoorSecretSecretPtrInput` via:
+//
+//	        FrontdoorSecretSecretArgs{...}
+//
+//	or:
+//
+//	        nil
+type FrontdoorSecretSecretPtrInput interface {
+	pulumi.Input
+
+	ToFrontdoorSecretSecretPtrOutput() FrontdoorSecretSecretPtrOutput
+	ToFrontdoorSecretSecretPtrOutputWithContext(context.Context) FrontdoorSecretSecretPtrOutput
+}
+
+type frontdoorSecretSecretPtrType FrontdoorSecretSecretArgs
+
+func FrontdoorSecretSecretPtr(v *FrontdoorSecretSecretArgs) FrontdoorSecretSecretPtrInput {
+	return (*frontdoorSecretSecretPtrType)(v)
+}
+
+func (*frontdoorSecretSecretPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorSecretSecret)(nil)).Elem()
+}
+
+func (i *frontdoorSecretSecretPtrType) ToFrontdoorSecretSecretPtrOutput() FrontdoorSecretSecretPtrOutput {
+	return i.ToFrontdoorSecretSecretPtrOutputWithContext(context.Background())
+}
+
+func (i *frontdoorSecretSecretPtrType) ToFrontdoorSecretSecretPtrOutputWithContext(ctx context.Context) FrontdoorSecretSecretPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorSecretSecretPtrOutput)
+}
+
+type FrontdoorSecretSecretOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorSecretSecretOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorSecretSecret)(nil)).Elem()
+}
+
+func (o FrontdoorSecretSecretOutput) ToFrontdoorSecretSecretOutput() FrontdoorSecretSecretOutput {
+	return o
+}
+
+func (o FrontdoorSecretSecretOutput) ToFrontdoorSecretSecretOutputWithContext(ctx context.Context) FrontdoorSecretSecretOutput {
+	return o
+}
+
+func (o FrontdoorSecretSecretOutput) ToFrontdoorSecretSecretPtrOutput() FrontdoorSecretSecretPtrOutput {
+	return o.ToFrontdoorSecretSecretPtrOutputWithContext(context.Background())
+}
+
+func (o FrontdoorSecretSecretOutput) ToFrontdoorSecretSecretPtrOutputWithContext(ctx context.Context) FrontdoorSecretSecretPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorSecretSecret) *FrontdoorSecretSecret {
+		return &v
+	}).(FrontdoorSecretSecretPtrOutput)
+}
+
+// A `customerCertificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+func (o FrontdoorSecretSecretOutput) CustomerCertificates() FrontdoorSecretSecretCustomerCertificateArrayOutput {
+	return o.ApplyT(func(v FrontdoorSecretSecret) []FrontdoorSecretSecretCustomerCertificate {
+		return v.CustomerCertificates
+	}).(FrontdoorSecretSecretCustomerCertificateArrayOutput)
+}
+
+type FrontdoorSecretSecretPtrOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorSecretSecretPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorSecretSecret)(nil)).Elem()
+}
+
+func (o FrontdoorSecretSecretPtrOutput) ToFrontdoorSecretSecretPtrOutput() FrontdoorSecretSecretPtrOutput {
+	return o
+}
+
+func (o FrontdoorSecretSecretPtrOutput) ToFrontdoorSecretSecretPtrOutputWithContext(ctx context.Context) FrontdoorSecretSecretPtrOutput {
+	return o
+}
+
+func (o FrontdoorSecretSecretPtrOutput) Elem() FrontdoorSecretSecretOutput {
+	return o.ApplyT(func(v *FrontdoorSecretSecret) FrontdoorSecretSecret {
+		if v != nil {
+			return *v
+		}
+		var ret FrontdoorSecretSecret
+		return ret
+	}).(FrontdoorSecretSecretOutput)
+}
+
+// A `customerCertificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+func (o FrontdoorSecretSecretPtrOutput) CustomerCertificates() FrontdoorSecretSecretCustomerCertificateArrayOutput {
+	return o.ApplyT(func(v *FrontdoorSecretSecret) []FrontdoorSecretSecretCustomerCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerCertificates
+	}).(FrontdoorSecretSecretCustomerCertificateArrayOutput)
+}
+
+type FrontdoorSecretSecretCustomerCertificate struct {
+	// The key vault certificate resources ID attribute. Changing this forces a new Frontdoor Secret to be created.
+	KeyVaultCertificateId string `pulumi:"keyVaultCertificateId"`
+	// One or more `subject alternative names` contained within the key vault certificate.
+	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
+}
+
+// FrontdoorSecretSecretCustomerCertificateInput is an input type that accepts FrontdoorSecretSecretCustomerCertificateArgs and FrontdoorSecretSecretCustomerCertificateOutput values.
+// You can construct a concrete instance of `FrontdoorSecretSecretCustomerCertificateInput` via:
+//
+//	FrontdoorSecretSecretCustomerCertificateArgs{...}
+type FrontdoorSecretSecretCustomerCertificateInput interface {
+	pulumi.Input
+
+	ToFrontdoorSecretSecretCustomerCertificateOutput() FrontdoorSecretSecretCustomerCertificateOutput
+	ToFrontdoorSecretSecretCustomerCertificateOutputWithContext(context.Context) FrontdoorSecretSecretCustomerCertificateOutput
+}
+
+type FrontdoorSecretSecretCustomerCertificateArgs struct {
+	// The key vault certificate resources ID attribute. Changing this forces a new Frontdoor Secret to be created.
+	KeyVaultCertificateId pulumi.StringInput `pulumi:"keyVaultCertificateId"`
+	// One or more `subject alternative names` contained within the key vault certificate.
+	SubjectAlternativeNames pulumi.StringArrayInput `pulumi:"subjectAlternativeNames"`
+}
+
+func (FrontdoorSecretSecretCustomerCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorSecretSecretCustomerCertificate)(nil)).Elem()
+}
+
+func (i FrontdoorSecretSecretCustomerCertificateArgs) ToFrontdoorSecretSecretCustomerCertificateOutput() FrontdoorSecretSecretCustomerCertificateOutput {
+	return i.ToFrontdoorSecretSecretCustomerCertificateOutputWithContext(context.Background())
+}
+
+func (i FrontdoorSecretSecretCustomerCertificateArgs) ToFrontdoorSecretSecretCustomerCertificateOutputWithContext(ctx context.Context) FrontdoorSecretSecretCustomerCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorSecretSecretCustomerCertificateOutput)
+}
+
+// FrontdoorSecretSecretCustomerCertificateArrayInput is an input type that accepts FrontdoorSecretSecretCustomerCertificateArray and FrontdoorSecretSecretCustomerCertificateArrayOutput values.
+// You can construct a concrete instance of `FrontdoorSecretSecretCustomerCertificateArrayInput` via:
+//
+//	FrontdoorSecretSecretCustomerCertificateArray{ FrontdoorSecretSecretCustomerCertificateArgs{...} }
+type FrontdoorSecretSecretCustomerCertificateArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorSecretSecretCustomerCertificateArrayOutput() FrontdoorSecretSecretCustomerCertificateArrayOutput
+	ToFrontdoorSecretSecretCustomerCertificateArrayOutputWithContext(context.Context) FrontdoorSecretSecretCustomerCertificateArrayOutput
+}
+
+type FrontdoorSecretSecretCustomerCertificateArray []FrontdoorSecretSecretCustomerCertificateInput
+
+func (FrontdoorSecretSecretCustomerCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorSecretSecretCustomerCertificate)(nil)).Elem()
+}
+
+func (i FrontdoorSecretSecretCustomerCertificateArray) ToFrontdoorSecretSecretCustomerCertificateArrayOutput() FrontdoorSecretSecretCustomerCertificateArrayOutput {
+	return i.ToFrontdoorSecretSecretCustomerCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorSecretSecretCustomerCertificateArray) ToFrontdoorSecretSecretCustomerCertificateArrayOutputWithContext(ctx context.Context) FrontdoorSecretSecretCustomerCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorSecretSecretCustomerCertificateArrayOutput)
+}
+
+type FrontdoorSecretSecretCustomerCertificateOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorSecretSecretCustomerCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorSecretSecretCustomerCertificate)(nil)).Elem()
+}
+
+func (o FrontdoorSecretSecretCustomerCertificateOutput) ToFrontdoorSecretSecretCustomerCertificateOutput() FrontdoorSecretSecretCustomerCertificateOutput {
+	return o
+}
+
+func (o FrontdoorSecretSecretCustomerCertificateOutput) ToFrontdoorSecretSecretCustomerCertificateOutputWithContext(ctx context.Context) FrontdoorSecretSecretCustomerCertificateOutput {
+	return o
+}
+
+// The key vault certificate resources ID attribute. Changing this forces a new Frontdoor Secret to be created.
+func (o FrontdoorSecretSecretCustomerCertificateOutput) KeyVaultCertificateId() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorSecretSecretCustomerCertificate) string { return v.KeyVaultCertificateId }).(pulumi.StringOutput)
+}
+
+// One or more `subject alternative names` contained within the key vault certificate.
+func (o FrontdoorSecretSecretCustomerCertificateOutput) SubjectAlternativeNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorSecretSecretCustomerCertificate) []string { return v.SubjectAlternativeNames }).(pulumi.StringArrayOutput)
+}
+
+type FrontdoorSecretSecretCustomerCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorSecretSecretCustomerCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorSecretSecretCustomerCertificate)(nil)).Elem()
+}
+
+func (o FrontdoorSecretSecretCustomerCertificateArrayOutput) ToFrontdoorSecretSecretCustomerCertificateArrayOutput() FrontdoorSecretSecretCustomerCertificateArrayOutput {
+	return o
+}
+
+func (o FrontdoorSecretSecretCustomerCertificateArrayOutput) ToFrontdoorSecretSecretCustomerCertificateArrayOutputWithContext(ctx context.Context) FrontdoorSecretSecretCustomerCertificateArrayOutput {
+	return o
+}
+
+func (o FrontdoorSecretSecretCustomerCertificateArrayOutput) Index(i pulumi.IntInput) FrontdoorSecretSecretCustomerCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorSecretSecretCustomerCertificate {
+		return vs[0].([]FrontdoorSecretSecretCustomerCertificate)[vs[1].(int)]
+	}).(FrontdoorSecretSecretCustomerCertificateOutput)
+}
+
 type FrontdoorSecurityPolicySecurityPolicies struct {
 	// An `firewall` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
 	Firewall FrontdoorSecurityPolicySecurityPoliciesFirewall `pulumi:"firewall"`
@@ -7442,6 +11581,62 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginGroupLoadBalancingPtrInput)(nil)).Elem(), FrontdoorOriginGroupLoadBalancingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginPrivateLinkInput)(nil)).Elem(), FrontdoorOriginPrivateLinkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginPrivateLinkPtrInput)(nil)).Elem(), FrontdoorOriginPrivateLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleActionsInput)(nil)).Elem(), FrontdoorRuleActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleActionsPtrInput)(nil)).Elem(), FrontdoorRuleActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleActionsRequestHeaderActionInput)(nil)).Elem(), FrontdoorRuleActionsRequestHeaderActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleActionsRequestHeaderActionArrayInput)(nil)).Elem(), FrontdoorRuleActionsRequestHeaderActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleActionsResponseHeaderActionInput)(nil)).Elem(), FrontdoorRuleActionsResponseHeaderActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleActionsResponseHeaderActionArrayInput)(nil)).Elem(), FrontdoorRuleActionsResponseHeaderActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleActionsRouteConfigurationOverrideActionInput)(nil)).Elem(), FrontdoorRuleActionsRouteConfigurationOverrideActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleActionsRouteConfigurationOverrideActionPtrInput)(nil)).Elem(), FrontdoorRuleActionsRouteConfigurationOverrideActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleActionsUrlRedirectActionInput)(nil)).Elem(), FrontdoorRuleActionsUrlRedirectActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleActionsUrlRedirectActionPtrInput)(nil)).Elem(), FrontdoorRuleActionsUrlRedirectActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleActionsUrlRewriteActionInput)(nil)).Elem(), FrontdoorRuleActionsUrlRewriteActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleActionsUrlRewriteActionPtrInput)(nil)).Elem(), FrontdoorRuleActionsUrlRewriteActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsInput)(nil)).Elem(), FrontdoorRuleConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsPtrInput)(nil)).Elem(), FrontdoorRuleConditionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsClientPortConditionInput)(nil)).Elem(), FrontdoorRuleConditionsClientPortConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsClientPortConditionArrayInput)(nil)).Elem(), FrontdoorRuleConditionsClientPortConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsCookiesConditionInput)(nil)).Elem(), FrontdoorRuleConditionsCookiesConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsCookiesConditionArrayInput)(nil)).Elem(), FrontdoorRuleConditionsCookiesConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsHostNameConditionInput)(nil)).Elem(), FrontdoorRuleConditionsHostNameConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsHostNameConditionArrayInput)(nil)).Elem(), FrontdoorRuleConditionsHostNameConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsHttpVersionConditionInput)(nil)).Elem(), FrontdoorRuleConditionsHttpVersionConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsHttpVersionConditionArrayInput)(nil)).Elem(), FrontdoorRuleConditionsHttpVersionConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsIsDeviceConditionInput)(nil)).Elem(), FrontdoorRuleConditionsIsDeviceConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsIsDeviceConditionArrayInput)(nil)).Elem(), FrontdoorRuleConditionsIsDeviceConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsPostArgsConditionInput)(nil)).Elem(), FrontdoorRuleConditionsPostArgsConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsPostArgsConditionArrayInput)(nil)).Elem(), FrontdoorRuleConditionsPostArgsConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsQueryStringConditionInput)(nil)).Elem(), FrontdoorRuleConditionsQueryStringConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsQueryStringConditionArrayInput)(nil)).Elem(), FrontdoorRuleConditionsQueryStringConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsRemoteAddressConditionInput)(nil)).Elem(), FrontdoorRuleConditionsRemoteAddressConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsRemoteAddressConditionArrayInput)(nil)).Elem(), FrontdoorRuleConditionsRemoteAddressConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsRequestBodyConditionInput)(nil)).Elem(), FrontdoorRuleConditionsRequestBodyConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsRequestBodyConditionArrayInput)(nil)).Elem(), FrontdoorRuleConditionsRequestBodyConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsRequestHeaderConditionInput)(nil)).Elem(), FrontdoorRuleConditionsRequestHeaderConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsRequestHeaderConditionArrayInput)(nil)).Elem(), FrontdoorRuleConditionsRequestHeaderConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsRequestMethodConditionInput)(nil)).Elem(), FrontdoorRuleConditionsRequestMethodConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsRequestMethodConditionArrayInput)(nil)).Elem(), FrontdoorRuleConditionsRequestMethodConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsRequestSchemeConditionInput)(nil)).Elem(), FrontdoorRuleConditionsRequestSchemeConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsRequestSchemeConditionArrayInput)(nil)).Elem(), FrontdoorRuleConditionsRequestSchemeConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsRequestUriConditionInput)(nil)).Elem(), FrontdoorRuleConditionsRequestUriConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsRequestUriConditionArrayInput)(nil)).Elem(), FrontdoorRuleConditionsRequestUriConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsServerPortConditionInput)(nil)).Elem(), FrontdoorRuleConditionsServerPortConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsServerPortConditionArrayInput)(nil)).Elem(), FrontdoorRuleConditionsServerPortConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsSocketAddressConditionInput)(nil)).Elem(), FrontdoorRuleConditionsSocketAddressConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsSocketAddressConditionArrayInput)(nil)).Elem(), FrontdoorRuleConditionsSocketAddressConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsSslProtocolConditionInput)(nil)).Elem(), FrontdoorRuleConditionsSslProtocolConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsSslProtocolConditionArrayInput)(nil)).Elem(), FrontdoorRuleConditionsSslProtocolConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsUrlFileExtensionConditionInput)(nil)).Elem(), FrontdoorRuleConditionsUrlFileExtensionConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsUrlFileExtensionConditionArrayInput)(nil)).Elem(), FrontdoorRuleConditionsUrlFileExtensionConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsUrlFilenameConditionInput)(nil)).Elem(), FrontdoorRuleConditionsUrlFilenameConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsUrlFilenameConditionArrayInput)(nil)).Elem(), FrontdoorRuleConditionsUrlFilenameConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsUrlPathConditionInput)(nil)).Elem(), FrontdoorRuleConditionsUrlPathConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleConditionsUrlPathConditionArrayInput)(nil)).Elem(), FrontdoorRuleConditionsUrlPathConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorSecretSecretInput)(nil)).Elem(), FrontdoorSecretSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorSecretSecretPtrInput)(nil)).Elem(), FrontdoorSecretSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorSecretSecretCustomerCertificateInput)(nil)).Elem(), FrontdoorSecretSecretCustomerCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorSecretSecretCustomerCertificateArrayInput)(nil)).Elem(), FrontdoorSecretSecretCustomerCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorSecurityPolicySecurityPoliciesInput)(nil)).Elem(), FrontdoorSecurityPolicySecurityPoliciesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorSecurityPolicySecurityPoliciesPtrInput)(nil)).Elem(), FrontdoorSecurityPolicySecurityPoliciesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorSecurityPolicySecurityPoliciesFirewallInput)(nil)).Elem(), FrontdoorSecurityPolicySecurityPoliciesFirewallArgs{})
@@ -7540,6 +11735,62 @@ func init() {
 	pulumi.RegisterOutputType(FrontdoorOriginGroupLoadBalancingPtrOutput{})
 	pulumi.RegisterOutputType(FrontdoorOriginPrivateLinkOutput{})
 	pulumi.RegisterOutputType(FrontdoorOriginPrivateLinkPtrOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleActionsOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleActionsPtrOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleActionsRequestHeaderActionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleActionsRequestHeaderActionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleActionsResponseHeaderActionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleActionsResponseHeaderActionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleActionsRouteConfigurationOverrideActionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleActionsUrlRedirectActionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleActionsUrlRedirectActionPtrOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleActionsUrlRewriteActionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleActionsUrlRewriteActionPtrOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsPtrOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsClientPortConditionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsClientPortConditionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsCookiesConditionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsCookiesConditionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsHostNameConditionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsHostNameConditionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsHttpVersionConditionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsHttpVersionConditionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsIsDeviceConditionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsIsDeviceConditionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsPostArgsConditionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsPostArgsConditionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsQueryStringConditionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsQueryStringConditionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsRemoteAddressConditionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsRemoteAddressConditionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsRequestBodyConditionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsRequestBodyConditionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsRequestHeaderConditionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsRequestHeaderConditionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsRequestMethodConditionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsRequestMethodConditionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsRequestSchemeConditionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsRequestSchemeConditionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsRequestUriConditionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsRequestUriConditionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsServerPortConditionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsServerPortConditionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsSocketAddressConditionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsSocketAddressConditionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsSslProtocolConditionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsSslProtocolConditionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsUrlFileExtensionConditionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsUrlFileExtensionConditionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsUrlFilenameConditionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsUrlFilenameConditionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsUrlPathConditionOutput{})
+	pulumi.RegisterOutputType(FrontdoorRuleConditionsUrlPathConditionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorSecretSecretOutput{})
+	pulumi.RegisterOutputType(FrontdoorSecretSecretPtrOutput{})
+	pulumi.RegisterOutputType(FrontdoorSecretSecretCustomerCertificateOutput{})
+	pulumi.RegisterOutputType(FrontdoorSecretSecretCustomerCertificateArrayOutput{})
 	pulumi.RegisterOutputType(FrontdoorSecurityPolicySecurityPoliciesOutput{})
 	pulumi.RegisterOutputType(FrontdoorSecurityPolicySecurityPoliciesPtrOutput{})
 	pulumi.RegisterOutputType(FrontdoorSecurityPolicySecurityPoliciesFirewallOutput{})

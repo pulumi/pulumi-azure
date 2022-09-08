@@ -16,6 +16,21 @@ public final class OutputMssqlArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final OutputMssqlArgs Empty = new OutputMssqlArgs();
 
+    /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     * 
+     */
+    @Import(name="authenticationMode")
+    private @Nullable Output<String> authenticationMode;
+
+    /**
+     * @return The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     * 
+     */
+    public Optional<Output<String>> authenticationMode() {
+        return Optional.ofNullable(this.authenticationMode);
+    }
+
     @Import(name="database", required=true)
     private Output<String> database;
 
@@ -161,6 +176,7 @@ public final class OutputMssqlArgs extends com.pulumi.resources.ResourceArgs {
     private OutputMssqlArgs() {}
 
     private OutputMssqlArgs(OutputMssqlArgs $) {
+        this.authenticationMode = $.authenticationMode;
         this.database = $.database;
         this.maxBatchCount = $.maxBatchCount;
         this.maxWriterCount = $.maxWriterCount;
@@ -189,6 +205,27 @@ public final class OutputMssqlArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(OutputMssqlArgs defaults) {
             $ = new OutputMssqlArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param authenticationMode The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationMode(@Nullable Output<String> authenticationMode) {
+            $.authenticationMode = authenticationMode;
+            return this;
+        }
+
+        /**
+         * @param authenticationMode The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationMode(String authenticationMode) {
+            return authenticationMode(Output.of(authenticationMode));
         }
 
         public Builder database(Output<String> database) {

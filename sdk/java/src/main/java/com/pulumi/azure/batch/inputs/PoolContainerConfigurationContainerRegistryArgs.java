@@ -47,7 +47,6 @@ public final class PoolContainerConfigurationContainerRegistryArgs extends com.p
 
     /**
      * The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
-     * ---
      * 
      */
     @Import(name="userAssignedIdentityId")
@@ -55,7 +54,6 @@ public final class PoolContainerConfigurationContainerRegistryArgs extends com.p
 
     /**
      * @return The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
-     * ---
      * 
      */
     public Optional<Output<String>> userAssignedIdentityId() {
@@ -148,7 +146,6 @@ public final class PoolContainerConfigurationContainerRegistryArgs extends com.p
 
         /**
          * @param userAssignedIdentityId The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
-         * ---
          * 
          * @return builder
          * 
@@ -160,7 +157,6 @@ public final class PoolContainerConfigurationContainerRegistryArgs extends com.p
 
         /**
          * @param userAssignedIdentityId The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
-         * ---
          * 
          * @return builder
          * 

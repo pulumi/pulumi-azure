@@ -110,6 +110,10 @@ export class OutputCosmosdb extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The name of the field in output events used to specify the key for partitioning output across collections. If `containerName` contains `{partition}` token, this property is required to be specified.
+     */
+    public readonly partitionKey!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
     public readonly streamAnalyticsJobId!: pulumi.Output<string>;
@@ -132,6 +136,7 @@ export class OutputCosmosdb extends pulumi.CustomResource {
             resourceInputs["cosmosdbSqlDatabaseId"] = state ? state.cosmosdbSqlDatabaseId : undefined;
             resourceInputs["documentId"] = state ? state.documentId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["partitionKey"] = state ? state.partitionKey : undefined;
             resourceInputs["streamAnalyticsJobId"] = state ? state.streamAnalyticsJobId : undefined;
         } else {
             const args = argsOrState as OutputCosmosdbArgs | undefined;
@@ -152,6 +157,7 @@ export class OutputCosmosdb extends pulumi.CustomResource {
             resourceInputs["cosmosdbSqlDatabaseId"] = args ? args.cosmosdbSqlDatabaseId : undefined;
             resourceInputs["documentId"] = args ? args.documentId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["partitionKey"] = args ? args.partitionKey : undefined;
             resourceInputs["streamAnalyticsJobId"] = args ? args.streamAnalyticsJobId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -184,6 +190,10 @@ export interface OutputCosmosdbState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The name of the field in output events used to specify the key for partitioning output across collections. If `containerName` contains `{partition}` token, this property is required to be specified.
+     */
+    partitionKey?: pulumi.Input<string>;
+    /**
      * The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
      */
     streamAnalyticsJobId?: pulumi.Input<string>;
@@ -213,6 +223,10 @@ export interface OutputCosmosdbArgs {
      * The name of the Stream Analytics Output. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The name of the field in output events used to specify the key for partitioning output across collections. If `containerName` contains `{partition}` token, this property is required to be specified.
+     */
+    partitionKey?: pulumi.Input<string>;
     /**
      * The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
      */

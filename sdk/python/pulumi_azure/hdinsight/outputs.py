@@ -12,6 +12,7 @@ from . import outputs
 
 __all__ = [
     'HBaseClusterComponentVersion',
+    'HBaseClusterDiskEncryption',
     'HBaseClusterGateway',
     'HBaseClusterMetastores',
     'HBaseClusterMetastoresAmbari',
@@ -30,6 +31,7 @@ __all__ = [
     'HBaseClusterStorageAccount',
     'HBaseClusterStorageAccountGen2',
     'HadoopClusterComponentVersion',
+    'HadoopClusterDiskEncryption',
     'HadoopClusterGateway',
     'HadoopClusterMetastores',
     'HadoopClusterMetastoresAmbari',
@@ -53,6 +55,7 @@ __all__ = [
     'HadoopClusterStorageAccount',
     'HadoopClusterStorageAccountGen2',
     'InteractiveQueryClusterComponentVersion',
+    'InteractiveQueryClusterDiskEncryption',
     'InteractiveQueryClusterGateway',
     'InteractiveQueryClusterMetastores',
     'InteractiveQueryClusterMetastoresAmbari',
@@ -72,6 +75,7 @@ __all__ = [
     'InteractiveQueryClusterStorageAccount',
     'InteractiveQueryClusterStorageAccountGen2',
     'KafkaClusterComponentVersion',
+    'KafkaClusterDiskEncryption',
     'KafkaClusterGateway',
     'KafkaClusterMetastores',
     'KafkaClusterMetastoresAmbari',
@@ -89,6 +93,7 @@ __all__ = [
     'KafkaClusterStorageAccount',
     'KafkaClusterStorageAccountGen2',
     'SparkClusterComponentVersion',
+    'SparkClusterDiskEncryption',
     'SparkClusterGateway',
     'SparkClusterMetastores',
     'SparkClusterMetastoresAmbari',
@@ -126,6 +131,84 @@ class HBaseClusterComponentVersion(dict):
         The version of HBase which should be used for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hbase")
+
+
+@pulumi.output_type
+class HBaseClusterDiskEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionAlgorithm":
+            suggest = "encryption_algorithm"
+        elif key == "encryptionAtHostEnabled":
+            suggest = "encryption_at_host_enabled"
+        elif key == "keyVaultKeyId":
+            suggest = "key_vault_key_id"
+        elif key == "keyVaultManagedIdentityId":
+            suggest = "key_vault_managed_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HBaseClusterDiskEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HBaseClusterDiskEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HBaseClusterDiskEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_algorithm: Optional[str] = None,
+                 encryption_at_host_enabled: Optional[bool] = None,
+                 key_vault_key_id: Optional[str] = None,
+                 key_vault_managed_identity_id: Optional[str] = None):
+        """
+        :param str encryption_algorithm: This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        :param bool encryption_at_host_enabled: This is indicator to show whether resource disk encryption is enabled.
+        :param str key_vault_key_id: The ID of the key vault key.
+        :param str key_vault_managed_identity_id: This is the resource ID of Managed Identity used to access the key vault.
+        """
+        if encryption_algorithm is not None:
+            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        if encryption_at_host_enabled is not None:
+            pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
+        if key_vault_key_id is not None:
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if key_vault_managed_identity_id is not None:
+            pulumi.set(__self__, "key_vault_managed_identity_id", key_vault_managed_identity_id)
+
+    @property
+    @pulumi.getter(name="encryptionAlgorithm")
+    def encryption_algorithm(self) -> Optional[str]:
+        """
+        This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        """
+        return pulumi.get(self, "encryption_algorithm")
+
+    @property
+    @pulumi.getter(name="encryptionAtHostEnabled")
+    def encryption_at_host_enabled(self) -> Optional[bool]:
+        """
+        This is indicator to show whether resource disk encryption is enabled.
+        """
+        return pulumi.get(self, "encryption_at_host_enabled")
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> Optional[str]:
+        """
+        The ID of the key vault key.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @property
+    @pulumi.getter(name="keyVaultManagedIdentityId")
+    def key_vault_managed_identity_id(self) -> Optional[str]:
+        """
+        This is the resource ID of Managed Identity used to access the key vault.
+        """
+        return pulumi.get(self, "key_vault_managed_identity_id")
 
 
 @pulumi.output_type
@@ -1272,6 +1355,84 @@ class HadoopClusterComponentVersion(dict):
         The version of Hadoop which should be used for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "hadoop")
+
+
+@pulumi.output_type
+class HadoopClusterDiskEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionAlgorithm":
+            suggest = "encryption_algorithm"
+        elif key == "encryptionAtHostEnabled":
+            suggest = "encryption_at_host_enabled"
+        elif key == "keyVaultKeyId":
+            suggest = "key_vault_key_id"
+        elif key == "keyVaultManagedIdentityId":
+            suggest = "key_vault_managed_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HadoopClusterDiskEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HadoopClusterDiskEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HadoopClusterDiskEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_algorithm: Optional[str] = None,
+                 encryption_at_host_enabled: Optional[bool] = None,
+                 key_vault_key_id: Optional[str] = None,
+                 key_vault_managed_identity_id: Optional[str] = None):
+        """
+        :param str encryption_algorithm: This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        :param bool encryption_at_host_enabled: This is indicator to show whether resource disk encryption is enabled.
+        :param str key_vault_key_id: The ID of the key vault key.
+        :param str key_vault_managed_identity_id: This is the resource ID of Managed Identity used to access the key vault.
+        """
+        if encryption_algorithm is not None:
+            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        if encryption_at_host_enabled is not None:
+            pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
+        if key_vault_key_id is not None:
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if key_vault_managed_identity_id is not None:
+            pulumi.set(__self__, "key_vault_managed_identity_id", key_vault_managed_identity_id)
+
+    @property
+    @pulumi.getter(name="encryptionAlgorithm")
+    def encryption_algorithm(self) -> Optional[str]:
+        """
+        This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        """
+        return pulumi.get(self, "encryption_algorithm")
+
+    @property
+    @pulumi.getter(name="encryptionAtHostEnabled")
+    def encryption_at_host_enabled(self) -> Optional[bool]:
+        """
+        This is indicator to show whether resource disk encryption is enabled.
+        """
+        return pulumi.get(self, "encryption_at_host_enabled")
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> Optional[str]:
+        """
+        The ID of the key vault key.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @property
+    @pulumi.getter(name="keyVaultManagedIdentityId")
+    def key_vault_managed_identity_id(self) -> Optional[str]:
+        """
+        This is the resource ID of Managed Identity used to access the key vault.
+        """
+        return pulumi.get(self, "key_vault_managed_identity_id")
 
 
 @pulumi.output_type
@@ -2761,6 +2922,84 @@ class InteractiveQueryClusterComponentVersion(dict):
 
 
 @pulumi.output_type
+class InteractiveQueryClusterDiskEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionAlgorithm":
+            suggest = "encryption_algorithm"
+        elif key == "encryptionAtHostEnabled":
+            suggest = "encryption_at_host_enabled"
+        elif key == "keyVaultKeyId":
+            suggest = "key_vault_key_id"
+        elif key == "keyVaultManagedIdentityId":
+            suggest = "key_vault_managed_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InteractiveQueryClusterDiskEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InteractiveQueryClusterDiskEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InteractiveQueryClusterDiskEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_algorithm: Optional[str] = None,
+                 encryption_at_host_enabled: Optional[bool] = None,
+                 key_vault_key_id: Optional[str] = None,
+                 key_vault_managed_identity_id: Optional[str] = None):
+        """
+        :param str encryption_algorithm: This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        :param bool encryption_at_host_enabled: This is indicator to show whether resource disk encryption is enabled.
+        :param str key_vault_key_id: The ID of the key vault key.
+        :param str key_vault_managed_identity_id: This is the resource ID of Managed Identity used to access the key vault.
+        """
+        if encryption_algorithm is not None:
+            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        if encryption_at_host_enabled is not None:
+            pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
+        if key_vault_key_id is not None:
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if key_vault_managed_identity_id is not None:
+            pulumi.set(__self__, "key_vault_managed_identity_id", key_vault_managed_identity_id)
+
+    @property
+    @pulumi.getter(name="encryptionAlgorithm")
+    def encryption_algorithm(self) -> Optional[str]:
+        """
+        This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        """
+        return pulumi.get(self, "encryption_algorithm")
+
+    @property
+    @pulumi.getter(name="encryptionAtHostEnabled")
+    def encryption_at_host_enabled(self) -> Optional[bool]:
+        """
+        This is indicator to show whether resource disk encryption is enabled.
+        """
+        return pulumi.get(self, "encryption_at_host_enabled")
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> Optional[str]:
+        """
+        The ID of the key vault key.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @property
+    @pulumi.getter(name="keyVaultManagedIdentityId")
+    def key_vault_managed_identity_id(self) -> Optional[str]:
+        """
+        This is the resource ID of Managed Identity used to access the key vault.
+        """
+        return pulumi.get(self, "key_vault_managed_identity_id")
+
+
+@pulumi.output_type
 class InteractiveQueryClusterGateway(dict):
     def __init__(__self__, *,
                  password: str,
@@ -3967,6 +4206,84 @@ class KafkaClusterComponentVersion(dict):
 
 
 @pulumi.output_type
+class KafkaClusterDiskEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionAlgorithm":
+            suggest = "encryption_algorithm"
+        elif key == "encryptionAtHostEnabled":
+            suggest = "encryption_at_host_enabled"
+        elif key == "keyVaultKeyId":
+            suggest = "key_vault_key_id"
+        elif key == "keyVaultManagedIdentityId":
+            suggest = "key_vault_managed_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterDiskEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterDiskEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterDiskEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_algorithm: Optional[str] = None,
+                 encryption_at_host_enabled: Optional[bool] = None,
+                 key_vault_key_id: Optional[str] = None,
+                 key_vault_managed_identity_id: Optional[str] = None):
+        """
+        :param str encryption_algorithm: This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        :param bool encryption_at_host_enabled: This is indicator to show whether resource disk encryption is enabled.
+        :param str key_vault_key_id: The ID of the key vault key.
+        :param str key_vault_managed_identity_id: This is the resource ID of Managed Identity used to access the key vault.
+        """
+        if encryption_algorithm is not None:
+            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        if encryption_at_host_enabled is not None:
+            pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
+        if key_vault_key_id is not None:
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if key_vault_managed_identity_id is not None:
+            pulumi.set(__self__, "key_vault_managed_identity_id", key_vault_managed_identity_id)
+
+    @property
+    @pulumi.getter(name="encryptionAlgorithm")
+    def encryption_algorithm(self) -> Optional[str]:
+        """
+        This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        """
+        return pulumi.get(self, "encryption_algorithm")
+
+    @property
+    @pulumi.getter(name="encryptionAtHostEnabled")
+    def encryption_at_host_enabled(self) -> Optional[bool]:
+        """
+        This is indicator to show whether resource disk encryption is enabled.
+        """
+        return pulumi.get(self, "encryption_at_host_enabled")
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> Optional[str]:
+        """
+        The ID of the key vault key.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @property
+    @pulumi.getter(name="keyVaultManagedIdentityId")
+    def key_vault_managed_identity_id(self) -> Optional[str]:
+        """
+        This is the resource ID of Managed Identity used to access the key vault.
+        """
+        return pulumi.get(self, "key_vault_managed_identity_id")
+
+
+@pulumi.output_type
 class KafkaClusterGateway(dict):
     def __init__(__self__, *,
                  password: str,
@@ -5168,6 +5485,84 @@ class SparkClusterComponentVersion(dict):
         The version of Spark which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "spark")
+
+
+@pulumi.output_type
+class SparkClusterDiskEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionAlgorithm":
+            suggest = "encryption_algorithm"
+        elif key == "encryptionAtHostEnabled":
+            suggest = "encryption_at_host_enabled"
+        elif key == "keyVaultKeyId":
+            suggest = "key_vault_key_id"
+        elif key == "keyVaultManagedIdentityId":
+            suggest = "key_vault_managed_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkClusterDiskEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkClusterDiskEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkClusterDiskEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_algorithm: Optional[str] = None,
+                 encryption_at_host_enabled: Optional[bool] = None,
+                 key_vault_key_id: Optional[str] = None,
+                 key_vault_managed_identity_id: Optional[str] = None):
+        """
+        :param str encryption_algorithm: This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        :param bool encryption_at_host_enabled: This is indicator to show whether resource disk encryption is enabled.
+        :param str key_vault_key_id: The ID of the key vault key.
+        :param str key_vault_managed_identity_id: This is the resource ID of Managed Identity used to access the key vault.
+        """
+        if encryption_algorithm is not None:
+            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        if encryption_at_host_enabled is not None:
+            pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
+        if key_vault_key_id is not None:
+            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if key_vault_managed_identity_id is not None:
+            pulumi.set(__self__, "key_vault_managed_identity_id", key_vault_managed_identity_id)
+
+    @property
+    @pulumi.getter(name="encryptionAlgorithm")
+    def encryption_algorithm(self) -> Optional[str]:
+        """
+        This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+        """
+        return pulumi.get(self, "encryption_algorithm")
+
+    @property
+    @pulumi.getter(name="encryptionAtHostEnabled")
+    def encryption_at_host_enabled(self) -> Optional[bool]:
+        """
+        This is indicator to show whether resource disk encryption is enabled.
+        """
+        return pulumi.get(self, "encryption_at_host_enabled")
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> Optional[str]:
+        """
+        The ID of the key vault key.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @property
+    @pulumi.getter(name="keyVaultManagedIdentityId")
+    def key_vault_managed_identity_id(self) -> Optional[str]:
+        """
+        This is the resource ID of Managed Identity used to access the key vault.
+        """
+        return pulumi.get(self, "key_vault_managed_identity_id")
 
 
 @pulumi.output_type

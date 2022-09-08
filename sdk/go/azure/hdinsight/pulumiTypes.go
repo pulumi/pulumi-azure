@@ -147,6 +147,130 @@ func (o HBaseClusterComponentVersionPtrOutput) Hbase() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type HBaseClusterDiskEncryption struct {
+	// This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+	EncryptionAlgorithm *string `pulumi:"encryptionAlgorithm"`
+	// This is indicator to show whether resource disk encryption is enabled.
+	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
+	// The ID of the key vault key.
+	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
+	// This is the resource ID of Managed Identity used to access the key vault.
+	KeyVaultManagedIdentityId *string `pulumi:"keyVaultManagedIdentityId"`
+}
+
+// HBaseClusterDiskEncryptionInput is an input type that accepts HBaseClusterDiskEncryptionArgs and HBaseClusterDiskEncryptionOutput values.
+// You can construct a concrete instance of `HBaseClusterDiskEncryptionInput` via:
+//
+//	HBaseClusterDiskEncryptionArgs{...}
+type HBaseClusterDiskEncryptionInput interface {
+	pulumi.Input
+
+	ToHBaseClusterDiskEncryptionOutput() HBaseClusterDiskEncryptionOutput
+	ToHBaseClusterDiskEncryptionOutputWithContext(context.Context) HBaseClusterDiskEncryptionOutput
+}
+
+type HBaseClusterDiskEncryptionArgs struct {
+	// This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+	EncryptionAlgorithm pulumi.StringPtrInput `pulumi:"encryptionAlgorithm"`
+	// This is indicator to show whether resource disk encryption is enabled.
+	EncryptionAtHostEnabled pulumi.BoolPtrInput `pulumi:"encryptionAtHostEnabled"`
+	// The ID of the key vault key.
+	KeyVaultKeyId pulumi.StringPtrInput `pulumi:"keyVaultKeyId"`
+	// This is the resource ID of Managed Identity used to access the key vault.
+	KeyVaultManagedIdentityId pulumi.StringPtrInput `pulumi:"keyVaultManagedIdentityId"`
+}
+
+func (HBaseClusterDiskEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterDiskEncryption)(nil)).Elem()
+}
+
+func (i HBaseClusterDiskEncryptionArgs) ToHBaseClusterDiskEncryptionOutput() HBaseClusterDiskEncryptionOutput {
+	return i.ToHBaseClusterDiskEncryptionOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterDiskEncryptionArgs) ToHBaseClusterDiskEncryptionOutputWithContext(ctx context.Context) HBaseClusterDiskEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterDiskEncryptionOutput)
+}
+
+// HBaseClusterDiskEncryptionArrayInput is an input type that accepts HBaseClusterDiskEncryptionArray and HBaseClusterDiskEncryptionArrayOutput values.
+// You can construct a concrete instance of `HBaseClusterDiskEncryptionArrayInput` via:
+//
+//	HBaseClusterDiskEncryptionArray{ HBaseClusterDiskEncryptionArgs{...} }
+type HBaseClusterDiskEncryptionArrayInput interface {
+	pulumi.Input
+
+	ToHBaseClusterDiskEncryptionArrayOutput() HBaseClusterDiskEncryptionArrayOutput
+	ToHBaseClusterDiskEncryptionArrayOutputWithContext(context.Context) HBaseClusterDiskEncryptionArrayOutput
+}
+
+type HBaseClusterDiskEncryptionArray []HBaseClusterDiskEncryptionInput
+
+func (HBaseClusterDiskEncryptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HBaseClusterDiskEncryption)(nil)).Elem()
+}
+
+func (i HBaseClusterDiskEncryptionArray) ToHBaseClusterDiskEncryptionArrayOutput() HBaseClusterDiskEncryptionArrayOutput {
+	return i.ToHBaseClusterDiskEncryptionArrayOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterDiskEncryptionArray) ToHBaseClusterDiskEncryptionArrayOutputWithContext(ctx context.Context) HBaseClusterDiskEncryptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterDiskEncryptionArrayOutput)
+}
+
+type HBaseClusterDiskEncryptionOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterDiskEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterDiskEncryption)(nil)).Elem()
+}
+
+func (o HBaseClusterDiskEncryptionOutput) ToHBaseClusterDiskEncryptionOutput() HBaseClusterDiskEncryptionOutput {
+	return o
+}
+
+func (o HBaseClusterDiskEncryptionOutput) ToHBaseClusterDiskEncryptionOutputWithContext(ctx context.Context) HBaseClusterDiskEncryptionOutput {
+	return o
+}
+
+// This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+func (o HBaseClusterDiskEncryptionOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HBaseClusterDiskEncryption) *string { return v.EncryptionAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// This is indicator to show whether resource disk encryption is enabled.
+func (o HBaseClusterDiskEncryptionOutput) EncryptionAtHostEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HBaseClusterDiskEncryption) *bool { return v.EncryptionAtHostEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the key vault key.
+func (o HBaseClusterDiskEncryptionOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HBaseClusterDiskEncryption) *string { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
+}
+
+// This is the resource ID of Managed Identity used to access the key vault.
+func (o HBaseClusterDiskEncryptionOutput) KeyVaultManagedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HBaseClusterDiskEncryption) *string { return v.KeyVaultManagedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+type HBaseClusterDiskEncryptionArrayOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterDiskEncryptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HBaseClusterDiskEncryption)(nil)).Elem()
+}
+
+func (o HBaseClusterDiskEncryptionArrayOutput) ToHBaseClusterDiskEncryptionArrayOutput() HBaseClusterDiskEncryptionArrayOutput {
+	return o
+}
+
+func (o HBaseClusterDiskEncryptionArrayOutput) ToHBaseClusterDiskEncryptionArrayOutputWithContext(ctx context.Context) HBaseClusterDiskEncryptionArrayOutput {
+	return o
+}
+
+func (o HBaseClusterDiskEncryptionArrayOutput) Index(i pulumi.IntInput) HBaseClusterDiskEncryptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HBaseClusterDiskEncryption {
+		return vs[0].([]HBaseClusterDiskEncryption)[vs[1].(int)]
+	}).(HBaseClusterDiskEncryptionOutput)
+}
+
 type HBaseClusterGateway struct {
 	// The password used for the Ambari Portal.
 	Password string `pulumi:"password"`
@@ -3397,6 +3521,130 @@ func (o HadoopClusterComponentVersionPtrOutput) Hadoop() pulumi.StringPtrOutput 
 		}
 		return &v.Hadoop
 	}).(pulumi.StringPtrOutput)
+}
+
+type HadoopClusterDiskEncryption struct {
+	// This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+	EncryptionAlgorithm *string `pulumi:"encryptionAlgorithm"`
+	// This is indicator to show whether resource disk encryption is enabled.
+	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
+	// The ID of the key vault key.
+	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
+	// This is the resource ID of Managed Identity used to access the key vault.
+	KeyVaultManagedIdentityId *string `pulumi:"keyVaultManagedIdentityId"`
+}
+
+// HadoopClusterDiskEncryptionInput is an input type that accepts HadoopClusterDiskEncryptionArgs and HadoopClusterDiskEncryptionOutput values.
+// You can construct a concrete instance of `HadoopClusterDiskEncryptionInput` via:
+//
+//	HadoopClusterDiskEncryptionArgs{...}
+type HadoopClusterDiskEncryptionInput interface {
+	pulumi.Input
+
+	ToHadoopClusterDiskEncryptionOutput() HadoopClusterDiskEncryptionOutput
+	ToHadoopClusterDiskEncryptionOutputWithContext(context.Context) HadoopClusterDiskEncryptionOutput
+}
+
+type HadoopClusterDiskEncryptionArgs struct {
+	// This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+	EncryptionAlgorithm pulumi.StringPtrInput `pulumi:"encryptionAlgorithm"`
+	// This is indicator to show whether resource disk encryption is enabled.
+	EncryptionAtHostEnabled pulumi.BoolPtrInput `pulumi:"encryptionAtHostEnabled"`
+	// The ID of the key vault key.
+	KeyVaultKeyId pulumi.StringPtrInput `pulumi:"keyVaultKeyId"`
+	// This is the resource ID of Managed Identity used to access the key vault.
+	KeyVaultManagedIdentityId pulumi.StringPtrInput `pulumi:"keyVaultManagedIdentityId"`
+}
+
+func (HadoopClusterDiskEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterDiskEncryption)(nil)).Elem()
+}
+
+func (i HadoopClusterDiskEncryptionArgs) ToHadoopClusterDiskEncryptionOutput() HadoopClusterDiskEncryptionOutput {
+	return i.ToHadoopClusterDiskEncryptionOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterDiskEncryptionArgs) ToHadoopClusterDiskEncryptionOutputWithContext(ctx context.Context) HadoopClusterDiskEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterDiskEncryptionOutput)
+}
+
+// HadoopClusterDiskEncryptionArrayInput is an input type that accepts HadoopClusterDiskEncryptionArray and HadoopClusterDiskEncryptionArrayOutput values.
+// You can construct a concrete instance of `HadoopClusterDiskEncryptionArrayInput` via:
+//
+//	HadoopClusterDiskEncryptionArray{ HadoopClusterDiskEncryptionArgs{...} }
+type HadoopClusterDiskEncryptionArrayInput interface {
+	pulumi.Input
+
+	ToHadoopClusterDiskEncryptionArrayOutput() HadoopClusterDiskEncryptionArrayOutput
+	ToHadoopClusterDiskEncryptionArrayOutputWithContext(context.Context) HadoopClusterDiskEncryptionArrayOutput
+}
+
+type HadoopClusterDiskEncryptionArray []HadoopClusterDiskEncryptionInput
+
+func (HadoopClusterDiskEncryptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HadoopClusterDiskEncryption)(nil)).Elem()
+}
+
+func (i HadoopClusterDiskEncryptionArray) ToHadoopClusterDiskEncryptionArrayOutput() HadoopClusterDiskEncryptionArrayOutput {
+	return i.ToHadoopClusterDiskEncryptionArrayOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterDiskEncryptionArray) ToHadoopClusterDiskEncryptionArrayOutputWithContext(ctx context.Context) HadoopClusterDiskEncryptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterDiskEncryptionArrayOutput)
+}
+
+type HadoopClusterDiskEncryptionOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterDiskEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterDiskEncryption)(nil)).Elem()
+}
+
+func (o HadoopClusterDiskEncryptionOutput) ToHadoopClusterDiskEncryptionOutput() HadoopClusterDiskEncryptionOutput {
+	return o
+}
+
+func (o HadoopClusterDiskEncryptionOutput) ToHadoopClusterDiskEncryptionOutputWithContext(ctx context.Context) HadoopClusterDiskEncryptionOutput {
+	return o
+}
+
+// This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+func (o HadoopClusterDiskEncryptionOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HadoopClusterDiskEncryption) *string { return v.EncryptionAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// This is indicator to show whether resource disk encryption is enabled.
+func (o HadoopClusterDiskEncryptionOutput) EncryptionAtHostEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HadoopClusterDiskEncryption) *bool { return v.EncryptionAtHostEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the key vault key.
+func (o HadoopClusterDiskEncryptionOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HadoopClusterDiskEncryption) *string { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
+}
+
+// This is the resource ID of Managed Identity used to access the key vault.
+func (o HadoopClusterDiskEncryptionOutput) KeyVaultManagedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HadoopClusterDiskEncryption) *string { return v.KeyVaultManagedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+type HadoopClusterDiskEncryptionArrayOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterDiskEncryptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HadoopClusterDiskEncryption)(nil)).Elem()
+}
+
+func (o HadoopClusterDiskEncryptionArrayOutput) ToHadoopClusterDiskEncryptionArrayOutput() HadoopClusterDiskEncryptionArrayOutput {
+	return o
+}
+
+func (o HadoopClusterDiskEncryptionArrayOutput) ToHadoopClusterDiskEncryptionArrayOutputWithContext(ctx context.Context) HadoopClusterDiskEncryptionArrayOutput {
+	return o
+}
+
+func (o HadoopClusterDiskEncryptionArrayOutput) Index(i pulumi.IntInput) HadoopClusterDiskEncryptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HadoopClusterDiskEncryption {
+		return vs[0].([]HadoopClusterDiskEncryption)[vs[1].(int)]
+	}).(HadoopClusterDiskEncryptionOutput)
 }
 
 type HadoopClusterGateway struct {
@@ -7415,6 +7663,130 @@ func (o InteractiveQueryClusterComponentVersionPtrOutput) InteractiveHive() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+type InteractiveQueryClusterDiskEncryption struct {
+	// This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+	EncryptionAlgorithm *string `pulumi:"encryptionAlgorithm"`
+	// This is indicator to show whether resource disk encryption is enabled.
+	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
+	// The ID of the key vault key.
+	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
+	// This is the resource ID of Managed Identity used to access the key vault.
+	KeyVaultManagedIdentityId *string `pulumi:"keyVaultManagedIdentityId"`
+}
+
+// InteractiveQueryClusterDiskEncryptionInput is an input type that accepts InteractiveQueryClusterDiskEncryptionArgs and InteractiveQueryClusterDiskEncryptionOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterDiskEncryptionInput` via:
+//
+//	InteractiveQueryClusterDiskEncryptionArgs{...}
+type InteractiveQueryClusterDiskEncryptionInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterDiskEncryptionOutput() InteractiveQueryClusterDiskEncryptionOutput
+	ToInteractiveQueryClusterDiskEncryptionOutputWithContext(context.Context) InteractiveQueryClusterDiskEncryptionOutput
+}
+
+type InteractiveQueryClusterDiskEncryptionArgs struct {
+	// This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+	EncryptionAlgorithm pulumi.StringPtrInput `pulumi:"encryptionAlgorithm"`
+	// This is indicator to show whether resource disk encryption is enabled.
+	EncryptionAtHostEnabled pulumi.BoolPtrInput `pulumi:"encryptionAtHostEnabled"`
+	// The ID of the key vault key.
+	KeyVaultKeyId pulumi.StringPtrInput `pulumi:"keyVaultKeyId"`
+	// This is the resource ID of Managed Identity used to access the key vault.
+	KeyVaultManagedIdentityId pulumi.StringPtrInput `pulumi:"keyVaultManagedIdentityId"`
+}
+
+func (InteractiveQueryClusterDiskEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterDiskEncryption)(nil)).Elem()
+}
+
+func (i InteractiveQueryClusterDiskEncryptionArgs) ToInteractiveQueryClusterDiskEncryptionOutput() InteractiveQueryClusterDiskEncryptionOutput {
+	return i.ToInteractiveQueryClusterDiskEncryptionOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterDiskEncryptionArgs) ToInteractiveQueryClusterDiskEncryptionOutputWithContext(ctx context.Context) InteractiveQueryClusterDiskEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterDiskEncryptionOutput)
+}
+
+// InteractiveQueryClusterDiskEncryptionArrayInput is an input type that accepts InteractiveQueryClusterDiskEncryptionArray and InteractiveQueryClusterDiskEncryptionArrayOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterDiskEncryptionArrayInput` via:
+//
+//	InteractiveQueryClusterDiskEncryptionArray{ InteractiveQueryClusterDiskEncryptionArgs{...} }
+type InteractiveQueryClusterDiskEncryptionArrayInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterDiskEncryptionArrayOutput() InteractiveQueryClusterDiskEncryptionArrayOutput
+	ToInteractiveQueryClusterDiskEncryptionArrayOutputWithContext(context.Context) InteractiveQueryClusterDiskEncryptionArrayOutput
+}
+
+type InteractiveQueryClusterDiskEncryptionArray []InteractiveQueryClusterDiskEncryptionInput
+
+func (InteractiveQueryClusterDiskEncryptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InteractiveQueryClusterDiskEncryption)(nil)).Elem()
+}
+
+func (i InteractiveQueryClusterDiskEncryptionArray) ToInteractiveQueryClusterDiskEncryptionArrayOutput() InteractiveQueryClusterDiskEncryptionArrayOutput {
+	return i.ToInteractiveQueryClusterDiskEncryptionArrayOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterDiskEncryptionArray) ToInteractiveQueryClusterDiskEncryptionArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterDiskEncryptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterDiskEncryptionArrayOutput)
+}
+
+type InteractiveQueryClusterDiskEncryptionOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterDiskEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterDiskEncryption)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterDiskEncryptionOutput) ToInteractiveQueryClusterDiskEncryptionOutput() InteractiveQueryClusterDiskEncryptionOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterDiskEncryptionOutput) ToInteractiveQueryClusterDiskEncryptionOutputWithContext(ctx context.Context) InteractiveQueryClusterDiskEncryptionOutput {
+	return o
+}
+
+// This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+func (o InteractiveQueryClusterDiskEncryptionOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterDiskEncryption) *string { return v.EncryptionAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// This is indicator to show whether resource disk encryption is enabled.
+func (o InteractiveQueryClusterDiskEncryptionOutput) EncryptionAtHostEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterDiskEncryption) *bool { return v.EncryptionAtHostEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the key vault key.
+func (o InteractiveQueryClusterDiskEncryptionOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterDiskEncryption) *string { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
+}
+
+// This is the resource ID of Managed Identity used to access the key vault.
+func (o InteractiveQueryClusterDiskEncryptionOutput) KeyVaultManagedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterDiskEncryption) *string { return v.KeyVaultManagedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+type InteractiveQueryClusterDiskEncryptionArrayOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterDiskEncryptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]InteractiveQueryClusterDiskEncryption)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterDiskEncryptionArrayOutput) ToInteractiveQueryClusterDiskEncryptionArrayOutput() InteractiveQueryClusterDiskEncryptionArrayOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterDiskEncryptionArrayOutput) ToInteractiveQueryClusterDiskEncryptionArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterDiskEncryptionArrayOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterDiskEncryptionArrayOutput) Index(i pulumi.IntInput) InteractiveQueryClusterDiskEncryptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InteractiveQueryClusterDiskEncryption {
+		return vs[0].([]InteractiveQueryClusterDiskEncryption)[vs[1].(int)]
+	}).(InteractiveQueryClusterDiskEncryptionOutput)
+}
+
 type InteractiveQueryClusterGateway struct {
 	// The password used for the Ambari Portal.
 	Password string `pulumi:"password"`
@@ -10848,6 +11220,130 @@ func (o KafkaClusterComponentVersionPtrOutput) Kafka() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type KafkaClusterDiskEncryption struct {
+	// This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+	EncryptionAlgorithm *string `pulumi:"encryptionAlgorithm"`
+	// This is indicator to show whether resource disk encryption is enabled.
+	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
+	// The ID of the key vault key.
+	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
+	// This is the resource ID of Managed Identity used to access the key vault.
+	KeyVaultManagedIdentityId *string `pulumi:"keyVaultManagedIdentityId"`
+}
+
+// KafkaClusterDiskEncryptionInput is an input type that accepts KafkaClusterDiskEncryptionArgs and KafkaClusterDiskEncryptionOutput values.
+// You can construct a concrete instance of `KafkaClusterDiskEncryptionInput` via:
+//
+//	KafkaClusterDiskEncryptionArgs{...}
+type KafkaClusterDiskEncryptionInput interface {
+	pulumi.Input
+
+	ToKafkaClusterDiskEncryptionOutput() KafkaClusterDiskEncryptionOutput
+	ToKafkaClusterDiskEncryptionOutputWithContext(context.Context) KafkaClusterDiskEncryptionOutput
+}
+
+type KafkaClusterDiskEncryptionArgs struct {
+	// This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+	EncryptionAlgorithm pulumi.StringPtrInput `pulumi:"encryptionAlgorithm"`
+	// This is indicator to show whether resource disk encryption is enabled.
+	EncryptionAtHostEnabled pulumi.BoolPtrInput `pulumi:"encryptionAtHostEnabled"`
+	// The ID of the key vault key.
+	KeyVaultKeyId pulumi.StringPtrInput `pulumi:"keyVaultKeyId"`
+	// This is the resource ID of Managed Identity used to access the key vault.
+	KeyVaultManagedIdentityId pulumi.StringPtrInput `pulumi:"keyVaultManagedIdentityId"`
+}
+
+func (KafkaClusterDiskEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterDiskEncryption)(nil)).Elem()
+}
+
+func (i KafkaClusterDiskEncryptionArgs) ToKafkaClusterDiskEncryptionOutput() KafkaClusterDiskEncryptionOutput {
+	return i.ToKafkaClusterDiskEncryptionOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterDiskEncryptionArgs) ToKafkaClusterDiskEncryptionOutputWithContext(ctx context.Context) KafkaClusterDiskEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterDiskEncryptionOutput)
+}
+
+// KafkaClusterDiskEncryptionArrayInput is an input type that accepts KafkaClusterDiskEncryptionArray and KafkaClusterDiskEncryptionArrayOutput values.
+// You can construct a concrete instance of `KafkaClusterDiskEncryptionArrayInput` via:
+//
+//	KafkaClusterDiskEncryptionArray{ KafkaClusterDiskEncryptionArgs{...} }
+type KafkaClusterDiskEncryptionArrayInput interface {
+	pulumi.Input
+
+	ToKafkaClusterDiskEncryptionArrayOutput() KafkaClusterDiskEncryptionArrayOutput
+	ToKafkaClusterDiskEncryptionArrayOutputWithContext(context.Context) KafkaClusterDiskEncryptionArrayOutput
+}
+
+type KafkaClusterDiskEncryptionArray []KafkaClusterDiskEncryptionInput
+
+func (KafkaClusterDiskEncryptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KafkaClusterDiskEncryption)(nil)).Elem()
+}
+
+func (i KafkaClusterDiskEncryptionArray) ToKafkaClusterDiskEncryptionArrayOutput() KafkaClusterDiskEncryptionArrayOutput {
+	return i.ToKafkaClusterDiskEncryptionArrayOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterDiskEncryptionArray) ToKafkaClusterDiskEncryptionArrayOutputWithContext(ctx context.Context) KafkaClusterDiskEncryptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterDiskEncryptionArrayOutput)
+}
+
+type KafkaClusterDiskEncryptionOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterDiskEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterDiskEncryption)(nil)).Elem()
+}
+
+func (o KafkaClusterDiskEncryptionOutput) ToKafkaClusterDiskEncryptionOutput() KafkaClusterDiskEncryptionOutput {
+	return o
+}
+
+func (o KafkaClusterDiskEncryptionOutput) ToKafkaClusterDiskEncryptionOutputWithContext(ctx context.Context) KafkaClusterDiskEncryptionOutput {
+	return o
+}
+
+// This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+func (o KafkaClusterDiskEncryptionOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterDiskEncryption) *string { return v.EncryptionAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// This is indicator to show whether resource disk encryption is enabled.
+func (o KafkaClusterDiskEncryptionOutput) EncryptionAtHostEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KafkaClusterDiskEncryption) *bool { return v.EncryptionAtHostEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the key vault key.
+func (o KafkaClusterDiskEncryptionOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterDiskEncryption) *string { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
+}
+
+// This is the resource ID of Managed Identity used to access the key vault.
+func (o KafkaClusterDiskEncryptionOutput) KeyVaultManagedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterDiskEncryption) *string { return v.KeyVaultManagedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+type KafkaClusterDiskEncryptionArrayOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterDiskEncryptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KafkaClusterDiskEncryption)(nil)).Elem()
+}
+
+func (o KafkaClusterDiskEncryptionArrayOutput) ToKafkaClusterDiskEncryptionArrayOutput() KafkaClusterDiskEncryptionArrayOutput {
+	return o
+}
+
+func (o KafkaClusterDiskEncryptionArrayOutput) ToKafkaClusterDiskEncryptionArrayOutputWithContext(ctx context.Context) KafkaClusterDiskEncryptionArrayOutput {
+	return o
+}
+
+func (o KafkaClusterDiskEncryptionArrayOutput) Index(i pulumi.IntInput) KafkaClusterDiskEncryptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KafkaClusterDiskEncryption {
+		return vs[0].([]KafkaClusterDiskEncryption)[vs[1].(int)]
+	}).(KafkaClusterDiskEncryptionOutput)
+}
+
 type KafkaClusterGateway struct {
 	// The password used for the Ambari Portal.
 	Password string `pulumi:"password"`
@@ -14093,6 +14589,130 @@ func (o SparkClusterComponentVersionPtrOutput) Spark() pulumi.StringPtrOutput {
 		}
 		return &v.Spark
 	}).(pulumi.StringPtrOutput)
+}
+
+type SparkClusterDiskEncryption struct {
+	// This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+	EncryptionAlgorithm *string `pulumi:"encryptionAlgorithm"`
+	// This is indicator to show whether resource disk encryption is enabled.
+	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
+	// The ID of the key vault key.
+	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
+	// This is the resource ID of Managed Identity used to access the key vault.
+	KeyVaultManagedIdentityId *string `pulumi:"keyVaultManagedIdentityId"`
+}
+
+// SparkClusterDiskEncryptionInput is an input type that accepts SparkClusterDiskEncryptionArgs and SparkClusterDiskEncryptionOutput values.
+// You can construct a concrete instance of `SparkClusterDiskEncryptionInput` via:
+//
+//	SparkClusterDiskEncryptionArgs{...}
+type SparkClusterDiskEncryptionInput interface {
+	pulumi.Input
+
+	ToSparkClusterDiskEncryptionOutput() SparkClusterDiskEncryptionOutput
+	ToSparkClusterDiskEncryptionOutputWithContext(context.Context) SparkClusterDiskEncryptionOutput
+}
+
+type SparkClusterDiskEncryptionArgs struct {
+	// This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+	EncryptionAlgorithm pulumi.StringPtrInput `pulumi:"encryptionAlgorithm"`
+	// This is indicator to show whether resource disk encryption is enabled.
+	EncryptionAtHostEnabled pulumi.BoolPtrInput `pulumi:"encryptionAtHostEnabled"`
+	// The ID of the key vault key.
+	KeyVaultKeyId pulumi.StringPtrInput `pulumi:"keyVaultKeyId"`
+	// This is the resource ID of Managed Identity used to access the key vault.
+	KeyVaultManagedIdentityId pulumi.StringPtrInput `pulumi:"keyVaultManagedIdentityId"`
+}
+
+func (SparkClusterDiskEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterDiskEncryption)(nil)).Elem()
+}
+
+func (i SparkClusterDiskEncryptionArgs) ToSparkClusterDiskEncryptionOutput() SparkClusterDiskEncryptionOutput {
+	return i.ToSparkClusterDiskEncryptionOutputWithContext(context.Background())
+}
+
+func (i SparkClusterDiskEncryptionArgs) ToSparkClusterDiskEncryptionOutputWithContext(ctx context.Context) SparkClusterDiskEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterDiskEncryptionOutput)
+}
+
+// SparkClusterDiskEncryptionArrayInput is an input type that accepts SparkClusterDiskEncryptionArray and SparkClusterDiskEncryptionArrayOutput values.
+// You can construct a concrete instance of `SparkClusterDiskEncryptionArrayInput` via:
+//
+//	SparkClusterDiskEncryptionArray{ SparkClusterDiskEncryptionArgs{...} }
+type SparkClusterDiskEncryptionArrayInput interface {
+	pulumi.Input
+
+	ToSparkClusterDiskEncryptionArrayOutput() SparkClusterDiskEncryptionArrayOutput
+	ToSparkClusterDiskEncryptionArrayOutputWithContext(context.Context) SparkClusterDiskEncryptionArrayOutput
+}
+
+type SparkClusterDiskEncryptionArray []SparkClusterDiskEncryptionInput
+
+func (SparkClusterDiskEncryptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SparkClusterDiskEncryption)(nil)).Elem()
+}
+
+func (i SparkClusterDiskEncryptionArray) ToSparkClusterDiskEncryptionArrayOutput() SparkClusterDiskEncryptionArrayOutput {
+	return i.ToSparkClusterDiskEncryptionArrayOutputWithContext(context.Background())
+}
+
+func (i SparkClusterDiskEncryptionArray) ToSparkClusterDiskEncryptionArrayOutputWithContext(ctx context.Context) SparkClusterDiskEncryptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterDiskEncryptionArrayOutput)
+}
+
+type SparkClusterDiskEncryptionOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterDiskEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterDiskEncryption)(nil)).Elem()
+}
+
+func (o SparkClusterDiskEncryptionOutput) ToSparkClusterDiskEncryptionOutput() SparkClusterDiskEncryptionOutput {
+	return o
+}
+
+func (o SparkClusterDiskEncryptionOutput) ToSparkClusterDiskEncryptionOutputWithContext(ctx context.Context) SparkClusterDiskEncryptionOutput {
+	return o
+}
+
+// This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+func (o SparkClusterDiskEncryptionOutput) EncryptionAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkClusterDiskEncryption) *string { return v.EncryptionAlgorithm }).(pulumi.StringPtrOutput)
+}
+
+// This is indicator to show whether resource disk encryption is enabled.
+func (o SparkClusterDiskEncryptionOutput) EncryptionAtHostEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SparkClusterDiskEncryption) *bool { return v.EncryptionAtHostEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ID of the key vault key.
+func (o SparkClusterDiskEncryptionOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkClusterDiskEncryption) *string { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
+}
+
+// This is the resource ID of Managed Identity used to access the key vault.
+func (o SparkClusterDiskEncryptionOutput) KeyVaultManagedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkClusterDiskEncryption) *string { return v.KeyVaultManagedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+type SparkClusterDiskEncryptionArrayOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterDiskEncryptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SparkClusterDiskEncryption)(nil)).Elem()
+}
+
+func (o SparkClusterDiskEncryptionArrayOutput) ToSparkClusterDiskEncryptionArrayOutput() SparkClusterDiskEncryptionArrayOutput {
+	return o
+}
+
+func (o SparkClusterDiskEncryptionArrayOutput) ToSparkClusterDiskEncryptionArrayOutputWithContext(ctx context.Context) SparkClusterDiskEncryptionArrayOutput {
+	return o
+}
+
+func (o SparkClusterDiskEncryptionArrayOutput) Index(i pulumi.IntInput) SparkClusterDiskEncryptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SparkClusterDiskEncryption {
+		return vs[0].([]SparkClusterDiskEncryption)[vs[1].(int)]
+	}).(SparkClusterDiskEncryptionOutput)
 }
 
 type SparkClusterGateway struct {
@@ -17505,6 +18125,8 @@ func (o GetClusterGatewayArrayOutput) Index(i pulumi.IntInput) GetClusterGateway
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterComponentVersionInput)(nil)).Elem(), HBaseClusterComponentVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterComponentVersionPtrInput)(nil)).Elem(), HBaseClusterComponentVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterDiskEncryptionInput)(nil)).Elem(), HBaseClusterDiskEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterDiskEncryptionArrayInput)(nil)).Elem(), HBaseClusterDiskEncryptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterGatewayInput)(nil)).Elem(), HBaseClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterGatewayPtrInput)(nil)).Elem(), HBaseClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterMetastoresInput)(nil)).Elem(), HBaseClusterMetastoresArgs{})
@@ -17541,6 +18163,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterStorageAccountGen2PtrInput)(nil)).Elem(), HBaseClusterStorageAccountGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterComponentVersionInput)(nil)).Elem(), HadoopClusterComponentVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterComponentVersionPtrInput)(nil)).Elem(), HadoopClusterComponentVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterDiskEncryptionInput)(nil)).Elem(), HadoopClusterDiskEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterDiskEncryptionArrayInput)(nil)).Elem(), HadoopClusterDiskEncryptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterGatewayInput)(nil)).Elem(), HadoopClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterGatewayPtrInput)(nil)).Elem(), HadoopClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterMetastoresInput)(nil)).Elem(), HadoopClusterMetastoresArgs{})
@@ -17587,6 +18211,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterStorageAccountGen2PtrInput)(nil)).Elem(), HadoopClusterStorageAccountGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterComponentVersionInput)(nil)).Elem(), InteractiveQueryClusterComponentVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterComponentVersionPtrInput)(nil)).Elem(), InteractiveQueryClusterComponentVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterDiskEncryptionInput)(nil)).Elem(), InteractiveQueryClusterDiskEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterDiskEncryptionArrayInput)(nil)).Elem(), InteractiveQueryClusterDiskEncryptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterGatewayInput)(nil)).Elem(), InteractiveQueryClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterGatewayPtrInput)(nil)).Elem(), InteractiveQueryClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterMetastoresInput)(nil)).Elem(), InteractiveQueryClusterMetastoresArgs{})
@@ -17625,6 +18251,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterStorageAccountGen2PtrInput)(nil)).Elem(), InteractiveQueryClusterStorageAccountGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterComponentVersionInput)(nil)).Elem(), KafkaClusterComponentVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterComponentVersionPtrInput)(nil)).Elem(), KafkaClusterComponentVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterDiskEncryptionInput)(nil)).Elem(), KafkaClusterDiskEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterDiskEncryptionArrayInput)(nil)).Elem(), KafkaClusterDiskEncryptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterGatewayInput)(nil)).Elem(), KafkaClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterGatewayPtrInput)(nil)).Elem(), KafkaClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterMetastoresInput)(nil)).Elem(), KafkaClusterMetastoresArgs{})
@@ -17659,6 +18287,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterStorageAccountGen2PtrInput)(nil)).Elem(), KafkaClusterStorageAccountGen2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterComponentVersionInput)(nil)).Elem(), SparkClusterComponentVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterComponentVersionPtrInput)(nil)).Elem(), SparkClusterComponentVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterDiskEncryptionInput)(nil)).Elem(), SparkClusterDiskEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterDiskEncryptionArrayInput)(nil)).Elem(), SparkClusterDiskEncryptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterGatewayInput)(nil)).Elem(), SparkClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterGatewayPtrInput)(nil)).Elem(), SparkClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterMetastoresInput)(nil)).Elem(), SparkClusterMetastoresArgs{})
@@ -17699,6 +18329,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterGatewayArrayInput)(nil)).Elem(), GetClusterGatewayArray{})
 	pulumi.RegisterOutputType(HBaseClusterComponentVersionOutput{})
 	pulumi.RegisterOutputType(HBaseClusterComponentVersionPtrOutput{})
+	pulumi.RegisterOutputType(HBaseClusterDiskEncryptionOutput{})
+	pulumi.RegisterOutputType(HBaseClusterDiskEncryptionArrayOutput{})
 	pulumi.RegisterOutputType(HBaseClusterGatewayOutput{})
 	pulumi.RegisterOutputType(HBaseClusterGatewayPtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterMetastoresOutput{})
@@ -17735,6 +18367,8 @@ func init() {
 	pulumi.RegisterOutputType(HBaseClusterStorageAccountGen2PtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterComponentVersionOutput{})
 	pulumi.RegisterOutputType(HadoopClusterComponentVersionPtrOutput{})
+	pulumi.RegisterOutputType(HadoopClusterDiskEncryptionOutput{})
+	pulumi.RegisterOutputType(HadoopClusterDiskEncryptionArrayOutput{})
 	pulumi.RegisterOutputType(HadoopClusterGatewayOutput{})
 	pulumi.RegisterOutputType(HadoopClusterGatewayPtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterMetastoresOutput{})
@@ -17781,6 +18415,8 @@ func init() {
 	pulumi.RegisterOutputType(HadoopClusterStorageAccountGen2PtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterComponentVersionOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterComponentVersionPtrOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterDiskEncryptionOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterDiskEncryptionArrayOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterGatewayOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterGatewayPtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterMetastoresOutput{})
@@ -17819,6 +18455,8 @@ func init() {
 	pulumi.RegisterOutputType(InteractiveQueryClusterStorageAccountGen2PtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterComponentVersionOutput{})
 	pulumi.RegisterOutputType(KafkaClusterComponentVersionPtrOutput{})
+	pulumi.RegisterOutputType(KafkaClusterDiskEncryptionOutput{})
+	pulumi.RegisterOutputType(KafkaClusterDiskEncryptionArrayOutput{})
 	pulumi.RegisterOutputType(KafkaClusterGatewayOutput{})
 	pulumi.RegisterOutputType(KafkaClusterGatewayPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterMetastoresOutput{})
@@ -17853,6 +18491,8 @@ func init() {
 	pulumi.RegisterOutputType(KafkaClusterStorageAccountGen2PtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterComponentVersionOutput{})
 	pulumi.RegisterOutputType(SparkClusterComponentVersionPtrOutput{})
+	pulumi.RegisterOutputType(SparkClusterDiskEncryptionOutput{})
+	pulumi.RegisterOutputType(SparkClusterDiskEncryptionArrayOutput{})
 	pulumi.RegisterOutputType(SparkClusterGatewayOutput{})
 	pulumi.RegisterOutputType(SparkClusterGatewayPtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterMetastoresOutput{})

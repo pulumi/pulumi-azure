@@ -39,6 +39,7 @@ class AccountArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  network_rules: Optional[pulumi.Input['AccountNetworkRulesArgs']] = None,
                  nfsv3_enabled: Optional[pulumi.Input[bool]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  queue_encryption_key_type: Optional[pulumi.Input[str]] = None,
                  queue_properties: Optional[pulumi.Input['AccountQueuePropertiesArgs']] = None,
                  routing: Optional[pulumi.Input['AccountRoutingArgs']] = None,
@@ -73,6 +74,7 @@ class AccountArgs:
         :param pulumi.Input[str] name: Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         :param pulumi.Input['AccountNetworkRulesArgs'] network_rules: A `network_rules` block as documented below.
         :param pulumi.Input[bool] nfsv3_enabled: Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether the public network access is enabled? Defaults to `true`.
         :param pulumi.Input[str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input['AccountQueuePropertiesArgs'] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input['AccountRoutingArgs'] routing: A `routing` block as defined below.
@@ -125,6 +127,8 @@ class AccountArgs:
             pulumi.set(__self__, "network_rules", network_rules)
         if nfsv3_enabled is not None:
             pulumi.set(__self__, "nfsv3_enabled", nfsv3_enabled)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if queue_encryption_key_type is not None:
             pulumi.set(__self__, "queue_encryption_key_type", queue_encryption_key_type)
         if queue_properties is not None:
@@ -420,6 +424,18 @@ class AccountArgs:
         pulumi.set(self, "nfsv3_enabled", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the public network access is enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="queueEncryptionKeyType")
     def queue_encryption_key_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -557,6 +573,7 @@ class _AccountState:
                  primary_table_host: Optional[pulumi.Input[str]] = None,
                  primary_web_endpoint: Optional[pulumi.Input[str]] = None,
                  primary_web_host: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  queue_encryption_key_type: Optional[pulumi.Input[str]] = None,
                  queue_properties: Optional[pulumi.Input['AccountQueuePropertiesArgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -623,6 +640,7 @@ class _AccountState:
         :param pulumi.Input[str] primary_table_host: The hostname with port if applicable for table storage in the primary location.
         :param pulumi.Input[str] primary_web_endpoint: The endpoint URL for web storage in the primary location.
         :param pulumi.Input[str] primary_web_host: The hostname with port if applicable for web storage in the primary location.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether the public network access is enabled? Defaults to `true`.
         :param pulumi.Input[str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input['AccountQueuePropertiesArgs'] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
@@ -725,6 +743,8 @@ class _AccountState:
             pulumi.set(__self__, "primary_web_endpoint", primary_web_endpoint)
         if primary_web_host is not None:
             pulumi.set(__self__, "primary_web_host", primary_web_host)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if queue_encryption_key_type is not None:
             pulumi.set(__self__, "queue_encryption_key_type", queue_encryption_key_type)
         if queue_properties is not None:
@@ -1234,6 +1254,18 @@ class _AccountState:
         pulumi.set(self, "primary_web_host", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the public network access is enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="queueEncryptionKeyType")
     def queue_encryption_key_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1561,6 +1593,7 @@ class Account(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_rules: Optional[pulumi.Input[pulumi.InputType['AccountNetworkRulesArgs']]] = None,
                  nfsv3_enabled: Optional[pulumi.Input[bool]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  queue_encryption_key_type: Optional[pulumi.Input[str]] = None,
                  queue_properties: Optional[pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -1657,6 +1690,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         :param pulumi.Input[pulumi.InputType['AccountNetworkRulesArgs']] network_rules: A `network_rules` block as documented below.
         :param pulumi.Input[bool] nfsv3_enabled: Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether the public network access is enabled? Defaults to `true`.
         :param pulumi.Input[str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
@@ -1771,6 +1805,7 @@ class Account(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_rules: Optional[pulumi.Input[pulumi.InputType['AccountNetworkRulesArgs']]] = None,
                  nfsv3_enabled: Optional[pulumi.Input[bool]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  queue_encryption_key_type: Optional[pulumi.Input[str]] = None,
                  queue_properties: Optional[pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -1815,6 +1850,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["network_rules"] = network_rules
             __props__.__dict__["nfsv3_enabled"] = nfsv3_enabled
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["queue_encryption_key_type"] = queue_encryption_key_type
             __props__.__dict__["queue_properties"] = queue_properties
             if resource_group_name is None and not opts.urn:
@@ -1906,6 +1942,7 @@ class Account(pulumi.CustomResource):
             primary_table_host: Optional[pulumi.Input[str]] = None,
             primary_web_endpoint: Optional[pulumi.Input[str]] = None,
             primary_web_host: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             queue_encryption_key_type: Optional[pulumi.Input[str]] = None,
             queue_properties: Optional[pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -1977,6 +2014,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] primary_table_host: The hostname with port if applicable for table storage in the primary location.
         :param pulumi.Input[str] primary_web_endpoint: The endpoint URL for web storage in the primary location.
         :param pulumi.Input[str] primary_web_host: The hostname with port if applicable for web storage in the primary location.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether the public network access is enabled? Defaults to `true`.
         :param pulumi.Input[str] queue_encryption_key_type: The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
         :param pulumi.Input[pulumi.InputType['AccountQueuePropertiesArgs']] queue_properties: A `queue_properties` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
@@ -2045,6 +2083,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["primary_table_host"] = primary_table_host
         __props__.__dict__["primary_web_endpoint"] = primary_web_endpoint
         __props__.__dict__["primary_web_host"] = primary_web_host
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["queue_encryption_key_type"] = queue_encryption_key_type
         __props__.__dict__["queue_properties"] = queue_properties
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -2376,6 +2415,14 @@ class Account(pulumi.CustomResource):
         The hostname with port if applicable for web storage in the primary location.
         """
         return pulumi.get(self, "primary_web_host")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the public network access is enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="queueEncryptionKeyType")

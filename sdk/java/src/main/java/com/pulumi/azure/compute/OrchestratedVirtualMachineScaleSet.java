@@ -6,6 +6,7 @@ package com.pulumi.azure.compute;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.compute.OrchestratedVirtualMachineScaleSetArgs;
 import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetState;
+import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetAdditionalCapabilities;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetBootDiagnostics;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetDataDisk;
@@ -89,9 +90,31 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet")
 public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.CustomResource {
+    /**
+     * An `additional_capabilities` block as defined below.
+     * 
+     */
+    @Export(name="additionalCapabilities", type=OrchestratedVirtualMachineScaleSetAdditionalCapabilities.class, parameters={})
+    private Output</* @Nullable */ OrchestratedVirtualMachineScaleSetAdditionalCapabilities> additionalCapabilities;
+
+    /**
+     * @return An `additional_capabilities` block as defined below.
+     * 
+     */
+    public Output<Optional<OrchestratedVirtualMachineScaleSetAdditionalCapabilities>> additionalCapabilities() {
+        return Codegen.optional(this.additionalCapabilities);
+    }
+    /**
+     * An `automatic_instance_repair` block as defined below.
+     * 
+     */
     @Export(name="automaticInstanceRepair", type=OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair.class, parameters={})
     private Output<OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair> automaticInstanceRepair;
 
+    /**
+     * @return An `automatic_instance_repair` block as defined below.
+     * 
+     */
     public Output<OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair> automaticInstanceRepair() {
         return this.automaticInstanceRepair;
     }
@@ -100,6 +123,20 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
 
     public Output<Optional<OrchestratedVirtualMachineScaleSetBootDiagnostics>> bootDiagnostics() {
         return Codegen.optional(this.bootDiagnostics);
+    }
+    /**
+     * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="capacityReservationGroupId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> capacityReservationGroupId;
+
+    /**
+     * @return Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> capacityReservationGroupId() {
+        return Codegen.optional(this.capacityReservationGroupId);
     }
     @Export(name="dataDisks", type=List.class, parameters={OrchestratedVirtualMachineScaleSetDataDisk.class})
     private Output</* @Nullable */ List<OrchestratedVirtualMachineScaleSetDataDisk>> dataDisks;
@@ -118,6 +155,20 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
 
     public Output<Optional<String>> evictionPolicy() {
         return Codegen.optional(this.evictionPolicy);
+    }
+    /**
+     * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+     * 
+     */
+    @Export(name="extensionOperationsEnabled", type=Boolean.class, parameters={})
+    private Output<Boolean> extensionOperationsEnabled;
+
+    /**
+     * @return Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+     * 
+     */
+    public Output<Boolean> extensionOperationsEnabled() {
+        return this.extensionOperationsEnabled;
     }
     @Export(name="extensions", type=List.class, parameters={OrchestratedVirtualMachineScaleSetExtension.class})
     private Output<List<OrchestratedVirtualMachineScaleSetExtension>> extensions;
@@ -271,9 +322,31 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
+    /**
+     * Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+     * 
+     */
+    @Export(name="singlePlacementGroup", type=Boolean.class, parameters={})
+    private Output<Boolean> singlePlacementGroup;
+
+    /**
+     * @return Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
+     * 
+     */
+    public Output<Boolean> singlePlacementGroup() {
+        return this.singlePlacementGroup;
+    }
+    /**
+     * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+     * 
+     */
     @Export(name="skuName", type=String.class, parameters={})
     private Output</* @Nullable */ String> skuName;
 
+    /**
+     * @return Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+     * 
+     */
     public Output<Optional<String>> skuName() {
         return Codegen.optional(this.skuName);
     }

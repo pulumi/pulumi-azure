@@ -18,6 +18,10 @@ namespace Pulumi.Azure.Compute.Outputs
         /// An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
         /// </summary>
         public readonly ImmutableArray<string> ExtensionsToProvisionAfterVmCreations;
+        /// <summary>
+        /// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+        /// </summary>
+        public readonly bool? FailureSuppressionEnabled;
         public readonly string? ForceExtensionExecutionOnChange;
         /// <summary>
         /// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
@@ -35,6 +39,8 @@ namespace Pulumi.Azure.Compute.Outputs
 
             ImmutableArray<string> extensionsToProvisionAfterVmCreations,
 
+            bool? failureSuppressionEnabled,
+
             string? forceExtensionExecutionOnChange,
 
             string name,
@@ -51,6 +57,7 @@ namespace Pulumi.Azure.Compute.Outputs
         {
             AutoUpgradeMinorVersionEnabled = autoUpgradeMinorVersionEnabled;
             ExtensionsToProvisionAfterVmCreations = extensionsToProvisionAfterVmCreations;
+            FailureSuppressionEnabled = failureSuppressionEnabled;
             ForceExtensionExecutionOnChange = forceExtensionExecutionOnChange;
             Name = name;
             ProtectedSettings = protectedSettings;

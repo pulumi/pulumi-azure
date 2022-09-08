@@ -3490,15 +3490,20 @@ class DataCollectionRuleDestinationsLogAnalyticArgs:
 @pulumi.input_type
 class DiagnosticSettingLogArgs:
     def __init__(__self__, *,
-                 category: pulumi.Input[str],
+                 category: Optional[pulumi.Input[str]] = None,
+                 category_group: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  retention_policy: Optional[pulumi.Input['DiagnosticSettingLogRetentionPolicyArgs']] = None):
         """
         :param pulumi.Input[str] category: The name of a Diagnostic Log Category for this Resource.
+        :param pulumi.Input[str] category_group: The name of a Diagnostic Log Category Group for this Resource.
         :param pulumi.Input[bool] enabled: Is this Diagnostic Log enabled? Defaults to `true`.
         :param pulumi.Input['DiagnosticSettingLogRetentionPolicyArgs'] retention_policy: A `retention_policy` block as defined below.
         """
-        pulumi.set(__self__, "category", category)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if category_group is not None:
+            pulumi.set(__self__, "category_group", category_group)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if retention_policy is not None:
@@ -3506,15 +3511,27 @@ class DiagnosticSettingLogArgs:
 
     @property
     @pulumi.getter
-    def category(self) -> pulumi.Input[str]:
+    def category(self) -> Optional[pulumi.Input[str]]:
         """
         The name of a Diagnostic Log Category for this Resource.
         """
         return pulumi.get(self, "category")
 
     @category.setter
-    def category(self, value: pulumi.Input[str]):
+    def category(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter(name="categoryGroup")
+    def category_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a Diagnostic Log Category Group for this Resource.
+        """
+        return pulumi.get(self, "category_group")
+
+    @category_group.setter
+    def category_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "category_group", value)
 
     @property
     @pulumi.getter

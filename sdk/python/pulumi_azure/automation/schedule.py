@@ -40,7 +40,7 @@ class ScheduleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ScheduleMonthlyOccurrenceArgs']]] monthly_occurrences: List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
         :param pulumi.Input[str] name: Specifies the name of the Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
-        :param pulumi.Input[str] timezone: The timezone of the start time. Defaults to `UTC`. For possible values see: https://s2.automation.ext.azure.com/api/Orchestrator/TimeZones?_=1594792230258
+        :param pulumi.Input[str] timezone: The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
         :param pulumi.Input[Sequence[pulumi.Input[str]]] week_days: List of days of the week that the job should execute on. Only valid when frequency is `Week`.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
@@ -189,7 +189,7 @@ class ScheduleArgs:
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
-        The timezone of the start time. Defaults to `UTC`. For possible values see: https://s2.automation.ext.azure.com/api/Orchestrator/TimeZones?_=1594792230258
+        The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
         """
         return pulumi.get(self, "timezone")
 
@@ -237,7 +237,7 @@ class _ScheduleState:
         :param pulumi.Input[str] name: Specifies the name of the Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
-        :param pulumi.Input[str] timezone: The timezone of the start time. Defaults to `UTC`. For possible values see: https://s2.automation.ext.azure.com/api/Orchestrator/TimeZones?_=1594792230258
+        :param pulumi.Input[str] timezone: The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
         :param pulumi.Input[Sequence[pulumi.Input[str]]] week_days: List of days of the week that the job should execute on. Only valid when frequency is `Week`.
         """
         if automation_account_name is not None:
@@ -389,7 +389,7 @@ class _ScheduleState:
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[str]]:
         """
-        The timezone of the start time. Defaults to `UTC`. For possible values see: https://s2.automation.ext.azure.com/api/Orchestrator/TimeZones?_=1594792230258
+        The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
         """
         return pulumi.get(self, "timezone")
 
@@ -473,7 +473,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
-        :param pulumi.Input[str] timezone: The timezone of the start time. Defaults to `UTC`. For possible values see: https://s2.automation.ext.azure.com/api/Orchestrator/TimeZones?_=1594792230258
+        :param pulumi.Input[str] timezone: The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
         :param pulumi.Input[Sequence[pulumi.Input[str]]] week_days: List of days of the week that the job should execute on. Only valid when frequency is `Week`.
         """
         ...
@@ -608,7 +608,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
-        :param pulumi.Input[str] timezone: The timezone of the start time. Defaults to `UTC`. For possible values see: https://s2.automation.ext.azure.com/api/Orchestrator/TimeZones?_=1594792230258
+        :param pulumi.Input[str] timezone: The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
         :param pulumi.Input[Sequence[pulumi.Input[str]]] week_days: List of days of the week that the job should execute on. Only valid when frequency is `Week`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -713,7 +713,7 @@ class Schedule(pulumi.CustomResource):
     @pulumi.getter
     def timezone(self) -> pulumi.Output[Optional[str]]:
         """
-        The timezone of the start time. Defaults to `UTC`. For possible values see: https://s2.automation.ext.azure.com/api/Orchestrator/TimeZones?_=1594792230258
+        The timezone of the start time. Defaults to `UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
         """
         return pulumi.get(self, "timezone")
 

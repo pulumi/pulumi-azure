@@ -4,6 +4,7 @@
 package com.pulumi.azure.privatelink.inputs;
 
 import com.pulumi.azure.privatelink.inputs.EndpointCustomDnsConfigArgs;
+import com.pulumi.azure.privatelink.inputs.EndpointIpConfigurationArgs;
 import com.pulumi.azure.privatelink.inputs.EndpointNetworkInterfaceArgs;
 import com.pulumi.azure.privatelink.inputs.EndpointPrivateDnsZoneConfigArgs;
 import com.pulumi.azure.privatelink.inputs.EndpointPrivateDnsZoneGroupArgs;
@@ -27,6 +28,21 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
 
     public Optional<Output<List<EndpointCustomDnsConfigArgs>>> customDnsConfigs() {
         return Optional.ofNullable(this.customDnsConfigs);
+    }
+
+    /**
+     * An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="ipConfiguration")
+    private @Nullable Output<EndpointIpConfigurationArgs> ipConfiguration;
+
+    /**
+     * @return An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<EndpointIpConfigurationArgs>> ipConfiguration() {
+        return Optional.ofNullable(this.ipConfiguration);
     }
 
     /**
@@ -152,6 +168,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
 
     private EndpointState(EndpointState $) {
         this.customDnsConfigs = $.customDnsConfigs;
+        this.ipConfiguration = $.ipConfiguration;
         this.location = $.location;
         this.name = $.name;
         this.networkInterfaces = $.networkInterfaces;
@@ -192,6 +209,27 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
 
         public Builder customDnsConfigs(EndpointCustomDnsConfigArgs... customDnsConfigs) {
             return customDnsConfigs(List.of(customDnsConfigs));
+        }
+
+        /**
+         * @param ipConfiguration An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipConfiguration(@Nullable Output<EndpointIpConfigurationArgs> ipConfiguration) {
+            $.ipConfiguration = ipConfiguration;
+            return this;
+        }
+
+        /**
+         * @param ipConfiguration An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipConfiguration(EndpointIpConfigurationArgs ipConfiguration) {
+            return ipConfiguration(Output.of(ipConfiguration));
         }
 
         /**

@@ -168,6 +168,8 @@ type Pool struct {
 	MaxTasksPerNode pulumi.IntPtrOutput `pulumi:"maxTasksPerNode"`
 	// A map of custom batch pool metadata.
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
+	// A `mount` block defined as below.
+	Mounts PoolMountArrayOutput `pulumi:"mounts"`
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkConfiguration` block that describes the network configurations for the Batch pool.
@@ -247,6 +249,8 @@ type poolState struct {
 	MaxTasksPerNode *int `pulumi:"maxTasksPerNode"`
 	// A map of custom batch pool metadata.
 	Metadata map[string]string `pulumi:"metadata"`
+	// A `mount` block defined as below.
+	Mounts []PoolMount `pulumi:"mounts"`
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `networkConfiguration` block that describes the network configurations for the Batch pool.
@@ -283,6 +287,8 @@ type PoolState struct {
 	MaxTasksPerNode pulumi.IntPtrInput
 	// A map of custom batch pool metadata.
 	Metadata pulumi.StringMapInput
+	// A `mount` block defined as below.
+	Mounts PoolMountArrayInput
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `networkConfiguration` block that describes the network configurations for the Batch pool.
@@ -323,6 +329,8 @@ type poolArgs struct {
 	MaxTasksPerNode *int `pulumi:"maxTasksPerNode"`
 	// A map of custom batch pool metadata.
 	Metadata map[string]string `pulumi:"metadata"`
+	// A `mount` block defined as below.
+	Mounts []PoolMount `pulumi:"mounts"`
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `networkConfiguration` block that describes the network configurations for the Batch pool.
@@ -360,6 +368,8 @@ type PoolArgs struct {
 	MaxTasksPerNode pulumi.IntPtrInput
 	// A map of custom batch pool metadata.
 	Metadata pulumi.StringMapInput
+	// A `mount` block defined as below.
+	Mounts PoolMountArrayInput
 	// Specifies the name of the Batch pool. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `networkConfiguration` block that describes the network configurations for the Batch pool.
@@ -507,6 +517,11 @@ func (o PoolOutput) MaxTasksPerNode() pulumi.IntPtrOutput {
 // A map of custom batch pool metadata.
 func (o PoolOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringMapOutput { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// A `mount` block defined as below.
+func (o PoolOutput) Mounts() PoolMountArrayOutput {
+	return o.ApplyT(func(v *Pool) PoolMountArrayOutput { return v.Mounts }).(PoolMountArrayOutput)
 }
 
 // Specifies the name of the Batch pool. Changing this forces a new resource to be created.

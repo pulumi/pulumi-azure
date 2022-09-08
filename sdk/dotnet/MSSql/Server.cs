@@ -120,7 +120,7 @@ namespace Pulumi.Azure.MSSql
         public Output<bool?> OutboundNetworkRestrictionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `user_assigned_identity_ids`.
+        /// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
         /// </summary>
         [Output("primaryUserAssignedIdentityId")]
         public Output<string> PrimaryUserAssignedIdentityId { get; private set; } = null!;
@@ -256,7 +256,7 @@ namespace Pulumi.Azure.MSSql
         public Input<bool>? OutboundNetworkRestrictionEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `user_assigned_identity_ids`.
+        /// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
         /// </summary>
         [Input("primaryUserAssignedIdentityId")]
         public Input<string>? PrimaryUserAssignedIdentityId { get; set; }
@@ -360,7 +360,7 @@ namespace Pulumi.Azure.MSSql
         public Input<bool>? OutboundNetworkRestrictionEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `user_assigned_identity_ids`.
+        /// Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
         /// </summary>
         [Input("primaryUserAssignedIdentityId")]
         public Input<string>? PrimaryUserAssignedIdentityId { get; set; }

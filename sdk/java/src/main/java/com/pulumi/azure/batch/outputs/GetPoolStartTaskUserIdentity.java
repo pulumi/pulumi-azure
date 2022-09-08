@@ -17,7 +17,7 @@ public final class GetPoolStartTaskUserIdentity {
      */
     private List<GetPoolStartTaskUserIdentityAutoUser> autoUsers;
     /**
-     * @return The user name to log into the registry server.
+     * @return The user to use for authentication against the CIFS file system.
      * 
      */
     private String userName;
@@ -31,7 +31,7 @@ public final class GetPoolStartTaskUserIdentity {
         return this.autoUsers;
     }
     /**
-     * @return The user name to log into the registry server.
+     * @return The user to use for authentication against the CIFS file system.
      * 
      */
     public String userName() {

@@ -142,6 +142,10 @@ namespace Pulumi.Azure.AppConfiguration
         /// A `primary_write_key` block as defined below containing the primary write access key.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationStorePrimaryWriteKeyResult> PrimaryWriteKeys;
+        /// <summary>
+        /// The Public Network Access setting of this App Configuration.
+        /// </summary>
+        public readonly string PublicNetworkAccess;
         public readonly string ResourceGroupName;
         /// <summary>
         /// A `secondary_read_key` block as defined below containing the secondary read access key.
@@ -174,6 +178,8 @@ namespace Pulumi.Azure.AppConfiguration
 
             ImmutableArray<Outputs.GetConfigurationStorePrimaryWriteKeyResult> primaryWriteKeys,
 
+            string publicNetworkAccess,
+
             string resourceGroupName,
 
             ImmutableArray<Outputs.GetConfigurationStoreSecondaryReadKeyResult> secondaryReadKeys,
@@ -190,6 +196,7 @@ namespace Pulumi.Azure.AppConfiguration
             Name = name;
             PrimaryReadKeys = primaryReadKeys;
             PrimaryWriteKeys = primaryWriteKeys;
+            PublicNetworkAccess = publicNetworkAccess;
             ResourceGroupName = resourceGroupName;
             SecondaryReadKeys = secondaryReadKeys;
             SecondaryWriteKeys = secondaryWriteKeys;

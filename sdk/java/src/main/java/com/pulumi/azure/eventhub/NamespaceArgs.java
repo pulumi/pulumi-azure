@@ -96,6 +96,21 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+     * 
+     */
+    @Import(name="minimumTlsVersion")
+    private @Nullable Output<String> minimumTlsVersion;
+
+    /**
+     * @return The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+     * 
+     */
+    public Optional<Output<String>> minimumTlsVersion() {
+        return Optional.ofNullable(this.minimumTlsVersion);
+    }
+
+    /**
      * Specifies the name of the ServiceBus Namespace resource . Changing this forces a
      * new resource to be created.
      * 
@@ -110,6 +125,21 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+     * 
+     */
+    @Import(name="publicNetworkAccessEnabled")
+    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
     }
 
     /**
@@ -182,7 +212,9 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
         this.identity = $.identity;
         this.localAuthEnabled = $.localAuthEnabled;
         this.location = $.location;
+        this.minimumTlsVersion = $.minimumTlsVersion;
         this.name = $.name;
+        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.sku = $.sku;
         this.tags = $.tags;
@@ -313,6 +345,27 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param minimumTlsVersion The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimumTlsVersion(@Nullable Output<String> minimumTlsVersion) {
+            $.minimumTlsVersion = minimumTlsVersion;
+            return this;
+        }
+
+        /**
+         * @param minimumTlsVersion The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimumTlsVersion(String minimumTlsVersion) {
+            return minimumTlsVersion(Output.of(minimumTlsVersion));
+        }
+
+        /**
          * @param name Specifies the name of the ServiceBus Namespace resource . Changing this forces a
          * new resource to be created.
          * 
@@ -333,6 +386,27 @@ public final class NamespaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
+            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
         /**

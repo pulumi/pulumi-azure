@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RegistryScopeMap{}
 	case "azure:containerservice/registryTask:RegistryTask":
 		r = &RegistryTask{}
+	case "azure:containerservice/registryTaskScheduleRunNow:RegistryTaskScheduleRunNow":
+		r = &RegistryTaskScheduleRunNow{}
 	case "azure:containerservice/registryToken:RegistryToken":
 		r = &RegistryToken{}
 	case "azure:containerservice/registryWebhook:RegistryWebhook":
@@ -94,6 +96,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"containerservice/registryTask",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"containerservice/registryTaskScheduleRunNow",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

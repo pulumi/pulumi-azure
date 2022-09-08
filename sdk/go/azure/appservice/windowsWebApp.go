@@ -80,7 +80,7 @@ type WindowsWebApp struct {
 	ClientAffinityEnabled pulumi.BoolPtrOutput `pulumi:"clientAffinityEnabled"`
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
-	// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertEnabled` is `false`
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
 	ClientCertificateMode pulumi.StringPtrOutput `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings WindowsWebAppConnectionStringArrayOutput `pulumi:"connectionStrings"`
@@ -180,7 +180,7 @@ type windowsWebAppState struct {
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
-	// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertEnabled` is `false`
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings []WindowsWebAppConnectionString `pulumi:"connectionStrings"`
@@ -243,7 +243,7 @@ type WindowsWebAppState struct {
 	ClientAffinityEnabled pulumi.BoolPtrInput
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled pulumi.BoolPtrInput
-	// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertEnabled` is `false`
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
 	ClientCertificateMode pulumi.StringPtrInput
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings WindowsWebAppConnectionStringArrayInput
@@ -310,7 +310,7 @@ type windowsWebAppArgs struct {
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
-	// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertEnabled` is `false`
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings []WindowsWebAppConnectionString `pulumi:"connectionStrings"`
@@ -358,7 +358,7 @@ type WindowsWebAppArgs struct {
 	ClientAffinityEnabled pulumi.BoolPtrInput
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled pulumi.BoolPtrInput
-	// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertEnabled` is `false`
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
 	ClientCertificateMode pulumi.StringPtrInput
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings WindowsWebAppConnectionStringArrayInput
@@ -506,7 +506,7 @@ func (o WindowsWebAppOutput) ClientCertificateEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsWebApp) pulumi.BoolPtrOutput { return v.ClientCertificateEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertEnabled` is `false`
+// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertEnabled` is `false`
 func (o WindowsWebAppOutput) ClientCertificateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsWebApp) pulumi.StringPtrOutput { return v.ClientCertificateMode }).(pulumi.StringPtrOutput)
 }

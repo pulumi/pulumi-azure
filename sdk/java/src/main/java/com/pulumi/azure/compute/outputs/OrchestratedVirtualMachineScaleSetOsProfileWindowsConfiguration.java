@@ -25,6 +25,11 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
      */
     private @Nullable Boolean hotpatchingEnabled;
     /**
+     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+     * 
+     */
+    private @Nullable String patchAssessmentMode;
+    /**
      * @return Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      * 
      */
@@ -53,6 +58,13 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
      */
     public Optional<Boolean> hotpatchingEnabled() {
         return Optional.ofNullable(this.hotpatchingEnabled);
+    }
+    /**
+     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+     * 
+     */
+    public Optional<String> patchAssessmentMode() {
+        return Optional.ofNullable(this.patchAssessmentMode);
     }
     /**
      * @return Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
@@ -88,6 +100,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         private @Nullable String computerNamePrefix;
         private @Nullable Boolean enableAutomaticUpdates;
         private @Nullable Boolean hotpatchingEnabled;
+        private @Nullable String patchAssessmentMode;
         private @Nullable String patchMode;
         private @Nullable Boolean provisionVmAgent;
         private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret> secrets;
@@ -101,6 +114,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     	      this.computerNamePrefix = defaults.computerNamePrefix;
     	      this.enableAutomaticUpdates = defaults.enableAutomaticUpdates;
     	      this.hotpatchingEnabled = defaults.hotpatchingEnabled;
+    	      this.patchAssessmentMode = defaults.patchAssessmentMode;
     	      this.patchMode = defaults.patchMode;
     	      this.provisionVmAgent = defaults.provisionVmAgent;
     	      this.secrets = defaults.secrets;
@@ -131,6 +145,11 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         @CustomType.Setter
         public Builder hotpatchingEnabled(@Nullable Boolean hotpatchingEnabled) {
             this.hotpatchingEnabled = hotpatchingEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder patchAssessmentMode(@Nullable String patchAssessmentMode) {
+            this.patchAssessmentMode = patchAssessmentMode;
             return this;
         }
         @CustomType.Setter
@@ -171,6 +190,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
             o.computerNamePrefix = computerNamePrefix;
             o.enableAutomaticUpdates = enableAutomaticUpdates;
             o.hotpatchingEnabled = hotpatchingEnabled;
+            o.patchAssessmentMode = patchAssessmentMode;
             o.patchMode = patchMode;
             o.provisionVmAgent = provisionVmAgent;
             o.secrets = secrets;

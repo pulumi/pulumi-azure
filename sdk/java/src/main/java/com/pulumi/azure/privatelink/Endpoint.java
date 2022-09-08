@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.privatelink.EndpointArgs;
 import com.pulumi.azure.privatelink.inputs.EndpointState;
 import com.pulumi.azure.privatelink.outputs.EndpointCustomDnsConfig;
+import com.pulumi.azure.privatelink.outputs.EndpointIpConfiguration;
 import com.pulumi.azure.privatelink.outputs.EndpointNetworkInterface;
 import com.pulumi.azure.privatelink.outputs.EndpointPrivateDnsZoneConfig;
 import com.pulumi.azure.privatelink.outputs.EndpointPrivateDnsZoneGroup;
@@ -205,6 +206,20 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
 
     public Output<List<EndpointCustomDnsConfig>> customDnsConfigs() {
         return this.customDnsConfigs;
+    }
+    /**
+     * An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="ipConfiguration", type=EndpointIpConfiguration.class, parameters={})
+    private Output</* @Nullable */ EndpointIpConfiguration> ipConfiguration;
+
+    /**
+     * @return An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<EndpointIpConfiguration>> ipConfiguration() {
+        return Codegen.optional(this.ipConfiguration);
     }
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.

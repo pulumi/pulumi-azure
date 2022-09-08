@@ -25,6 +25,10 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     private @Nullable Boolean primary;
     private @Nullable List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> publicIpAddresses;
     private @Nullable String subnetId;
+    /**
+     * @return The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+     * 
+     */
     private @Nullable String version;
 
     private OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration() {}
@@ -53,6 +57,10 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     public Optional<String> subnetId() {
         return Optional.ofNullable(this.subnetId);
     }
+    /**
+     * @return The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+     * 
+     */
     public Optional<String> version() {
         return Optional.ofNullable(this.version);
     }

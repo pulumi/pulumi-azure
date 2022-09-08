@@ -166,6 +166,21 @@ public final class ReferenceInputMssqlArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * The name of the table in the Azure SQL database.
+     * 
+     */
+    @Import(name="table")
+    private @Nullable Output<String> table;
+
+    /**
+     * @return The name of the table in the Azure SQL database.
+     * 
+     */
+    public Optional<Output<String>> table() {
+        return Optional.ofNullable(this.table);
+    }
+
+    /**
      * The username to connect to the MS SQL database.
      * 
      */
@@ -193,6 +208,7 @@ public final class ReferenceInputMssqlArgs extends com.pulumi.resources.Resource
         this.resourceGroupName = $.resourceGroupName;
         this.server = $.server;
         this.streamAnalyticsJobName = $.streamAnalyticsJobName;
+        this.table = $.table;
         this.username = $.username;
     }
 
@@ -422,6 +438,27 @@ public final class ReferenceInputMssqlArgs extends com.pulumi.resources.Resource
          */
         public Builder streamAnalyticsJobName(String streamAnalyticsJobName) {
             return streamAnalyticsJobName(Output.of(streamAnalyticsJobName));
+        }
+
+        /**
+         * @param table The name of the table in the Azure SQL database.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder table(@Nullable Output<String> table) {
+            $.table = table;
+            return this;
+        }
+
+        /**
+         * @param table The name of the table in the Azure SQL database.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder table(String table) {
+            return table(Output.of(table));
         }
 
         /**

@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight;
 
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterComponentVersionArgs;
+import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterDiskEncryptionArgs;
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterGatewayArgs;
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterMetastoresArgs;
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterMonitorArgs;
@@ -55,6 +56,13 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
      */
     public Output<InteractiveQueryClusterComponentVersionArgs> componentVersion() {
         return this.componentVersion;
+    }
+
+    @Import(name="diskEncryptions")
+    private @Nullable Output<List<InteractiveQueryClusterDiskEncryptionArgs>> diskEncryptions;
+
+    public Optional<Output<List<InteractiveQueryClusterDiskEncryptionArgs>>> diskEncryptions() {
+        return Optional.ofNullable(this.diskEncryptions);
     }
 
     /**
@@ -279,6 +287,7 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
     private InteractiveQueryClusterArgs(InteractiveQueryClusterArgs $) {
         this.clusterVersion = $.clusterVersion;
         this.componentVersion = $.componentVersion;
+        this.diskEncryptions = $.diskEncryptions;
         this.encryptionInTransitEnabled = $.encryptionInTransitEnabled;
         this.gateway = $.gateway;
         this.location = $.location;
@@ -354,6 +363,19 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
          */
         public Builder componentVersion(InteractiveQueryClusterComponentVersionArgs componentVersion) {
             return componentVersion(Output.of(componentVersion));
+        }
+
+        public Builder diskEncryptions(@Nullable Output<List<InteractiveQueryClusterDiskEncryptionArgs>> diskEncryptions) {
+            $.diskEncryptions = diskEncryptions;
+            return this;
+        }
+
+        public Builder diskEncryptions(List<InteractiveQueryClusterDiskEncryptionArgs> diskEncryptions) {
+            return diskEncryptions(Output.of(diskEncryptions));
+        }
+
+        public Builder diskEncryptions(InteractiveQueryClusterDiskEncryptionArgs... diskEncryptions) {
+            return diskEncryptions(List.of(diskEncryptions));
         }
 
         /**

@@ -178,7 +178,7 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The point in time to restore from `source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Output("pointInTimeRestoreTimeInUtc")]
         public Output<string?> PointInTimeRestoreTimeInUtc { get; private set; } = null!;
@@ -345,7 +345,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The point in time to restore from `source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Input("pointInTimeRestoreTimeInUtc")]
         public Input<string>? PointInTimeRestoreTimeInUtc { get; set; }
@@ -480,7 +480,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The point in time to restore from `creation_source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
+        /// The point in time to restore from `source_server_id` when `create_mode` is `PointInTimeRestore`. Changing this forces a new PostgreSQL Flexible Server to be created.
         /// </summary>
         [Input("pointInTimeRestoreTimeInUtc")]
         public Input<string>? PointInTimeRestoreTimeInUtc { get; set; }

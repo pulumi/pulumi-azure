@@ -17,14 +17,14 @@ public final class ComputeClusterIdentityArgs extends com.pulumi.resources.Resou
     public static final ComputeClusterIdentityArgs Empty = new ComputeClusterIdentityArgs();
 
     /**
-     * Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+     * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster.
      * 
      */
     @Import(name="identityIds")
     private @Nullable Output<List<String>> identityIds;
 
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster.
      * 
      */
     public Optional<Output<List<String>>> identityIds() {
@@ -62,14 +62,14 @@ public final class ComputeClusterIdentityArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * @return Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     public Output<String> type() {
@@ -104,7 +104,7 @@ public final class ComputeClusterIdentityArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ComputeClusterIdentityArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class ComputeClusterIdentityArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ComputeClusterIdentityArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class ComputeClusterIdentityArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          * 
          * @return builder
          * 

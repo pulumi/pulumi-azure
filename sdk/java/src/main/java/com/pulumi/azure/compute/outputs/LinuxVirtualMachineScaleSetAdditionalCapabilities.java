@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LinuxVirtualMachineScaleSetAdditionalCapabilities {
     /**
-     * @return Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Boolean ultraSsdEnabled;
 
     private LinuxVirtualMachineScaleSetAdditionalCapabilities() {}
     /**
-     * @return Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+     * @return Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Boolean> ultraSsdEnabled() {

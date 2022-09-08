@@ -159,6 +159,10 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         public readonly string PolicyType;
         /// <summary>
+        /// A list of role definition id extracted from `policy_rule` required for remediation.
+        /// </summary>
+        public readonly ImmutableArray<string> RoleDefinitionIds;
+        /// <summary>
         /// The Type of Policy.
         /// </summary>
         public readonly string Type;
@@ -183,6 +187,8 @@ namespace Pulumi.Azure.Policy
 
             string policyType,
 
+            ImmutableArray<string> roleDefinitionIds,
+
             string type)
         {
             Description = description;
@@ -194,6 +200,7 @@ namespace Pulumi.Azure.Policy
             Parameters = parameters;
             PolicyRule = policyRule;
             PolicyType = policyType;
+            RoleDefinitionIds = roleDefinitionIds;
             Type = type;
         }
     }

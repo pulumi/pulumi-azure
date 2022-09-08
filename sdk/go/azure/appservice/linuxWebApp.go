@@ -80,7 +80,7 @@ type LinuxWebApp struct {
 	ClientAffinityEnabled pulumi.BoolPtrOutput `pulumi:"clientAffinityEnabled"`
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
-	// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertificateEnabled` is `false`
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`
 	ClientCertificateMode pulumi.StringPtrOutput `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings LinuxWebAppConnectionStringArrayOutput `pulumi:"connectionStrings"`
@@ -180,7 +180,7 @@ type linuxWebAppState struct {
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
-	// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertificateEnabled` is `false`
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings []LinuxWebAppConnectionString `pulumi:"connectionStrings"`
@@ -243,7 +243,7 @@ type LinuxWebAppState struct {
 	ClientAffinityEnabled pulumi.BoolPtrInput
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled pulumi.BoolPtrInput
-	// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertificateEnabled` is `false`
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`
 	ClientCertificateMode pulumi.StringPtrInput
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings LinuxWebAppConnectionStringArrayInput
@@ -310,7 +310,7 @@ type linuxWebAppArgs struct {
 	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
-	// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertificateEnabled` is `false`
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings []LinuxWebAppConnectionString `pulumi:"connectionStrings"`
@@ -358,7 +358,7 @@ type LinuxWebAppArgs struct {
 	ClientAffinityEnabled pulumi.BoolPtrInput
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled pulumi.BoolPtrInput
-	// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertificateEnabled` is `false`
+	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`
 	ClientCertificateMode pulumi.StringPtrInput
 	// One or more `connectionString` blocks as defined below.
 	ConnectionStrings LinuxWebAppConnectionStringArrayInput
@@ -506,7 +506,7 @@ func (o LinuxWebAppOutput) ClientCertificateEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.BoolPtrOutput { return v.ClientCertificateEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Client Certificate mode. Possible values include `Optional` and `Required`. This property has no effect when `clientCertificateEnabled` is `false`
+// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`
 func (o LinuxWebAppOutput) ClientCertificateMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.StringPtrOutput { return v.ClientCertificateMode }).(pulumi.StringPtrOutput)
 }

@@ -50,7 +50,7 @@ func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getPool.
 type LookupPoolArgs struct {
-	// The name of the Batch account.
+	// The Azure Storage Account name.
 	AccountName string `pulumi:"accountName"`
 	// The name of the endpoint.
 	Name              string `pulumi:"name"`
@@ -59,7 +59,7 @@ type LookupPoolArgs struct {
 
 // A collection of values returned by getPool.
 type LookupPoolResult struct {
-	// The name of the Batch account.
+	// The Azure Storage Account name.
 	AccountName string `pulumi:"accountName"`
 	// A `autoScale` block that describes the scale settings when using auto scale.
 	AutoScales []GetPoolAutoScale `pulumi:"autoScales"`
@@ -75,6 +75,8 @@ type LookupPoolResult struct {
 	// The maximum number of tasks that can run concurrently on a single compute node in the pool.
 	MaxTasksPerNode int               `pulumi:"maxTasksPerNode"`
 	Metadata        map[string]string `pulumi:"metadata"`
+	// A `mount` block that describes mount configuration.
+	Mounts []GetPoolMount `pulumi:"mounts"`
 	// The name of the endpoint.
 	Name                  string                        `pulumi:"name"`
 	NetworkConfigurations []GetPoolNetworkConfiguration `pulumi:"networkConfigurations"`
@@ -104,7 +106,7 @@ func LookupPoolOutput(ctx *pulumi.Context, args LookupPoolOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getPool.
 type LookupPoolOutputArgs struct {
-	// The name of the Batch account.
+	// The Azure Storage Account name.
 	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The name of the endpoint.
 	Name              pulumi.StringInput `pulumi:"name"`
@@ -130,7 +132,7 @@ func (o LookupPoolResultOutput) ToLookupPoolResultOutputWithContext(ctx context.
 	return o
 }
 
-// The name of the Batch account.
+// The Azure Storage Account name.
 func (o LookupPoolResultOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPoolResult) string { return v.AccountName }).(pulumi.StringOutput)
 }
@@ -171,6 +173,11 @@ func (o LookupPoolResultOutput) MaxTasksPerNode() pulumi.IntOutput {
 
 func (o LookupPoolResultOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupPoolResult) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// A `mount` block that describes mount configuration.
+func (o LookupPoolResultOutput) Mounts() GetPoolMountArrayOutput {
+	return o.ApplyT(func(v LookupPoolResult) []GetPoolMount { return v.Mounts }).(GetPoolMountArrayOutput)
 }
 
 // The name of the endpoint.

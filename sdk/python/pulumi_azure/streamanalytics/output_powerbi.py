@@ -19,7 +19,9 @@ class OutputPowerbiArgs:
                  group_name: pulumi.Input[str],
                  stream_analytics_job_id: pulumi.Input[str],
                  table: pulumi.Input[str],
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 token_user_display_name: Optional[pulumi.Input[str]] = None,
+                 token_user_principal_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OutputPowerbi resource.
         :param pulumi.Input[str] dataset: The name of the Power BI dataset.
@@ -28,6 +30,8 @@ class OutputPowerbiArgs:
         :param pulumi.Input[str] stream_analytics_job_id: The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] table: The name of the Power BI table under the specified dataset.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] token_user_display_name: The user display name of the user that was used to obtain the refresh token.
+        :param pulumi.Input[str] token_user_principal_name: The user principal name (UPN) of the user that was used to obtain the refresh token.
         """
         pulumi.set(__self__, "dataset", dataset)
         pulumi.set(__self__, "group_id", group_id)
@@ -36,6 +40,10 @@ class OutputPowerbiArgs:
         pulumi.set(__self__, "table", table)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if token_user_display_name is not None:
+            pulumi.set(__self__, "token_user_display_name", token_user_display_name)
+        if token_user_principal_name is not None:
+            pulumi.set(__self__, "token_user_principal_name", token_user_principal_name)
 
     @property
     @pulumi.getter
@@ -109,6 +117,30 @@ class OutputPowerbiArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="tokenUserDisplayName")
+    def token_user_display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user display name of the user that was used to obtain the refresh token.
+        """
+        return pulumi.get(self, "token_user_display_name")
+
+    @token_user_display_name.setter
+    def token_user_display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_user_display_name", value)
+
+    @property
+    @pulumi.getter(name="tokenUserPrincipalName")
+    def token_user_principal_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user principal name (UPN) of the user that was used to obtain the refresh token.
+        """
+        return pulumi.get(self, "token_user_principal_name")
+
+    @token_user_principal_name.setter
+    def token_user_principal_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_user_principal_name", value)
+
 
 @pulumi.input_type
 class _OutputPowerbiState:
@@ -118,7 +150,9 @@ class _OutputPowerbiState:
                  group_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
-                 table: Optional[pulumi.Input[str]] = None):
+                 table: Optional[pulumi.Input[str]] = None,
+                 token_user_display_name: Optional[pulumi.Input[str]] = None,
+                 token_user_principal_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OutputPowerbi resources.
         :param pulumi.Input[str] dataset: The name of the Power BI dataset.
@@ -127,6 +161,8 @@ class _OutputPowerbiState:
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] stream_analytics_job_id: The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] table: The name of the Power BI table under the specified dataset.
+        :param pulumi.Input[str] token_user_display_name: The user display name of the user that was used to obtain the refresh token.
+        :param pulumi.Input[str] token_user_principal_name: The user principal name (UPN) of the user that was used to obtain the refresh token.
         """
         if dataset is not None:
             pulumi.set(__self__, "dataset", dataset)
@@ -140,6 +176,10 @@ class _OutputPowerbiState:
             pulumi.set(__self__, "stream_analytics_job_id", stream_analytics_job_id)
         if table is not None:
             pulumi.set(__self__, "table", table)
+        if token_user_display_name is not None:
+            pulumi.set(__self__, "token_user_display_name", token_user_display_name)
+        if token_user_principal_name is not None:
+            pulumi.set(__self__, "token_user_principal_name", token_user_principal_name)
 
     @property
     @pulumi.getter
@@ -213,6 +253,30 @@ class _OutputPowerbiState:
     def table(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "table", value)
 
+    @property
+    @pulumi.getter(name="tokenUserDisplayName")
+    def token_user_display_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user display name of the user that was used to obtain the refresh token.
+        """
+        return pulumi.get(self, "token_user_display_name")
+
+    @token_user_display_name.setter
+    def token_user_display_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_user_display_name", value)
+
+    @property
+    @pulumi.getter(name="tokenUserPrincipalName")
+    def token_user_principal_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user principal name (UPN) of the user that was used to obtain the refresh token.
+        """
+        return pulumi.get(self, "token_user_principal_name")
+
+    @token_user_principal_name.setter
+    def token_user_principal_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_user_principal_name", value)
+
 
 class OutputPowerbi(pulumi.CustomResource):
     @overload
@@ -225,6 +289,8 @@ class OutputPowerbi(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
                  table: Optional[pulumi.Input[str]] = None,
+                 token_user_display_name: Optional[pulumi.Input[str]] = None,
+                 token_user_principal_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Stream Analytics Output powerBI.
@@ -262,6 +328,8 @@ class OutputPowerbi(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] stream_analytics_job_id: The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] table: The name of the Power BI table under the specified dataset.
+        :param pulumi.Input[str] token_user_display_name: The user display name of the user that was used to obtain the refresh token.
+        :param pulumi.Input[str] token_user_principal_name: The user principal name (UPN) of the user that was used to obtain the refresh token.
         """
         ...
     @overload
@@ -318,6 +386,8 @@ class OutputPowerbi(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
                  table: Optional[pulumi.Input[str]] = None,
+                 token_user_display_name: Optional[pulumi.Input[str]] = None,
+                 token_user_principal_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -343,6 +413,8 @@ class OutputPowerbi(pulumi.CustomResource):
             if table is None and not opts.urn:
                 raise TypeError("Missing required property 'table'")
             __props__.__dict__["table"] = table
+            __props__.__dict__["token_user_display_name"] = token_user_display_name
+            __props__.__dict__["token_user_principal_name"] = token_user_principal_name
         super(OutputPowerbi, __self__).__init__(
             'azure:streamanalytics/outputPowerbi:OutputPowerbi',
             resource_name,
@@ -358,7 +430,9 @@ class OutputPowerbi(pulumi.CustomResource):
             group_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             stream_analytics_job_id: Optional[pulumi.Input[str]] = None,
-            table: Optional[pulumi.Input[str]] = None) -> 'OutputPowerbi':
+            table: Optional[pulumi.Input[str]] = None,
+            token_user_display_name: Optional[pulumi.Input[str]] = None,
+            token_user_principal_name: Optional[pulumi.Input[str]] = None) -> 'OutputPowerbi':
         """
         Get an existing OutputPowerbi resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -372,6 +446,8 @@ class OutputPowerbi(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         :param pulumi.Input[str] stream_analytics_job_id: The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] table: The name of the Power BI table under the specified dataset.
+        :param pulumi.Input[str] token_user_display_name: The user display name of the user that was used to obtain the refresh token.
+        :param pulumi.Input[str] token_user_principal_name: The user principal name (UPN) of the user that was used to obtain the refresh token.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -383,6 +459,8 @@ class OutputPowerbi(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["stream_analytics_job_id"] = stream_analytics_job_id
         __props__.__dict__["table"] = table
+        __props__.__dict__["token_user_display_name"] = token_user_display_name
+        __props__.__dict__["token_user_principal_name"] = token_user_principal_name
         return OutputPowerbi(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -432,4 +510,20 @@ class OutputPowerbi(pulumi.CustomResource):
         The name of the Power BI table under the specified dataset.
         """
         return pulumi.get(self, "table")
+
+    @property
+    @pulumi.getter(name="tokenUserDisplayName")
+    def token_user_display_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The user display name of the user that was used to obtain the refresh token.
+        """
+        return pulumi.get(self, "token_user_display_name")
+
+    @property
+    @pulumi.getter(name="tokenUserPrincipalName")
+    def token_user_principal_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The user principal name (UPN) of the user that was used to obtain the refresh token.
+        """
+        return pulumi.get(self, "token_user_principal_name")
 

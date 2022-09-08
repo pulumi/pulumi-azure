@@ -63,6 +63,21 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The Public Network Access setting of this App Configuration.
+     * 
+     */
+    @Import(name="publicNetworkAccess")
+    private @Nullable Output<String> publicNetworkAccess;
+
+    /**
+     * @return The Public Network Access setting of this App Configuration.
+     * 
+     */
+    public Optional<Output<String>> publicNetworkAccess() {
+        return Optional.ofNullable(this.publicNetworkAccess);
+    }
+
+    /**
      * The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created.
      * 
      */
@@ -113,6 +128,7 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
         this.identity = $.identity;
         this.location = $.location;
         this.name = $.name;
+        this.publicNetworkAccess = $.publicNetworkAccess;
         this.resourceGroupName = $.resourceGroupName;
         this.sku = $.sku;
         this.tags = $.tags;
@@ -197,6 +213,27 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param publicNetworkAccess The Public Network Access setting of this App Configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccess(@Nullable Output<String> publicNetworkAccess) {
+            $.publicNetworkAccess = publicNetworkAccess;
+            return this;
+        }
+
+        /**
+         * @param publicNetworkAccess The Public Network Access setting of this App Configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccess(String publicNetworkAccess) {
+            return publicNetworkAccess(Output.of(publicNetworkAccess));
         }
 
         /**

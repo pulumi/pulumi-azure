@@ -53,6 +53,34 @@ __all__ = [
     'FrontdoorOriginGroupHealthProbeArgs',
     'FrontdoorOriginGroupLoadBalancingArgs',
     'FrontdoorOriginPrivateLinkArgs',
+    'FrontdoorRuleActionsArgs',
+    'FrontdoorRuleActionsRequestHeaderActionArgs',
+    'FrontdoorRuleActionsResponseHeaderActionArgs',
+    'FrontdoorRuleActionsRouteConfigurationOverrideActionArgs',
+    'FrontdoorRuleActionsUrlRedirectActionArgs',
+    'FrontdoorRuleActionsUrlRewriteActionArgs',
+    'FrontdoorRuleConditionsArgs',
+    'FrontdoorRuleConditionsClientPortConditionArgs',
+    'FrontdoorRuleConditionsCookiesConditionArgs',
+    'FrontdoorRuleConditionsHostNameConditionArgs',
+    'FrontdoorRuleConditionsHttpVersionConditionArgs',
+    'FrontdoorRuleConditionsIsDeviceConditionArgs',
+    'FrontdoorRuleConditionsPostArgsConditionArgs',
+    'FrontdoorRuleConditionsQueryStringConditionArgs',
+    'FrontdoorRuleConditionsRemoteAddressConditionArgs',
+    'FrontdoorRuleConditionsRequestBodyConditionArgs',
+    'FrontdoorRuleConditionsRequestHeaderConditionArgs',
+    'FrontdoorRuleConditionsRequestMethodConditionArgs',
+    'FrontdoorRuleConditionsRequestSchemeConditionArgs',
+    'FrontdoorRuleConditionsRequestUriConditionArgs',
+    'FrontdoorRuleConditionsServerPortConditionArgs',
+    'FrontdoorRuleConditionsSocketAddressConditionArgs',
+    'FrontdoorRuleConditionsSslProtocolConditionArgs',
+    'FrontdoorRuleConditionsUrlFileExtensionConditionArgs',
+    'FrontdoorRuleConditionsUrlFilenameConditionArgs',
+    'FrontdoorRuleConditionsUrlPathConditionArgs',
+    'FrontdoorSecretSecretArgs',
+    'FrontdoorSecretSecretCustomerCertificateArgs',
     'FrontdoorSecurityPolicySecurityPoliciesArgs',
     'FrontdoorSecurityPolicySecurityPoliciesFirewallArgs',
     'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs',
@@ -3156,6 +3184,2032 @@ class FrontdoorOriginPrivateLinkArgs:
     @target_type.setter
     def target_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_type", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleActionsArgs:
+    def __init__(__self__, *,
+                 request_header_actions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsRequestHeaderActionArgs']]]] = None,
+                 response_header_actions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsResponseHeaderActionArgs']]]] = None,
+                 route_configuration_override_action: Optional[pulumi.Input['FrontdoorRuleActionsRouteConfigurationOverrideActionArgs']] = None,
+                 url_redirect_action: Optional[pulumi.Input['FrontdoorRuleActionsUrlRedirectActionArgs']] = None,
+                 url_rewrite_action: Optional[pulumi.Input['FrontdoorRuleActionsUrlRewriteActionArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsRequestHeaderActionArgs']]] request_header_actions: A `request_header_action` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsResponseHeaderActionArgs']]] response_header_actions: A `response_header_action` block as defined below.
+        :param pulumi.Input['FrontdoorRuleActionsRouteConfigurationOverrideActionArgs'] route_configuration_override_action: A `route_configuration_override_action` block as defined below.
+        :param pulumi.Input['FrontdoorRuleActionsUrlRedirectActionArgs'] url_redirect_action: A `url_redirect_action` block as defined below. You may **not** have a `url_redirect_action` **and** a `url_rewrite_action` defined in the same `actions` block.
+        :param pulumi.Input['FrontdoorRuleActionsUrlRewriteActionArgs'] url_rewrite_action: A `url_rewrite_action` block as defined below. You may **not** have a `url_rewrite_action` **and** a `url_redirect_action` defined in the same `actions` block.
+        """
+        if request_header_actions is not None:
+            pulumi.set(__self__, "request_header_actions", request_header_actions)
+        if response_header_actions is not None:
+            pulumi.set(__self__, "response_header_actions", response_header_actions)
+        if route_configuration_override_action is not None:
+            pulumi.set(__self__, "route_configuration_override_action", route_configuration_override_action)
+        if url_redirect_action is not None:
+            pulumi.set(__self__, "url_redirect_action", url_redirect_action)
+        if url_rewrite_action is not None:
+            pulumi.set(__self__, "url_rewrite_action", url_rewrite_action)
+
+    @property
+    @pulumi.getter(name="requestHeaderActions")
+    def request_header_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsRequestHeaderActionArgs']]]]:
+        """
+        A `request_header_action` block as defined below.
+        """
+        return pulumi.get(self, "request_header_actions")
+
+    @request_header_actions.setter
+    def request_header_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsRequestHeaderActionArgs']]]]):
+        pulumi.set(self, "request_header_actions", value)
+
+    @property
+    @pulumi.getter(name="responseHeaderActions")
+    def response_header_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsResponseHeaderActionArgs']]]]:
+        """
+        A `response_header_action` block as defined below.
+        """
+        return pulumi.get(self, "response_header_actions")
+
+    @response_header_actions.setter
+    def response_header_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleActionsResponseHeaderActionArgs']]]]):
+        pulumi.set(self, "response_header_actions", value)
+
+    @property
+    @pulumi.getter(name="routeConfigurationOverrideAction")
+    def route_configuration_override_action(self) -> Optional[pulumi.Input['FrontdoorRuleActionsRouteConfigurationOverrideActionArgs']]:
+        """
+        A `route_configuration_override_action` block as defined below.
+        """
+        return pulumi.get(self, "route_configuration_override_action")
+
+    @route_configuration_override_action.setter
+    def route_configuration_override_action(self, value: Optional[pulumi.Input['FrontdoorRuleActionsRouteConfigurationOverrideActionArgs']]):
+        pulumi.set(self, "route_configuration_override_action", value)
+
+    @property
+    @pulumi.getter(name="urlRedirectAction")
+    def url_redirect_action(self) -> Optional[pulumi.Input['FrontdoorRuleActionsUrlRedirectActionArgs']]:
+        """
+        A `url_redirect_action` block as defined below. You may **not** have a `url_redirect_action` **and** a `url_rewrite_action` defined in the same `actions` block.
+        """
+        return pulumi.get(self, "url_redirect_action")
+
+    @url_redirect_action.setter
+    def url_redirect_action(self, value: Optional[pulumi.Input['FrontdoorRuleActionsUrlRedirectActionArgs']]):
+        pulumi.set(self, "url_redirect_action", value)
+
+    @property
+    @pulumi.getter(name="urlRewriteAction")
+    def url_rewrite_action(self) -> Optional[pulumi.Input['FrontdoorRuleActionsUrlRewriteActionArgs']]:
+        """
+        A `url_rewrite_action` block as defined below. You may **not** have a `url_rewrite_action` **and** a `url_redirect_action` defined in the same `actions` block.
+        """
+        return pulumi.get(self, "url_rewrite_action")
+
+    @url_rewrite_action.setter
+    def url_rewrite_action(self, value: Optional[pulumi.Input['FrontdoorRuleActionsUrlRewriteActionArgs']]):
+        pulumi.set(self, "url_rewrite_action", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleActionsRequestHeaderActionArgs:
+    def __init__(__self__, *,
+                 header_action: pulumi.Input[str],
+                 header_name: pulumi.Input[str],
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] header_action: The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
+        :param pulumi.Input[str] header_name: The name of the header to modify.
+        :param pulumi.Input[str] value: The value to append or overwrite.
+        """
+        pulumi.set(__self__, "header_action", header_action)
+        pulumi.set(__self__, "header_name", header_name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="headerAction")
+    def header_action(self) -> pulumi.Input[str]:
+        """
+        The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
+        """
+        return pulumi.get(self, "header_action")
+
+    @header_action.setter
+    def header_action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "header_action", value)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> pulumi.Input[str]:
+        """
+        The name of the header to modify.
+        """
+        return pulumi.get(self, "header_name")
+
+    @header_name.setter
+    def header_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "header_name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value to append or overwrite.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleActionsResponseHeaderActionArgs:
+    def __init__(__self__, *,
+                 header_action: pulumi.Input[str],
+                 header_name: pulumi.Input[str],
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] header_action: The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
+        :param pulumi.Input[str] header_name: The name of the header to modify.
+        :param pulumi.Input[str] value: The value to append or overwrite.
+        """
+        pulumi.set(__self__, "header_action", header_action)
+        pulumi.set(__self__, "header_name", header_name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="headerAction")
+    def header_action(self) -> pulumi.Input[str]:
+        """
+        The action to be taken on the specified `header_name`. Possible values include `Append`, `Overwrite` or `Delete`.
+        """
+        return pulumi.get(self, "header_action")
+
+    @header_action.setter
+    def header_action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "header_action", value)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> pulumi.Input[str]:
+        """
+        The name of the header to modify.
+        """
+        return pulumi.get(self, "header_name")
+
+    @header_name.setter
+    def header_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "header_name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value to append or overwrite.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleActionsRouteConfigurationOverrideActionArgs:
+    def __init__(__self__, *,
+                 cache_duration: pulumi.Input[str],
+                 cdn_frontdoor_origin_group_id: pulumi.Input[str],
+                 cache_behavior: Optional[pulumi.Input[str]] = None,
+                 compression_enabled: Optional[pulumi.Input[bool]] = None,
+                 forwarding_protocol: Optional[pulumi.Input[str]] = None,
+                 query_string_caching_behavior: Optional[pulumi.Input[str]] = None,
+                 query_string_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] cache_duration: When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
+        :param pulumi.Input[str] cdn_frontdoor_origin_group_id: The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
+        :param pulumi.Input[str] cache_behavior: `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
+        :param pulumi.Input[bool] compression_enabled: Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+        :param pulumi.Input[str] forwarding_protocol: The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
+        :param pulumi.Input[str] query_string_caching_behavior: `IncludeSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`. Defaults to `IgnoreQueryString`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] query_string_parameters: A list of query string parameter names.
+        """
+        pulumi.set(__self__, "cache_duration", cache_duration)
+        pulumi.set(__self__, "cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
+        if cache_behavior is not None:
+            pulumi.set(__self__, "cache_behavior", cache_behavior)
+        if compression_enabled is not None:
+            pulumi.set(__self__, "compression_enabled", compression_enabled)
+        if forwarding_protocol is not None:
+            pulumi.set(__self__, "forwarding_protocol", forwarding_protocol)
+        if query_string_caching_behavior is not None:
+            pulumi.set(__self__, "query_string_caching_behavior", query_string_caching_behavior)
+        if query_string_parameters is not None:
+            pulumi.set(__self__, "query_string_parameters", query_string_parameters)
+
+    @property
+    @pulumi.getter(name="cacheDuration")
+    def cache_duration(self) -> pulumi.Input[str]:
+        """
+        When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
+        """
+        return pulumi.get(self, "cache_duration")
+
+    @cache_duration.setter
+    def cache_duration(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cache_duration", value)
+
+    @property
+    @pulumi.getter(name="cdnFrontdoorOriginGroupId")
+    def cdn_frontdoor_origin_group_id(self) -> pulumi.Input[str]:
+        """
+        The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
+        """
+        return pulumi.get(self, "cdn_frontdoor_origin_group_id")
+
+    @cdn_frontdoor_origin_group_id.setter
+    def cdn_frontdoor_origin_group_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cdn_frontdoor_origin_group_id", value)
+
+    @property
+    @pulumi.getter(name="cacheBehavior")
+    def cache_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
+        """
+        return pulumi.get(self, "cache_behavior")
+
+    @cache_behavior.setter
+    def cache_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cache_behavior", value)
+
+    @property
+    @pulumi.getter(name="compressionEnabled")
+    def compression_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+        """
+        return pulumi.get(self, "compression_enabled")
+
+    @compression_enabled.setter
+    def compression_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "compression_enabled", value)
+
+    @property
+    @pulumi.getter(name="forwardingProtocol")
+    def forwarding_protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
+        """
+        return pulumi.get(self, "forwarding_protocol")
+
+    @forwarding_protocol.setter
+    def forwarding_protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "forwarding_protocol", value)
+
+    @property
+    @pulumi.getter(name="queryStringCachingBehavior")
+    def query_string_caching_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        `IncludeSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `query_string_parameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`. Defaults to `IgnoreQueryString`.
+        """
+        return pulumi.get(self, "query_string_caching_behavior")
+
+    @query_string_caching_behavior.setter
+    def query_string_caching_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_string_caching_behavior", value)
+
+    @property
+    @pulumi.getter(name="queryStringParameters")
+    def query_string_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of query string parameter names.
+        """
+        return pulumi.get(self, "query_string_parameters")
+
+    @query_string_parameters.setter
+    def query_string_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "query_string_parameters", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleActionsUrlRedirectActionArgs:
+    def __init__(__self__, *,
+                 destination_hostname: pulumi.Input[str],
+                 redirect_type: pulumi.Input[str],
+                 destination_fragment: Optional[pulumi.Input[str]] = None,
+                 destination_path: Optional[pulumi.Input[str]] = None,
+                 query_string: Optional[pulumi.Input[str]] = None,
+                 redirect_protocol: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] destination_hostname: The host name you want the request to be redirected to. Leave blank to preserve the incoming host.
+        :param pulumi.Input[str] redirect_type: The response type to return to the requestor. Possible values include `Moved`, `Found` , `TemporaryRedirect` or `PermanentRedirect`.
+        :param pulumi.Input[str] destination_fragment: The fragment to use in the redirect. Leave blank to preserve the incoming fragment.
+        :param pulumi.Input[str] destination_path: The path to use in the redirect. Include the leading `/`. Leave blank to preserve the incoming path.
+        :param pulumi.Input[str] query_string: The query string used in the redirect URL. Don't include the leading `?`. Leave blank to preserve the incoming query string.
+        :param pulumi.Input[str] redirect_protocol: The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
+        """
+        pulumi.set(__self__, "destination_hostname", destination_hostname)
+        pulumi.set(__self__, "redirect_type", redirect_type)
+        if destination_fragment is not None:
+            pulumi.set(__self__, "destination_fragment", destination_fragment)
+        if destination_path is not None:
+            pulumi.set(__self__, "destination_path", destination_path)
+        if query_string is not None:
+            pulumi.set(__self__, "query_string", query_string)
+        if redirect_protocol is not None:
+            pulumi.set(__self__, "redirect_protocol", redirect_protocol)
+
+    @property
+    @pulumi.getter(name="destinationHostname")
+    def destination_hostname(self) -> pulumi.Input[str]:
+        """
+        The host name you want the request to be redirected to. Leave blank to preserve the incoming host.
+        """
+        return pulumi.get(self, "destination_hostname")
+
+    @destination_hostname.setter
+    def destination_hostname(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_hostname", value)
+
+    @property
+    @pulumi.getter(name="redirectType")
+    def redirect_type(self) -> pulumi.Input[str]:
+        """
+        The response type to return to the requestor. Possible values include `Moved`, `Found` , `TemporaryRedirect` or `PermanentRedirect`.
+        """
+        return pulumi.get(self, "redirect_type")
+
+    @redirect_type.setter
+    def redirect_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "redirect_type", value)
+
+    @property
+    @pulumi.getter(name="destinationFragment")
+    def destination_fragment(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fragment to use in the redirect. Leave blank to preserve the incoming fragment.
+        """
+        return pulumi.get(self, "destination_fragment")
+
+    @destination_fragment.setter
+    def destination_fragment(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_fragment", value)
+
+    @property
+    @pulumi.getter(name="destinationPath")
+    def destination_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to use in the redirect. Include the leading `/`. Leave blank to preserve the incoming path.
+        """
+        return pulumi.get(self, "destination_path")
+
+    @destination_path.setter
+    def destination_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_path", value)
+
+    @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        The query string used in the redirect URL. Don't include the leading `?`. Leave blank to preserve the incoming query string.
+        """
+        return pulumi.get(self, "query_string")
+
+    @query_string.setter
+    def query_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_string", value)
+
+    @property
+    @pulumi.getter(name="redirectProtocol")
+    def redirect_protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
+        """
+        return pulumi.get(self, "redirect_protocol")
+
+    @redirect_protocol.setter
+    def redirect_protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "redirect_protocol", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleActionsUrlRewriteActionArgs:
+    def __init__(__self__, *,
+                 destination: pulumi.Input[str],
+                 source_pattern: pulumi.Input[str],
+                 preserve_unmatched_path: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] destination: The destination path to use in the rewrite. The destination path overwrites the source pattern.
+        :param pulumi.Input[str] source_pattern: The source pattern in the URL path to replace. This uses prefix-based matching. For example, to match all URL paths use a forward slash `"/"` as the source pattern value.
+        :param pulumi.Input[bool] preserve_unmatched_path: Append the remaining path after the source pattern to the new destination path? Possible values `true` or `false`. Defaults to `false`.
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "source_pattern", source_pattern)
+        if preserve_unmatched_path is not None:
+            pulumi.set(__self__, "preserve_unmatched_path", preserve_unmatched_path)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input[str]:
+        """
+        The destination path to use in the rewrite. The destination path overwrites the source pattern.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter(name="sourcePattern")
+    def source_pattern(self) -> pulumi.Input[str]:
+        """
+        The source pattern in the URL path to replace. This uses prefix-based matching. For example, to match all URL paths use a forward slash `"/"` as the source pattern value.
+        """
+        return pulumi.get(self, "source_pattern")
+
+    @source_pattern.setter
+    def source_pattern(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_pattern", value)
+
+    @property
+    @pulumi.getter(name="preserveUnmatchedPath")
+    def preserve_unmatched_path(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Append the remaining path after the source pattern to the new destination path? Possible values `true` or `false`. Defaults to `false`.
+        """
+        return pulumi.get(self, "preserve_unmatched_path")
+
+    @preserve_unmatched_path.setter
+    def preserve_unmatched_path(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "preserve_unmatched_path", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleConditionsArgs:
+    def __init__(__self__, *,
+                 client_port_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsClientPortConditionArgs']]]] = None,
+                 cookies_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsCookiesConditionArgs']]]] = None,
+                 host_name_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHostNameConditionArgs']]]] = None,
+                 http_version_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHttpVersionConditionArgs']]]] = None,
+                 is_device_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsIsDeviceConditionArgs']]]] = None,
+                 post_args_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsPostArgsConditionArgs']]]] = None,
+                 query_string_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsQueryStringConditionArgs']]]] = None,
+                 remote_address_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRemoteAddressConditionArgs']]]] = None,
+                 request_body_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestBodyConditionArgs']]]] = None,
+                 request_header_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestHeaderConditionArgs']]]] = None,
+                 request_method_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestMethodConditionArgs']]]] = None,
+                 request_scheme_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestSchemeConditionArgs']]]] = None,
+                 request_uri_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestUriConditionArgs']]]] = None,
+                 server_port_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsServerPortConditionArgs']]]] = None,
+                 socket_address_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSocketAddressConditionArgs']]]] = None,
+                 ssl_protocol_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSslProtocolConditionArgs']]]] = None,
+                 url_file_extension_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFileExtensionConditionArgs']]]] = None,
+                 url_filename_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFilenameConditionArgs']]]] = None,
+                 url_path_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlPathConditionArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsClientPortConditionArgs']]] client_port_conditions: A `client_port_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsCookiesConditionArgs']]] cookies_conditions: A `cookies_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHostNameConditionArgs']]] host_name_conditions: A `host_name_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHttpVersionConditionArgs']]] http_version_conditions: A `http_version_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsIsDeviceConditionArgs']]] is_device_conditions: A `is_device_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsPostArgsConditionArgs']]] post_args_conditions: A `post_args_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsQueryStringConditionArgs']]] query_string_conditions: A `query_string_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRemoteAddressConditionArgs']]] remote_address_conditions: A `remote_address_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestBodyConditionArgs']]] request_body_conditions: A `request_body_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestHeaderConditionArgs']]] request_header_conditions: A `request_header_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestMethodConditionArgs']]] request_method_conditions: A `request_method_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestSchemeConditionArgs']]] request_scheme_conditions: A `request_scheme_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestUriConditionArgs']]] request_uri_conditions: A `request_uri_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsServerPortConditionArgs']]] server_port_conditions: A `server_port_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSocketAddressConditionArgs']]] socket_address_conditions: A `socket_address_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSslProtocolConditionArgs']]] ssl_protocol_conditions: A `ssl_protocol_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFileExtensionConditionArgs']]] url_file_extension_conditions: A `url_file_extension_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFilenameConditionArgs']]] url_filename_conditions: A `url_filename_condition` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlPathConditionArgs']]] url_path_conditions: A `url_path_condition` block as defined below.
+        """
+        if client_port_conditions is not None:
+            pulumi.set(__self__, "client_port_conditions", client_port_conditions)
+        if cookies_conditions is not None:
+            pulumi.set(__self__, "cookies_conditions", cookies_conditions)
+        if host_name_conditions is not None:
+            pulumi.set(__self__, "host_name_conditions", host_name_conditions)
+        if http_version_conditions is not None:
+            pulumi.set(__self__, "http_version_conditions", http_version_conditions)
+        if is_device_conditions is not None:
+            pulumi.set(__self__, "is_device_conditions", is_device_conditions)
+        if post_args_conditions is not None:
+            pulumi.set(__self__, "post_args_conditions", post_args_conditions)
+        if query_string_conditions is not None:
+            pulumi.set(__self__, "query_string_conditions", query_string_conditions)
+        if remote_address_conditions is not None:
+            pulumi.set(__self__, "remote_address_conditions", remote_address_conditions)
+        if request_body_conditions is not None:
+            pulumi.set(__self__, "request_body_conditions", request_body_conditions)
+        if request_header_conditions is not None:
+            pulumi.set(__self__, "request_header_conditions", request_header_conditions)
+        if request_method_conditions is not None:
+            pulumi.set(__self__, "request_method_conditions", request_method_conditions)
+        if request_scheme_conditions is not None:
+            pulumi.set(__self__, "request_scheme_conditions", request_scheme_conditions)
+        if request_uri_conditions is not None:
+            pulumi.set(__self__, "request_uri_conditions", request_uri_conditions)
+        if server_port_conditions is not None:
+            pulumi.set(__self__, "server_port_conditions", server_port_conditions)
+        if socket_address_conditions is not None:
+            pulumi.set(__self__, "socket_address_conditions", socket_address_conditions)
+        if ssl_protocol_conditions is not None:
+            pulumi.set(__self__, "ssl_protocol_conditions", ssl_protocol_conditions)
+        if url_file_extension_conditions is not None:
+            pulumi.set(__self__, "url_file_extension_conditions", url_file_extension_conditions)
+        if url_filename_conditions is not None:
+            pulumi.set(__self__, "url_filename_conditions", url_filename_conditions)
+        if url_path_conditions is not None:
+            pulumi.set(__self__, "url_path_conditions", url_path_conditions)
+
+    @property
+    @pulumi.getter(name="clientPortConditions")
+    def client_port_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsClientPortConditionArgs']]]]:
+        """
+        A `client_port_condition` block as defined below.
+        """
+        return pulumi.get(self, "client_port_conditions")
+
+    @client_port_conditions.setter
+    def client_port_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsClientPortConditionArgs']]]]):
+        pulumi.set(self, "client_port_conditions", value)
+
+    @property
+    @pulumi.getter(name="cookiesConditions")
+    def cookies_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsCookiesConditionArgs']]]]:
+        """
+        A `cookies_condition` block as defined below.
+        """
+        return pulumi.get(self, "cookies_conditions")
+
+    @cookies_conditions.setter
+    def cookies_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsCookiesConditionArgs']]]]):
+        pulumi.set(self, "cookies_conditions", value)
+
+    @property
+    @pulumi.getter(name="hostNameConditions")
+    def host_name_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHostNameConditionArgs']]]]:
+        """
+        A `host_name_condition` block as defined below.
+        """
+        return pulumi.get(self, "host_name_conditions")
+
+    @host_name_conditions.setter
+    def host_name_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHostNameConditionArgs']]]]):
+        pulumi.set(self, "host_name_conditions", value)
+
+    @property
+    @pulumi.getter(name="httpVersionConditions")
+    def http_version_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHttpVersionConditionArgs']]]]:
+        """
+        A `http_version_condition` block as defined below.
+        """
+        return pulumi.get(self, "http_version_conditions")
+
+    @http_version_conditions.setter
+    def http_version_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsHttpVersionConditionArgs']]]]):
+        pulumi.set(self, "http_version_conditions", value)
+
+    @property
+    @pulumi.getter(name="isDeviceConditions")
+    def is_device_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsIsDeviceConditionArgs']]]]:
+        """
+        A `is_device_condition` block as defined below.
+        """
+        return pulumi.get(self, "is_device_conditions")
+
+    @is_device_conditions.setter
+    def is_device_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsIsDeviceConditionArgs']]]]):
+        pulumi.set(self, "is_device_conditions", value)
+
+    @property
+    @pulumi.getter(name="postArgsConditions")
+    def post_args_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsPostArgsConditionArgs']]]]:
+        """
+        A `post_args_condition` block as defined below.
+        """
+        return pulumi.get(self, "post_args_conditions")
+
+    @post_args_conditions.setter
+    def post_args_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsPostArgsConditionArgs']]]]):
+        pulumi.set(self, "post_args_conditions", value)
+
+    @property
+    @pulumi.getter(name="queryStringConditions")
+    def query_string_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsQueryStringConditionArgs']]]]:
+        """
+        A `query_string_condition` block as defined below.
+        """
+        return pulumi.get(self, "query_string_conditions")
+
+    @query_string_conditions.setter
+    def query_string_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsQueryStringConditionArgs']]]]):
+        pulumi.set(self, "query_string_conditions", value)
+
+    @property
+    @pulumi.getter(name="remoteAddressConditions")
+    def remote_address_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRemoteAddressConditionArgs']]]]:
+        """
+        A `remote_address_condition` block as defined below.
+        """
+        return pulumi.get(self, "remote_address_conditions")
+
+    @remote_address_conditions.setter
+    def remote_address_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRemoteAddressConditionArgs']]]]):
+        pulumi.set(self, "remote_address_conditions", value)
+
+    @property
+    @pulumi.getter(name="requestBodyConditions")
+    def request_body_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestBodyConditionArgs']]]]:
+        """
+        A `request_body_condition` block as defined below.
+        """
+        return pulumi.get(self, "request_body_conditions")
+
+    @request_body_conditions.setter
+    def request_body_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestBodyConditionArgs']]]]):
+        pulumi.set(self, "request_body_conditions", value)
+
+    @property
+    @pulumi.getter(name="requestHeaderConditions")
+    def request_header_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestHeaderConditionArgs']]]]:
+        """
+        A `request_header_condition` block as defined below.
+        """
+        return pulumi.get(self, "request_header_conditions")
+
+    @request_header_conditions.setter
+    def request_header_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestHeaderConditionArgs']]]]):
+        pulumi.set(self, "request_header_conditions", value)
+
+    @property
+    @pulumi.getter(name="requestMethodConditions")
+    def request_method_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestMethodConditionArgs']]]]:
+        """
+        A `request_method_condition` block as defined below.
+        """
+        return pulumi.get(self, "request_method_conditions")
+
+    @request_method_conditions.setter
+    def request_method_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestMethodConditionArgs']]]]):
+        pulumi.set(self, "request_method_conditions", value)
+
+    @property
+    @pulumi.getter(name="requestSchemeConditions")
+    def request_scheme_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestSchemeConditionArgs']]]]:
+        """
+        A `request_scheme_condition` block as defined below.
+        """
+        return pulumi.get(self, "request_scheme_conditions")
+
+    @request_scheme_conditions.setter
+    def request_scheme_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestSchemeConditionArgs']]]]):
+        pulumi.set(self, "request_scheme_conditions", value)
+
+    @property
+    @pulumi.getter(name="requestUriConditions")
+    def request_uri_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestUriConditionArgs']]]]:
+        """
+        A `request_uri_condition` block as defined below.
+        """
+        return pulumi.get(self, "request_uri_conditions")
+
+    @request_uri_conditions.setter
+    def request_uri_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestUriConditionArgs']]]]):
+        pulumi.set(self, "request_uri_conditions", value)
+
+    @property
+    @pulumi.getter(name="serverPortConditions")
+    def server_port_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsServerPortConditionArgs']]]]:
+        """
+        A `server_port_condition` block as defined below.
+        """
+        return pulumi.get(self, "server_port_conditions")
+
+    @server_port_conditions.setter
+    def server_port_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsServerPortConditionArgs']]]]):
+        pulumi.set(self, "server_port_conditions", value)
+
+    @property
+    @pulumi.getter(name="socketAddressConditions")
+    def socket_address_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSocketAddressConditionArgs']]]]:
+        """
+        A `socket_address_condition` block as defined below.
+        """
+        return pulumi.get(self, "socket_address_conditions")
+
+    @socket_address_conditions.setter
+    def socket_address_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSocketAddressConditionArgs']]]]):
+        pulumi.set(self, "socket_address_conditions", value)
+
+    @property
+    @pulumi.getter(name="sslProtocolConditions")
+    def ssl_protocol_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSslProtocolConditionArgs']]]]:
+        """
+        A `ssl_protocol_condition` block as defined below.
+        """
+        return pulumi.get(self, "ssl_protocol_conditions")
+
+    @ssl_protocol_conditions.setter
+    def ssl_protocol_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsSslProtocolConditionArgs']]]]):
+        pulumi.set(self, "ssl_protocol_conditions", value)
+
+    @property
+    @pulumi.getter(name="urlFileExtensionConditions")
+    def url_file_extension_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFileExtensionConditionArgs']]]]:
+        """
+        A `url_file_extension_condition` block as defined below.
+        """
+        return pulumi.get(self, "url_file_extension_conditions")
+
+    @url_file_extension_conditions.setter
+    def url_file_extension_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFileExtensionConditionArgs']]]]):
+        pulumi.set(self, "url_file_extension_conditions", value)
+
+    @property
+    @pulumi.getter(name="urlFilenameConditions")
+    def url_filename_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFilenameConditionArgs']]]]:
+        """
+        A `url_filename_condition` block as defined below.
+        """
+        return pulumi.get(self, "url_filename_conditions")
+
+    @url_filename_conditions.setter
+    def url_filename_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFilenameConditionArgs']]]]):
+        pulumi.set(self, "url_filename_conditions", value)
+
+    @property
+    @pulumi.getter(name="urlPathConditions")
+    def url_path_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlPathConditionArgs']]]]:
+        """
+        A `url_path_condition` block as defined below.
+        """
+        return pulumi.get(self, "url_path_conditions")
+
+    @url_path_conditions.setter
+    def url_path_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlPathConditionArgs']]]]):
+        pulumi.set(self, "url_path_conditions", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleConditionsClientPortConditionArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 negate_condition: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: One or more integer values(e.g. "1") representing the value of the client port to match. If multiple values are specified, they're evaluated using `OR` logic.
+        :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more integer values(e.g. "1") representing the value of the client port to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_values", value)
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @negate_condition.setter
+    def negate_condition(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negate_condition", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleConditionsCookiesConditionArgs:
+    def __init__(__self__, *,
+                 cookie_name: pulumi.Input[str],
+                 operator: pulumi.Input[str],
+                 match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] cookie_name: A string value representing the name of the cookie.
+        :param pulumi.Input[str] operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
+        :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "cookie_name", cookie_name)
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="cookieName")
+    def cookie_name(self) -> pulumi.Input[str]:
+        """
+        A string value representing the name of the cookie.
+        """
+        return pulumi.get(self, "cookie_name")
+
+    @cookie_name.setter
+    def cookie_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cookie_name", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_values", value)
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @negate_condition.setter
+    def negate_condition(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "transforms", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleConditionsHostNameConditionArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: A list of one or more string values representing the value of the request hostname to match. If multiple values are specified, they're evaluated using `OR` logic.
+        :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of one or more string values representing the value of the request hostname to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_values", value)
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @negate_condition.setter
+    def negate_condition(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "transforms", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleConditionsHttpVersionConditionArgs:
+    def __init__(__self__, *,
+                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 operator: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: What HTTP version should this condition match? Possible values `2.0`, `1.1`, `1.0` or `0.9`.
+        :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        :param pulumi.Input[str] operator: Possible value `Equal`. Defaults to `Equal`.
+        """
+        pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        What HTTP version should this condition match? Possible values `2.0`, `1.1`, `1.0` or `0.9`.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "match_values", value)
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @negate_condition.setter
+    def negate_condition(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        Possible value `Equal`. Defaults to `Equal`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operator", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleConditionsIsDeviceConditionArgs:
+    def __init__(__self__, *,
+                 match_values: Optional[pulumi.Input[str]] = None,
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 operator: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] match_values: Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+        :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        :param pulumi.Input[str] operator: Possible value `Equal`. Defaults to `Equal`.
+        """
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[str]]:
+        """
+        Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "match_values", value)
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @negate_condition.setter
+    def negate_condition(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        Possible value `Equal`. Defaults to `Equal`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operator", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleConditionsPostArgsConditionArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 post_args_name: pulumi.Input[str],
+                 match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param pulumi.Input[str] post_args_name: A string value representing the name of the `POST` argument.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: One or more string or integer values(e.g. "1") representing the value of the `POST` argument to match. If multiple values are specified, they're evaluated using `OR` logic.
+        :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "post_args_name", post_args_name)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="postArgsName")
+    def post_args_name(self) -> pulumi.Input[str]:
+        """
+        A string value representing the name of the `POST` argument.
+        """
+        return pulumi.get(self, "post_args_name")
+
+    @post_args_name.setter
+    def post_args_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "post_args_name", value)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more string or integer values(e.g. "1") representing the value of the `POST` argument to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_values", value)
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @negate_condition.setter
+    def negate_condition(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "transforms", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleConditionsQueryStringConditionArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: One or more string or integer values(e.g. "1") representing the value of the query string to match. If multiple values are specified, they're evaluated using `OR` logic.
+        :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more string or integer values(e.g. "1") representing the value of the query string to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_values", value)
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @negate_condition.setter
+    def negate_condition(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "transforms", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleConditionsRemoteAddressConditionArgs:
+    def __init__(__self__, *,
+                 match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 operator: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
+        :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        :param pulumi.Input[str] operator: The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negate_condition` to specify Not `GeoMatch` or Not `IPMatch`.
+        """
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_values", value)
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @negate_condition.setter
+    def negate_condition(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negate_condition` to specify Not `GeoMatch` or Not `IPMatch`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operator", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleConditionsRequestBodyConditionArgs:
+    def __init__(__self__, *,
+                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 operator: pulumi.Input[str],
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: A list of one or more string or integer values(e.g. "1") representing the value of the request body text to match. If multiple values are specified, they're evaluated using `OR` logic.
+        :param pulumi.Input[str] operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "match_values", match_values)
+        pulumi.set(__self__, "operator", operator)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of one or more string or integer values(e.g. "1") representing the value of the request body text to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "match_values", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @negate_condition.setter
+    def negate_condition(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "transforms", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleConditionsRequestHeaderConditionArgs:
+    def __init__(__self__, *,
+                 header_name: pulumi.Input[str],
+                 operator: pulumi.Input[str],
+                 match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] header_name: A string value representing the name of the `POST` argument.
+        :param pulumi.Input[str] operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
+        :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "header_name", header_name)
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> pulumi.Input[str]:
+        """
+        A string value representing the name of the `POST` argument.
+        """
+        return pulumi.get(self, "header_name")
+
+    @header_name.setter
+    def header_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "header_name", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_values", value)
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @negate_condition.setter
+    def negate_condition(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "transforms", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleConditionsRequestMethodConditionArgs:
+    def __init__(__self__, *,
+                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 operator: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: A list of one or more HTTP methods. Possible values include `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS` or `TRACE`. If multiple values are specified, they're evaluated using `OR` logic.
+        :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        :param pulumi.Input[str] operator: Possible value `Equal`. Defaults to `Equal`.
+        """
+        pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of one or more HTTP methods. Possible values include `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS` or `TRACE`. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "match_values", value)
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @negate_condition.setter
+    def negate_condition(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        Possible value `Equal`. Defaults to `Equal`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operator", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleConditionsRequestSchemeConditionArgs:
+    def __init__(__self__, *,
+                 match_values: Optional[pulumi.Input[str]] = None,
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 operator: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] match_values: The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+        :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        :param pulumi.Input[str] operator: Possible value `Equal`. Defaults to `Equal`.
+        """
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[str]]:
+        """
+        The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "match_values", value)
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @negate_condition.setter
+    def negate_condition(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        Possible value `Equal`. Defaults to `Equal`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operator", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleConditionsRequestUriConditionArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: One or more string or integer values(e.g. "1") representing the value of the request URL to match. If multiple values are specified, they're evaluated using `OR` logic.
+        :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more string or integer values(e.g. "1") representing the value of the request URL to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_values", value)
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @negate_condition.setter
+    def negate_condition(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "transforms", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleConditionsServerPortConditionArgs:
+    def __init__(__self__, *,
+                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 operator: pulumi.Input[str],
+                 negate_condition: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: A list of one or more integer values(e.g. "1") representing the value of the client port to match. Possible values include `80` or `443`. If multiple values are specified, they're evaluated using `OR` logic.
+        :param pulumi.Input[str] operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "match_values", match_values)
+        pulumi.set(__self__, "operator", operator)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of one or more integer values(e.g. "1") representing the value of the client port to match. Possible values include `80` or `443`. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "match_values", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @negate_condition.setter
+    def negate_condition(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negate_condition", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleConditionsSocketAddressConditionArgs:
+    def __init__(__self__, *,
+                 match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 operator: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic.
+        :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        :param pulumi.Input[str] operator: The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+        """
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_values", value)
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @negate_condition.setter
+    def negate_condition(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operator", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleConditionsSslProtocolConditionArgs:
+    def __init__(__self__, *,
+                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 operator: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: A list of one or more HTTP methods. Possible values include `TLSv1.0`, `TLSv1.1` or `TLS1.2`. If multiple values are specified, they're evaluated using `OR` logic.
+        :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        :param pulumi.Input[str] operator: Possible value `Equal`. Defaults to `Equal`.
+        """
+        pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of one or more HTTP methods. Possible values include `TLSv1.0`, `TLSv1.1` or `TLS1.2`. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "match_values", value)
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @negate_condition.setter
+    def negate_condition(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> Optional[pulumi.Input[str]]:
+        """
+        Possible value `Equal`. Defaults to `Equal`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operator", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleConditionsUrlFileExtensionConditionArgs:
+    def __init__(__self__, *,
+                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 operator: pulumi.Input[str],
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: A list of one or more string or integer values(e.g. "1") representing the value of the request file extension to match. If multiple values are specified, they're evaluated using `OR` logic.
+        :param pulumi.Input[str] operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "match_values", match_values)
+        pulumi.set(__self__, "operator", operator)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of one or more string or integer values(e.g. "1") representing the value of the request file extension to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "match_values", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @negate_condition.setter
+    def negate_condition(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "transforms", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleConditionsUrlFilenameConditionArgs:
+    def __init__(__self__, *,
+                 match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 operator: pulumi.Input[str],
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
+        :param pulumi.Input[str] operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "match_values", match_values)
+        pulumi.set(__self__, "operator", operator)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "match_values", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @negate_condition.setter
+    def negate_condition(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "transforms", value)
+
+
+@pulumi.input_type
+class FrontdoorRuleConditionsUrlPathConditionArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 match_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 negate_condition: Optional[pulumi.Input[bool]] = None,
+                 transforms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] operator: A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] match_values: One or more string or integer values(e.g. "1") representing the value of the request path to match. Don't include the leading slash (`/`). If multiple values are specified, they're evaluated using `OR` logic.
+        :param pulumi.Input[bool] negate_condition: If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if match_values is not None:
+            pulumi.set(__self__, "match_values", match_values)
+        if negate_condition is not None:
+            pulumi.set(__self__, "negate_condition", negate_condition)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more string or integer values(e.g. "1") representing the value of the request path to match. Don't include the leading slash (`/`). If multiple values are specified, they're evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "match_values")
+
+    @match_values.setter
+    def match_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "match_values", value)
+
+    @property
+    @pulumi.getter(name="negateCondition")
+    def negate_condition(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+        """
+        return pulumi.get(self, "negate_condition")
+
+    @negate_condition.setter
+    def negate_condition(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "negate_condition", value)
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "transforms", value)
+
+
+@pulumi.input_type
+class FrontdoorSecretSecretArgs:
+    def __init__(__self__, *,
+                 customer_certificates: pulumi.Input[Sequence[pulumi.Input['FrontdoorSecretSecretCustomerCertificateArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorSecretSecretCustomerCertificateArgs']]] customer_certificates: A `customer_certificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+        """
+        pulumi.set(__self__, "customer_certificates", customer_certificates)
+
+    @property
+    @pulumi.getter(name="customerCertificates")
+    def customer_certificates(self) -> pulumi.Input[Sequence[pulumi.Input['FrontdoorSecretSecretCustomerCertificateArgs']]]:
+        """
+        A `customer_certificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+        """
+        return pulumi.get(self, "customer_certificates")
+
+    @customer_certificates.setter
+    def customer_certificates(self, value: pulumi.Input[Sequence[pulumi.Input['FrontdoorSecretSecretCustomerCertificateArgs']]]):
+        pulumi.set(self, "customer_certificates", value)
+
+
+@pulumi.input_type
+class FrontdoorSecretSecretCustomerCertificateArgs:
+    def __init__(__self__, *,
+                 key_vault_certificate_id: pulumi.Input[str],
+                 subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] key_vault_certificate_id: The key vault certificate resources ID attribute. Changing this forces a new Frontdoor Secret to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: One or more `subject alternative names` contained within the key vault certificate.
+        """
+        pulumi.set(__self__, "key_vault_certificate_id", key_vault_certificate_id)
+        if subject_alternative_names is not None:
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
+
+    @property
+    @pulumi.getter(name="keyVaultCertificateId")
+    def key_vault_certificate_id(self) -> pulumi.Input[str]:
+        """
+        The key vault certificate resources ID attribute. Changing this forces a new Frontdoor Secret to be created.
+        """
+        return pulumi.get(self, "key_vault_certificate_id")
+
+    @key_vault_certificate_id.setter
+    def key_vault_certificate_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_certificate_id", value)
+
+    @property
+    @pulumi.getter(name="subjectAlternativeNames")
+    def subject_alternative_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        One or more `subject alternative names` contained within the key vault certificate.
+        """
+        return pulumi.get(self, "subject_alternative_names")
+
+    @subject_alternative_names.setter
+    def subject_alternative_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subject_alternative_names", value)
 
 
 @pulumi.input_type

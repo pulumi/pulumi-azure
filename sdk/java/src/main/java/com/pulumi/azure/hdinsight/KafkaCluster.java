@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.hdinsight.KafkaClusterArgs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterState;
 import com.pulumi.azure.hdinsight.outputs.KafkaClusterComponentVersion;
+import com.pulumi.azure.hdinsight.outputs.KafkaClusterDiskEncryption;
 import com.pulumi.azure.hdinsight.outputs.KafkaClusterGateway;
 import com.pulumi.azure.hdinsight.outputs.KafkaClusterMetastores;
 import com.pulumi.azure.hdinsight.outputs.KafkaClusterMonitor;
@@ -161,6 +162,12 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<KafkaClusterComponentVersion> componentVersion() {
         return this.componentVersion;
+    }
+    @Export(name="diskEncryptions", type=List.class, parameters={KafkaClusterDiskEncryption.class})
+    private Output</* @Nullable */ List<KafkaClusterDiskEncryption>> diskEncryptions;
+
+    public Output<Optional<List<KafkaClusterDiskEncryption>>> diskEncryptions() {
+        return Codegen.optional(this.diskEncryptions);
     }
     /**
      * Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.

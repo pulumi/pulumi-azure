@@ -20,6 +20,7 @@ export * from "./mongoDatabase";
 export * from "./notebookWorkspace";
 export * from "./sqlContainer";
 export * from "./sqlDatabase";
+export * from "./sqlDedicatedGateway";
 export * from "./sqlFunction";
 export * from "./sqlRoleAssignment";
 export * from "./sqlRoleDefinition";
@@ -41,6 +42,7 @@ import { MongoDatabase } from "./mongoDatabase";
 import { NotebookWorkspace } from "./notebookWorkspace";
 import { SqlContainer } from "./sqlContainer";
 import { SqlDatabase } from "./sqlDatabase";
+import { SqlDedicatedGateway } from "./sqlDedicatedGateway";
 import { SqlFunction } from "./sqlFunction";
 import { SqlRoleAssignment } from "./sqlRoleAssignment";
 import { SqlRoleDefinition } from "./sqlRoleDefinition";
@@ -76,6 +78,8 @@ const _module = {
                 return new SqlContainer(name, <any>undefined, { urn })
             case "azure:cosmosdb/sqlDatabase:SqlDatabase":
                 return new SqlDatabase(name, <any>undefined, { urn })
+            case "azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway":
+                return new SqlDedicatedGateway(name, <any>undefined, { urn })
             case "azure:cosmosdb/sqlFunction:SqlFunction":
                 return new SqlFunction(name, <any>undefined, { urn })
             case "azure:cosmosdb/sqlRoleAssignment:SqlRoleAssignment":
@@ -105,6 +109,7 @@ pulumi.runtime.registerResourceModule("azure", "cosmosdb/mongoDatabase", _module
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/notebookWorkspace", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlContainer", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlDatabase", _module)
+pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlDedicatedGateway", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlFunction", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlRoleAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "cosmosdb/sqlRoleDefinition", _module)

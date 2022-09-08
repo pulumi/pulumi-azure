@@ -113,7 +113,8 @@ type HBaseCluster struct {
 	// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
 	ClusterVersion pulumi.StringOutput `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
-	ComponentVersion HBaseClusterComponentVersionOutput `pulumi:"componentVersion"`
+	ComponentVersion HBaseClusterComponentVersionOutput    `pulumi:"componentVersion"`
+	DiskEncryptions  HBaseClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
 	// A `gateway` block as defined below.
 	Gateway HBaseClusterGatewayOutput `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight HBase Cluster.
@@ -198,6 +199,7 @@ type hbaseClusterState struct {
 	ClusterVersion *string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion *HBaseClusterComponentVersion `pulumi:"componentVersion"`
+	DiskEncryptions  []HBaseClusterDiskEncryption  `pulumi:"diskEncryptions"`
 	// A `gateway` block as defined below.
 	Gateway *HBaseClusterGateway `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight HBase Cluster.
@@ -236,6 +238,7 @@ type HBaseClusterState struct {
 	ClusterVersion pulumi.StringPtrInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion HBaseClusterComponentVersionPtrInput
+	DiskEncryptions  HBaseClusterDiskEncryptionArrayInput
 	// A `gateway` block as defined below.
 	Gateway HBaseClusterGatewayPtrInput
 	// The HTTPS Connectivity Endpoint for this HDInsight HBase Cluster.
@@ -278,6 +281,7 @@ type hbaseClusterArgs struct {
 	ClusterVersion string `pulumi:"clusterVersion"`
 	// A `componentVersion` block as defined below.
 	ComponentVersion HBaseClusterComponentVersion `pulumi:"componentVersion"`
+	DiskEncryptions  []HBaseClusterDiskEncryption `pulumi:"diskEncryptions"`
 	// A `gateway` block as defined below.
 	Gateway HBaseClusterGateway `pulumi:"gateway"`
 	// Specifies the Azure Region which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
@@ -313,6 +317,7 @@ type HBaseClusterArgs struct {
 	ClusterVersion pulumi.StringInput
 	// A `componentVersion` block as defined below.
 	ComponentVersion HBaseClusterComponentVersionInput
+	DiskEncryptions  HBaseClusterDiskEncryptionArrayInput
 	// A `gateway` block as defined below.
 	Gateway HBaseClusterGatewayInput
 	// Specifies the Azure Region which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
@@ -437,6 +442,10 @@ func (o HBaseClusterOutput) ClusterVersion() pulumi.StringOutput {
 // A `componentVersion` block as defined below.
 func (o HBaseClusterOutput) ComponentVersion() HBaseClusterComponentVersionOutput {
 	return o.ApplyT(func(v *HBaseCluster) HBaseClusterComponentVersionOutput { return v.ComponentVersion }).(HBaseClusterComponentVersionOutput)
+}
+
+func (o HBaseClusterOutput) DiskEncryptions() HBaseClusterDiskEncryptionArrayOutput {
+	return o.ApplyT(func(v *HBaseCluster) HBaseClusterDiskEncryptionArrayOutput { return v.DiskEncryptions }).(HBaseClusterDiskEncryptionArrayOutput)
 }
 
 // A `gateway` block as defined below.

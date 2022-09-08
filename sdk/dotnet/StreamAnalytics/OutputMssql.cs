@@ -77,6 +77,12 @@ namespace Pulumi.Azure.StreamAnalytics
     [AzureResourceType("azure:streamanalytics/outputMssql:OutputMssql")]
     public partial class OutputMssql : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        /// </summary>
+        [Output("authenticationMode")]
+        public Output<string?> AuthenticationMode { get; private set; } = null!;
+
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
 
@@ -180,6 +186,12 @@ namespace Pulumi.Azure.StreamAnalytics
 
     public sealed class OutputMssqlArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        /// </summary>
+        [Input("authenticationMode")]
+        public Input<string>? AuthenticationMode { get; set; }
+
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
@@ -245,6 +257,12 @@ namespace Pulumi.Azure.StreamAnalytics
 
     public sealed class OutputMssqlState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        /// </summary>
+        [Input("authenticationMode")]
+        public Input<string>? AuthenticationMode { get; set; }
+
         [Input("database")]
         public Input<string>? Database { get; set; }
 

@@ -81,6 +81,10 @@ export class OutputEventHub extends pulumi.CustomResource {
     }
 
     /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     */
+    public readonly authenticationMode!: pulumi.Output<string | undefined>;
+    /**
      * The name of the Event Hub.
      */
     public readonly eventhubName!: pulumi.Output<string>;
@@ -134,6 +138,7 @@ export class OutputEventHub extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutputEventHubState | undefined;
+            resourceInputs["authenticationMode"] = state ? state.authenticationMode : undefined;
             resourceInputs["eventhubName"] = state ? state.eventhubName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["partitionKey"] = state ? state.partitionKey : undefined;
@@ -167,6 +172,7 @@ export class OutputEventHub extends pulumi.CustomResource {
             if ((!args || args.streamAnalyticsJobName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
+            resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
             resourceInputs["eventhubName"] = args ? args.eventhubName : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["partitionKey"] = args ? args.partitionKey : undefined;
@@ -187,6 +193,10 @@ export class OutputEventHub extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OutputEventHub resources.
  */
 export interface OutputEventHubState {
+    /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     */
+    authenticationMode?: pulumi.Input<string>;
     /**
      * The name of the Event Hub.
      */
@@ -233,6 +243,10 @@ export interface OutputEventHubState {
  * The set of arguments for constructing a OutputEventHub resource.
  */
 export interface OutputEventHubArgs {
+    /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     */
+    authenticationMode?: pulumi.Input<string>;
     /**
      * The name of the Event Hub.
      */

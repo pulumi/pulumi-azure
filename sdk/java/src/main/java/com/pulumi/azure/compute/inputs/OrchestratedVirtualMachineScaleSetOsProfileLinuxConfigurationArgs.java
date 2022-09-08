@@ -63,6 +63,21 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     }
 
     /**
+     * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+     * 
+     */
+    @Import(name="patchAssessmentMode")
+    private @Nullable Output<String> patchAssessmentMode;
+
+    /**
+     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+     * 
+     */
+    public Optional<Output<String>> patchAssessmentMode() {
+        return Optional.ofNullable(this.patchAssessmentMode);
+    }
+
+    /**
      * Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      * 
      */
@@ -99,6 +114,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         this.adminUsername = $.adminUsername;
         this.computerNamePrefix = $.computerNamePrefix;
         this.disablePasswordAuthentication = $.disablePasswordAuthentication;
+        this.patchAssessmentMode = $.patchAssessmentMode;
         this.patchMode = $.patchMode;
         this.provisionVmAgent = $.provisionVmAgent;
         this.secrets = $.secrets;
@@ -181,6 +197,27 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
          */
         public Builder disablePasswordAuthentication(Boolean disablePasswordAuthentication) {
             return disablePasswordAuthentication(Output.of(disablePasswordAuthentication));
+        }
+
+        /**
+         * @param patchAssessmentMode Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder patchAssessmentMode(@Nullable Output<String> patchAssessmentMode) {
+            $.patchAssessmentMode = patchAssessmentMode;
+            return this;
+        }
+
+        /**
+         * @param patchAssessmentMode Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder patchAssessmentMode(String patchAssessmentMode) {
+            return patchAssessmentMode(Output.of(patchAssessmentMode));
         }
 
         /**

@@ -31,9 +31,17 @@ public final class StaticSiteIdentityArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.identityIds);
     }
 
+    /**
+     * (Optional) The Principal ID associated with this Managed Service Identity.
+     * 
+     */
     @Import(name="principalId")
     private @Nullable Output<String> principalId;
 
+    /**
+     * @return (Optional) The Principal ID associated with this Managed Service Identity.
+     * 
+     */
     public Optional<Output<String>> principalId() {
         return Optional.ofNullable(this.principalId);
     }
@@ -118,11 +126,23 @@ public final class StaticSiteIdentityArgs extends com.pulumi.resources.ResourceA
             return identityIds(List.of(identityIds));
         }
 
+        /**
+         * @param principalId (Optional) The Principal ID associated with this Managed Service Identity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principalId(@Nullable Output<String> principalId) {
             $.principalId = principalId;
             return this;
         }
 
+        /**
+         * @param principalId (Optional) The Principal ID associated with this Managed Service Identity.
+         * 
+         * @return builder
+         * 
+         */
         public Builder principalId(String principalId) {
             return principalId(Output.of(principalId));
         }

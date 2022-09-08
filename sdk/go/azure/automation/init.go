@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ConnectionClassicCertificate{}
 	case "azure:automation/connectionServicePrincipal:ConnectionServicePrincipal":
 		r = &ConnectionServicePrincipal{}
+	case "azure:automation/connectionType:ConnectionType":
+		r = &ConnectionType{}
 	case "azure:automation/credential:Credential":
 		r = &Credential{}
 	case "azure:automation/dateTimeVariable:DateTimeVariable":
@@ -43,6 +45,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DscConfiguration{}
 	case "azure:automation/dscNodeConfiguration:DscNodeConfiguration":
 		r = &DscNodeConfiguration{}
+	case "azure:automation/hybridRunbookWorker:HybridRunbookWorker":
+		r = &HybridRunbookWorker{}
+	case "azure:automation/hybridRunbookWorkerGroup:HybridRunbookWorkerGroup":
+		r = &HybridRunbookWorkerGroup{}
 	case "azure:automation/intVariable:IntVariable":
 		r = &IntVariable{}
 	case "azure:automation/jobSchedule:JobSchedule":
@@ -107,6 +113,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"automation/connectionType",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"automation/credential",
 		&module{version},
 	)
@@ -123,6 +134,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"automation/dscNodeConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"automation/hybridRunbookWorker",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"automation/hybridRunbookWorkerGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

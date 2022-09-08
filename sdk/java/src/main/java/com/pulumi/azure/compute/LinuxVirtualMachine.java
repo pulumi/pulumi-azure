@@ -675,14 +675,14 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
         return this.size;
     }
     /**
-     * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
+     * The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      * 
      */
     @Export(name="sourceImageId", type=String.class, parameters={})
     private Output</* @Nullable */ String> sourceImageId;
 
     /**
-     * @return The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created.
+     * @return The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
      * 
      */
     public Output<Optional<String>> sourceImageId() {

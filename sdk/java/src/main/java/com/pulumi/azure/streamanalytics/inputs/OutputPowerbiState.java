@@ -105,6 +105,36 @@ public final class OutputPowerbiState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.table);
     }
 
+    /**
+     * The user display name of the user that was used to obtain the refresh token.
+     * 
+     */
+    @Import(name="tokenUserDisplayName")
+    private @Nullable Output<String> tokenUserDisplayName;
+
+    /**
+     * @return The user display name of the user that was used to obtain the refresh token.
+     * 
+     */
+    public Optional<Output<String>> tokenUserDisplayName() {
+        return Optional.ofNullable(this.tokenUserDisplayName);
+    }
+
+    /**
+     * The user principal name (UPN) of the user that was used to obtain the refresh token.
+     * 
+     */
+    @Import(name="tokenUserPrincipalName")
+    private @Nullable Output<String> tokenUserPrincipalName;
+
+    /**
+     * @return The user principal name (UPN) of the user that was used to obtain the refresh token.
+     * 
+     */
+    public Optional<Output<String>> tokenUserPrincipalName() {
+        return Optional.ofNullable(this.tokenUserPrincipalName);
+    }
+
     private OutputPowerbiState() {}
 
     private OutputPowerbiState(OutputPowerbiState $) {
@@ -114,6 +144,8 @@ public final class OutputPowerbiState extends com.pulumi.resources.ResourceArgs 
         this.name = $.name;
         this.streamAnalyticsJobId = $.streamAnalyticsJobId;
         this.table = $.table;
+        this.tokenUserDisplayName = $.tokenUserDisplayName;
+        this.tokenUserPrincipalName = $.tokenUserPrincipalName;
     }
 
     public static Builder builder() {
@@ -258,6 +290,48 @@ public final class OutputPowerbiState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder table(String table) {
             return table(Output.of(table));
+        }
+
+        /**
+         * @param tokenUserDisplayName The user display name of the user that was used to obtain the refresh token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenUserDisplayName(@Nullable Output<String> tokenUserDisplayName) {
+            $.tokenUserDisplayName = tokenUserDisplayName;
+            return this;
+        }
+
+        /**
+         * @param tokenUserDisplayName The user display name of the user that was used to obtain the refresh token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenUserDisplayName(String tokenUserDisplayName) {
+            return tokenUserDisplayName(Output.of(tokenUserDisplayName));
+        }
+
+        /**
+         * @param tokenUserPrincipalName The user principal name (UPN) of the user that was used to obtain the refresh token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenUserPrincipalName(@Nullable Output<String> tokenUserPrincipalName) {
+            $.tokenUserPrincipalName = tokenUserPrincipalName;
+            return this;
+        }
+
+        /**
+         * @param tokenUserPrincipalName The user principal name (UPN) of the user that was used to obtain the refresh token.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tokenUserPrincipalName(String tokenUserPrincipalName) {
+            return tokenUserPrincipalName(Output.of(tokenUserPrincipalName));
         }
 
         public OutputPowerbiState build() {

@@ -183,6 +183,20 @@ public class OutputCosmosdb extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
+     * 
+     */
+    @Export(name="partitionKey", type=String.class, parameters={})
+    private Output</* @Nullable */ String> partitionKey;
+
+    /**
+     * @return The name of the field in output events used to specify the key for partitioning output across collections. If `container_name` contains `{partition}` token, this property is required to be specified.
+     * 
+     */
+    public Output<Optional<String>> partitionKey() {
+        return Codegen.optional(this.partitionKey);
+    }
+    /**
      * The ID of the Stream Analytics Job. Changing this forces a new resource to be created.
      * 
      */

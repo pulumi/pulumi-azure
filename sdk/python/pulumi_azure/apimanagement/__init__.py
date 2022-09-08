@@ -23,6 +23,8 @@ from .diagnostic import *
 from .email_template import *
 from .gateway import *
 from .gateway_api import *
+from .gateway_certificate_authority import *
+from .gateway_host_name_configuration import *
 from .get_api import *
 from .get_api_version_set import *
 from .get_gateway import *
@@ -48,6 +50,7 @@ from .product import *
 from .product_api import *
 from .product_group import *
 from .product_policy import *
+from .product_tag import *
 from .redis_cache import *
 from .service import *
 from .subscription import *

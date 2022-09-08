@@ -2516,7 +2516,7 @@ class NamespaceIdentity(dict):
                  tenant_id: Optional[str] = None):
         """
         :param str type: Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
-        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+        :param Sequence[str] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
         :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
         """
@@ -2540,7 +2540,7 @@ class NamespaceIdentity(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Optional[Sequence[str]]:
         """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
         """
         return pulumi.get(self, "identity_ids")
 

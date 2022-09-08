@@ -155,14 +155,14 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `user_assigned_identity_ids`.
+     * Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
      * 
      */
     @Import(name="primaryUserAssignedIdentityId")
     private @Nullable Output<String> primaryUserAssignedIdentityId;
 
     /**
-     * @return Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `user_assigned_identity_ids`.
+     * @return Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
      * 
      */
     public Optional<Output<String>> primaryUserAssignedIdentityId() {
@@ -456,7 +456,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryUserAssignedIdentityId Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `user_assigned_identity_ids`.
+         * @param primaryUserAssignedIdentityId Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
          * 
          * @return builder
          * 
@@ -467,7 +467,7 @@ public final class ServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param primaryUserAssignedIdentityId Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `user_assigned_identity_ids`.
+         * @param primaryUserAssignedIdentityId Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`.
          * 
          * @return builder
          * 

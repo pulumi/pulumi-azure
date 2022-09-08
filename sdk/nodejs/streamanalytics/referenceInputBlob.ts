@@ -82,6 +82,10 @@ export class ReferenceInputBlob extends pulumi.CustomResource {
     }
 
     /**
+     * The authentication mode for the Stream Analytics Reference Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     */
+    public readonly authenticationMode!: pulumi.Output<string | undefined>;
+    /**
      * The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
      */
     public readonly dateFormat!: pulumi.Output<string>;
@@ -135,6 +139,7 @@ export class ReferenceInputBlob extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReferenceInputBlobState | undefined;
+            resourceInputs["authenticationMode"] = state ? state.authenticationMode : undefined;
             resourceInputs["dateFormat"] = state ? state.dateFormat : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["pathPattern"] = state ? state.pathPattern : undefined;
@@ -174,6 +179,7 @@ export class ReferenceInputBlob extends pulumi.CustomResource {
             if ((!args || args.timeFormat === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeFormat'");
             }
+            resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
             resourceInputs["dateFormat"] = args ? args.dateFormat : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["pathPattern"] = args ? args.pathPattern : undefined;
@@ -194,6 +200,10 @@ export class ReferenceInputBlob extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ReferenceInputBlob resources.
  */
 export interface ReferenceInputBlobState {
+    /**
+     * The authentication mode for the Stream Analytics Reference Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     */
+    authenticationMode?: pulumi.Input<string>;
     /**
      * The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
      */
@@ -240,6 +250,10 @@ export interface ReferenceInputBlobState {
  * The set of arguments for constructing a ReferenceInputBlob resource.
  */
 export interface ReferenceInputBlobArgs {
+    /**
+     * The authentication mode for the Stream Analytics Reference Input. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     */
+    authenticationMode?: pulumi.Input<string>;
     /**
      * The date format. Wherever `{date}` appears in `pathPattern`, the value of this property is used as the date format instead.
      */

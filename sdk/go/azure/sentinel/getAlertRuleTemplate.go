@@ -65,6 +65,8 @@ type GetAlertRuleTemplateResult struct {
 	Id                      string `pulumi:"id"`
 	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
 	Name                    string `pulumi:"name"`
+	// A `nrtTemplate` block as defined below. This only applies to Sentinel NRT Alert Rule Template.
+	NrtTemplates []GetAlertRuleTemplateNrtTemplate `pulumi:"nrtTemplates"`
 	// A `scheduledTemplate` block as defined below. This only applies to Sentinel Scheduled Alert Rule Template.
 	ScheduledTemplates []GetAlertRuleTemplateScheduledTemplate `pulumi:"scheduledTemplates"`
 	// A `securityIncidentTemplate` block as defined below. This only applies to Sentinel MS Security Incident Alert Rule Template.
@@ -128,6 +130,11 @@ func (o GetAlertRuleTemplateResultOutput) LogAnalyticsWorkspaceId() pulumi.Strin
 
 func (o GetAlertRuleTemplateResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAlertRuleTemplateResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `nrtTemplate` block as defined below. This only applies to Sentinel NRT Alert Rule Template.
+func (o GetAlertRuleTemplateResultOutput) NrtTemplates() GetAlertRuleTemplateNrtTemplateArrayOutput {
+	return o.ApplyT(func(v GetAlertRuleTemplateResult) []GetAlertRuleTemplateNrtTemplate { return v.NrtTemplates }).(GetAlertRuleTemplateNrtTemplateArrayOutput)
 }
 
 // A `scheduledTemplate` block as defined below. This only applies to Sentinel Scheduled Alert Rule Template.

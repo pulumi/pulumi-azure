@@ -952,6 +952,181 @@ func (o FhirServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type MedtechServiceIdentity struct {
+	// The Principal ID associated with this System Assigned Managed Service Identity.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID associated with this System Assigned Managed Service Identity.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Healthcare Med Tech Service. Possible values are `SystemAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// MedtechServiceIdentityInput is an input type that accepts MedtechServiceIdentityArgs and MedtechServiceIdentityOutput values.
+// You can construct a concrete instance of `MedtechServiceIdentityInput` via:
+//
+//	MedtechServiceIdentityArgs{...}
+type MedtechServiceIdentityInput interface {
+	pulumi.Input
+
+	ToMedtechServiceIdentityOutput() MedtechServiceIdentityOutput
+	ToMedtechServiceIdentityOutputWithContext(context.Context) MedtechServiceIdentityOutput
+}
+
+type MedtechServiceIdentityArgs struct {
+	// The Principal ID associated with this System Assigned Managed Service Identity.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID associated with this System Assigned Managed Service Identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Healthcare Med Tech Service. Possible values are `SystemAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (MedtechServiceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MedtechServiceIdentity)(nil)).Elem()
+}
+
+func (i MedtechServiceIdentityArgs) ToMedtechServiceIdentityOutput() MedtechServiceIdentityOutput {
+	return i.ToMedtechServiceIdentityOutputWithContext(context.Background())
+}
+
+func (i MedtechServiceIdentityArgs) ToMedtechServiceIdentityOutputWithContext(ctx context.Context) MedtechServiceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MedtechServiceIdentityOutput)
+}
+
+func (i MedtechServiceIdentityArgs) ToMedtechServiceIdentityPtrOutput() MedtechServiceIdentityPtrOutput {
+	return i.ToMedtechServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i MedtechServiceIdentityArgs) ToMedtechServiceIdentityPtrOutputWithContext(ctx context.Context) MedtechServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MedtechServiceIdentityOutput).ToMedtechServiceIdentityPtrOutputWithContext(ctx)
+}
+
+// MedtechServiceIdentityPtrInput is an input type that accepts MedtechServiceIdentityArgs, MedtechServiceIdentityPtr and MedtechServiceIdentityPtrOutput values.
+// You can construct a concrete instance of `MedtechServiceIdentityPtrInput` via:
+//
+//	        MedtechServiceIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type MedtechServiceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToMedtechServiceIdentityPtrOutput() MedtechServiceIdentityPtrOutput
+	ToMedtechServiceIdentityPtrOutputWithContext(context.Context) MedtechServiceIdentityPtrOutput
+}
+
+type medtechServiceIdentityPtrType MedtechServiceIdentityArgs
+
+func MedtechServiceIdentityPtr(v *MedtechServiceIdentityArgs) MedtechServiceIdentityPtrInput {
+	return (*medtechServiceIdentityPtrType)(v)
+}
+
+func (*medtechServiceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MedtechServiceIdentity)(nil)).Elem()
+}
+
+func (i *medtechServiceIdentityPtrType) ToMedtechServiceIdentityPtrOutput() MedtechServiceIdentityPtrOutput {
+	return i.ToMedtechServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *medtechServiceIdentityPtrType) ToMedtechServiceIdentityPtrOutputWithContext(ctx context.Context) MedtechServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MedtechServiceIdentityPtrOutput)
+}
+
+type MedtechServiceIdentityOutput struct{ *pulumi.OutputState }
+
+func (MedtechServiceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MedtechServiceIdentity)(nil)).Elem()
+}
+
+func (o MedtechServiceIdentityOutput) ToMedtechServiceIdentityOutput() MedtechServiceIdentityOutput {
+	return o
+}
+
+func (o MedtechServiceIdentityOutput) ToMedtechServiceIdentityOutputWithContext(ctx context.Context) MedtechServiceIdentityOutput {
+	return o
+}
+
+func (o MedtechServiceIdentityOutput) ToMedtechServiceIdentityPtrOutput() MedtechServiceIdentityPtrOutput {
+	return o.ToMedtechServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o MedtechServiceIdentityOutput) ToMedtechServiceIdentityPtrOutputWithContext(ctx context.Context) MedtechServiceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MedtechServiceIdentity) *MedtechServiceIdentity {
+		return &v
+	}).(MedtechServiceIdentityPtrOutput)
+}
+
+// The Principal ID associated with this System Assigned Managed Service Identity.
+func (o MedtechServiceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MedtechServiceIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this System Assigned Managed Service Identity.
+func (o MedtechServiceIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MedtechServiceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this Healthcare Med Tech Service. Possible values are `SystemAssigned`.
+func (o MedtechServiceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MedtechServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type MedtechServiceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (MedtechServiceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MedtechServiceIdentity)(nil)).Elem()
+}
+
+func (o MedtechServiceIdentityPtrOutput) ToMedtechServiceIdentityPtrOutput() MedtechServiceIdentityPtrOutput {
+	return o
+}
+
+func (o MedtechServiceIdentityPtrOutput) ToMedtechServiceIdentityPtrOutputWithContext(ctx context.Context) MedtechServiceIdentityPtrOutput {
+	return o
+}
+
+func (o MedtechServiceIdentityPtrOutput) Elem() MedtechServiceIdentityOutput {
+	return o.ApplyT(func(v *MedtechServiceIdentity) MedtechServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret MedtechServiceIdentity
+		return ret
+	}).(MedtechServiceIdentityOutput)
+}
+
+// The Principal ID associated with this System Assigned Managed Service Identity.
+func (o MedtechServiceIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MedtechServiceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this System Assigned Managed Service Identity.
+func (o MedtechServiceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MedtechServiceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this Healthcare Med Tech Service. Possible values are `SystemAssigned`.
+func (o MedtechServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MedtechServiceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServiceAuthenticationConfiguration struct {
 	// The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
 	Audience *string `pulumi:"audience"`
@@ -2128,6 +2303,118 @@ func (o GetFhirServiceIdentityArrayOutput) Index(i pulumi.IntInput) GetFhirServi
 	}).(GetFhirServiceIdentityOutput)
 }
 
+type GetMedtechServiceIdentity struct {
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
+	TenantId string `pulumi:"tenantId"`
+	Type     string `pulumi:"type"`
+}
+
+// GetMedtechServiceIdentityInput is an input type that accepts GetMedtechServiceIdentityArgs and GetMedtechServiceIdentityOutput values.
+// You can construct a concrete instance of `GetMedtechServiceIdentityInput` via:
+//
+//	GetMedtechServiceIdentityArgs{...}
+type GetMedtechServiceIdentityInput interface {
+	pulumi.Input
+
+	ToGetMedtechServiceIdentityOutput() GetMedtechServiceIdentityOutput
+	ToGetMedtechServiceIdentityOutputWithContext(context.Context) GetMedtechServiceIdentityOutput
+}
+
+type GetMedtechServiceIdentityArgs struct {
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	Type     pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetMedtechServiceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMedtechServiceIdentity)(nil)).Elem()
+}
+
+func (i GetMedtechServiceIdentityArgs) ToGetMedtechServiceIdentityOutput() GetMedtechServiceIdentityOutput {
+	return i.ToGetMedtechServiceIdentityOutputWithContext(context.Background())
+}
+
+func (i GetMedtechServiceIdentityArgs) ToGetMedtechServiceIdentityOutputWithContext(ctx context.Context) GetMedtechServiceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMedtechServiceIdentityOutput)
+}
+
+// GetMedtechServiceIdentityArrayInput is an input type that accepts GetMedtechServiceIdentityArray and GetMedtechServiceIdentityArrayOutput values.
+// You can construct a concrete instance of `GetMedtechServiceIdentityArrayInput` via:
+//
+//	GetMedtechServiceIdentityArray{ GetMedtechServiceIdentityArgs{...} }
+type GetMedtechServiceIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetMedtechServiceIdentityArrayOutput() GetMedtechServiceIdentityArrayOutput
+	ToGetMedtechServiceIdentityArrayOutputWithContext(context.Context) GetMedtechServiceIdentityArrayOutput
+}
+
+type GetMedtechServiceIdentityArray []GetMedtechServiceIdentityInput
+
+func (GetMedtechServiceIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMedtechServiceIdentity)(nil)).Elem()
+}
+
+func (i GetMedtechServiceIdentityArray) ToGetMedtechServiceIdentityArrayOutput() GetMedtechServiceIdentityArrayOutput {
+	return i.ToGetMedtechServiceIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetMedtechServiceIdentityArray) ToGetMedtechServiceIdentityArrayOutputWithContext(ctx context.Context) GetMedtechServiceIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMedtechServiceIdentityArrayOutput)
+}
+
+type GetMedtechServiceIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetMedtechServiceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMedtechServiceIdentity)(nil)).Elem()
+}
+
+func (o GetMedtechServiceIdentityOutput) ToGetMedtechServiceIdentityOutput() GetMedtechServiceIdentityOutput {
+	return o
+}
+
+func (o GetMedtechServiceIdentityOutput) ToGetMedtechServiceIdentityOutputWithContext(ctx context.Context) GetMedtechServiceIdentityOutput {
+	return o
+}
+
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
+func (o GetMedtechServiceIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMedtechServiceIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
+func (o GetMedtechServiceIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMedtechServiceIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+func (o GetMedtechServiceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMedtechServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetMedtechServiceIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetMedtechServiceIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMedtechServiceIdentity)(nil)).Elem()
+}
+
+func (o GetMedtechServiceIdentityArrayOutput) ToGetMedtechServiceIdentityArrayOutput() GetMedtechServiceIdentityArrayOutput {
+	return o
+}
+
+func (o GetMedtechServiceIdentityArrayOutput) ToGetMedtechServiceIdentityArrayOutputWithContext(ctx context.Context) GetMedtechServiceIdentityArrayOutput {
+	return o
+}
+
+func (o GetMedtechServiceIdentityArrayOutput) Index(i pulumi.IntInput) GetMedtechServiceIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMedtechServiceIdentity {
+		return vs[0].([]GetMedtechServiceIdentity)[vs[1].(int)]
+	}).(GetMedtechServiceIdentityOutput)
+}
+
 type GetServiceAuthenticationConfiguration struct {
 	// The intended audience to receive authentication tokens for the service.
 	Audience string `pulumi:"audience"`
@@ -2389,6 +2676,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirServiceCorsPtrInput)(nil)).Elem(), FhirServiceCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirServiceIdentityInput)(nil)).Elem(), FhirServiceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirServiceIdentityPtrInput)(nil)).Elem(), FhirServiceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MedtechServiceIdentityInput)(nil)).Elem(), MedtechServiceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MedtechServiceIdentityPtrInput)(nil)).Elem(), MedtechServiceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAuthenticationConfigurationInput)(nil)).Elem(), ServiceAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAuthenticationConfigurationPtrInput)(nil)).Elem(), ServiceAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceCorsConfigurationInput)(nil)).Elem(), ServiceCorsConfigurationArgs{})
@@ -2407,6 +2696,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFhirServiceCorArrayInput)(nil)).Elem(), GetFhirServiceCorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFhirServiceIdentityInput)(nil)).Elem(), GetFhirServiceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFhirServiceIdentityArrayInput)(nil)).Elem(), GetFhirServiceIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMedtechServiceIdentityInput)(nil)).Elem(), GetMedtechServiceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMedtechServiceIdentityArrayInput)(nil)).Elem(), GetMedtechServiceIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceAuthenticationConfigurationInput)(nil)).Elem(), GetServiceAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceAuthenticationConfigurationArrayInput)(nil)).Elem(), GetServiceAuthenticationConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceCorsConfigurationInput)(nil)).Elem(), GetServiceCorsConfigurationArgs{})
@@ -2423,6 +2714,8 @@ func init() {
 	pulumi.RegisterOutputType(FhirServiceCorsPtrOutput{})
 	pulumi.RegisterOutputType(FhirServiceIdentityOutput{})
 	pulumi.RegisterOutputType(FhirServiceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(MedtechServiceIdentityOutput{})
+	pulumi.RegisterOutputType(MedtechServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceCorsConfigurationOutput{})
@@ -2441,6 +2734,8 @@ func init() {
 	pulumi.RegisterOutputType(GetFhirServiceCorArrayOutput{})
 	pulumi.RegisterOutputType(GetFhirServiceIdentityOutput{})
 	pulumi.RegisterOutputType(GetFhirServiceIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetMedtechServiceIdentityOutput{})
+	pulumi.RegisterOutputType(GetMedtechServiceIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceAuthenticationConfigurationOutput{})
 	pulumi.RegisterOutputType(GetServiceAuthenticationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetServiceCorsConfigurationOutput{})

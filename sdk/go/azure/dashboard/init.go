@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:dashboard/dashboard:Dashboard":
 		r = &Dashboard{}
+	case "azure:dashboard/grafana:Grafana":
+		r = &Grafana{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"dashboard/dashboard",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"dashboard/grafana",
 		&module{version},
 	)
 }

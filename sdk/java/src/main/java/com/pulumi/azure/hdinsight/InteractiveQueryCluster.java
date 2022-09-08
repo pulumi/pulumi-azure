@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.hdinsight.InteractiveQueryClusterArgs;
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterState;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterComponentVersion;
+import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterDiskEncryption;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterGateway;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterMetastores;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterMonitor;
@@ -159,6 +160,12 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      */
     public Output<InteractiveQueryClusterComponentVersion> componentVersion() {
         return this.componentVersion;
+    }
+    @Export(name="diskEncryptions", type=List.class, parameters={InteractiveQueryClusterDiskEncryption.class})
+    private Output</* @Nullable */ List<InteractiveQueryClusterDiskEncryption>> diskEncryptions;
+
+    public Output<Optional<List<InteractiveQueryClusterDiskEncryption>>> diskEncryptions() {
+        return Codegen.optional(this.diskEncryptions);
     }
     /**
      * Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.

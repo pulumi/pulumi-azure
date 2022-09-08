@@ -2232,6 +2232,38 @@ export namespace appplatform {
         username?: string;
     }
 
+    export interface SpringCloudConnectionAuthentication {
+        /**
+         * Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
+         * ---
+         */
+        certificate?: string;
+        /**
+         * Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `clientId` and `subscriptionId` should be either both specified or both not specified.
+         */
+        clientId?: string;
+        /**
+         * Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+         */
+        name?: string;
+        /**
+         * Principal ID for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`.
+         */
+        principalId?: string;
+        /**
+         * Password or account key for secret auth. `secret` and `name` should be either both specified or both not specified when `type` is set to `secret`.
+         */
+        secret?: string;
+        /**
+         * Subscription ID for `userAssignedIdentity`. `subscriptionId` and `clientId` should be either both specified or both not specified.
+         */
+        subscriptionId?: string;
+        /**
+         * The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
+         */
+        type: string;
+    }
+
     export interface SpringCloudContainerDeploymentQuota {
         /**
          * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
@@ -3149,6 +3181,38 @@ export namespace appservice {
          * Status of the Key Vault secret.
          */
         provisioningState: string;
+    }
+
+    export interface ConnectionAuthentication {
+        /**
+         * Service principal certificate for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalCertificate`.
+         * ---
+         */
+        certificate?: string;
+        /**
+         * Client ID for `userAssignedIdentity` or `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`. When `type` is set to `userAssignedIdentity`, `clientId` and `subscriptionId` should be either both specified or both not specified.
+         */
+        clientId?: string;
+        /**
+         * Username or account name for secret auth. `name` and `secret` should be either both specified or both not specified when `type` is set to `secret`.
+         */
+        name?: string;
+        /**
+         * Principal ID for `servicePrincipal` auth. Should be specified when `type` is set to `servicePrincipalSecret` or `servicePrincipalCertificate`.
+         */
+        principalId?: string;
+        /**
+         * Password or account key for secret auth. `secret` and `name` should be either both specified or both not specified when `type` is set to `secret`.
+         */
+        secret?: string;
+        /**
+         * Subscription ID for `userAssignedIdentity`. `subscriptionId` and `clientId` should be either both specified or both not specified.
+         */
+        subscriptionId?: string;
+        /**
+         * The authentication type. Possible values are `systemAssignedIdentity`, `userAssignedIdentity`, `servicePrincipalSecret`, `servicePrincipalCertificate`, `secret`.
+         */
+        type: string;
     }
 
     export interface EnvironmentClusterSetting {
@@ -10330,6 +10394,9 @@ export namespace appservice {
          * A list of Managed Identity IDs which should be assigned to this Static Site resource.
          */
         identityIds?: string[];
+        /**
+         * (Optional) The Principal ID associated with this Managed Service Identity.
+         */
         principalId: string;
         tenantId: string;
         /**
@@ -13118,6 +13185,25 @@ export namespace automation {
         name: string;
     }
 
+    export interface ConnectionTypeField {
+        /**
+         * Whether to set the isEncrypted flag of the connection field definition.
+         */
+        isEncrypted?: boolean;
+        /**
+         * Whether to set the isOptional flag of the connection field definition.
+         */
+        isOptional?: boolean;
+        /**
+         * The name which should be used for this connection field definition.
+         */
+        name: string;
+        /**
+         * The type of the connection field definition.
+         */
+        type: string;
+    }
+
     export interface GetAccountPrivateEndpointConnection {
         /**
          * The ID of the Automation Account
@@ -13624,7 +13710,7 @@ export namespace batch {
 
     export interface GetPoolContainerConfigurationContainerRegistry {
         /**
-         * The password to log into the registry server.
+         * The password to use for authentication against the CIFS file system.
          */
         password: string;
         /**
@@ -13636,7 +13722,7 @@ export namespace batch {
          */
         userAssignedIdentityId: string;
         /**
-         * The user name to log into the registry server.
+         * The user to use for authentication against the CIFS file system.
          */
         userName: string;
     }
@@ -13654,6 +13740,117 @@ export namespace batch {
          * The number of low priority nodes in the Batch pool.
          */
         targetLowPriorityNodes: number;
+    }
+
+    export interface GetPoolMount {
+        /**
+         * A `azureBlobFileSystem` block defined as below.
+         */
+        azureBlobFileSystems?: outputs.batch.GetPoolMountAzureBlobFileSystem[];
+        /**
+         * A `azureFileShare` block defined as below.
+         */
+        azureFileShares?: outputs.batch.GetPoolMountAzureFileShare[];
+        /**
+         * A `cifsMount` block defined as below.
+         */
+        cifsMounts: outputs.batch.GetPoolMountCifsMount[];
+        /**
+         * A `nfsMount` block defined as below.
+         */
+        nfsMounts: outputs.batch.GetPoolMountNfsMount[];
+    }
+
+    export interface GetPoolMountAzureBlobFileSystem {
+        /**
+         * The Azure Storage Account key.
+         */
+        accountKey: string;
+        /**
+         * The Azure Storage Account name.
+         */
+        accountName: string;
+        /**
+         * Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+         */
+        blobfuseOptions: string;
+        /**
+         * The Azure Blob Storage Container name.
+         */
+        containerName: string;
+        /**
+         * The ARM resource id of the user assigned identity. This property is mutually exclusive with both `accountKey` and `sasKey`; exactly one must be specified.
+         */
+        identityId: string;
+        /**
+         * The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+         */
+        relativeMountPath: string;
+        /**
+         * The Azure Storage SAS token. This property is mutually exclusive with both `accountKey` and `identityId`; exactly one must be specified.
+         */
+        sasKey: string;
+    }
+
+    export interface GetPoolMountAzureFileShare {
+        /**
+         * The Azure Storage Account key.
+         */
+        accountKey: string;
+        /**
+         * The Azure Storage Account name.
+         */
+        accountName: string;
+        /**
+         * The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.
+         */
+        azureFileUrl: string;
+        /**
+         * Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+         */
+        mountOptions: string;
+        /**
+         * The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+         */
+        relativeMountPath: string;
+    }
+
+    export interface GetPoolMountCifsMount {
+        /**
+         * Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+         */
+        mountOptions: string;
+        /**
+         * The password to use for authentication against the CIFS file system.
+         */
+        password: string;
+        /**
+         * The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+         */
+        relativeMountPath: string;
+        /**
+         * The URI of the file system to mount.
+         */
+        source: string;
+        /**
+         * The user to use for authentication against the CIFS file system.
+         */
+        userName: string;
+    }
+
+    export interface GetPoolMountNfsMount {
+        /**
+         * Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+         */
+        mountOptions: string;
+        /**
+         * The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+         */
+        relativeMountPath: string;
+        /**
+         * The URI of the file system to mount.
+         */
+        source: string;
     }
 
     export interface GetPoolNetworkConfiguration {
@@ -13767,7 +13964,7 @@ export namespace batch {
          */
         autoUsers: outputs.batch.GetPoolStartTaskUserIdentityAutoUser[];
         /**
-         * The user name to log into the registry server.
+         * The user to use for authentication against the CIFS file system.
          */
         userName: string;
     }
@@ -13850,7 +14047,6 @@ export namespace batch {
         registryServer: string;
         /**
          * The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
-         * ---
          */
         userAssignedIdentityId?: string;
         /**
@@ -13883,6 +14079,117 @@ export namespace batch {
          * Specifies the type of Managed Service Identity that should be configured on this Batch Account. Only possible value is `UserAssigned`.
          */
         type: string;
+    }
+
+    export interface PoolMount {
+        /**
+         * A `azureBlobFileSystem` block defined as below.
+         */
+        azureBlobFileSystem?: outputs.batch.PoolMountAzureBlobFileSystem;
+        /**
+         * A `azureFileShare` block defined as below.
+         */
+        azureFileShares?: outputs.batch.PoolMountAzureFileShare[];
+        /**
+         * A `cifsMount` block defined as below.
+         */
+        cifsMounts?: outputs.batch.PoolMountCifsMount[];
+        /**
+         * A `nfsMount` block defined as below.
+         */
+        nfsMounts?: outputs.batch.PoolMountNfsMount[];
+    }
+
+    export interface PoolMountAzureBlobFileSystem {
+        /**
+         * The Azure Storage Account key. This property is mutually exclusive with both `sasKey` and `identityId`; exactly one must be specified.
+         */
+        accountKey?: string;
+        /**
+         * The Azure Storage Account name.
+         */
+        accountName: string;
+        /**
+         * Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+         */
+        blobfuseOptions?: string;
+        /**
+         * The Azure Blob Storage Container name.
+         */
+        containerName: string;
+        /**
+         * The ARM resource id of the user assigned identity. This property is mutually exclusive with both `accountKey` and `sasKey`; exactly one must be specified.
+         */
+        identityId?: string;
+        /**
+         * The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+         */
+        relativeMountPath: string;
+        /**
+         * The Azure Storage SAS token. This property is mutually exclusive with both `accountKey` and `identityId`; exactly one must be specified.
+         */
+        sasKey?: string;
+    }
+
+    export interface PoolMountAzureFileShare {
+        /**
+         * The Azure Storage Account key.
+         */
+        accountKey: string;
+        /**
+         * The Azure Storage Account name.
+         */
+        accountName: string;
+        /**
+         * The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.
+         */
+        azureFileUrl: string;
+        /**
+         * Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+         */
+        mountOptions?: string;
+        /**
+         * The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+         */
+        relativeMountPath: string;
+    }
+
+    export interface PoolMountCifsMount {
+        /**
+         * Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+         */
+        mountOptions?: string;
+        /**
+         * The password to use for authentication against the CIFS file system.
+         */
+        password: string;
+        /**
+         * The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+         */
+        relativeMountPath: string;
+        /**
+         * The URI of the file system to mount.
+         */
+        source: string;
+        /**
+         * The user to use for authentication against the CIFS file system.
+         */
+        userName: string;
+    }
+
+    export interface PoolMountNfsMount {
+        /**
+         * Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+         */
+        mountOptions?: string;
+        /**
+         * The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
+         */
+        relativeMountPath: string;
+        /**
+         * The URI of the file system to mount.
+         */
+        source: string;
     }
 
     export interface PoolNetworkConfiguration {
@@ -14969,6 +15276,536 @@ export namespace cdn {
         targetType?: string;
     }
 
+    export interface FrontdoorRuleActions {
+        /**
+         * A `requestHeaderAction` block as defined below.
+         */
+        requestHeaderActions?: outputs.cdn.FrontdoorRuleActionsRequestHeaderAction[];
+        /**
+         * A `responseHeaderAction` block as defined below.
+         */
+        responseHeaderActions?: outputs.cdn.FrontdoorRuleActionsResponseHeaderAction[];
+        /**
+         * A `routeConfigurationOverrideAction` block as defined below.
+         */
+        routeConfigurationOverrideAction?: outputs.cdn.FrontdoorRuleActionsRouteConfigurationOverrideAction;
+        /**
+         * A `urlRedirectAction` block as defined below. You may **not** have a `urlRedirectAction` **and** a `urlRewriteAction` defined in the same `actions` block.
+         */
+        urlRedirectAction?: outputs.cdn.FrontdoorRuleActionsUrlRedirectAction;
+        /**
+         * A `urlRewriteAction` block as defined below. You may **not** have a `urlRewriteAction` **and** a `urlRedirectAction` defined in the same `actions` block.
+         */
+        urlRewriteAction?: outputs.cdn.FrontdoorRuleActionsUrlRewriteAction;
+    }
+
+    export interface FrontdoorRuleActionsRequestHeaderAction {
+        /**
+         * The action to be taken on the specified `headerName`. Possible values include `Append`, `Overwrite` or `Delete`.
+         */
+        headerAction: string;
+        /**
+         * The name of the header to modify.
+         */
+        headerName: string;
+        /**
+         * The value to append or overwrite.
+         */
+        value?: string;
+    }
+
+    export interface FrontdoorRuleActionsResponseHeaderAction {
+        /**
+         * The action to be taken on the specified `headerName`. Possible values include `Append`, `Overwrite` or `Delete`.
+         */
+        headerAction: string;
+        /**
+         * The name of the header to modify.
+         */
+        headerName: string;
+        /**
+         * The value to append or overwrite.
+         */
+        value?: string;
+    }
+
+    export interface FrontdoorRuleActionsRouteConfigurationOverrideAction {
+        /**
+         * `HonorOrigin` Frontdoor will always honor origin response header directive. If the origin directive is missing, Frontdoor will cache contents anywhere from `1` to `3` days. `OverrideAlways` the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. `OverrideIfOriginMissing` if no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. Possible values include `HonorOrigin`, `OverrideAlways` or `OverrideIfOriginMissing`. Defaults to `HonorOrigin`.
+         */
+        cacheBehavior?: string;
+        /**
+         * When Cache behavior is set to `Override` or `SetIfMissing`, this field specifies the cache duration to use. The maximum duration is 366 days specified in the `d.HH:MM:SS` format(e.g. `365.23:59:59`). If the desired maximum cache duration is less than 1 day then the maximum cache duration should be specified in the `HH:MM:SS` format(e.g. `23:59:59`).
+         */
+        cacheDuration: string;
+        /**
+         * The origin group resource ID that the request should be routed to. This overrides the configuration specified in the Frontdoor endpoint route.
+         */
+        cdnFrontdoorOriginGroupId: string;
+        /**
+         * Should Frontdoor dynamically compress the content? Possible values include `true` or `false`. Defaults to `false`.
+         */
+        compressionEnabled?: boolean;
+        /**
+         * The forwarding protocol the request will be redirected as. This overrides the configuration specified in the route to be associated with. Possible values include `MatchRequest`, `HttpOnly` or `HttpsOnly`. Defaults to `MatchRequest`. Possible values include `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`.
+         */
+        forwardingProtocol?: string;
+        /**
+         * `IncludeSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get included when the cache key gets generated. `UseQueryString` cache every unique URL, each unique URL will have its own cache key. `IgnoreSpecifiedQueryStrings` query strings specified in the `queryStringParameters` field get excluded when the cache key gets generated. `IgnoreQueryString` query strings aren't considered when the cache key gets generated. Possible values include `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings` or `IncludeSpecifiedQueryStrings`. Defaults to `IgnoreQueryString`.
+         */
+        queryStringCachingBehavior?: string;
+        /**
+         * A list of query string parameter names.
+         */
+        queryStringParameters?: string[];
+    }
+
+    export interface FrontdoorRuleActionsUrlRedirectAction {
+        /**
+         * The fragment to use in the redirect. Leave blank to preserve the incoming fragment.
+         */
+        destinationFragment?: string;
+        /**
+         * The host name you want the request to be redirected to. Leave blank to preserve the incoming host.
+         */
+        destinationHostname: string;
+        /**
+         * The path to use in the redirect. Include the leading `/`. Leave blank to preserve the incoming path.
+         */
+        destinationPath?: string;
+        /**
+         * The query string used in the redirect URL. Don't include the leading `?`. Leave blank to preserve the incoming query string.
+         */
+        queryString?: string;
+        /**
+         * The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
+         */
+        redirectProtocol?: string;
+        /**
+         * The response type to return to the requestor. Possible values include `Moved`, `Found` , `TemporaryRedirect` or `PermanentRedirect`.
+         */
+        redirectType: string;
+    }
+
+    export interface FrontdoorRuleActionsUrlRewriteAction {
+        /**
+         * The destination path to use in the rewrite. The destination path overwrites the source pattern.
+         */
+        destination: string;
+        /**
+         * Append the remaining path after the source pattern to the new destination path? Possible values `true` or `false`. Defaults to `false`.
+         */
+        preserveUnmatchedPath?: boolean;
+        /**
+         * The source pattern in the URL path to replace. This uses prefix-based matching. For example, to match all URL paths use a forward slash `"/"` as the source pattern value.
+         */
+        sourcePattern: string;
+    }
+
+    export interface FrontdoorRuleConditions {
+        /**
+         * A `clientPortCondition` block as defined below.
+         */
+        clientPortConditions?: outputs.cdn.FrontdoorRuleConditionsClientPortCondition[];
+        /**
+         * A `cookiesCondition` block as defined below.
+         */
+        cookiesConditions?: outputs.cdn.FrontdoorRuleConditionsCookiesCondition[];
+        /**
+         * A `hostNameCondition` block as defined below.
+         */
+        hostNameConditions?: outputs.cdn.FrontdoorRuleConditionsHostNameCondition[];
+        /**
+         * A `httpVersionCondition` block as defined below.
+         */
+        httpVersionConditions?: outputs.cdn.FrontdoorRuleConditionsHttpVersionCondition[];
+        /**
+         * A `isDeviceCondition` block as defined below.
+         */
+        isDeviceConditions?: outputs.cdn.FrontdoorRuleConditionsIsDeviceCondition[];
+        /**
+         * A `postArgsCondition` block as defined below.
+         */
+        postArgsConditions?: outputs.cdn.FrontdoorRuleConditionsPostArgsCondition[];
+        /**
+         * A `queryStringCondition` block as defined below.
+         */
+        queryStringConditions?: outputs.cdn.FrontdoorRuleConditionsQueryStringCondition[];
+        /**
+         * A `remoteAddressCondition` block as defined below.
+         */
+        remoteAddressConditions?: outputs.cdn.FrontdoorRuleConditionsRemoteAddressCondition[];
+        /**
+         * A `requestBodyCondition` block as defined below.
+         */
+        requestBodyConditions?: outputs.cdn.FrontdoorRuleConditionsRequestBodyCondition[];
+        /**
+         * A `requestHeaderCondition` block as defined below.
+         */
+        requestHeaderConditions?: outputs.cdn.FrontdoorRuleConditionsRequestHeaderCondition[];
+        /**
+         * A `requestMethodCondition` block as defined below.
+         */
+        requestMethodConditions?: outputs.cdn.FrontdoorRuleConditionsRequestMethodCondition[];
+        /**
+         * A `requestSchemeCondition` block as defined below.
+         */
+        requestSchemeConditions?: outputs.cdn.FrontdoorRuleConditionsRequestSchemeCondition[];
+        /**
+         * A `requestUriCondition` block as defined below.
+         */
+        requestUriConditions?: outputs.cdn.FrontdoorRuleConditionsRequestUriCondition[];
+        /**
+         * A `serverPortCondition` block as defined below.
+         */
+        serverPortConditions?: outputs.cdn.FrontdoorRuleConditionsServerPortCondition[];
+        /**
+         * A `socketAddressCondition` block as defined below.
+         */
+        socketAddressConditions?: outputs.cdn.FrontdoorRuleConditionsSocketAddressCondition[];
+        /**
+         * A `sslProtocolCondition` block as defined below.
+         */
+        sslProtocolConditions?: outputs.cdn.FrontdoorRuleConditionsSslProtocolCondition[];
+        /**
+         * A `urlFileExtensionCondition` block as defined below.
+         */
+        urlFileExtensionConditions?: outputs.cdn.FrontdoorRuleConditionsUrlFileExtensionCondition[];
+        /**
+         * A `urlFilenameCondition` block as defined below.
+         */
+        urlFilenameConditions?: outputs.cdn.FrontdoorRuleConditionsUrlFilenameCondition[];
+        /**
+         * A `urlPathCondition` block as defined below.
+         */
+        urlPathConditions?: outputs.cdn.FrontdoorRuleConditionsUrlPathCondition[];
+    }
+
+    export interface FrontdoorRuleConditionsClientPortCondition {
+        /**
+         * One or more integer values(e.g. "1") representing the value of the client port to match. If multiple values are specified, they're evaluated using `OR` logic.
+         */
+        matchValues?: string[];
+        /**
+         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         */
+        negateCondition?: boolean;
+        /**
+         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+         */
+        operator: string;
+    }
+
+    export interface FrontdoorRuleConditionsCookiesCondition {
+        /**
+         * A string value representing the name of the cookie.
+         */
+        cookieName: string;
+        /**
+         * One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
+         */
+        matchValues?: string[];
+        /**
+         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         */
+        negateCondition?: boolean;
+        /**
+         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+         */
+        operator: string;
+        transforms?: string[];
+    }
+
+    export interface FrontdoorRuleConditionsHostNameCondition {
+        /**
+         * A list of one or more string values representing the value of the request hostname to match. If multiple values are specified, they're evaluated using `OR` logic.
+         */
+        matchValues?: string[];
+        /**
+         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         */
+        negateCondition?: boolean;
+        /**
+         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+         */
+        operator: string;
+        transforms?: string[];
+    }
+
+    export interface FrontdoorRuleConditionsHttpVersionCondition {
+        /**
+         * What HTTP version should this condition match? Possible values `2.0`, `1.1`, `1.0` or `0.9`.
+         */
+        matchValues: string[];
+        /**
+         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         */
+        negateCondition?: boolean;
+        /**
+         * Possible value `Equal`. Defaults to `Equal`.
+         */
+        operator?: string;
+    }
+
+    export interface FrontdoorRuleConditionsIsDeviceCondition {
+        /**
+         * Which device should this rule match on? Possible values `Mobile` or `Desktop`. Defaults to `Mobile`.
+         */
+        matchValues?: string;
+        /**
+         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         */
+        negateCondition?: boolean;
+        /**
+         * Possible value `Equal`. Defaults to `Equal`.
+         */
+        operator?: string;
+    }
+
+    export interface FrontdoorRuleConditionsPostArgsCondition {
+        /**
+         * One or more string or integer values(e.g. "1") representing the value of the `POST` argument to match. If multiple values are specified, they're evaluated using `OR` logic.
+         */
+        matchValues?: string[];
+        /**
+         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         */
+        negateCondition?: boolean;
+        /**
+         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+         */
+        operator: string;
+        /**
+         * A string value representing the name of the `POST` argument.
+         */
+        postArgsName: string;
+        transforms?: string[];
+    }
+
+    export interface FrontdoorRuleConditionsQueryStringCondition {
+        /**
+         * One or more string or integer values(e.g. "1") representing the value of the query string to match. If multiple values are specified, they're evaluated using `OR` logic.
+         */
+        matchValues?: string[];
+        /**
+         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         */
+        negateCondition?: boolean;
+        /**
+         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+         */
+        operator: string;
+        transforms?: string[];
+    }
+
+    export interface FrontdoorRuleConditionsRemoteAddressCondition {
+        /**
+         * For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
+         */
+        matchValues?: string[];
+        /**
+         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         */
+        negateCondition?: boolean;
+        /**
+         * The type of the remote address to match. Possible values include `Any`, `GeoMatch` or `IPMatch`. Use the `negateCondition` to specify Not `GeoMatch` or Not `IPMatch`.
+         */
+        operator?: string;
+    }
+
+    export interface FrontdoorRuleConditionsRequestBodyCondition {
+        /**
+         * A list of one or more string or integer values(e.g. "1") representing the value of the request body text to match. If multiple values are specified, they're evaluated using `OR` logic.
+         */
+        matchValues: string[];
+        /**
+         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         */
+        negateCondition?: boolean;
+        /**
+         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+         */
+        operator: string;
+        transforms?: string[];
+    }
+
+    export interface FrontdoorRuleConditionsRequestHeaderCondition {
+        /**
+         * A string value representing the name of the `POST` argument.
+         */
+        headerName: string;
+        /**
+         * One or more string or integer values(e.g. "1") representing the value of the request header to match. If multiple values are specified, they're evaluated using `OR` logic.
+         */
+        matchValues?: string[];
+        /**
+         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         */
+        negateCondition?: boolean;
+        /**
+         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+         */
+        operator: string;
+        transforms?: string[];
+    }
+
+    export interface FrontdoorRuleConditionsRequestMethodCondition {
+        /**
+         * A list of one or more HTTP methods. Possible values include `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS` or `TRACE`. If multiple values are specified, they're evaluated using `OR` logic.
+         */
+        matchValues: string[];
+        /**
+         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         */
+        negateCondition?: boolean;
+        /**
+         * Possible value `Equal`. Defaults to `Equal`.
+         */
+        operator?: string;
+    }
+
+    export interface FrontdoorRuleConditionsRequestSchemeCondition {
+        /**
+         * The requests protocol to match. Possible values include `HTTP` or `HTTPS`. Defaults to `HTTP`.
+         */
+        matchValues?: string;
+        /**
+         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         */
+        negateCondition?: boolean;
+        /**
+         * Possible value `Equal`. Defaults to `Equal`.
+         */
+        operator?: string;
+    }
+
+    export interface FrontdoorRuleConditionsRequestUriCondition {
+        /**
+         * One or more string or integer values(e.g. "1") representing the value of the request URL to match. If multiple values are specified, they're evaluated using `OR` logic.
+         */
+        matchValues?: string[];
+        /**
+         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         */
+        negateCondition?: boolean;
+        /**
+         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+         */
+        operator: string;
+        transforms?: string[];
+    }
+
+    export interface FrontdoorRuleConditionsServerPortCondition {
+        /**
+         * A list of one or more integer values(e.g. "1") representing the value of the client port to match. Possible values include `80` or `443`. If multiple values are specified, they're evaluated using `OR` logic.
+         */
+        matchValues: string[];
+        /**
+         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         */
+        negateCondition?: boolean;
+        /**
+         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+         */
+        operator: string;
+    }
+
+    export interface FrontdoorRuleConditionsSocketAddressCondition {
+        /**
+         * Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using `OR` logic.
+         */
+        matchValues?: string[];
+        /**
+         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         */
+        negateCondition?: boolean;
+        /**
+         * The type of match. The Possible values are `IpMatch` or `Any`. Defaults to `IpMatch`.
+         */
+        operator?: string;
+    }
+
+    export interface FrontdoorRuleConditionsSslProtocolCondition {
+        /**
+         * A list of one or more HTTP methods. Possible values include `TLSv1.0`, `TLSv1.1` or `TLS1.2`. If multiple values are specified, they're evaluated using `OR` logic.
+         */
+        matchValues: string[];
+        /**
+         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         */
+        negateCondition?: boolean;
+        /**
+         * Possible value `Equal`. Defaults to `Equal`.
+         */
+        operator?: string;
+    }
+
+    export interface FrontdoorRuleConditionsUrlFileExtensionCondition {
+        /**
+         * A list of one or more string or integer values(e.g. "1") representing the value of the request file extension to match. If multiple values are specified, they're evaluated using `OR` logic.
+         */
+        matchValues: string[];
+        /**
+         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         */
+        negateCondition?: boolean;
+        /**
+         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+         */
+        operator: string;
+        transforms?: string[];
+    }
+
+    export interface FrontdoorRuleConditionsUrlFilenameCondition {
+        /**
+         * A list of one or more string or integer values(e.g. "1") representing the value of the request file name to match. If multiple values are specified, they're evaluated using `OR` logic.
+         */
+        matchValues: string[];
+        /**
+         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         */
+        negateCondition?: boolean;
+        /**
+         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+         */
+        operator: string;
+        transforms?: string[];
+    }
+
+    export interface FrontdoorRuleConditionsUrlPathCondition {
+        /**
+         * One or more string or integer values(e.g. "1") representing the value of the request path to match. Don't include the leading slash (`/`). If multiple values are specified, they're evaluated using `OR` logic.
+         */
+        matchValues?: string[];
+        /**
+         * If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
+         */
+        negateCondition?: boolean;
+        /**
+         * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
+         */
+        operator: string;
+        transforms?: string[];
+    }
+
+    export interface FrontdoorSecretSecret {
+        /**
+         * A `customerCertificate` block as defined below. Changing this forces a new Frontdoor Secret to be created.
+         */
+        customerCertificates: outputs.cdn.FrontdoorSecretSecretCustomerCertificate[];
+    }
+
+    export interface FrontdoorSecretSecretCustomerCertificate {
+        /**
+         * The key vault certificate resources ID attribute. Changing this forces a new Frontdoor Secret to be created.
+         */
+        keyVaultCertificateId: string;
+        /**
+         * One or more `subject alternative names` contained within the key vault certificate.
+         */
+        subjectAlternativeNames: string[];
+    }
+
     export interface FrontdoorSecurityPolicySecurityPolicies {
         /**
          * An `firewall` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
@@ -15805,7 +16642,7 @@ export namespace compute {
 
     export interface LinuxVirtualMachineScaleSetAdditionalCapabilities {
         /**
-         * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+         * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
          */
         ultraSsdEnabled?: boolean;
     }
@@ -15872,6 +16709,10 @@ export namespace compute {
          */
         lun: number;
         /**
+         * The name of the Data Disk.
+         */
+        name?: string;
+        /**
          * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
          */
         storageAccountType: string;
@@ -15924,6 +16765,25 @@ export namespace compute {
          * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
          */
         typeHandlerVersion: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetGalleryApplication {
+        /**
+         * Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+         */
+        configurationReferenceBlobUri?: string;
+        /**
+         * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
+         */
+        order?: number;
+        /**
+         * Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+         */
+        packageReferenceId: string;
+        /**
+         * Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+         */
+        tag?: string;
     }
 
     export interface LinuxVirtualMachineScaleSetIdentity {
@@ -16036,6 +16896,10 @@ export namespace compute {
          * The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
          */
         publicIpPrefixId?: string;
+        /**
+         * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         */
+        version?: string;
     }
 
     export interface LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
@@ -16112,6 +16976,10 @@ export namespace compute {
 
     export interface LinuxVirtualMachineScaleSetRollingUpgradePolicy {
         /**
+         * Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+         */
+        crossZoneUpgradesEnabled?: boolean;
+        /**
          * The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
          */
         maxBatchInstancePercent: number;
@@ -16127,6 +16995,21 @@ export namespace compute {
          * The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
          */
         pauseTimeBetweenBatches: string;
+        /**
+         * Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+         */
+        prioritizeUnhealthyInstancesEnabled?: boolean;
+    }
+
+    export interface LinuxVirtualMachineScaleSetScaleIn {
+        /**
+         * Should the virtual machines chosen for removal be force deleted when the virtual machine scale set is being scaled-in? Possible values are `true` or `false`. Defaults to `false`.
+         */
+        forceDeletionEnabled?: boolean;
+        /**
+         * The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+         */
+        rule?: string;
     }
 
     export interface LinuxVirtualMachineScaleSetSecret {
@@ -16164,6 +17047,17 @@ export namespace compute {
          * Specifies the version of the image used to create the virtual machines.
          */
         version: string;
+    }
+
+    export interface LinuxVirtualMachineScaleSetSpotRestore {
+        /**
+         * Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+         */
+        enabled?: boolean;
+        /**
+         * The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+         */
+        timeout?: string;
     }
 
     export interface LinuxVirtualMachineScaleSetTerminateNotification {
@@ -16273,6 +17167,13 @@ export namespace compute {
         sourceVaultId: string;
     }
 
+    export interface OrchestratedVirtualMachineScaleSetAdditionalCapabilities {
+        /**
+         * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Orchestrated Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+         */
+        ultraSsdEnabled?: boolean;
+    }
+
     export interface OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair {
         enabled: boolean;
         gracePeriod?: string;
@@ -16300,6 +17201,10 @@ export namespace compute {
          * An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.
          */
         extensionsToProvisionAfterVmCreations?: string[];
+        /**
+         * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+         */
+        failureSuppressionEnabled?: boolean;
         forceExtensionExecutionOnChange?: string;
         /**
          * The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
@@ -16341,6 +17246,9 @@ export namespace compute {
         primary?: boolean;
         publicIpAddresses?: outputs.compute.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress[];
         subnetId?: string;
+        /**
+         * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         */
         version?: string;
     }
 
@@ -16353,6 +17261,14 @@ export namespace compute {
          */
         name: string;
         publicIpPrefixId?: string;
+        /**
+         * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+         */
+        skuName?: string;
+        /**
+         * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         */
+        version?: string;
     }
 
     export interface OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
@@ -16396,6 +17312,10 @@ export namespace compute {
          */
         disablePasswordAuthentication?: boolean;
         /**
+         * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+         */
+        patchAssessmentMode?: string;
+        /**
          * Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
          */
         patchMode?: string;
@@ -16435,6 +17355,10 @@ export namespace compute {
          * Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
          */
         hotpatchingEnabled?: boolean;
+        /**
+         * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+         */
+        patchAssessmentMode?: string;
         /**
          * Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
          */
@@ -16476,6 +17400,9 @@ export namespace compute {
         offer: string;
         publisher: string;
         sku: string;
+        /**
+         * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         */
         version: string;
     }
 
@@ -17304,7 +18231,7 @@ export namespace compute {
 
     export interface WindowsVirtualMachineScaleSetAdditionalCapabilities {
         /**
-         * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
+         * Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
          */
         ultraSsdEnabled?: boolean;
     }
@@ -17371,6 +18298,10 @@ export namespace compute {
          */
         lun: number;
         /**
+         * The name of the Data Disk.
+         */
+        name?: string;
+        /**
          * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS` and `UltraSSD_LRS`.
          */
         storageAccountType: string;
@@ -17423,6 +18354,25 @@ export namespace compute {
          * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
          */
         typeHandlerVersion: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetGalleryApplication {
+        /**
+         * Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
+         */
+        configurationReferenceBlobUri?: string;
+        /**
+         * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`. Changing this forces a new resource to be created.
+         */
+        order?: number;
+        /**
+         * Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
+         */
+        packageReferenceId: string;
+        /**
+         * Specifies a passthrough value for more generic context. This field can be any valid `string` value. Changing this forces a new resource to be created.
+         */
+        tag?: string;
     }
 
     export interface WindowsVirtualMachineScaleSetIdentity {
@@ -17535,6 +18485,10 @@ export namespace compute {
          * The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
          */
         publicIpPrefixId?: string;
+        /**
+         * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         */
+        version?: string;
     }
 
     export interface WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag {
@@ -17611,6 +18565,10 @@ export namespace compute {
 
     export interface WindowsVirtualMachineScaleSetRollingUpgradePolicy {
         /**
+         * Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+         */
+        crossZoneUpgradesEnabled?: boolean;
+        /**
          * The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
          */
         maxBatchInstancePercent: number;
@@ -17626,6 +18584,21 @@ export namespace compute {
          * The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
          */
         pauseTimeBetweenBatches: string;
+        /**
+         * Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+         */
+        prioritizeUnhealthyInstancesEnabled?: boolean;
+    }
+
+    export interface WindowsVirtualMachineScaleSetScaleIn {
+        /**
+         * Should the virtual machines chosen for removal be force deleted when the virtual machine scale set is being scaled-in? Possible values are `true` or `false`. Defaults to `false`.
+         */
+        forceDeletionEnabled?: boolean;
+        /**
+         * The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are `Default`, `NewestVM` and `OldestVM`, defaults to `Default`. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).
+         */
+        rule?: string;
     }
 
     export interface WindowsVirtualMachineScaleSetSecret {
@@ -17667,6 +18640,17 @@ export namespace compute {
          * Specifies the version of the image used to create the virtual machines.
          */
         version: string;
+    }
+
+    export interface WindowsVirtualMachineScaleSetSpotRestore {
+        /**
+         * Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new resource to be created.
+         */
+        enabled?: boolean;
+        /**
+         * The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between `15` minutes and `120` minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to `90` minutes (e.g. `PT1H30M`). Changing this forces a new resource to be created.
+         */
+        timeout?: string;
     }
 
     export interface WindowsVirtualMachineScaleSetTerminateNotification {
@@ -19747,7 +20731,7 @@ export namespace containerservice {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are `SystemAssigned` or `UserAssigned`.
          */
         type: string;
     }
@@ -21439,6 +22423,24 @@ export namespace cosmosdb {
          * The maximum throughput of the Table (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
          */
         maxThroughput: number;
+    }
+
+}
+
+export namespace dashboard {
+    export interface GrafanaIdentity {
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity. The only possible values is `SystemAssigned`.
+         */
+        type: string;
     }
 
 }
@@ -25914,7 +26916,7 @@ export namespace eventhub {
 
     export interface NamespaceIdentity {
         /**
-         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
          */
         identityIds?: string[];
         /**
@@ -26558,6 +27560,25 @@ export namespace hdinsight {
         hbase: string;
     }
 
+    export interface HBaseClusterDiskEncryption {
+        /**
+         * This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+         */
+        encryptionAlgorithm?: string;
+        /**
+         * This is indicator to show whether resource disk encryption is enabled.
+         */
+        encryptionAtHostEnabled?: boolean;
+        /**
+         * The ID of the key vault key.
+         */
+        keyVaultKeyId?: string;
+        /**
+         * This is the resource ID of Managed Identity used to access the key vault.
+         */
+        keyVaultManagedIdentityId?: string;
+    }
+
     export interface HBaseClusterGateway {
         /**
          * The password used for the Ambari Portal.
@@ -26874,6 +27895,25 @@ export namespace hdinsight {
          * The version of Hadoop which should be used for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
          */
         hadoop: string;
+    }
+
+    export interface HadoopClusterDiskEncryption {
+        /**
+         * This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+         */
+        encryptionAlgorithm?: string;
+        /**
+         * This is indicator to show whether resource disk encryption is enabled.
+         */
+        encryptionAtHostEnabled?: boolean;
+        /**
+         * The ID of the key vault key.
+         */
+        keyVaultKeyId?: string;
+        /**
+         * This is the resource ID of Managed Identity used to access the key vault.
+         */
+        keyVaultManagedIdentityId?: string;
     }
 
     export interface HadoopClusterGateway {
@@ -27280,6 +28320,25 @@ export namespace hdinsight {
         interactiveHive: string;
     }
 
+    export interface InteractiveQueryClusterDiskEncryption {
+        /**
+         * This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+         */
+        encryptionAlgorithm?: string;
+        /**
+         * This is indicator to show whether resource disk encryption is enabled.
+         */
+        encryptionAtHostEnabled?: boolean;
+        /**
+         * The ID of the key vault key.
+         */
+        keyVaultKeyId?: string;
+        /**
+         * This is the resource ID of Managed Identity used to access the key vault.
+         */
+        keyVaultManagedIdentityId?: string;
+    }
+
     export interface InteractiveQueryClusterGateway {
         /**
          * The password used for the Ambari Portal.
@@ -27613,6 +28672,25 @@ export namespace hdinsight {
         kafka: string;
     }
 
+    export interface KafkaClusterDiskEncryption {
+        /**
+         * This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+         */
+        encryptionAlgorithm?: string;
+        /**
+         * This is indicator to show whether resource disk encryption is enabled.
+         */
+        encryptionAtHostEnabled?: boolean;
+        /**
+         * The ID of the key vault key.
+         */
+        keyVaultKeyId?: string;
+        /**
+         * This is the resource ID of Managed Identity used to access the key vault.
+         */
+        keyVaultManagedIdentityId?: string;
+    }
+
     export interface KafkaClusterGateway {
         /**
          * The password used for the Ambari Portal.
@@ -27938,6 +29016,25 @@ export namespace hdinsight {
          * The version of Spark which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
          */
         spark: string;
+    }
+
+    export interface SparkClusterDiskEncryption {
+        /**
+         * This is an algorithm identifier for encryption. Possible values are `RSA1_5`, `RSA-OAEP`, `RSA-OAEP-256`.
+         */
+        encryptionAlgorithm?: string;
+        /**
+         * This is indicator to show whether resource disk encryption is enabled.
+         */
+        encryptionAtHostEnabled?: boolean;
+        /**
+         * The ID of the key vault key.
+         */
+        keyVaultKeyId?: string;
+        /**
+         * This is the resource ID of Managed Identity used to access the key vault.
+         */
+        keyVaultManagedIdentityId?: string;
     }
 
     export interface SparkClusterGateway {
@@ -28415,6 +29512,18 @@ export namespace healthcare {
         type: string;
     }
 
+    export interface GetMedtechServiceIdentity {
+        /**
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Healthcare Med Tech Service.
+         */
+        tenantId: string;
+        type: string;
+    }
+
     export interface GetServiceAuthenticationConfiguration {
         /**
          * The intended audience to receive authentication tokens for the service.
@@ -28451,6 +29560,21 @@ export namespace healthcare {
          * The max age to be allowed via CORS.
          */
         maxAgeInSeconds: number;
+    }
+
+    export interface MedtechServiceIdentity {
+        /**
+         * The Principal ID associated with this System Assigned Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this System Assigned Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Healthcare Med Tech Service. Possible values are `SystemAssigned`.
+         */
+        type: string;
     }
 
     export interface ServiceAuthenticationConfiguration {
@@ -28502,7 +29626,6 @@ export namespace healthcare {
          */
         name: string;
     }
-
 }
 
 export namespace hpc {
@@ -30185,19 +31308,19 @@ export namespace logicapps {
 
     export interface GetWorkflowIdentity {
         /**
-         * The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+         * The list of User Assigned Managed Identity IDs assigned to this Logic App Workflow.
          */
         identityIds: string[];
         /**
-         * The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Logic App Workflow.
          */
         principalId: string;
         /**
-         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Logic App Workflow.
          */
         tenantId: string;
         /**
-         * The type of Managed Service Identity that is configured on this API Management Service.
+         * The type of Managed Service Identity that is configured on this Logic App Workflow.
          */
         type: string;
     }
@@ -30607,7 +31730,7 @@ export namespace logicapps {
 export namespace machinelearning {
     export interface ComputeClusterIdentity {
         /**
-         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster.
          */
         identityIds?: string[];
         /**
@@ -30619,7 +31742,7 @@ export namespace machinelearning {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -32696,7 +33819,11 @@ export namespace monitoring {
         /**
          * The name of a Diagnostic Log Category for this Resource.
          */
-        category: string;
+        category?: string;
+        /**
+         * The name of a Diagnostic Log Category Group for this Resource.
+         */
+        categoryGroup?: string;
         /**
          * Is this Diagnostic Log enabled? Defaults to `true`.
          */
@@ -33675,7 +34802,7 @@ export namespace mssql {
 
     export interface ServerIdentity {
         /**
-         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
          */
         identityIds?: string[];
         /**
@@ -33687,7 +34814,7 @@ export namespace mssql {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are `SystemAssigned`, `UserAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are `SystemAssigned`, `UserAssigned`.
          */
         type: string;
     }
@@ -38404,6 +39531,21 @@ export namespace privatelink {
         ipAddresses: string[];
     }
 
+    export interface EndpointIpConfiguration {
+        /**
+         * Specifies the Name of the IP Configuration. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
+         */
+        privateIpAddress: string;
+        /**
+         * Specifies the subresource this IP address applies to. `subresourceNames` corresponds to `groupId` and in this context is also used for `memberName`. Changing this forces a new resource to be created.
+         */
+        subresourceName: string;
+    }
+
     export interface EndpointNetworkInterface {
         /**
          * The ID of the Private DNS Zone Config.
@@ -38490,7 +39632,7 @@ export namespace privatelink {
          */
         privateConnectionResourceId?: string;
         /**
-         * (Computed) The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
+         * Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
          */
         privateIpAddress: string;
         /**
@@ -38978,6 +40120,89 @@ export namespace securitycenter {
 }
 
 export namespace sentinel {
+    export interface AlertRuleNrtAlertDetailsOverride {
+        /**
+         * The format containing columns name(s) to override the description of this Sentinel Alert Rule.
+         */
+        descriptionFormat?: string;
+        /**
+         * The format containing columns name(s) to override the name of this Sentinel Alert Rule.
+         */
+        displayNameFormat?: string;
+        /**
+         * The column name to take the alert severity from.
+         */
+        severityColumnName?: string;
+        /**
+         * The column name to take the alert tactics from.
+         */
+        tacticsColumnName?: string;
+    }
+
+    export interface AlertRuleNrtEntityMapping {
+        /**
+         * The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+         */
+        entityType: string;
+        /**
+         * A list of `fieldMapping` blocks as defined below.
+         */
+        fieldMappings: outputs.sentinel.AlertRuleNrtEntityMappingFieldMapping[];
+    }
+
+    export interface AlertRuleNrtEntityMappingFieldMapping {
+        /**
+         * The column name to be mapped to the identifier.
+         */
+        columnName: string;
+        /**
+         * The identifier of the entity.
+         */
+        identifier: string;
+    }
+
+    export interface AlertRuleNrtIncident {
+        /**
+         * Whether to create an incident from alerts triggered by this Sentinel NRT Alert Rule?
+         */
+        createIncidentEnabled: boolean;
+        /**
+         * A `grouping` block as defined below.
+         */
+        grouping: outputs.sentinel.AlertRuleNrtIncidentGrouping;
+    }
+
+    export interface AlertRuleNrtIncidentGrouping {
+        /**
+         * A list of alert details to group by, only when the `entityMatchingMethod` is `Selected`.
+         */
+        byAlertDetails?: string[];
+        /**
+         * A list of custom details keys to group by, only when the `entityMatchingMethod` is `Selected`. Only keys defined in the `customDetails` may be used.
+         */
+        byCustomDetails?: string[];
+        /**
+         * A list of entity types to group by, only when the `entityMatchingMethod` is `Selected`. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
+         */
+        byEntities?: string[];
+        /**
+         * Enable grouping incidents created from alerts triggered by this Sentinel NRT Alert Rule. Defaults to `true`.
+         */
+        enabled?: boolean;
+        /**
+         * The method used to group incidents. Possible values are `AnyAlert`, `Selected` and `AllEntities`. Defaults to `AnyAlert`.
+         */
+        entityMatchingMethod?: string;
+        /**
+         * Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to `PT5M`.
+         */
+        lookbackDuration?: string;
+        /**
+         * Whether to re-open closed matching incidents? Defaults to `false`.
+         */
+        reopenClosedIncidents?: boolean;
+    }
+
     export interface AlertRuleScheduledAlertDetailsOverride {
         /**
          * The format containing columns name(s) to override the description of this Sentinel Alert Rule.
@@ -39184,6 +40409,25 @@ export namespace sentinel {
         values: string[];
     }
 
+    export interface GetAlertRuleTemplateNrtTemplate {
+        /**
+         * The description of this Sentinel Scheduled Alert Rule Template.
+         */
+        description: string;
+        /**
+         * The query of this Sentinel Scheduled Alert Rule Template.
+         */
+        query: string;
+        /**
+         * The alert severity of this Sentinel Scheduled Alert Rule Template.
+         */
+        severity: string;
+        /**
+         * A list of categories of attacks by which to classify the rule.
+         */
+        tactics: string[];
+    }
+
     export interface GetAlertRuleTemplateScheduledTemplate {
         /**
          * The description of this Sentinel Scheduled Alert Rule Template.
@@ -39250,7 +40494,7 @@ export namespace servicebus {
 
     export interface NamespaceIdentity {
         /**
-         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
          */
         identityIds?: string[];
         /**
@@ -41888,7 +43132,7 @@ export namespace webpubsub {
 
     export interface ServiceIdentity {
         /**
-         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
          */
         identityIds?: string[];
         /**

@@ -67,6 +67,10 @@ export class IotHubDps extends pulumi.CustomResource {
      */
     public readonly allocationPolicy!: pulumi.Output<string | undefined>;
     /**
+     * Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+     */
+    public readonly dataResidencyEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The device endpoint of the IoT Device Provisioning Service.
      */
     public /*out*/ readonly deviceProvisioningHostName!: pulumi.Output<string>;
@@ -125,6 +129,7 @@ export class IotHubDps extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as IotHubDpsState | undefined;
             resourceInputs["allocationPolicy"] = state ? state.allocationPolicy : undefined;
+            resourceInputs["dataResidencyEnabled"] = state ? state.dataResidencyEnabled : undefined;
             resourceInputs["deviceProvisioningHostName"] = state ? state.deviceProvisioningHostName : undefined;
             resourceInputs["idScope"] = state ? state.idScope : undefined;
             resourceInputs["ipFilterRules"] = state ? state.ipFilterRules : undefined;
@@ -145,6 +150,7 @@ export class IotHubDps extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["allocationPolicy"] = args ? args.allocationPolicy : undefined;
+            resourceInputs["dataResidencyEnabled"] = args ? args.dataResidencyEnabled : undefined;
             resourceInputs["ipFilterRules"] = args ? args.ipFilterRules : undefined;
             resourceInputs["linkedHubs"] = args ? args.linkedHubs : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -170,6 +176,10 @@ export interface IotHubDpsState {
      * The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
      */
     allocationPolicy?: pulumi.Input<string>;
+    /**
+     * Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+     */
+    dataResidencyEnabled?: pulumi.Input<boolean>;
     /**
      * The device endpoint of the IoT Device Provisioning Service.
      */
@@ -224,6 +234,10 @@ export interface IotHubDpsArgs {
      * The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
      */
     allocationPolicy?: pulumi.Input<string>;
+    /**
+     * Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`.
+     */
+    dataResidencyEnabled?: pulumi.Input<boolean>;
     /**
      * An `ipFilterRule` block as defined below.
      */

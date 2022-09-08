@@ -108,8 +108,7 @@ namespace Pulumi.Azure.Policy
         public Output<string> Metadata { get; private set; } = null!;
 
         /// <summary>
-        /// The policy mode that allows you to specify which resource
-        /// types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+        /// The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
         /// </summary>
         [Output("mode")]
         public Output<string> Mode { get; private set; } = null!;
@@ -141,6 +140,12 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         [Output("policyType")]
         public Output<string> PolicyType { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of role definition id extracted from `policy_rule` required for remediation.
+        /// </summary>
+        [Output("roleDefinitionIds")]
+        public Output<ImmutableArray<string>> RoleDefinitionIds { get; private set; } = null!;
 
 
         /// <summary>
@@ -215,8 +220,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? Metadata { get; set; }
 
         /// <summary>
-        /// The policy mode that allows you to specify which resource
-        /// types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+        /// The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
         /// </summary>
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
@@ -284,8 +288,7 @@ namespace Pulumi.Azure.Policy
         public Input<string>? Metadata { get; set; }
 
         /// <summary>
-        /// The policy mode that allows you to specify which resource
-        /// types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+        /// The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
@@ -317,6 +320,18 @@ namespace Pulumi.Azure.Policy
         /// </summary>
         [Input("policyType")]
         public Input<string>? PolicyType { get; set; }
+
+        [Input("roleDefinitionIds")]
+        private InputList<string>? _roleDefinitionIds;
+
+        /// <summary>
+        /// A list of role definition id extracted from `policy_rule` required for remediation.
+        /// </summary>
+        public InputList<string> RoleDefinitionIds
+        {
+            get => _roleDefinitionIds ?? (_roleDefinitionIds = new InputList<string>());
+            set => _roleDefinitionIds = value;
+        }
 
         public DefinitionState()
         {

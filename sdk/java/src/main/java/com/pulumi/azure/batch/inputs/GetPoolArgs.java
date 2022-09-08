@@ -14,14 +14,14 @@ public final class GetPoolArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetPoolArgs Empty = new GetPoolArgs();
 
     /**
-     * The name of the Batch account.
+     * The Azure Storage Account name.
      * 
      */
     @Import(name="accountName", required=true)
     private Output<String> accountName;
 
     /**
-     * @return The name of the Batch account.
+     * @return The Azure Storage Account name.
      * 
      */
     public Output<String> accountName() {
@@ -77,7 +77,7 @@ public final class GetPoolArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param accountName The name of the Batch account.
+         * @param accountName The Azure Storage Account name.
          * 
          * @return builder
          * 
@@ -88,7 +88,7 @@ public final class GetPoolArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param accountName The name of the Batch account.
+         * @param accountName The Azure Storage Account name.
          * 
          * @return builder
          * 

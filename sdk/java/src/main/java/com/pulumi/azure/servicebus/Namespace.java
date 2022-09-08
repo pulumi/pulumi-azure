@@ -205,6 +205,20 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
+     * The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+     * 
+     */
+    @Export(name="minimumTlsVersion", type=String.class, parameters={})
+    private Output<String> minimumTlsVersion;
+
+    /**
+     * @return The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+     * 
+     */
+    public Output<String> minimumTlsVersion() {
+        return this.minimumTlsVersion;
+    }
+    /**
      * Specifies the name of the ServiceBus Namespace resource . Changing this forces a
      * new resource to be created.
      * 
@@ -219,6 +233,20 @@ public class Namespace extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+     * 
+     */
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Is public network access enabled for the Service Bus Namespace? Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
+        return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
      * The name of the resource group in which to

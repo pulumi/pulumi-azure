@@ -23,7 +23,6 @@ public final class PoolContainerConfigurationContainerRegistry {
     private String registryServer;
     /**
      * @return The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
-     * ---
      * 
      */
     private @Nullable String userAssignedIdentityId;
@@ -50,7 +49,6 @@ public final class PoolContainerConfigurationContainerRegistry {
     }
     /**
      * @return The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
-     * ---
      * 
      */
     public Optional<String> userAssignedIdentityId() {

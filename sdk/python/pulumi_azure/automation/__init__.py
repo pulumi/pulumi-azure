@@ -12,6 +12,7 @@ from .connection import *
 from .connection_certificate import *
 from .connection_classic_certificate import *
 from .connection_service_principal import *
+from .connection_type import *
 from .credential import *
 from .date_time_variable import *
 from .dsc_configuration import *
@@ -21,6 +22,8 @@ from .get_bool_variable import *
 from .get_date_time_variable import *
 from .get_int_variable import *
 from .get_string_variable import *
+from .hybrid_runbook_worker import *
+from .hybrid_runbook_worker_group import *
 from .int_variable import *
 from .job_schedule import *
 from .module import *

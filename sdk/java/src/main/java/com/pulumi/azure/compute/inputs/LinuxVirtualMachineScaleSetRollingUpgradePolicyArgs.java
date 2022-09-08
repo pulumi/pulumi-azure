@@ -5,14 +5,32 @@ package com.pulumi.azure.compute.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs Empty = new LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs();
+
+    /**
+     * Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
+    @Import(name="crossZoneUpgradesEnabled")
+    private @Nullable Output<Boolean> crossZoneUpgradesEnabled;
+
+    /**
+     * @return Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> crossZoneUpgradesEnabled() {
+        return Optional.ofNullable(this.crossZoneUpgradesEnabled);
+    }
 
     /**
      * The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
@@ -74,13 +92,30 @@ public final class LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs extends c
         return this.pauseTimeBetweenBatches;
     }
 
+    /**
+     * Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
+    @Import(name="prioritizeUnhealthyInstancesEnabled")
+    private @Nullable Output<Boolean> prioritizeUnhealthyInstancesEnabled;
+
+    /**
+     * @return Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> prioritizeUnhealthyInstancesEnabled() {
+        return Optional.ofNullable(this.prioritizeUnhealthyInstancesEnabled);
+    }
+
     private LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs() {}
 
     private LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs(LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs $) {
+        this.crossZoneUpgradesEnabled = $.crossZoneUpgradesEnabled;
         this.maxBatchInstancePercent = $.maxBatchInstancePercent;
         this.maxUnhealthyInstancePercent = $.maxUnhealthyInstancePercent;
         this.maxUnhealthyUpgradedInstancePercent = $.maxUnhealthyUpgradedInstancePercent;
         this.pauseTimeBetweenBatches = $.pauseTimeBetweenBatches;
+        this.prioritizeUnhealthyInstancesEnabled = $.prioritizeUnhealthyInstancesEnabled;
     }
 
     public static Builder builder() {
@@ -99,6 +134,27 @@ public final class LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs extends c
 
         public Builder(LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs defaults) {
             $ = new LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param crossZoneUpgradesEnabled Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossZoneUpgradesEnabled(@Nullable Output<Boolean> crossZoneUpgradesEnabled) {
+            $.crossZoneUpgradesEnabled = crossZoneUpgradesEnabled;
+            return this;
+        }
+
+        /**
+         * @param crossZoneUpgradesEnabled Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crossZoneUpgradesEnabled(Boolean crossZoneUpgradesEnabled) {
+            return crossZoneUpgradesEnabled(Output.of(crossZoneUpgradesEnabled));
         }
 
         /**
@@ -183,6 +239,27 @@ public final class LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs extends c
          */
         public Builder pauseTimeBetweenBatches(String pauseTimeBetweenBatches) {
             return pauseTimeBetweenBatches(Output.of(pauseTimeBetweenBatches));
+        }
+
+        /**
+         * @param prioritizeUnhealthyInstancesEnabled Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prioritizeUnhealthyInstancesEnabled(@Nullable Output<Boolean> prioritizeUnhealthyInstancesEnabled) {
+            $.prioritizeUnhealthyInstancesEnabled = prioritizeUnhealthyInstancesEnabled;
+            return this;
+        }
+
+        /**
+         * @param prioritizeUnhealthyInstancesEnabled Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prioritizeUnhealthyInstancesEnabled(Boolean prioritizeUnhealthyInstancesEnabled) {
+            return prioritizeUnhealthyInstancesEnabled(Output.of(prioritizeUnhealthyInstancesEnabled));
         }
 
         public LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs build() {

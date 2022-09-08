@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceIdentity {
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
      * 
      */
     private @Nullable List<String> identityIds;
@@ -35,7 +35,7 @@ public final class ServiceIdentity {
 
     private ServiceIdentity() {}
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
      * 
      */
     public List<String> identityIds() {

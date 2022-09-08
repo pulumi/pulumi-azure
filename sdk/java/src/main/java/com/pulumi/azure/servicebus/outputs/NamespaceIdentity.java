@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NamespaceIdentity {
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
      * 
      */
     private @Nullable List<String> identityIds;
@@ -35,7 +35,7 @@ public final class NamespaceIdentity {
 
     private NamespaceIdentity() {}
     /**
-     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
      * 
      */
     public List<String> identityIds() {

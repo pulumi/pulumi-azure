@@ -21,15 +21,30 @@ public final class DiagnosticSettingLogArgs extends com.pulumi.resources.Resourc
      * The name of a Diagnostic Log Category for this Resource.
      * 
      */
-    @Import(name="category", required=true)
-    private Output<String> category;
+    @Import(name="category")
+    private @Nullable Output<String> category;
 
     /**
      * @return The name of a Diagnostic Log Category for this Resource.
      * 
      */
-    public Output<String> category() {
-        return this.category;
+    public Optional<Output<String>> category() {
+        return Optional.ofNullable(this.category);
+    }
+
+    /**
+     * The name of a Diagnostic Log Category Group for this Resource.
+     * 
+     */
+    @Import(name="categoryGroup")
+    private @Nullable Output<String> categoryGroup;
+
+    /**
+     * @return The name of a Diagnostic Log Category Group for this Resource.
+     * 
+     */
+    public Optional<Output<String>> categoryGroup() {
+        return Optional.ofNullable(this.categoryGroup);
     }
 
     /**
@@ -66,6 +81,7 @@ public final class DiagnosticSettingLogArgs extends com.pulumi.resources.Resourc
 
     private DiagnosticSettingLogArgs(DiagnosticSettingLogArgs $) {
         this.category = $.category;
+        this.categoryGroup = $.categoryGroup;
         this.enabled = $.enabled;
         this.retentionPolicy = $.retentionPolicy;
     }
@@ -94,7 +110,7 @@ public final class DiagnosticSettingLogArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder category(Output<String> category) {
+        public Builder category(@Nullable Output<String> category) {
             $.category = category;
             return this;
         }
@@ -107,6 +123,27 @@ public final class DiagnosticSettingLogArgs extends com.pulumi.resources.Resourc
          */
         public Builder category(String category) {
             return category(Output.of(category));
+        }
+
+        /**
+         * @param categoryGroup The name of a Diagnostic Log Category Group for this Resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder categoryGroup(@Nullable Output<String> categoryGroup) {
+            $.categoryGroup = categoryGroup;
+            return this;
+        }
+
+        /**
+         * @param categoryGroup The name of a Diagnostic Log Category Group for this Resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder categoryGroup(String categoryGroup) {
+            return categoryGroup(Output.of(categoryGroup));
         }
 
         /**
@@ -152,7 +189,6 @@ public final class DiagnosticSettingLogArgs extends com.pulumi.resources.Resourc
         }
 
         public DiagnosticSettingLogArgs build() {
-            $.category = Objects.requireNonNull($.category, "expected parameter 'category' to be non-null");
             return $;
         }
     }

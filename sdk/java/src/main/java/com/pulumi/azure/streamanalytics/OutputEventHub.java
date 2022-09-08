@@ -101,6 +101,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:streamanalytics/outputEventHub:OutputEventHub")
 public class OutputEventHub extends com.pulumi.resources.CustomResource {
     /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     * 
+     */
+    @Export(name="authenticationMode", type=String.class, parameters={})
+    private Output</* @Nullable */ String> authenticationMode;
+
+    /**
+     * @return The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     * 
+     */
+    public Output<Optional<String>> authenticationMode() {
+        return Codegen.optional(this.authenticationMode);
+    }
+    /**
      * The name of the Event Hub.
      * 
      */

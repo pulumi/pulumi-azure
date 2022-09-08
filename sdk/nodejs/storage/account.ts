@@ -252,6 +252,10 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly primaryWebHost!: pulumi.Output<string>;
     /**
+     * Whether the public network access is enabled? Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      */
     public readonly queueEncryptionKeyType!: pulumi.Output<string | undefined>;
@@ -403,6 +407,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["primaryTableHost"] = state ? state.primaryTableHost : undefined;
             resourceInputs["primaryWebEndpoint"] = state ? state.primaryWebEndpoint : undefined;
             resourceInputs["primaryWebHost"] = state ? state.primaryWebHost : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["queueEncryptionKeyType"] = state ? state.queueEncryptionKeyType : undefined;
             resourceInputs["queueProperties"] = state ? state.queueProperties : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
@@ -461,6 +466,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkRules"] = args ? args.networkRules : undefined;
             resourceInputs["nfsv3Enabled"] = args ? args.nfsv3Enabled : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["queueEncryptionKeyType"] = args ? args.queueEncryptionKeyType : undefined;
             resourceInputs["queueProperties"] = args ? args.queueProperties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -666,6 +672,10 @@ export interface AccountState {
      */
     primaryWebHost?: pulumi.Input<string>;
     /**
+     * Whether the public network access is enabled? Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
+    /**
      * The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      */
     queueEncryptionKeyType?: pulumi.Input<string>;
@@ -860,6 +870,10 @@ export interface AccountArgs {
      * Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`.
      */
     nfsv3Enabled?: pulumi.Input<boolean>;
+    /**
+     * Whether the public network access is enabled? Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`.
      */

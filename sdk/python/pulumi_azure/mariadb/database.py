@@ -222,8 +222,8 @@ class Database(pulumi.CustomResource):
         example_database = azure.mariadb.Database("exampleDatabase",
             resource_group_name=example_resource_group.name,
             server_name=example_server.name,
-            charset="utf8",
-            collation="utf8_general_ci")
+            charset="utf8mb4",
+            collation="utf8mb4_unicode_520_ci")
         ```
 
         ## Import
@@ -273,8 +273,8 @@ class Database(pulumi.CustomResource):
         example_database = azure.mariadb.Database("exampleDatabase",
             resource_group_name=example_resource_group.name,
             server_name=example_server.name,
-            charset="utf8",
-            collation="utf8_general_ci")
+            charset="utf8mb4",
+            collation="utf8mb4_unicode_520_ci")
         ```
 
         ## Import

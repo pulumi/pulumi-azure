@@ -16,7 +16,7 @@ namespace Pulumi.Azure.EventHub.Inputs
         private InputList<string>? _identityIds;
 
         /// <summary>
-        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+        /// Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace.
         /// </summary>
         public InputList<string> IdentityIds
         {

@@ -41,6 +41,11 @@ public final class GetConfigurationStoreResult {
      * 
      */
     private List<GetConfigurationStorePrimaryWriteKey> primaryWriteKeys;
+    /**
+     * @return The Public Network Access setting of this App Configuration.
+     * 
+     */
+    private String publicNetworkAccess;
     private String resourceGroupName;
     /**
      * @return A `secondary_read_key` block as defined below containing the secondary read access key.
@@ -102,6 +107,13 @@ public final class GetConfigurationStoreResult {
     public List<GetConfigurationStorePrimaryWriteKey> primaryWriteKeys() {
         return this.primaryWriteKeys;
     }
+    /**
+     * @return The Public Network Access setting of this App Configuration.
+     * 
+     */
+    public String publicNetworkAccess() {
+        return this.publicNetworkAccess;
+    }
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
@@ -149,6 +161,7 @@ public final class GetConfigurationStoreResult {
         private String name;
         private List<GetConfigurationStorePrimaryReadKey> primaryReadKeys;
         private List<GetConfigurationStorePrimaryWriteKey> primaryWriteKeys;
+        private String publicNetworkAccess;
         private String resourceGroupName;
         private List<GetConfigurationStoreSecondaryReadKey> secondaryReadKeys;
         private List<GetConfigurationStoreSecondaryWriteKey> secondaryWriteKeys;
@@ -163,6 +176,7 @@ public final class GetConfigurationStoreResult {
     	      this.name = defaults.name;
     	      this.primaryReadKeys = defaults.primaryReadKeys;
     	      this.primaryWriteKeys = defaults.primaryWriteKeys;
+    	      this.publicNetworkAccess = defaults.publicNetworkAccess;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.secondaryReadKeys = defaults.secondaryReadKeys;
     	      this.secondaryWriteKeys = defaults.secondaryWriteKeys;
@@ -207,6 +221,11 @@ public final class GetConfigurationStoreResult {
             return primaryWriteKeys(List.of(primaryWriteKeys));
         }
         @CustomType.Setter
+        public Builder publicNetworkAccess(String publicNetworkAccess) {
+            this.publicNetworkAccess = Objects.requireNonNull(publicNetworkAccess);
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
@@ -245,6 +264,7 @@ public final class GetConfigurationStoreResult {
             o.name = name;
             o.primaryReadKeys = primaryReadKeys;
             o.primaryWriteKeys = primaryWriteKeys;
+            o.publicNetworkAccess = publicNetworkAccess;
             o.resourceGroupName = resourceGroupName;
             o.secondaryReadKeys = secondaryReadKeys;
             o.secondaryWriteKeys = secondaryWriteKeys;

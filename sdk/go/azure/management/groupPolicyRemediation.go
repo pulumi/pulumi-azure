@@ -14,11 +14,14 @@ import (
 type GroupPolicyRemediation struct {
 	pulumi.CustomResourceState
 
-	LocationFilters    pulumi.StringArrayOutput `pulumi:"locationFilters"`
-	ManagementGroupId  pulumi.StringOutput      `pulumi:"managementGroupId"`
-	Name               pulumi.StringOutput      `pulumi:"name"`
-	PolicyAssignmentId pulumi.StringOutput      `pulumi:"policyAssignmentId"`
-	PolicyDefinitionId pulumi.StringPtrOutput   `pulumi:"policyDefinitionId"`
+	FailurePercentage   pulumi.Float64PtrOutput  `pulumi:"failurePercentage"`
+	LocationFilters     pulumi.StringArrayOutput `pulumi:"locationFilters"`
+	ManagementGroupId   pulumi.StringOutput      `pulumi:"managementGroupId"`
+	Name                pulumi.StringOutput      `pulumi:"name"`
+	ParallelDeployments pulumi.IntPtrOutput      `pulumi:"parallelDeployments"`
+	PolicyAssignmentId  pulumi.StringOutput      `pulumi:"policyAssignmentId"`
+	PolicyDefinitionId  pulumi.StringPtrOutput   `pulumi:"policyDefinitionId"`
+	ResourceCount       pulumi.IntPtrOutput      `pulumi:"resourceCount"`
 	// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	ResourceDiscoveryMode pulumi.StringPtrOutput `pulumi:"resourceDiscoveryMode"`
 }
@@ -58,21 +61,27 @@ func GetGroupPolicyRemediation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GroupPolicyRemediation resources.
 type groupPolicyRemediationState struct {
-	LocationFilters    []string `pulumi:"locationFilters"`
-	ManagementGroupId  *string  `pulumi:"managementGroupId"`
-	Name               *string  `pulumi:"name"`
-	PolicyAssignmentId *string  `pulumi:"policyAssignmentId"`
-	PolicyDefinitionId *string  `pulumi:"policyDefinitionId"`
+	FailurePercentage   *float64 `pulumi:"failurePercentage"`
+	LocationFilters     []string `pulumi:"locationFilters"`
+	ManagementGroupId   *string  `pulumi:"managementGroupId"`
+	Name                *string  `pulumi:"name"`
+	ParallelDeployments *int     `pulumi:"parallelDeployments"`
+	PolicyAssignmentId  *string  `pulumi:"policyAssignmentId"`
+	PolicyDefinitionId  *string  `pulumi:"policyDefinitionId"`
+	ResourceCount       *int     `pulumi:"resourceCount"`
 	// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
 }
 
 type GroupPolicyRemediationState struct {
-	LocationFilters    pulumi.StringArrayInput
-	ManagementGroupId  pulumi.StringPtrInput
-	Name               pulumi.StringPtrInput
-	PolicyAssignmentId pulumi.StringPtrInput
-	PolicyDefinitionId pulumi.StringPtrInput
+	FailurePercentage   pulumi.Float64PtrInput
+	LocationFilters     pulumi.StringArrayInput
+	ManagementGroupId   pulumi.StringPtrInput
+	Name                pulumi.StringPtrInput
+	ParallelDeployments pulumi.IntPtrInput
+	PolicyAssignmentId  pulumi.StringPtrInput
+	PolicyDefinitionId  pulumi.StringPtrInput
+	ResourceCount       pulumi.IntPtrInput
 	// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	ResourceDiscoveryMode pulumi.StringPtrInput
 }
@@ -82,22 +91,28 @@ func (GroupPolicyRemediationState) ElementType() reflect.Type {
 }
 
 type groupPolicyRemediationArgs struct {
-	LocationFilters    []string `pulumi:"locationFilters"`
-	ManagementGroupId  string   `pulumi:"managementGroupId"`
-	Name               *string  `pulumi:"name"`
-	PolicyAssignmentId string   `pulumi:"policyAssignmentId"`
-	PolicyDefinitionId *string  `pulumi:"policyDefinitionId"`
+	FailurePercentage   *float64 `pulumi:"failurePercentage"`
+	LocationFilters     []string `pulumi:"locationFilters"`
+	ManagementGroupId   string   `pulumi:"managementGroupId"`
+	Name                *string  `pulumi:"name"`
+	ParallelDeployments *int     `pulumi:"parallelDeployments"`
+	PolicyAssignmentId  string   `pulumi:"policyAssignmentId"`
+	PolicyDefinitionId  *string  `pulumi:"policyDefinitionId"`
+	ResourceCount       *int     `pulumi:"resourceCount"`
 	// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
 }
 
 // The set of arguments for constructing a GroupPolicyRemediation resource.
 type GroupPolicyRemediationArgs struct {
-	LocationFilters    pulumi.StringArrayInput
-	ManagementGroupId  pulumi.StringInput
-	Name               pulumi.StringPtrInput
-	PolicyAssignmentId pulumi.StringInput
-	PolicyDefinitionId pulumi.StringPtrInput
+	FailurePercentage   pulumi.Float64PtrInput
+	LocationFilters     pulumi.StringArrayInput
+	ManagementGroupId   pulumi.StringInput
+	Name                pulumi.StringPtrInput
+	ParallelDeployments pulumi.IntPtrInput
+	PolicyAssignmentId  pulumi.StringInput
+	PolicyDefinitionId  pulumi.StringPtrInput
+	ResourceCount       pulumi.IntPtrInput
 	// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	ResourceDiscoveryMode pulumi.StringPtrInput
 }
@@ -189,6 +204,10 @@ func (o GroupPolicyRemediationOutput) ToGroupPolicyRemediationOutputWithContext(
 	return o
 }
 
+func (o GroupPolicyRemediationOutput) FailurePercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GroupPolicyRemediation) pulumi.Float64PtrOutput { return v.FailurePercentage }).(pulumi.Float64PtrOutput)
+}
+
 func (o GroupPolicyRemediationOutput) LocationFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GroupPolicyRemediation) pulumi.StringArrayOutput { return v.LocationFilters }).(pulumi.StringArrayOutput)
 }
@@ -201,12 +220,20 @@ func (o GroupPolicyRemediationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupPolicyRemediation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+func (o GroupPolicyRemediationOutput) ParallelDeployments() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupPolicyRemediation) pulumi.IntPtrOutput { return v.ParallelDeployments }).(pulumi.IntPtrOutput)
+}
+
 func (o GroupPolicyRemediationOutput) PolicyAssignmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupPolicyRemediation) pulumi.StringOutput { return v.PolicyAssignmentId }).(pulumi.StringOutput)
 }
 
 func (o GroupPolicyRemediationOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupPolicyRemediation) pulumi.StringPtrOutput { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+func (o GroupPolicyRemediationOutput) ResourceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupPolicyRemediation) pulumi.IntPtrOutput { return v.ResourceCount }).(pulumi.IntPtrOutput)
 }
 
 // Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.

@@ -103,8 +103,7 @@ type Definition struct {
 	// is a JSON string representing additional metadata that should be stored
 	// with the policy definition.
 	Metadata pulumi.StringOutput `pulumi:"metadata"`
-	// The policy mode that allows you to specify which resource
-	// types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+	// The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
 	Mode pulumi.StringOutput `pulumi:"mode"`
 	// The name of the policy definition. Changing this forces a
 	// new resource to be created.
@@ -118,6 +117,8 @@ type Definition struct {
 	PolicyRule pulumi.StringPtrOutput `pulumi:"policyRule"`
 	// The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
 	PolicyType pulumi.StringOutput `pulumi:"policyType"`
+	// A list of role definition id extracted from `policyRule` required for remediation.
+	RoleDefinitionIds pulumi.StringArrayOutput `pulumi:"roleDefinitionIds"`
 }
 
 // NewDefinition registers a new resource with the given unique name, arguments, and options.
@@ -168,8 +169,7 @@ type definitionState struct {
 	// is a JSON string representing additional metadata that should be stored
 	// with the policy definition.
 	Metadata *string `pulumi:"metadata"`
-	// The policy mode that allows you to specify which resource
-	// types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+	// The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
 	Mode *string `pulumi:"mode"`
 	// The name of the policy definition. Changing this forces a
 	// new resource to be created.
@@ -183,6 +183,8 @@ type definitionState struct {
 	PolicyRule *string `pulumi:"policyRule"`
 	// The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
 	PolicyType *string `pulumi:"policyType"`
+	// A list of role definition id extracted from `policyRule` required for remediation.
+	RoleDefinitionIds []string `pulumi:"roleDefinitionIds"`
 }
 
 type DefinitionState struct {
@@ -196,8 +198,7 @@ type DefinitionState struct {
 	// is a JSON string representing additional metadata that should be stored
 	// with the policy definition.
 	Metadata pulumi.StringPtrInput
-	// The policy mode that allows you to specify which resource
-	// types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+	// The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
 	Mode pulumi.StringPtrInput
 	// The name of the policy definition. Changing this forces a
 	// new resource to be created.
@@ -211,6 +212,8 @@ type DefinitionState struct {
 	PolicyRule pulumi.StringPtrInput
 	// The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
 	PolicyType pulumi.StringPtrInput
+	// A list of role definition id extracted from `policyRule` required for remediation.
+	RoleDefinitionIds pulumi.StringArrayInput
 }
 
 func (DefinitionState) ElementType() reflect.Type {
@@ -228,8 +231,7 @@ type definitionArgs struct {
 	// is a JSON string representing additional metadata that should be stored
 	// with the policy definition.
 	Metadata *string `pulumi:"metadata"`
-	// The policy mode that allows you to specify which resource
-	// types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+	// The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
 	Mode string `pulumi:"mode"`
 	// The name of the policy definition. Changing this forces a
 	// new resource to be created.
@@ -257,8 +259,7 @@ type DefinitionArgs struct {
 	// is a JSON string representing additional metadata that should be stored
 	// with the policy definition.
 	Metadata pulumi.StringPtrInput
-	// The policy mode that allows you to specify which resource
-	// types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+	// The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
 	Mode pulumi.StringInput
 	// The name of the policy definition. Changing this forces a
 	// new resource to be created.
@@ -383,8 +384,7 @@ func (o DefinitionOutput) Metadata() pulumi.StringOutput {
 	return o.ApplyT(func(v *Definition) pulumi.StringOutput { return v.Metadata }).(pulumi.StringOutput)
 }
 
-// The policy mode that allows you to specify which resource
-// types will be evaluated. Possible values are `All`, `Indexed`, `Microsoft.ContainerService.Data`, `Microsoft.CustomerLockbox.Data`, `Microsoft.DataCatalog.Data`, `Microsoft.KeyVault.Data`, `Microsoft.Kubernetes.Data`, `Microsoft.MachineLearningServices.Data`, `Microsoft.Network.Data` and `Microsoft.Synapse.Data`.
+// The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are `All` or `Indexed`.
 func (o DefinitionOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Definition) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
 }
@@ -411,6 +411,11 @@ func (o DefinitionOutput) PolicyRule() pulumi.StringPtrOutput {
 // The policy type. Possible values are `BuiltIn`, `Custom` and `NotSpecified`. Changing this forces a new resource to be created.
 func (o DefinitionOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Definition) pulumi.StringOutput { return v.PolicyType }).(pulumi.StringOutput)
+}
+
+// A list of role definition id extracted from `policyRule` required for remediation.
+func (o DefinitionOutput) RoleDefinitionIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Definition) pulumi.StringArrayOutput { return v.RoleDefinitionIds }).(pulumi.StringArrayOutput)
 }
 
 type DefinitionArrayOutput struct{ *pulumi.OutputState }

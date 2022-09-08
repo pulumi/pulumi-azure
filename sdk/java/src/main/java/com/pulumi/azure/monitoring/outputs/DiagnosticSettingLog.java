@@ -17,7 +17,12 @@ public final class DiagnosticSettingLog {
      * @return The name of a Diagnostic Log Category for this Resource.
      * 
      */
-    private String category;
+    private @Nullable String category;
+    /**
+     * @return The name of a Diagnostic Log Category Group for this Resource.
+     * 
+     */
+    private @Nullable String categoryGroup;
     /**
      * @return Is this Diagnostic Log enabled? Defaults to `true`.
      * 
@@ -34,8 +39,15 @@ public final class DiagnosticSettingLog {
      * @return The name of a Diagnostic Log Category for this Resource.
      * 
      */
-    public String category() {
-        return this.category;
+    public Optional<String> category() {
+        return Optional.ofNullable(this.category);
+    }
+    /**
+     * @return The name of a Diagnostic Log Category Group for this Resource.
+     * 
+     */
+    public Optional<String> categoryGroup() {
+        return Optional.ofNullable(this.categoryGroup);
     }
     /**
      * @return Is this Diagnostic Log enabled? Defaults to `true`.
@@ -61,20 +73,27 @@ public final class DiagnosticSettingLog {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String category;
+        private @Nullable String category;
+        private @Nullable String categoryGroup;
         private @Nullable Boolean enabled;
         private @Nullable DiagnosticSettingLogRetentionPolicy retentionPolicy;
         public Builder() {}
         public Builder(DiagnosticSettingLog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.category = defaults.category;
+    	      this.categoryGroup = defaults.categoryGroup;
     	      this.enabled = defaults.enabled;
     	      this.retentionPolicy = defaults.retentionPolicy;
         }
 
         @CustomType.Setter
-        public Builder category(String category) {
-            this.category = Objects.requireNonNull(category);
+        public Builder category(@Nullable String category) {
+            this.category = category;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder categoryGroup(@Nullable String categoryGroup) {
+            this.categoryGroup = categoryGroup;
             return this;
         }
         @CustomType.Setter
@@ -90,6 +109,7 @@ public final class DiagnosticSettingLog {
         public DiagnosticSettingLog build() {
             final var o = new DiagnosticSettingLog();
             o.category = category;
+            o.categoryGroup = categoryGroup;
             o.enabled = enabled;
             o.retentionPolicy = retentionPolicy;
             return o;

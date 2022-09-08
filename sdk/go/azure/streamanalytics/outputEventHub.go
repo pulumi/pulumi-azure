@@ -93,6 +93,8 @@ import (
 type OutputEventHub struct {
 	pulumi.CustomResourceState
 
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrOutput `pulumi:"authenticationMode"`
 	// The name of the Event Hub.
 	EventhubName pulumi.StringOutput `pulumi:"eventhubName"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
@@ -165,6 +167,8 @@ func GetOutputEventHub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OutputEventHub resources.
 type outputEventHubState struct {
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of the Event Hub.
 	EventhubName *string `pulumi:"eventhubName"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
@@ -188,6 +192,8 @@ type outputEventHubState struct {
 }
 
 type OutputEventHubState struct {
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrInput
 	// The name of the Event Hub.
 	EventhubName pulumi.StringPtrInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
@@ -215,6 +221,8 @@ func (OutputEventHubState) ElementType() reflect.Type {
 }
 
 type outputEventHubArgs struct {
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode *string `pulumi:"authenticationMode"`
 	// The name of the Event Hub.
 	EventhubName string `pulumi:"eventhubName"`
 	// The name of the Stream Output. Changing this forces a new resource to be created.
@@ -239,6 +247,8 @@ type outputEventHubArgs struct {
 
 // The set of arguments for constructing a OutputEventHub resource.
 type OutputEventHubArgs struct {
+	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+	AuthenticationMode pulumi.StringPtrInput
 	// The name of the Event Hub.
 	EventhubName pulumi.StringInput
 	// The name of the Stream Output. Changing this forces a new resource to be created.
@@ -346,6 +356,11 @@ func (o OutputEventHubOutput) ToOutputEventHubOutput() OutputEventHubOutput {
 
 func (o OutputEventHubOutput) ToOutputEventHubOutputWithContext(ctx context.Context) OutputEventHubOutput {
 	return o
+}
+
+// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+func (o OutputEventHubOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OutputEventHub) pulumi.StringPtrOutput { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Event Hub.

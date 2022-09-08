@@ -163,6 +163,10 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * A `mount` block defined as below.
+     */
+    public readonly mounts!: pulumi.Output<outputs.batch.PoolMount[] | undefined>;
+    /**
      * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -214,6 +218,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["maxTasksPerNode"] = state ? state.maxTasksPerNode : undefined;
             resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["mounts"] = state ? state.mounts : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
             resourceInputs["nodeAgentSkuId"] = state ? state.nodeAgentSkuId : undefined;
@@ -248,6 +253,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["maxTasksPerNode"] = args ? args.maxTasksPerNode : undefined;
             resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["mounts"] = args ? args.mounts : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
             resourceInputs["nodeAgentSkuId"] = args ? args.nodeAgentSkuId : undefined;
@@ -302,6 +308,10 @@ export interface PoolState {
      * A map of custom batch pool metadata.
      */
     metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `mount` block defined as below.
+     */
+    mounts?: pulumi.Input<pulumi.Input<inputs.batch.PoolMount>[]>;
     /**
      * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
      */
@@ -373,6 +383,10 @@ export interface PoolArgs {
      * A map of custom batch pool metadata.
      */
     metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A `mount` block defined as below.
+     */
+    mounts?: pulumi.Input<pulumi.Input<inputs.batch.PoolMount>[]>;
     /**
      * Specifies the name of the Batch pool. Changing this forces a new resource to be created.
      */

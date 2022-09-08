@@ -116,6 +116,14 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// A list of the supported log category groups of this resource to send to the destination.
+        /// </summary>
+        public readonly ImmutableArray<string> LogCategoryGroups;
+        /// <summary>
+        /// A list of the supported log category types of this resource to send to the destination.
+        /// </summary>
+        public readonly ImmutableArray<string> LogCategoryTypes;
+        /// <summary>
         /// A list of the Log Categories supported for this Resource.
         /// </summary>
         public readonly ImmutableArray<string> Logs;
@@ -129,6 +137,10 @@ namespace Pulumi.Azure.Monitoring
         private GetDiagnosticCategoriesResult(
             string id,
 
+            ImmutableArray<string> logCategoryGroups,
+
+            ImmutableArray<string> logCategoryTypes,
+
             ImmutableArray<string> logs,
 
             ImmutableArray<string> metrics,
@@ -136,6 +148,8 @@ namespace Pulumi.Azure.Monitoring
             string resourceId)
         {
             Id = id;
+            LogCategoryGroups = logCategoryGroups;
+            LogCategoryTypes = logCategoryTypes;
             Logs = logs;
             Metrics = metrics;
             ResourceId = resourceId;

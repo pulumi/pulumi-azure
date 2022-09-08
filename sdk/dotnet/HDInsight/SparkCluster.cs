@@ -114,6 +114,9 @@ namespace Pulumi.Azure.HDInsight
         [Output("componentVersion")]
         public Output<Outputs.SparkClusterComponentVersion> ComponentVersion { get; private set; } = null!;
 
+        [Output("diskEncryptions")]
+        public Output<ImmutableArray<Outputs.SparkClusterDiskEncryption>> DiskEncryptions { get; private set; } = null!;
+
         /// <summary>
         /// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         /// </summary>
@@ -271,6 +274,14 @@ namespace Pulumi.Azure.HDInsight
         [Input("componentVersion", required: true)]
         public Input<Inputs.SparkClusterComponentVersionArgs> ComponentVersion { get; set; } = null!;
 
+        [Input("diskEncryptions")]
+        private InputList<Inputs.SparkClusterDiskEncryptionArgs>? _diskEncryptions;
+        public InputList<Inputs.SparkClusterDiskEncryptionArgs> DiskEncryptions
+        {
+            get => _diskEncryptions ?? (_diskEncryptions = new InputList<Inputs.SparkClusterDiskEncryptionArgs>());
+            set => _diskEncryptions = value;
+        }
+
         /// <summary>
         /// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
         /// </summary>
@@ -389,6 +400,14 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Input("componentVersion")]
         public Input<Inputs.SparkClusterComponentVersionGetArgs>? ComponentVersion { get; set; }
+
+        [Input("diskEncryptions")]
+        private InputList<Inputs.SparkClusterDiskEncryptionGetArgs>? _diskEncryptions;
+        public InputList<Inputs.SparkClusterDiskEncryptionGetArgs> DiskEncryptions
+        {
+            get => _diskEncryptions ?? (_diskEncryptions = new InputList<Inputs.SparkClusterDiskEncryptionGetArgs>());
+            set => _diskEncryptions = value;
+        }
 
         /// <summary>
         /// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
