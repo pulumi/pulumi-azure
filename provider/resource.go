@@ -301,7 +301,7 @@ func preConfigureCallback(vars resource.PropertyMap, c tfshim.ResourceConfig) er
 	// validate the azure config
 	// make a Builder
 	builder := &authentication.Builder{
-		SubscriptionID:       stringValue(vars, "subscriptionID", []string{"ARM_SUBSCRIPTION_ID"}),
+		SubscriptionID:       stringValue(vars, "subscriptionId", []string{"ARM_SUBSCRIPTION_ID"}),
 		ClientID:             stringValue(vars, "clientId", []string{"ARM_CLIENT_ID"}),
 		ClientSecret:         stringValue(vars, "clientSecret", []string{"ARM_CLIENT_SECRET"}),
 		TenantID:             stringValue(vars, "tenantId", []string{"ARM_TENANT_ID"}),
