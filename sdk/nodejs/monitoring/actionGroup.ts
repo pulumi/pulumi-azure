@@ -61,14 +61,16 @@ import * as utilities from "../utilities";
  *     ],
  *     eventHubReceivers: [{
  *         name: "sendtoeventhub",
- *         eventHubId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-eventhub/providers/Microsoft.EventHub/namespaces/eventhubnamespace/eventhubs/eventhub1",
+ *         eventHubNamespace: "eventhubnamespace",
+ *         eventHubName: "eventhub1",
+ *         subscriptionId: "00000000-0000-0000-0000-000000000000",
  *         useCommonAlertSchema: false,
  *     }],
  *     itsmReceivers: [{
  *         name: "createorupdateticket",
  *         workspaceId: pulumi.all([current, exampleAnalyticsWorkspace.workspaceId]).apply(([current, workspaceId]) => `${current.subscriptionId}|${workspaceId}`),
  *         connectionId: "53de6956-42b4-41ba-be3c-b154cdf17b13",
- *         ticketConfiguration: "{}",
+ *         ticketConfiguration: "{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\",\"UseTemplate\":false,\"WorkItemData\":\"{}\",\"CreateOneWIPerCI\":false}",
  *         region: "southcentralus",
  *     }],
  *     logicAppReceivers: [{

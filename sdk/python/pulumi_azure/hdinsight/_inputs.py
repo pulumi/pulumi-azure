@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'HBaseClusterComponentVersionArgs',
     'HBaseClusterDiskEncryptionArgs',
+    'HBaseClusterExtensionArgs',
     'HBaseClusterGatewayArgs',
     'HBaseClusterMetastoresArgs',
     'HBaseClusterMetastoresAmbariArgs',
@@ -31,6 +32,7 @@ __all__ = [
     'HBaseClusterStorageAccountGen2Args',
     'HadoopClusterComponentVersionArgs',
     'HadoopClusterDiskEncryptionArgs',
+    'HadoopClusterExtensionArgs',
     'HadoopClusterGatewayArgs',
     'HadoopClusterMetastoresArgs',
     'HadoopClusterMetastoresAmbariArgs',
@@ -55,6 +57,7 @@ __all__ = [
     'HadoopClusterStorageAccountGen2Args',
     'InteractiveQueryClusterComponentVersionArgs',
     'InteractiveQueryClusterDiskEncryptionArgs',
+    'InteractiveQueryClusterExtensionArgs',
     'InteractiveQueryClusterGatewayArgs',
     'InteractiveQueryClusterMetastoresArgs',
     'InteractiveQueryClusterMetastoresAmbariArgs',
@@ -75,6 +78,7 @@ __all__ = [
     'InteractiveQueryClusterStorageAccountGen2Args',
     'KafkaClusterComponentVersionArgs',
     'KafkaClusterDiskEncryptionArgs',
+    'KafkaClusterExtensionArgs',
     'KafkaClusterGatewayArgs',
     'KafkaClusterMetastoresArgs',
     'KafkaClusterMetastoresAmbariArgs',
@@ -93,6 +97,7 @@ __all__ = [
     'KafkaClusterStorageAccountGen2Args',
     'SparkClusterComponentVersionArgs',
     'SparkClusterDiskEncryptionArgs',
+    'SparkClusterExtensionArgs',
     'SparkClusterGatewayArgs',
     'SparkClusterMetastoresArgs',
     'SparkClusterMetastoresAmbariArgs',
@@ -204,6 +209,43 @@ class HBaseClusterDiskEncryptionArgs:
     @key_vault_managed_identity_id.setter
     def key_vault_managed_identity_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_vault_managed_identity_id", value)
+
+
+@pulumi.input_type
+class HBaseClusterExtensionArgs:
+    def __init__(__self__, *,
+                 log_analytics_workspace_id: pulumi.Input[str],
+                 primary_key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] log_analytics_workspace_id: The workspace ID of the log analytics extension.
+        :param pulumi.Input[str] primary_key: The workspace key of the log analytics extension.
+        """
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        pulumi.set(__self__, "primary_key", primary_key)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> pulumi.Input[str]:
+        """
+        The workspace ID of the log analytics extension.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @log_analytics_workspace_id.setter
+    def log_analytics_workspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_analytics_workspace_id", value)
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> pulumi.Input[str]:
+        """
+        The workspace key of the log analytics extension.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @primary_key.setter
+    def primary_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "primary_key", value)
 
 
 @pulumi.input_type
@@ -1412,6 +1454,43 @@ class HadoopClusterDiskEncryptionArgs:
     @key_vault_managed_identity_id.setter
     def key_vault_managed_identity_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_vault_managed_identity_id", value)
+
+
+@pulumi.input_type
+class HadoopClusterExtensionArgs:
+    def __init__(__self__, *,
+                 log_analytics_workspace_id: pulumi.Input[str],
+                 primary_key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] log_analytics_workspace_id: The workspace ID of the log analytics extension.
+        :param pulumi.Input[str] primary_key: The workspace key of the log analytics extension.
+        """
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        pulumi.set(__self__, "primary_key", primary_key)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> pulumi.Input[str]:
+        """
+        The workspace ID of the log analytics extension.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @log_analytics_workspace_id.setter
+    def log_analytics_workspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_analytics_workspace_id", value)
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> pulumi.Input[str]:
+        """
+        The workspace key of the log analytics extension.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @primary_key.setter
+    def primary_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "primary_key", value)
 
 
 @pulumi.input_type
@@ -2955,6 +3034,43 @@ class InteractiveQueryClusterDiskEncryptionArgs:
 
 
 @pulumi.input_type
+class InteractiveQueryClusterExtensionArgs:
+    def __init__(__self__, *,
+                 log_analytics_workspace_id: pulumi.Input[str],
+                 primary_key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] log_analytics_workspace_id: The workspace ID of the log analytics extension.
+        :param pulumi.Input[str] primary_key: The workspace key of the log analytics extension.
+        """
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        pulumi.set(__self__, "primary_key", primary_key)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> pulumi.Input[str]:
+        """
+        The workspace ID of the log analytics extension.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @log_analytics_workspace_id.setter
+    def log_analytics_workspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_analytics_workspace_id", value)
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> pulumi.Input[str]:
+        """
+        The workspace key of the log analytics extension.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @primary_key.setter
+    def primary_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "primary_key", value)
+
+
+@pulumi.input_type
 class InteractiveQueryClusterGatewayArgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
@@ -4216,6 +4332,43 @@ class KafkaClusterDiskEncryptionArgs:
 
 
 @pulumi.input_type
+class KafkaClusterExtensionArgs:
+    def __init__(__self__, *,
+                 log_analytics_workspace_id: pulumi.Input[str],
+                 primary_key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] log_analytics_workspace_id: The workspace ID of the log analytics extension.
+        :param pulumi.Input[str] primary_key: The workspace key of the log analytics extension.
+        """
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        pulumi.set(__self__, "primary_key", primary_key)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> pulumi.Input[str]:
+        """
+        The workspace ID of the log analytics extension.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @log_analytics_workspace_id.setter
+    def log_analytics_workspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_analytics_workspace_id", value)
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> pulumi.Input[str]:
+        """
+        The workspace key of the log analytics extension.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @primary_key.setter
+    def primary_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "primary_key", value)
+
+
+@pulumi.input_type
 class KafkaClusterGatewayArgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
@@ -5462,6 +5615,43 @@ class SparkClusterDiskEncryptionArgs:
     @key_vault_managed_identity_id.setter
     def key_vault_managed_identity_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_vault_managed_identity_id", value)
+
+
+@pulumi.input_type
+class SparkClusterExtensionArgs:
+    def __init__(__self__, *,
+                 log_analytics_workspace_id: pulumi.Input[str],
+                 primary_key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] log_analytics_workspace_id: The workspace ID of the log analytics extension.
+        :param pulumi.Input[str] primary_key: The workspace key of the log analytics extension.
+        """
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        pulumi.set(__self__, "primary_key", primary_key)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> pulumi.Input[str]:
+        """
+        The workspace ID of the log analytics extension.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @log_analytics_workspace_id.setter
+    def log_analytics_workspace_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_analytics_workspace_id", value)
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> pulumi.Input[str]:
+        """
+        The workspace key of the log analytics extension.
+        """
+        return pulumi.get(self, "primary_key")
+
+    @primary_key.setter
+    def primary_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "primary_key", value)
 
 
 @pulumi.input_type

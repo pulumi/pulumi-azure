@@ -113,6 +113,10 @@ export class KubernetesCluster extends pulumi.CustomResource {
      * Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
      */
     public readonly dnsPrefixPrivateCluster!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+     */
+    public readonly edgeZone!: pulumi.Output<string | undefined>;
     public readonly enablePodSecurityPolicy!: pulumi.Output<boolean | undefined>;
     /**
      * The FQDN of the Azure Kubernetes Managed Cluster.
@@ -287,6 +291,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["diskEncryptionSetId"] = state ? state.diskEncryptionSetId : undefined;
             resourceInputs["dnsPrefix"] = state ? state.dnsPrefix : undefined;
             resourceInputs["dnsPrefixPrivateCluster"] = state ? state.dnsPrefixPrivateCluster : undefined;
+            resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
             resourceInputs["enablePodSecurityPolicy"] = state ? state.enablePodSecurityPolicy : undefined;
             resourceInputs["fqdn"] = state ? state.fqdn : undefined;
             resourceInputs["httpApplicationRoutingEnabled"] = state ? state.httpApplicationRoutingEnabled : undefined;
@@ -344,6 +349,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["diskEncryptionSetId"] = args ? args.diskEncryptionSetId : undefined;
             resourceInputs["dnsPrefix"] = args ? args.dnsPrefix : undefined;
             resourceInputs["dnsPrefixPrivateCluster"] = args ? args.dnsPrefixPrivateCluster : undefined;
+            resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
             resourceInputs["enablePodSecurityPolicy"] = args ? args.enablePodSecurityPolicy : undefined;
             resourceInputs["httpApplicationRoutingEnabled"] = args ? args.httpApplicationRoutingEnabled : undefined;
             resourceInputs["httpProxyConfig"] = args ? args.httpProxyConfig : undefined;
@@ -433,6 +439,10 @@ export interface KubernetesClusterState {
      * Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
      */
     dnsPrefixPrivateCluster?: pulumi.Input<string>;
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+     */
+    edgeZone?: pulumi.Input<string>;
     enablePodSecurityPolicy?: pulumi.Input<boolean>;
     /**
      * The FQDN of the Azure Kubernetes Managed Cluster.
@@ -629,6 +639,10 @@ export interface KubernetesClusterArgs {
      * Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
      */
     dnsPrefixPrivateCluster?: pulumi.Input<string>;
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+     */
+    edgeZone?: pulumi.Input<string>;
     enablePodSecurityPolicy?: pulumi.Input<boolean>;
     /**
      * Should HTTP Application Routing be enabled?

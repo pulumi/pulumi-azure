@@ -32,7 +32,7 @@ public final class SqlContainerIndexingPolicy {
      */
     private @Nullable List<SqlContainerIndexingPolicyIncludedPath> includedPaths;
     /**
-     * @return Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+     * @return Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
      * 
      */
     private @Nullable String indexingMode;
@@ -65,7 +65,7 @@ public final class SqlContainerIndexingPolicy {
         return this.includedPaths == null ? List.of() : this.includedPaths;
     }
     /**
-     * @return Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+     * @return Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
      * 
      */
     public Optional<String> indexingMode() {

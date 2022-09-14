@@ -26,6 +26,7 @@ class DatabaseArgs:
                  ledger_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']] = None,
+                 maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
                  max_size_gb: Optional[pulumi.Input[int]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -54,6 +55,7 @@ class DatabaseArgs:
         :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input['DatabaseLongTermRetentionPolicyArgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
+        :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
         :param pulumi.Input[int] max_size_gb: The max size of the database in gigabytes.
         :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
         :param pulumi.Input[str] name: The name of the MS SQL Database. Changing this forces a new resource to be created.
@@ -90,6 +92,8 @@ class DatabaseArgs:
             pulumi.set(__self__, "license_type", license_type)
         if long_term_retention_policy is not None:
             pulumi.set(__self__, "long_term_retention_policy", long_term_retention_policy)
+        if maintenance_configuration_name is not None:
+            pulumi.set(__self__, "maintenance_configuration_name", maintenance_configuration_name)
         if max_size_gb is not None:
             pulumi.set(__self__, "max_size_gb", max_size_gb)
         if min_capacity is not None:
@@ -242,6 +246,18 @@ class DatabaseArgs:
     @long_term_retention_policy.setter
     def long_term_retention_policy(self, value: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']]):
         pulumi.set(self, "long_term_retention_policy", value)
+
+    @property
+    @pulumi.getter(name="maintenanceConfigurationName")
+    def maintenance_configuration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
+        """
+        return pulumi.get(self, "maintenance_configuration_name")
+
+    @maintenance_configuration_name.setter
+    def maintenance_configuration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maintenance_configuration_name", value)
 
     @property
     @pulumi.getter(name="maxSizeGb")
@@ -448,6 +464,7 @@ class _DatabaseState:
                  ledger_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']] = None,
+                 maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
                  max_size_gb: Optional[pulumi.Input[int]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -476,6 +493,7 @@ class _DatabaseState:
         :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input['DatabaseLongTermRetentionPolicyArgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
+        :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
         :param pulumi.Input[int] max_size_gb: The max size of the database in gigabytes.
         :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
         :param pulumi.Input[str] name: The name of the MS SQL Database. Changing this forces a new resource to be created.
@@ -512,6 +530,8 @@ class _DatabaseState:
             pulumi.set(__self__, "license_type", license_type)
         if long_term_retention_policy is not None:
             pulumi.set(__self__, "long_term_retention_policy", long_term_retention_policy)
+        if maintenance_configuration_name is not None:
+            pulumi.set(__self__, "maintenance_configuration_name", maintenance_configuration_name)
         if max_size_gb is not None:
             pulumi.set(__self__, "max_size_gb", max_size_gb)
         if min_capacity is not None:
@@ -654,6 +674,18 @@ class _DatabaseState:
     @long_term_retention_policy.setter
     def long_term_retention_policy(self, value: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']]):
         pulumi.set(self, "long_term_retention_policy", value)
+
+    @property
+    @pulumi.getter(name="maintenanceConfigurationName")
+    def maintenance_configuration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
+        """
+        return pulumi.get(self, "maintenance_configuration_name")
+
+    @maintenance_configuration_name.setter
+    def maintenance_configuration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maintenance_configuration_name", value)
 
     @property
     @pulumi.getter(name="maxSizeGb")
@@ -874,6 +906,7 @@ class Database(pulumi.CustomResource):
                  ledger_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']]] = None,
+                 maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
                  max_size_gb: Optional[pulumi.Input[int]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -945,6 +978,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
+        :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
         :param pulumi.Input[int] max_size_gb: The max size of the database in gigabytes.
         :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
         :param pulumi.Input[str] name: The name of the MS SQL Database. Changing this forces a new resource to be created.
@@ -1035,6 +1069,7 @@ class Database(pulumi.CustomResource):
                  ledger_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']]] = None,
+                 maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
                  max_size_gb: Optional[pulumi.Input[int]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1070,6 +1105,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["ledger_enabled"] = ledger_enabled
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["long_term_retention_policy"] = long_term_retention_policy
+            __props__.__dict__["maintenance_configuration_name"] = maintenance_configuration_name
             __props__.__dict__["max_size_gb"] = max_size_gb
             __props__.__dict__["min_capacity"] = min_capacity
             __props__.__dict__["name"] = name
@@ -1108,6 +1144,7 @@ class Database(pulumi.CustomResource):
             ledger_enabled: Optional[pulumi.Input[bool]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
             long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']]] = None,
+            maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
             max_size_gb: Optional[pulumi.Input[int]] = None,
             min_capacity: Optional[pulumi.Input[float]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -1141,6 +1178,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
+        :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
         :param pulumi.Input[int] max_size_gb: The max size of the database in gigabytes.
         :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused. This property is only settable for General Purpose Serverless databases.
         :param pulumi.Input[str] name: The name of the MS SQL Database. Changing this forces a new resource to be created.
@@ -1172,6 +1210,7 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["ledger_enabled"] = ledger_enabled
         __props__.__dict__["license_type"] = license_type
         __props__.__dict__["long_term_retention_policy"] = long_term_retention_policy
+        __props__.__dict__["maintenance_configuration_name"] = maintenance_configuration_name
         __props__.__dict__["max_size_gb"] = max_size_gb
         __props__.__dict__["min_capacity"] = min_capacity
         __props__.__dict__["name"] = name
@@ -1249,7 +1288,7 @@ class Database(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licenseType")
-    def license_type(self) -> pulumi.Output[Optional[str]]:
+    def license_type(self) -> pulumi.Output[str]:
         """
         Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         """
@@ -1262,6 +1301,14 @@ class Database(pulumi.CustomResource):
         A `long_term_retention_policy` block as defined below.
         """
         return pulumi.get(self, "long_term_retention_policy")
+
+    @property
+    @pulumi.getter(name="maintenanceConfigurationName")
+    def maintenance_configuration_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the Public Maintenance Configuration window to apply to the database. Valid values include `SQL_Default`, `SQL_EastUS_DB_1`, `SQL_EastUS2_DB_1`, `SQL_SoutheastAsia_DB_1`, `SQL_AustraliaEast_DB_1`, `SQL_NorthEurope_DB_1`, `SQL_SouthCentralUS_DB_1`, `SQL_WestUS2_DB_1`, `SQL_UKSouth_DB_1`, `SQL_WestEurope_DB_1`, `SQL_EastUS_DB_2`, `SQL_EastUS2_DB_2`, `SQL_WestUS2_DB_2`, `SQL_SoutheastAsia_DB_2`, `SQL_AustraliaEast_DB_2`, `SQL_NorthEurope_DB_2`, `SQL_SouthCentralUS_DB_2`, `SQL_UKSouth_DB_2`, `SQL_WestEurope_DB_2`, `SQL_AustraliaSoutheast_DB_1`, `SQL_BrazilSouth_DB_1`, `SQL_CanadaCentral_DB_1`, `SQL_CanadaEast_DB_1`, `SQL_CentralUS_DB_1`, `SQL_EastAsia_DB_1`, `SQL_FranceCentral_DB_1`, `SQL_GermanyWestCentral_DB_1`, `SQL_CentralIndia_DB_1`, `SQL_SouthIndia_DB_1`, `SQL_JapanEast_DB_1`, `SQL_JapanWest_DB_1`, `SQL_NorthCentralUS_DB_1`, `SQL_UKWest_DB_1`, `SQL_WestUS_DB_1`, `SQL_AustraliaSoutheast_DB_2`, `SQL_BrazilSouth_DB_2`, `SQL_CanadaCentral_DB_2`, `SQL_CanadaEast_DB_2`, `SQL_CentralUS_DB_2`, `SQL_EastAsia_DB_2`, `SQL_FranceCentral_DB_2`, `SQL_GermanyWestCentral_DB_2`, `SQL_CentralIndia_DB_2`, `SQL_SouthIndia_DB_2`, `SQL_JapanEast_DB_2`, `SQL_JapanWest_DB_2`, `SQL_NorthCentralUS_DB_2`, `SQL_UKWest_DB_2`, `SQL_WestUS_DB_2`, `SQL_WestCentralUS_DB_1`, `SQL_FranceSouth_DB_1`, `SQL_WestCentralUS_DB_2`, `SQL_FranceSouth_DB_2`, `SQL_SwitzerlandNorth_DB_1`, `SQL_SwitzerlandNorth_DB_2`, `SQL_BrazilSoutheast_DB_1`, `SQL_UAENorth_DB_1`, `SQL_BrazilSoutheast_DB_2`, `SQL_UAENorth_DB_2`. Defaults to `SQL_Default`.
+        """
+        return pulumi.get(self, "maintenance_configuration_name")
 
     @property
     @pulumi.getter(name="maxSizeGb")

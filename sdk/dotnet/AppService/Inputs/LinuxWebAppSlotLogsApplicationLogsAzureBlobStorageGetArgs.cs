@@ -25,7 +25,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<int> RetentionInDays { get; set; } = null!;
 
         /// <summary>
-        /// SAS url to an Azure blob container with read/write/list/delete permissions.
+        /// SAS URL to an Azure blob container with read/write/list/delete permissions.
         /// </summary>
         [Input("sasUrl", required: true)]
         public Input<string> SasUrl { get; set; } = null!;

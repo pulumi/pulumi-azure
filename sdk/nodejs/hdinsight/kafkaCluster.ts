@@ -114,6 +114,10 @@ export class KafkaCluster extends pulumi.CustomResource {
      */
     public readonly encryptionInTransitEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * An `extension` block as defined below.
+     */
+    public readonly extension!: pulumi.Output<outputs.hdinsight.KafkaClusterExtension | undefined>;
+    /**
      * A `gateway` block as defined below.
      */
     public readonly gateway!: pulumi.Output<outputs.hdinsight.KafkaClusterGateway>;
@@ -203,6 +207,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             resourceInputs["componentVersion"] = state ? state.componentVersion : undefined;
             resourceInputs["diskEncryptions"] = state ? state.diskEncryptions : undefined;
             resourceInputs["encryptionInTransitEnabled"] = state ? state.encryptionInTransitEnabled : undefined;
+            resourceInputs["extension"] = state ? state.extension : undefined;
             resourceInputs["gateway"] = state ? state.gateway : undefined;
             resourceInputs["httpsEndpoint"] = state ? state.httpsEndpoint : undefined;
             resourceInputs["kafkaRestProxyEndpoint"] = state ? state.kafkaRestProxyEndpoint : undefined;
@@ -245,6 +250,7 @@ export class KafkaCluster extends pulumi.CustomResource {
             resourceInputs["componentVersion"] = args ? args.componentVersion : undefined;
             resourceInputs["diskEncryptions"] = args ? args.diskEncryptions : undefined;
             resourceInputs["encryptionInTransitEnabled"] = args ? args.encryptionInTransitEnabled : undefined;
+            resourceInputs["extension"] = args ? args.extension : undefined;
             resourceInputs["gateway"] = args ? args.gateway : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["metastores"] = args ? args.metastores : undefined;
@@ -286,6 +292,10 @@ export interface KafkaClusterState {
      * Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
      */
     encryptionInTransitEnabled?: pulumi.Input<boolean>;
+    /**
+     * An `extension` block as defined below.
+     */
+    extension?: pulumi.Input<inputs.hdinsight.KafkaClusterExtension>;
     /**
      * A `gateway` block as defined below.
      */
@@ -377,6 +387,10 @@ export interface KafkaClusterArgs {
      * Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
      */
     encryptionInTransitEnabled?: pulumi.Input<boolean>;
+    /**
+     * An `extension` block as defined below.
+     */
+    extension?: pulumi.Input<inputs.hdinsight.KafkaClusterExtension>;
     /**
      * A `gateway` block as defined below.
      */

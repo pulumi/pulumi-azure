@@ -87,8 +87,8 @@ github.com/Azure/azure-sdk-for-go v45.0.0+incompatible/go.mod h1:9XXNKU+eRnpl9mo
 github.com/Azure/azure-sdk-for-go v51.1.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
 github.com/Azure/azure-sdk-for-go v56.0.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
 github.com/Azure/azure-sdk-for-go v57.0.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
-github.com/Azure/azure-sdk-for-go v65.0.0+incompatible h1:HzKLt3kIwMm4KeJYTdx9EbjRYTySD/t8i1Ee/W5EGXw=
-github.com/Azure/azure-sdk-for-go v65.0.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
+github.com/Azure/azure-sdk-for-go v66.0.0+incompatible h1:bmmC38SlE8/E81nNADlgmVGurPWMHDX2YNXVQMrBpEE=
+github.com/Azure/azure-sdk-for-go v66.0.0+incompatible/go.mod h1:9XXNKU+eRnpl9moKnB4QOLf1HestfXbmab5FXxiDBjc=
 github.com/Azure/azure-service-bus-go v0.10.16/go.mod h1:MlkLwGGf1ewcx5jZadn0gUEty+tTg0RaElr6bPf+QhI=
 github.com/Azure/azure-storage-blob-go v0.14.0 h1:1BCg74AmVdYwO3dlKwtFU1V0wU2PZdREkXvAmZJRUlM=
 github.com/Azure/azure-storage-blob-go v0.14.0/go.mod h1:SMqIBi+SuiQH32bvyjngEewEeXoPfKMgWlBDaYf6fck=
@@ -499,8 +499,8 @@ github.com/hashicorp/errwrap v1.1.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brv
 github.com/hashicorp/go-azure-helpers v0.12.0/go.mod h1:Zc3v4DNeX6PDdy7NljlYpnrdac1++qNW0I4U+ofGwpg=
 github.com/hashicorp/go-azure-helpers v0.40.0 h1:NjiyF+jN+0mRdFBU894yzZSxu1SNrbvj8l4rEDpCB0A=
 github.com/hashicorp/go-azure-helpers v0.40.0/go.mod h1:gcutZ/Hf/O7YN9M3UIvyZ9l0Rxv7Yrc9x5sSfM9cuSw=
-github.com/hashicorp/go-azure-sdk v0.20220830.1105041 h1:LNW0aW2CMNmfTyN4u+h6yxXrAsRcQdNSWSL/NVs6ZVY=
-github.com/hashicorp/go-azure-sdk v0.20220830.1105041/go.mod h1:jOhjVttoXh2We/glz4BC/0t0Lo8+M9WQBA4sbAPQPMY=
+github.com/hashicorp/go-azure-sdk v0.20220907.1111434 h1:AaVzM1kzNIqjre7VDpYCWkk4Ov83TKlQNscYrf0xwt0=
+github.com/hashicorp/go-azure-sdk v0.20220907.1111434/go.mod h1:jOhjVttoXh2We/glz4BC/0t0Lo8+M9WQBA4sbAPQPMY=
 github.com/hashicorp/go-checkpoint v0.5.0 h1:MFYpPZCnQqQTE18jFwSII6eUQrD/oxMFp3mlgcqk5mU=
 github.com/hashicorp/go-checkpoint v0.5.0/go.mod h1:7nfLNL10NsxqO4iWuW6tWW0HjZuDrwkBuEQsVcpCOgg=
 github.com/hashicorp/go-cleanhttp v0.5.0/go.mod h1:JpRdi6/HCYpAwUzNwuwqhbovhLtngrth3wmdIIUrZ80=
@@ -818,8 +818,8 @@ github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Di
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9 h1:JMw+t5I+6E8Lna7JF+ghAoOLOl23UIbshJyRNP+K1HU=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9/go.mod h1:mYPs/uchNcBq7AclQv9QUtSf9iNcfp1Ag21jqTlDf2M=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220905095426-cbea072b7080 h1:W8GW9ID84glwE5GzruHMWuJai1rGGzrEhKlz5Tx3GRs=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220905095426-cbea072b7080/go.mod h1:sXGseNfGitnhlJT/5eEv30bhhI68lqqK8GkmCiaiJHE=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220914185322-d820fb2e0faa h1:wJQFjpah70ix+/D+cNIc1U59ISW7gwaFTwp5Hyi1+OI=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220914185322-d820fb2e0faa/go.mod h1:KPQA03SX77IhZUCC5G1lWg9gr48G7kEd//bxpgpFA5c=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9/go.mod h1:L8WrssTzvgYw34/Ppa0JpJfI7KKXZ2cVGI6Djt0brUU=
 github.com/rickb777/plural v1.2.0 h1:5tvEc7UBCZ7l8h/2UeybSkt/uu1DQsZFOFdNevmUhlE=

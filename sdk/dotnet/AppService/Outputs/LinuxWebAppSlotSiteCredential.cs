@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class LinuxWebAppSlotSiteCredential
     {
         /// <summary>
-        /// The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        /// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
         /// </summary>
         public readonly string? Name;
         /// <summary>

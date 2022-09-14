@@ -18,9 +18,15 @@ namespace Pulumi.Azure.AppService.Inputs
         [Input("alwaysOn")]
         public Input<bool>? AlwaysOn { get; set; }
 
+        /// <summary>
+        /// The URL to the API Definition for this Linux Web App.
+        /// </summary>
         [Input("apiDefinitionUrl")]
         public Input<string>? ApiDefinitionUrl { get; set; }
 
+        /// <summary>
+        /// The API Management API ID this Linux Web App is associated with.
+        /// </summary>
         [Input("apiManagementApiId")]
         public Input<string>? ApiManagementApiId { get; set; }
 
@@ -37,7 +43,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<Inputs.LinuxWebAppSiteConfigApplicationStackGetArgs>? ApplicationStack { get; set; }
 
         /// <summary>
-        /// Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+        /// Should Auto heal rules be enabled? Required with `auto_heal_setting`.
         /// </summary>
         [Input("autoHealEnabled")]
         public Input<bool>? AutoHealEnabled { get; set; }
@@ -82,7 +88,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? DetailedErrorLoggingEnabled { get; set; }
 
         /// <summary>
-        /// The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+        /// The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
         /// </summary>
         [Input("ftpsState")]
         public Input<string>? FtpsState { get; set; }
@@ -133,7 +139,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? LocalMysqlEnabled { get; set; }
 
         /// <summary>
-        /// Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+        /// Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
         /// </summary>
         [Input("managedPipelineMode")]
         public Input<string>? ManagedPipelineMode { get; set; }
@@ -181,19 +187,19 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<bool>? ScmUseMainIpRestriction { get; set; }
 
         /// <summary>
-        /// Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+        /// Should the Linux Web App use a 32-bit worker? Defaults to `true`.
         /// </summary>
         [Input("use32BitWorker")]
         public Input<bool>? Use32BitWorker { get; set; }
 
         /// <summary>
-        /// Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        /// Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         /// </summary>
         [Input("vnetRouteAllEnabled")]
         public Input<bool>? VnetRouteAllEnabled { get; set; }
 
         /// <summary>
-        /// Should Web Sockets be enabled. Defaults to `false`.
+        /// Should Web Sockets be enabled? Defaults to `false`.
         /// </summary>
         [Input("websocketsEnabled")]
         public Input<bool>? WebsocketsEnabled { get; set; }

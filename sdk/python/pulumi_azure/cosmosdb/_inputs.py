@@ -1348,7 +1348,7 @@ class SqlContainerIndexingPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgs']]] composite_indices: One or more `composite_index` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]] excluded_paths: One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
         :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]] included_paths: One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
-        :param pulumi.Input[str] indexing_mode: Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+        :param pulumi.Input[str] indexing_mode: Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
         :param pulumi.Input[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArgs']]] spatial_indices: One or more `spatial_index` blocks as defined below.
         """
         if composite_indices is not None:
@@ -1402,7 +1402,7 @@ class SqlContainerIndexingPolicyArgs:
     @pulumi.getter(name="indexingMode")
     def indexing_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+        Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
         """
         return pulumi.get(self, "indexing_mode")
 

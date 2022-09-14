@@ -22,6 +22,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string AdminUsername;
         /// <summary>
+        /// A `gmsa` block as defined below.
+        /// </summary>
+        public readonly Outputs.KubernetesClusterWindowsProfileGmsa? Gmsa;
+        /// <summary>
         /// Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
         /// </summary>
         public readonly string? License;
@@ -32,10 +36,13 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string adminUsername,
 
+            Outputs.KubernetesClusterWindowsProfileGmsa? gmsa,
+
             string? license)
         {
             AdminPassword = adminPassword;
             AdminUsername = adminUsername;
+            Gmsa = gmsa;
             License = license;
         }
     }

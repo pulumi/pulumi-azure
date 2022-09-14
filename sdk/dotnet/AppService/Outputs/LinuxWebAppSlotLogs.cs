@@ -18,11 +18,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly Outputs.LinuxWebAppSlotLogsApplicationLogs? ApplicationLogs;
         /// <summary>
-        /// Should detailed error messages be enabled.
+        /// Should detailed error messages be enabled?
         /// </summary>
         public readonly bool? DetailedErrorMessages;
         /// <summary>
-        /// Should failed request tracing be enabled.
+        /// Should the failed request tracing be enabled?
         /// </summary>
         public readonly bool? FailedRequestTracing;
         /// <summary>

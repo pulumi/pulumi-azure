@@ -65,6 +65,7 @@ __all__ = [
     'KubernetesClusterOmsAgentOmsAgentIdentity',
     'KubernetesClusterServicePrincipal',
     'KubernetesClusterWindowsProfile',
+    'KubernetesClusterWindowsProfileGmsa',
     'RegistryEncryption',
     'RegistryGeoreplication',
     'RegistryIdentity',
@@ -86,6 +87,8 @@ __all__ = [
     'RegistryTaskSourceTriggerAuthentication',
     'RegistryTaskTimerTrigger',
     'RegistryTrustPolicy',
+    'TokenPasswordPassword1',
+    'TokenPasswordPassword2',
     'GetClusterNodePoolUpgradeSettingResult',
     'GetKubernetesClusterAciConnectorLinuxResult',
     'GetKubernetesClusterAgentPoolProfileResult',
@@ -5359,15 +5362,19 @@ class KubernetesClusterWindowsProfile(dict):
     def __init__(__self__, *,
                  admin_username: str,
                  admin_password: Optional[str] = None,
+                 gmsa: Optional['outputs.KubernetesClusterWindowsProfileGmsa'] = None,
                  license: Optional[str] = None):
         """
         :param str admin_username: The Admin Username for Windows VMs.
         :param str admin_password: The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
+        :param 'KubernetesClusterWindowsProfileGmsaArgs' gmsa: A `gmsa` block as defined below.
         :param str license: Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         if admin_password is not None:
             pulumi.set(__self__, "admin_password", admin_password)
+        if gmsa is not None:
+            pulumi.set(__self__, "gmsa", gmsa)
         if license is not None:
             pulumi.set(__self__, "license", license)
 
@@ -5389,11 +5396,67 @@ class KubernetesClusterWindowsProfile(dict):
 
     @property
     @pulumi.getter
+    def gmsa(self) -> Optional['outputs.KubernetesClusterWindowsProfileGmsa']:
+        """
+        A `gmsa` block as defined below.
+        """
+        return pulumi.get(self, "gmsa")
+
+    @property
+    @pulumi.getter
     def license(self) -> Optional[str]:
         """
         Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
         """
         return pulumi.get(self, "license")
+
+
+@pulumi.output_type
+class KubernetesClusterWindowsProfileGmsa(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsServer":
+            suggest = "dns_server"
+        elif key == "rootDomain":
+            suggest = "root_domain"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterWindowsProfileGmsa. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterWindowsProfileGmsa.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterWindowsProfileGmsa.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_server: str,
+                 root_domain: str):
+        """
+        :param str dns_server: Specifies the DNS server for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+        :param str root_domain: Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+        """
+        pulumi.set(__self__, "dns_server", dns_server)
+        pulumi.set(__self__, "root_domain", root_domain)
+
+    @property
+    @pulumi.getter(name="dnsServer")
+    def dns_server(self) -> str:
+        """
+        Specifies the DNS server for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+        """
+        return pulumi.get(self, "dns_server")
+
+    @property
+    @pulumi.getter(name="rootDomain")
+    def root_domain(self) -> str:
+        """
+        Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+        """
+        return pulumi.get(self, "root_domain")
 
 
 @pulumi.output_type
@@ -6744,6 +6807,68 @@ class RegistryTrustPolicy(dict):
         Boolean value that indicates whether the policy is enabled.
         """
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class TokenPasswordPassword1(dict):
+    def __init__(__self__, *,
+                 expiry: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str expiry: The expiration date of the password in RFC3339 format.
+        :param str value: The value of the password (Sensitive).
+        """
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def expiry(self) -> Optional[str]:
+        """
+        The expiration date of the password in RFC3339 format.
+        """
+        return pulumi.get(self, "expiry")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the password (Sensitive).
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TokenPasswordPassword2(dict):
+    def __init__(__self__, *,
+                 expiry: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str expiry: The expiration date of the password in RFC3339 format.
+        :param str value: The value of the password (Sensitive).
+        """
+        if expiry is not None:
+            pulumi.set(__self__, "expiry", expiry)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def expiry(self) -> Optional[str]:
+        """
+        The expiration date of the password in RFC3339 format.
+        """
+        return pulumi.get(self, "expiry")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the password (Sensitive).
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

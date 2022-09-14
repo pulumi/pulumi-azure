@@ -6,6 +6,7 @@ package com.pulumi.azure.desktopvirtualization;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.desktopvirtualization.HostPoolArgs;
 import com.pulumi.azure.desktopvirtualization.inputs.HostPoolState;
+import com.pulumi.azure.desktopvirtualization.outputs.HostPoolScheduledAgentUpdates;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -31,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.desktopvirtualization.HostPool;
  * import com.pulumi.azure.desktopvirtualization.HostPoolArgs;
+ * import com.pulumi.azure.desktopvirtualization.inputs.HostPoolScheduledAgentUpdatesArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -59,6 +61,13 @@ import javax.annotation.Nullable;
  *             .type(&#34;Pooled&#34;)
  *             .maximumSessionsAllowed(50)
  *             .loadBalancerType(&#34;DepthFirst&#34;)
+ *             .scheduledAgentUpdates(HostPoolScheduledAgentUpdatesArgs.builder()
+ *                 .enabled(true)
+ *                 .schedules(HostPoolScheduledAgentUpdatesScheduleArgs.builder()
+ *                     .dayOfWeek(&#34;Saturday&#34;)
+ *                     .hourOfDay(2)
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -233,6 +242,20 @@ public class HostPool extends com.pulumi.resources.CustomResource {
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
+    }
+    /**
+     * A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+     * 
+     */
+    @Export(name="scheduledAgentUpdates", type=HostPoolScheduledAgentUpdates.class, parameters={})
+    private Output</* @Nullable */ HostPoolScheduledAgentUpdates> scheduledAgentUpdates;
+
+    /**
+     * @return A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+     * 
+     */
+    public Output<Optional<HostPoolScheduledAgentUpdates>> scheduledAgentUpdates() {
+        return Codegen.optional(this.scheduledAgentUpdates);
     }
     /**
      * Enables or disables the Start VM on Connection Feature. Defaults to `false`.

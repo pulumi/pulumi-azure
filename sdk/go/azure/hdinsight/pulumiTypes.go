@@ -271,6 +271,162 @@ func (o HBaseClusterDiskEncryptionArrayOutput) Index(i pulumi.IntInput) HBaseClu
 	}).(HBaseClusterDiskEncryptionOutput)
 }
 
+type HBaseClusterExtension struct {
+	// The workspace ID of the log analytics extension.
+	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
+	// The workspace key of the log analytics extension.
+	PrimaryKey string `pulumi:"primaryKey"`
+}
+
+// HBaseClusterExtensionInput is an input type that accepts HBaseClusterExtensionArgs and HBaseClusterExtensionOutput values.
+// You can construct a concrete instance of `HBaseClusterExtensionInput` via:
+//
+//	HBaseClusterExtensionArgs{...}
+type HBaseClusterExtensionInput interface {
+	pulumi.Input
+
+	ToHBaseClusterExtensionOutput() HBaseClusterExtensionOutput
+	ToHBaseClusterExtensionOutputWithContext(context.Context) HBaseClusterExtensionOutput
+}
+
+type HBaseClusterExtensionArgs struct {
+	// The workspace ID of the log analytics extension.
+	LogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"logAnalyticsWorkspaceId"`
+	// The workspace key of the log analytics extension.
+	PrimaryKey pulumi.StringInput `pulumi:"primaryKey"`
+}
+
+func (HBaseClusterExtensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterExtension)(nil)).Elem()
+}
+
+func (i HBaseClusterExtensionArgs) ToHBaseClusterExtensionOutput() HBaseClusterExtensionOutput {
+	return i.ToHBaseClusterExtensionOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterExtensionArgs) ToHBaseClusterExtensionOutputWithContext(ctx context.Context) HBaseClusterExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterExtensionOutput)
+}
+
+func (i HBaseClusterExtensionArgs) ToHBaseClusterExtensionPtrOutput() HBaseClusterExtensionPtrOutput {
+	return i.ToHBaseClusterExtensionPtrOutputWithContext(context.Background())
+}
+
+func (i HBaseClusterExtensionArgs) ToHBaseClusterExtensionPtrOutputWithContext(ctx context.Context) HBaseClusterExtensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterExtensionOutput).ToHBaseClusterExtensionPtrOutputWithContext(ctx)
+}
+
+// HBaseClusterExtensionPtrInput is an input type that accepts HBaseClusterExtensionArgs, HBaseClusterExtensionPtr and HBaseClusterExtensionPtrOutput values.
+// You can construct a concrete instance of `HBaseClusterExtensionPtrInput` via:
+//
+//	        HBaseClusterExtensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type HBaseClusterExtensionPtrInput interface {
+	pulumi.Input
+
+	ToHBaseClusterExtensionPtrOutput() HBaseClusterExtensionPtrOutput
+	ToHBaseClusterExtensionPtrOutputWithContext(context.Context) HBaseClusterExtensionPtrOutput
+}
+
+type hbaseClusterExtensionPtrType HBaseClusterExtensionArgs
+
+func HBaseClusterExtensionPtr(v *HBaseClusterExtensionArgs) HBaseClusterExtensionPtrInput {
+	return (*hbaseClusterExtensionPtrType)(v)
+}
+
+func (*hbaseClusterExtensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HBaseClusterExtension)(nil)).Elem()
+}
+
+func (i *hbaseClusterExtensionPtrType) ToHBaseClusterExtensionPtrOutput() HBaseClusterExtensionPtrOutput {
+	return i.ToHBaseClusterExtensionPtrOutputWithContext(context.Background())
+}
+
+func (i *hbaseClusterExtensionPtrType) ToHBaseClusterExtensionPtrOutputWithContext(ctx context.Context) HBaseClusterExtensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterExtensionPtrOutput)
+}
+
+type HBaseClusterExtensionOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HBaseClusterExtension)(nil)).Elem()
+}
+
+func (o HBaseClusterExtensionOutput) ToHBaseClusterExtensionOutput() HBaseClusterExtensionOutput {
+	return o
+}
+
+func (o HBaseClusterExtensionOutput) ToHBaseClusterExtensionOutputWithContext(ctx context.Context) HBaseClusterExtensionOutput {
+	return o
+}
+
+func (o HBaseClusterExtensionOutput) ToHBaseClusterExtensionPtrOutput() HBaseClusterExtensionPtrOutput {
+	return o.ToHBaseClusterExtensionPtrOutputWithContext(context.Background())
+}
+
+func (o HBaseClusterExtensionOutput) ToHBaseClusterExtensionPtrOutputWithContext(ctx context.Context) HBaseClusterExtensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HBaseClusterExtension) *HBaseClusterExtension {
+		return &v
+	}).(HBaseClusterExtensionPtrOutput)
+}
+
+// The workspace ID of the log analytics extension.
+func (o HBaseClusterExtensionOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v HBaseClusterExtension) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
+}
+
+// The workspace key of the log analytics extension.
+func (o HBaseClusterExtensionOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v HBaseClusterExtension) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+type HBaseClusterExtensionPtrOutput struct{ *pulumi.OutputState }
+
+func (HBaseClusterExtensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HBaseClusterExtension)(nil)).Elem()
+}
+
+func (o HBaseClusterExtensionPtrOutput) ToHBaseClusterExtensionPtrOutput() HBaseClusterExtensionPtrOutput {
+	return o
+}
+
+func (o HBaseClusterExtensionPtrOutput) ToHBaseClusterExtensionPtrOutputWithContext(ctx context.Context) HBaseClusterExtensionPtrOutput {
+	return o
+}
+
+func (o HBaseClusterExtensionPtrOutput) Elem() HBaseClusterExtensionOutput {
+	return o.ApplyT(func(v *HBaseClusterExtension) HBaseClusterExtension {
+		if v != nil {
+			return *v
+		}
+		var ret HBaseClusterExtension
+		return ret
+	}).(HBaseClusterExtensionOutput)
+}
+
+// The workspace ID of the log analytics extension.
+func (o HBaseClusterExtensionPtrOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HBaseClusterExtension) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogAnalyticsWorkspaceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The workspace key of the log analytics extension.
+func (o HBaseClusterExtensionPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HBaseClusterExtension) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrimaryKey
+	}).(pulumi.StringPtrOutput)
+}
+
 type HBaseClusterGateway struct {
 	// The password used for the Ambari Portal.
 	Password string `pulumi:"password"`
@@ -3645,6 +3801,162 @@ func (o HadoopClusterDiskEncryptionArrayOutput) Index(i pulumi.IntInput) HadoopC
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HadoopClusterDiskEncryption {
 		return vs[0].([]HadoopClusterDiskEncryption)[vs[1].(int)]
 	}).(HadoopClusterDiskEncryptionOutput)
+}
+
+type HadoopClusterExtension struct {
+	// The workspace ID of the log analytics extension.
+	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
+	// The workspace key of the log analytics extension.
+	PrimaryKey string `pulumi:"primaryKey"`
+}
+
+// HadoopClusterExtensionInput is an input type that accepts HadoopClusterExtensionArgs and HadoopClusterExtensionOutput values.
+// You can construct a concrete instance of `HadoopClusterExtensionInput` via:
+//
+//	HadoopClusterExtensionArgs{...}
+type HadoopClusterExtensionInput interface {
+	pulumi.Input
+
+	ToHadoopClusterExtensionOutput() HadoopClusterExtensionOutput
+	ToHadoopClusterExtensionOutputWithContext(context.Context) HadoopClusterExtensionOutput
+}
+
+type HadoopClusterExtensionArgs struct {
+	// The workspace ID of the log analytics extension.
+	LogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"logAnalyticsWorkspaceId"`
+	// The workspace key of the log analytics extension.
+	PrimaryKey pulumi.StringInput `pulumi:"primaryKey"`
+}
+
+func (HadoopClusterExtensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterExtension)(nil)).Elem()
+}
+
+func (i HadoopClusterExtensionArgs) ToHadoopClusterExtensionOutput() HadoopClusterExtensionOutput {
+	return i.ToHadoopClusterExtensionOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterExtensionArgs) ToHadoopClusterExtensionOutputWithContext(ctx context.Context) HadoopClusterExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterExtensionOutput)
+}
+
+func (i HadoopClusterExtensionArgs) ToHadoopClusterExtensionPtrOutput() HadoopClusterExtensionPtrOutput {
+	return i.ToHadoopClusterExtensionPtrOutputWithContext(context.Background())
+}
+
+func (i HadoopClusterExtensionArgs) ToHadoopClusterExtensionPtrOutputWithContext(ctx context.Context) HadoopClusterExtensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterExtensionOutput).ToHadoopClusterExtensionPtrOutputWithContext(ctx)
+}
+
+// HadoopClusterExtensionPtrInput is an input type that accepts HadoopClusterExtensionArgs, HadoopClusterExtensionPtr and HadoopClusterExtensionPtrOutput values.
+// You can construct a concrete instance of `HadoopClusterExtensionPtrInput` via:
+//
+//	        HadoopClusterExtensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type HadoopClusterExtensionPtrInput interface {
+	pulumi.Input
+
+	ToHadoopClusterExtensionPtrOutput() HadoopClusterExtensionPtrOutput
+	ToHadoopClusterExtensionPtrOutputWithContext(context.Context) HadoopClusterExtensionPtrOutput
+}
+
+type hadoopClusterExtensionPtrType HadoopClusterExtensionArgs
+
+func HadoopClusterExtensionPtr(v *HadoopClusterExtensionArgs) HadoopClusterExtensionPtrInput {
+	return (*hadoopClusterExtensionPtrType)(v)
+}
+
+func (*hadoopClusterExtensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterExtension)(nil)).Elem()
+}
+
+func (i *hadoopClusterExtensionPtrType) ToHadoopClusterExtensionPtrOutput() HadoopClusterExtensionPtrOutput {
+	return i.ToHadoopClusterExtensionPtrOutputWithContext(context.Background())
+}
+
+func (i *hadoopClusterExtensionPtrType) ToHadoopClusterExtensionPtrOutputWithContext(ctx context.Context) HadoopClusterExtensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterExtensionPtrOutput)
+}
+
+type HadoopClusterExtensionOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HadoopClusterExtension)(nil)).Elem()
+}
+
+func (o HadoopClusterExtensionOutput) ToHadoopClusterExtensionOutput() HadoopClusterExtensionOutput {
+	return o
+}
+
+func (o HadoopClusterExtensionOutput) ToHadoopClusterExtensionOutputWithContext(ctx context.Context) HadoopClusterExtensionOutput {
+	return o
+}
+
+func (o HadoopClusterExtensionOutput) ToHadoopClusterExtensionPtrOutput() HadoopClusterExtensionPtrOutput {
+	return o.ToHadoopClusterExtensionPtrOutputWithContext(context.Background())
+}
+
+func (o HadoopClusterExtensionOutput) ToHadoopClusterExtensionPtrOutputWithContext(ctx context.Context) HadoopClusterExtensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HadoopClusterExtension) *HadoopClusterExtension {
+		return &v
+	}).(HadoopClusterExtensionPtrOutput)
+}
+
+// The workspace ID of the log analytics extension.
+func (o HadoopClusterExtensionOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterExtension) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
+}
+
+// The workspace key of the log analytics extension.
+func (o HadoopClusterExtensionOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterExtension) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+type HadoopClusterExtensionPtrOutput struct{ *pulumi.OutputState }
+
+func (HadoopClusterExtensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HadoopClusterExtension)(nil)).Elem()
+}
+
+func (o HadoopClusterExtensionPtrOutput) ToHadoopClusterExtensionPtrOutput() HadoopClusterExtensionPtrOutput {
+	return o
+}
+
+func (o HadoopClusterExtensionPtrOutput) ToHadoopClusterExtensionPtrOutputWithContext(ctx context.Context) HadoopClusterExtensionPtrOutput {
+	return o
+}
+
+func (o HadoopClusterExtensionPtrOutput) Elem() HadoopClusterExtensionOutput {
+	return o.ApplyT(func(v *HadoopClusterExtension) HadoopClusterExtension {
+		if v != nil {
+			return *v
+		}
+		var ret HadoopClusterExtension
+		return ret
+	}).(HadoopClusterExtensionOutput)
+}
+
+// The workspace ID of the log analytics extension.
+func (o HadoopClusterExtensionPtrOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterExtension) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogAnalyticsWorkspaceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The workspace key of the log analytics extension.
+func (o HadoopClusterExtensionPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HadoopClusterExtension) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrimaryKey
+	}).(pulumi.StringPtrOutput)
 }
 
 type HadoopClusterGateway struct {
@@ -7787,6 +8099,162 @@ func (o InteractiveQueryClusterDiskEncryptionArrayOutput) Index(i pulumi.IntInpu
 	}).(InteractiveQueryClusterDiskEncryptionOutput)
 }
 
+type InteractiveQueryClusterExtension struct {
+	// The workspace ID of the log analytics extension.
+	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
+	// The workspace key of the log analytics extension.
+	PrimaryKey string `pulumi:"primaryKey"`
+}
+
+// InteractiveQueryClusterExtensionInput is an input type that accepts InteractiveQueryClusterExtensionArgs and InteractiveQueryClusterExtensionOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterExtensionInput` via:
+//
+//	InteractiveQueryClusterExtensionArgs{...}
+type InteractiveQueryClusterExtensionInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterExtensionOutput() InteractiveQueryClusterExtensionOutput
+	ToInteractiveQueryClusterExtensionOutputWithContext(context.Context) InteractiveQueryClusterExtensionOutput
+}
+
+type InteractiveQueryClusterExtensionArgs struct {
+	// The workspace ID of the log analytics extension.
+	LogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"logAnalyticsWorkspaceId"`
+	// The workspace key of the log analytics extension.
+	PrimaryKey pulumi.StringInput `pulumi:"primaryKey"`
+}
+
+func (InteractiveQueryClusterExtensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterExtension)(nil)).Elem()
+}
+
+func (i InteractiveQueryClusterExtensionArgs) ToInteractiveQueryClusterExtensionOutput() InteractiveQueryClusterExtensionOutput {
+	return i.ToInteractiveQueryClusterExtensionOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterExtensionArgs) ToInteractiveQueryClusterExtensionOutputWithContext(ctx context.Context) InteractiveQueryClusterExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterExtensionOutput)
+}
+
+func (i InteractiveQueryClusterExtensionArgs) ToInteractiveQueryClusterExtensionPtrOutput() InteractiveQueryClusterExtensionPtrOutput {
+	return i.ToInteractiveQueryClusterExtensionPtrOutputWithContext(context.Background())
+}
+
+func (i InteractiveQueryClusterExtensionArgs) ToInteractiveQueryClusterExtensionPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterExtensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterExtensionOutput).ToInteractiveQueryClusterExtensionPtrOutputWithContext(ctx)
+}
+
+// InteractiveQueryClusterExtensionPtrInput is an input type that accepts InteractiveQueryClusterExtensionArgs, InteractiveQueryClusterExtensionPtr and InteractiveQueryClusterExtensionPtrOutput values.
+// You can construct a concrete instance of `InteractiveQueryClusterExtensionPtrInput` via:
+//
+//	        InteractiveQueryClusterExtensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type InteractiveQueryClusterExtensionPtrInput interface {
+	pulumi.Input
+
+	ToInteractiveQueryClusterExtensionPtrOutput() InteractiveQueryClusterExtensionPtrOutput
+	ToInteractiveQueryClusterExtensionPtrOutputWithContext(context.Context) InteractiveQueryClusterExtensionPtrOutput
+}
+
+type interactiveQueryClusterExtensionPtrType InteractiveQueryClusterExtensionArgs
+
+func InteractiveQueryClusterExtensionPtr(v *InteractiveQueryClusterExtensionArgs) InteractiveQueryClusterExtensionPtrInput {
+	return (*interactiveQueryClusterExtensionPtrType)(v)
+}
+
+func (*interactiveQueryClusterExtensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InteractiveQueryClusterExtension)(nil)).Elem()
+}
+
+func (i *interactiveQueryClusterExtensionPtrType) ToInteractiveQueryClusterExtensionPtrOutput() InteractiveQueryClusterExtensionPtrOutput {
+	return i.ToInteractiveQueryClusterExtensionPtrOutputWithContext(context.Background())
+}
+
+func (i *interactiveQueryClusterExtensionPtrType) ToInteractiveQueryClusterExtensionPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterExtensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterExtensionPtrOutput)
+}
+
+type InteractiveQueryClusterExtensionOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InteractiveQueryClusterExtension)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterExtensionOutput) ToInteractiveQueryClusterExtensionOutput() InteractiveQueryClusterExtensionOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterExtensionOutput) ToInteractiveQueryClusterExtensionOutputWithContext(ctx context.Context) InteractiveQueryClusterExtensionOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterExtensionOutput) ToInteractiveQueryClusterExtensionPtrOutput() InteractiveQueryClusterExtensionPtrOutput {
+	return o.ToInteractiveQueryClusterExtensionPtrOutputWithContext(context.Background())
+}
+
+func (o InteractiveQueryClusterExtensionOutput) ToInteractiveQueryClusterExtensionPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterExtensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InteractiveQueryClusterExtension) *InteractiveQueryClusterExtension {
+		return &v
+	}).(InteractiveQueryClusterExtensionPtrOutput)
+}
+
+// The workspace ID of the log analytics extension.
+func (o InteractiveQueryClusterExtensionOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterExtension) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
+}
+
+// The workspace key of the log analytics extension.
+func (o InteractiveQueryClusterExtensionOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterExtension) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+type InteractiveQueryClusterExtensionPtrOutput struct{ *pulumi.OutputState }
+
+func (InteractiveQueryClusterExtensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InteractiveQueryClusterExtension)(nil)).Elem()
+}
+
+func (o InteractiveQueryClusterExtensionPtrOutput) ToInteractiveQueryClusterExtensionPtrOutput() InteractiveQueryClusterExtensionPtrOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterExtensionPtrOutput) ToInteractiveQueryClusterExtensionPtrOutputWithContext(ctx context.Context) InteractiveQueryClusterExtensionPtrOutput {
+	return o
+}
+
+func (o InteractiveQueryClusterExtensionPtrOutput) Elem() InteractiveQueryClusterExtensionOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterExtension) InteractiveQueryClusterExtension {
+		if v != nil {
+			return *v
+		}
+		var ret InteractiveQueryClusterExtension
+		return ret
+	}).(InteractiveQueryClusterExtensionOutput)
+}
+
+// The workspace ID of the log analytics extension.
+func (o InteractiveQueryClusterExtensionPtrOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterExtension) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogAnalyticsWorkspaceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The workspace key of the log analytics extension.
+func (o InteractiveQueryClusterExtensionPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryClusterExtension) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrimaryKey
+	}).(pulumi.StringPtrOutput)
+}
+
 type InteractiveQueryClusterGateway struct {
 	// The password used for the Ambari Portal.
 	Password string `pulumi:"password"`
@@ -11344,6 +11812,162 @@ func (o KafkaClusterDiskEncryptionArrayOutput) Index(i pulumi.IntInput) KafkaClu
 	}).(KafkaClusterDiskEncryptionOutput)
 }
 
+type KafkaClusterExtension struct {
+	// The workspace ID of the log analytics extension.
+	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
+	// The workspace key of the log analytics extension.
+	PrimaryKey string `pulumi:"primaryKey"`
+}
+
+// KafkaClusterExtensionInput is an input type that accepts KafkaClusterExtensionArgs and KafkaClusterExtensionOutput values.
+// You can construct a concrete instance of `KafkaClusterExtensionInput` via:
+//
+//	KafkaClusterExtensionArgs{...}
+type KafkaClusterExtensionInput interface {
+	pulumi.Input
+
+	ToKafkaClusterExtensionOutput() KafkaClusterExtensionOutput
+	ToKafkaClusterExtensionOutputWithContext(context.Context) KafkaClusterExtensionOutput
+}
+
+type KafkaClusterExtensionArgs struct {
+	// The workspace ID of the log analytics extension.
+	LogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"logAnalyticsWorkspaceId"`
+	// The workspace key of the log analytics extension.
+	PrimaryKey pulumi.StringInput `pulumi:"primaryKey"`
+}
+
+func (KafkaClusterExtensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterExtension)(nil)).Elem()
+}
+
+func (i KafkaClusterExtensionArgs) ToKafkaClusterExtensionOutput() KafkaClusterExtensionOutput {
+	return i.ToKafkaClusterExtensionOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterExtensionArgs) ToKafkaClusterExtensionOutputWithContext(ctx context.Context) KafkaClusterExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterExtensionOutput)
+}
+
+func (i KafkaClusterExtensionArgs) ToKafkaClusterExtensionPtrOutput() KafkaClusterExtensionPtrOutput {
+	return i.ToKafkaClusterExtensionPtrOutputWithContext(context.Background())
+}
+
+func (i KafkaClusterExtensionArgs) ToKafkaClusterExtensionPtrOutputWithContext(ctx context.Context) KafkaClusterExtensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterExtensionOutput).ToKafkaClusterExtensionPtrOutputWithContext(ctx)
+}
+
+// KafkaClusterExtensionPtrInput is an input type that accepts KafkaClusterExtensionArgs, KafkaClusterExtensionPtr and KafkaClusterExtensionPtrOutput values.
+// You can construct a concrete instance of `KafkaClusterExtensionPtrInput` via:
+//
+//	        KafkaClusterExtensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type KafkaClusterExtensionPtrInput interface {
+	pulumi.Input
+
+	ToKafkaClusterExtensionPtrOutput() KafkaClusterExtensionPtrOutput
+	ToKafkaClusterExtensionPtrOutputWithContext(context.Context) KafkaClusterExtensionPtrOutput
+}
+
+type kafkaClusterExtensionPtrType KafkaClusterExtensionArgs
+
+func KafkaClusterExtensionPtr(v *KafkaClusterExtensionArgs) KafkaClusterExtensionPtrInput {
+	return (*kafkaClusterExtensionPtrType)(v)
+}
+
+func (*kafkaClusterExtensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterExtension)(nil)).Elem()
+}
+
+func (i *kafkaClusterExtensionPtrType) ToKafkaClusterExtensionPtrOutput() KafkaClusterExtensionPtrOutput {
+	return i.ToKafkaClusterExtensionPtrOutputWithContext(context.Background())
+}
+
+func (i *kafkaClusterExtensionPtrType) ToKafkaClusterExtensionPtrOutputWithContext(ctx context.Context) KafkaClusterExtensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KafkaClusterExtensionPtrOutput)
+}
+
+type KafkaClusterExtensionOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KafkaClusterExtension)(nil)).Elem()
+}
+
+func (o KafkaClusterExtensionOutput) ToKafkaClusterExtensionOutput() KafkaClusterExtensionOutput {
+	return o
+}
+
+func (o KafkaClusterExtensionOutput) ToKafkaClusterExtensionOutputWithContext(ctx context.Context) KafkaClusterExtensionOutput {
+	return o
+}
+
+func (o KafkaClusterExtensionOutput) ToKafkaClusterExtensionPtrOutput() KafkaClusterExtensionPtrOutput {
+	return o.ToKafkaClusterExtensionPtrOutputWithContext(context.Background())
+}
+
+func (o KafkaClusterExtensionOutput) ToKafkaClusterExtensionPtrOutputWithContext(ctx context.Context) KafkaClusterExtensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KafkaClusterExtension) *KafkaClusterExtension {
+		return &v
+	}).(KafkaClusterExtensionPtrOutput)
+}
+
+// The workspace ID of the log analytics extension.
+func (o KafkaClusterExtensionOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterExtension) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
+}
+
+// The workspace key of the log analytics extension.
+func (o KafkaClusterExtensionOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterExtension) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+type KafkaClusterExtensionPtrOutput struct{ *pulumi.OutputState }
+
+func (KafkaClusterExtensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KafkaClusterExtension)(nil)).Elem()
+}
+
+func (o KafkaClusterExtensionPtrOutput) ToKafkaClusterExtensionPtrOutput() KafkaClusterExtensionPtrOutput {
+	return o
+}
+
+func (o KafkaClusterExtensionPtrOutput) ToKafkaClusterExtensionPtrOutputWithContext(ctx context.Context) KafkaClusterExtensionPtrOutput {
+	return o
+}
+
+func (o KafkaClusterExtensionPtrOutput) Elem() KafkaClusterExtensionOutput {
+	return o.ApplyT(func(v *KafkaClusterExtension) KafkaClusterExtension {
+		if v != nil {
+			return *v
+		}
+		var ret KafkaClusterExtension
+		return ret
+	}).(KafkaClusterExtensionOutput)
+}
+
+// The workspace ID of the log analytics extension.
+func (o KafkaClusterExtensionPtrOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterExtension) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogAnalyticsWorkspaceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The workspace key of the log analytics extension.
+func (o KafkaClusterExtensionPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KafkaClusterExtension) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrimaryKey
+	}).(pulumi.StringPtrOutput)
+}
+
 type KafkaClusterGateway struct {
 	// The password used for the Ambari Portal.
 	Password string `pulumi:"password"`
@@ -14713,6 +15337,162 @@ func (o SparkClusterDiskEncryptionArrayOutput) Index(i pulumi.IntInput) SparkClu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SparkClusterDiskEncryption {
 		return vs[0].([]SparkClusterDiskEncryption)[vs[1].(int)]
 	}).(SparkClusterDiskEncryptionOutput)
+}
+
+type SparkClusterExtension struct {
+	// The workspace ID of the log analytics extension.
+	LogAnalyticsWorkspaceId string `pulumi:"logAnalyticsWorkspaceId"`
+	// The workspace key of the log analytics extension.
+	PrimaryKey string `pulumi:"primaryKey"`
+}
+
+// SparkClusterExtensionInput is an input type that accepts SparkClusterExtensionArgs and SparkClusterExtensionOutput values.
+// You can construct a concrete instance of `SparkClusterExtensionInput` via:
+//
+//	SparkClusterExtensionArgs{...}
+type SparkClusterExtensionInput interface {
+	pulumi.Input
+
+	ToSparkClusterExtensionOutput() SparkClusterExtensionOutput
+	ToSparkClusterExtensionOutputWithContext(context.Context) SparkClusterExtensionOutput
+}
+
+type SparkClusterExtensionArgs struct {
+	// The workspace ID of the log analytics extension.
+	LogAnalyticsWorkspaceId pulumi.StringInput `pulumi:"logAnalyticsWorkspaceId"`
+	// The workspace key of the log analytics extension.
+	PrimaryKey pulumi.StringInput `pulumi:"primaryKey"`
+}
+
+func (SparkClusterExtensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterExtension)(nil)).Elem()
+}
+
+func (i SparkClusterExtensionArgs) ToSparkClusterExtensionOutput() SparkClusterExtensionOutput {
+	return i.ToSparkClusterExtensionOutputWithContext(context.Background())
+}
+
+func (i SparkClusterExtensionArgs) ToSparkClusterExtensionOutputWithContext(ctx context.Context) SparkClusterExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterExtensionOutput)
+}
+
+func (i SparkClusterExtensionArgs) ToSparkClusterExtensionPtrOutput() SparkClusterExtensionPtrOutput {
+	return i.ToSparkClusterExtensionPtrOutputWithContext(context.Background())
+}
+
+func (i SparkClusterExtensionArgs) ToSparkClusterExtensionPtrOutputWithContext(ctx context.Context) SparkClusterExtensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterExtensionOutput).ToSparkClusterExtensionPtrOutputWithContext(ctx)
+}
+
+// SparkClusterExtensionPtrInput is an input type that accepts SparkClusterExtensionArgs, SparkClusterExtensionPtr and SparkClusterExtensionPtrOutput values.
+// You can construct a concrete instance of `SparkClusterExtensionPtrInput` via:
+//
+//	        SparkClusterExtensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type SparkClusterExtensionPtrInput interface {
+	pulumi.Input
+
+	ToSparkClusterExtensionPtrOutput() SparkClusterExtensionPtrOutput
+	ToSparkClusterExtensionPtrOutputWithContext(context.Context) SparkClusterExtensionPtrOutput
+}
+
+type sparkClusterExtensionPtrType SparkClusterExtensionArgs
+
+func SparkClusterExtensionPtr(v *SparkClusterExtensionArgs) SparkClusterExtensionPtrInput {
+	return (*sparkClusterExtensionPtrType)(v)
+}
+
+func (*sparkClusterExtensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkClusterExtension)(nil)).Elem()
+}
+
+func (i *sparkClusterExtensionPtrType) ToSparkClusterExtensionPtrOutput() SparkClusterExtensionPtrOutput {
+	return i.ToSparkClusterExtensionPtrOutputWithContext(context.Background())
+}
+
+func (i *sparkClusterExtensionPtrType) ToSparkClusterExtensionPtrOutputWithContext(ctx context.Context) SparkClusterExtensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SparkClusterExtensionPtrOutput)
+}
+
+type SparkClusterExtensionOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SparkClusterExtension)(nil)).Elem()
+}
+
+func (o SparkClusterExtensionOutput) ToSparkClusterExtensionOutput() SparkClusterExtensionOutput {
+	return o
+}
+
+func (o SparkClusterExtensionOutput) ToSparkClusterExtensionOutputWithContext(ctx context.Context) SparkClusterExtensionOutput {
+	return o
+}
+
+func (o SparkClusterExtensionOutput) ToSparkClusterExtensionPtrOutput() SparkClusterExtensionPtrOutput {
+	return o.ToSparkClusterExtensionPtrOutputWithContext(context.Background())
+}
+
+func (o SparkClusterExtensionOutput) ToSparkClusterExtensionPtrOutputWithContext(ctx context.Context) SparkClusterExtensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SparkClusterExtension) *SparkClusterExtension {
+		return &v
+	}).(SparkClusterExtensionPtrOutput)
+}
+
+// The workspace ID of the log analytics extension.
+func (o SparkClusterExtensionOutput) LogAnalyticsWorkspaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkClusterExtension) string { return v.LogAnalyticsWorkspaceId }).(pulumi.StringOutput)
+}
+
+// The workspace key of the log analytics extension.
+func (o SparkClusterExtensionOutput) PrimaryKey() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkClusterExtension) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+type SparkClusterExtensionPtrOutput struct{ *pulumi.OutputState }
+
+func (SparkClusterExtensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SparkClusterExtension)(nil)).Elem()
+}
+
+func (o SparkClusterExtensionPtrOutput) ToSparkClusterExtensionPtrOutput() SparkClusterExtensionPtrOutput {
+	return o
+}
+
+func (o SparkClusterExtensionPtrOutput) ToSparkClusterExtensionPtrOutputWithContext(ctx context.Context) SparkClusterExtensionPtrOutput {
+	return o
+}
+
+func (o SparkClusterExtensionPtrOutput) Elem() SparkClusterExtensionOutput {
+	return o.ApplyT(func(v *SparkClusterExtension) SparkClusterExtension {
+		if v != nil {
+			return *v
+		}
+		var ret SparkClusterExtension
+		return ret
+	}).(SparkClusterExtensionOutput)
+}
+
+// The workspace ID of the log analytics extension.
+func (o SparkClusterExtensionPtrOutput) LogAnalyticsWorkspaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkClusterExtension) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogAnalyticsWorkspaceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The workspace key of the log analytics extension.
+func (o SparkClusterExtensionPtrOutput) PrimaryKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SparkClusterExtension) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrimaryKey
+	}).(pulumi.StringPtrOutput)
 }
 
 type SparkClusterGateway struct {
@@ -18127,6 +18907,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterComponentVersionPtrInput)(nil)).Elem(), HBaseClusterComponentVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterDiskEncryptionInput)(nil)).Elem(), HBaseClusterDiskEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterDiskEncryptionArrayInput)(nil)).Elem(), HBaseClusterDiskEncryptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterExtensionInput)(nil)).Elem(), HBaseClusterExtensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterExtensionPtrInput)(nil)).Elem(), HBaseClusterExtensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterGatewayInput)(nil)).Elem(), HBaseClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterGatewayPtrInput)(nil)).Elem(), HBaseClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HBaseClusterMetastoresInput)(nil)).Elem(), HBaseClusterMetastoresArgs{})
@@ -18165,6 +18947,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterComponentVersionPtrInput)(nil)).Elem(), HadoopClusterComponentVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterDiskEncryptionInput)(nil)).Elem(), HadoopClusterDiskEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterDiskEncryptionArrayInput)(nil)).Elem(), HadoopClusterDiskEncryptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterExtensionInput)(nil)).Elem(), HadoopClusterExtensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterExtensionPtrInput)(nil)).Elem(), HadoopClusterExtensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterGatewayInput)(nil)).Elem(), HadoopClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterGatewayPtrInput)(nil)).Elem(), HadoopClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HadoopClusterMetastoresInput)(nil)).Elem(), HadoopClusterMetastoresArgs{})
@@ -18213,6 +18997,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterComponentVersionPtrInput)(nil)).Elem(), InteractiveQueryClusterComponentVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterDiskEncryptionInput)(nil)).Elem(), InteractiveQueryClusterDiskEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterDiskEncryptionArrayInput)(nil)).Elem(), InteractiveQueryClusterDiskEncryptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterExtensionInput)(nil)).Elem(), InteractiveQueryClusterExtensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterExtensionPtrInput)(nil)).Elem(), InteractiveQueryClusterExtensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterGatewayInput)(nil)).Elem(), InteractiveQueryClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterGatewayPtrInput)(nil)).Elem(), InteractiveQueryClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InteractiveQueryClusterMetastoresInput)(nil)).Elem(), InteractiveQueryClusterMetastoresArgs{})
@@ -18253,6 +19039,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterComponentVersionPtrInput)(nil)).Elem(), KafkaClusterComponentVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterDiskEncryptionInput)(nil)).Elem(), KafkaClusterDiskEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterDiskEncryptionArrayInput)(nil)).Elem(), KafkaClusterDiskEncryptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterExtensionInput)(nil)).Elem(), KafkaClusterExtensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterExtensionPtrInput)(nil)).Elem(), KafkaClusterExtensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterGatewayInput)(nil)).Elem(), KafkaClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterGatewayPtrInput)(nil)).Elem(), KafkaClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KafkaClusterMetastoresInput)(nil)).Elem(), KafkaClusterMetastoresArgs{})
@@ -18289,6 +19077,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterComponentVersionPtrInput)(nil)).Elem(), SparkClusterComponentVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterDiskEncryptionInput)(nil)).Elem(), SparkClusterDiskEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterDiskEncryptionArrayInput)(nil)).Elem(), SparkClusterDiskEncryptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterExtensionInput)(nil)).Elem(), SparkClusterExtensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterExtensionPtrInput)(nil)).Elem(), SparkClusterExtensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterGatewayInput)(nil)).Elem(), SparkClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterGatewayPtrInput)(nil)).Elem(), SparkClusterGatewayArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SparkClusterMetastoresInput)(nil)).Elem(), SparkClusterMetastoresArgs{})
@@ -18331,6 +19121,8 @@ func init() {
 	pulumi.RegisterOutputType(HBaseClusterComponentVersionPtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterDiskEncryptionOutput{})
 	pulumi.RegisterOutputType(HBaseClusterDiskEncryptionArrayOutput{})
+	pulumi.RegisterOutputType(HBaseClusterExtensionOutput{})
+	pulumi.RegisterOutputType(HBaseClusterExtensionPtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterGatewayOutput{})
 	pulumi.RegisterOutputType(HBaseClusterGatewayPtrOutput{})
 	pulumi.RegisterOutputType(HBaseClusterMetastoresOutput{})
@@ -18369,6 +19161,8 @@ func init() {
 	pulumi.RegisterOutputType(HadoopClusterComponentVersionPtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterDiskEncryptionOutput{})
 	pulumi.RegisterOutputType(HadoopClusterDiskEncryptionArrayOutput{})
+	pulumi.RegisterOutputType(HadoopClusterExtensionOutput{})
+	pulumi.RegisterOutputType(HadoopClusterExtensionPtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterGatewayOutput{})
 	pulumi.RegisterOutputType(HadoopClusterGatewayPtrOutput{})
 	pulumi.RegisterOutputType(HadoopClusterMetastoresOutput{})
@@ -18417,6 +19211,8 @@ func init() {
 	pulumi.RegisterOutputType(InteractiveQueryClusterComponentVersionPtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterDiskEncryptionOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterDiskEncryptionArrayOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterExtensionOutput{})
+	pulumi.RegisterOutputType(InteractiveQueryClusterExtensionPtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterGatewayOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterGatewayPtrOutput{})
 	pulumi.RegisterOutputType(InteractiveQueryClusterMetastoresOutput{})
@@ -18457,6 +19253,8 @@ func init() {
 	pulumi.RegisterOutputType(KafkaClusterComponentVersionPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterDiskEncryptionOutput{})
 	pulumi.RegisterOutputType(KafkaClusterDiskEncryptionArrayOutput{})
+	pulumi.RegisterOutputType(KafkaClusterExtensionOutput{})
+	pulumi.RegisterOutputType(KafkaClusterExtensionPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterGatewayOutput{})
 	pulumi.RegisterOutputType(KafkaClusterGatewayPtrOutput{})
 	pulumi.RegisterOutputType(KafkaClusterMetastoresOutput{})
@@ -18493,6 +19291,8 @@ func init() {
 	pulumi.RegisterOutputType(SparkClusterComponentVersionPtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterDiskEncryptionOutput{})
 	pulumi.RegisterOutputType(SparkClusterDiskEncryptionArrayOutput{})
+	pulumi.RegisterOutputType(SparkClusterExtensionOutput{})
+	pulumi.RegisterOutputType(SparkClusterExtensionPtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterGatewayOutput{})
 	pulumi.RegisterOutputType(SparkClusterGatewayPtrOutput{})
 	pulumi.RegisterOutputType(SparkClusterMetastoresOutput{})

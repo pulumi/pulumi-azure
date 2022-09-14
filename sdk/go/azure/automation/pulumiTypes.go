@@ -1382,6 +1382,181 @@ func (o ScheduleMonthlyOccurrenceArrayOutput) Index(i pulumi.IntInput) ScheduleM
 	}).(ScheduleMonthlyOccurrenceOutput)
 }
 
+type SourceControlSecurity struct {
+	// The refresh token of specified rpeo.
+	RefreshToken *string `pulumi:"refreshToken"`
+	// The access token of specified repo.
+	Token string `pulumi:"token"`
+	// Specify the token type, possible values are `PersonalAccessToken` and `Oauth`.
+	TokenType string `pulumi:"tokenType"`
+}
+
+// SourceControlSecurityInput is an input type that accepts SourceControlSecurityArgs and SourceControlSecurityOutput values.
+// You can construct a concrete instance of `SourceControlSecurityInput` via:
+//
+//	SourceControlSecurityArgs{...}
+type SourceControlSecurityInput interface {
+	pulumi.Input
+
+	ToSourceControlSecurityOutput() SourceControlSecurityOutput
+	ToSourceControlSecurityOutputWithContext(context.Context) SourceControlSecurityOutput
+}
+
+type SourceControlSecurityArgs struct {
+	// The refresh token of specified rpeo.
+	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
+	// The access token of specified repo.
+	Token pulumi.StringInput `pulumi:"token"`
+	// Specify the token type, possible values are `PersonalAccessToken` and `Oauth`.
+	TokenType pulumi.StringInput `pulumi:"tokenType"`
+}
+
+func (SourceControlSecurityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceControlSecurity)(nil)).Elem()
+}
+
+func (i SourceControlSecurityArgs) ToSourceControlSecurityOutput() SourceControlSecurityOutput {
+	return i.ToSourceControlSecurityOutputWithContext(context.Background())
+}
+
+func (i SourceControlSecurityArgs) ToSourceControlSecurityOutputWithContext(ctx context.Context) SourceControlSecurityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceControlSecurityOutput)
+}
+
+func (i SourceControlSecurityArgs) ToSourceControlSecurityPtrOutput() SourceControlSecurityPtrOutput {
+	return i.ToSourceControlSecurityPtrOutputWithContext(context.Background())
+}
+
+func (i SourceControlSecurityArgs) ToSourceControlSecurityPtrOutputWithContext(ctx context.Context) SourceControlSecurityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceControlSecurityOutput).ToSourceControlSecurityPtrOutputWithContext(ctx)
+}
+
+// SourceControlSecurityPtrInput is an input type that accepts SourceControlSecurityArgs, SourceControlSecurityPtr and SourceControlSecurityPtrOutput values.
+// You can construct a concrete instance of `SourceControlSecurityPtrInput` via:
+//
+//	        SourceControlSecurityArgs{...}
+//
+//	or:
+//
+//	        nil
+type SourceControlSecurityPtrInput interface {
+	pulumi.Input
+
+	ToSourceControlSecurityPtrOutput() SourceControlSecurityPtrOutput
+	ToSourceControlSecurityPtrOutputWithContext(context.Context) SourceControlSecurityPtrOutput
+}
+
+type sourceControlSecurityPtrType SourceControlSecurityArgs
+
+func SourceControlSecurityPtr(v *SourceControlSecurityArgs) SourceControlSecurityPtrInput {
+	return (*sourceControlSecurityPtrType)(v)
+}
+
+func (*sourceControlSecurityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceControlSecurity)(nil)).Elem()
+}
+
+func (i *sourceControlSecurityPtrType) ToSourceControlSecurityPtrOutput() SourceControlSecurityPtrOutput {
+	return i.ToSourceControlSecurityPtrOutputWithContext(context.Background())
+}
+
+func (i *sourceControlSecurityPtrType) ToSourceControlSecurityPtrOutputWithContext(ctx context.Context) SourceControlSecurityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SourceControlSecurityPtrOutput)
+}
+
+type SourceControlSecurityOutput struct{ *pulumi.OutputState }
+
+func (SourceControlSecurityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SourceControlSecurity)(nil)).Elem()
+}
+
+func (o SourceControlSecurityOutput) ToSourceControlSecurityOutput() SourceControlSecurityOutput {
+	return o
+}
+
+func (o SourceControlSecurityOutput) ToSourceControlSecurityOutputWithContext(ctx context.Context) SourceControlSecurityOutput {
+	return o
+}
+
+func (o SourceControlSecurityOutput) ToSourceControlSecurityPtrOutput() SourceControlSecurityPtrOutput {
+	return o.ToSourceControlSecurityPtrOutputWithContext(context.Background())
+}
+
+func (o SourceControlSecurityOutput) ToSourceControlSecurityPtrOutputWithContext(ctx context.Context) SourceControlSecurityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SourceControlSecurity) *SourceControlSecurity {
+		return &v
+	}).(SourceControlSecurityPtrOutput)
+}
+
+// The refresh token of specified rpeo.
+func (o SourceControlSecurityOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SourceControlSecurity) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
+}
+
+// The access token of specified repo.
+func (o SourceControlSecurityOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceControlSecurity) string { return v.Token }).(pulumi.StringOutput)
+}
+
+// Specify the token type, possible values are `PersonalAccessToken` and `Oauth`.
+func (o SourceControlSecurityOutput) TokenType() pulumi.StringOutput {
+	return o.ApplyT(func(v SourceControlSecurity) string { return v.TokenType }).(pulumi.StringOutput)
+}
+
+type SourceControlSecurityPtrOutput struct{ *pulumi.OutputState }
+
+func (SourceControlSecurityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SourceControlSecurity)(nil)).Elem()
+}
+
+func (o SourceControlSecurityPtrOutput) ToSourceControlSecurityPtrOutput() SourceControlSecurityPtrOutput {
+	return o
+}
+
+func (o SourceControlSecurityPtrOutput) ToSourceControlSecurityPtrOutputWithContext(ctx context.Context) SourceControlSecurityPtrOutput {
+	return o
+}
+
+func (o SourceControlSecurityPtrOutput) Elem() SourceControlSecurityOutput {
+	return o.ApplyT(func(v *SourceControlSecurity) SourceControlSecurity {
+		if v != nil {
+			return *v
+		}
+		var ret SourceControlSecurity
+		return ret
+	}).(SourceControlSecurityOutput)
+}
+
+// The refresh token of specified rpeo.
+func (o SourceControlSecurityPtrOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlSecurity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The access token of specified repo.
+func (o SourceControlSecurityPtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlSecurity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specify the token type, possible values are `PersonalAccessToken` and `Oauth`.
+func (o SourceControlSecurityPtrOutput) TokenType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SourceControlSecurity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenType
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetAccountPrivateEndpointConnection struct {
 	// The ID of the Automation Account
 	Id string `pulumi:"id"`
@@ -1509,6 +1684,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RunBookPublishContentLinkHashPtrInput)(nil)).Elem(), RunBookPublishContentLinkHashArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleMonthlyOccurrenceInput)(nil)).Elem(), ScheduleMonthlyOccurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleMonthlyOccurrenceArrayInput)(nil)).Elem(), ScheduleMonthlyOccurrenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceControlSecurityInput)(nil)).Elem(), SourceControlSecurityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceControlSecurityPtrInput)(nil)).Elem(), SourceControlSecurityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountPrivateEndpointConnectionInput)(nil)).Elem(), GetAccountPrivateEndpointConnectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountPrivateEndpointConnectionArrayInput)(nil)).Elem(), GetAccountPrivateEndpointConnectionArray{})
 	pulumi.RegisterOutputType(AccountEncryptionOutput{})
@@ -1531,6 +1708,8 @@ func init() {
 	pulumi.RegisterOutputType(RunBookPublishContentLinkHashPtrOutput{})
 	pulumi.RegisterOutputType(ScheduleMonthlyOccurrenceOutput{})
 	pulumi.RegisterOutputType(ScheduleMonthlyOccurrenceArrayOutput{})
+	pulumi.RegisterOutputType(SourceControlSecurityOutput{})
+	pulumi.RegisterOutputType(SourceControlSecurityPtrOutput{})
 	pulumi.RegisterOutputType(GetAccountPrivateEndpointConnectionOutput{})
 	pulumi.RegisterOutputType(GetAccountPrivateEndpointConnectionArrayOutput{})
 }

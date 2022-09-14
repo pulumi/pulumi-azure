@@ -14,6 +14,7 @@ export * from "./apiPolicy";
 export * from "./apiRelease";
 export * from "./apiSchema";
 export * from "./apiTag";
+export * from "./apiTagDescription";
 export * from "./apiVersionSet";
 export * from "./authorizationServer";
 export * from "./backend";
@@ -32,6 +33,7 @@ export * from "./getGroup";
 export * from "./getProduct";
 export * from "./getService";
 export * from "./getUser";
+export * from "./globalSchema";
 export * from "./group";
 export * from "./groupUser";
 export * from "./identityProviderAad";
@@ -67,6 +69,7 @@ import { ApiPolicy } from "./apiPolicy";
 import { ApiRelease } from "./apiRelease";
 import { ApiSchema } from "./apiSchema";
 import { ApiTag } from "./apiTag";
+import { ApiTagDescription } from "./apiTagDescription";
 import { ApiVersionSet } from "./apiVersionSet";
 import { AuthorizationServer } from "./authorizationServer";
 import { Backend } from "./backend";
@@ -78,6 +81,7 @@ import { Gateway } from "./gateway";
 import { GatewayApi } from "./gatewayApi";
 import { GatewayCertificateAuthority } from "./gatewayCertificateAuthority";
 import { GatewayHostNameConfiguration } from "./gatewayHostNameConfiguration";
+import { GlobalSchema } from "./globalSchema";
 import { Group } from "./group";
 import { GroupUser } from "./groupUser";
 import { IdentityProviderAad } from "./identityProviderAad";
@@ -125,6 +129,8 @@ const _module = {
                 return new ApiSchema(name, <any>undefined, { urn })
             case "azure:apimanagement/apiTag:ApiTag":
                 return new ApiTag(name, <any>undefined, { urn })
+            case "azure:apimanagement/apiTagDescription:ApiTagDescription":
+                return new ApiTagDescription(name, <any>undefined, { urn })
             case "azure:apimanagement/apiVersionSet:ApiVersionSet":
                 return new ApiVersionSet(name, <any>undefined, { urn })
             case "azure:apimanagement/authorizationServer:AuthorizationServer":
@@ -147,6 +153,8 @@ const _module = {
                 return new GatewayCertificateAuthority(name, <any>undefined, { urn })
             case "azure:apimanagement/gatewayHostNameConfiguration:GatewayHostNameConfiguration":
                 return new GatewayHostNameConfiguration(name, <any>undefined, { urn })
+            case "azure:apimanagement/globalSchema:GlobalSchema":
+                return new GlobalSchema(name, <any>undefined, { urn })
             case "azure:apimanagement/group:Group":
                 return new Group(name, <any>undefined, { urn })
             case "azure:apimanagement/groupUser:GroupUser":
@@ -209,6 +217,7 @@ pulumi.runtime.registerResourceModule("azure", "apimanagement/apiPolicy", _modul
 pulumi.runtime.registerResourceModule("azure", "apimanagement/apiRelease", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/apiSchema", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/apiTag", _module)
+pulumi.runtime.registerResourceModule("azure", "apimanagement/apiTagDescription", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/apiVersionSet", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/authorizationServer", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/backend", _module)
@@ -220,6 +229,7 @@ pulumi.runtime.registerResourceModule("azure", "apimanagement/gateway", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/gatewayApi", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/gatewayCertificateAuthority", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/gatewayHostNameConfiguration", _module)
+pulumi.runtime.registerResourceModule("azure", "apimanagement/globalSchema", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/group", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/groupUser", _module)
 pulumi.runtime.registerResourceModule("azure", "apimanagement/identityProviderAad", _module)

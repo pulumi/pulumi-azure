@@ -98,7 +98,9 @@ import (
 //				EventHubReceivers: monitoring.ActionGroupEventHubReceiverArray{
 //					&monitoring.ActionGroupEventHubReceiverArgs{
 //						Name:                 pulumi.String("sendtoeventhub"),
-//						EventHubId:           pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-eventhub/providers/Microsoft.EventHub/namespaces/eventhubnamespace/eventhubs/eventhub1"),
+//						EventHubNamespace:    pulumi.String("eventhubnamespace"),
+//						EventHubName:         pulumi.String("eventhub1"),
+//						SubscriptionId:       pulumi.String("00000000-0000-0000-0000-000000000000"),
 //						UseCommonAlertSchema: pulumi.Bool(false),
 //					},
 //				},
@@ -109,7 +111,7 @@ import (
 //							return fmt.Sprintf("%v|%v", current.SubscriptionId, workspaceId), nil
 //						}).(pulumi.StringOutput),
 //						ConnectionId:        pulumi.String("53de6956-42b4-41ba-be3c-b154cdf17b13"),
-//						TicketConfiguration: pulumi.String("{}"),
+//						TicketConfiguration: pulumi.String("{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\",\"UseTemplate\":false,\"WorkItemData\":\"{}\",\"CreateOneWIPerCI\":false}"),
 //						Region:              pulumi.String("southcentralus"),
 //					},
 //				},

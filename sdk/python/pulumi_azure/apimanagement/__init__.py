@@ -14,6 +14,7 @@ from .api_policy import *
 from .api_release import *
 from .api_schema import *
 from .api_tag import *
+from .api_tag_description import *
 from .api_version_set import *
 from .authorization_server import *
 from .backend import *
@@ -32,6 +33,7 @@ from .get_group import *
 from .get_product import *
 from .get_service import *
 from .get_user import *
+from .global_schema import *
 from .group import *
 from .group_user import *
 from .identity_provider_aad import *

@@ -20,7 +20,6 @@ import javax.annotation.Nullable;
  * Manages an Azure VM Workload Backup Policy within a Recovery Services vault.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -69,7 +68,6 @@ import javax.annotation.Nullable;
  *             .settings(PolicyVMWorkloadSettingsArgs.builder()
  *                 .timeZone(&#34;UTC&#34;)
  *                 .compressionEnabled(false)
- *                 .sqlCompressionEnabled(false)
  *                 .build())
  *             .protectionPolicies(            
  *                 PolicyVMWorkloadProtectionPolicyArgs.builder()

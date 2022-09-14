@@ -74,6 +74,12 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ApiManagementName { get; private set; } = null!;
 
         /// <summary>
+        /// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+        /// </summary>
+        [Output("apiType")]
+        public Output<string> ApiType { get; private set; } = null!;
+
+        /// <summary>
         /// A description of the API Management API, which may include HTML formatting tags.
         /// </summary>
         [Output("description")]
@@ -128,7 +134,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> Path { get; private set; } = null!;
 
         /// <summary>
-        /// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+        /// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
         /// </summary>
         [Output("protocols")]
         public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
@@ -161,7 +167,7 @@ namespace Pulumi.Azure.ApiManagement
         /// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
         /// </summary>
         [Output("soapPassThrough")]
-        public Output<bool?> SoapPassThrough { get; private set; } = null!;
+        public Output<bool> SoapPassThrough { get; private set; } = null!;
 
         /// <summary>
         /// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
@@ -252,6 +258,12 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ApiManagementName { get; set; } = null!;
 
         /// <summary>
+        /// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+        /// </summary>
+        [Input("apiType")]
+        public Input<string>? ApiType { get; set; }
+
+        /// <summary>
         /// A description of the API Management API, which may include HTML formatting tags.
         /// </summary>
         [Input("description")]
@@ -297,7 +309,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<string>? _protocols;
 
         /// <summary>
-        /// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+        /// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
         /// </summary>
         public InputList<string> Protocols
         {
@@ -386,6 +398,12 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ApiManagementName { get; set; }
 
         /// <summary>
+        /// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+        /// </summary>
+        [Input("apiType")]
+        public Input<string>? ApiType { get; set; }
+
+        /// <summary>
         /// A description of the API Management API, which may include HTML formatting tags.
         /// </summary>
         [Input("description")]
@@ -443,7 +461,7 @@ namespace Pulumi.Azure.ApiManagement
         private InputList<string>? _protocols;
 
         /// <summary>
-        /// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+        /// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
         /// </summary>
         public InputList<string> Protocols
         {

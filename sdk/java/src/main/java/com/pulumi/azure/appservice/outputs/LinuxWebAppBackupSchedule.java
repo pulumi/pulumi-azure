@@ -24,7 +24,7 @@ public final class LinuxWebAppBackupSchedule {
      */
     private String frequencyUnit;
     /**
-     * @return Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+     * @return Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
      * 
      */
     private @Nullable Boolean keepAtLeastOneBackup;
@@ -56,7 +56,7 @@ public final class LinuxWebAppBackupSchedule {
         return this.frequencyUnit;
     }
     /**
-     * @return Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+     * @return Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
      * 
      */
     public Optional<Boolean> keepAtLeastOneBackup() {

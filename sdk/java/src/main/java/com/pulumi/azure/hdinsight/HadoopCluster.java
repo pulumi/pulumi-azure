@@ -8,6 +8,7 @@ import com.pulumi.azure.hdinsight.HadoopClusterArgs;
 import com.pulumi.azure.hdinsight.inputs.HadoopClusterState;
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterComponentVersion;
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterDiskEncryption;
+import com.pulumi.azure.hdinsight.outputs.HadoopClusterExtension;
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterGateway;
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterMetastores;
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterMonitor;
@@ -165,6 +166,20 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
 
     public Output<Optional<List<HadoopClusterDiskEncryption>>> diskEncryptions() {
         return Codegen.optional(this.diskEncryptions);
+    }
+    /**
+     * An `extension` block as defined below.
+     * 
+     */
+    @Export(name="extension", type=HadoopClusterExtension.class, parameters={})
+    private Output</* @Nullable */ HadoopClusterExtension> extension;
+
+    /**
+     * @return An `extension` block as defined below.
+     * 
+     */
+    public Output<Optional<HadoopClusterExtension>> extension() {
+        return Codegen.optional(this.extension);
     }
     /**
      * A `gateway` block as defined below.

@@ -48,14 +48,14 @@ public final class LinuxWebAppBackupScheduleArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+     * Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
      * 
      */
     @Import(name="keepAtLeastOneBackup")
     private @Nullable Output<Boolean> keepAtLeastOneBackup;
 
     /**
-     * @return Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+     * @return Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> keepAtLeastOneBackup() {
@@ -171,7 +171,7 @@ public final class LinuxWebAppBackupScheduleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param keepAtLeastOneBackup Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         * @param keepAtLeastOneBackup Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class LinuxWebAppBackupScheduleArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param keepAtLeastOneBackup Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         * @param keepAtLeastOneBackup Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
          * 
          * @return builder
          * 

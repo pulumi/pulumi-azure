@@ -4465,7 +4465,7 @@ type SqlContainerIndexingPolicy struct {
 	ExcludedPaths []SqlContainerIndexingPolicyExcludedPath `pulumi:"excludedPaths"`
 	// One or more `includedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
 	IncludedPaths []SqlContainerIndexingPolicyIncludedPath `pulumi:"includedPaths"`
-	// Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+	// Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
 	IndexingMode *string `pulumi:"indexingMode"`
 	// One or more `spatialIndex` blocks as defined below.
 	SpatialIndices []SqlContainerIndexingPolicySpatialIndex `pulumi:"spatialIndices"`
@@ -4489,7 +4489,7 @@ type SqlContainerIndexingPolicyArgs struct {
 	ExcludedPaths SqlContainerIndexingPolicyExcludedPathArrayInput `pulumi:"excludedPaths"`
 	// One or more `includedPath` blocks as defined below. Either `includedPath` or `excludedPath` must contain the `path` `/*`
 	IncludedPaths SqlContainerIndexingPolicyIncludedPathArrayInput `pulumi:"includedPaths"`
-	// Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+	// Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
 	IndexingMode pulumi.StringPtrInput `pulumi:"indexingMode"`
 	// One or more `spatialIndex` blocks as defined below.
 	SpatialIndices SqlContainerIndexingPolicySpatialIndexArrayInput `pulumi:"spatialIndices"`
@@ -4589,7 +4589,7 @@ func (o SqlContainerIndexingPolicyOutput) IncludedPaths() SqlContainerIndexingPo
 	return o.ApplyT(func(v SqlContainerIndexingPolicy) []SqlContainerIndexingPolicyIncludedPath { return v.IncludedPaths }).(SqlContainerIndexingPolicyIncludedPathArrayOutput)
 }
 
-// Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+// Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
 func (o SqlContainerIndexingPolicyOutput) IndexingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SqlContainerIndexingPolicy) *string { return v.IndexingMode }).(pulumi.StringPtrOutput)
 }
@@ -4653,7 +4653,7 @@ func (o SqlContainerIndexingPolicyPtrOutput) IncludedPaths() SqlContainerIndexin
 	}).(SqlContainerIndexingPolicyIncludedPathArrayOutput)
 }
 
-// Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+// Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
 func (o SqlContainerIndexingPolicyPtrOutput) IndexingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SqlContainerIndexingPolicy) *string {
 		if v == nil {

@@ -46,7 +46,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly Outputs.LinuxWebAppSlotAuthSettingsGoogle? Google;
         /// <summary>
-        /// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+        /// The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
         /// </summary>
         public readonly string? Issuer;
         /// <summary>

@@ -28,7 +28,6 @@ export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOpt
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure:monitoring/getActionGroup:getActionGroup", {
-        "eventHubReceivers": args.eventHubReceivers,
         "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
@@ -38,10 +37,6 @@ export function getActionGroup(args: GetActionGroupArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getActionGroup.
  */
 export interface GetActionGroupArgs {
-    /**
-     * One or more `eventHubReceiver` blocks as defined below.
-     */
-    eventHubReceivers?: inputs.monitoring.GetActionGroupEventHubReceiver[];
     /**
      * Specifies the name of the Action Group.
      */
@@ -83,7 +78,7 @@ export interface GetActionGroupResult {
     /**
      * One or more `eventHubReceiver` blocks as defined below.
      */
-    readonly eventHubReceivers?: outputs.monitoring.GetActionGroupEventHubReceiver[];
+    readonly eventHubReceivers: outputs.monitoring.GetActionGroupEventHubReceiver[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -127,10 +122,6 @@ export function getActionGroupOutput(args: GetActionGroupOutputArgs, opts?: pulu
  * A collection of arguments for invoking getActionGroup.
  */
 export interface GetActionGroupOutputArgs {
-    /**
-     * One or more `eventHubReceiver` blocks as defined below.
-     */
-    eventHubReceivers?: pulumi.Input<pulumi.Input<inputs.monitoring.GetActionGroupEventHubReceiverArgs>[]>;
     /**
      * Specifies the name of the Action Group.
      */

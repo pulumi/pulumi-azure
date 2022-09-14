@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class LinuxWebAppSlotSiteCredential {
     /**
-     * @return The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     * @return The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
      * 
      */
     private @Nullable String name;
@@ -24,7 +24,7 @@ public final class LinuxWebAppSlotSiteCredential {
 
     private LinuxWebAppSlotSiteCredential() {}
     /**
-     * @return The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     * @return The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
      * 
      */
     public Optional<String> name() {

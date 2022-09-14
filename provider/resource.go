@@ -122,6 +122,7 @@ const (
 	azureNetwork               = "Network"               // Networking
 	azureNotificationHub       = "NotificationHub"       // Notification Hub
 	azureOperationalInsights   = "OperationalInsights"   // Operational Insights
+	azureOrbital               = "Orbital"               //Orbital
 	azurePostgresql            = "PostgreSql"            // Postgress SQL
 	azurePolicy                = "Policy"                // Policy
 	azurePortal                = "Portal"                // Portal
@@ -482,6 +483,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_gateway_certificate_authority":   {Tok: azureResource(azureAPIManagement, "GatewayCertificateAuthority")},
 			"azurerm_api_management_gateway_host_name_configuration": {Tok: azureResource(azureAPIManagement, "GatewayHostNameConfiguration")},
 			"azurerm_api_management_product_tag":                     {Tok: azureResource(azureAPIManagement, "ProductTag")},
+			"azurerm_api_management_global_schema": {
+				Tok: azureResource(azureAPIManagement, "GlobalSchema"),
+				Docs: &tfbridge.DocInfo{
+					Source: "api_management_schema.html.markdown",
+				},
+			},
+			"azurerm_api_management_api_tag_description": {Tok: azureResource(azureAPIManagement, "ApiTagDescription")},
 
 			// Analysis Services
 			"azurerm_analysis_services_server": {Tok: azureResource(azureAnalysisServices, "Server")},
@@ -790,6 +798,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_automation_connection_type":             {Tok: azureResource(azureAutomation, "ConnectionType")},
 			"azurerm_automation_hybrid_runbook_worker":       {Tok: azureResource(azureAutomation, "HybridRunbookWorker")},
 			"azurerm_automation_hybrid_runbook_worker_group": {Tok: azureResource(azureAutomation, "HybridRunbookWorkerGroup")},
+			"azurerm_automation_source_control":              {Tok: azureResource(azureAutomation, "SourceControl")},
+			"azurerm_automation_watcher":                     {Tok: azureResource(azureAutomation, "Watcher")},
 
 			// Azure Container Service
 			"azurerm_container_registry": {
@@ -831,6 +841,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_container_registry_agent_pool":            {Tok: azureResource(azureContainerService, "RegistryAgentPool")},
 			"azurerm_container_connected_registry":             {Tok: azureResource(azureContainerService, "ConnectedRegistry")},
 			"azurerm_container_registry_task_schedule_run_now": {Tok: azureResource(azureContainerService, "RegistryTaskScheduleRunNow")},
+			"azurerm_container_registry_token_password":        {Tok: azureResource(azureContainerService, "TokenPassword")},
 
 			// Batch
 			"azurerm_batch_account":     {Tok: azureResource(azureBatch, "Account")},
@@ -1512,6 +1523,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_monitor_scheduled_query_rules_alert_v2": {
 				Tok: azureResource(azureMonitoring, "ScheduledQueryRulesAlertV2"),
 			},
+			"azurerm_monitor_data_collection_rule_association": {Tok: azureResource(azureMonitoring, "DataCollectionRuleAssociation")},
 
 			// MS SQL
 			"azurerm_mssql_elasticpool": {Tok: azureResource(azureMSSQL, "ElasticPool")},
@@ -2413,6 +2425,14 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Portal
 			"azurerm_portal_dashboard": {Tok: azureResource(azurePortal, "PortalDashboard")},
+
+			// Orbital
+			"azurerm_orbital_spacecraft": {
+				Tok: azureResource(azureOrbital, "Spacecraft"),
+				Docs: &tfbridge.DocInfo{
+					Source: "spacecraft.html.markdown",
+				},
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_aadb2c_directory": {Tok: azureDataSource(aadb2c, "getDirectory")},

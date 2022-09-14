@@ -14,14 +14,14 @@ public final class LinuxWebAppSlotConnectionStringArgs extends com.pulumi.resour
     public static final LinuxWebAppSlotConnectionStringArgs Empty = new LinuxWebAppSlotConnectionStringArgs();
 
     /**
-     * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     * The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     * @return The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
      * 
      */
     public Output<String> name() {
@@ -29,14 +29,14 @@ public final class LinuxWebAppSlotConnectionStringArgs extends com.pulumi.resour
     }
 
     /**
-     * Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+     * Type of database. Possible values include `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+     * @return Type of database. Possible values include `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
      * 
      */
     public Output<String> type() {
@@ -85,7 +85,7 @@ public final class LinuxWebAppSlotConnectionStringArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         * @param name The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
          * 
          * @return builder
          * 
@@ -96,7 +96,7 @@ public final class LinuxWebAppSlotConnectionStringArgs extends com.pulumi.resour
         }
 
         /**
-         * @param name The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         * @param name The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class LinuxWebAppSlotConnectionStringArgs extends com.pulumi.resour
         }
 
         /**
-         * @param type Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+         * @param type Type of database. Possible values include `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class LinuxWebAppSlotConnectionStringArgs extends com.pulumi.resour
         }
 
         /**
-         * @param type Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+         * @param type Type of database. Possible values include `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
          * 
          * @return builder
          * 

@@ -19,13 +19,13 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<Inputs.LinuxWebAppLogsApplicationLogsGetArgs>? ApplicationLogs { get; set; }
 
         /// <summary>
-        /// Should detailed error messages be enabled.
+        /// Should detailed error messages be enabled?
         /// </summary>
         [Input("detailedErrorMessages")]
         public Input<bool>? DetailedErrorMessages { get; set; }
 
         /// <summary>
-        /// Should failed request tracing be enabled.
+        /// Should the failed request tracing be enabled?
         /// </summary>
         [Input("failedRequestTracing")]
         public Input<bool>? FailedRequestTracing { get; set; }

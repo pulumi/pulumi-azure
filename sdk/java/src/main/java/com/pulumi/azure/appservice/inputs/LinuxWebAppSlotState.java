@@ -237,14 +237,14 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
      * 
      */
     @Import(name="keyVaultReferenceIdentityId")
     private @Nullable Output<String> keyVaultReferenceIdentityId;
 
     /**
-     * @return The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * @return The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
      * 
      */
     public Optional<Output<String>> keyVaultReferenceIdentityId() {
@@ -282,14 +282,14 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     * The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     * @return The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -312,14 +312,14 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
+     * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
      * 
      */
     @Import(name="outboundIpAddresses")
     private @Nullable Output<String> outboundIpAddresses;
 
     /**
-     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
+     * @return A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
      * 
      */
     public Optional<Output<String>> outboundIpAddresses() {
@@ -342,14 +342,14 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
      * 
      */
     @Import(name="possibleOutboundIpAddresses")
     private @Nullable Output<String> possibleOutboundIpAddresses;
 
     /**
-     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * @return A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
      * 
      */
     public Optional<Output<String>> possibleOutboundIpAddresses() {
@@ -402,14 +402,14 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A mapping of tags which should be assigned to the Linux Web App.
+     * A mapping of tags that should be assigned to the Linux Web App.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the Linux Web App.
+     * @return A mapping of tags that should be assigned to the Linux Web App.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -802,7 +802,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param keyVaultReferenceIdentityId The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+         * @param keyVaultReferenceIdentityId The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
          * 
          * @return builder
          * 
@@ -813,7 +813,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param keyVaultReferenceIdentityId The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+         * @param keyVaultReferenceIdentityId The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
          * 
          * @return builder
          * 
@@ -865,7 +865,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         * @param name The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
          * 
          * @return builder
          * 
@@ -876,7 +876,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         * @param name The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
          * 
          * @return builder
          * 
@@ -917,7 +917,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param outboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
+         * @param outboundIpAddresses A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
          * 
          * @return builder
          * 
@@ -928,7 +928,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param outboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
+         * @param outboundIpAddresses A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
          * 
          * @return builder
          * 
@@ -969,7 +969,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param possibleOutboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+         * @param possibleOutboundIpAddresses A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
          * 
          * @return builder
          * 
@@ -980,7 +980,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param possibleOutboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+         * @param possibleOutboundIpAddresses A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
          * 
          * @return builder
          * 
@@ -1073,7 +1073,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Linux Web App.
+         * @param tags A mapping of tags that should be assigned to the Linux Web App.
          * 
          * @return builder
          * 
@@ -1084,7 +1084,7 @@ public final class LinuxWebAppSlotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Linux Web App.
+         * @param tags A mapping of tags that should be assigned to the Linux Web App.
          * 
          * @return builder
          * 

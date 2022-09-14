@@ -8,6 +8,7 @@ import com.pulumi.azure.hdinsight.KafkaClusterArgs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterState;
 import com.pulumi.azure.hdinsight.outputs.KafkaClusterComponentVersion;
 import com.pulumi.azure.hdinsight.outputs.KafkaClusterDiskEncryption;
+import com.pulumi.azure.hdinsight.outputs.KafkaClusterExtension;
 import com.pulumi.azure.hdinsight.outputs.KafkaClusterGateway;
 import com.pulumi.azure.hdinsight.outputs.KafkaClusterMetastores;
 import com.pulumi.azure.hdinsight.outputs.KafkaClusterMonitor;
@@ -182,6 +183,20 @@ public class KafkaCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> encryptionInTransitEnabled() {
         return Codegen.optional(this.encryptionInTransitEnabled);
+    }
+    /**
+     * An `extension` block as defined below.
+     * 
+     */
+    @Export(name="extension", type=KafkaClusterExtension.class, parameters={})
+    private Output</* @Nullable */ KafkaClusterExtension> extension;
+
+    /**
+     * @return An `extension` block as defined below.
+     * 
+     */
+    public Output<Optional<KafkaClusterExtension>> extension() {
+        return Codegen.optional(this.extension);
     }
     /**
      * A `gateway` block as defined below.

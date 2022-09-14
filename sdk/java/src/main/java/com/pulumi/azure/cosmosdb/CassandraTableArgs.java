@@ -19,14 +19,14 @@ public final class CassandraTableArgs extends com.pulumi.resources.ResourceArgs 
     public static final CassandraTableArgs Empty = new CassandraTableArgs();
 
     /**
-     * Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+     * Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="analyticalStorageTtl")
     private @Nullable Output<Integer> analyticalStorageTtl;
 
     /**
-     * @return Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+     * @return Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Integer>> analyticalStorageTtl() {
@@ -138,7 +138,7 @@ public final class CassandraTableArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param analyticalStorageTtl Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+         * @param analyticalStorageTtl Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class CassandraTableArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param analyticalStorageTtl Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+         * @param analyticalStorageTtl Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

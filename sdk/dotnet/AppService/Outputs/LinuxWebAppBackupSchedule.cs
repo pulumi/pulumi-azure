@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string FrequencyUnit;
         /// <summary>
-        /// Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        /// Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
         /// </summary>
         public readonly bool? KeepAtLeastOneBackup;
         public readonly string? LastExecutionTime;

@@ -98,7 +98,9 @@ namespace Pulumi.Azure.Monitoring
     ///             new Azure.Monitoring.Inputs.ActionGroupEventHubReceiverArgs
     ///             {
     ///                 Name = "sendtoeventhub",
-    ///                 EventHubId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-eventhub/providers/Microsoft.EventHub/namespaces/eventhubnamespace/eventhubs/eventhub1",
+    ///                 EventHubNamespace = "eventhubnamespace",
+    ///                 EventHubName = "eventhub1",
+    ///                 SubscriptionId = "00000000-0000-0000-0000-000000000000",
     ///                 UseCommonAlertSchema = false,
     ///             },
     ///         },
@@ -114,7 +116,7 @@ namespace Pulumi.Azure.Monitoring
     ///                     return $"{current.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId)}|{workspaceId}";
     ///                 }),
     ///                 ConnectionId = "53de6956-42b4-41ba-be3c-b154cdf17b13",
-    ///                 TicketConfiguration = "{}",
+    ///                 TicketConfiguration = "{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\",\"UseTemplate\":false,\"WorkItemData\":\"{}\",\"CreateOneWIPerCI\":false}",
     ///                 Region = "southcentralus",
     ///             },
     ///         },

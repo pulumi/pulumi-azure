@@ -24,5 +24,6 @@ from .registry_task_schedule_run_now import *
 from .registry_token import *
 from .registry_webhook import *
 from .registry_webook import *
+from .token_password import *
 from ._inputs import *
 from . import outputs

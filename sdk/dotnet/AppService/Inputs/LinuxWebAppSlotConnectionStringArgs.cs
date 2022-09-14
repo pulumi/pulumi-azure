@@ -13,13 +13,13 @@ namespace Pulumi.Azure.AppService.Inputs
     public sealed class LinuxWebAppSlotConnectionStringArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        /// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        /// Type of database. Possible values include `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

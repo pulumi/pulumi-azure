@@ -37,6 +37,21 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+     * 
+     */
+    @Import(name="apiType")
+    private @Nullable Output<String> apiType;
+
+    /**
+     * @return Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+     * 
+     */
+    public Optional<Output<String>> apiType() {
+        return Optional.ofNullable(this.apiType);
+    }
+
+    /**
      * A description of the API Management API, which may include HTML formatting tags.
      * 
      */
@@ -172,14 +187,14 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+     * A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      * 
      */
     @Import(name="protocols")
     private @Nullable Output<List<String>> protocols;
 
     /**
-     * @return A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+     * @return A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      * 
      */
     public Optional<Output<List<String>>> protocols() {
@@ -249,14 +264,22 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
     /**
      * Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
      * 
+     * @deprecated
+     * `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
+     * 
      */
+    @Deprecated /* `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider */
     @Import(name="soapPassThrough")
     private @Nullable Output<Boolean> soapPassThrough;
 
     /**
      * @return Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
      * 
+     * @deprecated
+     * `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
+     * 
      */
+    @Deprecated /* `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider */
     public Optional<Output<Boolean>> soapPassThrough() {
         return Optional.ofNullable(this.soapPassThrough);
     }
@@ -355,6 +378,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
 
     private ApiState(ApiState $) {
         this.apiManagementName = $.apiManagementName;
+        this.apiType = $.apiType;
         this.description = $.description;
         this.displayName = $.displayName;
         this.import_ = $.import_;
@@ -415,6 +439,27 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder apiManagementName(String apiManagementName) {
             return apiManagementName(Output.of(apiManagementName));
+        }
+
+        /**
+         * @param apiType Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiType(@Nullable Output<String> apiType) {
+            $.apiType = apiType;
+            return this;
+        }
+
+        /**
+         * @param apiType Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiType(String apiType) {
+            return apiType(Output.of(apiType));
         }
 
         /**
@@ -607,7 +652,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocols A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+         * @param protocols A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
          * 
          * @return builder
          * 
@@ -618,7 +663,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocols A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+         * @param protocols A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
          * 
          * @return builder
          * 
@@ -628,7 +673,7 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param protocols A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+         * @param protocols A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
          * 
          * @return builder
          * 
@@ -726,7 +771,11 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider */
         public Builder soapPassThrough(@Nullable Output<Boolean> soapPassThrough) {
             $.soapPassThrough = soapPassThrough;
             return this;
@@ -737,7 +786,11 @@ public final class ApiState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider */
         public Builder soapPassThrough(Boolean soapPassThrough) {
             return soapPassThrough(Output.of(soapPassThrough));
         }

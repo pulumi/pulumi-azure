@@ -115,6 +115,8 @@ type HBaseCluster struct {
 	// A `componentVersion` block as defined below.
 	ComponentVersion HBaseClusterComponentVersionOutput    `pulumi:"componentVersion"`
 	DiskEncryptions  HBaseClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
+	// An `extension` block as defined below.
+	Extension HBaseClusterExtensionPtrOutput `pulumi:"extension"`
 	// A `gateway` block as defined below.
 	Gateway HBaseClusterGatewayOutput `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight HBase Cluster.
@@ -200,6 +202,8 @@ type hbaseClusterState struct {
 	// A `componentVersion` block as defined below.
 	ComponentVersion *HBaseClusterComponentVersion `pulumi:"componentVersion"`
 	DiskEncryptions  []HBaseClusterDiskEncryption  `pulumi:"diskEncryptions"`
+	// An `extension` block as defined below.
+	Extension *HBaseClusterExtension `pulumi:"extension"`
 	// A `gateway` block as defined below.
 	Gateway *HBaseClusterGateway `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight HBase Cluster.
@@ -239,6 +243,8 @@ type HBaseClusterState struct {
 	// A `componentVersion` block as defined below.
 	ComponentVersion HBaseClusterComponentVersionPtrInput
 	DiskEncryptions  HBaseClusterDiskEncryptionArrayInput
+	// An `extension` block as defined below.
+	Extension HBaseClusterExtensionPtrInput
 	// A `gateway` block as defined below.
 	Gateway HBaseClusterGatewayPtrInput
 	// The HTTPS Connectivity Endpoint for this HDInsight HBase Cluster.
@@ -282,6 +288,8 @@ type hbaseClusterArgs struct {
 	// A `componentVersion` block as defined below.
 	ComponentVersion HBaseClusterComponentVersion `pulumi:"componentVersion"`
 	DiskEncryptions  []HBaseClusterDiskEncryption `pulumi:"diskEncryptions"`
+	// An `extension` block as defined below.
+	Extension *HBaseClusterExtension `pulumi:"extension"`
 	// A `gateway` block as defined below.
 	Gateway HBaseClusterGateway `pulumi:"gateway"`
 	// Specifies the Azure Region which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
@@ -318,6 +326,8 @@ type HBaseClusterArgs struct {
 	// A `componentVersion` block as defined below.
 	ComponentVersion HBaseClusterComponentVersionInput
 	DiskEncryptions  HBaseClusterDiskEncryptionArrayInput
+	// An `extension` block as defined below.
+	Extension HBaseClusterExtensionPtrInput
 	// A `gateway` block as defined below.
 	Gateway HBaseClusterGatewayInput
 	// Specifies the Azure Region which this HDInsight HBase Cluster should exist. Changing this forces a new resource to be created.
@@ -446,6 +456,11 @@ func (o HBaseClusterOutput) ComponentVersion() HBaseClusterComponentVersionOutpu
 
 func (o HBaseClusterOutput) DiskEncryptions() HBaseClusterDiskEncryptionArrayOutput {
 	return o.ApplyT(func(v *HBaseCluster) HBaseClusterDiskEncryptionArrayOutput { return v.DiskEncryptions }).(HBaseClusterDiskEncryptionArrayOutput)
+}
+
+// An `extension` block as defined below.
+func (o HBaseClusterOutput) Extension() HBaseClusterExtensionPtrOutput {
+	return o.ApplyT(func(v *HBaseCluster) HBaseClusterExtensionPtrOutput { return v.Extension }).(HBaseClusterExtensionPtrOutput)
 }
 
 // A `gateway` block as defined below.

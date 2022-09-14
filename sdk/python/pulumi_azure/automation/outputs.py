@@ -21,6 +21,7 @@ __all__ = [
     'RunBookPublishContentLink',
     'RunBookPublishContentLinkHash',
     'ScheduleMonthlyOccurrence',
+    'SourceControlSecurity',
     'GetAccountPrivateEndpointConnectionResult',
 ]
 
@@ -447,6 +448,66 @@ class ScheduleMonthlyOccurrence(dict):
         Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
         """
         return pulumi.get(self, "occurrence")
+
+
+@pulumi.output_type
+class SourceControlSecurity(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tokenType":
+            suggest = "token_type"
+        elif key == "refreshToken":
+            suggest = "refresh_token"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SourceControlSecurity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SourceControlSecurity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SourceControlSecurity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 token: str,
+                 token_type: str,
+                 refresh_token: Optional[str] = None):
+        """
+        :param str token: The access token of specified repo.
+        :param str token_type: Specify the token type, possible values are `PersonalAccessToken` and `Oauth`.
+        :param str refresh_token: The refresh token of specified rpeo.
+        """
+        pulumi.set(__self__, "token", token)
+        pulumi.set(__self__, "token_type", token_type)
+        if refresh_token is not None:
+            pulumi.set(__self__, "refresh_token", refresh_token)
+
+    @property
+    @pulumi.getter
+    def token(self) -> str:
+        """
+        The access token of specified repo.
+        """
+        return pulumi.get(self, "token")
+
+    @property
+    @pulumi.getter(name="tokenType")
+    def token_type(self) -> str:
+        """
+        Specify the token type, possible values are `PersonalAccessToken` and `Oauth`.
+        """
+        return pulumi.get(self, "token_type")
+
+    @property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> Optional[str]:
+        """
+        The refresh token of specified rpeo.
+        """
+        return pulumi.get(self, "refresh_token")
 
 
 @pulumi.output_type

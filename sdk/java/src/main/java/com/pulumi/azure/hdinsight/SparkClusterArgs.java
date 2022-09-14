@@ -5,6 +5,7 @@ package com.pulumi.azure.hdinsight;
 
 import com.pulumi.azure.hdinsight.inputs.SparkClusterComponentVersionArgs;
 import com.pulumi.azure.hdinsight.inputs.SparkClusterDiskEncryptionArgs;
+import com.pulumi.azure.hdinsight.inputs.SparkClusterExtensionArgs;
 import com.pulumi.azure.hdinsight.inputs.SparkClusterGatewayArgs;
 import com.pulumi.azure.hdinsight.inputs.SparkClusterMetastoresArgs;
 import com.pulumi.azure.hdinsight.inputs.SparkClusterMonitorArgs;
@@ -78,6 +79,21 @@ public final class SparkClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> encryptionInTransitEnabled() {
         return Optional.ofNullable(this.encryptionInTransitEnabled);
+    }
+
+    /**
+     * An `extension` block as defined below.
+     * 
+     */
+    @Import(name="extension")
+    private @Nullable Output<SparkClusterExtensionArgs> extension;
+
+    /**
+     * @return An `extension` block as defined below.
+     * 
+     */
+    public Optional<Output<SparkClusterExtensionArgs>> extension() {
+        return Optional.ofNullable(this.extension);
     }
 
     /**
@@ -289,6 +305,7 @@ public final class SparkClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.componentVersion = $.componentVersion;
         this.diskEncryptions = $.diskEncryptions;
         this.encryptionInTransitEnabled = $.encryptionInTransitEnabled;
+        this.extension = $.extension;
         this.gateway = $.gateway;
         this.location = $.location;
         this.metastores = $.metastores;
@@ -397,6 +414,27 @@ public final class SparkClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder encryptionInTransitEnabled(Boolean encryptionInTransitEnabled) {
             return encryptionInTransitEnabled(Output.of(encryptionInTransitEnabled));
+        }
+
+        /**
+         * @param extension An `extension` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extension(@Nullable Output<SparkClusterExtensionArgs> extension) {
+            $.extension = extension;
+            return this;
+        }
+
+        /**
+         * @param extension An `extension` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extension(SparkClusterExtensionArgs extension) {
+            return extension(Output.of(extension));
         }
 
         /**

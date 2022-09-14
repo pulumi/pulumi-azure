@@ -118,6 +118,8 @@ type KafkaCluster struct {
 	DiskEncryptions  KafkaClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrOutput `pulumi:"encryptionInTransitEnabled"`
+	// An `extension` block as defined below.
+	Extension KafkaClusterExtensionPtrOutput `pulumi:"extension"`
 	// A `gateway` block as defined below.
 	Gateway KafkaClusterGatewayOutput `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight Kafka Cluster.
@@ -210,6 +212,8 @@ type kafkaClusterState struct {
 	DiskEncryptions  []KafkaClusterDiskEncryption  `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
+	// An `extension` block as defined below.
+	Extension *KafkaClusterExtension `pulumi:"extension"`
 	// A `gateway` block as defined below.
 	Gateway *KafkaClusterGateway `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight Kafka Cluster.
@@ -256,6 +260,8 @@ type KafkaClusterState struct {
 	DiskEncryptions  KafkaClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
+	// An `extension` block as defined below.
+	Extension KafkaClusterExtensionPtrInput
 	// A `gateway` block as defined below.
 	Gateway KafkaClusterGatewayPtrInput
 	// The HTTPS Connectivity Endpoint for this HDInsight Kafka Cluster.
@@ -306,6 +312,8 @@ type kafkaClusterArgs struct {
 	DiskEncryptions  []KafkaClusterDiskEncryption `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
+	// An `extension` block as defined below.
+	Extension *KafkaClusterExtension `pulumi:"extension"`
 	// A `gateway` block as defined below.
 	Gateway KafkaClusterGateway `pulumi:"gateway"`
 	// Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
@@ -347,6 +355,8 @@ type KafkaClusterArgs struct {
 	DiskEncryptions  KafkaClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
+	// An `extension` block as defined below.
+	Extension KafkaClusterExtensionPtrInput
 	// A `gateway` block as defined below.
 	Gateway KafkaClusterGatewayInput
 	// Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
@@ -483,6 +493,11 @@ func (o KafkaClusterOutput) DiskEncryptions() KafkaClusterDiskEncryptionArrayOut
 // Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 func (o KafkaClusterOutput) EncryptionInTransitEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KafkaCluster) pulumi.BoolPtrOutput { return v.EncryptionInTransitEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// An `extension` block as defined below.
+func (o KafkaClusterOutput) Extension() KafkaClusterExtensionPtrOutput {
+	return o.ApplyT(func(v *KafkaCluster) KafkaClusterExtensionPtrOutput { return v.Extension }).(KafkaClusterExtensionPtrOutput)
 }
 
 // A `gateway` block as defined below.

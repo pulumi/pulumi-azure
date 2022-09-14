@@ -8,6 +8,7 @@ import com.pulumi.azure.hdinsight.SparkClusterArgs;
 import com.pulumi.azure.hdinsight.inputs.SparkClusterState;
 import com.pulumi.azure.hdinsight.outputs.SparkClusterComponentVersion;
 import com.pulumi.azure.hdinsight.outputs.SparkClusterDiskEncryption;
+import com.pulumi.azure.hdinsight.outputs.SparkClusterExtension;
 import com.pulumi.azure.hdinsight.outputs.SparkClusterGateway;
 import com.pulumi.azure.hdinsight.outputs.SparkClusterMetastores;
 import com.pulumi.azure.hdinsight.outputs.SparkClusterMonitor;
@@ -180,6 +181,20 @@ public class SparkCluster extends com.pulumi.resources.CustomResource {
      */
     public Output<Boolean> encryptionInTransitEnabled() {
         return this.encryptionInTransitEnabled;
+    }
+    /**
+     * An `extension` block as defined below.
+     * 
+     */
+    @Export(name="extension", type=SparkClusterExtension.class, parameters={})
+    private Output</* @Nullable */ SparkClusterExtension> extension;
+
+    /**
+     * @return An `extension` block as defined below.
+     * 
+     */
+    public Output<Optional<SparkClusterExtension>> extension() {
+        return Codegen.optional(this.extension);
     }
     /**
      * A `gateway` block as defined below.

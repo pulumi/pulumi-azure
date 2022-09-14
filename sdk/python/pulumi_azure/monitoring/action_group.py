@@ -616,14 +616,16 @@ class ActionGroup(pulumi.CustomResource):
             ],
             event_hub_receivers=[azure.monitoring.ActionGroupEventHubReceiverArgs(
                 name="sendtoeventhub",
-                event_hub_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-eventhub/providers/Microsoft.EventHub/namespaces/eventhubnamespace/eventhubs/eventhub1",
+                event_hub_namespace="eventhubnamespace",
+                event_hub_name="eventhub1",
+                subscription_id="00000000-0000-0000-0000-000000000000",
                 use_common_alert_schema=False,
             )],
             itsm_receivers=[azure.monitoring.ActionGroupItsmReceiverArgs(
                 name="createorupdateticket",
                 workspace_id=example_analytics_workspace.workspace_id.apply(lambda workspace_id: f"{current.subscription_id}|{workspace_id}"),
                 connection_id="53de6956-42b4-41ba-be3c-b154cdf17b13",
-                ticket_configuration="{}",
+                ticket_configuration="{\\"PayloadRevision\\":0,\\"WorkItemType\\":\\"Incident\\",\\"UseTemplate\\":false,\\"WorkItemData\\":\\"{}\\",\\"CreateOneWIPerCI\\":false}",
                 region="southcentralus",
             )],
             logic_app_receivers=[azure.monitoring.ActionGroupLogicAppReceiverArgs(
@@ -737,14 +739,16 @@ class ActionGroup(pulumi.CustomResource):
             ],
             event_hub_receivers=[azure.monitoring.ActionGroupEventHubReceiverArgs(
                 name="sendtoeventhub",
-                event_hub_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-eventhub/providers/Microsoft.EventHub/namespaces/eventhubnamespace/eventhubs/eventhub1",
+                event_hub_namespace="eventhubnamespace",
+                event_hub_name="eventhub1",
+                subscription_id="00000000-0000-0000-0000-000000000000",
                 use_common_alert_schema=False,
             )],
             itsm_receivers=[azure.monitoring.ActionGroupItsmReceiverArgs(
                 name="createorupdateticket",
                 workspace_id=example_analytics_workspace.workspace_id.apply(lambda workspace_id: f"{current.subscription_id}|{workspace_id}"),
                 connection_id="53de6956-42b4-41ba-be3c-b154cdf17b13",
-                ticket_configuration="{}",
+                ticket_configuration="{\\"PayloadRevision\\":0,\\"WorkItemType\\":\\"Incident\\",\\"UseTemplate\\":false,\\"WorkItemData\\":\\"{}\\",\\"CreateOneWIPerCI\\":false}",
                 region="southcentralus",
             )],
             logic_app_receivers=[azure.monitoring.ActionGroupLogicAppReceiverArgs(

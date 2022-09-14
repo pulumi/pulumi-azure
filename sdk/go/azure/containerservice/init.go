@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RegistryWebhook{}
 	case "azure:containerservice/registryWebook:RegistryWebook":
 		r = &RegistryWebook{}
+	case "azure:containerservice/tokenPassword:TokenPassword":
+		r = &TokenPassword{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -116,6 +118,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"containerservice/registryWebook",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"containerservice/tokenPassword",
 		&module{version},
 	)
 }

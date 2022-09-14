@@ -24,7 +24,15 @@ public final class LinuxWebAppSiteConfig {
      * 
      */
     private @Nullable Boolean alwaysOn;
+    /**
+     * @return The URL to the API Definition for this Linux Web App.
+     * 
+     */
     private @Nullable String apiDefinitionUrl;
+    /**
+     * @return The API Management API ID this Linux Web App is associated with.
+     * 
+     */
     private @Nullable String apiManagementApiId;
     /**
      * @return The App command line to launch.
@@ -37,7 +45,7 @@ public final class LinuxWebAppSiteConfig {
      */
     private @Nullable LinuxWebAppSiteConfigApplicationStack applicationStack;
     /**
-     * @return Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+     * @return Should Auto heal rules be enabled? Required with `auto_heal_setting`.
      * 
      */
     private @Nullable Boolean autoHealEnabled;
@@ -68,7 +76,7 @@ public final class LinuxWebAppSiteConfig {
     private @Nullable List<String> defaultDocuments;
     private @Nullable Boolean detailedErrorLoggingEnabled;
     /**
-     * @return The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+     * @return The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
      * 
      */
     private @Nullable String ftpsState;
@@ -104,7 +112,7 @@ public final class LinuxWebAppSiteConfig {
      */
     private @Nullable Boolean localMysqlEnabled;
     /**
-     * @return Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+     * @return Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
      * 
      */
     private @Nullable String managedPipelineMode;
@@ -136,17 +144,17 @@ public final class LinuxWebAppSiteConfig {
      */
     private @Nullable Boolean scmUseMainIpRestriction;
     /**
-     * @return Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+     * @return Should the Linux Web App use a 32-bit worker? Defaults to `true`.
      * 
      */
     private @Nullable Boolean use32BitWorker;
     /**
-     * @return Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+     * @return Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
      * 
      */
     private @Nullable Boolean vnetRouteAllEnabled;
     /**
-     * @return Should Web Sockets be enabled. Defaults to `false`.
+     * @return Should Web Sockets be enabled? Defaults to `false`.
      * 
      */
     private @Nullable Boolean websocketsEnabled;
@@ -164,9 +172,17 @@ public final class LinuxWebAppSiteConfig {
     public Optional<Boolean> alwaysOn() {
         return Optional.ofNullable(this.alwaysOn);
     }
+    /**
+     * @return The URL to the API Definition for this Linux Web App.
+     * 
+     */
     public Optional<String> apiDefinitionUrl() {
         return Optional.ofNullable(this.apiDefinitionUrl);
     }
+    /**
+     * @return The API Management API ID this Linux Web App is associated with.
+     * 
+     */
     public Optional<String> apiManagementApiId() {
         return Optional.ofNullable(this.apiManagementApiId);
     }
@@ -185,7 +201,7 @@ public final class LinuxWebAppSiteConfig {
         return Optional.ofNullable(this.applicationStack);
     }
     /**
-     * @return Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+     * @return Should Auto heal rules be enabled? Required with `auto_heal_setting`.
      * 
      */
     public Optional<Boolean> autoHealEnabled() {
@@ -230,7 +246,7 @@ public final class LinuxWebAppSiteConfig {
         return Optional.ofNullable(this.detailedErrorLoggingEnabled);
     }
     /**
-     * @return The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+     * @return The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
      * 
      */
     public Optional<String> ftpsState() {
@@ -282,7 +298,7 @@ public final class LinuxWebAppSiteConfig {
         return Optional.ofNullable(this.localMysqlEnabled);
     }
     /**
-     * @return Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+     * @return Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
      * 
      */
     public Optional<String> managedPipelineMode() {
@@ -330,21 +346,21 @@ public final class LinuxWebAppSiteConfig {
         return Optional.ofNullable(this.scmUseMainIpRestriction);
     }
     /**
-     * @return Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+     * @return Should the Linux Web App use a 32-bit worker? Defaults to `true`.
      * 
      */
     public Optional<Boolean> use32BitWorker() {
         return Optional.ofNullable(this.use32BitWorker);
     }
     /**
-     * @return Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+     * @return Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
      * 
      */
     public Optional<Boolean> vnetRouteAllEnabled() {
         return Optional.ofNullable(this.vnetRouteAllEnabled);
     }
     /**
-     * @return Should Web Sockets be enabled. Defaults to `false`.
+     * @return Should Web Sockets be enabled? Defaults to `false`.
      * 
      */
     public Optional<Boolean> websocketsEnabled() {

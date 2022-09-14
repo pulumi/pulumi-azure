@@ -15,13 +15,32 @@ public final class GetActionGroupEventHubReceiver {
     /**
      * @return The resource ID of the respective Event Hub.
      * 
+     * @deprecated
+     * This property is deprecated and will be removed in version 4.0 of the provider, please use &#39;event_hub_name&#39; and &#39;event_hub_namespace&#39; instead.
+     * 
      */
+    @Deprecated /* This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead. */
     private String eventHubId;
+    /**
+     * @return The name of the specific Event Hub queue.
+     * 
+     */
+    private String eventHubName;
+    /**
+     * @return The namespace name of the Event Hub.
+     * 
+     */
+    private String eventHubNamespace;
     /**
      * @return Specifies the name of the Action Group.
      * 
      */
     private String name;
+    /**
+     * @return The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+     * 
+     */
+    private String subscriptionId;
     /**
      * @return The Tenant ID for the subscription containing this Event Hub.
      * 
@@ -37,9 +56,27 @@ public final class GetActionGroupEventHubReceiver {
     /**
      * @return The resource ID of the respective Event Hub.
      * 
+     * @deprecated
+     * This property is deprecated and will be removed in version 4.0 of the provider, please use &#39;event_hub_name&#39; and &#39;event_hub_namespace&#39; instead.
+     * 
      */
+    @Deprecated /* This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead. */
     public String eventHubId() {
         return this.eventHubId;
+    }
+    /**
+     * @return The name of the specific Event Hub queue.
+     * 
+     */
+    public String eventHubName() {
+        return this.eventHubName;
+    }
+    /**
+     * @return The namespace name of the Event Hub.
+     * 
+     */
+    public String eventHubNamespace() {
+        return this.eventHubNamespace;
     }
     /**
      * @return Specifies the name of the Action Group.
@@ -47,6 +84,13 @@ public final class GetActionGroupEventHubReceiver {
      */
     public String name() {
         return this.name;
+    }
+    /**
+     * @return The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+     * 
+     */
+    public String subscriptionId() {
+        return this.subscriptionId;
     }
     /**
      * @return The Tenant ID for the subscription containing this Event Hub.
@@ -73,14 +117,20 @@ public final class GetActionGroupEventHubReceiver {
     @CustomType.Builder
     public static final class Builder {
         private String eventHubId;
+        private String eventHubName;
+        private String eventHubNamespace;
         private String name;
+        private String subscriptionId;
         private String tenantId;
         private @Nullable Boolean useCommonAlertSchema;
         public Builder() {}
         public Builder(GetActionGroupEventHubReceiver defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eventHubId = defaults.eventHubId;
+    	      this.eventHubName = defaults.eventHubName;
+    	      this.eventHubNamespace = defaults.eventHubNamespace;
     	      this.name = defaults.name;
+    	      this.subscriptionId = defaults.subscriptionId;
     	      this.tenantId = defaults.tenantId;
     	      this.useCommonAlertSchema = defaults.useCommonAlertSchema;
         }
@@ -91,8 +141,23 @@ public final class GetActionGroupEventHubReceiver {
             return this;
         }
         @CustomType.Setter
+        public Builder eventHubName(String eventHubName) {
+            this.eventHubName = Objects.requireNonNull(eventHubName);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder eventHubNamespace(String eventHubNamespace) {
+            this.eventHubNamespace = Objects.requireNonNull(eventHubNamespace);
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder subscriptionId(String subscriptionId) {
+            this.subscriptionId = Objects.requireNonNull(subscriptionId);
             return this;
         }
         @CustomType.Setter
@@ -108,7 +173,10 @@ public final class GetActionGroupEventHubReceiver {
         public GetActionGroupEventHubReceiver build() {
             final var o = new GetActionGroupEventHubReceiver();
             o.eventHubId = eventHubId;
+            o.eventHubName = eventHubName;
+            o.eventHubNamespace = eventHubNamespace;
             o.name = name;
+            o.subscriptionId = subscriptionId;
             o.tenantId = tenantId;
             o.useCommonAlertSchema = useCommonAlertSchema;
             return o;

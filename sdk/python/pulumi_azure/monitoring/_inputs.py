@@ -94,7 +94,6 @@ __all__ = [
     'ScheduledQueryRulesLogCriteriaArgs',
     'ScheduledQueryRulesLogCriteriaDimensionArgs',
     'SmartDetectorAlertRuleActionGroupArgs',
-    'GetActionGroupEventHubReceiverArgs',
 ]
 
 @pulumi.input_type
@@ -531,34 +530,38 @@ class ActionGroupEmailReceiverArgs:
 @pulumi.input_type
 class ActionGroupEventHubReceiverArgs:
     def __init__(__self__, *,
-                 event_hub_id: pulumi.Input[str],
                  name: pulumi.Input[str],
+                 event_hub_id: Optional[pulumi.Input[str]] = None,
+                 event_hub_name: Optional[pulumi.Input[str]] = None,
+                 event_hub_namespace: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  use_common_alert_schema: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] event_hub_id: The resource ID of the respective Event Hub.
         :param pulumi.Input[str] name: The name of the EventHub Receiver, must be unique within action group.
+        :param pulumi.Input[str] event_hub_id: The resource ID of the respective Event Hub.
+        :param pulumi.Input[str] event_hub_name: The name of the specific Event Hub queue.
+        :param pulumi.Input[str] event_hub_namespace: The namespace name of the Event Hub.
+        :param pulumi.Input[str] subscription_id: The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the subscription containing this Event Hub.
         :param pulumi.Input[bool] use_common_alert_schema: Indicates whether to use common alert schema.
         """
-        pulumi.set(__self__, "event_hub_id", event_hub_id)
         pulumi.set(__self__, "name", name)
+        if event_hub_id is not None:
+            warnings.warn("""This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.""", DeprecationWarning)
+            pulumi.log.warn("""event_hub_id is deprecated: This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.""")
+        if event_hub_id is not None:
+            pulumi.set(__self__, "event_hub_id", event_hub_id)
+        if event_hub_name is not None:
+            pulumi.set(__self__, "event_hub_name", event_hub_name)
+        if event_hub_namespace is not None:
+            pulumi.set(__self__, "event_hub_namespace", event_hub_namespace)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
         if use_common_alert_schema is not None:
             pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
-
-    @property
-    @pulumi.getter(name="eventHubId")
-    def event_hub_id(self) -> pulumi.Input[str]:
-        """
-        The resource ID of the respective Event Hub.
-        """
-        return pulumi.get(self, "event_hub_id")
-
-    @event_hub_id.setter
-    def event_hub_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "event_hub_id", value)
 
     @property
     @pulumi.getter
@@ -571,6 +574,54 @@ class ActionGroupEventHubReceiverArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="eventHubId")
+    def event_hub_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of the respective Event Hub.
+        """
+        return pulumi.get(self, "event_hub_id")
+
+    @event_hub_id.setter
+    def event_hub_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_hub_id", value)
+
+    @property
+    @pulumi.getter(name="eventHubName")
+    def event_hub_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the specific Event Hub queue.
+        """
+        return pulumi.get(self, "event_hub_name")
+
+    @event_hub_name.setter
+    def event_hub_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_hub_name", value)
+
+    @property
+    @pulumi.getter(name="eventHubNamespace")
+    def event_hub_namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        The namespace name of the Event Hub.
+        """
+        return pulumi.get(self, "event_hub_namespace")
+
+    @event_hub_namespace.setter
+    def event_hub_namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_hub_namespace", value)
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscription_id", value)
 
     @property
     @pulumi.getter(name="tenantId")
@@ -5078,73 +5129,5 @@ class SmartDetectorAlertRuleActionGroupArgs:
     @webhook_payload.setter
     def webhook_payload(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "webhook_payload", value)
-
-
-@pulumi.input_type
-class GetActionGroupEventHubReceiverArgs:
-    def __init__(__self__, *,
-                 event_hub_id: str,
-                 name: str,
-                 tenant_id: str,
-                 use_common_alert_schema: Optional[bool] = None):
-        """
-        :param str event_hub_id: The resource ID of the respective Event Hub.
-        :param str name: Specifies the name of the Action Group.
-        :param str tenant_id: The Tenant ID for the subscription containing this Event Hub.
-        :param bool use_common_alert_schema: Indicates whether to use common alert schema.
-        """
-        pulumi.set(__self__, "event_hub_id", event_hub_id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        if use_common_alert_schema is not None:
-            pulumi.set(__self__, "use_common_alert_schema", use_common_alert_schema)
-
-    @property
-    @pulumi.getter(name="eventHubId")
-    def event_hub_id(self) -> str:
-        """
-        The resource ID of the respective Event Hub.
-        """
-        return pulumi.get(self, "event_hub_id")
-
-    @event_hub_id.setter
-    def event_hub_id(self, value: str):
-        pulumi.set(self, "event_hub_id", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Specifies the name of the Action Group.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: str):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
-        """
-        The Tenant ID for the subscription containing this Event Hub.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @tenant_id.setter
-    def tenant_id(self, value: str):
-        pulumi.set(self, "tenant_id", value)
-
-    @property
-    @pulumi.getter(name="useCommonAlertSchema")
-    def use_common_alert_schema(self) -> Optional[bool]:
-        """
-        Indicates whether to use common alert schema.
-        """
-        return pulumi.get(self, "use_common_alert_schema")
-
-    @use_common_alert_schema.setter
-    def use_common_alert_schema(self, value: Optional[bool]):
-        pulumi.set(self, "use_common_alert_schema", value)
 
 

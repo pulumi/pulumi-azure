@@ -5,6 +5,7 @@ package com.pulumi.azure.hdinsight;
 
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterComponentVersionArgs;
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterDiskEncryptionArgs;
+import com.pulumi.azure.hdinsight.inputs.HBaseClusterExtensionArgs;
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterGatewayArgs;
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterMetastoresArgs;
 import com.pulumi.azure.hdinsight.inputs.HBaseClusterMonitorArgs;
@@ -62,6 +63,21 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     public Optional<Output<List<HBaseClusterDiskEncryptionArgs>>> diskEncryptions() {
         return Optional.ofNullable(this.diskEncryptions);
+    }
+
+    /**
+     * An `extension` block as defined below.
+     * 
+     */
+    @Import(name="extension")
+    private @Nullable Output<HBaseClusterExtensionArgs> extension;
+
+    /**
+     * @return An `extension` block as defined below.
+     * 
+     */
+    public Optional<Output<HBaseClusterExtensionArgs>> extension() {
+        return Optional.ofNullable(this.extension);
     }
 
     /**
@@ -272,6 +288,7 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.clusterVersion = $.clusterVersion;
         this.componentVersion = $.componentVersion;
         this.diskEncryptions = $.diskEncryptions;
+        this.extension = $.extension;
         this.gateway = $.gateway;
         this.location = $.location;
         this.metastores = $.metastores;
@@ -359,6 +376,27 @@ public final class HBaseClusterArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder diskEncryptions(HBaseClusterDiskEncryptionArgs... diskEncryptions) {
             return diskEncryptions(List.of(diskEncryptions));
+        }
+
+        /**
+         * @param extension An `extension` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extension(@Nullable Output<HBaseClusterExtensionArgs> extension) {
+            $.extension = extension;
+            return this;
+        }
+
+        /**
+         * @param extension An `extension` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extension(HBaseClusterExtensionArgs extension) {
+            return extension(Output.of(extension));
         }
 
         /**

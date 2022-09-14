@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.containerservice.outputs;
 
+import com.pulumi.azure.containerservice.outputs.KubernetesClusterWindowsProfileGmsa;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
@@ -21,6 +22,11 @@ public final class KubernetesClusterWindowsProfile {
      * 
      */
     private String adminUsername;
+    /**
+     * @return A `gmsa` block as defined below.
+     * 
+     */
+    private @Nullable KubernetesClusterWindowsProfileGmsa gmsa;
     /**
      * @return Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
      * 
@@ -43,6 +49,13 @@ public final class KubernetesClusterWindowsProfile {
         return this.adminUsername;
     }
     /**
+     * @return A `gmsa` block as defined below.
+     * 
+     */
+    public Optional<KubernetesClusterWindowsProfileGmsa> gmsa() {
+        return Optional.ofNullable(this.gmsa);
+    }
+    /**
      * @return Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
      * 
      */
@@ -61,12 +74,14 @@ public final class KubernetesClusterWindowsProfile {
     public static final class Builder {
         private @Nullable String adminPassword;
         private String adminUsername;
+        private @Nullable KubernetesClusterWindowsProfileGmsa gmsa;
         private @Nullable String license;
         public Builder() {}
         public Builder(KubernetesClusterWindowsProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.adminPassword = defaults.adminPassword;
     	      this.adminUsername = defaults.adminUsername;
+    	      this.gmsa = defaults.gmsa;
     	      this.license = defaults.license;
         }
 
@@ -81,6 +96,11 @@ public final class KubernetesClusterWindowsProfile {
             return this;
         }
         @CustomType.Setter
+        public Builder gmsa(@Nullable KubernetesClusterWindowsProfileGmsa gmsa) {
+            this.gmsa = gmsa;
+            return this;
+        }
+        @CustomType.Setter
         public Builder license(@Nullable String license) {
             this.license = license;
             return this;
@@ -89,6 +109,7 @@ public final class KubernetesClusterWindowsProfile {
             final var o = new KubernetesClusterWindowsProfile();
             o.adminPassword = adminPassword;
             o.adminUsername = adminUsername;
+            o.gmsa = gmsa;
             o.license = license;
             return o;
         }

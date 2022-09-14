@@ -21,7 +21,7 @@ public final class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage {
      */
     private Integer retentionInDays;
     /**
-     * @return SAS url to an Azure blob container with read/write/list/delete permissions.
+     * @return SAS URL to an Azure blob container with read/write/list/delete permissions.
      * 
      */
     private String sasUrl;
@@ -42,7 +42,7 @@ public final class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage {
         return this.retentionInDays;
     }
     /**
-     * @return SAS url to an Azure blob container with read/write/list/delete permissions.
+     * @return SAS URL to an Azure blob container with read/write/list/delete permissions.
      * 
      */
     public String sasUrl() {

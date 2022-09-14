@@ -35,12 +35,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
- * import com.pulumi.azure.compute.ScaleSet;
- * import com.pulumi.azure.compute.ScaleSetArgs;
- * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.ScaleSetNetworkProfileArgs;
- * import com.pulumi.azure.compute.inputs.ScaleSetOsProfileArgs;
- * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
+ * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSet;
+ * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSetArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
  * import com.pulumi.azure.monitoring.AutoscaleSetting;
  * import com.pulumi.azure.monitoring.AutoscaleSettingArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileArgs;
@@ -76,36 +76,42 @@ import javax.annotation.Nullable;
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .build());
  * 
- *         var exampleScaleSet = new ScaleSet(&#34;exampleScaleSet&#34;, ScaleSetArgs.builder()        
+ *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet(&#34;exampleLinuxVirtualMachineScaleSet&#34;, LinuxVirtualMachineScaleSetArgs.builder()        
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .upgradePolicyMode(&#34;Manual&#34;)
- *             .storageProfileOsDisk(ScaleSetStorageProfileOsDiskArgs.builder()
- *                 .createOption(&#34;FromImage&#34;)
+ *             .upgradeMode(&#34;Manual&#34;)
+ *             .sku(&#34;Standard_F2&#34;)
+ *             .instances(2)
+ *             .adminUsername(&#34;myadmin&#34;)
+ *             .adminSshKeys(LinuxVirtualMachineScaleSetAdminSshKeyArgs.builder()
+ *                 .username(&#34;myadmin&#34;)
+ *                 .publicKey(&#34;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com&#34;)
  *                 .build())
- *             .networkProfiles(ScaleSetNetworkProfileArgs.builder()
+ *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
  *                 .name(&#34;TestNetworkProfile&#34;)
  *                 .primary(true)
- *                 .ipConfigurations(ScaleSetNetworkProfileIpConfigurationArgs.builder()
+ *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
  *                     .name(&#34;TestIPConfiguration&#34;)
  *                     .primary(true)
  *                     .subnetId(exampleSubnet.id())
  *                     .build())
  *                 .build())
- *             .osProfile(ScaleSetOsProfileArgs.builder()
- *                 .computerNamePrefix(&#34;testvm&#34;)
- *                 .adminUsername(&#34;myadmin&#34;)
+ *             .osDisk(LinuxVirtualMachineScaleSetOsDiskArgs.builder()
+ *                 .caching(&#34;ReadWrite&#34;)
+ *                 .storageAccountType(&#34;StandardSSD_LRS&#34;)
  *                 .build())
- *             .sku(ScaleSetSkuArgs.builder()
- *                 .name(&#34;Standard_F2&#34;)
- *                 .capacity(2)
+ *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
+ *                 .publisher(&#34;Canonical&#34;)
+ *                 .offer(&#34;UbuntuServer&#34;)
+ *                 .sku(&#34;16.04-LTS&#34;)
+ *                 .version(&#34;latest&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleAutoscaleSetting = new AutoscaleSetting(&#34;exampleAutoscaleSetting&#34;, AutoscaleSettingArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .targetResourceId(exampleScaleSet.id())
+ *             .targetResourceId(exampleLinuxVirtualMachineScaleSet.id())
  *             .profiles(AutoscaleSettingProfileArgs.builder()
  *                 .name(&#34;defaultProfile&#34;)
  *                 .capacity(AutoscaleSettingProfileCapacityArgs.builder()
@@ -117,7 +123,7 @@ import javax.annotation.Nullable;
  *                     AutoscaleSettingProfileRuleArgs.builder()
  *                         .metricTrigger(AutoscaleSettingProfileRuleMetricTriggerArgs.builder()
  *                             .metricName(&#34;Percentage CPU&#34;)
- *                             .metricResourceId(exampleScaleSet.id())
+ *                             .metricResourceId(exampleLinuxVirtualMachineScaleSet.id())
  *                             .timeGrain(&#34;PT1M&#34;)
  *                             .statistic(&#34;Average&#34;)
  *                             .timeWindow(&#34;PT5M&#34;)
@@ -141,7 +147,7 @@ import javax.annotation.Nullable;
  *                     AutoscaleSettingProfileRuleArgs.builder()
  *                         .metricTrigger(AutoscaleSettingProfileRuleMetricTriggerArgs.builder()
  *                             .metricName(&#34;Percentage CPU&#34;)
- *                             .metricResourceId(exampleScaleSet.id())
+ *                             .metricResourceId(exampleLinuxVirtualMachineScaleSet.id())
  *                             .timeGrain(&#34;PT1M&#34;)
  *                             .statistic(&#34;Average&#34;)
  *                             .timeWindow(&#34;PT5M&#34;)
@@ -183,12 +189,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
- * import com.pulumi.azure.compute.ScaleSet;
- * import com.pulumi.azure.compute.ScaleSetArgs;
- * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.ScaleSetNetworkProfileArgs;
- * import com.pulumi.azure.compute.inputs.ScaleSetOsProfileArgs;
- * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
+ * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSet;
+ * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSetArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
  * import com.pulumi.azure.monitoring.AutoscaleSetting;
  * import com.pulumi.azure.monitoring.AutoscaleSettingArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileArgs;
@@ -225,36 +231,42 @@ import javax.annotation.Nullable;
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .build());
  * 
- *         var exampleScaleSet = new ScaleSet(&#34;exampleScaleSet&#34;, ScaleSetArgs.builder()        
+ *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet(&#34;exampleLinuxVirtualMachineScaleSet&#34;, LinuxVirtualMachineScaleSetArgs.builder()        
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .upgradePolicyMode(&#34;Manual&#34;)
- *             .storageProfileOsDisk(ScaleSetStorageProfileOsDiskArgs.builder()
- *                 .createOption(&#34;FromImage&#34;)
+ *             .upgradeMode(&#34;Manual&#34;)
+ *             .sku(&#34;Standard_F2&#34;)
+ *             .instances(2)
+ *             .adminUsername(&#34;myadmin&#34;)
+ *             .adminSshKeys(LinuxVirtualMachineScaleSetAdminSshKeyArgs.builder()
+ *                 .username(&#34;myadmin&#34;)
+ *                 .publicKey(&#34;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com&#34;)
  *                 .build())
- *             .networkProfiles(ScaleSetNetworkProfileArgs.builder()
+ *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
  *                 .name(&#34;TestNetworkProfile&#34;)
  *                 .primary(true)
- *                 .ipConfigurations(ScaleSetNetworkProfileIpConfigurationArgs.builder()
+ *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
  *                     .name(&#34;TestIPConfiguration&#34;)
  *                     .primary(true)
  *                     .subnetId(exampleSubnet.id())
  *                     .build())
  *                 .build())
- *             .osProfile(ScaleSetOsProfileArgs.builder()
- *                 .computerNamePrefix(&#34;testvm&#34;)
- *                 .adminUsername(&#34;myadmin&#34;)
+ *             .osDisk(LinuxVirtualMachineScaleSetOsDiskArgs.builder()
+ *                 .caching(&#34;ReadWrite&#34;)
+ *                 .storageAccountType(&#34;StandardSSD_LRS&#34;)
  *                 .build())
- *             .sku(ScaleSetSkuArgs.builder()
- *                 .name(&#34;Standard_F2&#34;)
- *                 .capacity(2)
+ *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
+ *                 .publisher(&#34;Canonical&#34;)
+ *                 .offer(&#34;UbuntuServer&#34;)
+ *                 .sku(&#34;16.04-LTS&#34;)
+ *                 .version(&#34;latest&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleAutoscaleSetting = new AutoscaleSetting(&#34;exampleAutoscaleSetting&#34;, AutoscaleSettingArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .targetResourceId(exampleScaleSet.id())
+ *             .targetResourceId(exampleLinuxVirtualMachineScaleSet.id())
  *             .profiles(AutoscaleSettingProfileArgs.builder()
  *                 .name(&#34;Weekends&#34;)
  *                 .capacity(AutoscaleSettingProfileCapacityArgs.builder()
@@ -266,7 +278,7 @@ import javax.annotation.Nullable;
  *                     AutoscaleSettingProfileRuleArgs.builder()
  *                         .metricTrigger(AutoscaleSettingProfileRuleMetricTriggerArgs.builder()
  *                             .metricName(&#34;Percentage CPU&#34;)
- *                             .metricResourceId(exampleScaleSet.id())
+ *                             .metricResourceId(exampleLinuxVirtualMachineScaleSet.id())
  *                             .timeGrain(&#34;PT1M&#34;)
  *                             .statistic(&#34;Average&#34;)
  *                             .timeWindow(&#34;PT5M&#34;)
@@ -284,7 +296,7 @@ import javax.annotation.Nullable;
  *                     AutoscaleSettingProfileRuleArgs.builder()
  *                         .metricTrigger(AutoscaleSettingProfileRuleMetricTriggerArgs.builder()
  *                             .metricName(&#34;Percentage CPU&#34;)
- *                             .metricResourceId(exampleScaleSet.id())
+ *                             .metricResourceId(exampleLinuxVirtualMachineScaleSet.id())
  *                             .timeGrain(&#34;PT1M&#34;)
  *                             .statistic(&#34;Average&#34;)
  *                             .timeWindow(&#34;PT5M&#34;)
@@ -333,12 +345,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
- * import com.pulumi.azure.compute.ScaleSet;
- * import com.pulumi.azure.compute.ScaleSetArgs;
- * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileOsDiskArgs;
- * import com.pulumi.azure.compute.inputs.ScaleSetNetworkProfileArgs;
- * import com.pulumi.azure.compute.inputs.ScaleSetOsProfileArgs;
- * import com.pulumi.azure.compute.inputs.ScaleSetSkuArgs;
+ * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSet;
+ * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSetArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetAdminSshKeyArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
  * import com.pulumi.azure.monitoring.AutoscaleSetting;
  * import com.pulumi.azure.monitoring.AutoscaleSettingArgs;
  * import com.pulumi.azure.monitoring.inputs.AutoscaleSettingProfileArgs;
@@ -375,29 +387,35 @@ import javax.annotation.Nullable;
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .build());
  * 
- *         var exampleScaleSet = new ScaleSet(&#34;exampleScaleSet&#34;, ScaleSetArgs.builder()        
+ *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet(&#34;exampleLinuxVirtualMachineScaleSet&#34;, LinuxVirtualMachineScaleSetArgs.builder()        
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .upgradePolicyMode(&#34;Manual&#34;)
- *             .storageProfileOsDisk(ScaleSetStorageProfileOsDiskArgs.builder()
- *                 .createOption(&#34;FromImage&#34;)
+ *             .upgradeMode(&#34;Manual&#34;)
+ *             .sku(&#34;Standard_F2&#34;)
+ *             .instances(2)
+ *             .adminUsername(&#34;myadmin&#34;)
+ *             .adminSshKeys(LinuxVirtualMachineScaleSetAdminSshKeyArgs.builder()
+ *                 .username(&#34;myadmin&#34;)
+ *                 .publicKey(&#34;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com&#34;)
  *                 .build())
- *             .networkProfiles(ScaleSetNetworkProfileArgs.builder()
+ *             .networkInterfaces(LinuxVirtualMachineScaleSetNetworkInterfaceArgs.builder()
  *                 .name(&#34;TestNetworkProfile&#34;)
  *                 .primary(true)
- *                 .ipConfigurations(ScaleSetNetworkProfileIpConfigurationArgs.builder()
+ *                 .ipConfigurations(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs.builder()
  *                     .name(&#34;TestIPConfiguration&#34;)
  *                     .primary(true)
  *                     .subnetId(exampleSubnet.id())
  *                     .build())
  *                 .build())
- *             .osProfile(ScaleSetOsProfileArgs.builder()
- *                 .computerNamePrefix(&#34;testvm&#34;)
- *                 .adminUsername(&#34;myadmin&#34;)
+ *             .osDisk(LinuxVirtualMachineScaleSetOsDiskArgs.builder()
+ *                 .caching(&#34;ReadWrite&#34;)
+ *                 .storageAccountType(&#34;StandardSSD_LRS&#34;)
  *                 .build())
- *             .sku(ScaleSetSkuArgs.builder()
- *                 .name(&#34;Standard_F2&#34;)
- *                 .capacity(2)
+ *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
+ *                 .publisher(&#34;Canonical&#34;)
+ *                 .offer(&#34;UbuntuServer&#34;)
+ *                 .sku(&#34;16.04-LTS&#34;)
+ *                 .version(&#34;latest&#34;)
  *                 .build())
  *             .build());
  * 
@@ -405,7 +423,7 @@ import javax.annotation.Nullable;
  *             .enabled(true)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .targetResourceId(exampleScaleSet.id())
+ *             .targetResourceId(exampleLinuxVirtualMachineScaleSet.id())
  *             .profiles(AutoscaleSettingProfileArgs.builder()
  *                 .name(&#34;forJuly&#34;)
  *                 .capacity(AutoscaleSettingProfileCapacityArgs.builder()
@@ -417,7 +435,7 @@ import javax.annotation.Nullable;
  *                     AutoscaleSettingProfileRuleArgs.builder()
  *                         .metricTrigger(AutoscaleSettingProfileRuleMetricTriggerArgs.builder()
  *                             .metricName(&#34;Percentage CPU&#34;)
- *                             .metricResourceId(exampleScaleSet.id())
+ *                             .metricResourceId(exampleLinuxVirtualMachineScaleSet.id())
  *                             .timeGrain(&#34;PT1M&#34;)
  *                             .statistic(&#34;Average&#34;)
  *                             .timeWindow(&#34;PT5M&#34;)
@@ -435,7 +453,7 @@ import javax.annotation.Nullable;
  *                     AutoscaleSettingProfileRuleArgs.builder()
  *                         .metricTrigger(AutoscaleSettingProfileRuleMetricTriggerArgs.builder()
  *                             .metricName(&#34;Percentage CPU&#34;)
- *                             .metricResourceId(exampleScaleSet.id())
+ *                             .metricResourceId(exampleLinuxVirtualMachineScaleSet.id())
  *                             .timeGrain(&#34;PT1M&#34;)
  *                             .statistic(&#34;Average&#34;)
  *                             .timeWindow(&#34;PT5M&#34;)

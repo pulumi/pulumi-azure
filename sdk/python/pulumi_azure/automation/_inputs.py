@@ -20,6 +20,7 @@ __all__ = [
     'RunBookPublishContentLinkArgs',
     'RunBookPublishContentLinkHashArgs',
     'ScheduleMonthlyOccurrenceArgs',
+    'SourceControlSecurityArgs',
 ]
 
 @pulumi.input_type
@@ -475,5 +476,58 @@ class ScheduleMonthlyOccurrenceArgs:
     @occurrence.setter
     def occurrence(self, value: pulumi.Input[int]):
         pulumi.set(self, "occurrence", value)
+
+
+@pulumi.input_type
+class SourceControlSecurityArgs:
+    def __init__(__self__, *,
+                 token: pulumi.Input[str],
+                 token_type: pulumi.Input[str],
+                 refresh_token: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] token: The access token of specified repo.
+        :param pulumi.Input[str] token_type: Specify the token type, possible values are `PersonalAccessToken` and `Oauth`.
+        :param pulumi.Input[str] refresh_token: The refresh token of specified rpeo.
+        """
+        pulumi.set(__self__, "token", token)
+        pulumi.set(__self__, "token_type", token_type)
+        if refresh_token is not None:
+            pulumi.set(__self__, "refresh_token", refresh_token)
+
+    @property
+    @pulumi.getter
+    def token(self) -> pulumi.Input[str]:
+        """
+        The access token of specified repo.
+        """
+        return pulumi.get(self, "token")
+
+    @token.setter
+    def token(self, value: pulumi.Input[str]):
+        pulumi.set(self, "token", value)
+
+    @property
+    @pulumi.getter(name="tokenType")
+    def token_type(self) -> pulumi.Input[str]:
+        """
+        Specify the token type, possible values are `PersonalAccessToken` and `Oauth`.
+        """
+        return pulumi.get(self, "token_type")
+
+    @token_type.setter
+    def token_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "token_type", value)
+
+    @property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The refresh token of specified rpeo.
+        """
+        return pulumi.get(self, "refresh_token")
+
+    @refresh_token.setter
+    def refresh_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "refresh_token", value)
 
 

@@ -8,6 +8,7 @@ import com.pulumi.azure.hdinsight.InteractiveQueryClusterArgs;
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterState;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterComponentVersion;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterDiskEncryption;
+import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterExtension;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterGateway;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterMetastores;
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterMonitor;
@@ -180,6 +181,20 @@ public class InteractiveQueryCluster extends com.pulumi.resources.CustomResource
      */
     public Output<Boolean> encryptionInTransitEnabled() {
         return this.encryptionInTransitEnabled;
+    }
+    /**
+     * An `extension` block as defined below.
+     * 
+     */
+    @Export(name="extension", type=InteractiveQueryClusterExtension.class, parameters={})
+    private Output</* @Nullable */ InteractiveQueryClusterExtension> extension;
+
+    /**
+     * @return An `extension` block as defined below.
+     * 
+     */
+    public Output<Optional<InteractiveQueryClusterExtension>> extension() {
+        return Codegen.optional(this.extension);
     }
     /**
      * A `gateway` block as defined below.

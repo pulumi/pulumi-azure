@@ -13,6 +13,7 @@ export * from "./activityLogAlert";
 export * from "./autoscaleSetting";
 export * from "./dataCollectionEndpoint";
 export * from "./dataCollectionRule";
+export * from "./dataCollectionRuleAssociation";
 export * from "./diagnosticSetting";
 export * from "./getActionGroup";
 export * from "./getDataCollectionEndpoint";
@@ -42,6 +43,7 @@ import { ActivityLogAlert } from "./activityLogAlert";
 import { AutoscaleSetting } from "./autoscaleSetting";
 import { DataCollectionEndpoint } from "./dataCollectionEndpoint";
 import { DataCollectionRule } from "./dataCollectionRule";
+import { DataCollectionRuleAssociation } from "./dataCollectionRuleAssociation";
 import { DiagnosticSetting } from "./diagnosticSetting";
 import { LogProfile } from "./logProfile";
 import { LogzMonitor } from "./logzMonitor";
@@ -76,6 +78,8 @@ const _module = {
                 return new DataCollectionEndpoint(name, <any>undefined, { urn })
             case "azure:monitoring/dataCollectionRule:DataCollectionRule":
                 return new DataCollectionRule(name, <any>undefined, { urn })
+            case "azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation":
+                return new DataCollectionRuleAssociation(name, <any>undefined, { urn })
             case "azure:monitoring/diagnosticSetting:DiagnosticSetting":
                 return new DiagnosticSetting(name, <any>undefined, { urn })
             case "azure:monitoring/logProfile:LogProfile":
@@ -115,6 +119,7 @@ pulumi.runtime.registerResourceModule("azure", "monitoring/activityLogAlert", _m
 pulumi.runtime.registerResourceModule("azure", "monitoring/autoscaleSetting", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/dataCollectionEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/dataCollectionRule", _module)
+pulumi.runtime.registerResourceModule("azure", "monitoring/dataCollectionRuleAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/diagnosticSetting", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/logProfile", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/logzMonitor", _module)

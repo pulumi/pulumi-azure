@@ -30,7 +30,7 @@ public final class LinuxWebAppSlotSiteConfig {
      */
     private @Nullable String apiDefinitionUrl;
     /**
-     * @return The API Management API ID this Linux Web App Slot os associated with.
+     * @return The API Management API ID this Linux Web App Slot is associated with.
      * 
      */
     private @Nullable String apiManagementApiId;
@@ -45,7 +45,7 @@ public final class LinuxWebAppSlotSiteConfig {
      */
     private @Nullable LinuxWebAppSlotSiteConfigApplicationStack applicationStack;
     /**
-     * @return Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+     * @return Should Auto heal rules be enabled? Required with `auto_heal_setting`.
      * 
      */
     private @Nullable Boolean autoHealEnabled;
@@ -81,7 +81,7 @@ public final class LinuxWebAppSlotSiteConfig {
     private @Nullable List<String> defaultDocuments;
     private @Nullable Boolean detailedErrorLoggingEnabled;
     /**
-     * @return The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+     * @return The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
      * 
      */
     private @Nullable String ftpsState;
@@ -149,12 +149,12 @@ public final class LinuxWebAppSlotSiteConfig {
      */
     private @Nullable Boolean scmUseMainIpRestriction;
     /**
-     * @return Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+     * @return Should the Linux Web App use a 32-bit worker? Defaults to `true`.
      * 
      */
     private @Nullable Boolean use32BitWorker;
     /**
-     * @return Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+     * @return Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
      * 
      */
     private @Nullable Boolean vnetRouteAllEnabled;
@@ -181,7 +181,7 @@ public final class LinuxWebAppSlotSiteConfig {
         return Optional.ofNullable(this.apiDefinitionUrl);
     }
     /**
-     * @return The API Management API ID this Linux Web App Slot os associated with.
+     * @return The API Management API ID this Linux Web App Slot is associated with.
      * 
      */
     public Optional<String> apiManagementApiId() {
@@ -202,7 +202,7 @@ public final class LinuxWebAppSlotSiteConfig {
         return Optional.ofNullable(this.applicationStack);
     }
     /**
-     * @return Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+     * @return Should Auto heal rules be enabled? Required with `auto_heal_setting`.
      * 
      */
     public Optional<Boolean> autoHealEnabled() {
@@ -254,7 +254,7 @@ public final class LinuxWebAppSlotSiteConfig {
         return Optional.ofNullable(this.detailedErrorLoggingEnabled);
     }
     /**
-     * @return The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+     * @return The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
      * 
      */
     public Optional<String> ftpsState() {
@@ -354,14 +354,14 @@ public final class LinuxWebAppSlotSiteConfig {
         return Optional.ofNullable(this.scmUseMainIpRestriction);
     }
     /**
-     * @return Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+     * @return Should the Linux Web App use a 32-bit worker? Defaults to `true`.
      * 
      */
     public Optional<Boolean> use32BitWorker() {
         return Optional.ofNullable(this.use32BitWorker);
     }
     /**
-     * @return Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+     * @return Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
      * 
      */
     public Optional<Boolean> vnetRouteAllEnabled() {

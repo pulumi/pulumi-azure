@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class LinuxWebAppLogsHttpLogsFileSystem {
     /**
-     * @return The retention period in days. A values of `0` means no retention.
+     * @return The retention period in days. A value of `0` means no retention.
      * 
      */
     private Integer retentionInDays;
@@ -22,7 +22,7 @@ public final class LinuxWebAppLogsHttpLogsFileSystem {
 
     private LinuxWebAppLogsHttpLogsFileSystem() {}
     /**
-     * @return The retention period in days. A values of `0` means no retention.
+     * @return The retention period in days. A value of `0` means no retention.
      * 
      */
     public Integer retentionInDays() {

@@ -128,6 +128,12 @@ namespace Pulumi.Azure.ContainerService
         [Output("dnsPrefixPrivateCluster")]
         public Output<string?> DnsPrefixPrivateCluster { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("edgeZone")]
+        public Output<string?> EdgeZone { get; private set; } = null!;
+
         [Output("enablePodSecurityPolicy")]
         public Output<bool?> EnablePodSecurityPolicy { get; private set; } = null!;
 
@@ -468,6 +474,12 @@ namespace Pulumi.Azure.ContainerService
         [Input("dnsPrefixPrivateCluster")]
         public Input<string>? DnsPrefixPrivateCluster { get; set; }
 
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
+
         [Input("enablePodSecurityPolicy")]
         public Input<bool>? EnablePodSecurityPolicy { get; set; }
 
@@ -721,6 +733,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("dnsPrefixPrivateCluster")]
         public Input<string>? DnsPrefixPrivateCluster { get; set; }
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
 
         [Input("enablePodSecurityPolicy")]
         public Input<bool>? EnablePodSecurityPolicy { get; set; }

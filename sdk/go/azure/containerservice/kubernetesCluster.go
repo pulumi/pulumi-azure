@@ -97,6 +97,8 @@ type KubernetesCluster struct {
 	DnsPrefix pulumi.StringPtrOutput `pulumi:"dnsPrefix"`
 	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
 	DnsPrefixPrivateCluster pulumi.StringPtrOutput `pulumi:"dnsPrefixPrivateCluster"`
+	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+	EdgeZone                pulumi.StringPtrOutput `pulumi:"edgeZone"`
 	EnablePodSecurityPolicy pulumi.BoolPtrOutput   `pulumi:"enablePodSecurityPolicy"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
@@ -230,6 +232,8 @@ type kubernetesClusterState struct {
 	DnsPrefix *string `pulumi:"dnsPrefix"`
 	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
 	DnsPrefixPrivateCluster *string `pulumi:"dnsPrefixPrivateCluster"`
+	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+	EdgeZone                *string `pulumi:"edgeZone"`
 	EnablePodSecurityPolicy *bool   `pulumi:"enablePodSecurityPolicy"`
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn *string `pulumi:"fqdn"`
@@ -329,6 +333,8 @@ type KubernetesClusterState struct {
 	DnsPrefix pulumi.StringPtrInput
 	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
 	DnsPrefixPrivateCluster pulumi.StringPtrInput
+	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+	EdgeZone                pulumi.StringPtrInput
 	EnablePodSecurityPolicy pulumi.BoolPtrInput
 	// The FQDN of the Azure Kubernetes Managed Cluster.
 	Fqdn pulumi.StringPtrInput
@@ -432,6 +438,8 @@ type kubernetesClusterArgs struct {
 	DnsPrefix *string `pulumi:"dnsPrefix"`
 	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
 	DnsPrefixPrivateCluster *string `pulumi:"dnsPrefixPrivateCluster"`
+	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+	EdgeZone                *string `pulumi:"edgeZone"`
 	EnablePodSecurityPolicy *bool   `pulumi:"enablePodSecurityPolicy"`
 	// Should HTTP Application Routing be enabled?
 	HttpApplicationRoutingEnabled *bool `pulumi:"httpApplicationRoutingEnabled"`
@@ -514,6 +522,8 @@ type KubernetesClusterArgs struct {
 	DnsPrefix pulumi.StringPtrInput
 	// Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
 	DnsPrefixPrivateCluster pulumi.StringPtrInput
+	// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+	EdgeZone                pulumi.StringPtrInput
 	EnablePodSecurityPolicy pulumi.BoolPtrInput
 	// Should HTTP Application Routing be enabled?
 	HttpApplicationRoutingEnabled pulumi.BoolPtrInput
@@ -711,6 +721,11 @@ func (o KubernetesClusterOutput) DnsPrefix() pulumi.StringPtrOutput {
 // Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
 func (o KubernetesClusterOutput) DnsPrefixPrivateCluster() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.DnsPrefixPrivateCluster }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+func (o KubernetesClusterOutput) EdgeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringPtrOutput { return v.EdgeZone }).(pulumi.StringPtrOutput)
 }
 
 func (o KubernetesClusterOutput) EnablePodSecurityPolicy() pulumi.BoolPtrOutput {

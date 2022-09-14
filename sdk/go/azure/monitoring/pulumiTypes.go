@@ -808,9 +808,17 @@ func (o ActionGroupEmailReceiverArrayOutput) Index(i pulumi.IntInput) ActionGrou
 
 type ActionGroupEventHubReceiver struct {
 	// The resource ID of the respective Event Hub.
-	EventHubId string `pulumi:"eventHubId"`
+	//
+	// Deprecated: This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.
+	EventHubId *string `pulumi:"eventHubId"`
+	// The name of the specific Event Hub queue.
+	EventHubName *string `pulumi:"eventHubName"`
+	// The namespace name of the Event Hub.
+	EventHubNamespace *string `pulumi:"eventHubNamespace"`
 	// The name of the EventHub Receiver, must be unique within action group.
 	Name string `pulumi:"name"`
+	// The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+	SubscriptionId *string `pulumi:"subscriptionId"`
 	// The Tenant ID for the subscription containing this Event Hub.
 	TenantId *string `pulumi:"tenantId"`
 	// Indicates whether to use common alert schema.
@@ -830,9 +838,17 @@ type ActionGroupEventHubReceiverInput interface {
 
 type ActionGroupEventHubReceiverArgs struct {
 	// The resource ID of the respective Event Hub.
-	EventHubId pulumi.StringInput `pulumi:"eventHubId"`
+	//
+	// Deprecated: This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.
+	EventHubId pulumi.StringPtrInput `pulumi:"eventHubId"`
+	// The name of the specific Event Hub queue.
+	EventHubName pulumi.StringPtrInput `pulumi:"eventHubName"`
+	// The namespace name of the Event Hub.
+	EventHubNamespace pulumi.StringPtrInput `pulumi:"eventHubNamespace"`
 	// The name of the EventHub Receiver, must be unique within action group.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
 	// The Tenant ID for the subscription containing this Event Hub.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// Indicates whether to use common alert schema.
@@ -891,13 +907,30 @@ func (o ActionGroupEventHubReceiverOutput) ToActionGroupEventHubReceiverOutputWi
 }
 
 // The resource ID of the respective Event Hub.
-func (o ActionGroupEventHubReceiverOutput) EventHubId() pulumi.StringOutput {
-	return o.ApplyT(func(v ActionGroupEventHubReceiver) string { return v.EventHubId }).(pulumi.StringOutput)
+//
+// Deprecated: This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.
+func (o ActionGroupEventHubReceiverOutput) EventHubId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionGroupEventHubReceiver) *string { return v.EventHubId }).(pulumi.StringPtrOutput)
+}
+
+// The name of the specific Event Hub queue.
+func (o ActionGroupEventHubReceiverOutput) EventHubName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionGroupEventHubReceiver) *string { return v.EventHubName }).(pulumi.StringPtrOutput)
+}
+
+// The namespace name of the Event Hub.
+func (o ActionGroupEventHubReceiverOutput) EventHubNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionGroupEventHubReceiver) *string { return v.EventHubNamespace }).(pulumi.StringPtrOutput)
 }
 
 // The name of the EventHub Receiver, must be unique within action group.
 func (o ActionGroupEventHubReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ActionGroupEventHubReceiver) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+func (o ActionGroupEventHubReceiverOutput) SubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ActionGroupEventHubReceiver) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
 }
 
 // The Tenant ID for the subscription containing this Event Hub.
@@ -13168,9 +13201,17 @@ func (o GetActionGroupEmailReceiverArrayOutput) Index(i pulumi.IntInput) GetActi
 
 type GetActionGroupEventHubReceiver struct {
 	// The resource ID of the respective Event Hub.
+	//
+	// Deprecated: This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.
 	EventHubId string `pulumi:"eventHubId"`
+	// The name of the specific Event Hub queue.
+	EventHubName string `pulumi:"eventHubName"`
+	// The namespace name of the Event Hub.
+	EventHubNamespace string `pulumi:"eventHubNamespace"`
 	// Specifies the name of the Action Group.
 	Name string `pulumi:"name"`
+	// The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+	SubscriptionId string `pulumi:"subscriptionId"`
 	// The Tenant ID for the subscription containing this Event Hub.
 	TenantId string `pulumi:"tenantId"`
 	// Indicates whether to use common alert schema.
@@ -13190,9 +13231,17 @@ type GetActionGroupEventHubReceiverInput interface {
 
 type GetActionGroupEventHubReceiverArgs struct {
 	// The resource ID of the respective Event Hub.
+	//
+	// Deprecated: This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.
 	EventHubId pulumi.StringInput `pulumi:"eventHubId"`
+	// The name of the specific Event Hub queue.
+	EventHubName pulumi.StringInput `pulumi:"eventHubName"`
+	// The namespace name of the Event Hub.
+	EventHubNamespace pulumi.StringInput `pulumi:"eventHubNamespace"`
 	// Specifies the name of the Action Group.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+	SubscriptionId pulumi.StringInput `pulumi:"subscriptionId"`
 	// The Tenant ID for the subscription containing this Event Hub.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 	// Indicates whether to use common alert schema.
@@ -13251,13 +13300,30 @@ func (o GetActionGroupEventHubReceiverOutput) ToGetActionGroupEventHubReceiverOu
 }
 
 // The resource ID of the respective Event Hub.
+//
+// Deprecated: This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.
 func (o GetActionGroupEventHubReceiverOutput) EventHubId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetActionGroupEventHubReceiver) string { return v.EventHubId }).(pulumi.StringOutput)
+}
+
+// The name of the specific Event Hub queue.
+func (o GetActionGroupEventHubReceiverOutput) EventHubName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionGroupEventHubReceiver) string { return v.EventHubName }).(pulumi.StringOutput)
+}
+
+// The namespace name of the Event Hub.
+func (o GetActionGroupEventHubReceiverOutput) EventHubNamespace() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionGroupEventHubReceiver) string { return v.EventHubNamespace }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the Action Group.
 func (o GetActionGroupEventHubReceiverOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetActionGroupEventHubReceiver) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+func (o GetActionGroupEventHubReceiverOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetActionGroupEventHubReceiver) string { return v.SubscriptionId }).(pulumi.StringOutput)
 }
 
 // The Tenant ID for the subscription containing this Event Hub.

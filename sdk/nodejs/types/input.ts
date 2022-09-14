@@ -4002,7 +4002,7 @@ export namespace appservice {
          */
         javaVersion?: pulumi.Input<string>;
         /**
-         * The version of Node to run. Possible values include `12`, `14`, and `16`.
+         * The version of Node to run. Possible values include `12`, `14`, `16` and `18`.
          */
         nodeVersion?: pulumi.Input<string>;
         /**
@@ -4808,7 +4808,7 @@ export namespace appservice {
          */
         google?: pulumi.Input<inputs.appservice.LinuxWebAppAuthSettingsGoogle>;
         /**
-         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+         * The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
          */
         issuer?: pulumi.Input<string>;
         /**
@@ -4976,7 +4976,7 @@ export namespace appservice {
          */
         frequencyUnit: pulumi.Input<string>;
         /**
-         * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         * Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
          */
         keepAtLeastOneBackup?: pulumi.Input<boolean>;
         lastExecutionTime?: pulumi.Input<string>;
@@ -5019,7 +5019,7 @@ export namespace appservice {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -5030,11 +5030,11 @@ export namespace appservice {
          */
         applicationLogs?: pulumi.Input<inputs.appservice.LinuxWebAppLogsApplicationLogs>;
         /**
-         * Should detailed error messages be enabled.
+         * Should detailed error messages be enabled?
          */
         detailedErrorMessages?: pulumi.Input<boolean>;
         /**
-         * Should failed request tracing be enabled.
+         * Should the failed request tracing be enabled?
          */
         failedRequestTracing?: pulumi.Input<boolean>;
         /**
@@ -5093,7 +5093,7 @@ export namespace appservice {
 
     export interface LinuxWebAppLogsHttpLogsFileSystem {
         /**
-         * The retention period in days. A values of `0` means no retention.
+         * The retention period in days. A value of `0` means no retention.
          */
         retentionInDays: pulumi.Input<number>;
         /**
@@ -5107,7 +5107,13 @@ export namespace appservice {
          * If this Linux Web App is Always On enabled. Defaults to `true`.
          */
         alwaysOn?: pulumi.Input<boolean>;
+        /**
+         * The URL to the API Definition for this Linux Web App.
+         */
         apiDefinitionUrl?: pulumi.Input<string>;
+        /**
+         * The API Management API ID this Linux Web App is associated with.
+         */
         apiManagementApiId?: pulumi.Input<string>;
         /**
          * The App command line to launch.
@@ -5118,7 +5124,7 @@ export namespace appservice {
          */
         applicationStack?: pulumi.Input<inputs.appservice.LinuxWebAppSiteConfigApplicationStack>;
         /**
-         * Should Auto heal rules be enabled. Required with `autoHealSetting`.
+         * Should Auto heal rules be enabled? Required with `autoHealSetting`.
          */
         autoHealEnabled?: pulumi.Input<boolean>;
         /**
@@ -5143,7 +5149,7 @@ export namespace appservice {
         defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>;
         detailedErrorLoggingEnabled?: pulumi.Input<boolean>;
         /**
-         * The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+         * The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
          */
         ftpsState?: pulumi.Input<string>;
         /**
@@ -5172,7 +5178,7 @@ export namespace appservice {
          */
         localMysqlEnabled?: pulumi.Input<boolean>;
         /**
-         * Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+         * Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
          */
         managedPipelineMode?: pulumi.Input<string>;
         /**
@@ -5198,15 +5204,15 @@ export namespace appservice {
          */
         scmUseMainIpRestriction?: pulumi.Input<boolean>;
         /**
-         * Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+         * Should the Linux Web App use a 32-bit worker? Defaults to `true`.
          */
         use32BitWorker?: pulumi.Input<boolean>;
         /**
-         * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         * Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
          */
         vnetRouteAllEnabled?: pulumi.Input<boolean>;
         /**
-         * Should Web Sockets be enabled. Defaults to `false`.
+         * Should Web Sockets be enabled? Defaults to `false`.
          */
         websocketsEnabled?: pulumi.Input<boolean>;
         /**
@@ -5508,7 +5514,7 @@ export namespace appservice {
          */
         google?: pulumi.Input<inputs.appservice.LinuxWebAppSlotAuthSettingsGoogle>;
         /**
-         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+         * The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
          */
         issuer?: pulumi.Input<string>;
         /**
@@ -5657,7 +5663,7 @@ export namespace appservice {
          */
         name: pulumi.Input<string>;
         /**
-         * A `schedule` block as defined below.
+         * An `schedule` block as defined below.
          */
         schedule: pulumi.Input<inputs.appservice.LinuxWebAppSlotBackupSchedule>;
         /**
@@ -5676,7 +5682,7 @@ export namespace appservice {
          */
         frequencyUnit: pulumi.Input<string>;
         /**
-         * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         * Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
          */
         keepAtLeastOneBackup?: pulumi.Input<boolean>;
         lastExecutionTime?: pulumi.Input<string>;
@@ -5692,11 +5698,11 @@ export namespace appservice {
 
     export interface LinuxWebAppSlotConnectionString {
         /**
-         * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         * The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
          */
         name: pulumi.Input<string>;
         /**
-         * Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+         * Type of database. Possible values include `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
          */
         type: pulumi.Input<string>;
         /**
@@ -5719,7 +5725,7 @@ export namespace appservice {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Linux Web App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Linux Web App Slot. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -5730,11 +5736,11 @@ export namespace appservice {
          */
         applicationLogs?: pulumi.Input<inputs.appservice.LinuxWebAppSlotLogsApplicationLogs>;
         /**
-         * Should detailed error messages be enabled.
+         * Should detailed error messages be enabled?
          */
         detailedErrorMessages?: pulumi.Input<boolean>;
         /**
-         * Should failed request tracing be enabled.
+         * Should the failed request tracing be enabled?
          */
         failedRequestTracing?: pulumi.Input<boolean>;
         /**
@@ -5749,7 +5755,7 @@ export namespace appservice {
          */
         azureBlobStorage?: pulumi.Input<inputs.appservice.LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage>;
         /**
-         * Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+         * Log level. Possible values include `Verbose`, `Information`, `Warning`, and `Error`.
          */
         fileSystemLevel: pulumi.Input<string>;
     }
@@ -5764,7 +5770,7 @@ export namespace appservice {
          */
         retentionInDays: pulumi.Input<number>;
         /**
-         * SAS url to an Azure blob container with read/write/list/delete permissions.
+         * SAS URL to an Azure blob container with read/write/list/delete permissions.
          */
         sasUrl: pulumi.Input<string>;
     }
@@ -5786,7 +5792,7 @@ export namespace appservice {
          */
         retentionInDays?: pulumi.Input<number>;
         /**
-         * SAS url to an Azure blob container with read/write/list/delete permissions.
+         * SAS URL to an Azure blob container with read/write/list/delete permissions.
          */
         sasUrl: pulumi.Input<string>;
     }
@@ -5812,7 +5818,7 @@ export namespace appservice {
          */
         apiDefinitionUrl?: pulumi.Input<string>;
         /**
-         * The API Management API ID this Linux Web App Slot os associated with.
+         * The API Management API ID this Linux Web App Slot is associated with.
          */
         apiManagementApiId?: pulumi.Input<string>;
         /**
@@ -5824,7 +5830,7 @@ export namespace appservice {
          */
         applicationStack?: pulumi.Input<inputs.appservice.LinuxWebAppSlotSiteConfigApplicationStack>;
         /**
-         * Should Auto heal rules be enabled. Required with `autoHealSetting`.
+         * Should Auto heal rules be enabled? Required with `autoHealSetting`.
          */
         autoHealEnabled?: pulumi.Input<boolean>;
         /**
@@ -5853,7 +5859,7 @@ export namespace appservice {
         defaultDocuments?: pulumi.Input<pulumi.Input<string>[]>;
         detailedErrorLoggingEnabled?: pulumi.Input<boolean>;
         /**
-         * The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+         * The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
          */
         ftpsState?: pulumi.Input<string>;
         /**
@@ -5908,11 +5914,11 @@ export namespace appservice {
          */
         scmUseMainIpRestriction?: pulumi.Input<boolean>;
         /**
-         * Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+         * Should the Linux Web App use a 32-bit worker? Defaults to `true`.
          */
         use32BitWorker?: pulumi.Input<boolean>;
         /**
-         * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         * Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
          */
         vnetRouteAllEnabled?: pulumi.Input<boolean>;
         websocketsEnabled?: pulumi.Input<boolean>;
@@ -6172,7 +6178,7 @@ export namespace appservice {
 
     export interface LinuxWebAppSlotSiteCredential {
         /**
-         * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         * The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
          */
         name?: pulumi.Input<string>;
         /**
@@ -7282,7 +7288,7 @@ export namespace appservice {
          */
         javaVersion?: pulumi.Input<string>;
         /**
-         * The version of Node to run. Possible values include `~12`, `~14`, and `~16`.
+         * The version of Node to run. Possible values include `~12`, `~14`, `~16` and `~18`.
          */
         nodeVersion?: pulumi.Input<string>;
         /**
@@ -9708,6 +9714,21 @@ export namespace automation {
          * Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
          */
         occurrence: pulumi.Input<number>;
+    }
+
+    export interface SourceControlSecurity {
+        /**
+         * The refresh token of specified rpeo.
+         */
+        refreshToken?: pulumi.Input<string>;
+        /**
+         * The access token of specified repo.
+         */
+        token: pulumi.Input<string>;
+        /**
+         * Specify the token type, possible values are `PersonalAccessToken` and `Oauth`.
+         */
+        tokenType: pulumi.Input<string>;
     }
 }
 
@@ -16159,9 +16180,24 @@ export namespace containerservice {
          */
         adminUsername: pulumi.Input<string>;
         /**
+         * A `gmsa` block as defined below.
+         */
+        gmsa?: pulumi.Input<inputs.containerservice.KubernetesClusterWindowsProfileGmsa>;
+        /**
          * Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
          */
         license?: pulumi.Input<string>;
+    }
+
+    export interface KubernetesClusterWindowsProfileGmsa {
+        /**
+         * Specifies the DNS server for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+         */
+        dnsServer: pulumi.Input<string>;
+        /**
+         * Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+         */
+        rootDomain: pulumi.Input<string>;
     }
 
     export interface RegistryEncryption {
@@ -16533,6 +16569,28 @@ export namespace containerservice {
          * Boolean value that indicates whether the policy is enabled.
          */
         enabled?: pulumi.Input<boolean>;
+    }
+
+    export interface TokenPasswordPassword1 {
+        /**
+         * The expiration date of the password in RFC3339 format.
+         */
+        expiry?: pulumi.Input<string>;
+        /**
+         * The value of the password (Sensitive).
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface TokenPasswordPassword2 {
+        /**
+         * The expiration date of the password in RFC3339 format.
+         */
+        expiry?: pulumi.Input<string>;
+        /**
+         * The value of the password (Sensitive).
+         */
+        value?: pulumi.Input<string>;
     }
 }
 
@@ -17094,7 +17152,7 @@ export namespace cosmosdb {
          */
         includedPaths?: pulumi.Input<pulumi.Input<inputs.cosmosdb.SqlContainerIndexingPolicyIncludedPath>[]>;
         /**
-         * Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+         * Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
          */
         indexingMode?: pulumi.Input<string>;
         /**
@@ -19067,6 +19125,36 @@ export namespace datashare {
 }
 
 export namespace desktopvirtualization {
+    export interface HostPoolScheduledAgentUpdates {
+        /**
+         * Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * A `schedule` block as defined below. A maximum of two blocks can be added.
+         */
+        schedules?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.HostPoolScheduledAgentUpdatesSchedule>[]>;
+        /**
+         * Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `useSessionHostTimezone` is enabled then it will override this setting. Default is `UTC`
+         */
+        timezone?: pulumi.Input<string>;
+        /**
+         * Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides `timezone`. Default is `false`.
+         */
+        useSessionHostTimezone?: pulumi.Input<boolean>;
+    }
+
+    export interface HostPoolScheduledAgentUpdatesSchedule {
+        /**
+         * The day of the week on which agent updates should be performed. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+         */
+        dayOfWeek: pulumi.Input<string>;
+        /**
+         * The hour of day the update window should start. The update is a 2 hour period following the hour provided. The value should be provided as a number between 0 and 23, with 0 being midnight and 23 being 11pm. A leading zero should not be used.
+         */
+        hourOfDay: pulumi.Input<number>;
+    }
+
     export interface ScalingPlanHostPool {
         /**
          * The ID of the HostPool to assign the Scaling Plan to.
@@ -21956,6 +22044,17 @@ export namespace hdinsight {
         keyVaultManagedIdentityId?: pulumi.Input<string>;
     }
 
+    export interface HBaseClusterExtension {
+        /**
+         * The workspace ID of the log analytics extension.
+         */
+        logAnalyticsWorkspaceId: pulumi.Input<string>;
+        /**
+         * The workspace key of the log analytics extension.
+         */
+        primaryKey: pulumi.Input<string>;
+    }
+
     export interface HBaseClusterGateway {
         /**
          * The password used for the Ambari Portal.
@@ -22291,6 +22390,17 @@ export namespace hdinsight {
          * This is the resource ID of Managed Identity used to access the key vault.
          */
         keyVaultManagedIdentityId?: pulumi.Input<string>;
+    }
+
+    export interface HadoopClusterExtension {
+        /**
+         * The workspace ID of the log analytics extension.
+         */
+        logAnalyticsWorkspaceId: pulumi.Input<string>;
+        /**
+         * The workspace key of the log analytics extension.
+         */
+        primaryKey: pulumi.Input<string>;
     }
 
     export interface HadoopClusterGateway {
@@ -22716,6 +22826,17 @@ export namespace hdinsight {
         keyVaultManagedIdentityId?: pulumi.Input<string>;
     }
 
+    export interface InteractiveQueryClusterExtension {
+        /**
+         * The workspace ID of the log analytics extension.
+         */
+        logAnalyticsWorkspaceId: pulumi.Input<string>;
+        /**
+         * The workspace key of the log analytics extension.
+         */
+        primaryKey: pulumi.Input<string>;
+    }
+
     export interface InteractiveQueryClusterGateway {
         /**
          * The password used for the Ambari Portal.
@@ -23068,6 +23189,17 @@ export namespace hdinsight {
         keyVaultManagedIdentityId?: pulumi.Input<string>;
     }
 
+    export interface KafkaClusterExtension {
+        /**
+         * The workspace ID of the log analytics extension.
+         */
+        logAnalyticsWorkspaceId: pulumi.Input<string>;
+        /**
+         * The workspace key of the log analytics extension.
+         */
+        primaryKey: pulumi.Input<string>;
+    }
+
     export interface KafkaClusterGateway {
         /**
          * The password used for the Ambari Portal.
@@ -23412,6 +23544,17 @@ export namespace hdinsight {
          * This is the resource ID of Managed Identity used to access the key vault.
          */
         keyVaultManagedIdentityId?: pulumi.Input<string>;
+    }
+
+    export interface SparkClusterExtension {
+        /**
+         * The workspace ID of the log analytics extension.
+         */
+        logAnalyticsWorkspaceId: pulumi.Input<string>;
+        /**
+         * The workspace key of the log analytics extension.
+         */
+        primaryKey: pulumi.Input<string>;
     }
 
     export interface SparkClusterGateway {
@@ -26874,12 +27017,26 @@ export namespace monitoring {
     export interface ActionGroupEventHubReceiver {
         /**
          * The resource ID of the respective Event Hub.
+         *
+         * @deprecated This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.
          */
-        eventHubId: pulumi.Input<string>;
+        eventHubId?: pulumi.Input<string>;
+        /**
+         * The name of the specific Event Hub queue.
+         */
+        eventHubName?: pulumi.Input<string>;
+        /**
+         * The namespace name of the Event Hub.
+         */
+        eventHubNamespace?: pulumi.Input<string>;
         /**
          * The name of the EventHub Receiver, must be unique within action group.
          */
         name: pulumi.Input<string>;
+        /**
+         * The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+         */
+        subscriptionId?: pulumi.Input<string>;
         /**
          * The Tenant ID for the subscription containing this Event Hub.
          */
@@ -27754,44 +27911,6 @@ export namespace monitoring {
          * Is this Retention Policy enabled?
          */
         enabled: pulumi.Input<boolean>;
-    }
-
-    export interface GetActionGroupEventHubReceiverArgs {
-        /**
-         * The resource ID of the respective Event Hub.
-         */
-        eventHubId: pulumi.Input<string>;
-        /**
-         * Specifies the name of the Action Group.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * The Tenant ID for the subscription containing this Event Hub.
-         */
-        tenantId?: pulumi.Input<string>;
-        /**
-         * Indicates whether to use common alert schema.
-         */
-        useCommonAlertSchema?: pulumi.Input<boolean>;
-    }
-
-    export interface GetActionGroupEventHubReceiver {
-        /**
-         * The resource ID of the respective Event Hub.
-         */
-        eventHubId: string;
-        /**
-         * Specifies the name of the Action Group.
-         */
-        name: string;
-        /**
-         * The Tenant ID for the subscription containing this Event Hub.
-         */
-        tenantId?: string;
-        /**
-         * Indicates whether to use common alert schema.
-         */
-        useCommonAlertSchema?: boolean;
     }
 
     export interface LogProfileRetentionPolicy {
@@ -31885,6 +32004,31 @@ export namespace operationalinsights {
          * The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
          */
         publisher: pulumi.Input<string>;
+    }
+}
+
+export namespace orbital {
+    export interface SpacecraftLink {
+        /**
+         * Bandwidth in Mhz.
+         */
+        bandwidthMhz: pulumi.Input<number>;
+        /**
+         * Center frequency in Mhz.
+         */
+        centerFrequencyMhz: pulumi.Input<number>;
+        /**
+         * Direction if the communication. Possible values are `Uplink` and `Downlink`.
+         */
+        direction: pulumi.Input<string>;
+        /**
+         * Name of the link.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Polarization. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizontal`.
+         */
+        polarization: pulumi.Input<string>;
     }
 }
 

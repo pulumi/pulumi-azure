@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly int RetentionInDays;
         /// <summary>
-        /// SAS url to an Azure blob container with read/write/list/delete permissions.
+        /// SAS URL to an Azure blob container with read/write/list/delete permissions.
         /// </summary>
         public readonly string SasUrl;
 

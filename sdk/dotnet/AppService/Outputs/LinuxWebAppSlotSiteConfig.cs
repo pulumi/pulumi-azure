@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string? ApiDefinitionUrl;
         /// <summary>
-        /// The API Management API ID this Linux Web App Slot os associated with.
+        /// The API Management API ID this Linux Web App Slot is associated with.
         /// </summary>
         public readonly string? ApiManagementApiId;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly Outputs.LinuxWebAppSlotSiteConfigApplicationStack? ApplicationStack;
         /// <summary>
-        /// Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+        /// Should Auto heal rules be enabled? Required with `auto_heal_setting`.
         /// </summary>
         public readonly bool? AutoHealEnabled;
         /// <summary>
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly ImmutableArray<string> DefaultDocuments;
         public readonly bool? DetailedErrorLoggingEnabled;
         /// <summary>
-        /// The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+        /// The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
         /// </summary>
         public readonly string? FtpsState;
         /// <summary>
@@ -118,11 +118,11 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? ScmUseMainIpRestriction;
         /// <summary>
-        /// Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+        /// Should the Linux Web App use a 32-bit worker? Defaults to `true`.
         /// </summary>
         public readonly bool? Use32BitWorker;
         /// <summary>
-        /// Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        /// Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         /// </summary>
         public readonly bool? VnetRouteAllEnabled;
         public readonly bool? WebsocketsEnabled;

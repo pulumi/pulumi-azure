@@ -32,14 +32,14 @@ public final class LinuxWebAppSlotLogsApplicationLogsArgs extends com.pulumi.res
     }
 
     /**
-     * Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+     * Log level. Possible values include `Verbose`, `Information`, `Warning`, and `Error`.
      * 
      */
     @Import(name="fileSystemLevel", required=true)
     private Output<String> fileSystemLevel;
 
     /**
-     * @return Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+     * @return Log level. Possible values include `Verbose`, `Information`, `Warning`, and `Error`.
      * 
      */
     public Output<String> fileSystemLevel() {
@@ -93,7 +93,7 @@ public final class LinuxWebAppSlotLogsApplicationLogsArgs extends com.pulumi.res
         }
 
         /**
-         * @param fileSystemLevel Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+         * @param fileSystemLevel Log level. Possible values include `Verbose`, `Information`, `Warning`, and `Error`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class LinuxWebAppSlotLogsApplicationLogsArgs extends com.pulumi.res
         }
 
         /**
-         * @param fileSystemLevel Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+         * @param fileSystemLevel Log level. Possible values include `Verbose`, `Information`, `Warning`, and `Error`.
          * 
          * @return builder
          * 

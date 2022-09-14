@@ -7526,7 +7526,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to run. Possible values include `12`, `14`, and `16`.
+         * The version of Node to run. Possible values include `12`, `14`, `16` and `18`.
          */
         nodeVersion?: string;
         /**
@@ -8332,7 +8332,7 @@ export namespace appservice {
          */
         google?: outputs.appservice.LinuxWebAppAuthSettingsGoogle;
         /**
-         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+         * The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
          */
         issuer?: string;
         /**
@@ -8500,7 +8500,7 @@ export namespace appservice {
          */
         frequencyUnit: string;
         /**
-         * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         * Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
          */
         keepAtLeastOneBackup?: boolean;
         lastExecutionTime: string;
@@ -8543,7 +8543,7 @@ export namespace appservice {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -8554,11 +8554,11 @@ export namespace appservice {
          */
         applicationLogs?: outputs.appservice.LinuxWebAppLogsApplicationLogs;
         /**
-         * Should detailed error messages be enabled.
+         * Should detailed error messages be enabled?
          */
         detailedErrorMessages?: boolean;
         /**
-         * Should failed request tracing be enabled.
+         * Should the failed request tracing be enabled?
          */
         failedRequestTracing?: boolean;
         /**
@@ -8617,7 +8617,7 @@ export namespace appservice {
 
     export interface LinuxWebAppLogsHttpLogsFileSystem {
         /**
-         * The retention period in days. A values of `0` means no retention.
+         * The retention period in days. A value of `0` means no retention.
          */
         retentionInDays: number;
         /**
@@ -8631,7 +8631,13 @@ export namespace appservice {
          * If this Linux Web App is Always On enabled. Defaults to `true`.
          */
         alwaysOn?: boolean;
+        /**
+         * The URL to the API Definition for this Linux Web App.
+         */
         apiDefinitionUrl?: string;
+        /**
+         * The API Management API ID this Linux Web App is associated with.
+         */
         apiManagementApiId?: string;
         /**
          * The App command line to launch.
@@ -8642,7 +8648,7 @@ export namespace appservice {
          */
         applicationStack: outputs.appservice.LinuxWebAppSiteConfigApplicationStack;
         /**
-         * Should Auto heal rules be enabled. Required with `autoHealSetting`.
+         * Should Auto heal rules be enabled? Required with `autoHealSetting`.
          */
         autoHealEnabled?: boolean;
         /**
@@ -8667,7 +8673,7 @@ export namespace appservice {
         defaultDocuments: string[];
         detailedErrorLoggingEnabled: boolean;
         /**
-         * The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+         * The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
          */
         ftpsState?: string;
         /**
@@ -8696,7 +8702,7 @@ export namespace appservice {
          */
         localMysqlEnabled?: boolean;
         /**
-         * Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+         * Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
          */
         managedPipelineMode?: string;
         /**
@@ -8722,15 +8728,15 @@ export namespace appservice {
          */
         scmUseMainIpRestriction?: boolean;
         /**
-         * Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+         * Should the Linux Web App use a 32-bit worker? Defaults to `true`.
          */
         use32BitWorker?: boolean;
         /**
-         * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         * Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
          */
         vnetRouteAllEnabled?: boolean;
         /**
-         * Should Web Sockets be enabled. Defaults to `false`.
+         * Should Web Sockets be enabled? Defaults to `false`.
          */
         websocketsEnabled?: boolean;
         /**
@@ -9032,7 +9038,7 @@ export namespace appservice {
          */
         google?: outputs.appservice.LinuxWebAppSlotAuthSettingsGoogle;
         /**
-         * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+         * The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
          */
         issuer?: string;
         /**
@@ -9181,7 +9187,7 @@ export namespace appservice {
          */
         name: string;
         /**
-         * A `schedule` block as defined below.
+         * An `schedule` block as defined below.
          */
         schedule: outputs.appservice.LinuxWebAppSlotBackupSchedule;
         /**
@@ -9200,7 +9206,7 @@ export namespace appservice {
          */
         frequencyUnit: string;
         /**
-         * Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+         * Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
          */
         keepAtLeastOneBackup?: boolean;
         lastExecutionTime: string;
@@ -9216,11 +9222,11 @@ export namespace appservice {
 
     export interface LinuxWebAppSlotConnectionString {
         /**
-         * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         * The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
          */
         name: string;
         /**
-         * Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+         * Type of database. Possible values include `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
          */
         type: string;
         /**
@@ -9243,7 +9249,7 @@ export namespace appservice {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Linux Web App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * Specifies the type of Managed Service Identity that should be configured on this Linux Web App Slot. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -9254,11 +9260,11 @@ export namespace appservice {
          */
         applicationLogs?: outputs.appservice.LinuxWebAppSlotLogsApplicationLogs;
         /**
-         * Should detailed error messages be enabled.
+         * Should detailed error messages be enabled?
          */
         detailedErrorMessages?: boolean;
         /**
-         * Should failed request tracing be enabled.
+         * Should the failed request tracing be enabled?
          */
         failedRequestTracing?: boolean;
         /**
@@ -9273,7 +9279,7 @@ export namespace appservice {
          */
         azureBlobStorage?: outputs.appservice.LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage;
         /**
-         * Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+         * Log level. Possible values include `Verbose`, `Information`, `Warning`, and `Error`.
          */
         fileSystemLevel: string;
     }
@@ -9288,7 +9294,7 @@ export namespace appservice {
          */
         retentionInDays: number;
         /**
-         * SAS url to an Azure blob container with read/write/list/delete permissions.
+         * SAS URL to an Azure blob container with read/write/list/delete permissions.
          */
         sasUrl: string;
     }
@@ -9310,7 +9316,7 @@ export namespace appservice {
          */
         retentionInDays?: number;
         /**
-         * SAS url to an Azure blob container with read/write/list/delete permissions.
+         * SAS URL to an Azure blob container with read/write/list/delete permissions.
          */
         sasUrl: string;
     }
@@ -9336,7 +9342,7 @@ export namespace appservice {
          */
         apiDefinitionUrl?: string;
         /**
-         * The API Management API ID this Linux Web App Slot os associated with.
+         * The API Management API ID this Linux Web App Slot is associated with.
          */
         apiManagementApiId?: string;
         /**
@@ -9348,7 +9354,7 @@ export namespace appservice {
          */
         applicationStack: outputs.appservice.LinuxWebAppSlotSiteConfigApplicationStack;
         /**
-         * Should Auto heal rules be enabled. Required with `autoHealSetting`.
+         * Should Auto heal rules be enabled? Required with `autoHealSetting`.
          */
         autoHealEnabled?: boolean;
         /**
@@ -9377,7 +9383,7 @@ export namespace appservice {
         defaultDocuments: string[];
         detailedErrorLoggingEnabled: boolean;
         /**
-         * The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+         * The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
          */
         ftpsState?: string;
         /**
@@ -9432,11 +9438,11 @@ export namespace appservice {
          */
         scmUseMainIpRestriction?: boolean;
         /**
-         * Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+         * Should the Linux Web App use a 32-bit worker? Defaults to `true`.
          */
         use32BitWorker?: boolean;
         /**
-         * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         * Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
          */
         vnetRouteAllEnabled?: boolean;
         websocketsEnabled?: boolean;
@@ -9696,7 +9702,7 @@ export namespace appservice {
 
     export interface LinuxWebAppSlotSiteCredential {
         /**
-         * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         * The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
          */
         name: string;
         /**
@@ -10806,7 +10812,7 @@ export namespace appservice {
          */
         javaVersion?: string;
         /**
-         * The version of Node to run. Possible values include `~12`, `~14`, and `~16`.
+         * The version of Node to run. Possible values include `~12`, `~14`, `~16` and `~18`.
          */
         nodeVersion?: string;
         /**
@@ -13258,6 +13264,21 @@ export namespace automation {
          * Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
          */
         occurrence: number;
+    }
+
+    export interface SourceControlSecurity {
+        /**
+         * The refresh token of specified rpeo.
+         */
+        refreshToken?: string;
+        /**
+         * The access token of specified repo.
+         */
+        token: string;
+        /**
+         * Specify the token type, possible values are `PersonalAccessToken` and `Oauth`.
+         */
+        tokenType: string;
     }
 
 }
@@ -21263,9 +21284,24 @@ export namespace containerservice {
          */
         adminUsername: string;
         /**
+         * A `gmsa` block as defined below.
+         */
+        gmsa?: outputs.containerservice.KubernetesClusterWindowsProfileGmsa;
+        /**
          * Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
          */
         license?: string;
+    }
+
+    export interface KubernetesClusterWindowsProfileGmsa {
+        /**
+         * Specifies the DNS server for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+         */
+        dnsServer: string;
+        /**
+         * Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+         */
+        rootDomain: string;
     }
 
     export interface RegistryEncryption {
@@ -21637,6 +21673,28 @@ export namespace containerservice {
          * Boolean value that indicates whether the policy is enabled.
          */
         enabled?: boolean;
+    }
+
+    export interface TokenPasswordPassword1 {
+        /**
+         * The expiration date of the password in RFC3339 format.
+         */
+        expiry?: string;
+        /**
+         * The value of the password (Sensitive).
+         */
+        value: string;
+    }
+
+    export interface TokenPasswordPassword2 {
+        /**
+         * The expiration date of the password in RFC3339 format.
+         */
+        expiry?: string;
+        /**
+         * The value of the password (Sensitive).
+         */
+        value: string;
     }
 
 }
@@ -22345,7 +22403,7 @@ export namespace cosmosdb {
          */
         includedPaths: outputs.cosmosdb.SqlContainerIndexingPolicyIncludedPath[];
         /**
-         * Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+         * Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
          */
         indexingMode?: string;
         /**
@@ -24477,6 +24535,36 @@ export namespace datashare {
 }
 
 export namespace desktopvirtualization {
+    export interface HostPoolScheduledAgentUpdates {
+        /**
+         * Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
+         */
+        enabled?: boolean;
+        /**
+         * A `schedule` block as defined below. A maximum of two blocks can be added.
+         */
+        schedules?: outputs.desktopvirtualization.HostPoolScheduledAgentUpdatesSchedule[];
+        /**
+         * Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `useSessionHostTimezone` is enabled then it will override this setting. Default is `UTC`
+         */
+        timezone?: string;
+        /**
+         * Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides `timezone`. Default is `false`.
+         */
+        useSessionHostTimezone?: boolean;
+    }
+
+    export interface HostPoolScheduledAgentUpdatesSchedule {
+        /**
+         * The day of the week on which agent updates should be performed. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+         */
+        dayOfWeek: string;
+        /**
+         * The hour of day the update window should start. The update is a 2 hour period following the hour provided. The value should be provided as a number between 0 and 23, with 0 being midnight and 23 being 11pm. A leading zero should not be used.
+         */
+        hourOfDay: number;
+    }
+
     export interface ScalingPlanHostPool {
         /**
          * The ID of the HostPool to assign the Scaling Plan to.
@@ -27579,6 +27667,17 @@ export namespace hdinsight {
         keyVaultManagedIdentityId?: string;
     }
 
+    export interface HBaseClusterExtension {
+        /**
+         * The workspace ID of the log analytics extension.
+         */
+        logAnalyticsWorkspaceId: string;
+        /**
+         * The workspace key of the log analytics extension.
+         */
+        primaryKey: string;
+    }
+
     export interface HBaseClusterGateway {
         /**
          * The password used for the Ambari Portal.
@@ -27914,6 +28013,17 @@ export namespace hdinsight {
          * This is the resource ID of Managed Identity used to access the key vault.
          */
         keyVaultManagedIdentityId?: string;
+    }
+
+    export interface HadoopClusterExtension {
+        /**
+         * The workspace ID of the log analytics extension.
+         */
+        logAnalyticsWorkspaceId: string;
+        /**
+         * The workspace key of the log analytics extension.
+         */
+        primaryKey: string;
     }
 
     export interface HadoopClusterGateway {
@@ -28339,6 +28449,17 @@ export namespace hdinsight {
         keyVaultManagedIdentityId?: string;
     }
 
+    export interface InteractiveQueryClusterExtension {
+        /**
+         * The workspace ID of the log analytics extension.
+         */
+        logAnalyticsWorkspaceId: string;
+        /**
+         * The workspace key of the log analytics extension.
+         */
+        primaryKey: string;
+    }
+
     export interface InteractiveQueryClusterGateway {
         /**
          * The password used for the Ambari Portal.
@@ -28691,6 +28812,17 @@ export namespace hdinsight {
         keyVaultManagedIdentityId?: string;
     }
 
+    export interface KafkaClusterExtension {
+        /**
+         * The workspace ID of the log analytics extension.
+         */
+        logAnalyticsWorkspaceId: string;
+        /**
+         * The workspace key of the log analytics extension.
+         */
+        primaryKey: string;
+    }
+
     export interface KafkaClusterGateway {
         /**
          * The password used for the Ambari Portal.
@@ -29035,6 +29167,17 @@ export namespace hdinsight {
          * This is the resource ID of Managed Identity used to access the key vault.
          */
         keyVaultManagedIdentityId?: string;
+    }
+
+    export interface SparkClusterExtension {
+        /**
+         * The workspace ID of the log analytics extension.
+         */
+        logAnalyticsWorkspaceId: string;
+        /**
+         * The workspace key of the log analytics extension.
+         */
+        primaryKey: string;
     }
 
     export interface SparkClusterGateway {
@@ -32989,12 +33132,26 @@ export namespace monitoring {
     export interface ActionGroupEventHubReceiver {
         /**
          * The resource ID of the respective Event Hub.
+         *
+         * @deprecated This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.
          */
         eventHubId: string;
+        /**
+         * The name of the specific Event Hub queue.
+         */
+        eventHubName: string;
+        /**
+         * The namespace name of the Event Hub.
+         */
+        eventHubNamespace: string;
         /**
          * The name of the EventHub Receiver, must be unique within action group.
          */
         name: string;
+        /**
+         * The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+         */
+        subscriptionId: string;
         /**
          * The Tenant ID for the subscription containing this Event Hub.
          */
@@ -33969,12 +34126,26 @@ export namespace monitoring {
     export interface GetActionGroupEventHubReceiver {
         /**
          * The resource ID of the respective Event Hub.
+         *
+         * @deprecated This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead.
          */
         eventHubId: string;
+        /**
+         * The name of the specific Event Hub queue.
+         */
+        eventHubName: string;
+        /**
+         * The namespace name of the Event Hub.
+         */
+        eventHubNamespace: string;
         /**
          * Specifies the name of the Action Group.
          */
         name: string;
+        /**
+         * The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+         */
+        subscriptionId: string;
         /**
          * The Tenant ID for the subscription containing this Event Hub.
          */
@@ -39128,6 +39299,32 @@ export namespace operationalinsights {
          * The publisher of the solution. For example `Microsoft`. Changing this forces a new resource to be created.
          */
         publisher: string;
+    }
+
+}
+
+export namespace orbital {
+    export interface SpacecraftLink {
+        /**
+         * Bandwidth in Mhz.
+         */
+        bandwidthMhz: number;
+        /**
+         * Center frequency in Mhz.
+         */
+        centerFrequencyMhz: number;
+        /**
+         * Direction if the communication. Possible values are `Uplink` and `Downlink`.
+         */
+        direction: string;
+        /**
+         * Name of the link.
+         */
+        name: string;
+        /**
+         * Polarization. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizontal`.
+         */
+        polarization: string;
     }
 
 }

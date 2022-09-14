@@ -56,19 +56,25 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleScaleSet, err := compute.NewScaleSet(ctx, "exampleScaleSet", &compute.ScaleSetArgs{
+//			exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "exampleLinuxVirtualMachineScaleSet", &compute.LinuxVirtualMachineScaleSetArgs{
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				UpgradePolicyMode: pulumi.String("Manual"),
-//				StorageProfileOsDisk: &compute.ScaleSetStorageProfileOsDiskArgs{
-//					CreateOption: pulumi.String("FromImage"),
+//				UpgradeMode:       pulumi.String("Manual"),
+//				Sku:               pulumi.String("Standard_F2"),
+//				Instances:         pulumi.Int(2),
+//				AdminUsername:     pulumi.String("myadmin"),
+//				AdminSshKeys: compute.LinuxVirtualMachineScaleSetAdminSshKeyArray{
+//					&compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs{
+//						Username:  pulumi.String("myadmin"),
+//						PublicKey: pulumi.String("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com"),
+//					},
 //				},
-//				NetworkProfiles: compute.ScaleSetNetworkProfileArray{
-//					&compute.ScaleSetNetworkProfileArgs{
+//				NetworkInterfaces: compute.LinuxVirtualMachineScaleSetNetworkInterfaceArray{
+//					&compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs{
 //						Name:    pulumi.String("TestNetworkProfile"),
 //						Primary: pulumi.Bool(true),
-//						IpConfigurations: compute.ScaleSetNetworkProfileIpConfigurationArray{
-//							&compute.ScaleSetNetworkProfileIpConfigurationArgs{
+//						IpConfigurations: compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
+//							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
 //								Name:     pulumi.String("TestIPConfiguration"),
 //								Primary:  pulumi.Bool(true),
 //								SubnetId: exampleSubnet.ID(),
@@ -76,13 +82,15 @@ import (
 //						},
 //					},
 //				},
-//				OsProfile: &compute.ScaleSetOsProfileArgs{
-//					ComputerNamePrefix: pulumi.String("testvm"),
-//					AdminUsername:      pulumi.String("myadmin"),
+//				OsDisk: &compute.LinuxVirtualMachineScaleSetOsDiskArgs{
+//					Caching:            pulumi.String("ReadWrite"),
+//					StorageAccountType: pulumi.String("StandardSSD_LRS"),
 //				},
-//				Sku: &compute.ScaleSetSkuArgs{
-//					Name:     pulumi.String("Standard_F2"),
-//					Capacity: pulumi.Int(2),
+//				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{
+//					Publisher: pulumi.String("Canonical"),
+//					Offer:     pulumi.String("UbuntuServer"),
+//					Sku:       pulumi.String("16.04-LTS"),
+//					Version:   pulumi.String("latest"),
 //				},
 //			})
 //			if err != nil {
@@ -91,7 +99,7 @@ import (
 //			_, err = monitoring.NewAutoscaleSetting(ctx, "exampleAutoscaleSetting", &monitoring.AutoscaleSettingArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
-//				TargetResourceId:  exampleScaleSet.ID(),
+//				TargetResourceId:  exampleLinuxVirtualMachineScaleSet.ID(),
 //				Profiles: monitoring.AutoscaleSettingProfileArray{
 //					&monitoring.AutoscaleSettingProfileArgs{
 //						Name: pulumi.String("defaultProfile"),
@@ -104,7 +112,7 @@ import (
 //							&monitoring.AutoscaleSettingProfileRuleArgs{
 //								MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
 //									MetricName:       pulumi.String("Percentage CPU"),
-//									MetricResourceId: exampleScaleSet.ID(),
+//									MetricResourceId: exampleLinuxVirtualMachineScaleSet.ID(),
 //									TimeGrain:        pulumi.String("PT1M"),
 //									Statistic:        pulumi.String("Average"),
 //									TimeWindow:       pulumi.String("PT5M"),
@@ -132,7 +140,7 @@ import (
 //							&monitoring.AutoscaleSettingProfileRuleArgs{
 //								MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
 //									MetricName:       pulumi.String("Percentage CPU"),
-//									MetricResourceId: exampleScaleSet.ID(),
+//									MetricResourceId: exampleLinuxVirtualMachineScaleSet.ID(),
 //									TimeGrain:        pulumi.String("PT1M"),
 //									Statistic:        pulumi.String("Average"),
 //									TimeWindow:       pulumi.String("PT5M"),
@@ -211,19 +219,25 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleScaleSet, err := compute.NewScaleSet(ctx, "exampleScaleSet", &compute.ScaleSetArgs{
+//			exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "exampleLinuxVirtualMachineScaleSet", &compute.LinuxVirtualMachineScaleSetArgs{
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				UpgradePolicyMode: pulumi.String("Manual"),
-//				StorageProfileOsDisk: &compute.ScaleSetStorageProfileOsDiskArgs{
-//					CreateOption: pulumi.String("FromImage"),
+//				UpgradeMode:       pulumi.String("Manual"),
+//				Sku:               pulumi.String("Standard_F2"),
+//				Instances:         pulumi.Int(2),
+//				AdminUsername:     pulumi.String("myadmin"),
+//				AdminSshKeys: compute.LinuxVirtualMachineScaleSetAdminSshKeyArray{
+//					&compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs{
+//						Username:  pulumi.String("myadmin"),
+//						PublicKey: pulumi.String("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com"),
+//					},
 //				},
-//				NetworkProfiles: compute.ScaleSetNetworkProfileArray{
-//					&compute.ScaleSetNetworkProfileArgs{
+//				NetworkInterfaces: compute.LinuxVirtualMachineScaleSetNetworkInterfaceArray{
+//					&compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs{
 //						Name:    pulumi.String("TestNetworkProfile"),
 //						Primary: pulumi.Bool(true),
-//						IpConfigurations: compute.ScaleSetNetworkProfileIpConfigurationArray{
-//							&compute.ScaleSetNetworkProfileIpConfigurationArgs{
+//						IpConfigurations: compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
+//							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
 //								Name:     pulumi.String("TestIPConfiguration"),
 //								Primary:  pulumi.Bool(true),
 //								SubnetId: exampleSubnet.ID(),
@@ -231,13 +245,15 @@ import (
 //						},
 //					},
 //				},
-//				OsProfile: &compute.ScaleSetOsProfileArgs{
-//					ComputerNamePrefix: pulumi.String("testvm"),
-//					AdminUsername:      pulumi.String("myadmin"),
+//				OsDisk: &compute.LinuxVirtualMachineScaleSetOsDiskArgs{
+//					Caching:            pulumi.String("ReadWrite"),
+//					StorageAccountType: pulumi.String("StandardSSD_LRS"),
 //				},
-//				Sku: &compute.ScaleSetSkuArgs{
-//					Name:     pulumi.String("Standard_F2"),
-//					Capacity: pulumi.Int(2),
+//				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{
+//					Publisher: pulumi.String("Canonical"),
+//					Offer:     pulumi.String("UbuntuServer"),
+//					Sku:       pulumi.String("16.04-LTS"),
+//					Version:   pulumi.String("latest"),
 //				},
 //			})
 //			if err != nil {
@@ -247,7 +263,7 @@ import (
 //				Enabled:           pulumi.Bool(true),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
-//				TargetResourceId:  exampleScaleSet.ID(),
+//				TargetResourceId:  exampleLinuxVirtualMachineScaleSet.ID(),
 //				Profiles: monitoring.AutoscaleSettingProfileArray{
 //					&monitoring.AutoscaleSettingProfileArgs{
 //						Name: pulumi.String("forJuly"),
@@ -260,7 +276,7 @@ import (
 //							&monitoring.AutoscaleSettingProfileRuleArgs{
 //								MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
 //									MetricName:       pulumi.String("Percentage CPU"),
-//									MetricResourceId: exampleScaleSet.ID(),
+//									MetricResourceId: exampleLinuxVirtualMachineScaleSet.ID(),
 //									TimeGrain:        pulumi.String("PT1M"),
 //									Statistic:        pulumi.String("Average"),
 //									TimeWindow:       pulumi.String("PT5M"),
@@ -278,7 +294,7 @@ import (
 //							&monitoring.AutoscaleSettingProfileRuleArgs{
 //								MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
 //									MetricName:       pulumi.String("Percentage CPU"),
-//									MetricResourceId: exampleScaleSet.ID(),
+//									MetricResourceId: exampleLinuxVirtualMachineScaleSet.ID(),
 //									TimeGrain:        pulumi.String("PT1M"),
 //									Statistic:        pulumi.String("Average"),
 //									TimeWindow:       pulumi.String("PT5M"),

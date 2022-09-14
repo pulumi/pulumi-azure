@@ -22,7 +22,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A `schedule` block as defined below.
+        /// An `schedule` block as defined below.
         /// </summary>
         public readonly Outputs.LinuxWebAppSlotBackupSchedule Schedule;
         /// <summary>

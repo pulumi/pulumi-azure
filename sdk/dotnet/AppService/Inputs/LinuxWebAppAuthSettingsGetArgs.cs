@@ -73,7 +73,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<Inputs.LinuxWebAppAuthSettingsGoogleGetArgs>? Google { get; set; }
 
         /// <summary>
-        /// The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+        /// The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
         /// </summary>
         [Input("issuer")]
         public Input<string>? Issuer { get; set; }
