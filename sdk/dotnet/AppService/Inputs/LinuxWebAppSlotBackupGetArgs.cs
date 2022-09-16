@@ -25,7 +25,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// A `schedule` block as defined below.
+        /// An `schedule` block as defined below.
         /// </summary>
         [Input("schedule", required: true)]
         public Input<Inputs.LinuxWebAppSlotBackupScheduleGetArgs> Schedule { get; set; } = null!;

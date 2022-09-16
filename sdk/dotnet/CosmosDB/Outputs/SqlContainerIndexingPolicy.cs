@@ -26,7 +26,7 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.SqlContainerIndexingPolicyIncludedPath> IncludedPaths;
         /// <summary>
-        /// Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+        /// Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
         /// </summary>
         public readonly string? IndexingMode;
         /// <summary>

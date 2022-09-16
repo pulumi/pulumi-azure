@@ -92,7 +92,7 @@ export class CassandraTable extends pulumi.CustomResource {
     }
 
     /**
-     * Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+     * Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
      */
     public readonly analyticalStorageTtl!: pulumi.Output<number | undefined>;
     public readonly autoscaleSettings!: pulumi.Output<outputs.cosmosdb.CassandraTableAutoscaleSettings | undefined>;
@@ -160,7 +160,7 @@ export class CassandraTable extends pulumi.CustomResource {
  */
 export interface CassandraTableState {
     /**
-     * Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+     * Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
      */
     analyticalStorageTtl?: pulumi.Input<number>;
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.CassandraTableAutoscaleSettings>;
@@ -188,7 +188,7 @@ export interface CassandraTableState {
  */
 export interface CassandraTableArgs {
     /**
-     * Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+     * Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
      */
     analyticalStorageTtl?: pulumi.Input<number>;
     autoscaleSettings?: pulumi.Input<inputs.cosmosdb.CassandraTableAutoscaleSettings>;

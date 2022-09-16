@@ -18,9 +18,21 @@ namespace Pulumi.Azure.Monitoring.Outputs
         /// </summary>
         public readonly string EventHubId;
         /// <summary>
+        /// The name of the specific Event Hub queue.
+        /// </summary>
+        public readonly string EventHubName;
+        /// <summary>
+        /// The namespace name of the Event Hub.
+        /// </summary>
+        public readonly string EventHubNamespace;
+        /// <summary>
         /// Specifies the name of the Action Group.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+        /// </summary>
+        public readonly string SubscriptionId;
         /// <summary>
         /// The Tenant ID for the subscription containing this Event Hub.
         /// </summary>
@@ -34,14 +46,23 @@ namespace Pulumi.Azure.Monitoring.Outputs
         private GetActionGroupEventHubReceiverResult(
             string eventHubId,
 
+            string eventHubName,
+
+            string eventHubNamespace,
+
             string name,
+
+            string subscriptionId,
 
             string tenantId,
 
             bool? useCommonAlertSchema)
         {
             EventHubId = eventHubId;
+            EventHubName = eventHubName;
+            EventHubNamespace = eventHubNamespace;
             Name = name;
+            SubscriptionId = subscriptionId;
             TenantId = tenantId;
             UseCommonAlertSchema = useCommonAlertSchema;
         }

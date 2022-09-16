@@ -152,7 +152,7 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
      */
     public readonly suppressionEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+     * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
      */
     public readonly tactics!: pulumi.Output<string[] | undefined>;
     /**
@@ -316,7 +316,7 @@ export interface AlertRuleScheduledState {
      */
     suppressionEnabled?: pulumi.Input<boolean>;
     /**
-     * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+     * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
      */
     tactics?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -406,7 +406,7 @@ export interface AlertRuleScheduledArgs {
      */
     suppressionEnabled?: pulumi.Input<boolean>;
     /**
-     * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+     * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
      */
     tactics?: pulumi.Input<pulumi.Input<string>[]>;
     /**

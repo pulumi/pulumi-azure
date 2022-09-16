@@ -109,6 +109,10 @@ export class HadoopCluster extends pulumi.CustomResource {
     public readonly componentVersion!: pulumi.Output<outputs.hdinsight.HadoopClusterComponentVersion>;
     public readonly diskEncryptions!: pulumi.Output<outputs.hdinsight.HadoopClusterDiskEncryption[] | undefined>;
     /**
+     * An `extension` block as defined below.
+     */
+    public readonly extension!: pulumi.Output<outputs.hdinsight.HadoopClusterExtension | undefined>;
+    /**
      * A `gateway` block as defined below.
      */
     public readonly gateway!: pulumi.Output<outputs.hdinsight.HadoopClusterGateway>;
@@ -186,6 +190,7 @@ export class HadoopCluster extends pulumi.CustomResource {
             resourceInputs["clusterVersion"] = state ? state.clusterVersion : undefined;
             resourceInputs["componentVersion"] = state ? state.componentVersion : undefined;
             resourceInputs["diskEncryptions"] = state ? state.diskEncryptions : undefined;
+            resourceInputs["extension"] = state ? state.extension : undefined;
             resourceInputs["gateway"] = state ? state.gateway : undefined;
             resourceInputs["httpsEndpoint"] = state ? state.httpsEndpoint : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -225,6 +230,7 @@ export class HadoopCluster extends pulumi.CustomResource {
             resourceInputs["clusterVersion"] = args ? args.clusterVersion : undefined;
             resourceInputs["componentVersion"] = args ? args.componentVersion : undefined;
             resourceInputs["diskEncryptions"] = args ? args.diskEncryptions : undefined;
+            resourceInputs["extension"] = args ? args.extension : undefined;
             resourceInputs["gateway"] = args ? args.gateway : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["metastores"] = args ? args.metastores : undefined;
@@ -260,6 +266,10 @@ export interface HadoopClusterState {
      */
     componentVersion?: pulumi.Input<inputs.hdinsight.HadoopClusterComponentVersion>;
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterDiskEncryption>[]>;
+    /**
+     * An `extension` block as defined below.
+     */
+    extension?: pulumi.Input<inputs.hdinsight.HadoopClusterExtension>;
     /**
      * A `gateway` block as defined below.
      */
@@ -336,6 +346,10 @@ export interface HadoopClusterArgs {
      */
     componentVersion: pulumi.Input<inputs.hdinsight.HadoopClusterComponentVersion>;
     diskEncryptions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterDiskEncryption>[]>;
+    /**
+     * An `extension` block as defined below.
+     */
+    extension?: pulumi.Input<inputs.hdinsight.HadoopClusterExtension>;
     /**
      * A `gateway` block as defined below.
      */

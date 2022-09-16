@@ -19,12 +19,12 @@ public final class LinuxWebAppLogs {
      */
     private @Nullable LinuxWebAppLogsApplicationLogs applicationLogs;
     /**
-     * @return Should detailed error messages be enabled.
+     * @return Should detailed error messages be enabled?
      * 
      */
     private @Nullable Boolean detailedErrorMessages;
     /**
-     * @return Should failed request tracing be enabled.
+     * @return Should the failed request tracing be enabled?
      * 
      */
     private @Nullable Boolean failedRequestTracing;
@@ -43,14 +43,14 @@ public final class LinuxWebAppLogs {
         return Optional.ofNullable(this.applicationLogs);
     }
     /**
-     * @return Should detailed error messages be enabled.
+     * @return Should detailed error messages be enabled?
      * 
      */
     public Optional<Boolean> detailedErrorMessages() {
         return Optional.ofNullable(this.detailedErrorMessages);
     }
     /**
-     * @return Should failed request tracing be enabled.
+     * @return Should the failed request tracing be enabled?
      * 
      */
     public Optional<Boolean> failedRequestTracing() {

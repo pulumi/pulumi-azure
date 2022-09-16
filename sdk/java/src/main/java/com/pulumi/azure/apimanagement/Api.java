@@ -105,6 +105,20 @@ public class Api extends com.pulumi.resources.CustomResource {
         return this.apiManagementName;
     }
     /**
+     * Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+     * 
+     */
+    @Export(name="apiType", type=String.class, parameters={})
+    private Output<String> apiType;
+
+    /**
+     * @return Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+     * 
+     */
+    public Output<String> apiType() {
+        return this.apiType;
+    }
+    /**
      * A description of the API Management API, which may include HTML formatting tags.
      * 
      */
@@ -231,14 +245,14 @@ public class Api extends com.pulumi.resources.CustomResource {
         return this.path;
     }
     /**
-     * A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+     * A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      * 
      */
     @Export(name="protocols", type=List.class, parameters={String.class})
     private Output<List<String>> protocols;
 
     /**
-     * @return A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+     * @return A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      * 
      */
     public Output<List<String>> protocols() {
@@ -303,16 +317,20 @@ public class Api extends com.pulumi.resources.CustomResource {
     /**
      * Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
      * 
+     * @deprecated
+     * `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
+     * 
      */
+    @Deprecated /* `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider */
     @Export(name="soapPassThrough", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> soapPassThrough;
+    private Output<Boolean> soapPassThrough;
 
     /**
      * @return Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
      * 
      */
-    public Output<Optional<Boolean>> soapPassThrough() {
-        return Codegen.optional(this.soapPassThrough);
+    public Output<Boolean> soapPassThrough() {
+        return this.soapPassThrough;
     }
     /**
      * The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`

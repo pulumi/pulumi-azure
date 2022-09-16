@@ -66,14 +66,14 @@ public final class SqlContainerIndexingPolicyArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+     * Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
      * 
      */
     @Import(name="indexingMode")
     private @Nullable Output<String> indexingMode;
 
     /**
-     * @return Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+     * @return Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
      * 
      */
     public Optional<Output<String>> indexingMode() {
@@ -217,7 +217,7 @@ public final class SqlContainerIndexingPolicyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param indexingMode Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+         * @param indexingMode Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class SqlContainerIndexingPolicyArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param indexingMode Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
+         * @param indexingMode Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
          * 
          * @return builder
          * 

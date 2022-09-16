@@ -7394,7 +7394,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
         :param Sequence['LinuxFunctionAppSiteConfigApplicationStackDockerArgs'] dockers: One or more `docker` blocks as defined below.
         :param str dotnet_version: The version of .NET to use. Possible values include `3.1` and `6.0`.
         :param str java_version: The Version of Java to use. Supported versions include `8`, and `11`.
-        :param str node_version: The version of Node to run. Possible values include `12`, `14`, and `16`.
+        :param str node_version: The version of Node to run. Possible values include `12`, `14`, `16` and `18`.
         :param str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
         :param str python_version: The version of Python to run. Possible values include `3.6`, `3.7`, `3.8`, and `3.9`.
         :param bool use_custom_runtime: Should the Linux Function App use a custom runtime?
@@ -7445,7 +7445,7 @@ class LinuxFunctionAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[str]:
         """
-        The version of Node to run. Possible values include `12`, `14`, and `16`.
+        The version of Node to run. Possible values include `12`, `14`, `16` and `18`.
         """
         return pulumi.get(self, "node_version")
 
@@ -10361,7 +10361,7 @@ class LinuxWebAppAuthSettings(dict):
         :param 'LinuxWebAppAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
         :param 'LinuxWebAppAuthSettingsGithubArgs' github: A `github` block as defined below.
         :param 'LinuxWebAppAuthSettingsGoogleArgs' google: A `google` block as defined below.
-        :param str issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+        :param str issuer: The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
         :param 'LinuxWebAppAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
         :param str runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
@@ -10467,7 +10467,7 @@ class LinuxWebAppAuthSettings(dict):
     @pulumi.getter
     def issuer(self) -> Optional[str]:
         """
-        The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+        The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
         """
         return pulumi.get(self, "issuer")
 
@@ -11076,7 +11076,7 @@ class LinuxWebAppBackupSchedule(dict):
         """
         :param int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
         :param str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
-        :param bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        :param bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
         :param int retention_period_days: After how many days backups should be deleted.
         :param str start_time: When the schedule should start working in RFC-3339 format.
         """
@@ -11111,7 +11111,7 @@ class LinuxWebAppBackupSchedule(dict):
     @pulumi.getter(name="keepAtLeastOneBackup")
     def keep_at_least_one_backup(self) -> Optional[bool]:
         """
-        Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
         """
         return pulumi.get(self, "keep_at_least_one_backup")
 
@@ -11206,7 +11206,7 @@ class LinuxWebAppIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Linux Web App.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
@@ -11223,7 +11223,7 @@ class LinuxWebAppIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
@@ -11284,8 +11284,8 @@ class LinuxWebAppLogs(dict):
                  http_logs: Optional['outputs.LinuxWebAppLogsHttpLogs'] = None):
         """
         :param 'LinuxWebAppLogsApplicationLogsArgs' application_logs: A `application_logs` block as defined above.
-        :param bool detailed_error_messages: Should detailed error messages be enabled.
-        :param bool failed_request_tracing: Should failed request tracing be enabled.
+        :param bool detailed_error_messages: Should detailed error messages be enabled?
+        :param bool failed_request_tracing: Should the failed request tracing be enabled?
         :param 'LinuxWebAppLogsHttpLogsArgs' http_logs: An `http_logs` block as defined above.
         """
         if application_logs is not None:
@@ -11309,7 +11309,7 @@ class LinuxWebAppLogs(dict):
     @pulumi.getter(name="detailedErrorMessages")
     def detailed_error_messages(self) -> Optional[bool]:
         """
-        Should detailed error messages be enabled.
+        Should detailed error messages be enabled?
         """
         return pulumi.get(self, "detailed_error_messages")
 
@@ -11317,7 +11317,7 @@ class LinuxWebAppLogs(dict):
     @pulumi.getter(name="failedRequestTracing")
     def failed_request_tracing(self) -> Optional[bool]:
         """
-        Should failed request tracing be enabled.
+        Should the failed request tracing be enabled?
         """
         return pulumi.get(self, "failed_request_tracing")
 
@@ -11562,7 +11562,7 @@ class LinuxWebAppLogsHttpLogsFileSystem(dict):
                  retention_in_days: int,
                  retention_in_mb: int):
         """
-        :param int retention_in_days: The retention period in days. A values of `0` means no retention.
+        :param int retention_in_days: The retention period in days. A value of `0` means no retention.
         :param int retention_in_mb: The maximum size in megabytes that log files can use.
         """
         pulumi.set(__self__, "retention_in_days", retention_in_days)
@@ -11572,7 +11572,7 @@ class LinuxWebAppLogsHttpLogsFileSystem(dict):
     @pulumi.getter(name="retentionInDays")
     def retention_in_days(self) -> int:
         """
-        The retention period in days. A values of `0` means no retention.
+        The retention period in days. A value of `0` means no retention.
         """
         return pulumi.get(self, "retention_in_days")
 
@@ -11699,30 +11699,32 @@ class LinuxWebAppSiteConfig(dict):
                  worker_count: Optional[int] = None):
         """
         :param bool always_on: If this Linux Web App is Always On enabled. Defaults to `true`.
+        :param str api_definition_url: The URL to the API Definition for this Linux Web App.
+        :param str api_management_api_id: The API Management API ID this Linux Web App is associated with.
         :param str app_command_line: The App command line to launch.
         :param 'LinuxWebAppSiteConfigApplicationStackArgs' application_stack: A `application_stack` block as defined above.
-        :param bool auto_heal_enabled: Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+        :param bool auto_heal_enabled: Should Auto heal rules be enabled? Required with `auto_heal_setting`.
         :param 'LinuxWebAppSiteConfigAutoHealSettingArgs' auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
         :param str container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
         :param bool container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
         :param 'LinuxWebAppSiteConfigCorsArgs' cors: A `cors` block as defined above.
         :param Sequence[str] default_documents: Specifies a list of Default Documents for the Linux Web App.
-        :param str ftps_state: The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+        :param str ftps_state: The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param str health_check_path: The path to the Health Check.
         :param bool http2_enabled: Should the HTTP2 be enabled?
         :param Sequence['LinuxWebAppSiteConfigIpRestrictionArgs'] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param str load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param bool local_mysql_enabled: Use Local MySQL. Defaults to `false`.
-        :param str managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+        :param str managed_pipeline_mode: Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
         :param str minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
         :param str remote_debugging_version: The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
         :param Sequence['LinuxWebAppSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param str scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
-        :param bool use32_bit_worker: Should the Linux Web App use a 32-bit worker. Defaults to `true`.
-        :param bool vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
-        :param bool websockets_enabled: Should Web Sockets be enabled. Defaults to `false`.
+        :param bool use32_bit_worker: Should the Linux Web App use a 32-bit worker? Defaults to `true`.
+        :param bool vnet_route_all_enabled: Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        :param bool websockets_enabled: Should Web Sockets be enabled? Defaults to `false`.
         :param int worker_count: The number of Workers for this Linux App Service.
         """
         if always_on is not None:
@@ -11801,11 +11803,17 @@ class LinuxWebAppSiteConfig(dict):
     @property
     @pulumi.getter(name="apiDefinitionUrl")
     def api_definition_url(self) -> Optional[str]:
+        """
+        The URL to the API Definition for this Linux Web App.
+        """
         return pulumi.get(self, "api_definition_url")
 
     @property
     @pulumi.getter(name="apiManagementApiId")
     def api_management_api_id(self) -> Optional[str]:
+        """
+        The API Management API ID this Linux Web App is associated with.
+        """
         return pulumi.get(self, "api_management_api_id")
 
     @property
@@ -11828,7 +11836,7 @@ class LinuxWebAppSiteConfig(dict):
     @pulumi.getter(name="autoHealEnabled")
     def auto_heal_enabled(self) -> Optional[bool]:
         """
-        Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+        Should Auto heal rules be enabled? Required with `auto_heal_setting`.
         """
         return pulumi.get(self, "auto_heal_enabled")
 
@@ -11881,7 +11889,7 @@ class LinuxWebAppSiteConfig(dict):
     @pulumi.getter(name="ftpsState")
     def ftps_state(self) -> Optional[str]:
         """
-        The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+        The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
         """
         return pulumi.get(self, "ftps_state")
 
@@ -11942,7 +11950,7 @@ class LinuxWebAppSiteConfig(dict):
     @pulumi.getter(name="managedPipelineMode")
     def managed_pipeline_mode(self) -> Optional[str]:
         """
-        Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+        Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
         """
         return pulumi.get(self, "managed_pipeline_mode")
 
@@ -12000,7 +12008,7 @@ class LinuxWebAppSiteConfig(dict):
     @pulumi.getter(name="use32BitWorker")
     def use32_bit_worker(self) -> Optional[bool]:
         """
-        Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+        Should the Linux Web App use a 32-bit worker? Defaults to `true`.
         """
         return pulumi.get(self, "use32_bit_worker")
 
@@ -12008,7 +12016,7 @@ class LinuxWebAppSiteConfig(dict):
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> Optional[bool]:
         """
-        Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         """
         return pulumi.get(self, "vnet_route_all_enabled")
 
@@ -12016,7 +12024,7 @@ class LinuxWebAppSiteConfig(dict):
     @pulumi.getter(name="websocketsEnabled")
     def websockets_enabled(self) -> Optional[bool]:
         """
-        Should Web Sockets be enabled. Defaults to `false`.
+        Should Web Sockets be enabled? Defaults to `false`.
         """
         return pulumi.get(self, "websockets_enabled")
 
@@ -13046,7 +13054,7 @@ class LinuxWebAppSlotAuthSettings(dict):
         :param 'LinuxWebAppSlotAuthSettingsFacebookArgs' facebook: A `facebook` block as defined below.
         :param 'LinuxWebAppSlotAuthSettingsGithubArgs' github: A `github` block as defined below.
         :param 'LinuxWebAppSlotAuthSettingsGoogleArgs' google: A `google` block as defined below.
-        :param str issuer: The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+        :param str issuer: The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
         :param 'LinuxWebAppSlotAuthSettingsMicrosoftArgs' microsoft: A `microsoft` block as defined below.
         :param str runtime_version: The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
         :param float token_refresh_extension_hours: The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
@@ -13152,7 +13160,7 @@ class LinuxWebAppSlotAuthSettings(dict):
     @pulumi.getter
     def issuer(self) -> Optional[str]:
         """
-        The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+        The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
         """
         return pulumi.get(self, "issuer")
 
@@ -13679,7 +13687,7 @@ class LinuxWebAppSlotBackup(dict):
                  enabled: Optional[bool] = None):
         """
         :param str name: The name which should be used for this Backup.
-        :param 'LinuxWebAppSlotBackupScheduleArgs' schedule: A `schedule` block as defined below.
+        :param 'LinuxWebAppSlotBackupScheduleArgs' schedule: An `schedule` block as defined below.
         :param str storage_account_url: The SAS URL to the container.
         :param bool enabled: Should this backup job be enabled?
         """
@@ -13701,7 +13709,7 @@ class LinuxWebAppSlotBackup(dict):
     @pulumi.getter
     def schedule(self) -> 'outputs.LinuxWebAppSlotBackupSchedule':
         """
-        A `schedule` block as defined below.
+        An `schedule` block as defined below.
         """
         return pulumi.get(self, "schedule")
 
@@ -13761,7 +13769,7 @@ class LinuxWebAppSlotBackupSchedule(dict):
         """
         :param int frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
         :param str frequency_unit: The unit of time for how often the backup should take place. Possible values include: `Day`, `Hour`
-        :param bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        :param bool keep_at_least_one_backup: Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
         :param int retention_period_days: After how many days backups should be deleted.
         :param str start_time: When the schedule should start working in RFC-3339 format.
         """
@@ -13796,7 +13804,7 @@ class LinuxWebAppSlotBackupSchedule(dict):
     @pulumi.getter(name="keepAtLeastOneBackup")
     def keep_at_least_one_backup(self) -> Optional[bool]:
         """
-        Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
         """
         return pulumi.get(self, "keep_at_least_one_backup")
 
@@ -13829,8 +13837,8 @@ class LinuxWebAppSlotConnectionString(dict):
                  type: str,
                  value: str):
         """
-        :param str name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
-        :param str type: Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        :param str name: The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
+        :param str type: Type of database. Possible values include `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
         :param str value: The connection string value.
         """
         pulumi.set(__self__, "name", name)
@@ -13841,7 +13849,7 @@ class LinuxWebAppSlotConnectionString(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
         """
         return pulumi.get(self, "name")
 
@@ -13849,7 +13857,7 @@ class LinuxWebAppSlotConnectionString(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+        Type of database. Possible values include `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
         """
         return pulumi.get(self, "type")
 
@@ -13891,7 +13899,7 @@ class LinuxWebAppSlotIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the type of Managed Service Identity that should be configured on this Linux Web App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Linux Web App Slot. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[str] identity_ids: A list of User Assigned Managed Identity IDs to be assigned to this Linux Web App Slot.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
@@ -13908,7 +13916,7 @@ class LinuxWebAppSlotIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the type of Managed Service Identity that should be configured on this Linux Web App Slot. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+        Specifies the type of Managed Service Identity that should be configured on this Linux Web App Slot. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
         """
         return pulumi.get(self, "type")
 
@@ -13969,8 +13977,8 @@ class LinuxWebAppSlotLogs(dict):
                  http_logs: Optional['outputs.LinuxWebAppSlotLogsHttpLogs'] = None):
         """
         :param 'LinuxWebAppSlotLogsApplicationLogsArgs' application_logs: A `application_logs` block as defined above.
-        :param bool detailed_error_messages: Should detailed error messages be enabled.
-        :param bool failed_request_tracing: Should failed request tracing be enabled.
+        :param bool detailed_error_messages: Should detailed error messages be enabled?
+        :param bool failed_request_tracing: Should the failed request tracing be enabled?
         :param 'LinuxWebAppSlotLogsHttpLogsArgs' http_logs: An `http_logs` block as defined above.
         """
         if application_logs is not None:
@@ -13994,7 +14002,7 @@ class LinuxWebAppSlotLogs(dict):
     @pulumi.getter(name="detailedErrorMessages")
     def detailed_error_messages(self) -> Optional[bool]:
         """
-        Should detailed error messages be enabled.
+        Should detailed error messages be enabled?
         """
         return pulumi.get(self, "detailed_error_messages")
 
@@ -14002,7 +14010,7 @@ class LinuxWebAppSlotLogs(dict):
     @pulumi.getter(name="failedRequestTracing")
     def failed_request_tracing(self) -> Optional[bool]:
         """
-        Should failed request tracing be enabled.
+        Should the failed request tracing be enabled?
         """
         return pulumi.get(self, "failed_request_tracing")
 
@@ -14040,7 +14048,7 @@ class LinuxWebAppSlotLogsApplicationLogs(dict):
                  file_system_level: str,
                  azure_blob_storage: Optional['outputs.LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage'] = None):
         """
-        :param str file_system_level: Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        :param str file_system_level: Log level. Possible values include `Verbose`, `Information`, `Warning`, and `Error`.
         :param 'LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
         """
         pulumi.set(__self__, "file_system_level", file_system_level)
@@ -14051,7 +14059,7 @@ class LinuxWebAppSlotLogsApplicationLogs(dict):
     @pulumi.getter(name="fileSystemLevel")
     def file_system_level(self) -> str:
         """
-        Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        Log level. Possible values include `Verbose`, `Information`, `Warning`, and `Error`.
         """
         return pulumi.get(self, "file_system_level")
 
@@ -14092,7 +14100,7 @@ class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage(dict):
         """
         :param str level: The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
         :param int retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
-        :param str sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
+        :param str sas_url: SAS URL to an Azure blob container with read/write/list/delete permissions.
         """
         pulumi.set(__self__, "level", level)
         pulumi.set(__self__, "retention_in_days", retention_in_days)
@@ -14118,7 +14126,7 @@ class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage(dict):
     @pulumi.getter(name="sasUrl")
     def sas_url(self) -> str:
         """
-        SAS url to an Azure blob container with read/write/list/delete permissions.
+        SAS URL to an Azure blob container with read/write/list/delete permissions.
         """
         return pulumi.get(self, "sas_url")
 
@@ -14198,7 +14206,7 @@ class LinuxWebAppSlotLogsHttpLogsAzureBlobStorage(dict):
                  sas_url: str,
                  retention_in_days: Optional[int] = None):
         """
-        :param str sas_url: SAS url to an Azure blob container with read/write/list/delete permissions.
+        :param str sas_url: SAS URL to an Azure blob container with read/write/list/delete permissions.
         :param int retention_in_days: The time in days after which to remove blobs. A value of `0` means no retention.
         """
         pulumi.set(__self__, "sas_url", sas_url)
@@ -14209,7 +14217,7 @@ class LinuxWebAppSlotLogsHttpLogsAzureBlobStorage(dict):
     @pulumi.getter(name="sasUrl")
     def sas_url(self) -> str:
         """
-        SAS url to an Azure blob container with read/write/list/delete permissions.
+        SAS URL to an Azure blob container with read/write/list/delete permissions.
         """
         return pulumi.get(self, "sas_url")
 
@@ -14388,17 +14396,17 @@ class LinuxWebAppSlotSiteConfig(dict):
         """
         :param bool always_on: If this Linux Web App is Always On enabled. Defaults to `false`.
         :param str api_definition_url: The URL to the API Definition for this Linux Web App Slot.
-        :param str api_management_api_id: The API Management API ID this Linux Web App Slot os associated with.
+        :param str api_management_api_id: The API Management API ID this Linux Web App Slot is associated with.
         :param str app_command_line: The App command line to launch.
         :param 'LinuxWebAppSlotSiteConfigApplicationStackArgs' application_stack: A `application_stack` block as defined above.
-        :param bool auto_heal_enabled: Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+        :param bool auto_heal_enabled: Should Auto heal rules be enabled? Required with `auto_heal_setting`.
         :param 'LinuxWebAppSlotSiteConfigAutoHealSettingArgs' auto_heal_setting: A `auto_heal_setting` block as defined above. Required with `auto_heal`.
         :param str auto_swap_slot_name: The Linux Web App Slot Name to automatically swap to when deployment to that slot is successfully completed.
         :param str container_registry_managed_identity_client_id: The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
         :param bool container_registry_use_managed_identity: Should connections for Azure Container Registry use Managed Identity.
         :param 'LinuxWebAppSlotSiteConfigCorsArgs' cors: A `cors` block as defined above.
         :param Sequence[str] default_documents: Specifies a list of Default Documents for the Linux Web App.
-        :param str ftps_state: The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+        :param str ftps_state: The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
         :param int health_check_eviction_time_in_min: The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
         :param str health_check_path: The path to the Health Check.
         :param bool http2_enabled: Should the HTTP2 be enabled?
@@ -14411,8 +14419,8 @@ class LinuxWebAppSlotSiteConfig(dict):
         :param Sequence['LinuxWebAppSlotSiteConfigScmIpRestrictionArgs'] scm_ip_restrictions: One or more `scm_ip_restriction` blocks as defined above.
         :param str scm_minimum_tls_version: The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
         :param bool scm_use_main_ip_restriction: Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
-        :param bool use32_bit_worker: Should the Linux Web App use a 32-bit worker. Defaults to `true`.
-        :param bool vnet_route_all_enabled: Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        :param bool use32_bit_worker: Should the Linux Web App use a 32-bit worker? Defaults to `true`.
+        :param bool vnet_route_all_enabled: Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         :param int worker_count: The number of Workers for this Linux App Service Slot.
         """
         if always_on is not None:
@@ -14502,7 +14510,7 @@ class LinuxWebAppSlotSiteConfig(dict):
     @pulumi.getter(name="apiManagementApiId")
     def api_management_api_id(self) -> Optional[str]:
         """
-        The API Management API ID this Linux Web App Slot os associated with.
+        The API Management API ID this Linux Web App Slot is associated with.
         """
         return pulumi.get(self, "api_management_api_id")
 
@@ -14526,7 +14534,7 @@ class LinuxWebAppSlotSiteConfig(dict):
     @pulumi.getter(name="autoHealEnabled")
     def auto_heal_enabled(self) -> Optional[bool]:
         """
-        Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+        Should Auto heal rules be enabled? Required with `auto_heal_setting`.
         """
         return pulumi.get(self, "auto_heal_enabled")
 
@@ -14587,7 +14595,7 @@ class LinuxWebAppSlotSiteConfig(dict):
     @pulumi.getter(name="ftpsState")
     def ftps_state(self) -> Optional[str]:
         """
-        The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+        The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
         """
         return pulumi.get(self, "ftps_state")
 
@@ -14706,7 +14714,7 @@ class LinuxWebAppSlotSiteConfig(dict):
     @pulumi.getter(name="use32BitWorker")
     def use32_bit_worker(self) -> Optional[bool]:
         """
-        Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+        Should the Linux Web App use a 32-bit worker? Defaults to `true`.
         """
         return pulumi.get(self, "use32_bit_worker")
 
@@ -14714,7 +14722,7 @@ class LinuxWebAppSlotSiteConfig(dict):
     @pulumi.getter(name="vnetRouteAllEnabled")
     def vnet_route_all_enabled(self) -> Optional[bool]:
         """
-        Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         """
         return pulumi.get(self, "vnet_route_all_enabled")
 
@@ -15666,7 +15674,7 @@ class LinuxWebAppSlotSiteCredential(dict):
                  name: Optional[str] = None,
                  password: Optional[str] = None):
         """
-        :param str name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        :param str name: The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
         :param str password: The Site Credentials Password used for publishing.
         """
         if name is not None:
@@ -15678,7 +15686,7 @@ class LinuxWebAppSlotSiteCredential(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
         """
         return pulumi.get(self, "name")
 
@@ -19916,7 +19924,7 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
         """
         :param str dotnet_version: The version of .NET to use. Possible values include `3.1` and `6`.
         :param str java_version: The Version of Java to use. Supported versions include `8`, and `11`.
-        :param str node_version: The version of Node to run. Possible values include `~12`, `~14`, and `~16`.
+        :param str node_version: The version of Node to run. Possible values include `~12`, `~14`, `~16` and `~18`.
         :param str powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, and `7.2`.
         :param bool use_custom_runtime: Should the Windows Function App use a custom runtime?
         :param bool use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
@@ -19954,7 +19962,7 @@ class WindowsFunctionAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="nodeVersion")
     def node_version(self) -> Optional[str]:
         """
-        The version of Node to run. Possible values include `~12`, `~14`, and `~16`.
+        The version of Node to run. Possible values include `~12`, `~14`, `~16` and `~18`.
         """
         return pulumi.get(self, "node_version")
 

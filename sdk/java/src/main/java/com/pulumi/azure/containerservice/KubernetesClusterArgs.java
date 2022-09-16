@@ -184,6 +184,21 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.dnsPrefixPrivateCluster);
     }
 
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="edgeZone")
+    private @Nullable Output<String> edgeZone;
+
+    /**
+     * @return Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> edgeZone() {
+        return Optional.ofNullable(this.edgeZone);
+    }
+
     @Import(name="enablePodSecurityPolicy")
     private @Nullable Output<Boolean> enablePodSecurityPolicy;
 
@@ -631,6 +646,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         this.diskEncryptionSetId = $.diskEncryptionSetId;
         this.dnsPrefix = $.dnsPrefix;
         this.dnsPrefixPrivateCluster = $.dnsPrefixPrivateCluster;
+        this.edgeZone = $.edgeZone;
         this.enablePodSecurityPolicy = $.enablePodSecurityPolicy;
         this.httpApplicationRoutingEnabled = $.httpApplicationRoutingEnabled;
         this.httpProxyConfig = $.httpProxyConfig;
@@ -899,6 +915,27 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder dnsPrefixPrivateCluster(String dnsPrefixPrivateCluster) {
             return dnsPrefixPrivateCluster(Output.of(dnsPrefixPrivateCluster));
+        }
+
+        /**
+         * @param edgeZone Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder edgeZone(@Nullable Output<String> edgeZone) {
+            $.edgeZone = edgeZone;
+            return this;
+        }
+
+        /**
+         * @param edgeZone Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder edgeZone(String edgeZone) {
+            return edgeZone(Output.of(edgeZone));
         }
 
         public Builder enablePodSecurityPolicy(@Nullable Output<Boolean> enablePodSecurityPolicy) {

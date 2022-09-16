@@ -94,7 +94,7 @@ type LinuxWebApp struct {
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity LinuxWebAppIdentityPtrOutput `pulumi:"identity"`
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
 	KeyVaultReferenceIdentityId pulumi.StringOutput `pulumi:"keyVaultReferenceIdentityId"`
 	// The Kind value for this Linux Web App.
 	Kind pulumi.StringOutput `pulumi:"kind"`
@@ -110,7 +110,7 @@ type LinuxWebApp struct {
 	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
 	// A `possibleOutboundIpAddressList` block as defined below.
 	PossibleOutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"possibleOutboundIpAddressLists"`
-	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
+	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
 	// The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -194,7 +194,7 @@ type linuxWebAppState struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *LinuxWebAppIdentity `pulumi:"identity"`
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// The Kind value for this Linux Web App.
 	Kind *string `pulumi:"kind"`
@@ -210,7 +210,7 @@ type linuxWebAppState struct {
 	OutboundIpAddresses *string `pulumi:"outboundIpAddresses"`
 	// A `possibleOutboundIpAddressList` block as defined below.
 	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
-	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
+	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses *string `pulumi:"possibleOutboundIpAddresses"`
 	// The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -257,7 +257,7 @@ type LinuxWebAppState struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity LinuxWebAppIdentityPtrInput
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// The Kind value for this Linux Web App.
 	Kind pulumi.StringPtrInput
@@ -273,7 +273,7 @@ type LinuxWebAppState struct {
 	OutboundIpAddresses pulumi.StringPtrInput
 	// A `possibleOutboundIpAddressList` block as defined below.
 	PossibleOutboundIpAddressLists pulumi.StringArrayInput
-	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
+	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringPtrInput
 	// The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -320,7 +320,7 @@ type linuxWebAppArgs struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *LinuxWebAppIdentity `pulumi:"identity"`
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
 	Location *string `pulumi:"location"`
@@ -368,7 +368,7 @@ type LinuxWebAppArgs struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity LinuxWebAppIdentityPtrInput
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
 	Location pulumi.StringPtrInput
@@ -541,7 +541,7 @@ func (o LinuxWebAppOutput) Identity() LinuxWebAppIdentityPtrOutput {
 	return o.ApplyT(func(v *LinuxWebApp) LinuxWebAppIdentityPtrOutput { return v.Identity }).(LinuxWebAppIdentityPtrOutput)
 }
 
-// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
 func (o LinuxWebAppOutput) KeyVaultReferenceIdentityId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.StringOutput { return v.KeyVaultReferenceIdentityId }).(pulumi.StringOutput)
 }
@@ -581,7 +581,7 @@ func (o LinuxWebAppOutput) PossibleOutboundIpAddressLists() pulumi.StringArrayOu
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.StringArrayOutput { return v.PossibleOutboundIpAddressLists }).(pulumi.StringArrayOutput)
 }
 
-// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
+// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 func (o LinuxWebAppOutput) PossibleOutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.StringOutput { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
 }

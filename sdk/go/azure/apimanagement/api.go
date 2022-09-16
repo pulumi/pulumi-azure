@@ -81,6 +81,8 @@ type Api struct {
 
 	// The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
+	// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+	ApiType pulumi.StringOutput `pulumi:"apiType"`
 	// A description of the API Management API, which may include HTML formatting tags.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name of the API.
@@ -99,7 +101,7 @@ type Api struct {
 	OpenidAuthentication ApiOpenidAuthenticationPtrOutput `pulumi:"openidAuthentication"`
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path pulumi.StringOutput `pulumi:"path"`
-	// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+	// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -110,7 +112,9 @@ type Api struct {
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl pulumi.StringOutput `pulumi:"serviceUrl"`
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-	SoapPassThrough pulumi.BoolPtrOutput `pulumi:"soapPassThrough"`
+	//
+	// Deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
+	SoapPassThrough pulumi.BoolOutput `pulumi:"soapPassThrough"`
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId pulumi.StringPtrOutput `pulumi:"sourceApiId"`
 	// A `subscriptionKeyParameterNames` block as documented below.
@@ -165,6 +169,8 @@ func GetApi(ctx *pulumi.Context,
 type apiState struct {
 	// The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
 	ApiManagementName *string `pulumi:"apiManagementName"`
+	// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+	ApiType *string `pulumi:"apiType"`
 	// A description of the API Management API, which may include HTML formatting tags.
 	Description *string `pulumi:"description"`
 	// The display name of the API.
@@ -183,7 +189,7 @@ type apiState struct {
 	OpenidAuthentication *ApiOpenidAuthentication `pulumi:"openidAuthentication"`
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path *string `pulumi:"path"`
-	// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+	// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
 	Protocols []string `pulumi:"protocols"`
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -194,6 +200,8 @@ type apiState struct {
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl *string `pulumi:"serviceUrl"`
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+	//
+	// Deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
 	SoapPassThrough *bool `pulumi:"soapPassThrough"`
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId *string `pulumi:"sourceApiId"`
@@ -212,6 +220,8 @@ type apiState struct {
 type ApiState struct {
 	// The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringPtrInput
+	// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+	ApiType pulumi.StringPtrInput
 	// A description of the API Management API, which may include HTML formatting tags.
 	Description pulumi.StringPtrInput
 	// The display name of the API.
@@ -230,7 +240,7 @@ type ApiState struct {
 	OpenidAuthentication ApiOpenidAuthenticationPtrInput
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path pulumi.StringPtrInput
-	// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+	// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
 	Protocols pulumi.StringArrayInput
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -241,6 +251,8 @@ type ApiState struct {
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl pulumi.StringPtrInput
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+	//
+	// Deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
 	SoapPassThrough pulumi.BoolPtrInput
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId pulumi.StringPtrInput
@@ -263,6 +275,8 @@ func (ApiState) ElementType() reflect.Type {
 type apiArgs struct {
 	// The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
 	ApiManagementName string `pulumi:"apiManagementName"`
+	// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+	ApiType *string `pulumi:"apiType"`
 	// A description of the API Management API, which may include HTML formatting tags.
 	Description *string `pulumi:"description"`
 	// The display name of the API.
@@ -277,7 +291,7 @@ type apiArgs struct {
 	OpenidAuthentication *ApiOpenidAuthentication `pulumi:"openidAuthentication"`
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path *string `pulumi:"path"`
-	// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+	// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
 	Protocols []string `pulumi:"protocols"`
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -288,6 +302,8 @@ type apiArgs struct {
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl *string `pulumi:"serviceUrl"`
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+	//
+	// Deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
 	SoapPassThrough *bool `pulumi:"soapPassThrough"`
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId *string `pulumi:"sourceApiId"`
@@ -307,6 +323,8 @@ type apiArgs struct {
 type ApiArgs struct {
 	// The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
 	ApiManagementName pulumi.StringInput
+	// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+	ApiType pulumi.StringPtrInput
 	// A description of the API Management API, which may include HTML formatting tags.
 	Description pulumi.StringPtrInput
 	// The display name of the API.
@@ -321,7 +339,7 @@ type ApiArgs struct {
 	OpenidAuthentication ApiOpenidAuthenticationPtrInput
 	// The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
 	Path pulumi.StringPtrInput
-	// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+	// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
 	Protocols pulumi.StringArrayInput
 	// The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -332,6 +350,8 @@ type ApiArgs struct {
 	// Absolute URL of the backend service implementing this API.
 	ServiceUrl pulumi.StringPtrInput
 	// Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+	//
+	// Deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
 	SoapPassThrough pulumi.BoolPtrInput
 	// The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
 	SourceApiId pulumi.StringPtrInput
@@ -439,6 +459,11 @@ func (o ApiOutput) ApiManagementName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.ApiManagementName }).(pulumi.StringOutput)
 }
 
+// Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+func (o ApiOutput) ApiType() pulumi.StringOutput {
+	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.ApiType }).(pulumi.StringOutput)
+}
+
 // A description of the API Management API, which may include HTML formatting tags.
 func (o ApiOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
@@ -484,7 +509,7 @@ func (o ApiOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringOutput { return v.Path }).(pulumi.StringOutput)
 }
 
-// A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+// A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
 func (o ApiOutput) Protocols() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Api) pulumi.StringArrayOutput { return v.Protocols }).(pulumi.StringArrayOutput)
 }
@@ -510,8 +535,10 @@ func (o ApiOutput) ServiceUrl() pulumi.StringOutput {
 }
 
 // Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
-func (o ApiOutput) SoapPassThrough() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Api) pulumi.BoolPtrOutput { return v.SoapPassThrough }).(pulumi.BoolPtrOutput)
+//
+// Deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
+func (o ApiOutput) SoapPassThrough() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Api) pulumi.BoolOutput { return v.SoapPassThrough }).(pulumi.BoolOutput)
 }
 
 // The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`

@@ -258,14 +258,14 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.identity);
     }
     /**
-     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
      * 
      */
     @Export(name="keyVaultReferenceIdentityId", type=String.class, parameters={})
     private Output<String> keyVaultReferenceIdentityId;
 
     /**
-     * @return The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * @return The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
      * 
      */
     public Output<String> keyVaultReferenceIdentityId() {
@@ -370,14 +370,14 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
         return this.possibleOutboundIpAddressLists;
     }
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
      * 
      */
     @Export(name="possibleOutboundIpAddresses", type=String.class, parameters={})
     private Output<String> possibleOutboundIpAddresses;
 
     /**
-     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * @return A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
      * 
      */
     public Output<String> possibleOutboundIpAddresses() {

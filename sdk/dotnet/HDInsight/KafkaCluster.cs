@@ -125,6 +125,12 @@ namespace Pulumi.Azure.HDInsight
         public Output<bool?> EncryptionInTransitEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// An `extension` block as defined below.
+        /// </summary>
+        [Output("extension")]
+        public Output<Outputs.KafkaClusterExtension?> Extension { get; private set; } = null!;
+
+        /// <summary>
         /// A `gateway` block as defined below.
         /// </summary>
         [Output("gateway")]
@@ -305,6 +311,12 @@ namespace Pulumi.Azure.HDInsight
         public Input<bool>? EncryptionInTransitEnabled { get; set; }
 
         /// <summary>
+        /// An `extension` block as defined below.
+        /// </summary>
+        [Input("extension")]
+        public Input<Inputs.KafkaClusterExtensionArgs>? Extension { get; set; }
+
+        /// <summary>
         /// A `gateway` block as defined below.
         /// </summary>
         [Input("gateway", required: true)]
@@ -439,6 +451,12 @@ namespace Pulumi.Azure.HDInsight
         /// </summary>
         [Input("encryptionInTransitEnabled")]
         public Input<bool>? EncryptionInTransitEnabled { get; set; }
+
+        /// <summary>
+        /// An `extension` block as defined below.
+        /// </summary>
+        [Input("extension")]
+        public Input<Inputs.KafkaClusterExtensionGetArgs>? Extension { get; set; }
 
         /// <summary>
         /// A `gateway` block as defined below.

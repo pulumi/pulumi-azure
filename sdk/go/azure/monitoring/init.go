@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataCollectionEndpoint{}
 	case "azure:monitoring/dataCollectionRule:DataCollectionRule":
 		r = &DataCollectionRule{}
+	case "azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation":
+		r = &DataCollectionRuleAssociation{}
 	case "azure:monitoring/diagnosticSetting:DiagnosticSetting":
 		r = &DiagnosticSetting{}
 	case "azure:monitoring/logProfile:LogProfile":
@@ -114,6 +116,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"monitoring/dataCollectionRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"monitoring/dataCollectionRuleAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

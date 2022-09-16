@@ -8,11 +8,134 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
+    'HostPoolScheduledAgentUpdates',
+    'HostPoolScheduledAgentUpdatesSchedule',
     'ScalingPlanHostPool',
     'ScalingPlanSchedule',
 ]
+
+@pulumi.output_type
+class HostPoolScheduledAgentUpdates(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "useSessionHostTimezone":
+            suggest = "use_session_host_timezone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HostPoolScheduledAgentUpdates. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HostPoolScheduledAgentUpdates.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HostPoolScheduledAgentUpdates.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 schedules: Optional[Sequence['outputs.HostPoolScheduledAgentUpdatesSchedule']] = None,
+                 timezone: Optional[str] = None,
+                 use_session_host_timezone: Optional[bool] = None):
+        """
+        :param bool enabled: Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
+        :param Sequence['HostPoolScheduledAgentUpdatesScheduleArgs'] schedules: A `schedule` block as defined below. A maximum of two blocks can be added.
+        :param str timezone: Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `use_session_host_timezone` is enabled then it will override this setting. Default is `UTC`
+        :param bool use_session_host_timezone: Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides `timezone`. Default is `false`.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if schedules is not None:
+            pulumi.set(__self__, "schedules", schedules)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+        if use_session_host_timezone is not None:
+            pulumi.set(__self__, "use_session_host_timezone", use_session_host_timezone)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def schedules(self) -> Optional[Sequence['outputs.HostPoolScheduledAgentUpdatesSchedule']]:
+        """
+        A `schedule` block as defined below. A maximum of two blocks can be added.
+        """
+        return pulumi.get(self, "schedules")
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[str]:
+        """
+        Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `use_session_host_timezone` is enabled then it will override this setting. Default is `UTC`
+        """
+        return pulumi.get(self, "timezone")
+
+    @property
+    @pulumi.getter(name="useSessionHostTimezone")
+    def use_session_host_timezone(self) -> Optional[bool]:
+        """
+        Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides `timezone`. Default is `false`.
+        """
+        return pulumi.get(self, "use_session_host_timezone")
+
+
+@pulumi.output_type
+class HostPoolScheduledAgentUpdatesSchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfWeek":
+            suggest = "day_of_week"
+        elif key == "hourOfDay":
+            suggest = "hour_of_day"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HostPoolScheduledAgentUpdatesSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HostPoolScheduledAgentUpdatesSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HostPoolScheduledAgentUpdatesSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day_of_week: str,
+                 hour_of_day: int):
+        """
+        :param str day_of_week: The day of the week on which agent updates should be performed. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+        :param int hour_of_day: The hour of day the update window should start. The update is a 2 hour period following the hour provided. The value should be provided as a number between 0 and 23, with 0 being midnight and 23 being 11pm. A leading zero should not be used.
+        """
+        pulumi.set(__self__, "day_of_week", day_of_week)
+        pulumi.set(__self__, "hour_of_day", hour_of_day)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> str:
+        """
+        The day of the week on which agent updates should be performed. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @property
+    @pulumi.getter(name="hourOfDay")
+    def hour_of_day(self) -> int:
+        """
+        The hour of day the update window should start. The update is a 2 hour period following the hour provided. The value should be provided as a number between 0 and 23, with 0 being midnight and 23 being 11pm. A leading zero should not be used.
+        """
+        return pulumi.get(self, "hour_of_day")
+
 
 @pulumi.output_type
 class ScalingPlanHostPool(dict):

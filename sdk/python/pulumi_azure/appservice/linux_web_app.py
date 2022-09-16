@@ -53,7 +53,7 @@ class LinuxWebAppArgs:
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections.
         :param pulumi.Input['LinuxWebAppIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         :param pulumi.Input[str] location: The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input['LinuxWebAppLogsArgs'] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
@@ -265,7 +265,7 @@ class LinuxWebAppArgs:
     @pulumi.getter(name="keyVaultReferenceIdentityId")
     def key_vault_reference_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         """
         return pulumi.get(self, "key_vault_reference_identity_id")
 
@@ -417,7 +417,7 @@ class _LinuxWebAppState:
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections.
         :param pulumi.Input['LinuxWebAppIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         :param pulumi.Input[str] kind: The Kind value for this Linux Web App.
         :param pulumi.Input[str] location: The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input['LinuxWebAppLogsArgs'] logs: A `logs` block as defined below.
@@ -425,7 +425,7 @@ class _LinuxWebAppState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A `possible_outbound_ip_address_list` block as defined below.
-        :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        :param pulumi.Input[str] possible_outbound_ip_addresses: A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan that this Linux App Service will be created in.
         :param pulumi.Input['LinuxWebAppSiteConfigArgs'] site_config: A `site_config` block as defined below.
@@ -645,7 +645,7 @@ class _LinuxWebAppState:
     @pulumi.getter(name="keyVaultReferenceIdentityId")
     def key_vault_reference_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         """
         return pulumi.get(self, "key_vault_reference_identity_id")
 
@@ -741,7 +741,7 @@ class _LinuxWebAppState:
     @pulumi.getter(name="possibleOutboundIpAddresses")
     def possible_outbound_ip_addresses(self) -> Optional[pulumi.Input[str]]:
         """
-        A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         """
         return pulumi.get(self, "possible_outbound_ip_addresses")
 
@@ -928,7 +928,7 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         :param pulumi.Input[str] location: The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppLogsArgs']] logs: A `logs` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
@@ -1118,7 +1118,7 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         :param pulumi.Input[str] kind: The Kind value for this Linux Web App.
         :param pulumi.Input[str] location: The Azure Region where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppLogsArgs']] logs: A `logs` block as defined below.
@@ -1126,7 +1126,7 @@ class LinuxWebApp(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A `possible_outbound_ip_address_list` block as defined below.
-        :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        :param pulumi.Input[str] possible_outbound_ip_addresses: A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Linux Web App should exist. Changing this forces a new Linux Web App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan that this Linux App Service will be created in.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSiteConfigArgs']] site_config: A `site_config` block as defined below.
@@ -1273,7 +1273,7 @@ class LinuxWebApp(pulumi.CustomResource):
     @pulumi.getter(name="keyVaultReferenceIdentityId")
     def key_vault_reference_identity_id(self) -> pulumi.Output[str]:
         """
-        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         """
         return pulumi.get(self, "key_vault_reference_identity_id")
 
@@ -1337,7 +1337,7 @@ class LinuxWebApp(pulumi.CustomResource):
     @pulumi.getter(name="possibleOutboundIpAddresses")
     def possible_outbound_ip_addresses(self) -> pulumi.Output[str]:
         """
-        A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         """
         return pulumi.get(self, "possible_outbound_ip_addresses")
 

@@ -15,13 +15,32 @@ public final class ActionGroupEventHubReceiver {
     /**
      * @return The resource ID of the respective Event Hub.
      * 
+     * @deprecated
+     * This property is deprecated and will be removed in version 4.0 of the provider, please use &#39;event_hub_name&#39; and &#39;event_hub_namespace&#39; instead.
+     * 
      */
-    private String eventHubId;
+    @Deprecated /* This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead. */
+    private @Nullable String eventHubId;
+    /**
+     * @return The name of the specific Event Hub queue.
+     * 
+     */
+    private @Nullable String eventHubName;
+    /**
+     * @return The namespace name of the Event Hub.
+     * 
+     */
+    private @Nullable String eventHubNamespace;
     /**
      * @return The name of the EventHub Receiver, must be unique within action group.
      * 
      */
     private String name;
+    /**
+     * @return The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+     * 
+     */
+    private @Nullable String subscriptionId;
     /**
      * @return The Tenant ID for the subscription containing this Event Hub.
      * 
@@ -37,9 +56,27 @@ public final class ActionGroupEventHubReceiver {
     /**
      * @return The resource ID of the respective Event Hub.
      * 
+     * @deprecated
+     * This property is deprecated and will be removed in version 4.0 of the provider, please use &#39;event_hub_name&#39; and &#39;event_hub_namespace&#39; instead.
+     * 
      */
-    public String eventHubId() {
-        return this.eventHubId;
+    @Deprecated /* This property is deprecated and will be removed in version 4.0 of the provider, please use 'event_hub_name' and 'event_hub_namespace' instead. */
+    public Optional<String> eventHubId() {
+        return Optional.ofNullable(this.eventHubId);
+    }
+    /**
+     * @return The name of the specific Event Hub queue.
+     * 
+     */
+    public Optional<String> eventHubName() {
+        return Optional.ofNullable(this.eventHubName);
+    }
+    /**
+     * @return The namespace name of the Event Hub.
+     * 
+     */
+    public Optional<String> eventHubNamespace() {
+        return Optional.ofNullable(this.eventHubNamespace);
     }
     /**
      * @return The name of the EventHub Receiver, must be unique within action group.
@@ -47,6 +84,13 @@ public final class ActionGroupEventHubReceiver {
      */
     public String name() {
         return this.name;
+    }
+    /**
+     * @return The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+     * 
+     */
+    public Optional<String> subscriptionId() {
+        return Optional.ofNullable(this.subscriptionId);
     }
     /**
      * @return The Tenant ID for the subscription containing this Event Hub.
@@ -72,27 +116,48 @@ public final class ActionGroupEventHubReceiver {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String eventHubId;
+        private @Nullable String eventHubId;
+        private @Nullable String eventHubName;
+        private @Nullable String eventHubNamespace;
         private String name;
+        private @Nullable String subscriptionId;
         private @Nullable String tenantId;
         private @Nullable Boolean useCommonAlertSchema;
         public Builder() {}
         public Builder(ActionGroupEventHubReceiver defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eventHubId = defaults.eventHubId;
+    	      this.eventHubName = defaults.eventHubName;
+    	      this.eventHubNamespace = defaults.eventHubNamespace;
     	      this.name = defaults.name;
+    	      this.subscriptionId = defaults.subscriptionId;
     	      this.tenantId = defaults.tenantId;
     	      this.useCommonAlertSchema = defaults.useCommonAlertSchema;
         }
 
         @CustomType.Setter
-        public Builder eventHubId(String eventHubId) {
-            this.eventHubId = Objects.requireNonNull(eventHubId);
+        public Builder eventHubId(@Nullable String eventHubId) {
+            this.eventHubId = eventHubId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder eventHubName(@Nullable String eventHubName) {
+            this.eventHubName = eventHubName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder eventHubNamespace(@Nullable String eventHubNamespace) {
+            this.eventHubNamespace = eventHubNamespace;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder subscriptionId(@Nullable String subscriptionId) {
+            this.subscriptionId = subscriptionId;
             return this;
         }
         @CustomType.Setter
@@ -108,7 +173,10 @@ public final class ActionGroupEventHubReceiver {
         public ActionGroupEventHubReceiver build() {
             final var o = new ActionGroupEventHubReceiver();
             o.eventHubId = eventHubId;
+            o.eventHubName = eventHubName;
+            o.eventHubNamespace = eventHubNamespace;
             o.name = name;
+            o.subscriptionId = subscriptionId;
             o.tenantId = tenantId;
             o.useCommonAlertSchema = useCommonAlertSchema;
             return o;

@@ -102,7 +102,7 @@ namespace Pulumi.Azure.CosmosDB
     public partial class CassandraTable : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+        /// Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
         /// </summary>
         [Output("analyticalStorageTtl")]
         public Output<int?> AnalyticalStorageTtl { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Azure.CosmosDB
     public sealed class CassandraTableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+        /// Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
         /// </summary>
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }
@@ -228,7 +228,7 @@ namespace Pulumi.Azure.CosmosDB
     public sealed class CassandraTableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+        /// Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
         /// </summary>
         [Input("analyticalStorageTtl")]
         public Input<int>? AnalyticalStorageTtl { get; set; }

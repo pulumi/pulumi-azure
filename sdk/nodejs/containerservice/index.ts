@@ -24,6 +24,7 @@ export * from "./registryTaskScheduleRunNow";
 export * from "./registryToken";
 export * from "./registryWebhook";
 export * from "./registryWebook";
+export * from "./tokenPassword";
 
 // Import resources to register:
 import { ConnectedRegistry } from "./connectedRegistry";
@@ -38,6 +39,7 @@ import { RegistryTaskScheduleRunNow } from "./registryTaskScheduleRunNow";
 import { RegistryToken } from "./registryToken";
 import { RegistryWebhook } from "./registryWebhook";
 import { RegistryWebook } from "./registryWebook";
+import { TokenPassword } from "./tokenPassword";
 
 const _module = {
     version: utilities.getVersion(),
@@ -67,6 +69,8 @@ const _module = {
                 return new RegistryWebhook(name, <any>undefined, { urn })
             case "azure:containerservice/registryWebook:RegistryWebook":
                 return new RegistryWebook(name, <any>undefined, { urn })
+            case "azure:containerservice/tokenPassword:TokenPassword":
+                return new TokenPassword(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -84,3 +88,4 @@ pulumi.runtime.registerResourceModule("azure", "containerservice/registryTaskSch
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryToken", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryWebhook", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/registryWebook", _module)
+pulumi.runtime.registerResourceModule("azure", "containerservice/tokenPassword", _module)

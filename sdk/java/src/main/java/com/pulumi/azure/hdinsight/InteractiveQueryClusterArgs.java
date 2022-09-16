@@ -5,6 +5,7 @@ package com.pulumi.azure.hdinsight;
 
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterComponentVersionArgs;
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterDiskEncryptionArgs;
+import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterExtensionArgs;
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterGatewayArgs;
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterMetastoresArgs;
 import com.pulumi.azure.hdinsight.inputs.InteractiveQueryClusterMonitorArgs;
@@ -78,6 +79,21 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
      */
     public Optional<Output<Boolean>> encryptionInTransitEnabled() {
         return Optional.ofNullable(this.encryptionInTransitEnabled);
+    }
+
+    /**
+     * An `extension` block as defined below.
+     * 
+     */
+    @Import(name="extension")
+    private @Nullable Output<InteractiveQueryClusterExtensionArgs> extension;
+
+    /**
+     * @return An `extension` block as defined below.
+     * 
+     */
+    public Optional<Output<InteractiveQueryClusterExtensionArgs>> extension() {
+        return Optional.ofNullable(this.extension);
     }
 
     /**
@@ -289,6 +305,7 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
         this.componentVersion = $.componentVersion;
         this.diskEncryptions = $.diskEncryptions;
         this.encryptionInTransitEnabled = $.encryptionInTransitEnabled;
+        this.extension = $.extension;
         this.gateway = $.gateway;
         this.location = $.location;
         this.metastores = $.metastores;
@@ -397,6 +414,27 @@ public final class InteractiveQueryClusterArgs extends com.pulumi.resources.Reso
          */
         public Builder encryptionInTransitEnabled(Boolean encryptionInTransitEnabled) {
             return encryptionInTransitEnabled(Output.of(encryptionInTransitEnabled));
+        }
+
+        /**
+         * @param extension An `extension` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extension(@Nullable Output<InteractiveQueryClusterExtensionArgs> extension) {
+            $.extension = extension;
+            return this;
+        }
+
+        /**
+         * @param extension An `extension` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extension(InteractiveQueryClusterExtensionArgs extension) {
+            return extension(Output.of(extension));
         }
 
         /**

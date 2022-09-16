@@ -62,7 +62,7 @@ public final class LinuxWebAppAuthSettings {
      */
     private @Nullable LinuxWebAppAuthSettingsGoogle google;
     /**
-     * @return The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+     * @return The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
      * 
      */
     private @Nullable String issuer;
@@ -155,7 +155,7 @@ public final class LinuxWebAppAuthSettings {
         return Optional.ofNullable(this.google);
     }
     /**
-     * @return The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+     * @return The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
      * 
      */
     public Optional<String> issuer() {

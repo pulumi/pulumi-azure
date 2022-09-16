@@ -17,7 +17,13 @@ namespace Pulumi.Azure.AppService.Outputs
         /// If this Linux Web App is Always On enabled. Defaults to `true`.
         /// </summary>
         public readonly bool? AlwaysOn;
+        /// <summary>
+        /// The URL to the API Definition for this Linux Web App.
+        /// </summary>
         public readonly string? ApiDefinitionUrl;
+        /// <summary>
+        /// The API Management API ID this Linux Web App is associated with.
+        /// </summary>
         public readonly string? ApiManagementApiId;
         /// <summary>
         /// The App command line to launch.
@@ -28,7 +34,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly Outputs.LinuxWebAppSiteConfigApplicationStack? ApplicationStack;
         /// <summary>
-        /// Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+        /// Should Auto heal rules be enabled? Required with `auto_heal_setting`.
         /// </summary>
         public readonly bool? AutoHealEnabled;
         /// <summary>
@@ -53,7 +59,7 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly ImmutableArray<string> DefaultDocuments;
         public readonly bool? DetailedErrorLoggingEnabled;
         /// <summary>
-        /// The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+        /// The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
         /// </summary>
         public readonly string? FtpsState;
         /// <summary>
@@ -82,7 +88,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? LocalMysqlEnabled;
         /// <summary>
-        /// Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+        /// Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
         /// </summary>
         public readonly string? ManagedPipelineMode;
         /// <summary>
@@ -108,15 +114,15 @@ namespace Pulumi.Azure.AppService.Outputs
         /// </summary>
         public readonly bool? ScmUseMainIpRestriction;
         /// <summary>
-        /// Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+        /// Should the Linux Web App use a 32-bit worker? Defaults to `true`.
         /// </summary>
         public readonly bool? Use32BitWorker;
         /// <summary>
-        /// Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+        /// Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
         /// </summary>
         public readonly bool? VnetRouteAllEnabled;
         /// <summary>
-        /// Should Web Sockets be enabled. Defaults to `false`.
+        /// Should Web Sockets be enabled? Defaults to `false`.
         /// </summary>
         public readonly bool? WebsocketsEnabled;
         /// <summary>

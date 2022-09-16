@@ -10,6 +10,306 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type HostPoolScheduledAgentUpdates struct {
+	// Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
+	Enabled *bool `pulumi:"enabled"`
+	// A `schedule` block as defined below. A maximum of two blocks can be added.
+	Schedules []HostPoolScheduledAgentUpdatesSchedule `pulumi:"schedules"`
+	// Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `useSessionHostTimezone` is enabled then it will override this setting. Default is `UTC`
+	Timezone *string `pulumi:"timezone"`
+	// Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides `timezone`. Default is `false`.
+	UseSessionHostTimezone *bool `pulumi:"useSessionHostTimezone"`
+}
+
+// HostPoolScheduledAgentUpdatesInput is an input type that accepts HostPoolScheduledAgentUpdatesArgs and HostPoolScheduledAgentUpdatesOutput values.
+// You can construct a concrete instance of `HostPoolScheduledAgentUpdatesInput` via:
+//
+//	HostPoolScheduledAgentUpdatesArgs{...}
+type HostPoolScheduledAgentUpdatesInput interface {
+	pulumi.Input
+
+	ToHostPoolScheduledAgentUpdatesOutput() HostPoolScheduledAgentUpdatesOutput
+	ToHostPoolScheduledAgentUpdatesOutputWithContext(context.Context) HostPoolScheduledAgentUpdatesOutput
+}
+
+type HostPoolScheduledAgentUpdatesArgs struct {
+	// Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// A `schedule` block as defined below. A maximum of two blocks can be added.
+	Schedules HostPoolScheduledAgentUpdatesScheduleArrayInput `pulumi:"schedules"`
+	// Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `useSessionHostTimezone` is enabled then it will override this setting. Default is `UTC`
+	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
+	// Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides `timezone`. Default is `false`.
+	UseSessionHostTimezone pulumi.BoolPtrInput `pulumi:"useSessionHostTimezone"`
+}
+
+func (HostPoolScheduledAgentUpdatesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostPoolScheduledAgentUpdates)(nil)).Elem()
+}
+
+func (i HostPoolScheduledAgentUpdatesArgs) ToHostPoolScheduledAgentUpdatesOutput() HostPoolScheduledAgentUpdatesOutput {
+	return i.ToHostPoolScheduledAgentUpdatesOutputWithContext(context.Background())
+}
+
+func (i HostPoolScheduledAgentUpdatesArgs) ToHostPoolScheduledAgentUpdatesOutputWithContext(ctx context.Context) HostPoolScheduledAgentUpdatesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostPoolScheduledAgentUpdatesOutput)
+}
+
+func (i HostPoolScheduledAgentUpdatesArgs) ToHostPoolScheduledAgentUpdatesPtrOutput() HostPoolScheduledAgentUpdatesPtrOutput {
+	return i.ToHostPoolScheduledAgentUpdatesPtrOutputWithContext(context.Background())
+}
+
+func (i HostPoolScheduledAgentUpdatesArgs) ToHostPoolScheduledAgentUpdatesPtrOutputWithContext(ctx context.Context) HostPoolScheduledAgentUpdatesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostPoolScheduledAgentUpdatesOutput).ToHostPoolScheduledAgentUpdatesPtrOutputWithContext(ctx)
+}
+
+// HostPoolScheduledAgentUpdatesPtrInput is an input type that accepts HostPoolScheduledAgentUpdatesArgs, HostPoolScheduledAgentUpdatesPtr and HostPoolScheduledAgentUpdatesPtrOutput values.
+// You can construct a concrete instance of `HostPoolScheduledAgentUpdatesPtrInput` via:
+//
+//	        HostPoolScheduledAgentUpdatesArgs{...}
+//
+//	or:
+//
+//	        nil
+type HostPoolScheduledAgentUpdatesPtrInput interface {
+	pulumi.Input
+
+	ToHostPoolScheduledAgentUpdatesPtrOutput() HostPoolScheduledAgentUpdatesPtrOutput
+	ToHostPoolScheduledAgentUpdatesPtrOutputWithContext(context.Context) HostPoolScheduledAgentUpdatesPtrOutput
+}
+
+type hostPoolScheduledAgentUpdatesPtrType HostPoolScheduledAgentUpdatesArgs
+
+func HostPoolScheduledAgentUpdatesPtr(v *HostPoolScheduledAgentUpdatesArgs) HostPoolScheduledAgentUpdatesPtrInput {
+	return (*hostPoolScheduledAgentUpdatesPtrType)(v)
+}
+
+func (*hostPoolScheduledAgentUpdatesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostPoolScheduledAgentUpdates)(nil)).Elem()
+}
+
+func (i *hostPoolScheduledAgentUpdatesPtrType) ToHostPoolScheduledAgentUpdatesPtrOutput() HostPoolScheduledAgentUpdatesPtrOutput {
+	return i.ToHostPoolScheduledAgentUpdatesPtrOutputWithContext(context.Background())
+}
+
+func (i *hostPoolScheduledAgentUpdatesPtrType) ToHostPoolScheduledAgentUpdatesPtrOutputWithContext(ctx context.Context) HostPoolScheduledAgentUpdatesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostPoolScheduledAgentUpdatesPtrOutput)
+}
+
+type HostPoolScheduledAgentUpdatesOutput struct{ *pulumi.OutputState }
+
+func (HostPoolScheduledAgentUpdatesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostPoolScheduledAgentUpdates)(nil)).Elem()
+}
+
+func (o HostPoolScheduledAgentUpdatesOutput) ToHostPoolScheduledAgentUpdatesOutput() HostPoolScheduledAgentUpdatesOutput {
+	return o
+}
+
+func (o HostPoolScheduledAgentUpdatesOutput) ToHostPoolScheduledAgentUpdatesOutputWithContext(ctx context.Context) HostPoolScheduledAgentUpdatesOutput {
+	return o
+}
+
+func (o HostPoolScheduledAgentUpdatesOutput) ToHostPoolScheduledAgentUpdatesPtrOutput() HostPoolScheduledAgentUpdatesPtrOutput {
+	return o.ToHostPoolScheduledAgentUpdatesPtrOutputWithContext(context.Background())
+}
+
+func (o HostPoolScheduledAgentUpdatesOutput) ToHostPoolScheduledAgentUpdatesPtrOutputWithContext(ctx context.Context) HostPoolScheduledAgentUpdatesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostPoolScheduledAgentUpdates) *HostPoolScheduledAgentUpdates {
+		return &v
+	}).(HostPoolScheduledAgentUpdatesPtrOutput)
+}
+
+// Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
+func (o HostPoolScheduledAgentUpdatesOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HostPoolScheduledAgentUpdates) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// A `schedule` block as defined below. A maximum of two blocks can be added.
+func (o HostPoolScheduledAgentUpdatesOutput) Schedules() HostPoolScheduledAgentUpdatesScheduleArrayOutput {
+	return o.ApplyT(func(v HostPoolScheduledAgentUpdates) []HostPoolScheduledAgentUpdatesSchedule { return v.Schedules }).(HostPoolScheduledAgentUpdatesScheduleArrayOutput)
+}
+
+// Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `useSessionHostTimezone` is enabled then it will override this setting. Default is `UTC`
+func (o HostPoolScheduledAgentUpdatesOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HostPoolScheduledAgentUpdates) *string { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides `timezone`. Default is `false`.
+func (o HostPoolScheduledAgentUpdatesOutput) UseSessionHostTimezone() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HostPoolScheduledAgentUpdates) *bool { return v.UseSessionHostTimezone }).(pulumi.BoolPtrOutput)
+}
+
+type HostPoolScheduledAgentUpdatesPtrOutput struct{ *pulumi.OutputState }
+
+func (HostPoolScheduledAgentUpdatesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HostPoolScheduledAgentUpdates)(nil)).Elem()
+}
+
+func (o HostPoolScheduledAgentUpdatesPtrOutput) ToHostPoolScheduledAgentUpdatesPtrOutput() HostPoolScheduledAgentUpdatesPtrOutput {
+	return o
+}
+
+func (o HostPoolScheduledAgentUpdatesPtrOutput) ToHostPoolScheduledAgentUpdatesPtrOutputWithContext(ctx context.Context) HostPoolScheduledAgentUpdatesPtrOutput {
+	return o
+}
+
+func (o HostPoolScheduledAgentUpdatesPtrOutput) Elem() HostPoolScheduledAgentUpdatesOutput {
+	return o.ApplyT(func(v *HostPoolScheduledAgentUpdates) HostPoolScheduledAgentUpdates {
+		if v != nil {
+			return *v
+		}
+		var ret HostPoolScheduledAgentUpdates
+		return ret
+	}).(HostPoolScheduledAgentUpdatesOutput)
+}
+
+// Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
+func (o HostPoolScheduledAgentUpdatesPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HostPoolScheduledAgentUpdates) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A `schedule` block as defined below. A maximum of two blocks can be added.
+func (o HostPoolScheduledAgentUpdatesPtrOutput) Schedules() HostPoolScheduledAgentUpdatesScheduleArrayOutput {
+	return o.ApplyT(func(v *HostPoolScheduledAgentUpdates) []HostPoolScheduledAgentUpdatesSchedule {
+		if v == nil {
+			return nil
+		}
+		return v.Schedules
+	}).(HostPoolScheduledAgentUpdatesScheduleArrayOutput)
+}
+
+// Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If `useSessionHostTimezone` is enabled then it will override this setting. Default is `UTC`
+func (o HostPoolScheduledAgentUpdatesPtrOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPoolScheduledAgentUpdates) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Timezone
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides `timezone`. Default is `false`.
+func (o HostPoolScheduledAgentUpdatesPtrOutput) UseSessionHostTimezone() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *HostPoolScheduledAgentUpdates) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseSessionHostTimezone
+	}).(pulumi.BoolPtrOutput)
+}
+
+type HostPoolScheduledAgentUpdatesSchedule struct {
+	// The day of the week on which agent updates should be performed. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+	DayOfWeek string `pulumi:"dayOfWeek"`
+	// The hour of day the update window should start. The update is a 2 hour period following the hour provided. The value should be provided as a number between 0 and 23, with 0 being midnight and 23 being 11pm. A leading zero should not be used.
+	HourOfDay int `pulumi:"hourOfDay"`
+}
+
+// HostPoolScheduledAgentUpdatesScheduleInput is an input type that accepts HostPoolScheduledAgentUpdatesScheduleArgs and HostPoolScheduledAgentUpdatesScheduleOutput values.
+// You can construct a concrete instance of `HostPoolScheduledAgentUpdatesScheduleInput` via:
+//
+//	HostPoolScheduledAgentUpdatesScheduleArgs{...}
+type HostPoolScheduledAgentUpdatesScheduleInput interface {
+	pulumi.Input
+
+	ToHostPoolScheduledAgentUpdatesScheduleOutput() HostPoolScheduledAgentUpdatesScheduleOutput
+	ToHostPoolScheduledAgentUpdatesScheduleOutputWithContext(context.Context) HostPoolScheduledAgentUpdatesScheduleOutput
+}
+
+type HostPoolScheduledAgentUpdatesScheduleArgs struct {
+	// The day of the week on which agent updates should be performed. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
+	// The hour of day the update window should start. The update is a 2 hour period following the hour provided. The value should be provided as a number between 0 and 23, with 0 being midnight and 23 being 11pm. A leading zero should not be used.
+	HourOfDay pulumi.IntInput `pulumi:"hourOfDay"`
+}
+
+func (HostPoolScheduledAgentUpdatesScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostPoolScheduledAgentUpdatesSchedule)(nil)).Elem()
+}
+
+func (i HostPoolScheduledAgentUpdatesScheduleArgs) ToHostPoolScheduledAgentUpdatesScheduleOutput() HostPoolScheduledAgentUpdatesScheduleOutput {
+	return i.ToHostPoolScheduledAgentUpdatesScheduleOutputWithContext(context.Background())
+}
+
+func (i HostPoolScheduledAgentUpdatesScheduleArgs) ToHostPoolScheduledAgentUpdatesScheduleOutputWithContext(ctx context.Context) HostPoolScheduledAgentUpdatesScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostPoolScheduledAgentUpdatesScheduleOutput)
+}
+
+// HostPoolScheduledAgentUpdatesScheduleArrayInput is an input type that accepts HostPoolScheduledAgentUpdatesScheduleArray and HostPoolScheduledAgentUpdatesScheduleArrayOutput values.
+// You can construct a concrete instance of `HostPoolScheduledAgentUpdatesScheduleArrayInput` via:
+//
+//	HostPoolScheduledAgentUpdatesScheduleArray{ HostPoolScheduledAgentUpdatesScheduleArgs{...} }
+type HostPoolScheduledAgentUpdatesScheduleArrayInput interface {
+	pulumi.Input
+
+	ToHostPoolScheduledAgentUpdatesScheduleArrayOutput() HostPoolScheduledAgentUpdatesScheduleArrayOutput
+	ToHostPoolScheduledAgentUpdatesScheduleArrayOutputWithContext(context.Context) HostPoolScheduledAgentUpdatesScheduleArrayOutput
+}
+
+type HostPoolScheduledAgentUpdatesScheduleArray []HostPoolScheduledAgentUpdatesScheduleInput
+
+func (HostPoolScheduledAgentUpdatesScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HostPoolScheduledAgentUpdatesSchedule)(nil)).Elem()
+}
+
+func (i HostPoolScheduledAgentUpdatesScheduleArray) ToHostPoolScheduledAgentUpdatesScheduleArrayOutput() HostPoolScheduledAgentUpdatesScheduleArrayOutput {
+	return i.ToHostPoolScheduledAgentUpdatesScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i HostPoolScheduledAgentUpdatesScheduleArray) ToHostPoolScheduledAgentUpdatesScheduleArrayOutputWithContext(ctx context.Context) HostPoolScheduledAgentUpdatesScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HostPoolScheduledAgentUpdatesScheduleArrayOutput)
+}
+
+type HostPoolScheduledAgentUpdatesScheduleOutput struct{ *pulumi.OutputState }
+
+func (HostPoolScheduledAgentUpdatesScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HostPoolScheduledAgentUpdatesSchedule)(nil)).Elem()
+}
+
+func (o HostPoolScheduledAgentUpdatesScheduleOutput) ToHostPoolScheduledAgentUpdatesScheduleOutput() HostPoolScheduledAgentUpdatesScheduleOutput {
+	return o
+}
+
+func (o HostPoolScheduledAgentUpdatesScheduleOutput) ToHostPoolScheduledAgentUpdatesScheduleOutputWithContext(ctx context.Context) HostPoolScheduledAgentUpdatesScheduleOutput {
+	return o
+}
+
+// The day of the week on which agent updates should be performed. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
+func (o HostPoolScheduledAgentUpdatesScheduleOutput) DayOfWeek() pulumi.StringOutput {
+	return o.ApplyT(func(v HostPoolScheduledAgentUpdatesSchedule) string { return v.DayOfWeek }).(pulumi.StringOutput)
+}
+
+// The hour of day the update window should start. The update is a 2 hour period following the hour provided. The value should be provided as a number between 0 and 23, with 0 being midnight and 23 being 11pm. A leading zero should not be used.
+func (o HostPoolScheduledAgentUpdatesScheduleOutput) HourOfDay() pulumi.IntOutput {
+	return o.ApplyT(func(v HostPoolScheduledAgentUpdatesSchedule) int { return v.HourOfDay }).(pulumi.IntOutput)
+}
+
+type HostPoolScheduledAgentUpdatesScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (HostPoolScheduledAgentUpdatesScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HostPoolScheduledAgentUpdatesSchedule)(nil)).Elem()
+}
+
+func (o HostPoolScheduledAgentUpdatesScheduleArrayOutput) ToHostPoolScheduledAgentUpdatesScheduleArrayOutput() HostPoolScheduledAgentUpdatesScheduleArrayOutput {
+	return o
+}
+
+func (o HostPoolScheduledAgentUpdatesScheduleArrayOutput) ToHostPoolScheduledAgentUpdatesScheduleArrayOutputWithContext(ctx context.Context) HostPoolScheduledAgentUpdatesScheduleArrayOutput {
+	return o
+}
+
+func (o HostPoolScheduledAgentUpdatesScheduleArrayOutput) Index(i pulumi.IntInput) HostPoolScheduledAgentUpdatesScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HostPoolScheduledAgentUpdatesSchedule {
+		return vs[0].([]HostPoolScheduledAgentUpdatesSchedule)[vs[1].(int)]
+	}).(HostPoolScheduledAgentUpdatesScheduleOutput)
+}
+
 type ScalingPlanHostPool struct {
 	// The ID of the HostPool to assign the Scaling Plan to.
 	HostpoolId string `pulumi:"hostpoolId"`
@@ -367,10 +667,18 @@ func (o ScalingPlanScheduleArrayOutput) Index(i pulumi.IntInput) ScalingPlanSche
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HostPoolScheduledAgentUpdatesInput)(nil)).Elem(), HostPoolScheduledAgentUpdatesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostPoolScheduledAgentUpdatesPtrInput)(nil)).Elem(), HostPoolScheduledAgentUpdatesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostPoolScheduledAgentUpdatesScheduleInput)(nil)).Elem(), HostPoolScheduledAgentUpdatesScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostPoolScheduledAgentUpdatesScheduleArrayInput)(nil)).Elem(), HostPoolScheduledAgentUpdatesScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanHostPoolInput)(nil)).Elem(), ScalingPlanHostPoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanHostPoolArrayInput)(nil)).Elem(), ScalingPlanHostPoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanScheduleInput)(nil)).Elem(), ScalingPlanScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanScheduleArrayInput)(nil)).Elem(), ScalingPlanScheduleArray{})
+	pulumi.RegisterOutputType(HostPoolScheduledAgentUpdatesOutput{})
+	pulumi.RegisterOutputType(HostPoolScheduledAgentUpdatesPtrOutput{})
+	pulumi.RegisterOutputType(HostPoolScheduledAgentUpdatesScheduleOutput{})
+	pulumi.RegisterOutputType(HostPoolScheduledAgentUpdatesScheduleArrayOutput{})
 	pulumi.RegisterOutputType(ScalingPlanHostPoolOutput{})
 	pulumi.RegisterOutputType(ScalingPlanHostPoolArrayOutput{})
 	pulumi.RegisterOutputType(ScalingPlanScheduleOutput{})

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -25,6 +26,13 @@ import * as utilities from "../utilities";
  *     type: "Pooled",
  *     maximumSessionsAllowed: 50,
  *     loadBalancerType: "DepthFirst",
+ *     scheduledAgentUpdates: {
+ *         enabled: true,
+ *         schedules: [{
+ *             dayOfWeek: "Saturday",
+ *             hourOfDay: 2,
+ *         }],
+ *     },
  * });
  * ```
  *
@@ -114,6 +122,10 @@ export class HostPool extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * A `scheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+     */
+    public readonly scheduledAgentUpdates!: pulumi.Output<outputs.desktopvirtualization.HostPoolScheduledAgentUpdates | undefined>;
+    /**
      * Enables or disables the Start VM on Connection Feature. Defaults to `false`.
      */
     public readonly startVmOnConnect!: pulumi.Output<boolean | undefined>;
@@ -154,6 +166,7 @@ export class HostPool extends pulumi.CustomResource {
             resourceInputs["personalDesktopAssignmentType"] = state ? state.personalDesktopAssignmentType : undefined;
             resourceInputs["preferredAppGroupType"] = state ? state.preferredAppGroupType : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["scheduledAgentUpdates"] = state ? state.scheduledAgentUpdates : undefined;
             resourceInputs["startVmOnConnect"] = state ? state.startVmOnConnect : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
@@ -179,6 +192,7 @@ export class HostPool extends pulumi.CustomResource {
             resourceInputs["personalDesktopAssignmentType"] = args ? args.personalDesktopAssignmentType : undefined;
             resourceInputs["preferredAppGroupType"] = args ? args.preferredAppGroupType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["scheduledAgentUpdates"] = args ? args.scheduledAgentUpdates : undefined;
             resourceInputs["startVmOnConnect"] = args ? args.startVmOnConnect : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -242,6 +256,10 @@ export interface HostPoolState {
      * a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
+    /**
+     * A `scheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+     */
+    scheduledAgentUpdates?: pulumi.Input<inputs.desktopvirtualization.HostPoolScheduledAgentUpdates>;
     /**
      * Enables or disables the Start VM on Connection Feature. Defaults to `false`.
      */
@@ -314,6 +332,10 @@ export interface HostPoolArgs {
      * a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * A `scheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+     */
+    scheduledAgentUpdates?: pulumi.Input<inputs.desktopvirtualization.HostPoolScheduledAgentUpdates>;
     /**
      * Enables or disables the Start VM on Connection Feature. Defaults to `false`.
      */

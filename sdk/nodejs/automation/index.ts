@@ -29,7 +29,9 @@ export * from "./jobSchedule";
 export * from "./module";
 export * from "./runBook";
 export * from "./schedule";
+export * from "./sourceControl";
 export * from "./stringVariable";
+export * from "./watcher";
 export * from "./webhook";
 
 // Import resources to register:
@@ -52,7 +54,9 @@ import { JobSchedule } from "./jobSchedule";
 import { Module } from "./module";
 import { RunBook } from "./runBook";
 import { Schedule } from "./schedule";
+import { SourceControl } from "./sourceControl";
 import { StringVariable } from "./stringVariable";
+import { Watcher } from "./watcher";
 import { Webhook } from "./webhook";
 
 const _module = {
@@ -97,8 +101,12 @@ const _module = {
                 return new RunBook(name, <any>undefined, { urn })
             case "azure:automation/schedule:Schedule":
                 return new Schedule(name, <any>undefined, { urn })
+            case "azure:automation/sourceControl:SourceControl":
+                return new SourceControl(name, <any>undefined, { urn })
             case "azure:automation/stringVariable:StringVariable":
                 return new StringVariable(name, <any>undefined, { urn })
+            case "azure:automation/watcher:Watcher":
+                return new Watcher(name, <any>undefined, { urn })
             case "azure:automation/webhook:Webhook":
                 return new Webhook(name, <any>undefined, { urn })
             default:
@@ -125,5 +133,7 @@ pulumi.runtime.registerResourceModule("azure", "automation/jobSchedule", _module
 pulumi.runtime.registerResourceModule("azure", "automation/module", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/runBook", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/schedule", _module)
+pulumi.runtime.registerResourceModule("azure", "automation/sourceControl", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/stringVariable", _module)
+pulumi.runtime.registerResourceModule("azure", "automation/watcher", _module)
 pulumi.runtime.registerResourceModule("azure", "automation/webhook", _module)

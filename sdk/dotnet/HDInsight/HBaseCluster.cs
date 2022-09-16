@@ -118,6 +118,12 @@ namespace Pulumi.Azure.HDInsight
         public Output<ImmutableArray<Outputs.HBaseClusterDiskEncryption>> DiskEncryptions { get; private set; } = null!;
 
         /// <summary>
+        /// An `extension` block as defined below.
+        /// </summary>
+        [Output("extension")]
+        public Output<Outputs.HBaseClusterExtension?> Extension { get; private set; } = null!;
+
+        /// <summary>
         /// A `gateway` block as defined below.
         /// </summary>
         [Output("gateway")]
@@ -277,6 +283,12 @@ namespace Pulumi.Azure.HDInsight
         }
 
         /// <summary>
+        /// An `extension` block as defined below.
+        /// </summary>
+        [Input("extension")]
+        public Input<Inputs.HBaseClusterExtensionArgs>? Extension { get; set; }
+
+        /// <summary>
         /// A `gateway` block as defined below.
         /// </summary>
         [Input("gateway", required: true)]
@@ -396,6 +408,12 @@ namespace Pulumi.Azure.HDInsight
             get => _diskEncryptions ?? (_diskEncryptions = new InputList<Inputs.HBaseClusterDiskEncryptionGetArgs>());
             set => _diskEncryptions = value;
         }
+
+        /// <summary>
+        /// An `extension` block as defined below.
+        /// </summary>
+        [Input("extension")]
+        public Input<Inputs.HBaseClusterExtensionGetArgs>? Extension { get; set; }
 
         /// <summary>
         /// A `gateway` block as defined below.

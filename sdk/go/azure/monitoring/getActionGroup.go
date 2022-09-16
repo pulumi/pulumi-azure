@@ -50,8 +50,6 @@ func LookupActionGroup(ctx *pulumi.Context, args *LookupActionGroupArgs, opts ..
 
 // A collection of arguments for invoking getActionGroup.
 type LookupActionGroupArgs struct {
-	// One or more `eventHubReceiver` blocks as defined below.
-	EventHubReceivers []GetActionGroupEventHubReceiver `pulumi:"eventHubReceivers"`
 	// Specifies the name of the Action Group.
 	Name string `pulumi:"name"`
 	// Specifies the name of the resource group the Action Group is located in.
@@ -108,8 +106,6 @@ func LookupActionGroupOutput(ctx *pulumi.Context, args LookupActionGroupOutputAr
 
 // A collection of arguments for invoking getActionGroup.
 type LookupActionGroupOutputArgs struct {
-	// One or more `eventHubReceiver` blocks as defined below.
-	EventHubReceivers GetActionGroupEventHubReceiverArrayInput `pulumi:"eventHubReceivers"`
 	// Specifies the name of the Action Group.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies the name of the resource group the Action Group is located in.

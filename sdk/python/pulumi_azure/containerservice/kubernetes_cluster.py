@@ -27,6 +27,7 @@ class KubernetesClusterArgs:
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
                  http_proxy_config: Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']] = None,
@@ -69,6 +70,7 @@ class KubernetesClusterArgs:
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] http_application_routing_enabled: Should HTTP Application Routing be enabled?
         :param pulumi.Input['KubernetesClusterHttpProxyConfigArgs'] http_proxy_config: A `http_proxy_config` block as defined below.
         :param pulumi.Input['KubernetesClusterIdentityArgs'] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
@@ -117,6 +119,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "dns_prefix", dns_prefix)
         if dns_prefix_private_cluster is not None:
             pulumi.set(__self__, "dns_prefix_private_cluster", dns_prefix_private_cluster)
+        if edge_zone is not None:
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_pod_security_policy is not None:
             pulumi.set(__self__, "enable_pod_security_policy", enable_pod_security_policy)
         if http_application_routing_enabled is not None:
@@ -307,6 +311,18 @@ class KubernetesClusterArgs:
     @dns_prefix_private_cluster.setter
     def dns_prefix_private_cluster(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_prefix_private_cluster", value)
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "edge_zone")
+
+    @edge_zone.setter
+    def edge_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edge_zone", value)
 
     @property
     @pulumi.getter(name="enablePodSecurityPolicy")
@@ -664,6 +680,7 @@ class _KubernetesClusterState:
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
@@ -715,6 +732,7 @@ class _KubernetesClusterState:
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the Azure Kubernetes Managed Cluster.
         :param pulumi.Input[bool] http_application_routing_enabled: Should HTTP Application Routing be enabled?
         :param pulumi.Input[str] http_application_routing_zone_name: The Zone Name of the HTTP Application Routing.
@@ -773,6 +791,8 @@ class _KubernetesClusterState:
             pulumi.set(__self__, "dns_prefix", dns_prefix)
         if dns_prefix_private_cluster is not None:
             pulumi.set(__self__, "dns_prefix_private_cluster", dns_prefix_private_cluster)
+        if edge_zone is not None:
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if enable_pod_security_policy is not None:
             pulumi.set(__self__, "enable_pod_security_policy", enable_pod_security_policy)
         if fqdn is not None:
@@ -971,6 +991,18 @@ class _KubernetesClusterState:
     @dns_prefix_private_cluster.setter
     def dns_prefix_private_cluster(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_prefix_private_cluster", value)
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "edge_zone")
+
+    @edge_zone.setter
+    def edge_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "edge_zone", value)
 
     @property
     @pulumi.getter(name="enablePodSecurityPolicy")
@@ -1450,6 +1482,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
                  http_proxy_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']]] = None,
@@ -1532,6 +1565,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] http_application_routing_enabled: Should HTTP Application Routing be enabled?
         :param pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']] http_proxy_config: A `http_proxy_config` block as defined below.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterIdentityArgs']] identity: An `identity` block as defined below. One of either `identity` or `service_principal` must be specified.
@@ -1631,6 +1665,7 @@ class KubernetesCluster(pulumi.CustomResource):
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  dns_prefix: Optional[pulumi.Input[str]] = None,
                  dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
+                 edge_zone: Optional[pulumi.Input[str]] = None,
                  enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
                  http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
                  http_proxy_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterHttpProxyConfigArgs']]] = None,
@@ -1682,6 +1717,7 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["disk_encryption_set_id"] = disk_encryption_set_id
             __props__.__dict__["dns_prefix"] = dns_prefix
             __props__.__dict__["dns_prefix_private_cluster"] = dns_prefix_private_cluster
+            __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["enable_pod_security_policy"] = enable_pod_security_policy
             __props__.__dict__["http_application_routing_enabled"] = http_application_routing_enabled
             __props__.__dict__["http_proxy_config"] = http_proxy_config
@@ -1743,6 +1779,7 @@ class KubernetesCluster(pulumi.CustomResource):
             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
             dns_prefix: Optional[pulumi.Input[str]] = None,
             dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
+            edge_zone: Optional[pulumi.Input[str]] = None,
             enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
             http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1799,6 +1836,7 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] edge_zone: Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The FQDN of the Azure Kubernetes Managed Cluster.
         :param pulumi.Input[bool] http_application_routing_enabled: Should HTTP Application Routing be enabled?
         :param pulumi.Input[str] http_application_routing_zone_name: The Zone Name of the HTTP Application Routing.
@@ -1851,6 +1889,7 @@ class KubernetesCluster(pulumi.CustomResource):
         __props__.__dict__["disk_encryption_set_id"] = disk_encryption_set_id
         __props__.__dict__["dns_prefix"] = dns_prefix
         __props__.__dict__["dns_prefix_private_cluster"] = dns_prefix_private_cluster
+        __props__.__dict__["edge_zone"] = edge_zone
         __props__.__dict__["enable_pod_security_policy"] = enable_pod_security_policy
         __props__.__dict__["fqdn"] = fqdn
         __props__.__dict__["http_application_routing_enabled"] = http_application_routing_enabled
@@ -1971,6 +2010,14 @@ class KubernetesCluster(pulumi.CustomResource):
         Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "dns_prefix_private_cluster")
+
+    @property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "edge_zone")
 
     @property
     @pulumi.getter(name="enablePodSecurityPolicy")

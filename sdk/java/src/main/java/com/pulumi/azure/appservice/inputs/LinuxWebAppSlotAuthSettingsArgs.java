@@ -146,14 +146,14 @@ public final class LinuxWebAppSlotAuthSettingsArgs extends com.pulumi.resources.
     }
 
     /**
-     * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+     * The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
      * 
      */
     @Import(name="issuer")
     private @Nullable Output<String> issuer;
 
     /**
-     * @return The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+     * @return The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
      * 
      */
     public Optional<Output<String>> issuer() {
@@ -467,7 +467,7 @@ public final class LinuxWebAppSlotAuthSettingsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param issuer The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+         * @param issuer The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
          * 
          * @return builder
          * 
@@ -478,7 +478,7 @@ public final class LinuxWebAppSlotAuthSettingsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param issuer The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
+         * @param issuer The OpenID Connect Issuer URI that represents the entity that issues access tokens for this Linux Web App.
          * 
          * @return builder
          * 

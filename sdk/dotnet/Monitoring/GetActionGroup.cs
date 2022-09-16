@@ -79,18 +79,6 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class GetActionGroupArgs : global::Pulumi.InvokeArgs
     {
-        [Input("eventHubReceivers")]
-        private List<Inputs.GetActionGroupEventHubReceiverArgs>? _eventHubReceivers;
-
-        /// <summary>
-        /// One or more `event_hub_receiver` blocks as defined below.
-        /// </summary>
-        public List<Inputs.GetActionGroupEventHubReceiverArgs> EventHubReceivers
-        {
-            get => _eventHubReceivers ?? (_eventHubReceivers = new List<Inputs.GetActionGroupEventHubReceiverArgs>());
-            set => _eventHubReceivers = value;
-        }
-
         /// <summary>
         /// Specifies the name of the Action Group.
         /// </summary>
@@ -111,18 +99,6 @@ namespace Pulumi.Azure.Monitoring
 
     public sealed class GetActionGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("eventHubReceivers")]
-        private InputList<Inputs.GetActionGroupEventHubReceiverInputArgs>? _eventHubReceivers;
-
-        /// <summary>
-        /// One or more `event_hub_receiver` blocks as defined below.
-        /// </summary>
-        public InputList<Inputs.GetActionGroupEventHubReceiverInputArgs> EventHubReceivers
-        {
-            get => _eventHubReceivers ?? (_eventHubReceivers = new InputList<Inputs.GetActionGroupEventHubReceiverInputArgs>());
-            set => _eventHubReceivers = value;
-        }
-
         /// <summary>
         /// Specifies the name of the Action Group.
         /// </summary>

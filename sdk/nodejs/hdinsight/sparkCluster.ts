@@ -113,6 +113,10 @@ export class SparkCluster extends pulumi.CustomResource {
      */
     public readonly encryptionInTransitEnabled!: pulumi.Output<boolean>;
     /**
+     * An `extension` block as defined below.
+     */
+    public readonly extension!: pulumi.Output<outputs.hdinsight.SparkClusterExtension | undefined>;
+    /**
      * A `gateway` block as defined below.
      */
     public readonly gateway!: pulumi.Output<outputs.hdinsight.SparkClusterGateway>;
@@ -191,6 +195,7 @@ export class SparkCluster extends pulumi.CustomResource {
             resourceInputs["componentVersion"] = state ? state.componentVersion : undefined;
             resourceInputs["diskEncryptions"] = state ? state.diskEncryptions : undefined;
             resourceInputs["encryptionInTransitEnabled"] = state ? state.encryptionInTransitEnabled : undefined;
+            resourceInputs["extension"] = state ? state.extension : undefined;
             resourceInputs["gateway"] = state ? state.gateway : undefined;
             resourceInputs["httpsEndpoint"] = state ? state.httpsEndpoint : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -231,6 +236,7 @@ export class SparkCluster extends pulumi.CustomResource {
             resourceInputs["componentVersion"] = args ? args.componentVersion : undefined;
             resourceInputs["diskEncryptions"] = args ? args.diskEncryptions : undefined;
             resourceInputs["encryptionInTransitEnabled"] = args ? args.encryptionInTransitEnabled : undefined;
+            resourceInputs["extension"] = args ? args.extension : undefined;
             resourceInputs["gateway"] = args ? args.gateway : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["metastores"] = args ? args.metastores : undefined;
@@ -270,6 +276,10 @@ export interface SparkClusterState {
      * Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
      */
     encryptionInTransitEnabled?: pulumi.Input<boolean>;
+    /**
+     * An `extension` block as defined below.
+     */
+    extension?: pulumi.Input<inputs.hdinsight.SparkClusterExtension>;
     /**
      * A `gateway` block as defined below.
      */
@@ -350,6 +360,10 @@ export interface SparkClusterArgs {
      * Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
      */
     encryptionInTransitEnabled?: pulumi.Input<boolean>;
+    /**
+     * An `extension` block as defined below.
+     */
+    extension?: pulumi.Input<inputs.hdinsight.SparkClusterExtension>;
     /**
      * A `gateway` block as defined below.
      */

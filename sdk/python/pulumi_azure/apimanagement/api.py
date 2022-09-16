@@ -19,6 +19,7 @@ class ApiArgs:
                  api_management_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  revision: pulumi.Input[str],
+                 api_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  import_: Optional[pulumi.Input['ApiImportArgs']] = None,
@@ -41,6 +42,7 @@ class ApiArgs:
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision: The Revision which used for this API.
+        :param pulumi.Input[str] api_type: Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
         :param pulumi.Input[str] description: A description of the API Management API, which may include HTML formatting tags.
         :param pulumi.Input[str] display_name: The display name of the API.
         :param pulumi.Input['ApiImportArgs'] import_: A `import` block as documented below.
@@ -48,7 +50,7 @@ class ApiArgs:
         :param pulumi.Input['ApiOauth2AuthorizationArgs'] oauth2_authorization: An `oauth2_authorization` block as documented below.
         :param pulumi.Input['ApiOpenidAuthenticationArgs'] openid_authentication: An `openid_authentication` block as documented below.
         :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
         :param pulumi.Input[str] revision_description: The description of the API Revision of the API Management API.
         :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
         :param pulumi.Input[bool] soap_pass_through: Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
@@ -62,6 +64,8 @@ class ApiArgs:
         pulumi.set(__self__, "api_management_name", api_management_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "revision", revision)
+        if api_type is not None:
+            pulumi.set(__self__, "api_type", api_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -82,6 +86,9 @@ class ApiArgs:
             pulumi.set(__self__, "revision_description", revision_description)
         if service_url is not None:
             pulumi.set(__self__, "service_url", service_url)
+        if soap_pass_through is not None:
+            warnings.warn("""`soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""soap_pass_through is deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""")
         if soap_pass_through is not None:
             pulumi.set(__self__, "soap_pass_through", soap_pass_through)
         if source_api_id is not None:
@@ -132,6 +139,18 @@ class ApiArgs:
     @revision.setter
     def revision(self, value: pulumi.Input[str]):
         pulumi.set(self, "revision", value)
+
+    @property
+    @pulumi.getter(name="apiType")
+    def api_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+        """
+        return pulumi.get(self, "api_type")
+
+    @api_type.setter
+    def api_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_type", value)
 
     @property
     @pulumi.getter
@@ -221,7 +240,7 @@ class ApiArgs:
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+        A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
         """
         return pulumi.get(self, "protocols")
 
@@ -342,6 +361,7 @@ class ApiArgs:
 class _ApiState:
     def __init__(__self__, *,
                  api_management_name: Optional[pulumi.Input[str]] = None,
+                 api_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  import_: Optional[pulumi.Input['ApiImportArgs']] = None,
@@ -366,6 +386,7 @@ class _ApiState:
         """
         Input properties used for looking up and filtering Api resources.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] api_type: Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
         :param pulumi.Input[str] description: A description of the API Management API, which may include HTML formatting tags.
         :param pulumi.Input[str] display_name: The display name of the API.
         :param pulumi.Input['ApiImportArgs'] import_: A `import` block as documented below.
@@ -375,7 +396,7 @@ class _ApiState:
         :param pulumi.Input['ApiOauth2AuthorizationArgs'] oauth2_authorization: An `oauth2_authorization` block as documented below.
         :param pulumi.Input['ApiOpenidAuthenticationArgs'] openid_authentication: An `openid_authentication` block as documented below.
         :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision: The Revision which used for this API.
         :param pulumi.Input[str] revision_description: The description of the API Revision of the API Management API.
@@ -390,6 +411,8 @@ class _ApiState:
         """
         if api_management_name is not None:
             pulumi.set(__self__, "api_management_name", api_management_name)
+        if api_type is not None:
+            pulumi.set(__self__, "api_type", api_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -419,6 +442,9 @@ class _ApiState:
         if service_url is not None:
             pulumi.set(__self__, "service_url", service_url)
         if soap_pass_through is not None:
+            warnings.warn("""`soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""soap_pass_through is deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""")
+        if soap_pass_through is not None:
             pulumi.set(__self__, "soap_pass_through", soap_pass_through)
         if source_api_id is not None:
             pulumi.set(__self__, "source_api_id", source_api_id)
@@ -444,6 +470,18 @@ class _ApiState:
     @api_management_name.setter
     def api_management_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "api_management_name", value)
+
+    @property
+    @pulumi.getter(name="apiType")
+    def api_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+        """
+        return pulumi.get(self, "api_type")
+
+    @api_type.setter
+    def api_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_type", value)
 
     @property
     @pulumi.getter
@@ -557,7 +595,7 @@ class _ApiState:
     @pulumi.getter
     def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+        A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
         """
         return pulumi.get(self, "protocols")
 
@@ -704,6 +742,7 @@ class Api(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
+                 api_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  import_: Optional[pulumi.Input[pulumi.InputType['ApiImportArgs']]] = None,
@@ -764,6 +803,7 @@ class Api(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] api_type: Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
         :param pulumi.Input[str] description: A description of the API Management API, which may include HTML formatting tags.
         :param pulumi.Input[str] display_name: The display name of the API.
         :param pulumi.Input[pulumi.InputType['ApiImportArgs']] import_: A `import` block as documented below.
@@ -771,7 +811,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ApiOauth2AuthorizationArgs']] oauth2_authorization: An `oauth2_authorization` block as documented below.
         :param pulumi.Input[pulumi.InputType['ApiOpenidAuthenticationArgs']] openid_authentication: An `openid_authentication` block as documented below.
         :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision: The Revision which used for this API.
         :param pulumi.Input[str] revision_description: The description of the API Revision of the API Management API.
@@ -843,6 +883,7 @@ class Api(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
+                 api_type: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  import_: Optional[pulumi.Input[pulumi.InputType['ApiImportArgs']]] = None,
@@ -874,6 +915,7 @@ class Api(pulumi.CustomResource):
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__.__dict__["api_management_name"] = api_management_name
+            __props__.__dict__["api_type"] = api_type
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["import_"] = import_
@@ -890,6 +932,9 @@ class Api(pulumi.CustomResource):
             __props__.__dict__["revision"] = revision
             __props__.__dict__["revision_description"] = revision_description
             __props__.__dict__["service_url"] = service_url
+            if soap_pass_through is not None and not opts.urn:
+                warnings.warn("""`soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""", DeprecationWarning)
+                pulumi.log.warn("""soap_pass_through is deprecated: `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider""")
             __props__.__dict__["soap_pass_through"] = soap_pass_through
             __props__.__dict__["source_api_id"] = source_api_id
             __props__.__dict__["subscription_key_parameter_names"] = subscription_key_parameter_names
@@ -910,6 +955,7 @@ class Api(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             api_management_name: Optional[pulumi.Input[str]] = None,
+            api_type: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
             import_: Optional[pulumi.Input[pulumi.InputType['ApiImportArgs']]] = None,
@@ -939,6 +985,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] api_type: Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
         :param pulumi.Input[str] description: A description of the API Management API, which may include HTML formatting tags.
         :param pulumi.Input[str] display_name: The display name of the API.
         :param pulumi.Input[pulumi.InputType['ApiImportArgs']] import_: A `import` block as documented below.
@@ -948,7 +995,7 @@ class Api(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ApiOauth2AuthorizationArgs']] oauth2_authorization: An `oauth2_authorization` block as documented below.
         :param pulumi.Input[pulumi.InputType['ApiOpenidAuthenticationArgs']] openid_authentication: An `openid_authentication` block as documented below.
         :param pulumi.Input[str] path: The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] revision: The Revision which used for this API.
         :param pulumi.Input[str] revision_description: The description of the API Revision of the API Management API.
@@ -966,6 +1013,7 @@ class Api(pulumi.CustomResource):
         __props__ = _ApiState.__new__(_ApiState)
 
         __props__.__dict__["api_management_name"] = api_management_name
+        __props__.__dict__["api_type"] = api_type
         __props__.__dict__["description"] = description
         __props__.__dict__["display_name"] = display_name
         __props__.__dict__["import_"] = import_
@@ -996,6 +1044,14 @@ class Api(pulumi.CustomResource):
         The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "api_management_name")
+
+    @property
+    @pulumi.getter(name="apiType")
+    def api_type(self) -> pulumi.Output[str]:
+        """
+        Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+        """
+        return pulumi.get(self, "api_type")
 
     @property
     @pulumi.getter
@@ -1073,7 +1129,7 @@ class Api(pulumi.CustomResource):
     @pulumi.getter
     def protocols(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+        A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
         """
         return pulumi.get(self, "protocols")
 
@@ -1111,7 +1167,7 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="soapPassThrough")
-    def soap_pass_through(self) -> pulumi.Output[Optional[bool]]:
+    def soap_pass_through(self) -> pulumi.Output[bool]:
         """
         Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
         """

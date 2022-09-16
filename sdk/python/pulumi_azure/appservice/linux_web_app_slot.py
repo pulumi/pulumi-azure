@@ -49,11 +49,11 @@ class LinuxWebAppSlotArgs:
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections.
         :param pulumi.Input['LinuxWebAppSlotIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         :param pulumi.Input['LinuxWebAppSlotLogsArgs'] logs: A `logs` block as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags that should be assigned to the Linux Web App.
         :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         """
@@ -242,7 +242,7 @@ class LinuxWebAppSlotArgs:
     @pulumi.getter(name="keyVaultReferenceIdentityId")
     def key_vault_reference_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         """
         return pulumi.get(self, "key_vault_reference_identity_id")
 
@@ -266,7 +266,7 @@ class LinuxWebAppSlotArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
         """
         return pulumi.get(self, "name")
 
@@ -290,7 +290,7 @@ class LinuxWebAppSlotArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to the Linux Web App.
+        A mapping of tags that should be assigned to the Linux Web App.
         """
         return pulumi.get(self, "tags")
 
@@ -370,18 +370,18 @@ class _LinuxWebAppSlotState:
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections.
         :param pulumi.Input['LinuxWebAppSlotIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         :param pulumi.Input[str] kind: The Kind value for this Linux Web App.
         :param pulumi.Input['LinuxWebAppSlotLogsArgs'] logs: A `logs` block as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
-        :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
+        :param pulumi.Input[str] outbound_ip_addresses: A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A `possible_outbound_ip_address_list` block as defined below.
-        :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        :param pulumi.Input[str] possible_outbound_ip_addresses: A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input['LinuxWebAppSlotSiteConfigArgs'] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags that should be assigned to the Linux Web App.
         :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         """
@@ -614,7 +614,7 @@ class _LinuxWebAppSlotState:
     @pulumi.getter(name="keyVaultReferenceIdentityId")
     def key_vault_reference_identity_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         """
         return pulumi.get(self, "key_vault_reference_identity_id")
 
@@ -650,7 +650,7 @@ class _LinuxWebAppSlotState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
         """
         return pulumi.get(self, "name")
 
@@ -674,7 +674,7 @@ class _LinuxWebAppSlotState:
     @pulumi.getter(name="outboundIpAddresses")
     def outbound_ip_addresses(self) -> Optional[pulumi.Input[str]]:
         """
-        A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
+        A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         """
         return pulumi.get(self, "outbound_ip_addresses")
 
@@ -698,7 +698,7 @@ class _LinuxWebAppSlotState:
     @pulumi.getter(name="possibleOutboundIpAddresses")
     def possible_outbound_ip_addresses(self) -> Optional[pulumi.Input[str]]:
         """
-        A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         """
         return pulumi.get(self, "possible_outbound_ip_addresses")
 
@@ -746,7 +746,7 @@ class _LinuxWebAppSlotState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags which should be assigned to the Linux Web App.
+        A mapping of tags that should be assigned to the Linux Web App.
         """
         return pulumi.get(self, "tags")
 
@@ -850,12 +850,12 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotLogsArgs']] logs: A `logs` block as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotSiteConfigArgs']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags that should be assigned to the Linux Web App.
         :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         """
@@ -1032,18 +1032,18 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
         :param pulumi.Input[bool] https_only: Should the Linux Web App require HTTPS connections.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         :param pulumi.Input[str] kind: The Kind value for this Linux Web App.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotLogsArgs']] logs: A `logs` block as defined below.
-        :param pulumi.Input[str] name: The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_lists: A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
-        :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
+        :param pulumi.Input[str] outbound_ip_addresses: A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A `possible_outbound_ip_address_list` block as defined below.
-        :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        :param pulumi.Input[str] possible_outbound_ip_addresses: A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         :param pulumi.Input[pulumi.InputType['LinuxWebAppSlotSiteConfigArgs']] site_config: A `site_config` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LinuxWebAppSlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Linux Web App.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags that should be assigned to the Linux Web App.
         :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Linux Web App.
         """
@@ -1197,7 +1197,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="keyVaultReferenceIdentityId")
     def key_vault_reference_identity_id(self) -> pulumi.Output[str]:
         """
-        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         """
         return pulumi.get(self, "key_vault_reference_identity_id")
 
@@ -1221,7 +1221,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+        The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
         """
         return pulumi.get(self, "name")
 
@@ -1237,7 +1237,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="outboundIpAddresses")
     def outbound_ip_addresses(self) -> pulumi.Output[str]:
         """
-        A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
+        A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
         """
         return pulumi.get(self, "outbound_ip_addresses")
 
@@ -1253,7 +1253,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
     @pulumi.getter(name="possibleOutboundIpAddresses")
     def possible_outbound_ip_addresses(self) -> pulumi.Output[str]:
         """
-        A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         """
         return pulumi.get(self, "possible_outbound_ip_addresses")
 
@@ -1285,7 +1285,7 @@ class LinuxWebAppSlot(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags which should be assigned to the Linux Web App.
+        A mapping of tags that should be assigned to the Linux Web App.
         """
         return pulumi.get(self, "tags")
 

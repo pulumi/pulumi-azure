@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.containerservice.inputs;
 
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterWindowsProfileGmsaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -46,6 +47,21 @@ public final class KubernetesClusterWindowsProfileArgs extends com.pulumi.resour
     }
 
     /**
+     * A `gmsa` block as defined below.
+     * 
+     */
+    @Import(name="gmsa")
+    private @Nullable Output<KubernetesClusterWindowsProfileGmsaArgs> gmsa;
+
+    /**
+     * @return A `gmsa` block as defined below.
+     * 
+     */
+    public Optional<Output<KubernetesClusterWindowsProfileGmsaArgs>> gmsa() {
+        return Optional.ofNullable(this.gmsa);
+    }
+
+    /**
      * Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
      * 
      */
@@ -65,6 +81,7 @@ public final class KubernetesClusterWindowsProfileArgs extends com.pulumi.resour
     private KubernetesClusterWindowsProfileArgs(KubernetesClusterWindowsProfileArgs $) {
         this.adminPassword = $.adminPassword;
         this.adminUsername = $.adminUsername;
+        this.gmsa = $.gmsa;
         this.license = $.license;
     }
 
@@ -126,6 +143,27 @@ public final class KubernetesClusterWindowsProfileArgs extends com.pulumi.resour
          */
         public Builder adminUsername(String adminUsername) {
             return adminUsername(Output.of(adminUsername));
+        }
+
+        /**
+         * @param gmsa A `gmsa` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gmsa(@Nullable Output<KubernetesClusterWindowsProfileGmsaArgs> gmsa) {
+            $.gmsa = gmsa;
+            return this;
+        }
+
+        /**
+         * @param gmsa A `gmsa` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gmsa(KubernetesClusterWindowsProfileGmsaArgs gmsa) {
+            return gmsa(Output.of(gmsa));
         }
 
         /**

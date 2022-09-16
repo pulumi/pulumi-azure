@@ -25,7 +25,7 @@ namespace Pulumi.Azure.AppService.Inputs
         public Input<string> FrequencyUnit { get; set; } = null!;
 
         /// <summary>
-        /// Should the service keep at least one backup, regardless of age of backup. Defaults to `false`.
+        /// Should the service keep at least one backup, regardless of the age of backup? Defaults to `false`.
         /// </summary>
         [Input("keepAtLeastOneBackup")]
         public Input<bool>? KeepAtLeastOneBackup { get; set; }

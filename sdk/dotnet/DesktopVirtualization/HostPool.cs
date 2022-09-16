@@ -38,6 +38,18 @@ namespace Pulumi.Azure.DesktopVirtualization
     ///         Type = "Pooled",
     ///         MaximumSessionsAllowed = 50,
     ///         LoadBalancerType = "DepthFirst",
+    ///         ScheduledAgentUpdates = new Azure.DesktopVirtualization.Inputs.HostPoolScheduledAgentUpdatesArgs
+    ///         {
+    ///             Enabled = true,
+    ///             Schedules = new[]
+    ///             {
+    ///                 new Azure.DesktopVirtualization.Inputs.HostPoolScheduledAgentUpdatesScheduleArgs
+    ///                 {
+    ///                     DayOfWeek = "Saturday",
+    ///                     HourOfDay = 2,
+    ///                 },
+    ///             },
+    ///         },
     ///     });
     /// 
     /// });
@@ -122,6 +134,12 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+        /// </summary>
+        [Output("scheduledAgentUpdates")]
+        public Output<Outputs.HostPoolScheduledAgentUpdates?> ScheduledAgentUpdates { get; private set; } = null!;
 
         /// <summary>
         /// Enables or disables the Start VM on Connection Feature. Defaults to `false`.
@@ -264,6 +282,12 @@ namespace Pulumi.Azure.DesktopVirtualization
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+        /// </summary>
+        [Input("scheduledAgentUpdates")]
+        public Input<Inputs.HostPoolScheduledAgentUpdatesArgs>? ScheduledAgentUpdates { get; set; }
+
+        /// <summary>
         /// Enables or disables the Start VM on Connection Feature. Defaults to `false`.
         /// </summary>
         [Input("startVmOnConnect")]
@@ -370,6 +394,12 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+        /// </summary>
+        [Input("scheduledAgentUpdates")]
+        public Input<Inputs.HostPoolScheduledAgentUpdatesGetArgs>? ScheduledAgentUpdates { get; set; }
 
         /// <summary>
         /// Enables or disables the Start VM on Connection Feature. Defaults to `false`.

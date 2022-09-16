@@ -9,7 +9,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetActionGroupResult',
@@ -123,7 +122,7 @@ class GetActionGroupResult:
 
     @property
     @pulumi.getter(name="eventHubReceivers")
-    def event_hub_receivers(self) -> Optional[Sequence['outputs.GetActionGroupEventHubReceiverResult']]:
+    def event_hub_receivers(self) -> Sequence['outputs.GetActionGroupEventHubReceiverResult']:
         """
         One or more `event_hub_receiver` blocks as defined below.
         """
@@ -223,8 +222,7 @@ class AwaitableGetActionGroupResult(GetActionGroupResult):
             webhook_receivers=self.webhook_receivers)
 
 
-def get_action_group(event_hub_receivers: Optional[Sequence[pulumi.InputType['GetActionGroupEventHubReceiverArgs']]] = None,
-                     name: Optional[str] = None,
+def get_action_group(name: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionGroupResult:
     """
@@ -242,12 +240,10 @@ def get_action_group(event_hub_receivers: Optional[Sequence[pulumi.InputType['Ge
     ```
 
 
-    :param Sequence[pulumi.InputType['GetActionGroupEventHubReceiverArgs']] event_hub_receivers: One or more `event_hub_receiver` blocks as defined below.
     :param str name: Specifies the name of the Action Group.
     :param str resource_group_name: Specifies the name of the resource group the Action Group is located in.
     """
     __args__ = dict()
-    __args__['eventHubReceivers'] = event_hub_receivers
     __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -273,8 +269,7 @@ def get_action_group(event_hub_receivers: Optional[Sequence[pulumi.InputType['Ge
 
 
 @_utilities.lift_output_func(get_action_group)
-def get_action_group_output(event_hub_receivers: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetActionGroupEventHubReceiverArgs']]]]] = None,
-                            name: Optional[pulumi.Input[str]] = None,
+def get_action_group_output(name: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionGroupResult]:
     """
@@ -292,7 +287,6 @@ def get_action_group_output(event_hub_receivers: Optional[pulumi.Input[Optional[
     ```
 
 
-    :param Sequence[pulumi.InputType['GetActionGroupEventHubReceiverArgs']] event_hub_receivers: One or more `event_hub_receiver` blocks as defined below.
     :param str name: Specifies the name of the Action Group.
     :param str resource_group_name: Specifies the name of the resource group the Action Group is located in.
     """

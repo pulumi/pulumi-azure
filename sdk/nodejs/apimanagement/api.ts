@@ -77,6 +77,10 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly apiManagementName!: pulumi.Output<string>;
     /**
+     * Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+     */
+    public readonly apiType!: pulumi.Output<string>;
+    /**
      * A description of the API Management API, which may include HTML formatting tags.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -113,7 +117,7 @@ export class Api extends pulumi.CustomResource {
      */
     public readonly path!: pulumi.Output<string>;
     /**
-     * A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+     * A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      */
     public readonly protocols!: pulumi.Output<string[]>;
     /**
@@ -134,8 +138,10 @@ export class Api extends pulumi.CustomResource {
     public readonly serviceUrl!: pulumi.Output<string>;
     /**
      * Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+     *
+     * @deprecated `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
      */
-    public readonly soapPassThrough!: pulumi.Output<boolean | undefined>;
+    public readonly soapPassThrough!: pulumi.Output<boolean>;
     /**
      * The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1`
      */
@@ -175,6 +181,7 @@ export class Api extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ApiState | undefined;
             resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
+            resourceInputs["apiType"] = state ? state.apiType : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
             resourceInputs["import"] = state ? state.import : undefined;
@@ -208,6 +215,7 @@ export class Api extends pulumi.CustomResource {
                 throw new Error("Missing required property 'revision'");
             }
             resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
+            resourceInputs["apiType"] = args ? args.apiType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["import"] = args ? args.import : undefined;
@@ -243,6 +251,10 @@ export interface ApiState {
      * The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
      */
     apiManagementName?: pulumi.Input<string>;
+    /**
+     * Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+     */
+    apiType?: pulumi.Input<string>;
     /**
      * A description of the API Management API, which may include HTML formatting tags.
      */
@@ -280,7 +292,7 @@ export interface ApiState {
      */
     path?: pulumi.Input<string>;
     /**
-     * A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+     * A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -301,6 +313,8 @@ export interface ApiState {
     serviceUrl?: pulumi.Input<string>;
     /**
      * Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+     *
+     * @deprecated `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
      */
     soapPassThrough?: pulumi.Input<boolean>;
     /**
@@ -338,6 +352,10 @@ export interface ApiArgs {
      */
     apiManagementName: pulumi.Input<string>;
     /**
+     * Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`.
+     */
+    apiType?: pulumi.Input<string>;
+    /**
      * A description of the API Management API, which may include HTML formatting tags.
      */
     description?: pulumi.Input<string>;
@@ -366,7 +384,7 @@ export interface ApiArgs {
      */
     path?: pulumi.Input<string>;
     /**
-     * A list of protocols the operations in this API can be invoked. Possible values are `http` and `https`.
+     * A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`.
      */
     protocols?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -387,6 +405,8 @@ export interface ApiArgs {
     serviceUrl?: pulumi.Input<string>;
     /**
      * Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`.
+     *
+     * @deprecated `soap_pass_through` will be removed in favour of the property `api_type` in version 4.0 of the AzureRM Provider
      */
     soapPassThrough?: pulumi.Input<boolean>;
     /**

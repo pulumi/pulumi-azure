@@ -10947,6 +10947,8 @@ type KubernetesClusterWindowsProfile struct {
 	AdminPassword *string `pulumi:"adminPassword"`
 	// The Admin Username for Windows VMs.
 	AdminUsername string `pulumi:"adminUsername"`
+	// A `gmsa` block as defined below.
+	Gmsa *KubernetesClusterWindowsProfileGmsa `pulumi:"gmsa"`
 	// Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
 	License *string `pulumi:"license"`
 }
@@ -10967,6 +10969,8 @@ type KubernetesClusterWindowsProfileArgs struct {
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
 	// The Admin Username for Windows VMs.
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
+	// A `gmsa` block as defined below.
+	Gmsa KubernetesClusterWindowsProfileGmsaPtrInput `pulumi:"gmsa"`
 	// Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
 	License pulumi.StringPtrInput `pulumi:"license"`
 }
@@ -11058,6 +11062,11 @@ func (o KubernetesClusterWindowsProfileOutput) AdminUsername() pulumi.StringOutp
 	return o.ApplyT(func(v KubernetesClusterWindowsProfile) string { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
+// A `gmsa` block as defined below.
+func (o KubernetesClusterWindowsProfileOutput) Gmsa() KubernetesClusterWindowsProfileGmsaPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterWindowsProfile) *KubernetesClusterWindowsProfileGmsa { return v.Gmsa }).(KubernetesClusterWindowsProfileGmsaPtrOutput)
+}
+
 // Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
 func (o KubernetesClusterWindowsProfileOutput) License() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterWindowsProfile) *string { return v.License }).(pulumi.StringPtrOutput)
@@ -11107,6 +11116,16 @@ func (o KubernetesClusterWindowsProfilePtrOutput) AdminUsername() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// A `gmsa` block as defined below.
+func (o KubernetesClusterWindowsProfilePtrOutput) Gmsa() KubernetesClusterWindowsProfileGmsaPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterWindowsProfile) *KubernetesClusterWindowsProfileGmsa {
+		if v == nil {
+			return nil
+		}
+		return v.Gmsa
+	}).(KubernetesClusterWindowsProfileGmsaPtrOutput)
+}
+
 // Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
 func (o KubernetesClusterWindowsProfilePtrOutput) License() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterWindowsProfile) *string {
@@ -11114,6 +11133,162 @@ func (o KubernetesClusterWindowsProfilePtrOutput) License() pulumi.StringPtrOutp
 			return nil
 		}
 		return v.License
+	}).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterWindowsProfileGmsa struct {
+	// Specifies the DNS server for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+	DnsServer string `pulumi:"dnsServer"`
+	// Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+	RootDomain string `pulumi:"rootDomain"`
+}
+
+// KubernetesClusterWindowsProfileGmsaInput is an input type that accepts KubernetesClusterWindowsProfileGmsaArgs and KubernetesClusterWindowsProfileGmsaOutput values.
+// You can construct a concrete instance of `KubernetesClusterWindowsProfileGmsaInput` via:
+//
+//	KubernetesClusterWindowsProfileGmsaArgs{...}
+type KubernetesClusterWindowsProfileGmsaInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterWindowsProfileGmsaOutput() KubernetesClusterWindowsProfileGmsaOutput
+	ToKubernetesClusterWindowsProfileGmsaOutputWithContext(context.Context) KubernetesClusterWindowsProfileGmsaOutput
+}
+
+type KubernetesClusterWindowsProfileGmsaArgs struct {
+	// Specifies the DNS server for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+	DnsServer pulumi.StringInput `pulumi:"dnsServer"`
+	// Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+	RootDomain pulumi.StringInput `pulumi:"rootDomain"`
+}
+
+func (KubernetesClusterWindowsProfileGmsaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterWindowsProfileGmsa)(nil)).Elem()
+}
+
+func (i KubernetesClusterWindowsProfileGmsaArgs) ToKubernetesClusterWindowsProfileGmsaOutput() KubernetesClusterWindowsProfileGmsaOutput {
+	return i.ToKubernetesClusterWindowsProfileGmsaOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterWindowsProfileGmsaArgs) ToKubernetesClusterWindowsProfileGmsaOutputWithContext(ctx context.Context) KubernetesClusterWindowsProfileGmsaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWindowsProfileGmsaOutput)
+}
+
+func (i KubernetesClusterWindowsProfileGmsaArgs) ToKubernetesClusterWindowsProfileGmsaPtrOutput() KubernetesClusterWindowsProfileGmsaPtrOutput {
+	return i.ToKubernetesClusterWindowsProfileGmsaPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterWindowsProfileGmsaArgs) ToKubernetesClusterWindowsProfileGmsaPtrOutputWithContext(ctx context.Context) KubernetesClusterWindowsProfileGmsaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWindowsProfileGmsaOutput).ToKubernetesClusterWindowsProfileGmsaPtrOutputWithContext(ctx)
+}
+
+// KubernetesClusterWindowsProfileGmsaPtrInput is an input type that accepts KubernetesClusterWindowsProfileGmsaArgs, KubernetesClusterWindowsProfileGmsaPtr and KubernetesClusterWindowsProfileGmsaPtrOutput values.
+// You can construct a concrete instance of `KubernetesClusterWindowsProfileGmsaPtrInput` via:
+//
+//	        KubernetesClusterWindowsProfileGmsaArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesClusterWindowsProfileGmsaPtrInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterWindowsProfileGmsaPtrOutput() KubernetesClusterWindowsProfileGmsaPtrOutput
+	ToKubernetesClusterWindowsProfileGmsaPtrOutputWithContext(context.Context) KubernetesClusterWindowsProfileGmsaPtrOutput
+}
+
+type kubernetesClusterWindowsProfileGmsaPtrType KubernetesClusterWindowsProfileGmsaArgs
+
+func KubernetesClusterWindowsProfileGmsaPtr(v *KubernetesClusterWindowsProfileGmsaArgs) KubernetesClusterWindowsProfileGmsaPtrInput {
+	return (*kubernetesClusterWindowsProfileGmsaPtrType)(v)
+}
+
+func (*kubernetesClusterWindowsProfileGmsaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterWindowsProfileGmsa)(nil)).Elem()
+}
+
+func (i *kubernetesClusterWindowsProfileGmsaPtrType) ToKubernetesClusterWindowsProfileGmsaPtrOutput() KubernetesClusterWindowsProfileGmsaPtrOutput {
+	return i.ToKubernetesClusterWindowsProfileGmsaPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesClusterWindowsProfileGmsaPtrType) ToKubernetesClusterWindowsProfileGmsaPtrOutputWithContext(ctx context.Context) KubernetesClusterWindowsProfileGmsaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterWindowsProfileGmsaPtrOutput)
+}
+
+type KubernetesClusterWindowsProfileGmsaOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterWindowsProfileGmsaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterWindowsProfileGmsa)(nil)).Elem()
+}
+
+func (o KubernetesClusterWindowsProfileGmsaOutput) ToKubernetesClusterWindowsProfileGmsaOutput() KubernetesClusterWindowsProfileGmsaOutput {
+	return o
+}
+
+func (o KubernetesClusterWindowsProfileGmsaOutput) ToKubernetesClusterWindowsProfileGmsaOutputWithContext(ctx context.Context) KubernetesClusterWindowsProfileGmsaOutput {
+	return o
+}
+
+func (o KubernetesClusterWindowsProfileGmsaOutput) ToKubernetesClusterWindowsProfileGmsaPtrOutput() KubernetesClusterWindowsProfileGmsaPtrOutput {
+	return o.ToKubernetesClusterWindowsProfileGmsaPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesClusterWindowsProfileGmsaOutput) ToKubernetesClusterWindowsProfileGmsaPtrOutputWithContext(ctx context.Context) KubernetesClusterWindowsProfileGmsaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesClusterWindowsProfileGmsa) *KubernetesClusterWindowsProfileGmsa {
+		return &v
+	}).(KubernetesClusterWindowsProfileGmsaPtrOutput)
+}
+
+// Specifies the DNS server for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+func (o KubernetesClusterWindowsProfileGmsaOutput) DnsServer() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterWindowsProfileGmsa) string { return v.DnsServer }).(pulumi.StringOutput)
+}
+
+// Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+func (o KubernetesClusterWindowsProfileGmsaOutput) RootDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v KubernetesClusterWindowsProfileGmsa) string { return v.RootDomain }).(pulumi.StringOutput)
+}
+
+type KubernetesClusterWindowsProfileGmsaPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterWindowsProfileGmsaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesClusterWindowsProfileGmsa)(nil)).Elem()
+}
+
+func (o KubernetesClusterWindowsProfileGmsaPtrOutput) ToKubernetesClusterWindowsProfileGmsaPtrOutput() KubernetesClusterWindowsProfileGmsaPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterWindowsProfileGmsaPtrOutput) ToKubernetesClusterWindowsProfileGmsaPtrOutputWithContext(ctx context.Context) KubernetesClusterWindowsProfileGmsaPtrOutput {
+	return o
+}
+
+func (o KubernetesClusterWindowsProfileGmsaPtrOutput) Elem() KubernetesClusterWindowsProfileGmsaOutput {
+	return o.ApplyT(func(v *KubernetesClusterWindowsProfileGmsa) KubernetesClusterWindowsProfileGmsa {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesClusterWindowsProfileGmsa
+		return ret
+	}).(KubernetesClusterWindowsProfileGmsaOutput)
+}
+
+// Specifies the DNS server for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+func (o KubernetesClusterWindowsProfileGmsaPtrOutput) DnsServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterWindowsProfileGmsa) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DnsServer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+func (o KubernetesClusterWindowsProfileGmsaPtrOutput) RootDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterWindowsProfileGmsa) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RootDomain
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -14658,6 +14833,318 @@ func (o RegistryTrustPolicyPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type TokenPasswordPassword1 struct {
+	// The expiration date of the password in RFC3339 format.
+	Expiry *string `pulumi:"expiry"`
+	// The value of the password (Sensitive).
+	Value *string `pulumi:"value"`
+}
+
+// TokenPasswordPassword1Input is an input type that accepts TokenPasswordPassword1Args and TokenPasswordPassword1Output values.
+// You can construct a concrete instance of `TokenPasswordPassword1Input` via:
+//
+//	TokenPasswordPassword1Args{...}
+type TokenPasswordPassword1Input interface {
+	pulumi.Input
+
+	ToTokenPasswordPassword1Output() TokenPasswordPassword1Output
+	ToTokenPasswordPassword1OutputWithContext(context.Context) TokenPasswordPassword1Output
+}
+
+type TokenPasswordPassword1Args struct {
+	// The expiration date of the password in RFC3339 format.
+	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
+	// The value of the password (Sensitive).
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TokenPasswordPassword1Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenPasswordPassword1)(nil)).Elem()
+}
+
+func (i TokenPasswordPassword1Args) ToTokenPasswordPassword1Output() TokenPasswordPassword1Output {
+	return i.ToTokenPasswordPassword1OutputWithContext(context.Background())
+}
+
+func (i TokenPasswordPassword1Args) ToTokenPasswordPassword1OutputWithContext(ctx context.Context) TokenPasswordPassword1Output {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordPassword1Output)
+}
+
+func (i TokenPasswordPassword1Args) ToTokenPasswordPassword1PtrOutput() TokenPasswordPassword1PtrOutput {
+	return i.ToTokenPasswordPassword1PtrOutputWithContext(context.Background())
+}
+
+func (i TokenPasswordPassword1Args) ToTokenPasswordPassword1PtrOutputWithContext(ctx context.Context) TokenPasswordPassword1PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordPassword1Output).ToTokenPasswordPassword1PtrOutputWithContext(ctx)
+}
+
+// TokenPasswordPassword1PtrInput is an input type that accepts TokenPasswordPassword1Args, TokenPasswordPassword1Ptr and TokenPasswordPassword1PtrOutput values.
+// You can construct a concrete instance of `TokenPasswordPassword1PtrInput` via:
+//
+//	        TokenPasswordPassword1Args{...}
+//
+//	or:
+//
+//	        nil
+type TokenPasswordPassword1PtrInput interface {
+	pulumi.Input
+
+	ToTokenPasswordPassword1PtrOutput() TokenPasswordPassword1PtrOutput
+	ToTokenPasswordPassword1PtrOutputWithContext(context.Context) TokenPasswordPassword1PtrOutput
+}
+
+type tokenPasswordPassword1PtrType TokenPasswordPassword1Args
+
+func TokenPasswordPassword1Ptr(v *TokenPasswordPassword1Args) TokenPasswordPassword1PtrInput {
+	return (*tokenPasswordPassword1PtrType)(v)
+}
+
+func (*tokenPasswordPassword1PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TokenPasswordPassword1)(nil)).Elem()
+}
+
+func (i *tokenPasswordPassword1PtrType) ToTokenPasswordPassword1PtrOutput() TokenPasswordPassword1PtrOutput {
+	return i.ToTokenPasswordPassword1PtrOutputWithContext(context.Background())
+}
+
+func (i *tokenPasswordPassword1PtrType) ToTokenPasswordPassword1PtrOutputWithContext(ctx context.Context) TokenPasswordPassword1PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordPassword1PtrOutput)
+}
+
+type TokenPasswordPassword1Output struct{ *pulumi.OutputState }
+
+func (TokenPasswordPassword1Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenPasswordPassword1)(nil)).Elem()
+}
+
+func (o TokenPasswordPassword1Output) ToTokenPasswordPassword1Output() TokenPasswordPassword1Output {
+	return o
+}
+
+func (o TokenPasswordPassword1Output) ToTokenPasswordPassword1OutputWithContext(ctx context.Context) TokenPasswordPassword1Output {
+	return o
+}
+
+func (o TokenPasswordPassword1Output) ToTokenPasswordPassword1PtrOutput() TokenPasswordPassword1PtrOutput {
+	return o.ToTokenPasswordPassword1PtrOutputWithContext(context.Background())
+}
+
+func (o TokenPasswordPassword1Output) ToTokenPasswordPassword1PtrOutputWithContext(ctx context.Context) TokenPasswordPassword1PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TokenPasswordPassword1) *TokenPasswordPassword1 {
+		return &v
+	}).(TokenPasswordPassword1PtrOutput)
+}
+
+// The expiration date of the password in RFC3339 format.
+func (o TokenPasswordPassword1Output) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenPasswordPassword1) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
+// The value of the password (Sensitive).
+func (o TokenPasswordPassword1Output) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenPasswordPassword1) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TokenPasswordPassword1PtrOutput struct{ *pulumi.OutputState }
+
+func (TokenPasswordPassword1PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TokenPasswordPassword1)(nil)).Elem()
+}
+
+func (o TokenPasswordPassword1PtrOutput) ToTokenPasswordPassword1PtrOutput() TokenPasswordPassword1PtrOutput {
+	return o
+}
+
+func (o TokenPasswordPassword1PtrOutput) ToTokenPasswordPassword1PtrOutputWithContext(ctx context.Context) TokenPasswordPassword1PtrOutput {
+	return o
+}
+
+func (o TokenPasswordPassword1PtrOutput) Elem() TokenPasswordPassword1Output {
+	return o.ApplyT(func(v *TokenPasswordPassword1) TokenPasswordPassword1 {
+		if v != nil {
+			return *v
+		}
+		var ret TokenPasswordPassword1
+		return ret
+	}).(TokenPasswordPassword1Output)
+}
+
+// The expiration date of the password in RFC3339 format.
+func (o TokenPasswordPassword1PtrOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TokenPasswordPassword1) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Expiry
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value of the password (Sensitive).
+func (o TokenPasswordPassword1PtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TokenPasswordPassword1) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type TokenPasswordPassword2 struct {
+	// The expiration date of the password in RFC3339 format.
+	Expiry *string `pulumi:"expiry"`
+	// The value of the password (Sensitive).
+	Value *string `pulumi:"value"`
+}
+
+// TokenPasswordPassword2Input is an input type that accepts TokenPasswordPassword2Args and TokenPasswordPassword2Output values.
+// You can construct a concrete instance of `TokenPasswordPassword2Input` via:
+//
+//	TokenPasswordPassword2Args{...}
+type TokenPasswordPassword2Input interface {
+	pulumi.Input
+
+	ToTokenPasswordPassword2Output() TokenPasswordPassword2Output
+	ToTokenPasswordPassword2OutputWithContext(context.Context) TokenPasswordPassword2Output
+}
+
+type TokenPasswordPassword2Args struct {
+	// The expiration date of the password in RFC3339 format.
+	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
+	// The value of the password (Sensitive).
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (TokenPasswordPassword2Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenPasswordPassword2)(nil)).Elem()
+}
+
+func (i TokenPasswordPassword2Args) ToTokenPasswordPassword2Output() TokenPasswordPassword2Output {
+	return i.ToTokenPasswordPassword2OutputWithContext(context.Background())
+}
+
+func (i TokenPasswordPassword2Args) ToTokenPasswordPassword2OutputWithContext(ctx context.Context) TokenPasswordPassword2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordPassword2Output)
+}
+
+func (i TokenPasswordPassword2Args) ToTokenPasswordPassword2PtrOutput() TokenPasswordPassword2PtrOutput {
+	return i.ToTokenPasswordPassword2PtrOutputWithContext(context.Background())
+}
+
+func (i TokenPasswordPassword2Args) ToTokenPasswordPassword2PtrOutputWithContext(ctx context.Context) TokenPasswordPassword2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordPassword2Output).ToTokenPasswordPassword2PtrOutputWithContext(ctx)
+}
+
+// TokenPasswordPassword2PtrInput is an input type that accepts TokenPasswordPassword2Args, TokenPasswordPassword2Ptr and TokenPasswordPassword2PtrOutput values.
+// You can construct a concrete instance of `TokenPasswordPassword2PtrInput` via:
+//
+//	        TokenPasswordPassword2Args{...}
+//
+//	or:
+//
+//	        nil
+type TokenPasswordPassword2PtrInput interface {
+	pulumi.Input
+
+	ToTokenPasswordPassword2PtrOutput() TokenPasswordPassword2PtrOutput
+	ToTokenPasswordPassword2PtrOutputWithContext(context.Context) TokenPasswordPassword2PtrOutput
+}
+
+type tokenPasswordPassword2PtrType TokenPasswordPassword2Args
+
+func TokenPasswordPassword2Ptr(v *TokenPasswordPassword2Args) TokenPasswordPassword2PtrInput {
+	return (*tokenPasswordPassword2PtrType)(v)
+}
+
+func (*tokenPasswordPassword2PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TokenPasswordPassword2)(nil)).Elem()
+}
+
+func (i *tokenPasswordPassword2PtrType) ToTokenPasswordPassword2PtrOutput() TokenPasswordPassword2PtrOutput {
+	return i.ToTokenPasswordPassword2PtrOutputWithContext(context.Background())
+}
+
+func (i *tokenPasswordPassword2PtrType) ToTokenPasswordPassword2PtrOutputWithContext(ctx context.Context) TokenPasswordPassword2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TokenPasswordPassword2PtrOutput)
+}
+
+type TokenPasswordPassword2Output struct{ *pulumi.OutputState }
+
+func (TokenPasswordPassword2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*TokenPasswordPassword2)(nil)).Elem()
+}
+
+func (o TokenPasswordPassword2Output) ToTokenPasswordPassword2Output() TokenPasswordPassword2Output {
+	return o
+}
+
+func (o TokenPasswordPassword2Output) ToTokenPasswordPassword2OutputWithContext(ctx context.Context) TokenPasswordPassword2Output {
+	return o
+}
+
+func (o TokenPasswordPassword2Output) ToTokenPasswordPassword2PtrOutput() TokenPasswordPassword2PtrOutput {
+	return o.ToTokenPasswordPassword2PtrOutputWithContext(context.Background())
+}
+
+func (o TokenPasswordPassword2Output) ToTokenPasswordPassword2PtrOutputWithContext(ctx context.Context) TokenPasswordPassword2PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TokenPasswordPassword2) *TokenPasswordPassword2 {
+		return &v
+	}).(TokenPasswordPassword2PtrOutput)
+}
+
+// The expiration date of the password in RFC3339 format.
+func (o TokenPasswordPassword2Output) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenPasswordPassword2) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+}
+
+// The value of the password (Sensitive).
+func (o TokenPasswordPassword2Output) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TokenPasswordPassword2) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type TokenPasswordPassword2PtrOutput struct{ *pulumi.OutputState }
+
+func (TokenPasswordPassword2PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TokenPasswordPassword2)(nil)).Elem()
+}
+
+func (o TokenPasswordPassword2PtrOutput) ToTokenPasswordPassword2PtrOutput() TokenPasswordPassword2PtrOutput {
+	return o
+}
+
+func (o TokenPasswordPassword2PtrOutput) ToTokenPasswordPassword2PtrOutputWithContext(ctx context.Context) TokenPasswordPassword2PtrOutput {
+	return o
+}
+
+func (o TokenPasswordPassword2PtrOutput) Elem() TokenPasswordPassword2Output {
+	return o.ApplyT(func(v *TokenPasswordPassword2) TokenPasswordPassword2 {
+		if v != nil {
+			return *v
+		}
+		var ret TokenPasswordPassword2
+		return ret
+	}).(TokenPasswordPassword2Output)
+}
+
+// The expiration date of the password in RFC3339 format.
+func (o TokenPasswordPassword2PtrOutput) Expiry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TokenPasswordPassword2) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Expiry
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value of the password (Sensitive).
+func (o TokenPasswordPassword2PtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TokenPasswordPassword2) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetClusterNodePoolUpgradeSetting struct {
 	// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 	MaxSurge string `pulumi:"maxSurge"`
@@ -17341,6 +17828,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterServicePrincipalPtrInput)(nil)).Elem(), KubernetesClusterServicePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWindowsProfileInput)(nil)).Elem(), KubernetesClusterWindowsProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWindowsProfilePtrInput)(nil)).Elem(), KubernetesClusterWindowsProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWindowsProfileGmsaInput)(nil)).Elem(), KubernetesClusterWindowsProfileGmsaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterWindowsProfileGmsaPtrInput)(nil)).Elem(), KubernetesClusterWindowsProfileGmsaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryEncryptionInput)(nil)).Elem(), RegistryEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryEncryptionPtrInput)(nil)).Elem(), RegistryEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryGeoreplicationInput)(nil)).Elem(), RegistryGeoreplicationArgs{})
@@ -17383,6 +17872,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTaskTimerTriggerArrayInput)(nil)).Elem(), RegistryTaskTimerTriggerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTrustPolicyInput)(nil)).Elem(), RegistryTrustPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryTrustPolicyPtrInput)(nil)).Elem(), RegistryTrustPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TokenPasswordPassword1Input)(nil)).Elem(), TokenPasswordPassword1Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TokenPasswordPassword1PtrInput)(nil)).Elem(), TokenPasswordPassword1Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TokenPasswordPassword2Input)(nil)).Elem(), TokenPasswordPassword2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TokenPasswordPassword2PtrInput)(nil)).Elem(), TokenPasswordPassword2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterNodePoolUpgradeSettingInput)(nil)).Elem(), GetClusterNodePoolUpgradeSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterNodePoolUpgradeSettingArrayInput)(nil)).Elem(), GetClusterNodePoolUpgradeSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterAciConnectorLinuxInput)(nil)).Elem(), GetKubernetesClusterAciConnectorLinuxArgs{})
@@ -17533,6 +18026,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterServicePrincipalPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWindowsProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterWindowsProfilePtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterWindowsProfileGmsaOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterWindowsProfileGmsaPtrOutput{})
 	pulumi.RegisterOutputType(RegistryEncryptionOutput{})
 	pulumi.RegisterOutputType(RegistryEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(RegistryGeoreplicationOutput{})
@@ -17575,6 +18070,10 @@ func init() {
 	pulumi.RegisterOutputType(RegistryTaskTimerTriggerArrayOutput{})
 	pulumi.RegisterOutputType(RegistryTrustPolicyOutput{})
 	pulumi.RegisterOutputType(RegistryTrustPolicyPtrOutput{})
+	pulumi.RegisterOutputType(TokenPasswordPassword1Output{})
+	pulumi.RegisterOutputType(TokenPasswordPassword1PtrOutput{})
+	pulumi.RegisterOutputType(TokenPasswordPassword2Output{})
+	pulumi.RegisterOutputType(TokenPasswordPassword2PtrOutput{})
 	pulumi.RegisterOutputType(GetClusterNodePoolUpgradeSettingOutput{})
 	pulumi.RegisterOutputType(GetClusterNodePoolUpgradeSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetKubernetesClusterAciConnectorLinuxOutput{})

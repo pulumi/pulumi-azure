@@ -10,12 +10,12 @@ import java.util.Objects;
 @CustomType
 public final class LinuxWebAppSlotConnectionString {
     /**
-     * @return The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     * @return The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
      * 
      */
     private String name;
     /**
-     * @return Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+     * @return Type of database. Possible values include `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
      * 
      */
     private String type;
@@ -27,14 +27,14 @@ public final class LinuxWebAppSlotConnectionString {
 
     private LinuxWebAppSlotConnectionString() {}
     /**
-     * @return The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     * @return The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Type of database. Possible values include: `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
+     * @return Type of database. Possible values include `APIHub`, `Custom`, `DocDb`, `EventHub`, `MySQL`, `NotificationHub`, `PostgreSQL`, `RedisCache`, `ServiceBus`, `SQLAzure`, and `SQLServer`.
      * 
      */
     public String type() {

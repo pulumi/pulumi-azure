@@ -129,7 +129,7 @@ namespace Pulumi.Azure.AppService
         public Output<Outputs.LinuxWebAppIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         /// </summary>
         [Output("keyVaultReferenceIdentityId")]
         public Output<string> KeyVaultReferenceIdentityId { get; private set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableArray<string>> PossibleOutboundIpAddressLists { get; private set; } = null!;
 
         /// <summary>
-        /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        /// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         /// </summary>
         [Output("possibleOutboundIpAddresses")]
         public Output<string> PossibleOutboundIpAddresses { get; private set; } = null!;
@@ -355,7 +355,7 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.LinuxWebAppIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         /// </summary>
         [Input("keyVaultReferenceIdentityId")]
         public Input<string>? KeyVaultReferenceIdentityId { get; set; }
@@ -531,7 +531,7 @@ namespace Pulumi.Azure.AppService
         public Input<Inputs.LinuxWebAppIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        /// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
         /// </summary>
         [Input("keyVaultReferenceIdentityId")]
         public Input<string>? KeyVaultReferenceIdentityId { get; set; }
@@ -591,7 +591,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+        /// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
         /// </summary>
         [Input("possibleOutboundIpAddresses")]
         public Input<string>? PossibleOutboundIpAddresses { get; set; }

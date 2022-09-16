@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class LinuxWebAppLogsHttpLogsFileSystem
     {
         /// <summary>
-        /// The retention period in days. A values of `0` means no retention.
+        /// The retention period in days. A value of `0` means no retention.
         /// </summary>
         public readonly int RetentionInDays;
         /// <summary>

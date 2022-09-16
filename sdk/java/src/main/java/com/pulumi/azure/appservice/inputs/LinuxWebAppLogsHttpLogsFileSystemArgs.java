@@ -14,14 +14,14 @@ public final class LinuxWebAppLogsHttpLogsFileSystemArgs extends com.pulumi.reso
     public static final LinuxWebAppLogsHttpLogsFileSystemArgs Empty = new LinuxWebAppLogsHttpLogsFileSystemArgs();
 
     /**
-     * The retention period in days. A values of `0` means no retention.
+     * The retention period in days. A value of `0` means no retention.
      * 
      */
     @Import(name="retentionInDays", required=true)
     private Output<Integer> retentionInDays;
 
     /**
-     * @return The retention period in days. A values of `0` means no retention.
+     * @return The retention period in days. A value of `0` means no retention.
      * 
      */
     public Output<Integer> retentionInDays() {
@@ -69,7 +69,7 @@ public final class LinuxWebAppLogsHttpLogsFileSystemArgs extends com.pulumi.reso
         }
 
         /**
-         * @param retentionInDays The retention period in days. A values of `0` means no retention.
+         * @param retentionInDays The retention period in days. A value of `0` means no retention.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class LinuxWebAppLogsHttpLogsFileSystemArgs extends com.pulumi.reso
         }
 
         /**
-         * @param retentionInDays The retention period in days. A values of `0` means no retention.
+         * @param retentionInDays The retention period in days. A value of `0` means no retention.
          * 
          * @return builder
          * 

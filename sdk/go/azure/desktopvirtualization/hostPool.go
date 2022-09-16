@@ -45,6 +45,15 @@ import (
 //				Type:                   pulumi.String("Pooled"),
 //				MaximumSessionsAllowed: pulumi.Int(50),
 //				LoadBalancerType:       pulumi.String("DepthFirst"),
+//				ScheduledAgentUpdates: &desktopvirtualization.HostPoolScheduledAgentUpdatesArgs{
+//					Enabled: pulumi.Bool(true),
+//					Schedules: desktopvirtualization.HostPoolScheduledAgentUpdatesScheduleArray{
+//						&desktopvirtualization.HostPoolScheduledAgentUpdatesScheduleArgs{
+//							DayOfWeek: pulumi.String("Saturday"),
+//							HourOfDay: pulumi.Int(2),
+//						},
+//					},
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -96,6 +105,8 @@ type HostPool struct {
 	// create the Virtual Desktop Host Pool. Changing the resource group name forces
 	// a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A `scheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+	ScheduledAgentUpdates HostPoolScheduledAgentUpdatesPtrOutput `pulumi:"scheduledAgentUpdates"`
 	// Enables or disables the Start VM on Connection Feature. Defaults to `false`.
 	StartVmOnConnect pulumi.BoolPtrOutput `pulumi:"startVmOnConnect"`
 	// A mapping of tags to assign to the resource.
@@ -174,6 +185,8 @@ type hostPoolState struct {
 	// create the Virtual Desktop Host Pool. Changing the resource group name forces
 	// a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A `scheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+	ScheduledAgentUpdates *HostPoolScheduledAgentUpdates `pulumi:"scheduledAgentUpdates"`
 	// Enables or disables the Start VM on Connection Feature. Defaults to `false`.
 	StartVmOnConnect *bool `pulumi:"startVmOnConnect"`
 	// A mapping of tags to assign to the resource.
@@ -215,6 +228,8 @@ type HostPoolState struct {
 	// create the Virtual Desktop Host Pool. Changing the resource group name forces
 	// a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// A `scheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+	ScheduledAgentUpdates HostPoolScheduledAgentUpdatesPtrInput
 	// Enables or disables the Start VM on Connection Feature. Defaults to `false`.
 	StartVmOnConnect pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
@@ -260,6 +275,8 @@ type hostPoolArgs struct {
 	// create the Virtual Desktop Host Pool. Changing the resource group name forces
 	// a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A `scheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+	ScheduledAgentUpdates *HostPoolScheduledAgentUpdates `pulumi:"scheduledAgentUpdates"`
 	// Enables or disables the Start VM on Connection Feature. Defaults to `false`.
 	StartVmOnConnect *bool `pulumi:"startVmOnConnect"`
 	// A mapping of tags to assign to the resource.
@@ -302,6 +319,8 @@ type HostPoolArgs struct {
 	// create the Virtual Desktop Host Pool. Changing the resource group name forces
 	// a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// A `scheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+	ScheduledAgentUpdates HostPoolScheduledAgentUpdatesPtrInput
 	// Enables or disables the Start VM on Connection Feature. Defaults to `false`.
 	StartVmOnConnect pulumi.BoolPtrInput
 	// A mapping of tags to assign to the resource.
@@ -457,6 +476,11 @@ func (o HostPoolOutput) PreferredAppGroupType() pulumi.StringPtrOutput {
 // a new resource to be created.
 func (o HostPoolOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostPool) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A `scheduledAgentUpdates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+func (o HostPoolOutput) ScheduledAgentUpdates() HostPoolScheduledAgentUpdatesPtrOutput {
+	return o.ApplyT(func(v *HostPool) HostPoolScheduledAgentUpdatesPtrOutput { return v.ScheduledAgentUpdates }).(HostPoolScheduledAgentUpdatesPtrOutput)
 }
 
 // Enables or disables the Start VM on Connection Feature. Defaults to `false`.

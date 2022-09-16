@@ -45,14 +45,14 @@ public final class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs extend
     }
 
     /**
-     * SAS url to an Azure blob container with read/write/list/delete permissions.
+     * SAS URL to an Azure blob container with read/write/list/delete permissions.
      * 
      */
     @Import(name="sasUrl", required=true)
     private Output<String> sasUrl;
 
     /**
-     * @return SAS url to an Azure blob container with read/write/list/delete permissions.
+     * @return SAS URL to an Azure blob container with read/write/list/delete permissions.
      * 
      */
     public Output<String> sasUrl() {
@@ -128,7 +128,7 @@ public final class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs extend
         }
 
         /**
-         * @param sasUrl SAS url to an Azure blob container with read/write/list/delete permissions.
+         * @param sasUrl SAS URL to an Azure blob container with read/write/list/delete permissions.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs extend
         }
 
         /**
-         * @param sasUrl SAS url to an Azure blob container with read/write/list/delete permissions.
+         * @param sasUrl SAS URL to an Azure blob container with read/write/list/delete permissions.
          * 
          * @return builder
          * 

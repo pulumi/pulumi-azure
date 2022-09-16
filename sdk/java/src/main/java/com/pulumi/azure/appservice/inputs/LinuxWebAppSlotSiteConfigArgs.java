@@ -54,14 +54,14 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The API Management API ID this Linux Web App Slot os associated with.
+     * The API Management API ID this Linux Web App Slot is associated with.
      * 
      */
     @Import(name="apiManagementApiId")
     private @Nullable Output<String> apiManagementApiId;
 
     /**
-     * @return The API Management API ID this Linux Web App Slot os associated with.
+     * @return The API Management API ID this Linux Web App Slot is associated with.
      * 
      */
     public Optional<Output<String>> apiManagementApiId() {
@@ -99,14 +99,14 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+     * Should Auto heal rules be enabled? Required with `auto_heal_setting`.
      * 
      */
     @Import(name="autoHealEnabled")
     private @Nullable Output<Boolean> autoHealEnabled;
 
     /**
-     * @return Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+     * @return Should Auto heal rules be enabled? Required with `auto_heal_setting`.
      * 
      */
     public Optional<Output<Boolean>> autoHealEnabled() {
@@ -211,14 +211,14 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+     * The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
      * 
      */
     @Import(name="ftpsState")
     private @Nullable Output<String> ftpsState;
 
     /**
-     * @return The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+     * @return The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
      * 
      */
     public Optional<Output<String>> ftpsState() {
@@ -427,14 +427,14 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+     * Should the Linux Web App use a 32-bit worker? Defaults to `true`.
      * 
      */
     @Import(name="use32BitWorker")
     private @Nullable Output<Boolean> use32BitWorker;
 
     /**
-     * @return Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+     * @return Should the Linux Web App use a 32-bit worker? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> use32BitWorker() {
@@ -442,14 +442,14 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+     * Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
      * 
      */
     @Import(name="vnetRouteAllEnabled")
     private @Nullable Output<Boolean> vnetRouteAllEnabled;
 
     /**
-     * @return Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+     * @return Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> vnetRouteAllEnabled() {
@@ -577,7 +577,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param apiManagementApiId The API Management API ID this Linux Web App Slot os associated with.
+         * @param apiManagementApiId The API Management API ID this Linux Web App Slot is associated with.
          * 
          * @return builder
          * 
@@ -588,7 +588,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param apiManagementApiId The API Management API ID this Linux Web App Slot os associated with.
+         * @param apiManagementApiId The API Management API ID this Linux Web App Slot is associated with.
          * 
          * @return builder
          * 
@@ -640,7 +640,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param autoHealEnabled Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+         * @param autoHealEnabled Should Auto heal rules be enabled? Required with `auto_heal_setting`.
          * 
          * @return builder
          * 
@@ -651,7 +651,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param autoHealEnabled Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+         * @param autoHealEnabled Should Auto heal rules be enabled? Required with `auto_heal_setting`.
          * 
          * @return builder
          * 
@@ -806,7 +806,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ftpsState The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+         * @param ftpsState The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
          * 
          * @return builder
          * 
@@ -817,7 +817,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param ftpsState The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+         * @param ftpsState The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
          * 
          * @return builder
          * 
@@ -1126,7 +1126,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param use32BitWorker Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+         * @param use32BitWorker Should the Linux Web App use a 32-bit worker? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -1137,7 +1137,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param use32BitWorker Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+         * @param use32BitWorker Should the Linux Web App use a 32-bit worker? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -1147,7 +1147,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param vnetRouteAllEnabled Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         * @param vnetRouteAllEnabled Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -1158,7 +1158,7 @@ public final class LinuxWebAppSlotSiteConfigArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param vnetRouteAllEnabled Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         * @param vnetRouteAllEnabled Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
          * 
          * @return builder
          * 

@@ -19,7 +19,6 @@ import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetActionGroupResult {
@@ -57,7 +56,7 @@ public final class GetActionGroupResult {
      * @return One or more `event_hub_receiver` blocks as defined below.
      * 
      */
-    private @Nullable List<GetActionGroupEventHubReceiver> eventHubReceivers;
+    private List<GetActionGroupEventHubReceiver> eventHubReceivers;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -148,7 +147,7 @@ public final class GetActionGroupResult {
      * 
      */
     public List<GetActionGroupEventHubReceiver> eventHubReceivers() {
-        return this.eventHubReceivers == null ? List.of() : this.eventHubReceivers;
+        return this.eventHubReceivers;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -225,7 +224,7 @@ public final class GetActionGroupResult {
         private List<GetActionGroupAzureFunctionReceiver> azureFunctionReceivers;
         private List<GetActionGroupEmailReceiver> emailReceivers;
         private Boolean enabled;
-        private @Nullable List<GetActionGroupEventHubReceiver> eventHubReceivers;
+        private List<GetActionGroupEventHubReceiver> eventHubReceivers;
         private String id;
         private List<GetActionGroupItsmReceiver> itsmReceivers;
         private List<GetActionGroupLogicAppReceiver> logicAppReceivers;
@@ -302,8 +301,8 @@ public final class GetActionGroupResult {
             return this;
         }
         @CustomType.Setter
-        public Builder eventHubReceivers(@Nullable List<GetActionGroupEventHubReceiver> eventHubReceivers) {
-            this.eventHubReceivers = eventHubReceivers;
+        public Builder eventHubReceivers(List<GetActionGroupEventHubReceiver> eventHubReceivers) {
+            this.eventHubReceivers = Objects.requireNonNull(eventHubReceivers);
             return this;
         }
         public Builder eventHubReceivers(GetActionGroupEventHubReceiver... eventHubReceivers) {

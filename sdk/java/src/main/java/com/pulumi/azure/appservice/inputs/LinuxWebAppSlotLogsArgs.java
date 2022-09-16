@@ -33,14 +33,14 @@ public final class LinuxWebAppSlotLogsArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Should detailed error messages be enabled.
+     * Should detailed error messages be enabled?
      * 
      */
     @Import(name="detailedErrorMessages")
     private @Nullable Output<Boolean> detailedErrorMessages;
 
     /**
-     * @return Should detailed error messages be enabled.
+     * @return Should detailed error messages be enabled?
      * 
      */
     public Optional<Output<Boolean>> detailedErrorMessages() {
@@ -48,14 +48,14 @@ public final class LinuxWebAppSlotLogsArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Should failed request tracing be enabled.
+     * Should the failed request tracing be enabled?
      * 
      */
     @Import(name="failedRequestTracing")
     private @Nullable Output<Boolean> failedRequestTracing;
 
     /**
-     * @return Should failed request tracing be enabled.
+     * @return Should the failed request tracing be enabled?
      * 
      */
     public Optional<Output<Boolean>> failedRequestTracing() {
@@ -126,7 +126,7 @@ public final class LinuxWebAppSlotLogsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param detailedErrorMessages Should detailed error messages be enabled.
+         * @param detailedErrorMessages Should detailed error messages be enabled?
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class LinuxWebAppSlotLogsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param detailedErrorMessages Should detailed error messages be enabled.
+         * @param detailedErrorMessages Should detailed error messages be enabled?
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class LinuxWebAppSlotLogsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param failedRequestTracing Should failed request tracing be enabled.
+         * @param failedRequestTracing Should the failed request tracing be enabled?
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class LinuxWebAppSlotLogsArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param failedRequestTracing Should failed request tracing be enabled.
+         * @param failedRequestTracing Should the failed request tracing be enabled?
          * 
          * @return builder
          * 

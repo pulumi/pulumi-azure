@@ -25,6 +25,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public Input<string> AdminUsername { get; set; } = null!;
 
         /// <summary>
+        /// A `gmsa` block as defined below.
+        /// </summary>
+        [Input("gmsa")]
+        public Input<Inputs.KubernetesClusterWindowsProfileGmsaArgs>? Gmsa { get; set; }
+
+        /// <summary>
         /// Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
         /// </summary>
         [Input("license")]

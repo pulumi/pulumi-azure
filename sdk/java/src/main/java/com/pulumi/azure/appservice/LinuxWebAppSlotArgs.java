@@ -191,14 +191,14 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
      * 
      */
     @Import(name="keyVaultReferenceIdentityId")
     private @Nullable Output<String> keyVaultReferenceIdentityId;
 
     /**
-     * @return The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * @return The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
      * 
      */
     public Optional<Output<String>> keyVaultReferenceIdentityId() {
@@ -221,14 +221,14 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     * The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     * @return The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -266,14 +266,14 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A mapping of tags which should be assigned to the Linux Web App.
+     * A mapping of tags that should be assigned to the Linux Web App.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags which should be assigned to the Linux Web App.
+     * @return A mapping of tags that should be assigned to the Linux Web App.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -594,7 +594,7 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param keyVaultReferenceIdentityId The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+         * @param keyVaultReferenceIdentityId The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
          * 
          * @return builder
          * 
@@ -605,7 +605,7 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param keyVaultReferenceIdentityId The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+         * @param keyVaultReferenceIdentityId The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
          * 
          * @return builder
          * 
@@ -636,7 +636,7 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         * @param name The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
          * 
          * @return builder
          * 
@@ -647,7 +647,7 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+         * @param name The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
          * 
          * @return builder
          * 
@@ -709,7 +709,7 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Linux Web App.
+         * @param tags A mapping of tags that should be assigned to the Linux Web App.
          * 
          * @return builder
          * 
@@ -720,7 +720,7 @@ public final class LinuxWebAppSlotArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A mapping of tags which should be assigned to the Linux Web App.
+         * @param tags A mapping of tags that should be assigned to the Linux Web App.
          * 
          * @return builder
          * 

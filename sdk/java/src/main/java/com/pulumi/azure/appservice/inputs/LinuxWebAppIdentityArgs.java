@@ -62,14 +62,14 @@ public final class LinuxWebAppIdentityArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+     * @return Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
     public Output<String> type() {
@@ -177,7 +177,7 @@ public final class LinuxWebAppIdentityArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class LinuxWebAppIdentityArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Linux Web App. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
          * 
          * @return builder
          * 

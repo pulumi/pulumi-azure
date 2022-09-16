@@ -13,6 +13,7 @@ from .activity_log_alert import *
 from .autoscale_setting import *
 from .data_collection_endpoint import *
 from .data_collection_rule import *
+from .data_collection_rule_association import *
 from .diagnostic_setting import *
 from .get_action_group import *
 from .get_data_collection_endpoint import *

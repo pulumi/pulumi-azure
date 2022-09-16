@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ApiSchema{}
 	case "azure:apimanagement/apiTag:ApiTag":
 		r = &ApiTag{}
+	case "azure:apimanagement/apiTagDescription:ApiTagDescription":
+		r = &ApiTagDescription{}
 	case "azure:apimanagement/apiVersionSet:ApiVersionSet":
 		r = &ApiVersionSet{}
 	case "azure:apimanagement/authorizationServer:AuthorizationServer":
@@ -61,6 +63,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GatewayCertificateAuthority{}
 	case "azure:apimanagement/gatewayHostNameConfiguration:GatewayHostNameConfiguration":
 		r = &GatewayHostNameConfiguration{}
+	case "azure:apimanagement/globalSchema:GlobalSchema":
+		r = &GlobalSchema{}
 	case "azure:apimanagement/group:Group":
 		r = &Group{}
 	case "azure:apimanagement/groupUser:GroupUser":
@@ -169,6 +173,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"apimanagement/apiTagDescription",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"apimanagement/apiVersionSet",
 		&module{version},
 	)
@@ -220,6 +229,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"apimanagement/gatewayHostNameConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"apimanagement/globalSchema",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

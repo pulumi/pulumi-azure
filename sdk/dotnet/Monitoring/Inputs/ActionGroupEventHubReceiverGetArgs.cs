@@ -15,14 +15,32 @@ namespace Pulumi.Azure.Monitoring.Inputs
         /// <summary>
         /// The resource ID of the respective Event Hub.
         /// </summary>
-        [Input("eventHubId", required: true)]
-        public Input<string> EventHubId { get; set; } = null!;
+        [Input("eventHubId")]
+        public Input<string>? EventHubId { get; set; }
+
+        /// <summary>
+        /// The name of the specific Event Hub queue.
+        /// </summary>
+        [Input("eventHubName")]
+        public Input<string>? EventHubName { get; set; }
+
+        /// <summary>
+        /// The namespace name of the Event Hub.
+        /// </summary>
+        [Input("eventHubNamespace")]
+        public Input<string>? EventHubNamespace { get; set; }
 
         /// <summary>
         /// The name of the EventHub Receiver, must be unique within action group.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group.
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
 
         /// <summary>
         /// The Tenant ID for the subscription containing this Event Hub.

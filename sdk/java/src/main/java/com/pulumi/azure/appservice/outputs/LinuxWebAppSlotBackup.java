@@ -24,7 +24,7 @@ public final class LinuxWebAppSlotBackup {
      */
     private String name;
     /**
-     * @return A `schedule` block as defined below.
+     * @return An `schedule` block as defined below.
      * 
      */
     private LinuxWebAppSlotBackupSchedule schedule;
@@ -50,7 +50,7 @@ public final class LinuxWebAppSlotBackup {
         return this.name;
     }
     /**
-     * @return A `schedule` block as defined below.
+     * @return An `schedule` block as defined below.
      * 
      */
     public LinuxWebAppSlotBackupSchedule schedule() {

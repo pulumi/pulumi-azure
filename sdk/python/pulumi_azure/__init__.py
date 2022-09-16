@@ -168,6 +168,8 @@ if typing.TYPE_CHECKING:
     notificationhub = __notificationhub
     import pulumi_azure.operationalinsights as __operationalinsights
     operationalinsights = __operationalinsights
+    import pulumi_azure.orbital as __orbital
+    orbital = __orbital
     import pulumi_azure.policy as __policy
     policy = __policy
     import pulumi_azure.portal as __portal
@@ -304,6 +306,7 @@ else:
     network = _utilities.lazy_import('pulumi_azure.network')
     notificationhub = _utilities.lazy_import('pulumi_azure.notificationhub')
     operationalinsights = _utilities.lazy_import('pulumi_azure.operationalinsights')
+    orbital = _utilities.lazy_import('pulumi_azure.orbital')
     policy = _utilities.lazy_import('pulumi_azure.policy')
     portal = _utilities.lazy_import('pulumi_azure.portal')
     postgresql = _utilities.lazy_import('pulumi_azure.postgresql')
@@ -426,6 +429,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "apimanagement/apiTagDescription",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/apiTagDescription:ApiTagDescription": "ApiTagDescription"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "apimanagement/apiVersionSet",
   "fqn": "pulumi_azure.apimanagement",
   "classes": {
@@ -510,6 +521,14 @@ _utilities.register(
   "fqn": "pulumi_azure.apimanagement",
   "classes": {
    "azure:apimanagement/gatewayHostNameConfiguration:GatewayHostNameConfiguration": "GatewayHostNameConfiguration"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "apimanagement/globalSchema",
+  "fqn": "pulumi_azure.apimanagement",
+  "classes": {
+   "azure:apimanagement/globalSchema:GlobalSchema": "GlobalSchema"
   }
  },
  {
@@ -1450,10 +1469,26 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "automation/sourceControl",
+  "fqn": "pulumi_azure.automation",
+  "classes": {
+   "azure:automation/sourceControl:SourceControl": "SourceControl"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "automation/stringVariable",
   "fqn": "pulumi_azure.automation",
   "classes": {
    "azure:automation/stringVariable:StringVariable": "StringVariable"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "automation/watcher",
+  "fqn": "pulumi_azure.automation",
+  "classes": {
+   "azure:automation/watcher:Watcher": "Watcher"
   }
  },
  {
@@ -2214,6 +2249,14 @@ _utilities.register(
   "fqn": "pulumi_azure.containerservice",
   "classes": {
    "azure:containerservice/registryWebook:RegistryWebook": "RegistryWebook"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "containerservice/tokenPassword",
+  "fqn": "pulumi_azure.containerservice",
+  "classes": {
+   "azure:containerservice/tokenPassword:TokenPassword": "TokenPassword"
   }
  },
  {
@@ -4794,6 +4837,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "monitoring/dataCollectionRuleAssociation",
+  "fqn": "pulumi_azure.monitoring",
+  "classes": {
+   "azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation": "DataCollectionRuleAssociation"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "monitoring/diagnosticSetting",
   "fqn": "pulumi_azure.monitoring",
   "classes": {
@@ -5822,6 +5873,14 @@ _utilities.register(
   "fqn": "pulumi_azure.operationalinsights",
   "classes": {
    "azure:operationalinsights/queryPackQuery:QueryPackQuery": "QueryPackQuery"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "orbital/spacecraft",
+  "fqn": "pulumi_azure.orbital",
+  "classes": {
+   "azure:orbital/spacecraft:Spacecraft": "Spacecraft"
   }
  },
  {

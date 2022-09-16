@@ -356,14 +356,14 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.suppressionEnabled);
     }
     /**
-     * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+     * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
      * 
      */
     @Export(name="tactics", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> tactics;
 
     /**
-     * @return A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence` and `PrivilegeEscalation`.
+     * @return A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
      * 
      */
     public Output<Optional<List<String>>> tactics() {

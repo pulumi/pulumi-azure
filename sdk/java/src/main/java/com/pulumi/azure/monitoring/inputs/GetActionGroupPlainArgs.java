@@ -3,33 +3,14 @@
 
 package com.pulumi.azure.monitoring.inputs;
 
-import com.pulumi.azure.monitoring.inputs.GetActionGroupEventHubReceiver;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class GetActionGroupPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetActionGroupPlainArgs Empty = new GetActionGroupPlainArgs();
-
-    /**
-     * One or more `event_hub_receiver` blocks as defined below.
-     * 
-     */
-    @Import(name="eventHubReceivers")
-    private @Nullable List<GetActionGroupEventHubReceiver> eventHubReceivers;
-
-    /**
-     * @return One or more `event_hub_receiver` blocks as defined below.
-     * 
-     */
-    public Optional<List<GetActionGroupEventHubReceiver>> eventHubReceivers() {
-        return Optional.ofNullable(this.eventHubReceivers);
-    }
 
     /**
      * Specifies the name of the Action Group.
@@ -64,7 +45,6 @@ public final class GetActionGroupPlainArgs extends com.pulumi.resources.InvokeAr
     private GetActionGroupPlainArgs() {}
 
     private GetActionGroupPlainArgs(GetActionGroupPlainArgs $) {
-        this.eventHubReceivers = $.eventHubReceivers;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
     }
@@ -85,27 +65,6 @@ public final class GetActionGroupPlainArgs extends com.pulumi.resources.InvokeAr
 
         public Builder(GetActionGroupPlainArgs defaults) {
             $ = new GetActionGroupPlainArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param eventHubReceivers One or more `event_hub_receiver` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder eventHubReceivers(@Nullable List<GetActionGroupEventHubReceiver> eventHubReceivers) {
-            $.eventHubReceivers = eventHubReceivers;
-            return this;
-        }
-
-        /**
-         * @param eventHubReceivers One or more `event_hub_receiver` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder eventHubReceivers(GetActionGroupEventHubReceiver... eventHubReceivers) {
-            return eventHubReceivers(List.of(eventHubReceivers));
         }
 
         /**

@@ -38,16 +38,32 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.alwaysOn);
     }
 
+    /**
+     * The URL to the API Definition for this Linux Web App.
+     * 
+     */
     @Import(name="apiDefinitionUrl")
     private @Nullable Output<String> apiDefinitionUrl;
 
+    /**
+     * @return The URL to the API Definition for this Linux Web App.
+     * 
+     */
     public Optional<Output<String>> apiDefinitionUrl() {
         return Optional.ofNullable(this.apiDefinitionUrl);
     }
 
+    /**
+     * The API Management API ID this Linux Web App is associated with.
+     * 
+     */
     @Import(name="apiManagementApiId")
     private @Nullable Output<String> apiManagementApiId;
 
+    /**
+     * @return The API Management API ID this Linux Web App is associated with.
+     * 
+     */
     public Optional<Output<String>> apiManagementApiId() {
         return Optional.ofNullable(this.apiManagementApiId);
     }
@@ -83,14 +99,14 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+     * Should Auto heal rules be enabled? Required with `auto_heal_setting`.
      * 
      */
     @Import(name="autoHealEnabled")
     private @Nullable Output<Boolean> autoHealEnabled;
 
     /**
-     * @return Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+     * @return Should Auto heal rules be enabled? Required with `auto_heal_setting`.
      * 
      */
     public Optional<Output<Boolean>> autoHealEnabled() {
@@ -180,14 +196,14 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+     * The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
      * 
      */
     @Import(name="ftpsState")
     private @Nullable Output<String> ftpsState;
 
     /**
-     * @return The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+     * @return The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
      * 
      */
     public Optional<Output<String>> ftpsState() {
@@ -292,14 +308,14 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+     * Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
      * 
      */
     @Import(name="managedPipelineMode")
     private @Nullable Output<String> managedPipelineMode;
 
     /**
-     * @return Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+     * @return Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
      * 
      */
     public Optional<Output<String>> managedPipelineMode() {
@@ -396,14 +412,14 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+     * Should the Linux Web App use a 32-bit worker? Defaults to `true`.
      * 
      */
     @Import(name="use32BitWorker")
     private @Nullable Output<Boolean> use32BitWorker;
 
     /**
-     * @return Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+     * @return Should the Linux Web App use a 32-bit worker? Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> use32BitWorker() {
@@ -411,14 +427,14 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+     * Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
      * 
      */
     @Import(name="vnetRouteAllEnabled")
     private @Nullable Output<Boolean> vnetRouteAllEnabled;
 
     /**
-     * @return Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+     * @return Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> vnetRouteAllEnabled() {
@@ -426,14 +442,14 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Should Web Sockets be enabled. Defaults to `false`.
+     * Should Web Sockets be enabled? Defaults to `false`.
      * 
      */
     @Import(name="websocketsEnabled")
     private @Nullable Output<Boolean> websocketsEnabled;
 
     /**
-     * @return Should Web Sockets be enabled. Defaults to `false`.
+     * @return Should Web Sockets be enabled? Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> websocketsEnabled() {
@@ -531,20 +547,44 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
             return alwaysOn(Output.of(alwaysOn));
         }
 
+        /**
+         * @param apiDefinitionUrl The URL to the API Definition for this Linux Web App.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiDefinitionUrl(@Nullable Output<String> apiDefinitionUrl) {
             $.apiDefinitionUrl = apiDefinitionUrl;
             return this;
         }
 
+        /**
+         * @param apiDefinitionUrl The URL to the API Definition for this Linux Web App.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiDefinitionUrl(String apiDefinitionUrl) {
             return apiDefinitionUrl(Output.of(apiDefinitionUrl));
         }
 
+        /**
+         * @param apiManagementApiId The API Management API ID this Linux Web App is associated with.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiManagementApiId(@Nullable Output<String> apiManagementApiId) {
             $.apiManagementApiId = apiManagementApiId;
             return this;
         }
 
+        /**
+         * @param apiManagementApiId The API Management API ID this Linux Web App is associated with.
+         * 
+         * @return builder
+         * 
+         */
         public Builder apiManagementApiId(String apiManagementApiId) {
             return apiManagementApiId(Output.of(apiManagementApiId));
         }
@@ -592,7 +632,7 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param autoHealEnabled Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+         * @param autoHealEnabled Should Auto heal rules be enabled? Required with `auto_heal_setting`.
          * 
          * @return builder
          * 
@@ -603,7 +643,7 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param autoHealEnabled Should Auto heal rules be enabled. Required with `auto_heal_setting`.
+         * @param autoHealEnabled Should Auto heal rules be enabled? Required with `auto_heal_setting`.
          * 
          * @return builder
          * 
@@ -737,7 +777,7 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ftpsState The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+         * @param ftpsState The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
          * 
          * @return builder
          * 
@@ -748,7 +788,7 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ftpsState The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
+         * @param ftpsState The State of FTP / FTPS service. Possible values include `AllAllowed`, `FtpsOnly`, and `Disabled`.
          * 
          * @return builder
          * 
@@ -903,7 +943,7 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param managedPipelineMode Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+         * @param managedPipelineMode Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
          * 
          * @return builder
          * 
@@ -914,7 +954,7 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param managedPipelineMode Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
+         * @param managedPipelineMode Managed pipeline mode. Possible values include `Integrated`, and `Classic`.
          * 
          * @return builder
          * 
@@ -1057,7 +1097,7 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param use32BitWorker Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+         * @param use32BitWorker Should the Linux Web App use a 32-bit worker? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -1068,7 +1108,7 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param use32BitWorker Should the Linux Web App use a 32-bit worker. Defaults to `true`.
+         * @param use32BitWorker Should the Linux Web App use a 32-bit worker? Defaults to `true`.
          * 
          * @return builder
          * 
@@ -1078,7 +1118,7 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vnetRouteAllEnabled Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         * @param vnetRouteAllEnabled Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -1089,7 +1129,7 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vnetRouteAllEnabled Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
+         * @param vnetRouteAllEnabled Should all outbound traffic have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -1099,7 +1139,7 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param websocketsEnabled Should Web Sockets be enabled. Defaults to `false`.
+         * @param websocketsEnabled Should Web Sockets be enabled? Defaults to `false`.
          * 
          * @return builder
          * 
@@ -1110,7 +1150,7 @@ public final class LinuxWebAppSiteConfigArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param websocketsEnabled Should Web Sockets be enabled. Defaults to `false`.
+         * @param websocketsEnabled Should Web Sockets be enabled? Defaults to `false`.
          * 
          * @return builder
          * 

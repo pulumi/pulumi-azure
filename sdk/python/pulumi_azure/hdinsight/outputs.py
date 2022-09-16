@@ -13,6 +13,7 @@ from . import outputs
 __all__ = [
     'HBaseClusterComponentVersion',
     'HBaseClusterDiskEncryption',
+    'HBaseClusterExtension',
     'HBaseClusterGateway',
     'HBaseClusterMetastores',
     'HBaseClusterMetastoresAmbari',
@@ -32,6 +33,7 @@ __all__ = [
     'HBaseClusterStorageAccountGen2',
     'HadoopClusterComponentVersion',
     'HadoopClusterDiskEncryption',
+    'HadoopClusterExtension',
     'HadoopClusterGateway',
     'HadoopClusterMetastores',
     'HadoopClusterMetastoresAmbari',
@@ -56,6 +58,7 @@ __all__ = [
     'HadoopClusterStorageAccountGen2',
     'InteractiveQueryClusterComponentVersion',
     'InteractiveQueryClusterDiskEncryption',
+    'InteractiveQueryClusterExtension',
     'InteractiveQueryClusterGateway',
     'InteractiveQueryClusterMetastores',
     'InteractiveQueryClusterMetastoresAmbari',
@@ -76,6 +79,7 @@ __all__ = [
     'InteractiveQueryClusterStorageAccountGen2',
     'KafkaClusterComponentVersion',
     'KafkaClusterDiskEncryption',
+    'KafkaClusterExtension',
     'KafkaClusterGateway',
     'KafkaClusterMetastores',
     'KafkaClusterMetastoresAmbari',
@@ -94,6 +98,7 @@ __all__ = [
     'KafkaClusterStorageAccountGen2',
     'SparkClusterComponentVersion',
     'SparkClusterDiskEncryption',
+    'SparkClusterExtension',
     'SparkClusterGateway',
     'SparkClusterMetastores',
     'SparkClusterMetastoresAmbari',
@@ -209,6 +214,54 @@ class HBaseClusterDiskEncryption(dict):
         This is the resource ID of Managed Identity used to access the key vault.
         """
         return pulumi.get(self, "key_vault_managed_identity_id")
+
+
+@pulumi.output_type
+class HBaseClusterExtension(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logAnalyticsWorkspaceId":
+            suggest = "log_analytics_workspace_id"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HBaseClusterExtension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HBaseClusterExtension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HBaseClusterExtension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_analytics_workspace_id: str,
+                 primary_key: str):
+        """
+        :param str log_analytics_workspace_id: The workspace ID of the log analytics extension.
+        :param str primary_key: The workspace key of the log analytics extension.
+        """
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        pulumi.set(__self__, "primary_key", primary_key)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> str:
+        """
+        The workspace ID of the log analytics extension.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> str:
+        """
+        The workspace key of the log analytics extension.
+        """
+        return pulumi.get(self, "primary_key")
 
 
 @pulumi.output_type
@@ -1433,6 +1486,54 @@ class HadoopClusterDiskEncryption(dict):
         This is the resource ID of Managed Identity used to access the key vault.
         """
         return pulumi.get(self, "key_vault_managed_identity_id")
+
+
+@pulumi.output_type
+class HadoopClusterExtension(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logAnalyticsWorkspaceId":
+            suggest = "log_analytics_workspace_id"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HadoopClusterExtension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HadoopClusterExtension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HadoopClusterExtension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_analytics_workspace_id: str,
+                 primary_key: str):
+        """
+        :param str log_analytics_workspace_id: The workspace ID of the log analytics extension.
+        :param str primary_key: The workspace key of the log analytics extension.
+        """
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        pulumi.set(__self__, "primary_key", primary_key)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> str:
+        """
+        The workspace ID of the log analytics extension.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> str:
+        """
+        The workspace key of the log analytics extension.
+        """
+        return pulumi.get(self, "primary_key")
 
 
 @pulumi.output_type
@@ -3000,6 +3101,54 @@ class InteractiveQueryClusterDiskEncryption(dict):
 
 
 @pulumi.output_type
+class InteractiveQueryClusterExtension(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logAnalyticsWorkspaceId":
+            suggest = "log_analytics_workspace_id"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InteractiveQueryClusterExtension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InteractiveQueryClusterExtension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InteractiveQueryClusterExtension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_analytics_workspace_id: str,
+                 primary_key: str):
+        """
+        :param str log_analytics_workspace_id: The workspace ID of the log analytics extension.
+        :param str primary_key: The workspace key of the log analytics extension.
+        """
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        pulumi.set(__self__, "primary_key", primary_key)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> str:
+        """
+        The workspace ID of the log analytics extension.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> str:
+        """
+        The workspace key of the log analytics extension.
+        """
+        return pulumi.get(self, "primary_key")
+
+
+@pulumi.output_type
 class InteractiveQueryClusterGateway(dict):
     def __init__(__self__, *,
                  password: str,
@@ -4284,6 +4433,54 @@ class KafkaClusterDiskEncryption(dict):
 
 
 @pulumi.output_type
+class KafkaClusterExtension(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logAnalyticsWorkspaceId":
+            suggest = "log_analytics_workspace_id"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KafkaClusterExtension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KafkaClusterExtension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KafkaClusterExtension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_analytics_workspace_id: str,
+                 primary_key: str):
+        """
+        :param str log_analytics_workspace_id: The workspace ID of the log analytics extension.
+        :param str primary_key: The workspace key of the log analytics extension.
+        """
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        pulumi.set(__self__, "primary_key", primary_key)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> str:
+        """
+        The workspace ID of the log analytics extension.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> str:
+        """
+        The workspace key of the log analytics extension.
+        """
+        return pulumi.get(self, "primary_key")
+
+
+@pulumi.output_type
 class KafkaClusterGateway(dict):
     def __init__(__self__, *,
                  password: str,
@@ -5563,6 +5760,54 @@ class SparkClusterDiskEncryption(dict):
         This is the resource ID of Managed Identity used to access the key vault.
         """
         return pulumi.get(self, "key_vault_managed_identity_id")
+
+
+@pulumi.output_type
+class SparkClusterExtension(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logAnalyticsWorkspaceId":
+            suggest = "log_analytics_workspace_id"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkClusterExtension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkClusterExtension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkClusterExtension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_analytics_workspace_id: str,
+                 primary_key: str):
+        """
+        :param str log_analytics_workspace_id: The workspace ID of the log analytics extension.
+        :param str primary_key: The workspace key of the log analytics extension.
+        """
+        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+        pulumi.set(__self__, "primary_key", primary_key)
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceId")
+    def log_analytics_workspace_id(self) -> str:
+        """
+        The workspace ID of the log analytics extension.
+        """
+        return pulumi.get(self, "log_analytics_workspace_id")
+
+    @property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> str:
+        """
+        The workspace key of the log analytics extension.
+        """
+        return pulumi.get(self, "primary_key")
 
 
 @pulumi.output_type

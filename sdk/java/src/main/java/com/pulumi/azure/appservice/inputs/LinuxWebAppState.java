@@ -208,14 +208,14 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
      * 
      */
     @Import(name="keyVaultReferenceIdentityId")
     private @Nullable Output<String> keyVaultReferenceIdentityId;
 
     /**
-     * @return The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * @return The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
      * 
      */
     public Optional<Output<String>> keyVaultReferenceIdentityId() {
@@ -328,14 +328,14 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
      * 
      */
     @Import(name="possibleOutboundIpAddresses")
     private @Nullable Output<String> possibleOutboundIpAddresses;
 
     /**
-     * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+     * @return A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
      * 
      */
     public Optional<Output<String>> possibleOutboundIpAddresses() {
@@ -793,7 +793,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyVaultReferenceIdentityId The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+         * @param keyVaultReferenceIdentityId The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
          * 
          * @return builder
          * 
@@ -804,7 +804,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyVaultReferenceIdentityId The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+         * @param keyVaultReferenceIdentityId The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
          * 
          * @return builder
          * 
@@ -981,7 +981,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param possibleOutboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+         * @param possibleOutboundIpAddresses A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
          * 
          * @return builder
          * 
@@ -992,7 +992,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param possibleOutboundIpAddresses A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
+         * @param possibleOutboundIpAddresses A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
          * 
          * @return builder
          * 

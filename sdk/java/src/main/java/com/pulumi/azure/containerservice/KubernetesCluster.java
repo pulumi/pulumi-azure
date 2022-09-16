@@ -242,6 +242,20 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> dnsPrefixPrivateCluster() {
         return Codegen.optional(this.dnsPrefixPrivateCluster);
     }
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="edgeZone", type=String.class, parameters={})
+    private Output</* @Nullable */ String> edgeZone;
+
+    /**
+     * @return Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> edgeZone() {
+        return Codegen.optional(this.edgeZone);
+    }
     @Export(name="enablePodSecurityPolicy", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enablePodSecurityPolicy;
 

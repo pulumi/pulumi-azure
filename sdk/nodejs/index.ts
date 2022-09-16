@@ -89,6 +89,7 @@ import * as netapp from "./netapp";
 import * as network from "./network";
 import * as notificationhub from "./notificationhub";
 import * as operationalinsights from "./operationalinsights";
+import * as orbital from "./orbital";
 import * as policy from "./policy";
 import * as portal from "./portal";
 import * as postgresql from "./postgresql";
@@ -199,6 +200,7 @@ export {
     network,
     notificationhub,
     operationalinsights,
+    orbital,
     policy,
     portal,
     postgresql,

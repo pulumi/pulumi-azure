@@ -126,7 +126,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.appservice.LinuxWebAppSlotIdentity | undefined>;
     /**
-     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
      */
     public readonly keyVaultReferenceIdentityId!: pulumi.Output<string>;
     /**
@@ -138,7 +138,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
      */
     public readonly logs!: pulumi.Output<outputs.appservice.LinuxWebAppSlotLogs | undefined>;
     /**
-     * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     * The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
      */
     public /*out*/ readonly outboundIpAddressLists!: pulumi.Output<string[]>;
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
+     * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
      */
     public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string>;
     /**
@@ -154,7 +154,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
      */
     public /*out*/ readonly possibleOutboundIpAddressLists!: pulumi.Output<string[]>;
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
+     * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
     public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
     /**
@@ -170,7 +170,7 @@ export class LinuxWebAppSlot extends pulumi.CustomResource {
      */
     public readonly storageAccounts!: pulumi.Output<outputs.appservice.LinuxWebAppSlotStorageAccount[] | undefined>;
     /**
-     * A mapping of tags which should be assigned to the Linux Web App.
+     * A mapping of tags that should be assigned to the Linux Web App.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -326,7 +326,7 @@ export interface LinuxWebAppSlotState {
      */
     identity?: pulumi.Input<inputs.appservice.LinuxWebAppSlotIdentity>;
     /**
-     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
      */
     keyVaultReferenceIdentityId?: pulumi.Input<string>;
     /**
@@ -338,7 +338,7 @@ export interface LinuxWebAppSlotState {
      */
     logs?: pulumi.Input<inputs.appservice.LinuxWebAppSlotLogs>;
     /**
-     * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     * The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -346,7 +346,7 @@ export interface LinuxWebAppSlotState {
      */
     outboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
+     * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
      */
     outboundIpAddresses?: pulumi.Input<string>;
     /**
@@ -354,7 +354,7 @@ export interface LinuxWebAppSlotState {
      */
     possibleOutboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
+     * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
     possibleOutboundIpAddresses?: pulumi.Input<string>;
     /**
@@ -370,7 +370,7 @@ export interface LinuxWebAppSlotState {
      */
     storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSlotStorageAccount>[]>;
     /**
-     * A mapping of tags which should be assigned to the Linux Web App.
+     * A mapping of tags that should be assigned to the Linux Web App.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -432,7 +432,7 @@ export interface LinuxWebAppSlotArgs {
      */
     identity?: pulumi.Input<inputs.appservice.LinuxWebAppSlotIdentity>;
     /**
-     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
      */
     keyVaultReferenceIdentityId?: pulumi.Input<string>;
     /**
@@ -440,7 +440,7 @@ export interface LinuxWebAppSlotArgs {
      */
     logs?: pulumi.Input<inputs.appservice.LinuxWebAppSlotLogs>;
     /**
-     * The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+     * The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -452,7 +452,7 @@ export interface LinuxWebAppSlotArgs {
      */
     storageAccounts?: pulumi.Input<pulumi.Input<inputs.appservice.LinuxWebAppSlotStorageAccount>[]>;
     /**
-     * A mapping of tags which should be assigned to the Linux Web App.
+     * A mapping of tags that should be assigned to the Linux Web App.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

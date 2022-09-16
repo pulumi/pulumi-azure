@@ -114,7 +114,7 @@ export class LinuxWebApp extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.appservice.LinuxWebAppIdentity | undefined>;
     /**
-     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
      */
     public readonly keyVaultReferenceIdentityId!: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export class LinuxWebApp extends pulumi.CustomResource {
      */
     public /*out*/ readonly possibleOutboundIpAddressLists!: pulumi.Output<string[]>;
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
+     * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
     public /*out*/ readonly possibleOutboundIpAddresses!: pulumi.Output<string>;
     /**
@@ -329,7 +329,7 @@ export interface LinuxWebAppState {
      */
     identity?: pulumi.Input<inputs.appservice.LinuxWebAppIdentity>;
     /**
-     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
      */
     keyVaultReferenceIdentityId?: pulumi.Input<string>;
     /**
@@ -361,7 +361,7 @@ export interface LinuxWebAppState {
      */
     possibleOutboundIpAddressLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
+     * A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
      */
     possibleOutboundIpAddresses?: pulumi.Input<string>;
     /**
@@ -447,7 +447,7 @@ export interface LinuxWebAppArgs {
      */
     identity?: pulumi.Input<inputs.appservice.LinuxWebAppIdentity>;
     /**
-     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
      */
     keyVaultReferenceIdentityId?: pulumi.Input<string>;
     /**

@@ -105,21 +105,21 @@ type LinuxWebAppSlot struct {
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity LinuxWebAppSlotIdentityPtrOutput `pulumi:"identity"`
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
 	KeyVaultReferenceIdentityId pulumi.StringOutput `pulumi:"keyVaultReferenceIdentityId"`
 	// The Kind value for this Linux Web App.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// A `logs` block as defined below.
 	Logs LinuxWebAppSlotLogsPtrOutput `pulumi:"logs"`
-	// The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+	// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"outboundIpAddressLists"`
-	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
+	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
 	OutboundIpAddresses pulumi.StringOutput `pulumi:"outboundIpAddresses"`
 	// A `possibleOutboundIpAddressList` block as defined below.
 	PossibleOutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"possibleOutboundIpAddressLists"`
-	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
+	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringOutput `pulumi:"possibleOutboundIpAddresses"`
 	// A `siteConfig` block as defined below.
 	SiteConfig LinuxWebAppSlotSiteConfigOutput `pulumi:"siteConfig"`
@@ -127,7 +127,7 @@ type LinuxWebAppSlot struct {
 	SiteCredentials LinuxWebAppSlotSiteCredentialArrayOutput `pulumi:"siteCredentials"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxWebAppSlotStorageAccountArrayOutput `pulumi:"storageAccounts"`
-	// A mapping of tags which should be assigned to the Linux Web App.
+	// A mapping of tags that should be assigned to the Linux Web App.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
@@ -198,21 +198,21 @@ type linuxWebAppSlotState struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *LinuxWebAppSlotIdentity `pulumi:"identity"`
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// The Kind value for this Linux Web App.
 	Kind *string `pulumi:"kind"`
 	// A `logs` block as defined below.
 	Logs *LinuxWebAppSlotLogs `pulumi:"logs"`
-	// The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+	// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
 	Name *string `pulumi:"name"`
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists []string `pulumi:"outboundIpAddressLists"`
-	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
+	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
 	OutboundIpAddresses *string `pulumi:"outboundIpAddresses"`
 	// A `possibleOutboundIpAddressList` block as defined below.
 	PossibleOutboundIpAddressLists []string `pulumi:"possibleOutboundIpAddressLists"`
-	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
+	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses *string `pulumi:"possibleOutboundIpAddresses"`
 	// A `siteConfig` block as defined below.
 	SiteConfig *LinuxWebAppSlotSiteConfig `pulumi:"siteConfig"`
@@ -220,7 +220,7 @@ type linuxWebAppSlotState struct {
 	SiteCredentials []LinuxWebAppSlotSiteCredential `pulumi:"siteCredentials"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []LinuxWebAppSlotStorageAccount `pulumi:"storageAccounts"`
-	// A mapping of tags which should be assigned to the Linux Web App.
+	// A mapping of tags that should be assigned to the Linux Web App.
 	Tags map[string]string `pulumi:"tags"`
 	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
@@ -257,21 +257,21 @@ type LinuxWebAppSlotState struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity LinuxWebAppSlotIdentityPtrInput
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// The Kind value for this Linux Web App.
 	Kind pulumi.StringPtrInput
 	// A `logs` block as defined below.
 	Logs LinuxWebAppSlotLogsPtrInput
-	// The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+	// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
 	Name pulumi.StringPtrInput
 	// A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists pulumi.StringArrayInput
-	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
+	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
 	OutboundIpAddresses pulumi.StringPtrInput
 	// A `possibleOutboundIpAddressList` block as defined below.
 	PossibleOutboundIpAddressLists pulumi.StringArrayInput
-	// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
+	// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 	PossibleOutboundIpAddresses pulumi.StringPtrInput
 	// A `siteConfig` block as defined below.
 	SiteConfig LinuxWebAppSlotSiteConfigPtrInput
@@ -279,7 +279,7 @@ type LinuxWebAppSlotState struct {
 	SiteCredentials LinuxWebAppSlotSiteCredentialArrayInput
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxWebAppSlotStorageAccountArrayInput
-	// A mapping of tags which should be assigned to the Linux Web App.
+	// A mapping of tags that should be assigned to the Linux Web App.
 	Tags pulumi.StringMapInput
 	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	VirtualNetworkSubnetId pulumi.StringPtrInput
@@ -314,17 +314,17 @@ type linuxWebAppSlotArgs struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *LinuxWebAppSlotIdentity `pulumi:"identity"`
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// A `logs` block as defined below.
 	Logs *LinuxWebAppSlotLogs `pulumi:"logs"`
-	// The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+	// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
 	Name *string `pulumi:"name"`
 	// A `siteConfig` block as defined below.
 	SiteConfig LinuxWebAppSlotSiteConfig `pulumi:"siteConfig"`
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts []LinuxWebAppSlotStorageAccount `pulumi:"storageAccounts"`
-	// A mapping of tags which should be assigned to the Linux Web App.
+	// A mapping of tags that should be assigned to the Linux Web App.
 	Tags map[string]string `pulumi:"tags"`
 	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
@@ -356,17 +356,17 @@ type LinuxWebAppSlotArgs struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity LinuxWebAppSlotIdentityPtrInput
-	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// A `logs` block as defined below.
 	Logs LinuxWebAppSlotLogsPtrInput
-	// The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+	// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
 	Name pulumi.StringPtrInput
 	// A `siteConfig` block as defined below.
 	SiteConfig LinuxWebAppSlotSiteConfigInput
 	// One or more `storageAccount` blocks as defined below.
 	StorageAccounts LinuxWebAppSlotStorageAccountArrayInput
-	// A mapping of tags which should be assigned to the Linux Web App.
+	// A mapping of tags that should be assigned to the Linux Web App.
 	Tags pulumi.StringMapInput
 	// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
 	VirtualNetworkSubnetId pulumi.StringPtrInput
@@ -531,7 +531,7 @@ func (o LinuxWebAppSlotOutput) Identity() LinuxWebAppSlotIdentityPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) LinuxWebAppSlotIdentityPtrOutput { return v.Identity }).(LinuxWebAppSlotIdentityPtrOutput)
 }
 
-// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+// The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity).
 func (o LinuxWebAppSlotOutput) KeyVaultReferenceIdentityId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringOutput { return v.KeyVaultReferenceIdentityId }).(pulumi.StringOutput)
 }
@@ -546,7 +546,7 @@ func (o LinuxWebAppSlotOutput) Logs() LinuxWebAppSlotLogsPtrOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) LinuxWebAppSlotLogsPtrOutput { return v.Logs }).(LinuxWebAppSlotLogsPtrOutput)
 }
 
-// The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
+// The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created.
 func (o LinuxWebAppSlotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -556,7 +556,7 @@ func (o LinuxWebAppSlotOutput) OutboundIpAddressLists() pulumi.StringArrayOutput
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringArrayOutput { return v.OutboundIpAddressLists }).(pulumi.StringArrayOutput)
 }
 
-// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
+// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
 func (o LinuxWebAppSlotOutput) OutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringOutput { return v.OutboundIpAddresses }).(pulumi.StringOutput)
 }
@@ -566,7 +566,7 @@ func (o LinuxWebAppSlotOutput) PossibleOutboundIpAddressLists() pulumi.StringArr
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringArrayOutput { return v.PossibleOutboundIpAddressLists }).(pulumi.StringArrayOutput)
 }
 
-// A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
+// A comma-separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outboundIpAddresses`.
 func (o LinuxWebAppSlotOutput) PossibleOutboundIpAddresses() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringOutput { return v.PossibleOutboundIpAddresses }).(pulumi.StringOutput)
 }
@@ -586,7 +586,7 @@ func (o LinuxWebAppSlotOutput) StorageAccounts() LinuxWebAppSlotStorageAccountAr
 	return o.ApplyT(func(v *LinuxWebAppSlot) LinuxWebAppSlotStorageAccountArrayOutput { return v.StorageAccounts }).(LinuxWebAppSlotStorageAccountArrayOutput)
 }
 
-// A mapping of tags which should be assigned to the Linux Web App.
+// A mapping of tags that should be assigned to the Linux Web App.
 func (o LinuxWebAppSlotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LinuxWebAppSlot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

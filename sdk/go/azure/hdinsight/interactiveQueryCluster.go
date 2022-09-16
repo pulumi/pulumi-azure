@@ -117,6 +117,8 @@ type InteractiveQueryCluster struct {
 	DiskEncryptions  InteractiveQueryClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolOutput `pulumi:"encryptionInTransitEnabled"`
+	// An `extension` block as defined below.
+	Extension InteractiveQueryClusterExtensionPtrOutput `pulumi:"extension"`
 	// A `gateway` block as defined below.
 	Gateway InteractiveQueryClusterGatewayOutput `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster.
@@ -204,6 +206,8 @@ type interactiveQueryClusterState struct {
 	DiskEncryptions  []InteractiveQueryClusterDiskEncryption  `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
+	// An `extension` block as defined below.
+	Extension *InteractiveQueryClusterExtension `pulumi:"extension"`
 	// A `gateway` block as defined below.
 	Gateway *InteractiveQueryClusterGateway `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster.
@@ -245,6 +249,8 @@ type InteractiveQueryClusterState struct {
 	DiskEncryptions  InteractiveQueryClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
+	// An `extension` block as defined below.
+	Extension InteractiveQueryClusterExtensionPtrInput
 	// A `gateway` block as defined below.
 	Gateway InteractiveQueryClusterGatewayPtrInput
 	// The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster.
@@ -290,6 +296,8 @@ type interactiveQueryClusterArgs struct {
 	DiskEncryptions  []InteractiveQueryClusterDiskEncryption `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
+	// An `extension` block as defined below.
+	Extension *InteractiveQueryClusterExtension `pulumi:"extension"`
 	// A `gateway` block as defined below.
 	Gateway InteractiveQueryClusterGateway `pulumi:"gateway"`
 	// Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
@@ -328,6 +336,8 @@ type InteractiveQueryClusterArgs struct {
 	DiskEncryptions  InteractiveQueryClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
+	// An `extension` block as defined below.
+	Extension InteractiveQueryClusterExtensionPtrInput
 	// A `gateway` block as defined below.
 	Gateway InteractiveQueryClusterGatewayInput
 	// Specifies the Azure Region which this HDInsight Interactive Query Cluster should exist. Changing this forces a new resource to be created.
@@ -465,6 +475,11 @@ func (o InteractiveQueryClusterOutput) DiskEncryptions() InteractiveQueryCluster
 // Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterOutput) EncryptionInTransitEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *InteractiveQueryCluster) pulumi.BoolOutput { return v.EncryptionInTransitEnabled }).(pulumi.BoolOutput)
+}
+
+// An `extension` block as defined below.
+func (o InteractiveQueryClusterOutput) Extension() InteractiveQueryClusterExtensionPtrOutput {
+	return o.ApplyT(func(v *InteractiveQueryCluster) InteractiveQueryClusterExtensionPtrOutput { return v.Extension }).(InteractiveQueryClusterExtensionPtrOutput)
 }
 
 // A `gateway` block as defined below.

@@ -23,6 +23,7 @@ class HadoopClusterArgs:
                  roles: pulumi.Input['HadoopClusterRolesArgs'],
                  tier: pulumi.Input[str],
                  disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]]] = None,
+                 extension: Optional[pulumi.Input['HadoopClusterExtensionArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metastores: Optional[pulumi.Input['HadoopClusterMetastoresArgs']] = None,
                  monitor: Optional[pulumi.Input['HadoopClusterMonitorArgs']] = None,
@@ -41,6 +42,7 @@ class HadoopClusterArgs:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['HadoopClusterRolesArgs'] roles: A `roles` block as defined below.
         :param pulumi.Input[str] tier: Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+        :param pulumi.Input['HadoopClusterExtensionArgs'] extension: An `extension` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['HadoopClusterMetastoresArgs'] metastores: A `metastores` block as defined below.
         :param pulumi.Input['HadoopClusterMonitorArgs'] monitor: A `monitor` block as defined below.
@@ -59,6 +61,8 @@ class HadoopClusterArgs:
         pulumi.set(__self__, "tier", tier)
         if disk_encryptions is not None:
             pulumi.set(__self__, "disk_encryptions", disk_encryptions)
+        if extension is not None:
+            pulumi.set(__self__, "extension", extension)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if metastores is not None:
@@ -160,6 +164,18 @@ class HadoopClusterArgs:
     @disk_encryptions.setter
     def disk_encryptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]]]):
         pulumi.set(self, "disk_encryptions", value)
+
+    @property
+    @pulumi.getter
+    def extension(self) -> Optional[pulumi.Input['HadoopClusterExtensionArgs']]:
+        """
+        An `extension` block as defined below.
+        """
+        return pulumi.get(self, "extension")
+
+    @extension.setter
+    def extension(self, value: Optional[pulumi.Input['HadoopClusterExtensionArgs']]):
+        pulumi.set(self, "extension", value)
 
     @property
     @pulumi.getter
@@ -285,6 +301,7 @@ class _HadoopClusterState:
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input['HadoopClusterComponentVersionArgs']] = None,
                  disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]]] = None,
+                 extension: Optional[pulumi.Input['HadoopClusterExtensionArgs']] = None,
                  gateway: Optional[pulumi.Input['HadoopClusterGatewayArgs']] = None,
                  https_endpoint: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -305,6 +322,7 @@ class _HadoopClusterState:
         Input properties used for looking up and filtering HadoopCluster resources.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['HadoopClusterComponentVersionArgs'] component_version: A `component_version` block as defined below.
+        :param pulumi.Input['HadoopClusterExtensionArgs'] extension: An `extension` block as defined below.
         :param pulumi.Input['HadoopClusterGatewayArgs'] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
@@ -327,6 +345,8 @@ class _HadoopClusterState:
             pulumi.set(__self__, "component_version", component_version)
         if disk_encryptions is not None:
             pulumi.set(__self__, "disk_encryptions", disk_encryptions)
+        if extension is not None:
+            pulumi.set(__self__, "extension", extension)
         if gateway is not None:
             pulumi.set(__self__, "gateway", gateway)
         if https_endpoint is not None:
@@ -392,6 +412,18 @@ class _HadoopClusterState:
     @disk_encryptions.setter
     def disk_encryptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]]]):
         pulumi.set(self, "disk_encryptions", value)
+
+    @property
+    @pulumi.getter
+    def extension(self) -> Optional[pulumi.Input['HadoopClusterExtensionArgs']]:
+        """
+        An `extension` block as defined below.
+        """
+        return pulumi.get(self, "extension")
+
+    @extension.setter
+    def extension(self, value: Optional[pulumi.Input['HadoopClusterExtensionArgs']]):
+        pulumi.set(self, "extension", value)
 
     @property
     @pulumi.getter
@@ -591,6 +623,7 @@ class HadoopCluster(pulumi.CustomResource):
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input[pulumi.InputType['HadoopClusterComponentVersionArgs']]] = None,
                  disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterDiskEncryptionArgs']]]]] = None,
+                 extension: Optional[pulumi.Input[pulumi.InputType['HadoopClusterExtensionArgs']]] = None,
                  gateway: Optional[pulumi.Input[pulumi.InputType['HadoopClusterGatewayArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metastores: Optional[pulumi.Input[pulumi.InputType['HadoopClusterMetastoresArgs']]] = None,
@@ -673,6 +706,7 @@ class HadoopCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['HadoopClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterExtensionArgs']] extension: An `extension` block as defined below.
         :param pulumi.Input[pulumi.InputType['HadoopClusterGatewayArgs']] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['HadoopClusterMetastoresArgs']] metastores: A `metastores` block as defined below.
@@ -774,6 +808,7 @@ class HadoopCluster(pulumi.CustomResource):
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  component_version: Optional[pulumi.Input[pulumi.InputType['HadoopClusterComponentVersionArgs']]] = None,
                  disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterDiskEncryptionArgs']]]]] = None,
+                 extension: Optional[pulumi.Input[pulumi.InputType['HadoopClusterExtensionArgs']]] = None,
                  gateway: Optional[pulumi.Input[pulumi.InputType['HadoopClusterGatewayArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  metastores: Optional[pulumi.Input[pulumi.InputType['HadoopClusterMetastoresArgs']]] = None,
@@ -804,6 +839,7 @@ class HadoopCluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'component_version'")
             __props__.__dict__["component_version"] = component_version
             __props__.__dict__["disk_encryptions"] = disk_encryptions
+            __props__.__dict__["extension"] = extension
             if gateway is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway'")
             __props__.__dict__["gateway"] = gateway
@@ -841,6 +877,7 @@ class HadoopCluster(pulumi.CustomResource):
             cluster_version: Optional[pulumi.Input[str]] = None,
             component_version: Optional[pulumi.Input[pulumi.InputType['HadoopClusterComponentVersionArgs']]] = None,
             disk_encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HadoopClusterDiskEncryptionArgs']]]]] = None,
+            extension: Optional[pulumi.Input[pulumi.InputType['HadoopClusterExtensionArgs']]] = None,
             gateway: Optional[pulumi.Input[pulumi.InputType['HadoopClusterGatewayArgs']]] = None,
             https_endpoint: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -866,6 +903,7 @@ class HadoopCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_version: Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['HadoopClusterComponentVersionArgs']] component_version: A `component_version` block as defined below.
+        :param pulumi.Input[pulumi.InputType['HadoopClusterExtensionArgs']] extension: An `extension` block as defined below.
         :param pulumi.Input[pulumi.InputType['HadoopClusterGatewayArgs']] gateway: A `gateway` block as defined below.
         :param pulumi.Input[str] https_endpoint: The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster.
         :param pulumi.Input[str] location: Specifies the Azure Region which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
@@ -889,6 +927,7 @@ class HadoopCluster(pulumi.CustomResource):
         __props__.__dict__["cluster_version"] = cluster_version
         __props__.__dict__["component_version"] = component_version
         __props__.__dict__["disk_encryptions"] = disk_encryptions
+        __props__.__dict__["extension"] = extension
         __props__.__dict__["gateway"] = gateway
         __props__.__dict__["https_endpoint"] = https_endpoint
         __props__.__dict__["location"] = location
@@ -927,6 +966,14 @@ class HadoopCluster(pulumi.CustomResource):
     @pulumi.getter(name="diskEncryptions")
     def disk_encryptions(self) -> pulumi.Output[Optional[Sequence['outputs.HadoopClusterDiskEncryption']]]:
         return pulumi.get(self, "disk_encryptions")
+
+    @property
+    @pulumi.getter
+    def extension(self) -> pulumi.Output[Optional['outputs.HadoopClusterExtension']]:
+        """
+        An `extension` block as defined below.
+        """
+        return pulumi.get(self, "extension")
 
     @property
     @pulumi.getter

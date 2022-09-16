@@ -48,14 +48,14 @@ public final class LinuxWebAppSlotBackupArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A `schedule` block as defined below.
+     * An `schedule` block as defined below.
      * 
      */
     @Import(name="schedule", required=true)
     private Output<LinuxWebAppSlotBackupScheduleArgs> schedule;
 
     /**
-     * @return A `schedule` block as defined below.
+     * @return An `schedule` block as defined below.
      * 
      */
     public Output<LinuxWebAppSlotBackupScheduleArgs> schedule() {
@@ -147,7 +147,7 @@ public final class LinuxWebAppSlotBackupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param schedule A `schedule` block as defined below.
+         * @param schedule An `schedule` block as defined below.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class LinuxWebAppSlotBackupArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param schedule A `schedule` block as defined below.
+         * @param schedule An `schedule` block as defined below.
          * 
          * @return builder
          * 

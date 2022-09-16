@@ -117,6 +117,8 @@ type SparkCluster struct {
 	DiskEncryptions  SparkClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolOutput `pulumi:"encryptionInTransitEnabled"`
+	// An `extension` block as defined below.
+	Extension SparkClusterExtensionPtrOutput `pulumi:"extension"`
 	// A `gateway` block as defined below.
 	Gateway SparkClusterGatewayOutput `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight Spark Cluster.
@@ -204,6 +206,8 @@ type sparkClusterState struct {
 	DiskEncryptions  []SparkClusterDiskEncryption  `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
+	// An `extension` block as defined below.
+	Extension *SparkClusterExtension `pulumi:"extension"`
 	// A `gateway` block as defined below.
 	Gateway *SparkClusterGateway `pulumi:"gateway"`
 	// The HTTPS Connectivity Endpoint for this HDInsight Spark Cluster.
@@ -245,6 +249,8 @@ type SparkClusterState struct {
 	DiskEncryptions  SparkClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
+	// An `extension` block as defined below.
+	Extension SparkClusterExtensionPtrInput
 	// A `gateway` block as defined below.
 	Gateway SparkClusterGatewayPtrInput
 	// The HTTPS Connectivity Endpoint for this HDInsight Spark Cluster.
@@ -290,6 +296,8 @@ type sparkClusterArgs struct {
 	DiskEncryptions  []SparkClusterDiskEncryption `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
+	// An `extension` block as defined below.
+	Extension *SparkClusterExtension `pulumi:"extension"`
 	// A `gateway` block as defined below.
 	Gateway SparkClusterGateway `pulumi:"gateway"`
 	// Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
@@ -328,6 +336,8 @@ type SparkClusterArgs struct {
 	DiskEncryptions  SparkClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
+	// An `extension` block as defined below.
+	Extension SparkClusterExtensionPtrInput
 	// A `gateway` block as defined below.
 	Gateway SparkClusterGatewayInput
 	// Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created.
@@ -461,6 +471,11 @@ func (o SparkClusterOutput) DiskEncryptions() SparkClusterDiskEncryptionArrayOut
 // Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created.
 func (o SparkClusterOutput) EncryptionInTransitEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *SparkCluster) pulumi.BoolOutput { return v.EncryptionInTransitEnabled }).(pulumi.BoolOutput)
+}
+
+// An `extension` block as defined below.
+func (o SparkClusterOutput) Extension() SparkClusterExtensionPtrOutput {
+	return o.ApplyT(func(v *SparkCluster) SparkClusterExtensionPtrOutput { return v.Extension }).(SparkClusterExtensionPtrOutput)
 }
 
 // A `gateway` block as defined below.

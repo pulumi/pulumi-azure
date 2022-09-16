@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.desktopvirtualization.inputs;
 
+import com.pulumi.azure.desktopvirtualization.inputs.HostPoolScheduledAgentUpdatesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -187,6 +188,21 @@ public final class HostPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+     * 
+     */
+    @Import(name="scheduledAgentUpdates")
+    private @Nullable Output<HostPoolScheduledAgentUpdatesArgs> scheduledAgentUpdates;
+
+    /**
+     * @return A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+     * 
+     */
+    public Optional<Output<HostPoolScheduledAgentUpdatesArgs>> scheduledAgentUpdates() {
+        return Optional.ofNullable(this.scheduledAgentUpdates);
+    }
+
+    /**
      * Enables or disables the Start VM on Connection Feature. Defaults to `false`.
      * 
      */
@@ -261,6 +277,7 @@ public final class HostPoolState extends com.pulumi.resources.ResourceArgs {
         this.personalDesktopAssignmentType = $.personalDesktopAssignmentType;
         this.preferredAppGroupType = $.preferredAppGroupType;
         this.resourceGroupName = $.resourceGroupName;
+        this.scheduledAgentUpdates = $.scheduledAgentUpdates;
         this.startVmOnConnect = $.startVmOnConnect;
         this.tags = $.tags;
         this.type = $.type;
@@ -511,6 +528,27 @@ public final class HostPoolState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param scheduledAgentUpdates A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scheduledAgentUpdates(@Nullable Output<HostPoolScheduledAgentUpdatesArgs> scheduledAgentUpdates) {
+            $.scheduledAgentUpdates = scheduledAgentUpdates;
+            return this;
+        }
+
+        /**
+         * @param scheduledAgentUpdates A `scheduled_agent_updates` block as defined below. This enables control of when Agent Updates will be applied to Session Hosts.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scheduledAgentUpdates(HostPoolScheduledAgentUpdatesArgs scheduledAgentUpdates) {
+            return scheduledAgentUpdates(Output.of(scheduledAgentUpdates));
         }
 
         /**

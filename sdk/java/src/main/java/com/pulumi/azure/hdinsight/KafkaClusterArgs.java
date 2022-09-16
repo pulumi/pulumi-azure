@@ -5,6 +5,7 @@ package com.pulumi.azure.hdinsight;
 
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterComponentVersionArgs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterDiskEncryptionArgs;
+import com.pulumi.azure.hdinsight.inputs.KafkaClusterExtensionArgs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterGatewayArgs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterMetastoresArgs;
 import com.pulumi.azure.hdinsight.inputs.KafkaClusterMonitorArgs;
@@ -79,6 +80,21 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> encryptionInTransitEnabled() {
         return Optional.ofNullable(this.encryptionInTransitEnabled);
+    }
+
+    /**
+     * An `extension` block as defined below.
+     * 
+     */
+    @Import(name="extension")
+    private @Nullable Output<KafkaClusterExtensionArgs> extension;
+
+    /**
+     * @return An `extension` block as defined below.
+     * 
+     */
+    public Optional<Output<KafkaClusterExtensionArgs>> extension() {
+        return Optional.ofNullable(this.extension);
     }
 
     /**
@@ -313,6 +329,7 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
         this.componentVersion = $.componentVersion;
         this.diskEncryptions = $.diskEncryptions;
         this.encryptionInTransitEnabled = $.encryptionInTransitEnabled;
+        this.extension = $.extension;
         this.gateway = $.gateway;
         this.location = $.location;
         this.metastores = $.metastores;
@@ -422,6 +439,27 @@ public final class KafkaClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder encryptionInTransitEnabled(Boolean encryptionInTransitEnabled) {
             return encryptionInTransitEnabled(Output.of(encryptionInTransitEnabled));
+        }
+
+        /**
+         * @param extension An `extension` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extension(@Nullable Output<KafkaClusterExtensionArgs> extension) {
+            $.extension = extension;
+            return this;
+        }
+
+        /**
+         * @param extension An `extension` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extension(KafkaClusterExtensionArgs extension) {
+            return extension(Output.of(extension));
         }
 
         /**

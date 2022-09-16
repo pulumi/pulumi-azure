@@ -112,14 +112,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:cosmosdb/cassandraTable:CassandraTable")
 public class CassandraTable extends com.pulumi.resources.CustomResource {
     /**
-     * Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+     * Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="analyticalStorageTtl", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> analyticalStorageTtl;
 
     /**
-     * @return Time to live of the Analytical Storage. Possible values are at least `-1`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
+     * @return Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Integer>> analyticalStorageTtl() {
