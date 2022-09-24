@@ -74,7 +74,7 @@ namespace Pulumi.Azure.CosmosDB
     ///             },
     ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
     ///             {
-    ///                 Location = "eastus",
+    ///                 Location = "westus",
     ///                 FailoverPriority = 0,
     ///             },
     ///         },

@@ -5,19 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getCluster";
-export * from "./hadoopCluster";
-export * from "./hbaseCluster";
-export * from "./interactiveQueryCluster";
-export * from "./kafkaCluster";
-export * from "./sparkCluster";
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
 
-// Import resources to register:
-import { HBaseCluster } from "./hbaseCluster";
-import { HadoopCluster } from "./hadoopCluster";
-import { InteractiveQueryCluster } from "./interactiveQueryCluster";
-import { KafkaCluster } from "./kafkaCluster";
-import { SparkCluster } from "./sparkCluster";
+export { HadoopClusterArgs, HadoopClusterState } from "./hadoopCluster";
+export type HadoopCluster = import("./hadoopCluster").HadoopCluster;
+export const HadoopCluster: typeof import("./hadoopCluster").HadoopCluster = null as any;
+
+export { HBaseClusterArgs, HBaseClusterState } from "./hbaseCluster";
+export type HBaseCluster = import("./hbaseCluster").HBaseCluster;
+export const HBaseCluster: typeof import("./hbaseCluster").HBaseCluster = null as any;
+
+export { InteractiveQueryClusterArgs, InteractiveQueryClusterState } from "./interactiveQueryCluster";
+export type InteractiveQueryCluster = import("./interactiveQueryCluster").InteractiveQueryCluster;
+export const InteractiveQueryCluster: typeof import("./interactiveQueryCluster").InteractiveQueryCluster = null as any;
+
+export { KafkaClusterArgs, KafkaClusterState } from "./kafkaCluster";
+export type KafkaCluster = import("./kafkaCluster").KafkaCluster;
+export const KafkaCluster: typeof import("./kafkaCluster").KafkaCluster = null as any;
+
+export { SparkClusterArgs, SparkClusterState } from "./sparkCluster";
+export type SparkCluster = import("./sparkCluster").SparkCluster;
+export const SparkCluster: typeof import("./sparkCluster").SparkCluster = null as any;
+
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+utilities.lazyLoad(exports, ["HadoopCluster"], () => require("./hadoopCluster"));
+utilities.lazyLoad(exports, ["HBaseCluster"], () => require("./hbaseCluster"));
+utilities.lazyLoad(exports, ["InteractiveQueryCluster"], () => require("./interactiveQueryCluster"));
+utilities.lazyLoad(exports, ["KafkaCluster"], () => require("./kafkaCluster"));
+utilities.lazyLoad(exports, ["SparkCluster"], () => require("./sparkCluster"));
 
 const _module = {
     version: utilities.getVersion(),

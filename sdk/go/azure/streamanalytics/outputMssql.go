@@ -97,7 +97,8 @@ type OutputMssql struct {
 
 	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
 	AuthenticationMode pulumi.StringPtrOutput `pulumi:"authenticationMode"`
-	Database           pulumi.StringOutput    `pulumi:"database"`
+	// The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
+	Database pulumi.StringOutput `pulumi:"database"`
 	// The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
 	MaxBatchCount pulumi.Float64PtrOutput `pulumi:"maxBatchCount"`
 	// The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
@@ -170,7 +171,8 @@ func GetOutputMssql(ctx *pulumi.Context,
 type outputMssqlState struct {
 	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
 	AuthenticationMode *string `pulumi:"authenticationMode"`
-	Database           *string `pulumi:"database"`
+	// The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
+	Database *string `pulumi:"database"`
 	// The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
 	MaxBatchCount *float64 `pulumi:"maxBatchCount"`
 	// The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
@@ -194,7 +196,8 @@ type outputMssqlState struct {
 type OutputMssqlState struct {
 	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
 	AuthenticationMode pulumi.StringPtrInput
-	Database           pulumi.StringPtrInput
+	// The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
+	Database pulumi.StringPtrInput
 	// The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
 	MaxBatchCount pulumi.Float64PtrInput
 	// The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
@@ -222,7 +225,8 @@ func (OutputMssqlState) ElementType() reflect.Type {
 type outputMssqlArgs struct {
 	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
 	AuthenticationMode *string `pulumi:"authenticationMode"`
-	Database           string  `pulumi:"database"`
+	// The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
+	Database string `pulumi:"database"`
 	// The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
 	MaxBatchCount *float64 `pulumi:"maxBatchCount"`
 	// The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
@@ -247,7 +251,8 @@ type outputMssqlArgs struct {
 type OutputMssqlArgs struct {
 	// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
 	AuthenticationMode pulumi.StringPtrInput
-	Database           pulumi.StringInput
+	// The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
+	Database pulumi.StringInput
 	// The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
 	MaxBatchCount pulumi.Float64PtrInput
 	// The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
@@ -360,6 +365,7 @@ func (o OutputMssqlOutput) AuthenticationMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OutputMssql) pulumi.StringPtrOutput { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
 }
 
+// The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
 func (o OutputMssqlOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *OutputMssql) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }

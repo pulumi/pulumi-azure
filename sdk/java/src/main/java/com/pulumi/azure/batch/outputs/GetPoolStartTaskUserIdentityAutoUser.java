@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetPoolStartTaskUserIdentityAutoUser {
     /**
-     * @return The elevation level of the user identity under which the start task runs.
+     * @return The elevation level of the user account. &#34;NonAdmin&#34; - The auto user is a standard user without elevated access. &#34;Admin&#34; - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
      * 
      */
     private String elevationLevel;
@@ -22,7 +22,7 @@ public final class GetPoolStartTaskUserIdentityAutoUser {
 
     private GetPoolStartTaskUserIdentityAutoUser() {}
     /**
-     * @return The elevation level of the user identity under which the start task runs.
+     * @return The elevation level of the user account. &#34;NonAdmin&#34; - The auto user is a standard user without elevated access. &#34;Admin&#34; - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
      * 
      */
     public String elevationLevel() {

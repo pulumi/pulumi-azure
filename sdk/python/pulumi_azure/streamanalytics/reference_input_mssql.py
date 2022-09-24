@@ -30,7 +30,7 @@ class ReferenceInputMssqlArgs:
         The set of arguments for constructing a ReferenceInputMssql resource.
         :param pulumi.Input[str] database: The MS SQL database name where the reference data exists.
         :param pulumi.Input[str] full_snapshot_query: The query used to retrieve the reference data from the MS SQL database.
-        :param pulumi.Input[str] password: The username to connect to the MS SQL database.
+        :param pulumi.Input[str] password: The password to connect to the MS SQL database.
         :param pulumi.Input[str] refresh_type: Defines whether and how the reference data should be refreshed. Accepted values are `Static`, `RefreshPeriodicallyWithFull` and `RefreshPeriodicallyWithDelta`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server: The fully qualified domain name of the MS SQL server.
@@ -86,7 +86,7 @@ class ReferenceInputMssqlArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The username to connect to the MS SQL database.
+        The password to connect to the MS SQL database.
         """
         return pulumi.get(self, "password")
 
@@ -224,7 +224,7 @@ class _ReferenceInputMssqlState:
         :param pulumi.Input[str] delta_snapshot_query: The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`.
         :param pulumi.Input[str] full_snapshot_query: The query used to retrieve the reference data from the MS SQL database.
         :param pulumi.Input[str] name: The name of the Reference Input MS SQL data. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The username to connect to the MS SQL database.
+        :param pulumi.Input[str] password: The password to connect to the MS SQL database.
         :param pulumi.Input[str] refresh_interval_duration: The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
         :param pulumi.Input[str] refresh_type: Defines whether and how the reference data should be refreshed. Accepted values are `Static`, `RefreshPeriodicallyWithFull` and `RefreshPeriodicallyWithDelta`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
@@ -310,7 +310,7 @@ class _ReferenceInputMssqlState:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        The username to connect to the MS SQL database.
+        The password to connect to the MS SQL database.
         """
         return pulumi.get(self, "password")
 
@@ -469,7 +469,7 @@ class ReferenceInputMssql(pulumi.CustomResource):
         :param pulumi.Input[str] delta_snapshot_query: The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`.
         :param pulumi.Input[str] full_snapshot_query: The query used to retrieve the reference data from the MS SQL database.
         :param pulumi.Input[str] name: The name of the Reference Input MS SQL data. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The username to connect to the MS SQL database.
+        :param pulumi.Input[str] password: The password to connect to the MS SQL database.
         :param pulumi.Input[str] refresh_interval_duration: The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
         :param pulumi.Input[str] refresh_type: Defines whether and how the reference data should be refreshed. Accepted values are `Static`, `RefreshPeriodicallyWithFull` and `RefreshPeriodicallyWithDelta`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
@@ -623,7 +623,7 @@ class ReferenceInputMssql(pulumi.CustomResource):
         :param pulumi.Input[str] delta_snapshot_query: The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`.
         :param pulumi.Input[str] full_snapshot_query: The query used to retrieve the reference data from the MS SQL database.
         :param pulumi.Input[str] name: The name of the Reference Input MS SQL data. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] password: The username to connect to the MS SQL database.
+        :param pulumi.Input[str] password: The password to connect to the MS SQL database.
         :param pulumi.Input[str] refresh_interval_duration: The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
         :param pulumi.Input[str] refresh_type: Defines whether and how the reference data should be refreshed. Accepted values are `Static`, `RefreshPeriodicallyWithFull` and `RefreshPeriodicallyWithDelta`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created.
@@ -686,7 +686,7 @@ class ReferenceInputMssql(pulumi.CustomResource):
     @pulumi.getter
     def password(self) -> pulumi.Output[str]:
         """
-        The username to connect to the MS SQL database.
+        The password to connect to the MS SQL database.
         """
         return pulumi.get(self, "password")
 

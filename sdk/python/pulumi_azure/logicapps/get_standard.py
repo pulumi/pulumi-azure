@@ -23,7 +23,7 @@ class GetStandardResult:
     """
     A collection of values returned by getStandard.
     """
-    def __init__(__self__, app_service_plan_id=None, app_settings=None, bundle_version=None, client_affinity_enabled=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_config=None, site_credentials=None, storage_account_access_key=None, storage_account_name=None, storage_account_share_name=None, tags=None, use_extension_bundle=None, version=None):
+    def __init__(__self__, app_service_plan_id=None, app_settings=None, bundle_version=None, client_affinity_enabled=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, resource_group_name=None, site_config=None, site_credentials=None, storage_account_access_key=None, storage_account_name=None, storage_account_share_name=None, tags=None, use_extension_bundle=None, version=None, virtual_network_subnet_id=None):
         if app_service_plan_id and not isinstance(app_service_plan_id, str):
             raise TypeError("Expected argument 'app_service_plan_id' to be a str")
         pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
@@ -102,6 +102,9 @@ class GetStandardResult:
         if version and not isinstance(version, str):
             raise TypeError("Expected argument 'version' to be a str")
         pulumi.set(__self__, "version", version)
+        if virtual_network_subnet_id and not isinstance(virtual_network_subnet_id, str):
+            raise TypeError("Expected argument 'virtual_network_subnet_id' to be a str")
+        pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
     @pulumi.getter(name="appServicePlanId")
@@ -242,6 +245,11 @@ class GetStandardResult:
     def version(self) -> str:
         return pulumi.get(self, "version")
 
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> str:
+        return pulumi.get(self, "virtual_network_subnet_id")
+
 
 class AwaitableGetStandardResult(GetStandardResult):
     # pylint: disable=using-constant-test
@@ -274,7 +282,8 @@ class AwaitableGetStandardResult(GetStandardResult):
             storage_account_share_name=self.storage_account_share_name,
             tags=self.tags,
             use_extension_bundle=self.use_extension_bundle,
-            version=self.version)
+            version=self.version,
+            virtual_network_subnet_id=self.virtual_network_subnet_id)
 
 
 def get_standard(name: Optional[str] = None,
@@ -334,7 +343,8 @@ def get_standard(name: Optional[str] = None,
         storage_account_share_name=__ret__.storage_account_share_name,
         tags=__ret__.tags,
         use_extension_bundle=__ret__.use_extension_bundle,
-        version=__ret__.version)
+        version=__ret__.version,
+        virtual_network_subnet_id=__ret__.virtual_network_subnet_id)
 
 
 @_utilities.lift_output_func(get_standard)

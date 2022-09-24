@@ -5,103 +5,246 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./customDataset";
-export * from "./dataFlow";
-export * from "./datasetAzureBlob";
-export * from "./datasetBinary";
-export * from "./datasetCosmosDBApi";
-export * from "./datasetDelimitedText";
-export * from "./datasetHttp";
-export * from "./datasetJson";
-export * from "./datasetMysql";
-export * from "./datasetParquet";
-export * from "./datasetPostgresql";
-export * from "./datasetSnowflake";
-export * from "./datasetSqlServerTable";
-export * from "./factory";
-export * from "./flowletDataFlow";
-export * from "./getFactory";
-export * from "./integrationRuntimeManaged";
-export * from "./integrationRuntimeRule";
-export * from "./integrationRuntimeSelfHosted";
-export * from "./integrationRuntimeSsis";
-export * from "./linkedCustomService";
-export * from "./linkedServiceAzureBlobStorage";
-export * from "./linkedServiceAzureDatabricks";
-export * from "./linkedServiceAzureFileStorage";
-export * from "./linkedServiceAzureFunction";
-export * from "./linkedServiceAzureSearch";
-export * from "./linkedServiceAzureSqlDatabase";
-export * from "./linkedServiceAzureTableStorage";
-export * from "./linkedServiceCosmosDb";
-export * from "./linkedServiceCosmosDbMongoApi";
-export * from "./linkedServiceDataLakeStorageGen2";
-export * from "./linkedServiceKeyVault";
-export * from "./linkedServiceKusto";
-export * from "./linkedServiceMysql";
-export * from "./linkedServiceOdata";
-export * from "./linkedServiceOdbc";
-export * from "./linkedServicePostgresql";
-export * from "./linkedServiceSftp";
-export * from "./linkedServiceSnowflake";
-export * from "./linkedServiceSqlServer";
-export * from "./linkedServiceSynapse";
-export * from "./linkedServiceWeb";
-export * from "./managedPrivateEndpoint";
-export * from "./pipeline";
-export * from "./triggerBlobEvent";
-export * from "./triggerCustomEvent";
-export * from "./triggerSchedule";
-export * from "./triggerTumblingWindow";
+export { CustomDatasetArgs, CustomDatasetState } from "./customDataset";
+export type CustomDataset = import("./customDataset").CustomDataset;
+export const CustomDataset: typeof import("./customDataset").CustomDataset = null as any;
 
-// Import resources to register:
-import { CustomDataset } from "./customDataset";
-import { DataFlow } from "./dataFlow";
-import { DatasetAzureBlob } from "./datasetAzureBlob";
-import { DatasetBinary } from "./datasetBinary";
-import { DatasetCosmosDBApi } from "./datasetCosmosDBApi";
-import { DatasetDelimitedText } from "./datasetDelimitedText";
-import { DatasetHttp } from "./datasetHttp";
-import { DatasetJson } from "./datasetJson";
-import { DatasetMysql } from "./datasetMysql";
-import { DatasetParquet } from "./datasetParquet";
-import { DatasetPostgresql } from "./datasetPostgresql";
-import { DatasetSnowflake } from "./datasetSnowflake";
-import { DatasetSqlServerTable } from "./datasetSqlServerTable";
-import { Factory } from "./factory";
-import { FlowletDataFlow } from "./flowletDataFlow";
-import { IntegrationRuntimeManaged } from "./integrationRuntimeManaged";
-import { IntegrationRuntimeRule } from "./integrationRuntimeRule";
-import { IntegrationRuntimeSelfHosted } from "./integrationRuntimeSelfHosted";
-import { IntegrationRuntimeSsis } from "./integrationRuntimeSsis";
-import { LinkedCustomService } from "./linkedCustomService";
-import { LinkedServiceAzureBlobStorage } from "./linkedServiceAzureBlobStorage";
-import { LinkedServiceAzureDatabricks } from "./linkedServiceAzureDatabricks";
-import { LinkedServiceAzureFileStorage } from "./linkedServiceAzureFileStorage";
-import { LinkedServiceAzureFunction } from "./linkedServiceAzureFunction";
-import { LinkedServiceAzureSearch } from "./linkedServiceAzureSearch";
-import { LinkedServiceAzureSqlDatabase } from "./linkedServiceAzureSqlDatabase";
-import { LinkedServiceAzureTableStorage } from "./linkedServiceAzureTableStorage";
-import { LinkedServiceCosmosDb } from "./linkedServiceCosmosDb";
-import { LinkedServiceCosmosDbMongoApi } from "./linkedServiceCosmosDbMongoApi";
-import { LinkedServiceDataLakeStorageGen2 } from "./linkedServiceDataLakeStorageGen2";
-import { LinkedServiceKeyVault } from "./linkedServiceKeyVault";
-import { LinkedServiceKusto } from "./linkedServiceKusto";
-import { LinkedServiceMysql } from "./linkedServiceMysql";
-import { LinkedServiceOdata } from "./linkedServiceOdata";
-import { LinkedServiceOdbc } from "./linkedServiceOdbc";
-import { LinkedServicePostgresql } from "./linkedServicePostgresql";
-import { LinkedServiceSftp } from "./linkedServiceSftp";
-import { LinkedServiceSnowflake } from "./linkedServiceSnowflake";
-import { LinkedServiceSqlServer } from "./linkedServiceSqlServer";
-import { LinkedServiceSynapse } from "./linkedServiceSynapse";
-import { LinkedServiceWeb } from "./linkedServiceWeb";
-import { ManagedPrivateEndpoint } from "./managedPrivateEndpoint";
-import { Pipeline } from "./pipeline";
-import { TriggerBlobEvent } from "./triggerBlobEvent";
-import { TriggerCustomEvent } from "./triggerCustomEvent";
-import { TriggerSchedule } from "./triggerSchedule";
-import { TriggerTumblingWindow } from "./triggerTumblingWindow";
+export { DataFlowArgs, DataFlowState } from "./dataFlow";
+export type DataFlow = import("./dataFlow").DataFlow;
+export const DataFlow: typeof import("./dataFlow").DataFlow = null as any;
+
+export { DatasetAzureBlobArgs, DatasetAzureBlobState } from "./datasetAzureBlob";
+export type DatasetAzureBlob = import("./datasetAzureBlob").DatasetAzureBlob;
+export const DatasetAzureBlob: typeof import("./datasetAzureBlob").DatasetAzureBlob = null as any;
+
+export { DatasetBinaryArgs, DatasetBinaryState } from "./datasetBinary";
+export type DatasetBinary = import("./datasetBinary").DatasetBinary;
+export const DatasetBinary: typeof import("./datasetBinary").DatasetBinary = null as any;
+
+export { DatasetCosmosDBApiArgs, DatasetCosmosDBApiState } from "./datasetCosmosDBApi";
+export type DatasetCosmosDBApi = import("./datasetCosmosDBApi").DatasetCosmosDBApi;
+export const DatasetCosmosDBApi: typeof import("./datasetCosmosDBApi").DatasetCosmosDBApi = null as any;
+
+export { DatasetDelimitedTextArgs, DatasetDelimitedTextState } from "./datasetDelimitedText";
+export type DatasetDelimitedText = import("./datasetDelimitedText").DatasetDelimitedText;
+export const DatasetDelimitedText: typeof import("./datasetDelimitedText").DatasetDelimitedText = null as any;
+
+export { DatasetHttpArgs, DatasetHttpState } from "./datasetHttp";
+export type DatasetHttp = import("./datasetHttp").DatasetHttp;
+export const DatasetHttp: typeof import("./datasetHttp").DatasetHttp = null as any;
+
+export { DatasetJsonArgs, DatasetJsonState } from "./datasetJson";
+export type DatasetJson = import("./datasetJson").DatasetJson;
+export const DatasetJson: typeof import("./datasetJson").DatasetJson = null as any;
+
+export { DatasetMysqlArgs, DatasetMysqlState } from "./datasetMysql";
+export type DatasetMysql = import("./datasetMysql").DatasetMysql;
+export const DatasetMysql: typeof import("./datasetMysql").DatasetMysql = null as any;
+
+export { DatasetParquetArgs, DatasetParquetState } from "./datasetParquet";
+export type DatasetParquet = import("./datasetParquet").DatasetParquet;
+export const DatasetParquet: typeof import("./datasetParquet").DatasetParquet = null as any;
+
+export { DatasetPostgresqlArgs, DatasetPostgresqlState } from "./datasetPostgresql";
+export type DatasetPostgresql = import("./datasetPostgresql").DatasetPostgresql;
+export const DatasetPostgresql: typeof import("./datasetPostgresql").DatasetPostgresql = null as any;
+
+export { DatasetSnowflakeArgs, DatasetSnowflakeState } from "./datasetSnowflake";
+export type DatasetSnowflake = import("./datasetSnowflake").DatasetSnowflake;
+export const DatasetSnowflake: typeof import("./datasetSnowflake").DatasetSnowflake = null as any;
+
+export { DatasetSqlServerTableArgs, DatasetSqlServerTableState } from "./datasetSqlServerTable";
+export type DatasetSqlServerTable = import("./datasetSqlServerTable").DatasetSqlServerTable;
+export const DatasetSqlServerTable: typeof import("./datasetSqlServerTable").DatasetSqlServerTable = null as any;
+
+export { FactoryArgs, FactoryState } from "./factory";
+export type Factory = import("./factory").Factory;
+export const Factory: typeof import("./factory").Factory = null as any;
+
+export { FlowletDataFlowArgs, FlowletDataFlowState } from "./flowletDataFlow";
+export type FlowletDataFlow = import("./flowletDataFlow").FlowletDataFlow;
+export const FlowletDataFlow: typeof import("./flowletDataFlow").FlowletDataFlow = null as any;
+
+export { GetFactoryArgs, GetFactoryResult, GetFactoryOutputArgs } from "./getFactory";
+export const getFactory: typeof import("./getFactory").getFactory = null as any;
+export const getFactoryOutput: typeof import("./getFactory").getFactoryOutput = null as any;
+
+export { IntegrationRuntimeManagedArgs, IntegrationRuntimeManagedState } from "./integrationRuntimeManaged";
+export type IntegrationRuntimeManaged = import("./integrationRuntimeManaged").IntegrationRuntimeManaged;
+export const IntegrationRuntimeManaged: typeof import("./integrationRuntimeManaged").IntegrationRuntimeManaged = null as any;
+
+export { IntegrationRuntimeRuleArgs, IntegrationRuntimeRuleState } from "./integrationRuntimeRule";
+export type IntegrationRuntimeRule = import("./integrationRuntimeRule").IntegrationRuntimeRule;
+export const IntegrationRuntimeRule: typeof import("./integrationRuntimeRule").IntegrationRuntimeRule = null as any;
+
+export { IntegrationRuntimeSelfHostedArgs, IntegrationRuntimeSelfHostedState } from "./integrationRuntimeSelfHosted";
+export type IntegrationRuntimeSelfHosted = import("./integrationRuntimeSelfHosted").IntegrationRuntimeSelfHosted;
+export const IntegrationRuntimeSelfHosted: typeof import("./integrationRuntimeSelfHosted").IntegrationRuntimeSelfHosted = null as any;
+
+export { IntegrationRuntimeSsisArgs, IntegrationRuntimeSsisState } from "./integrationRuntimeSsis";
+export type IntegrationRuntimeSsis = import("./integrationRuntimeSsis").IntegrationRuntimeSsis;
+export const IntegrationRuntimeSsis: typeof import("./integrationRuntimeSsis").IntegrationRuntimeSsis = null as any;
+
+export { LinkedCustomServiceArgs, LinkedCustomServiceState } from "./linkedCustomService";
+export type LinkedCustomService = import("./linkedCustomService").LinkedCustomService;
+export const LinkedCustomService: typeof import("./linkedCustomService").LinkedCustomService = null as any;
+
+export { LinkedServiceAzureBlobStorageArgs, LinkedServiceAzureBlobStorageState } from "./linkedServiceAzureBlobStorage";
+export type LinkedServiceAzureBlobStorage = import("./linkedServiceAzureBlobStorage").LinkedServiceAzureBlobStorage;
+export const LinkedServiceAzureBlobStorage: typeof import("./linkedServiceAzureBlobStorage").LinkedServiceAzureBlobStorage = null as any;
+
+export { LinkedServiceAzureDatabricksArgs, LinkedServiceAzureDatabricksState } from "./linkedServiceAzureDatabricks";
+export type LinkedServiceAzureDatabricks = import("./linkedServiceAzureDatabricks").LinkedServiceAzureDatabricks;
+export const LinkedServiceAzureDatabricks: typeof import("./linkedServiceAzureDatabricks").LinkedServiceAzureDatabricks = null as any;
+
+export { LinkedServiceAzureFileStorageArgs, LinkedServiceAzureFileStorageState } from "./linkedServiceAzureFileStorage";
+export type LinkedServiceAzureFileStorage = import("./linkedServiceAzureFileStorage").LinkedServiceAzureFileStorage;
+export const LinkedServiceAzureFileStorage: typeof import("./linkedServiceAzureFileStorage").LinkedServiceAzureFileStorage = null as any;
+
+export { LinkedServiceAzureFunctionArgs, LinkedServiceAzureFunctionState } from "./linkedServiceAzureFunction";
+export type LinkedServiceAzureFunction = import("./linkedServiceAzureFunction").LinkedServiceAzureFunction;
+export const LinkedServiceAzureFunction: typeof import("./linkedServiceAzureFunction").LinkedServiceAzureFunction = null as any;
+
+export { LinkedServiceAzureSearchArgs, LinkedServiceAzureSearchState } from "./linkedServiceAzureSearch";
+export type LinkedServiceAzureSearch = import("./linkedServiceAzureSearch").LinkedServiceAzureSearch;
+export const LinkedServiceAzureSearch: typeof import("./linkedServiceAzureSearch").LinkedServiceAzureSearch = null as any;
+
+export { LinkedServiceAzureSqlDatabaseArgs, LinkedServiceAzureSqlDatabaseState } from "./linkedServiceAzureSqlDatabase";
+export type LinkedServiceAzureSqlDatabase = import("./linkedServiceAzureSqlDatabase").LinkedServiceAzureSqlDatabase;
+export const LinkedServiceAzureSqlDatabase: typeof import("./linkedServiceAzureSqlDatabase").LinkedServiceAzureSqlDatabase = null as any;
+
+export { LinkedServiceAzureTableStorageArgs, LinkedServiceAzureTableStorageState } from "./linkedServiceAzureTableStorage";
+export type LinkedServiceAzureTableStorage = import("./linkedServiceAzureTableStorage").LinkedServiceAzureTableStorage;
+export const LinkedServiceAzureTableStorage: typeof import("./linkedServiceAzureTableStorage").LinkedServiceAzureTableStorage = null as any;
+
+export { LinkedServiceCosmosDbArgs, LinkedServiceCosmosDbState } from "./linkedServiceCosmosDb";
+export type LinkedServiceCosmosDb = import("./linkedServiceCosmosDb").LinkedServiceCosmosDb;
+export const LinkedServiceCosmosDb: typeof import("./linkedServiceCosmosDb").LinkedServiceCosmosDb = null as any;
+
+export { LinkedServiceCosmosDbMongoApiArgs, LinkedServiceCosmosDbMongoApiState } from "./linkedServiceCosmosDbMongoApi";
+export type LinkedServiceCosmosDbMongoApi = import("./linkedServiceCosmosDbMongoApi").LinkedServiceCosmosDbMongoApi;
+export const LinkedServiceCosmosDbMongoApi: typeof import("./linkedServiceCosmosDbMongoApi").LinkedServiceCosmosDbMongoApi = null as any;
+
+export { LinkedServiceDataLakeStorageGen2Args, LinkedServiceDataLakeStorageGen2State } from "./linkedServiceDataLakeStorageGen2";
+export type LinkedServiceDataLakeStorageGen2 = import("./linkedServiceDataLakeStorageGen2").LinkedServiceDataLakeStorageGen2;
+export const LinkedServiceDataLakeStorageGen2: typeof import("./linkedServiceDataLakeStorageGen2").LinkedServiceDataLakeStorageGen2 = null as any;
+
+export { LinkedServiceKeyVaultArgs, LinkedServiceKeyVaultState } from "./linkedServiceKeyVault";
+export type LinkedServiceKeyVault = import("./linkedServiceKeyVault").LinkedServiceKeyVault;
+export const LinkedServiceKeyVault: typeof import("./linkedServiceKeyVault").LinkedServiceKeyVault = null as any;
+
+export { LinkedServiceKustoArgs, LinkedServiceKustoState } from "./linkedServiceKusto";
+export type LinkedServiceKusto = import("./linkedServiceKusto").LinkedServiceKusto;
+export const LinkedServiceKusto: typeof import("./linkedServiceKusto").LinkedServiceKusto = null as any;
+
+export { LinkedServiceMysqlArgs, LinkedServiceMysqlState } from "./linkedServiceMysql";
+export type LinkedServiceMysql = import("./linkedServiceMysql").LinkedServiceMysql;
+export const LinkedServiceMysql: typeof import("./linkedServiceMysql").LinkedServiceMysql = null as any;
+
+export { LinkedServiceOdataArgs, LinkedServiceOdataState } from "./linkedServiceOdata";
+export type LinkedServiceOdata = import("./linkedServiceOdata").LinkedServiceOdata;
+export const LinkedServiceOdata: typeof import("./linkedServiceOdata").LinkedServiceOdata = null as any;
+
+export { LinkedServiceOdbcArgs, LinkedServiceOdbcState } from "./linkedServiceOdbc";
+export type LinkedServiceOdbc = import("./linkedServiceOdbc").LinkedServiceOdbc;
+export const LinkedServiceOdbc: typeof import("./linkedServiceOdbc").LinkedServiceOdbc = null as any;
+
+export { LinkedServicePostgresqlArgs, LinkedServicePostgresqlState } from "./linkedServicePostgresql";
+export type LinkedServicePostgresql = import("./linkedServicePostgresql").LinkedServicePostgresql;
+export const LinkedServicePostgresql: typeof import("./linkedServicePostgresql").LinkedServicePostgresql = null as any;
+
+export { LinkedServiceSftpArgs, LinkedServiceSftpState } from "./linkedServiceSftp";
+export type LinkedServiceSftp = import("./linkedServiceSftp").LinkedServiceSftp;
+export const LinkedServiceSftp: typeof import("./linkedServiceSftp").LinkedServiceSftp = null as any;
+
+export { LinkedServiceSnowflakeArgs, LinkedServiceSnowflakeState } from "./linkedServiceSnowflake";
+export type LinkedServiceSnowflake = import("./linkedServiceSnowflake").LinkedServiceSnowflake;
+export const LinkedServiceSnowflake: typeof import("./linkedServiceSnowflake").LinkedServiceSnowflake = null as any;
+
+export { LinkedServiceSqlServerArgs, LinkedServiceSqlServerState } from "./linkedServiceSqlServer";
+export type LinkedServiceSqlServer = import("./linkedServiceSqlServer").LinkedServiceSqlServer;
+export const LinkedServiceSqlServer: typeof import("./linkedServiceSqlServer").LinkedServiceSqlServer = null as any;
+
+export { LinkedServiceSynapseArgs, LinkedServiceSynapseState } from "./linkedServiceSynapse";
+export type LinkedServiceSynapse = import("./linkedServiceSynapse").LinkedServiceSynapse;
+export const LinkedServiceSynapse: typeof import("./linkedServiceSynapse").LinkedServiceSynapse = null as any;
+
+export { LinkedServiceWebArgs, LinkedServiceWebState } from "./linkedServiceWeb";
+export type LinkedServiceWeb = import("./linkedServiceWeb").LinkedServiceWeb;
+export const LinkedServiceWeb: typeof import("./linkedServiceWeb").LinkedServiceWeb = null as any;
+
+export { ManagedPrivateEndpointArgs, ManagedPrivateEndpointState } from "./managedPrivateEndpoint";
+export type ManagedPrivateEndpoint = import("./managedPrivateEndpoint").ManagedPrivateEndpoint;
+export const ManagedPrivateEndpoint: typeof import("./managedPrivateEndpoint").ManagedPrivateEndpoint = null as any;
+
+export { PipelineArgs, PipelineState } from "./pipeline";
+export type Pipeline = import("./pipeline").Pipeline;
+export const Pipeline: typeof import("./pipeline").Pipeline = null as any;
+
+export { TriggerBlobEventArgs, TriggerBlobEventState } from "./triggerBlobEvent";
+export type TriggerBlobEvent = import("./triggerBlobEvent").TriggerBlobEvent;
+export const TriggerBlobEvent: typeof import("./triggerBlobEvent").TriggerBlobEvent = null as any;
+
+export { TriggerCustomEventArgs, TriggerCustomEventState } from "./triggerCustomEvent";
+export type TriggerCustomEvent = import("./triggerCustomEvent").TriggerCustomEvent;
+export const TriggerCustomEvent: typeof import("./triggerCustomEvent").TriggerCustomEvent = null as any;
+
+export { TriggerScheduleArgs, TriggerScheduleState } from "./triggerSchedule";
+export type TriggerSchedule = import("./triggerSchedule").TriggerSchedule;
+export const TriggerSchedule: typeof import("./triggerSchedule").TriggerSchedule = null as any;
+
+export { TriggerTumblingWindowArgs, TriggerTumblingWindowState } from "./triggerTumblingWindow";
+export type TriggerTumblingWindow = import("./triggerTumblingWindow").TriggerTumblingWindow;
+export const TriggerTumblingWindow: typeof import("./triggerTumblingWindow").TriggerTumblingWindow = null as any;
+
+utilities.lazyLoad(exports, ["CustomDataset"], () => require("./customDataset"));
+utilities.lazyLoad(exports, ["DataFlow"], () => require("./dataFlow"));
+utilities.lazyLoad(exports, ["DatasetAzureBlob"], () => require("./datasetAzureBlob"));
+utilities.lazyLoad(exports, ["DatasetBinary"], () => require("./datasetBinary"));
+utilities.lazyLoad(exports, ["DatasetCosmosDBApi"], () => require("./datasetCosmosDBApi"));
+utilities.lazyLoad(exports, ["DatasetDelimitedText"], () => require("./datasetDelimitedText"));
+utilities.lazyLoad(exports, ["DatasetHttp"], () => require("./datasetHttp"));
+utilities.lazyLoad(exports, ["DatasetJson"], () => require("./datasetJson"));
+utilities.lazyLoad(exports, ["DatasetMysql"], () => require("./datasetMysql"));
+utilities.lazyLoad(exports, ["DatasetParquet"], () => require("./datasetParquet"));
+utilities.lazyLoad(exports, ["DatasetPostgresql"], () => require("./datasetPostgresql"));
+utilities.lazyLoad(exports, ["DatasetSnowflake"], () => require("./datasetSnowflake"));
+utilities.lazyLoad(exports, ["DatasetSqlServerTable"], () => require("./datasetSqlServerTable"));
+utilities.lazyLoad(exports, ["Factory"], () => require("./factory"));
+utilities.lazyLoad(exports, ["FlowletDataFlow"], () => require("./flowletDataFlow"));
+utilities.lazyLoad(exports, ["getFactory","getFactoryOutput"], () => require("./getFactory"));
+utilities.lazyLoad(exports, ["IntegrationRuntimeManaged"], () => require("./integrationRuntimeManaged"));
+utilities.lazyLoad(exports, ["IntegrationRuntimeRule"], () => require("./integrationRuntimeRule"));
+utilities.lazyLoad(exports, ["IntegrationRuntimeSelfHosted"], () => require("./integrationRuntimeSelfHosted"));
+utilities.lazyLoad(exports, ["IntegrationRuntimeSsis"], () => require("./integrationRuntimeSsis"));
+utilities.lazyLoad(exports, ["LinkedCustomService"], () => require("./linkedCustomService"));
+utilities.lazyLoad(exports, ["LinkedServiceAzureBlobStorage"], () => require("./linkedServiceAzureBlobStorage"));
+utilities.lazyLoad(exports, ["LinkedServiceAzureDatabricks"], () => require("./linkedServiceAzureDatabricks"));
+utilities.lazyLoad(exports, ["LinkedServiceAzureFileStorage"], () => require("./linkedServiceAzureFileStorage"));
+utilities.lazyLoad(exports, ["LinkedServiceAzureFunction"], () => require("./linkedServiceAzureFunction"));
+utilities.lazyLoad(exports, ["LinkedServiceAzureSearch"], () => require("./linkedServiceAzureSearch"));
+utilities.lazyLoad(exports, ["LinkedServiceAzureSqlDatabase"], () => require("./linkedServiceAzureSqlDatabase"));
+utilities.lazyLoad(exports, ["LinkedServiceAzureTableStorage"], () => require("./linkedServiceAzureTableStorage"));
+utilities.lazyLoad(exports, ["LinkedServiceCosmosDb"], () => require("./linkedServiceCosmosDb"));
+utilities.lazyLoad(exports, ["LinkedServiceCosmosDbMongoApi"], () => require("./linkedServiceCosmosDbMongoApi"));
+utilities.lazyLoad(exports, ["LinkedServiceDataLakeStorageGen2"], () => require("./linkedServiceDataLakeStorageGen2"));
+utilities.lazyLoad(exports, ["LinkedServiceKeyVault"], () => require("./linkedServiceKeyVault"));
+utilities.lazyLoad(exports, ["LinkedServiceKusto"], () => require("./linkedServiceKusto"));
+utilities.lazyLoad(exports, ["LinkedServiceMysql"], () => require("./linkedServiceMysql"));
+utilities.lazyLoad(exports, ["LinkedServiceOdata"], () => require("./linkedServiceOdata"));
+utilities.lazyLoad(exports, ["LinkedServiceOdbc"], () => require("./linkedServiceOdbc"));
+utilities.lazyLoad(exports, ["LinkedServicePostgresql"], () => require("./linkedServicePostgresql"));
+utilities.lazyLoad(exports, ["LinkedServiceSftp"], () => require("./linkedServiceSftp"));
+utilities.lazyLoad(exports, ["LinkedServiceSnowflake"], () => require("./linkedServiceSnowflake"));
+utilities.lazyLoad(exports, ["LinkedServiceSqlServer"], () => require("./linkedServiceSqlServer"));
+utilities.lazyLoad(exports, ["LinkedServiceSynapse"], () => require("./linkedServiceSynapse"));
+utilities.lazyLoad(exports, ["LinkedServiceWeb"], () => require("./linkedServiceWeb"));
+utilities.lazyLoad(exports, ["ManagedPrivateEndpoint"], () => require("./managedPrivateEndpoint"));
+utilities.lazyLoad(exports, ["Pipeline"], () => require("./pipeline"));
+utilities.lazyLoad(exports, ["TriggerBlobEvent"], () => require("./triggerBlobEvent"));
+utilities.lazyLoad(exports, ["TriggerCustomEvent"], () => require("./triggerCustomEvent"));
+utilities.lazyLoad(exports, ["TriggerSchedule"], () => require("./triggerSchedule"));
+utilities.lazyLoad(exports, ["TriggerTumblingWindow"], () => require("./triggerTumblingWindow"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -22,7 +22,7 @@ public final class DataCollectionRuleDataSourcesPerformanceCounter {
      */
     private String name;
     /**
-     * @return The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+     * @return The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
      * 
      */
     private Integer samplingFrequencyInSeconds;
@@ -48,7 +48,7 @@ public final class DataCollectionRuleDataSourcesPerformanceCounter {
         return this.name;
     }
     /**
-     * @return The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+     * @return The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
      * 
      */
     public Integer samplingFrequencyInSeconds() {

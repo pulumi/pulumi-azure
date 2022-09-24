@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSshPublicKeyResult> InvokeAsync(GetSshPublicKeyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSshPublicKeyResult>("azure:compute/getSshPublicKey:getSshPublicKey", args ?? new GetSshPublicKeyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSshPublicKeyResult>("azure:compute/getSshPublicKey:getSshPublicKey", args ?? new GetSshPublicKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing SSH Public Key.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSshPublicKeyResult> Invoke(GetSshPublicKeyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSshPublicKeyResult>("azure:compute/getSshPublicKey:getSshPublicKey", args ?? new GetSshPublicKeyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSshPublicKeyResult>("azure:compute/getSshPublicKey:getSshPublicKey", args ?? new GetSshPublicKeyInvokeArgs(), options.WithDefaults());
     }
 
 

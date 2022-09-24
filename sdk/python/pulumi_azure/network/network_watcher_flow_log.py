@@ -393,8 +393,6 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
                  version: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Manages a Network Watcher Flow Log.
-
         ## Example Usage
 
         ```python
@@ -467,8 +465,6 @@ class NetworkWatcherFlowLog(pulumi.CustomResource):
                  args: NetworkWatcherFlowLogArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Network Watcher Flow Log.
-
         ## Example Usage
 
         ```python

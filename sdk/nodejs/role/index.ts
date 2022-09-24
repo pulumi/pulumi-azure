@@ -5,13 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./assignment";
-export * from "./definition";
-export * from "./getRoleDefinition";
+export { AssignmentArgs, AssignmentState } from "./assignment";
+export type Assignment = import("./assignment").Assignment;
+export const Assignment: typeof import("./assignment").Assignment = null as any;
 
-// Import resources to register:
-import { Assignment } from "./assignment";
-import { Definition } from "./definition";
+export { DefinitionArgs, DefinitionState } from "./definition";
+export type Definition = import("./definition").Definition;
+export const Definition: typeof import("./definition").Definition = null as any;
+
+export { GetRoleDefinitionArgs, GetRoleDefinitionResult, GetRoleDefinitionOutputArgs } from "./getRoleDefinition";
+export const getRoleDefinition: typeof import("./getRoleDefinition").getRoleDefinition = null as any;
+export const getRoleDefinitionOutput: typeof import("./getRoleDefinition").getRoleDefinitionOutput = null as any;
+
+utilities.lazyLoad(exports, ["Assignment"], () => require("./assignment"));
+utilities.lazyLoad(exports, ["Definition"], () => require("./definition"));
+utilities.lazyLoad(exports, ["getRoleDefinition","getRoleDefinitionOutput"], () => require("./getRoleDefinition"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Iot
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetIotHubResult> InvokeAsync(GetIotHubArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIotHubResult>("azure:iot/getIotHub:getIotHub", args ?? new GetIotHubArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIotHubResult>("azure:iot/getIotHub:getIotHub", args ?? new GetIotHubArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing IoTHub.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Iot
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetIotHubResult> Invoke(GetIotHubInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIotHubResult>("azure:iot/getIotHub:getIotHub", args ?? new GetIotHubInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIotHubResult>("azure:iot/getIotHub:getIotHub", args ?? new GetIotHubInvokeArgs(), options.WithDefaults());
     }
 
 

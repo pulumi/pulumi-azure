@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./userAssignedIdentity";
+export { UserAssignedIdentityArgs, UserAssignedIdentityState } from "./userAssignedIdentity";
+export type UserAssignedIdentity = import("./userAssignedIdentity").UserAssignedIdentity;
+export const UserAssignedIdentity: typeof import("./userAssignedIdentity").UserAssignedIdentity = null as any;
 
-// Import resources to register:
-import { UserAssignedIdentity } from "./userAssignedIdentity";
+utilities.lazyLoad(exports, ["UserAssignedIdentity"], () => require("./userAssignedIdentity"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,17 +5,31 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./endpointEventGrid";
-export * from "./endpointEventHub";
-export * from "./endpointServicebus";
-export * from "./getInstance";
-export * from "./instance";
+export { EndpointEventGridArgs, EndpointEventGridState } from "./endpointEventGrid";
+export type EndpointEventGrid = import("./endpointEventGrid").EndpointEventGrid;
+export const EndpointEventGrid: typeof import("./endpointEventGrid").EndpointEventGrid = null as any;
 
-// Import resources to register:
-import { EndpointEventGrid } from "./endpointEventGrid";
-import { EndpointEventHub } from "./endpointEventHub";
-import { EndpointServicebus } from "./endpointServicebus";
-import { Instance } from "./instance";
+export { EndpointEventHubArgs, EndpointEventHubState } from "./endpointEventHub";
+export type EndpointEventHub = import("./endpointEventHub").EndpointEventHub;
+export const EndpointEventHub: typeof import("./endpointEventHub").EndpointEventHub = null as any;
+
+export { EndpointServicebusArgs, EndpointServicebusState } from "./endpointServicebus";
+export type EndpointServicebus = import("./endpointServicebus").EndpointServicebus;
+export const EndpointServicebus: typeof import("./endpointServicebus").EndpointServicebus = null as any;
+
+export { GetInstanceArgs, GetInstanceResult, GetInstanceOutputArgs } from "./getInstance";
+export const getInstance: typeof import("./getInstance").getInstance = null as any;
+export const getInstanceOutput: typeof import("./getInstance").getInstanceOutput = null as any;
+
+export { InstanceArgs, InstanceState } from "./instance";
+export type Instance = import("./instance").Instance;
+export const Instance: typeof import("./instance").Instance = null as any;
+
+utilities.lazyLoad(exports, ["EndpointEventGrid"], () => require("./endpointEventGrid"));
+utilities.lazyLoad(exports, ["EndpointEventHub"], () => require("./endpointEventHub"));
+utilities.lazyLoad(exports, ["EndpointServicebus"], () => require("./endpointServicebus"));
+utilities.lazyLoad(exports, ["getInstance","getInstanceOutput"], () => require("./getInstance"));
+utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
 
 const _module = {
     version: utilities.getVersion(),

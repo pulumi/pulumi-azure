@@ -37,6 +37,10 @@ namespace Pulumi.Azure.Batch.Outputs
         /// The URL of the blob container within Azure Blob Storage.
         /// </summary>
         public readonly string StorageContainerUrl;
+        /// <summary>
+        /// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
+        /// </summary>
+        public readonly string UserAssignedIdentityId;
 
         [OutputConstructor]
         private GetPoolStartTaskResourceFileResult(
@@ -50,7 +54,9 @@ namespace Pulumi.Azure.Batch.Outputs
 
             string httpUrl,
 
-            string storageContainerUrl)
+            string storageContainerUrl,
+
+            string userAssignedIdentityId)
         {
             AutoStorageContainerName = autoStorageContainerName;
             BlobPrefix = blobPrefix;
@@ -58,6 +64,7 @@ namespace Pulumi.Azure.Batch.Outputs
             FilePath = filePath;
             HttpUrl = httpUrl;
             StorageContainerUrl = storageContainerUrl;
+            UserAssignedIdentityId = userAssignedIdentityId;
         }
     }
 }

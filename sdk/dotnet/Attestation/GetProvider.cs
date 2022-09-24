@@ -15,13 +15,13 @@ namespace Pulumi.Azure.Attestation
         /// Use this data source to access information about an existing Attestation Provider.
         /// </summary>
         public static Task<GetProviderResult> InvokeAsync(GetProviderArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProviderResult>("azure:attestation/getProvider:getProvider", args ?? new GetProviderArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProviderResult>("azure:attestation/getProvider:getProvider", args ?? new GetProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Attestation Provider.
         /// </summary>
         public static Output<GetProviderResult> Invoke(GetProviderInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProviderResult>("azure:attestation/getProvider:getProvider", args ?? new GetProviderInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProviderResult>("azure:attestation/getProvider:getProvider", args ?? new GetProviderInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  *                     .failoverPriority(1)
  *                     .build(),
  *                 AccountGeoLocationArgs.builder()
- *                     .location(&#34;eastus&#34;)
+ *                     .location(&#34;westus&#34;)
  *                     .failoverPriority(0)
  *                     .build())
  *             .build());

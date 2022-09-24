@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -79,7 +80,7 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
      */
     public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The name which should be used for this Logic App Integration Account Batch Configuration. Changing this forces a new resource to be created.
+     * The name which should be used for this Logic App Integration Account Batch Configuration. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -153,7 +154,7 @@ export interface IntegrationAccountBatchConfigurationState {
      */
     metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name which should be used for this Logic App Integration Account Batch Configuration. Changing this forces a new resource to be created.
+     * The name which should be used for this Logic App Integration Account Batch Configuration. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -183,7 +184,7 @@ export interface IntegrationAccountBatchConfigurationArgs {
      */
     metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name which should be used for this Logic App Integration Account Batch Configuration. Changing this forces a new resource to be created.
+     * The name which should be used for this Logic App Integration Account Batch Configuration. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

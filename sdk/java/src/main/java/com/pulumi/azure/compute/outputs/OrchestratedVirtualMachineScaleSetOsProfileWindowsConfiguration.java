@@ -25,7 +25,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
      */
     private @Nullable Boolean hotpatchingEnabled;
     /**
-     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
      */
     private @Nullable String patchAssessmentMode;
@@ -60,7 +60,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         return Optional.ofNullable(this.hotpatchingEnabled);
     }
     /**
-     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
      */
     public Optional<String> patchAssessmentMode() {

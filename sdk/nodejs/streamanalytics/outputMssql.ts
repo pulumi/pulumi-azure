@@ -85,6 +85,9 @@ export class OutputMssql extends pulumi.CustomResource {
      * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
      */
     public readonly authenticationMode!: pulumi.Output<string | undefined>;
+    /**
+     * The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
+     */
     public readonly database!: pulumi.Output<string>;
     /**
      * The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
@@ -195,6 +198,9 @@ export interface OutputMssqlState {
      * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
      */
     authenticationMode?: pulumi.Input<string>;
+    /**
+     * The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
+     */
     database?: pulumi.Input<string>;
     /**
      * The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
@@ -242,6 +248,9 @@ export interface OutputMssqlArgs {
      * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
      */
     authenticationMode?: pulumi.Input<string>;
+    /**
+     * The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
+     */
     database: pulumi.Input<string>;
     /**
      * The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.

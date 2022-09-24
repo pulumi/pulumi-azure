@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getGeographicalLocation";
-export * from "./profile";
+export { GetGeographicalLocationArgs, GetGeographicalLocationResult, GetGeographicalLocationOutputArgs } from "./getGeographicalLocation";
+export const getGeographicalLocation: typeof import("./getGeographicalLocation").getGeographicalLocation = null as any;
+export const getGeographicalLocationOutput: typeof import("./getGeographicalLocation").getGeographicalLocationOutput = null as any;
 
-// Import resources to register:
-import { Profile } from "./profile";
+export { ProfileArgs, ProfileState } from "./profile";
+export type Profile = import("./profile").Profile;
+export const Profile: typeof import("./profile").Profile = null as any;
+
+utilities.lazyLoad(exports, ["getGeographicalLocation","getGeographicalLocationOutput"], () => require("./getGeographicalLocation"));
+utilities.lazyLoad(exports, ["Profile"], () => require("./profile"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -86,7 +86,7 @@ type RegistryWebook struct {
 	CustomHeaders pulumi.StringMapOutput `pulumi:"customHeaders"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the Container Registry Webhook. Changing this forces a new resource to be created.
+	// Specifies the name of the Container Registry Webhook. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Name of Container registry this Webhook belongs to. Changing this forces a new resource to be created.
 	RegistryName pulumi.StringOutput `pulumi:"registryName"`
@@ -149,7 +149,7 @@ type registryWebookState struct {
 	CustomHeaders map[string]string `pulumi:"customHeaders"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Container Registry Webhook. Changing this forces a new resource to be created.
+	// Specifies the name of the Container Registry Webhook. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The Name of Container registry this Webhook belongs to. Changing this forces a new resource to be created.
 	RegistryName *string `pulumi:"registryName"`
@@ -172,7 +172,7 @@ type RegistryWebookState struct {
 	CustomHeaders pulumi.StringMapInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Container Registry Webhook. Changing this forces a new resource to be created.
+	// Specifies the name of the Container Registry Webhook. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The Name of Container registry this Webhook belongs to. Changing this forces a new resource to be created.
 	RegistryName pulumi.StringPtrInput
@@ -199,7 +199,7 @@ type registryWebookArgs struct {
 	CustomHeaders map[string]string `pulumi:"customHeaders"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Container Registry Webhook. Changing this forces a new resource to be created.
+	// Specifies the name of the Container Registry Webhook. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The Name of Container registry this Webhook belongs to. Changing this forces a new resource to be created.
 	RegistryName string `pulumi:"registryName"`
@@ -223,7 +223,7 @@ type RegistryWebookArgs struct {
 	CustomHeaders pulumi.StringMapInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Container Registry Webhook. Changing this forces a new resource to be created.
+	// Specifies the name of the Container Registry Webhook. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The Name of Container registry this Webhook belongs to. Changing this forces a new resource to be created.
 	RegistryName pulumi.StringInput
@@ -341,7 +341,7 @@ func (o RegistryWebookOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryWebook) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Container Registry Webhook. Changing this forces a new resource to be created.
+// Specifies the name of the Container Registry Webhook. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
 func (o RegistryWebookOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryWebook) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

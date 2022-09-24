@@ -55,6 +55,7 @@ public final class GetStandardResult {
     private @Nullable Map<String,String> tags;
     private Boolean useExtensionBundle;
     private String version;
+    private String virtualNetworkSubnetId;
 
     private GetStandardResult() {}
     public String appServicePlanId() {
@@ -147,6 +148,9 @@ public final class GetStandardResult {
     public String version() {
         return this.version;
     }
+    public String virtualNetworkSubnetId() {
+        return this.virtualNetworkSubnetId;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -183,6 +187,7 @@ public final class GetStandardResult {
         private @Nullable Map<String,String> tags;
         private Boolean useExtensionBundle;
         private String version;
+        private String virtualNetworkSubnetId;
         public Builder() {}
         public Builder(GetStandardResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -212,6 +217,7 @@ public final class GetStandardResult {
     	      this.tags = defaults.tags;
     	      this.useExtensionBundle = defaults.useExtensionBundle;
     	      this.version = defaults.version;
+    	      this.virtualNetworkSubnetId = defaults.virtualNetworkSubnetId;
         }
 
         @CustomType.Setter
@@ -353,6 +359,11 @@ public final class GetStandardResult {
             this.version = Objects.requireNonNull(version);
             return this;
         }
+        @CustomType.Setter
+        public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
+            this.virtualNetworkSubnetId = Objects.requireNonNull(virtualNetworkSubnetId);
+            return this;
+        }
         public GetStandardResult build() {
             final var o = new GetStandardResult();
             o.appServicePlanId = appServicePlanId;
@@ -381,6 +392,7 @@ public final class GetStandardResult {
             o.tags = tags;
             o.useExtensionBundle = useExtensionBundle;
             o.version = version;
+            o.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return o;
         }
     }

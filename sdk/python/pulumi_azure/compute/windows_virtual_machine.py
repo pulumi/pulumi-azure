@@ -43,6 +43,7 @@ class WindowsVirtualMachineArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  max_bid_price: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 patch_assessment_mode: Optional[pulumi.Input[str]] = None,
                  patch_mode: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input['WindowsVirtualMachinePlanArgs']] = None,
                  platform_fault_domain: Optional[pulumi.Input[int]] = None,
@@ -90,6 +91,7 @@ class WindowsVirtualMachineArgs:
         :param pulumi.Input[str] location: The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_bid_price: The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons.
         :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         :param pulumi.Input[str] patch_mode: Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         :param pulumi.Input['WindowsVirtualMachinePlanArgs'] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain: Specifies the Platform Fault Domain in which this Windows Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Windows Virtual Machine to be created.
@@ -157,6 +159,8 @@ class WindowsVirtualMachineArgs:
             pulumi.set(__self__, "max_bid_price", max_bid_price)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if patch_assessment_mode is not None:
+            pulumi.set(__self__, "patch_assessment_mode", patch_assessment_mode)
         if patch_mode is not None:
             pulumi.set(__self__, "patch_mode", patch_mode)
         if plan is not None:
@@ -519,6 +523,18 @@ class WindowsVirtualMachineArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="patchAssessmentMode")
+    def patch_assessment_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+        """
+        return pulumi.get(self, "patch_assessment_mode")
+
+    @patch_assessment_mode.setter
+    def patch_assessment_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "patch_assessment_mode", value)
+
+    @property
     @pulumi.getter(name="patchMode")
     def patch_mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -763,6 +779,7 @@ class _WindowsVirtualMachineState:
                  name: Optional[pulumi.Input[str]] = None,
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  os_disk: Optional[pulumi.Input['WindowsVirtualMachineOsDiskArgs']] = None,
+                 patch_assessment_mode: Optional[pulumi.Input[str]] = None,
                  patch_mode: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input['WindowsVirtualMachinePlanArgs']] = None,
                  platform_fault_domain: Optional[pulumi.Input[int]] = None,
@@ -815,6 +832,7 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input['WindowsVirtualMachineOsDiskArgs'] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         :param pulumi.Input[str] patch_mode: Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         :param pulumi.Input['WindowsVirtualMachinePlanArgs'] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain: Specifies the Platform Fault Domain in which this Windows Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Windows Virtual Machine to be created.
@@ -891,6 +909,8 @@ class _WindowsVirtualMachineState:
             pulumi.set(__self__, "network_interface_ids", network_interface_ids)
         if os_disk is not None:
             pulumi.set(__self__, "os_disk", os_disk)
+        if patch_assessment_mode is not None:
+            pulumi.set(__self__, "patch_assessment_mode", patch_assessment_mode)
         if patch_mode is not None:
             pulumi.set(__self__, "patch_mode", patch_mode)
         if plan is not None:
@@ -1243,6 +1263,18 @@ class _WindowsVirtualMachineState:
         pulumi.set(self, "os_disk", value)
 
     @property
+    @pulumi.getter(name="patchAssessmentMode")
+    def patch_assessment_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+        """
+        return pulumi.get(self, "patch_assessment_mode")
+
+    @patch_assessment_mode.setter
+    def patch_assessment_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "patch_assessment_mode", value)
+
+    @property
     @pulumi.getter(name="patchMode")
     def patch_mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1573,6 +1605,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  os_disk: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']]] = None,
+                 patch_assessment_mode: Optional[pulumi.Input[str]] = None,
                  patch_mode: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachinePlanArgs']]] = None,
                  platform_fault_domain: Optional[pulumi.Input[int]] = None,
@@ -1688,6 +1721,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         :param pulumi.Input[str] patch_mode: Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachinePlanArgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain: Specifies the Platform Fault Domain in which this Windows Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Windows Virtual Machine to be created.
@@ -1822,6 +1856,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  os_disk: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']]] = None,
+                 patch_assessment_mode: Optional[pulumi.Input[str]] = None,
                  patch_mode: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachinePlanArgs']]] = None,
                  platform_fault_domain: Optional[pulumi.Input[int]] = None,
@@ -1884,6 +1919,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             if os_disk is None and not opts.urn:
                 raise TypeError("Missing required property 'os_disk'")
             __props__.__dict__["os_disk"] = os_disk
+            __props__.__dict__["patch_assessment_mode"] = patch_assessment_mode
             __props__.__dict__["patch_mode"] = patch_mode
             __props__.__dict__["plan"] = plan
             __props__.__dict__["platform_fault_domain"] = platform_fault_domain
@@ -1948,6 +1984,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             os_disk: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']]] = None,
+            patch_assessment_mode: Optional[pulumi.Input[str]] = None,
             patch_mode: Optional[pulumi.Input[str]] = None,
             plan: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachinePlanArgs']]] = None,
             platform_fault_domain: Optional[pulumi.Input[int]] = None,
@@ -2005,6 +2042,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the Windows Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: . A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine.
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineOsDiskArgs']] os_disk: A `os_disk` block as defined below.
+        :param pulumi.Input[str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         :param pulumi.Input[str] patch_mode: Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachinePlanArgs']] plan: A `plan` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] platform_fault_domain: Specifies the Platform Fault Domain in which this Windows Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Windows Virtual Machine to be created.
@@ -2060,6 +2098,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["network_interface_ids"] = network_interface_ids
         __props__.__dict__["os_disk"] = os_disk
+        __props__.__dict__["patch_assessment_mode"] = patch_assessment_mode
         __props__.__dict__["patch_mode"] = patch_mode
         __props__.__dict__["plan"] = plan
         __props__.__dict__["platform_fault_domain"] = platform_fault_domain
@@ -2286,6 +2325,14 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         A `os_disk` block as defined below.
         """
         return pulumi.get(self, "os_disk")
+
+    @property
+    @pulumi.getter(name="patchAssessmentMode")
+    def patch_assessment_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+        """
+        return pulumi.get(self, "patch_assessment_mode")
 
     @property
     @pulumi.getter(name="patchMode")

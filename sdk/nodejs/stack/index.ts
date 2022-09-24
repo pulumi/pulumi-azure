@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./hciCluster";
+export { HciClusterArgs, HciClusterState } from "./hciCluster";
+export type HciCluster = import("./hciCluster").HciCluster;
+export const HciCluster: typeof import("./hciCluster").HciCluster = null as any;
 
-// Import resources to register:
-import { HciCluster } from "./hciCluster";
+utilities.lazyLoad(exports, ["HciCluster"], () => require("./hciCluster"));
 
 const _module = {
     version: utilities.getVersion(),

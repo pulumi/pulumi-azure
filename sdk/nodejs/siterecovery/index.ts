@@ -5,23 +5,51 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./fabric";
-export * from "./getFabric";
-export * from "./getProtectionContainer";
-export * from "./getReplicationPolicy";
-export * from "./networkMapping";
-export * from "./protectionContainer";
-export * from "./protectionContainerMapping";
-export * from "./replicatedVM";
-export * from "./replicationPolicy";
+export { FabricArgs, FabricState } from "./fabric";
+export type Fabric = import("./fabric").Fabric;
+export const Fabric: typeof import("./fabric").Fabric = null as any;
 
-// Import resources to register:
-import { Fabric } from "./fabric";
-import { NetworkMapping } from "./networkMapping";
-import { ProtectionContainer } from "./protectionContainer";
-import { ProtectionContainerMapping } from "./protectionContainerMapping";
-import { ReplicatedVM } from "./replicatedVM";
-import { ReplicationPolicy } from "./replicationPolicy";
+export { GetFabricArgs, GetFabricResult, GetFabricOutputArgs } from "./getFabric";
+export const getFabric: typeof import("./getFabric").getFabric = null as any;
+export const getFabricOutput: typeof import("./getFabric").getFabricOutput = null as any;
+
+export { GetProtectionContainerArgs, GetProtectionContainerResult, GetProtectionContainerOutputArgs } from "./getProtectionContainer";
+export const getProtectionContainer: typeof import("./getProtectionContainer").getProtectionContainer = null as any;
+export const getProtectionContainerOutput: typeof import("./getProtectionContainer").getProtectionContainerOutput = null as any;
+
+export { GetReplicationPolicyArgs, GetReplicationPolicyResult, GetReplicationPolicyOutputArgs } from "./getReplicationPolicy";
+export const getReplicationPolicy: typeof import("./getReplicationPolicy").getReplicationPolicy = null as any;
+export const getReplicationPolicyOutput: typeof import("./getReplicationPolicy").getReplicationPolicyOutput = null as any;
+
+export { NetworkMappingArgs, NetworkMappingState } from "./networkMapping";
+export type NetworkMapping = import("./networkMapping").NetworkMapping;
+export const NetworkMapping: typeof import("./networkMapping").NetworkMapping = null as any;
+
+export { ProtectionContainerArgs, ProtectionContainerState } from "./protectionContainer";
+export type ProtectionContainer = import("./protectionContainer").ProtectionContainer;
+export const ProtectionContainer: typeof import("./protectionContainer").ProtectionContainer = null as any;
+
+export { ProtectionContainerMappingArgs, ProtectionContainerMappingState } from "./protectionContainerMapping";
+export type ProtectionContainerMapping = import("./protectionContainerMapping").ProtectionContainerMapping;
+export const ProtectionContainerMapping: typeof import("./protectionContainerMapping").ProtectionContainerMapping = null as any;
+
+export { ReplicatedVMArgs, ReplicatedVMState } from "./replicatedVM";
+export type ReplicatedVM = import("./replicatedVM").ReplicatedVM;
+export const ReplicatedVM: typeof import("./replicatedVM").ReplicatedVM = null as any;
+
+export { ReplicationPolicyArgs, ReplicationPolicyState } from "./replicationPolicy";
+export type ReplicationPolicy = import("./replicationPolicy").ReplicationPolicy;
+export const ReplicationPolicy: typeof import("./replicationPolicy").ReplicationPolicy = null as any;
+
+utilities.lazyLoad(exports, ["Fabric"], () => require("./fabric"));
+utilities.lazyLoad(exports, ["getFabric","getFabricOutput"], () => require("./getFabric"));
+utilities.lazyLoad(exports, ["getProtectionContainer","getProtectionContainerOutput"], () => require("./getProtectionContainer"));
+utilities.lazyLoad(exports, ["getReplicationPolicy","getReplicationPolicyOutput"], () => require("./getReplicationPolicy"));
+utilities.lazyLoad(exports, ["NetworkMapping"], () => require("./networkMapping"));
+utilities.lazyLoad(exports, ["ProtectionContainer"], () => require("./protectionContainer"));
+utilities.lazyLoad(exports, ["ProtectionContainerMapping"], () => require("./protectionContainerMapping"));
+utilities.lazyLoad(exports, ["ReplicatedVM"], () => require("./replicatedVM"));
+utilities.lazyLoad(exports, ["ReplicationPolicy"], () => require("./replicationPolicy"));
 
 const _module = {
     version: utilities.getVersion(),

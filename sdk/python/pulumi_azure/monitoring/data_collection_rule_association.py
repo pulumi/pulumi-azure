@@ -200,6 +200,74 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
         """
         Manages a Data Collection Rule Association.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="internal",
+                subnet_id=example_subnet.id,
+                private_ip_address_allocation="Dynamic",
+            )])
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            size="Standard_B1ls",
+            admin_username="adminuser",
+            network_interface_ids=[example_network_interface.id],
+            admin_password="example-Password@7890",
+            disable_password_authentication=False,
+            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
+                caching="ReadWrite",
+                storage_account_type="Standard_LRS",
+            ),
+            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
+                publisher="Canonical",
+                offer="UbuntuServer",
+                sku="16.04-LTS",
+                version="latest",
+            ))
+        example_data_collection_rule = azure.monitoring.DataCollectionRule("exampleDataCollectionRule",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            destinations=azure.monitoring.DataCollectionRuleDestinationsArgs(
+                azure_monitor_metrics=azure.monitoring.DataCollectionRuleDestinationsAzureMonitorMetricsArgs(
+                    name="example-destination-metrics",
+                ),
+            ),
+            data_flows=[azure.monitoring.DataCollectionRuleDataFlowArgs(
+                streams=["Microsoft-InsightsMetrics"],
+                destinations=["example-destination-metrics"],
+            )])
+        test = azure.monitoring.DataCollectionEndpoint("test",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        # associate to a Data Collection Rule
+        example1_data_collection_rule_association = azure.monitoring.DataCollectionRuleAssociation("example1DataCollectionRuleAssociation",
+            target_resource_id=example_linux_virtual_machine.id,
+            data_collection_rule_id=example_data_collection_rule.id,
+            description="example")
+        # associate to a Data Collection Endpoint
+        example1_monitoring_data_collection_rule_association_data_collection_rule_association = azure.monitoring.DataCollectionRuleAssociation("example1Monitoring/dataCollectionRuleAssociationDataCollectionRuleAssociation",
+            target_resource_id=example_linux_virtual_machine.id,
+            data_collection_endpoint_id=azurerm_monitor_data_collection_endpoint["example"]["id"],
+            description="example")
+        ```
+
         ## Import
 
         Data Collection Rules Association can be imported using the `resource id`, e.g.
@@ -224,6 +292,74 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Data Collection Rule Association.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+            address_spaces=["10.0.0.0/16"],
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name)
+        example_subnet = azure.network.Subnet("exampleSubnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+                name="internal",
+                subnet_id=example_subnet.id,
+                private_ip_address_allocation="Dynamic",
+            )])
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            size="Standard_B1ls",
+            admin_username="adminuser",
+            network_interface_ids=[example_network_interface.id],
+            admin_password="example-Password@7890",
+            disable_password_authentication=False,
+            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
+                caching="ReadWrite",
+                storage_account_type="Standard_LRS",
+            ),
+            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
+                publisher="Canonical",
+                offer="UbuntuServer",
+                sku="16.04-LTS",
+                version="latest",
+            ))
+        example_data_collection_rule = azure.monitoring.DataCollectionRule("exampleDataCollectionRule",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            destinations=azure.monitoring.DataCollectionRuleDestinationsArgs(
+                azure_monitor_metrics=azure.monitoring.DataCollectionRuleDestinationsAzureMonitorMetricsArgs(
+                    name="example-destination-metrics",
+                ),
+            ),
+            data_flows=[azure.monitoring.DataCollectionRuleDataFlowArgs(
+                streams=["Microsoft-InsightsMetrics"],
+                destinations=["example-destination-metrics"],
+            )])
+        test = azure.monitoring.DataCollectionEndpoint("test",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location)
+        # associate to a Data Collection Rule
+        example1_data_collection_rule_association = azure.monitoring.DataCollectionRuleAssociation("example1DataCollectionRuleAssociation",
+            target_resource_id=example_linux_virtual_machine.id,
+            data_collection_rule_id=example_data_collection_rule.id,
+            description="example")
+        # associate to a Data Collection Endpoint
+        example1_monitoring_data_collection_rule_association_data_collection_rule_association = azure.monitoring.DataCollectionRuleAssociation("example1Monitoring/dataCollectionRuleAssociationDataCollectionRuleAssociation",
+            target_resource_id=example_linux_virtual_machine.id,
+            data_collection_endpoint_id=azurerm_monitor_data_collection_endpoint["example"]["id"],
+            description="example")
+        ```
 
         ## Import
 

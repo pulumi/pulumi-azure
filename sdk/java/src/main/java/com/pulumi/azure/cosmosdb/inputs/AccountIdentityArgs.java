@@ -6,6 +6,7 @@ package com.pulumi.azure.cosmosdb.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AccountIdentityArgs Empty = new AccountIdentityArgs();
+
+    /**
+     * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cosmos Account.
+     * 
+     */
+    @Import(name="identityIds")
+    private @Nullable Output<List<String>> identityIds;
+
+    /**
+     * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cosmos Account.
+     * 
+     */
+    public Optional<Output<List<String>>> identityIds() {
+        return Optional.ofNullable(this.identityIds);
+    }
 
     /**
      * The Principal ID associated with this Managed Service Identity.
@@ -46,14 +62,14 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
+     * The Type of Managed Identity assigned to this Cosmos account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
+     * @return The Type of Managed Identity assigned to this Cosmos account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
      * 
      */
     public Output<String> type() {
@@ -63,6 +79,7 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
     private AccountIdentityArgs() {}
 
     private AccountIdentityArgs(AccountIdentityArgs $) {
+        this.identityIds = $.identityIds;
         this.principalId = $.principalId;
         this.tenantId = $.tenantId;
         this.type = $.type;
@@ -84,6 +101,37 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
 
         public Builder(AccountIdentityArgs defaults) {
             $ = new AccountIdentityArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cosmos Account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(@Nullable Output<List<String>> identityIds) {
+            $.identityIds = identityIds;
+            return this;
+        }
+
+        /**
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cosmos Account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(List<String> identityIds) {
+            return identityIds(Output.of(identityIds));
+        }
+
+        /**
+         * @param identityIds Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cosmos Account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityIds(String... identityIds) {
+            return identityIds(List.of(identityIds));
         }
 
         /**
@@ -129,7 +177,7 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
+         * @param type The Type of Managed Identity assigned to this Cosmos account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 
@@ -140,7 +188,7 @@ public final class AccountIdentityArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
+         * @param type The Type of Managed Identity assigned to this Cosmos account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
          * 
          * @return builder
          * 

@@ -15,13 +15,13 @@ namespace Pulumi.Azure.Core
         /// Use this data source to access information about an existing Resource Group Template Deployment.
         /// </summary>
         public static Task<GetResourceGroupTemplateDeploymentResult> InvokeAsync(GetResourceGroupTemplateDeploymentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupTemplateDeploymentResult>("azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment", args ?? new GetResourceGroupTemplateDeploymentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupTemplateDeploymentResult>("azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment", args ?? new GetResourceGroupTemplateDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Resource Group Template Deployment.
         /// </summary>
         public static Output<GetResourceGroupTemplateDeploymentResult> Invoke(GetResourceGroupTemplateDeploymentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourceGroupTemplateDeploymentResult>("azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment", args ?? new GetResourceGroupTemplateDeploymentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceGroupTemplateDeploymentResult>("azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment", args ?? new GetResourceGroupTemplateDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 

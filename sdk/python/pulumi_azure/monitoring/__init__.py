@@ -10,6 +10,8 @@ from .action_group import *
 from .action_rule_action_group import *
 from .action_rule_suppression import *
 from .activity_log_alert import *
+from .alert_processing_rule_action_group import *
+from .alert_processing_rule_suppression import *
 from .autoscale_setting import *
 from .data_collection_endpoint import *
 from .data_collection_rule import *
@@ -17,6 +19,7 @@ from .data_collection_rule_association import *
 from .diagnostic_setting import *
 from .get_action_group import *
 from .get_data_collection_endpoint import *
+from .get_data_collection_rule import *
 from .get_diagnostic_categories import *
 from .get_log_profile import *
 from .get_scheduled_query_rules_alert import *

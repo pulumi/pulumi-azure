@@ -82,6 +82,23 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+     * ---
+     * 
+     */
+    @Import(name="hybridServiceUrl")
+    private @Nullable Output<String> hybridServiceUrl;
+
+    /**
+     * @return The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+     * ---
+     * 
+     */
+    public Optional<Output<String>> hybridServiceUrl() {
+        return Optional.ofNullable(this.hybridServiceUrl);
+    }
+
+    /**
      * An `identity` block as defined below.
      * 
      */
@@ -215,6 +232,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.dscSecondaryAccessKey = $.dscSecondaryAccessKey;
         this.dscServerEndpoint = $.dscServerEndpoint;
         this.encryptions = $.encryptions;
+        this.hybridServiceUrl = $.hybridServiceUrl;
         this.identity = $.identity;
         this.localAuthenticationEnabled = $.localAuthenticationEnabled;
         this.location = $.location;
@@ -336,6 +354,29 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder encryptions(AccountEncryptionArgs... encryptions) {
             return encryptions(List.of(encryptions));
+        }
+
+        /**
+         * @param hybridServiceUrl The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+         * ---
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hybridServiceUrl(@Nullable Output<String> hybridServiceUrl) {
+            $.hybridServiceUrl = hybridServiceUrl;
+            return this;
+        }
+
+        /**
+         * @param hybridServiceUrl The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+         * ---
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hybridServiceUrl(String hybridServiceUrl) {
+            return hybridServiceUrl(Output.of(hybridServiceUrl));
         }
 
         /**

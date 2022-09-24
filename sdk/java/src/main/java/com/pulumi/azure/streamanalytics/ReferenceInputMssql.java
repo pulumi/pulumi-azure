@@ -156,14 +156,14 @@ public class ReferenceInputMssql extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The username to connect to the MS SQL database.
+     * The password to connect to the MS SQL database.
      * 
      */
     @Export(name="password", type=String.class, parameters={})
     private Output<String> password;
 
     /**
-     * @return The username to connect to the MS SQL database.
+     * @return The password to connect to the MS SQL database.
      * 
      */
     public Output<String> password() {

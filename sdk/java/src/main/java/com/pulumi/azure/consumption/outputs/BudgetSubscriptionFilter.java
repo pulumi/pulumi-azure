@@ -20,9 +20,13 @@ public final class BudgetSubscriptionFilter {
      */
     private @Nullable List<BudgetSubscriptionFilterDimension> dimensions;
     /**
-     * @return A `not` block as defined below to filter the budget on.
+     * @return A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+     * 
+     * @deprecated
+     * This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
      * 
      */
+    @Deprecated /* This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
     private @Nullable BudgetSubscriptionFilterNot not;
     /**
      * @return One or more `tag` blocks as defined below to filter the budget on.
@@ -39,9 +43,13 @@ public final class BudgetSubscriptionFilter {
         return this.dimensions == null ? List.of() : this.dimensions;
     }
     /**
-     * @return A `not` block as defined below to filter the budget on.
+     * @return A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+     * 
+     * @deprecated
+     * This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
      * 
      */
+    @Deprecated /* This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider. */
     public Optional<BudgetSubscriptionFilterNot> not() {
         return Optional.ofNullable(this.not);
     }

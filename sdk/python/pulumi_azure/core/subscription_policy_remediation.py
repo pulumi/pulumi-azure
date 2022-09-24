@@ -21,6 +21,7 @@ class SubscriptionPolicyRemediationArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  parallel_deployments: Optional[pulumi.Input[int]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
+                 policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
                  resource_count: Optional[pulumi.Input[int]] = None,
                  resource_discovery_mode: Optional[pulumi.Input[str]] = None):
         """
@@ -37,7 +38,12 @@ class SubscriptionPolicyRemediationArgs:
         if parallel_deployments is not None:
             pulumi.set(__self__, "parallel_deployments", parallel_deployments)
         if policy_definition_id is not None:
+            warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
+            pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
+        if policy_definition_id is not None:
             pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        if policy_definition_reference_id is not None:
+            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
         if resource_count is not None:
             pulumi.set(__self__, "resource_count", resource_count)
         if resource_discovery_mode is not None:
@@ -107,6 +113,15 @@ class SubscriptionPolicyRemediationArgs:
         pulumi.set(self, "policy_definition_id", value)
 
     @property
+    @pulumi.getter(name="policyDefinitionReferenceId")
+    def policy_definition_reference_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "policy_definition_reference_id")
+
+    @policy_definition_reference_id.setter
+    def policy_definition_reference_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_definition_reference_id", value)
+
+    @property
     @pulumi.getter(name="resourceCount")
     def resource_count(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "resource_count")
@@ -134,6 +149,7 @@ class _SubscriptionPolicyRemediationState:
                  parallel_deployments: Optional[pulumi.Input[int]] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
+                 policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
                  resource_count: Optional[pulumi.Input[int]] = None,
                  resource_discovery_mode: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None):
@@ -151,7 +167,12 @@ class _SubscriptionPolicyRemediationState:
         if policy_assignment_id is not None:
             pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
         if policy_definition_id is not None:
+            warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
+            pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
+        if policy_definition_id is not None:
             pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        if policy_definition_reference_id is not None:
+            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
         if resource_count is not None:
             pulumi.set(__self__, "resource_count", resource_count)
         if resource_discovery_mode is not None:
@@ -214,6 +235,15 @@ class _SubscriptionPolicyRemediationState:
         pulumi.set(self, "policy_definition_id", value)
 
     @property
+    @pulumi.getter(name="policyDefinitionReferenceId")
+    def policy_definition_reference_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "policy_definition_reference_id")
+
+    @policy_definition_reference_id.setter
+    def policy_definition_reference_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_definition_reference_id", value)
+
+    @property
     @pulumi.getter(name="resourceCount")
     def resource_count(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "resource_count")
@@ -252,6 +282,7 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
                  parallel_deployments: Optional[pulumi.Input[int]] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
+                 policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
                  resource_count: Optional[pulumi.Input[int]] = None,
                  resource_discovery_mode: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
@@ -290,6 +321,7 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
                  parallel_deployments: Optional[pulumi.Input[int]] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_id: Optional[pulumi.Input[str]] = None,
+                 policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
                  resource_count: Optional[pulumi.Input[int]] = None,
                  resource_discovery_mode: Optional[pulumi.Input[str]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None,
@@ -309,7 +341,11 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
             if policy_assignment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_assignment_id'")
             __props__.__dict__["policy_assignment_id"] = policy_assignment_id
+            if policy_definition_id is not None and not opts.urn:
+                warnings.warn("""`policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""", DeprecationWarning)
+                pulumi.log.warn("""policy_definition_id is deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.""")
             __props__.__dict__["policy_definition_id"] = policy_definition_id
+            __props__.__dict__["policy_definition_reference_id"] = policy_definition_reference_id
             __props__.__dict__["resource_count"] = resource_count
             __props__.__dict__["resource_discovery_mode"] = resource_discovery_mode
             if subscription_id is None and not opts.urn:
@@ -331,6 +367,7 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
             parallel_deployments: Optional[pulumi.Input[int]] = None,
             policy_assignment_id: Optional[pulumi.Input[str]] = None,
             policy_definition_id: Optional[pulumi.Input[str]] = None,
+            policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
             resource_count: Optional[pulumi.Input[int]] = None,
             resource_discovery_mode: Optional[pulumi.Input[str]] = None,
             subscription_id: Optional[pulumi.Input[str]] = None) -> 'SubscriptionPolicyRemediation':
@@ -352,6 +389,7 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
         __props__.__dict__["parallel_deployments"] = parallel_deployments
         __props__.__dict__["policy_assignment_id"] = policy_assignment_id
         __props__.__dict__["policy_definition_id"] = policy_definition_id
+        __props__.__dict__["policy_definition_reference_id"] = policy_definition_reference_id
         __props__.__dict__["resource_count"] = resource_count
         __props__.__dict__["resource_discovery_mode"] = resource_discovery_mode
         __props__.__dict__["subscription_id"] = subscription_id
@@ -386,6 +424,11 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
     @pulumi.getter(name="policyDefinitionId")
     def policy_definition_id(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "policy_definition_id")
+
+    @property
+    @pulumi.getter(name="policyDefinitionReferenceId")
+    def policy_definition_reference_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "policy_definition_reference_id")
 
     @property
     @pulumi.getter(name="resourceCount")

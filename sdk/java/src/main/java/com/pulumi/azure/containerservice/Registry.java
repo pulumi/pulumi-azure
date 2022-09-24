@@ -370,14 +370,14 @@ public class Registry extends com.pulumi.resources.CustomResource {
         return this.loginServer;
     }
     /**
-     * Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+     * Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+     * @return Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

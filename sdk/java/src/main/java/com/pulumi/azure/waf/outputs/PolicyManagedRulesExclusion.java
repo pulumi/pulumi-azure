@@ -18,7 +18,7 @@ public final class PolicyManagedRulesExclusion {
      */
     private @Nullable PolicyManagedRulesExclusionExcludedRuleSet excludedRuleSet;
     /**
-     * @return The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+     * @return The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
      * 
      */
     private String matchVariable;
@@ -42,7 +42,7 @@ public final class PolicyManagedRulesExclusion {
         return Optional.ofNullable(this.excludedRuleSet);
     }
     /**
-     * @return The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+     * @return The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
      * 
      */
     public String matchVariable() {

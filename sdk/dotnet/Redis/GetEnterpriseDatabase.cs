@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Redis
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEnterpriseDatabaseResult> InvokeAsync(GetEnterpriseDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseDatabaseResult>("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", args ?? new GetEnterpriseDatabaseArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEnterpriseDatabaseResult>("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", args ?? new GetEnterpriseDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Redis Enterprise Database
@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Redis
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetEnterpriseDatabaseResult> Invoke(GetEnterpriseDatabaseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetEnterpriseDatabaseResult>("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", args ?? new GetEnterpriseDatabaseInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnterpriseDatabaseResult>("azure:redis/getEnterpriseDatabase:getEnterpriseDatabase", args ?? new GetEnterpriseDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 

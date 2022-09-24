@@ -20,8 +20,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Network Watcher Flow Log.
- * 
  * ## Example Usage
  * ```java
  * package generated_program;

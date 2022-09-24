@@ -75,9 +75,17 @@ export class ApiSchema extends pulumi.CustomResource {
      */
     public readonly apiName!: pulumi.Output<string>;
     /**
+     * Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+     */
+    public readonly components!: pulumi.Output<string | undefined>;
+    /**
      * The content type of the API Schema.
      */
     public readonly contentType!: pulumi.Output<string>;
+    /**
+     * Types definitions. Used for Swagger/OpenAPI v1 schemas only.
+     */
+    public readonly definitions!: pulumi.Output<string | undefined>;
     /**
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
@@ -89,7 +97,7 @@ export class ApiSchema extends pulumi.CustomResource {
     /**
      * The JSON escaped string defining the document representing the Schema.
      */
-    public readonly value!: pulumi.Output<string>;
+    public readonly value!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ApiSchema resource with the given unique name, arguments, and options.
@@ -106,7 +114,9 @@ export class ApiSchema extends pulumi.CustomResource {
             const state = argsOrState as ApiSchemaState | undefined;
             resourceInputs["apiManagementName"] = state ? state.apiManagementName : undefined;
             resourceInputs["apiName"] = state ? state.apiName : undefined;
+            resourceInputs["components"] = state ? state.components : undefined;
             resourceInputs["contentType"] = state ? state.contentType : undefined;
+            resourceInputs["definitions"] = state ? state.definitions : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["schemaId"] = state ? state.schemaId : undefined;
             resourceInputs["value"] = state ? state.value : undefined;
@@ -127,12 +137,11 @@ export class ApiSchema extends pulumi.CustomResource {
             if ((!args || args.schemaId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schemaId'");
             }
-            if ((!args || args.value === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'value'");
-            }
             resourceInputs["apiManagementName"] = args ? args.apiManagementName : undefined;
             resourceInputs["apiName"] = args ? args.apiName : undefined;
+            resourceInputs["components"] = args ? args.components : undefined;
             resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["definitions"] = args ? args.definitions : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["schemaId"] = args ? args.schemaId : undefined;
             resourceInputs["value"] = args ? args.value : undefined;
@@ -155,9 +164,17 @@ export interface ApiSchemaState {
      */
     apiName?: pulumi.Input<string>;
     /**
+     * Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+     */
+    components?: pulumi.Input<string>;
+    /**
      * The content type of the API Schema.
      */
     contentType?: pulumi.Input<string>;
+    /**
+     * Types definitions. Used for Swagger/OpenAPI v1 schemas only.
+     */
+    definitions?: pulumi.Input<string>;
     /**
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
@@ -185,9 +202,17 @@ export interface ApiSchemaArgs {
      */
     apiName: pulumi.Input<string>;
     /**
+     * Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+     */
+    components?: pulumi.Input<string>;
+    /**
      * The content type of the API Schema.
      */
     contentType: pulumi.Input<string>;
+    /**
+     * Types definitions. Used for Swagger/OpenAPI v1 schemas only.
+     */
+    definitions?: pulumi.Input<string>;
     /**
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
      */
@@ -199,5 +224,5 @@ export interface ApiSchemaArgs {
     /**
      * The JSON escaped string defining the document representing the Schema.
      */
-    value: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
 }

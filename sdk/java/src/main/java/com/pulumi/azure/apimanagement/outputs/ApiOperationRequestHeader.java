@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.apimanagement.outputs;
 
+import com.pulumi.azure.apimanagement.outputs.ApiOperationRequestHeaderExample;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.String;
@@ -24,6 +25,11 @@ public final class ApiOperationRequestHeader {
      */
     private @Nullable String description;
     /**
+     * @return (Optional) One or more `example` blocks as defined above.
+     * 
+     */
+    private @Nullable List<ApiOperationRequestHeaderExample> examples;
+    /**
      * @return The Name of this Header.
      * 
      */
@@ -34,10 +40,21 @@ public final class ApiOperationRequestHeader {
      */
     private Boolean required;
     /**
+     * @return The name of the Schema.
+     * 
+     */
+    private @Nullable String schemaId;
+    /**
      * @return The Type of this Header, such as a `string`.
      * 
      */
     private String type;
+    /**
+     * @return The type name defined by the Schema.
+     * ---
+     * 
+     */
+    private @Nullable String typeName;
     /**
      * @return One or more acceptable values for this Header.
      * 
@@ -60,6 +77,13 @@ public final class ApiOperationRequestHeader {
         return Optional.ofNullable(this.description);
     }
     /**
+     * @return (Optional) One or more `example` blocks as defined above.
+     * 
+     */
+    public List<ApiOperationRequestHeaderExample> examples() {
+        return this.examples == null ? List.of() : this.examples;
+    }
+    /**
      * @return The Name of this Header.
      * 
      */
@@ -74,11 +98,26 @@ public final class ApiOperationRequestHeader {
         return this.required;
     }
     /**
+     * @return The name of the Schema.
+     * 
+     */
+    public Optional<String> schemaId() {
+        return Optional.ofNullable(this.schemaId);
+    }
+    /**
      * @return The Type of this Header, such as a `string`.
      * 
      */
     public String type() {
         return this.type;
+    }
+    /**
+     * @return The type name defined by the Schema.
+     * ---
+     * 
+     */
+    public Optional<String> typeName() {
+        return Optional.ofNullable(this.typeName);
     }
     /**
      * @return One or more acceptable values for this Header.
@@ -99,18 +138,24 @@ public final class ApiOperationRequestHeader {
     public static final class Builder {
         private @Nullable String defaultValue;
         private @Nullable String description;
+        private @Nullable List<ApiOperationRequestHeaderExample> examples;
         private String name;
         private Boolean required;
+        private @Nullable String schemaId;
         private String type;
+        private @Nullable String typeName;
         private @Nullable List<String> values;
         public Builder() {}
         public Builder(ApiOperationRequestHeader defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultValue = defaults.defaultValue;
     	      this.description = defaults.description;
+    	      this.examples = defaults.examples;
     	      this.name = defaults.name;
     	      this.required = defaults.required;
+    	      this.schemaId = defaults.schemaId;
     	      this.type = defaults.type;
+    	      this.typeName = defaults.typeName;
     	      this.values = defaults.values;
         }
 
@@ -125,6 +170,14 @@ public final class ApiOperationRequestHeader {
             return this;
         }
         @CustomType.Setter
+        public Builder examples(@Nullable List<ApiOperationRequestHeaderExample> examples) {
+            this.examples = examples;
+            return this;
+        }
+        public Builder examples(ApiOperationRequestHeaderExample... examples) {
+            return examples(List.of(examples));
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
@@ -135,8 +188,18 @@ public final class ApiOperationRequestHeader {
             return this;
         }
         @CustomType.Setter
+        public Builder schemaId(@Nullable String schemaId) {
+            this.schemaId = schemaId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder typeName(@Nullable String typeName) {
+            this.typeName = typeName;
             return this;
         }
         @CustomType.Setter
@@ -151,9 +214,12 @@ public final class ApiOperationRequestHeader {
             final var o = new ApiOperationRequestHeader();
             o.defaultValue = defaultValue;
             o.description = description;
+            o.examples = examples;
             o.name = name;
             o.required = required;
+            o.schemaId = schemaId;
             o.type = type;
+            o.typeName = typeName;
             o.values = values;
             return o;
         }

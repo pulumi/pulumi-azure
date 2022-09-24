@@ -9,12 +9,19 @@ import com.pulumi.azure.batch.inputs.PoolState;
 import com.pulumi.azure.batch.outputs.PoolAutoScale;
 import com.pulumi.azure.batch.outputs.PoolCertificate;
 import com.pulumi.azure.batch.outputs.PoolContainerConfiguration;
+import com.pulumi.azure.batch.outputs.PoolDataDisk;
+import com.pulumi.azure.batch.outputs.PoolDiskEncryption;
+import com.pulumi.azure.batch.outputs.PoolExtension;
 import com.pulumi.azure.batch.outputs.PoolFixedScale;
 import com.pulumi.azure.batch.outputs.PoolIdentity;
 import com.pulumi.azure.batch.outputs.PoolMount;
 import com.pulumi.azure.batch.outputs.PoolNetworkConfiguration;
+import com.pulumi.azure.batch.outputs.PoolNodePlacement;
 import com.pulumi.azure.batch.outputs.PoolStartTask;
 import com.pulumi.azure.batch.outputs.PoolStorageImageReference;
+import com.pulumi.azure.batch.outputs.PoolTaskSchedulingPolicy;
+import com.pulumi.azure.batch.outputs.PoolUserAccount;
+import com.pulumi.azure.batch.outputs.PoolWindow;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -216,6 +223,34 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.containerConfiguration);
     }
     /**
+     * A `data_disks` block describes the data disk settings.
+     * 
+     */
+    @Export(name="dataDisks", type=List.class, parameters={PoolDataDisk.class})
+    private Output</* @Nullable */ List<PoolDataDisk>> dataDisks;
+
+    /**
+     * @return A `data_disks` block describes the data disk settings.
+     * 
+     */
+    public Output<Optional<List<PoolDataDisk>>> dataDisks() {
+        return Codegen.optional(this.dataDisks);
+    }
+    /**
+     * A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+     * 
+     */
+    @Export(name="diskEncryptions", type=List.class, parameters={PoolDiskEncryption.class})
+    private Output</* @Nullable */ List<PoolDiskEncryption>> diskEncryptions;
+
+    /**
+     * @return A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+     * 
+     */
+    public Output<Optional<List<PoolDiskEncryption>>> diskEncryptions() {
+        return Codegen.optional(this.diskEncryptions);
+    }
+    /**
      * Specifies the display name of the Batch pool.
      * 
      */
@@ -228,6 +263,20 @@ public class Pool extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> displayName() {
         return Codegen.optional(this.displayName);
+    }
+    /**
+     * An `extensions` block as defined below.
+     * 
+     */
+    @Export(name="extensions", type=List.class, parameters={PoolExtension.class})
+    private Output</* @Nullable */ List<PoolExtension>> extensions;
+
+    /**
+     * @return An `extensions` block as defined below.
+     * 
+     */
+    public Output<Optional<List<PoolExtension>>> extensions() {
+        return Codegen.optional(this.extensions);
     }
     /**
      * A `fixed_scale` block that describes the scale settings when using fixed scale.
@@ -256,6 +305,34 @@ public class Pool extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<PoolIdentity>> identity() {
         return Codegen.optional(this.identity);
+    }
+    /**
+     * Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+     * 
+     */
+    @Export(name="interNodeCommunication", type=String.class, parameters={})
+    private Output</* @Nullable */ String> interNodeCommunication;
+
+    /**
+     * @return Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+     * 
+     */
+    public Output<Optional<String>> interNodeCommunication() {
+        return Codegen.optional(this.interNodeCommunication);
+    }
+    /**
+     * The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: &#34;Windows_Server&#34; - The on-premises license is for Windows Server. &#34;Windows_Client&#34; - The on-premises license is for Windows Client.
+     * 
+     */
+    @Export(name="licenseType", type=String.class, parameters={})
+    private Output</* @Nullable */ String> licenseType;
+
+    /**
+     * @return The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: &#34;Windows_Server&#34; - The on-premises license is for Windows Server. &#34;Windows_Client&#34; - The on-premises license is for Windows Client.
+     * 
+     */
+    public Output<Optional<String>> licenseType() {
+        return Codegen.optional(this.licenseType);
     }
     /**
      * Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
@@ -342,6 +419,34 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return this.nodeAgentSkuId;
     }
     /**
+     * A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+     * 
+     */
+    @Export(name="nodePlacements", type=List.class, parameters={PoolNodePlacement.class})
+    private Output</* @Nullable */ List<PoolNodePlacement>> nodePlacements;
+
+    /**
+     * @return A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+     * 
+     */
+    public Output<Optional<List<PoolNodePlacement>>> nodePlacements() {
+        return Codegen.optional(this.nodePlacements);
+    }
+    /**
+     * Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+     * 
+     */
+    @Export(name="osDiskPlacement", type=String.class, parameters={})
+    private Output</* @Nullable */ String> osDiskPlacement;
+
+    /**
+     * @return Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+     * 
+     */
+    public Output<Optional<String>> osDiskPlacement() {
+        return Codegen.optional(this.osDiskPlacement);
+    }
+    /**
      * The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
      * 
      */
@@ -390,6 +495,34 @@ public class Pool extends com.pulumi.resources.CustomResource {
         return this.storageImageReference;
     }
     /**
+     * A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+     * 
+     */
+    @Export(name="taskSchedulingPolicies", type=List.class, parameters={PoolTaskSchedulingPolicy.class})
+    private Output<List<PoolTaskSchedulingPolicy>> taskSchedulingPolicies;
+
+    /**
+     * @return A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+     * 
+     */
+    public Output<List<PoolTaskSchedulingPolicy>> taskSchedulingPolicies() {
+        return this.taskSchedulingPolicies;
+    }
+    /**
+     * A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+     * 
+     */
+    @Export(name="userAccounts", type=List.class, parameters={PoolUserAccount.class})
+    private Output</* @Nullable */ List<PoolUserAccount>> userAccounts;
+
+    /**
+     * @return A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+     * 
+     */
+    public Output<Optional<List<PoolUserAccount>>> userAccounts() {
+        return Codegen.optional(this.userAccounts);
+    }
+    /**
      * Specifies the size of the VM created in the Batch pool.
      * 
      */
@@ -402,6 +535,20 @@ public class Pool extends com.pulumi.resources.CustomResource {
      */
     public Output<String> vmSize() {
         return this.vmSize;
+    }
+    /**
+     * A `windows` block that describes the Windows configuration in the pool.
+     * 
+     */
+    @Export(name="windows", type=List.class, parameters={PoolWindow.class})
+    private Output</* @Nullable */ List<PoolWindow>> windows;
+
+    /**
+     * @return A `windows` block that describes the Windows configuration in the pool.
+     * 
+     */
+    public Output<Optional<List<PoolWindow>>> windows() {
+        return Codegen.optional(this.windows);
     }
 
     /**

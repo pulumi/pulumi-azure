@@ -5,58 +5,161 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./aadDiagnosticSetting";
-export * from "./actionGroup";
-export * from "./actionRuleActionGroup";
-export * from "./actionRuleSuppression";
-export * from "./activityLogAlert";
-export * from "./autoscaleSetting";
-export * from "./dataCollectionEndpoint";
-export * from "./dataCollectionRule";
-export * from "./dataCollectionRuleAssociation";
-export * from "./diagnosticSetting";
-export * from "./getActionGroup";
-export * from "./getDataCollectionEndpoint";
-export * from "./getDiagnosticCategories";
-export * from "./getLogProfile";
-export * from "./getScheduledQueryRulesAlert";
-export * from "./getScheduledQueryRulesLog";
-export * from "./logProfile";
-export * from "./logzMonitor";
-export * from "./logzSubAccount";
-export * from "./logzSubAccountTagRule";
-export * from "./logzTagRule";
-export * from "./metricAlert";
-export * from "./privateLinkScope";
-export * from "./privateLinkScopedService";
-export * from "./scheduledQueryRulesAlert";
-export * from "./scheduledQueryRulesAlertV2";
-export * from "./scheduledQueryRulesLog";
-export * from "./smartDetectorAlertRule";
+export { AadDiagnosticSettingArgs, AadDiagnosticSettingState } from "./aadDiagnosticSetting";
+export type AadDiagnosticSetting = import("./aadDiagnosticSetting").AadDiagnosticSetting;
+export const AadDiagnosticSetting: typeof import("./aadDiagnosticSetting").AadDiagnosticSetting = null as any;
 
-// Import resources to register:
-import { AadDiagnosticSetting } from "./aadDiagnosticSetting";
-import { ActionGroup } from "./actionGroup";
-import { ActionRuleActionGroup } from "./actionRuleActionGroup";
-import { ActionRuleSuppression } from "./actionRuleSuppression";
-import { ActivityLogAlert } from "./activityLogAlert";
-import { AutoscaleSetting } from "./autoscaleSetting";
-import { DataCollectionEndpoint } from "./dataCollectionEndpoint";
-import { DataCollectionRule } from "./dataCollectionRule";
-import { DataCollectionRuleAssociation } from "./dataCollectionRuleAssociation";
-import { DiagnosticSetting } from "./diagnosticSetting";
-import { LogProfile } from "./logProfile";
-import { LogzMonitor } from "./logzMonitor";
-import { LogzSubAccount } from "./logzSubAccount";
-import { LogzSubAccountTagRule } from "./logzSubAccountTagRule";
-import { LogzTagRule } from "./logzTagRule";
-import { MetricAlert } from "./metricAlert";
-import { PrivateLinkScope } from "./privateLinkScope";
-import { PrivateLinkScopedService } from "./privateLinkScopedService";
-import { ScheduledQueryRulesAlert } from "./scheduledQueryRulesAlert";
-import { ScheduledQueryRulesAlertV2 } from "./scheduledQueryRulesAlertV2";
-import { ScheduledQueryRulesLog } from "./scheduledQueryRulesLog";
-import { SmartDetectorAlertRule } from "./smartDetectorAlertRule";
+export { ActionGroupArgs, ActionGroupState } from "./actionGroup";
+export type ActionGroup = import("./actionGroup").ActionGroup;
+export const ActionGroup: typeof import("./actionGroup").ActionGroup = null as any;
+
+export { ActionRuleActionGroupArgs, ActionRuleActionGroupState } from "./actionRuleActionGroup";
+export type ActionRuleActionGroup = import("./actionRuleActionGroup").ActionRuleActionGroup;
+export const ActionRuleActionGroup: typeof import("./actionRuleActionGroup").ActionRuleActionGroup = null as any;
+
+export { ActionRuleSuppressionArgs, ActionRuleSuppressionState } from "./actionRuleSuppression";
+export type ActionRuleSuppression = import("./actionRuleSuppression").ActionRuleSuppression;
+export const ActionRuleSuppression: typeof import("./actionRuleSuppression").ActionRuleSuppression = null as any;
+
+export { ActivityLogAlertArgs, ActivityLogAlertState } from "./activityLogAlert";
+export type ActivityLogAlert = import("./activityLogAlert").ActivityLogAlert;
+export const ActivityLogAlert: typeof import("./activityLogAlert").ActivityLogAlert = null as any;
+
+export { AlertProcessingRuleActionGroupArgs, AlertProcessingRuleActionGroupState } from "./alertProcessingRuleActionGroup";
+export type AlertProcessingRuleActionGroup = import("./alertProcessingRuleActionGroup").AlertProcessingRuleActionGroup;
+export const AlertProcessingRuleActionGroup: typeof import("./alertProcessingRuleActionGroup").AlertProcessingRuleActionGroup = null as any;
+
+export { AlertProcessingRuleSuppressionArgs, AlertProcessingRuleSuppressionState } from "./alertProcessingRuleSuppression";
+export type AlertProcessingRuleSuppression = import("./alertProcessingRuleSuppression").AlertProcessingRuleSuppression;
+export const AlertProcessingRuleSuppression: typeof import("./alertProcessingRuleSuppression").AlertProcessingRuleSuppression = null as any;
+
+export { AutoscaleSettingArgs, AutoscaleSettingState } from "./autoscaleSetting";
+export type AutoscaleSetting = import("./autoscaleSetting").AutoscaleSetting;
+export const AutoscaleSetting: typeof import("./autoscaleSetting").AutoscaleSetting = null as any;
+
+export { DataCollectionEndpointArgs, DataCollectionEndpointState } from "./dataCollectionEndpoint";
+export type DataCollectionEndpoint = import("./dataCollectionEndpoint").DataCollectionEndpoint;
+export const DataCollectionEndpoint: typeof import("./dataCollectionEndpoint").DataCollectionEndpoint = null as any;
+
+export { DataCollectionRuleArgs, DataCollectionRuleState } from "./dataCollectionRule";
+export type DataCollectionRule = import("./dataCollectionRule").DataCollectionRule;
+export const DataCollectionRule: typeof import("./dataCollectionRule").DataCollectionRule = null as any;
+
+export { DataCollectionRuleAssociationArgs, DataCollectionRuleAssociationState } from "./dataCollectionRuleAssociation";
+export type DataCollectionRuleAssociation = import("./dataCollectionRuleAssociation").DataCollectionRuleAssociation;
+export const DataCollectionRuleAssociation: typeof import("./dataCollectionRuleAssociation").DataCollectionRuleAssociation = null as any;
+
+export { DiagnosticSettingArgs, DiagnosticSettingState } from "./diagnosticSetting";
+export type DiagnosticSetting = import("./diagnosticSetting").DiagnosticSetting;
+export const DiagnosticSetting: typeof import("./diagnosticSetting").DiagnosticSetting = null as any;
+
+export { GetActionGroupArgs, GetActionGroupResult, GetActionGroupOutputArgs } from "./getActionGroup";
+export const getActionGroup: typeof import("./getActionGroup").getActionGroup = null as any;
+export const getActionGroupOutput: typeof import("./getActionGroup").getActionGroupOutput = null as any;
+
+export { GetDataCollectionEndpointArgs, GetDataCollectionEndpointResult, GetDataCollectionEndpointOutputArgs } from "./getDataCollectionEndpoint";
+export const getDataCollectionEndpoint: typeof import("./getDataCollectionEndpoint").getDataCollectionEndpoint = null as any;
+export const getDataCollectionEndpointOutput: typeof import("./getDataCollectionEndpoint").getDataCollectionEndpointOutput = null as any;
+
+export { GetDataCollectionRuleArgs, GetDataCollectionRuleResult, GetDataCollectionRuleOutputArgs } from "./getDataCollectionRule";
+export const getDataCollectionRule: typeof import("./getDataCollectionRule").getDataCollectionRule = null as any;
+export const getDataCollectionRuleOutput: typeof import("./getDataCollectionRule").getDataCollectionRuleOutput = null as any;
+
+export { GetDiagnosticCategoriesArgs, GetDiagnosticCategoriesResult, GetDiagnosticCategoriesOutputArgs } from "./getDiagnosticCategories";
+export const getDiagnosticCategories: typeof import("./getDiagnosticCategories").getDiagnosticCategories = null as any;
+export const getDiagnosticCategoriesOutput: typeof import("./getDiagnosticCategories").getDiagnosticCategoriesOutput = null as any;
+
+export { GetLogProfileArgs, GetLogProfileResult, GetLogProfileOutputArgs } from "./getLogProfile";
+export const getLogProfile: typeof import("./getLogProfile").getLogProfile = null as any;
+export const getLogProfileOutput: typeof import("./getLogProfile").getLogProfileOutput = null as any;
+
+export { GetScheduledQueryRulesAlertArgs, GetScheduledQueryRulesAlertResult, GetScheduledQueryRulesAlertOutputArgs } from "./getScheduledQueryRulesAlert";
+export const getScheduledQueryRulesAlert: typeof import("./getScheduledQueryRulesAlert").getScheduledQueryRulesAlert = null as any;
+export const getScheduledQueryRulesAlertOutput: typeof import("./getScheduledQueryRulesAlert").getScheduledQueryRulesAlertOutput = null as any;
+
+export { GetScheduledQueryRulesLogArgs, GetScheduledQueryRulesLogResult, GetScheduledQueryRulesLogOutputArgs } from "./getScheduledQueryRulesLog";
+export const getScheduledQueryRulesLog: typeof import("./getScheduledQueryRulesLog").getScheduledQueryRulesLog = null as any;
+export const getScheduledQueryRulesLogOutput: typeof import("./getScheduledQueryRulesLog").getScheduledQueryRulesLogOutput = null as any;
+
+export { LogProfileArgs, LogProfileState } from "./logProfile";
+export type LogProfile = import("./logProfile").LogProfile;
+export const LogProfile: typeof import("./logProfile").LogProfile = null as any;
+
+export { LogzMonitorArgs, LogzMonitorState } from "./logzMonitor";
+export type LogzMonitor = import("./logzMonitor").LogzMonitor;
+export const LogzMonitor: typeof import("./logzMonitor").LogzMonitor = null as any;
+
+export { LogzSubAccountArgs, LogzSubAccountState } from "./logzSubAccount";
+export type LogzSubAccount = import("./logzSubAccount").LogzSubAccount;
+export const LogzSubAccount: typeof import("./logzSubAccount").LogzSubAccount = null as any;
+
+export { LogzSubAccountTagRuleArgs, LogzSubAccountTagRuleState } from "./logzSubAccountTagRule";
+export type LogzSubAccountTagRule = import("./logzSubAccountTagRule").LogzSubAccountTagRule;
+export const LogzSubAccountTagRule: typeof import("./logzSubAccountTagRule").LogzSubAccountTagRule = null as any;
+
+export { LogzTagRuleArgs, LogzTagRuleState } from "./logzTagRule";
+export type LogzTagRule = import("./logzTagRule").LogzTagRule;
+export const LogzTagRule: typeof import("./logzTagRule").LogzTagRule = null as any;
+
+export { MetricAlertArgs, MetricAlertState } from "./metricAlert";
+export type MetricAlert = import("./metricAlert").MetricAlert;
+export const MetricAlert: typeof import("./metricAlert").MetricAlert = null as any;
+
+export { PrivateLinkScopeArgs, PrivateLinkScopeState } from "./privateLinkScope";
+export type PrivateLinkScope = import("./privateLinkScope").PrivateLinkScope;
+export const PrivateLinkScope: typeof import("./privateLinkScope").PrivateLinkScope = null as any;
+
+export { PrivateLinkScopedServiceArgs, PrivateLinkScopedServiceState } from "./privateLinkScopedService";
+export type PrivateLinkScopedService = import("./privateLinkScopedService").PrivateLinkScopedService;
+export const PrivateLinkScopedService: typeof import("./privateLinkScopedService").PrivateLinkScopedService = null as any;
+
+export { ScheduledQueryRulesAlertArgs, ScheduledQueryRulesAlertState } from "./scheduledQueryRulesAlert";
+export type ScheduledQueryRulesAlert = import("./scheduledQueryRulesAlert").ScheduledQueryRulesAlert;
+export const ScheduledQueryRulesAlert: typeof import("./scheduledQueryRulesAlert").ScheduledQueryRulesAlert = null as any;
+
+export { ScheduledQueryRulesAlertV2Args, ScheduledQueryRulesAlertV2State } from "./scheduledQueryRulesAlertV2";
+export type ScheduledQueryRulesAlertV2 = import("./scheduledQueryRulesAlertV2").ScheduledQueryRulesAlertV2;
+export const ScheduledQueryRulesAlertV2: typeof import("./scheduledQueryRulesAlertV2").ScheduledQueryRulesAlertV2 = null as any;
+
+export { ScheduledQueryRulesLogArgs, ScheduledQueryRulesLogState } from "./scheduledQueryRulesLog";
+export type ScheduledQueryRulesLog = import("./scheduledQueryRulesLog").ScheduledQueryRulesLog;
+export const ScheduledQueryRulesLog: typeof import("./scheduledQueryRulesLog").ScheduledQueryRulesLog = null as any;
+
+export { SmartDetectorAlertRuleArgs, SmartDetectorAlertRuleState } from "./smartDetectorAlertRule";
+export type SmartDetectorAlertRule = import("./smartDetectorAlertRule").SmartDetectorAlertRule;
+export const SmartDetectorAlertRule: typeof import("./smartDetectorAlertRule").SmartDetectorAlertRule = null as any;
+
+utilities.lazyLoad(exports, ["AadDiagnosticSetting"], () => require("./aadDiagnosticSetting"));
+utilities.lazyLoad(exports, ["ActionGroup"], () => require("./actionGroup"));
+utilities.lazyLoad(exports, ["ActionRuleActionGroup"], () => require("./actionRuleActionGroup"));
+utilities.lazyLoad(exports, ["ActionRuleSuppression"], () => require("./actionRuleSuppression"));
+utilities.lazyLoad(exports, ["ActivityLogAlert"], () => require("./activityLogAlert"));
+utilities.lazyLoad(exports, ["AlertProcessingRuleActionGroup"], () => require("./alertProcessingRuleActionGroup"));
+utilities.lazyLoad(exports, ["AlertProcessingRuleSuppression"], () => require("./alertProcessingRuleSuppression"));
+utilities.lazyLoad(exports, ["AutoscaleSetting"], () => require("./autoscaleSetting"));
+utilities.lazyLoad(exports, ["DataCollectionEndpoint"], () => require("./dataCollectionEndpoint"));
+utilities.lazyLoad(exports, ["DataCollectionRule"], () => require("./dataCollectionRule"));
+utilities.lazyLoad(exports, ["DataCollectionRuleAssociation"], () => require("./dataCollectionRuleAssociation"));
+utilities.lazyLoad(exports, ["DiagnosticSetting"], () => require("./diagnosticSetting"));
+utilities.lazyLoad(exports, ["getActionGroup","getActionGroupOutput"], () => require("./getActionGroup"));
+utilities.lazyLoad(exports, ["getDataCollectionEndpoint","getDataCollectionEndpointOutput"], () => require("./getDataCollectionEndpoint"));
+utilities.lazyLoad(exports, ["getDataCollectionRule","getDataCollectionRuleOutput"], () => require("./getDataCollectionRule"));
+utilities.lazyLoad(exports, ["getDiagnosticCategories","getDiagnosticCategoriesOutput"], () => require("./getDiagnosticCategories"));
+utilities.lazyLoad(exports, ["getLogProfile","getLogProfileOutput"], () => require("./getLogProfile"));
+utilities.lazyLoad(exports, ["getScheduledQueryRulesAlert","getScheduledQueryRulesAlertOutput"], () => require("./getScheduledQueryRulesAlert"));
+utilities.lazyLoad(exports, ["getScheduledQueryRulesLog","getScheduledQueryRulesLogOutput"], () => require("./getScheduledQueryRulesLog"));
+utilities.lazyLoad(exports, ["LogProfile"], () => require("./logProfile"));
+utilities.lazyLoad(exports, ["LogzMonitor"], () => require("./logzMonitor"));
+utilities.lazyLoad(exports, ["LogzSubAccount"], () => require("./logzSubAccount"));
+utilities.lazyLoad(exports, ["LogzSubAccountTagRule"], () => require("./logzSubAccountTagRule"));
+utilities.lazyLoad(exports, ["LogzTagRule"], () => require("./logzTagRule"));
+utilities.lazyLoad(exports, ["MetricAlert"], () => require("./metricAlert"));
+utilities.lazyLoad(exports, ["PrivateLinkScope"], () => require("./privateLinkScope"));
+utilities.lazyLoad(exports, ["PrivateLinkScopedService"], () => require("./privateLinkScopedService"));
+utilities.lazyLoad(exports, ["ScheduledQueryRulesAlert"], () => require("./scheduledQueryRulesAlert"));
+utilities.lazyLoad(exports, ["ScheduledQueryRulesAlertV2"], () => require("./scheduledQueryRulesAlertV2"));
+utilities.lazyLoad(exports, ["ScheduledQueryRulesLog"], () => require("./scheduledQueryRulesLog"));
+utilities.lazyLoad(exports, ["SmartDetectorAlertRule"], () => require("./smartDetectorAlertRule"));
 
 const _module = {
     version: utilities.getVersion(),
@@ -72,6 +175,10 @@ const _module = {
                 return new ActionRuleSuppression(name, <any>undefined, { urn })
             case "azure:monitoring/activityLogAlert:ActivityLogAlert":
                 return new ActivityLogAlert(name, <any>undefined, { urn })
+            case "azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup":
+                return new AlertProcessingRuleActionGroup(name, <any>undefined, { urn })
+            case "azure:monitoring/alertProcessingRuleSuppression:AlertProcessingRuleSuppression":
+                return new AlertProcessingRuleSuppression(name, <any>undefined, { urn })
             case "azure:monitoring/autoscaleSetting:AutoscaleSetting":
                 return new AutoscaleSetting(name, <any>undefined, { urn })
             case "azure:monitoring/dataCollectionEndpoint:DataCollectionEndpoint":
@@ -116,6 +223,8 @@ pulumi.runtime.registerResourceModule("azure", "monitoring/actionGroup", _module
 pulumi.runtime.registerResourceModule("azure", "monitoring/actionRuleActionGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/actionRuleSuppression", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/activityLogAlert", _module)
+pulumi.runtime.registerResourceModule("azure", "monitoring/alertProcessingRuleActionGroup", _module)
+pulumi.runtime.registerResourceModule("azure", "monitoring/alertProcessingRuleSuppression", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/autoscaleSetting", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/dataCollectionEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "monitoring/dataCollectionRule", _module)

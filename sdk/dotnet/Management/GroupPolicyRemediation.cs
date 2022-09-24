@@ -33,6 +33,9 @@ namespace Pulumi.Azure.Management
         [Output("policyDefinitionId")]
         public Output<string?> PolicyDefinitionId { get; private set; } = null!;
 
+        [Output("policyDefinitionReferenceId")]
+        public Output<string?> PolicyDefinitionReferenceId { get; private set; } = null!;
+
         [Output("resourceCount")]
         public Output<int?> ResourceCount { get; private set; } = null!;
 
@@ -111,6 +114,9 @@ namespace Pulumi.Azure.Management
         [Input("policyDefinitionId")]
         public Input<string>? PolicyDefinitionId { get; set; }
 
+        [Input("policyDefinitionReferenceId")]
+        public Input<string>? PolicyDefinitionReferenceId { get; set; }
+
         [Input("resourceCount")]
         public Input<int>? ResourceCount { get; set; }
 
@@ -150,6 +156,9 @@ namespace Pulumi.Azure.Management
 
         [Input("policyDefinitionId")]
         public Input<string>? PolicyDefinitionId { get; set; }
+
+        [Input("policyDefinitionReferenceId")]
+        public Input<string>? PolicyDefinitionReferenceId { get; set; }
 
         [Input("resourceCount")]
         public Input<int>? ResourceCount { get; set; }

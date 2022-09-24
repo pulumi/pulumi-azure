@@ -50,6 +50,8 @@ __all__ = [
     'ShareAclAccessPolicy',
     'TableAcl',
     'TableAclAccessPolicy',
+    'GetAccountAzureFilesAuthenticationResult',
+    'GetAccountAzureFilesAuthenticationActiveDirectoryResult',
     'GetAccountBlobContainerSASPermissionsResult',
     'GetAccountCustomDomainResult',
     'GetAccountIdentityResult',
@@ -2578,6 +2580,108 @@ class TableAclAccessPolicy(dict):
         The ISO8061 UTC time at which this Access Policy should be valid from.
         """
         return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class GetAccountAzureFilesAuthenticationResult(dict):
+    def __init__(__self__, *,
+                 active_directories: Sequence['outputs.GetAccountAzureFilesAuthenticationActiveDirectoryResult'],
+                 directory_type: str):
+        """
+        :param Sequence['GetAccountAzureFilesAuthenticationActiveDirectoryArgs'] active_directories: An `active_directory` block as documented below.
+        :param str directory_type: The directory service used for this Storage Account.
+        """
+        pulumi.set(__self__, "active_directories", active_directories)
+        pulumi.set(__self__, "directory_type", directory_type)
+
+    @property
+    @pulumi.getter(name="activeDirectories")
+    def active_directories(self) -> Sequence['outputs.GetAccountAzureFilesAuthenticationActiveDirectoryResult']:
+        """
+        An `active_directory` block as documented below.
+        """
+        return pulumi.get(self, "active_directories")
+
+    @property
+    @pulumi.getter(name="directoryType")
+    def directory_type(self) -> str:
+        """
+        The directory service used for this Storage Account.
+        """
+        return pulumi.get(self, "directory_type")
+
+
+@pulumi.output_type
+class GetAccountAzureFilesAuthenticationActiveDirectoryResult(dict):
+    def __init__(__self__, *,
+                 domain_guid: str,
+                 domain_name: str,
+                 domain_sid: str,
+                 forest_name: str,
+                 netbios_domain_name: str,
+                 storage_sid: str):
+        """
+        :param str domain_guid: The domain GUID.
+        :param str domain_name: The primary domain that the AD DNS server is authoritative for.
+        :param str domain_sid: The domain security identifier.
+        :param str forest_name: The name of the Active Directory forest.
+        :param str netbios_domain_name: The NetBIOS domain name.
+        :param str storage_sid: The security identifier for Azure Storage.
+        """
+        pulumi.set(__self__, "domain_guid", domain_guid)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "domain_sid", domain_sid)
+        pulumi.set(__self__, "forest_name", forest_name)
+        pulumi.set(__self__, "netbios_domain_name", netbios_domain_name)
+        pulumi.set(__self__, "storage_sid", storage_sid)
+
+    @property
+    @pulumi.getter(name="domainGuid")
+    def domain_guid(self) -> str:
+        """
+        The domain GUID.
+        """
+        return pulumi.get(self, "domain_guid")
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> str:
+        """
+        The primary domain that the AD DNS server is authoritative for.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="domainSid")
+    def domain_sid(self) -> str:
+        """
+        The domain security identifier.
+        """
+        return pulumi.get(self, "domain_sid")
+
+    @property
+    @pulumi.getter(name="forestName")
+    def forest_name(self) -> str:
+        """
+        The name of the Active Directory forest.
+        """
+        return pulumi.get(self, "forest_name")
+
+    @property
+    @pulumi.getter(name="netbiosDomainName")
+    def netbios_domain_name(self) -> str:
+        """
+        The NetBIOS domain name.
+        """
+        return pulumi.get(self, "netbios_domain_name")
+
+    @property
+    @pulumi.getter(name="storageSid")
+    def storage_sid(self) -> str:
+        """
+        The security identifier for Azure Storage.
+        """
+        return pulumi.get(self, "storage_sid")
 
 
 @pulumi.output_type

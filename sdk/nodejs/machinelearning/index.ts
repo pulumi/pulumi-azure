@@ -5,19 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./computeCluster";
-export * from "./computeInstance";
-export * from "./getWorkspace";
-export * from "./inferenceCluster";
-export * from "./synapseSpark";
-export * from "./workspace";
+export { ComputeClusterArgs, ComputeClusterState } from "./computeCluster";
+export type ComputeCluster = import("./computeCluster").ComputeCluster;
+export const ComputeCluster: typeof import("./computeCluster").ComputeCluster = null as any;
 
-// Import resources to register:
-import { ComputeCluster } from "./computeCluster";
-import { ComputeInstance } from "./computeInstance";
-import { InferenceCluster } from "./inferenceCluster";
-import { SynapseSpark } from "./synapseSpark";
-import { Workspace } from "./workspace";
+export { ComputeInstanceArgs, ComputeInstanceState } from "./computeInstance";
+export type ComputeInstance = import("./computeInstance").ComputeInstance;
+export const ComputeInstance: typeof import("./computeInstance").ComputeInstance = null as any;
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+
+export { InferenceClusterArgs, InferenceClusterState } from "./inferenceCluster";
+export type InferenceCluster = import("./inferenceCluster").InferenceCluster;
+export const InferenceCluster: typeof import("./inferenceCluster").InferenceCluster = null as any;
+
+export { SynapseSparkArgs, SynapseSparkState } from "./synapseSpark";
+export type SynapseSpark = import("./synapseSpark").SynapseSpark;
+export const SynapseSpark: typeof import("./synapseSpark").SynapseSpark = null as any;
+
+export { WorkspaceArgs, WorkspaceState } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+
+utilities.lazyLoad(exports, ["ComputeCluster"], () => require("./computeCluster"));
+utilities.lazyLoad(exports, ["ComputeInstance"], () => require("./computeInstance"));
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+utilities.lazyLoad(exports, ["InferenceCluster"], () => require("./inferenceCluster"));
+utilities.lazyLoad(exports, ["SynapseSpark"], () => require("./synapseSpark"));
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
 const _module = {
     version: utilities.getVersion(),

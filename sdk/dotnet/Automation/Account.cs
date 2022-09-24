@@ -76,6 +76,13 @@ namespace Pulumi.Azure.Automation
         public Output<ImmutableArray<Outputs.AccountEncryption>> Encryptions { get; private set; } = null!;
 
         /// <summary>
+        /// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+        /// ---
+        /// </summary>
+        [Output("hybridServiceUrl")]
+        public Output<string> HybridServiceUrl { get; private set; } = null!;
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
@@ -275,6 +282,13 @@ namespace Pulumi.Azure.Automation
             get => _encryptions ?? (_encryptions = new InputList<Inputs.AccountEncryptionGetArgs>());
             set => _encryptions = value;
         }
+
+        /// <summary>
+        /// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+        /// ---
+        /// </summary>
+        [Input("hybridServiceUrl")]
+        public Input<string>? HybridServiceUrl { get; set; }
 
         /// <summary>
         /// An `identity` block as defined below.

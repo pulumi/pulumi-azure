@@ -22,7 +22,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string FrontendPortRange;
         /// <summary>
-        /// The name of the endpoint.
+        /// The name of the user account.
         /// </summary>
         public readonly string Name;
         /// <summary>

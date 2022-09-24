@@ -48,6 +48,40 @@ __all__ = [
     'ActivityLogAlertCriteriaArgs',
     'ActivityLogAlertCriteriaResourceHealthArgs',
     'ActivityLogAlertCriteriaServiceHealthArgs',
+    'AlertProcessingRuleActionGroupConditionArgs',
+    'AlertProcessingRuleActionGroupConditionAlertContextArgs',
+    'AlertProcessingRuleActionGroupConditionAlertRuleIdArgs',
+    'AlertProcessingRuleActionGroupConditionAlertRuleNameArgs',
+    'AlertProcessingRuleActionGroupConditionDescriptionArgs',
+    'AlertProcessingRuleActionGroupConditionMonitorConditionArgs',
+    'AlertProcessingRuleActionGroupConditionMonitorServiceArgs',
+    'AlertProcessingRuleActionGroupConditionSeverityArgs',
+    'AlertProcessingRuleActionGroupConditionSignalTypeArgs',
+    'AlertProcessingRuleActionGroupConditionTargetResourceArgs',
+    'AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs',
+    'AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs',
+    'AlertProcessingRuleActionGroupScheduleArgs',
+    'AlertProcessingRuleActionGroupScheduleRecurrenceArgs',
+    'AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs',
+    'AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs',
+    'AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs',
+    'AlertProcessingRuleSuppressionConditionArgs',
+    'AlertProcessingRuleSuppressionConditionAlertContextArgs',
+    'AlertProcessingRuleSuppressionConditionAlertRuleIdArgs',
+    'AlertProcessingRuleSuppressionConditionAlertRuleNameArgs',
+    'AlertProcessingRuleSuppressionConditionDescriptionArgs',
+    'AlertProcessingRuleSuppressionConditionMonitorConditionArgs',
+    'AlertProcessingRuleSuppressionConditionMonitorServiceArgs',
+    'AlertProcessingRuleSuppressionConditionSeverityArgs',
+    'AlertProcessingRuleSuppressionConditionSignalTypeArgs',
+    'AlertProcessingRuleSuppressionConditionTargetResourceArgs',
+    'AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs',
+    'AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs',
+    'AlertProcessingRuleSuppressionScheduleArgs',
+    'AlertProcessingRuleSuppressionScheduleRecurrenceArgs',
+    'AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs',
+    'AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs',
+    'AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs',
     'AutoscaleSettingNotificationArgs',
     'AutoscaleSettingNotificationEmailArgs',
     'AutoscaleSettingNotificationWebhookArgs',
@@ -2357,6 +2391,1728 @@ class ActivityLogAlertCriteriaServiceHealthArgs:
 
 
 @pulumi.input_type
+class AlertProcessingRuleActionGroupConditionArgs:
+    def __init__(__self__, *,
+                 alert_context: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionAlertContextArgs']] = None,
+                 alert_rule_id: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionAlertRuleIdArgs']] = None,
+                 alert_rule_name: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionAlertRuleNameArgs']] = None,
+                 description: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionDescriptionArgs']] = None,
+                 monitor_condition: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionMonitorConditionArgs']] = None,
+                 monitor_service: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionMonitorServiceArgs']] = None,
+                 severity: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionSeverityArgs']] = None,
+                 signal_type: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionSignalTypeArgs']] = None,
+                 target_resource: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceArgs']] = None,
+                 target_resource_group: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs']] = None,
+                 target_resource_type: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs']] = None):
+        """
+        :param pulumi.Input['AlertProcessingRuleActionGroupConditionAlertContextArgs'] alert_context: A `alert_context` block as defined above.
+        :param pulumi.Input['AlertProcessingRuleActionGroupConditionAlertRuleIdArgs'] alert_rule_id: A `alert_rule_id` block as defined above.
+        :param pulumi.Input['AlertProcessingRuleActionGroupConditionAlertRuleNameArgs'] alert_rule_name: A `alert_rule_name` block as defined above.
+        :param pulumi.Input['AlertProcessingRuleActionGroupConditionDescriptionArgs'] description: A `description` block as defined below.
+        :param pulumi.Input['AlertProcessingRuleActionGroupConditionMonitorConditionArgs'] monitor_condition: A `monitor_condition` block as defined below.
+        :param pulumi.Input['AlertProcessingRuleActionGroupConditionMonitorServiceArgs'] monitor_service: A `monitor_service` block as defined below.
+        :param pulumi.Input['AlertProcessingRuleActionGroupConditionSeverityArgs'] severity: A `severity` block as defined below.
+        :param pulumi.Input['AlertProcessingRuleActionGroupConditionSignalTypeArgs'] signal_type: A `signal_type` block as defined below.
+        :param pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceArgs'] target_resource: A `target_resource` block as defined below.
+        :param pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs'] target_resource_group: A `target_resource_group` block as defined below.
+        :param pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs'] target_resource_type: A `target_resource_type` block as defined below.
+        """
+        if alert_context is not None:
+            pulumi.set(__self__, "alert_context", alert_context)
+        if alert_rule_id is not None:
+            pulumi.set(__self__, "alert_rule_id", alert_rule_id)
+        if alert_rule_name is not None:
+            pulumi.set(__self__, "alert_rule_name", alert_rule_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if monitor_condition is not None:
+            pulumi.set(__self__, "monitor_condition", monitor_condition)
+        if monitor_service is not None:
+            pulumi.set(__self__, "monitor_service", monitor_service)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if signal_type is not None:
+            pulumi.set(__self__, "signal_type", signal_type)
+        if target_resource is not None:
+            pulumi.set(__self__, "target_resource", target_resource)
+        if target_resource_group is not None:
+            pulumi.set(__self__, "target_resource_group", target_resource_group)
+        if target_resource_type is not None:
+            pulumi.set(__self__, "target_resource_type", target_resource_type)
+
+    @property
+    @pulumi.getter(name="alertContext")
+    def alert_context(self) -> Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionAlertContextArgs']]:
+        """
+        A `alert_context` block as defined above.
+        """
+        return pulumi.get(self, "alert_context")
+
+    @alert_context.setter
+    def alert_context(self, value: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionAlertContextArgs']]):
+        pulumi.set(self, "alert_context", value)
+
+    @property
+    @pulumi.getter(name="alertRuleId")
+    def alert_rule_id(self) -> Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionAlertRuleIdArgs']]:
+        """
+        A `alert_rule_id` block as defined above.
+        """
+        return pulumi.get(self, "alert_rule_id")
+
+    @alert_rule_id.setter
+    def alert_rule_id(self, value: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionAlertRuleIdArgs']]):
+        pulumi.set(self, "alert_rule_id", value)
+
+    @property
+    @pulumi.getter(name="alertRuleName")
+    def alert_rule_name(self) -> Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionAlertRuleNameArgs']]:
+        """
+        A `alert_rule_name` block as defined above.
+        """
+        return pulumi.get(self, "alert_rule_name")
+
+    @alert_rule_name.setter
+    def alert_rule_name(self, value: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionAlertRuleNameArgs']]):
+        pulumi.set(self, "alert_rule_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionDescriptionArgs']]:
+        """
+        A `description` block as defined below.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionDescriptionArgs']]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="monitorCondition")
+    def monitor_condition(self) -> Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionMonitorConditionArgs']]:
+        """
+        A `monitor_condition` block as defined below.
+        """
+        return pulumi.get(self, "monitor_condition")
+
+    @monitor_condition.setter
+    def monitor_condition(self, value: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionMonitorConditionArgs']]):
+        pulumi.set(self, "monitor_condition", value)
+
+    @property
+    @pulumi.getter(name="monitorService")
+    def monitor_service(self) -> Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionMonitorServiceArgs']]:
+        """
+        A `monitor_service` block as defined below.
+        """
+        return pulumi.get(self, "monitor_service")
+
+    @monitor_service.setter
+    def monitor_service(self, value: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionMonitorServiceArgs']]):
+        pulumi.set(self, "monitor_service", value)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionSeverityArgs']]:
+        """
+        A `severity` block as defined below.
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionSeverityArgs']]):
+        pulumi.set(self, "severity", value)
+
+    @property
+    @pulumi.getter(name="signalType")
+    def signal_type(self) -> Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionSignalTypeArgs']]:
+        """
+        A `signal_type` block as defined below.
+        """
+        return pulumi.get(self, "signal_type")
+
+    @signal_type.setter
+    def signal_type(self, value: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionSignalTypeArgs']]):
+        pulumi.set(self, "signal_type", value)
+
+    @property
+    @pulumi.getter(name="targetResource")
+    def target_resource(self) -> Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceArgs']]:
+        """
+        A `target_resource` block as defined below.
+        """
+        return pulumi.get(self, "target_resource")
+
+    @target_resource.setter
+    def target_resource(self, value: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceArgs']]):
+        pulumi.set(self, "target_resource", value)
+
+    @property
+    @pulumi.getter(name="targetResourceGroup")
+    def target_resource_group(self) -> Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs']]:
+        """
+        A `target_resource_group` block as defined below.
+        """
+        return pulumi.get(self, "target_resource_group")
+
+    @target_resource_group.setter
+    def target_resource_group(self, value: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs']]):
+        pulumi.set(self, "target_resource_group", value)
+
+    @property
+    @pulumi.getter(name="targetResourceType")
+    def target_resource_type(self) -> Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs']]:
+        """
+        A `target_resource_type` block as defined below.
+        """
+        return pulumi.get(self, "target_resource_type")
+
+    @target_resource_type.setter
+    def target_resource_type(self, value: Optional[pulumi.Input['AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs']]):
+        pulumi.set(self, "target_resource_type", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleActionGroupConditionAlertContextArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of values to match for a given condition.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleActionGroupConditionAlertRuleIdArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of values to match for a given condition.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleActionGroupConditionAlertRuleNameArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of values to match for a given condition.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleActionGroupConditionDescriptionArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of values to match for a given condition.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleActionGroupConditionMonitorConditionArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleActionGroupConditionMonitorServiceArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Prometheus`, `Resource Health`, `Smart Detector`, and `VM Insights - Health`.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Prometheus`, `Resource Health`, `Smart Detector`, and `VM Insights - Health`.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleActionGroupConditionSeverityArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleActionGroupConditionSignalTypeArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition. Possible values are `Metric`, `Log`, `Unknown`, and `Health`.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of values to match for a given condition. Possible values are `Metric`, `Log`, `Unknown`, and `Health`.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleActionGroupConditionTargetResourceArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. The values should be valid resource IDs.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of values to match for a given condition. The values should be valid resource IDs.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. The values should be valid resource group IDs.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of values to match for a given condition. The values should be valid resource group IDs.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleActionGroupScheduleArgs:
+    def __init__(__self__, *,
+                 effective_from: Optional[pulumi.Input[str]] = None,
+                 effective_until: Optional[pulumi.Input[str]] = None,
+                 recurrence: Optional[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceArgs']] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] effective_from: Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
+        :param pulumi.Input[str] effective_until: Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
+        :param pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceArgs'] recurrence: A `recurrence` block as defined above.
+        :param pulumi.Input[str] time_zone: The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+        """
+        if effective_from is not None:
+            pulumi.set(__self__, "effective_from", effective_from)
+        if effective_until is not None:
+            pulumi.set(__self__, "effective_until", effective_until)
+        if recurrence is not None:
+            pulumi.set(__self__, "recurrence", recurrence)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter(name="effectiveFrom")
+    def effective_from(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
+        """
+        return pulumi.get(self, "effective_from")
+
+    @effective_from.setter
+    def effective_from(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "effective_from", value)
+
+    @property
+    @pulumi.getter(name="effectiveUntil")
+    def effective_until(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
+        """
+        return pulumi.get(self, "effective_until")
+
+    @effective_until.setter
+    def effective_until(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "effective_until", value)
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> Optional[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceArgs']]:
+        """
+        A `recurrence` block as defined above.
+        """
+        return pulumi.get(self, "recurrence")
+
+    @recurrence.setter
+    def recurrence(self, value: Optional[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceArgs']]):
+        pulumi.set(self, "recurrence", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleActionGroupScheduleRecurrenceArgs:
+    def __init__(__self__, *,
+                 dailies: Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs']]]] = None,
+                 monthlies: Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs']]]] = None,
+                 weeklies: Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs']]] dailies: One or more `daily` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs']]] monthlies: One or more `monthly` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs']]] weeklies: One or more `weekly` blocks as defined below.
+        """
+        if dailies is not None:
+            pulumi.set(__self__, "dailies", dailies)
+        if monthlies is not None:
+            pulumi.set(__self__, "monthlies", monthlies)
+        if weeklies is not None:
+            pulumi.set(__self__, "weeklies", weeklies)
+
+    @property
+    @pulumi.getter
+    def dailies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs']]]]:
+        """
+        One or more `daily` blocks as defined above.
+        """
+        return pulumi.get(self, "dailies")
+
+    @dailies.setter
+    def dailies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs']]]]):
+        pulumi.set(self, "dailies", value)
+
+    @property
+    @pulumi.getter
+    def monthlies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs']]]]:
+        """
+        One or more `monthly` blocks as defined above.
+        """
+        return pulumi.get(self, "monthlies")
+
+    @monthlies.setter
+    def monthlies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs']]]]):
+        pulumi.set(self, "monthlies", value)
+
+    @property
+    @pulumi.getter
+    def weeklies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs']]]]:
+        """
+        One or more `weekly` blocks as defined below.
+        """
+        return pulumi.get(self, "weeklies")
+
+    @weeklies.setter
+    def weeklies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs']]]]):
+        pulumi.set(self, "weeklies", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs:
+    def __init__(__self__, *,
+                 end_time: pulumi.Input[str],
+                 start_time: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] end_time: Specifies the recurrence end time (H:M:S).
+        :param pulumi.Input[str] start_time: Specifies the recurrence start time (H:M:S).
+        """
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> pulumi.Input[str]:
+        """
+        Specifies the recurrence end time (H:M:S).
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "end_time", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input[str]:
+        """
+        Specifies the recurrence start time (H:M:S).
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs:
+    def __init__(__self__, *,
+                 days_of_months: pulumi.Input[Sequence[pulumi.Input[int]]],
+                 end_time: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] days_of_months: Specifies a list of dayOfMonth to recurrence. Possible values are integers between `1` - `31`.
+        :param pulumi.Input[str] end_time: Specifies the recurrence end time (H:M:S).
+        :param pulumi.Input[str] start_time: Specifies the recurrence start time (H:M:S).
+        """
+        pulumi.set(__self__, "days_of_months", days_of_months)
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="daysOfMonths")
+    def days_of_months(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+        """
+        Specifies a list of dayOfMonth to recurrence. Possible values are integers between `1` - `31`.
+        """
+        return pulumi.get(self, "days_of_months")
+
+    @days_of_months.setter
+    def days_of_months(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        pulumi.set(self, "days_of_months", value)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the recurrence end time (H:M:S).
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_time", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the recurrence start time (H:M:S).
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs:
+    def __init__(__self__, *,
+                 days_of_weeks: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 end_time: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+        :param pulumi.Input[str] end_time: Specifies the recurrence end time (H:M:S).
+        :param pulumi.Input[str] start_time: Specifies the recurrence start time (H:M:S).
+        """
+        pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="daysOfWeeks")
+    def days_of_weeks(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+        """
+        return pulumi.get(self, "days_of_weeks")
+
+    @days_of_weeks.setter
+    def days_of_weeks(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "days_of_weeks", value)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the recurrence end time (H:M:S).
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_time", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the recurrence start time (H:M:S).
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleSuppressionConditionArgs:
+    def __init__(__self__, *,
+                 alert_context: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionAlertContextArgs']] = None,
+                 alert_rule_id: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionAlertRuleIdArgs']] = None,
+                 alert_rule_name: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionAlertRuleNameArgs']] = None,
+                 description: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionDescriptionArgs']] = None,
+                 monitor_condition: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionMonitorConditionArgs']] = None,
+                 monitor_service: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionMonitorServiceArgs']] = None,
+                 severity: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionSeverityArgs']] = None,
+                 signal_type: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionSignalTypeArgs']] = None,
+                 target_resource: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionTargetResourceArgs']] = None,
+                 target_resource_group: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs']] = None,
+                 target_resource_type: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs']] = None):
+        """
+        :param pulumi.Input['AlertProcessingRuleSuppressionConditionAlertContextArgs'] alert_context: A `alert_context` block as defined above.
+        :param pulumi.Input['AlertProcessingRuleSuppressionConditionAlertRuleIdArgs'] alert_rule_id: A `alert_rule_id` block as defined above.
+        :param pulumi.Input['AlertProcessingRuleSuppressionConditionAlertRuleNameArgs'] alert_rule_name: A `alert_rule_name` block as defined above.
+        :param pulumi.Input['AlertProcessingRuleSuppressionConditionDescriptionArgs'] description: A `description` block as defined below.
+        :param pulumi.Input['AlertProcessingRuleSuppressionConditionMonitorConditionArgs'] monitor_condition: A `monitor_condition` block as defined below.
+        :param pulumi.Input['AlertProcessingRuleSuppressionConditionMonitorServiceArgs'] monitor_service: A `monitor_service` block as defined below.
+        :param pulumi.Input['AlertProcessingRuleSuppressionConditionSeverityArgs'] severity: A `severity` block as defined below.
+        :param pulumi.Input['AlertProcessingRuleSuppressionConditionSignalTypeArgs'] signal_type: A `signal_type` block as defined below.
+        :param pulumi.Input['AlertProcessingRuleSuppressionConditionTargetResourceArgs'] target_resource: A `target_resource` block as defined below.
+        :param pulumi.Input['AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs'] target_resource_group: A `target_resource_group` block as defined below.
+        :param pulumi.Input['AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs'] target_resource_type: A `target_resource_type` block as defined below.
+        """
+        if alert_context is not None:
+            pulumi.set(__self__, "alert_context", alert_context)
+        if alert_rule_id is not None:
+            pulumi.set(__self__, "alert_rule_id", alert_rule_id)
+        if alert_rule_name is not None:
+            pulumi.set(__self__, "alert_rule_name", alert_rule_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if monitor_condition is not None:
+            pulumi.set(__self__, "monitor_condition", monitor_condition)
+        if monitor_service is not None:
+            pulumi.set(__self__, "monitor_service", monitor_service)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+        if signal_type is not None:
+            pulumi.set(__self__, "signal_type", signal_type)
+        if target_resource is not None:
+            pulumi.set(__self__, "target_resource", target_resource)
+        if target_resource_group is not None:
+            pulumi.set(__self__, "target_resource_group", target_resource_group)
+        if target_resource_type is not None:
+            pulumi.set(__self__, "target_resource_type", target_resource_type)
+
+    @property
+    @pulumi.getter(name="alertContext")
+    def alert_context(self) -> Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionAlertContextArgs']]:
+        """
+        A `alert_context` block as defined above.
+        """
+        return pulumi.get(self, "alert_context")
+
+    @alert_context.setter
+    def alert_context(self, value: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionAlertContextArgs']]):
+        pulumi.set(self, "alert_context", value)
+
+    @property
+    @pulumi.getter(name="alertRuleId")
+    def alert_rule_id(self) -> Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionAlertRuleIdArgs']]:
+        """
+        A `alert_rule_id` block as defined above.
+        """
+        return pulumi.get(self, "alert_rule_id")
+
+    @alert_rule_id.setter
+    def alert_rule_id(self, value: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionAlertRuleIdArgs']]):
+        pulumi.set(self, "alert_rule_id", value)
+
+    @property
+    @pulumi.getter(name="alertRuleName")
+    def alert_rule_name(self) -> Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionAlertRuleNameArgs']]:
+        """
+        A `alert_rule_name` block as defined above.
+        """
+        return pulumi.get(self, "alert_rule_name")
+
+    @alert_rule_name.setter
+    def alert_rule_name(self, value: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionAlertRuleNameArgs']]):
+        pulumi.set(self, "alert_rule_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionDescriptionArgs']]:
+        """
+        A `description` block as defined below.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionDescriptionArgs']]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="monitorCondition")
+    def monitor_condition(self) -> Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionMonitorConditionArgs']]:
+        """
+        A `monitor_condition` block as defined below.
+        """
+        return pulumi.get(self, "monitor_condition")
+
+    @monitor_condition.setter
+    def monitor_condition(self, value: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionMonitorConditionArgs']]):
+        pulumi.set(self, "monitor_condition", value)
+
+    @property
+    @pulumi.getter(name="monitorService")
+    def monitor_service(self) -> Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionMonitorServiceArgs']]:
+        """
+        A `monitor_service` block as defined below.
+        """
+        return pulumi.get(self, "monitor_service")
+
+    @monitor_service.setter
+    def monitor_service(self, value: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionMonitorServiceArgs']]):
+        pulumi.set(self, "monitor_service", value)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionSeverityArgs']]:
+        """
+        A `severity` block as defined below.
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionSeverityArgs']]):
+        pulumi.set(self, "severity", value)
+
+    @property
+    @pulumi.getter(name="signalType")
+    def signal_type(self) -> Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionSignalTypeArgs']]:
+        """
+        A `signal_type` block as defined below.
+        """
+        return pulumi.get(self, "signal_type")
+
+    @signal_type.setter
+    def signal_type(self, value: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionSignalTypeArgs']]):
+        pulumi.set(self, "signal_type", value)
+
+    @property
+    @pulumi.getter(name="targetResource")
+    def target_resource(self) -> Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionTargetResourceArgs']]:
+        """
+        A `target_resource` block as defined below.
+        """
+        return pulumi.get(self, "target_resource")
+
+    @target_resource.setter
+    def target_resource(self, value: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionTargetResourceArgs']]):
+        pulumi.set(self, "target_resource", value)
+
+    @property
+    @pulumi.getter(name="targetResourceGroup")
+    def target_resource_group(self) -> Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs']]:
+        """
+        A `target_resource_group` block as defined below.
+        """
+        return pulumi.get(self, "target_resource_group")
+
+    @target_resource_group.setter
+    def target_resource_group(self, value: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs']]):
+        pulumi.set(self, "target_resource_group", value)
+
+    @property
+    @pulumi.getter(name="targetResourceType")
+    def target_resource_type(self) -> Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs']]:
+        """
+        A `target_resource_type` block as defined below.
+        """
+        return pulumi.get(self, "target_resource_type")
+
+    @target_resource_type.setter
+    def target_resource_type(self, value: Optional[pulumi.Input['AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs']]):
+        pulumi.set(self, "target_resource_type", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleSuppressionConditionAlertContextArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of values to match for a given condition.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleSuppressionConditionAlertRuleIdArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of values to match for a given condition.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleSuppressionConditionAlertRuleNameArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of values to match for a given condition.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleSuppressionConditionDescriptionArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of values to match for a given condition.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleSuppressionConditionMonitorConditionArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleSuppressionConditionMonitorServiceArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Prometheus`, `Resource Health`, `Smart Detector`, and `VM Insights - Health`.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Prometheus`, `Resource Health`, `Smart Detector`, and `VM Insights - Health`.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleSuppressionConditionSeverityArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleSuppressionConditionSignalTypeArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Specifies a list of values to match for a given condition. Possible values are `Metric`, `Log`, `Unknown`, and `Health`.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of values to match for a given condition. Possible values are `Metric`, `Log`, `Unknown`, and `Health`.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleSuppressionConditionTargetResourceArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. The values should be valid resource IDs.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of values to match for a given condition. The values should be valid resource IDs.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. The values should be valid resource group IDs.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of values to match for a given condition. The values should be valid resource group IDs.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] operator: The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[str]:
+        """
+        The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleSuppressionScheduleArgs:
+    def __init__(__self__, *,
+                 effective_from: Optional[pulumi.Input[str]] = None,
+                 effective_until: Optional[pulumi.Input[str]] = None,
+                 recurrence: Optional[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceArgs']] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] effective_from: Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
+        :param pulumi.Input[str] effective_until: Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
+        :param pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceArgs'] recurrence: A `recurrence` block as defined above.
+        :param pulumi.Input[str] time_zone: The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+        """
+        if effective_from is not None:
+            pulumi.set(__self__, "effective_from", effective_from)
+        if effective_until is not None:
+            pulumi.set(__self__, "effective_until", effective_until)
+        if recurrence is not None:
+            pulumi.set(__self__, "recurrence", recurrence)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter(name="effectiveFrom")
+    def effective_from(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
+        """
+        return pulumi.get(self, "effective_from")
+
+    @effective_from.setter
+    def effective_from(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "effective_from", value)
+
+    @property
+    @pulumi.getter(name="effectiveUntil")
+    def effective_until(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
+        """
+        return pulumi.get(self, "effective_until")
+
+    @effective_until.setter
+    def effective_until(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "effective_until", value)
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> Optional[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceArgs']]:
+        """
+        A `recurrence` block as defined above.
+        """
+        return pulumi.get(self, "recurrence")
+
+    @recurrence.setter
+    def recurrence(self, value: Optional[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceArgs']]):
+        pulumi.set(self, "recurrence", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleSuppressionScheduleRecurrenceArgs:
+    def __init__(__self__, *,
+                 dailies: Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs']]]] = None,
+                 monthlies: Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs']]]] = None,
+                 weeklies: Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs']]] dailies: One or more `daily` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs']]] monthlies: One or more `monthly` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs']]] weeklies: One or more `weekly` blocks as defined below.
+        """
+        if dailies is not None:
+            pulumi.set(__self__, "dailies", dailies)
+        if monthlies is not None:
+            pulumi.set(__self__, "monthlies", monthlies)
+        if weeklies is not None:
+            pulumi.set(__self__, "weeklies", weeklies)
+
+    @property
+    @pulumi.getter
+    def dailies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs']]]]:
+        """
+        One or more `daily` blocks as defined above.
+        """
+        return pulumi.get(self, "dailies")
+
+    @dailies.setter
+    def dailies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs']]]]):
+        pulumi.set(self, "dailies", value)
+
+    @property
+    @pulumi.getter
+    def monthlies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs']]]]:
+        """
+        One or more `monthly` blocks as defined above.
+        """
+        return pulumi.get(self, "monthlies")
+
+    @monthlies.setter
+    def monthlies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs']]]]):
+        pulumi.set(self, "monthlies", value)
+
+    @property
+    @pulumi.getter
+    def weeklies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs']]]]:
+        """
+        One or more `weekly` blocks as defined below.
+        """
+        return pulumi.get(self, "weeklies")
+
+    @weeklies.setter
+    def weeklies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs']]]]):
+        pulumi.set(self, "weeklies", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs:
+    def __init__(__self__, *,
+                 end_time: pulumi.Input[str],
+                 start_time: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] end_time: Specifies the recurrence end time (H:M:S).
+        :param pulumi.Input[str] start_time: Specifies the recurrence start time (H:M:S).
+        """
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> pulumi.Input[str]:
+        """
+        Specifies the recurrence end time (H:M:S).
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "end_time", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input[str]:
+        """
+        Specifies the recurrence start time (H:M:S).
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs:
+    def __init__(__self__, *,
+                 days_of_months: pulumi.Input[Sequence[pulumi.Input[int]]],
+                 end_time: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] days_of_months: Specifies a list of dayOfMonth to recurrence. Possible values are integers between `1` - `31`.
+        :param pulumi.Input[str] end_time: Specifies the recurrence end time (H:M:S).
+        :param pulumi.Input[str] start_time: Specifies the recurrence start time (H:M:S).
+        """
+        pulumi.set(__self__, "days_of_months", days_of_months)
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="daysOfMonths")
+    def days_of_months(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+        """
+        Specifies a list of dayOfMonth to recurrence. Possible values are integers between `1` - `31`.
+        """
+        return pulumi.get(self, "days_of_months")
+
+    @days_of_months.setter
+    def days_of_months(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        pulumi.set(self, "days_of_months", value)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the recurrence end time (H:M:S).
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_time", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the recurrence start time (H:M:S).
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
+class AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs:
+    def __init__(__self__, *,
+                 days_of_weeks: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 end_time: Optional[pulumi.Input[str]] = None,
+                 start_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+        :param pulumi.Input[str] end_time: Specifies the recurrence end time (H:M:S).
+        :param pulumi.Input[str] start_time: Specifies the recurrence start time (H:M:S).
+        """
+        pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="daysOfWeeks")
+    def days_of_weeks(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+        """
+        return pulumi.get(self, "days_of_weeks")
+
+    @days_of_weeks.setter
+    def days_of_weeks(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "days_of_weeks", value)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the recurrence end time (H:M:S).
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_time", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the recurrence start time (H:M:S).
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+
+@pulumi.input_type
 class AutoscaleSettingNotificationArgs:
     def __init__(__self__, *,
                  email: Optional[pulumi.Input['AutoscaleSettingNotificationEmailArgs']] = None,
@@ -3279,7 +5035,7 @@ class DataCollectionRuleDataSourcesPerformanceCounterArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] counter_specifiers: Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
         :param pulumi.Input[str] name: The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
-        :param pulumi.Input[int] sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+        :param pulumi.Input[int] sampling_frequency_in_seconds: The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] streams: Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
         """
         pulumi.set(__self__, "counter_specifiers", counter_specifiers)
@@ -3315,7 +5071,7 @@ class DataCollectionRuleDataSourcesPerformanceCounterArgs:
     @pulumi.getter(name="samplingFrequencyInSeconds")
     def sampling_frequency_in_seconds(self) -> pulumi.Input[int]:
         """
-        The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+        The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
         """
         return pulumi.get(self, "sampling_frequency_in_seconds")
 

@@ -26,6 +26,11 @@ public final class EventHubNamespaceNetworkRulesets {
      */
     private @Nullable List<EventHubNamespaceNetworkRulesetsIpRule> ipRules;
     /**
+     * @return Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+     * 
+     */
+    private @Nullable Boolean publicNetworkAccessEnabled;
+    /**
      * @return Whether Trusted Microsoft Services are allowed to bypass firewall.
      * 
      */
@@ -50,6 +55,13 @@ public final class EventHubNamespaceNetworkRulesets {
      */
     public List<EventHubNamespaceNetworkRulesetsIpRule> ipRules() {
         return this.ipRules == null ? List.of() : this.ipRules;
+    }
+    /**
+     * @return Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+     * 
+     */
+    public Optional<Boolean> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
     }
     /**
      * @return Whether Trusted Microsoft Services are allowed to bypass firewall.
@@ -77,6 +89,7 @@ public final class EventHubNamespaceNetworkRulesets {
     public static final class Builder {
         private String defaultAction;
         private @Nullable List<EventHubNamespaceNetworkRulesetsIpRule> ipRules;
+        private @Nullable Boolean publicNetworkAccessEnabled;
         private @Nullable Boolean trustedServiceAccessEnabled;
         private @Nullable List<EventHubNamespaceNetworkRulesetsVirtualNetworkRule> virtualNetworkRules;
         public Builder() {}
@@ -84,6 +97,7 @@ public final class EventHubNamespaceNetworkRulesets {
     	      Objects.requireNonNull(defaults);
     	      this.defaultAction = defaults.defaultAction;
     	      this.ipRules = defaults.ipRules;
+    	      this.publicNetworkAccessEnabled = defaults.publicNetworkAccessEnabled;
     	      this.trustedServiceAccessEnabled = defaults.trustedServiceAccessEnabled;
     	      this.virtualNetworkRules = defaults.virtualNetworkRules;
         }
@@ -102,6 +116,11 @@ public final class EventHubNamespaceNetworkRulesets {
             return ipRules(List.of(ipRules));
         }
         @CustomType.Setter
+        public Builder publicNetworkAccessEnabled(@Nullable Boolean publicNetworkAccessEnabled) {
+            this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder trustedServiceAccessEnabled(@Nullable Boolean trustedServiceAccessEnabled) {
             this.trustedServiceAccessEnabled = trustedServiceAccessEnabled;
             return this;
@@ -118,6 +137,7 @@ public final class EventHubNamespaceNetworkRulesets {
             final var o = new EventHubNamespaceNetworkRulesets();
             o.defaultAction = defaultAction;
             o.ipRules = ipRules;
+            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             o.trustedServiceAccessEnabled = trustedServiceAccessEnabled;
             o.virtualNetworkRules = virtualNetworkRules;
             return o;

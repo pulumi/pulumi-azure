@@ -5,30 +5,61 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./advancedThreatProtection";
-export * from "./assessment";
-export * from "./assessmentPolicy";
-export * from "./autoProvisioning";
-export * from "./automation";
-export * from "./contact";
-export * from "./serverVulnerabilityAssessment";
-export * from "./serverVulnerabilityAssessmentVirtualMachine";
-export * from "./setting";
-export * from "./subscriptionPricing";
-export * from "./workspace";
+export { AdvancedThreatProtectionArgs, AdvancedThreatProtectionState } from "./advancedThreatProtection";
+export type AdvancedThreatProtection = import("./advancedThreatProtection").AdvancedThreatProtection;
+export const AdvancedThreatProtection: typeof import("./advancedThreatProtection").AdvancedThreatProtection = null as any;
 
-// Import resources to register:
-import { AdvancedThreatProtection } from "./advancedThreatProtection";
-import { Assessment } from "./assessment";
-import { AssessmentPolicy } from "./assessmentPolicy";
-import { AutoProvisioning } from "./autoProvisioning";
-import { Automation } from "./automation";
-import { Contact } from "./contact";
-import { ServerVulnerabilityAssessment } from "./serverVulnerabilityAssessment";
-import { ServerVulnerabilityAssessmentVirtualMachine } from "./serverVulnerabilityAssessmentVirtualMachine";
-import { Setting } from "./setting";
-import { SubscriptionPricing } from "./subscriptionPricing";
-import { Workspace } from "./workspace";
+export { AssessmentArgs, AssessmentState } from "./assessment";
+export type Assessment = import("./assessment").Assessment;
+export const Assessment: typeof import("./assessment").Assessment = null as any;
+
+export { AssessmentPolicyArgs, AssessmentPolicyState } from "./assessmentPolicy";
+export type AssessmentPolicy = import("./assessmentPolicy").AssessmentPolicy;
+export const AssessmentPolicy: typeof import("./assessmentPolicy").AssessmentPolicy = null as any;
+
+export { AutoProvisioningArgs, AutoProvisioningState } from "./autoProvisioning";
+export type AutoProvisioning = import("./autoProvisioning").AutoProvisioning;
+export const AutoProvisioning: typeof import("./autoProvisioning").AutoProvisioning = null as any;
+
+export { AutomationArgs, AutomationState } from "./automation";
+export type Automation = import("./automation").Automation;
+export const Automation: typeof import("./automation").Automation = null as any;
+
+export { ContactArgs, ContactState } from "./contact";
+export type Contact = import("./contact").Contact;
+export const Contact: typeof import("./contact").Contact = null as any;
+
+export { ServerVulnerabilityAssessmentArgs, ServerVulnerabilityAssessmentState } from "./serverVulnerabilityAssessment";
+export type ServerVulnerabilityAssessment = import("./serverVulnerabilityAssessment").ServerVulnerabilityAssessment;
+export const ServerVulnerabilityAssessment: typeof import("./serverVulnerabilityAssessment").ServerVulnerabilityAssessment = null as any;
+
+export { ServerVulnerabilityAssessmentVirtualMachineArgs, ServerVulnerabilityAssessmentVirtualMachineState } from "./serverVulnerabilityAssessmentVirtualMachine";
+export type ServerVulnerabilityAssessmentVirtualMachine = import("./serverVulnerabilityAssessmentVirtualMachine").ServerVulnerabilityAssessmentVirtualMachine;
+export const ServerVulnerabilityAssessmentVirtualMachine: typeof import("./serverVulnerabilityAssessmentVirtualMachine").ServerVulnerabilityAssessmentVirtualMachine = null as any;
+
+export { SettingArgs, SettingState } from "./setting";
+export type Setting = import("./setting").Setting;
+export const Setting: typeof import("./setting").Setting = null as any;
+
+export { SubscriptionPricingArgs, SubscriptionPricingState } from "./subscriptionPricing";
+export type SubscriptionPricing = import("./subscriptionPricing").SubscriptionPricing;
+export const SubscriptionPricing: typeof import("./subscriptionPricing").SubscriptionPricing = null as any;
+
+export { WorkspaceArgs, WorkspaceState } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+
+utilities.lazyLoad(exports, ["AdvancedThreatProtection"], () => require("./advancedThreatProtection"));
+utilities.lazyLoad(exports, ["Assessment"], () => require("./assessment"));
+utilities.lazyLoad(exports, ["AssessmentPolicy"], () => require("./assessmentPolicy"));
+utilities.lazyLoad(exports, ["AutoProvisioning"], () => require("./autoProvisioning"));
+utilities.lazyLoad(exports, ["Automation"], () => require("./automation"));
+utilities.lazyLoad(exports, ["Contact"], () => require("./contact"));
+utilities.lazyLoad(exports, ["ServerVulnerabilityAssessment"], () => require("./serverVulnerabilityAssessment"));
+utilities.lazyLoad(exports, ["ServerVulnerabilityAssessmentVirtualMachine"], () => require("./serverVulnerabilityAssessmentVirtualMachine"));
+utilities.lazyLoad(exports, ["Setting"], () => require("./setting"));
+utilities.lazyLoad(exports, ["SubscriptionPricing"], () => require("./subscriptionPricing"));
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
 const _module = {
     version: utilities.getVersion(),

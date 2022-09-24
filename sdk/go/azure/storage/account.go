@@ -175,7 +175,7 @@ type Account struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 	MinTlsVersion pulumi.StringPtrOutput `pulumi:"minTlsVersion"`
-	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+	// Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkRules` block as documented below.
 	NetworkRules AccountNetworkRulesTypeOutput `pulumi:"networkRules"`
@@ -344,7 +344,7 @@ type accountState struct {
 	Location *string `pulumi:"location"`
 	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
-	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+	// Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name *string `pulumi:"name"`
 	// A `networkRules` block as documented below.
 	NetworkRules *AccountNetworkRulesType `pulumi:"networkRules"`
@@ -476,7 +476,7 @@ type AccountState struct {
 	Location pulumi.StringPtrInput
 	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 	MinTlsVersion pulumi.StringPtrInput
-	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+	// Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name pulumi.StringPtrInput
 	// A `networkRules` block as documented below.
 	NetworkRules AccountNetworkRulesTypePtrInput
@@ -612,7 +612,7 @@ type accountArgs struct {
 	Location *string `pulumi:"location"`
 	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 	MinTlsVersion *string `pulumi:"minTlsVersion"`
-	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+	// Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name *string `pulumi:"name"`
 	// A `networkRules` block as documented below.
 	NetworkRules *AccountNetworkRulesType `pulumi:"networkRules"`
@@ -681,7 +681,7 @@ type AccountArgs struct {
 	Location pulumi.StringPtrInput
 	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
 	MinTlsVersion pulumi.StringPtrInput
-	// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+	// Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 	Name pulumi.StringPtrInput
 	// A `networkRules` block as documented below.
 	NetworkRules AccountNetworkRulesTypePtrInput
@@ -892,7 +892,7 @@ func (o AccountOutput) MinTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.MinTlsVersion }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+// Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
 func (o AccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -127,6 +127,20 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
         return Codegen.optional(this.automaticUpgradeEnabled);
     }
     /**
+     * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
+    @Export(name="failureSuppressionEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> failureSuppressionEnabled;
+
+    /**
+     * @return Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> failureSuppressionEnabled() {
+        return Codegen.optional(this.failureSuppressionEnabled);
+    }
+    /**
      * A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn&#39;t changed.
      * 
      */

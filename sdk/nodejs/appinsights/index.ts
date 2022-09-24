@@ -5,23 +5,46 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./analyticsItem";
-export * from "./apiKey";
-export * from "./getInsights";
-export * from "./insights";
-export * from "./smartDetectionRule";
-export * from "./webTest";
-export * from "./workbook";
-export * from "./workbookTemplate";
+export { AnalyticsItemArgs, AnalyticsItemState } from "./analyticsItem";
+export type AnalyticsItem = import("./analyticsItem").AnalyticsItem;
+export const AnalyticsItem: typeof import("./analyticsItem").AnalyticsItem = null as any;
 
-// Import resources to register:
-import { AnalyticsItem } from "./analyticsItem";
-import { ApiKey } from "./apiKey";
-import { Insights } from "./insights";
-import { SmartDetectionRule } from "./smartDetectionRule";
-import { WebTest } from "./webTest";
-import { Workbook } from "./workbook";
-import { WorkbookTemplate } from "./workbookTemplate";
+export { ApiKeyArgs, ApiKeyState } from "./apiKey";
+export type ApiKey = import("./apiKey").ApiKey;
+export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
+
+export { GetInsightsArgs, GetInsightsResult, GetInsightsOutputArgs } from "./getInsights";
+export const getInsights: typeof import("./getInsights").getInsights = null as any;
+export const getInsightsOutput: typeof import("./getInsights").getInsightsOutput = null as any;
+
+export { InsightsArgs, InsightsState } from "./insights";
+export type Insights = import("./insights").Insights;
+export const Insights: typeof import("./insights").Insights = null as any;
+
+export { SmartDetectionRuleArgs, SmartDetectionRuleState } from "./smartDetectionRule";
+export type SmartDetectionRule = import("./smartDetectionRule").SmartDetectionRule;
+export const SmartDetectionRule: typeof import("./smartDetectionRule").SmartDetectionRule = null as any;
+
+export { WebTestArgs, WebTestState } from "./webTest";
+export type WebTest = import("./webTest").WebTest;
+export const WebTest: typeof import("./webTest").WebTest = null as any;
+
+export { WorkbookArgs, WorkbookState } from "./workbook";
+export type Workbook = import("./workbook").Workbook;
+export const Workbook: typeof import("./workbook").Workbook = null as any;
+
+export { WorkbookTemplateArgs, WorkbookTemplateState } from "./workbookTemplate";
+export type WorkbookTemplate = import("./workbookTemplate").WorkbookTemplate;
+export const WorkbookTemplate: typeof import("./workbookTemplate").WorkbookTemplate = null as any;
+
+utilities.lazyLoad(exports, ["AnalyticsItem"], () => require("./analyticsItem"));
+utilities.lazyLoad(exports, ["ApiKey"], () => require("./apiKey"));
+utilities.lazyLoad(exports, ["getInsights","getInsightsOutput"], () => require("./getInsights"));
+utilities.lazyLoad(exports, ["Insights"], () => require("./insights"));
+utilities.lazyLoad(exports, ["SmartDetectionRule"], () => require("./smartDetectionRule"));
+utilities.lazyLoad(exports, ["WebTest"], () => require("./webTest"));
+utilities.lazyLoad(exports, ["Workbook"], () => require("./workbook"));
+utilities.lazyLoad(exports, ["WorkbookTemplate"], () => require("./workbookTemplate"));
 
 const _module = {
     version: utilities.getVersion(),

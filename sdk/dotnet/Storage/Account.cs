@@ -233,7 +233,7 @@ namespace Pulumi.Azure.Storage
         public Output<string?> MinTlsVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+        /// Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -664,7 +664,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? MinTlsVersion { get; set; }
 
         /// <summary>
-        /// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+        /// Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -871,7 +871,7 @@ namespace Pulumi.Azure.Storage
         public Input<string>? MinTlsVersion { get; set; }
 
         /// <summary>
-        /// Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+        /// Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

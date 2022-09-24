@@ -479,6 +479,20 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
         return this.osDisk;
     }
     /**
+     * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     * 
+     */
+    @Export(name="patchAssessmentMode", type=String.class, parameters={})
+    private Output</* @Nullable */ String> patchAssessmentMode;
+
+    /**
+     * @return Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     * 
+     */
+    public Output<Optional<String>> patchAssessmentMode() {
+        return Codegen.optional(this.patchAssessmentMode);
+    }
+    /**
      * Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      * 
      */

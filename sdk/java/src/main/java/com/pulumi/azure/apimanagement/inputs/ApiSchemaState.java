@@ -46,6 +46,21 @@ public final class ApiSchemaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+     * 
+     */
+    @Import(name="components")
+    private @Nullable Output<String> components;
+
+    /**
+     * @return Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+     * 
+     */
+    public Optional<Output<String>> components() {
+        return Optional.ofNullable(this.components);
+    }
+
+    /**
      * The content type of the API Schema.
      * 
      */
@@ -58,6 +73,21 @@ public final class ApiSchemaState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> contentType() {
         return Optional.ofNullable(this.contentType);
+    }
+
+    /**
+     * Types definitions. Used for Swagger/OpenAPI v1 schemas only.
+     * 
+     */
+    @Import(name="definitions")
+    private @Nullable Output<String> definitions;
+
+    /**
+     * @return Types definitions. Used for Swagger/OpenAPI v1 schemas only.
+     * 
+     */
+    public Optional<Output<String>> definitions() {
+        return Optional.ofNullable(this.definitions);
     }
 
     /**
@@ -110,7 +140,9 @@ public final class ApiSchemaState extends com.pulumi.resources.ResourceArgs {
     private ApiSchemaState(ApiSchemaState $) {
         this.apiManagementName = $.apiManagementName;
         this.apiName = $.apiName;
+        this.components = $.components;
         this.contentType = $.contentType;
+        this.definitions = $.definitions;
         this.resourceGroupName = $.resourceGroupName;
         this.schemaId = $.schemaId;
         this.value = $.value;
@@ -177,6 +209,27 @@ public final class ApiSchemaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param components Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder components(@Nullable Output<String> components) {
+            $.components = components;
+            return this;
+        }
+
+        /**
+         * @param components Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder components(String components) {
+            return components(Output.of(components));
+        }
+
+        /**
          * @param contentType The content type of the API Schema.
          * 
          * @return builder
@@ -195,6 +248,27 @@ public final class ApiSchemaState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder contentType(String contentType) {
             return contentType(Output.of(contentType));
+        }
+
+        /**
+         * @param definitions Types definitions. Used for Swagger/OpenAPI v1 schemas only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder definitions(@Nullable Output<String> definitions) {
+            $.definitions = definitions;
+            return this;
+        }
+
+        /**
+         * @param definitions Types definitions. Used for Swagger/OpenAPI v1 schemas only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder definitions(String definitions) {
+            return definitions(Output.of(definitions));
         }
 
         /**

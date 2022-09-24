@@ -5,45 +5,106 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./actionCustom";
-export * from "./actionHttp";
-export * from "./getIntegrationAccount";
-export * from "./getStandard";
-export * from "./getWorkflow";
-export * from "./integrationAccount";
-export * from "./integrationAccountAgreement";
-export * from "./integrationAccountAssembly";
-export * from "./integrationAccountBatchConfiguration";
-export * from "./integrationAccountCertificate";
-export * from "./integrationAccountMap";
-export * from "./integrationAccountPartner";
-export * from "./integrationAccountSchema";
-export * from "./integrationAccountSession";
-export * from "./interationServiceEnvironment";
-export * from "./standard";
-export * from "./triggerCustom";
-export * from "./triggerHttpRequest";
-export * from "./triggerRecurrence";
-export * from "./workflow";
+export { ActionCustomArgs, ActionCustomState } from "./actionCustom";
+export type ActionCustom = import("./actionCustom").ActionCustom;
+export const ActionCustom: typeof import("./actionCustom").ActionCustom = null as any;
 
-// Import resources to register:
-import { ActionCustom } from "./actionCustom";
-import { ActionHttp } from "./actionHttp";
-import { IntegrationAccount } from "./integrationAccount";
-import { IntegrationAccountAgreement } from "./integrationAccountAgreement";
-import { IntegrationAccountAssembly } from "./integrationAccountAssembly";
-import { IntegrationAccountBatchConfiguration } from "./integrationAccountBatchConfiguration";
-import { IntegrationAccountCertificate } from "./integrationAccountCertificate";
-import { IntegrationAccountMap } from "./integrationAccountMap";
-import { IntegrationAccountPartner } from "./integrationAccountPartner";
-import { IntegrationAccountSchema } from "./integrationAccountSchema";
-import { IntegrationAccountSession } from "./integrationAccountSession";
-import { InterationServiceEnvironment } from "./interationServiceEnvironment";
-import { Standard } from "./standard";
-import { TriggerCustom } from "./triggerCustom";
-import { TriggerHttpRequest } from "./triggerHttpRequest";
-import { TriggerRecurrence } from "./triggerRecurrence";
-import { Workflow } from "./workflow";
+export { ActionHttpArgs, ActionHttpState } from "./actionHttp";
+export type ActionHttp = import("./actionHttp").ActionHttp;
+export const ActionHttp: typeof import("./actionHttp").ActionHttp = null as any;
+
+export { GetIntegrationAccountArgs, GetIntegrationAccountResult, GetIntegrationAccountOutputArgs } from "./getIntegrationAccount";
+export const getIntegrationAccount: typeof import("./getIntegrationAccount").getIntegrationAccount = null as any;
+export const getIntegrationAccountOutput: typeof import("./getIntegrationAccount").getIntegrationAccountOutput = null as any;
+
+export { GetStandardArgs, GetStandardResult, GetStandardOutputArgs } from "./getStandard";
+export const getStandard: typeof import("./getStandard").getStandard = null as any;
+export const getStandardOutput: typeof import("./getStandard").getStandardOutput = null as any;
+
+export { GetWorkflowArgs, GetWorkflowResult, GetWorkflowOutputArgs } from "./getWorkflow";
+export const getWorkflow: typeof import("./getWorkflow").getWorkflow = null as any;
+export const getWorkflowOutput: typeof import("./getWorkflow").getWorkflowOutput = null as any;
+
+export { IntegrationAccountArgs, IntegrationAccountState } from "./integrationAccount";
+export type IntegrationAccount = import("./integrationAccount").IntegrationAccount;
+export const IntegrationAccount: typeof import("./integrationAccount").IntegrationAccount = null as any;
+
+export { IntegrationAccountAgreementArgs, IntegrationAccountAgreementState } from "./integrationAccountAgreement";
+export type IntegrationAccountAgreement = import("./integrationAccountAgreement").IntegrationAccountAgreement;
+export const IntegrationAccountAgreement: typeof import("./integrationAccountAgreement").IntegrationAccountAgreement = null as any;
+
+export { IntegrationAccountAssemblyArgs, IntegrationAccountAssemblyState } from "./integrationAccountAssembly";
+export type IntegrationAccountAssembly = import("./integrationAccountAssembly").IntegrationAccountAssembly;
+export const IntegrationAccountAssembly: typeof import("./integrationAccountAssembly").IntegrationAccountAssembly = null as any;
+
+export { IntegrationAccountBatchConfigurationArgs, IntegrationAccountBatchConfigurationState } from "./integrationAccountBatchConfiguration";
+export type IntegrationAccountBatchConfiguration = import("./integrationAccountBatchConfiguration").IntegrationAccountBatchConfiguration;
+export const IntegrationAccountBatchConfiguration: typeof import("./integrationAccountBatchConfiguration").IntegrationAccountBatchConfiguration = null as any;
+
+export { IntegrationAccountCertificateArgs, IntegrationAccountCertificateState } from "./integrationAccountCertificate";
+export type IntegrationAccountCertificate = import("./integrationAccountCertificate").IntegrationAccountCertificate;
+export const IntegrationAccountCertificate: typeof import("./integrationAccountCertificate").IntegrationAccountCertificate = null as any;
+
+export { IntegrationAccountMapArgs, IntegrationAccountMapState } from "./integrationAccountMap";
+export type IntegrationAccountMap = import("./integrationAccountMap").IntegrationAccountMap;
+export const IntegrationAccountMap: typeof import("./integrationAccountMap").IntegrationAccountMap = null as any;
+
+export { IntegrationAccountPartnerArgs, IntegrationAccountPartnerState } from "./integrationAccountPartner";
+export type IntegrationAccountPartner = import("./integrationAccountPartner").IntegrationAccountPartner;
+export const IntegrationAccountPartner: typeof import("./integrationAccountPartner").IntegrationAccountPartner = null as any;
+
+export { IntegrationAccountSchemaArgs, IntegrationAccountSchemaState } from "./integrationAccountSchema";
+export type IntegrationAccountSchema = import("./integrationAccountSchema").IntegrationAccountSchema;
+export const IntegrationAccountSchema: typeof import("./integrationAccountSchema").IntegrationAccountSchema = null as any;
+
+export { IntegrationAccountSessionArgs, IntegrationAccountSessionState } from "./integrationAccountSession";
+export type IntegrationAccountSession = import("./integrationAccountSession").IntegrationAccountSession;
+export const IntegrationAccountSession: typeof import("./integrationAccountSession").IntegrationAccountSession = null as any;
+
+export { InterationServiceEnvironmentArgs, InterationServiceEnvironmentState } from "./interationServiceEnvironment";
+export type InterationServiceEnvironment = import("./interationServiceEnvironment").InterationServiceEnvironment;
+export const InterationServiceEnvironment: typeof import("./interationServiceEnvironment").InterationServiceEnvironment = null as any;
+
+export { StandardArgs, StandardState } from "./standard";
+export type Standard = import("./standard").Standard;
+export const Standard: typeof import("./standard").Standard = null as any;
+
+export { TriggerCustomArgs, TriggerCustomState } from "./triggerCustom";
+export type TriggerCustom = import("./triggerCustom").TriggerCustom;
+export const TriggerCustom: typeof import("./triggerCustom").TriggerCustom = null as any;
+
+export { TriggerHttpRequestArgs, TriggerHttpRequestState } from "./triggerHttpRequest";
+export type TriggerHttpRequest = import("./triggerHttpRequest").TriggerHttpRequest;
+export const TriggerHttpRequest: typeof import("./triggerHttpRequest").TriggerHttpRequest = null as any;
+
+export { TriggerRecurrenceArgs, TriggerRecurrenceState } from "./triggerRecurrence";
+export type TriggerRecurrence = import("./triggerRecurrence").TriggerRecurrence;
+export const TriggerRecurrence: typeof import("./triggerRecurrence").TriggerRecurrence = null as any;
+
+export { WorkflowArgs, WorkflowState } from "./workflow";
+export type Workflow = import("./workflow").Workflow;
+export const Workflow: typeof import("./workflow").Workflow = null as any;
+
+utilities.lazyLoad(exports, ["ActionCustom"], () => require("./actionCustom"));
+utilities.lazyLoad(exports, ["ActionHttp"], () => require("./actionHttp"));
+utilities.lazyLoad(exports, ["getIntegrationAccount","getIntegrationAccountOutput"], () => require("./getIntegrationAccount"));
+utilities.lazyLoad(exports, ["getStandard","getStandardOutput"], () => require("./getStandard"));
+utilities.lazyLoad(exports, ["getWorkflow","getWorkflowOutput"], () => require("./getWorkflow"));
+utilities.lazyLoad(exports, ["IntegrationAccount"], () => require("./integrationAccount"));
+utilities.lazyLoad(exports, ["IntegrationAccountAgreement"], () => require("./integrationAccountAgreement"));
+utilities.lazyLoad(exports, ["IntegrationAccountAssembly"], () => require("./integrationAccountAssembly"));
+utilities.lazyLoad(exports, ["IntegrationAccountBatchConfiguration"], () => require("./integrationAccountBatchConfiguration"));
+utilities.lazyLoad(exports, ["IntegrationAccountCertificate"], () => require("./integrationAccountCertificate"));
+utilities.lazyLoad(exports, ["IntegrationAccountMap"], () => require("./integrationAccountMap"));
+utilities.lazyLoad(exports, ["IntegrationAccountPartner"], () => require("./integrationAccountPartner"));
+utilities.lazyLoad(exports, ["IntegrationAccountSchema"], () => require("./integrationAccountSchema"));
+utilities.lazyLoad(exports, ["IntegrationAccountSession"], () => require("./integrationAccountSession"));
+utilities.lazyLoad(exports, ["InterationServiceEnvironment"], () => require("./interationServiceEnvironment"));
+utilities.lazyLoad(exports, ["Standard"], () => require("./standard"));
+utilities.lazyLoad(exports, ["TriggerCustom"], () => require("./triggerCustom"));
+utilities.lazyLoad(exports, ["TriggerHttpRequest"], () => require("./triggerHttpRequest"));
+utilities.lazyLoad(exports, ["TriggerRecurrence"], () => require("./triggerRecurrence"));
+utilities.lazyLoad(exports, ["Workflow"], () => require("./workflow"));
 
 const _module = {
     version: utilities.getVersion(),

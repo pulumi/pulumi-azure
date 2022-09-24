@@ -170,6 +170,8 @@ type Extension struct {
 	AutoUpgradeMinorVersion pulumi.BoolPtrOutput `pulumi:"autoUpgradeMinorVersion"`
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
 	AutomaticUpgradeEnabled pulumi.BoolPtrOutput `pulumi:"automaticUpgradeEnabled"`
+	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	FailureSuppressionEnabled pulumi.BoolPtrOutput `pulumi:"failureSuppressionEnabled"`
 	// The name of the virtual machine extension peering. Changing
 	// this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -239,6 +241,8 @@ type extensionState struct {
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
+	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	FailureSuppressionEnabled *bool `pulumi:"failureSuppressionEnabled"`
 	// The name of the virtual machine extension peering. Changing
 	// this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -268,6 +272,8 @@ type ExtensionState struct {
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput
+	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	FailureSuppressionEnabled pulumi.BoolPtrInput
 	// The name of the virtual machine extension peering. Changing
 	// this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -301,6 +307,8 @@ type extensionArgs struct {
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
+	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	FailureSuppressionEnabled *bool `pulumi:"failureSuppressionEnabled"`
 	// The name of the virtual machine extension peering. Changing
 	// this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -331,6 +339,8 @@ type ExtensionArgs struct {
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput
+	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	FailureSuppressionEnabled pulumi.BoolPtrInput
 	// The name of the virtual machine extension peering. Changing
 	// this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -450,6 +460,11 @@ func (o ExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
 // Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
 func (o ExtensionOutput) AutomaticUpgradeEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Extension) pulumi.BoolPtrOutput { return v.AutomaticUpgradeEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+func (o ExtensionOutput) FailureSuppressionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Extension) pulumi.BoolPtrOutput { return v.FailureSuppressionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the virtual machine extension peering. Changing

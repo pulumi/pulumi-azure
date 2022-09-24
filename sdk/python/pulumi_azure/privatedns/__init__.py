@@ -17,6 +17,7 @@ from .get_ptr_record import *
 from .get_soa_record import *
 from .get_srv_record import *
 from .get_txt_record import *
+from .get_zone_virtual_network_link import *
 from .link_service import *
 from .mx_record import *
 from .ptr_record import *

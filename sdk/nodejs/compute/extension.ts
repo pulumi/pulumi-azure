@@ -141,6 +141,10 @@ export class Extension extends pulumi.CustomResource {
      */
     public readonly automaticUpgradeEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     */
+    public readonly failureSuppressionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the virtual machine extension peering. Changing
      * this forces a new resource to be created.
      */
@@ -193,6 +197,7 @@ export class Extension extends pulumi.CustomResource {
             const state = argsOrState as ExtensionState | undefined;
             resourceInputs["autoUpgradeMinorVersion"] = state ? state.autoUpgradeMinorVersion : undefined;
             resourceInputs["automaticUpgradeEnabled"] = state ? state.automaticUpgradeEnabled : undefined;
+            resourceInputs["failureSuppressionEnabled"] = state ? state.failureSuppressionEnabled : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["protectedSettings"] = state ? state.protectedSettings : undefined;
             resourceInputs["publisher"] = state ? state.publisher : undefined;
@@ -217,6 +222,7 @@ export class Extension extends pulumi.CustomResource {
             }
             resourceInputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
             resourceInputs["automaticUpgradeEnabled"] = args ? args.automaticUpgradeEnabled : undefined;
+            resourceInputs["failureSuppressionEnabled"] = args ? args.failureSuppressionEnabled : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["protectedSettings"] = args ? args.protectedSettings : undefined;
             resourceInputs["publisher"] = args ? args.publisher : undefined;
@@ -244,6 +250,10 @@ export interface ExtensionState {
      * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
      */
     automaticUpgradeEnabled?: pulumi.Input<boolean>;
+    /**
+     * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     */
+    failureSuppressionEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the virtual machine extension peering. Changing
      * this forces a new resource to be created.
@@ -296,6 +306,10 @@ export interface ExtensionArgs {
      * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
      */
     automaticUpgradeEnabled?: pulumi.Input<boolean>;
+    /**
+     * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     */
+    failureSuppressionEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the virtual machine extension peering. Changing
      * this forces a new resource to be created.

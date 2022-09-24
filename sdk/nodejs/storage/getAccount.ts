@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -77,6 +78,11 @@ export interface GetAccountResult {
      */
     readonly allowNestedItemsToBePublic: boolean;
     /**
+     * A `azureFilesAuthentication` block as documented below.
+     * ---
+     */
+    readonly azureFilesAuthentications: outputs.storage.GetAccountAzureFilesAuthentication[];
+    /**
      * A `customDomain` block as documented below.
      */
     readonly customDomains: outputs.storage.GetAccountCustomDomain[];
@@ -96,7 +102,6 @@ export interface GetAccountResult {
     /**
      * Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/azure/storage/common/infrastructure-encryption-enable/)
      * for more information.
-     * ---
      */
     readonly infrastructureEncryptionEnabled: boolean;
     /**

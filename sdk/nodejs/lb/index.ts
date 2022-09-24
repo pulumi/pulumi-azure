@@ -5,27 +5,61 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./backendAddressPool";
-export * from "./backendAddressPoolAddress";
-export * from "./getBackendAddressPool";
-export * from "./getLB";
-export * from "./getLBRule";
-export * from "./loadBalancer";
-export * from "./natPool";
-export * from "./natRule";
-export * from "./outboundRule";
-export * from "./probe";
-export * from "./rule";
+export { BackendAddressPoolArgs, BackendAddressPoolState } from "./backendAddressPool";
+export type BackendAddressPool = import("./backendAddressPool").BackendAddressPool;
+export const BackendAddressPool: typeof import("./backendAddressPool").BackendAddressPool = null as any;
 
-// Import resources to register:
-import { BackendAddressPool } from "./backendAddressPool";
-import { BackendAddressPoolAddress } from "./backendAddressPoolAddress";
-import { LoadBalancer } from "./loadBalancer";
-import { NatPool } from "./natPool";
-import { NatRule } from "./natRule";
-import { OutboundRule } from "./outboundRule";
-import { Probe } from "./probe";
-import { Rule } from "./rule";
+export { BackendAddressPoolAddressArgs, BackendAddressPoolAddressState } from "./backendAddressPoolAddress";
+export type BackendAddressPoolAddress = import("./backendAddressPoolAddress").BackendAddressPoolAddress;
+export const BackendAddressPoolAddress: typeof import("./backendAddressPoolAddress").BackendAddressPoolAddress = null as any;
+
+export { GetBackendAddressPoolArgs, GetBackendAddressPoolResult, GetBackendAddressPoolOutputArgs } from "./getBackendAddressPool";
+export const getBackendAddressPool: typeof import("./getBackendAddressPool").getBackendAddressPool = null as any;
+export const getBackendAddressPoolOutput: typeof import("./getBackendAddressPool").getBackendAddressPoolOutput = null as any;
+
+export { GetLBArgs, GetLBResult, GetLBOutputArgs } from "./getLB";
+export const getLB: typeof import("./getLB").getLB = null as any;
+export const getLBOutput: typeof import("./getLB").getLBOutput = null as any;
+
+export { GetLBRuleArgs, GetLBRuleResult, GetLBRuleOutputArgs } from "./getLBRule";
+export const getLBRule: typeof import("./getLBRule").getLBRule = null as any;
+export const getLBRuleOutput: typeof import("./getLBRule").getLBRuleOutput = null as any;
+
+export { LoadBalancerArgs, LoadBalancerState } from "./loadBalancer";
+export type LoadBalancer = import("./loadBalancer").LoadBalancer;
+export const LoadBalancer: typeof import("./loadBalancer").LoadBalancer = null as any;
+
+export { NatPoolArgs, NatPoolState } from "./natPool";
+export type NatPool = import("./natPool").NatPool;
+export const NatPool: typeof import("./natPool").NatPool = null as any;
+
+export { NatRuleArgs, NatRuleState } from "./natRule";
+export type NatRule = import("./natRule").NatRule;
+export const NatRule: typeof import("./natRule").NatRule = null as any;
+
+export { OutboundRuleArgs, OutboundRuleState } from "./outboundRule";
+export type OutboundRule = import("./outboundRule").OutboundRule;
+export const OutboundRule: typeof import("./outboundRule").OutboundRule = null as any;
+
+export { ProbeArgs, ProbeState } from "./probe";
+export type Probe = import("./probe").Probe;
+export const Probe: typeof import("./probe").Probe = null as any;
+
+export { RuleArgs, RuleState } from "./rule";
+export type Rule = import("./rule").Rule;
+export const Rule: typeof import("./rule").Rule = null as any;
+
+utilities.lazyLoad(exports, ["BackendAddressPool"], () => require("./backendAddressPool"));
+utilities.lazyLoad(exports, ["BackendAddressPoolAddress"], () => require("./backendAddressPoolAddress"));
+utilities.lazyLoad(exports, ["getBackendAddressPool","getBackendAddressPoolOutput"], () => require("./getBackendAddressPool"));
+utilities.lazyLoad(exports, ["getLB","getLBOutput"], () => require("./getLB"));
+utilities.lazyLoad(exports, ["getLBRule","getLBRuleOutput"], () => require("./getLBRule"));
+utilities.lazyLoad(exports, ["LoadBalancer"], () => require("./loadBalancer"));
+utilities.lazyLoad(exports, ["NatPool"], () => require("./natPool"));
+utilities.lazyLoad(exports, ["NatRule"], () => require("./natRule"));
+utilities.lazyLoad(exports, ["OutboundRule"], () => require("./outboundRule"));
+utilities.lazyLoad(exports, ["Probe"], () => require("./probe"));
+utilities.lazyLoad(exports, ["Rule"], () => require("./rule"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -41,7 +41,7 @@ namespace Pulumi.Azure.PrivateDns
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDnsZoneResult> InvokeAsync(GetDnsZoneArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDnsZoneResult>("azure:privatedns/getDnsZone:getDnsZone", args ?? new GetDnsZoneArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDnsZoneResult>("azure:privatedns/getDnsZone:getDnsZone", args ?? new GetDnsZoneArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Private DNS Zone.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.PrivateDns
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDnsZoneResult> Invoke(GetDnsZoneInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDnsZoneResult>("azure:privatedns/getDnsZone:getDnsZone", args ?? new GetDnsZoneInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDnsZoneResult>("azure:privatedns/getDnsZone:getDnsZone", args ?? new GetDnsZoneInvokeArgs(), options.WithDefaults());
     }
 
 

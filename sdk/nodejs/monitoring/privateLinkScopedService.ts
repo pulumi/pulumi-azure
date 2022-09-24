@@ -64,7 +64,7 @@ export class PrivateLinkScopedService extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+     * The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
      */
     public readonly linkedResourceId!: pulumi.Output<string>;
     /**
@@ -123,7 +123,7 @@ export class PrivateLinkScopedService extends pulumi.CustomResource {
  */
 export interface PrivateLinkScopedServiceState {
     /**
-     * The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+     * The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
      */
     linkedResourceId?: pulumi.Input<string>;
     /**
@@ -145,7 +145,7 @@ export interface PrivateLinkScopedServiceState {
  */
 export interface PrivateLinkScopedServiceArgs {
     /**
-     * The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+     * The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
      */
     linkedResourceId: pulumi.Input<string>;
     /**

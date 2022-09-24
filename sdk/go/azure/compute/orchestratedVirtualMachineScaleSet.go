@@ -79,7 +79,7 @@ type OrchestratedVirtualMachineScaleSet struct {
 	DataDisks                  OrchestratedVirtualMachineScaleSetDataDiskArrayOutput `pulumi:"dataDisks"`
 	EncryptionAtHostEnabled    pulumi.BoolPtrOutput                                  `pulumi:"encryptionAtHostEnabled"`
 	EvictionPolicy             pulumi.StringPtrOutput                                `pulumi:"evictionPolicy"`
-	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
 	ExtensionOperationsEnabled pulumi.BoolOutput                                      `pulumi:"extensionOperationsEnabled"`
 	Extensions                 OrchestratedVirtualMachineScaleSetExtensionArrayOutput `pulumi:"extensions"`
 	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
@@ -166,7 +166,7 @@ type orchestratedVirtualMachineScaleSetState struct {
 	DataDisks                  []OrchestratedVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
 	EncryptionAtHostEnabled    *bool                                        `pulumi:"encryptionAtHostEnabled"`
 	EvictionPolicy             *string                                      `pulumi:"evictionPolicy"`
-	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
 	ExtensionOperationsEnabled *bool                                         `pulumi:"extensionOperationsEnabled"`
 	Extensions                 []OrchestratedVirtualMachineScaleSetExtension `pulumi:"extensions"`
 	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
@@ -219,7 +219,7 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	DataDisks                  OrchestratedVirtualMachineScaleSetDataDiskArrayInput
 	EncryptionAtHostEnabled    pulumi.BoolPtrInput
 	EvictionPolicy             pulumi.StringPtrInput
-	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
 	ExtensionOperationsEnabled pulumi.BoolPtrInput
 	Extensions                 OrchestratedVirtualMachineScaleSetExtensionArrayInput
 	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
@@ -276,7 +276,7 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	DataDisks                  []OrchestratedVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
 	EncryptionAtHostEnabled    *bool                                        `pulumi:"encryptionAtHostEnabled"`
 	EvictionPolicy             *string                                      `pulumi:"evictionPolicy"`
-	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
 	ExtensionOperationsEnabled *bool                                         `pulumi:"extensionOperationsEnabled"`
 	Extensions                 []OrchestratedVirtualMachineScaleSetExtension `pulumi:"extensions"`
 	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
@@ -328,7 +328,7 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	DataDisks                  OrchestratedVirtualMachineScaleSetDataDiskArrayInput
 	EncryptionAtHostEnabled    pulumi.BoolPtrInput
 	EvictionPolicy             pulumi.StringPtrInput
-	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
 	ExtensionOperationsEnabled pulumi.BoolPtrInput
 	Extensions                 OrchestratedVirtualMachineScaleSetExtensionArrayInput
 	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M).
@@ -496,7 +496,7 @@ func (o OrchestratedVirtualMachineScaleSetOutput) EvictionPolicy() pulumi.String
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.EvictionPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
+// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Orchestrated Virtual Machine Scale Set to be created.
 func (o OrchestratedVirtualMachineScaleSetOutput) ExtensionOperationsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.BoolOutput { return v.ExtensionOperationsEnabled }).(pulumi.BoolOutput)
 }

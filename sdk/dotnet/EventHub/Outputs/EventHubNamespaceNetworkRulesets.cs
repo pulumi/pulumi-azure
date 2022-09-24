@@ -22,6 +22,10 @@ namespace Pulumi.Azure.EventHub.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.EventHubNamespaceNetworkRulesetsIpRule> IpRules;
         /// <summary>
+        /// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+        /// </summary>
+        public readonly bool? PublicNetworkAccessEnabled;
+        /// <summary>
         /// Whether Trusted Microsoft Services are allowed to bypass firewall.
         /// </summary>
         public readonly bool? TrustedServiceAccessEnabled;
@@ -36,12 +40,15 @@ namespace Pulumi.Azure.EventHub.Outputs
 
             ImmutableArray<Outputs.EventHubNamespaceNetworkRulesetsIpRule> ipRules,
 
+            bool? publicNetworkAccessEnabled,
+
             bool? trustedServiceAccessEnabled,
 
             ImmutableArray<Outputs.EventHubNamespaceNetworkRulesetsVirtualNetworkRule> virtualNetworkRules)
         {
             DefaultAction = defaultAction;
             IpRules = ipRules;
+            PublicNetworkAccessEnabled = publicNetworkAccessEnabled;
             TrustedServiceAccessEnabled = trustedServiceAccessEnabled;
             VirtualNetworkRules = virtualNetworkRules;
         }

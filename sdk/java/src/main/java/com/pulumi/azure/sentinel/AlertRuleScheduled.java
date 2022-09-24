@@ -370,6 +370,20 @@ public class AlertRuleScheduled extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tactics);
     }
     /**
+     * A list of techniques of attacks by which to classify the rule.
+     * 
+     */
+    @Export(name="techniques", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> techniques;
+
+    /**
+     * @return A list of techniques of attacks by which to classify the rule.
+     * 
+     */
+    public Output<Optional<List<String>>> techniques() {
+        return Codegen.optional(this.techniques);
+    }
+    /**
      * The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
      * 
      */

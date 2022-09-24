@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.storage.outputs;
 
+import com.pulumi.azure.storage.outputs.GetAccountAzureFilesAuthentication;
 import com.pulumi.azure.storage.outputs.GetAccountCustomDomain;
 import com.pulumi.azure.storage.outputs.GetAccountIdentity;
 import com.pulumi.core.annotations.CustomType;
@@ -42,6 +43,12 @@ public final class GetAccountResult {
      */
     private Boolean allowNestedItemsToBePublic;
     /**
+     * @return A `azure_files_authentication` block as documented below.
+     * ---
+     * 
+     */
+    private List<GetAccountAzureFilesAuthentication> azureFilesAuthentications;
+    /**
      * @return A `custom_domain` block as documented below.
      * 
      */
@@ -65,7 +72,6 @@ public final class GetAccountResult {
     /**
      * @return Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/azure/storage/common/infrastructure-encryption-enable/)
      * for more information.
-     * ---
      * 
      */
     private Boolean infrastructureEncryptionEnabled;
@@ -308,6 +314,14 @@ public final class GetAccountResult {
         return this.allowNestedItemsToBePublic;
     }
     /**
+     * @return A `azure_files_authentication` block as documented below.
+     * ---
+     * 
+     */
+    public List<GetAccountAzureFilesAuthentication> azureFilesAuthentications() {
+        return this.azureFilesAuthentications;
+    }
+    /**
      * @return A `custom_domain` block as documented below.
      * 
      */
@@ -339,7 +353,6 @@ public final class GetAccountResult {
     /**
      * @return Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/azure/storage/common/infrastructure-encryption-enable/)
      * for more information.
-     * ---
      * 
      */
     public Boolean infrastructureEncryptionEnabled() {
@@ -643,6 +656,7 @@ public final class GetAccountResult {
         private String accountReplicationType;
         private String accountTier;
         private Boolean allowNestedItemsToBePublic;
+        private List<GetAccountAzureFilesAuthentication> azureFilesAuthentications;
         private List<GetAccountCustomDomain> customDomains;
         private Boolean enableHttpsTrafficOnly;
         private String id;
@@ -697,6 +711,7 @@ public final class GetAccountResult {
     	      this.accountReplicationType = defaults.accountReplicationType;
     	      this.accountTier = defaults.accountTier;
     	      this.allowNestedItemsToBePublic = defaults.allowNestedItemsToBePublic;
+    	      this.azureFilesAuthentications = defaults.azureFilesAuthentications;
     	      this.customDomains = defaults.customDomains;
     	      this.enableHttpsTrafficOnly = defaults.enableHttpsTrafficOnly;
     	      this.id = defaults.id;
@@ -769,6 +784,14 @@ public final class GetAccountResult {
         public Builder allowNestedItemsToBePublic(Boolean allowNestedItemsToBePublic) {
             this.allowNestedItemsToBePublic = Objects.requireNonNull(allowNestedItemsToBePublic);
             return this;
+        }
+        @CustomType.Setter
+        public Builder azureFilesAuthentications(List<GetAccountAzureFilesAuthentication> azureFilesAuthentications) {
+            this.azureFilesAuthentications = Objects.requireNonNull(azureFilesAuthentications);
+            return this;
+        }
+        public Builder azureFilesAuthentications(GetAccountAzureFilesAuthentication... azureFilesAuthentications) {
+            return azureFilesAuthentications(List.of(azureFilesAuthentications));
         }
         @CustomType.Setter
         public Builder customDomains(List<GetAccountCustomDomain> customDomains) {
@@ -1013,6 +1036,7 @@ public final class GetAccountResult {
             o.accountReplicationType = accountReplicationType;
             o.accountTier = accountTier;
             o.allowNestedItemsToBePublic = allowNestedItemsToBePublic;
+            o.azureFilesAuthentications = azureFilesAuthentications;
             o.customDomains = customDomains;
             o.enableHttpsTrafficOnly = enableHttpsTrafficOnly;
             o.id = id;

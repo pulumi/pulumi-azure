@@ -123,14 +123,14 @@ public class IntegrationAccountBatchConfiguration extends com.pulumi.resources.C
         return Codegen.optional(this.metadata);
     }
     /**
-     * The name which should be used for this Logic App Integration Account Batch Configuration. Changing this forces a new resource to be created.
+     * The name which should be used for this Logic App Integration Account Batch Configuration. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Logic App Integration Account Batch Configuration. Changing this forces a new resource to be created.
+     * @return The name which should be used for this Logic App Integration Account Batch Configuration. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {

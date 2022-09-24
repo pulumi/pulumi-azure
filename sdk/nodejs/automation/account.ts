@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -78,6 +79,11 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly encryptions!: pulumi.Output<outputs.automation.AccountEncryption[]>;
     /**
+     * The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+     * ---
+     */
+    public /*out*/ readonly hybridServiceUrl!: pulumi.Output<string>;
+    /**
      * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.automation.AccountIdentity | undefined>;
@@ -128,6 +134,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["dscSecondaryAccessKey"] = state ? state.dscSecondaryAccessKey : undefined;
             resourceInputs["dscServerEndpoint"] = state ? state.dscServerEndpoint : undefined;
             resourceInputs["encryptions"] = state ? state.encryptions : undefined;
+            resourceInputs["hybridServiceUrl"] = state ? state.hybridServiceUrl : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["localAuthenticationEnabled"] = state ? state.localAuthenticationEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -157,6 +164,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["dscPrimaryAccessKey"] = undefined /*out*/;
             resourceInputs["dscSecondaryAccessKey"] = undefined /*out*/;
             resourceInputs["dscServerEndpoint"] = undefined /*out*/;
+            resourceInputs["hybridServiceUrl"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -184,6 +192,11 @@ export interface AccountState {
      * An `encryption` block as defined below.
      */
     encryptions?: pulumi.Input<pulumi.Input<inputs.automation.AccountEncryption>[]>;
+    /**
+     * The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+     * ---
+     */
+    hybridServiceUrl?: pulumi.Input<string>;
     /**
      * An `identity` block as defined below.
      */

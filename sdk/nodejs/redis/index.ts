@@ -5,20 +5,41 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./cache";
-export * from "./enterpriseCluster";
-export * from "./enterpriseDatabase";
-export * from "./firewallRule";
-export * from "./getCache";
-export * from "./getEnterpriseDatabase";
-export * from "./linkedServer";
+export { CacheArgs, CacheState } from "./cache";
+export type Cache = import("./cache").Cache;
+export const Cache: typeof import("./cache").Cache = null as any;
 
-// Import resources to register:
-import { Cache } from "./cache";
-import { EnterpriseCluster } from "./enterpriseCluster";
-import { EnterpriseDatabase } from "./enterpriseDatabase";
-import { FirewallRule } from "./firewallRule";
-import { LinkedServer } from "./linkedServer";
+export { EnterpriseClusterArgs, EnterpriseClusterState } from "./enterpriseCluster";
+export type EnterpriseCluster = import("./enterpriseCluster").EnterpriseCluster;
+export const EnterpriseCluster: typeof import("./enterpriseCluster").EnterpriseCluster = null as any;
+
+export { EnterpriseDatabaseArgs, EnterpriseDatabaseState } from "./enterpriseDatabase";
+export type EnterpriseDatabase = import("./enterpriseDatabase").EnterpriseDatabase;
+export const EnterpriseDatabase: typeof import("./enterpriseDatabase").EnterpriseDatabase = null as any;
+
+export { FirewallRuleArgs, FirewallRuleState } from "./firewallRule";
+export type FirewallRule = import("./firewallRule").FirewallRule;
+export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
+
+export { GetCacheArgs, GetCacheResult, GetCacheOutputArgs } from "./getCache";
+export const getCache: typeof import("./getCache").getCache = null as any;
+export const getCacheOutput: typeof import("./getCache").getCacheOutput = null as any;
+
+export { GetEnterpriseDatabaseArgs, GetEnterpriseDatabaseResult, GetEnterpriseDatabaseOutputArgs } from "./getEnterpriseDatabase";
+export const getEnterpriseDatabase: typeof import("./getEnterpriseDatabase").getEnterpriseDatabase = null as any;
+export const getEnterpriseDatabaseOutput: typeof import("./getEnterpriseDatabase").getEnterpriseDatabaseOutput = null as any;
+
+export { LinkedServerArgs, LinkedServerState } from "./linkedServer";
+export type LinkedServer = import("./linkedServer").LinkedServer;
+export const LinkedServer: typeof import("./linkedServer").LinkedServer = null as any;
+
+utilities.lazyLoad(exports, ["Cache"], () => require("./cache"));
+utilities.lazyLoad(exports, ["EnterpriseCluster"], () => require("./enterpriseCluster"));
+utilities.lazyLoad(exports, ["EnterpriseDatabase"], () => require("./enterpriseDatabase"));
+utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
+utilities.lazyLoad(exports, ["getCache","getCacheOutput"], () => require("./getCache"));
+utilities.lazyLoad(exports, ["getEnterpriseDatabase","getEnterpriseDatabaseOutput"], () => require("./getEnterpriseDatabase"));
+utilities.lazyLoad(exports, ["LinkedServer"], () => require("./linkedServer"));
 
 const _module = {
     version: utilities.getVersion(),

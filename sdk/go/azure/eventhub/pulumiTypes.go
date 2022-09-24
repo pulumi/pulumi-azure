@@ -1856,7 +1856,7 @@ type EventHubNamespaceIdentity struct {
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. The only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are `SystemAssigned` or `UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -1877,7 +1877,7 @@ type EventHubNamespaceIdentityArgs struct {
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID associated with this Managed Service Identity.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. The only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are `SystemAssigned` or `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1972,7 +1972,7 @@ func (o EventHubNamespaceIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventHubNamespaceIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are `SystemAssigned` or `UserAssigned`.
 func (o EventHubNamespaceIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubNamespaceIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2030,7 +2030,7 @@ func (o EventHubNamespaceIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are `SystemAssigned` or `UserAssigned`.
 func (o EventHubNamespaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventHubNamespaceIdentity) *string {
 		if v == nil {
@@ -2045,6 +2045,8 @@ type EventHubNamespaceNetworkRulesets struct {
 	DefaultAction string `pulumi:"defaultAction"`
 	// One or more `ipRule` blocks as defined below.
 	IpRules []EventHubNamespaceNetworkRulesetsIpRule `pulumi:"ipRules"`
+	// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Whether Trusted Microsoft Services are allowed to bypass firewall.
 	TrustedServiceAccessEnabled *bool `pulumi:"trustedServiceAccessEnabled"`
 	// One or more `virtualNetworkRule` blocks as defined below.
@@ -2067,6 +2069,8 @@ type EventHubNamespaceNetworkRulesetsArgs struct {
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
 	// One or more `ipRule` blocks as defined below.
 	IpRules EventHubNamespaceNetworkRulesetsIpRuleArrayInput `pulumi:"ipRules"`
+	// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput `pulumi:"publicNetworkAccessEnabled"`
 	// Whether Trusted Microsoft Services are allowed to bypass firewall.
 	TrustedServiceAccessEnabled pulumi.BoolPtrInput `pulumi:"trustedServiceAccessEnabled"`
 	// One or more `virtualNetworkRule` blocks as defined below.
@@ -2160,6 +2164,11 @@ func (o EventHubNamespaceNetworkRulesetsOutput) IpRules() EventHubNamespaceNetwo
 	return o.ApplyT(func(v EventHubNamespaceNetworkRulesets) []EventHubNamespaceNetworkRulesetsIpRule { return v.IpRules }).(EventHubNamespaceNetworkRulesetsIpRuleArrayOutput)
 }
 
+// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+func (o EventHubNamespaceNetworkRulesetsOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventHubNamespaceNetworkRulesets) *bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Whether Trusted Microsoft Services are allowed to bypass firewall.
 func (o EventHubNamespaceNetworkRulesetsOutput) TrustedServiceAccessEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EventHubNamespaceNetworkRulesets) *bool { return v.TrustedServiceAccessEnabled }).(pulumi.BoolPtrOutput)
@@ -2214,6 +2223,16 @@ func (o EventHubNamespaceNetworkRulesetsPtrOutput) IpRules() EventHubNamespaceNe
 		}
 		return v.IpRules
 	}).(EventHubNamespaceNetworkRulesetsIpRuleArrayOutput)
+}
+
+// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+func (o EventHubNamespaceNetworkRulesetsPtrOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventHubNamespaceNetworkRulesets) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNetworkAccessEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Whether Trusted Microsoft Services are allowed to bypass firewall.

@@ -16,14 +16,14 @@ public final class PrivateLinkScopedServiceState extends com.pulumi.resources.Re
     public static final PrivateLinkScopedServiceState Empty = new PrivateLinkScopedServiceState();
 
     /**
-     * The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+     * The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="linkedResourceId")
     private @Nullable Output<String> linkedResourceId;
 
     /**
-     * @return The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+     * @return The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> linkedResourceId() {
@@ -103,7 +103,7 @@ public final class PrivateLinkScopedServiceState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param linkedResourceId The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+         * @param linkedResourceId The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class PrivateLinkScopedServiceState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param linkedResourceId The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+         * @param linkedResourceId The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

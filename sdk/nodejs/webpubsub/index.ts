@@ -5,18 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getPrivateLinkResource";
-export * from "./getService";
-export * from "./hub";
-export * from "./networkAcl";
-export * from "./service";
-export * from "./sharedPrivateLinkResource";
+export { GetPrivateLinkResourceArgs, GetPrivateLinkResourceResult, GetPrivateLinkResourceOutputArgs } from "./getPrivateLinkResource";
+export const getPrivateLinkResource: typeof import("./getPrivateLinkResource").getPrivateLinkResource = null as any;
+export const getPrivateLinkResourceOutput: typeof import("./getPrivateLinkResource").getPrivateLinkResourceOutput = null as any;
 
-// Import resources to register:
-import { Hub } from "./hub";
-import { NetworkAcl } from "./networkAcl";
-import { Service } from "./service";
-import { SharedPrivateLinkResource } from "./sharedPrivateLinkResource";
+export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
+export const getService: typeof import("./getService").getService = null as any;
+export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+
+export { HubArgs, HubState } from "./hub";
+export type Hub = import("./hub").Hub;
+export const Hub: typeof import("./hub").Hub = null as any;
+
+export { NetworkAclArgs, NetworkAclState } from "./networkAcl";
+export type NetworkAcl = import("./networkAcl").NetworkAcl;
+export const NetworkAcl: typeof import("./networkAcl").NetworkAcl = null as any;
+
+export { ServiceArgs, ServiceState } from "./service";
+export type Service = import("./service").Service;
+export const Service: typeof import("./service").Service = null as any;
+
+export { SharedPrivateLinkResourceArgs, SharedPrivateLinkResourceState } from "./sharedPrivateLinkResource";
+export type SharedPrivateLinkResource = import("./sharedPrivateLinkResource").SharedPrivateLinkResource;
+export const SharedPrivateLinkResource: typeof import("./sharedPrivateLinkResource").SharedPrivateLinkResource = null as any;
+
+utilities.lazyLoad(exports, ["getPrivateLinkResource","getPrivateLinkResourceOutput"], () => require("./getPrivateLinkResource"));
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+utilities.lazyLoad(exports, ["Hub"], () => require("./hub"));
+utilities.lazyLoad(exports, ["NetworkAcl"], () => require("./networkAcl"));
+utilities.lazyLoad(exports, ["Service"], () => require("./service"));
+utilities.lazyLoad(exports, ["SharedPrivateLinkResource"], () => require("./sharedPrivateLinkResource"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -67,10 +67,22 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ApiName { get; private set; } = null!;
 
         /// <summary>
+        /// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+        /// </summary>
+        [Output("components")]
+        public Output<string?> Components { get; private set; } = null!;
+
+        /// <summary>
         /// The content type of the API Schema.
         /// </summary>
         [Output("contentType")]
         public Output<string> ContentType { get; private set; } = null!;
+
+        /// <summary>
+        /// Types definitions. Used for Swagger/OpenAPI v1 schemas only.
+        /// </summary>
+        [Output("definitions")]
+        public Output<string?> Definitions { get; private set; } = null!;
 
         /// <summary>
         /// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
@@ -88,7 +100,7 @@ namespace Pulumi.Azure.ApiManagement
         /// The JSON escaped string defining the document representing the Schema.
         /// </summary>
         [Output("value")]
-        public Output<string> Value { get; private set; } = null!;
+        public Output<string?> Value { get; private set; } = null!;
 
 
         /// <summary>
@@ -149,10 +161,22 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ApiName { get; set; } = null!;
 
         /// <summary>
+        /// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+        /// </summary>
+        [Input("components")]
+        public Input<string>? Components { get; set; }
+
+        /// <summary>
         /// The content type of the API Schema.
         /// </summary>
         [Input("contentType", required: true)]
         public Input<string> ContentType { get; set; } = null!;
+
+        /// <summary>
+        /// Types definitions. Used for Swagger/OpenAPI v1 schemas only.
+        /// </summary>
+        [Input("definitions")]
+        public Input<string>? Definitions { get; set; }
 
         /// <summary>
         /// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
@@ -169,8 +193,8 @@ namespace Pulumi.Azure.ApiManagement
         /// <summary>
         /// The JSON escaped string defining the document representing the Schema.
         /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
+        [Input("value")]
+        public Input<string>? Value { get; set; }
 
         public ApiSchemaArgs()
         {
@@ -193,10 +217,22 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ApiName { get; set; }
 
         /// <summary>
+        /// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+        /// </summary>
+        [Input("components")]
+        public Input<string>? Components { get; set; }
+
+        /// <summary>
         /// The content type of the API Schema.
         /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
+
+        /// <summary>
+        /// Types definitions. Used for Swagger/OpenAPI v1 schemas only.
+        /// </summary>
+        [Input("definitions")]
+        public Input<string>? Definitions { get; set; }
 
         /// <summary>
         /// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.

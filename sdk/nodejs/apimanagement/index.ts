@@ -5,107 +5,271 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./api";
-export * from "./apiDiagnostic";
-export * from "./apiOperation";
-export * from "./apiOperationPolicy";
-export * from "./apiOperationTag";
-export * from "./apiPolicy";
-export * from "./apiRelease";
-export * from "./apiSchema";
-export * from "./apiTag";
-export * from "./apiTagDescription";
-export * from "./apiVersionSet";
-export * from "./authorizationServer";
-export * from "./backend";
-export * from "./certificate";
-export * from "./customDomain";
-export * from "./diagnostic";
-export * from "./emailTemplate";
-export * from "./gateway";
-export * from "./gatewayApi";
-export * from "./gatewayCertificateAuthority";
-export * from "./gatewayHostNameConfiguration";
-export * from "./getApi";
-export * from "./getApiVersionSet";
-export * from "./getGateway";
-export * from "./getGroup";
-export * from "./getProduct";
-export * from "./getService";
-export * from "./getUser";
-export * from "./globalSchema";
-export * from "./group";
-export * from "./groupUser";
-export * from "./identityProviderAad";
-export * from "./identityProviderAadb2c";
-export * from "./identityProviderFacebook";
-export * from "./identityProviderGoogle";
-export * from "./identityProviderMicrosoft";
-export * from "./identityProviderTwitter";
-export * from "./logger";
-export * from "./namedValue";
-export * from "./notificationRecipientEmail";
-export * from "./notificationRecipientUser";
-export * from "./openIdConnectProvider";
-export * from "./policy";
-export * from "./product";
-export * from "./productApi";
-export * from "./productGroup";
-export * from "./productPolicy";
-export * from "./productTag";
-export * from "./redisCache";
-export * from "./service";
-export * from "./subscription";
-export * from "./tag";
-export * from "./user";
+export { ApiArgs, ApiState } from "./api";
+export type Api = import("./api").Api;
+export const Api: typeof import("./api").Api = null as any;
 
-// Import resources to register:
-import { Api } from "./api";
-import { ApiDiagnostic } from "./apiDiagnostic";
-import { ApiOperation } from "./apiOperation";
-import { ApiOperationPolicy } from "./apiOperationPolicy";
-import { ApiOperationTag } from "./apiOperationTag";
-import { ApiPolicy } from "./apiPolicy";
-import { ApiRelease } from "./apiRelease";
-import { ApiSchema } from "./apiSchema";
-import { ApiTag } from "./apiTag";
-import { ApiTagDescription } from "./apiTagDescription";
-import { ApiVersionSet } from "./apiVersionSet";
-import { AuthorizationServer } from "./authorizationServer";
-import { Backend } from "./backend";
-import { Certificate } from "./certificate";
-import { CustomDomain } from "./customDomain";
-import { Diagnostic } from "./diagnostic";
-import { EmailTemplate } from "./emailTemplate";
-import { Gateway } from "./gateway";
-import { GatewayApi } from "./gatewayApi";
-import { GatewayCertificateAuthority } from "./gatewayCertificateAuthority";
-import { GatewayHostNameConfiguration } from "./gatewayHostNameConfiguration";
-import { GlobalSchema } from "./globalSchema";
-import { Group } from "./group";
-import { GroupUser } from "./groupUser";
-import { IdentityProviderAad } from "./identityProviderAad";
-import { IdentityProviderAadb2c } from "./identityProviderAadb2c";
-import { IdentityProviderFacebook } from "./identityProviderFacebook";
-import { IdentityProviderGoogle } from "./identityProviderGoogle";
-import { IdentityProviderMicrosoft } from "./identityProviderMicrosoft";
-import { IdentityProviderTwitter } from "./identityProviderTwitter";
-import { Logger } from "./logger";
-import { NamedValue } from "./namedValue";
-import { NotificationRecipientEmail } from "./notificationRecipientEmail";
-import { NotificationRecipientUser } from "./notificationRecipientUser";
-import { OpenIdConnectProvider } from "./openIdConnectProvider";
-import { Policy } from "./policy";
-import { Product } from "./product";
-import { ProductApi } from "./productApi";
-import { ProductGroup } from "./productGroup";
-import { ProductPolicy } from "./productPolicy";
-import { ProductTag } from "./productTag";
-import { RedisCache } from "./redisCache";
-import { Service } from "./service";
-import { Subscription } from "./subscription";
-import { Tag } from "./tag";
-import { User } from "./user";
+export { ApiDiagnosticArgs, ApiDiagnosticState } from "./apiDiagnostic";
+export type ApiDiagnostic = import("./apiDiagnostic").ApiDiagnostic;
+export const ApiDiagnostic: typeof import("./apiDiagnostic").ApiDiagnostic = null as any;
+
+export { ApiOperationArgs, ApiOperationState } from "./apiOperation";
+export type ApiOperation = import("./apiOperation").ApiOperation;
+export const ApiOperation: typeof import("./apiOperation").ApiOperation = null as any;
+
+export { ApiOperationPolicyArgs, ApiOperationPolicyState } from "./apiOperationPolicy";
+export type ApiOperationPolicy = import("./apiOperationPolicy").ApiOperationPolicy;
+export const ApiOperationPolicy: typeof import("./apiOperationPolicy").ApiOperationPolicy = null as any;
+
+export { ApiOperationTagArgs, ApiOperationTagState } from "./apiOperationTag";
+export type ApiOperationTag = import("./apiOperationTag").ApiOperationTag;
+export const ApiOperationTag: typeof import("./apiOperationTag").ApiOperationTag = null as any;
+
+export { ApiPolicyArgs, ApiPolicyState } from "./apiPolicy";
+export type ApiPolicy = import("./apiPolicy").ApiPolicy;
+export const ApiPolicy: typeof import("./apiPolicy").ApiPolicy = null as any;
+
+export { ApiReleaseArgs, ApiReleaseState } from "./apiRelease";
+export type ApiRelease = import("./apiRelease").ApiRelease;
+export const ApiRelease: typeof import("./apiRelease").ApiRelease = null as any;
+
+export { ApiSchemaArgs, ApiSchemaState } from "./apiSchema";
+export type ApiSchema = import("./apiSchema").ApiSchema;
+export const ApiSchema: typeof import("./apiSchema").ApiSchema = null as any;
+
+export { ApiTagArgs, ApiTagState } from "./apiTag";
+export type ApiTag = import("./apiTag").ApiTag;
+export const ApiTag: typeof import("./apiTag").ApiTag = null as any;
+
+export { ApiTagDescriptionArgs, ApiTagDescriptionState } from "./apiTagDescription";
+export type ApiTagDescription = import("./apiTagDescription").ApiTagDescription;
+export const ApiTagDescription: typeof import("./apiTagDescription").ApiTagDescription = null as any;
+
+export { ApiVersionSetArgs, ApiVersionSetState } from "./apiVersionSet";
+export type ApiVersionSet = import("./apiVersionSet").ApiVersionSet;
+export const ApiVersionSet: typeof import("./apiVersionSet").ApiVersionSet = null as any;
+
+export { AuthorizationServerArgs, AuthorizationServerState } from "./authorizationServer";
+export type AuthorizationServer = import("./authorizationServer").AuthorizationServer;
+export const AuthorizationServer: typeof import("./authorizationServer").AuthorizationServer = null as any;
+
+export { BackendArgs, BackendState } from "./backend";
+export type Backend = import("./backend").Backend;
+export const Backend: typeof import("./backend").Backend = null as any;
+
+export { CertificateArgs, CertificateState } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+
+export { CustomDomainArgs, CustomDomainState } from "./customDomain";
+export type CustomDomain = import("./customDomain").CustomDomain;
+export const CustomDomain: typeof import("./customDomain").CustomDomain = null as any;
+
+export { DiagnosticArgs, DiagnosticState } from "./diagnostic";
+export type Diagnostic = import("./diagnostic").Diagnostic;
+export const Diagnostic: typeof import("./diagnostic").Diagnostic = null as any;
+
+export { EmailTemplateArgs, EmailTemplateState } from "./emailTemplate";
+export type EmailTemplate = import("./emailTemplate").EmailTemplate;
+export const EmailTemplate: typeof import("./emailTemplate").EmailTemplate = null as any;
+
+export { GatewayArgs, GatewayState } from "./gateway";
+export type Gateway = import("./gateway").Gateway;
+export const Gateway: typeof import("./gateway").Gateway = null as any;
+
+export { GatewayApiArgs, GatewayApiState } from "./gatewayApi";
+export type GatewayApi = import("./gatewayApi").GatewayApi;
+export const GatewayApi: typeof import("./gatewayApi").GatewayApi = null as any;
+
+export { GatewayCertificateAuthorityArgs, GatewayCertificateAuthorityState } from "./gatewayCertificateAuthority";
+export type GatewayCertificateAuthority = import("./gatewayCertificateAuthority").GatewayCertificateAuthority;
+export const GatewayCertificateAuthority: typeof import("./gatewayCertificateAuthority").GatewayCertificateAuthority = null as any;
+
+export { GatewayHostNameConfigurationArgs, GatewayHostNameConfigurationState } from "./gatewayHostNameConfiguration";
+export type GatewayHostNameConfiguration = import("./gatewayHostNameConfiguration").GatewayHostNameConfiguration;
+export const GatewayHostNameConfiguration: typeof import("./gatewayHostNameConfiguration").GatewayHostNameConfiguration = null as any;
+
+export { GetApiArgs, GetApiResult, GetApiOutputArgs } from "./getApi";
+export const getApi: typeof import("./getApi").getApi = null as any;
+export const getApiOutput: typeof import("./getApi").getApiOutput = null as any;
+
+export { GetApiVersionSetArgs, GetApiVersionSetResult, GetApiVersionSetOutputArgs } from "./getApiVersionSet";
+export const getApiVersionSet: typeof import("./getApiVersionSet").getApiVersionSet = null as any;
+export const getApiVersionSetOutput: typeof import("./getApiVersionSet").getApiVersionSetOutput = null as any;
+
+export { GetGatewayArgs, GetGatewayResult, GetGatewayOutputArgs } from "./getGateway";
+export const getGateway: typeof import("./getGateway").getGateway = null as any;
+export const getGatewayOutput: typeof import("./getGateway").getGatewayOutput = null as any;
+
+export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
+export const getGroup: typeof import("./getGroup").getGroup = null as any;
+export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
+
+export { GetProductArgs, GetProductResult, GetProductOutputArgs } from "./getProduct";
+export const getProduct: typeof import("./getProduct").getProduct = null as any;
+export const getProductOutput: typeof import("./getProduct").getProductOutput = null as any;
+
+export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
+export const getService: typeof import("./getService").getService = null as any;
+export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+
+export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
+export const getUser: typeof import("./getUser").getUser = null as any;
+export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
+
+export { GlobalSchemaArgs, GlobalSchemaState } from "./globalSchema";
+export type GlobalSchema = import("./globalSchema").GlobalSchema;
+export const GlobalSchema: typeof import("./globalSchema").GlobalSchema = null as any;
+
+export { GroupArgs, GroupState } from "./group";
+export type Group = import("./group").Group;
+export const Group: typeof import("./group").Group = null as any;
+
+export { GroupUserArgs, GroupUserState } from "./groupUser";
+export type GroupUser = import("./groupUser").GroupUser;
+export const GroupUser: typeof import("./groupUser").GroupUser = null as any;
+
+export { IdentityProviderAadArgs, IdentityProviderAadState } from "./identityProviderAad";
+export type IdentityProviderAad = import("./identityProviderAad").IdentityProviderAad;
+export const IdentityProviderAad: typeof import("./identityProviderAad").IdentityProviderAad = null as any;
+
+export { IdentityProviderAadb2cArgs, IdentityProviderAadb2cState } from "./identityProviderAadb2c";
+export type IdentityProviderAadb2c = import("./identityProviderAadb2c").IdentityProviderAadb2c;
+export const IdentityProviderAadb2c: typeof import("./identityProviderAadb2c").IdentityProviderAadb2c = null as any;
+
+export { IdentityProviderFacebookArgs, IdentityProviderFacebookState } from "./identityProviderFacebook";
+export type IdentityProviderFacebook = import("./identityProviderFacebook").IdentityProviderFacebook;
+export const IdentityProviderFacebook: typeof import("./identityProviderFacebook").IdentityProviderFacebook = null as any;
+
+export { IdentityProviderGoogleArgs, IdentityProviderGoogleState } from "./identityProviderGoogle";
+export type IdentityProviderGoogle = import("./identityProviderGoogle").IdentityProviderGoogle;
+export const IdentityProviderGoogle: typeof import("./identityProviderGoogle").IdentityProviderGoogle = null as any;
+
+export { IdentityProviderMicrosoftArgs, IdentityProviderMicrosoftState } from "./identityProviderMicrosoft";
+export type IdentityProviderMicrosoft = import("./identityProviderMicrosoft").IdentityProviderMicrosoft;
+export const IdentityProviderMicrosoft: typeof import("./identityProviderMicrosoft").IdentityProviderMicrosoft = null as any;
+
+export { IdentityProviderTwitterArgs, IdentityProviderTwitterState } from "./identityProviderTwitter";
+export type IdentityProviderTwitter = import("./identityProviderTwitter").IdentityProviderTwitter;
+export const IdentityProviderTwitter: typeof import("./identityProviderTwitter").IdentityProviderTwitter = null as any;
+
+export { LoggerArgs, LoggerState } from "./logger";
+export type Logger = import("./logger").Logger;
+export const Logger: typeof import("./logger").Logger = null as any;
+
+export { NamedValueArgs, NamedValueState } from "./namedValue";
+export type NamedValue = import("./namedValue").NamedValue;
+export const NamedValue: typeof import("./namedValue").NamedValue = null as any;
+
+export { NotificationRecipientEmailArgs, NotificationRecipientEmailState } from "./notificationRecipientEmail";
+export type NotificationRecipientEmail = import("./notificationRecipientEmail").NotificationRecipientEmail;
+export const NotificationRecipientEmail: typeof import("./notificationRecipientEmail").NotificationRecipientEmail = null as any;
+
+export { NotificationRecipientUserArgs, NotificationRecipientUserState } from "./notificationRecipientUser";
+export type NotificationRecipientUser = import("./notificationRecipientUser").NotificationRecipientUser;
+export const NotificationRecipientUser: typeof import("./notificationRecipientUser").NotificationRecipientUser = null as any;
+
+export { OpenIdConnectProviderArgs, OpenIdConnectProviderState } from "./openIdConnectProvider";
+export type OpenIdConnectProvider = import("./openIdConnectProvider").OpenIdConnectProvider;
+export const OpenIdConnectProvider: typeof import("./openIdConnectProvider").OpenIdConnectProvider = null as any;
+
+export { PolicyArgs, PolicyState } from "./policy";
+export type Policy = import("./policy").Policy;
+export const Policy: typeof import("./policy").Policy = null as any;
+
+export { ProductArgs, ProductState } from "./product";
+export type Product = import("./product").Product;
+export const Product: typeof import("./product").Product = null as any;
+
+export { ProductApiArgs, ProductApiState } from "./productApi";
+export type ProductApi = import("./productApi").ProductApi;
+export const ProductApi: typeof import("./productApi").ProductApi = null as any;
+
+export { ProductGroupArgs, ProductGroupState } from "./productGroup";
+export type ProductGroup = import("./productGroup").ProductGroup;
+export const ProductGroup: typeof import("./productGroup").ProductGroup = null as any;
+
+export { ProductPolicyArgs, ProductPolicyState } from "./productPolicy";
+export type ProductPolicy = import("./productPolicy").ProductPolicy;
+export const ProductPolicy: typeof import("./productPolicy").ProductPolicy = null as any;
+
+export { ProductTagArgs, ProductTagState } from "./productTag";
+export type ProductTag = import("./productTag").ProductTag;
+export const ProductTag: typeof import("./productTag").ProductTag = null as any;
+
+export { RedisCacheArgs, RedisCacheState } from "./redisCache";
+export type RedisCache = import("./redisCache").RedisCache;
+export const RedisCache: typeof import("./redisCache").RedisCache = null as any;
+
+export { ServiceArgs, ServiceState } from "./service";
+export type Service = import("./service").Service;
+export const Service: typeof import("./service").Service = null as any;
+
+export { SubscriptionArgs, SubscriptionState } from "./subscription";
+export type Subscription = import("./subscription").Subscription;
+export const Subscription: typeof import("./subscription").Subscription = null as any;
+
+export { TagArgs, TagState } from "./tag";
+export type Tag = import("./tag").Tag;
+export const Tag: typeof import("./tag").Tag = null as any;
+
+export { UserArgs, UserState } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+
+utilities.lazyLoad(exports, ["Api"], () => require("./api"));
+utilities.lazyLoad(exports, ["ApiDiagnostic"], () => require("./apiDiagnostic"));
+utilities.lazyLoad(exports, ["ApiOperation"], () => require("./apiOperation"));
+utilities.lazyLoad(exports, ["ApiOperationPolicy"], () => require("./apiOperationPolicy"));
+utilities.lazyLoad(exports, ["ApiOperationTag"], () => require("./apiOperationTag"));
+utilities.lazyLoad(exports, ["ApiPolicy"], () => require("./apiPolicy"));
+utilities.lazyLoad(exports, ["ApiRelease"], () => require("./apiRelease"));
+utilities.lazyLoad(exports, ["ApiSchema"], () => require("./apiSchema"));
+utilities.lazyLoad(exports, ["ApiTag"], () => require("./apiTag"));
+utilities.lazyLoad(exports, ["ApiTagDescription"], () => require("./apiTagDescription"));
+utilities.lazyLoad(exports, ["ApiVersionSet"], () => require("./apiVersionSet"));
+utilities.lazyLoad(exports, ["AuthorizationServer"], () => require("./authorizationServer"));
+utilities.lazyLoad(exports, ["Backend"], () => require("./backend"));
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+utilities.lazyLoad(exports, ["CustomDomain"], () => require("./customDomain"));
+utilities.lazyLoad(exports, ["Diagnostic"], () => require("./diagnostic"));
+utilities.lazyLoad(exports, ["EmailTemplate"], () => require("./emailTemplate"));
+utilities.lazyLoad(exports, ["Gateway"], () => require("./gateway"));
+utilities.lazyLoad(exports, ["GatewayApi"], () => require("./gatewayApi"));
+utilities.lazyLoad(exports, ["GatewayCertificateAuthority"], () => require("./gatewayCertificateAuthority"));
+utilities.lazyLoad(exports, ["GatewayHostNameConfiguration"], () => require("./gatewayHostNameConfiguration"));
+utilities.lazyLoad(exports, ["getApi","getApiOutput"], () => require("./getApi"));
+utilities.lazyLoad(exports, ["getApiVersionSet","getApiVersionSetOutput"], () => require("./getApiVersionSet"));
+utilities.lazyLoad(exports, ["getGateway","getGatewayOutput"], () => require("./getGateway"));
+utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
+utilities.lazyLoad(exports, ["getProduct","getProductOutput"], () => require("./getProduct"));
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
+utilities.lazyLoad(exports, ["GlobalSchema"], () => require("./globalSchema"));
+utilities.lazyLoad(exports, ["Group"], () => require("./group"));
+utilities.lazyLoad(exports, ["GroupUser"], () => require("./groupUser"));
+utilities.lazyLoad(exports, ["IdentityProviderAad"], () => require("./identityProviderAad"));
+utilities.lazyLoad(exports, ["IdentityProviderAadb2c"], () => require("./identityProviderAadb2c"));
+utilities.lazyLoad(exports, ["IdentityProviderFacebook"], () => require("./identityProviderFacebook"));
+utilities.lazyLoad(exports, ["IdentityProviderGoogle"], () => require("./identityProviderGoogle"));
+utilities.lazyLoad(exports, ["IdentityProviderMicrosoft"], () => require("./identityProviderMicrosoft"));
+utilities.lazyLoad(exports, ["IdentityProviderTwitter"], () => require("./identityProviderTwitter"));
+utilities.lazyLoad(exports, ["Logger"], () => require("./logger"));
+utilities.lazyLoad(exports, ["NamedValue"], () => require("./namedValue"));
+utilities.lazyLoad(exports, ["NotificationRecipientEmail"], () => require("./notificationRecipientEmail"));
+utilities.lazyLoad(exports, ["NotificationRecipientUser"], () => require("./notificationRecipientUser"));
+utilities.lazyLoad(exports, ["OpenIdConnectProvider"], () => require("./openIdConnectProvider"));
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
+utilities.lazyLoad(exports, ["Product"], () => require("./product"));
+utilities.lazyLoad(exports, ["ProductApi"], () => require("./productApi"));
+utilities.lazyLoad(exports, ["ProductGroup"], () => require("./productGroup"));
+utilities.lazyLoad(exports, ["ProductPolicy"], () => require("./productPolicy"));
+utilities.lazyLoad(exports, ["ProductTag"], () => require("./productTag"));
+utilities.lazyLoad(exports, ["RedisCache"], () => require("./redisCache"));
+utilities.lazyLoad(exports, ["Service"], () => require("./service"));
+utilities.lazyLoad(exports, ["Subscription"], () => require("./subscription"));
+utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
 
 const _module = {
     version: utilities.getVersion(),

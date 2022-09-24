@@ -71,6 +71,9 @@ type Account struct {
 	DscServerEndpoint pulumi.StringOutput `pulumi:"dscServerEndpoint"`
 	// An `encryption` block as defined below.
 	Encryptions AccountEncryptionArrayOutput `pulumi:"encryptions"`
+	// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+	// ---
+	HybridServiceUrl pulumi.StringOutput `pulumi:"hybridServiceUrl"`
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrOutput `pulumi:"identity"`
 	// Whether requests using non-AAD authentication are blocked.
@@ -133,6 +136,9 @@ type accountState struct {
 	DscServerEndpoint *string `pulumi:"dscServerEndpoint"`
 	// An `encryption` block as defined below.
 	Encryptions []AccountEncryption `pulumi:"encryptions"`
+	// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+	// ---
+	HybridServiceUrl *string `pulumi:"hybridServiceUrl"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
 	// Whether requests using non-AAD authentication are blocked.
@@ -161,6 +167,9 @@ type AccountState struct {
 	DscServerEndpoint pulumi.StringPtrInput
 	// An `encryption` block as defined below.
 	Encryptions AccountEncryptionArrayInput
+	// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+	// ---
+	HybridServiceUrl pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
 	// Whether requests using non-AAD authentication are blocked.
@@ -332,6 +341,12 @@ func (o AccountOutput) DscServerEndpoint() pulumi.StringOutput {
 // An `encryption` block as defined below.
 func (o AccountOutput) Encryptions() AccountEncryptionArrayOutput {
 	return o.ApplyT(func(v *Account) AccountEncryptionArrayOutput { return v.Encryptions }).(AccountEncryptionArrayOutput)
+}
+
+// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+// ---
+func (o AccountOutput) HybridServiceUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.HybridServiceUrl }).(pulumi.StringOutput)
 }
 
 // An `identity` block as defined below.

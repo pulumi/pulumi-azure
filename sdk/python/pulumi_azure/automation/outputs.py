@@ -21,7 +21,18 @@ __all__ = [
     'RunBookPublishContentLink',
     'RunBookPublishContentLinkHash',
     'ScheduleMonthlyOccurrence',
+    'SoftwareUpdateConfigurationLinux',
+    'SoftwareUpdateConfigurationPostTask',
+    'SoftwareUpdateConfigurationPreTask',
+    'SoftwareUpdateConfigurationSchedule',
+    'SoftwareUpdateConfigurationScheduleMonthlyOccurrence',
+    'SoftwareUpdateConfigurationTarget',
+    'SoftwareUpdateConfigurationTargetAzureQuery',
+    'SoftwareUpdateConfigurationTargetAzureQueryTag',
+    'SoftwareUpdateConfigurationTargetNonAzureQuery',
+    'SoftwareUpdateConfigurationWindow',
     'SourceControlSecurity',
+    'GetAccountIdentityResult',
     'GetAccountPrivateEndpointConnectionResult',
 ]
 
@@ -451,6 +462,662 @@ class ScheduleMonthlyOccurrence(dict):
 
 
 @pulumi.output_type
+class SoftwareUpdateConfigurationLinux(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "classificationIncluded":
+            suggest = "classification_included"
+        elif key == "excludedPackages":
+            suggest = "excluded_packages"
+        elif key == "includedPackages":
+            suggest = "included_packages"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SoftwareUpdateConfigurationLinux. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SoftwareUpdateConfigurationLinux.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SoftwareUpdateConfigurationLinux.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 classification_included: Optional[str] = None,
+                 excluded_packages: Optional[Sequence[str]] = None,
+                 included_packages: Optional[Sequence[str]] = None,
+                 reboot: Optional[str] = None):
+        """
+        :param str classification_included: Specifies the update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
+        :param Sequence[str] excluded_packages: Specifies a list of packages to excluded from the Software Update Configuration.
+        :param Sequence[str] included_packages: Specifies a list of packages to included from the Software Update Configuration.
+        :param str reboot: Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+        """
+        if classification_included is not None:
+            pulumi.set(__self__, "classification_included", classification_included)
+        if excluded_packages is not None:
+            pulumi.set(__self__, "excluded_packages", excluded_packages)
+        if included_packages is not None:
+            pulumi.set(__self__, "included_packages", included_packages)
+        if reboot is not None:
+            pulumi.set(__self__, "reboot", reboot)
+
+    @property
+    @pulumi.getter(name="classificationIncluded")
+    def classification_included(self) -> Optional[str]:
+        """
+        Specifies the update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
+        """
+        return pulumi.get(self, "classification_included")
+
+    @property
+    @pulumi.getter(name="excludedPackages")
+    def excluded_packages(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of packages to excluded from the Software Update Configuration.
+        """
+        return pulumi.get(self, "excluded_packages")
+
+    @property
+    @pulumi.getter(name="includedPackages")
+    def included_packages(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of packages to included from the Software Update Configuration.
+        """
+        return pulumi.get(self, "included_packages")
+
+    @property
+    @pulumi.getter
+    def reboot(self) -> Optional[str]:
+        """
+        Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+        """
+        return pulumi.get(self, "reboot")
+
+
+@pulumi.output_type
+class SoftwareUpdateConfigurationPostTask(dict):
+    def __init__(__self__, *,
+                 parameters: Optional[Mapping[str, str]] = None,
+                 source: Optional[str] = None):
+        """
+        :param Mapping[str, str] parameters: Specifies a map of parameters for the task.
+        :param str source: The name of the runbook for the post task.
+        """
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a map of parameters for the task.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[str]:
+        """
+        The name of the runbook for the post task.
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class SoftwareUpdateConfigurationPreTask(dict):
+    def __init__(__self__, *,
+                 parameters: Optional[Mapping[str, str]] = None,
+                 source: Optional[str] = None):
+        """
+        :param Mapping[str, str] parameters: Specifies a map of parameters for the task.
+        :param str source: The name of the runbook for the pre task.
+        """
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        Specifies a map of parameters for the task.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[str]:
+        """
+        The name of the runbook for the pre task.
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class SoftwareUpdateConfigurationSchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "advancedMonthDays":
+            suggest = "advanced_month_days"
+        elif key == "advancedWeekDays":
+            suggest = "advanced_week_days"
+        elif key == "creationTime":
+            suggest = "creation_time"
+        elif key == "expiryTime":
+            suggest = "expiry_time"
+        elif key == "expiryTimeOffsetMinutes":
+            suggest = "expiry_time_offset_minutes"
+        elif key == "isEnabled":
+            suggest = "is_enabled"
+        elif key == "lastModifiedTime":
+            suggest = "last_modified_time"
+        elif key == "monthlyOccurrences":
+            suggest = "monthly_occurrences"
+        elif key == "nextRun":
+            suggest = "next_run"
+        elif key == "nextRunOffsetMinutes":
+            suggest = "next_run_offset_minutes"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "startTimeOffsetMinutes":
+            suggest = "start_time_offset_minutes"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SoftwareUpdateConfigurationSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SoftwareUpdateConfigurationSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SoftwareUpdateConfigurationSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 advanced_month_days: Optional[Sequence[int]] = None,
+                 advanced_week_days: Optional[Sequence[str]] = None,
+                 creation_time: Optional[str] = None,
+                 description: Optional[str] = None,
+                 expiry_time: Optional[str] = None,
+                 expiry_time_offset_minutes: Optional[float] = None,
+                 frequency: Optional[str] = None,
+                 interval: Optional[int] = None,
+                 is_enabled: Optional[bool] = None,
+                 last_modified_time: Optional[str] = None,
+                 monthly_occurrences: Optional[Sequence['outputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrence']] = None,
+                 next_run: Optional[str] = None,
+                 next_run_offset_minutes: Optional[float] = None,
+                 start_time: Optional[str] = None,
+                 start_time_offset_minutes: Optional[float] = None,
+                 time_zone: Optional[str] = None):
+        """
+        :param Sequence[int] advanced_month_days: List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
+        :param Sequence[str] advanced_week_days: List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+        :param str description: A description for this Schedule.
+        :param str expiry_time: The end time of the schedule.
+        :param str frequency: The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+        :param int interval: The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+        :param bool is_enabled: Whether the schedule is enabled.
+        :param Sequence['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs'] monthly_occurrences: List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+        :param str start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
+        """
+        if advanced_month_days is not None:
+            pulumi.set(__self__, "advanced_month_days", advanced_month_days)
+        if advanced_week_days is not None:
+            pulumi.set(__self__, "advanced_week_days", advanced_week_days)
+        if creation_time is not None:
+            pulumi.set(__self__, "creation_time", creation_time)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+        if expiry_time_offset_minutes is not None:
+            pulumi.set(__self__, "expiry_time_offset_minutes", expiry_time_offset_minutes)
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if is_enabled is not None:
+            pulumi.set(__self__, "is_enabled", is_enabled)
+        if last_modified_time is not None:
+            pulumi.set(__self__, "last_modified_time", last_modified_time)
+        if monthly_occurrences is not None:
+            pulumi.set(__self__, "monthly_occurrences", monthly_occurrences)
+        if next_run is not None:
+            pulumi.set(__self__, "next_run", next_run)
+        if next_run_offset_minutes is not None:
+            pulumi.set(__self__, "next_run_offset_minutes", next_run_offset_minutes)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if start_time_offset_minutes is not None:
+            pulumi.set(__self__, "start_time_offset_minutes", start_time_offset_minutes)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter(name="advancedMonthDays")
+    def advanced_month_days(self) -> Optional[Sequence[int]]:
+        """
+        List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
+        """
+        return pulumi.get(self, "advanced_month_days")
+
+    @property
+    @pulumi.getter(name="advancedWeekDays")
+    def advanced_week_days(self) -> Optional[Sequence[str]]:
+        """
+        List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+        """
+        return pulumi.get(self, "advanced_week_days")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional[str]:
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description for this Schedule.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[str]:
+        """
+        The end time of the schedule.
+        """
+        return pulumi.get(self, "expiry_time")
+
+    @property
+    @pulumi.getter(name="expiryTimeOffsetMinutes")
+    def expiry_time_offset_minutes(self) -> Optional[float]:
+        return pulumi.get(self, "expiry_time_offset_minutes")
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[str]:
+        """
+        The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+        """
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> Optional[bool]:
+        """
+        Whether the schedule is enabled.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> Optional[str]:
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter(name="monthlyOccurrences")
+    def monthly_occurrences(self) -> Optional[Sequence['outputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrence']]:
+        """
+        List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields documented below.
+        """
+        return pulumi.get(self, "monthly_occurrences")
+
+    @property
+    @pulumi.getter(name="nextRun")
+    def next_run(self) -> Optional[str]:
+        return pulumi.get(self, "next_run")
+
+    @property
+    @pulumi.getter(name="nextRunOffsetMinutes")
+    def next_run_offset_minutes(self) -> Optional[float]:
+        return pulumi.get(self, "next_run_offset_minutes")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="startTimeOffsetMinutes")
+    def start_time_offset_minutes(self) -> Optional[float]:
+        return pulumi.get(self, "start_time_offset_minutes")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        return pulumi.get(self, "time_zone")
+
+
+@pulumi.output_type
+class SoftwareUpdateConfigurationScheduleMonthlyOccurrence(dict):
+    def __init__(__self__, *,
+                 day: str,
+                 occurrence: int):
+        """
+        :param str day: Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+        :param int occurrence: Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+        """
+        pulumi.set(__self__, "day", day)
+        pulumi.set(__self__, "occurrence", occurrence)
+
+    @property
+    @pulumi.getter
+    def day(self) -> str:
+        """
+        Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+        """
+        return pulumi.get(self, "day")
+
+    @property
+    @pulumi.getter
+    def occurrence(self) -> int:
+        """
+        Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+        """
+        return pulumi.get(self, "occurrence")
+
+
+@pulumi.output_type
+class SoftwareUpdateConfigurationTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureQueries":
+            suggest = "azure_queries"
+        elif key == "nonAzureQueries":
+            suggest = "non_azure_queries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SoftwareUpdateConfigurationTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SoftwareUpdateConfigurationTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SoftwareUpdateConfigurationTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_queries: Optional[Sequence['outputs.SoftwareUpdateConfigurationTargetAzureQuery']] = None,
+                 non_azure_queries: Optional[Sequence['outputs.SoftwareUpdateConfigurationTargetNonAzureQuery']] = None):
+        """
+        :param Sequence['SoftwareUpdateConfigurationTargetAzureQueryArgs'] azure_queries: One or more `azure_query` blocks as defined above.
+        :param Sequence['SoftwareUpdateConfigurationTargetNonAzureQueryArgs'] non_azure_queries: One or more `non_azure_query` blocks as defined above.
+        """
+        if azure_queries is not None:
+            pulumi.set(__self__, "azure_queries", azure_queries)
+        if non_azure_queries is not None:
+            pulumi.set(__self__, "non_azure_queries", non_azure_queries)
+
+    @property
+    @pulumi.getter(name="azureQueries")
+    def azure_queries(self) -> Optional[Sequence['outputs.SoftwareUpdateConfigurationTargetAzureQuery']]:
+        """
+        One or more `azure_query` blocks as defined above.
+        """
+        return pulumi.get(self, "azure_queries")
+
+    @property
+    @pulumi.getter(name="nonAzureQueries")
+    def non_azure_queries(self) -> Optional[Sequence['outputs.SoftwareUpdateConfigurationTargetNonAzureQuery']]:
+        """
+        One or more `non_azure_query` blocks as defined above.
+        """
+        return pulumi.get(self, "non_azure_queries")
+
+
+@pulumi.output_type
+class SoftwareUpdateConfigurationTargetAzureQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagFilter":
+            suggest = "tag_filter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SoftwareUpdateConfigurationTargetAzureQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SoftwareUpdateConfigurationTargetAzureQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SoftwareUpdateConfigurationTargetAzureQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 locations: Optional[Sequence[str]] = None,
+                 scopes: Optional[Sequence[str]] = None,
+                 tag_filter: Optional[str] = None,
+                 tags: Optional[Sequence['outputs.SoftwareUpdateConfigurationTargetAzureQueryTag']] = None):
+        """
+        :param Sequence[str] locations: Specifies a list of locations to scope the query to.
+        :param Sequence[str] scopes: Specifies a list of Subscription or Resource Group ARM Ids to query.
+        :param str tag_filter: Specifies how the specified tags to filter VMs. Possible values are `Any` and `All`.
+        :param Sequence['SoftwareUpdateConfigurationTargetAzureQueryTagArgs'] tags: A mapping of tags used for query filter.
+        """
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if scopes is not None:
+            pulumi.set(__self__, "scopes", scopes)
+        if tag_filter is not None:
+            pulumi.set(__self__, "tag_filter", tag_filter)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of locations to scope the query to.
+        """
+        return pulumi.get(self, "locations")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of Subscription or Resource Group ARM Ids to query.
+        """
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter(name="tagFilter")
+    def tag_filter(self) -> Optional[str]:
+        """
+        Specifies how the specified tags to filter VMs. Possible values are `Any` and `All`.
+        """
+        return pulumi.get(self, "tag_filter")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.SoftwareUpdateConfigurationTargetAzureQueryTag']]:
+        """
+        A mapping of tags used for query filter.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class SoftwareUpdateConfigurationTargetAzureQueryTag(dict):
+    def __init__(__self__, *,
+                 tag: str,
+                 values: Sequence[str]):
+        """
+        :param str tag: Specifies the name of the tag to filter.
+        :param Sequence[str] values: Specifies a list of values for this tag key.
+        """
+        pulumi.set(__self__, "tag", tag)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def tag(self) -> str:
+        """
+        Specifies the name of the tag to filter.
+        """
+        return pulumi.get(self, "tag")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Specifies a list of values for this tag key.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class SoftwareUpdateConfigurationTargetNonAzureQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionAlias":
+            suggest = "function_alias"
+        elif key == "workspaceId":
+            suggest = "workspace_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SoftwareUpdateConfigurationTargetNonAzureQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SoftwareUpdateConfigurationTargetNonAzureQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SoftwareUpdateConfigurationTargetNonAzureQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 function_alias: Optional[str] = None,
+                 workspace_id: Optional[str] = None):
+        """
+        :param str function_alias: Specifies the Log Analytics save search name.
+        :param str workspace_id: The workspace id for Log Analytics in which the saved search in.
+        """
+        if function_alias is not None:
+            pulumi.set(__self__, "function_alias", function_alias)
+        if workspace_id is not None:
+            pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="functionAlias")
+    def function_alias(self) -> Optional[str]:
+        """
+        Specifies the Log Analytics save search name.
+        """
+        return pulumi.get(self, "function_alias")
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> Optional[str]:
+        """
+        The workspace id for Log Analytics in which the saved search in.
+        """
+        return pulumi.get(self, "workspace_id")
+
+
+@pulumi.output_type
+class SoftwareUpdateConfigurationWindow(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "classificationIncluded":
+            suggest = "classification_included"
+        elif key == "excludedKnowledgeBaseNumbers":
+            suggest = "excluded_knowledge_base_numbers"
+        elif key == "includedKnowledgeBaseNumbers":
+            suggest = "included_knowledge_base_numbers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SoftwareUpdateConfigurationWindow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SoftwareUpdateConfigurationWindow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SoftwareUpdateConfigurationWindow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 classification_included: Optional[str] = None,
+                 excluded_knowledge_base_numbers: Optional[Sequence[str]] = None,
+                 included_knowledge_base_numbers: Optional[Sequence[str]] = None,
+                 reboot: Optional[str] = None):
+        """
+        :param str classification_included: Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+        :param Sequence[str] excluded_knowledge_base_numbers: Specifies a list of knowledge base numbers excluded.
+        :param Sequence[str] included_knowledge_base_numbers: Specifies a list of knowledge base numbers included.
+        :param str reboot: Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+        """
+        if classification_included is not None:
+            pulumi.set(__self__, "classification_included", classification_included)
+        if excluded_knowledge_base_numbers is not None:
+            pulumi.set(__self__, "excluded_knowledge_base_numbers", excluded_knowledge_base_numbers)
+        if included_knowledge_base_numbers is not None:
+            pulumi.set(__self__, "included_knowledge_base_numbers", included_knowledge_base_numbers)
+        if reboot is not None:
+            pulumi.set(__self__, "reboot", reboot)
+
+    @property
+    @pulumi.getter(name="classificationIncluded")
+    def classification_included(self) -> Optional[str]:
+        """
+        Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+        """
+        return pulumi.get(self, "classification_included")
+
+    @property
+    @pulumi.getter(name="excludedKnowledgeBaseNumbers")
+    def excluded_knowledge_base_numbers(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of knowledge base numbers excluded.
+        """
+        return pulumi.get(self, "excluded_knowledge_base_numbers")
+
+    @property
+    @pulumi.getter(name="includedKnowledgeBaseNumbers")
+    def included_knowledge_base_numbers(self) -> Optional[Sequence[str]]:
+        """
+        Specifies a list of knowledge base numbers included.
+        """
+        return pulumi.get(self, "included_knowledge_base_numbers")
+
+    @property
+    @pulumi.getter
+    def reboot(self) -> Optional[str]:
+        """
+        Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+        """
+        return pulumi.get(self, "reboot")
+
+
+@pulumi.output_type
 class SourceControlSecurity(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -508,6 +1175,57 @@ class SourceControlSecurity(dict):
         The refresh token of specified rpeo.
         """
         return pulumi.get(self, "refresh_token")
+
+
+@pulumi.output_type
+class GetAccountIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        :param Sequence[str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+        :param str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+        :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+        :param str type: The type of Managed Service Identity that is configured on this API Management Service.
+        """
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        """
+        The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of Managed Service Identity that is configured on this API Management Service.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

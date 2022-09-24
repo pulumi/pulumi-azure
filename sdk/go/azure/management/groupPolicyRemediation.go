@@ -20,8 +20,10 @@ type GroupPolicyRemediation struct {
 	Name                pulumi.StringOutput      `pulumi:"name"`
 	ParallelDeployments pulumi.IntPtrOutput      `pulumi:"parallelDeployments"`
 	PolicyAssignmentId  pulumi.StringOutput      `pulumi:"policyAssignmentId"`
-	PolicyDefinitionId  pulumi.StringPtrOutput   `pulumi:"policyDefinitionId"`
-	ResourceCount       pulumi.IntPtrOutput      `pulumi:"resourceCount"`
+	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+	PolicyDefinitionId          pulumi.StringPtrOutput `pulumi:"policyDefinitionId"`
+	PolicyDefinitionReferenceId pulumi.StringPtrOutput `pulumi:"policyDefinitionReferenceId"`
+	ResourceCount               pulumi.IntPtrOutput    `pulumi:"resourceCount"`
 	// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	ResourceDiscoveryMode pulumi.StringPtrOutput `pulumi:"resourceDiscoveryMode"`
 }
@@ -67,8 +69,10 @@ type groupPolicyRemediationState struct {
 	Name                *string  `pulumi:"name"`
 	ParallelDeployments *int     `pulumi:"parallelDeployments"`
 	PolicyAssignmentId  *string  `pulumi:"policyAssignmentId"`
-	PolicyDefinitionId  *string  `pulumi:"policyDefinitionId"`
-	ResourceCount       *int     `pulumi:"resourceCount"`
+	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+	PolicyDefinitionId          *string `pulumi:"policyDefinitionId"`
+	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
+	ResourceCount               *int    `pulumi:"resourceCount"`
 	// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
 }
@@ -80,8 +84,10 @@ type GroupPolicyRemediationState struct {
 	Name                pulumi.StringPtrInput
 	ParallelDeployments pulumi.IntPtrInput
 	PolicyAssignmentId  pulumi.StringPtrInput
-	PolicyDefinitionId  pulumi.StringPtrInput
-	ResourceCount       pulumi.IntPtrInput
+	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+	PolicyDefinitionId          pulumi.StringPtrInput
+	PolicyDefinitionReferenceId pulumi.StringPtrInput
+	ResourceCount               pulumi.IntPtrInput
 	// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	ResourceDiscoveryMode pulumi.StringPtrInput
 }
@@ -97,8 +103,10 @@ type groupPolicyRemediationArgs struct {
 	Name                *string  `pulumi:"name"`
 	ParallelDeployments *int     `pulumi:"parallelDeployments"`
 	PolicyAssignmentId  string   `pulumi:"policyAssignmentId"`
-	PolicyDefinitionId  *string  `pulumi:"policyDefinitionId"`
-	ResourceCount       *int     `pulumi:"resourceCount"`
+	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+	PolicyDefinitionId          *string `pulumi:"policyDefinitionId"`
+	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
+	ResourceCount               *int    `pulumi:"resourceCount"`
 	// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
 }
@@ -111,8 +119,10 @@ type GroupPolicyRemediationArgs struct {
 	Name                pulumi.StringPtrInput
 	ParallelDeployments pulumi.IntPtrInput
 	PolicyAssignmentId  pulumi.StringInput
-	PolicyDefinitionId  pulumi.StringPtrInput
-	ResourceCount       pulumi.IntPtrInput
+	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+	PolicyDefinitionId          pulumi.StringPtrInput
+	PolicyDefinitionReferenceId pulumi.StringPtrInput
+	ResourceCount               pulumi.IntPtrInput
 	// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	ResourceDiscoveryMode pulumi.StringPtrInput
 }
@@ -228,8 +238,13 @@ func (o GroupPolicyRemediationOutput) PolicyAssignmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupPolicyRemediation) pulumi.StringOutput { return v.PolicyAssignmentId }).(pulumi.StringOutput)
 }
 
+// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
 func (o GroupPolicyRemediationOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupPolicyRemediation) pulumi.StringPtrOutput { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+func (o GroupPolicyRemediationOutput) PolicyDefinitionReferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupPolicyRemediation) pulumi.StringPtrOutput { return v.PolicyDefinitionReferenceId }).(pulumi.StringPtrOutput)
 }
 
 func (o GroupPolicyRemediationOutput) ResourceCount() pulumi.IntPtrOutput {

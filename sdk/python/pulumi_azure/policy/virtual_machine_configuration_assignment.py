@@ -217,7 +217,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
             virtual_machine_id=example_windows_virtual_machine.id,
             publisher="Microsoft.GuestConfiguration",
             type="ConfigurationforWindows",
-            type_handler_version="1.0",
+            type_handler_version="1.29",
             auto_upgrade_minor_version=True)
         example_virtual_machine_configuration_assignment = azure.policy.VirtualMachineConfigurationAssignment("exampleVirtualMachineConfigurationAssignment",
             location=example_windows_virtual_machine.location,
@@ -323,7 +323,7 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
             virtual_machine_id=example_windows_virtual_machine.id,
             publisher="Microsoft.GuestConfiguration",
             type="ConfigurationforWindows",
-            type_handler_version="1.0",
+            type_handler_version="1.29",
             auto_upgrade_minor_version=True)
         example_virtual_machine_configuration_assignment = azure.policy.VirtualMachineConfigurationAssignment("exampleVirtualMachineConfigurationAssignment",
             location=example_windows_virtual_machine.location,

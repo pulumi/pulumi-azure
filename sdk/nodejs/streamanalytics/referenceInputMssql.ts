@@ -95,7 +95,7 @@ export class ReferenceInputMssql extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The username to connect to the MS SQL database.
+     * The password to connect to the MS SQL database.
      */
     public readonly password!: pulumi.Output<string>;
     /**
@@ -217,7 +217,7 @@ export interface ReferenceInputMssqlState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The username to connect to the MS SQL database.
+     * The password to connect to the MS SQL database.
      */
     password?: pulumi.Input<string>;
     /**
@@ -271,7 +271,7 @@ export interface ReferenceInputMssqlArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The username to connect to the MS SQL database.
+     * The password to connect to the MS SQL database.
      */
     password: pulumi.Input<string>;
     /**

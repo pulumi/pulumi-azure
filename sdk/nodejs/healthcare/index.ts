@@ -5,25 +5,61 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./dicomService";
-export * from "./fhirService";
-export * from "./getDicomService";
-export * from "./getFhirService";
-export * from "./getMedtechService";
-export * from "./getService";
-export * from "./getWorkspace";
-export * from "./medtechService";
-export * from "./medtechServiceFhirDestination";
-export * from "./service";
-export * from "./workspace";
+export { DicomServiceArgs, DicomServiceState } from "./dicomService";
+export type DicomService = import("./dicomService").DicomService;
+export const DicomService: typeof import("./dicomService").DicomService = null as any;
 
-// Import resources to register:
-import { DicomService } from "./dicomService";
-import { FhirService } from "./fhirService";
-import { MedtechService } from "./medtechService";
-import { MedtechServiceFhirDestination } from "./medtechServiceFhirDestination";
-import { Service } from "./service";
-import { Workspace } from "./workspace";
+export { FhirServiceArgs, FhirServiceState } from "./fhirService";
+export type FhirService = import("./fhirService").FhirService;
+export const FhirService: typeof import("./fhirService").FhirService = null as any;
+
+export { GetDicomServiceArgs, GetDicomServiceResult, GetDicomServiceOutputArgs } from "./getDicomService";
+export const getDicomService: typeof import("./getDicomService").getDicomService = null as any;
+export const getDicomServiceOutput: typeof import("./getDicomService").getDicomServiceOutput = null as any;
+
+export { GetFhirServiceArgs, GetFhirServiceResult, GetFhirServiceOutputArgs } from "./getFhirService";
+export const getFhirService: typeof import("./getFhirService").getFhirService = null as any;
+export const getFhirServiceOutput: typeof import("./getFhirService").getFhirServiceOutput = null as any;
+
+export { GetMedtechServiceArgs, GetMedtechServiceResult, GetMedtechServiceOutputArgs } from "./getMedtechService";
+export const getMedtechService: typeof import("./getMedtechService").getMedtechService = null as any;
+export const getMedtechServiceOutput: typeof import("./getMedtechService").getMedtechServiceOutput = null as any;
+
+export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
+export const getService: typeof import("./getService").getService = null as any;
+export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+
+export { MedtechServiceArgs, MedtechServiceState } from "./medtechService";
+export type MedtechService = import("./medtechService").MedtechService;
+export const MedtechService: typeof import("./medtechService").MedtechService = null as any;
+
+export { MedtechServiceFhirDestinationArgs, MedtechServiceFhirDestinationState } from "./medtechServiceFhirDestination";
+export type MedtechServiceFhirDestination = import("./medtechServiceFhirDestination").MedtechServiceFhirDestination;
+export const MedtechServiceFhirDestination: typeof import("./medtechServiceFhirDestination").MedtechServiceFhirDestination = null as any;
+
+export { ServiceArgs, ServiceState } from "./service";
+export type Service = import("./service").Service;
+export const Service: typeof import("./service").Service = null as any;
+
+export { WorkspaceArgs, WorkspaceState } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+
+utilities.lazyLoad(exports, ["DicomService"], () => require("./dicomService"));
+utilities.lazyLoad(exports, ["FhirService"], () => require("./fhirService"));
+utilities.lazyLoad(exports, ["getDicomService","getDicomServiceOutput"], () => require("./getDicomService"));
+utilities.lazyLoad(exports, ["getFhirService","getFhirServiceOutput"], () => require("./getFhirService"));
+utilities.lazyLoad(exports, ["getMedtechService","getMedtechServiceOutput"], () => require("./getMedtechService"));
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+utilities.lazyLoad(exports, ["MedtechService"], () => require("./medtechService"));
+utilities.lazyLoad(exports, ["MedtechServiceFhirDestination"], () => require("./medtechServiceFhirDestination"));
+utilities.lazyLoad(exports, ["Service"], () => require("./service"));
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -31,9 +31,17 @@ public final class OutputMssqlArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.authenticationMode);
     }
 
+    /**
+     * The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
+     * 
+     */
     @Import(name="database", required=true)
     private Output<String> database;
 
+    /**
+     * @return The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> database() {
         return this.database;
     }
@@ -228,11 +236,23 @@ public final class OutputMssqlArgs extends com.pulumi.resources.ResourceArgs {
             return authenticationMode(Output.of(authenticationMode));
         }
 
+        /**
+         * @param database The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder database(Output<String> database) {
             $.database = database;
             return this;
         }
 
+        /**
+         * @param database The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder database(String database) {
             return database(Output.of(database));
         }

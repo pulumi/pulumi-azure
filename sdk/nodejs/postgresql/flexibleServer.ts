@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -160,12 +161,11 @@ export class FlexibleServer extends pulumi.CustomResource {
      */
     public readonly sourceServerId!: pulumi.Output<string | undefined>;
     /**
-     * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
+     * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
      */
     public readonly storageMb!: pulumi.Output<number>;
     /**
      * A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-     * *
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -316,12 +316,11 @@ export interface FlexibleServerState {
      */
     sourceServerId?: pulumi.Input<string>;
     /**
-     * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
+     * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
      */
     storageMb?: pulumi.Input<number>;
     /**
      * A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-     * *
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -399,12 +398,11 @@ export interface FlexibleServerArgs {
      */
     sourceServerId?: pulumi.Input<string>;
     /**
-     * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
+     * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
      */
     storageMb?: pulumi.Input<number>;
     /**
      * A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-     * *
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

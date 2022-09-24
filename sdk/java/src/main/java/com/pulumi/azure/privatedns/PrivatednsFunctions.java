@@ -22,6 +22,8 @@ import com.pulumi.azure.privatedns.inputs.GetSrvRecordArgs;
 import com.pulumi.azure.privatedns.inputs.GetSrvRecordPlainArgs;
 import com.pulumi.azure.privatedns.inputs.GetTxtRecordArgs;
 import com.pulumi.azure.privatedns.inputs.GetTxtRecordPlainArgs;
+import com.pulumi.azure.privatedns.inputs.GetZoneVirtualNetworkLinkArgs;
+import com.pulumi.azure.privatedns.inputs.GetZoneVirtualNetworkLinkPlainArgs;
 import com.pulumi.azure.privatedns.outputs.GetAAAARecordResult;
 import com.pulumi.azure.privatedns.outputs.GetARecordResult;
 import com.pulumi.azure.privatedns.outputs.GetCnameRecordResult;
@@ -31,6 +33,7 @@ import com.pulumi.azure.privatedns.outputs.GetPtrRecordResult;
 import com.pulumi.azure.privatedns.outputs.GetSoaRecordResult;
 import com.pulumi.azure.privatedns.outputs.GetSrvRecordResult;
 import com.pulumi.azure.privatedns.outputs.GetTxtRecordResult;
+import com.pulumi.azure.privatedns.outputs.GetZoneVirtualNetworkLinkResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -1245,5 +1248,165 @@ public final class PrivatednsFunctions {
      */
     public static CompletableFuture<GetTxtRecordResult> getTxtRecordPlain(GetTxtRecordPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:privatedns/getTxtRecord:getTxtRecord", TypeShape.of(GetTxtRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Private DNS zone Virtual Network Link. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetZoneVirtualNetworkLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PrivatednsFunctions.getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs.builder()
+     *             .name(&#34;test&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .privateDnsZoneName(&#34;test-zone&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getZoneVirtualNetworkLinkResult -&gt; getZoneVirtualNetworkLinkResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetZoneVirtualNetworkLinkResult> getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs args) {
+        return getZoneVirtualNetworkLink(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Private DNS zone Virtual Network Link. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetZoneVirtualNetworkLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PrivatednsFunctions.getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs.builder()
+     *             .name(&#34;test&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .privateDnsZoneName(&#34;test-zone&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getZoneVirtualNetworkLinkResult -&gt; getZoneVirtualNetworkLinkResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetZoneVirtualNetworkLinkResult> getZoneVirtualNetworkLinkPlain(GetZoneVirtualNetworkLinkPlainArgs args) {
+        return getZoneVirtualNetworkLinkPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Private DNS zone Virtual Network Link. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetZoneVirtualNetworkLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PrivatednsFunctions.getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs.builder()
+     *             .name(&#34;test&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .privateDnsZoneName(&#34;test-zone&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getZoneVirtualNetworkLinkResult -&gt; getZoneVirtualNetworkLinkResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetZoneVirtualNetworkLinkResult> getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", TypeShape.of(GetZoneVirtualNetworkLinkResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Private DNS zone Virtual Network Link. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.privatedns.inputs.GetZoneVirtualNetworkLinkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PrivatednsFunctions.getZoneVirtualNetworkLink(GetZoneVirtualNetworkLinkArgs.builder()
+     *             .name(&#34;test&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .privateDnsZoneName(&#34;test-zone&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getZoneVirtualNetworkLinkResult -&gt; getZoneVirtualNetworkLinkResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetZoneVirtualNetworkLinkResult> getZoneVirtualNetworkLinkPlain(GetZoneVirtualNetworkLinkPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", TypeShape.of(GetZoneVirtualNetworkLinkResult.class), args, Utilities.withVersion(options));
     }
 }

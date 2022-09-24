@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface ProviderFeatures {
     apiManagement?: pulumi.Input<inputs.ProviderFeaturesApiManagement>;
@@ -359,6 +360,10 @@ export namespace apimanagement {
          */
         description?: pulumi.Input<string>;
         /**
+         * (Optional) One or more `example` blocks as defined above.
+         */
+        examples?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationRequestHeaderExample>[]>;
+        /**
          * The Name of this Header.
          */
         name: pulumi.Input<string>;
@@ -367,13 +372,45 @@ export namespace apimanagement {
          */
         required: pulumi.Input<boolean>;
         /**
+         * The name of the Schema.
+         */
+        schemaId?: pulumi.Input<string>;
+        /**
          * The Type of this Header, such as a `string`.
          */
         type: pulumi.Input<string>;
         /**
+         * The type name defined by the Schema.
+         * ---
+         */
+        typeName?: pulumi.Input<string>;
+        /**
          * One or more acceptable values for this Header.
          */
         values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ApiOperationRequestHeaderExample {
+        /**
+         * A long description for this example.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * A URL that points to the literal example.
+         */
+        externalValue?: pulumi.Input<string>;
+        /**
+         * The name of this example.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A short description for this example.
+         */
+        summary?: pulumi.Input<string>;
+        /**
+         * The example of the representation.
+         */
+        value?: pulumi.Input<string>;
     }
 
     export interface ApiOperationRequestQueryParameter {
@@ -386,6 +423,10 @@ export namespace apimanagement {
          */
         description?: pulumi.Input<string>;
         /**
+         * (Optional) One or more `example` blocks as defined above.
+         */
+        examples?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationRequestQueryParameterExample>[]>;
+        /**
          * The Name of this Query Parameter.
          */
         name: pulumi.Input<string>;
@@ -394,13 +435,44 @@ export namespace apimanagement {
          */
         required: pulumi.Input<boolean>;
         /**
+         * The name of the Schema.
+         */
+        schemaId?: pulumi.Input<string>;
+        /**
          * The Type of this Query Parameter, such as a `string`.
          */
         type: pulumi.Input<string>;
         /**
+         * The type name defined by the Schema.
+         */
+        typeName?: pulumi.Input<string>;
+        /**
          * One or more acceptable values for this Query Parameter.
          */
         values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ApiOperationRequestQueryParameterExample {
+        /**
+         * A long description for this example.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * A URL that points to the literal example.
+         */
+        externalValue?: pulumi.Input<string>;
+        /**
+         * The name of this example.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A short description for this example.
+         */
+        summary?: pulumi.Input<string>;
+        /**
+         * The example of the representation.
+         */
+        value?: pulumi.Input<string>;
     }
 
     export interface ApiOperationRequestRepresentation {
@@ -459,6 +531,10 @@ export namespace apimanagement {
          */
         description?: pulumi.Input<string>;
         /**
+         * (Optional) One or more `example` blocks as defined above.
+         */
+        examples?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationRequestRepresentationFormParameterExample>[]>;
+        /**
          * The Name of this Form Parameter.
          */
         name: pulumi.Input<string>;
@@ -467,13 +543,44 @@ export namespace apimanagement {
          */
         required: pulumi.Input<boolean>;
         /**
+         * The name of the Schema.
+         */
+        schemaId?: pulumi.Input<string>;
+        /**
          * The Type of this Form Parameter, such as a `string`.
          */
         type: pulumi.Input<string>;
         /**
+         * The type name defined by the Schema.
+         */
+        typeName?: pulumi.Input<string>;
+        /**
          * One or more acceptable values for this Form Parameter.
          */
         values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ApiOperationRequestRepresentationFormParameterExample {
+        /**
+         * A long description for this example.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * A URL that points to the literal example.
+         */
+        externalValue?: pulumi.Input<string>;
+        /**
+         * The name of this example.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A short description for this example.
+         */
+        summary?: pulumi.Input<string>;
+        /**
+         * The example of the representation.
+         */
+        value?: pulumi.Input<string>;
     }
 
     export interface ApiOperationResponse {
@@ -505,6 +612,10 @@ export namespace apimanagement {
          */
         description?: pulumi.Input<string>;
         /**
+         * (Optional) One or more `example` blocks as defined above.
+         */
+        examples?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationResponseHeaderExample>[]>;
+        /**
          * The Name of this Header.
          */
         name: pulumi.Input<string>;
@@ -513,13 +624,45 @@ export namespace apimanagement {
          */
         required: pulumi.Input<boolean>;
         /**
+         * The name of the Schema.
+         */
+        schemaId?: pulumi.Input<string>;
+        /**
          * The Type of this Header, such as a `string`.
          */
         type: pulumi.Input<string>;
         /**
+         * The type name defined by the Schema.
+         * ---
+         */
+        typeName?: pulumi.Input<string>;
+        /**
          * One or more acceptable values for this Header.
          */
         values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ApiOperationResponseHeaderExample {
+        /**
+         * A long description for this example.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * A URL that points to the literal example.
+         */
+        externalValue?: pulumi.Input<string>;
+        /**
+         * The name of this example.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A short description for this example.
+         */
+        summary?: pulumi.Input<string>;
+        /**
+         * The example of the representation.
+         */
+        value?: pulumi.Input<string>;
     }
 
     export interface ApiOperationResponseRepresentation {
@@ -578,6 +721,10 @@ export namespace apimanagement {
          */
         description?: pulumi.Input<string>;
         /**
+         * (Optional) One or more `example` blocks as defined above.
+         */
+        examples?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationResponseRepresentationFormParameterExample>[]>;
+        /**
          * The Name of this Form Parameter.
          */
         name: pulumi.Input<string>;
@@ -586,13 +733,44 @@ export namespace apimanagement {
          */
         required: pulumi.Input<boolean>;
         /**
+         * The name of the Schema.
+         */
+        schemaId?: pulumi.Input<string>;
+        /**
          * The Type of this Form Parameter, such as a `string`.
          */
         type: pulumi.Input<string>;
         /**
+         * The type name defined by the Schema.
+         */
+        typeName?: pulumi.Input<string>;
+        /**
          * One or more acceptable values for this Form Parameter.
          */
         values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ApiOperationResponseRepresentationFormParameterExample {
+        /**
+         * A long description for this example.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * A URL that points to the literal example.
+         */
+        externalValue?: pulumi.Input<string>;
+        /**
+         * The name of this example.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A short description for this example.
+         */
+        summary?: pulumi.Input<string>;
+        /**
+         * The example of the representation.
+         */
+        value?: pulumi.Input<string>;
     }
 
     export interface ApiOperationTemplateParameter {
@@ -605,6 +783,10 @@ export namespace apimanagement {
          */
         description?: pulumi.Input<string>;
         /**
+         * (Optional) One or more `example` blocks as defined above.
+         */
+        examples?: pulumi.Input<pulumi.Input<inputs.apimanagement.ApiOperationTemplateParameterExample>[]>;
+        /**
          * The Name of this Template Parameter.
          */
         name: pulumi.Input<string>;
@@ -613,13 +795,44 @@ export namespace apimanagement {
          */
         required: pulumi.Input<boolean>;
         /**
+         * The name of the Schema.
+         */
+        schemaId?: pulumi.Input<string>;
+        /**
          * The Type of this Template Parameter, such as a `string`.
          */
         type: pulumi.Input<string>;
         /**
+         * The type name defined by the Schema.
+         */
+        typeName?: pulumi.Input<string>;
+        /**
          * One or more acceptable values for this Template Parameter.
          */
         values?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ApiOperationTemplateParameterExample {
+        /**
+         * A long description for this example.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * A URL that points to the literal example.
+         */
+        externalValue?: pulumi.Input<string>;
+        /**
+         * The name of this example.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A short description for this example.
+         */
+        summary?: pulumi.Input<string>;
+        /**
+         * The example of the representation.
+         */
+        value?: pulumi.Input<string>;
     }
 
     export interface ApiSubscriptionKeyParameterNames {
@@ -9716,6 +9929,175 @@ export namespace automation {
         occurrence: pulumi.Input<number>;
     }
 
+    export interface SoftwareUpdateConfigurationLinux {
+        /**
+         * Specifies the update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
+         */
+        classificationIncluded?: pulumi.Input<string>;
+        /**
+         * Specifies a list of packages to excluded from the Software Update Configuration.
+         */
+        excludedPackages?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of packages to included from the Software Update Configuration.
+         */
+        includedPackages?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+         */
+        reboot?: pulumi.Input<string>;
+    }
+
+    export interface SoftwareUpdateConfigurationPostTask {
+        /**
+         * Specifies a map of parameters for the task.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The name of the runbook for the post task.
+         */
+        source?: pulumi.Input<string>;
+    }
+
+    export interface SoftwareUpdateConfigurationPreTask {
+        /**
+         * Specifies a map of parameters for the task.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The name of the runbook for the pre task.
+         */
+        source?: pulumi.Input<string>;
+    }
+
+    export interface SoftwareUpdateConfigurationSchedule {
+        /**
+         * List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
+         */
+        advancedMonthDays?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+         */
+        advancedWeekDays?: pulumi.Input<pulumi.Input<string>[]>;
+        creationTime?: pulumi.Input<string>;
+        /**
+         * A description for this Schedule.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * The end time of the schedule.
+         */
+        expiryTime?: pulumi.Input<string>;
+        expiryTimeOffsetMinutes?: pulumi.Input<number>;
+        /**
+         * The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+         */
+        frequency?: pulumi.Input<string>;
+        /**
+         * The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+         */
+        interval?: pulumi.Input<number>;
+        /**
+         * Whether the schedule is enabled.
+         */
+        isEnabled?: pulumi.Input<boolean>;
+        lastModifiedTime?: pulumi.Input<string>;
+        /**
+         * List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+         */
+        monthlyOccurrences?: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationScheduleMonthlyOccurrence>[]>;
+        nextRun?: pulumi.Input<string>;
+        nextRunOffsetMinutes?: pulumi.Input<number>;
+        /**
+         * Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
+         */
+        startTime?: pulumi.Input<string>;
+        startTimeOffsetMinutes?: pulumi.Input<number>;
+        timeZone?: pulumi.Input<string>;
+    }
+
+    export interface SoftwareUpdateConfigurationScheduleMonthlyOccurrence {
+        /**
+         * Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+         */
+        day: pulumi.Input<string>;
+        /**
+         * Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+         */
+        occurrence: pulumi.Input<number>;
+    }
+
+    export interface SoftwareUpdateConfigurationTarget {
+        /**
+         * One or more `azureQuery` blocks as defined above.
+         */
+        azureQueries?: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationTargetAzureQuery>[]>;
+        /**
+         * One or more `nonAzureQuery` blocks as defined above.
+         */
+        nonAzureQueries?: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationTargetNonAzureQuery>[]>;
+    }
+
+    export interface SoftwareUpdateConfigurationTargetAzureQuery {
+        /**
+         * Specifies a list of locations to scope the query to.
+         */
+        locations?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of Subscription or Resource Group ARM Ids to query.
+         */
+        scopes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies how the specified tags to filter VMs. Possible values are `Any` and `All`.
+         */
+        tagFilter?: pulumi.Input<string>;
+        /**
+         * A mapping of tags used for query filter.
+         */
+        tags?: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationTargetAzureQueryTag>[]>;
+    }
+
+    export interface SoftwareUpdateConfigurationTargetAzureQueryTag {
+        /**
+         * Specifies the name of the tag to filter.
+         */
+        tag: pulumi.Input<string>;
+        /**
+         * Specifies a list of values for this tag key.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface SoftwareUpdateConfigurationTargetNonAzureQuery {
+        /**
+         * Specifies the Log Analytics save search name.
+         */
+        functionAlias?: pulumi.Input<string>;
+        /**
+         * The workspace id for Log Analytics in which the saved search in.
+         */
+        workspaceId?: pulumi.Input<string>;
+    }
+
+    export interface SoftwareUpdateConfigurationWindow {
+        /**
+         * Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+         */
+        classificationIncluded?: pulumi.Input<string>;
+        /**
+         * Specifies a list of knowledge base numbers excluded.
+         */
+        excludedKnowledgeBaseNumbers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies a list of knowledge base numbers included.
+         */
+        includedKnowledgeBaseNumbers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+         */
+        reboot?: pulumi.Input<string>;
+    }
+
     export interface SourceControlSecurity {
         /**
          * The refresh token of specified rpeo.
@@ -10082,12 +10464,12 @@ export namespace batch {
         url: pulumi.Input<string>;
     }
 
-    export interface GetAccountEncryptionArgs {
-        keyVaultKeyId: pulumi.Input<string>;
-    }
-
     export interface GetAccountEncryption {
         keyVaultKeyId: string;
+    }
+
+    export interface GetAccountEncryptionArgs {
+        keyVaultKeyId: pulumi.Input<string>;
     }
 
     export interface PoolAutoScale {
@@ -10152,6 +10534,67 @@ export namespace batch {
          * The user name to log into the registry server. Changing this forces a new resource to be created.
          */
         userName?: pulumi.Input<string>;
+    }
+
+    export interface PoolDataDisk {
+        /**
+         * Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+         */
+        caching?: pulumi.Input<string>;
+        /**
+         * The initial disk size in GB when creating new data disk.
+         */
+        diskSizeGb: pulumi.Input<number>;
+        /**
+         * The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
+         */
+        lun: pulumi.Input<number>;
+        /**
+         * The storage account type to be used for the data disk. If omitted, the default is "Standard_LRS". Values are: "Standard_LRS" - The data disk should use standard locally redundant storage. "Premium_LRS" - The data disk should use premium locally redundant storage.
+         */
+        storageAccountType?: pulumi.Input<string>;
+    }
+
+    export interface PoolDiskEncryption {
+        /**
+         * On Linux pool, only \"TemporaryDisk\" is supported; on Windows pool, \"OsDisk\" and \"TemporaryDisk\" must be specified.
+         */
+        diskEncryptionTarget: pulumi.Input<string>;
+    }
+
+    export interface PoolExtension {
+        /**
+         * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+         */
+        autoUpgradeMinorVersion?: pulumi.Input<boolean>;
+        /**
+         * The name of the virtual machine extension.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
+         */
+        protectedSettings?: pulumi.Input<string>;
+        /**
+         * The collection of extension names. Collection of extension names after which this extension needs to be provisioned.
+         */
+        provisionAfterExtensions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of the extension handler publisher.The name of the extension handler publisher.
+         */
+        publisher: pulumi.Input<string>;
+        /**
+         * JSON formatted public settings for the extension.
+         */
+        settingsJson?: pulumi.Input<string>;
+        /**
+         * The type of the extensions.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * The version of script handler.
+         */
+        typeHandlerVersion?: pulumi.Input<string>;
     }
 
     export interface PoolFixedScale {
@@ -10348,6 +10791,13 @@ export namespace batch {
         sourceAddressPrefix: pulumi.Input<string>;
     }
 
+    export interface PoolNodePlacement {
+        /**
+         * The placement policy for allocating nodes in the pool. Values are: "Regional": All nodes in the pool will be allocated in the same region; "Zonal": Nodes in the pool will be spread across different zones with the best effort balancing.
+         */
+        policy?: pulumi.Input<string>;
+    }
+
     export interface PoolStartTask {
         /**
          * The command line executed by the start task.
@@ -10400,6 +10850,10 @@ export namespace batch {
          * The URL of the blob container within Azure Blob Storage. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
          */
         storageContainerUrl?: pulumi.Input<string>;
+        /**
+         * An identity reference from pool's user assigned managed identity list.
+         */
+        userAssignedIdentityId?: pulumi.Input<string>;
     }
 
     export interface PoolStartTaskUserIdentity {
@@ -10446,6 +10900,65 @@ export namespace batch {
          * Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
          */
         version?: pulumi.Input<string>;
+    }
+
+    export interface PoolTaskSchedulingPolicy {
+        /**
+         * Supported values are "Pack" and "Spread". "Pack" means as many tasks as possible (taskSlotsPerNode) should be assigned to each node in the pool before any tasks are assigned to the next node in the pool. "Spread" means that tasks should be assigned evenly across all nodes in the pool.
+         */
+        nodeFillType?: pulumi.Input<string>;
+    }
+
+    export interface PoolUserAccount {
+        /**
+         * The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
+         */
+        elevationLevel: pulumi.Input<string>;
+        /**
+         * The `linuxUserConfiguration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+         */
+        linuxUserConfigurations?: pulumi.Input<pulumi.Input<inputs.batch.PoolUserAccountLinuxUserConfiguration>[]>;
+        /**
+         * The name of the user account.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The password for the user account.
+         */
+        password: pulumi.Input<string>;
+        /**
+         * The `windowsUserConfiguration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+         */
+        windowsUserConfigurations?: pulumi.Input<pulumi.Input<inputs.batch.PoolUserAccountWindowsUserConfiguration>[]>;
+    }
+
+    export interface PoolUserAccountLinuxUserConfiguration {
+        /**
+         * The user ID of the user account. The `uid` and `gid` properties must be specified together or not at all. If not specified the underlying operating system picks the uid.
+         */
+        gid?: pulumi.Input<number>;
+        /**
+         * The SSH private key for the user account. The private key must not be password protected. The private key is used to automatically configure asymmetric-key based authentication for SSH between nodes in a Linux pool when the pool's enableInterNodeCommunication property is true (it is ignored if enableInterNodeCommunication is false). It does this by placing the key pair into the user's .ssh directory. If not specified, password-less SSH is not configured between nodes (no modification of the user's .ssh directory is done).
+         */
+        sshPrivateKey?: pulumi.Input<string>;
+        /**
+         * The group ID for the user account. The `uid` and `gid` properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
+         */
+        uid?: pulumi.Input<number>;
+    }
+
+    export interface PoolUserAccountWindowsUserConfiguration {
+        /**
+         * Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode. Values supported are "Batch" and "Interactive".
+         */
+        loginMode: pulumi.Input<string>;
+    }
+
+    export interface PoolWindow {
+        /**
+         * Whether automatic updates are enabled on the virtual machine. If omitted, the default value is true.
+         */
+        enableAutomaticUpdates?: pulumi.Input<boolean>;
     }
 
 }
@@ -12918,7 +13431,7 @@ export namespace compute {
          */
         disablePasswordAuthentication?: pulumi.Input<boolean>;
         /**
-         * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+         * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          */
         patchAssessmentMode?: pulumi.Input<string>;
         /**
@@ -12962,7 +13475,7 @@ export namespace compute {
          */
         hotpatchingEnabled?: pulumi.Input<boolean>;
         /**
-         * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+         * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          */
         patchAssessmentMode?: pulumi.Input<string>;
         /**
@@ -14391,7 +14904,9 @@ export namespace consumption {
          */
         dimensions?: pulumi.Input<pulumi.Input<inputs.consumption.BudgetManagementGroupFilterDimension>[]>;
         /**
-         * A `not` block as defined below to filter the budget on.
+         * A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+         *
+         * @deprecated This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
          */
         not?: pulumi.Input<inputs.consumption.BudgetManagementGroupFilterNot>;
         /**
@@ -14511,7 +15026,9 @@ export namespace consumption {
          */
         dimensions?: pulumi.Input<pulumi.Input<inputs.consumption.BudgetResourceGroupFilterDimension>[]>;
         /**
-         * A `not` block as defined below to filter the budget on.
+         * A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+         *
+         * @deprecated This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
          */
         not?: pulumi.Input<inputs.consumption.BudgetResourceGroupFilterNot>;
         /**
@@ -14639,7 +15156,9 @@ export namespace consumption {
          */
         dimensions?: pulumi.Input<pulumi.Input<inputs.consumption.BudgetSubscriptionFilterDimension>[]>;
         /**
-         * A `not` block as defined below to filter the budget on.
+         * A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+         *
+         * @deprecated This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
          */
         not?: pulumi.Input<inputs.consumption.BudgetSubscriptionFilterNot>;
         /**
@@ -16874,6 +17393,10 @@ export namespace cosmosdb {
 
     export interface AccountIdentity {
         /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cosmos Account.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The Principal ID associated with this Managed Service Identity.
          */
         principalId?: pulumi.Input<string>;
@@ -16882,7 +17405,7 @@ export namespace cosmosdb {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
+         * The Type of Managed Identity assigned to this Cosmos account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -20917,7 +21440,7 @@ export namespace eventhub {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. The only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are `SystemAssigned` or `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -20931,6 +21454,10 @@ export namespace eventhub {
          * One or more `ipRule` blocks as defined below.
          */
         ipRules?: pulumi.Input<pulumi.Input<inputs.eventhub.EventHubNamespaceNetworkRulesetsIpRule>[]>;
+        /**
+         * Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+         */
+        publicNetworkAccessEnabled?: pulumi.Input<boolean>;
         /**
          * Whether Trusted Microsoft Services are allowed to bypass firewall.
          */
@@ -25171,7 +25698,7 @@ export namespace kusto {
          */
         capacity?: pulumi.Input<number>;
         /**
-         * The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E64i_v3`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s`, `Standard_L8s`, `Standard_L16s_v2` and `Standard_L8s_v2`.
+         * The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_D16d_v5`, `Standard_D32d_v4`, `Standard_D32d_v5`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16a_v4`, `Standard_E16ads_v5`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16as_v5+3TB_PS`, `Standard_E16as_v5+4TB_PS`, `Standard_E16s_v4+3TB_PS`, `Standard_E16s_v4+4TB_PS`, `Standard_E16s_v5+3TB_PS`, `Standard_E16s_v5+4TB_PS`, `Standard_E2a_v4`, `Standard_E2ads_v5`,`Standard_E4a_v4`, `Standard_E4ads_v5`, `Standard_E64i_v3`, `Standard_E80ids_v4`, `Standard_E8a_v4`, `Standard_E8ads_v5`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8as_v5+1TB_PS`, `Standard_E8as_v5+2TB_PS`, `Standard_E8s_v4+1TB_PS`, `Standard_E8s_v4+2TB_PS`, `Standard_E8s_v5+1TB_PS`, `Standard_E8s_v5+2TB_PS`, `Standard_L16s`, `Standard_L16s_v2`, `Standard_L4s`, `Standard_L8s`, `Standard_L8s_v2`, "Standard_L8s_v3", `Standard_L16s_v3`, `Standard_L8as_v3`, `Standard_L16as_v3`, `Standard_EC8as_v5+1TB_PS`, `Standard_EC8as_v5+2TB_PS`, `Standard_EC16as_v5+3TB_PS`, `Standard_EC16as_v5+4TB_PS`, `Standard_EC8ads_v5`, `Standard_EC16ads_v5`, `Standard_E2d_v4`, `Standard_E4d_v4`, `Standard_E8d_v4`, `Standard_E16d_v4`, `Standard_E2d_v5`, `Standard_E4d_v5`, `Standard_E8d_v5` and `Standard_E16d_v5`.
          */
         name: pulumi.Input<string>;
     }
@@ -25593,6 +26120,10 @@ export namespace logicapps {
 
     export interface StandardIdentity {
         /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
          */
         principalId?: pulumi.Input<string>;
@@ -25601,7 +26132,7 @@ export namespace logicapps {
          */
         tenantId?: pulumi.Input<string>;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. The only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
          */
         type: pulumi.Input<string>;
     }
@@ -27525,6 +28056,492 @@ export namespace monitoring {
         services?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface AlertProcessingRuleActionGroupCondition {
+        /**
+         * A `alertContext` block as defined above.
+         */
+        alertContext?: pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupConditionAlertContext>;
+        /**
+         * A `alertRuleId` block as defined above.
+         */
+        alertRuleId?: pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupConditionAlertRuleId>;
+        /**
+         * A `alertRuleName` block as defined above.
+         */
+        alertRuleName?: pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupConditionAlertRuleName>;
+        /**
+         * A `description` block as defined below.
+         */
+        description?: pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupConditionDescription>;
+        /**
+         * A `monitorCondition` block as defined below.
+         */
+        monitorCondition?: pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupConditionMonitorCondition>;
+        /**
+         * A `monitorService` block as defined below.
+         */
+        monitorService?: pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupConditionMonitorService>;
+        /**
+         * A `severity` block as defined below.
+         */
+        severity?: pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupConditionSeverity>;
+        /**
+         * A `signalType` block as defined below.
+         */
+        signalType?: pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupConditionSignalType>;
+        /**
+         * A `targetResource` block as defined below.
+         */
+        targetResource?: pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupConditionTargetResource>;
+        /**
+         * A `targetResourceGroup` block as defined below.
+         */
+        targetResourceGroup?: pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupConditionTargetResourceGroup>;
+        /**
+         * A `targetResourceType` block as defined below.
+         */
+        targetResourceType?: pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupConditionTargetResourceType>;
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionAlertContext {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Specifies a list of values to match for a given condition.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionAlertRuleId {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Specifies a list of values to match for a given condition.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionAlertRuleName {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Specifies a list of values to match for a given condition.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionDescription {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Specifies a list of values to match for a given condition.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionMonitorCondition {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Specifies a list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionMonitorService {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Prometheus`, `Resource Health`, `Smart Detector`, and `VM Insights - Health`.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionSeverity {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Specifies list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionSignalType {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Specifies a list of values to match for a given condition. Possible values are `Metric`, `Log`, `Unknown`, and `Health`.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionTargetResource {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition. The values should be valid resource IDs.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionTargetResourceGroup {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition. The values should be valid resource group IDs.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionTargetResourceType {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleActionGroupSchedule {
+        /**
+         * Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
+         */
+        effectiveFrom?: pulumi.Input<string>;
+        /**
+         * Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
+         */
+        effectiveUntil?: pulumi.Input<string>;
+        /**
+         * A `recurrence` block as defined above.
+         */
+        recurrence?: pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupScheduleRecurrence>;
+        /**
+         * The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+         */
+        timeZone?: pulumi.Input<string>;
+    }
+
+    export interface AlertProcessingRuleActionGroupScheduleRecurrence {
+        /**
+         * One or more `daily` blocks as defined above.
+         */
+        dailies?: pulumi.Input<pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceDaily>[]>;
+        /**
+         * One or more `monthly` blocks as defined above.
+         */
+        monthlies?: pulumi.Input<pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceMonthly>[]>;
+        /**
+         * One or more `weekly` blocks as defined below.
+         */
+        weeklies?: pulumi.Input<pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceWeekly>[]>;
+    }
+
+    export interface AlertProcessingRuleActionGroupScheduleRecurrenceDaily {
+        /**
+         * Specifies the recurrence end time (H:M:S).
+         */
+        endTime: pulumi.Input<string>;
+        /**
+         * Specifies the recurrence start time (H:M:S).
+         */
+        startTime: pulumi.Input<string>;
+    }
+
+    export interface AlertProcessingRuleActionGroupScheduleRecurrenceMonthly {
+        /**
+         * Specifies a list of dayOfMonth to recurrence. Possible values are integers between `1` - `31`.
+         */
+        daysOfMonths: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * Specifies the recurrence end time (H:M:S).
+         */
+        endTime?: pulumi.Input<string>;
+        /**
+         * Specifies the recurrence start time (H:M:S).
+         */
+        startTime?: pulumi.Input<string>;
+    }
+
+    export interface AlertProcessingRuleActionGroupScheduleRecurrenceWeekly {
+        /**
+         * Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+         */
+        daysOfWeeks: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the recurrence end time (H:M:S).
+         */
+        endTime?: pulumi.Input<string>;
+        /**
+         * Specifies the recurrence start time (H:M:S).
+         */
+        startTime?: pulumi.Input<string>;
+    }
+
+    export interface AlertProcessingRuleSuppressionCondition {
+        /**
+         * A `alertContext` block as defined above.
+         */
+        alertContext?: pulumi.Input<inputs.monitoring.AlertProcessingRuleSuppressionConditionAlertContext>;
+        /**
+         * A `alertRuleId` block as defined above.
+         */
+        alertRuleId?: pulumi.Input<inputs.monitoring.AlertProcessingRuleSuppressionConditionAlertRuleId>;
+        /**
+         * A `alertRuleName` block as defined above.
+         */
+        alertRuleName?: pulumi.Input<inputs.monitoring.AlertProcessingRuleSuppressionConditionAlertRuleName>;
+        /**
+         * A `description` block as defined below.
+         */
+        description?: pulumi.Input<inputs.monitoring.AlertProcessingRuleSuppressionConditionDescription>;
+        /**
+         * A `monitorCondition` block as defined below.
+         */
+        monitorCondition?: pulumi.Input<inputs.monitoring.AlertProcessingRuleSuppressionConditionMonitorCondition>;
+        /**
+         * A `monitorService` block as defined below.
+         */
+        monitorService?: pulumi.Input<inputs.monitoring.AlertProcessingRuleSuppressionConditionMonitorService>;
+        /**
+         * A `severity` block as defined below.
+         */
+        severity?: pulumi.Input<inputs.monitoring.AlertProcessingRuleSuppressionConditionSeverity>;
+        /**
+         * A `signalType` block as defined below.
+         */
+        signalType?: pulumi.Input<inputs.monitoring.AlertProcessingRuleSuppressionConditionSignalType>;
+        /**
+         * A `targetResource` block as defined below.
+         */
+        targetResource?: pulumi.Input<inputs.monitoring.AlertProcessingRuleSuppressionConditionTargetResource>;
+        /**
+         * A `targetResourceGroup` block as defined below.
+         */
+        targetResourceGroup?: pulumi.Input<inputs.monitoring.AlertProcessingRuleSuppressionConditionTargetResourceGroup>;
+        /**
+         * A `targetResourceType` block as defined below.
+         */
+        targetResourceType?: pulumi.Input<inputs.monitoring.AlertProcessingRuleSuppressionConditionTargetResourceType>;
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionAlertContext {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Specifies a list of values to match for a given condition.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionAlertRuleId {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Specifies a list of values to match for a given condition.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionAlertRuleName {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Specifies a list of values to match for a given condition.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionDescription {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Specifies a list of values to match for a given condition.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionMonitorCondition {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Specifies a list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionMonitorService {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Prometheus`, `Resource Health`, `Smart Detector`, and `VM Insights - Health`.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionSeverity {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Specifies list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionSignalType {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Specifies a list of values to match for a given condition. Possible values are `Metric`, `Log`, `Unknown`, and `Health`.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionTargetResource {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition. The values should be valid resource IDs.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionTargetResourceGroup {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition. The values should be valid resource group IDs.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionTargetResourceType {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AlertProcessingRuleSuppressionSchedule {
+        /**
+         * Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
+         */
+        effectiveFrom?: pulumi.Input<string>;
+        /**
+         * Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
+         */
+        effectiveUntil?: pulumi.Input<string>;
+        /**
+         * A `recurrence` block as defined above.
+         */
+        recurrence?: pulumi.Input<inputs.monitoring.AlertProcessingRuleSuppressionScheduleRecurrence>;
+        /**
+         * The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+         */
+        timeZone?: pulumi.Input<string>;
+    }
+
+    export interface AlertProcessingRuleSuppressionScheduleRecurrence {
+        /**
+         * One or more `daily` blocks as defined above.
+         */
+        dailies?: pulumi.Input<pulumi.Input<inputs.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceDaily>[]>;
+        /**
+         * One or more `monthly` blocks as defined above.
+         */
+        monthlies?: pulumi.Input<pulumi.Input<inputs.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceMonthly>[]>;
+        /**
+         * One or more `weekly` blocks as defined below.
+         */
+        weeklies?: pulumi.Input<pulumi.Input<inputs.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceWeekly>[]>;
+    }
+
+    export interface AlertProcessingRuleSuppressionScheduleRecurrenceDaily {
+        /**
+         * Specifies the recurrence end time (H:M:S).
+         */
+        endTime: pulumi.Input<string>;
+        /**
+         * Specifies the recurrence start time (H:M:S).
+         */
+        startTime: pulumi.Input<string>;
+    }
+
+    export interface AlertProcessingRuleSuppressionScheduleRecurrenceMonthly {
+        /**
+         * Specifies a list of dayOfMonth to recurrence. Possible values are integers between `1` - `31`.
+         */
+        daysOfMonths: pulumi.Input<pulumi.Input<number>[]>;
+        /**
+         * Specifies the recurrence end time (H:M:S).
+         */
+        endTime?: pulumi.Input<string>;
+        /**
+         * Specifies the recurrence start time (H:M:S).
+         */
+        startTime?: pulumi.Input<string>;
+    }
+
+    export interface AlertProcessingRuleSuppressionScheduleRecurrenceWeekly {
+        /**
+         * Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+         */
+        daysOfWeeks: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Specifies the recurrence end time (H:M:S).
+         */
+        endTime?: pulumi.Input<string>;
+        /**
+         * Specifies the recurrence start time (H:M:S).
+         */
+        startTime?: pulumi.Input<string>;
+    }
+
     export interface AutoscaleSettingNotification {
         /**
          * A `email` block as defined below.
@@ -27789,7 +28806,7 @@ export namespace monitoring {
          */
         name: pulumi.Input<string>;
         /**
-         * The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+         * The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
          */
         samplingFrequencyInSeconds: pulumi.Input<number>;
         /**
@@ -34386,33 +35403,6 @@ export namespace storage {
         type: pulumi.Input<string>;
     }
 
-    export interface GetAccountBlobContainerSASPermissions {
-        /**
-         * Should Add permissions be enabled for this SAS?
-         */
-        add: boolean;
-        /**
-         * Should Create permissions be enabled for this SAS?
-         */
-        create: boolean;
-        /**
-         * Should Delete permissions be enabled for this SAS?
-         */
-        delete: boolean;
-        /**
-         * Should List permissions be enabled for this SAS?
-         */
-        list: boolean;
-        /**
-         * Should Read permissions be enabled for this SAS?
-         */
-        read: boolean;
-        /**
-         * Should Write permissions be enabled for this SAS?
-         */
-        write: boolean;
-    }
-
     export interface GetAccountBlobContainerSASPermissionsArgs {
         /**
          * Should Add permissions be enabled for this SAS?
@@ -34438,6 +35428,33 @@ export namespace storage {
          * Should Write permissions be enabled for this SAS?
          */
         write: pulumi.Input<boolean>;
+    }
+
+    export interface GetAccountBlobContainerSASPermissions {
+        /**
+         * Should Add permissions be enabled for this SAS?
+         */
+        add: boolean;
+        /**
+         * Should Create permissions be enabled for this SAS?
+         */
+        create: boolean;
+        /**
+         * Should Delete permissions be enabled for this SAS?
+         */
+        delete: boolean;
+        /**
+         * Should List permissions be enabled for this SAS?
+         */
+        list: boolean;
+        /**
+         * Should Read permissions be enabled for this SAS?
+         */
+        read: boolean;
+        /**
+         * Should Write permissions be enabled for this SAS?
+         */
+        write: boolean;
     }
 
     export interface GetAccountSASPermissionsArgs {
@@ -35403,7 +36420,7 @@ export namespace waf {
          */
         excludedRuleSet?: pulumi.Input<inputs.waf.PolicyManagedRulesExclusionExcludedRuleSet>;
         /**
-         * The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+         * The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
          */
         matchVariable: pulumi.Input<string>;
         /**

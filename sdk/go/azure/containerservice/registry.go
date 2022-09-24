@@ -221,7 +221,7 @@ type Registry struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The URL that can be used to log into the container registry.
 	LoginServer pulumi.StringOutput `pulumi:"loginServer"`
-	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+	// Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
 	NetworkRuleBypassOption pulumi.StringPtrOutput `pulumi:"networkRuleBypassOption"`
@@ -302,7 +302,7 @@ type registryState struct {
 	Location *string `pulumi:"location"`
 	// The URL that can be used to log into the container registry.
 	LoginServer *string `pulumi:"loginServer"`
-	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+	// Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
 	NetworkRuleBypassOption *string `pulumi:"networkRuleBypassOption"`
@@ -349,7 +349,7 @@ type RegistryState struct {
 	Location pulumi.StringPtrInput
 	// The URL that can be used to log into the container registry.
 	LoginServer pulumi.StringPtrInput
-	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+	// Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
 	NetworkRuleBypassOption pulumi.StringPtrInput
@@ -394,7 +394,7 @@ type registryArgs struct {
 	Identity *RegistryIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+	// Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
 	NetworkRuleBypassOption *string `pulumi:"networkRuleBypassOption"`
@@ -436,7 +436,7 @@ type RegistryArgs struct {
 	Identity RegistryIdentityPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+	// Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
 	NetworkRuleBypassOption pulumi.StringPtrInput
@@ -602,7 +602,7 @@ func (o RegistryOutput) LoginServer() pulumi.StringOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.LoginServer }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Container Registry. Changing this forces a new resource to be created.
+// Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
 func (o RegistryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

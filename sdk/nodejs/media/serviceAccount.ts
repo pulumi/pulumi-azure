@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -80,7 +81,7 @@ export class ServiceAccount extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
+     * Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -163,7 +164,7 @@ export interface ServiceAccountState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
+     * Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -202,7 +203,7 @@ export interface ServiceAccountArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
+     * Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

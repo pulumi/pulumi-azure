@@ -5,18 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./assignmentDedicatedHost";
-export * from "./assignmentVirtualMachine";
-export * from "./assignmentVirtualMachineScaleSet";
-export * from "./configuration";
-export * from "./getConfiguration";
-export * from "./getPublicConfigurations";
+export { AssignmentDedicatedHostArgs, AssignmentDedicatedHostState } from "./assignmentDedicatedHost";
+export type AssignmentDedicatedHost = import("./assignmentDedicatedHost").AssignmentDedicatedHost;
+export const AssignmentDedicatedHost: typeof import("./assignmentDedicatedHost").AssignmentDedicatedHost = null as any;
 
-// Import resources to register:
-import { AssignmentDedicatedHost } from "./assignmentDedicatedHost";
-import { AssignmentVirtualMachine } from "./assignmentVirtualMachine";
-import { AssignmentVirtualMachineScaleSet } from "./assignmentVirtualMachineScaleSet";
-import { Configuration } from "./configuration";
+export { AssignmentVirtualMachineArgs, AssignmentVirtualMachineState } from "./assignmentVirtualMachine";
+export type AssignmentVirtualMachine = import("./assignmentVirtualMachine").AssignmentVirtualMachine;
+export const AssignmentVirtualMachine: typeof import("./assignmentVirtualMachine").AssignmentVirtualMachine = null as any;
+
+export { AssignmentVirtualMachineScaleSetArgs, AssignmentVirtualMachineScaleSetState } from "./assignmentVirtualMachineScaleSet";
+export type AssignmentVirtualMachineScaleSet = import("./assignmentVirtualMachineScaleSet").AssignmentVirtualMachineScaleSet;
+export const AssignmentVirtualMachineScaleSet: typeof import("./assignmentVirtualMachineScaleSet").AssignmentVirtualMachineScaleSet = null as any;
+
+export { ConfigurationArgs, ConfigurationState } from "./configuration";
+export type Configuration = import("./configuration").Configuration;
+export const Configuration: typeof import("./configuration").Configuration = null as any;
+
+export { GetConfigurationArgs, GetConfigurationResult, GetConfigurationOutputArgs } from "./getConfiguration";
+export const getConfiguration: typeof import("./getConfiguration").getConfiguration = null as any;
+export const getConfigurationOutput: typeof import("./getConfiguration").getConfigurationOutput = null as any;
+
+export { GetPublicConfigurationsArgs, GetPublicConfigurationsResult, GetPublicConfigurationsOutputArgs } from "./getPublicConfigurations";
+export const getPublicConfigurations: typeof import("./getPublicConfigurations").getPublicConfigurations = null as any;
+export const getPublicConfigurationsOutput: typeof import("./getPublicConfigurations").getPublicConfigurationsOutput = null as any;
+
+utilities.lazyLoad(exports, ["AssignmentDedicatedHost"], () => require("./assignmentDedicatedHost"));
+utilities.lazyLoad(exports, ["AssignmentVirtualMachine"], () => require("./assignmentVirtualMachine"));
+utilities.lazyLoad(exports, ["AssignmentVirtualMachineScaleSet"], () => require("./assignmentVirtualMachineScaleSet"));
+utilities.lazyLoad(exports, ["Configuration"], () => require("./configuration"));
+utilities.lazyLoad(exports, ["getConfiguration","getConfigurationOutput"], () => require("./getConfiguration"));
+utilities.lazyLoad(exports, ["getPublicConfigurations","getPublicConfigurationsOutput"], () => require("./getPublicConfigurations"));
 
 const _module = {
     version: utilities.getVersion(),

@@ -5,12 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./assignment";
-export * from "./getDefinition";
-export * from "./getPublishedVersion";
+export { AssignmentArgs, AssignmentState } from "./assignment";
+export type Assignment = import("./assignment").Assignment;
+export const Assignment: typeof import("./assignment").Assignment = null as any;
 
-// Import resources to register:
-import { Assignment } from "./assignment";
+export { GetDefinitionArgs, GetDefinitionResult, GetDefinitionOutputArgs } from "./getDefinition";
+export const getDefinition: typeof import("./getDefinition").getDefinition = null as any;
+export const getDefinitionOutput: typeof import("./getDefinition").getDefinitionOutput = null as any;
+
+export { GetPublishedVersionArgs, GetPublishedVersionResult, GetPublishedVersionOutputArgs } from "./getPublishedVersion";
+export const getPublishedVersion: typeof import("./getPublishedVersion").getPublishedVersion = null as any;
+export const getPublishedVersionOutput: typeof import("./getPublishedVersion").getPublishedVersionOutput = null as any;
+
+utilities.lazyLoad(exports, ["Assignment"], () => require("./assignment"));
+utilities.lazyLoad(exports, ["getDefinition","getDefinitionOutput"], () => require("./getDefinition"));
+utilities.lazyLoad(exports, ["getPublishedVersion","getPublishedVersionOutput"], () => require("./getPublishedVersion"));
 
 const _module = {
     version: utilities.getVersion(),

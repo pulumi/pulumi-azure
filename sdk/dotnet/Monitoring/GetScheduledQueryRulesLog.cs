@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Monitoring
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetScheduledQueryRulesLogResult> InvokeAsync(GetScheduledQueryRulesLogArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRulesLogResult>("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", args ?? new GetScheduledQueryRulesLogArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRulesLogResult>("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", args ?? new GetScheduledQueryRulesLogArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access the properties of a LogToMetricAction scheduled query rule.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Monitoring
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetScheduledQueryRulesLogResult> Invoke(GetScheduledQueryRulesLogInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRulesLogResult>("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", args ?? new GetScheduledQueryRulesLogInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRulesLogResult>("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", args ?? new GetScheduledQueryRulesLogInvokeArgs(), options.WithDefaults());
     }
 
 

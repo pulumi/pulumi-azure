@@ -214,14 +214,13 @@ namespace Pulumi.Azure.PostgreSql
         public Output<string?> SourceServerId { get; private set; } = null!;
 
         /// <summary>
-        /// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
+        /// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
         /// </summary>
         [Output("storageMb")]
         public Output<int> StorageMb { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-        /// *
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -375,7 +374,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? SourceServerId { get; set; }
 
         /// <summary>
-        /// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
+        /// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
         /// </summary>
         [Input("storageMb")]
         public Input<int>? StorageMb { get; set; }
@@ -385,7 +384,6 @@ namespace Pulumi.Azure.PostgreSql
 
         /// <summary>
         /// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-        /// *
         /// </summary>
         public InputMap<string> Tags
         {
@@ -516,7 +514,7 @@ namespace Pulumi.Azure.PostgreSql
         public Input<string>? SourceServerId { get; set; }
 
         /// <summary>
-        /// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
+        /// The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
         /// </summary>
         [Input("storageMb")]
         public Input<int>? StorageMb { get; set; }
@@ -526,7 +524,6 @@ namespace Pulumi.Azure.PostgreSql
 
         /// <summary>
         /// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-        /// *
         /// </summary>
         public InputMap<string> Tags
         {

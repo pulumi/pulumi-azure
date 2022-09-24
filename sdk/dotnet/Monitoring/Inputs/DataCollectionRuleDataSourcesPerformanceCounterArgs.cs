@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+        /// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
         /// </summary>
         [Input("samplingFrequencyInSeconds", required: true)]
         public Input<int> SamplingFrequencyInSeconds { get; set; } = null!;

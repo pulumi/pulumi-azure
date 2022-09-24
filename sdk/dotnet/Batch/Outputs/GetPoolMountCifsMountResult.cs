@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string MountOptions;
         /// <summary>
-        /// The password to use for authentication against the CIFS file system.
+        /// The password for the user account.
         /// </summary>
         public readonly string Password;
         /// <summary>

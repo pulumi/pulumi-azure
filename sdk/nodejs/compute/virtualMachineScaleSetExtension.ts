@@ -89,6 +89,10 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
      */
     public readonly automaticUpgradeEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     */
+    public readonly failureSuppressionEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
      */
     public readonly forceUpdateTag!: pulumi.Output<string | undefined>;
@@ -140,6 +144,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
             const state = argsOrState as VirtualMachineScaleSetExtensionState | undefined;
             resourceInputs["autoUpgradeMinorVersion"] = state ? state.autoUpgradeMinorVersion : undefined;
             resourceInputs["automaticUpgradeEnabled"] = state ? state.automaticUpgradeEnabled : undefined;
+            resourceInputs["failureSuppressionEnabled"] = state ? state.failureSuppressionEnabled : undefined;
             resourceInputs["forceUpdateTag"] = state ? state.forceUpdateTag : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["protectedSettings"] = state ? state.protectedSettings : undefined;
@@ -165,6 +170,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
             }
             resourceInputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
             resourceInputs["automaticUpgradeEnabled"] = args ? args.automaticUpgradeEnabled : undefined;
+            resourceInputs["failureSuppressionEnabled"] = args ? args.failureSuppressionEnabled : undefined;
             resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["protectedSettings"] = args ? args.protectedSettings : undefined;
@@ -192,6 +198,10 @@ export interface VirtualMachineScaleSetExtensionState {
      * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
      */
     automaticUpgradeEnabled?: pulumi.Input<boolean>;
+    /**
+     * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     */
+    failureSuppressionEnabled?: pulumi.Input<boolean>;
     /**
      * A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
      */
@@ -242,6 +252,10 @@ export interface VirtualMachineScaleSetExtensionArgs {
      * Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
      */
     automaticUpgradeEnabled?: pulumi.Input<boolean>;
+    /**
+     * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     */
+    failureSuppressionEnabled?: pulumi.Input<boolean>;
     /**
      * A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
      */

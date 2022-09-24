@@ -309,6 +309,21 @@ public final class AlertRuleScheduledArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * A list of techniques of attacks by which to classify the rule.
+     * 
+     */
+    @Import(name="techniques")
+    private @Nullable Output<List<String>> techniques;
+
+    /**
+     * @return A list of techniques of attacks by which to classify the rule.
+     * 
+     */
+    public Optional<Output<List<String>>> techniques() {
+        return Optional.ofNullable(this.techniques);
+    }
+
+    /**
      * The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
      * 
      */
@@ -360,6 +375,7 @@ public final class AlertRuleScheduledArgs extends com.pulumi.resources.ResourceA
         this.suppressionDuration = $.suppressionDuration;
         this.suppressionEnabled = $.suppressionEnabled;
         this.tactics = $.tactics;
+        this.techniques = $.techniques;
         this.triggerOperator = $.triggerOperator;
         this.triggerThreshold = $.triggerThreshold;
     }
@@ -809,6 +825,37 @@ public final class AlertRuleScheduledArgs extends com.pulumi.resources.ResourceA
          */
         public Builder tactics(String... tactics) {
             return tactics(List.of(tactics));
+        }
+
+        /**
+         * @param techniques A list of techniques of attacks by which to classify the rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder techniques(@Nullable Output<List<String>> techniques) {
+            $.techniques = techniques;
+            return this;
+        }
+
+        /**
+         * @param techniques A list of techniques of attacks by which to classify the rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder techniques(List<String> techniques) {
+            return techniques(Output.of(techniques));
+        }
+
+        /**
+         * @param techniques A list of techniques of attacks by which to classify the rule.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder techniques(String... techniques) {
+            return techniques(List.of(techniques));
         }
 
         /**

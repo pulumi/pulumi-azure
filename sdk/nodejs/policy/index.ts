@@ -5,18 +5,41 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./definition";
-export * from "./getPolicyAssignment";
-export * from "./getPolicyDefintion";
-export * from "./getPolicySetDefinition";
-export * from "./getVirtualMachineConfigurationAssignment";
-export * from "./policySetDefinition";
-export * from "./virtualMachineConfigurationAssignment";
+export { DefinitionArgs, DefinitionState } from "./definition";
+export type Definition = import("./definition").Definition;
+export const Definition: typeof import("./definition").Definition = null as any;
 
-// Import resources to register:
-import { Definition } from "./definition";
-import { PolicySetDefinition } from "./policySetDefinition";
-import { VirtualMachineConfigurationAssignment } from "./virtualMachineConfigurationAssignment";
+export { GetPolicyAssignmentArgs, GetPolicyAssignmentResult, GetPolicyAssignmentOutputArgs } from "./getPolicyAssignment";
+export const getPolicyAssignment: typeof import("./getPolicyAssignment").getPolicyAssignment = null as any;
+export const getPolicyAssignmentOutput: typeof import("./getPolicyAssignment").getPolicyAssignmentOutput = null as any;
+
+export { GetPolicyDefintionArgs, GetPolicyDefintionResult, GetPolicyDefintionOutputArgs } from "./getPolicyDefintion";
+export const getPolicyDefintion: typeof import("./getPolicyDefintion").getPolicyDefintion = null as any;
+export const getPolicyDefintionOutput: typeof import("./getPolicyDefintion").getPolicyDefintionOutput = null as any;
+
+export { GetPolicySetDefinitionArgs, GetPolicySetDefinitionResult, GetPolicySetDefinitionOutputArgs } from "./getPolicySetDefinition";
+export const getPolicySetDefinition: typeof import("./getPolicySetDefinition").getPolicySetDefinition = null as any;
+export const getPolicySetDefinitionOutput: typeof import("./getPolicySetDefinition").getPolicySetDefinitionOutput = null as any;
+
+export { GetVirtualMachineConfigurationAssignmentArgs, GetVirtualMachineConfigurationAssignmentResult, GetVirtualMachineConfigurationAssignmentOutputArgs } from "./getVirtualMachineConfigurationAssignment";
+export const getVirtualMachineConfigurationAssignment: typeof import("./getVirtualMachineConfigurationAssignment").getVirtualMachineConfigurationAssignment = null as any;
+export const getVirtualMachineConfigurationAssignmentOutput: typeof import("./getVirtualMachineConfigurationAssignment").getVirtualMachineConfigurationAssignmentOutput = null as any;
+
+export { PolicySetDefinitionArgs, PolicySetDefinitionState } from "./policySetDefinition";
+export type PolicySetDefinition = import("./policySetDefinition").PolicySetDefinition;
+export const PolicySetDefinition: typeof import("./policySetDefinition").PolicySetDefinition = null as any;
+
+export { VirtualMachineConfigurationAssignmentArgs, VirtualMachineConfigurationAssignmentState } from "./virtualMachineConfigurationAssignment";
+export type VirtualMachineConfigurationAssignment = import("./virtualMachineConfigurationAssignment").VirtualMachineConfigurationAssignment;
+export const VirtualMachineConfigurationAssignment: typeof import("./virtualMachineConfigurationAssignment").VirtualMachineConfigurationAssignment = null as any;
+
+utilities.lazyLoad(exports, ["Definition"], () => require("./definition"));
+utilities.lazyLoad(exports, ["getPolicyAssignment","getPolicyAssignmentOutput"], () => require("./getPolicyAssignment"));
+utilities.lazyLoad(exports, ["getPolicyDefintion","getPolicyDefintionOutput"], () => require("./getPolicyDefintion"));
+utilities.lazyLoad(exports, ["getPolicySetDefinition","getPolicySetDefinitionOutput"], () => require("./getPolicySetDefinition"));
+utilities.lazyLoad(exports, ["getVirtualMachineConfigurationAssignment","getVirtualMachineConfigurationAssignmentOutput"], () => require("./getVirtualMachineConfigurationAssignment"));
+utilities.lazyLoad(exports, ["PolicySetDefinition"], () => require("./policySetDefinition"));
+utilities.lazyLoad(exports, ["VirtualMachineConfigurationAssignment"], () => require("./virtualMachineConfigurationAssignment"));
 
 const _module = {
     version: utilities.getVersion(),

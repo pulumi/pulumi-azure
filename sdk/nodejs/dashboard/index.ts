@@ -5,13 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./azurerm_portal_dashboard";
-export * from "./dashboard";
-export * from "./grafana";
+export { Azurerm_portal_dashboardArgs, Azurerm_portal_dashboardResult, Azurerm_portal_dashboardOutputArgs } from "./azurerm_portal_dashboard";
+export const azurerm_portal_dashboard: typeof import("./azurerm_portal_dashboard").azurerm_portal_dashboard = null as any;
+export const azurerm_portal_dashboardOutput: typeof import("./azurerm_portal_dashboard").azurerm_portal_dashboardOutput = null as any;
 
-// Import resources to register:
-import { Dashboard } from "./dashboard";
-import { Grafana } from "./grafana";
+export { DashboardArgs, DashboardState } from "./dashboard";
+export type Dashboard = import("./dashboard").Dashboard;
+export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
+
+export { GrafanaArgs, GrafanaState } from "./grafana";
+export type Grafana = import("./grafana").Grafana;
+export const Grafana: typeof import("./grafana").Grafana = null as any;
+
+utilities.lazyLoad(exports, ["azurerm_portal_dashboard","azurerm_portal_dashboardOutput"], () => require("./azurerm_portal_dashboard"));
+utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
+utilities.lazyLoad(exports, ["Grafana"], () => require("./grafana"));
 
 const _module = {
     version: utilities.getVersion(),

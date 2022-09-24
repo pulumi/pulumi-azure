@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<bool>? HotpatchingEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+        /// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         /// </summary>
         [Input("patchAssessmentMode")]
         public Input<string>? PatchAssessmentMode { get; set; }

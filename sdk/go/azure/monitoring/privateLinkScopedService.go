@@ -75,7 +75,7 @@ import (
 type PrivateLinkScopedService struct {
 	pulumi.CustomResourceState
 
-	// The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+	// The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
 	LinkedResourceId pulumi.StringOutput `pulumi:"linkedResourceId"`
 	// The name of the Azure Monitor Private Link Scoped Service. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -123,7 +123,7 @@ func GetPrivateLinkScopedService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PrivateLinkScopedService resources.
 type privateLinkScopedServiceState struct {
-	// The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+	// The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
 	LinkedResourceId *string `pulumi:"linkedResourceId"`
 	// The name of the Azure Monitor Private Link Scoped Service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -134,7 +134,7 @@ type privateLinkScopedServiceState struct {
 }
 
 type PrivateLinkScopedServiceState struct {
-	// The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+	// The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
 	LinkedResourceId pulumi.StringPtrInput
 	// The name of the Azure Monitor Private Link Scoped Service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -149,7 +149,7 @@ func (PrivateLinkScopedServiceState) ElementType() reflect.Type {
 }
 
 type privateLinkScopedServiceArgs struct {
-	// The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+	// The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
 	LinkedResourceId string `pulumi:"linkedResourceId"`
 	// The name of the Azure Monitor Private Link Scoped Service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -161,7 +161,7 @@ type privateLinkScopedServiceArgs struct {
 
 // The set of arguments for constructing a PrivateLinkScopedService resource.
 type PrivateLinkScopedServiceArgs struct {
-	// The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+	// The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
 	LinkedResourceId pulumi.StringInput
 	// The name of the Azure Monitor Private Link Scoped Service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -258,7 +258,7 @@ func (o PrivateLinkScopedServiceOutput) ToPrivateLinkScopedServiceOutputWithCont
 	return o
 }
 
-// The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+// The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
 func (o PrivateLinkScopedServiceOutput) LinkedResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrivateLinkScopedService) pulumi.StringOutput { return v.LinkedResourceId }).(pulumi.StringOutput)
 }

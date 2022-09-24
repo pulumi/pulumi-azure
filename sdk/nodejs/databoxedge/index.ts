@@ -5,12 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./device";
-export * from "./order";
+export { DeviceArgs, DeviceState } from "./device";
+export type Device = import("./device").Device;
+export const Device: typeof import("./device").Device = null as any;
 
-// Import resources to register:
-import { Device } from "./device";
-import { Order } from "./order";
+export { OrderArgs, OrderState } from "./order";
+export type Order = import("./order").Order;
+export const Order: typeof import("./order").Order = null as any;
+
+utilities.lazyLoad(exports, ["Device"], () => require("./device"));
+utilities.lazyLoad(exports, ["Order"], () => require("./order"));
 
 const _module = {
     version: utilities.getVersion(),

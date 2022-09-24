@@ -12,10 +12,10 @@ namespace Pulumi.Azure.Dns
     public static class GetSoaRecord
     {
         public static Task<GetSoaRecordResult> InvokeAsync(GetSoaRecordArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSoaRecordResult>("azure:dns/getSoaRecord:getSoaRecord", args ?? new GetSoaRecordArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSoaRecordResult>("azure:dns/getSoaRecord:getSoaRecord", args ?? new GetSoaRecordArgs(), options.WithDefaults());
 
         public static Output<GetSoaRecordResult> Invoke(GetSoaRecordInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSoaRecordResult>("azure:dns/getSoaRecord:getSoaRecord", args ?? new GetSoaRecordInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSoaRecordResult>("azure:dns/getSoaRecord:getSoaRecord", args ?? new GetSoaRecordInvokeArgs(), options.WithDefaults());
     }
 
 

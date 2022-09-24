@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.apimanagement.inputs;
 
+import com.pulumi.azure.apimanagement.inputs.ApiOperationRequestQueryParameterExampleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -48,6 +49,21 @@ public final class ApiOperationRequestQueryParameterArgs extends com.pulumi.reso
     }
 
     /**
+     * (Optional) One or more `example` blocks as defined above.
+     * 
+     */
+    @Import(name="examples")
+    private @Nullable Output<List<ApiOperationRequestQueryParameterExampleArgs>> examples;
+
+    /**
+     * @return (Optional) One or more `example` blocks as defined above.
+     * 
+     */
+    public Optional<Output<List<ApiOperationRequestQueryParameterExampleArgs>>> examples() {
+        return Optional.ofNullable(this.examples);
+    }
+
+    /**
      * The Name of this Query Parameter.
      * 
      */
@@ -78,6 +94,21 @@ public final class ApiOperationRequestQueryParameterArgs extends com.pulumi.reso
     }
 
     /**
+     * The name of the Schema.
+     * 
+     */
+    @Import(name="schemaId")
+    private @Nullable Output<String> schemaId;
+
+    /**
+     * @return The name of the Schema.
+     * 
+     */
+    public Optional<Output<String>> schemaId() {
+        return Optional.ofNullable(this.schemaId);
+    }
+
+    /**
      * The Type of this Query Parameter, such as a `string`.
      * 
      */
@@ -90,6 +121,21 @@ public final class ApiOperationRequestQueryParameterArgs extends com.pulumi.reso
      */
     public Output<String> type() {
         return this.type;
+    }
+
+    /**
+     * The type name defined by the Schema.
+     * 
+     */
+    @Import(name="typeName")
+    private @Nullable Output<String> typeName;
+
+    /**
+     * @return The type name defined by the Schema.
+     * 
+     */
+    public Optional<Output<String>> typeName() {
+        return Optional.ofNullable(this.typeName);
     }
 
     /**
@@ -112,9 +158,12 @@ public final class ApiOperationRequestQueryParameterArgs extends com.pulumi.reso
     private ApiOperationRequestQueryParameterArgs(ApiOperationRequestQueryParameterArgs $) {
         this.defaultValue = $.defaultValue;
         this.description = $.description;
+        this.examples = $.examples;
         this.name = $.name;
         this.required = $.required;
+        this.schemaId = $.schemaId;
         this.type = $.type;
+        this.typeName = $.typeName;
         this.values = $.values;
     }
 
@@ -179,6 +228,37 @@ public final class ApiOperationRequestQueryParameterArgs extends com.pulumi.reso
         }
 
         /**
+         * @param examples (Optional) One or more `example` blocks as defined above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder examples(@Nullable Output<List<ApiOperationRequestQueryParameterExampleArgs>> examples) {
+            $.examples = examples;
+            return this;
+        }
+
+        /**
+         * @param examples (Optional) One or more `example` blocks as defined above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder examples(List<ApiOperationRequestQueryParameterExampleArgs> examples) {
+            return examples(Output.of(examples));
+        }
+
+        /**
+         * @param examples (Optional) One or more `example` blocks as defined above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder examples(ApiOperationRequestQueryParameterExampleArgs... examples) {
+            return examples(List.of(examples));
+        }
+
+        /**
          * @param name The Name of this Query Parameter.
          * 
          * @return builder
@@ -221,6 +301,27 @@ public final class ApiOperationRequestQueryParameterArgs extends com.pulumi.reso
         }
 
         /**
+         * @param schemaId The name of the Schema.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schemaId(@Nullable Output<String> schemaId) {
+            $.schemaId = schemaId;
+            return this;
+        }
+
+        /**
+         * @param schemaId The name of the Schema.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schemaId(String schemaId) {
+            return schemaId(Output.of(schemaId));
+        }
+
+        /**
          * @param type The Type of this Query Parameter, such as a `string`.
          * 
          * @return builder
@@ -239,6 +340,27 @@ public final class ApiOperationRequestQueryParameterArgs extends com.pulumi.reso
          */
         public Builder type(String type) {
             return type(Output.of(type));
+        }
+
+        /**
+         * @param typeName The type name defined by the Schema.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder typeName(@Nullable Output<String> typeName) {
+            $.typeName = typeName;
+            return this;
+        }
+
+        /**
+         * @param typeName The type name defined by the Schema.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder typeName(String typeName) {
+            return typeName(Output.of(typeName));
         }
 
         /**

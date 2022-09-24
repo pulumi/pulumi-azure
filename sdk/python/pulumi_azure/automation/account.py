@@ -170,6 +170,7 @@ class _AccountState:
                  dsc_secondary_access_key: Optional[pulumi.Input[str]] = None,
                  dsc_server_endpoint: Optional[pulumi.Input[str]] = None,
                  encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]]] = None,
+                 hybrid_service_url: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -185,6 +186,8 @@ class _AccountState:
         :param pulumi.Input[str] dsc_secondary_access_key: The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
         :param pulumi.Input[str] dsc_server_endpoint: The DSC Server Endpoint associated with this Automation Account.
         :param pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]] encryptions: An `encryption` block as defined below.
+        :param pulumi.Input[str] hybrid_service_url: The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+               ---
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -202,6 +205,8 @@ class _AccountState:
             pulumi.set(__self__, "dsc_server_endpoint", dsc_server_endpoint)
         if encryptions is not None:
             pulumi.set(__self__, "encryptions", encryptions)
+        if hybrid_service_url is not None:
+            pulumi.set(__self__, "hybrid_service_url", hybrid_service_url)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if local_authentication_enabled is not None:
@@ -268,6 +273,19 @@ class _AccountState:
     @encryptions.setter
     def encryptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]]]):
         pulumi.set(self, "encryptions", value)
+
+    @property
+    @pulumi.getter(name="hybridServiceUrl")
+    def hybrid_service_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+        ---
+        """
+        return pulumi.get(self, "hybrid_service_url")
+
+    @hybrid_service_url.setter
+    def hybrid_service_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hybrid_service_url", value)
 
     @property
     @pulumi.getter
@@ -511,6 +529,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["dsc_primary_access_key"] = None
             __props__.__dict__["dsc_secondary_access_key"] = None
             __props__.__dict__["dsc_server_endpoint"] = None
+            __props__.__dict__["hybrid_service_url"] = None
             __props__.__dict__["private_endpoint_connections"] = None
         super(Account, __self__).__init__(
             'azure:automation/account:Account',
@@ -526,6 +545,7 @@ class Account(pulumi.CustomResource):
             dsc_secondary_access_key: Optional[pulumi.Input[str]] = None,
             dsc_server_endpoint: Optional[pulumi.Input[str]] = None,
             encryptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]]]] = None,
+            hybrid_service_url: Optional[pulumi.Input[str]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
             local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -546,6 +566,8 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] dsc_secondary_access_key: The Secondary Access Key for the DSC Endpoint associated with this Automation Account.
         :param pulumi.Input[str] dsc_server_endpoint: The DSC Server Endpoint associated with this Automation Account.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]]] encryptions: An `encryption` block as defined below.
+        :param pulumi.Input[str] hybrid_service_url: The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+               ---
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] local_authentication_enabled: Whether requests using non-AAD authentication are blocked.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -563,6 +585,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["dsc_secondary_access_key"] = dsc_secondary_access_key
         __props__.__dict__["dsc_server_endpoint"] = dsc_server_endpoint
         __props__.__dict__["encryptions"] = encryptions
+        __props__.__dict__["hybrid_service_url"] = hybrid_service_url
         __props__.__dict__["identity"] = identity
         __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
         __props__.__dict__["location"] = location
@@ -605,6 +628,15 @@ class Account(pulumi.CustomResource):
         An `encryption` block as defined below.
         """
         return pulumi.get(self, "encryptions")
+
+    @property
+    @pulumi.getter(name="hybridServiceUrl")
+    def hybrid_service_url(self) -> pulumi.Output[str]:
+        """
+        The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+        ---
+        """
+        return pulumi.get(self, "hybrid_service_url")
 
     @property
     @pulumi.getter

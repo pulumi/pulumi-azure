@@ -5,26 +5,66 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./account";
-export * from "./datasetBlobStorage";
-export * from "./datasetDataLakeGen2";
-export * from "./datasetKustoCluster";
-export * from "./datasetKustoDatabase";
-export * from "./getAccount";
-export * from "./getDatasetBlobStorage";
-export * from "./getDatasetDataLakeGen2";
-export * from "./getDatasetKustoCluster";
-export * from "./getDatasetKustoDatabase";
-export * from "./getShare";
-export * from "./share";
+export { AccountArgs, AccountState } from "./account";
+export type Account = import("./account").Account;
+export const Account: typeof import("./account").Account = null as any;
 
-// Import resources to register:
-import { Account } from "./account";
-import { DatasetBlobStorage } from "./datasetBlobStorage";
-import { DatasetDataLakeGen2 } from "./datasetDataLakeGen2";
-import { DatasetKustoCluster } from "./datasetKustoCluster";
-import { DatasetKustoDatabase } from "./datasetKustoDatabase";
-import { Share } from "./share";
+export { DatasetBlobStorageArgs, DatasetBlobStorageState } from "./datasetBlobStorage";
+export type DatasetBlobStorage = import("./datasetBlobStorage").DatasetBlobStorage;
+export const DatasetBlobStorage: typeof import("./datasetBlobStorage").DatasetBlobStorage = null as any;
+
+export { DatasetDataLakeGen2Args, DatasetDataLakeGen2State } from "./datasetDataLakeGen2";
+export type DatasetDataLakeGen2 = import("./datasetDataLakeGen2").DatasetDataLakeGen2;
+export const DatasetDataLakeGen2: typeof import("./datasetDataLakeGen2").DatasetDataLakeGen2 = null as any;
+
+export { DatasetKustoClusterArgs, DatasetKustoClusterState } from "./datasetKustoCluster";
+export type DatasetKustoCluster = import("./datasetKustoCluster").DatasetKustoCluster;
+export const DatasetKustoCluster: typeof import("./datasetKustoCluster").DatasetKustoCluster = null as any;
+
+export { DatasetKustoDatabaseArgs, DatasetKustoDatabaseState } from "./datasetKustoDatabase";
+export type DatasetKustoDatabase = import("./datasetKustoDatabase").DatasetKustoDatabase;
+export const DatasetKustoDatabase: typeof import("./datasetKustoDatabase").DatasetKustoDatabase = null as any;
+
+export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
+export const getAccount: typeof import("./getAccount").getAccount = null as any;
+export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
+
+export { GetDatasetBlobStorageArgs, GetDatasetBlobStorageResult, GetDatasetBlobStorageOutputArgs } from "./getDatasetBlobStorage";
+export const getDatasetBlobStorage: typeof import("./getDatasetBlobStorage").getDatasetBlobStorage = null as any;
+export const getDatasetBlobStorageOutput: typeof import("./getDatasetBlobStorage").getDatasetBlobStorageOutput = null as any;
+
+export { GetDatasetDataLakeGen2Args, GetDatasetDataLakeGen2Result, GetDatasetDataLakeGen2OutputArgs } from "./getDatasetDataLakeGen2";
+export const getDatasetDataLakeGen2: typeof import("./getDatasetDataLakeGen2").getDatasetDataLakeGen2 = null as any;
+export const getDatasetDataLakeGen2Output: typeof import("./getDatasetDataLakeGen2").getDatasetDataLakeGen2Output = null as any;
+
+export { GetDatasetKustoClusterArgs, GetDatasetKustoClusterResult, GetDatasetKustoClusterOutputArgs } from "./getDatasetKustoCluster";
+export const getDatasetKustoCluster: typeof import("./getDatasetKustoCluster").getDatasetKustoCluster = null as any;
+export const getDatasetKustoClusterOutput: typeof import("./getDatasetKustoCluster").getDatasetKustoClusterOutput = null as any;
+
+export { GetDatasetKustoDatabaseArgs, GetDatasetKustoDatabaseResult, GetDatasetKustoDatabaseOutputArgs } from "./getDatasetKustoDatabase";
+export const getDatasetKustoDatabase: typeof import("./getDatasetKustoDatabase").getDatasetKustoDatabase = null as any;
+export const getDatasetKustoDatabaseOutput: typeof import("./getDatasetKustoDatabase").getDatasetKustoDatabaseOutput = null as any;
+
+export { GetShareArgs, GetShareResult, GetShareOutputArgs } from "./getShare";
+export const getShare: typeof import("./getShare").getShare = null as any;
+export const getShareOutput: typeof import("./getShare").getShareOutput = null as any;
+
+export { ShareArgs, ShareState } from "./share";
+export type Share = import("./share").Share;
+export const Share: typeof import("./share").Share = null as any;
+
+utilities.lazyLoad(exports, ["Account"], () => require("./account"));
+utilities.lazyLoad(exports, ["DatasetBlobStorage"], () => require("./datasetBlobStorage"));
+utilities.lazyLoad(exports, ["DatasetDataLakeGen2"], () => require("./datasetDataLakeGen2"));
+utilities.lazyLoad(exports, ["DatasetKustoCluster"], () => require("./datasetKustoCluster"));
+utilities.lazyLoad(exports, ["DatasetKustoDatabase"], () => require("./datasetKustoDatabase"));
+utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
+utilities.lazyLoad(exports, ["getDatasetBlobStorage","getDatasetBlobStorageOutput"], () => require("./getDatasetBlobStorage"));
+utilities.lazyLoad(exports, ["getDatasetDataLakeGen2","getDatasetDataLakeGen2Output"], () => require("./getDatasetDataLakeGen2"));
+utilities.lazyLoad(exports, ["getDatasetKustoCluster","getDatasetKustoClusterOutput"], () => require("./getDatasetKustoCluster"));
+utilities.lazyLoad(exports, ["getDatasetKustoDatabase","getDatasetKustoDatabaseOutput"], () => require("./getDatasetKustoDatabase"));
+utilities.lazyLoad(exports, ["getShare","getShareOutput"], () => require("./getShare"));
+utilities.lazyLoad(exports, ["Share"], () => require("./share"));
 
 const _module = {
     version: utilities.getVersion(),

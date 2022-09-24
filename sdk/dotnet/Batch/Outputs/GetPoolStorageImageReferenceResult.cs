@@ -18,6 +18,9 @@ namespace Pulumi.Azure.Batch.Outputs
         /// </summary>
         public readonly string Id;
         public readonly string Offer;
+        /// <summary>
+        /// The name of the extension handler publisher.The name of the extension handler publisher.
+        /// </summary>
         public readonly string Publisher;
         public readonly string Sku;
         public readonly string Version;

@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -90,6 +91,7 @@ export interface GetStandardResult {
     readonly tags?: {[key: string]: string};
     readonly useExtensionBundle: boolean;
     readonly version: string;
+    readonly virtualNetworkSubnetId: string;
 }
 
 export function getStandardOutput(args: GetStandardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardResult> {

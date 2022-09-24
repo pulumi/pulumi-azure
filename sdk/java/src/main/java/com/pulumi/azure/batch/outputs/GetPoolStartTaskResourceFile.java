@@ -39,6 +39,11 @@ public final class GetPoolStartTaskResourceFile {
      * 
      */
     private String storageContainerUrl;
+    /**
+     * @return The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
+     * 
+     */
+    private String userAssignedIdentityId;
 
     private GetPoolStartTaskResourceFile() {}
     /**
@@ -83,6 +88,13 @@ public final class GetPoolStartTaskResourceFile {
     public String storageContainerUrl() {
         return this.storageContainerUrl;
     }
+    /**
+     * @return The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
+     * 
+     */
+    public String userAssignedIdentityId() {
+        return this.userAssignedIdentityId;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -99,6 +111,7 @@ public final class GetPoolStartTaskResourceFile {
         private String filePath;
         private String httpUrl;
         private String storageContainerUrl;
+        private String userAssignedIdentityId;
         public Builder() {}
         public Builder(GetPoolStartTaskResourceFile defaults) {
     	      Objects.requireNonNull(defaults);
@@ -108,6 +121,7 @@ public final class GetPoolStartTaskResourceFile {
     	      this.filePath = defaults.filePath;
     	      this.httpUrl = defaults.httpUrl;
     	      this.storageContainerUrl = defaults.storageContainerUrl;
+    	      this.userAssignedIdentityId = defaults.userAssignedIdentityId;
         }
 
         @CustomType.Setter
@@ -140,6 +154,11 @@ public final class GetPoolStartTaskResourceFile {
             this.storageContainerUrl = Objects.requireNonNull(storageContainerUrl);
             return this;
         }
+        @CustomType.Setter
+        public Builder userAssignedIdentityId(String userAssignedIdentityId) {
+            this.userAssignedIdentityId = Objects.requireNonNull(userAssignedIdentityId);
+            return this;
+        }
         public GetPoolStartTaskResourceFile build() {
             final var o = new GetPoolStartTaskResourceFile();
             o.autoStorageContainerName = autoStorageContainerName;
@@ -148,6 +167,7 @@ public final class GetPoolStartTaskResourceFile {
             o.filePath = filePath;
             o.httpUrl = httpUrl;
             o.storageContainerUrl = storageContainerUrl;
+            o.userAssignedIdentityId = userAssignedIdentityId;
             return o;
         }
     }

@@ -5,32 +5,71 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./activeDirectoryAdministrator";
-export * from "./configuration";
-export * from "./database";
-export * from "./firewallRule";
-export * from "./flexibleDatabase";
-export * from "./flexibleServer";
-export * from "./flexibleServerConfiguration";
-export * from "./flexibleServerFirewallRule";
-export * from "./getFlexibleServer";
-export * from "./getServer";
-export * from "./server";
-export * from "./serverKey";
-export * from "./virtualNetworkRule";
+export { ActiveDirectoryAdministratorArgs, ActiveDirectoryAdministratorState } from "./activeDirectoryAdministrator";
+export type ActiveDirectoryAdministrator = import("./activeDirectoryAdministrator").ActiveDirectoryAdministrator;
+export const ActiveDirectoryAdministrator: typeof import("./activeDirectoryAdministrator").ActiveDirectoryAdministrator = null as any;
 
-// Import resources to register:
-import { ActiveDirectoryAdministrator } from "./activeDirectoryAdministrator";
-import { Configuration } from "./configuration";
-import { Database } from "./database";
-import { FirewallRule } from "./firewallRule";
-import { FlexibleDatabase } from "./flexibleDatabase";
-import { FlexibleServer } from "./flexibleServer";
-import { FlexibleServerConfiguration } from "./flexibleServerConfiguration";
-import { FlexibleServerFirewallRule } from "./flexibleServerFirewallRule";
-import { Server } from "./server";
-import { ServerKey } from "./serverKey";
-import { VirtualNetworkRule } from "./virtualNetworkRule";
+export { ConfigurationArgs, ConfigurationState } from "./configuration";
+export type Configuration = import("./configuration").Configuration;
+export const Configuration: typeof import("./configuration").Configuration = null as any;
+
+export { DatabaseArgs, DatabaseState } from "./database";
+export type Database = import("./database").Database;
+export const Database: typeof import("./database").Database = null as any;
+
+export { FirewallRuleArgs, FirewallRuleState } from "./firewallRule";
+export type FirewallRule = import("./firewallRule").FirewallRule;
+export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
+
+export { FlexibleDatabaseArgs, FlexibleDatabaseState } from "./flexibleDatabase";
+export type FlexibleDatabase = import("./flexibleDatabase").FlexibleDatabase;
+export const FlexibleDatabase: typeof import("./flexibleDatabase").FlexibleDatabase = null as any;
+
+export { FlexibleServerArgs, FlexibleServerState } from "./flexibleServer";
+export type FlexibleServer = import("./flexibleServer").FlexibleServer;
+export const FlexibleServer: typeof import("./flexibleServer").FlexibleServer = null as any;
+
+export { FlexibleServerConfigurationArgs, FlexibleServerConfigurationState } from "./flexibleServerConfiguration";
+export type FlexibleServerConfiguration = import("./flexibleServerConfiguration").FlexibleServerConfiguration;
+export const FlexibleServerConfiguration: typeof import("./flexibleServerConfiguration").FlexibleServerConfiguration = null as any;
+
+export { FlexibleServerFirewallRuleArgs, FlexibleServerFirewallRuleState } from "./flexibleServerFirewallRule";
+export type FlexibleServerFirewallRule = import("./flexibleServerFirewallRule").FlexibleServerFirewallRule;
+export const FlexibleServerFirewallRule: typeof import("./flexibleServerFirewallRule").FlexibleServerFirewallRule = null as any;
+
+export { GetFlexibleServerArgs, GetFlexibleServerResult, GetFlexibleServerOutputArgs } from "./getFlexibleServer";
+export const getFlexibleServer: typeof import("./getFlexibleServer").getFlexibleServer = null as any;
+export const getFlexibleServerOutput: typeof import("./getFlexibleServer").getFlexibleServerOutput = null as any;
+
+export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
+export const getServer: typeof import("./getServer").getServer = null as any;
+export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
+
+export { ServerArgs, ServerState } from "./server";
+export type Server = import("./server").Server;
+export const Server: typeof import("./server").Server = null as any;
+
+export { ServerKeyArgs, ServerKeyState } from "./serverKey";
+export type ServerKey = import("./serverKey").ServerKey;
+export const ServerKey: typeof import("./serverKey").ServerKey = null as any;
+
+export { VirtualNetworkRuleArgs, VirtualNetworkRuleState } from "./virtualNetworkRule";
+export type VirtualNetworkRule = import("./virtualNetworkRule").VirtualNetworkRule;
+export const VirtualNetworkRule: typeof import("./virtualNetworkRule").VirtualNetworkRule = null as any;
+
+utilities.lazyLoad(exports, ["ActiveDirectoryAdministrator"], () => require("./activeDirectoryAdministrator"));
+utilities.lazyLoad(exports, ["Configuration"], () => require("./configuration"));
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
+utilities.lazyLoad(exports, ["FlexibleDatabase"], () => require("./flexibleDatabase"));
+utilities.lazyLoad(exports, ["FlexibleServer"], () => require("./flexibleServer"));
+utilities.lazyLoad(exports, ["FlexibleServerConfiguration"], () => require("./flexibleServerConfiguration"));
+utilities.lazyLoad(exports, ["FlexibleServerFirewallRule"], () => require("./flexibleServerFirewallRule"));
+utilities.lazyLoad(exports, ["getFlexibleServer","getFlexibleServerOutput"], () => require("./getFlexibleServer"));
+utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
+utilities.lazyLoad(exports, ["Server"], () => require("./server"));
+utilities.lazyLoad(exports, ["ServerKey"], () => require("./serverKey"));
+utilities.lazyLoad(exports, ["VirtualNetworkRule"], () => require("./virtualNetworkRule"));
 
 const _module = {
     version: utilities.getVersion(),

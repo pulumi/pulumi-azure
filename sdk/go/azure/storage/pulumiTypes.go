@@ -6166,6 +6166,256 @@ func (o TableAclAccessPolicyArrayOutput) Index(i pulumi.IntInput) TableAclAccess
 	}).(TableAclAccessPolicyOutput)
 }
 
+type GetAccountAzureFilesAuthentication struct {
+	// An `activeDirectory` block as documented below.
+	ActiveDirectories []GetAccountAzureFilesAuthenticationActiveDirectory `pulumi:"activeDirectories"`
+	// The directory service used for this Storage Account.
+	DirectoryType string `pulumi:"directoryType"`
+}
+
+// GetAccountAzureFilesAuthenticationInput is an input type that accepts GetAccountAzureFilesAuthenticationArgs and GetAccountAzureFilesAuthenticationOutput values.
+// You can construct a concrete instance of `GetAccountAzureFilesAuthenticationInput` via:
+//
+//	GetAccountAzureFilesAuthenticationArgs{...}
+type GetAccountAzureFilesAuthenticationInput interface {
+	pulumi.Input
+
+	ToGetAccountAzureFilesAuthenticationOutput() GetAccountAzureFilesAuthenticationOutput
+	ToGetAccountAzureFilesAuthenticationOutputWithContext(context.Context) GetAccountAzureFilesAuthenticationOutput
+}
+
+type GetAccountAzureFilesAuthenticationArgs struct {
+	// An `activeDirectory` block as documented below.
+	ActiveDirectories GetAccountAzureFilesAuthenticationActiveDirectoryArrayInput `pulumi:"activeDirectories"`
+	// The directory service used for this Storage Account.
+	DirectoryType pulumi.StringInput `pulumi:"directoryType"`
+}
+
+func (GetAccountAzureFilesAuthenticationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountAzureFilesAuthentication)(nil)).Elem()
+}
+
+func (i GetAccountAzureFilesAuthenticationArgs) ToGetAccountAzureFilesAuthenticationOutput() GetAccountAzureFilesAuthenticationOutput {
+	return i.ToGetAccountAzureFilesAuthenticationOutputWithContext(context.Background())
+}
+
+func (i GetAccountAzureFilesAuthenticationArgs) ToGetAccountAzureFilesAuthenticationOutputWithContext(ctx context.Context) GetAccountAzureFilesAuthenticationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountAzureFilesAuthenticationOutput)
+}
+
+// GetAccountAzureFilesAuthenticationArrayInput is an input type that accepts GetAccountAzureFilesAuthenticationArray and GetAccountAzureFilesAuthenticationArrayOutput values.
+// You can construct a concrete instance of `GetAccountAzureFilesAuthenticationArrayInput` via:
+//
+//	GetAccountAzureFilesAuthenticationArray{ GetAccountAzureFilesAuthenticationArgs{...} }
+type GetAccountAzureFilesAuthenticationArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountAzureFilesAuthenticationArrayOutput() GetAccountAzureFilesAuthenticationArrayOutput
+	ToGetAccountAzureFilesAuthenticationArrayOutputWithContext(context.Context) GetAccountAzureFilesAuthenticationArrayOutput
+}
+
+type GetAccountAzureFilesAuthenticationArray []GetAccountAzureFilesAuthenticationInput
+
+func (GetAccountAzureFilesAuthenticationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountAzureFilesAuthentication)(nil)).Elem()
+}
+
+func (i GetAccountAzureFilesAuthenticationArray) ToGetAccountAzureFilesAuthenticationArrayOutput() GetAccountAzureFilesAuthenticationArrayOutput {
+	return i.ToGetAccountAzureFilesAuthenticationArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountAzureFilesAuthenticationArray) ToGetAccountAzureFilesAuthenticationArrayOutputWithContext(ctx context.Context) GetAccountAzureFilesAuthenticationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountAzureFilesAuthenticationArrayOutput)
+}
+
+type GetAccountAzureFilesAuthenticationOutput struct{ *pulumi.OutputState }
+
+func (GetAccountAzureFilesAuthenticationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountAzureFilesAuthentication)(nil)).Elem()
+}
+
+func (o GetAccountAzureFilesAuthenticationOutput) ToGetAccountAzureFilesAuthenticationOutput() GetAccountAzureFilesAuthenticationOutput {
+	return o
+}
+
+func (o GetAccountAzureFilesAuthenticationOutput) ToGetAccountAzureFilesAuthenticationOutputWithContext(ctx context.Context) GetAccountAzureFilesAuthenticationOutput {
+	return o
+}
+
+// An `activeDirectory` block as documented below.
+func (o GetAccountAzureFilesAuthenticationOutput) ActiveDirectories() GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput {
+	return o.ApplyT(func(v GetAccountAzureFilesAuthentication) []GetAccountAzureFilesAuthenticationActiveDirectory {
+		return v.ActiveDirectories
+	}).(GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput)
+}
+
+// The directory service used for this Storage Account.
+func (o GetAccountAzureFilesAuthenticationOutput) DirectoryType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountAzureFilesAuthentication) string { return v.DirectoryType }).(pulumi.StringOutput)
+}
+
+type GetAccountAzureFilesAuthenticationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountAzureFilesAuthenticationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountAzureFilesAuthentication)(nil)).Elem()
+}
+
+func (o GetAccountAzureFilesAuthenticationArrayOutput) ToGetAccountAzureFilesAuthenticationArrayOutput() GetAccountAzureFilesAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetAccountAzureFilesAuthenticationArrayOutput) ToGetAccountAzureFilesAuthenticationArrayOutputWithContext(ctx context.Context) GetAccountAzureFilesAuthenticationArrayOutput {
+	return o
+}
+
+func (o GetAccountAzureFilesAuthenticationArrayOutput) Index(i pulumi.IntInput) GetAccountAzureFilesAuthenticationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountAzureFilesAuthentication {
+		return vs[0].([]GetAccountAzureFilesAuthentication)[vs[1].(int)]
+	}).(GetAccountAzureFilesAuthenticationOutput)
+}
+
+type GetAccountAzureFilesAuthenticationActiveDirectory struct {
+	// The domain GUID.
+	DomainGuid string `pulumi:"domainGuid"`
+	// The primary domain that the AD DNS server is authoritative for.
+	DomainName string `pulumi:"domainName"`
+	// The domain security identifier.
+	DomainSid string `pulumi:"domainSid"`
+	// The name of the Active Directory forest.
+	ForestName string `pulumi:"forestName"`
+	// The NetBIOS domain name.
+	NetbiosDomainName string `pulumi:"netbiosDomainName"`
+	// The security identifier for Azure Storage.
+	StorageSid string `pulumi:"storageSid"`
+}
+
+// GetAccountAzureFilesAuthenticationActiveDirectoryInput is an input type that accepts GetAccountAzureFilesAuthenticationActiveDirectoryArgs and GetAccountAzureFilesAuthenticationActiveDirectoryOutput values.
+// You can construct a concrete instance of `GetAccountAzureFilesAuthenticationActiveDirectoryInput` via:
+//
+//	GetAccountAzureFilesAuthenticationActiveDirectoryArgs{...}
+type GetAccountAzureFilesAuthenticationActiveDirectoryInput interface {
+	pulumi.Input
+
+	ToGetAccountAzureFilesAuthenticationActiveDirectoryOutput() GetAccountAzureFilesAuthenticationActiveDirectoryOutput
+	ToGetAccountAzureFilesAuthenticationActiveDirectoryOutputWithContext(context.Context) GetAccountAzureFilesAuthenticationActiveDirectoryOutput
+}
+
+type GetAccountAzureFilesAuthenticationActiveDirectoryArgs struct {
+	// The domain GUID.
+	DomainGuid pulumi.StringInput `pulumi:"domainGuid"`
+	// The primary domain that the AD DNS server is authoritative for.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The domain security identifier.
+	DomainSid pulumi.StringInput `pulumi:"domainSid"`
+	// The name of the Active Directory forest.
+	ForestName pulumi.StringInput `pulumi:"forestName"`
+	// The NetBIOS domain name.
+	NetbiosDomainName pulumi.StringInput `pulumi:"netbiosDomainName"`
+	// The security identifier for Azure Storage.
+	StorageSid pulumi.StringInput `pulumi:"storageSid"`
+}
+
+func (GetAccountAzureFilesAuthenticationActiveDirectoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountAzureFilesAuthenticationActiveDirectory)(nil)).Elem()
+}
+
+func (i GetAccountAzureFilesAuthenticationActiveDirectoryArgs) ToGetAccountAzureFilesAuthenticationActiveDirectoryOutput() GetAccountAzureFilesAuthenticationActiveDirectoryOutput {
+	return i.ToGetAccountAzureFilesAuthenticationActiveDirectoryOutputWithContext(context.Background())
+}
+
+func (i GetAccountAzureFilesAuthenticationActiveDirectoryArgs) ToGetAccountAzureFilesAuthenticationActiveDirectoryOutputWithContext(ctx context.Context) GetAccountAzureFilesAuthenticationActiveDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountAzureFilesAuthenticationActiveDirectoryOutput)
+}
+
+// GetAccountAzureFilesAuthenticationActiveDirectoryArrayInput is an input type that accepts GetAccountAzureFilesAuthenticationActiveDirectoryArray and GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput values.
+// You can construct a concrete instance of `GetAccountAzureFilesAuthenticationActiveDirectoryArrayInput` via:
+//
+//	GetAccountAzureFilesAuthenticationActiveDirectoryArray{ GetAccountAzureFilesAuthenticationActiveDirectoryArgs{...} }
+type GetAccountAzureFilesAuthenticationActiveDirectoryArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput() GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput
+	ToGetAccountAzureFilesAuthenticationActiveDirectoryArrayOutputWithContext(context.Context) GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput
+}
+
+type GetAccountAzureFilesAuthenticationActiveDirectoryArray []GetAccountAzureFilesAuthenticationActiveDirectoryInput
+
+func (GetAccountAzureFilesAuthenticationActiveDirectoryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountAzureFilesAuthenticationActiveDirectory)(nil)).Elem()
+}
+
+func (i GetAccountAzureFilesAuthenticationActiveDirectoryArray) ToGetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput() GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput {
+	return i.ToGetAccountAzureFilesAuthenticationActiveDirectoryArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountAzureFilesAuthenticationActiveDirectoryArray) ToGetAccountAzureFilesAuthenticationActiveDirectoryArrayOutputWithContext(ctx context.Context) GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput)
+}
+
+type GetAccountAzureFilesAuthenticationActiveDirectoryOutput struct{ *pulumi.OutputState }
+
+func (GetAccountAzureFilesAuthenticationActiveDirectoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountAzureFilesAuthenticationActiveDirectory)(nil)).Elem()
+}
+
+func (o GetAccountAzureFilesAuthenticationActiveDirectoryOutput) ToGetAccountAzureFilesAuthenticationActiveDirectoryOutput() GetAccountAzureFilesAuthenticationActiveDirectoryOutput {
+	return o
+}
+
+func (o GetAccountAzureFilesAuthenticationActiveDirectoryOutput) ToGetAccountAzureFilesAuthenticationActiveDirectoryOutputWithContext(ctx context.Context) GetAccountAzureFilesAuthenticationActiveDirectoryOutput {
+	return o
+}
+
+// The domain GUID.
+func (o GetAccountAzureFilesAuthenticationActiveDirectoryOutput) DomainGuid() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountAzureFilesAuthenticationActiveDirectory) string { return v.DomainGuid }).(pulumi.StringOutput)
+}
+
+// The primary domain that the AD DNS server is authoritative for.
+func (o GetAccountAzureFilesAuthenticationActiveDirectoryOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountAzureFilesAuthenticationActiveDirectory) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The domain security identifier.
+func (o GetAccountAzureFilesAuthenticationActiveDirectoryOutput) DomainSid() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountAzureFilesAuthenticationActiveDirectory) string { return v.DomainSid }).(pulumi.StringOutput)
+}
+
+// The name of the Active Directory forest.
+func (o GetAccountAzureFilesAuthenticationActiveDirectoryOutput) ForestName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountAzureFilesAuthenticationActiveDirectory) string { return v.ForestName }).(pulumi.StringOutput)
+}
+
+// The NetBIOS domain name.
+func (o GetAccountAzureFilesAuthenticationActiveDirectoryOutput) NetbiosDomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountAzureFilesAuthenticationActiveDirectory) string { return v.NetbiosDomainName }).(pulumi.StringOutput)
+}
+
+// The security identifier for Azure Storage.
+func (o GetAccountAzureFilesAuthenticationActiveDirectoryOutput) StorageSid() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountAzureFilesAuthenticationActiveDirectory) string { return v.StorageSid }).(pulumi.StringOutput)
+}
+
+type GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountAzureFilesAuthenticationActiveDirectory)(nil)).Elem()
+}
+
+func (o GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput) ToGetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput() GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput {
+	return o
+}
+
+func (o GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput) ToGetAccountAzureFilesAuthenticationActiveDirectoryArrayOutputWithContext(ctx context.Context) GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput {
+	return o
+}
+
+func (o GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput) Index(i pulumi.IntInput) GetAccountAzureFilesAuthenticationActiveDirectoryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountAzureFilesAuthenticationActiveDirectory {
+		return vs[0].([]GetAccountAzureFilesAuthenticationActiveDirectory)[vs[1].(int)]
+	}).(GetAccountAzureFilesAuthenticationActiveDirectoryOutput)
+}
+
 type GetAccountBlobContainerSASPermissions struct {
 	// Should Add permissions be enabled for this SAS?
 	Add bool `pulumi:"add"`
@@ -7906,6 +8156,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableAclArrayInput)(nil)).Elem(), TableAclArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableAclAccessPolicyInput)(nil)).Elem(), TableAclAccessPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableAclAccessPolicyArrayInput)(nil)).Elem(), TableAclAccessPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountAzureFilesAuthenticationInput)(nil)).Elem(), GetAccountAzureFilesAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountAzureFilesAuthenticationArrayInput)(nil)).Elem(), GetAccountAzureFilesAuthenticationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountAzureFilesAuthenticationActiveDirectoryInput)(nil)).Elem(), GetAccountAzureFilesAuthenticationActiveDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountAzureFilesAuthenticationActiveDirectoryArrayInput)(nil)).Elem(), GetAccountAzureFilesAuthenticationActiveDirectoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountBlobContainerSASPermissionsInput)(nil)).Elem(), GetAccountBlobContainerSASPermissionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountCustomDomainInput)(nil)).Elem(), GetAccountCustomDomainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountCustomDomainArrayInput)(nil)).Elem(), GetAccountCustomDomainArray{})
@@ -8009,6 +8263,10 @@ func init() {
 	pulumi.RegisterOutputType(TableAclArrayOutput{})
 	pulumi.RegisterOutputType(TableAclAccessPolicyOutput{})
 	pulumi.RegisterOutputType(TableAclAccessPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountAzureFilesAuthenticationOutput{})
+	pulumi.RegisterOutputType(GetAccountAzureFilesAuthenticationArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountAzureFilesAuthenticationActiveDirectoryOutput{})
+	pulumi.RegisterOutputType(GetAccountAzureFilesAuthenticationActiveDirectoryArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountBlobContainerSASPermissionsOutput{})
 	pulumi.RegisterOutputType(GetAccountCustomDomainOutput{})
 	pulumi.RegisterOutputType(GetAccountCustomDomainArrayOutput{})

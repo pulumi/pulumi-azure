@@ -20,6 +20,21 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     public static final EndpointArgs Empty = new EndpointArgs();
 
     /**
+     * The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="customNetworkInterfaceName")
+    private @Nullable Output<String> customNetworkInterfaceName;
+
+    /**
+     * @return The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> customNetworkInterfaceName() {
+        return Optional.ofNullable(this.customNetworkInterfaceName);
+    }
+
+    /**
      * An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
      * 
      */
@@ -142,6 +157,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     private EndpointArgs() {}
 
     private EndpointArgs(EndpointArgs $) {
+        this.customNetworkInterfaceName = $.customNetworkInterfaceName;
         this.ipConfiguration = $.ipConfiguration;
         this.location = $.location;
         this.name = $.name;
@@ -168,6 +184,27 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(EndpointArgs defaults) {
             $ = new EndpointArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param customNetworkInterfaceName The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customNetworkInterfaceName(@Nullable Output<String> customNetworkInterfaceName) {
+            $.customNetworkInterfaceName = customNetworkInterfaceName;
+            return this;
+        }
+
+        /**
+         * @param customNetworkInterfaceName The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customNetworkInterfaceName(String customNetworkInterfaceName) {
+            return customNetworkInterfaceName(Output.of(customNetworkInterfaceName));
         }
 
         /**

@@ -406,6 +406,21 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     * 
+     */
+    @Import(name="patchAssessmentMode")
+    private @Nullable Output<String> patchAssessmentMode;
+
+    /**
+     * @return Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     * 
+     */
+    public Optional<Output<String>> patchAssessmentMode() {
+        return Optional.ofNullable(this.patchAssessmentMode);
+    }
+
+    /**
      * Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      * 
      */
@@ -733,6 +748,7 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         this.name = $.name;
         this.networkInterfaceIds = $.networkInterfaceIds;
         this.osDisk = $.osDisk;
+        this.patchAssessmentMode = $.patchAssessmentMode;
         this.patchMode = $.patchMode;
         this.plan = $.plan;
         this.platformFaultDomain = $.platformFaultDomain;
@@ -1316,6 +1332,27 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
          */
         public Builder osDisk(WindowsVirtualMachineOsDiskArgs osDisk) {
             return osDisk(Output.of(osDisk));
+        }
+
+        /**
+         * @param patchAssessmentMode Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder patchAssessmentMode(@Nullable Output<String> patchAssessmentMode) {
+            $.patchAssessmentMode = patchAssessmentMode;
+            return this;
+        }
+
+        /**
+         * @param patchAssessmentMode Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder patchAssessmentMode(String patchAssessmentMode) {
+            return patchAssessmentMode(Output.of(patchAssessmentMode));
         }
 
         /**

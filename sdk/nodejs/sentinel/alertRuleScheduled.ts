@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -156,6 +157,10 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
      */
     public readonly tactics!: pulumi.Output<string[] | undefined>;
     /**
+     * A list of techniques of attacks by which to classify the rule.
+     */
+    public readonly techniques!: pulumi.Output<string[] | undefined>;
+    /**
      * The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
      */
     public readonly triggerOperator!: pulumi.Output<string | undefined>;
@@ -196,6 +201,7 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
             resourceInputs["suppressionDuration"] = state ? state.suppressionDuration : undefined;
             resourceInputs["suppressionEnabled"] = state ? state.suppressionEnabled : undefined;
             resourceInputs["tactics"] = state ? state.tactics : undefined;
+            resourceInputs["techniques"] = state ? state.techniques : undefined;
             resourceInputs["triggerOperator"] = state ? state.triggerOperator : undefined;
             resourceInputs["triggerThreshold"] = state ? state.triggerThreshold : undefined;
         } else {
@@ -231,6 +237,7 @@ export class AlertRuleScheduled extends pulumi.CustomResource {
             resourceInputs["suppressionDuration"] = args ? args.suppressionDuration : undefined;
             resourceInputs["suppressionEnabled"] = args ? args.suppressionEnabled : undefined;
             resourceInputs["tactics"] = args ? args.tactics : undefined;
+            resourceInputs["techniques"] = args ? args.techniques : undefined;
             resourceInputs["triggerOperator"] = args ? args.triggerOperator : undefined;
             resourceInputs["triggerThreshold"] = args ? args.triggerThreshold : undefined;
         }
@@ -319,6 +326,10 @@ export interface AlertRuleScheduledState {
      * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
      */
     tactics?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of techniques of attacks by which to classify the rule.
+     */
+    techniques?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
      */
@@ -409,6 +420,10 @@ export interface AlertRuleScheduledArgs {
      * A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
      */
     tactics?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A list of techniques of attacks by which to classify the rule.
+     */
+    techniques?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
      */

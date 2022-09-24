@@ -14,15 +14,17 @@ import (
 type ResourceGroupPolicyRemediation struct {
 	pulumi.CustomResourceState
 
-	FailurePercentage     pulumi.Float64PtrOutput  `pulumi:"failurePercentage"`
-	LocationFilters       pulumi.StringArrayOutput `pulumi:"locationFilters"`
-	Name                  pulumi.StringOutput      `pulumi:"name"`
-	ParallelDeployments   pulumi.IntPtrOutput      `pulumi:"parallelDeployments"`
-	PolicyAssignmentId    pulumi.StringOutput      `pulumi:"policyAssignmentId"`
-	PolicyDefinitionId    pulumi.StringPtrOutput   `pulumi:"policyDefinitionId"`
-	ResourceCount         pulumi.IntPtrOutput      `pulumi:"resourceCount"`
-	ResourceDiscoveryMode pulumi.StringPtrOutput   `pulumi:"resourceDiscoveryMode"`
-	ResourceGroupId       pulumi.StringOutput      `pulumi:"resourceGroupId"`
+	FailurePercentage   pulumi.Float64PtrOutput  `pulumi:"failurePercentage"`
+	LocationFilters     pulumi.StringArrayOutput `pulumi:"locationFilters"`
+	Name                pulumi.StringOutput      `pulumi:"name"`
+	ParallelDeployments pulumi.IntPtrOutput      `pulumi:"parallelDeployments"`
+	PolicyAssignmentId  pulumi.StringOutput      `pulumi:"policyAssignmentId"`
+	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+	PolicyDefinitionId          pulumi.StringPtrOutput `pulumi:"policyDefinitionId"`
+	PolicyDefinitionReferenceId pulumi.StringPtrOutput `pulumi:"policyDefinitionReferenceId"`
+	ResourceCount               pulumi.IntPtrOutput    `pulumi:"resourceCount"`
+	ResourceDiscoveryMode       pulumi.StringPtrOutput `pulumi:"resourceDiscoveryMode"`
+	ResourceGroupId             pulumi.StringOutput    `pulumi:"resourceGroupId"`
 }
 
 // NewResourceGroupPolicyRemediation registers a new resource with the given unique name, arguments, and options.
@@ -60,27 +62,31 @@ func GetResourceGroupPolicyRemediation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourceGroupPolicyRemediation resources.
 type resourceGroupPolicyRemediationState struct {
-	FailurePercentage     *float64 `pulumi:"failurePercentage"`
-	LocationFilters       []string `pulumi:"locationFilters"`
-	Name                  *string  `pulumi:"name"`
-	ParallelDeployments   *int     `pulumi:"parallelDeployments"`
-	PolicyAssignmentId    *string  `pulumi:"policyAssignmentId"`
-	PolicyDefinitionId    *string  `pulumi:"policyDefinitionId"`
-	ResourceCount         *int     `pulumi:"resourceCount"`
-	ResourceDiscoveryMode *string  `pulumi:"resourceDiscoveryMode"`
-	ResourceGroupId       *string  `pulumi:"resourceGroupId"`
+	FailurePercentage   *float64 `pulumi:"failurePercentage"`
+	LocationFilters     []string `pulumi:"locationFilters"`
+	Name                *string  `pulumi:"name"`
+	ParallelDeployments *int     `pulumi:"parallelDeployments"`
+	PolicyAssignmentId  *string  `pulumi:"policyAssignmentId"`
+	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+	PolicyDefinitionId          *string `pulumi:"policyDefinitionId"`
+	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
+	ResourceCount               *int    `pulumi:"resourceCount"`
+	ResourceDiscoveryMode       *string `pulumi:"resourceDiscoveryMode"`
+	ResourceGroupId             *string `pulumi:"resourceGroupId"`
 }
 
 type ResourceGroupPolicyRemediationState struct {
-	FailurePercentage     pulumi.Float64PtrInput
-	LocationFilters       pulumi.StringArrayInput
-	Name                  pulumi.StringPtrInput
-	ParallelDeployments   pulumi.IntPtrInput
-	PolicyAssignmentId    pulumi.StringPtrInput
-	PolicyDefinitionId    pulumi.StringPtrInput
-	ResourceCount         pulumi.IntPtrInput
-	ResourceDiscoveryMode pulumi.StringPtrInput
-	ResourceGroupId       pulumi.StringPtrInput
+	FailurePercentage   pulumi.Float64PtrInput
+	LocationFilters     pulumi.StringArrayInput
+	Name                pulumi.StringPtrInput
+	ParallelDeployments pulumi.IntPtrInput
+	PolicyAssignmentId  pulumi.StringPtrInput
+	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+	PolicyDefinitionId          pulumi.StringPtrInput
+	PolicyDefinitionReferenceId pulumi.StringPtrInput
+	ResourceCount               pulumi.IntPtrInput
+	ResourceDiscoveryMode       pulumi.StringPtrInput
+	ResourceGroupId             pulumi.StringPtrInput
 }
 
 func (ResourceGroupPolicyRemediationState) ElementType() reflect.Type {
@@ -88,28 +94,32 @@ func (ResourceGroupPolicyRemediationState) ElementType() reflect.Type {
 }
 
 type resourceGroupPolicyRemediationArgs struct {
-	FailurePercentage     *float64 `pulumi:"failurePercentage"`
-	LocationFilters       []string `pulumi:"locationFilters"`
-	Name                  *string  `pulumi:"name"`
-	ParallelDeployments   *int     `pulumi:"parallelDeployments"`
-	PolicyAssignmentId    string   `pulumi:"policyAssignmentId"`
-	PolicyDefinitionId    *string  `pulumi:"policyDefinitionId"`
-	ResourceCount         *int     `pulumi:"resourceCount"`
-	ResourceDiscoveryMode *string  `pulumi:"resourceDiscoveryMode"`
-	ResourceGroupId       string   `pulumi:"resourceGroupId"`
+	FailurePercentage   *float64 `pulumi:"failurePercentage"`
+	LocationFilters     []string `pulumi:"locationFilters"`
+	Name                *string  `pulumi:"name"`
+	ParallelDeployments *int     `pulumi:"parallelDeployments"`
+	PolicyAssignmentId  string   `pulumi:"policyAssignmentId"`
+	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+	PolicyDefinitionId          *string `pulumi:"policyDefinitionId"`
+	PolicyDefinitionReferenceId *string `pulumi:"policyDefinitionReferenceId"`
+	ResourceCount               *int    `pulumi:"resourceCount"`
+	ResourceDiscoveryMode       *string `pulumi:"resourceDiscoveryMode"`
+	ResourceGroupId             string  `pulumi:"resourceGroupId"`
 }
 
 // The set of arguments for constructing a ResourceGroupPolicyRemediation resource.
 type ResourceGroupPolicyRemediationArgs struct {
-	FailurePercentage     pulumi.Float64PtrInput
-	LocationFilters       pulumi.StringArrayInput
-	Name                  pulumi.StringPtrInput
-	ParallelDeployments   pulumi.IntPtrInput
-	PolicyAssignmentId    pulumi.StringInput
-	PolicyDefinitionId    pulumi.StringPtrInput
-	ResourceCount         pulumi.IntPtrInput
-	ResourceDiscoveryMode pulumi.StringPtrInput
-	ResourceGroupId       pulumi.StringInput
+	FailurePercentage   pulumi.Float64PtrInput
+	LocationFilters     pulumi.StringArrayInput
+	Name                pulumi.StringPtrInput
+	ParallelDeployments pulumi.IntPtrInput
+	PolicyAssignmentId  pulumi.StringInput
+	// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+	PolicyDefinitionId          pulumi.StringPtrInput
+	PolicyDefinitionReferenceId pulumi.StringPtrInput
+	ResourceCount               pulumi.IntPtrInput
+	ResourceDiscoveryMode       pulumi.StringPtrInput
+	ResourceGroupId             pulumi.StringInput
 }
 
 func (ResourceGroupPolicyRemediationArgs) ElementType() reflect.Type {
@@ -219,8 +229,13 @@ func (o ResourceGroupPolicyRemediationOutput) PolicyAssignmentId() pulumi.String
 	return o.ApplyT(func(v *ResourceGroupPolicyRemediation) pulumi.StringOutput { return v.PolicyAssignmentId }).(pulumi.StringOutput)
 }
 
+// Deprecated: `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
 func (o ResourceGroupPolicyRemediationOutput) PolicyDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceGroupPolicyRemediation) pulumi.StringPtrOutput { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceGroupPolicyRemediationOutput) PolicyDefinitionReferenceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceGroupPolicyRemediation) pulumi.StringPtrOutput { return v.PolicyDefinitionReferenceId }).(pulumi.StringPtrOutput)
 }
 
 func (o ResourceGroupPolicyRemediationOutput) ResourceCount() pulumi.IntPtrOutput {

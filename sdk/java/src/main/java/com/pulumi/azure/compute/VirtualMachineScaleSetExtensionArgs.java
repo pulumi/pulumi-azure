@@ -48,6 +48,21 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
     }
 
     /**
+     * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
+    @Import(name="failureSuppressionEnabled")
+    private @Nullable Output<Boolean> failureSuppressionEnabled;
+
+    /**
+     * @return Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> failureSuppressionEnabled() {
+        return Optional.ofNullable(this.failureSuppressionEnabled);
+    }
+
+    /**
      * A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn&#39;t changed.
      * 
      */
@@ -187,6 +202,7 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
     private VirtualMachineScaleSetExtensionArgs(VirtualMachineScaleSetExtensionArgs $) {
         this.autoUpgradeMinorVersion = $.autoUpgradeMinorVersion;
         this.automaticUpgradeEnabled = $.automaticUpgradeEnabled;
+        this.failureSuppressionEnabled = $.failureSuppressionEnabled;
         this.forceUpdateTag = $.forceUpdateTag;
         this.name = $.name;
         this.protectedSettings = $.protectedSettings;
@@ -256,6 +272,27 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
          */
         public Builder automaticUpgradeEnabled(Boolean automaticUpgradeEnabled) {
             return automaticUpgradeEnabled(Output.of(automaticUpgradeEnabled));
+        }
+
+        /**
+         * @param failureSuppressionEnabled Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder failureSuppressionEnabled(@Nullable Output<Boolean> failureSuppressionEnabled) {
+            $.failureSuppressionEnabled = failureSuppressionEnabled;
+            return this;
+        }
+
+        /**
+         * @param failureSuppressionEnabled Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder failureSuppressionEnabled(Boolean failureSuppressionEnabled) {
+            return failureSuppressionEnabled(Output.of(failureSuppressionEnabled));
         }
 
         /**

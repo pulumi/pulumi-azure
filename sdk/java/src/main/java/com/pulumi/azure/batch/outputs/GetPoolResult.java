@@ -6,11 +6,18 @@ package com.pulumi.azure.batch.outputs;
 import com.pulumi.azure.batch.outputs.GetPoolAutoScale;
 import com.pulumi.azure.batch.outputs.GetPoolCertificate;
 import com.pulumi.azure.batch.outputs.GetPoolContainerConfiguration;
+import com.pulumi.azure.batch.outputs.GetPoolDataDisk;
+import com.pulumi.azure.batch.outputs.GetPoolDiskEncryption;
+import com.pulumi.azure.batch.outputs.GetPoolExtension;
 import com.pulumi.azure.batch.outputs.GetPoolFixedScale;
 import com.pulumi.azure.batch.outputs.GetPoolMount;
 import com.pulumi.azure.batch.outputs.GetPoolNetworkConfiguration;
+import com.pulumi.azure.batch.outputs.GetPoolNodePlacement;
 import com.pulumi.azure.batch.outputs.GetPoolStartTask;
 import com.pulumi.azure.batch.outputs.GetPoolStorageImageReference;
+import com.pulumi.azure.batch.outputs.GetPoolTaskSchedulingPolicy;
+import com.pulumi.azure.batch.outputs.GetPoolUserAccount;
+import com.pulumi.azure.batch.outputs.GetPoolWindow;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
@@ -40,7 +47,22 @@ public final class GetPoolResult {
      * 
      */
     private List<GetPoolContainerConfiguration> containerConfigurations;
+    /**
+     * @return A `data_disks` block describes the data disk settings.
+     * 
+     */
+    private List<GetPoolDataDisk> dataDisks;
+    /**
+     * @return A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool.
+     * 
+     */
+    private List<GetPoolDiskEncryption> diskEncryptions;
     private String displayName;
+    /**
+     * @return An `extensions` block describes the extension settings
+     * 
+     */
+    private List<GetPoolExtension> extensions;
     /**
      * @return A `fixed_scale` block that describes the scale settings when using fixed scale.
      * 
@@ -51,6 +73,16 @@ public final class GetPoolResult {
      * 
      */
     private String id;
+    /**
+     * @return Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool.
+     * 
+     */
+    private String interNodeCommunication;
+    /**
+     * @return The type of on-premises license to be used when deploying the operating system.
+     * 
+     */
+    private String licenseType;
     /**
      * @return The maximum number of tasks that can run concurrently on a single compute node in the pool.
      * 
@@ -63,7 +95,7 @@ public final class GetPoolResult {
      */
     private List<GetPoolMount> mounts;
     /**
-     * @return The name of the endpoint.
+     * @return The name of the user account.
      * 
      */
     private String name;
@@ -73,6 +105,16 @@ public final class GetPoolResult {
      * 
      */
     private String nodeAgentSkuId;
+    /**
+     * @return A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+     * 
+     */
+    private List<GetPoolNodePlacement> nodePlacements;
+    /**
+     * @return Specifies the ephemeral disk placement for operating system disk for all VMs in the pool.
+     * 
+     */
+    private String osDiskPlacement;
     private String resourceGroupName;
     /**
      * @return A `start_task` block that describes the start task settings for the Batch pool.
@@ -85,10 +127,25 @@ public final class GetPoolResult {
      */
     private List<GetPoolStorageImageReference> storageImageReferences;
     /**
+     * @return A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool.
+     * 
+     */
+    private List<GetPoolTaskSchedulingPolicy> taskSchedulingPolicies;
+    /**
+     * @return A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+     * 
+     */
+    private List<GetPoolUserAccount> userAccounts;
+    /**
      * @return The size of the VM created in the Batch pool.
      * 
      */
     private String vmSize;
+    /**
+     * @return A `windows` block that describes the Windows configuration in the pool.
+     * 
+     */
+    private List<GetPoolWindow> windows;
 
     private GetPoolResult() {}
     /**
@@ -119,8 +176,29 @@ public final class GetPoolResult {
     public List<GetPoolContainerConfiguration> containerConfigurations() {
         return this.containerConfigurations;
     }
+    /**
+     * @return A `data_disks` block describes the data disk settings.
+     * 
+     */
+    public List<GetPoolDataDisk> dataDisks() {
+        return this.dataDisks;
+    }
+    /**
+     * @return A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool.
+     * 
+     */
+    public List<GetPoolDiskEncryption> diskEncryptions() {
+        return this.diskEncryptions;
+    }
     public String displayName() {
         return this.displayName;
+    }
+    /**
+     * @return An `extensions` block describes the extension settings
+     * 
+     */
+    public List<GetPoolExtension> extensions() {
+        return this.extensions;
     }
     /**
      * @return A `fixed_scale` block that describes the scale settings when using fixed scale.
@@ -135,6 +213,20 @@ public final class GetPoolResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool.
+     * 
+     */
+    public String interNodeCommunication() {
+        return this.interNodeCommunication;
+    }
+    /**
+     * @return The type of on-premises license to be used when deploying the operating system.
+     * 
+     */
+    public String licenseType() {
+        return this.licenseType;
     }
     /**
      * @return The maximum number of tasks that can run concurrently on a single compute node in the pool.
@@ -154,7 +246,7 @@ public final class GetPoolResult {
         return this.mounts;
     }
     /**
-     * @return The name of the endpoint.
+     * @return The name of the user account.
      * 
      */
     public String name() {
@@ -169,6 +261,20 @@ public final class GetPoolResult {
      */
     public String nodeAgentSkuId() {
         return this.nodeAgentSkuId;
+    }
+    /**
+     * @return A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+     * 
+     */
+    public List<GetPoolNodePlacement> nodePlacements() {
+        return this.nodePlacements;
+    }
+    /**
+     * @return Specifies the ephemeral disk placement for operating system disk for all VMs in the pool.
+     * 
+     */
+    public String osDiskPlacement() {
+        return this.osDiskPlacement;
     }
     public String resourceGroupName() {
         return this.resourceGroupName;
@@ -188,11 +294,32 @@ public final class GetPoolResult {
         return this.storageImageReferences;
     }
     /**
+     * @return A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool.
+     * 
+     */
+    public List<GetPoolTaskSchedulingPolicy> taskSchedulingPolicies() {
+        return this.taskSchedulingPolicies;
+    }
+    /**
+     * @return A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+     * 
+     */
+    public List<GetPoolUserAccount> userAccounts() {
+        return this.userAccounts;
+    }
+    /**
      * @return The size of the VM created in the Batch pool.
      * 
      */
     public String vmSize() {
         return this.vmSize;
+    }
+    /**
+     * @return A `windows` block that describes the Windows configuration in the pool.
+     * 
+     */
+    public List<GetPoolWindow> windows() {
+        return this.windows;
     }
 
     public static Builder builder() {
@@ -208,19 +335,29 @@ public final class GetPoolResult {
         private List<GetPoolAutoScale> autoScales;
         private List<GetPoolCertificate> certificates;
         private List<GetPoolContainerConfiguration> containerConfigurations;
+        private List<GetPoolDataDisk> dataDisks;
+        private List<GetPoolDiskEncryption> diskEncryptions;
         private String displayName;
+        private List<GetPoolExtension> extensions;
         private List<GetPoolFixedScale> fixedScales;
         private String id;
+        private String interNodeCommunication;
+        private String licenseType;
         private Integer maxTasksPerNode;
         private Map<String,String> metadata;
         private List<GetPoolMount> mounts;
         private String name;
         private List<GetPoolNetworkConfiguration> networkConfigurations;
         private String nodeAgentSkuId;
+        private List<GetPoolNodePlacement> nodePlacements;
+        private String osDiskPlacement;
         private String resourceGroupName;
         private List<GetPoolStartTask> startTasks;
         private List<GetPoolStorageImageReference> storageImageReferences;
+        private List<GetPoolTaskSchedulingPolicy> taskSchedulingPolicies;
+        private List<GetPoolUserAccount> userAccounts;
         private String vmSize;
+        private List<GetPoolWindow> windows;
         public Builder() {}
         public Builder(GetPoolResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -228,19 +365,29 @@ public final class GetPoolResult {
     	      this.autoScales = defaults.autoScales;
     	      this.certificates = defaults.certificates;
     	      this.containerConfigurations = defaults.containerConfigurations;
+    	      this.dataDisks = defaults.dataDisks;
+    	      this.diskEncryptions = defaults.diskEncryptions;
     	      this.displayName = defaults.displayName;
+    	      this.extensions = defaults.extensions;
     	      this.fixedScales = defaults.fixedScales;
     	      this.id = defaults.id;
+    	      this.interNodeCommunication = defaults.interNodeCommunication;
+    	      this.licenseType = defaults.licenseType;
     	      this.maxTasksPerNode = defaults.maxTasksPerNode;
     	      this.metadata = defaults.metadata;
     	      this.mounts = defaults.mounts;
     	      this.name = defaults.name;
     	      this.networkConfigurations = defaults.networkConfigurations;
     	      this.nodeAgentSkuId = defaults.nodeAgentSkuId;
+    	      this.nodePlacements = defaults.nodePlacements;
+    	      this.osDiskPlacement = defaults.osDiskPlacement;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.startTasks = defaults.startTasks;
     	      this.storageImageReferences = defaults.storageImageReferences;
+    	      this.taskSchedulingPolicies = defaults.taskSchedulingPolicies;
+    	      this.userAccounts = defaults.userAccounts;
     	      this.vmSize = defaults.vmSize;
+    	      this.windows = defaults.windows;
         }
 
         @CustomType.Setter
@@ -273,9 +420,33 @@ public final class GetPoolResult {
             return containerConfigurations(List.of(containerConfigurations));
         }
         @CustomType.Setter
+        public Builder dataDisks(List<GetPoolDataDisk> dataDisks) {
+            this.dataDisks = Objects.requireNonNull(dataDisks);
+            return this;
+        }
+        public Builder dataDisks(GetPoolDataDisk... dataDisks) {
+            return dataDisks(List.of(dataDisks));
+        }
+        @CustomType.Setter
+        public Builder diskEncryptions(List<GetPoolDiskEncryption> diskEncryptions) {
+            this.diskEncryptions = Objects.requireNonNull(diskEncryptions);
+            return this;
+        }
+        public Builder diskEncryptions(GetPoolDiskEncryption... diskEncryptions) {
+            return diskEncryptions(List.of(diskEncryptions));
+        }
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
+        }
+        @CustomType.Setter
+        public Builder extensions(List<GetPoolExtension> extensions) {
+            this.extensions = Objects.requireNonNull(extensions);
+            return this;
+        }
+        public Builder extensions(GetPoolExtension... extensions) {
+            return extensions(List.of(extensions));
         }
         @CustomType.Setter
         public Builder fixedScales(List<GetPoolFixedScale> fixedScales) {
@@ -288,6 +459,16 @@ public final class GetPoolResult {
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder interNodeCommunication(String interNodeCommunication) {
+            this.interNodeCommunication = Objects.requireNonNull(interNodeCommunication);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder licenseType(String licenseType) {
+            this.licenseType = Objects.requireNonNull(licenseType);
             return this;
         }
         @CustomType.Setter
@@ -327,6 +508,19 @@ public final class GetPoolResult {
             return this;
         }
         @CustomType.Setter
+        public Builder nodePlacements(List<GetPoolNodePlacement> nodePlacements) {
+            this.nodePlacements = Objects.requireNonNull(nodePlacements);
+            return this;
+        }
+        public Builder nodePlacements(GetPoolNodePlacement... nodePlacements) {
+            return nodePlacements(List.of(nodePlacements));
+        }
+        @CustomType.Setter
+        public Builder osDiskPlacement(String osDiskPlacement) {
+            this.osDiskPlacement = Objects.requireNonNull(osDiskPlacement);
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
@@ -348,9 +542,33 @@ public final class GetPoolResult {
             return storageImageReferences(List.of(storageImageReferences));
         }
         @CustomType.Setter
+        public Builder taskSchedulingPolicies(List<GetPoolTaskSchedulingPolicy> taskSchedulingPolicies) {
+            this.taskSchedulingPolicies = Objects.requireNonNull(taskSchedulingPolicies);
+            return this;
+        }
+        public Builder taskSchedulingPolicies(GetPoolTaskSchedulingPolicy... taskSchedulingPolicies) {
+            return taskSchedulingPolicies(List.of(taskSchedulingPolicies));
+        }
+        @CustomType.Setter
+        public Builder userAccounts(List<GetPoolUserAccount> userAccounts) {
+            this.userAccounts = Objects.requireNonNull(userAccounts);
+            return this;
+        }
+        public Builder userAccounts(GetPoolUserAccount... userAccounts) {
+            return userAccounts(List.of(userAccounts));
+        }
+        @CustomType.Setter
         public Builder vmSize(String vmSize) {
             this.vmSize = Objects.requireNonNull(vmSize);
             return this;
+        }
+        @CustomType.Setter
+        public Builder windows(List<GetPoolWindow> windows) {
+            this.windows = Objects.requireNonNull(windows);
+            return this;
+        }
+        public Builder windows(GetPoolWindow... windows) {
+            return windows(List.of(windows));
         }
         public GetPoolResult build() {
             final var o = new GetPoolResult();
@@ -358,19 +576,29 @@ public final class GetPoolResult {
             o.autoScales = autoScales;
             o.certificates = certificates;
             o.containerConfigurations = containerConfigurations;
+            o.dataDisks = dataDisks;
+            o.diskEncryptions = diskEncryptions;
             o.displayName = displayName;
+            o.extensions = extensions;
             o.fixedScales = fixedScales;
             o.id = id;
+            o.interNodeCommunication = interNodeCommunication;
+            o.licenseType = licenseType;
             o.maxTasksPerNode = maxTasksPerNode;
             o.metadata = metadata;
             o.mounts = mounts;
             o.name = name;
             o.networkConfigurations = networkConfigurations;
             o.nodeAgentSkuId = nodeAgentSkuId;
+            o.nodePlacements = nodePlacements;
+            o.osDiskPlacement = osDiskPlacement;
             o.resourceGroupName = resourceGroupName;
             o.startTasks = startTasks;
             o.storageImageReferences = storageImageReferences;
+            o.taskSchedulingPolicies = taskSchedulingPolicies;
+            o.userAccounts = userAccounts;
             o.vmSize = vmSize;
+            o.windows = windows;
             return o;
         }
     }

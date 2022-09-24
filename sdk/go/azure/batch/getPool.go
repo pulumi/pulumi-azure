@@ -52,7 +52,7 @@ func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.Invoke
 type LookupPoolArgs struct {
 	// The Azure Storage Account name.
 	AccountName string `pulumi:"accountName"`
-	// The name of the endpoint.
+	// The name of the user account.
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -67,28 +67,48 @@ type LookupPoolResult struct {
 	Certificates []GetPoolCertificate `pulumi:"certificates"`
 	// The container configuration used in the pool's VMs.
 	ContainerConfigurations []GetPoolContainerConfiguration `pulumi:"containerConfigurations"`
-	DisplayName             string                          `pulumi:"displayName"`
+	// A `dataDisks` block describes the data disk settings.
+	DataDisks []GetPoolDataDisk `pulumi:"dataDisks"`
+	// A `diskEncryption` block describes the disk encryption configuration applied on compute nodes in the pool.
+	DiskEncryptions []GetPoolDiskEncryption `pulumi:"diskEncryptions"`
+	DisplayName     string                  `pulumi:"displayName"`
+	// An `extensions` block describes the extension settings
+	Extensions []GetPoolExtension `pulumi:"extensions"`
 	// A `fixedScale` block that describes the scale settings when using fixed scale.
 	FixedScales []GetPoolFixedScale `pulumi:"fixedScales"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool.
+	InterNodeCommunication string `pulumi:"interNodeCommunication"`
+	// The type of on-premises license to be used when deploying the operating system.
+	LicenseType string `pulumi:"licenseType"`
 	// The maximum number of tasks that can run concurrently on a single compute node in the pool.
 	MaxTasksPerNode int               `pulumi:"maxTasksPerNode"`
 	Metadata        map[string]string `pulumi:"metadata"`
 	// A `mount` block that describes mount configuration.
 	Mounts []GetPoolMount `pulumi:"mounts"`
-	// The name of the endpoint.
+	// The name of the user account.
 	Name                  string                        `pulumi:"name"`
 	NetworkConfigurations []GetPoolNetworkConfiguration `pulumi:"networkConfigurations"`
 	// The SKU of the node agents in the Batch pool.
-	NodeAgentSkuId    string `pulumi:"nodeAgentSkuId"`
+	NodeAgentSkuId string `pulumi:"nodeAgentSkuId"`
+	// A `nodePlacement` block that describes the placement policy for allocating nodes in the pool.
+	NodePlacements []GetPoolNodePlacement `pulumi:"nodePlacements"`
+	// Specifies the ephemeral disk placement for operating system disk for all VMs in the pool.
+	OsDiskPlacement   string `pulumi:"osDiskPlacement"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `startTask` block that describes the start task settings for the Batch pool.
 	StartTasks []GetPoolStartTask `pulumi:"startTasks"`
 	// The reference of the storage image used by the nodes in the Batch pool.
 	StorageImageReferences []GetPoolStorageImageReference `pulumi:"storageImageReferences"`
+	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool.
+	TaskSchedulingPolicies []GetPoolTaskSchedulingPolicy `pulumi:"taskSchedulingPolicies"`
+	// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool.
+	UserAccounts []GetPoolUserAccount `pulumi:"userAccounts"`
 	// The size of the VM created in the Batch pool.
 	VmSize string `pulumi:"vmSize"`
+	// A `windows` block that describes the Windows configuration in the pool.
+	Windows []GetPoolWindow `pulumi:"windows"`
 }
 
 func LookupPoolOutput(ctx *pulumi.Context, args LookupPoolOutputArgs, opts ...pulumi.InvokeOption) LookupPoolResultOutput {
@@ -108,7 +128,7 @@ func LookupPoolOutput(ctx *pulumi.Context, args LookupPoolOutputArgs, opts ...pu
 type LookupPoolOutputArgs struct {
 	// The Azure Storage Account name.
 	AccountName pulumi.StringInput `pulumi:"accountName"`
-	// The name of the endpoint.
+	// The name of the user account.
 	Name              pulumi.StringInput `pulumi:"name"`
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
@@ -152,8 +172,23 @@ func (o LookupPoolResultOutput) ContainerConfigurations() GetPoolContainerConfig
 	return o.ApplyT(func(v LookupPoolResult) []GetPoolContainerConfiguration { return v.ContainerConfigurations }).(GetPoolContainerConfigurationArrayOutput)
 }
 
+// A `dataDisks` block describes the data disk settings.
+func (o LookupPoolResultOutput) DataDisks() GetPoolDataDiskArrayOutput {
+	return o.ApplyT(func(v LookupPoolResult) []GetPoolDataDisk { return v.DataDisks }).(GetPoolDataDiskArrayOutput)
+}
+
+// A `diskEncryption` block describes the disk encryption configuration applied on compute nodes in the pool.
+func (o LookupPoolResultOutput) DiskEncryptions() GetPoolDiskEncryptionArrayOutput {
+	return o.ApplyT(func(v LookupPoolResult) []GetPoolDiskEncryption { return v.DiskEncryptions }).(GetPoolDiskEncryptionArrayOutput)
+}
+
 func (o LookupPoolResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPoolResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// An `extensions` block describes the extension settings
+func (o LookupPoolResultOutput) Extensions() GetPoolExtensionArrayOutput {
+	return o.ApplyT(func(v LookupPoolResult) []GetPoolExtension { return v.Extensions }).(GetPoolExtensionArrayOutput)
 }
 
 // A `fixedScale` block that describes the scale settings when using fixed scale.
@@ -164,6 +199,16 @@ func (o LookupPoolResultOutput) FixedScales() GetPoolFixedScaleArrayOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupPoolResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPoolResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool.
+func (o LookupPoolResultOutput) InterNodeCommunication() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPoolResult) string { return v.InterNodeCommunication }).(pulumi.StringOutput)
+}
+
+// The type of on-premises license to be used when deploying the operating system.
+func (o LookupPoolResultOutput) LicenseType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPoolResult) string { return v.LicenseType }).(pulumi.StringOutput)
 }
 
 // The maximum number of tasks that can run concurrently on a single compute node in the pool.
@@ -180,7 +225,7 @@ func (o LookupPoolResultOutput) Mounts() GetPoolMountArrayOutput {
 	return o.ApplyT(func(v LookupPoolResult) []GetPoolMount { return v.Mounts }).(GetPoolMountArrayOutput)
 }
 
-// The name of the endpoint.
+// The name of the user account.
 func (o LookupPoolResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPoolResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -192,6 +237,16 @@ func (o LookupPoolResultOutput) NetworkConfigurations() GetPoolNetworkConfigurat
 // The SKU of the node agents in the Batch pool.
 func (o LookupPoolResultOutput) NodeAgentSkuId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPoolResult) string { return v.NodeAgentSkuId }).(pulumi.StringOutput)
+}
+
+// A `nodePlacement` block that describes the placement policy for allocating nodes in the pool.
+func (o LookupPoolResultOutput) NodePlacements() GetPoolNodePlacementArrayOutput {
+	return o.ApplyT(func(v LookupPoolResult) []GetPoolNodePlacement { return v.NodePlacements }).(GetPoolNodePlacementArrayOutput)
+}
+
+// Specifies the ephemeral disk placement for operating system disk for all VMs in the pool.
+func (o LookupPoolResultOutput) OsDiskPlacement() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPoolResult) string { return v.OsDiskPlacement }).(pulumi.StringOutput)
 }
 
 func (o LookupPoolResultOutput) ResourceGroupName() pulumi.StringOutput {
@@ -208,9 +263,24 @@ func (o LookupPoolResultOutput) StorageImageReferences() GetPoolStorageImageRefe
 	return o.ApplyT(func(v LookupPoolResult) []GetPoolStorageImageReference { return v.StorageImageReferences }).(GetPoolStorageImageReferenceArrayOutput)
 }
 
+// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool.
+func (o LookupPoolResultOutput) TaskSchedulingPolicies() GetPoolTaskSchedulingPolicyArrayOutput {
+	return o.ApplyT(func(v LookupPoolResult) []GetPoolTaskSchedulingPolicy { return v.TaskSchedulingPolicies }).(GetPoolTaskSchedulingPolicyArrayOutput)
+}
+
+// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool.
+func (o LookupPoolResultOutput) UserAccounts() GetPoolUserAccountArrayOutput {
+	return o.ApplyT(func(v LookupPoolResult) []GetPoolUserAccount { return v.UserAccounts }).(GetPoolUserAccountArrayOutput)
+}
+
 // The size of the VM created in the Batch pool.
 func (o LookupPoolResultOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPoolResult) string { return v.VmSize }).(pulumi.StringOutput)
+}
+
+// A `windows` block that describes the Windows configuration in the pool.
+func (o LookupPoolResultOutput) Windows() GetPoolWindowArrayOutput {
+	return o.ApplyT(func(v LookupPoolResult) []GetPoolWindow { return v.Windows }).(GetPoolWindowArrayOutput)
 }
 
 func init() {

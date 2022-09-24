@@ -90,14 +90,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.acls);
     }
     /**
-     * The name of the storage table. Must be unique within the storage account the table is located.
+     * The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the storage table. Must be unique within the storage account the table is located.
+     * @return The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
      * 
      */
     public Output<String> name() {

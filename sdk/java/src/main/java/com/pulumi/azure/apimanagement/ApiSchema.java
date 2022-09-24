@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -100,6 +101,20 @@ public class ApiSchema extends com.pulumi.resources.CustomResource {
         return this.apiName;
     }
     /**
+     * Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+     * 
+     */
+    @Export(name="components", type=String.class, parameters={})
+    private Output</* @Nullable */ String> components;
+
+    /**
+     * @return Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+     * 
+     */
+    public Output<Optional<String>> components() {
+        return Codegen.optional(this.components);
+    }
+    /**
      * The content type of the API Schema.
      * 
      */
@@ -112,6 +127,20 @@ public class ApiSchema extends com.pulumi.resources.CustomResource {
      */
     public Output<String> contentType() {
         return this.contentType;
+    }
+    /**
+     * Types definitions. Used for Swagger/OpenAPI v1 schemas only.
+     * 
+     */
+    @Export(name="definitions", type=String.class, parameters={})
+    private Output</* @Nullable */ String> definitions;
+
+    /**
+     * @return Types definitions. Used for Swagger/OpenAPI v1 schemas only.
+     * 
+     */
+    public Output<Optional<String>> definitions() {
+        return Codegen.optional(this.definitions);
     }
     /**
      * The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
@@ -146,14 +175,14 @@ public class ApiSchema extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="value", type=String.class, parameters={})
-    private Output<String> value;
+    private Output</* @Nullable */ String> value;
 
     /**
      * @return The JSON escaped string defining the document representing the Schema.
      * 
      */
-    public Output<String> value() {
-        return this.value;
+    public Output<Optional<String>> value() {
+        return Codegen.optional(this.value);
     }
 
     /**

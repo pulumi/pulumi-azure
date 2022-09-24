@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Batch
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure:batch/getPool:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure:batch/getPool:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Batch pool
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Batch
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure:batch/getPool:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure:batch/getPool:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Batch
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the endpoint.
+        /// The name of the user account.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.Azure.Batch
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the endpoint.
+        /// The name of the user account.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -137,7 +137,19 @@ namespace Pulumi.Azure.Batch
         /// The container configuration used in the pool's VMs.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolContainerConfigurationResult> ContainerConfigurations;
+        /// <summary>
+        /// A `data_disks` block describes the data disk settings.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPoolDataDiskResult> DataDisks;
+        /// <summary>
+        /// A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPoolDiskEncryptionResult> DiskEncryptions;
         public readonly string DisplayName;
+        /// <summary>
+        /// An `extensions` block describes the extension settings
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPoolExtensionResult> Extensions;
         /// <summary>
         /// A `fixed_scale` block that describes the scale settings when using fixed scale.
         /// </summary>
@@ -146,6 +158,14 @@ namespace Pulumi.Azure.Batch
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool.
+        /// </summary>
+        public readonly string InterNodeCommunication;
+        /// <summary>
+        /// The type of on-premises license to be used when deploying the operating system.
+        /// </summary>
+        public readonly string LicenseType;
         /// <summary>
         /// The maximum number of tasks that can run concurrently on a single compute node in the pool.
         /// </summary>
@@ -156,7 +176,7 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolMountResult> Mounts;
         /// <summary>
-        /// The name of the endpoint.
+        /// The name of the user account.
         /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<Outputs.GetPoolNetworkConfigurationResult> NetworkConfigurations;
@@ -164,6 +184,14 @@ namespace Pulumi.Azure.Batch
         /// The SKU of the node agents in the Batch pool.
         /// </summary>
         public readonly string NodeAgentSkuId;
+        /// <summary>
+        /// A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPoolNodePlacementResult> NodePlacements;
+        /// <summary>
+        /// Specifies the ephemeral disk placement for operating system disk for all VMs in the pool.
+        /// </summary>
+        public readonly string OsDiskPlacement;
         public readonly string ResourceGroupName;
         /// <summary>
         /// A `start_task` block that describes the start task settings for the Batch pool.
@@ -174,9 +202,21 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolStorageImageReferenceResult> StorageImageReferences;
         /// <summary>
+        /// A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPoolTaskSchedulingPolicyResult> TaskSchedulingPolicies;
+        /// <summary>
+        /// A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPoolUserAccountResult> UserAccounts;
+        /// <summary>
         /// The size of the VM created in the Batch pool.
         /// </summary>
         public readonly string VmSize;
+        /// <summary>
+        /// A `windows` block that describes the Windows configuration in the pool.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPoolWindowResult> Windows;
 
         [OutputConstructor]
         private GetPoolResult(
@@ -188,11 +228,21 @@ namespace Pulumi.Azure.Batch
 
             ImmutableArray<Outputs.GetPoolContainerConfigurationResult> containerConfigurations,
 
+            ImmutableArray<Outputs.GetPoolDataDiskResult> dataDisks,
+
+            ImmutableArray<Outputs.GetPoolDiskEncryptionResult> diskEncryptions,
+
             string displayName,
+
+            ImmutableArray<Outputs.GetPoolExtensionResult> extensions,
 
             ImmutableArray<Outputs.GetPoolFixedScaleResult> fixedScales,
 
             string id,
+
+            string interNodeCommunication,
+
+            string licenseType,
 
             int maxTasksPerNode,
 
@@ -206,31 +256,51 @@ namespace Pulumi.Azure.Batch
 
             string nodeAgentSkuId,
 
+            ImmutableArray<Outputs.GetPoolNodePlacementResult> nodePlacements,
+
+            string osDiskPlacement,
+
             string resourceGroupName,
 
             ImmutableArray<Outputs.GetPoolStartTaskResult> startTasks,
 
             ImmutableArray<Outputs.GetPoolStorageImageReferenceResult> storageImageReferences,
 
-            string vmSize)
+            ImmutableArray<Outputs.GetPoolTaskSchedulingPolicyResult> taskSchedulingPolicies,
+
+            ImmutableArray<Outputs.GetPoolUserAccountResult> userAccounts,
+
+            string vmSize,
+
+            ImmutableArray<Outputs.GetPoolWindowResult> windows)
         {
             AccountName = accountName;
             AutoScales = autoScales;
             Certificates = certificates;
             ContainerConfigurations = containerConfigurations;
+            DataDisks = dataDisks;
+            DiskEncryptions = diskEncryptions;
             DisplayName = displayName;
+            Extensions = extensions;
             FixedScales = fixedScales;
             Id = id;
+            InterNodeCommunication = interNodeCommunication;
+            LicenseType = licenseType;
             MaxTasksPerNode = maxTasksPerNode;
             Metadata = metadata;
             Mounts = mounts;
             Name = name;
             NetworkConfigurations = networkConfigurations;
             NodeAgentSkuId = nodeAgentSkuId;
+            NodePlacements = nodePlacements;
+            OsDiskPlacement = osDiskPlacement;
             ResourceGroupName = resourceGroupName;
             StartTasks = startTasks;
             StorageImageReferences = storageImageReferences;
+            TaskSchedulingPolicies = taskSchedulingPolicies;
+            UserAccounts = userAccounts;
             VmSize = vmSize;
+            Windows = windows;
         }
     }
 }

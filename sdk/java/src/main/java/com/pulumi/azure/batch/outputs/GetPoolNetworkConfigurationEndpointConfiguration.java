@@ -23,7 +23,7 @@ public final class GetPoolNetworkConfigurationEndpointConfiguration {
      */
     private String frontendPortRange;
     /**
-     * @return The name of the endpoint.
+     * @return The name of the user account.
      * 
      */
     private String name;
@@ -54,7 +54,7 @@ public final class GetPoolNetworkConfigurationEndpointConfiguration {
         return this.frontendPortRange;
     }
     /**
-     * @return The name of the endpoint.
+     * @return The name of the user account.
      * 
      */
     public String name() {

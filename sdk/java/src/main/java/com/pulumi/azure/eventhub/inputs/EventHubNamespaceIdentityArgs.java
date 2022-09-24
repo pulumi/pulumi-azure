@@ -54,14 +54,14 @@ public final class EventHubNamespaceIdentityArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. The only possible value is `SystemAssigned`.
+     * Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are `SystemAssigned` or `UserAssigned`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. The only possible value is `SystemAssigned`.
+     * @return Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are `SystemAssigned` or `UserAssigned`.
      * 
      */
     public Output<String> type() {
@@ -151,7 +151,7 @@ public final class EventHubNamespaceIdentityArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. The only possible value is `SystemAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are `SystemAssigned` or `UserAssigned`.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class EventHubNamespaceIdentityArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param type Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. The only possible value is `SystemAssigned`.
+         * @param type Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are `SystemAssigned` or `UserAssigned`.
          * 
          * @return builder
          * 

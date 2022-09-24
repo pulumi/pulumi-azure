@@ -5,39 +5,111 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./aaaaRecord";
-export * from "./arecord";
-export * from "./caaRecord";
-export * from "./cnameRecord";
-export * from "./getAAAARecord";
-export * from "./getARecord";
-export * from "./getCAARecord";
-export * from "./getCnameRecord";
-export * from "./getMxRecord";
-export * from "./getNsRecord";
-export * from "./getPtrRecord";
-export * from "./getSoaRecord";
-export * from "./getSrvRecord";
-export * from "./getTxtRecord";
-export * from "./getZone";
-export * from "./mxRecord";
-export * from "./nsRecord";
-export * from "./ptrRecord";
-export * from "./srvRecord";
-export * from "./txtRecord";
-export * from "./zone";
+export { AaaaRecordArgs, AaaaRecordState } from "./aaaaRecord";
+export type AaaaRecord = import("./aaaaRecord").AaaaRecord;
+export const AaaaRecord: typeof import("./aaaaRecord").AaaaRecord = null as any;
 
-// Import resources to register:
-import { ARecord } from "./arecord";
-import { AaaaRecord } from "./aaaaRecord";
-import { CNameRecord } from "./cnameRecord";
-import { CaaRecord } from "./caaRecord";
-import { MxRecord } from "./mxRecord";
-import { NsRecord } from "./nsRecord";
-import { PtrRecord } from "./ptrRecord";
-import { SrvRecord } from "./srvRecord";
-import { TxtRecord } from "./txtRecord";
-import { Zone } from "./zone";
+export { ARecordArgs, ARecordState } from "./arecord";
+export type ARecord = import("./arecord").ARecord;
+export const ARecord: typeof import("./arecord").ARecord = null as any;
+
+export { CaaRecordArgs, CaaRecordState } from "./caaRecord";
+export type CaaRecord = import("./caaRecord").CaaRecord;
+export const CaaRecord: typeof import("./caaRecord").CaaRecord = null as any;
+
+export { CNameRecordArgs, CNameRecordState } from "./cnameRecord";
+export type CNameRecord = import("./cnameRecord").CNameRecord;
+export const CNameRecord: typeof import("./cnameRecord").CNameRecord = null as any;
+
+export { GetAAAARecordArgs, GetAAAARecordResult, GetAAAARecordOutputArgs } from "./getAAAARecord";
+export const getAAAARecord: typeof import("./getAAAARecord").getAAAARecord = null as any;
+export const getAAAARecordOutput: typeof import("./getAAAARecord").getAAAARecordOutput = null as any;
+
+export { GetARecordArgs, GetARecordResult, GetARecordOutputArgs } from "./getARecord";
+export const getARecord: typeof import("./getARecord").getARecord = null as any;
+export const getARecordOutput: typeof import("./getARecord").getARecordOutput = null as any;
+
+export { GetCAARecordArgs, GetCAARecordResult, GetCAARecordOutputArgs } from "./getCAARecord";
+export const getCAARecord: typeof import("./getCAARecord").getCAARecord = null as any;
+export const getCAARecordOutput: typeof import("./getCAARecord").getCAARecordOutput = null as any;
+
+export { GetCnameRecordArgs, GetCnameRecordResult, GetCnameRecordOutputArgs } from "./getCnameRecord";
+export const getCnameRecord: typeof import("./getCnameRecord").getCnameRecord = null as any;
+export const getCnameRecordOutput: typeof import("./getCnameRecord").getCnameRecordOutput = null as any;
+
+export { GetMxRecordArgs, GetMxRecordResult, GetMxRecordOutputArgs } from "./getMxRecord";
+export const getMxRecord: typeof import("./getMxRecord").getMxRecord = null as any;
+export const getMxRecordOutput: typeof import("./getMxRecord").getMxRecordOutput = null as any;
+
+export { GetNsRecordArgs, GetNsRecordResult, GetNsRecordOutputArgs } from "./getNsRecord";
+export const getNsRecord: typeof import("./getNsRecord").getNsRecord = null as any;
+export const getNsRecordOutput: typeof import("./getNsRecord").getNsRecordOutput = null as any;
+
+export { GetPtrRecordArgs, GetPtrRecordResult, GetPtrRecordOutputArgs } from "./getPtrRecord";
+export const getPtrRecord: typeof import("./getPtrRecord").getPtrRecord = null as any;
+export const getPtrRecordOutput: typeof import("./getPtrRecord").getPtrRecordOutput = null as any;
+
+export { GetSoaRecordArgs, GetSoaRecordResult, GetSoaRecordOutputArgs } from "./getSoaRecord";
+export const getSoaRecord: typeof import("./getSoaRecord").getSoaRecord = null as any;
+export const getSoaRecordOutput: typeof import("./getSoaRecord").getSoaRecordOutput = null as any;
+
+export { GetSrvRecordArgs, GetSrvRecordResult, GetSrvRecordOutputArgs } from "./getSrvRecord";
+export const getSrvRecord: typeof import("./getSrvRecord").getSrvRecord = null as any;
+export const getSrvRecordOutput: typeof import("./getSrvRecord").getSrvRecordOutput = null as any;
+
+export { GetTxtRecordArgs, GetTxtRecordResult, GetTxtRecordOutputArgs } from "./getTxtRecord";
+export const getTxtRecord: typeof import("./getTxtRecord").getTxtRecord = null as any;
+export const getTxtRecordOutput: typeof import("./getTxtRecord").getTxtRecordOutput = null as any;
+
+export { GetZoneArgs, GetZoneResult, GetZoneOutputArgs } from "./getZone";
+export const getZone: typeof import("./getZone").getZone = null as any;
+export const getZoneOutput: typeof import("./getZone").getZoneOutput = null as any;
+
+export { MxRecordArgs, MxRecordState } from "./mxRecord";
+export type MxRecord = import("./mxRecord").MxRecord;
+export const MxRecord: typeof import("./mxRecord").MxRecord = null as any;
+
+export { NsRecordArgs, NsRecordState } from "./nsRecord";
+export type NsRecord = import("./nsRecord").NsRecord;
+export const NsRecord: typeof import("./nsRecord").NsRecord = null as any;
+
+export { PtrRecordArgs, PtrRecordState } from "./ptrRecord";
+export type PtrRecord = import("./ptrRecord").PtrRecord;
+export const PtrRecord: typeof import("./ptrRecord").PtrRecord = null as any;
+
+export { SrvRecordArgs, SrvRecordState } from "./srvRecord";
+export type SrvRecord = import("./srvRecord").SrvRecord;
+export const SrvRecord: typeof import("./srvRecord").SrvRecord = null as any;
+
+export { TxtRecordArgs, TxtRecordState } from "./txtRecord";
+export type TxtRecord = import("./txtRecord").TxtRecord;
+export const TxtRecord: typeof import("./txtRecord").TxtRecord = null as any;
+
+export { ZoneArgs, ZoneState } from "./zone";
+export type Zone = import("./zone").Zone;
+export const Zone: typeof import("./zone").Zone = null as any;
+
+utilities.lazyLoad(exports, ["AaaaRecord"], () => require("./aaaaRecord"));
+utilities.lazyLoad(exports, ["ARecord"], () => require("./arecord"));
+utilities.lazyLoad(exports, ["CaaRecord"], () => require("./caaRecord"));
+utilities.lazyLoad(exports, ["CNameRecord"], () => require("./cnameRecord"));
+utilities.lazyLoad(exports, ["getAAAARecord","getAAAARecordOutput"], () => require("./getAAAARecord"));
+utilities.lazyLoad(exports, ["getARecord","getARecordOutput"], () => require("./getARecord"));
+utilities.lazyLoad(exports, ["getCAARecord","getCAARecordOutput"], () => require("./getCAARecord"));
+utilities.lazyLoad(exports, ["getCnameRecord","getCnameRecordOutput"], () => require("./getCnameRecord"));
+utilities.lazyLoad(exports, ["getMxRecord","getMxRecordOutput"], () => require("./getMxRecord"));
+utilities.lazyLoad(exports, ["getNsRecord","getNsRecordOutput"], () => require("./getNsRecord"));
+utilities.lazyLoad(exports, ["getPtrRecord","getPtrRecordOutput"], () => require("./getPtrRecord"));
+utilities.lazyLoad(exports, ["getSoaRecord","getSoaRecordOutput"], () => require("./getSoaRecord"));
+utilities.lazyLoad(exports, ["getSrvRecord","getSrvRecordOutput"], () => require("./getSrvRecord"));
+utilities.lazyLoad(exports, ["getTxtRecord","getTxtRecordOutput"], () => require("./getTxtRecord"));
+utilities.lazyLoad(exports, ["getZone","getZoneOutput"], () => require("./getZone"));
+utilities.lazyLoad(exports, ["MxRecord"], () => require("./mxRecord"));
+utilities.lazyLoad(exports, ["NsRecord"], () => require("./nsRecord"));
+utilities.lazyLoad(exports, ["PtrRecord"], () => require("./ptrRecord"));
+utilities.lazyLoad(exports, ["SrvRecord"], () => require("./srvRecord"));
+utilities.lazyLoad(exports, ["TxtRecord"], () => require("./txtRecord"));
+utilities.lazyLoad(exports, ["Zone"], () => require("./zone"));
 
 const _module = {
     version: utilities.getVersion(),

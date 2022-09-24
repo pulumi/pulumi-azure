@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Lb
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLBResult> InvokeAsync(GetLBArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLBResult>("azure:lb/getLB:getLB", args ?? new GetLBArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLBResult>("azure:lb/getLB:getLB", args ?? new GetLBArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Load Balancer
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Lb
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetLBResult> Invoke(GetLBInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLBResult>("azure:lb/getLB:getLB", args ?? new GetLBInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLBResult>("azure:lb/getLB:getLB", args ?? new GetLBInvokeArgs(), options.WithDefaults());
     }
 
 

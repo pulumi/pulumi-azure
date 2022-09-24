@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Network Watcher Flow Log.
-//
 // ## Example Usage
 //
 // ```go

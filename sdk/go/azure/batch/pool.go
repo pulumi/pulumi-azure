@@ -158,12 +158,22 @@ type Pool struct {
 	Certificates PoolCertificateArrayOutput `pulumi:"certificates"`
 	// The container configuration used in the pool's VMs.
 	ContainerConfiguration PoolContainerConfigurationPtrOutput `pulumi:"containerConfiguration"`
+	// A `dataDisks` block describes the data disk settings.
+	DataDisks PoolDataDiskArrayOutput `pulumi:"dataDisks"`
+	// A `diskEncryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+	DiskEncryptions PoolDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
 	// Specifies the display name of the Batch pool.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// An `extensions` block as defined below.
+	Extensions PoolExtensionArrayOutput `pulumi:"extensions"`
 	// A `fixedScale` block that describes the scale settings when using fixed scale.
 	FixedScale PoolFixedScalePtrOutput `pulumi:"fixedScale"`
 	// An `identity` block as defined below.
 	Identity PoolIdentityPtrOutput `pulumi:"identity"`
+	// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+	InterNodeCommunication pulumi.StringPtrOutput `pulumi:"interNodeCommunication"`
+	// The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
+	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
 	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
 	MaxTasksPerNode pulumi.IntPtrOutput `pulumi:"maxTasksPerNode"`
 	// A map of custom batch pool metadata.
@@ -176,6 +186,10 @@ type Pool struct {
 	NetworkConfiguration PoolNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
 	// Specifies the SKU of the node agents that will be created in the Batch pool.
 	NodeAgentSkuId pulumi.StringOutput `pulumi:"nodeAgentSkuId"`
+	// A `nodePlacement` block that describes the placement policy for allocating nodes in the pool.
+	NodePlacements PoolNodePlacementArrayOutput `pulumi:"nodePlacements"`
+	// Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+	OsDiskPlacement pulumi.StringPtrOutput `pulumi:"osDiskPlacement"`
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `startTask` block that describes the start task settings for the Batch pool.
@@ -183,8 +197,14 @@ type Pool struct {
 	StopPendingResizeOperation pulumi.BoolPtrOutput   `pulumi:"stopPendingResizeOperation"`
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool.
 	StorageImageReference PoolStorageImageReferenceOutput `pulumi:"storageImageReference"`
+	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+	TaskSchedulingPolicies PoolTaskSchedulingPolicyArrayOutput `pulumi:"taskSchedulingPolicies"`
+	// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool.
+	UserAccounts PoolUserAccountArrayOutput `pulumi:"userAccounts"`
 	// Specifies the size of the VM created in the Batch pool.
 	VmSize pulumi.StringOutput `pulumi:"vmSize"`
+	// A `windows` block that describes the Windows configuration in the pool.
+	Windows PoolWindowArrayOutput `pulumi:"windows"`
 }
 
 // NewPool registers a new resource with the given unique name, arguments, and options.
@@ -239,12 +259,22 @@ type poolState struct {
 	Certificates []PoolCertificate `pulumi:"certificates"`
 	// The container configuration used in the pool's VMs.
 	ContainerConfiguration *PoolContainerConfiguration `pulumi:"containerConfiguration"`
+	// A `dataDisks` block describes the data disk settings.
+	DataDisks []PoolDataDisk `pulumi:"dataDisks"`
+	// A `diskEncryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+	DiskEncryptions []PoolDiskEncryption `pulumi:"diskEncryptions"`
 	// Specifies the display name of the Batch pool.
 	DisplayName *string `pulumi:"displayName"`
+	// An `extensions` block as defined below.
+	Extensions []PoolExtension `pulumi:"extensions"`
 	// A `fixedScale` block that describes the scale settings when using fixed scale.
 	FixedScale *PoolFixedScale `pulumi:"fixedScale"`
 	// An `identity` block as defined below.
 	Identity *PoolIdentity `pulumi:"identity"`
+	// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+	InterNodeCommunication *string `pulumi:"interNodeCommunication"`
+	// The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
+	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
 	MaxTasksPerNode *int `pulumi:"maxTasksPerNode"`
 	// A map of custom batch pool metadata.
@@ -257,6 +287,10 @@ type poolState struct {
 	NetworkConfiguration *PoolNetworkConfiguration `pulumi:"networkConfiguration"`
 	// Specifies the SKU of the node agents that will be created in the Batch pool.
 	NodeAgentSkuId *string `pulumi:"nodeAgentSkuId"`
+	// A `nodePlacement` block that describes the placement policy for allocating nodes in the pool.
+	NodePlacements []PoolNodePlacement `pulumi:"nodePlacements"`
+	// Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+	OsDiskPlacement *string `pulumi:"osDiskPlacement"`
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `startTask` block that describes the start task settings for the Batch pool.
@@ -264,8 +298,14 @@ type poolState struct {
 	StopPendingResizeOperation *bool          `pulumi:"stopPendingResizeOperation"`
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool.
 	StorageImageReference *PoolStorageImageReference `pulumi:"storageImageReference"`
+	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+	TaskSchedulingPolicies []PoolTaskSchedulingPolicy `pulumi:"taskSchedulingPolicies"`
+	// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool.
+	UserAccounts []PoolUserAccount `pulumi:"userAccounts"`
 	// Specifies the size of the VM created in the Batch pool.
 	VmSize *string `pulumi:"vmSize"`
+	// A `windows` block that describes the Windows configuration in the pool.
+	Windows []PoolWindow `pulumi:"windows"`
 }
 
 type PoolState struct {
@@ -277,12 +317,22 @@ type PoolState struct {
 	Certificates PoolCertificateArrayInput
 	// The container configuration used in the pool's VMs.
 	ContainerConfiguration PoolContainerConfigurationPtrInput
+	// A `dataDisks` block describes the data disk settings.
+	DataDisks PoolDataDiskArrayInput
+	// A `diskEncryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+	DiskEncryptions PoolDiskEncryptionArrayInput
 	// Specifies the display name of the Batch pool.
 	DisplayName pulumi.StringPtrInput
+	// An `extensions` block as defined below.
+	Extensions PoolExtensionArrayInput
 	// A `fixedScale` block that describes the scale settings when using fixed scale.
 	FixedScale PoolFixedScalePtrInput
 	// An `identity` block as defined below.
 	Identity PoolIdentityPtrInput
+	// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+	InterNodeCommunication pulumi.StringPtrInput
+	// The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
+	LicenseType pulumi.StringPtrInput
 	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
 	MaxTasksPerNode pulumi.IntPtrInput
 	// A map of custom batch pool metadata.
@@ -295,6 +345,10 @@ type PoolState struct {
 	NetworkConfiguration PoolNetworkConfigurationPtrInput
 	// Specifies the SKU of the node agents that will be created in the Batch pool.
 	NodeAgentSkuId pulumi.StringPtrInput
+	// A `nodePlacement` block that describes the placement policy for allocating nodes in the pool.
+	NodePlacements PoolNodePlacementArrayInput
+	// Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+	OsDiskPlacement pulumi.StringPtrInput
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `startTask` block that describes the start task settings for the Batch pool.
@@ -302,8 +356,14 @@ type PoolState struct {
 	StopPendingResizeOperation pulumi.BoolPtrInput
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool.
 	StorageImageReference PoolStorageImageReferencePtrInput
+	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+	TaskSchedulingPolicies PoolTaskSchedulingPolicyArrayInput
+	// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool.
+	UserAccounts PoolUserAccountArrayInput
 	// Specifies the size of the VM created in the Batch pool.
 	VmSize pulumi.StringPtrInput
+	// A `windows` block that describes the Windows configuration in the pool.
+	Windows PoolWindowArrayInput
 }
 
 func (PoolState) ElementType() reflect.Type {
@@ -319,12 +379,22 @@ type poolArgs struct {
 	Certificates []PoolCertificate `pulumi:"certificates"`
 	// The container configuration used in the pool's VMs.
 	ContainerConfiguration *PoolContainerConfiguration `pulumi:"containerConfiguration"`
+	// A `dataDisks` block describes the data disk settings.
+	DataDisks []PoolDataDisk `pulumi:"dataDisks"`
+	// A `diskEncryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+	DiskEncryptions []PoolDiskEncryption `pulumi:"diskEncryptions"`
 	// Specifies the display name of the Batch pool.
 	DisplayName *string `pulumi:"displayName"`
+	// An `extensions` block as defined below.
+	Extensions []PoolExtension `pulumi:"extensions"`
 	// A `fixedScale` block that describes the scale settings when using fixed scale.
 	FixedScale *PoolFixedScale `pulumi:"fixedScale"`
 	// An `identity` block as defined below.
 	Identity *PoolIdentity `pulumi:"identity"`
+	// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+	InterNodeCommunication *string `pulumi:"interNodeCommunication"`
+	// The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
+	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
 	MaxTasksPerNode *int `pulumi:"maxTasksPerNode"`
 	// A map of custom batch pool metadata.
@@ -337,6 +407,10 @@ type poolArgs struct {
 	NetworkConfiguration *PoolNetworkConfiguration `pulumi:"networkConfiguration"`
 	// Specifies the SKU of the node agents that will be created in the Batch pool.
 	NodeAgentSkuId string `pulumi:"nodeAgentSkuId"`
+	// A `nodePlacement` block that describes the placement policy for allocating nodes in the pool.
+	NodePlacements []PoolNodePlacement `pulumi:"nodePlacements"`
+	// Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+	OsDiskPlacement *string `pulumi:"osDiskPlacement"`
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `startTask` block that describes the start task settings for the Batch pool.
@@ -344,8 +418,14 @@ type poolArgs struct {
 	StopPendingResizeOperation *bool          `pulumi:"stopPendingResizeOperation"`
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool.
 	StorageImageReference PoolStorageImageReference `pulumi:"storageImageReference"`
+	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+	TaskSchedulingPolicies []PoolTaskSchedulingPolicy `pulumi:"taskSchedulingPolicies"`
+	// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool.
+	UserAccounts []PoolUserAccount `pulumi:"userAccounts"`
 	// Specifies the size of the VM created in the Batch pool.
 	VmSize string `pulumi:"vmSize"`
+	// A `windows` block that describes the Windows configuration in the pool.
+	Windows []PoolWindow `pulumi:"windows"`
 }
 
 // The set of arguments for constructing a Pool resource.
@@ -358,12 +438,22 @@ type PoolArgs struct {
 	Certificates PoolCertificateArrayInput
 	// The container configuration used in the pool's VMs.
 	ContainerConfiguration PoolContainerConfigurationPtrInput
+	// A `dataDisks` block describes the data disk settings.
+	DataDisks PoolDataDiskArrayInput
+	// A `diskEncryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+	DiskEncryptions PoolDiskEncryptionArrayInput
 	// Specifies the display name of the Batch pool.
 	DisplayName pulumi.StringPtrInput
+	// An `extensions` block as defined below.
+	Extensions PoolExtensionArrayInput
 	// A `fixedScale` block that describes the scale settings when using fixed scale.
 	FixedScale PoolFixedScalePtrInput
 	// An `identity` block as defined below.
 	Identity PoolIdentityPtrInput
+	// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+	InterNodeCommunication pulumi.StringPtrInput
+	// The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
+	LicenseType pulumi.StringPtrInput
 	// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
 	MaxTasksPerNode pulumi.IntPtrInput
 	// A map of custom batch pool metadata.
@@ -376,6 +466,10 @@ type PoolArgs struct {
 	NetworkConfiguration PoolNetworkConfigurationPtrInput
 	// Specifies the SKU of the node agents that will be created in the Batch pool.
 	NodeAgentSkuId pulumi.StringInput
+	// A `nodePlacement` block that describes the placement policy for allocating nodes in the pool.
+	NodePlacements PoolNodePlacementArrayInput
+	// Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+	OsDiskPlacement pulumi.StringPtrInput
 	// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `startTask` block that describes the start task settings for the Batch pool.
@@ -383,8 +477,14 @@ type PoolArgs struct {
 	StopPendingResizeOperation pulumi.BoolPtrInput
 	// A `storageImageReference` for the virtual machines that will compose the Batch pool.
 	StorageImageReference PoolStorageImageReferenceInput
+	// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+	TaskSchedulingPolicies PoolTaskSchedulingPolicyArrayInput
+	// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool.
+	UserAccounts PoolUserAccountArrayInput
 	// Specifies the size of the VM created in the Batch pool.
 	VmSize pulumi.StringInput
+	// A `windows` block that describes the Windows configuration in the pool.
+	Windows PoolWindowArrayInput
 }
 
 func (PoolArgs) ElementType() reflect.Type {
@@ -494,9 +594,24 @@ func (o PoolOutput) ContainerConfiguration() PoolContainerConfigurationPtrOutput
 	return o.ApplyT(func(v *Pool) PoolContainerConfigurationPtrOutput { return v.ContainerConfiguration }).(PoolContainerConfigurationPtrOutput)
 }
 
+// A `dataDisks` block describes the data disk settings.
+func (o PoolOutput) DataDisks() PoolDataDiskArrayOutput {
+	return o.ApplyT(func(v *Pool) PoolDataDiskArrayOutput { return v.DataDisks }).(PoolDataDiskArrayOutput)
+}
+
+// A `diskEncryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+func (o PoolOutput) DiskEncryptions() PoolDiskEncryptionArrayOutput {
+	return o.ApplyT(func(v *Pool) PoolDiskEncryptionArrayOutput { return v.DiskEncryptions }).(PoolDiskEncryptionArrayOutput)
+}
+
 // Specifies the display name of the Batch pool.
 func (o PoolOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// An `extensions` block as defined below.
+func (o PoolOutput) Extensions() PoolExtensionArrayOutput {
+	return o.ApplyT(func(v *Pool) PoolExtensionArrayOutput { return v.Extensions }).(PoolExtensionArrayOutput)
 }
 
 // A `fixedScale` block that describes the scale settings when using fixed scale.
@@ -507,6 +622,16 @@ func (o PoolOutput) FixedScale() PoolFixedScalePtrOutput {
 // An `identity` block as defined below.
 func (o PoolOutput) Identity() PoolIdentityPtrOutput {
 	return o.ApplyT(func(v *Pool) PoolIdentityPtrOutput { return v.Identity }).(PoolIdentityPtrOutput)
+}
+
+// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+func (o PoolOutput) InterNodeCommunication() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringPtrOutput { return v.InterNodeCommunication }).(pulumi.StringPtrOutput)
+}
+
+// The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
+func (o PoolOutput) LicenseType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringPtrOutput { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
@@ -539,6 +664,16 @@ func (o PoolOutput) NodeAgentSkuId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.NodeAgentSkuId }).(pulumi.StringOutput)
 }
 
+// A `nodePlacement` block that describes the placement policy for allocating nodes in the pool.
+func (o PoolOutput) NodePlacements() PoolNodePlacementArrayOutput {
+	return o.ApplyT(func(v *Pool) PoolNodePlacementArrayOutput { return v.NodePlacements }).(PoolNodePlacementArrayOutput)
+}
+
+// Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+func (o PoolOutput) OsDiskPlacement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringPtrOutput { return v.OsDiskPlacement }).(pulumi.StringPtrOutput)
+}
+
 // The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
 func (o PoolOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
@@ -558,9 +693,24 @@ func (o PoolOutput) StorageImageReference() PoolStorageImageReferenceOutput {
 	return o.ApplyT(func(v *Pool) PoolStorageImageReferenceOutput { return v.StorageImageReference }).(PoolStorageImageReferenceOutput)
 }
 
+// A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+func (o PoolOutput) TaskSchedulingPolicies() PoolTaskSchedulingPolicyArrayOutput {
+	return o.ApplyT(func(v *Pool) PoolTaskSchedulingPolicyArrayOutput { return v.TaskSchedulingPolicies }).(PoolTaskSchedulingPolicyArrayOutput)
+}
+
+// A `userAccounts` block that describes the list of user accounts to be created on each node in the pool.
+func (o PoolOutput) UserAccounts() PoolUserAccountArrayOutput {
+	return o.ApplyT(func(v *Pool) PoolUserAccountArrayOutput { return v.UserAccounts }).(PoolUserAccountArrayOutput)
+}
+
 // Specifies the size of the VM created in the Batch pool.
 func (o PoolOutput) VmSize() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.VmSize }).(pulumi.StringOutput)
+}
+
+// A `windows` block that describes the Windows configuration in the pool.
+func (o PoolOutput) Windows() PoolWindowArrayOutput {
+	return o.ApplyT(func(v *Pool) PoolWindowArrayOutput { return v.Windows }).(PoolWindowArrayOutput)
 }
 
 type PoolArrayOutput struct{ *pulumi.OutputState }

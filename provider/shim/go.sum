@@ -208,8 +208,8 @@ github.com/hashicorp/errwrap v1.1.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brv
 github.com/hashicorp/go-azure-helpers v0.12.0/go.mod h1:Zc3v4DNeX6PDdy7NljlYpnrdac1++qNW0I4U+ofGwpg=
 github.com/hashicorp/go-azure-helpers v0.40.0 h1:NjiyF+jN+0mRdFBU894yzZSxu1SNrbvj8l4rEDpCB0A=
 github.com/hashicorp/go-azure-helpers v0.40.0/go.mod h1:gcutZ/Hf/O7YN9M3UIvyZ9l0Rxv7Yrc9x5sSfM9cuSw=
-github.com/hashicorp/go-azure-sdk v0.20220907.1111434 h1:AaVzM1kzNIqjre7VDpYCWkk4Ov83TKlQNscYrf0xwt0=
-github.com/hashicorp/go-azure-sdk v0.20220907.1111434/go.mod h1:jOhjVttoXh2We/glz4BC/0t0Lo8+M9WQBA4sbAPQPMY=
+github.com/hashicorp/go-azure-sdk v0.20220916.1125744 h1:13Q0gsr+6UZJyH3OQ9z/2HX2qrbdzY2anS4ttL2NkHY=
+github.com/hashicorp/go-azure-sdk v0.20220916.1125744/go.mod h1:jOhjVttoXh2We/glz4BC/0t0Lo8+M9WQBA4sbAPQPMY=
 github.com/hashicorp/go-checkpoint v0.5.0 h1:MFYpPZCnQqQTE18jFwSII6eUQrD/oxMFp3mlgcqk5mU=
 github.com/hashicorp/go-checkpoint v0.5.0/go.mod h1:7nfLNL10NsxqO4iWuW6tWW0HjZuDrwkBuEQsVcpCOgg=
 github.com/hashicorp/go-cleanhttp v0.5.0/go.mod h1:JpRdi6/HCYpAwUzNwuwqhbovhLtngrth3wmdIIUrZ80=
@@ -317,8 +317,8 @@ github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINE
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220914185322-d820fb2e0faa h1:wJQFjpah70ix+/D+cNIc1U59ISW7gwaFTwp5Hyi1+OI=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220914185322-d820fb2e0faa/go.mod h1:KPQA03SX77IhZUCC5G1lWg9gr48G7kEd//bxpgpFA5c=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220923214953-9abea3c6f19c h1:W4ld/vZRElv2jVxwta+B80J5mqccQUbKnvC7XbDDkIg=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220923214953-9abea3c6f19c/go.mod h1:f7kHzUgnkd4tdfNW/xxyRqY2tO90wBxGhMjnpb/x0V8=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9/go.mod h1:L8WrssTzvgYw34/Ppa0JpJfI7KKXZ2cVGI6Djt0brUU=
 github.com/rickb777/plural v1.2.0 h1:5tvEc7UBCZ7l8h/2UeybSkt/uu1DQsZFOFdNevmUhlE=

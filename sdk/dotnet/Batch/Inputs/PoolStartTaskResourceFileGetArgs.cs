@@ -48,6 +48,12 @@ namespace Pulumi.Azure.Batch.Inputs
         [Input("storageContainerUrl")]
         public Input<string>? StorageContainerUrl { get; set; }
 
+        /// <summary>
+        /// An identity reference from pool's user assigned managed identity list.
+        /// </summary>
+        [Input("userAssignedIdentityId")]
+        public Input<string>? UserAssignedIdentityId { get; set; }
+
         public PoolStartTaskResourceFileGetArgs()
         {
         }

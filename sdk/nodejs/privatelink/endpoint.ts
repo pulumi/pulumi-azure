@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -140,6 +141,10 @@ export class Endpoint extends pulumi.CustomResource {
 
     public /*out*/ readonly customDnsConfigs!: pulumi.Output<outputs.privatelink.EndpointCustomDnsConfig[]>;
     /**
+     * The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
+     */
+    public readonly customNetworkInterfaceName!: pulumi.Output<string | undefined>;
+    /**
      * An `ipConfiguration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
      */
     public readonly ipConfiguration!: pulumi.Output<outputs.privatelink.EndpointIpConfiguration | undefined>;
@@ -188,6 +193,7 @@ export class Endpoint extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EndpointState | undefined;
             resourceInputs["customDnsConfigs"] = state ? state.customDnsConfigs : undefined;
+            resourceInputs["customNetworkInterfaceName"] = state ? state.customNetworkInterfaceName : undefined;
             resourceInputs["ipConfiguration"] = state ? state.ipConfiguration : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -209,6 +215,7 @@ export class Endpoint extends pulumi.CustomResource {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
+            resourceInputs["customNetworkInterfaceName"] = args ? args.customNetworkInterfaceName : undefined;
             resourceInputs["ipConfiguration"] = args ? args.ipConfiguration : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -231,6 +238,10 @@ export class Endpoint extends pulumi.CustomResource {
  */
 export interface EndpointState {
     customDnsConfigs?: pulumi.Input<pulumi.Input<inputs.privatelink.EndpointCustomDnsConfig>[]>;
+    /**
+     * The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
+     */
+    customNetworkInterfaceName?: pulumi.Input<string>;
     /**
      * An `ipConfiguration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
      */
@@ -271,6 +282,10 @@ export interface EndpointState {
  * The set of arguments for constructing a Endpoint resource.
  */
 export interface EndpointArgs {
+    /**
+     * The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
+     */
+    customNetworkInterfaceName?: pulumi.Input<string>;
     /**
      * An `ipConfiguration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
      */

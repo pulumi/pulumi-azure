@@ -8,6 +8,8 @@ import com.pulumi.azure.monitoring.inputs.GetActionGroupArgs;
 import com.pulumi.azure.monitoring.inputs.GetActionGroupPlainArgs;
 import com.pulumi.azure.monitoring.inputs.GetDataCollectionEndpointArgs;
 import com.pulumi.azure.monitoring.inputs.GetDataCollectionEndpointPlainArgs;
+import com.pulumi.azure.monitoring.inputs.GetDataCollectionRuleArgs;
+import com.pulumi.azure.monitoring.inputs.GetDataCollectionRulePlainArgs;
 import com.pulumi.azure.monitoring.inputs.GetDiagnosticCategoriesArgs;
 import com.pulumi.azure.monitoring.inputs.GetDiagnosticCategoriesPlainArgs;
 import com.pulumi.azure.monitoring.inputs.GetLogProfileArgs;
@@ -18,6 +20,7 @@ import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesLogArgs;
 import com.pulumi.azure.monitoring.inputs.GetScheduledQueryRulesLogPlainArgs;
 import com.pulumi.azure.monitoring.outputs.GetActionGroupResult;
 import com.pulumi.azure.monitoring.outputs.GetDataCollectionEndpointResult;
+import com.pulumi.azure.monitoring.outputs.GetDataCollectionRuleResult;
 import com.pulumi.azure.monitoring.outputs.GetDiagnosticCategoriesResult;
 import com.pulumi.azure.monitoring.outputs.GetLogProfileResult;
 import com.pulumi.azure.monitoring.outputs.GetScheduledQueryRulesAlertResult;
@@ -188,12 +191,76 @@ public final class MonitoringFunctions {
     /**
      * Use this data source to access information about an existing Data Collection Endpoint.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetDataCollectionEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MonitoringFunctions.getDataCollectionEndpoint(GetDataCollectionEndpointArgs.builder()
+     *             .name(&#34;example-mdce&#34;)
+     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .build());
+     * 
+     *         ctx.export(&#34;endpointId&#34;, example.applyValue(getDataCollectionEndpointResult -&gt; getDataCollectionEndpointResult.id()));
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetDataCollectionEndpointResult> getDataCollectionEndpoint(GetDataCollectionEndpointArgs args) {
         return getDataCollectionEndpoint(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Data Collection Endpoint.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetDataCollectionEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MonitoringFunctions.getDataCollectionEndpoint(GetDataCollectionEndpointArgs.builder()
+     *             .name(&#34;example-mdce&#34;)
+     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .build());
+     * 
+     *         ctx.export(&#34;endpointId&#34;, example.applyValue(getDataCollectionEndpointResult -&gt; getDataCollectionEndpointResult.id()));
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetDataCollectionEndpointResult> getDataCollectionEndpointPlain(GetDataCollectionEndpointPlainArgs args) {
@@ -202,6 +269,38 @@ public final class MonitoringFunctions {
     /**
      * Use this data source to access information about an existing Data Collection Endpoint.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetDataCollectionEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MonitoringFunctions.getDataCollectionEndpoint(GetDataCollectionEndpointArgs.builder()
+     *             .name(&#34;example-mdce&#34;)
+     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .build());
+     * 
+     *         ctx.export(&#34;endpointId&#34;, example.applyValue(getDataCollectionEndpointResult -&gt; getDataCollectionEndpointResult.id()));
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetDataCollectionEndpointResult> getDataCollectionEndpoint(GetDataCollectionEndpointArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:monitoring/getDataCollectionEndpoint:getDataCollectionEndpoint", TypeShape.of(GetDataCollectionEndpointResult.class), args, Utilities.withVersion(options));
@@ -209,9 +308,197 @@ public final class MonitoringFunctions {
     /**
      * Use this data source to access information about an existing Data Collection Endpoint.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetDataCollectionEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MonitoringFunctions.getDataCollectionEndpoint(GetDataCollectionEndpointArgs.builder()
+     *             .name(&#34;example-mdce&#34;)
+     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .build());
+     * 
+     *         ctx.export(&#34;endpointId&#34;, example.applyValue(getDataCollectionEndpointResult -&gt; getDataCollectionEndpointResult.id()));
+     *     }
+     * }
+     * ```
+     * 
      */
     public static CompletableFuture<GetDataCollectionEndpointResult> getDataCollectionEndpointPlain(GetDataCollectionEndpointPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:monitoring/getDataCollectionEndpoint:getDataCollectionEndpoint", TypeShape.of(GetDataCollectionEndpointResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Data Collection Rule.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetDataCollectionRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MonitoringFunctions.getDataCollectionRule(GetDataCollectionRuleArgs.builder()
+     *             .name(&#34;example-rule&#34;)
+     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .build());
+     * 
+     *         ctx.export(&#34;ruleId&#34;, example.applyValue(getDataCollectionRuleResult -&gt; getDataCollectionRuleResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetDataCollectionRuleResult> getDataCollectionRule(GetDataCollectionRuleArgs args) {
+        return getDataCollectionRule(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Data Collection Rule.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetDataCollectionRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MonitoringFunctions.getDataCollectionRule(GetDataCollectionRuleArgs.builder()
+     *             .name(&#34;example-rule&#34;)
+     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .build());
+     * 
+     *         ctx.export(&#34;ruleId&#34;, example.applyValue(getDataCollectionRuleResult -&gt; getDataCollectionRuleResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetDataCollectionRuleResult> getDataCollectionRulePlain(GetDataCollectionRulePlainArgs args) {
+        return getDataCollectionRulePlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Data Collection Rule.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetDataCollectionRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MonitoringFunctions.getDataCollectionRule(GetDataCollectionRuleArgs.builder()
+     *             .name(&#34;example-rule&#34;)
+     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .build());
+     * 
+     *         ctx.export(&#34;ruleId&#34;, example.applyValue(getDataCollectionRuleResult -&gt; getDataCollectionRuleResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetDataCollectionRuleResult> getDataCollectionRule(GetDataCollectionRuleArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:monitoring/getDataCollectionRule:getDataCollectionRule", TypeShape.of(GetDataCollectionRuleResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Data Collection Rule.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.monitoring.MonitoringFunctions;
+     * import com.pulumi.azure.monitoring.inputs.GetDataCollectionRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = MonitoringFunctions.getDataCollectionRule(GetDataCollectionRuleArgs.builder()
+     *             .name(&#34;example-rule&#34;)
+     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .build());
+     * 
+     *         ctx.export(&#34;ruleId&#34;, example.applyValue(getDataCollectionRuleResult -&gt; getDataCollectionRuleResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetDataCollectionRuleResult> getDataCollectionRulePlain(GetDataCollectionRulePlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:monitoring/getDataCollectionRule:getDataCollectionRule", TypeShape.of(GetDataCollectionRuleResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about the Monitor Diagnostics Categories supported by an existing Resource.
