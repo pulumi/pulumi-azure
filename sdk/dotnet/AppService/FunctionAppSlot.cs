@@ -10,8 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService
 {
     /// <summary>
-    /// ## Example Usage
-    /// ### With App Service Plan)
+    /// ## Example Usage (with App Service Plan)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

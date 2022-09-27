@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Batch
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure:batch/getPool:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure:batch/getPool:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Batch pool
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Batch
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure:batch/getPool:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure:batch/getPool:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
     }
 
 

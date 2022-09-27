@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Billing
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetMpaAccountScopeResult> InvokeAsync(GetMpaAccountScopeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMpaAccountScopeResult>("azure:billing/getMpaAccountScope:getMpaAccountScope", args ?? new GetMpaAccountScopeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMpaAccountScopeResult>("azure:billing/getMpaAccountScope:getMpaAccountScope", args ?? new GetMpaAccountScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access an ID for your MPA Account billing scope.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Billing
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetMpaAccountScopeResult> Invoke(GetMpaAccountScopeInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetMpaAccountScopeResult>("azure:billing/getMpaAccountScope:getMpaAccountScope", args ?? new GetMpaAccountScopeInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetMpaAccountScopeResult>("azure:billing/getMpaAccountScope:getMpaAccountScope", args ?? new GetMpaAccountScopeInvokeArgs(), options.WithDefaults());
     }
 
 

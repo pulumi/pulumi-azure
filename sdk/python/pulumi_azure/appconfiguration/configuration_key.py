@@ -366,8 +366,7 @@ class ConfigurationKey(pulumi.CustomResource):
 
         > **Note:** App Configuration Keys are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration).
 
-        ## Example Usage
-        ### `Kv` Type
+        ## Example Usage of `kv` type
 
         ```python
         import pulumi
@@ -389,7 +388,9 @@ class ConfigurationKey(pulumi.CustomResource):
             value="a test",
             opts=pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
         ```
-        ### `Vault` Type
+
+        ## Example Usage of `vault` type
+
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -474,8 +475,7 @@ class ConfigurationKey(pulumi.CustomResource):
 
         > **Note:** App Configuration Keys are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration).
 
-        ## Example Usage
-        ### `Kv` Type
+        ## Example Usage of `kv` type
 
         ```python
         import pulumi
@@ -497,7 +497,9 @@ class ConfigurationKey(pulumi.CustomResource):
             value="a test",
             opts=pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
         ```
-        ### `Vault` Type
+
+        ## Example Usage of `vault` type
+
         ```python
         import pulumi
         import pulumi_azure as azure

@@ -5,11 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { LedgerArgs, LedgerState } from "./ledger";
-export type Ledger = import("./ledger").Ledger;
-export const Ledger: typeof import("./ledger").Ledger = null as any;
+export * from "./ledger";
 
-utilities.lazyLoad(exports, ["Ledger"], () => require("./ledger"));
+// Import resources to register:
+import { Ledger } from "./ledger";
 
 const _module = {
     version: utilities.getVersion(),

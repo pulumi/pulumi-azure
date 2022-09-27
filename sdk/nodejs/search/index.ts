@@ -5,21 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
-export const getService: typeof import("./getService").getService = null as any;
-export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+export * from "./getService";
+export * from "./service";
+export * from "./sharedPrivateLinkService";
 
-export { ServiceArgs, ServiceState } from "./service";
-export type Service = import("./service").Service;
-export const Service: typeof import("./service").Service = null as any;
-
-export { SharedPrivateLinkServiceArgs, SharedPrivateLinkServiceState } from "./sharedPrivateLinkService";
-export type SharedPrivateLinkService = import("./sharedPrivateLinkService").SharedPrivateLinkService;
-export const SharedPrivateLinkService: typeof import("./sharedPrivateLinkService").SharedPrivateLinkService = null as any;
-
-utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
-utilities.lazyLoad(exports, ["Service"], () => require("./service"));
-utilities.lazyLoad(exports, ["SharedPrivateLinkService"], () => require("./sharedPrivateLinkService"));
+// Import resources to register:
+import { Service } from "./service";
+import { SharedPrivateLinkService } from "./sharedPrivateLinkService";
 
 const _module = {
     version: utilities.getVersion(),

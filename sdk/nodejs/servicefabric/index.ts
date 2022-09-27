@@ -5,16 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { ClusterArgs, ClusterState } from "./cluster";
-export type Cluster = import("./cluster").Cluster;
-export const Cluster: typeof import("./cluster").Cluster = null as any;
+export * from "./cluster";
+export * from "./managedCluster";
 
-export { ManagedClusterArgs, ManagedClusterState } from "./managedCluster";
-export type ManagedCluster = import("./managedCluster").ManagedCluster;
-export const ManagedCluster: typeof import("./managedCluster").ManagedCluster = null as any;
-
-utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
-utilities.lazyLoad(exports, ["ManagedCluster"], () => require("./managedCluster"));
+// Import resources to register:
+import { Cluster } from "./cluster";
+import { ManagedCluster } from "./managedCluster";
 
 const _module = {
     version: utilities.getVersion(),

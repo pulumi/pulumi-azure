@@ -39,7 +39,7 @@ namespace Pulumi.Azure.DomainServices
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:domainservices/getService:getService", args ?? new GetServiceArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:domainservices/getService:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about an Active Directory Domain Service.
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.DomainServices
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure:domainservices/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure:domainservices/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 

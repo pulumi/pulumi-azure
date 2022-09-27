@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### With Activities
+ * ## Example Usage with Activities
  * ```java
  * package generated_program;
  * 

@@ -2,15 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Manages a virtual machine scale set.
  *
- * ## Example Usage
- * ### With Unmanaged Disks
+ * ## Example Usage with Unmanaged Disks
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -84,6 +82,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
  * ## Example of storageProfileImageReference with id
  *
  * ```typescript

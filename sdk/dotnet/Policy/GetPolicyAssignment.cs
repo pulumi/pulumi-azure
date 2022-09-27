@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Policy
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPolicyAssignmentResult> InvokeAsync(GetPolicyAssignmentArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyAssignmentResult>("azure:policy/getPolicyAssignment:getPolicyAssignment", args ?? new GetPolicyAssignmentArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyAssignmentResult>("azure:policy/getPolicyAssignment:getPolicyAssignment", args ?? new GetPolicyAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Policy Assignment.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Policy
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPolicyAssignmentResult> Invoke(GetPolicyAssignmentInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyAssignmentResult>("azure:policy/getPolicyAssignment:getPolicyAssignment", args ?? new GetPolicyAssignmentInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetPolicyAssignmentResult>("azure:policy/getPolicyAssignment:getPolicyAssignment", args ?? new GetPolicyAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

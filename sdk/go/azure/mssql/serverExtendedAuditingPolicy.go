@@ -69,7 +69,8 @@ import (
 //	}
 //
 // ```
-// ### With Storage Account Behind VNet And Firewall
+// ## Example Usage with storage account behind VNet and firewall
+//
 // ```go
 // package main
 //

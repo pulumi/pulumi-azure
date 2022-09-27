@@ -13,8 +13,7 @@ import (
 
 // Manages a managed disk.
 //
-// ## Example Usage
-// ### With Create Empty
+// ## Example Usage with Create Empty
 //
 // ```go
 // package main
@@ -53,7 +52,8 @@ import (
 //	}
 //
 // ```
-// ### With Create Copy
+//
+// ## Example Usage with Create Copy
 //
 // ```go
 // package main

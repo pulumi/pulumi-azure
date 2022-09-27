@@ -351,7 +351,7 @@ class LinkedServiceSynapse(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test")
         ```
-        ### With Password In Key Vault
+        ## Example Usage with Password in Key Vault
 
         ```python
         import pulumi
@@ -423,7 +423,7 @@ class LinkedServiceSynapse(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string="Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test")
         ```
-        ### With Password In Key Vault
+        ## Example Usage with Password in Key Vault
 
         ```python
         import pulumi

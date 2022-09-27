@@ -12,6 +12,7 @@ import (
 )
 
 // ## Example Usage
+//
 // ### CNAME validation
 //
 // ```go

@@ -38,7 +38,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSourceControlTokenResult> InvokeAsync(GetSourceControlTokenArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlTokenResult>("azure:appservice/getSourceControlToken:getSourceControlToken", args ?? new GetSourceControlTokenArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlTokenResult>("azure:appservice/getSourceControlToken:getSourceControlToken", args ?? new GetSourceControlTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSourceControlTokenResult> Invoke(GetSourceControlTokenInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlTokenResult>("azure:appservice/getSourceControlToken:getSourceControlToken", args ?? new GetSourceControlTokenInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetSourceControlTokenResult>("azure:appservice/getSourceControlToken:getSourceControlToken", args ?? new GetSourceControlTokenInvokeArgs(), options.WithDefaults());
     }
 
 

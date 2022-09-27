@@ -5,16 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { ElasticsearchArgs, ElasticsearchState } from "./elasticsearch";
-export type Elasticsearch = import("./elasticsearch").Elasticsearch;
-export const Elasticsearch: typeof import("./elasticsearch").Elasticsearch = null as any;
+export * from "./elasticsearch";
+export * from "./getElasticsearch";
 
-export { GetElasticsearchArgs, GetElasticsearchResult, GetElasticsearchOutputArgs } from "./getElasticsearch";
-export const getElasticsearch: typeof import("./getElasticsearch").getElasticsearch = null as any;
-export const getElasticsearchOutput: typeof import("./getElasticsearch").getElasticsearchOutput = null as any;
-
-utilities.lazyLoad(exports, ["Elasticsearch"], () => require("./elasticsearch"));
-utilities.lazyLoad(exports, ["getElasticsearch","getElasticsearchOutput"], () => require("./getElasticsearch"));
+// Import resources to register:
+import { Elasticsearch } from "./elasticsearch";
 
 const _module = {
     version: utilities.getVersion(),

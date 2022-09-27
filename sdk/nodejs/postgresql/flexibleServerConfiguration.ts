@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     value: "on",
  * });
  * ```
- * ### Azure Extensions
+ * ## Example Usage - Azure Extensions
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

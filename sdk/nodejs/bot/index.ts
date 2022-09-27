@@ -5,81 +5,38 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { ChannelAlexaArgs, ChannelAlexaState } from "./channelAlexa";
-export type ChannelAlexa = import("./channelAlexa").ChannelAlexa;
-export const ChannelAlexa: typeof import("./channelAlexa").ChannelAlexa = null as any;
+export * from "./channelAlexa";
+export * from "./channelDirectLine";
+export * from "./channelDirectLineSpeech";
+export * from "./channelEmail";
+export * from "./channelFacebook";
+export * from "./channelLine";
+export * from "./channelSlack";
+export * from "./channelSms";
+export * from "./channelTeams";
+export * from "./channelWebChat";
+export * from "./channelsRegistration";
+export * from "./connection";
+export * from "./healthbot";
+export * from "./serviceAzureBot";
+export * from "./webApp";
 
-export { ChannelDirectLineArgs, ChannelDirectLineState } from "./channelDirectLine";
-export type ChannelDirectLine = import("./channelDirectLine").ChannelDirectLine;
-export const ChannelDirectLine: typeof import("./channelDirectLine").ChannelDirectLine = null as any;
-
-export { ChannelDirectLineSpeechArgs, ChannelDirectLineSpeechState } from "./channelDirectLineSpeech";
-export type ChannelDirectLineSpeech = import("./channelDirectLineSpeech").ChannelDirectLineSpeech;
-export const ChannelDirectLineSpeech: typeof import("./channelDirectLineSpeech").ChannelDirectLineSpeech = null as any;
-
-export { ChannelEmailArgs, ChannelEmailState } from "./channelEmail";
-export type ChannelEmail = import("./channelEmail").ChannelEmail;
-export const ChannelEmail: typeof import("./channelEmail").ChannelEmail = null as any;
-
-export { ChannelFacebookArgs, ChannelFacebookState } from "./channelFacebook";
-export type ChannelFacebook = import("./channelFacebook").ChannelFacebook;
-export const ChannelFacebook: typeof import("./channelFacebook").ChannelFacebook = null as any;
-
-export { ChannelLineArgs, ChannelLineState } from "./channelLine";
-export type ChannelLine = import("./channelLine").ChannelLine;
-export const ChannelLine: typeof import("./channelLine").ChannelLine = null as any;
-
-export { ChannelSlackArgs, ChannelSlackState } from "./channelSlack";
-export type ChannelSlack = import("./channelSlack").ChannelSlack;
-export const ChannelSlack: typeof import("./channelSlack").ChannelSlack = null as any;
-
-export { ChannelSmsArgs, ChannelSmsState } from "./channelSms";
-export type ChannelSms = import("./channelSms").ChannelSms;
-export const ChannelSms: typeof import("./channelSms").ChannelSms = null as any;
-
-export { ChannelTeamsArgs, ChannelTeamsState } from "./channelTeams";
-export type ChannelTeams = import("./channelTeams").ChannelTeams;
-export const ChannelTeams: typeof import("./channelTeams").ChannelTeams = null as any;
-
-export { ChannelWebChatArgs, ChannelWebChatState } from "./channelWebChat";
-export type ChannelWebChat = import("./channelWebChat").ChannelWebChat;
-export const ChannelWebChat: typeof import("./channelWebChat").ChannelWebChat = null as any;
-
-export { ChannelsRegistrationArgs, ChannelsRegistrationState } from "./channelsRegistration";
-export type ChannelsRegistration = import("./channelsRegistration").ChannelsRegistration;
-export const ChannelsRegistration: typeof import("./channelsRegistration").ChannelsRegistration = null as any;
-
-export { ConnectionArgs, ConnectionState } from "./connection";
-export type Connection = import("./connection").Connection;
-export const Connection: typeof import("./connection").Connection = null as any;
-
-export { HealthbotArgs, HealthbotState } from "./healthbot";
-export type Healthbot = import("./healthbot").Healthbot;
-export const Healthbot: typeof import("./healthbot").Healthbot = null as any;
-
-export { ServiceAzureBotArgs, ServiceAzureBotState } from "./serviceAzureBot";
-export type ServiceAzureBot = import("./serviceAzureBot").ServiceAzureBot;
-export const ServiceAzureBot: typeof import("./serviceAzureBot").ServiceAzureBot = null as any;
-
-export { WebAppArgs, WebAppState } from "./webApp";
-export type WebApp = import("./webApp").WebApp;
-export const WebApp: typeof import("./webApp").WebApp = null as any;
-
-utilities.lazyLoad(exports, ["ChannelAlexa"], () => require("./channelAlexa"));
-utilities.lazyLoad(exports, ["ChannelDirectLine"], () => require("./channelDirectLine"));
-utilities.lazyLoad(exports, ["ChannelDirectLineSpeech"], () => require("./channelDirectLineSpeech"));
-utilities.lazyLoad(exports, ["ChannelEmail"], () => require("./channelEmail"));
-utilities.lazyLoad(exports, ["ChannelFacebook"], () => require("./channelFacebook"));
-utilities.lazyLoad(exports, ["ChannelLine"], () => require("./channelLine"));
-utilities.lazyLoad(exports, ["ChannelSlack"], () => require("./channelSlack"));
-utilities.lazyLoad(exports, ["ChannelSms"], () => require("./channelSms"));
-utilities.lazyLoad(exports, ["ChannelTeams"], () => require("./channelTeams"));
-utilities.lazyLoad(exports, ["ChannelWebChat"], () => require("./channelWebChat"));
-utilities.lazyLoad(exports, ["ChannelsRegistration"], () => require("./channelsRegistration"));
-utilities.lazyLoad(exports, ["Connection"], () => require("./connection"));
-utilities.lazyLoad(exports, ["Healthbot"], () => require("./healthbot"));
-utilities.lazyLoad(exports, ["ServiceAzureBot"], () => require("./serviceAzureBot"));
-utilities.lazyLoad(exports, ["WebApp"], () => require("./webApp"));
+// Import resources to register:
+import { ChannelAlexa } from "./channelAlexa";
+import { ChannelDirectLine } from "./channelDirectLine";
+import { ChannelDirectLineSpeech } from "./channelDirectLineSpeech";
+import { ChannelEmail } from "./channelEmail";
+import { ChannelFacebook } from "./channelFacebook";
+import { ChannelLine } from "./channelLine";
+import { ChannelSlack } from "./channelSlack";
+import { ChannelSms } from "./channelSms";
+import { ChannelTeams } from "./channelTeams";
+import { ChannelWebChat } from "./channelWebChat";
+import { ChannelsRegistration } from "./channelsRegistration";
+import { Connection } from "./connection";
+import { Healthbot } from "./healthbot";
+import { ServiceAzureBot } from "./serviceAzureBot";
+import { WebApp } from "./webApp";
 
 const _module = {
     version: utilities.getVersion(),

@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * });
  * const examplePipeline = new azure.datafactory.Pipeline("examplePipeline", {dataFactoryId: exampleFactory.id});
  * ```
- * ### With Activities
+ * ## Example Usage with Activities
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

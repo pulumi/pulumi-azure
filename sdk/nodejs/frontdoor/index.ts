@@ -5,26 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { CustomHttpsConfigurationArgs, CustomHttpsConfigurationState } from "./customHttpsConfiguration";
-export type CustomHttpsConfiguration = import("./customHttpsConfiguration").CustomHttpsConfiguration;
-export const CustomHttpsConfiguration: typeof import("./customHttpsConfiguration").CustomHttpsConfiguration = null as any;
+export * from "./customHttpsConfiguration";
+export * from "./firewallPolicy";
+export * from "./frontdoor";
+export * from "./rulesEngine";
 
-export { FirewallPolicyArgs, FirewallPolicyState } from "./firewallPolicy";
-export type FirewallPolicy = import("./firewallPolicy").FirewallPolicy;
-export const FirewallPolicy: typeof import("./firewallPolicy").FirewallPolicy = null as any;
-
-export { FrontdoorArgs, FrontdoorState } from "./frontdoor";
-export type Frontdoor = import("./frontdoor").Frontdoor;
-export const Frontdoor: typeof import("./frontdoor").Frontdoor = null as any;
-
-export { RulesEngineArgs, RulesEngineState } from "./rulesEngine";
-export type RulesEngine = import("./rulesEngine").RulesEngine;
-export const RulesEngine: typeof import("./rulesEngine").RulesEngine = null as any;
-
-utilities.lazyLoad(exports, ["CustomHttpsConfiguration"], () => require("./customHttpsConfiguration"));
-utilities.lazyLoad(exports, ["FirewallPolicy"], () => require("./firewallPolicy"));
-utilities.lazyLoad(exports, ["Frontdoor"], () => require("./frontdoor"));
-utilities.lazyLoad(exports, ["RulesEngine"], () => require("./rulesEngine"));
+// Import resources to register:
+import { CustomHttpsConfiguration } from "./customHttpsConfiguration";
+import { FirewallPolicy } from "./firewallPolicy";
+import { Frontdoor } from "./frontdoor";
+import { RulesEngine } from "./rulesEngine";
 
 const _module = {
     version: utilities.getVersion(),

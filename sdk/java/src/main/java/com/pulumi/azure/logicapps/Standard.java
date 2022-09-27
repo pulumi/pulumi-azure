@@ -24,8 +24,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Logic App (Standard / Single Tenant)
  * 
- * ## Example Usage
- * ### With App Service Plan)
+ * ## Example Usage (with App Service Plan)
  * ```java
  * package generated_program;
  * 
@@ -86,7 +85,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### For Container Mode)
+ * 
+ * ## Example Usage (for container mode)
  * 
  * &gt; **Note:** You must set `azure.appservice.Plan` `kind` to `Linux` and `reserved` to `true` when used with `linux_fx_version`
  * ```java

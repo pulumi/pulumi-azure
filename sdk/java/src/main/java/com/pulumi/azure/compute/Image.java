@@ -22,8 +22,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a custom virtual machine image that can be used to create virtual machines.
  * 
- * ## Example Usage
- * ### Creating From VHD
+ * ## Example Usage Creating from VHD
  * ```java
  * package generated_program;
  * 
@@ -92,7 +91,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Creating From Virtual Machine (VM Must Be Generalized Beforehand)
+ * 
+ * ## Example Usage Creating from Virtual Machine (VM must be generalized beforehand)
  * ```java
  * package generated_program;
  * 

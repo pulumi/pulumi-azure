@@ -35,7 +35,8 @@ import * as utilities from "../utilities";
  *     retentionInDays: 6,
  * });
  * ```
- * ### With Storage Account Behind VNet And Firewall
+ * ## Example Usage with storage account behind VNet and firewall
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";

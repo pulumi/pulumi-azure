@@ -13,8 +13,7 @@ import (
 
 // Manages a Firewall Rule for a MariaDB Server
 //
-// ## Example Usage
-// ### Single IP Address)
+// ## Example Usage (Single IP Address)
 //
 // ```go
 // package main
@@ -42,7 +41,8 @@ import (
 //	}
 //
 // ```
-// ### IP Range)
+//
+// ## Example Usage (IP Range)
 //
 // ```go
 // package main

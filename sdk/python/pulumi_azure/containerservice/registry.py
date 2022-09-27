@@ -736,7 +736,7 @@ class Registry(pulumi.CustomResource):
                 ),
             ])
         ```
-        ### Encryption)
+        ## Example Usage (Encryption)
 
         ```python
         import pulumi
@@ -762,7 +762,8 @@ class Registry(pulumi.CustomResource):
                 identity_client_id=example_user_assigned_identity.client_id,
             ))
         ```
-        ### Attaching A Container Registry To A Kubernetes Cluster)
+
+        ## Example Usage (Attaching a Container Registry to a Kubernetes Cluster)
 
         ```python
         import pulumi
@@ -859,7 +860,7 @@ class Registry(pulumi.CustomResource):
                 ),
             ])
         ```
-        ### Encryption)
+        ## Example Usage (Encryption)
 
         ```python
         import pulumi
@@ -885,7 +886,8 @@ class Registry(pulumi.CustomResource):
                 identity_client_id=example_user_assigned_identity.client_id,
             ))
         ```
-        ### Attaching A Container Registry To A Kubernetes Cluster)
+
+        ## Example Usage (Attaching a Container Registry to a Kubernetes Cluster)
 
         ```python
         import pulumi

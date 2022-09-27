@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Automation
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDateTimeVariableResult> InvokeAsync(GetDateTimeVariableArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDateTimeVariableResult>("azure:automation/getDateTimeVariable:getDateTimeVariable", args ?? new GetDateTimeVariableArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDateTimeVariableResult>("azure:automation/getDateTimeVariable:getDateTimeVariable", args ?? new GetDateTimeVariableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Automation Datetime Variable.
@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Automation
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDateTimeVariableResult> Invoke(GetDateTimeVariableInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetDateTimeVariableResult>("azure:automation/getDateTimeVariable:getDateTimeVariable", args ?? new GetDateTimeVariableInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetDateTimeVariableResult>("azure:automation/getDateTimeVariable:getDateTimeVariable", args ?? new GetDateTimeVariableInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -13,8 +13,7 @@ import (
 
 // Manages a virtual machine scale set.
 //
-// ## Example Usage
-// ### With Unmanaged Disks
+// ## Example Usage with Unmanaged Disks
 //
 // ```go
 // package main
@@ -149,6 +148,7 @@ import (
 //	}
 //
 // ```
+//
 // ## Example of storageProfileImageReference with id
 //
 // ```go

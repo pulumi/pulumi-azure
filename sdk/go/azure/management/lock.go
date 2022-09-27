@@ -13,8 +13,7 @@ import (
 
 // Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
 //
-// ## Example Usage
-// ### Subscription Level Lock)
+// ## Example Usage (Subscription Level Lock)
 //
 // ```go
 // package main
@@ -46,7 +45,8 @@ import (
 //	}
 //
 // ```
-// ### Resource Group Level Lock)
+//
+// ## Example Usage (Resource Group Level Lock)
 //
 // ```go
 // package main
@@ -80,7 +80,8 @@ import (
 //	}
 //
 // ```
-// ### Resource Level Lock)
+//
+// ## Example Usage (Resource Level Lock)
 //
 // ```go
 // package main

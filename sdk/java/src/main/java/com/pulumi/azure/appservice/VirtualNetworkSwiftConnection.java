@@ -37,8 +37,7 @@ import javax.annotation.Nullable;
  * There is a hard limit of [one VNet integration per App Service Plan](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
  * Multiple apps in the same App Service plan can use the same VNet.
  * 
- * ## Example Usage
- * ### With App Service)
+ * ## Example Usage (with App Service)
  * ```java
  * package generated_program;
  * 
@@ -119,7 +118,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### With Function App)
+ * 
+ * ## Example Usage (with Function App)
  * ```java
  * package generated_program;
  * 

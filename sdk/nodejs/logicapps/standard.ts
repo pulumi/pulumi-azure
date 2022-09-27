@@ -2,15 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
  * Manages a Logic App (Standard / Single Tenant)
  *
- * ## Example Usage
- * ### With App Service Plan)
+ * ## Example Usage (with App Service Plan)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -40,7 +38,8 @@ import * as utilities from "../utilities";
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  * });
  * ```
- * ### For Container Mode)
+ *
+ * ## Example Usage (for container mode)
  *
  * > **Note:** You must set `azure.appservice.Plan` `kind` to `Linux` and `reserved` to `true` when used with `linuxFxVersion`
  *

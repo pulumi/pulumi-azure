@@ -13,8 +13,7 @@ import (
 
 // Manages an Certificate within an API Management Service.
 //
-// ## Example Usage
-// ### With Base64 Certificate)
+// ## Example Usage (with Base64 Certificate)
 //
 // ```go
 // package main
@@ -69,7 +68,8 @@ import (
 //	}
 //
 // ```
-// ### With Key Vault Certificate)
+//
+// ## Example Usage (with Key Vault Certificate)
 //
 // ```go
 // package main

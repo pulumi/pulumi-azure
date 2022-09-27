@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Storage
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetShareResult> InvokeAsync(GetShareArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure:storage/getShare:getShare", args ?? new GetShareArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure:storage/getShare:getShare", args ?? new GetShareArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing File Share.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Storage
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetShareResult> Invoke(GetShareInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure:storage/getShare:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure:storage/getShare:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());
     }
 
 

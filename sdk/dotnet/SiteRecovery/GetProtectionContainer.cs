@@ -39,7 +39,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetProtectionContainerResult> InvokeAsync(GetProtectionContainerArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProtectionContainerResult>("azure:siterecovery/getProtectionContainer:getProtectionContainer", args ?? new GetProtectionContainerArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProtectionContainerResult>("azure:siterecovery/getProtectionContainer:getProtectionContainer", args ?? new GetProtectionContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing site recovery services protection container.
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetProtectionContainerResult> Invoke(GetProtectionContainerInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetProtectionContainerResult>("azure:siterecovery/getProtectionContainer:getProtectionContainer", args ?? new GetProtectionContainerInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetProtectionContainerResult>("azure:siterecovery/getProtectionContainer:getProtectionContainer", args ?? new GetProtectionContainerInvokeArgs(), options.WithDefaults());
     }
 
 

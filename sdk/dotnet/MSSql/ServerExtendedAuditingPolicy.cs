@@ -54,7 +54,8 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// });
     /// ```
-    /// ### With Storage Account Behind VNet And Firewall
+    /// ## Example Usage with storage account behind VNet and firewall
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using Pulumi;

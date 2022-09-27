@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure:apimanagement/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azure:apimanagement/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing API Management Group.
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azure:apimanagement/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azure:apimanagement/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

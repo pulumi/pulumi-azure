@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -15,8 +14,7 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Data Disks can be attached either directly on the `azure.compute.VirtualMachine` resource, or using the `azure.compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
  *
- * ## Example Usage
- * ### From An Azure Platform Image)
+ * ## Example Usage (from an Azure Platform Image)
  *
  * This example provisions a Virtual Machine with Managed Disks.
  *

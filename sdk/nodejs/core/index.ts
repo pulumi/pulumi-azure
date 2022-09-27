@@ -5,161 +5,60 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { CustomProviderArgs, CustomProviderState } from "./customProvider";
-export type CustomProvider = import("./customProvider").CustomProvider;
-export const CustomProvider: typeof import("./customProvider").CustomProvider = null as any;
-
-export { GetClientConfigResult } from "./getClientConfig";
-export const getClientConfig: typeof import("./getClientConfig").getClientConfig = null as any;
-
-export { GetExtendedLocationsArgs, GetExtendedLocationsResult, GetExtendedLocationsOutputArgs } from "./getExtendedLocations";
-export const getExtendedLocations: typeof import("./getExtendedLocations").getExtendedLocations = null as any;
-export const getExtendedLocationsOutput: typeof import("./getExtendedLocations").getExtendedLocationsOutput = null as any;
-
-export { GetResourceGroupArgs, GetResourceGroupResult, GetResourceGroupOutputArgs } from "./getResourceGroup";
-export const getResourceGroup: typeof import("./getResourceGroup").getResourceGroup = null as any;
-export const getResourceGroupOutput: typeof import("./getResourceGroup").getResourceGroupOutput = null as any;
-
-export { GetResourceGroupTemplateDeploymentArgs, GetResourceGroupTemplateDeploymentResult, GetResourceGroupTemplateDeploymentOutputArgs } from "./getResourceGroupTemplateDeployment";
-export const getResourceGroupTemplateDeployment: typeof import("./getResourceGroupTemplateDeployment").getResourceGroupTemplateDeployment = null as any;
-export const getResourceGroupTemplateDeploymentOutput: typeof import("./getResourceGroupTemplateDeployment").getResourceGroupTemplateDeploymentOutput = null as any;
-
-export { GetResourcesArgs, GetResourcesResult, GetResourcesOutputArgs } from "./getResources";
-export const getResources: typeof import("./getResources").getResources = null as any;
-export const getResourcesOutput: typeof import("./getResources").getResourcesOutput = null as any;
-
-export { GetSubscriptionArgs, GetSubscriptionResult, GetSubscriptionOutputArgs } from "./getSubscription";
-export const getSubscription: typeof import("./getSubscription").getSubscription = null as any;
-export const getSubscriptionOutput: typeof import("./getSubscription").getSubscriptionOutput = null as any;
-
-export { GetSubscriptionTemplateDeploymentArgs, GetSubscriptionTemplateDeploymentResult, GetSubscriptionTemplateDeploymentOutputArgs } from "./getSubscriptionTemplateDeployment";
-export const getSubscriptionTemplateDeployment: typeof import("./getSubscriptionTemplateDeployment").getSubscriptionTemplateDeployment = null as any;
-export const getSubscriptionTemplateDeploymentOutput: typeof import("./getSubscriptionTemplateDeployment").getSubscriptionTemplateDeploymentOutput = null as any;
-
-export { GetSubscriptionsArgs, GetSubscriptionsResult, GetSubscriptionsOutputArgs } from "./getSubscriptions";
-export const getSubscriptions: typeof import("./getSubscriptions").getSubscriptions = null as any;
-export const getSubscriptionsOutput: typeof import("./getSubscriptions").getSubscriptionsOutput = null as any;
-
-export { GetTemplateSpecVersionArgs, GetTemplateSpecVersionResult, GetTemplateSpecVersionOutputArgs } from "./getTemplateSpecVersion";
-export const getTemplateSpecVersion: typeof import("./getTemplateSpecVersion").getTemplateSpecVersion = null as any;
-export const getTemplateSpecVersionOutput: typeof import("./getTemplateSpecVersion").getTemplateSpecVersionOutput = null as any;
-
-export { GetTenantTemplateDeploymentArgs, GetTenantTemplateDeploymentResult, GetTenantTemplateDeploymentOutputArgs } from "./getTenantTemplateDeployment";
-export const getTenantTemplateDeployment: typeof import("./getTenantTemplateDeployment").getTenantTemplateDeployment = null as any;
-export const getTenantTemplateDeploymentOutput: typeof import("./getTenantTemplateDeployment").getTenantTemplateDeploymentOutput = null as any;
-
-export { GetUserAssignedIdentityArgs, GetUserAssignedIdentityResult, GetUserAssignedIdentityOutputArgs } from "./getUserAssignedIdentity";
-export const getUserAssignedIdentity: typeof import("./getUserAssignedIdentity").getUserAssignedIdentity = null as any;
-export const getUserAssignedIdentityOutput: typeof import("./getUserAssignedIdentity").getUserAssignedIdentityOutput = null as any;
-
-export { PortalTenantConfigurationArgs, PortalTenantConfigurationState } from "./portalTenantConfiguration";
-export type PortalTenantConfiguration = import("./portalTenantConfiguration").PortalTenantConfiguration;
-export const PortalTenantConfiguration: typeof import("./portalTenantConfiguration").PortalTenantConfiguration = null as any;
-
-export { ResourceGroupArgs, ResourceGroupState } from "./resourceGroup";
-export type ResourceGroup = import("./resourceGroup").ResourceGroup;
-export const ResourceGroup: typeof import("./resourceGroup").ResourceGroup = null as any;
-
-export { ResourceGroupCostManagementExportArgs, ResourceGroupCostManagementExportState } from "./resourceGroupCostManagementExport";
-export type ResourceGroupCostManagementExport = import("./resourceGroupCostManagementExport").ResourceGroupCostManagementExport;
-export const ResourceGroupCostManagementExport: typeof import("./resourceGroupCostManagementExport").ResourceGroupCostManagementExport = null as any;
-
-export { ResourceGroupPolicyAssignmentArgs, ResourceGroupPolicyAssignmentState } from "./resourceGroupPolicyAssignment";
-export type ResourceGroupPolicyAssignment = import("./resourceGroupPolicyAssignment").ResourceGroupPolicyAssignment;
-export const ResourceGroupPolicyAssignment: typeof import("./resourceGroupPolicyAssignment").ResourceGroupPolicyAssignment = null as any;
-
-export { ResourceGroupPolicyExemptionArgs, ResourceGroupPolicyExemptionState } from "./resourceGroupPolicyExemption";
-export type ResourceGroupPolicyExemption = import("./resourceGroupPolicyExemption").ResourceGroupPolicyExemption;
-export const ResourceGroupPolicyExemption: typeof import("./resourceGroupPolicyExemption").ResourceGroupPolicyExemption = null as any;
-
-export { ResourceGroupPolicyRemediationArgs, ResourceGroupPolicyRemediationState } from "./resourceGroupPolicyRemediation";
-export type ResourceGroupPolicyRemediation = import("./resourceGroupPolicyRemediation").ResourceGroupPolicyRemediation;
-export const ResourceGroupPolicyRemediation: typeof import("./resourceGroupPolicyRemediation").ResourceGroupPolicyRemediation = null as any;
-
-export { ResourceGroupTemplateDeploymentArgs, ResourceGroupTemplateDeploymentState } from "./resourceGroupTemplateDeployment";
-export type ResourceGroupTemplateDeployment = import("./resourceGroupTemplateDeployment").ResourceGroupTemplateDeployment;
-export const ResourceGroupTemplateDeployment: typeof import("./resourceGroupTemplateDeployment").ResourceGroupTemplateDeployment = null as any;
-
-export { ResourcePolicyAssignmentArgs, ResourcePolicyAssignmentState } from "./resourcePolicyAssignment";
-export type ResourcePolicyAssignment = import("./resourcePolicyAssignment").ResourcePolicyAssignment;
-export const ResourcePolicyAssignment: typeof import("./resourcePolicyAssignment").ResourcePolicyAssignment = null as any;
-
-export { ResourcePolicyExemptionArgs, ResourcePolicyExemptionState } from "./resourcePolicyExemption";
-export type ResourcePolicyExemption = import("./resourcePolicyExemption").ResourcePolicyExemption;
-export const ResourcePolicyExemption: typeof import("./resourcePolicyExemption").ResourcePolicyExemption = null as any;
-
-export { ResourcePolicyRemediationArgs, ResourcePolicyRemediationState } from "./resourcePolicyRemediation";
-export type ResourcePolicyRemediation = import("./resourcePolicyRemediation").ResourcePolicyRemediation;
-export const ResourcePolicyRemediation: typeof import("./resourcePolicyRemediation").ResourcePolicyRemediation = null as any;
-
-export { ResourceProviderRegistrationArgs, ResourceProviderRegistrationState } from "./resourceProviderRegistration";
-export type ResourceProviderRegistration = import("./resourceProviderRegistration").ResourceProviderRegistration;
-export const ResourceProviderRegistration: typeof import("./resourceProviderRegistration").ResourceProviderRegistration = null as any;
-
-export { SubscriptionArgs, SubscriptionState } from "./subscription";
-export type Subscription = import("./subscription").Subscription;
-export const Subscription: typeof import("./subscription").Subscription = null as any;
-
-export { SubscriptionCostManagementExportArgs, SubscriptionCostManagementExportState } from "./subscriptionCostManagementExport";
-export type SubscriptionCostManagementExport = import("./subscriptionCostManagementExport").SubscriptionCostManagementExport;
-export const SubscriptionCostManagementExport: typeof import("./subscriptionCostManagementExport").SubscriptionCostManagementExport = null as any;
-
-export { SubscriptionPolicyAssignmentArgs, SubscriptionPolicyAssignmentState } from "./subscriptionPolicyAssignment";
-export type SubscriptionPolicyAssignment = import("./subscriptionPolicyAssignment").SubscriptionPolicyAssignment;
-export const SubscriptionPolicyAssignment: typeof import("./subscriptionPolicyAssignment").SubscriptionPolicyAssignment = null as any;
-
-export { SubscriptionPolicyExemptionArgs, SubscriptionPolicyExemptionState } from "./subscriptionPolicyExemption";
-export type SubscriptionPolicyExemption = import("./subscriptionPolicyExemption").SubscriptionPolicyExemption;
-export const SubscriptionPolicyExemption: typeof import("./subscriptionPolicyExemption").SubscriptionPolicyExemption = null as any;
-
-export { SubscriptionPolicyRemediationArgs, SubscriptionPolicyRemediationState } from "./subscriptionPolicyRemediation";
-export type SubscriptionPolicyRemediation = import("./subscriptionPolicyRemediation").SubscriptionPolicyRemediation;
-export const SubscriptionPolicyRemediation: typeof import("./subscriptionPolicyRemediation").SubscriptionPolicyRemediation = null as any;
-
-export { SubscriptionTemplateDeploymentArgs, SubscriptionTemplateDeploymentState } from "./subscriptionTemplateDeployment";
-export type SubscriptionTemplateDeployment = import("./subscriptionTemplateDeployment").SubscriptionTemplateDeployment;
-export const SubscriptionTemplateDeployment: typeof import("./subscriptionTemplateDeployment").SubscriptionTemplateDeployment = null as any;
-
-export { TemplateDeploymentArgs, TemplateDeploymentState } from "./templateDeployment";
-export type TemplateDeployment = import("./templateDeployment").TemplateDeployment;
-export const TemplateDeployment: typeof import("./templateDeployment").TemplateDeployment = null as any;
-
-export { TenantTemplateDeploymentArgs, TenantTemplateDeploymentState } from "./tenantTemplateDeployment";
-export type TenantTemplateDeployment = import("./tenantTemplateDeployment").TenantTemplateDeployment;
-export const TenantTemplateDeployment: typeof import("./tenantTemplateDeployment").TenantTemplateDeployment = null as any;
-
+export * from "./customProvider";
+export * from "./getClientConfig";
+export * from "./getExtendedLocations";
+export * from "./getResourceGroup";
+export * from "./getResourceGroupTemplateDeployment";
+export * from "./getResources";
+export * from "./getSubscription";
+export * from "./getSubscriptionTemplateDeployment";
+export * from "./getSubscriptions";
+export * from "./getTemplateSpecVersion";
+export * from "./getTenantTemplateDeployment";
+export * from "./getUserAssignedIdentity";
+export * from "./portalTenantConfiguration";
+export * from "./resourceGroup";
+export * from "./resourceGroupCostManagementExport";
+export * from "./resourceGroupPolicyAssignment";
+export * from "./resourceGroupPolicyExemption";
+export * from "./resourceGroupPolicyRemediation";
+export * from "./resourceGroupTemplateDeployment";
+export * from "./resourcePolicyAssignment";
+export * from "./resourcePolicyExemption";
+export * from "./resourcePolicyRemediation";
+export * from "./resourceProviderRegistration";
+export * from "./subscription";
+export * from "./subscriptionCostManagementExport";
+export * from "./subscriptionPolicyAssignment";
+export * from "./subscriptionPolicyExemption";
+export * from "./subscriptionPolicyRemediation";
+export * from "./subscriptionTemplateDeployment";
+export * from "./templateDeployment";
+export * from "./tenantTemplateDeployment";
 export * from "./zMixins";
-utilities.lazyLoad(exports, ["CustomProvider"], () => require("./customProvider"));
-utilities.lazyLoad(exports, ["getClientConfig"], () => require("./getClientConfig"));
-utilities.lazyLoad(exports, ["getExtendedLocations","getExtendedLocationsOutput"], () => require("./getExtendedLocations"));
-utilities.lazyLoad(exports, ["getResourceGroup","getResourceGroupOutput"], () => require("./getResourceGroup"));
-utilities.lazyLoad(exports, ["getResourceGroupTemplateDeployment","getResourceGroupTemplateDeploymentOutput"], () => require("./getResourceGroupTemplateDeployment"));
-utilities.lazyLoad(exports, ["getResources","getResourcesOutput"], () => require("./getResources"));
-utilities.lazyLoad(exports, ["getSubscription","getSubscriptionOutput"], () => require("./getSubscription"));
-utilities.lazyLoad(exports, ["getSubscriptionTemplateDeployment","getSubscriptionTemplateDeploymentOutput"], () => require("./getSubscriptionTemplateDeployment"));
-utilities.lazyLoad(exports, ["getSubscriptions","getSubscriptionsOutput"], () => require("./getSubscriptions"));
-utilities.lazyLoad(exports, ["getTemplateSpecVersion","getTemplateSpecVersionOutput"], () => require("./getTemplateSpecVersion"));
-utilities.lazyLoad(exports, ["getTenantTemplateDeployment","getTenantTemplateDeploymentOutput"], () => require("./getTenantTemplateDeployment"));
-utilities.lazyLoad(exports, ["getUserAssignedIdentity","getUserAssignedIdentityOutput"], () => require("./getUserAssignedIdentity"));
-utilities.lazyLoad(exports, ["PortalTenantConfiguration"], () => require("./portalTenantConfiguration"));
-utilities.lazyLoad(exports, ["ResourceGroup"], () => require("./resourceGroup"));
-utilities.lazyLoad(exports, ["ResourceGroupCostManagementExport"], () => require("./resourceGroupCostManagementExport"));
-utilities.lazyLoad(exports, ["ResourceGroupPolicyAssignment"], () => require("./resourceGroupPolicyAssignment"));
-utilities.lazyLoad(exports, ["ResourceGroupPolicyExemption"], () => require("./resourceGroupPolicyExemption"));
-utilities.lazyLoad(exports, ["ResourceGroupPolicyRemediation"], () => require("./resourceGroupPolicyRemediation"));
-utilities.lazyLoad(exports, ["ResourceGroupTemplateDeployment"], () => require("./resourceGroupTemplateDeployment"));
-utilities.lazyLoad(exports, ["ResourcePolicyAssignment"], () => require("./resourcePolicyAssignment"));
-utilities.lazyLoad(exports, ["ResourcePolicyExemption"], () => require("./resourcePolicyExemption"));
-utilities.lazyLoad(exports, ["ResourcePolicyRemediation"], () => require("./resourcePolicyRemediation"));
-utilities.lazyLoad(exports, ["ResourceProviderRegistration"], () => require("./resourceProviderRegistration"));
-utilities.lazyLoad(exports, ["Subscription"], () => require("./subscription"));
-utilities.lazyLoad(exports, ["SubscriptionCostManagementExport"], () => require("./subscriptionCostManagementExport"));
-utilities.lazyLoad(exports, ["SubscriptionPolicyAssignment"], () => require("./subscriptionPolicyAssignment"));
-utilities.lazyLoad(exports, ["SubscriptionPolicyExemption"], () => require("./subscriptionPolicyExemption"));
-utilities.lazyLoad(exports, ["SubscriptionPolicyRemediation"], () => require("./subscriptionPolicyRemediation"));
-utilities.lazyLoad(exports, ["SubscriptionTemplateDeployment"], () => require("./subscriptionTemplateDeployment"));
-utilities.lazyLoad(exports, ["TemplateDeployment"], () => require("./templateDeployment"));
-utilities.lazyLoad(exports, ["TenantTemplateDeployment"], () => require("./tenantTemplateDeployment"));
+
+// Import resources to register:
+import { CustomProvider } from "./customProvider";
+import { PortalTenantConfiguration } from "./portalTenantConfiguration";
+import { ResourceGroup } from "./resourceGroup";
+import { ResourceGroupCostManagementExport } from "./resourceGroupCostManagementExport";
+import { ResourceGroupPolicyAssignment } from "./resourceGroupPolicyAssignment";
+import { ResourceGroupPolicyExemption } from "./resourceGroupPolicyExemption";
+import { ResourceGroupPolicyRemediation } from "./resourceGroupPolicyRemediation";
+import { ResourceGroupTemplateDeployment } from "./resourceGroupTemplateDeployment";
+import { ResourcePolicyAssignment } from "./resourcePolicyAssignment";
+import { ResourcePolicyExemption } from "./resourcePolicyExemption";
+import { ResourcePolicyRemediation } from "./resourcePolicyRemediation";
+import { ResourceProviderRegistration } from "./resourceProviderRegistration";
+import { Subscription } from "./subscription";
+import { SubscriptionCostManagementExport } from "./subscriptionCostManagementExport";
+import { SubscriptionPolicyAssignment } from "./subscriptionPolicyAssignment";
+import { SubscriptionPolicyExemption } from "./subscriptionPolicyExemption";
+import { SubscriptionPolicyRemediation } from "./subscriptionPolicyRemediation";
+import { SubscriptionTemplateDeployment } from "./subscriptionTemplateDeployment";
+import { TemplateDeployment } from "./templateDeployment";
+import { TenantTemplateDeployment } from "./tenantTemplateDeployment";
 
 const _module = {
     version: utilities.getVersion(),

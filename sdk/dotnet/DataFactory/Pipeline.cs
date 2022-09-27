@@ -39,7 +39,7 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// });
     /// ```
-    /// ### With Activities
+    /// ## Example Usage with Activities
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

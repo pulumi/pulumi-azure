@@ -790,8 +790,7 @@ class Standard(pulumi.CustomResource):
         """
         Manages a Logic App (Standard / Single Tenant)
 
-        ## Example Usage
-        ### With App Service Plan)
+        ## Example Usage (with App Service Plan)
 
         ```python
         import pulumi
@@ -818,7 +817,8 @@ class Standard(pulumi.CustomResource):
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key)
         ```
-        ### For Container Mode)
+
+        ## Example Usage (for container mode)
 
         > **Note:** You must set `appservice.Plan` `kind` to `Linux` and `reserved` to `true` when used with `linux_fx_version`
 
@@ -897,8 +897,7 @@ class Standard(pulumi.CustomResource):
         """
         Manages a Logic App (Standard / Single Tenant)
 
-        ## Example Usage
-        ### With App Service Plan)
+        ## Example Usage (with App Service Plan)
 
         ```python
         import pulumi
@@ -925,7 +924,8 @@ class Standard(pulumi.CustomResource):
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key)
         ```
-        ### For Container Mode)
+
+        ## Example Usage (for container mode)
 
         > **Note:** You must set `appservice.Plan` `kind` to `Linux` and `reserved` to `true` when used with `linux_fx_version`
 

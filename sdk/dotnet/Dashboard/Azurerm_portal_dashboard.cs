@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Dashboard
         /// {{% /examples %}}
         /// </summary>
         public static Task<Azurerm_portal_dashboardResult> InvokeAsync(Azurerm_portal_dashboardArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<Azurerm_portal_dashboardResult>("azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard", args ?? new Azurerm_portal_dashboardArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<Azurerm_portal_dashboardResult>("azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard", args ?? new Azurerm_portal_dashboardArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing shared dashboard in the Azure Portal. This is the data source of the `azure.portal.Dashboard` resource.
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.Dashboard
         /// {{% /examples %}}
         /// </summary>
         public static Output<Azurerm_portal_dashboardResult> Invoke(Azurerm_portal_dashboardInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<Azurerm_portal_dashboardResult>("azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard", args ?? new Azurerm_portal_dashboardInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<Azurerm_portal_dashboardResult>("azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard", args ?? new Azurerm_portal_dashboardInvokeArgs(), options.WithDefaults());
     }
 
 

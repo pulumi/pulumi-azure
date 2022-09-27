@@ -324,7 +324,8 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             storage_account_access_key_is_secondary=False,
             retention_in_days=6)
         ```
-        ### With Storage Account Behind VNet And Firewall
+        ## Example Usage with storage account behind VNet and firewall
+
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -449,7 +450,8 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             storage_account_access_key_is_secondary=False,
             retention_in_days=6)
         ```
-        ### With Storage Account Behind VNet And Firewall
+        ## Example Usage with storage account behind VNet and firewall
+
         ```python
         import pulumi
         import pulumi_azure as azure

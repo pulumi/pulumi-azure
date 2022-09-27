@@ -380,8 +380,7 @@ class Assignment(pulumi.CustomResource):
         """
         Assigns a given Principal (User or Group) to a given Role.
 
-        ## Example Usage
-        ### Using A Built-In Role)
+        ## Example Usage (using a built-in Role)
 
         ```python
         import pulumi
@@ -394,7 +393,8 @@ class Assignment(pulumi.CustomResource):
             role_definition_name="Reader",
             principal_id=example_client_config.object_id)
         ```
-        ### Custom Role & Service Principal)
+
+        ## Example Usage (Custom Role & Service Principal)
 
         ```python
         import pulumi
@@ -416,7 +416,8 @@ class Assignment(pulumi.CustomResource):
             role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example_client_config.object_id)
         ```
-        ### Custom Role & User)
+
+        ## Example Usage (Custom Role & User)
 
         ```python
         import pulumi
@@ -438,7 +439,8 @@ class Assignment(pulumi.CustomResource):
             role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example_client_config.object_id)
         ```
-        ### Custom Role & Management Group)
+
+        ## Example Usage (Custom Role & Management Group)
 
         ```python
         import pulumi
@@ -494,8 +496,7 @@ class Assignment(pulumi.CustomResource):
         """
         Assigns a given Principal (User or Group) to a given Role.
 
-        ## Example Usage
-        ### Using A Built-In Role)
+        ## Example Usage (using a built-in Role)
 
         ```python
         import pulumi
@@ -508,7 +509,8 @@ class Assignment(pulumi.CustomResource):
             role_definition_name="Reader",
             principal_id=example_client_config.object_id)
         ```
-        ### Custom Role & Service Principal)
+
+        ## Example Usage (Custom Role & Service Principal)
 
         ```python
         import pulumi
@@ -530,7 +532,8 @@ class Assignment(pulumi.CustomResource):
             role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example_client_config.object_id)
         ```
-        ### Custom Role & User)
+
+        ## Example Usage (Custom Role & User)
 
         ```python
         import pulumi
@@ -552,7 +555,8 @@ class Assignment(pulumi.CustomResource):
             role_definition_id=example_role_definition.role_definition_resource_id,
             principal_id=example_client_config.object_id)
         ```
-        ### Custom Role & Management Group)
+
+        ## Example Usage (Custom Role & Management Group)
 
         ```python
         import pulumi

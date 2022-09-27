@@ -5,31 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { AuthorizationRuleArgs, AuthorizationRuleState } from "./authorizationRule";
-export type AuthorizationRule = import("./authorizationRule").AuthorizationRule;
-export const AuthorizationRule: typeof import("./authorizationRule").AuthorizationRule = null as any;
+export * from "./authorizationRule";
+export * from "./getHub";
+export * from "./getNamespace";
+export * from "./hub";
+export * from "./namespace";
 
-export { GetHubArgs, GetHubResult, GetHubOutputArgs } from "./getHub";
-export const getHub: typeof import("./getHub").getHub = null as any;
-export const getHubOutput: typeof import("./getHub").getHubOutput = null as any;
-
-export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
-export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
-export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
-
-export { HubArgs, HubState } from "./hub";
-export type Hub = import("./hub").Hub;
-export const Hub: typeof import("./hub").Hub = null as any;
-
-export { NamespaceArgs, NamespaceState } from "./namespace";
-export type Namespace = import("./namespace").Namespace;
-export const Namespace: typeof import("./namespace").Namespace = null as any;
-
-utilities.lazyLoad(exports, ["AuthorizationRule"], () => require("./authorizationRule"));
-utilities.lazyLoad(exports, ["getHub","getHubOutput"], () => require("./getHub"));
-utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
-utilities.lazyLoad(exports, ["Hub"], () => require("./hub"));
-utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
+// Import resources to register:
+import { AuthorizationRule } from "./authorizationRule";
+import { Hub } from "./hub";
+import { Namespace } from "./namespace";
 
 const _module = {
     version: utilities.getVersion(),

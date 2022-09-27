@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Automation
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetIntVariableResult> InvokeAsync(GetIntVariableArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntVariableResult>("azure:automation/getIntVariable:getIntVariable", args ?? new GetIntVariableArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIntVariableResult>("azure:automation/getIntVariable:getIntVariable", args ?? new GetIntVariableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Automation Int Variable.
@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Automation
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetIntVariableResult> Invoke(GetIntVariableInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetIntVariableResult>("azure:automation/getIntVariable:getIntVariable", args ?? new GetIntVariableInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetIntVariableResult>("azure:automation/getIntVariable:getIntVariable", args ?? new GetIntVariableInvokeArgs(), options.WithDefaults());
     }
 
 

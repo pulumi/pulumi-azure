@@ -58,7 +58,7 @@ import (
 //	}
 //
 // ```
-// ### Azure Extensions
+// ## Example Usage - Azure Extensions
 //
 // ```go
 // package main

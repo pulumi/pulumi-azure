@@ -775,7 +775,7 @@ class Workspace(pulumi.CustomResource):
                 "Env": "production",
             })
         ```
-        ### Creating A Workspace With Customer Managed Key And Azure AD Admin
+        ## Example Usage - creating a workspace with Customer Managed Key and Azure AD Admin
 
         ```python
         import pulumi
@@ -929,7 +929,7 @@ class Workspace(pulumi.CustomResource):
                 "Env": "production",
             })
         ```
-        ### Creating A Workspace With Customer Managed Key And Azure AD Admin
+        ## Example Usage - creating a workspace with Customer Managed Key and Azure AD Admin
 
         ```python
         import pulumi

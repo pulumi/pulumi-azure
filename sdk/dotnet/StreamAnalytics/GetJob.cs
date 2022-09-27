@@ -41,7 +41,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure:streamanalytics/getJob:getJob", args ?? new GetJobArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure:streamanalytics/getJob:getJob", args ?? new GetJobArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Stream Analytics Job.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.StreamAnalytics
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure:streamanalytics/getJob:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure:streamanalytics/getJob:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
     }
 
 

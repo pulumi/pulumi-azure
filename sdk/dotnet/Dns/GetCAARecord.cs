@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Dns
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCAARecordResult> InvokeAsync(GetCAARecordArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCAARecordResult>("azure:dns/getCAARecord:getCAARecord", args ?? new GetCAARecordArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCAARecordResult>("azure:dns/getCAARecord:getCAARecord", args ?? new GetCAARecordArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Dns
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetCAARecordResult> Invoke(GetCAARecordInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetCAARecordResult>("azure:dns/getCAARecord:getCAARecord", args ?? new GetCAARecordInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetCAARecordResult>("azure:dns/getCAARecord:getCAARecord", args ?? new GetCAARecordInvokeArgs(), options.WithDefaults());
     }
 
 

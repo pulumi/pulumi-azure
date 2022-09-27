@@ -39,7 +39,7 @@ namespace Pulumi.Azure.PrivateDns
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSrvRecordResult> InvokeAsync(GetSrvRecordArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSrvRecordResult>("azure:privatedns/getSrvRecord:getSrvRecord", args ?? new GetSrvRecordArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSrvRecordResult>("azure:privatedns/getSrvRecord:getSrvRecord", args ?? new GetSrvRecordArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.PrivateDns
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSrvRecordResult> Invoke(GetSrvRecordInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSrvRecordResult>("azure:privatedns/getSrvRecord:getSrvRecord", args ?? new GetSrvRecordInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetSrvRecordResult>("azure:privatedns/getSrvRecord:getSrvRecord", args ?? new GetSrvRecordInvokeArgs(), options.WithDefaults());
     }
 
 

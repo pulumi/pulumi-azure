@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *     regenerationPeriod: "P1D",
  * });
  * ```
- * ### Automatically Regenerate Storage Account Access Key)
+ * ## Example Usage (automatically regenerate Storage Account access key)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

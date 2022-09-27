@@ -5,16 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetVaultArgs, GetVaultResult, GetVaultOutputArgs } from "./getVault";
-export const getVault: typeof import("./getVault").getVault = null as any;
-export const getVaultOutput: typeof import("./getVault").getVaultOutput = null as any;
+export * from "./getVault";
+export * from "./vault";
 
-export { VaultArgs, VaultState } from "./vault";
-export type Vault = import("./vault").Vault;
-export const Vault: typeof import("./vault").Vault = null as any;
-
-utilities.lazyLoad(exports, ["getVault","getVaultOutput"], () => require("./getVault"));
-utilities.lazyLoad(exports, ["Vault"], () => require("./vault"));
+// Import resources to register:
+import { Vault } from "./vault";
 
 const _module = {
     version: utilities.getVersion(),

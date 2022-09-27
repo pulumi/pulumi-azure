@@ -255,8 +255,7 @@ class Subscription(pulumi.CustomResource):
 
         > **NOTE:** Azure supports Multiple Aliases per Subscription, however, to reliably manage this resource in this provider only a single Alias is supported.
 
-        ## Example Usage
-        ### Creating A New Alias And Subscription For An Enrollment Account
+        ## Example Usage - creating a new Alias and Subscription for an Enrollment Account
 
         ```python
         import pulumi
@@ -268,7 +267,8 @@ class Subscription(pulumi.CustomResource):
             subscription_name="My Example EA Subscription",
             billing_scope_id=example_enrollment_account_scope.id)
         ```
-        ### Creating A New Alias And Subscription For A Microsoft Customer Account
+
+        ## Example Usage - creating a new Alias and Subscription for a Microsoft Customer Account
 
         ```python
         import pulumi
@@ -281,7 +281,8 @@ class Subscription(pulumi.CustomResource):
             subscription_name="My Example MCA Subscription",
             billing_scope_id=example_mca_account_scope.id)
         ```
-        ### Creating A New Alias And Subscription For A Microsoft Partner Account
+
+        ## Example Usage - creating a new Alias and Subscription for a Microsoft Partner Account
 
         ```python
         import pulumi
@@ -293,7 +294,8 @@ class Subscription(pulumi.CustomResource):
             subscription_name="My Example MPA Subscription",
             billing_scope_id=example_mpa_account_scope.id)
         ```
-        ### Adding An Alias To An Existing Subscription
+
+        ## Example Usage - adding an Alias to an existing Subscription
 
         ```python
         import pulumi
@@ -339,8 +341,7 @@ class Subscription(pulumi.CustomResource):
 
         > **NOTE:** Azure supports Multiple Aliases per Subscription, however, to reliably manage this resource in this provider only a single Alias is supported.
 
-        ## Example Usage
-        ### Creating A New Alias And Subscription For An Enrollment Account
+        ## Example Usage - creating a new Alias and Subscription for an Enrollment Account
 
         ```python
         import pulumi
@@ -352,7 +353,8 @@ class Subscription(pulumi.CustomResource):
             subscription_name="My Example EA Subscription",
             billing_scope_id=example_enrollment_account_scope.id)
         ```
-        ### Creating A New Alias And Subscription For A Microsoft Customer Account
+
+        ## Example Usage - creating a new Alias and Subscription for a Microsoft Customer Account
 
         ```python
         import pulumi
@@ -365,7 +367,8 @@ class Subscription(pulumi.CustomResource):
             subscription_name="My Example MCA Subscription",
             billing_scope_id=example_mca_account_scope.id)
         ```
-        ### Creating A New Alias And Subscription For A Microsoft Partner Account
+
+        ## Example Usage - creating a new Alias and Subscription for a Microsoft Partner Account
 
         ```python
         import pulumi
@@ -377,7 +380,8 @@ class Subscription(pulumi.CustomResource):
             subscription_name="My Example MPA Subscription",
             billing_scope_id=example_mpa_account_scope.id)
         ```
-        ### Adding An Alias To An Existing Subscription
+
+        ## Example Usage - adding an Alias to an existing Subscription
 
         ```python
         import pulumi

@@ -47,7 +47,7 @@ namespace Pulumi.Azure.KeyVault
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCertificateIssuerResult> InvokeAsync(GetCertificateIssuerArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateIssuerResult>("azure:keyvault/getCertificateIssuer:getCertificateIssuer", args ?? new GetCertificateIssuerArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateIssuerResult>("azure:keyvault/getCertificateIssuer:getCertificateIssuer", args ?? new GetCertificateIssuerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Key Vault Certificate Issuer.
@@ -85,7 +85,7 @@ namespace Pulumi.Azure.KeyVault
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetCertificateIssuerResult> Invoke(GetCertificateIssuerInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetCertificateIssuerResult>("azure:keyvault/getCertificateIssuer:getCertificateIssuer", args ?? new GetCertificateIssuerInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetCertificateIssuerResult>("azure:keyvault/getCertificateIssuer:getCertificateIssuer", args ?? new GetCertificateIssuerInvokeArgs(), options.WithDefaults());
     }
 
 

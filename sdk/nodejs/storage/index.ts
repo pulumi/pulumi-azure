@@ -5,167 +5,62 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { AccountArgs, AccountState } from "./account";
-export type Account = import("./account").Account;
-export const Account: typeof import("./account").Account = null as any;
-
-export { AccountNetworkRulesArgs, AccountNetworkRulesState } from "./accountNetworkRules";
-export type AccountNetworkRules = import("./accountNetworkRules").AccountNetworkRules;
-export const AccountNetworkRules: typeof import("./accountNetworkRules").AccountNetworkRules = null as any;
-
-export { BlobArgs, BlobState } from "./blob";
-export type Blob = import("./blob").Blob;
-export const Blob: typeof import("./blob").Blob = null as any;
-
-export { BlobInventoryPolicyArgs, BlobInventoryPolicyState } from "./blobInventoryPolicy";
-export type BlobInventoryPolicy = import("./blobInventoryPolicy").BlobInventoryPolicy;
-export const BlobInventoryPolicy: typeof import("./blobInventoryPolicy").BlobInventoryPolicy = null as any;
-
-export { ContainerArgs, ContainerState } from "./container";
-export type Container = import("./container").Container;
-export const Container: typeof import("./container").Container = null as any;
-
-export { CustomerManagedKeyArgs, CustomerManagedKeyState } from "./customerManagedKey";
-export type CustomerManagedKey = import("./customerManagedKey").CustomerManagedKey;
-export const CustomerManagedKey: typeof import("./customerManagedKey").CustomerManagedKey = null as any;
-
-export { DataLakeGen2FilesystemArgs, DataLakeGen2FilesystemState } from "./dataLakeGen2Filesystem";
-export type DataLakeGen2Filesystem = import("./dataLakeGen2Filesystem").DataLakeGen2Filesystem;
-export const DataLakeGen2Filesystem: typeof import("./dataLakeGen2Filesystem").DataLakeGen2Filesystem = null as any;
-
-export { DataLakeGen2PathArgs, DataLakeGen2PathState } from "./dataLakeGen2Path";
-export type DataLakeGen2Path = import("./dataLakeGen2Path").DataLakeGen2Path;
-export const DataLakeGen2Path: typeof import("./dataLakeGen2Path").DataLakeGen2Path = null as any;
-
-export { EncryptionScopeArgs, EncryptionScopeState } from "./encryptionScope";
-export type EncryptionScope = import("./encryptionScope").EncryptionScope;
-export const EncryptionScope: typeof import("./encryptionScope").EncryptionScope = null as any;
-
-export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
-export const getAccount: typeof import("./getAccount").getAccount = null as any;
-export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
-
-export { GetAccountBlobContainerSASArgs, GetAccountBlobContainerSASResult, GetAccountBlobContainerSASOutputArgs } from "./getAccountBlobContainerSAS";
-export const getAccountBlobContainerSAS: typeof import("./getAccountBlobContainerSAS").getAccountBlobContainerSAS = null as any;
-export const getAccountBlobContainerSASOutput: typeof import("./getAccountBlobContainerSAS").getAccountBlobContainerSASOutput = null as any;
-
-export { GetAccountSASArgs, GetAccountSASResult, GetAccountSASOutputArgs } from "./getAccountSAS";
-export const getAccountSAS: typeof import("./getAccountSAS").getAccountSAS = null as any;
-export const getAccountSASOutput: typeof import("./getAccountSAS").getAccountSASOutput = null as any;
-
-export { GetBlobArgs, GetBlobResult, GetBlobOutputArgs } from "./getBlob";
-export const getBlob: typeof import("./getBlob").getBlob = null as any;
-export const getBlobOutput: typeof import("./getBlob").getBlobOutput = null as any;
-
-export { GetEncryptionScopeArgs, GetEncryptionScopeResult, GetEncryptionScopeOutputArgs } from "./getEncryptionScope";
-export const getEncryptionScope: typeof import("./getEncryptionScope").getEncryptionScope = null as any;
-export const getEncryptionScopeOutput: typeof import("./getEncryptionScope").getEncryptionScopeOutput = null as any;
-
-export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
-export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
-export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
-
-export { GetShareArgs, GetShareResult, GetShareOutputArgs } from "./getShare";
-export const getShare: typeof import("./getShare").getShare = null as any;
-export const getShareOutput: typeof import("./getShare").getShareOutput = null as any;
-
-export { GetStorageContainerArgs, GetStorageContainerResult, GetStorageContainerOutputArgs } from "./getStorageContainer";
-export const getStorageContainer: typeof import("./getStorageContainer").getStorageContainer = null as any;
-export const getStorageContainerOutput: typeof import("./getStorageContainer").getStorageContainerOutput = null as any;
-
-export { GetSyncArgs, GetSyncResult, GetSyncOutputArgs } from "./getSync";
-export const getSync: typeof import("./getSync").getSync = null as any;
-export const getSyncOutput: typeof import("./getSync").getSyncOutput = null as any;
-
-export { GetSyncGroupArgs, GetSyncGroupResult, GetSyncGroupOutputArgs } from "./getSyncGroup";
-export const getSyncGroup: typeof import("./getSyncGroup").getSyncGroup = null as any;
-export const getSyncGroupOutput: typeof import("./getSyncGroup").getSyncGroupOutput = null as any;
-
-export { GetTableEntityArgs, GetTableEntityResult, GetTableEntityOutputArgs } from "./getTableEntity";
-export const getTableEntity: typeof import("./getTableEntity").getTableEntity = null as any;
-export const getTableEntityOutput: typeof import("./getTableEntity").getTableEntityOutput = null as any;
-
-export { ManagementPolicyArgs, ManagementPolicyState } from "./managementPolicy";
-export type ManagementPolicy = import("./managementPolicy").ManagementPolicy;
-export const ManagementPolicy: typeof import("./managementPolicy").ManagementPolicy = null as any;
-
-export { ObjectReplicationArgs, ObjectReplicationState } from "./objectReplication";
-export type ObjectReplication = import("./objectReplication").ObjectReplication;
-export const ObjectReplication: typeof import("./objectReplication").ObjectReplication = null as any;
-
-export { QueueArgs, QueueState } from "./queue";
-export type Queue = import("./queue").Queue;
-export const Queue: typeof import("./queue").Queue = null as any;
-
-export { ShareArgs, ShareState } from "./share";
-export type Share = import("./share").Share;
-export const Share: typeof import("./share").Share = null as any;
-
-export { ShareDirectoryArgs, ShareDirectoryState } from "./shareDirectory";
-export type ShareDirectory = import("./shareDirectory").ShareDirectory;
-export const ShareDirectory: typeof import("./shareDirectory").ShareDirectory = null as any;
-
-export { ShareFileArgs, ShareFileState } from "./shareFile";
-export type ShareFile = import("./shareFile").ShareFile;
-export const ShareFile: typeof import("./shareFile").ShareFile = null as any;
-
-export { SyncArgs, SyncState } from "./sync";
-export type Sync = import("./sync").Sync;
-export const Sync: typeof import("./sync").Sync = null as any;
-
-export { SyncCloudEndpointArgs, SyncCloudEndpointState } from "./syncCloudEndpoint";
-export type SyncCloudEndpoint = import("./syncCloudEndpoint").SyncCloudEndpoint;
-export const SyncCloudEndpoint: typeof import("./syncCloudEndpoint").SyncCloudEndpoint = null as any;
-
-export { SyncGroupArgs, SyncGroupState } from "./syncGroup";
-export type SyncGroup = import("./syncGroup").SyncGroup;
-export const SyncGroup: typeof import("./syncGroup").SyncGroup = null as any;
-
-export { TableArgs, TableState } from "./table";
-export type Table = import("./table").Table;
-export const Table: typeof import("./table").Table = null as any;
-
-export { TableEntityArgs, TableEntityState } from "./tableEntity";
-export type TableEntity = import("./tableEntity").TableEntity;
-export const TableEntity: typeof import("./tableEntity").TableEntity = null as any;
-
+export * from "./account";
+export * from "./accountNetworkRules";
+export * from "./blob";
+export * from "./blobInventoryPolicy";
+export * from "./container";
+export * from "./customerManagedKey";
+export * from "./dataLakeGen2Filesystem";
+export * from "./dataLakeGen2Path";
+export * from "./encryptionScope";
+export * from "./getAccount";
+export * from "./getAccountBlobContainerSAS";
+export * from "./getAccountSAS";
+export * from "./getBlob";
+export * from "./getEncryptionScope";
+export * from "./getPolicy";
+export * from "./getShare";
+export * from "./getStorageContainer";
+export * from "./getSync";
+export * from "./getSyncGroup";
+export * from "./getTableEntity";
+export * from "./managementPolicy";
+export * from "./objectReplication";
+export * from "./queue";
+export * from "./share";
+export * from "./shareDirectory";
+export * from "./shareFile";
+export * from "./sync";
+export * from "./syncCloudEndpoint";
+export * from "./syncGroup";
+export * from "./table";
+export * from "./tableEntity";
 export * from "./zMixins";
-export { ZipBlobArgs, ZipBlobState } from "./zipBlob";
-export type ZipBlob = import("./zipBlob").ZipBlob;
-export const ZipBlob: typeof import("./zipBlob").ZipBlob = null as any;
+export * from "./zipBlob";
 
-utilities.lazyLoad(exports, ["Account"], () => require("./account"));
-utilities.lazyLoad(exports, ["AccountNetworkRules"], () => require("./accountNetworkRules"));
-utilities.lazyLoad(exports, ["Blob"], () => require("./blob"));
-utilities.lazyLoad(exports, ["BlobInventoryPolicy"], () => require("./blobInventoryPolicy"));
-utilities.lazyLoad(exports, ["Container"], () => require("./container"));
-utilities.lazyLoad(exports, ["CustomerManagedKey"], () => require("./customerManagedKey"));
-utilities.lazyLoad(exports, ["DataLakeGen2Filesystem"], () => require("./dataLakeGen2Filesystem"));
-utilities.lazyLoad(exports, ["DataLakeGen2Path"], () => require("./dataLakeGen2Path"));
-utilities.lazyLoad(exports, ["EncryptionScope"], () => require("./encryptionScope"));
-utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
-utilities.lazyLoad(exports, ["getAccountBlobContainerSAS","getAccountBlobContainerSASOutput"], () => require("./getAccountBlobContainerSAS"));
-utilities.lazyLoad(exports, ["getAccountSAS","getAccountSASOutput"], () => require("./getAccountSAS"));
-utilities.lazyLoad(exports, ["getBlob","getBlobOutput"], () => require("./getBlob"));
-utilities.lazyLoad(exports, ["getEncryptionScope","getEncryptionScopeOutput"], () => require("./getEncryptionScope"));
-utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
-utilities.lazyLoad(exports, ["getShare","getShareOutput"], () => require("./getShare"));
-utilities.lazyLoad(exports, ["getStorageContainer","getStorageContainerOutput"], () => require("./getStorageContainer"));
-utilities.lazyLoad(exports, ["getSync","getSyncOutput"], () => require("./getSync"));
-utilities.lazyLoad(exports, ["getSyncGroup","getSyncGroupOutput"], () => require("./getSyncGroup"));
-utilities.lazyLoad(exports, ["getTableEntity","getTableEntityOutput"], () => require("./getTableEntity"));
-utilities.lazyLoad(exports, ["ManagementPolicy"], () => require("./managementPolicy"));
-utilities.lazyLoad(exports, ["ObjectReplication"], () => require("./objectReplication"));
-utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
-utilities.lazyLoad(exports, ["Share"], () => require("./share"));
-utilities.lazyLoad(exports, ["ShareDirectory"], () => require("./shareDirectory"));
-utilities.lazyLoad(exports, ["ShareFile"], () => require("./shareFile"));
-utilities.lazyLoad(exports, ["Sync"], () => require("./sync"));
-utilities.lazyLoad(exports, ["SyncCloudEndpoint"], () => require("./syncCloudEndpoint"));
-utilities.lazyLoad(exports, ["SyncGroup"], () => require("./syncGroup"));
-utilities.lazyLoad(exports, ["Table"], () => require("./table"));
-utilities.lazyLoad(exports, ["TableEntity"], () => require("./tableEntity"));
-utilities.lazyLoad(exports, ["ZipBlob"], () => require("./zipBlob"));
+// Import resources to register:
+import { Account } from "./account";
+import { AccountNetworkRules } from "./accountNetworkRules";
+import { Blob } from "./blob";
+import { BlobInventoryPolicy } from "./blobInventoryPolicy";
+import { Container } from "./container";
+import { CustomerManagedKey } from "./customerManagedKey";
+import { DataLakeGen2Filesystem } from "./dataLakeGen2Filesystem";
+import { DataLakeGen2Path } from "./dataLakeGen2Path";
+import { EncryptionScope } from "./encryptionScope";
+import { ManagementPolicy } from "./managementPolicy";
+import { ObjectReplication } from "./objectReplication";
+import { Queue } from "./queue";
+import { Share } from "./share";
+import { ShareDirectory } from "./shareDirectory";
+import { ShareFile } from "./shareFile";
+import { Sync } from "./sync";
+import { SyncCloudEndpoint } from "./syncCloudEndpoint";
+import { SyncGroup } from "./syncGroup";
+import { Table } from "./table";
+import { TableEntity } from "./tableEntity";
+import { ZipBlob } from "./zipBlob";
 
 const _module = {
     version: utilities.getVersion(),

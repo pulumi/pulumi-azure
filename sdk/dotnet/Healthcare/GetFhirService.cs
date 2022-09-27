@@ -15,13 +15,13 @@ namespace Pulumi.Azure.Healthcare
         /// Use this data source to access information about an existing Healthcare FHIR Service(Fast Healthcare Interoperability Resources).
         /// </summary>
         public static Task<GetFhirServiceResult> InvokeAsync(GetFhirServiceArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFhirServiceResult>("azure:healthcare/getFhirService:getFhirService", args ?? new GetFhirServiceArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFhirServiceResult>("azure:healthcare/getFhirService:getFhirService", args ?? new GetFhirServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Healthcare FHIR Service(Fast Healthcare Interoperability Resources).
         /// </summary>
         public static Output<GetFhirServiceResult> Invoke(GetFhirServiceInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetFhirServiceResult>("azure:healthcare/getFhirService:getFhirService", args ?? new GetFhirServiceInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetFhirServiceResult>("azure:healthcare/getFhirService:getFhirService", args ?? new GetFhirServiceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -5,16 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetPlacementGroupArgs, GetPlacementGroupResult, GetPlacementGroupOutputArgs } from "./getPlacementGroup";
-export const getPlacementGroup: typeof import("./getPlacementGroup").getPlacementGroup = null as any;
-export const getPlacementGroupOutput: typeof import("./getPlacementGroup").getPlacementGroupOutput = null as any;
+export * from "./getPlacementGroup";
+export * from "./placementGroup";
 
-export { PlacementGroupArgs, PlacementGroupState } from "./placementGroup";
-export type PlacementGroup = import("./placementGroup").PlacementGroup;
-export const PlacementGroup: typeof import("./placementGroup").PlacementGroup = null as any;
-
-utilities.lazyLoad(exports, ["getPlacementGroup","getPlacementGroupOutput"], () => require("./getPlacementGroup"));
-utilities.lazyLoad(exports, ["PlacementGroup"], () => require("./placementGroup"));
+// Import resources to register:
+import { PlacementGroup } from "./placementGroup";
 
 const _module = {
     version: utilities.getVersion(),

@@ -44,7 +44,7 @@ namespace Pulumi.Azure.NetApp
         /// ```
         /// </summary>
         public static Task<GetSnapshotPolicyResult> InvokeAsync(GetSnapshotPolicyArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotPolicyResult>("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", args ?? new GetSnapshotPolicyArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSnapshotPolicyResult>("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", args ?? new GetSnapshotPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Uses this data source to access information about an existing NetApp Snapshot Policy.
@@ -79,7 +79,7 @@ namespace Pulumi.Azure.NetApp
         /// ```
         /// </summary>
         public static Output<GetSnapshotPolicyResult> Invoke(GetSnapshotPolicyInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotPolicyResult>("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", args ?? new GetSnapshotPolicyInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetSnapshotPolicyResult>("azure:netapp/getSnapshotPolicy:getSnapshotPolicy", args ?? new GetSnapshotPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

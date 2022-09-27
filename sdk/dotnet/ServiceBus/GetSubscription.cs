@@ -43,7 +43,7 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSubscriptionResult> InvokeAsync(GetSubscriptionArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure:servicebus/getSubscription:getSubscription", args ?? new GetSubscriptionArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionResult>("azure:servicebus/getSubscription:getSubscription", args ?? new GetSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing ServiceBus Subscription.
@@ -77,7 +77,7 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSubscriptionResult> Invoke(GetSubscriptionInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionResult>("azure:servicebus/getSubscription:getSubscription", args ?? new GetSubscriptionInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetSubscriptionResult>("azure:servicebus/getSubscription:getSubscription", args ?? new GetSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

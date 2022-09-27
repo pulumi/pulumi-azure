@@ -377,7 +377,7 @@ class Pipeline(pulumi.CustomResource):
             resource_group_name=example_resource_group.name)
         example_pipeline = azure.datafactory.Pipeline("examplePipeline", data_factory_id=example_factory.id)
         ```
-        ### With Activities
+        ## Example Usage with Activities
 
         ```python
         import pulumi
@@ -445,7 +445,7 @@ class Pipeline(pulumi.CustomResource):
             resource_group_name=example_resource_group.name)
         example_pipeline = azure.datafactory.Pipeline("examplePipeline", data_factory_id=example_factory.id)
         ```
-        ### With Activities
+        ## Example Usage with Activities
 
         ```python
         import pulumi

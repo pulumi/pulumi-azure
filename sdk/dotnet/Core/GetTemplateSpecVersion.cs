@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Core
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTemplateSpecVersionResult> InvokeAsync(GetTemplateSpecVersionArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecVersionResult>("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecVersionResult>("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Template Spec Version.
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Core
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTemplateSpecVersionResult> Invoke(GetTemplateSpecVersionInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetTemplateSpecVersionResult>("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetTemplateSpecVersionResult>("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionInvokeArgs(), options.WithDefaults());
     }
 
 

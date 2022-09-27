@@ -12,8 +12,7 @@ namespace Pulumi.Azure.DataFactory
     /// <summary>
     /// Manages a Linked Service (connection) between Azure Databricks and Azure Data Factory.
     /// 
-    /// ## Example Usage
-    /// ### With Managed Identity &amp; New Cluster
+    /// ## Example Usage with managed identity &amp; new cluster
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -85,7 +84,8 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// });
     /// ```
-    /// ### With Access Token &amp; Existing Cluster
+    /// 
+    /// ## Example Usage with access token &amp; existing cluster
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

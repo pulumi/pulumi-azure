@@ -15,13 +15,13 @@ namespace Pulumi.Azure.Core
         /// Use this data source to access information about an existing Subscription Template Deployment.
         /// </summary>
         public static Task<GetSubscriptionTemplateDeploymentResult> InvokeAsync(GetSubscriptionTemplateDeploymentArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionTemplateDeploymentResult>("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", args ?? new GetSubscriptionTemplateDeploymentArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionTemplateDeploymentResult>("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", args ?? new GetSubscriptionTemplateDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Subscription Template Deployment.
         /// </summary>
         public static Output<GetSubscriptionTemplateDeploymentResult> Invoke(GetSubscriptionTemplateDeploymentInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionTemplateDeploymentResult>("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", args ?? new GetSubscriptionTemplateDeploymentInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetSubscriptionTemplateDeploymentResult>("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", args ?? new GetSubscriptionTemplateDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 

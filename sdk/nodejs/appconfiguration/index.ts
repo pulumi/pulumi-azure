@@ -5,36 +5,17 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { ConfigurationFeatureArgs, ConfigurationFeatureState } from "./configurationFeature";
-export type ConfigurationFeature = import("./configurationFeature").ConfigurationFeature;
-export const ConfigurationFeature: typeof import("./configurationFeature").ConfigurationFeature = null as any;
+export * from "./configurationFeature";
+export * from "./configurationKey";
+export * from "./configurationStore";
+export * from "./getConfigurationKey";
+export * from "./getConfigurationKeys";
+export * from "./getConfigurationStore";
 
-export { ConfigurationKeyArgs, ConfigurationKeyState } from "./configurationKey";
-export type ConfigurationKey = import("./configurationKey").ConfigurationKey;
-export const ConfigurationKey: typeof import("./configurationKey").ConfigurationKey = null as any;
-
-export { ConfigurationStoreArgs, ConfigurationStoreState } from "./configurationStore";
-export type ConfigurationStore = import("./configurationStore").ConfigurationStore;
-export const ConfigurationStore: typeof import("./configurationStore").ConfigurationStore = null as any;
-
-export { GetConfigurationKeyArgs, GetConfigurationKeyResult, GetConfigurationKeyOutputArgs } from "./getConfigurationKey";
-export const getConfigurationKey: typeof import("./getConfigurationKey").getConfigurationKey = null as any;
-export const getConfigurationKeyOutput: typeof import("./getConfigurationKey").getConfigurationKeyOutput = null as any;
-
-export { GetConfigurationKeysArgs, GetConfigurationKeysResult, GetConfigurationKeysOutputArgs } from "./getConfigurationKeys";
-export const getConfigurationKeys: typeof import("./getConfigurationKeys").getConfigurationKeys = null as any;
-export const getConfigurationKeysOutput: typeof import("./getConfigurationKeys").getConfigurationKeysOutput = null as any;
-
-export { GetConfigurationStoreArgs, GetConfigurationStoreResult, GetConfigurationStoreOutputArgs } from "./getConfigurationStore";
-export const getConfigurationStore: typeof import("./getConfigurationStore").getConfigurationStore = null as any;
-export const getConfigurationStoreOutput: typeof import("./getConfigurationStore").getConfigurationStoreOutput = null as any;
-
-utilities.lazyLoad(exports, ["ConfigurationFeature"], () => require("./configurationFeature"));
-utilities.lazyLoad(exports, ["ConfigurationKey"], () => require("./configurationKey"));
-utilities.lazyLoad(exports, ["ConfigurationStore"], () => require("./configurationStore"));
-utilities.lazyLoad(exports, ["getConfigurationKey","getConfigurationKeyOutput"], () => require("./getConfigurationKey"));
-utilities.lazyLoad(exports, ["getConfigurationKeys","getConfigurationKeysOutput"], () => require("./getConfigurationKeys"));
-utilities.lazyLoad(exports, ["getConfigurationStore","getConfigurationStoreOutput"], () => require("./getConfigurationStore"));
+// Import resources to register:
+import { ConfigurationFeature } from "./configurationFeature";
+import { ConfigurationKey } from "./configurationKey";
+import { ConfigurationStore } from "./configurationStore";
 
 const _module = {
     version: utilities.getVersion(),

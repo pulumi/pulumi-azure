@@ -42,7 +42,7 @@ namespace Pulumi.Azure.PrivateDns
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetZoneVirtualNetworkLinkResult> InvokeAsync(GetZoneVirtualNetworkLinkArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetZoneVirtualNetworkLinkResult>("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", args ?? new GetZoneVirtualNetworkLinkArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetZoneVirtualNetworkLinkResult>("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", args ?? new GetZoneVirtualNetworkLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Private DNS zone Virtual Network Link. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.PrivateDns
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetZoneVirtualNetworkLinkResult> Invoke(GetZoneVirtualNetworkLinkInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetZoneVirtualNetworkLinkResult>("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", args ?? new GetZoneVirtualNetworkLinkInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetZoneVirtualNetworkLinkResult>("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", args ?? new GetZoneVirtualNetworkLinkInvokeArgs(), options.WithDefaults());
     }
 
 

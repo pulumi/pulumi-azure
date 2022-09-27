@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Registering A Preview Feature)
+ * ## Example Usage (Registering a Preview Feature)
  * ```java
  * package generated_program;
  * 

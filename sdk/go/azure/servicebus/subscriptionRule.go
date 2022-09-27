@@ -13,8 +13,7 @@ import (
 
 // Manages a ServiceBus Subscription Rule.
 //
-// ## Example Usage
-// ### SQL Filter)
+// ## Example Usage (SQL Filter)
 //
 // ```go
 // package main
@@ -73,7 +72,8 @@ import (
 //	}
 //
 // ```
-// ### Correlation Filter)
+//
+// ## Example Usage (Correlation Filter)
 //
 // ```go
 // package main

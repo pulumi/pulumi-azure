@@ -39,7 +39,7 @@ namespace Pulumi.Azure.PrivateDns
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTxtRecordResult> InvokeAsync(GetTxtRecordArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTxtRecordResult>("azure:privatedns/getTxtRecord:getTxtRecord", args ?? new GetTxtRecordArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTxtRecordResult>("azure:privatedns/getTxtRecord:getTxtRecord", args ?? new GetTxtRecordArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.PrivateDns
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTxtRecordResult> Invoke(GetTxtRecordInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetTxtRecordResult>("azure:privatedns/getTxtRecord:getTxtRecord", args ?? new GetTxtRecordInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetTxtRecordResult>("azure:privatedns/getTxtRecord:getTxtRecord", args ?? new GetTxtRecordInvokeArgs(), options.WithDefaults());
     }
 
 

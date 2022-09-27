@@ -5,26 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
-export const getService: typeof import("./getService").getService = null as any;
-export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+export * from "./getService";
+export * from "./replicaSet";
+export * from "./service";
+export * from "./serviceTrust";
 
-export { ReplicaSetArgs, ReplicaSetState } from "./replicaSet";
-export type ReplicaSet = import("./replicaSet").ReplicaSet;
-export const ReplicaSet: typeof import("./replicaSet").ReplicaSet = null as any;
-
-export { ServiceArgs, ServiceState } from "./service";
-export type Service = import("./service").Service;
-export const Service: typeof import("./service").Service = null as any;
-
-export { ServiceTrustArgs, ServiceTrustState } from "./serviceTrust";
-export type ServiceTrust = import("./serviceTrust").ServiceTrust;
-export const ServiceTrust: typeof import("./serviceTrust").ServiceTrust = null as any;
-
-utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
-utilities.lazyLoad(exports, ["ReplicaSet"], () => require("./replicaSet"));
-utilities.lazyLoad(exports, ["Service"], () => require("./service"));
-utilities.lazyLoad(exports, ["ServiceTrust"], () => require("./serviceTrust"));
+// Import resources to register:
+import { ReplicaSet } from "./replicaSet";
+import { Service } from "./service";
+import { ServiceTrust } from "./serviceTrust";
 
 const _module = {
     version: utilities.getVersion(),

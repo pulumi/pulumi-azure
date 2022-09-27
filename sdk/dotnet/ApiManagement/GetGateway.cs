@@ -43,7 +43,7 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetGatewayResult> InvokeAsync(GetGatewayArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure:apimanagement/getGateway:getGateway", args ?? new GetGatewayArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure:apimanagement/getGateway:getGateway", args ?? new GetGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing API Management Gateway.
@@ -77,7 +77,7 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("azure:apimanagement/getGateway:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("azure:apimanagement/getGateway:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

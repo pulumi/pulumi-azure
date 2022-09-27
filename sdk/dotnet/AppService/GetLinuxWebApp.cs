@@ -41,7 +41,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLinuxWebAppResult> InvokeAsync(GetLinuxWebAppArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinuxWebAppResult>("azure:appservice/getLinuxWebApp:getLinuxWebApp", args ?? new GetLinuxWebAppArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLinuxWebAppResult>("azure:appservice/getLinuxWebApp:getLinuxWebApp", args ?? new GetLinuxWebAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Linux Web App.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetLinuxWebAppResult> Invoke(GetLinuxWebAppInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetLinuxWebAppResult>("azure:appservice/getLinuxWebApp:getLinuxWebApp", args ?? new GetLinuxWebAppInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetLinuxWebAppResult>("azure:appservice/getLinuxWebApp:getLinuxWebApp", args ?? new GetLinuxWebAppInvokeArgs(), options.WithDefaults());
     }
 
 

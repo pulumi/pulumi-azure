@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### With Storage Account Behind VNet And Firewall
+ * ## Example Usage with storage account behind VNet and firewall
  * ```java
  * package generated_program;
  * 

@@ -5,56 +5,28 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { ClusterArgs, ClusterState } from "./cluster";
-export type Cluster = import("./cluster").Cluster;
-export const Cluster: typeof import("./cluster").Cluster = null as any;
+export * from "./cluster";
+export * from "./clusterCustomerManagedKey";
+export * from "./dataExportRule";
+export * from "./dataSourceWindowsEvent";
+export * from "./dataSourceWindowsPerformanceCounter";
+export * from "./linkedService";
+export * from "./linkedStorageAccount";
+export * from "./queryPack";
+export * from "./savedSearch";
+export * from "./storageInsights";
 
-export { ClusterCustomerManagedKeyArgs, ClusterCustomerManagedKeyState } from "./clusterCustomerManagedKey";
-export type ClusterCustomerManagedKey = import("./clusterCustomerManagedKey").ClusterCustomerManagedKey;
-export const ClusterCustomerManagedKey: typeof import("./clusterCustomerManagedKey").ClusterCustomerManagedKey = null as any;
-
-export { DataExportRuleArgs, DataExportRuleState } from "./dataExportRule";
-export type DataExportRule = import("./dataExportRule").DataExportRule;
-export const DataExportRule: typeof import("./dataExportRule").DataExportRule = null as any;
-
-export { DataSourceWindowsEventArgs, DataSourceWindowsEventState } from "./dataSourceWindowsEvent";
-export type DataSourceWindowsEvent = import("./dataSourceWindowsEvent").DataSourceWindowsEvent;
-export const DataSourceWindowsEvent: typeof import("./dataSourceWindowsEvent").DataSourceWindowsEvent = null as any;
-
-export { DataSourceWindowsPerformanceCounterArgs, DataSourceWindowsPerformanceCounterState } from "./dataSourceWindowsPerformanceCounter";
-export type DataSourceWindowsPerformanceCounter = import("./dataSourceWindowsPerformanceCounter").DataSourceWindowsPerformanceCounter;
-export const DataSourceWindowsPerformanceCounter: typeof import("./dataSourceWindowsPerformanceCounter").DataSourceWindowsPerformanceCounter = null as any;
-
-export { LinkedServiceArgs, LinkedServiceState } from "./linkedService";
-export type LinkedService = import("./linkedService").LinkedService;
-export const LinkedService: typeof import("./linkedService").LinkedService = null as any;
-
-export { LinkedStorageAccountArgs, LinkedStorageAccountState } from "./linkedStorageAccount";
-export type LinkedStorageAccount = import("./linkedStorageAccount").LinkedStorageAccount;
-export const LinkedStorageAccount: typeof import("./linkedStorageAccount").LinkedStorageAccount = null as any;
-
-export { QueryPackArgs, QueryPackState } from "./queryPack";
-export type QueryPack = import("./queryPack").QueryPack;
-export const QueryPack: typeof import("./queryPack").QueryPack = null as any;
-
-export { SavedSearchArgs, SavedSearchState } from "./savedSearch";
-export type SavedSearch = import("./savedSearch").SavedSearch;
-export const SavedSearch: typeof import("./savedSearch").SavedSearch = null as any;
-
-export { StorageInsightsArgs, StorageInsightsState } from "./storageInsights";
-export type StorageInsights = import("./storageInsights").StorageInsights;
-export const StorageInsights: typeof import("./storageInsights").StorageInsights = null as any;
-
-utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
-utilities.lazyLoad(exports, ["ClusterCustomerManagedKey"], () => require("./clusterCustomerManagedKey"));
-utilities.lazyLoad(exports, ["DataExportRule"], () => require("./dataExportRule"));
-utilities.lazyLoad(exports, ["DataSourceWindowsEvent"], () => require("./dataSourceWindowsEvent"));
-utilities.lazyLoad(exports, ["DataSourceWindowsPerformanceCounter"], () => require("./dataSourceWindowsPerformanceCounter"));
-utilities.lazyLoad(exports, ["LinkedService"], () => require("./linkedService"));
-utilities.lazyLoad(exports, ["LinkedStorageAccount"], () => require("./linkedStorageAccount"));
-utilities.lazyLoad(exports, ["QueryPack"], () => require("./queryPack"));
-utilities.lazyLoad(exports, ["SavedSearch"], () => require("./savedSearch"));
-utilities.lazyLoad(exports, ["StorageInsights"], () => require("./storageInsights"));
+// Import resources to register:
+import { Cluster } from "./cluster";
+import { ClusterCustomerManagedKey } from "./clusterCustomerManagedKey";
+import { DataExportRule } from "./dataExportRule";
+import { DataSourceWindowsEvent } from "./dataSourceWindowsEvent";
+import { DataSourceWindowsPerformanceCounter } from "./dataSourceWindowsPerformanceCounter";
+import { LinkedService } from "./linkedService";
+import { LinkedStorageAccount } from "./linkedStorageAccount";
+import { QueryPack } from "./queryPack";
+import { SavedSearch } from "./savedSearch";
+import { StorageInsights } from "./storageInsights";
 
 const _module = {
     version: utilities.getVersion(),

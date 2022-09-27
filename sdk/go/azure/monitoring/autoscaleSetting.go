@@ -176,7 +176,7 @@ import (
 //	}
 //
 // ```
-// ### For Fixed Dates)
+// ## Example Usage (for fixed dates)
 //
 // ```go
 // package main

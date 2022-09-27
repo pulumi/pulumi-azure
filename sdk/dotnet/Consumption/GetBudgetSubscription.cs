@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Consumption
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBudgetSubscriptionResult> InvokeAsync(GetBudgetSubscriptionArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBudgetSubscriptionResult>("azure:consumption/getBudgetSubscription:getBudgetSubscription", args ?? new GetBudgetSubscriptionArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBudgetSubscriptionResult>("azure:consumption/getBudgetSubscription:getBudgetSubscription", args ?? new GetBudgetSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Consumption Budget for a specific subscription.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Consumption
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetBudgetSubscriptionResult> Invoke(GetBudgetSubscriptionInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetBudgetSubscriptionResult>("azure:consumption/getBudgetSubscription:getBudgetSubscription", args ?? new GetBudgetSubscriptionInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetBudgetSubscriptionResult>("azure:consumption/getBudgetSubscription:getBudgetSubscription", args ?? new GetBudgetSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

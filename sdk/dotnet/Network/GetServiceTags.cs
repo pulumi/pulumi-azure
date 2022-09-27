@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceTagsResult> InvokeAsync(GetServiceTagsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceTagsResult>("azure:network/getServiceTags:getServiceTags", args ?? new GetServiceTagsArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceTagsResult>("azure:network/getServiceTags:getServiceTags", args ?? new GetServiceTagsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about Service Tags.
@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServiceTagsResult> Invoke(GetServiceTagsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetServiceTagsResult>("azure:network/getServiceTags:getServiceTags", args ?? new GetServiceTagsInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetServiceTagsResult>("azure:network/getServiceTags:getServiceTags", args ?? new GetServiceTagsInvokeArgs(), options.WithDefaults());
     }
 
 

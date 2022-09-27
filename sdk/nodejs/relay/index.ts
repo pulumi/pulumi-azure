@@ -5,26 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { HybridConnectionArgs, HybridConnectionState } from "./hybridConnection";
-export type HybridConnection = import("./hybridConnection").HybridConnection;
-export const HybridConnection: typeof import("./hybridConnection").HybridConnection = null as any;
+export * from "./hybridConnection";
+export * from "./hybridConnectionAuthorizationRule";
+export * from "./namespace";
+export * from "./namespaceAuthorizationRule";
 
-export { HybridConnectionAuthorizationRuleArgs, HybridConnectionAuthorizationRuleState } from "./hybridConnectionAuthorizationRule";
-export type HybridConnectionAuthorizationRule = import("./hybridConnectionAuthorizationRule").HybridConnectionAuthorizationRule;
-export const HybridConnectionAuthorizationRule: typeof import("./hybridConnectionAuthorizationRule").HybridConnectionAuthorizationRule = null as any;
-
-export { NamespaceArgs, NamespaceState } from "./namespace";
-export type Namespace = import("./namespace").Namespace;
-export const Namespace: typeof import("./namespace").Namespace = null as any;
-
-export { NamespaceAuthorizationRuleArgs, NamespaceAuthorizationRuleState } from "./namespaceAuthorizationRule";
-export type NamespaceAuthorizationRule = import("./namespaceAuthorizationRule").NamespaceAuthorizationRule;
-export const NamespaceAuthorizationRule: typeof import("./namespaceAuthorizationRule").NamespaceAuthorizationRule = null as any;
-
-utilities.lazyLoad(exports, ["HybridConnection"], () => require("./hybridConnection"));
-utilities.lazyLoad(exports, ["HybridConnectionAuthorizationRule"], () => require("./hybridConnectionAuthorizationRule"));
-utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
-utilities.lazyLoad(exports, ["NamespaceAuthorizationRule"], () => require("./namespaceAuthorizationRule"));
+// Import resources to register:
+import { HybridConnection } from "./hybridConnection";
+import { HybridConnectionAuthorizationRule } from "./hybridConnectionAuthorizationRule";
+import { Namespace } from "./namespace";
+import { NamespaceAuthorizationRule } from "./namespaceAuthorizationRule";
 
 const _module = {
     version: utilities.getVersion(),

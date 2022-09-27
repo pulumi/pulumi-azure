@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Network
         /// ```
         /// </summary>
         public static Task<GetVirtualHubResult> InvokeAsync(GetVirtualHubArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubResult>("azure:network/getVirtualHub:getVirtualHub", args ?? new GetVirtualHubArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubResult>("azure:network/getVirtualHub:getVirtualHub", args ?? new GetVirtualHubArgs(), options.WithDefaults());
 
         /// <summary>
         /// Uses this data source to access information about an existing Virtual Hub.
@@ -65,7 +65,7 @@ namespace Pulumi.Azure.Network
         /// ```
         /// </summary>
         public static Output<GetVirtualHubResult> Invoke(GetVirtualHubInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHubResult>("azure:network/getVirtualHub:getVirtualHub", args ?? new GetVirtualHubInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualHubResult>("azure:network/getVirtualHub:getVirtualHub", args ?? new GetVirtualHubInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -5,57 +5,25 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { DomainArgs, DomainState } from "./domain";
-export type Domain = import("./domain").Domain;
-export const Domain: typeof import("./domain").Domain = null as any;
-
-export { DomainTopicArgs, DomainTopicState } from "./domainTopic";
-export type DomainTopic = import("./domainTopic").DomainTopic;
-export const DomainTopic: typeof import("./domainTopic").DomainTopic = null as any;
-
-export { EventSubscriptionArgs, EventSubscriptionState } from "./eventSubscription";
-export type EventSubscription = import("./eventSubscription").EventSubscription;
-export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
-
-export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
-export const getDomain: typeof import("./getDomain").getDomain = null as any;
-export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
-
-export { GetDomainTopicArgs, GetDomainTopicResult, GetDomainTopicOutputArgs } from "./getDomainTopic";
-export const getDomainTopic: typeof import("./getDomainTopic").getDomainTopic = null as any;
-export const getDomainTopicOutput: typeof import("./getDomainTopic").getDomainTopicOutput = null as any;
-
-export { GetSystemTopicArgs, GetSystemTopicResult, GetSystemTopicOutputArgs } from "./getSystemTopic";
-export const getSystemTopic: typeof import("./getSystemTopic").getSystemTopic = null as any;
-export const getSystemTopicOutput: typeof import("./getSystemTopic").getSystemTopicOutput = null as any;
-
-export { GetTopicArgs, GetTopicResult, GetTopicOutputArgs } from "./getTopic";
-export const getTopic: typeof import("./getTopic").getTopic = null as any;
-export const getTopicOutput: typeof import("./getTopic").getTopicOutput = null as any;
-
-export { SystemTopicArgs, SystemTopicState } from "./systemTopic";
-export type SystemTopic = import("./systemTopic").SystemTopic;
-export const SystemTopic: typeof import("./systemTopic").SystemTopic = null as any;
-
-export { SystemTopicEventSubscriptionArgs, SystemTopicEventSubscriptionState } from "./systemTopicEventSubscription";
-export type SystemTopicEventSubscription = import("./systemTopicEventSubscription").SystemTopicEventSubscription;
-export const SystemTopicEventSubscription: typeof import("./systemTopicEventSubscription").SystemTopicEventSubscription = null as any;
-
-export { TopicArgs, TopicState } from "./topic";
-export type Topic = import("./topic").Topic;
-export const Topic: typeof import("./topic").Topic = null as any;
-
+export * from "./domain";
+export * from "./domainTopic";
+export * from "./eventSubscription";
+export * from "./getDomain";
+export * from "./getDomainTopic";
+export * from "./getSystemTopic";
+export * from "./getTopic";
+export * from "./systemTopic";
+export * from "./systemTopicEventSubscription";
+export * from "./topic";
 export * from "./zMixins";
-utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
-utilities.lazyLoad(exports, ["DomainTopic"], () => require("./domainTopic"));
-utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
-utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
-utilities.lazyLoad(exports, ["getDomainTopic","getDomainTopicOutput"], () => require("./getDomainTopic"));
-utilities.lazyLoad(exports, ["getSystemTopic","getSystemTopicOutput"], () => require("./getSystemTopic"));
-utilities.lazyLoad(exports, ["getTopic","getTopicOutput"], () => require("./getTopic"));
-utilities.lazyLoad(exports, ["SystemTopic"], () => require("./systemTopic"));
-utilities.lazyLoad(exports, ["SystemTopicEventSubscription"], () => require("./systemTopicEventSubscription"));
-utilities.lazyLoad(exports, ["Topic"], () => require("./topic"));
+
+// Import resources to register:
+import { Domain } from "./domain";
+import { DomainTopic } from "./domainTopic";
+import { EventSubscription } from "./eventSubscription";
+import { SystemTopic } from "./systemTopic";
+import { SystemTopicEventSubscription } from "./systemTopicEventSubscription";
+import { Topic } from "./topic";
 
 const _module = {
     version: utilities.getVersion(),

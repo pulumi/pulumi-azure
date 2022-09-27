@@ -37,8 +37,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** Data Disks can be attached either directly on the `azure.compute.VirtualMachine` resource, or using the `azure.compute.DataDiskAttachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
  * 
- * ## Example Usage
- * ### From An Azure Platform Image)
+ * ## Example Usage (from an Azure Platform Image)
  * 
  * This example provisions a Virtual Machine with Managed Disks.
  * ```java

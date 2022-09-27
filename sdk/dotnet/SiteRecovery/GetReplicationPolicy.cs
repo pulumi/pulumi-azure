@@ -38,7 +38,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetReplicationPolicyResult> InvokeAsync(GetReplicationPolicyArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationPolicyResult>("azure:siterecovery/getReplicationPolicy:getReplicationPolicy", args ?? new GetReplicationPolicyArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationPolicyResult>("azure:siterecovery/getReplicationPolicy:getReplicationPolicy", args ?? new GetReplicationPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Azure Site Recovery replication policy.
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.SiteRecovery
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetReplicationPolicyResult> Invoke(GetReplicationPolicyInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationPolicyResult>("azure:siterecovery/getReplicationPolicy:getReplicationPolicy", args ?? new GetReplicationPolicyInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetReplicationPolicyResult>("azure:siterecovery/getReplicationPolicy:getReplicationPolicy", args ?? new GetReplicationPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

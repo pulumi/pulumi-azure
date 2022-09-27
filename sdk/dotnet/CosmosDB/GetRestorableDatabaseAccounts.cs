@@ -41,7 +41,7 @@ namespace Pulumi.Azure.CosmosDB
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetRestorableDatabaseAccountsResult> InvokeAsync(GetRestorableDatabaseAccountsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRestorableDatabaseAccountsResult>("azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts", args ?? new GetRestorableDatabaseAccountsArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRestorableDatabaseAccountsResult>("azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts", args ?? new GetRestorableDatabaseAccountsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about Cosmos DB Restorable Database Accounts.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.CosmosDB
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetRestorableDatabaseAccountsResult> Invoke(GetRestorableDatabaseAccountsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetRestorableDatabaseAccountsResult>("azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts", args ?? new GetRestorableDatabaseAccountsInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetRestorableDatabaseAccountsResult>("azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts", args ?? new GetRestorableDatabaseAccountsInvokeArgs(), options.WithDefaults());
     }
 
 

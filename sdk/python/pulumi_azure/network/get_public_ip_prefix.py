@@ -143,8 +143,7 @@ def get_public_ip_prefix(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Public IP Prefix.
 
-    ## Example Usage
-    ### Reference An Existing)
+    ## Example Usage (reference an existing)
 
     ```python
     import pulumi
@@ -184,8 +183,7 @@ def get_public_ip_prefix_output(name: Optional[pulumi.Input[str]] = None,
     """
     Use this data source to access information about an existing Public IP Prefix.
 
-    ## Example Usage
-    ### Reference An Existing)
+    ## Example Usage (reference an existing)
 
     ```python
     import pulumi

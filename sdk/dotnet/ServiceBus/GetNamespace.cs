@@ -41,7 +41,7 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure:servicebus/getNamespace:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure:servicebus/getNamespace:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing ServiceBus Namespace.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure:servicebus/getNamespace:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure:servicebus/getNamespace:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 

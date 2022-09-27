@@ -5,26 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { AnalyticsSolutionArgs, AnalyticsSolutionState } from "./analyticsSolution";
-export type AnalyticsSolution = import("./analyticsSolution").AnalyticsSolution;
-export const AnalyticsSolution: typeof import("./analyticsSolution").AnalyticsSolution = null as any;
+export * from "./analyticsSolution";
+export * from "./analyticsWorkspace";
+export * from "./getAnalyticsWorkspace";
+export * from "./queryPackQuery";
 
-export { AnalyticsWorkspaceArgs, AnalyticsWorkspaceState } from "./analyticsWorkspace";
-export type AnalyticsWorkspace = import("./analyticsWorkspace").AnalyticsWorkspace;
-export const AnalyticsWorkspace: typeof import("./analyticsWorkspace").AnalyticsWorkspace = null as any;
-
-export { GetAnalyticsWorkspaceArgs, GetAnalyticsWorkspaceResult, GetAnalyticsWorkspaceOutputArgs } from "./getAnalyticsWorkspace";
-export const getAnalyticsWorkspace: typeof import("./getAnalyticsWorkspace").getAnalyticsWorkspace = null as any;
-export const getAnalyticsWorkspaceOutput: typeof import("./getAnalyticsWorkspace").getAnalyticsWorkspaceOutput = null as any;
-
-export { QueryPackQueryArgs, QueryPackQueryState } from "./queryPackQuery";
-export type QueryPackQuery = import("./queryPackQuery").QueryPackQuery;
-export const QueryPackQuery: typeof import("./queryPackQuery").QueryPackQuery = null as any;
-
-utilities.lazyLoad(exports, ["AnalyticsSolution"], () => require("./analyticsSolution"));
-utilities.lazyLoad(exports, ["AnalyticsWorkspace"], () => require("./analyticsWorkspace"));
-utilities.lazyLoad(exports, ["getAnalyticsWorkspace","getAnalyticsWorkspaceOutput"], () => require("./getAnalyticsWorkspace"));
-utilities.lazyLoad(exports, ["QueryPackQuery"], () => require("./queryPackQuery"));
+// Import resources to register:
+import { AnalyticsSolution } from "./analyticsSolution";
+import { AnalyticsWorkspace } from "./analyticsWorkspace";
+import { QueryPackQuery } from "./queryPackQuery";
 
 const _module = {
     version: utilities.getVersion(),

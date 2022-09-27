@@ -11,6 +11,7 @@ namespace Pulumi.Azure.AppService
 {
     /// <summary>
     /// ## Example Usage
+    /// 
     /// ### CNAME validation
     /// 
     /// ```csharp

@@ -11,8 +11,7 @@ import * as utilities from "../utilities";
  *
  * > **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.
  *
- * ## Example Usage
- * ### With Service Managed Key
+ * ## Example Usage with Service Managed Key
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

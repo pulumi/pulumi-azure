@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Cdn
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetProfileResult> InvokeAsync(GetProfileArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure:cdn/getProfile:getProfile", args ?? new GetProfileArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProfileResult>("azure:cdn/getProfile:getProfile", args ?? new GetProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing CDN Profile.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Cdn
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure:cdn/getProfile:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetProfileResult>("azure:cdn/getProfile:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
     }
 
 

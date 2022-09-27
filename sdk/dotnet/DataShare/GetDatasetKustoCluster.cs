@@ -41,7 +41,7 @@ namespace Pulumi.Azure.DataShare
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDatasetKustoClusterResult> InvokeAsync(GetDatasetKustoClusterArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatasetKustoClusterResult>("azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster", args ?? new GetDatasetKustoClusterArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDatasetKustoClusterResult>("azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster", args ?? new GetDatasetKustoClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Data Share Kusto Cluster Dataset.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.DataShare
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDatasetKustoClusterResult> Invoke(GetDatasetKustoClusterInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetDatasetKustoClusterResult>("azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster", args ?? new GetDatasetKustoClusterInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetDatasetKustoClusterResult>("azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster", args ?? new GetDatasetKustoClusterInvokeArgs(), options.WithDefaults());
     }
 
 

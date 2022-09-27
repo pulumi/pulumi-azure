@@ -175,7 +175,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Repeating On Weekends)
+ * ## Example Usage (repeating on weekends)
  * 
  * ```java
  * package generated_program;
@@ -332,7 +332,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### For Fixed Dates)
+ * 
+ * ## Example Usage (for fixed dates)
  * ```java
  * package generated_program;
  * 

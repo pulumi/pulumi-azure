@@ -5,11 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { EmbeddedArgs, EmbeddedState } from "./embedded";
-export type Embedded = import("./embedded").Embedded;
-export const Embedded: typeof import("./embedded").Embedded = null as any;
+export * from "./embedded";
 
-utilities.lazyLoad(exports, ["Embedded"], () => require("./embedded"));
+// Import resources to register:
+import { Embedded } from "./embedded";
 
 const _module = {
     version: utilities.getVersion(),

@@ -42,7 +42,7 @@ namespace Pulumi.Azure.DatabaseMigration
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure:databasemigration/getProject:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azure:databasemigration/getProject:getProject", args ?? new GetProjectArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Database Migration Project.
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.DatabaseMigration
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure:databasemigration/getProject:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azure:databasemigration/getProject:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
     }
 
 

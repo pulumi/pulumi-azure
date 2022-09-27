@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### With Multiple Outputs
+ * ## Example Usage with Multiple Outputs
  * ```java
  * package generated_program;
  * 

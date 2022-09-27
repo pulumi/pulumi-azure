@@ -5,11 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { AccountArgs, AccountState } from "./account";
-export type Account = import("./account").Account;
-export const Account: typeof import("./account").Account = null as any;
+export * from "./account";
 
-utilities.lazyLoad(exports, ["Account"], () => require("./account"));
+// Import resources to register:
+import { Account } from "./account";
 
 const _module = {
     version: utilities.getVersion(),

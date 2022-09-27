@@ -5,16 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { AnalyzerArgs, AnalyzerState } from "./analyzer";
-export type Analyzer = import("./analyzer").Analyzer;
-export const Analyzer: typeof import("./analyzer").Analyzer = null as any;
+export * from "./analyzer";
+export * from "./edgeModule";
 
-export { EdgeModuleArgs, EdgeModuleState } from "./edgeModule";
-export type EdgeModule = import("./edgeModule").EdgeModule;
-export const EdgeModule: typeof import("./edgeModule").EdgeModule = null as any;
-
-utilities.lazyLoad(exports, ["Analyzer"], () => require("./analyzer"));
-utilities.lazyLoad(exports, ["EdgeModule"], () => require("./edgeModule"));
+// Import resources to register:
+import { Analyzer } from "./analyzer";
+import { EdgeModule } from "./edgeModule";
 
 const _module = {
     version: utilities.getVersion(),

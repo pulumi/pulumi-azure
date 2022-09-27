@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Backup
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPolicyFileshareResult> InvokeAsync(GetPolicyFileshareArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyFileshareResult>("azure:backup/getPolicyFileshare:getPolicyFileshare", args ?? new GetPolicyFileshareArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyFileshareResult>("azure:backup/getPolicyFileshare:getPolicyFileshare", args ?? new GetPolicyFileshareArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing File Share Backup Policy.
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Backup
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPolicyFileshareResult> Invoke(GetPolicyFileshareInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyFileshareResult>("azure:backup/getPolicyFileshare:getPolicyFileshare", args ?? new GetPolicyFileshareInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetPolicyFileshareResult>("azure:backup/getPolicyFileshare:getPolicyFileshare", args ?? new GetPolicyFileshareInvokeArgs(), options.WithDefaults());
     }
 
 

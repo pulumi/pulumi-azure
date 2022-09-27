@@ -21,8 +21,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a ServiceBus Subscription Rule.
  * 
- * ## Example Usage
- * ### SQL Filter)
+ * ## Example Usage (SQL Filter)
  * ```java
  * package generated_program;
  * 
@@ -82,7 +81,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Correlation Filter)
+ * 
+ * ## Example Usage (Correlation Filter)
  * ```java
  * package generated_program;
  * 

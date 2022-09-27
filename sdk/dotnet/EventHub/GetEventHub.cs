@@ -42,7 +42,7 @@ namespace Pulumi.Azure.EventHub
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEventHubResult> InvokeAsync(GetEventHubArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventHubResult>("azure:eventhub/getEventHub:getEventHub", args ?? new GetEventHubArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEventHubResult>("azure:eventhub/getEventHub:getEventHub", args ?? new GetEventHubArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing EventHub.
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.EventHub
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetEventHubResult> Invoke(GetEventHubInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetEventHubResult>("azure:eventhub/getEventHub:getEventHub", args ?? new GetEventHubInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetEventHubResult>("azure:eventhub/getEventHub:getEventHub", args ?? new GetEventHubInvokeArgs(), options.WithDefaults());
     }
 
 

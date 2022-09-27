@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Automatically Regenerate Storage Account Access Key)
+ * ## Example Usage (automatically regenerate Storage Account access key)
  * ```java
  * package generated_program;
  * 

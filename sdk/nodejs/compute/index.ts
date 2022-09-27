@@ -5,256 +5,90 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { AvailabilitySetArgs, AvailabilitySetState } from "./availabilitySet";
-export type AvailabilitySet = import("./availabilitySet").AvailabilitySet;
-export const AvailabilitySet: typeof import("./availabilitySet").AvailabilitySet = null as any;
+export * from "./availabilitySet";
+export * from "./bastionHost";
+export * from "./capacityReservation";
+export * from "./capacityReservationGroup";
+export * from "./dataDiskAttachment";
+export * from "./dedicatedHost";
+export * from "./dedicatedHostGroup";
+export * from "./diskAccess";
+export * from "./diskEncryptionSet";
+export * from "./diskPool";
+export * from "./diskPoolIscsiTarget";
+export * from "./diskPoolIscsiTargetLun";
+export * from "./diskPoolManagedDiskAttachment";
+export * from "./extension";
+export * from "./galleryApplication";
+export * from "./galleryApplicationVersion";
+export * from "./getAvailabilitySet";
+export * from "./getConfidentialLedger";
+export * from "./getDedicatedHost";
+export * from "./getDedicatedHostGroup";
+export * from "./getDiskAccess";
+export * from "./getDiskEncryptionSet";
+export * from "./getImage";
+export * from "./getImages";
+export * from "./getManagedDisk";
+export * from "./getPlatformImage";
+export * from "./getSharedImage";
+export * from "./getSharedImageGallery";
+export * from "./getSharedImageVersion";
+export * from "./getSharedImageVersions";
+export * from "./getSnapshot";
+export * from "./getSshPublicKey";
+export * from "./getVirtualMachine";
+export * from "./getVirtualMachineScaleSet";
+export * from "./image";
+export * from "./linuxVirtualMachine";
+export * from "./linuxVirtualMachineScaleSet";
+export * from "./managedDisk";
+export * from "./managedDiskSasToken";
+export * from "./orchestratedVirtualMachineScaleSet";
+export * from "./scaleSet";
+export * from "./sharedImage";
+export * from "./sharedImageGallery";
+export * from "./sharedImageVersion";
+export * from "./snapshot";
+export * from "./sshPublicKey";
+export * from "./virtualMachine";
+export * from "./virtualMachineScaleSetExtension";
+export * from "./windowsVirtualMachine";
+export * from "./windowsVirtualMachineScaleSet";
 
-export { BastionHostArgs, BastionHostState } from "./bastionHost";
-export type BastionHost = import("./bastionHost").BastionHost;
-export const BastionHost: typeof import("./bastionHost").BastionHost = null as any;
-
-export { CapacityReservationArgs, CapacityReservationState } from "./capacityReservation";
-export type CapacityReservation = import("./capacityReservation").CapacityReservation;
-export const CapacityReservation: typeof import("./capacityReservation").CapacityReservation = null as any;
-
-export { CapacityReservationGroupArgs, CapacityReservationGroupState } from "./capacityReservationGroup";
-export type CapacityReservationGroup = import("./capacityReservationGroup").CapacityReservationGroup;
-export const CapacityReservationGroup: typeof import("./capacityReservationGroup").CapacityReservationGroup = null as any;
-
-export { DataDiskAttachmentArgs, DataDiskAttachmentState } from "./dataDiskAttachment";
-export type DataDiskAttachment = import("./dataDiskAttachment").DataDiskAttachment;
-export const DataDiskAttachment: typeof import("./dataDiskAttachment").DataDiskAttachment = null as any;
-
-export { DedicatedHostArgs, DedicatedHostState } from "./dedicatedHost";
-export type DedicatedHost = import("./dedicatedHost").DedicatedHost;
-export const DedicatedHost: typeof import("./dedicatedHost").DedicatedHost = null as any;
-
-export { DedicatedHostGroupArgs, DedicatedHostGroupState } from "./dedicatedHostGroup";
-export type DedicatedHostGroup = import("./dedicatedHostGroup").DedicatedHostGroup;
-export const DedicatedHostGroup: typeof import("./dedicatedHostGroup").DedicatedHostGroup = null as any;
-
-export { DiskAccessArgs, DiskAccessState } from "./diskAccess";
-export type DiskAccess = import("./diskAccess").DiskAccess;
-export const DiskAccess: typeof import("./diskAccess").DiskAccess = null as any;
-
-export { DiskEncryptionSetArgs, DiskEncryptionSetState } from "./diskEncryptionSet";
-export type DiskEncryptionSet = import("./diskEncryptionSet").DiskEncryptionSet;
-export const DiskEncryptionSet: typeof import("./diskEncryptionSet").DiskEncryptionSet = null as any;
-
-export { DiskPoolArgs, DiskPoolState } from "./diskPool";
-export type DiskPool = import("./diskPool").DiskPool;
-export const DiskPool: typeof import("./diskPool").DiskPool = null as any;
-
-export { DiskPoolIscsiTargetArgs, DiskPoolIscsiTargetState } from "./diskPoolIscsiTarget";
-export type DiskPoolIscsiTarget = import("./diskPoolIscsiTarget").DiskPoolIscsiTarget;
-export const DiskPoolIscsiTarget: typeof import("./diskPoolIscsiTarget").DiskPoolIscsiTarget = null as any;
-
-export { DiskPoolIscsiTargetLunArgs, DiskPoolIscsiTargetLunState } from "./diskPoolIscsiTargetLun";
-export type DiskPoolIscsiTargetLun = import("./diskPoolIscsiTargetLun").DiskPoolIscsiTargetLun;
-export const DiskPoolIscsiTargetLun: typeof import("./diskPoolIscsiTargetLun").DiskPoolIscsiTargetLun = null as any;
-
-export { DiskPoolManagedDiskAttachmentArgs, DiskPoolManagedDiskAttachmentState } from "./diskPoolManagedDiskAttachment";
-export type DiskPoolManagedDiskAttachment = import("./diskPoolManagedDiskAttachment").DiskPoolManagedDiskAttachment;
-export const DiskPoolManagedDiskAttachment: typeof import("./diskPoolManagedDiskAttachment").DiskPoolManagedDiskAttachment = null as any;
-
-export { ExtensionArgs, ExtensionState } from "./extension";
-export type Extension = import("./extension").Extension;
-export const Extension: typeof import("./extension").Extension = null as any;
-
-export { GalleryApplicationArgs, GalleryApplicationState } from "./galleryApplication";
-export type GalleryApplication = import("./galleryApplication").GalleryApplication;
-export const GalleryApplication: typeof import("./galleryApplication").GalleryApplication = null as any;
-
-export { GalleryApplicationVersionArgs, GalleryApplicationVersionState } from "./galleryApplicationVersion";
-export type GalleryApplicationVersion = import("./galleryApplicationVersion").GalleryApplicationVersion;
-export const GalleryApplicationVersion: typeof import("./galleryApplicationVersion").GalleryApplicationVersion = null as any;
-
-export { GetAvailabilitySetArgs, GetAvailabilitySetResult, GetAvailabilitySetOutputArgs } from "./getAvailabilitySet";
-export const getAvailabilitySet: typeof import("./getAvailabilitySet").getAvailabilitySet = null as any;
-export const getAvailabilitySetOutput: typeof import("./getAvailabilitySet").getAvailabilitySetOutput = null as any;
-
-export { GetConfidentialLedgerArgs, GetConfidentialLedgerResult, GetConfidentialLedgerOutputArgs } from "./getConfidentialLedger";
-export const getConfidentialLedger: typeof import("./getConfidentialLedger").getConfidentialLedger = null as any;
-export const getConfidentialLedgerOutput: typeof import("./getConfidentialLedger").getConfidentialLedgerOutput = null as any;
-
-export { GetDedicatedHostArgs, GetDedicatedHostResult, GetDedicatedHostOutputArgs } from "./getDedicatedHost";
-export const getDedicatedHost: typeof import("./getDedicatedHost").getDedicatedHost = null as any;
-export const getDedicatedHostOutput: typeof import("./getDedicatedHost").getDedicatedHostOutput = null as any;
-
-export { GetDedicatedHostGroupArgs, GetDedicatedHostGroupResult, GetDedicatedHostGroupOutputArgs } from "./getDedicatedHostGroup";
-export const getDedicatedHostGroup: typeof import("./getDedicatedHostGroup").getDedicatedHostGroup = null as any;
-export const getDedicatedHostGroupOutput: typeof import("./getDedicatedHostGroup").getDedicatedHostGroupOutput = null as any;
-
-export { GetDiskAccessArgs, GetDiskAccessResult, GetDiskAccessOutputArgs } from "./getDiskAccess";
-export const getDiskAccess: typeof import("./getDiskAccess").getDiskAccess = null as any;
-export const getDiskAccessOutput: typeof import("./getDiskAccess").getDiskAccessOutput = null as any;
-
-export { GetDiskEncryptionSetArgs, GetDiskEncryptionSetResult, GetDiskEncryptionSetOutputArgs } from "./getDiskEncryptionSet";
-export const getDiskEncryptionSet: typeof import("./getDiskEncryptionSet").getDiskEncryptionSet = null as any;
-export const getDiskEncryptionSetOutput: typeof import("./getDiskEncryptionSet").getDiskEncryptionSetOutput = null as any;
-
-export { GetImageArgs, GetImageResult, GetImageOutputArgs } from "./getImage";
-export const getImage: typeof import("./getImage").getImage = null as any;
-export const getImageOutput: typeof import("./getImage").getImageOutput = null as any;
-
-export { GetImagesArgs, GetImagesResult, GetImagesOutputArgs } from "./getImages";
-export const getImages: typeof import("./getImages").getImages = null as any;
-export const getImagesOutput: typeof import("./getImages").getImagesOutput = null as any;
-
-export { GetManagedDiskArgs, GetManagedDiskResult, GetManagedDiskOutputArgs } from "./getManagedDisk";
-export const getManagedDisk: typeof import("./getManagedDisk").getManagedDisk = null as any;
-export const getManagedDiskOutput: typeof import("./getManagedDisk").getManagedDiskOutput = null as any;
-
-export { GetPlatformImageArgs, GetPlatformImageResult, GetPlatformImageOutputArgs } from "./getPlatformImage";
-export const getPlatformImage: typeof import("./getPlatformImage").getPlatformImage = null as any;
-export const getPlatformImageOutput: typeof import("./getPlatformImage").getPlatformImageOutput = null as any;
-
-export { GetSharedImageArgs, GetSharedImageResult, GetSharedImageOutputArgs } from "./getSharedImage";
-export const getSharedImage: typeof import("./getSharedImage").getSharedImage = null as any;
-export const getSharedImageOutput: typeof import("./getSharedImage").getSharedImageOutput = null as any;
-
-export { GetSharedImageGalleryArgs, GetSharedImageGalleryResult, GetSharedImageGalleryOutputArgs } from "./getSharedImageGallery";
-export const getSharedImageGallery: typeof import("./getSharedImageGallery").getSharedImageGallery = null as any;
-export const getSharedImageGalleryOutput: typeof import("./getSharedImageGallery").getSharedImageGalleryOutput = null as any;
-
-export { GetSharedImageVersionArgs, GetSharedImageVersionResult, GetSharedImageVersionOutputArgs } from "./getSharedImageVersion";
-export const getSharedImageVersion: typeof import("./getSharedImageVersion").getSharedImageVersion = null as any;
-export const getSharedImageVersionOutput: typeof import("./getSharedImageVersion").getSharedImageVersionOutput = null as any;
-
-export { GetSharedImageVersionsArgs, GetSharedImageVersionsResult, GetSharedImageVersionsOutputArgs } from "./getSharedImageVersions";
-export const getSharedImageVersions: typeof import("./getSharedImageVersions").getSharedImageVersions = null as any;
-export const getSharedImageVersionsOutput: typeof import("./getSharedImageVersions").getSharedImageVersionsOutput = null as any;
-
-export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
-export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
-export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
-
-export { GetSshPublicKeyArgs, GetSshPublicKeyResult, GetSshPublicKeyOutputArgs } from "./getSshPublicKey";
-export const getSshPublicKey: typeof import("./getSshPublicKey").getSshPublicKey = null as any;
-export const getSshPublicKeyOutput: typeof import("./getSshPublicKey").getSshPublicKeyOutput = null as any;
-
-export { GetVirtualMachineArgs, GetVirtualMachineResult, GetVirtualMachineOutputArgs } from "./getVirtualMachine";
-export const getVirtualMachine: typeof import("./getVirtualMachine").getVirtualMachine = null as any;
-export const getVirtualMachineOutput: typeof import("./getVirtualMachine").getVirtualMachineOutput = null as any;
-
-export { GetVirtualMachineScaleSetArgs, GetVirtualMachineScaleSetResult, GetVirtualMachineScaleSetOutputArgs } from "./getVirtualMachineScaleSet";
-export const getVirtualMachineScaleSet: typeof import("./getVirtualMachineScaleSet").getVirtualMachineScaleSet = null as any;
-export const getVirtualMachineScaleSetOutput: typeof import("./getVirtualMachineScaleSet").getVirtualMachineScaleSetOutput = null as any;
-
-export { ImageArgs, ImageState } from "./image";
-export type Image = import("./image").Image;
-export const Image: typeof import("./image").Image = null as any;
-
-export { LinuxVirtualMachineArgs, LinuxVirtualMachineState } from "./linuxVirtualMachine";
-export type LinuxVirtualMachine = import("./linuxVirtualMachine").LinuxVirtualMachine;
-export const LinuxVirtualMachine: typeof import("./linuxVirtualMachine").LinuxVirtualMachine = null as any;
-
-export { LinuxVirtualMachineScaleSetArgs, LinuxVirtualMachineScaleSetState } from "./linuxVirtualMachineScaleSet";
-export type LinuxVirtualMachineScaleSet = import("./linuxVirtualMachineScaleSet").LinuxVirtualMachineScaleSet;
-export const LinuxVirtualMachineScaleSet: typeof import("./linuxVirtualMachineScaleSet").LinuxVirtualMachineScaleSet = null as any;
-
-export { ManagedDiskArgs, ManagedDiskState } from "./managedDisk";
-export type ManagedDisk = import("./managedDisk").ManagedDisk;
-export const ManagedDisk: typeof import("./managedDisk").ManagedDisk = null as any;
-
-export { ManagedDiskSasTokenArgs, ManagedDiskSasTokenState } from "./managedDiskSasToken";
-export type ManagedDiskSasToken = import("./managedDiskSasToken").ManagedDiskSasToken;
-export const ManagedDiskSasToken: typeof import("./managedDiskSasToken").ManagedDiskSasToken = null as any;
-
-export { OrchestratedVirtualMachineScaleSetArgs, OrchestratedVirtualMachineScaleSetState } from "./orchestratedVirtualMachineScaleSet";
-export type OrchestratedVirtualMachineScaleSet = import("./orchestratedVirtualMachineScaleSet").OrchestratedVirtualMachineScaleSet;
-export const OrchestratedVirtualMachineScaleSet: typeof import("./orchestratedVirtualMachineScaleSet").OrchestratedVirtualMachineScaleSet = null as any;
-
-export { ScaleSetArgs, ScaleSetState } from "./scaleSet";
-export type ScaleSet = import("./scaleSet").ScaleSet;
-export const ScaleSet: typeof import("./scaleSet").ScaleSet = null as any;
-
-export { SharedImageArgs, SharedImageState } from "./sharedImage";
-export type SharedImage = import("./sharedImage").SharedImage;
-export const SharedImage: typeof import("./sharedImage").SharedImage = null as any;
-
-export { SharedImageGalleryArgs, SharedImageGalleryState } from "./sharedImageGallery";
-export type SharedImageGallery = import("./sharedImageGallery").SharedImageGallery;
-export const SharedImageGallery: typeof import("./sharedImageGallery").SharedImageGallery = null as any;
-
-export { SharedImageVersionArgs, SharedImageVersionState } from "./sharedImageVersion";
-export type SharedImageVersion = import("./sharedImageVersion").SharedImageVersion;
-export const SharedImageVersion: typeof import("./sharedImageVersion").SharedImageVersion = null as any;
-
-export { SnapshotArgs, SnapshotState } from "./snapshot";
-export type Snapshot = import("./snapshot").Snapshot;
-export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
-
-export { SshPublicKeyArgs, SshPublicKeyState } from "./sshPublicKey";
-export type SshPublicKey = import("./sshPublicKey").SshPublicKey;
-export const SshPublicKey: typeof import("./sshPublicKey").SshPublicKey = null as any;
-
-export { VirtualMachineArgs, VirtualMachineState } from "./virtualMachine";
-export type VirtualMachine = import("./virtualMachine").VirtualMachine;
-export const VirtualMachine: typeof import("./virtualMachine").VirtualMachine = null as any;
-
-export { VirtualMachineScaleSetExtensionArgs, VirtualMachineScaleSetExtensionState } from "./virtualMachineScaleSetExtension";
-export type VirtualMachineScaleSetExtension = import("./virtualMachineScaleSetExtension").VirtualMachineScaleSetExtension;
-export const VirtualMachineScaleSetExtension: typeof import("./virtualMachineScaleSetExtension").VirtualMachineScaleSetExtension = null as any;
-
-export { WindowsVirtualMachineArgs, WindowsVirtualMachineState } from "./windowsVirtualMachine";
-export type WindowsVirtualMachine = import("./windowsVirtualMachine").WindowsVirtualMachine;
-export const WindowsVirtualMachine: typeof import("./windowsVirtualMachine").WindowsVirtualMachine = null as any;
-
-export { WindowsVirtualMachineScaleSetArgs, WindowsVirtualMachineScaleSetState } from "./windowsVirtualMachineScaleSet";
-export type WindowsVirtualMachineScaleSet = import("./windowsVirtualMachineScaleSet").WindowsVirtualMachineScaleSet;
-export const WindowsVirtualMachineScaleSet: typeof import("./windowsVirtualMachineScaleSet").WindowsVirtualMachineScaleSet = null as any;
-
-utilities.lazyLoad(exports, ["AvailabilitySet"], () => require("./availabilitySet"));
-utilities.lazyLoad(exports, ["BastionHost"], () => require("./bastionHost"));
-utilities.lazyLoad(exports, ["CapacityReservation"], () => require("./capacityReservation"));
-utilities.lazyLoad(exports, ["CapacityReservationGroup"], () => require("./capacityReservationGroup"));
-utilities.lazyLoad(exports, ["DataDiskAttachment"], () => require("./dataDiskAttachment"));
-utilities.lazyLoad(exports, ["DedicatedHost"], () => require("./dedicatedHost"));
-utilities.lazyLoad(exports, ["DedicatedHostGroup"], () => require("./dedicatedHostGroup"));
-utilities.lazyLoad(exports, ["DiskAccess"], () => require("./diskAccess"));
-utilities.lazyLoad(exports, ["DiskEncryptionSet"], () => require("./diskEncryptionSet"));
-utilities.lazyLoad(exports, ["DiskPool"], () => require("./diskPool"));
-utilities.lazyLoad(exports, ["DiskPoolIscsiTarget"], () => require("./diskPoolIscsiTarget"));
-utilities.lazyLoad(exports, ["DiskPoolIscsiTargetLun"], () => require("./diskPoolIscsiTargetLun"));
-utilities.lazyLoad(exports, ["DiskPoolManagedDiskAttachment"], () => require("./diskPoolManagedDiskAttachment"));
-utilities.lazyLoad(exports, ["Extension"], () => require("./extension"));
-utilities.lazyLoad(exports, ["GalleryApplication"], () => require("./galleryApplication"));
-utilities.lazyLoad(exports, ["GalleryApplicationVersion"], () => require("./galleryApplicationVersion"));
-utilities.lazyLoad(exports, ["getAvailabilitySet","getAvailabilitySetOutput"], () => require("./getAvailabilitySet"));
-utilities.lazyLoad(exports, ["getConfidentialLedger","getConfidentialLedgerOutput"], () => require("./getConfidentialLedger"));
-utilities.lazyLoad(exports, ["getDedicatedHost","getDedicatedHostOutput"], () => require("./getDedicatedHost"));
-utilities.lazyLoad(exports, ["getDedicatedHostGroup","getDedicatedHostGroupOutput"], () => require("./getDedicatedHostGroup"));
-utilities.lazyLoad(exports, ["getDiskAccess","getDiskAccessOutput"], () => require("./getDiskAccess"));
-utilities.lazyLoad(exports, ["getDiskEncryptionSet","getDiskEncryptionSetOutput"], () => require("./getDiskEncryptionSet"));
-utilities.lazyLoad(exports, ["getImage","getImageOutput"], () => require("./getImage"));
-utilities.lazyLoad(exports, ["getImages","getImagesOutput"], () => require("./getImages"));
-utilities.lazyLoad(exports, ["getManagedDisk","getManagedDiskOutput"], () => require("./getManagedDisk"));
-utilities.lazyLoad(exports, ["getPlatformImage","getPlatformImageOutput"], () => require("./getPlatformImage"));
-utilities.lazyLoad(exports, ["getSharedImage","getSharedImageOutput"], () => require("./getSharedImage"));
-utilities.lazyLoad(exports, ["getSharedImageGallery","getSharedImageGalleryOutput"], () => require("./getSharedImageGallery"));
-utilities.lazyLoad(exports, ["getSharedImageVersion","getSharedImageVersionOutput"], () => require("./getSharedImageVersion"));
-utilities.lazyLoad(exports, ["getSharedImageVersions","getSharedImageVersionsOutput"], () => require("./getSharedImageVersions"));
-utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
-utilities.lazyLoad(exports, ["getSshPublicKey","getSshPublicKeyOutput"], () => require("./getSshPublicKey"));
-utilities.lazyLoad(exports, ["getVirtualMachine","getVirtualMachineOutput"], () => require("./getVirtualMachine"));
-utilities.lazyLoad(exports, ["getVirtualMachineScaleSet","getVirtualMachineScaleSetOutput"], () => require("./getVirtualMachineScaleSet"));
-utilities.lazyLoad(exports, ["Image"], () => require("./image"));
-utilities.lazyLoad(exports, ["LinuxVirtualMachine"], () => require("./linuxVirtualMachine"));
-utilities.lazyLoad(exports, ["LinuxVirtualMachineScaleSet"], () => require("./linuxVirtualMachineScaleSet"));
-utilities.lazyLoad(exports, ["ManagedDisk"], () => require("./managedDisk"));
-utilities.lazyLoad(exports, ["ManagedDiskSasToken"], () => require("./managedDiskSasToken"));
-utilities.lazyLoad(exports, ["OrchestratedVirtualMachineScaleSet"], () => require("./orchestratedVirtualMachineScaleSet"));
-utilities.lazyLoad(exports, ["ScaleSet"], () => require("./scaleSet"));
-utilities.lazyLoad(exports, ["SharedImage"], () => require("./sharedImage"));
-utilities.lazyLoad(exports, ["SharedImageGallery"], () => require("./sharedImageGallery"));
-utilities.lazyLoad(exports, ["SharedImageVersion"], () => require("./sharedImageVersion"));
-utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
-utilities.lazyLoad(exports, ["SshPublicKey"], () => require("./sshPublicKey"));
-utilities.lazyLoad(exports, ["VirtualMachine"], () => require("./virtualMachine"));
-utilities.lazyLoad(exports, ["VirtualMachineScaleSetExtension"], () => require("./virtualMachineScaleSetExtension"));
-utilities.lazyLoad(exports, ["WindowsVirtualMachine"], () => require("./windowsVirtualMachine"));
-utilities.lazyLoad(exports, ["WindowsVirtualMachineScaleSet"], () => require("./windowsVirtualMachineScaleSet"));
+// Import resources to register:
+import { AvailabilitySet } from "./availabilitySet";
+import { BastionHost } from "./bastionHost";
+import { CapacityReservation } from "./capacityReservation";
+import { CapacityReservationGroup } from "./capacityReservationGroup";
+import { DataDiskAttachment } from "./dataDiskAttachment";
+import { DedicatedHost } from "./dedicatedHost";
+import { DedicatedHostGroup } from "./dedicatedHostGroup";
+import { DiskAccess } from "./diskAccess";
+import { DiskEncryptionSet } from "./diskEncryptionSet";
+import { DiskPool } from "./diskPool";
+import { DiskPoolIscsiTarget } from "./diskPoolIscsiTarget";
+import { DiskPoolIscsiTargetLun } from "./diskPoolIscsiTargetLun";
+import { DiskPoolManagedDiskAttachment } from "./diskPoolManagedDiskAttachment";
+import { Extension } from "./extension";
+import { GalleryApplication } from "./galleryApplication";
+import { GalleryApplicationVersion } from "./galleryApplicationVersion";
+import { Image } from "./image";
+import { LinuxVirtualMachine } from "./linuxVirtualMachine";
+import { LinuxVirtualMachineScaleSet } from "./linuxVirtualMachineScaleSet";
+import { ManagedDisk } from "./managedDisk";
+import { ManagedDiskSasToken } from "./managedDiskSasToken";
+import { OrchestratedVirtualMachineScaleSet } from "./orchestratedVirtualMachineScaleSet";
+import { ScaleSet } from "./scaleSet";
+import { SharedImage } from "./sharedImage";
+import { SharedImageGallery } from "./sharedImageGallery";
+import { SharedImageVersion } from "./sharedImageVersion";
+import { Snapshot } from "./snapshot";
+import { SshPublicKey } from "./sshPublicKey";
+import { VirtualMachine } from "./virtualMachine";
+import { VirtualMachineScaleSetExtension } from "./virtualMachineScaleSetExtension";
+import { WindowsVirtualMachine } from "./windowsVirtualMachine";
+import { WindowsVirtualMachineScaleSet } from "./windowsVirtualMachineScaleSet";
 
 const _module = {
     version: utilities.getVersion(),

@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Media
     /// 
     /// });
     /// ```
-    /// ### With Multiple Outputs
+    /// ## Example Usage with Multiple Outputs
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

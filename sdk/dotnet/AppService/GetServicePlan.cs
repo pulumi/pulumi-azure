@@ -41,7 +41,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServicePlanResult> InvokeAsync(GetServicePlanArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServicePlanResult>("azure:appservice/getServicePlan:getServicePlan", args ?? new GetServicePlanArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServicePlanResult>("azure:appservice/getServicePlan:getServicePlan", args ?? new GetServicePlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Service Plan.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServicePlanResult> Invoke(GetServicePlanInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetServicePlanResult>("azure:appservice/getServicePlan:getServicePlan", args ?? new GetServicePlanInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetServicePlanResult>("azure:appservice/getServicePlan:getServicePlan", args ?? new GetServicePlanInvokeArgs(), options.WithDefaults());
     }
 
 

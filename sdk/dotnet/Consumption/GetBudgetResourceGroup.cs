@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Consumption
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBudgetResourceGroupResult> InvokeAsync(GetBudgetResourceGroupArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResourceGroupResult>("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", args ?? new GetBudgetResourceGroupArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetBudgetResourceGroupResult>("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", args ?? new GetBudgetResourceGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Consumption Budget for a specific resource group.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Consumption
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetBudgetResourceGroupResult> Invoke(GetBudgetResourceGroupInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetBudgetResourceGroupResult>("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", args ?? new GetBudgetResourceGroupInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetBudgetResourceGroupResult>("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", args ?? new GetBudgetResourceGroupInvokeArgs(), options.WithDefaults());
     }
 
 

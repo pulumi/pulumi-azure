@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Cdn
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetFrontdoorOriginGroupResult> InvokeAsync(GetFrontdoorOriginGroupArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorOriginGroupResult>("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", args ?? new GetFrontdoorOriginGroupArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorOriginGroupResult>("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", args ?? new GetFrontdoorOriginGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing CDN FrontDoor Origin Group.
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Cdn
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetFrontdoorOriginGroupResult> Invoke(GetFrontdoorOriginGroupInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorOriginGroupResult>("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", args ?? new GetFrontdoorOriginGroupInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetFrontdoorOriginGroupResult>("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", args ?? new GetFrontdoorOriginGroupInvokeArgs(), options.WithDefaults());
     }
 
 

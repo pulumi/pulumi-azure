@@ -30,7 +30,7 @@ namespace Pulumi.Azure
             }
         }
 
-        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("azure");
+        private static readonly Pulumi.Config __config = new Pulumi.Config("azure");
 
         private static readonly __Value<ImmutableArray<string>> _auxiliaryTenantIds = new __Value<ImmutableArray<string>>(() => __config.GetObject<ImmutableArray<string>>("auxiliaryTenantIds"));
         public static ImmutableArray<string> AuxiliaryTenantIds

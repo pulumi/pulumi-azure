@@ -5,51 +5,24 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
-export const getGroup: typeof import("./getGroup").getGroup = null as any;
-export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
+export * from "./getGroup";
+export * from "./getGroupTemplateDeployment";
+export * from "./group";
+export * from "./groupPolicyAssignment";
+export * from "./groupPolicyExemption";
+export * from "./groupPolicyRemediation";
+export * from "./groupSubscriptionAssociation";
+export * from "./groupTemplateDeployment";
+export * from "./lock";
 
-export { GetGroupTemplateDeploymentArgs, GetGroupTemplateDeploymentResult, GetGroupTemplateDeploymentOutputArgs } from "./getGroupTemplateDeployment";
-export const getGroupTemplateDeployment: typeof import("./getGroupTemplateDeployment").getGroupTemplateDeployment = null as any;
-export const getGroupTemplateDeploymentOutput: typeof import("./getGroupTemplateDeployment").getGroupTemplateDeploymentOutput = null as any;
-
-export { GroupArgs, GroupState } from "./group";
-export type Group = import("./group").Group;
-export const Group: typeof import("./group").Group = null as any;
-
-export { GroupPolicyAssignmentArgs, GroupPolicyAssignmentState } from "./groupPolicyAssignment";
-export type GroupPolicyAssignment = import("./groupPolicyAssignment").GroupPolicyAssignment;
-export const GroupPolicyAssignment: typeof import("./groupPolicyAssignment").GroupPolicyAssignment = null as any;
-
-export { GroupPolicyExemptionArgs, GroupPolicyExemptionState } from "./groupPolicyExemption";
-export type GroupPolicyExemption = import("./groupPolicyExemption").GroupPolicyExemption;
-export const GroupPolicyExemption: typeof import("./groupPolicyExemption").GroupPolicyExemption = null as any;
-
-export { GroupPolicyRemediationArgs, GroupPolicyRemediationState } from "./groupPolicyRemediation";
-export type GroupPolicyRemediation = import("./groupPolicyRemediation").GroupPolicyRemediation;
-export const GroupPolicyRemediation: typeof import("./groupPolicyRemediation").GroupPolicyRemediation = null as any;
-
-export { GroupSubscriptionAssociationArgs, GroupSubscriptionAssociationState } from "./groupSubscriptionAssociation";
-export type GroupSubscriptionAssociation = import("./groupSubscriptionAssociation").GroupSubscriptionAssociation;
-export const GroupSubscriptionAssociation: typeof import("./groupSubscriptionAssociation").GroupSubscriptionAssociation = null as any;
-
-export { GroupTemplateDeploymentArgs, GroupTemplateDeploymentState } from "./groupTemplateDeployment";
-export type GroupTemplateDeployment = import("./groupTemplateDeployment").GroupTemplateDeployment;
-export const GroupTemplateDeployment: typeof import("./groupTemplateDeployment").GroupTemplateDeployment = null as any;
-
-export { LockArgs, LockState } from "./lock";
-export type Lock = import("./lock").Lock;
-export const Lock: typeof import("./lock").Lock = null as any;
-
-utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
-utilities.lazyLoad(exports, ["getGroupTemplateDeployment","getGroupTemplateDeploymentOutput"], () => require("./getGroupTemplateDeployment"));
-utilities.lazyLoad(exports, ["Group"], () => require("./group"));
-utilities.lazyLoad(exports, ["GroupPolicyAssignment"], () => require("./groupPolicyAssignment"));
-utilities.lazyLoad(exports, ["GroupPolicyExemption"], () => require("./groupPolicyExemption"));
-utilities.lazyLoad(exports, ["GroupPolicyRemediation"], () => require("./groupPolicyRemediation"));
-utilities.lazyLoad(exports, ["GroupSubscriptionAssociation"], () => require("./groupSubscriptionAssociation"));
-utilities.lazyLoad(exports, ["GroupTemplateDeployment"], () => require("./groupTemplateDeployment"));
-utilities.lazyLoad(exports, ["Lock"], () => require("./lock"));
+// Import resources to register:
+import { Group } from "./group";
+import { GroupPolicyAssignment } from "./groupPolicyAssignment";
+import { GroupPolicyExemption } from "./groupPolicyExemption";
+import { GroupPolicyRemediation } from "./groupPolicyRemediation";
+import { GroupSubscriptionAssociation } from "./groupSubscriptionAssociation";
+import { GroupTemplateDeployment } from "./groupTemplateDeployment";
+import { Lock } from "./lock";
 
 const _module = {
     version: utilities.getVersion(),

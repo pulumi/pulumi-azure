@@ -5,11 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { ServerArgs, ServerState } from "./server";
-export type Server = import("./server").Server;
-export const Server: typeof import("./server").Server = null as any;
+export * from "./server";
 
-utilities.lazyLoad(exports, ["Server"], () => require("./server"));
+// Import resources to register:
+import { Server } from "./server";
 
 const _module = {
     version: utilities.getVersion(),

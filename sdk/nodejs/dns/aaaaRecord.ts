@@ -5,43 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
- * const exampleAaaaRecord = new azure.dns.AaaaRecord("exampleAaaaRecord", {
- *     zoneName: exampleZone.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     ttl: 300,
- *     records: ["2001:db8::1:0:0:1"],
- * });
- * ```
- * ### Alias Record)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     allocationMethod: "Dynamic",
- *     ipVersion: "IPv6",
- * });
- * const exampleAaaaRecord = new azure.dns.AaaaRecord("exampleAaaaRecord", {
- *     zoneName: exampleZone.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     ttl: 300,
- *     targetResourceId: examplePublicIp.id,
- * });
- * ```
- *
  * ## Import
  *
  * AAAA records can be imported using the `resource id`, e.g.

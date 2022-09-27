@@ -12,8 +12,7 @@ import (
 
 // Use this data source to access information about an existing Public IP Address.
 //
-// ## Example Usage
-// ### Reference An Existing)
+// ## Example Usage (reference an existing)
 //
 // ```go
 // package main
@@ -41,7 +40,8 @@ import (
 //	}
 //
 // ```
-// ### Retrieve The Dynamic Public IP Of A New VM)
+//
+// ## Example Usage (Retrieve the Dynamic Public IP of a new VM)
 //
 // ```go
 // package main

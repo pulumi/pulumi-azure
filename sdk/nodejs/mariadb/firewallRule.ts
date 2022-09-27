@@ -7,8 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Firewall Rule for a MariaDB Server
  *
- * ## Example Usage
- * ### Single IP Address)
+ * ## Example Usage (Single IP Address)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -21,7 +20,8 @@ import * as utilities from "../utilities";
  *     startIpAddress: "40.112.8.12",
  * });
  * ```
- * ### IP Range)
+ *
+ * ## Example Usage (IP Range)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

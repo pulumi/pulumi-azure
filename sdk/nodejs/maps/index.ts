@@ -5,21 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { AccountArgs, AccountState } from "./account";
-export type Account = import("./account").Account;
-export const Account: typeof import("./account").Account = null as any;
+export * from "./account";
+export * from "./creator";
+export * from "./getAccount";
 
-export { CreatorArgs, CreatorState } from "./creator";
-export type Creator = import("./creator").Creator;
-export const Creator: typeof import("./creator").Creator = null as any;
-
-export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
-export const getAccount: typeof import("./getAccount").getAccount = null as any;
-export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
-
-utilities.lazyLoad(exports, ["Account"], () => require("./account"));
-utilities.lazyLoad(exports, ["Creator"], () => require("./creator"));
-utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
+// Import resources to register:
+import { Account } from "./account";
+import { Creator } from "./creator";
 
 const _module = {
     version: utilities.getVersion(),

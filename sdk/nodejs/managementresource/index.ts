@@ -5,11 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { ManangementLockArgs, ManangementLockState } from "./manangementLock";
-export type ManangementLock = import("./manangementLock").ManangementLock;
-export const ManangementLock: typeof import("./manangementLock").ManangementLock = null as any;
+export * from "./manangementLock";
 
-utilities.lazyLoad(exports, ["ManangementLock"], () => require("./manangementLock"));
+// Import resources to register:
+import { ManangementLock } from "./manangementLock";
 
 const _module = {
     version: utilities.getVersion(),

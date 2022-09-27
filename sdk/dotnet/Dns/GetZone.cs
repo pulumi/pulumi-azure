@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Dns
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetZoneResult> InvokeAsync(GetZoneArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("azure:dns/getZone:getZone", args ?? new GetZoneArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("azure:dns/getZone:getZone", args ?? new GetZoneArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing DNS Zone.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Dns
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetZoneResult> Invoke(GetZoneInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetZoneResult>("azure:dns/getZone:getZone", args ?? new GetZoneInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetZoneResult>("azure:dns/getZone:getZone", args ?? new GetZoneInvokeArgs(), options.WithDefaults());
     }
 
 

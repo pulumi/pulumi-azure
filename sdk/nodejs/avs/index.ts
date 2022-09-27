@@ -5,26 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { ClusterArgs, ClusterState } from "./cluster";
-export type Cluster = import("./cluster").Cluster;
-export const Cluster: typeof import("./cluster").Cluster = null as any;
+export * from "./cluster";
+export * from "./expressRouteAuthorization";
+export * from "./getPrivateCloud";
+export * from "./privateCloud";
 
-export { ExpressRouteAuthorizationArgs, ExpressRouteAuthorizationState } from "./expressRouteAuthorization";
-export type ExpressRouteAuthorization = import("./expressRouteAuthorization").ExpressRouteAuthorization;
-export const ExpressRouteAuthorization: typeof import("./expressRouteAuthorization").ExpressRouteAuthorization = null as any;
-
-export { GetPrivateCloudArgs, GetPrivateCloudResult, GetPrivateCloudOutputArgs } from "./getPrivateCloud";
-export const getPrivateCloud: typeof import("./getPrivateCloud").getPrivateCloud = null as any;
-export const getPrivateCloudOutput: typeof import("./getPrivateCloud").getPrivateCloudOutput = null as any;
-
-export { PrivateCloudArgs, PrivateCloudState } from "./privateCloud";
-export type PrivateCloud = import("./privateCloud").PrivateCloud;
-export const PrivateCloud: typeof import("./privateCloud").PrivateCloud = null as any;
-
-utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
-utilities.lazyLoad(exports, ["ExpressRouteAuthorization"], () => require("./expressRouteAuthorization"));
-utilities.lazyLoad(exports, ["getPrivateCloud","getPrivateCloudOutput"], () => require("./getPrivateCloud"));
-utilities.lazyLoad(exports, ["PrivateCloud"], () => require("./privateCloud"));
+// Import resources to register:
+import { Cluster } from "./cluster";
+import { ExpressRouteAuthorization } from "./expressRouteAuthorization";
+import { PrivateCloud } from "./privateCloud";
 
 const _module = {
     version: utilities.getVersion(),

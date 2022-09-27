@@ -52,7 +52,7 @@ import (
 //	}
 //
 // ```
-// ### With Activities
+// ## Example Usage with Activities
 //
 // ```go
 // package main

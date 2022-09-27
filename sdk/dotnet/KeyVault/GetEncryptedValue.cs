@@ -54,7 +54,7 @@ namespace Pulumi.Azure.KeyVault
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetEncryptedValueResult> InvokeAsync(GetEncryptedValueArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetEncryptedValueResult>("azure:keyvault/getEncryptedValue:getEncryptedValue", args ?? new GetEncryptedValueArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetEncryptedValueResult>("azure:keyvault/getEncryptedValue:getEncryptedValue", args ?? new GetEncryptedValueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Encrypts or Decrypts a value using a Key Vault Key.
@@ -99,7 +99,7 @@ namespace Pulumi.Azure.KeyVault
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetEncryptedValueResult> Invoke(GetEncryptedValueInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetEncryptedValueResult>("azure:keyvault/getEncryptedValue:getEncryptedValue", args ?? new GetEncryptedValueInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetEncryptedValueResult>("azure:keyvault/getEncryptedValue:getEncryptedValue", args ?? new GetEncryptedValueInvokeArgs(), options.WithDefaults());
     }
 
 

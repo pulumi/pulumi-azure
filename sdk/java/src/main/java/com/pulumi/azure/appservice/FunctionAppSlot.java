@@ -24,8 +24,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Example Usage
- * ### With App Service Plan)
+ * ## Example Usage (with App Service Plan)
  * ```java
  * package generated_program;
  * 

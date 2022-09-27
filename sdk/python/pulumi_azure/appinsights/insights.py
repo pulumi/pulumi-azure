@@ -591,7 +591,7 @@ class Insights(pulumi.CustomResource):
         pulumi.export("instrumentationKey", example_insights.instrumentation_key)
         pulumi.export("appId", example_insights.app_id)
         ```
-        ### Workspace Mode
+        ## Example Usage - Workspace Mode
 
         ```python
         import pulumi
@@ -662,7 +662,7 @@ class Insights(pulumi.CustomResource):
         pulumi.export("instrumentationKey", example_insights.instrumentation_key)
         pulumi.export("appId", example_insights.app_id)
         ```
-        ### Workspace Mode
+        ## Example Usage - Workspace Mode
 
         ```python
         import pulumi

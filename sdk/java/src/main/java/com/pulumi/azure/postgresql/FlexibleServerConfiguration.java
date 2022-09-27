@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Azure Extensions
+ * ## Example Usage - Azure Extensions
  * ```java
  * package generated_program;
  * 

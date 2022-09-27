@@ -5,11 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { MonitorArgs, MonitorState } from "./monitor";
-export type Monitor = import("./monitor").Monitor;
-export const Monitor: typeof import("./monitor").Monitor = null as any;
+export * from "./monitor";
 
-utilities.lazyLoad(exports, ["Monitor"], () => require("./monitor"));
+// Import resources to register:
+import { Monitor } from "./monitor";
 
 const _module = {
     version: utilities.getVersion(),

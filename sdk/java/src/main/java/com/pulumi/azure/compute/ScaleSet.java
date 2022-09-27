@@ -34,8 +34,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a virtual machine scale set.
  * 
- * ## Example Usage
- * ### With Managed Disks (Recommended)
+ * ## Example Usage with Managed Disks (Recommended)
  * 
  * ```java
  * package generated_program;
@@ -202,7 +201,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### With Unmanaged Disks
+ * 
+ * ## Example Usage with Unmanaged Disks
  * ```java
  * package generated_program;
  * 
@@ -319,6 +319,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * 
  * ## Example of storage_profile_image_reference with id
  * ```java
  * package generated_program;

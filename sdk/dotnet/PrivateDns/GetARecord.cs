@@ -40,7 +40,7 @@ namespace Pulumi.Azure.PrivateDns
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetARecordResult> InvokeAsync(GetARecordArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetARecordResult>("azure:privatedns/getARecord:getARecord", args ?? new GetARecordArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetARecordResult>("azure:privatedns/getARecord:getARecord", args ?? new GetARecordArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.PrivateDns
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetARecordResult> Invoke(GetARecordInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetARecordResult>("azure:privatedns/getARecord:getARecord", args ?? new GetARecordInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetARecordResult>("azure:privatedns/getARecord:getARecord", args ?? new GetARecordInvokeArgs(), options.WithDefaults());
     }
 
 

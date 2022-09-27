@@ -12,8 +12,7 @@ namespace Pulumi.Azure.MySql
     /// <summary>
     /// Manages a Firewall Rule for a MySQL Server.
     /// 
-    /// ## Example Usage
-    /// ### Single IP Address)
+    /// ## Example Usage (Single IP Address)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -46,7 +45,8 @@ namespace Pulumi.Azure.MySql
     /// 
     /// });
     /// ```
-    /// ### IP Range)
+    /// 
+    /// ## Example Usage (IP Range)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -73,7 +73,8 @@ namespace Pulumi.Azure.MySql
     /// 
     /// });
     /// ```
-    /// ### Allow Access To Azure Services)
+    /// 
+    /// ## Example Usage (Allow access to Azure services)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

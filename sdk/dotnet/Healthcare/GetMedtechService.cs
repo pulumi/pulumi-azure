@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Healthcare
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetMedtechServiceResult> InvokeAsync(GetMedtechServiceArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetMedtechServiceResult>("azure:healthcare/getMedtechService:getMedtechService", args ?? new GetMedtechServiceArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetMedtechServiceResult>("azure:healthcare/getMedtechService:getMedtechService", args ?? new GetMedtechServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Healthcare Med Tech Service
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Healthcare
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetMedtechServiceResult> Invoke(GetMedtechServiceInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetMedtechServiceResult>("azure:healthcare/getMedtechService:getMedtechService", args ?? new GetMedtechServiceInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetMedtechServiceResult>("azure:healthcare/getMedtechService:getMedtechService", args ?? new GetMedtechServiceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Encryption)
+ * ## Example Usage (Encryption)
  * ```java
  * package generated_program;
  * 
@@ -138,7 +138,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Attaching A Container Registry To A Kubernetes Cluster)
+ * 
+ * ## Example Usage (Attaching a Container Registry to a Kubernetes Cluster)
  * ```java
  * package generated_program;
  * 

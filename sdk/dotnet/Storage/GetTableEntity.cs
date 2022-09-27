@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Storage
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTableEntityResult> InvokeAsync(GetTableEntityArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableEntityResult>("azure:storage/getTableEntity:getTableEntity", args ?? new GetTableEntityArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetTableEntityResult>("azure:storage/getTableEntity:getTableEntity", args ?? new GetTableEntityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Storage Table Entity.
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Storage
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTableEntityResult> Invoke(GetTableEntityInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetTableEntityResult>("azure:storage/getTableEntity:getTableEntity", args ?? new GetTableEntityInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetTableEntityResult>("azure:storage/getTableEntity:getTableEntity", args ?? new GetTableEntityInvokeArgs(), options.WithDefaults());
     }
 
 

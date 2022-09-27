@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Core
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetExtendedLocationsResult> InvokeAsync(GetExtendedLocationsArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetExtendedLocationsResult>("azure:core/getExtendedLocations:getExtendedLocations", args ?? new GetExtendedLocationsArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetExtendedLocationsResult>("azure:core/getExtendedLocations:getExtendedLocations", args ?? new GetExtendedLocationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// This data source return the available Extended Locations for a specific Azure Region.
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Core
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetExtendedLocationsResult> Invoke(GetExtendedLocationsInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetExtendedLocationsResult>("azure:core/getExtendedLocations:getExtendedLocations", args ?? new GetExtendedLocationsInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetExtendedLocationsResult>("azure:core/getExtendedLocations:getExtendedLocations", args ?? new GetExtendedLocationsInvokeArgs(), options.WithDefaults());
     }
 
 

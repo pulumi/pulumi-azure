@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetApiVersionSetResult> InvokeAsync(GetApiVersionSetArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiVersionSetResult>("azure:apimanagement/getApiVersionSet:getApiVersionSet", args ?? new GetApiVersionSetArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetApiVersionSetResult>("azure:apimanagement/getApiVersionSet:getApiVersionSet", args ?? new GetApiVersionSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Uses this data source to access information about an API Version Set within an API Management Service.
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetApiVersionSetResult> Invoke(GetApiVersionSetInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetApiVersionSetResult>("azure:apimanagement/getApiVersionSet:getApiVersionSet", args ?? new GetApiVersionSetInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetApiVersionSetResult>("azure:apimanagement/getApiVersionSet:getApiVersionSet", args ?? new GetApiVersionSetInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Synapse
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure:synapse/getWorkspace:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure:synapse/getWorkspace:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Synapse Workspace.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Synapse
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure:synapse/getWorkspace:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure:synapse/getWorkspace:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
     }
 
 

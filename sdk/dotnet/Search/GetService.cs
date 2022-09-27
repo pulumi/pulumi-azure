@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Search
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:search/getService:getService", args ?? new GetServiceArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("azure:search/getService:getService", args ?? new GetServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Manages a Search Service.
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Search
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure:search/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("azure:search/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 

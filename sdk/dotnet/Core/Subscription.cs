@@ -18,8 +18,7 @@ namespace Pulumi.Azure.Core
     /// 
     /// &gt; **NOTE:** Azure supports Multiple Aliases per Subscription, however, to reliably manage this resource in this provider only a single Alias is supported.
     /// 
-    /// ## Example Usage
-    /// ### Creating A New Alias And Subscription For An Enrollment Account
+    /// ## Example Usage - creating a new Alias and Subscription for an Enrollment Account
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -42,7 +41,8 @@ namespace Pulumi.Azure.Core
     /// 
     /// });
     /// ```
-    /// ### Creating A New Alias And Subscription For A Microsoft Customer Account
+    /// 
+    /// ## Example Usage - creating a new Alias and Subscription for a Microsoft Customer Account
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -66,7 +66,8 @@ namespace Pulumi.Azure.Core
     /// 
     /// });
     /// ```
-    /// ### Creating A New Alias And Subscription For A Microsoft Partner Account
+    /// 
+    /// ## Example Usage - creating a new Alias and Subscription for a Microsoft Partner Account
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -89,7 +90,8 @@ namespace Pulumi.Azure.Core
     /// 
     /// });
     /// ```
-    /// ### Adding An Alias To An Existing Subscription
+    /// 
+    /// ## Example Usage - adding an Alias to an existing Subscription
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

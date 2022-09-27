@@ -12,8 +12,7 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages a custom virtual machine image that can be used to create virtual machines.
     /// 
-    /// ## Example Usage
-    /// ### Creating From VHD
+    /// ## Example Usage Creating from VHD
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -72,7 +71,8 @@ namespace Pulumi.Azure.Compute
     /// 
     /// });
     /// ```
-    /// ### Creating From Virtual Machine (VM Must Be Generalized Beforehand)
+    /// 
+    /// ## Example Usage Creating from Virtual Machine (VM must be generalized beforehand)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

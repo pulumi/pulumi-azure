@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Batch
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:batch/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:batch/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Batch Account.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Batch
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure:batch/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure:batch/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

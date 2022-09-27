@@ -5,136 +5,56 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { DatabaseArgs, DatabaseState } from "./database";
-export type Database = import("./database").Database;
-export const Database: typeof import("./database").Database = null as any;
+export * from "./database";
+export * from "./databaseExtendedAuditingPolicy";
+export * from "./databaseVulnerabilityAssessmentRuleBaseline";
+export * from "./elasticPool";
+export * from "./failoverGroup";
+export * from "./firewallRule";
+export * from "./getDatabase";
+export * from "./getElasticPool";
+export * from "./getManagedInstance";
+export * from "./getServer";
+export * from "./jobAgent";
+export * from "./jobCredential";
+export * from "./managedDatabase";
+export * from "./managedInstance";
+export * from "./managedInstanceActiveDirectoryAdministrator";
+export * from "./managedInstanceFailoverGroup";
+export * from "./managedInstanceVulnerabilityAssessment";
+export * from "./outboundFirewallRule";
+export * from "./server";
+export * from "./serverDnsAlias";
+export * from "./serverExtendedAuditingPolicy";
+export * from "./serverSecurityAlertPolicy";
+export * from "./serverTransparentDataEncryption";
+export * from "./serverVulnerabilityAssessment";
+export * from "./virtualMachine";
+export * from "./virtualNetworkRule";
 
-export { DatabaseExtendedAuditingPolicyArgs, DatabaseExtendedAuditingPolicyState } from "./databaseExtendedAuditingPolicy";
-export type DatabaseExtendedAuditingPolicy = import("./databaseExtendedAuditingPolicy").DatabaseExtendedAuditingPolicy;
-export const DatabaseExtendedAuditingPolicy: typeof import("./databaseExtendedAuditingPolicy").DatabaseExtendedAuditingPolicy = null as any;
-
-export { DatabaseVulnerabilityAssessmentRuleBaselineArgs, DatabaseVulnerabilityAssessmentRuleBaselineState } from "./databaseVulnerabilityAssessmentRuleBaseline";
-export type DatabaseVulnerabilityAssessmentRuleBaseline = import("./databaseVulnerabilityAssessmentRuleBaseline").DatabaseVulnerabilityAssessmentRuleBaseline;
-export const DatabaseVulnerabilityAssessmentRuleBaseline: typeof import("./databaseVulnerabilityAssessmentRuleBaseline").DatabaseVulnerabilityAssessmentRuleBaseline = null as any;
-
-export { ElasticPoolArgs, ElasticPoolState } from "./elasticPool";
-export type ElasticPool = import("./elasticPool").ElasticPool;
-export const ElasticPool: typeof import("./elasticPool").ElasticPool = null as any;
-
-export { FailoverGroupArgs, FailoverGroupState } from "./failoverGroup";
-export type FailoverGroup = import("./failoverGroup").FailoverGroup;
-export const FailoverGroup: typeof import("./failoverGroup").FailoverGroup = null as any;
-
-export { FirewallRuleArgs, FirewallRuleState } from "./firewallRule";
-export type FirewallRule = import("./firewallRule").FirewallRule;
-export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
-
-export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
-export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
-export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
-
-export { GetElasticPoolArgs, GetElasticPoolResult, GetElasticPoolOutputArgs } from "./getElasticPool";
-export const getElasticPool: typeof import("./getElasticPool").getElasticPool = null as any;
-export const getElasticPoolOutput: typeof import("./getElasticPool").getElasticPoolOutput = null as any;
-
-export { GetManagedInstanceArgs, GetManagedInstanceResult, GetManagedInstanceOutputArgs } from "./getManagedInstance";
-export const getManagedInstance: typeof import("./getManagedInstance").getManagedInstance = null as any;
-export const getManagedInstanceOutput: typeof import("./getManagedInstance").getManagedInstanceOutput = null as any;
-
-export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
-export const getServer: typeof import("./getServer").getServer = null as any;
-export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
-
-export { JobAgentArgs, JobAgentState } from "./jobAgent";
-export type JobAgent = import("./jobAgent").JobAgent;
-export const JobAgent: typeof import("./jobAgent").JobAgent = null as any;
-
-export { JobCredentialArgs, JobCredentialState } from "./jobCredential";
-export type JobCredential = import("./jobCredential").JobCredential;
-export const JobCredential: typeof import("./jobCredential").JobCredential = null as any;
-
-export { ManagedDatabaseArgs, ManagedDatabaseState } from "./managedDatabase";
-export type ManagedDatabase = import("./managedDatabase").ManagedDatabase;
-export const ManagedDatabase: typeof import("./managedDatabase").ManagedDatabase = null as any;
-
-export { ManagedInstanceArgs, ManagedInstanceState } from "./managedInstance";
-export type ManagedInstance = import("./managedInstance").ManagedInstance;
-export const ManagedInstance: typeof import("./managedInstance").ManagedInstance = null as any;
-
-export { ManagedInstanceActiveDirectoryAdministratorArgs, ManagedInstanceActiveDirectoryAdministratorState } from "./managedInstanceActiveDirectoryAdministrator";
-export type ManagedInstanceActiveDirectoryAdministrator = import("./managedInstanceActiveDirectoryAdministrator").ManagedInstanceActiveDirectoryAdministrator;
-export const ManagedInstanceActiveDirectoryAdministrator: typeof import("./managedInstanceActiveDirectoryAdministrator").ManagedInstanceActiveDirectoryAdministrator = null as any;
-
-export { ManagedInstanceFailoverGroupArgs, ManagedInstanceFailoverGroupState } from "./managedInstanceFailoverGroup";
-export type ManagedInstanceFailoverGroup = import("./managedInstanceFailoverGroup").ManagedInstanceFailoverGroup;
-export const ManagedInstanceFailoverGroup: typeof import("./managedInstanceFailoverGroup").ManagedInstanceFailoverGroup = null as any;
-
-export { ManagedInstanceVulnerabilityAssessmentArgs, ManagedInstanceVulnerabilityAssessmentState } from "./managedInstanceVulnerabilityAssessment";
-export type ManagedInstanceVulnerabilityAssessment = import("./managedInstanceVulnerabilityAssessment").ManagedInstanceVulnerabilityAssessment;
-export const ManagedInstanceVulnerabilityAssessment: typeof import("./managedInstanceVulnerabilityAssessment").ManagedInstanceVulnerabilityAssessment = null as any;
-
-export { OutboundFirewallRuleArgs, OutboundFirewallRuleState } from "./outboundFirewallRule";
-export type OutboundFirewallRule = import("./outboundFirewallRule").OutboundFirewallRule;
-export const OutboundFirewallRule: typeof import("./outboundFirewallRule").OutboundFirewallRule = null as any;
-
-export { ServerArgs, ServerState } from "./server";
-export type Server = import("./server").Server;
-export const Server: typeof import("./server").Server = null as any;
-
-export { ServerDnsAliasArgs, ServerDnsAliasState } from "./serverDnsAlias";
-export type ServerDnsAlias = import("./serverDnsAlias").ServerDnsAlias;
-export const ServerDnsAlias: typeof import("./serverDnsAlias").ServerDnsAlias = null as any;
-
-export { ServerExtendedAuditingPolicyArgs, ServerExtendedAuditingPolicyState } from "./serverExtendedAuditingPolicy";
-export type ServerExtendedAuditingPolicy = import("./serverExtendedAuditingPolicy").ServerExtendedAuditingPolicy;
-export const ServerExtendedAuditingPolicy: typeof import("./serverExtendedAuditingPolicy").ServerExtendedAuditingPolicy = null as any;
-
-export { ServerSecurityAlertPolicyArgs, ServerSecurityAlertPolicyState } from "./serverSecurityAlertPolicy";
-export type ServerSecurityAlertPolicy = import("./serverSecurityAlertPolicy").ServerSecurityAlertPolicy;
-export const ServerSecurityAlertPolicy: typeof import("./serverSecurityAlertPolicy").ServerSecurityAlertPolicy = null as any;
-
-export { ServerTransparentDataEncryptionArgs, ServerTransparentDataEncryptionState } from "./serverTransparentDataEncryption";
-export type ServerTransparentDataEncryption = import("./serverTransparentDataEncryption").ServerTransparentDataEncryption;
-export const ServerTransparentDataEncryption: typeof import("./serverTransparentDataEncryption").ServerTransparentDataEncryption = null as any;
-
-export { ServerVulnerabilityAssessmentArgs, ServerVulnerabilityAssessmentState } from "./serverVulnerabilityAssessment";
-export type ServerVulnerabilityAssessment = import("./serverVulnerabilityAssessment").ServerVulnerabilityAssessment;
-export const ServerVulnerabilityAssessment: typeof import("./serverVulnerabilityAssessment").ServerVulnerabilityAssessment = null as any;
-
-export { VirtualMachineArgs, VirtualMachineState } from "./virtualMachine";
-export type VirtualMachine = import("./virtualMachine").VirtualMachine;
-export const VirtualMachine: typeof import("./virtualMachine").VirtualMachine = null as any;
-
-export { VirtualNetworkRuleArgs, VirtualNetworkRuleState } from "./virtualNetworkRule";
-export type VirtualNetworkRule = import("./virtualNetworkRule").VirtualNetworkRule;
-export const VirtualNetworkRule: typeof import("./virtualNetworkRule").VirtualNetworkRule = null as any;
-
-utilities.lazyLoad(exports, ["Database"], () => require("./database"));
-utilities.lazyLoad(exports, ["DatabaseExtendedAuditingPolicy"], () => require("./databaseExtendedAuditingPolicy"));
-utilities.lazyLoad(exports, ["DatabaseVulnerabilityAssessmentRuleBaseline"], () => require("./databaseVulnerabilityAssessmentRuleBaseline"));
-utilities.lazyLoad(exports, ["ElasticPool"], () => require("./elasticPool"));
-utilities.lazyLoad(exports, ["FailoverGroup"], () => require("./failoverGroup"));
-utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
-utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
-utilities.lazyLoad(exports, ["getElasticPool","getElasticPoolOutput"], () => require("./getElasticPool"));
-utilities.lazyLoad(exports, ["getManagedInstance","getManagedInstanceOutput"], () => require("./getManagedInstance"));
-utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
-utilities.lazyLoad(exports, ["JobAgent"], () => require("./jobAgent"));
-utilities.lazyLoad(exports, ["JobCredential"], () => require("./jobCredential"));
-utilities.lazyLoad(exports, ["ManagedDatabase"], () => require("./managedDatabase"));
-utilities.lazyLoad(exports, ["ManagedInstance"], () => require("./managedInstance"));
-utilities.lazyLoad(exports, ["ManagedInstanceActiveDirectoryAdministrator"], () => require("./managedInstanceActiveDirectoryAdministrator"));
-utilities.lazyLoad(exports, ["ManagedInstanceFailoverGroup"], () => require("./managedInstanceFailoverGroup"));
-utilities.lazyLoad(exports, ["ManagedInstanceVulnerabilityAssessment"], () => require("./managedInstanceVulnerabilityAssessment"));
-utilities.lazyLoad(exports, ["OutboundFirewallRule"], () => require("./outboundFirewallRule"));
-utilities.lazyLoad(exports, ["Server"], () => require("./server"));
-utilities.lazyLoad(exports, ["ServerDnsAlias"], () => require("./serverDnsAlias"));
-utilities.lazyLoad(exports, ["ServerExtendedAuditingPolicy"], () => require("./serverExtendedAuditingPolicy"));
-utilities.lazyLoad(exports, ["ServerSecurityAlertPolicy"], () => require("./serverSecurityAlertPolicy"));
-utilities.lazyLoad(exports, ["ServerTransparentDataEncryption"], () => require("./serverTransparentDataEncryption"));
-utilities.lazyLoad(exports, ["ServerVulnerabilityAssessment"], () => require("./serverVulnerabilityAssessment"));
-utilities.lazyLoad(exports, ["VirtualMachine"], () => require("./virtualMachine"));
-utilities.lazyLoad(exports, ["VirtualNetworkRule"], () => require("./virtualNetworkRule"));
+// Import resources to register:
+import { Database } from "./database";
+import { DatabaseExtendedAuditingPolicy } from "./databaseExtendedAuditingPolicy";
+import { DatabaseVulnerabilityAssessmentRuleBaseline } from "./databaseVulnerabilityAssessmentRuleBaseline";
+import { ElasticPool } from "./elasticPool";
+import { FailoverGroup } from "./failoverGroup";
+import { FirewallRule } from "./firewallRule";
+import { JobAgent } from "./jobAgent";
+import { JobCredential } from "./jobCredential";
+import { ManagedDatabase } from "./managedDatabase";
+import { ManagedInstance } from "./managedInstance";
+import { ManagedInstanceActiveDirectoryAdministrator } from "./managedInstanceActiveDirectoryAdministrator";
+import { ManagedInstanceFailoverGroup } from "./managedInstanceFailoverGroup";
+import { ManagedInstanceVulnerabilityAssessment } from "./managedInstanceVulnerabilityAssessment";
+import { OutboundFirewallRule } from "./outboundFirewallRule";
+import { Server } from "./server";
+import { ServerDnsAlias } from "./serverDnsAlias";
+import { ServerExtendedAuditingPolicy } from "./serverExtendedAuditingPolicy";
+import { ServerSecurityAlertPolicy } from "./serverSecurityAlertPolicy";
+import { ServerTransparentDataEncryption } from "./serverTransparentDataEncryption";
+import { ServerVulnerabilityAssessment } from "./serverVulnerabilityAssessment";
+import { VirtualMachine } from "./virtualMachine";
+import { VirtualNetworkRule } from "./virtualNetworkRule";
 
 const _module = {
     version: utilities.getVersion(),

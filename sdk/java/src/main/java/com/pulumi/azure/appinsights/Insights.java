@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Workspace Mode
+ * ## Example Usage - Workspace Mode
  * ```java
  * package generated_program;
  * 

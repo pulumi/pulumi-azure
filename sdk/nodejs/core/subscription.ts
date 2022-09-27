@@ -13,8 +13,7 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Azure supports Multiple Aliases per Subscription, however, to reliably manage this resource in this provider only a single Alias is supported.
  *
- * ## Example Usage
- * ### Creating A New Alias And Subscription For An Enrollment Account
+ * ## Example Usage - creating a new Alias and Subscription for an Enrollment Account
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -29,7 +28,8 @@ import * as utilities from "../utilities";
  *     billingScopeId: exampleEnrollmentAccountScope.then(exampleEnrollmentAccountScope => exampleEnrollmentAccountScope.id),
  * });
  * ```
- * ### Creating A New Alias And Subscription For A Microsoft Customer Account
+ *
+ * ## Example Usage - creating a new Alias and Subscription for a Microsoft Customer Account
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -45,7 +45,8 @@ import * as utilities from "../utilities";
  *     billingScopeId: exampleMcaAccountScope.then(exampleMcaAccountScope => exampleMcaAccountScope.id),
  * });
  * ```
- * ### Creating A New Alias And Subscription For A Microsoft Partner Account
+ *
+ * ## Example Usage - creating a new Alias and Subscription for a Microsoft Partner Account
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -60,7 +61,8 @@ import * as utilities from "../utilities";
  *     billingScopeId: exampleMpaAccountScope.then(exampleMpaAccountScope => exampleMpaAccountScope.id),
  * });
  * ```
- * ### Adding An Alias To An Existing Subscription
+ *
+ * ## Example Usage - adding an Alias to an existing Subscription
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

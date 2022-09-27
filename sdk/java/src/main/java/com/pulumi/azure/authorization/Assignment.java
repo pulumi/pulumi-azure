@@ -20,8 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Assigns a given Principal (User or Group) to a given Role.
  * 
- * ## Example Usage
- * ### Using A Built-In Role)
+ * ## Example Usage (using a built-in Role)
  * ```java
  * package generated_program;
  * 
@@ -58,7 +57,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Custom Role &amp; Service Principal)
+ * 
+ * ## Example Usage (Custom Role &amp; Service Principal)
  * ```java
  * package generated_program;
  * 
@@ -109,7 +109,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Custom Role &amp; User)
+ * 
+ * ## Example Usage (Custom Role &amp; User)
  * ```java
  * package generated_program;
  * 
@@ -160,7 +161,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Custom Role &amp; Management Group)
+ * 
+ * ## Example Usage (Custom Role &amp; Management Group)
  * ```java
  * package generated_program;
  * 

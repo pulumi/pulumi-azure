@@ -17,8 +17,7 @@ import javax.annotation.Nullable;
 /**
  * Manages an Certificate within an API Management Service.
  * 
- * ## Example Usage
- * ### With Base64 Certificate)
+ * ## Example Usage (with Base64 Certificate)
  * ```java
  * package generated_program;
  * 
@@ -65,7 +64,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### With Key Vault Certificate)
+ * 
+ * ## Example Usage (with Key Vault Certificate)
  * ```java
  * package generated_program;
  * 

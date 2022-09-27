@@ -5,43 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
- * const exampleCNameRecord = new azure.dns.CNameRecord("exampleCNameRecord", {
- *     zoneName: exampleZone.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     ttl: 300,
- *     record: "contoso.com",
- * });
- * ```
- * ### Alias Record)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
- * const target = new azure.dns.CNameRecord("target", {
- *     zoneName: exampleZone.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     ttl: 300,
- *     record: "contoso.com",
- * });
- * const exampleCNameRecord = new azure.dns.CNameRecord("exampleCNameRecord", {
- *     zoneName: exampleZone.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     ttl: 300,
- *     targetResourceId: target.id,
- * });
- * ```
- *
  * ## Import
  *
  * CNAME records can be imported using the `resource id`, e.g.

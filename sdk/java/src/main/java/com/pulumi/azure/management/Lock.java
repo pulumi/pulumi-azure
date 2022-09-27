@@ -19,8 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
  * 
- * ## Example Usage
- * ### Subscription Level Lock)
+ * ## Example Usage (Subscription Level Lock)
  * ```java
  * package generated_program;
  * 
@@ -55,7 +54,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Resource Group Level Lock)
+ * 
+ * ## Example Usage (Resource Group Level Lock)
  * ```java
  * package generated_program;
  * 
@@ -92,7 +92,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Resource Level Lock)
+ * 
+ * ## Example Usage (Resource Level Lock)
  * ```java
  * package generated_program;
  * 

@@ -12,8 +12,7 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages a managed disk.
     /// 
-    /// ## Example Usage
-    /// ### With Create Empty
+    /// ## Example Usage with Create Empty
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -42,7 +41,8 @@ namespace Pulumi.Azure.Compute
     /// 
     /// });
     /// ```
-    /// ### With Create Copy
+    /// 
+    /// ## Example Usage with Create Copy
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

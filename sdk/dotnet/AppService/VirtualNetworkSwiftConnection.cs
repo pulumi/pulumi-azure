@@ -33,8 +33,7 @@ namespace Pulumi.Azure.AppService
     /// There is a hard limit of [one VNet integration per App Service Plan](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
     /// Multiple apps in the same App Service plan can use the same VNet.
     /// 
-    /// ## Example Usage
-    /// ### With App Service)
+    /// ## Example Usage (with App Service)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -109,7 +108,9 @@ namespace Pulumi.Azure.AppService
     /// 
     /// });
     /// ```
-    /// ### With Function App)
+    /// 
+    /// ## Example Usage (with Function App)
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using Pulumi;

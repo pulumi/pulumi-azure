@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Monitoring
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetScheduledQueryRulesAlertResult> InvokeAsync(GetScheduledQueryRulesAlertArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRulesAlertResult>("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args ?? new GetScheduledQueryRulesAlertArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetScheduledQueryRulesAlertResult>("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args ?? new GetScheduledQueryRulesAlertArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access the properties of an AlertingAction scheduled query rule.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Monitoring
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetScheduledQueryRulesAlertResult> Invoke(GetScheduledQueryRulesAlertInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRulesAlertResult>("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args ?? new GetScheduledQueryRulesAlertInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetScheduledQueryRulesAlertResult>("azure:monitoring/getScheduledQueryRulesAlert:getScheduledQueryRulesAlert", args ?? new GetScheduledQueryRulesAlertInvokeArgs(), options.WithDefaults());
     }
 
 

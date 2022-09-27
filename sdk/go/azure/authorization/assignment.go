@@ -13,8 +13,7 @@ import (
 
 // Assigns a given Principal (User or Group) to a given Role.
 //
-// ## Example Usage
-// ### Using A Built-In Role)
+// ## Example Usage (using a built-in Role)
 //
 // ```go
 // package main
@@ -50,7 +49,8 @@ import (
 //	}
 //
 // ```
-// ### Custom Role & Service Principal)
+//
+// ## Example Usage (Custom Role & Service Principal)
 //
 // ```go
 // package main
@@ -105,7 +105,8 @@ import (
 //	}
 //
 // ```
-// ### Custom Role & User)
+//
+// ## Example Usage (Custom Role & User)
 //
 // ```go
 // package main
@@ -160,7 +161,8 @@ import (
 //	}
 //
 // ```
-// ### Custom Role & Management Group)
+//
+// ## Example Usage (Custom Role & Management Group)
 //
 // ```go
 // package main

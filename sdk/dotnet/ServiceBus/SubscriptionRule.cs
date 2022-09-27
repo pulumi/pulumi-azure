@@ -12,8 +12,7 @@ namespace Pulumi.Azure.ServiceBus
     /// <summary>
     /// Manages a ServiceBus Subscription Rule.
     /// 
-    /// ## Example Usage
-    /// ### SQL Filter)
+    /// ## Example Usage (SQL Filter)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -59,7 +58,8 @@ namespace Pulumi.Azure.ServiceBus
     /// 
     /// });
     /// ```
-    /// ### Correlation Filter)
+    /// 
+    /// ## Example Usage (Correlation Filter)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

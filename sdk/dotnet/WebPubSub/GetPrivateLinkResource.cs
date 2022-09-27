@@ -49,7 +49,7 @@ namespace Pulumi.Azure.WebPubSub
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPrivateLinkResourceResult> InvokeAsync(GetPrivateLinkResourceArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkResourceResult>("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", args ?? new GetPrivateLinkResourceArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkResourceResult>("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", args ?? new GetPrivateLinkResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about the Private Link Resource supported by the Web Pubsub Resource.
@@ -89,7 +89,7 @@ namespace Pulumi.Azure.WebPubSub
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPrivateLinkResourceResult> Invoke(GetPrivateLinkResourceInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkResourceResult>("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", args ?? new GetPrivateLinkResourceInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetPrivateLinkResourceResult>("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", args ?? new GetPrivateLinkResourceInvokeArgs(), options.WithDefaults());
     }
 
 

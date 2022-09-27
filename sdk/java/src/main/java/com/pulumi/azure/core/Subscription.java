@@ -24,8 +24,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** Azure supports Multiple Aliases per Subscription, however, to reliably manage this resource in this provider only a single Alias is supported.
  * 
- * ## Example Usage
- * ### Creating A New Alias And Subscription For An Enrollment Account
+ * ## Example Usage - creating a new Alias and Subscription for an Enrollment Account
  * ```java
  * package generated_program;
  * 
@@ -62,7 +61,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Creating A New Alias And Subscription For A Microsoft Customer Account
+ * 
+ * ## Example Usage - creating a new Alias and Subscription for a Microsoft Customer Account
  * ```java
  * package generated_program;
  * 
@@ -100,7 +100,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Creating A New Alias And Subscription For A Microsoft Partner Account
+ * 
+ * ## Example Usage - creating a new Alias and Subscription for a Microsoft Partner Account
  * ```java
  * package generated_program;
  * 
@@ -137,7 +138,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Adding An Alias To An Existing Subscription
+ * 
+ * ## Example Usage - adding an Alias to an existing Subscription
  * ```java
  * package generated_program;
  * 

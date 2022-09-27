@@ -408,7 +408,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                 ),
             ))
         ```
-        ### For Fixed Dates)
+        ## Example Usage (for fixed dates)
 
         ```python
         import pulumi
@@ -655,7 +655,7 @@ class AutoscaleSetting(pulumi.CustomResource):
                 ),
             ))
         ```
-        ### For Fixed Dates)
+        ## Example Usage (for fixed dates)
 
         ```python
         import pulumi

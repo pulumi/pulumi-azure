@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### With Password In Key Vault
+ * ## Example Usage with Password in Key Vault
  * ```java
  * package generated_program;
  * 

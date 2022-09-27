@@ -5,26 +5,14 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
-export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
-export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+export * from "./getWorkspace";
+export * from "./getWorkspacePrivateEndpointConnection";
+export * from "./workspace";
+export * from "./workspaceCustomerManagedKey";
 
-export { GetWorkspacePrivateEndpointConnectionArgs, GetWorkspacePrivateEndpointConnectionResult, GetWorkspacePrivateEndpointConnectionOutputArgs } from "./getWorkspacePrivateEndpointConnection";
-export const getWorkspacePrivateEndpointConnection: typeof import("./getWorkspacePrivateEndpointConnection").getWorkspacePrivateEndpointConnection = null as any;
-export const getWorkspacePrivateEndpointConnectionOutput: typeof import("./getWorkspacePrivateEndpointConnection").getWorkspacePrivateEndpointConnectionOutput = null as any;
-
-export { WorkspaceArgs, WorkspaceState } from "./workspace";
-export type Workspace = import("./workspace").Workspace;
-export const Workspace: typeof import("./workspace").Workspace = null as any;
-
-export { WorkspaceCustomerManagedKeyArgs, WorkspaceCustomerManagedKeyState } from "./workspaceCustomerManagedKey";
-export type WorkspaceCustomerManagedKey = import("./workspaceCustomerManagedKey").WorkspaceCustomerManagedKey;
-export const WorkspaceCustomerManagedKey: typeof import("./workspaceCustomerManagedKey").WorkspaceCustomerManagedKey = null as any;
-
-utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
-utilities.lazyLoad(exports, ["getWorkspacePrivateEndpointConnection","getWorkspacePrivateEndpointConnectionOutput"], () => require("./getWorkspacePrivateEndpointConnection"));
-utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
-utilities.lazyLoad(exports, ["WorkspaceCustomerManagedKey"], () => require("./workspaceCustomerManagedKey"));
+// Import resources to register:
+import { Workspace } from "./workspace";
+import { WorkspaceCustomerManagedKey } from "./workspaceCustomerManagedKey";
 
 const _module = {
     version: utilities.getVersion(),

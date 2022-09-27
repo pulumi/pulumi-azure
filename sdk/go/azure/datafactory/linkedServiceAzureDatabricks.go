@@ -13,8 +13,7 @@ import (
 
 // Manages a Linked Service (connection) between Azure Databricks and Azure Data Factory.
 //
-// ## Example Usage
-// ### With Managed Identity & New Cluster
+// ## Example Usage with managed identity & new cluster
 //
 // ```go
 // package main
@@ -96,7 +95,8 @@ import (
 //	}
 //
 // ```
-// ### With Access Token & Existing Cluster
+//
+// ## Example Usage with access token & existing cluster
 //
 // ```go
 // package main

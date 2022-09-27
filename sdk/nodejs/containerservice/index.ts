@@ -5,106 +5,41 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { ConnectedRegistryArgs, ConnectedRegistryState } from "./connectedRegistry";
-export type ConnectedRegistry = import("./connectedRegistry").ConnectedRegistry;
-export const ConnectedRegistry: typeof import("./connectedRegistry").ConnectedRegistry = null as any;
+export * from "./connectedRegistry";
+export * from "./getClusterNodePool";
+export * from "./getGroup";
+export * from "./getKubernetesCluster";
+export * from "./getKubernetesServiceVersions";
+export * from "./getRegistry";
+export * from "./getRegistryScopeMap";
+export * from "./getRegistryToken";
+export * from "./group";
+export * from "./kubernetesCluster";
+export * from "./kubernetesClusterNodePool";
+export * from "./registry";
+export * from "./registryAgentPool";
+export * from "./registryScopeMap";
+export * from "./registryTask";
+export * from "./registryTaskScheduleRunNow";
+export * from "./registryToken";
+export * from "./registryWebhook";
+export * from "./registryWebook";
+export * from "./tokenPassword";
 
-export { GetClusterNodePoolArgs, GetClusterNodePoolResult, GetClusterNodePoolOutputArgs } from "./getClusterNodePool";
-export const getClusterNodePool: typeof import("./getClusterNodePool").getClusterNodePool = null as any;
-export const getClusterNodePoolOutput: typeof import("./getClusterNodePool").getClusterNodePoolOutput = null as any;
-
-export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
-export const getGroup: typeof import("./getGroup").getGroup = null as any;
-export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
-
-export { GetKubernetesClusterArgs, GetKubernetesClusterResult, GetKubernetesClusterOutputArgs } from "./getKubernetesCluster";
-export const getKubernetesCluster: typeof import("./getKubernetesCluster").getKubernetesCluster = null as any;
-export const getKubernetesClusterOutput: typeof import("./getKubernetesCluster").getKubernetesClusterOutput = null as any;
-
-export { GetKubernetesServiceVersionsArgs, GetKubernetesServiceVersionsResult, GetKubernetesServiceVersionsOutputArgs } from "./getKubernetesServiceVersions";
-export const getKubernetesServiceVersions: typeof import("./getKubernetesServiceVersions").getKubernetesServiceVersions = null as any;
-export const getKubernetesServiceVersionsOutput: typeof import("./getKubernetesServiceVersions").getKubernetesServiceVersionsOutput = null as any;
-
-export { GetRegistryArgs, GetRegistryResult, GetRegistryOutputArgs } from "./getRegistry";
-export const getRegistry: typeof import("./getRegistry").getRegistry = null as any;
-export const getRegistryOutput: typeof import("./getRegistry").getRegistryOutput = null as any;
-
-export { GetRegistryScopeMapArgs, GetRegistryScopeMapResult, GetRegistryScopeMapOutputArgs } from "./getRegistryScopeMap";
-export const getRegistryScopeMap: typeof import("./getRegistryScopeMap").getRegistryScopeMap = null as any;
-export const getRegistryScopeMapOutput: typeof import("./getRegistryScopeMap").getRegistryScopeMapOutput = null as any;
-
-export { GetRegistryTokenArgs, GetRegistryTokenResult, GetRegistryTokenOutputArgs } from "./getRegistryToken";
-export const getRegistryToken: typeof import("./getRegistryToken").getRegistryToken = null as any;
-export const getRegistryTokenOutput: typeof import("./getRegistryToken").getRegistryTokenOutput = null as any;
-
-export { GroupArgs, GroupState } from "./group";
-export type Group = import("./group").Group;
-export const Group: typeof import("./group").Group = null as any;
-
-export { KubernetesClusterArgs, KubernetesClusterState } from "./kubernetesCluster";
-export type KubernetesCluster = import("./kubernetesCluster").KubernetesCluster;
-export const KubernetesCluster: typeof import("./kubernetesCluster").KubernetesCluster = null as any;
-
-export { KubernetesClusterNodePoolArgs, KubernetesClusterNodePoolState } from "./kubernetesClusterNodePool";
-export type KubernetesClusterNodePool = import("./kubernetesClusterNodePool").KubernetesClusterNodePool;
-export const KubernetesClusterNodePool: typeof import("./kubernetesClusterNodePool").KubernetesClusterNodePool = null as any;
-
-export { RegistryArgs, RegistryState } from "./registry";
-export type Registry = import("./registry").Registry;
-export const Registry: typeof import("./registry").Registry = null as any;
-
-export { RegistryAgentPoolArgs, RegistryAgentPoolState } from "./registryAgentPool";
-export type RegistryAgentPool = import("./registryAgentPool").RegistryAgentPool;
-export const RegistryAgentPool: typeof import("./registryAgentPool").RegistryAgentPool = null as any;
-
-export { RegistryScopeMapArgs, RegistryScopeMapState } from "./registryScopeMap";
-export type RegistryScopeMap = import("./registryScopeMap").RegistryScopeMap;
-export const RegistryScopeMap: typeof import("./registryScopeMap").RegistryScopeMap = null as any;
-
-export { RegistryTaskArgs, RegistryTaskState } from "./registryTask";
-export type RegistryTask = import("./registryTask").RegistryTask;
-export const RegistryTask: typeof import("./registryTask").RegistryTask = null as any;
-
-export { RegistryTaskScheduleRunNowArgs, RegistryTaskScheduleRunNowState } from "./registryTaskScheduleRunNow";
-export type RegistryTaskScheduleRunNow = import("./registryTaskScheduleRunNow").RegistryTaskScheduleRunNow;
-export const RegistryTaskScheduleRunNow: typeof import("./registryTaskScheduleRunNow").RegistryTaskScheduleRunNow = null as any;
-
-export { RegistryTokenArgs, RegistryTokenState } from "./registryToken";
-export type RegistryToken = import("./registryToken").RegistryToken;
-export const RegistryToken: typeof import("./registryToken").RegistryToken = null as any;
-
-export { RegistryWebhookArgs, RegistryWebhookState } from "./registryWebhook";
-export type RegistryWebhook = import("./registryWebhook").RegistryWebhook;
-export const RegistryWebhook: typeof import("./registryWebhook").RegistryWebhook = null as any;
-
-export { RegistryWebookArgs, RegistryWebookState } from "./registryWebook";
-export type RegistryWebook = import("./registryWebook").RegistryWebook;
-export const RegistryWebook: typeof import("./registryWebook").RegistryWebook = null as any;
-
-export { TokenPasswordArgs, TokenPasswordState } from "./tokenPassword";
-export type TokenPassword = import("./tokenPassword").TokenPassword;
-export const TokenPassword: typeof import("./tokenPassword").TokenPassword = null as any;
-
-utilities.lazyLoad(exports, ["ConnectedRegistry"], () => require("./connectedRegistry"));
-utilities.lazyLoad(exports, ["getClusterNodePool","getClusterNodePoolOutput"], () => require("./getClusterNodePool"));
-utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
-utilities.lazyLoad(exports, ["getKubernetesCluster","getKubernetesClusterOutput"], () => require("./getKubernetesCluster"));
-utilities.lazyLoad(exports, ["getKubernetesServiceVersions","getKubernetesServiceVersionsOutput"], () => require("./getKubernetesServiceVersions"));
-utilities.lazyLoad(exports, ["getRegistry","getRegistryOutput"], () => require("./getRegistry"));
-utilities.lazyLoad(exports, ["getRegistryScopeMap","getRegistryScopeMapOutput"], () => require("./getRegistryScopeMap"));
-utilities.lazyLoad(exports, ["getRegistryToken","getRegistryTokenOutput"], () => require("./getRegistryToken"));
-utilities.lazyLoad(exports, ["Group"], () => require("./group"));
-utilities.lazyLoad(exports, ["KubernetesCluster"], () => require("./kubernetesCluster"));
-utilities.lazyLoad(exports, ["KubernetesClusterNodePool"], () => require("./kubernetesClusterNodePool"));
-utilities.lazyLoad(exports, ["Registry"], () => require("./registry"));
-utilities.lazyLoad(exports, ["RegistryAgentPool"], () => require("./registryAgentPool"));
-utilities.lazyLoad(exports, ["RegistryScopeMap"], () => require("./registryScopeMap"));
-utilities.lazyLoad(exports, ["RegistryTask"], () => require("./registryTask"));
-utilities.lazyLoad(exports, ["RegistryTaskScheduleRunNow"], () => require("./registryTaskScheduleRunNow"));
-utilities.lazyLoad(exports, ["RegistryToken"], () => require("./registryToken"));
-utilities.lazyLoad(exports, ["RegistryWebhook"], () => require("./registryWebhook"));
-utilities.lazyLoad(exports, ["RegistryWebook"], () => require("./registryWebook"));
-utilities.lazyLoad(exports, ["TokenPassword"], () => require("./tokenPassword"));
+// Import resources to register:
+import { ConnectedRegistry } from "./connectedRegistry";
+import { Group } from "./group";
+import { KubernetesCluster } from "./kubernetesCluster";
+import { KubernetesClusterNodePool } from "./kubernetesClusterNodePool";
+import { Registry } from "./registry";
+import { RegistryAgentPool } from "./registryAgentPool";
+import { RegistryScopeMap } from "./registryScopeMap";
+import { RegistryTask } from "./registryTask";
+import { RegistryTaskScheduleRunNow } from "./registryTaskScheduleRunNow";
+import { RegistryToken } from "./registryToken";
+import { RegistryWebhook } from "./registryWebhook";
+import { RegistryWebook } from "./registryWebook";
+import { TokenPassword } from "./tokenPassword";
 
 const _module = {
     version: utilities.getVersion(),

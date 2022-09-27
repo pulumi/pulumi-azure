@@ -12,8 +12,7 @@ import (
 
 // Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
 //
-// ## Example Usage
-// ### World)
+// ## Example Usage (World)
 //
 // ```go
 // package main

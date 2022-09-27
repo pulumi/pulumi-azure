@@ -41,7 +41,7 @@ import (
 //	}
 //
 // ```
-// ### Registering A Preview Feature)
+// ## Example Usage (Registering a Preview Feature)
 //
 // ```go
 // package main

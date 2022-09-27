@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Storage
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSyncResult> InvokeAsync(GetSyncArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSyncResult>("azure:storage/getSync:getSync", args ?? new GetSyncArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetSyncResult>("azure:storage/getSync:getSync", args ?? new GetSyncArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Storage Sync.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Storage
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSyncResult> Invoke(GetSyncInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetSyncResult>("azure:storage/getSync:getSync", args ?? new GetSyncInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetSyncResult>("azure:storage/getSync:getSync", args ?? new GetSyncInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -14,10 +14,7 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Use this data source to access information about an existing Public IP Prefix.
         /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### Reference An Existing)
+        /// ## Example Usage (reference an existing)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -38,19 +35,14 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPublicIpPrefixResult> InvokeAsync(GetPublicIpPrefixArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? new GetPublicIpPrefixArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? new GetPublicIpPrefixArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Public IP Prefix.
         /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// ### Reference An Existing)
+        /// ## Example Usage (reference an existing)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -71,11 +63,9 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetPublicIpPrefixResult> Invoke(GetPublicIpPrefixInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? new GetPublicIpPrefixInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? new GetPublicIpPrefixInvokeArgs(), options.WithDefaults());
     }
 
 

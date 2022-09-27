@@ -12,8 +12,7 @@ import (
 
 // Use this data source to access information about an existing User Assigned Identity.
 //
-// ## Example Usage
-// ### Reference An Existing)
+// ## Example Usage (reference an existing)
 //
 // ```go
 // package main

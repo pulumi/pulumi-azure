@@ -6,12 +6,8 @@ import * as utilities from "./utilities";
 
 // Export members:
 export * from "./location";
-export { ProviderArgs } from "./provider";
-export type Provider = import("./provider").Provider;
-export const Provider: typeof import("./provider").Provider = null as any;
-
+export * from "./provider";
 export * from "./util";
-utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
 
 // Export sub-modules:
 import * as aadb2c from "./aadb2c";
@@ -235,6 +231,9 @@ export {
     waf,
     webpubsub,
 };
+
+import { Provider } from "./provider";
+
 pulumi.runtime.registerResourcePackage("azure", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

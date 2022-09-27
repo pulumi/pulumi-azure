@@ -5,157 +5,61 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { AuthorizationRuleArgs, AuthorizationRuleState } from "./authorizationRule";
-export type AuthorizationRule = import("./authorizationRule").AuthorizationRule;
-export const AuthorizationRule: typeof import("./authorizationRule").AuthorizationRule = null as any;
-
-export { ClusterArgs, ClusterState } from "./cluster";
-export type Cluster = import("./cluster").Cluster;
-export const Cluster: typeof import("./cluster").Cluster = null as any;
-
-export { ConsumerGroupArgs, ConsumerGroupState } from "./consumerGroup";
-export type ConsumerGroup = import("./consumerGroup").ConsumerGroup;
-export const ConsumerGroup: typeof import("./consumerGroup").ConsumerGroup = null as any;
-
-export { DomainArgs, DomainState } from "./domain";
-export type Domain = import("./domain").Domain;
-export const Domain: typeof import("./domain").Domain = null as any;
-
-export { EventGridTopicArgs, EventGridTopicState } from "./eventGridTopic";
-export type EventGridTopic = import("./eventGridTopic").EventGridTopic;
-export const EventGridTopic: typeof import("./eventGridTopic").EventGridTopic = null as any;
-
-export { EventHubArgs, EventHubState } from "./eventHub";
-export type EventHub = import("./eventHub").EventHub;
-export const EventHub: typeof import("./eventHub").EventHub = null as any;
-
-export { EventHubAuthorizationRuleArgs, EventHubAuthorizationRuleState } from "./eventHubAuthorizationRule";
-export type EventHubAuthorizationRule = import("./eventHubAuthorizationRule").EventHubAuthorizationRule;
-export const EventHubAuthorizationRule: typeof import("./eventHubAuthorizationRule").EventHubAuthorizationRule = null as any;
-
-export { EventHubConsumerGroupArgs, EventHubConsumerGroupState } from "./eventHubConsumerGroup";
-export type EventHubConsumerGroup = import("./eventHubConsumerGroup").EventHubConsumerGroup;
-export const EventHubConsumerGroup: typeof import("./eventHubConsumerGroup").EventHubConsumerGroup = null as any;
-
-export { EventHubNamespaceArgs, EventHubNamespaceState } from "./eventHubNamespace";
-export type EventHubNamespace = import("./eventHubNamespace").EventHubNamespace;
-export const EventHubNamespace: typeof import("./eventHubNamespace").EventHubNamespace = null as any;
-
-export { EventHubNamespaceAuthorizationRuleArgs, EventHubNamespaceAuthorizationRuleState } from "./eventHubNamespaceAuthorizationRule";
-export type EventHubNamespaceAuthorizationRule = import("./eventHubNamespaceAuthorizationRule").EventHubNamespaceAuthorizationRule;
-export const EventHubNamespaceAuthorizationRule: typeof import("./eventHubNamespaceAuthorizationRule").EventHubNamespaceAuthorizationRule = null as any;
-
-export { EventSubscriptionArgs, EventSubscriptionState } from "./eventSubscription";
-export type EventSubscription = import("./eventSubscription").EventSubscription;
-export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
-
-export { EventhubNamespaceDisasterRecoveryConfigArgs, EventhubNamespaceDisasterRecoveryConfigState } from "./eventhubNamespaceDisasterRecoveryConfig";
-export type EventhubNamespaceDisasterRecoveryConfig = import("./eventhubNamespaceDisasterRecoveryConfig").EventhubNamespaceDisasterRecoveryConfig;
-export const EventhubNamespaceDisasterRecoveryConfig: typeof import("./eventhubNamespaceDisasterRecoveryConfig").EventhubNamespaceDisasterRecoveryConfig = null as any;
-
-export { GetAuthorizationRuleArgs, GetAuthorizationRuleResult, GetAuthorizationRuleOutputArgs } from "./getAuthorizationRule";
-export const getAuthorizationRule: typeof import("./getAuthorizationRule").getAuthorizationRule = null as any;
-export const getAuthorizationRuleOutput: typeof import("./getAuthorizationRule").getAuthorizationRuleOutput = null as any;
-
-export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
-export const getCluster: typeof import("./getCluster").getCluster = null as any;
-export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
-
-export { GetConsumeGroupArgs, GetConsumeGroupResult, GetConsumeGroupOutputArgs } from "./getConsumeGroup";
-export const getConsumeGroup: typeof import("./getConsumeGroup").getConsumeGroup = null as any;
-export const getConsumeGroupOutput: typeof import("./getConsumeGroup").getConsumeGroupOutput = null as any;
-
-export { GetEventHubArgs, GetEventHubResult, GetEventHubOutputArgs } from "./getEventHub";
-export const getEventHub: typeof import("./getEventHub").getEventHub = null as any;
-export const getEventHubOutput: typeof import("./getEventHub").getEventHubOutput = null as any;
-
-export { GetEventhubNamespaceArgs, GetEventhubNamespaceResult, GetEventhubNamespaceOutputArgs } from "./getEventhubNamespace";
-export const getEventhubNamespace: typeof import("./getEventhubNamespace").getEventhubNamespace = null as any;
-export const getEventhubNamespaceOutput: typeof import("./getEventhubNamespace").getEventhubNamespaceOutput = null as any;
-
-export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
-export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
-export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
-
-export { GetNamespaceAuthorizationRuleArgs, GetNamespaceAuthorizationRuleResult, GetNamespaceAuthorizationRuleOutputArgs } from "./getNamespaceAuthorizationRule";
-export const getNamespaceAuthorizationRule: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRule = null as any;
-export const getNamespaceAuthorizationRuleOutput: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRuleOutput = null as any;
-
-export { GetServiceBusNamespaceArgs, GetServiceBusNamespaceResult, GetServiceBusNamespaceOutputArgs } from "./getServiceBusNamespace";
-export const getServiceBusNamespace: typeof import("./getServiceBusNamespace").getServiceBusNamespace = null as any;
-export const getServiceBusNamespaceOutput: typeof import("./getServiceBusNamespace").getServiceBusNamespaceOutput = null as any;
-
-export { NamespaceArgs, NamespaceState } from "./namespace";
-export type Namespace = import("./namespace").Namespace;
-export const Namespace: typeof import("./namespace").Namespace = null as any;
-
-export { NamespaceAuthorizationRuleArgs, NamespaceAuthorizationRuleState } from "./namespaceAuthorizationRule";
-export type NamespaceAuthorizationRule = import("./namespaceAuthorizationRule").NamespaceAuthorizationRule;
-export const NamespaceAuthorizationRule: typeof import("./namespaceAuthorizationRule").NamespaceAuthorizationRule = null as any;
-
-export { NamespaceCustomerManagedKeyArgs, NamespaceCustomerManagedKeyState } from "./namespaceCustomerManagedKey";
-export type NamespaceCustomerManagedKey = import("./namespaceCustomerManagedKey").NamespaceCustomerManagedKey;
-export const NamespaceCustomerManagedKey: typeof import("./namespaceCustomerManagedKey").NamespaceCustomerManagedKey = null as any;
-
-export { NamespaceSchemaGroupArgs, NamespaceSchemaGroupState } from "./namespaceSchemaGroup";
-export type NamespaceSchemaGroup = import("./namespaceSchemaGroup").NamespaceSchemaGroup;
-export const NamespaceSchemaGroup: typeof import("./namespaceSchemaGroup").NamespaceSchemaGroup = null as any;
-
-export { QueueArgs, QueueState } from "./queue";
-export type Queue = import("./queue").Queue;
-export const Queue: typeof import("./queue").Queue = null as any;
-
-export { QueueAuthorizationRuleArgs, QueueAuthorizationRuleState } from "./queueAuthorizationRule";
-export type QueueAuthorizationRule = import("./queueAuthorizationRule").QueueAuthorizationRule;
-export const QueueAuthorizationRule: typeof import("./queueAuthorizationRule").QueueAuthorizationRule = null as any;
-
-export { SubscriptionArgs, SubscriptionState } from "./subscription";
-export type Subscription = import("./subscription").Subscription;
-export const Subscription: typeof import("./subscription").Subscription = null as any;
-
-export { SubscriptionRuleArgs, SubscriptionRuleState } from "./subscriptionRule";
-export type SubscriptionRule = import("./subscriptionRule").SubscriptionRule;
-export const SubscriptionRule: typeof import("./subscriptionRule").SubscriptionRule = null as any;
-
-export { TopicArgs, TopicState } from "./topic";
-export type Topic = import("./topic").Topic;
-export const Topic: typeof import("./topic").Topic = null as any;
-
-export { TopicAuthorizationRuleArgs, TopicAuthorizationRuleState } from "./topicAuthorizationRule";
-export type TopicAuthorizationRule = import("./topicAuthorizationRule").TopicAuthorizationRule;
-export const TopicAuthorizationRule: typeof import("./topicAuthorizationRule").TopicAuthorizationRule = null as any;
-
+export * from "./authorizationRule";
+export * from "./cluster";
+export * from "./consumerGroup";
+export * from "./domain";
+export * from "./eventGridTopic";
+export * from "./eventHub";
+export * from "./eventHubAuthorizationRule";
+export * from "./eventHubConsumerGroup";
+export * from "./eventHubNamespace";
+export * from "./eventHubNamespaceAuthorizationRule";
+export * from "./eventSubscription";
+export * from "./eventhubNamespaceDisasterRecoveryConfig";
+export * from "./getAuthorizationRule";
+export * from "./getCluster";
+export * from "./getConsumeGroup";
+export * from "./getEventHub";
+export * from "./getEventhubNamespace";
+export * from "./getNamespace";
+export * from "./getNamespaceAuthorizationRule";
+export * from "./getServiceBusNamespace";
+export * from "./namespace";
+export * from "./namespaceAuthorizationRule";
+export * from "./namespaceCustomerManagedKey";
+export * from "./namespaceSchemaGroup";
+export * from "./queue";
+export * from "./queueAuthorizationRule";
+export * from "./subscription";
+export * from "./subscriptionRule";
+export * from "./topic";
+export * from "./topicAuthorizationRule";
 export * from "./zMixins";
-utilities.lazyLoad(exports, ["AuthorizationRule"], () => require("./authorizationRule"));
-utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
-utilities.lazyLoad(exports, ["ConsumerGroup"], () => require("./consumerGroup"));
-utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
-utilities.lazyLoad(exports, ["EventGridTopic"], () => require("./eventGridTopic"));
-utilities.lazyLoad(exports, ["EventHub"], () => require("./eventHub"));
-utilities.lazyLoad(exports, ["EventHubAuthorizationRule"], () => require("./eventHubAuthorizationRule"));
-utilities.lazyLoad(exports, ["EventHubConsumerGroup"], () => require("./eventHubConsumerGroup"));
-utilities.lazyLoad(exports, ["EventHubNamespace"], () => require("./eventHubNamespace"));
-utilities.lazyLoad(exports, ["EventHubNamespaceAuthorizationRule"], () => require("./eventHubNamespaceAuthorizationRule"));
-utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
-utilities.lazyLoad(exports, ["EventhubNamespaceDisasterRecoveryConfig"], () => require("./eventhubNamespaceDisasterRecoveryConfig"));
-utilities.lazyLoad(exports, ["getAuthorizationRule","getAuthorizationRuleOutput"], () => require("./getAuthorizationRule"));
-utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
-utilities.lazyLoad(exports, ["getConsumeGroup","getConsumeGroupOutput"], () => require("./getConsumeGroup"));
-utilities.lazyLoad(exports, ["getEventHub","getEventHubOutput"], () => require("./getEventHub"));
-utilities.lazyLoad(exports, ["getEventhubNamespace","getEventhubNamespaceOutput"], () => require("./getEventhubNamespace"));
-utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
-utilities.lazyLoad(exports, ["getNamespaceAuthorizationRule","getNamespaceAuthorizationRuleOutput"], () => require("./getNamespaceAuthorizationRule"));
-utilities.lazyLoad(exports, ["getServiceBusNamespace","getServiceBusNamespaceOutput"], () => require("./getServiceBusNamespace"));
-utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
-utilities.lazyLoad(exports, ["NamespaceAuthorizationRule"], () => require("./namespaceAuthorizationRule"));
-utilities.lazyLoad(exports, ["NamespaceCustomerManagedKey"], () => require("./namespaceCustomerManagedKey"));
-utilities.lazyLoad(exports, ["NamespaceSchemaGroup"], () => require("./namespaceSchemaGroup"));
-utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
-utilities.lazyLoad(exports, ["QueueAuthorizationRule"], () => require("./queueAuthorizationRule"));
-utilities.lazyLoad(exports, ["Subscription"], () => require("./subscription"));
-utilities.lazyLoad(exports, ["SubscriptionRule"], () => require("./subscriptionRule"));
-utilities.lazyLoad(exports, ["Topic"], () => require("./topic"));
-utilities.lazyLoad(exports, ["TopicAuthorizationRule"], () => require("./topicAuthorizationRule"));
+
+// Import resources to register:
+import { AuthorizationRule } from "./authorizationRule";
+import { Cluster } from "./cluster";
+import { ConsumerGroup } from "./consumerGroup";
+import { Domain } from "./domain";
+import { EventGridTopic } from "./eventGridTopic";
+import { EventHub } from "./eventHub";
+import { EventHubAuthorizationRule } from "./eventHubAuthorizationRule";
+import { EventHubConsumerGroup } from "./eventHubConsumerGroup";
+import { EventHubNamespace } from "./eventHubNamespace";
+import { EventHubNamespaceAuthorizationRule } from "./eventHubNamespaceAuthorizationRule";
+import { EventSubscription } from "./eventSubscription";
+import { EventhubNamespaceDisasterRecoveryConfig } from "./eventhubNamespaceDisasterRecoveryConfig";
+import { Namespace } from "./namespace";
+import { NamespaceAuthorizationRule } from "./namespaceAuthorizationRule";
+import { NamespaceCustomerManagedKey } from "./namespaceCustomerManagedKey";
+import { NamespaceSchemaGroup } from "./namespaceSchemaGroup";
+import { Queue } from "./queue";
+import { QueueAuthorizationRule } from "./queueAuthorizationRule";
+import { Subscription } from "./subscription";
+import { SubscriptionRule } from "./subscriptionRule";
+import { Topic } from "./topic";
+import { TopicAuthorizationRule } from "./topicAuthorizationRule";
 
 const _module = {
     version: utilities.getVersion(),

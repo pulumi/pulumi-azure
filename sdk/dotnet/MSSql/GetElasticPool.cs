@@ -42,7 +42,7 @@ namespace Pulumi.Azure.MSSql
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetElasticPoolResult> InvokeAsync(GetElasticPoolArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetElasticPoolResult>("azure:mssql/getElasticPool:getElasticPool", args ?? new GetElasticPoolArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetElasticPoolResult>("azure:mssql/getElasticPool:getElasticPool", args ?? new GetElasticPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing SQL elastic pool.
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.MSSql
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetElasticPoolResult> Invoke(GetElasticPoolInvokeArgs args, InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetElasticPoolResult>("azure:mssql/getElasticPool:getElasticPool", args ?? new GetElasticPoolInvokeArgs(), options.WithDefaults());
+            => Pulumi.Deployment.Instance.Invoke<GetElasticPoolResult>("azure:mssql/getElasticPool:getElasticPool", args ?? new GetElasticPoolInvokeArgs(), options.WithDefaults());
     }
 
 
