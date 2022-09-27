@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * ## Example Usage with Multiple Outputs
+ * ### With Multiple Outputs
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

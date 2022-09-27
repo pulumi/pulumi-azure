@@ -13,7 +13,8 @@ import (
 
 // Manages a Function App Function.
 //
-// ## Example Usage - Basic HTTP Trigger
+// ## Example Usage
+// ### Basic HTTP Trigger
 //
 // ```go
 // package main
@@ -115,8 +116,7 @@ import (
 //	}
 //
 // ```
-//
-// ## Example Usage - HTTP Trigger with code upload
+// ### HTTP Trigger With Code Upload
 //
 // ```go
 // package main

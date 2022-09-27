@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * export const instrumentationKey = exampleInsights.instrumentationKey;
  * export const appId = exampleInsights.appId;
  * ```
- * ## Example Usage - Workspace Mode
+ * ### Workspace Mode
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

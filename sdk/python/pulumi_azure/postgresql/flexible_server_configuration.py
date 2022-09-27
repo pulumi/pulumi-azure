@@ -152,7 +152,7 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
             server_id=example_flexible_server.id,
             value="on")
         ```
-        ## Example Usage - Azure Extensions
+        ### Azure Extensions
 
         ```python
         import pulumi
@@ -214,7 +214,7 @@ class FlexibleServerConfiguration(pulumi.CustomResource):
             server_id=example_flexible_server.id,
             value="on")
         ```
-        ## Example Usage - Azure Extensions
+        ### Azure Extensions
 
         ```python
         import pulumi

@@ -379,7 +379,8 @@ class FunctionAppFunction(pulumi.CustomResource):
         """
         Manages a Function App Function.
 
-        ## Example Usage - Basic HTTP Trigger
+        ## Example Usage
+        ### Basic HTTP Trigger
 
         ```python
         import pulumi
@@ -434,8 +435,7 @@ class FunctionAppFunction(pulumi.CustomResource):
                 ],
             }))
         ```
-
-        ## Example Usage - HTTP Trigger with code upload
+        ### HTTP Trigger With Code Upload
 
         ```python
         import pulumi
@@ -522,7 +522,8 @@ class FunctionAppFunction(pulumi.CustomResource):
         """
         Manages a Function App Function.
 
-        ## Example Usage - Basic HTTP Trigger
+        ## Example Usage
+        ### Basic HTTP Trigger
 
         ```python
         import pulumi
@@ -577,8 +578,7 @@ class FunctionAppFunction(pulumi.CustomResource):
                 ],
             }))
         ```
-
-        ## Example Usage - HTTP Trigger with code upload
+        ### HTTP Trigger With Code Upload
 
         ```python
         import pulumi

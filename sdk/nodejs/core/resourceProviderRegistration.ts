@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * const example = new azure.core.ResourceProviderRegistration("example", {});
  * ```
- * ## Example Usage (Registering a Preview Feature)
+ * ### Registering A Preview Feature)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

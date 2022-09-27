@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     connectionString: "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh",
  * });
  * ```
- * ## Example Usage with Password in Key Vault
+ * ### With Password In Key Vault
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

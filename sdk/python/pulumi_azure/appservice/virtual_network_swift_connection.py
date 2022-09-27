@@ -121,7 +121,8 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         There is a hard limit of [one VNet integration per App Service Plan](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
         Multiple apps in the same App Service plan can use the same VNet.
 
-        ## Example Usage (with App Service)
+        ## Example Usage
+        ### With App Service)
 
         ```python
         import pulumi
@@ -158,9 +159,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
             app_service_id=example_app_service.id,
             subnet_id=example_subnet.id)
         ```
-
-        ## Example Usage (with Function App)
-
+        ### With Function App)
         ```python
         import pulumi
         import pulumi_azure as azure
@@ -247,7 +246,8 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         There is a hard limit of [one VNet integration per App Service Plan](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
         Multiple apps in the same App Service plan can use the same VNet.
 
-        ## Example Usage (with App Service)
+        ## Example Usage
+        ### With App Service)
 
         ```python
         import pulumi
@@ -284,9 +284,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
             app_service_id=example_app_service.id,
             subnet_id=example_subnet.id)
         ```
-
-        ## Example Usage (with Function App)
-
+        ### With Function App)
         ```python
         import pulumi
         import pulumi_azure as azure

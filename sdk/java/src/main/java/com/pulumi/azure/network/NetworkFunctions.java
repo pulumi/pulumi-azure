@@ -1999,7 +1999,8 @@ public final class NetworkFunctions {
     /**
      * Use this data source to access information about an existing Public IP Address.
      * 
-     * ## Example Usage (reference an existing)
+     * ## Example Usage
+     * ### Reference An Existing)
      * ```java
      * package generated_program;
      * 
@@ -2031,8 +2032,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
-     * 
-     * ## Example Usage (Retrieve the Dynamic Public IP of a new VM)
+     * ### Retrieve The Dynamic Public IP Of A New VM)
      * ```java
      * package generated_program;
      * 
@@ -2126,7 +2126,8 @@ public final class NetworkFunctions {
     /**
      * Use this data source to access information about an existing Public IP Address.
      * 
-     * ## Example Usage (reference an existing)
+     * ## Example Usage
+     * ### Reference An Existing)
      * ```java
      * package generated_program;
      * 
@@ -2158,8 +2159,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
-     * 
-     * ## Example Usage (Retrieve the Dynamic Public IP of a new VM)
+     * ### Retrieve The Dynamic Public IP Of A New VM)
      * ```java
      * package generated_program;
      * 
@@ -2253,7 +2253,8 @@ public final class NetworkFunctions {
     /**
      * Use this data source to access information about an existing Public IP Address.
      * 
-     * ## Example Usage (reference an existing)
+     * ## Example Usage
+     * ### Reference An Existing)
      * ```java
      * package generated_program;
      * 
@@ -2285,8 +2286,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
-     * 
-     * ## Example Usage (Retrieve the Dynamic Public IP of a new VM)
+     * ### Retrieve The Dynamic Public IP Of A New VM)
      * ```java
      * package generated_program;
      * 
@@ -2380,7 +2380,8 @@ public final class NetworkFunctions {
     /**
      * Use this data source to access information about an existing Public IP Address.
      * 
-     * ## Example Usage (reference an existing)
+     * ## Example Usage
+     * ### Reference An Existing)
      * ```java
      * package generated_program;
      * 
@@ -2412,8 +2413,7 @@ public final class NetworkFunctions {
      *     }
      * }
      * ```
-     * 
-     * ## Example Usage (Retrieve the Dynamic Public IP of a new VM)
+     * ### Retrieve The Dynamic Public IP Of A New VM)
      * ```java
      * package generated_program;
      * 
@@ -2659,7 +2659,8 @@ public final class NetworkFunctions {
     /**
      * Use this data source to access information about an existing Public IP Prefix.
      * 
-     * ## Example Usage (reference an existing)
+     * ## Example Usage
+     * ### Reference An Existing)
      * ```java
      * package generated_program;
      * 
@@ -2698,7 +2699,8 @@ public final class NetworkFunctions {
     /**
      * Use this data source to access information about an existing Public IP Prefix.
      * 
-     * ## Example Usage (reference an existing)
+     * ## Example Usage
+     * ### Reference An Existing)
      * ```java
      * package generated_program;
      * 
@@ -2737,7 +2739,8 @@ public final class NetworkFunctions {
     /**
      * Use this data source to access information about an existing Public IP Prefix.
      * 
-     * ## Example Usage (reference an existing)
+     * ## Example Usage
+     * ### Reference An Existing)
      * ```java
      * package generated_program;
      * 
@@ -2776,7 +2779,8 @@ public final class NetworkFunctions {
     /**
      * Use this data source to access information about an existing Public IP Prefix.
      * 
-     * ## Example Usage (reference an existing)
+     * ## Example Usage
+     * ### Reference An Existing)
      * ```java
      * package generated_program;
      * 
@@ -3447,7 +3451,8 @@ public final class NetworkFunctions {
     /**
      * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
      * 
-     * ## Example Usage (World)
+     * ## Example Usage
+     * ### World)
      * ```java
      * package generated_program;
      * 
@@ -3485,7 +3490,8 @@ public final class NetworkFunctions {
     /**
      * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
      * 
-     * ## Example Usage (World)
+     * ## Example Usage
+     * ### World)
      * ```java
      * package generated_program;
      * 
@@ -3523,7 +3529,8 @@ public final class NetworkFunctions {
     /**
      * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
      * 
-     * ## Example Usage (World)
+     * ## Example Usage
+     * ### World)
      * ```java
      * package generated_program;
      * 
@@ -3561,7 +3568,8 @@ public final class NetworkFunctions {
     /**
      * Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
      * 
-     * ## Example Usage (World)
+     * ## Example Usage
+     * ### World)
      * ```java
      * package generated_program;
      * 

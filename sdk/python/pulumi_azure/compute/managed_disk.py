@@ -1091,7 +1091,8 @@ class ManagedDisk(pulumi.CustomResource):
         """
         Manages a managed disk.
 
-        ## Example Usage with Create Empty
+        ## Example Usage
+        ### With Create Empty
 
         ```python
         import pulumi
@@ -1108,8 +1109,7 @@ class ManagedDisk(pulumi.CustomResource):
                 "environment": "staging",
             })
         ```
-
-        ## Example Usage with Create Copy
+        ### With Create Copy
 
         ```python
         import pulumi
@@ -1189,7 +1189,8 @@ class ManagedDisk(pulumi.CustomResource):
         """
         Manages a managed disk.
 
-        ## Example Usage with Create Empty
+        ## Example Usage
+        ### With Create Empty
 
         ```python
         import pulumi
@@ -1206,8 +1207,7 @@ class ManagedDisk(pulumi.CustomResource):
                 "environment": "staging",
             })
         ```
-
-        ## Example Usage with Create Copy
+        ### With Create Copy
 
         ```python
         import pulumi

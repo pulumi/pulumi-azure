@@ -16,7 +16,8 @@ import javax.annotation.Nullable;
 /**
  * Manages a Firewall Rule for a MySQL Flexible Server.
  * 
- * ## Example Usage (Single IP Address)
+ * ## Example Usage
+ * ### Single IP Address)
  * ```java
  * package generated_program;
  * 
@@ -61,8 +62,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * 
- * ## Example Usage (IP Range)
+ * ### IP Range)
  * ```java
  * package generated_program;
  * 
@@ -107,8 +107,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * 
- * ## Example Usage (Allow access to Azure services)
+ * ### Allow Access To Azure Services)
  * ```java
  * package generated_program;
  * 

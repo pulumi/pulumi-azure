@@ -128,7 +128,8 @@ def get_user_assigned_identity(name: Optional[str] = None,
     """
     Use this data source to access information about an existing User Assigned Identity.
 
-    ## Example Usage (reference an existing)
+    ## Example Usage
+    ### Reference An Existing)
 
     ```python
     import pulumi
@@ -169,7 +170,8 @@ def get_user_assigned_identity_output(name: Optional[pulumi.Input[str]] = None,
     """
     Use this data source to access information about an existing User Assigned Identity.
 
-    ## Example Usage (reference an existing)
+    ## Example Usage
+    ### Reference An Existing)
 
     ```python
     import pulumi

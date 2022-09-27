@@ -92,7 +92,7 @@ import (
 //	}
 //
 // ```
-// ## Example Usage (automatically regenerate Storage Account access key)
+// ### Automatically Regenerate Storage Account Access Key)
 //
 // ```go
 // package main

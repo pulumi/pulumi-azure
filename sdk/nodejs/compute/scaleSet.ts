@@ -8,7 +8,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a virtual machine scale set.
  *
- * ## Example Usage with Unmanaged Disks
+ * ## Example Usage
+ * ### With Unmanaged Disks
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -82,7 +83,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ## Example of storageProfileImageReference with id
  *
  * ```typescript

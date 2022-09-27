@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *     scaleUnits: 2,
  * });
  * ```
- * ## Example Usage with Access Control
+ * ### With Access Control
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -20,7 +20,8 @@ import javax.annotation.Nullable;
 /**
  * Manages a Function App Function.
  * 
- * ## Example Usage - Basic HTTP Trigger
+ * ## Example Usage
+ * ### Basic HTTP Trigger
  * ```java
  * package generated_program;
  * 
@@ -116,8 +117,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * 
- * ## Example Usage - HTTP Trigger with code upload
+ * ### HTTP Trigger With Code Upload
  * ```java
  * package generated_program;
  * 

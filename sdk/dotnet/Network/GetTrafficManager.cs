@@ -14,7 +14,10 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
         /// 
-        /// ## Example Usage (World)
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### World)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -34,6 +37,8 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetTrafficManagerResult> InvokeAsync(GetTrafficManagerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTrafficManagerResult>("azure:network/getTrafficManager:getTrafficManager", args ?? new GetTrafficManagerArgs(), options.WithDefaults());
@@ -41,7 +46,10 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
         /// 
-        /// ## Example Usage (World)
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### World)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -61,6 +69,8 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetTrafficManagerResult> Invoke(GetTrafficManagerInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTrafficManagerResult>("azure:network/getTrafficManager:getTrafficManager", args ?? new GetTrafficManagerInvokeArgs(), options.WithDefaults());

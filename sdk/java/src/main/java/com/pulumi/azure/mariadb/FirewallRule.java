@@ -16,7 +16,8 @@ import javax.annotation.Nullable;
 /**
  * Manages a Firewall Rule for a MariaDB Server
  * 
- * ## Example Usage (Single IP Address)
+ * ## Example Usage
+ * ### Single IP Address)
  * ```java
  * package generated_program;
  * 
@@ -48,8 +49,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * 
- * ## Example Usage (IP Range)
+ * ### IP Range)
  * ```java
  * package generated_program;
  * 

@@ -8,7 +8,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Linked Service (connection) between Azure Databricks and Azure Data Factory.
  *
- * ## Example Usage with managed identity & new cluster
+ * ## Example Usage
+ * ### With Managed Identity & New Cluster
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -60,8 +61,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * ## Example Usage with access token & existing cluster
+ * ### With Access Token & Existing Cluster
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

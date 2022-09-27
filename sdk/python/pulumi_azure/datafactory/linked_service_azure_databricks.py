@@ -498,7 +498,8 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between Azure Databricks and Azure Data Factory.
 
-        ## Example Usage with managed identity & new cluster
+        ## Example Usage
+        ### With Managed Identity & New Cluster
 
         ```python
         import pulumi
@@ -547,8 +548,7 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
                 ],
             ))
         ```
-
-        ## Example Usage with access token & existing cluster
+        ### With Access Token & Existing Cluster
 
         ```python
         import pulumi
@@ -606,7 +606,8 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         """
         Manages a Linked Service (connection) between Azure Databricks and Azure Data Factory.
 
-        ## Example Usage with managed identity & new cluster
+        ## Example Usage
+        ### With Managed Identity & New Cluster
 
         ```python
         import pulumi
@@ -655,8 +656,7 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
                 ],
             ))
         ```
-
-        ## Example Usage with access token & existing cluster
+        ### With Access Token & Existing Cluster
 
         ```python
         import pulumi

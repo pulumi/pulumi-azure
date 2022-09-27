@@ -51,7 +51,7 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// });
     /// ```
-    /// ## Example Usage (Encryption)
+    /// ### Encryption)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -100,8 +100,7 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Example Usage (Attaching a Container Registry to a Kubernetes Cluster)
+    /// ### Attaching A Container Registry To A Kubernetes Cluster)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

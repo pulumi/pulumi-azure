@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing Public IP Address.
  *
- * ## Example Usage (reference an existing)
+ * ## Example Usage
+ * ### Reference An Existing)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -20,8 +21,7 @@ import * as utilities from "../utilities";
  * export const domainNameLabel = example.then(example => example.domainNameLabel);
  * export const publicIpAddress = example.then(example => example.ipAddress);
  * ```
- *
- * ## Example Usage (Retrieve the Dynamic Public IP of a new VM)
+ * ### Retrieve The Dynamic Public IP Of A New VM)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

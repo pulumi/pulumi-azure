@@ -6,7 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- *
  * ### CNAME validation
  *
  * ```typescript

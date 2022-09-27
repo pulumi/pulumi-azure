@@ -313,7 +313,8 @@ class Certificate(pulumi.CustomResource):
         """
         Manages an Certificate within an API Management Service.
 
-        ## Example Usage (with Base64 Certificate)
+        ## Example Usage
+        ### With Base64 Certificate)
 
         ```python
         import pulumi
@@ -332,8 +333,7 @@ class Certificate(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             data=(lambda path: base64.b64encode(open(path).read().encode()).decode())("example.pfx"))
         ```
-
-        ## Example Usage (with Key Vault Certificate)
+        ### With Key Vault Certificate)
 
         ```python
         import pulumi
@@ -415,7 +415,8 @@ class Certificate(pulumi.CustomResource):
         """
         Manages an Certificate within an API Management Service.
 
-        ## Example Usage (with Base64 Certificate)
+        ## Example Usage
+        ### With Base64 Certificate)
 
         ```python
         import pulumi
@@ -434,8 +435,7 @@ class Certificate(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             data=(lambda path: base64.b64encode(open(path).read().encode()).decode())("example.pfx"))
         ```
-
-        ## Example Usage (with Key Vault Certificate)
+        ### With Key Vault Certificate)
 
         ```python
         import pulumi

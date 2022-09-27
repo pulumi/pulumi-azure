@@ -40,7 +40,7 @@ namespace Pulumi.Azure.AppInsights
     ///     };
     /// });
     /// ```
-    /// ## Example Usage - Workspace Mode
+    /// ### Workspace Mode
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * ## Example Usage (Encryption)
+ * ### Encryption)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -64,8 +64,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * ## Example Usage (Attaching a Container Registry to a Kubernetes Cluster)
+ * ### Attaching A Container Registry To A Kubernetes Cluster)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

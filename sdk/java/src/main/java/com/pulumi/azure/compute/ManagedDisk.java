@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
 /**
  * Manages a managed disk.
  * 
- * ## Example Usage with Create Empty
+ * ## Example Usage
+ * ### With Create Empty
  * ```java
  * package generated_program;
  * 
@@ -61,8 +62,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * 
- * ## Example Usage with Create Copy
+ * ### With Create Copy
  * ```java
  * package generated_program;
  * 

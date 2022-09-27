@@ -8,7 +8,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Function App Function.
  *
- * ## Example Usage - Basic HTTP Trigger
+ * ## Example Usage
+ * ### Basic HTTP Trigger
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -66,8 +67,7 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
- *
- * ## Example Usage - HTTP Trigger with code upload
+ * ### HTTP Trigger With Code Upload
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

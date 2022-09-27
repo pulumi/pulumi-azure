@@ -45,7 +45,7 @@ namespace Pulumi.Azure.PostgreSql
     /// 
     /// });
     /// ```
-    /// ## Example Usage - Azure Extensions
+    /// ### Azure Extensions
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

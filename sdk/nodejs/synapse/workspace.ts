@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ## Example Usage - creating a workspace with Customer Managed Key and Azure AD Admin
+ * ### Creating A Workspace With Customer Managed Key And Azure AD Admin
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

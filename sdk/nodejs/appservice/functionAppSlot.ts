@@ -6,7 +6,8 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage (with App Service Plan)
+ * ## Example Usage
+ * ### With App Service Plan)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

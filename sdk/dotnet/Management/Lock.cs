@@ -12,7 +12,8 @@ namespace Pulumi.Azure.Management
     /// <summary>
     /// Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
     /// 
-    /// ## Example Usage (Subscription Level Lock)
+    /// ## Example Usage
+    /// ### Subscription Level Lock)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -32,8 +33,7 @@ namespace Pulumi.Azure.Management
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Example Usage (Resource Group Level Lock)
+    /// ### Resource Group Level Lock)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -56,8 +56,7 @@ namespace Pulumi.Azure.Management
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Example Usage (Resource Level Lock)
+    /// ### Resource Level Lock)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

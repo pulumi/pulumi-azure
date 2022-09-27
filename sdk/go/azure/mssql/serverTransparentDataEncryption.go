@@ -17,7 +17,8 @@ import (
 //
 // > **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.
 //
-// ## Example Usage with Service Managed Key
+// ## Example Usage
+// ### With Service Managed Key
 //
 // ```go
 // package main

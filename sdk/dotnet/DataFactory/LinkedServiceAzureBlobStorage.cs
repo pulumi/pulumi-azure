@@ -46,7 +46,7 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// });
     /// ```
-    /// ## Example Usage with SAS URI and SAS Token.
+    /// ### With SAS URI And SAS Token.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

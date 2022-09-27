@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ## Example Usage with Access Control
+ * ### With Access Control
  * ```java
  * package generated_program;
  * 

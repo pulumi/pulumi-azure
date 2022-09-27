@@ -166,7 +166,8 @@ class Lock(pulumi.CustomResource):
         """
         Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
 
-        ## Example Usage (Subscription Level Lock)
+        ## Example Usage
+        ### Subscription Level Lock)
 
         ```python
         import pulumi
@@ -178,8 +179,7 @@ class Lock(pulumi.CustomResource):
             lock_level="CanNotDelete",
             notes="Items can't be deleted in this subscription!")
         ```
-
-        ## Example Usage (Resource Group Level Lock)
+        ### Resource Group Level Lock)
 
         ```python
         import pulumi
@@ -191,8 +191,7 @@ class Lock(pulumi.CustomResource):
             lock_level="ReadOnly",
             notes="This Resource Group is Read-Only")
         ```
-
-        ## Example Usage (Resource Level Lock)
+        ### Resource Level Lock)
 
         ```python
         import pulumi
@@ -234,7 +233,8 @@ class Lock(pulumi.CustomResource):
         """
         Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
 
-        ## Example Usage (Subscription Level Lock)
+        ## Example Usage
+        ### Subscription Level Lock)
 
         ```python
         import pulumi
@@ -246,8 +246,7 @@ class Lock(pulumi.CustomResource):
             lock_level="CanNotDelete",
             notes="Items can't be deleted in this subscription!")
         ```
-
-        ## Example Usage (Resource Group Level Lock)
+        ### Resource Group Level Lock)
 
         ```python
         import pulumi
@@ -259,8 +258,7 @@ class Lock(pulumi.CustomResource):
             lock_level="ReadOnly",
             notes="This Resource Group is Read-Only")
         ```
-
-        ## Example Usage (Resource Level Lock)
+        ### Resource Level Lock)
 
         ```python
         import pulumi

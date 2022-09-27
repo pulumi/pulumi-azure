@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ## Example Usage with Network Rules
+ * ### With Network Rules
  * ```java
  * package generated_program;
  * 

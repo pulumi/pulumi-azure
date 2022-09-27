@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ## Example Usage - creating a workspace with Customer Managed Key and Azure AD Admin
+ * ### Creating A Workspace With Customer Managed Key And Azure AD Admin
  * ```java
  * package generated_program;
  * 

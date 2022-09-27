@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Assigns a given Principal (User or Group) to a given Role.
  *
- * ## Example Usage (using a built-in Role)
+ * ## Example Usage
+ * ### Using A Built-In Role)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -21,33 +22,7 @@ import * as utilities from "../utilities";
  *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
  * });
  * ```
- *
- * ## Example Usage (Custom Role & Service Principal)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const primary = azure.core.getSubscription({});
- * const exampleClientConfig = azure.core.getClientConfig({});
- * const exampleRoleDefinition = new azure.authorization.RoleDefinition("exampleRoleDefinition", {
- *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
- *     scope: primary.then(primary => primary.id),
- *     permissions: [{
- *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
- *         notActions: [],
- *     }],
- *     assignableScopes: [primary.then(primary => primary.id)],
- * });
- * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
- *     name: "00000000-0000-0000-0000-000000000000",
- *     scope: primary.then(primary => primary.id),
- *     roleDefinitionId: exampleRoleDefinition.roleDefinitionResourceId,
- *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
- * });
- * ```
- *
- * ## Example Usage (Custom Role & User)
+ * ### Custom Role & Service Principal)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -71,8 +46,31 @@ import * as utilities from "../utilities";
  *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
  * });
  * ```
+ * ### Custom Role & User)
  *
- * ## Example Usage (Custom Role & Management Group)
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const primary = azure.core.getSubscription({});
+ * const exampleClientConfig = azure.core.getClientConfig({});
+ * const exampleRoleDefinition = new azure.authorization.RoleDefinition("exampleRoleDefinition", {
+ *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
+ *     scope: primary.then(primary => primary.id),
+ *     permissions: [{
+ *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
+ *         notActions: [],
+ *     }],
+ *     assignableScopes: [primary.then(primary => primary.id)],
+ * });
+ * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ *     name: "00000000-0000-0000-0000-000000000000",
+ *     scope: primary.then(primary => primary.id),
+ *     roleDefinitionId: exampleRoleDefinition.roleDefinitionResourceId,
+ *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
+ * });
+ * ```
+ * ### Custom Role & Management Group)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

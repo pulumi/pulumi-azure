@@ -351,7 +351,7 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string="jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh")
         ```
-        ## Example Usage with Password in Key Vault
+        ### With Password In Key Vault
 
         ```python
         import pulumi
@@ -423,7 +423,7 @@ class LinkedServiceSnowflake(pulumi.CustomResource):
             data_factory_id=example_factory.id,
             connection_string="jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh")
         ```
-        ## Example Usage with Password in Key Vault
+        ### With Password In Key Vault
 
         ```python
         import pulumi

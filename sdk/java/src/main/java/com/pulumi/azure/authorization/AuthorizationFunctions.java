@@ -62,7 +62,8 @@ public final class AuthorizationFunctions {
     /**
      * Use this data source to access information about an existing User Assigned Identity.
      * 
-     * ## Example Usage (reference an existing)
+     * ## Example Usage
+     * ### Reference An Existing)
      * ```java
      * package generated_program;
      * 
@@ -103,7 +104,8 @@ public final class AuthorizationFunctions {
     /**
      * Use this data source to access information about an existing User Assigned Identity.
      * 
-     * ## Example Usage (reference an existing)
+     * ## Example Usage
+     * ### Reference An Existing)
      * ```java
      * package generated_program;
      * 
@@ -144,7 +146,8 @@ public final class AuthorizationFunctions {
     /**
      * Use this data source to access information about an existing User Assigned Identity.
      * 
-     * ## Example Usage (reference an existing)
+     * ## Example Usage
+     * ### Reference An Existing)
      * ```java
      * package generated_program;
      * 
@@ -185,7 +188,8 @@ public final class AuthorizationFunctions {
     /**
      * Use this data source to access information about an existing User Assigned Identity.
      * 
-     * ## Example Usage (reference an existing)
+     * ## Example Usage
+     * ### Reference An Existing)
      * ```java
      * package generated_program;
      * 

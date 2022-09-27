@@ -21,7 +21,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** See [documentation](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview) for important information on how handle lifecycle management of the keys to prevent data lockout.
  * 
- * ## Example Usage with Service Managed Key
+ * ## Example Usage
+ * ### With Service Managed Key
  * ```java
  * package generated_program;
  * 
@@ -73,8 +74,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * 
- * ## Example Usage with Customer Managed Key
+ * ### With Customer Managed Key
  * 
  * ```java
  * package generated_program;

@@ -197,7 +197,8 @@ class FirewallRule(pulumi.CustomResource):
         """
         Manages a Firewall Rule for a MariaDB Server
 
-        ## Example Usage (Single IP Address)
+        ## Example Usage
+        ### Single IP Address)
 
         ```python
         import pulumi
@@ -209,8 +210,7 @@ class FirewallRule(pulumi.CustomResource):
             server_name="test-server",
             start_ip_address="40.112.8.12")
         ```
-
-        ## Example Usage (IP Range)
+        ### IP Range)
 
         ```python
         import pulumi
@@ -248,7 +248,8 @@ class FirewallRule(pulumi.CustomResource):
         """
         Manages a Firewall Rule for a MariaDB Server
 
-        ## Example Usage (Single IP Address)
+        ## Example Usage
+        ### Single IP Address)
 
         ```python
         import pulumi
@@ -260,8 +261,7 @@ class FirewallRule(pulumi.CustomResource):
             server_name="test-server",
             start_ip_address="40.112.8.12")
         ```
-
-        ## Example Usage (IP Range)
+        ### IP Range)
 
         ```python
         import pulumi

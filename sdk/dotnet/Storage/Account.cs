@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Storage
     /// 
     /// });
     /// ```
-    /// ## Example Usage with Network Rules
+    /// ### With Network Rules
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

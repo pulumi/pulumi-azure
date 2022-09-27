@@ -185,7 +185,7 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// });
     /// ```
-    /// ## Example Usage (for fixed dates)
+    /// ### For Fixed Dates)
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

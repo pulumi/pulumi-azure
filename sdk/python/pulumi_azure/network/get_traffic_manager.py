@@ -58,7 +58,8 @@ def get_traffic_manager(name: Optional[str] = None,
     """
     Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
 
-    ## Example Usage (World)
+    ## Example Usage
+    ### World)
 
     ```python
     import pulumi
@@ -87,7 +88,8 @@ def get_traffic_manager_output(name: Optional[pulumi.Input[str]] = None,
     """
     Use this data source to access the ID of a specified Traffic Manager Geographical Location within the Geographical Hierarchy.
 
-    ## Example Usage (World)
+    ## Example Usage
+    ### World)
 
     ```python
     import pulumi

@@ -121,7 +121,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ## Example Usage (for fixed dates)
+ * ### For Fixed Dates)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

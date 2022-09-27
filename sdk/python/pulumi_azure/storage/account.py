@@ -1623,7 +1623,7 @@ class Account(pulumi.CustomResource):
                 "environment": "staging",
             })
         ```
-        ## Example Usage with Network Rules
+        ### With Network Rules
 
         ```python
         import pulumi
@@ -1726,7 +1726,7 @@ class Account(pulumi.CustomResource):
                 "environment": "staging",
             })
         ```
-        ## Example Usage with Network Rules
+        ### With Network Rules
 
         ```python
         import pulumi

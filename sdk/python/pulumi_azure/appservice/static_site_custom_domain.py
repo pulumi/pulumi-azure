@@ -148,7 +148,6 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
-
         ### CNAME validation
 
         ```python
@@ -192,7 +191,6 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
-
         ### CNAME validation
 
         ```python

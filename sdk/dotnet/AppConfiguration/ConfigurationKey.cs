@@ -14,7 +14,8 @@ namespace Pulumi.Azure.AppConfiguration
     /// 
     /// &gt; **Note:** App Configuration Keys are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration).
     /// 
-    /// ## Example Usage of `kv` type
+    /// ## Example Usage
+    /// ### `Kv` Type
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -59,9 +60,7 @@ namespace Pulumi.Azure.AppConfiguration
     /// 
     /// });
     /// ```
-    /// 
-    /// ## Example Usage of `vault` type
-    /// 
+    /// ### `Vault` Type
     /// ```csharp
     /// using System.Collections.Generic;
     /// using Pulumi;

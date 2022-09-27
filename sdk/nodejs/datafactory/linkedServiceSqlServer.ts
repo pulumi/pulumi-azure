@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     connectionString: "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
  * });
  * ```
- * ## Example Usage with Password in Key Vault
+ * ### With Password In Key Vault
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

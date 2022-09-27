@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Firewall Rule for a MySQL Server.
  *
- * ## Example Usage (Single IP Address)
+ * ## Example Usage
+ * ### Single IP Address)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -28,8 +29,7 @@ import * as utilities from "../utilities";
  *     endIpAddress: "40.112.8.12",
  * });
  * ```
- *
- * ## Example Usage (IP Range)
+ * ### IP Range)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -45,8 +45,7 @@ import * as utilities from "../utilities";
  *     endIpAddress: "40.112.255.255",
  * });
  * ```
- *
- * ## Example Usage (Allow access to Azure services)
+ * ### Allow Access To Azure Services)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

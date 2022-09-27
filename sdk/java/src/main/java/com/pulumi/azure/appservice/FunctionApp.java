@@ -25,6 +25,265 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * ### With App Service Plan)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.appservice.Plan;
+ * import com.pulumi.azure.appservice.PlanArgs;
+ * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
+ * import com.pulumi.azure.appservice.FunctionApp;
+ * import com.pulumi.azure.appservice.FunctionAppArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .accountTier(&#34;Standard&#34;)
+ *             .accountReplicationType(&#34;LRS&#34;)
+ *             .build());
+ * 
+ *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .sku(PlanSkuArgs.builder()
+ *                 .tier(&#34;Standard&#34;)
+ *                 .size(&#34;S1&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleFunctionApp = new FunctionApp(&#34;exampleFunctionApp&#34;, FunctionAppArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .appServicePlanId(examplePlan.id())
+ *             .storageAccountName(exampleAccount.name())
+ *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### In A Consumption Plan)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.appservice.Plan;
+ * import com.pulumi.azure.appservice.PlanArgs;
+ * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
+ * import com.pulumi.azure.appservice.FunctionApp;
+ * import com.pulumi.azure.appservice.FunctionAppArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .accountTier(&#34;Standard&#34;)
+ *             .accountReplicationType(&#34;LRS&#34;)
+ *             .build());
+ * 
+ *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .kind(&#34;FunctionApp&#34;)
+ *             .sku(PlanSkuArgs.builder()
+ *                 .tier(&#34;Dynamic&#34;)
+ *                 .size(&#34;Y1&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleFunctionApp = new FunctionApp(&#34;exampleFunctionApp&#34;, FunctionAppArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .appServicePlanId(examplePlan.id())
+ *             .storageAccountName(exampleAccount.name())
+ *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Linux)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.appservice.Plan;
+ * import com.pulumi.azure.appservice.PlanArgs;
+ * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
+ * import com.pulumi.azure.appservice.FunctionApp;
+ * import com.pulumi.azure.appservice.FunctionAppArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .accountTier(&#34;Standard&#34;)
+ *             .accountReplicationType(&#34;LRS&#34;)
+ *             .build());
+ * 
+ *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .kind(&#34;Linux&#34;)
+ *             .reserved(true)
+ *             .sku(PlanSkuArgs.builder()
+ *                 .tier(&#34;Dynamic&#34;)
+ *                 .size(&#34;Y1&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleFunctionApp = new FunctionApp(&#34;exampleFunctionApp&#34;, FunctionAppArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .appServicePlanId(examplePlan.id())
+ *             .storageAccountName(exampleAccount.name())
+ *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
+ *             .osType(&#34;linux&#34;)
+ *             .version(&#34;~3&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &gt; **Note:** Version `~3` or `~4` is required for Linux Function Apps.
+ * ### Python In A Consumption Plan)
+ * 
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.appservice.Plan;
+ * import com.pulumi.azure.appservice.PlanArgs;
+ * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
+ * import com.pulumi.azure.appservice.FunctionApp;
+ * import com.pulumi.azure.appservice.FunctionAppArgs;
+ * import com.pulumi.azure.appservice.inputs.FunctionAppSiteConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .accountTier(&#34;Standard&#34;)
+ *             .accountReplicationType(&#34;LRS&#34;)
+ *             .build());
+ * 
+ *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .kind(&#34;Linux&#34;)
+ *             .reserved(true)
+ *             .sku(PlanSkuArgs.builder()
+ *                 .tier(&#34;Dynamic&#34;)
+ *                 .size(&#34;Y1&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleFunctionApp = new FunctionApp(&#34;exampleFunctionApp&#34;, FunctionAppArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .appServicePlanId(examplePlan.id())
+ *             .storageAccountName(exampleAccount.name())
+ *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
+ *             .osType(&#34;linux&#34;)
+ *             .version(&#34;~4&#34;)
+ *             .appSettings(Map.of(&#34;FUNCTIONSWORKERRUNTIME&#34;, &#34;python&#34;))
+ *             .siteConfig(FunctionAppSiteConfigArgs.builder()
+ *                 .linuxFxVersion(&#34;python|3.9&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &gt; **Note:** The Python runtime is only supported on a Linux based hosting plan.  See [the documentation for additional information](https://docs.microsoft.com/azure/azure-functions/functions-reference-python).
+ * 
  * ## Import
  * 
  * Function Apps can be imported using the `resource id`, e.g.

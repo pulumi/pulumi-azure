@@ -197,7 +197,8 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         """
         Manages a Firewall Rule for a MySQL Flexible Server.
 
-        ## Example Usage (Single IP Address)
+        ## Example Usage
+        ### Single IP Address)
 
         ```python
         import pulumi
@@ -213,8 +214,7 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
             start_ip_address="40.112.8.12",
             end_ip_address="40.112.8.12")
         ```
-
-        ## Example Usage (IP Range)
+        ### IP Range)
 
         ```python
         import pulumi
@@ -230,8 +230,7 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
             start_ip_address="40.112.0.0",
             end_ip_address="40.112.255.255")
         ```
-
-        ## Example Usage (Allow access to Azure services)
+        ### Allow Access To Azure Services)
 
         ```python
         import pulumi
@@ -273,7 +272,8 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         """
         Manages a Firewall Rule for a MySQL Flexible Server.
 
-        ## Example Usage (Single IP Address)
+        ## Example Usage
+        ### Single IP Address)
 
         ```python
         import pulumi
@@ -289,8 +289,7 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
             start_ip_address="40.112.8.12",
             end_ip_address="40.112.8.12")
         ```
-
-        ## Example Usage (IP Range)
+        ### IP Range)
 
         ```python
         import pulumi
@@ -306,8 +305,7 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
             start_ip_address="40.112.0.0",
             end_ip_address="40.112.255.255")
         ```
-
-        ## Example Usage (Allow access to Azure services)
+        ### Allow Access To Azure Services)
 
         ```python
         import pulumi

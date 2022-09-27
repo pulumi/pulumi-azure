@@ -79,7 +79,7 @@ import (
 //	}
 //
 // ```
-// ## Example Usage with Multiple Outputs
+// ### With Multiple Outputs
 //
 // ```go
 // package main

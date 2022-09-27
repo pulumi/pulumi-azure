@@ -14,7 +14,10 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Use this data source to access information about an existing Public IP Prefix.
         /// 
-        /// ## Example Usage (reference an existing)
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Reference An Existing)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -35,6 +38,8 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPublicIpPrefixResult> InvokeAsync(GetPublicIpPrefixArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? new GetPublicIpPrefixArgs(), options.WithDefaults());
@@ -42,7 +47,10 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Use this data source to access information about an existing Public IP Prefix.
         /// 
-        /// ## Example Usage (reference an existing)
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Reference An Existing)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -63,6 +71,8 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetPublicIpPrefixResult> Invoke(GetPublicIpPrefixInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPublicIpPrefixResult>("azure:network/getPublicIpPrefix:getPublicIpPrefix", args ?? new GetPublicIpPrefixInvokeArgs(), options.WithDefaults());

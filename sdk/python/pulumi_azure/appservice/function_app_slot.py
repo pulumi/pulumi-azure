@@ -738,7 +738,8 @@ class FunctionAppSlot(pulumi.CustomResource):
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage (with App Service Plan)
+        ## Example Usage
+        ### With App Service Plan)
 
         ```python
         import pulumi
@@ -809,7 +810,8 @@ class FunctionAppSlot(pulumi.CustomResource):
                  args: FunctionAppSlotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage (with App Service Plan)
+        ## Example Usage
+        ### With App Service Plan)
 
         ```python
         import pulumi

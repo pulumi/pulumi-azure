@@ -18,6 +18,104 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.dns.Zone;
+ * import com.pulumi.azure.dns.ZoneArgs;
+ * import com.pulumi.azure.dns.AaaaRecord;
+ * import com.pulumi.azure.dns.AaaaRecordArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleAaaaRecord = new AaaaRecord(&#34;exampleAaaaRecord&#34;, AaaaRecordArgs.builder()        
+ *             .zoneName(exampleZone.name())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .ttl(300)
+ *             .records(&#34;2001:db8::1:0:0:1&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Alias Record)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.dns.Zone;
+ * import com.pulumi.azure.dns.ZoneArgs;
+ * import com.pulumi.azure.network.PublicIp;
+ * import com.pulumi.azure.network.PublicIpArgs;
+ * import com.pulumi.azure.dns.AaaaRecord;
+ * import com.pulumi.azure.dns.AaaaRecordArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .allocationMethod(&#34;Dynamic&#34;)
+ *             .ipVersion(&#34;IPv6&#34;)
+ *             .build());
+ * 
+ *         var exampleAaaaRecord = new AaaaRecord(&#34;exampleAaaaRecord&#34;, AaaaRecordArgs.builder()        
+ *             .zoneName(exampleZone.name())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .ttl(300)
+ *             .targetResourceId(examplePublicIp.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * AAAA records can be imported using the `resource id`, e.g.

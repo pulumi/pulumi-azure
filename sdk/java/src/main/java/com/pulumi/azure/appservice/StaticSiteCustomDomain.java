@@ -16,7 +16,6 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
- * 
  * ### CNAME validation
  * ```java
  * package generated_program;

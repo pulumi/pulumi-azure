@@ -51,7 +51,7 @@ import (
 //	}
 //
 // ```
-// ## Example Usage with Network Rules
+// ### With Network Rules
 //
 // ```go
 // package main

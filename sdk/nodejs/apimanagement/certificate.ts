@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages an Certificate within an API Management Service.
  *
- * ## Example Usage (with Base64 Certificate)
+ * ## Example Usage
+ * ### With Base64 Certificate)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -28,8 +29,7 @@ import * as utilities from "../utilities";
  *     data: Buffer.from(fs.readFileSync("example.pfx"), 'binary').toString('base64'),
  * });
  * ```
- *
- * ## Example Usage (with Key Vault Certificate)
+ * ### With Key Vault Certificate)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

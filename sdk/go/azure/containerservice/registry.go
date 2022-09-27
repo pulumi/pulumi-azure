@@ -60,7 +60,7 @@ import (
 //	}
 //
 // ```
-// ## Example Usage (Encryption)
+// ### Encryption)
 //
 // ```go
 // package main
@@ -121,8 +121,7 @@ import (
 //	}
 //
 // ```
-//
-// ## Example Usage (Attaching a Container Registry to a Kubernetes Cluster)
+// ### Attaching A Container Registry To A Kubernetes Cluster)
 //
 // ```go
 // package main

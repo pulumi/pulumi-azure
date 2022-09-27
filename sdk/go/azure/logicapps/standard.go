@@ -13,7 +13,8 @@ import (
 
 // Manages a Logic App (Standard / Single Tenant)
 //
-// ## Example Usage (with App Service Plan)
+// ## Example Usage
+// ### With App Service Plan)
 //
 // ```go
 // package main
@@ -72,8 +73,7 @@ import (
 //	}
 //
 // ```
-//
-// ## Example Usage (for container mode)
+// ### For Container Mode)
 //
 // > **Note:** You must set `appservice.Plan` `kind` to `Linux` and `reserved` to `true` when used with `linuxFxVersion`
 //

@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
  *
- * ## Example Usage (Subscription Level Lock)
+ * ## Example Usage
+ * ### Subscription Level Lock)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -20,8 +21,7 @@ import * as utilities from "../utilities";
  *     notes: "Items can't be deleted in this subscription!",
  * });
  * ```
- *
- * ## Example Usage (Resource Group Level Lock)
+ * ### Resource Group Level Lock)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -34,8 +34,7 @@ import * as utilities from "../utilities";
  *     notes: "This Resource Group is Read-Only",
  * });
  * ```
- *
- * ## Example Usage (Resource Level Lock)
+ * ### Resource Level Lock)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

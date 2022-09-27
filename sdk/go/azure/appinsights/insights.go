@@ -49,7 +49,7 @@ import (
 //	}
 //
 // ```
-// ## Example Usage - Workspace Mode
+// ### Workspace Mode
 //
 // ```go
 // package main

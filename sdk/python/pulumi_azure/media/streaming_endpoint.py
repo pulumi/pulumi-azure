@@ -571,7 +571,7 @@ class StreamingEndpoint(pulumi.CustomResource):
             media_services_account_name=example_service_account.name,
             scale_units=2)
         ```
-        ## Example Usage with Access Control
+        ### With Access Control
 
         ```python
         import pulumi
@@ -681,7 +681,7 @@ class StreamingEndpoint(pulumi.CustomResource):
             media_services_account_name=example_service_account.name,
             scale_units=2)
         ```
-        ## Example Usage with Access Control
+        ### With Access Control
 
         ```python
         import pulumi

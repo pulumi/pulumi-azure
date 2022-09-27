@@ -14,7 +14,10 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Use this data source to access information about an existing Public IP Address.
         /// 
-        /// ## Example Usage (reference an existing)
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Reference An Existing)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -37,7 +40,9 @@ namespace Pulumi.Azure.Network
         /// });
         /// ```
         /// 
-        /// ## Example Usage (Retrieve the Dynamic Public IP of a new VM)
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Retrieve The Dynamic Public IP Of A New VM)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -123,6 +128,8 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPublicIPResult> InvokeAsync(GetPublicIPArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPResult>("azure:network/getPublicIP:getPublicIP", args ?? new GetPublicIPArgs(), options.WithDefaults());
@@ -130,7 +137,10 @@ namespace Pulumi.Azure.Network
         /// <summary>
         /// Use this data source to access information about an existing Public IP Address.
         /// 
-        /// ## Example Usage (reference an existing)
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Reference An Existing)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -153,7 +163,9 @@ namespace Pulumi.Azure.Network
         /// });
         /// ```
         /// 
-        /// ## Example Usage (Retrieve the Dynamic Public IP of a new VM)
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Retrieve The Dynamic Public IP Of A New VM)
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -239,6 +251,8 @@ namespace Pulumi.Azure.Network
         ///     };
         /// });
         /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetPublicIPResult> Invoke(GetPublicIPInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPublicIPResult>("azure:network/getPublicIP:getPublicIP", args ?? new GetPublicIPInvokeArgs(), options.WithDefaults());

@@ -948,7 +948,8 @@ class ScaleSet(pulumi.CustomResource):
         """
         Manages a virtual machine scale set.
 
-        ## Example Usage with Unmanaged Disks
+        ## Example Usage
+        ### With Unmanaged Disks
 
         ```python
         import pulumi
@@ -1016,7 +1017,6 @@ class ScaleSet(pulumi.CustomResource):
                 version="latest",
             ))
         ```
-
         ## Example of storage_profile_image_reference with id
 
         ```python
@@ -1078,7 +1078,8 @@ class ScaleSet(pulumi.CustomResource):
         """
         Manages a virtual machine scale set.
 
-        ## Example Usage with Unmanaged Disks
+        ## Example Usage
+        ### With Unmanaged Disks
 
         ```python
         import pulumi
@@ -1146,7 +1147,6 @@ class ScaleSet(pulumi.CustomResource):
                 version="latest",
             ))
         ```
-
         ## Example of storage_profile_image_reference with id
 
         ```python

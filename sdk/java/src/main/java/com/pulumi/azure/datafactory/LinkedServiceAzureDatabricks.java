@@ -22,7 +22,8 @@ import javax.annotation.Nullable;
 /**
  * Manages a Linked Service (connection) between Azure Databricks and Azure Data Factory.
  * 
- * ## Example Usage with managed identity &amp; new cluster
+ * ## Example Usage
+ * ### With Managed Identity &amp; New Cluster
  * ```java
  * package generated_program;
  * 
@@ -103,8 +104,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * 
- * ## Example Usage with access token &amp; existing cluster
+ * ### With Access Token &amp; Existing Cluster
  * ```java
  * package generated_program;
  * 

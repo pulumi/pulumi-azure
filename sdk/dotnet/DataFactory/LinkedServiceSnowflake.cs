@@ -40,7 +40,7 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// });
     /// ```
-    /// ## Example Usage with Password in Key Vault
+    /// ### With Password In Key Vault
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

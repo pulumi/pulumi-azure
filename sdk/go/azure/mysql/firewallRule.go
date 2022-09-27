@@ -13,7 +13,8 @@ import (
 
 // Manages a Firewall Rule for a MySQL Server.
 //
-// ## Example Usage (Single IP Address)
+// ## Example Usage
+// ### Single IP Address)
 //
 // ```go
 // package main
@@ -58,8 +59,7 @@ import (
 //	}
 //
 // ```
-//
-// ## Example Usage (IP Range)
+// ### IP Range)
 //
 // ```go
 // package main
@@ -98,8 +98,7 @@ import (
 //	}
 //
 // ```
-//
-// ## Example Usage (Allow access to Azure services)
+// ### Allow Access To Azure Services)
 //
 // ```go
 // package main

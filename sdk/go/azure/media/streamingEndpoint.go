@@ -71,7 +71,7 @@ import (
 //	}
 //
 // ```
-// ## Example Usage with Access Control
+// ### With Access Control
 //
 // ```go
 // package main

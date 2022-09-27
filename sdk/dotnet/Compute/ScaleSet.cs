@@ -12,7 +12,8 @@ namespace Pulumi.Azure.Compute
     /// <summary>
     /// Manages a virtual machine scale set.
     /// 
-    /// ## Example Usage with Unmanaged Disks
+    /// ## Example Usage
+    /// ### With Unmanaged Disks
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -136,7 +137,6 @@ namespace Pulumi.Azure.Compute
     /// 
     /// });
     /// ```
-    /// 
     /// ## Example of storage_profile_image_reference with id
     /// 
     /// ```csharp
