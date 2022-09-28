@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Policy
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPolicyDefintionResult> InvokeAsync(GetPolicyDefintionArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefintionResult>("azure:policy/getPolicyDefintion:getPolicyDefintion", args ?? new GetPolicyDefintionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyDefintionResult>("azure:policy/getPolicyDefintion:getPolicyDefintion", args ?? new GetPolicyDefintionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about a Policy Definition, both custom and built in. Retrieves Policy Definitions from your current subscription by default.
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Policy
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPolicyDefintionResult> Invoke(GetPolicyDefintionInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPolicyDefintionResult>("azure:policy/getPolicyDefintion:getPolicyDefintion", args ?? new GetPolicyDefintionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyDefintionResult>("azure:policy/getPolicyDefintion:getPolicyDefintion", args ?? new GetPolicyDefintionInvokeArgs(), options.WithDefaults());
     }
 
 

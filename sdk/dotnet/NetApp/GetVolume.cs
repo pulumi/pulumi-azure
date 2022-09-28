@@ -39,7 +39,7 @@ namespace Pulumi.Azure.NetApp
         /// ```
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure:netapp/getVolume:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("azure:netapp/getVolume:getVolume", args ?? new GetVolumeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Uses this data source to access information about an existing NetApp Volume.
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.NetApp
         /// ```
         /// </summary>
         public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure:netapp/getVolume:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("azure:netapp/getVolume:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithDefaults());
     }
 
 

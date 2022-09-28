@@ -5,33 +5,76 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./activeDirectoryAdministrator";
-export * from "./database";
-export * from "./elasticPool";
-export * from "./failoverGroup";
-export * from "./firewallRule";
-export * from "./getDatabase";
-export * from "./getServer";
-export * from "./getSqlManagedInstance";
-export * from "./managedDatabase";
-export * from "./managedInstance";
-export * from "./managedInstanceActiveDirectoryAdministrator";
-export * from "./managedInstanceFailoverGroup";
-export * from "./sqlServer";
-export * from "./virtualNetworkRule";
+export { ActiveDirectoryAdministratorArgs, ActiveDirectoryAdministratorState } from "./activeDirectoryAdministrator";
+export type ActiveDirectoryAdministrator = import("./activeDirectoryAdministrator").ActiveDirectoryAdministrator;
+export const ActiveDirectoryAdministrator: typeof import("./activeDirectoryAdministrator").ActiveDirectoryAdministrator = null as any;
+utilities.lazyLoad(exports, ["ActiveDirectoryAdministrator"], () => require("./activeDirectoryAdministrator"));
 
-// Import resources to register:
-import { ActiveDirectoryAdministrator } from "./activeDirectoryAdministrator";
-import { Database } from "./database";
-import { ElasticPool } from "./elasticPool";
-import { FailoverGroup } from "./failoverGroup";
-import { FirewallRule } from "./firewallRule";
-import { ManagedDatabase } from "./managedDatabase";
-import { ManagedInstance } from "./managedInstance";
-import { ManagedInstanceActiveDirectoryAdministrator } from "./managedInstanceActiveDirectoryAdministrator";
-import { ManagedInstanceFailoverGroup } from "./managedInstanceFailoverGroup";
-import { SqlServer } from "./sqlServer";
-import { VirtualNetworkRule } from "./virtualNetworkRule";
+export { DatabaseArgs, DatabaseState } from "./database";
+export type Database = import("./database").Database;
+export const Database: typeof import("./database").Database = null as any;
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+
+export { ElasticPoolArgs, ElasticPoolState } from "./elasticPool";
+export type ElasticPool = import("./elasticPool").ElasticPool;
+export const ElasticPool: typeof import("./elasticPool").ElasticPool = null as any;
+utilities.lazyLoad(exports, ["ElasticPool"], () => require("./elasticPool"));
+
+export { FailoverGroupArgs, FailoverGroupState } from "./failoverGroup";
+export type FailoverGroup = import("./failoverGroup").FailoverGroup;
+export const FailoverGroup: typeof import("./failoverGroup").FailoverGroup = null as any;
+utilities.lazyLoad(exports, ["FailoverGroup"], () => require("./failoverGroup"));
+
+export { FirewallRuleArgs, FirewallRuleState } from "./firewallRule";
+export type FirewallRule = import("./firewallRule").FirewallRule;
+export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
+utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
+
+export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
+export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
+export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
+
+export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
+export const getServer: typeof import("./getServer").getServer = null as any;
+export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
+utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
+
+export { GetSqlManagedInstanceArgs, GetSqlManagedInstanceResult, GetSqlManagedInstanceOutputArgs } from "./getSqlManagedInstance";
+export const getSqlManagedInstance: typeof import("./getSqlManagedInstance").getSqlManagedInstance = null as any;
+export const getSqlManagedInstanceOutput: typeof import("./getSqlManagedInstance").getSqlManagedInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlManagedInstance","getSqlManagedInstanceOutput"], () => require("./getSqlManagedInstance"));
+
+export { ManagedDatabaseArgs, ManagedDatabaseState } from "./managedDatabase";
+export type ManagedDatabase = import("./managedDatabase").ManagedDatabase;
+export const ManagedDatabase: typeof import("./managedDatabase").ManagedDatabase = null as any;
+utilities.lazyLoad(exports, ["ManagedDatabase"], () => require("./managedDatabase"));
+
+export { ManagedInstanceArgs, ManagedInstanceState } from "./managedInstance";
+export type ManagedInstance = import("./managedInstance").ManagedInstance;
+export const ManagedInstance: typeof import("./managedInstance").ManagedInstance = null as any;
+utilities.lazyLoad(exports, ["ManagedInstance"], () => require("./managedInstance"));
+
+export { ManagedInstanceActiveDirectoryAdministratorArgs, ManagedInstanceActiveDirectoryAdministratorState } from "./managedInstanceActiveDirectoryAdministrator";
+export type ManagedInstanceActiveDirectoryAdministrator = import("./managedInstanceActiveDirectoryAdministrator").ManagedInstanceActiveDirectoryAdministrator;
+export const ManagedInstanceActiveDirectoryAdministrator: typeof import("./managedInstanceActiveDirectoryAdministrator").ManagedInstanceActiveDirectoryAdministrator = null as any;
+utilities.lazyLoad(exports, ["ManagedInstanceActiveDirectoryAdministrator"], () => require("./managedInstanceActiveDirectoryAdministrator"));
+
+export { ManagedInstanceFailoverGroupArgs, ManagedInstanceFailoverGroupState } from "./managedInstanceFailoverGroup";
+export type ManagedInstanceFailoverGroup = import("./managedInstanceFailoverGroup").ManagedInstanceFailoverGroup;
+export const ManagedInstanceFailoverGroup: typeof import("./managedInstanceFailoverGroup").ManagedInstanceFailoverGroup = null as any;
+utilities.lazyLoad(exports, ["ManagedInstanceFailoverGroup"], () => require("./managedInstanceFailoverGroup"));
+
+export { SqlServerArgs, SqlServerState } from "./sqlServer";
+export type SqlServer = import("./sqlServer").SqlServer;
+export const SqlServer: typeof import("./sqlServer").SqlServer = null as any;
+utilities.lazyLoad(exports, ["SqlServer"], () => require("./sqlServer"));
+
+export { VirtualNetworkRuleArgs, VirtualNetworkRuleState } from "./virtualNetworkRule";
+export type VirtualNetworkRule = import("./virtualNetworkRule").VirtualNetworkRule;
+export const VirtualNetworkRule: typeof import("./virtualNetworkRule").VirtualNetworkRule = null as any;
+utilities.lazyLoad(exports, ["VirtualNetworkRule"], () => require("./virtualNetworkRule"));
+
 
 const _module = {
     version: utilities.getVersion(),

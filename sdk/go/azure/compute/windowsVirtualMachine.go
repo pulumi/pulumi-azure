@@ -176,6 +176,8 @@ type WindowsVirtualMachine struct {
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
 	// A `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineOsDiskOutput `pulumi:"osDisk"`
+	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+	PatchAssessmentMode pulumi.StringPtrOutput `pulumi:"patchAssessmentMode"`
 	// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	PatchMode pulumi.StringPtrOutput `pulumi:"patchMode"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
@@ -325,6 +327,8 @@ type windowsVirtualMachineState struct {
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// A `osDisk` block as defined below.
 	OsDisk *WindowsVirtualMachineOsDisk `pulumi:"osDisk"`
+	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+	PatchAssessmentMode *string `pulumi:"patchAssessmentMode"`
 	// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	PatchMode *string `pulumi:"patchMode"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
@@ -428,6 +432,8 @@ type WindowsVirtualMachineState struct {
 	NetworkInterfaceIds pulumi.StringArrayInput
 	// A `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineOsDiskPtrInput
+	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+	PatchAssessmentMode pulumi.StringPtrInput
 	// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	PatchMode pulumi.StringPtrInput
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
@@ -535,6 +541,8 @@ type windowsVirtualMachineArgs struct {
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// A `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineOsDisk `pulumi:"osDisk"`
+	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+	PatchAssessmentMode *string `pulumi:"patchAssessmentMode"`
 	// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	PatchMode *string `pulumi:"patchMode"`
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
@@ -629,6 +637,8 @@ type WindowsVirtualMachineArgs struct {
 	NetworkInterfaceIds pulumi.StringArrayInput
 	// A `osDisk` block as defined below.
 	OsDisk WindowsVirtualMachineOsDiskInput
+	// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+	PatchAssessmentMode pulumi.StringPtrInput
 	// Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	PatchMode pulumi.StringPtrInput
 	// A `plan` block as defined below. Changing this forces a new resource to be created.
@@ -885,6 +895,11 @@ func (o WindowsVirtualMachineOutput) NetworkInterfaceIds() pulumi.StringArrayOut
 // A `osDisk` block as defined below.
 func (o WindowsVirtualMachineOutput) OsDisk() WindowsVirtualMachineOsDiskOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) WindowsVirtualMachineOsDiskOutput { return v.OsDisk }).(WindowsVirtualMachineOsDiskOutput)
+}
+
+// Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+func (o WindowsVirtualMachineOutput) PatchAssessmentMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.StringPtrOutput { return v.PatchAssessmentMode }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).

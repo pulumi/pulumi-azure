@@ -19,7 +19,9 @@ class ApiSchemaArgs:
                  content_type: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  schema_id: pulumi.Input[str],
-                 value: pulumi.Input[str]):
+                 components: Optional[pulumi.Input[str]] = None,
+                 definitions: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ApiSchema resource.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
@@ -27,6 +29,8 @@ class ApiSchemaArgs:
         :param pulumi.Input[str] content_type: The content type of the API Schema.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] schema_id: A unique identifier for this API Schema. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] components: Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+        :param pulumi.Input[str] definitions: Types definitions. Used for Swagger/OpenAPI v1 schemas only.
         :param pulumi.Input[str] value: The JSON escaped string defining the document representing the Schema.
         """
         pulumi.set(__self__, "api_management_name", api_management_name)
@@ -34,7 +38,12 @@ class ApiSchemaArgs:
         pulumi.set(__self__, "content_type", content_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "schema_id", schema_id)
-        pulumi.set(__self__, "value", value)
+        if components is not None:
+            pulumi.set(__self__, "components", components)
+        if definitions is not None:
+            pulumi.set(__self__, "definitions", definitions)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -98,14 +107,38 @@ class ApiSchemaArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
+    def components(self) -> Optional[pulumi.Input[str]]:
+        """
+        Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+        """
+        return pulumi.get(self, "components")
+
+    @components.setter
+    def components(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "components", value)
+
+    @property
+    @pulumi.getter
+    def definitions(self) -> Optional[pulumi.Input[str]]:
+        """
+        Types definitions. Used for Swagger/OpenAPI v1 schemas only.
+        """
+        return pulumi.get(self, "definitions")
+
+    @definitions.setter
+    def definitions(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "definitions", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
         """
         The JSON escaped string defining the document representing the Schema.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[str]):
+    def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
 
 
@@ -114,7 +147,9 @@ class _ApiSchemaState:
     def __init__(__self__, *,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  api_name: Optional[pulumi.Input[str]] = None,
+                 components: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
+                 definitions: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema_id: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
@@ -122,7 +157,9 @@ class _ApiSchemaState:
         Input properties used for looking up and filtering ApiSchema resources.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] api_name: The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] components: Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
         :param pulumi.Input[str] content_type: The content type of the API Schema.
+        :param pulumi.Input[str] definitions: Types definitions. Used for Swagger/OpenAPI v1 schemas only.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] schema_id: A unique identifier for this API Schema. Changing this forces a new resource to be created.
         :param pulumi.Input[str] value: The JSON escaped string defining the document representing the Schema.
@@ -131,8 +168,12 @@ class _ApiSchemaState:
             pulumi.set(__self__, "api_management_name", api_management_name)
         if api_name is not None:
             pulumi.set(__self__, "api_name", api_name)
+        if components is not None:
+            pulumi.set(__self__, "components", components)
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
+        if definitions is not None:
+            pulumi.set(__self__, "definitions", definitions)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if schema_id is not None:
@@ -165,6 +206,18 @@ class _ApiSchemaState:
         pulumi.set(self, "api_name", value)
 
     @property
+    @pulumi.getter
+    def components(self) -> Optional[pulumi.Input[str]]:
+        """
+        Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+        """
+        return pulumi.get(self, "components")
+
+    @components.setter
+    def components(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "components", value)
+
+    @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -175,6 +228,18 @@ class _ApiSchemaState:
     @content_type.setter
     def content_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter
+    def definitions(self) -> Optional[pulumi.Input[str]]:
+        """
+        Types definitions. Used for Swagger/OpenAPI v1 schemas only.
+        """
+        return pulumi.get(self, "definitions")
+
+    @definitions.setter
+    def definitions(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "definitions", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -220,7 +285,9 @@ class ApiSchema(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  api_name: Optional[pulumi.Input[str]] = None,
+                 components: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
+                 definitions: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema_id: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
@@ -259,7 +326,9 @@ class ApiSchema(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] api_name: The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] components: Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
         :param pulumi.Input[str] content_type: The content type of the API Schema.
+        :param pulumi.Input[str] definitions: Types definitions. Used for Swagger/OpenAPI v1 schemas only.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] schema_id: A unique identifier for this API Schema. Changing this forces a new resource to be created.
         :param pulumi.Input[str] value: The JSON escaped string defining the document representing the Schema.
@@ -317,7 +386,9 @@ class ApiSchema(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  api_name: Optional[pulumi.Input[str]] = None,
+                 components: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
+                 definitions: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schema_id: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
@@ -336,17 +407,17 @@ class ApiSchema(pulumi.CustomResource):
             if api_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_name'")
             __props__.__dict__["api_name"] = api_name
+            __props__.__dict__["components"] = components
             if content_type is None and not opts.urn:
                 raise TypeError("Missing required property 'content_type'")
             __props__.__dict__["content_type"] = content_type
+            __props__.__dict__["definitions"] = definitions
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if schema_id is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_id'")
             __props__.__dict__["schema_id"] = schema_id
-            if value is None and not opts.urn:
-                raise TypeError("Missing required property 'value'")
             __props__.__dict__["value"] = value
         super(ApiSchema, __self__).__init__(
             'azure:apimanagement/apiSchema:ApiSchema',
@@ -360,7 +431,9 @@ class ApiSchema(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             api_management_name: Optional[pulumi.Input[str]] = None,
             api_name: Optional[pulumi.Input[str]] = None,
+            components: Optional[pulumi.Input[str]] = None,
             content_type: Optional[pulumi.Input[str]] = None,
+            definitions: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             schema_id: Optional[pulumi.Input[str]] = None,
             value: Optional[pulumi.Input[str]] = None) -> 'ApiSchema':
@@ -373,7 +446,9 @@ class ApiSchema(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_management_name: The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] api_name: The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] components: Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
         :param pulumi.Input[str] content_type: The content type of the API Schema.
+        :param pulumi.Input[str] definitions: Types definitions. Used for Swagger/OpenAPI v1 schemas only.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] schema_id: A unique identifier for this API Schema. Changing this forces a new resource to be created.
         :param pulumi.Input[str] value: The JSON escaped string defining the document representing the Schema.
@@ -384,7 +459,9 @@ class ApiSchema(pulumi.CustomResource):
 
         __props__.__dict__["api_management_name"] = api_management_name
         __props__.__dict__["api_name"] = api_name
+        __props__.__dict__["components"] = components
         __props__.__dict__["content_type"] = content_type
+        __props__.__dict__["definitions"] = definitions
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["schema_id"] = schema_id
         __props__.__dict__["value"] = value
@@ -407,12 +484,28 @@ class ApiSchema(pulumi.CustomResource):
         return pulumi.get(self, "api_name")
 
     @property
+    @pulumi.getter
+    def components(self) -> pulumi.Output[Optional[str]]:
+        """
+        Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+        """
+        return pulumi.get(self, "components")
+
+    @property
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[str]:
         """
         The content type of the API Schema.
         """
         return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter
+    def definitions(self) -> pulumi.Output[Optional[str]]:
+        """
+        Types definitions. Used for Swagger/OpenAPI v1 schemas only.
+        """
+        return pulumi.get(self, "definitions")
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -432,7 +525,7 @@ class ApiSchema(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Output[str]:
+    def value(self) -> pulumi.Output[Optional[str]]:
         """
         The JSON escaped string defining the document representing the Schema.
         """

@@ -114,9 +114,17 @@ public class OutputMssql extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> authenticationMode() {
         return Codegen.optional(this.authenticationMode);
     }
+    /**
+     * The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
+     * 
+     */
     @Export(name="database", type=String.class, parameters={})
     private Output<String> database;
 
+    /**
+     * @return The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
+     * 
+     */
     public Output<String> database() {
         return this.database;
     }

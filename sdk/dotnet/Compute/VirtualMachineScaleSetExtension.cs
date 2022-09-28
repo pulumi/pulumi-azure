@@ -96,6 +96,12 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> AutomaticUpgradeEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+        /// </summary>
+        [Output("failureSuppressionEnabled")]
+        public Output<bool?> FailureSuppressionEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         /// </summary>
         [Output("forceUpdateTag")]
@@ -208,6 +214,12 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AutomaticUpgradeEnabled { get; set; }
 
         /// <summary>
+        /// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+        /// </summary>
+        [Input("failureSuppressionEnabled")]
+        public Input<bool>? FailureSuppressionEnabled { get; set; }
+
+        /// <summary>
         /// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         /// </summary>
         [Input("forceUpdateTag")]
@@ -286,6 +298,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("automaticUpgradeEnabled")]
         public Input<bool>? AutomaticUpgradeEnabled { get; set; }
+
+        /// <summary>
+        /// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+        /// </summary>
+        [Input("failureSuppressionEnabled")]
+        public Input<bool>? FailureSuppressionEnabled { get; set; }
 
         /// <summary>
         /// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.

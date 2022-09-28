@@ -60,11 +60,30 @@ public final class GroupPolicyRemediationArgs extends com.pulumi.resources.Resou
         return this.policyAssignmentId;
     }
 
+    /**
+     * @deprecated
+     * `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+     * 
+     */
+    @Deprecated /* `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`. */
     @Import(name="policyDefinitionId")
     private @Nullable Output<String> policyDefinitionId;
 
+    /**
+     * @deprecated
+     * `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+     * 
+     */
+    @Deprecated /* `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`. */
     public Optional<Output<String>> policyDefinitionId() {
         return Optional.ofNullable(this.policyDefinitionId);
+    }
+
+    @Import(name="policyDefinitionReferenceId")
+    private @Nullable Output<String> policyDefinitionReferenceId;
+
+    public Optional<Output<String>> policyDefinitionReferenceId() {
+        return Optional.ofNullable(this.policyDefinitionReferenceId);
     }
 
     @Import(name="resourceCount")
@@ -103,6 +122,7 @@ public final class GroupPolicyRemediationArgs extends com.pulumi.resources.Resou
         this.parallelDeployments = $.parallelDeployments;
         this.policyAssignmentId = $.policyAssignmentId;
         this.policyDefinitionId = $.policyDefinitionId;
+        this.policyDefinitionReferenceId = $.policyDefinitionReferenceId;
         this.resourceCount = $.resourceCount;
         this.resourceDiscoveryMode = $.resourceDiscoveryMode;
     }
@@ -183,13 +203,38 @@ public final class GroupPolicyRemediationArgs extends com.pulumi.resources.Resou
             return policyAssignmentId(Output.of(policyAssignmentId));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+         * 
+         */
+        @Deprecated /* `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`. */
         public Builder policyDefinitionId(@Nullable Output<String> policyDefinitionId) {
             $.policyDefinitionId = policyDefinitionId;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+         * 
+         */
+        @Deprecated /* `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`. */
         public Builder policyDefinitionId(String policyDefinitionId) {
             return policyDefinitionId(Output.of(policyDefinitionId));
+        }
+
+        public Builder policyDefinitionReferenceId(@Nullable Output<String> policyDefinitionReferenceId) {
+            $.policyDefinitionReferenceId = policyDefinitionReferenceId;
+            return this;
+        }
+
+        public Builder policyDefinitionReferenceId(String policyDefinitionReferenceId) {
+            return policyDefinitionReferenceId(Output.of(policyDefinitionReferenceId));
         }
 
         public Builder resourceCount(@Nullable Output<Integer> resourceCount) {

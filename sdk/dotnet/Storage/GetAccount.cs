@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Storage
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:storage/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:storage/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Storage Account.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Storage
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure:storage/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure:storage/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -154,6 +154,11 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         public readonly bool AllowNestedItemsToBePublic;
         /// <summary>
+        /// A `azure_files_authentication` block as documented below.
+        /// ---
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAccountAzureFilesAuthenticationResult> AzureFilesAuthentications;
+        /// <summary>
         /// A `custom_domain` block as documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountCustomDomainResult> CustomDomains;
@@ -173,7 +178,6 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/azure/storage/common/infrastructure-encryption-enable/)
         /// for more information.
-        /// ---
         /// </summary>
         public readonly bool InfrastructureEncryptionEnabled;
         /// <summary>
@@ -350,6 +354,8 @@ namespace Pulumi.Azure.Storage
 
             bool allowNestedItemsToBePublic,
 
+            ImmutableArray<Outputs.GetAccountAzureFilesAuthenticationResult> azureFilesAuthentications,
+
             ImmutableArray<Outputs.GetAccountCustomDomainResult> customDomains,
 
             bool enableHttpsTrafficOnly,
@@ -447,6 +453,7 @@ namespace Pulumi.Azure.Storage
             AccountReplicationType = accountReplicationType;
             AccountTier = accountTier;
             AllowNestedItemsToBePublic = allowNestedItemsToBePublic;
+            AzureFilesAuthentications = azureFilesAuthentications;
             CustomDomains = customDomains;
             EnableHttpsTrafficOnly = enableHttpsTrafficOnly;
             Id = id;

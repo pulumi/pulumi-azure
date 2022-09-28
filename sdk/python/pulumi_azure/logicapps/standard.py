@@ -34,7 +34,8 @@ class StandardArgs:
                  storage_account_share_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_extension_bundle: Optional[pulumi.Input[bool]] = None,
-                 version: Optional[pulumi.Input[str]] = None):
+                 version: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Standard resource.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App
@@ -56,6 +57,7 @@ class StandardArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
         :param pulumi.Input[str] version: The runtime version associated with the Logic App Defaults to `~1`.
+        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         """
         pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -91,6 +93,8 @@ class StandardArgs:
             pulumi.set(__self__, "use_extension_bundle", use_extension_bundle)
         if version is not None:
             pulumi.set(__self__, "version", version)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
     @pulumi.getter(name="appServicePlanId")
@@ -320,6 +324,18 @@ class StandardArgs:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
 
 @pulumi.input_type
 class _StandardState:
@@ -348,7 +364,8 @@ class _StandardState:
                  storage_account_share_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_extension_bundle: Optional[pulumi.Input[bool]] = None,
-                 version: Optional[pulumi.Input[str]] = None):
+                 version: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Standard resources.
         :param pulumi.Input[str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App
@@ -376,6 +393,7 @@ class _StandardState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
         :param pulumi.Input[str] version: The runtime version associated with the Logic App Defaults to `~1`.
+        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         """
         if app_service_plan_id is not None:
             pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
@@ -427,6 +445,8 @@ class _StandardState:
             pulumi.set(__self__, "use_extension_bundle", use_extension_bundle)
         if version is not None:
             pulumi.set(__self__, "version", version)
+        if virtual_network_subnet_id is not None:
+            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
 
     @property
     @pulumi.getter(name="appServicePlanId")
@@ -728,6 +748,18 @@ class _StandardState:
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
 
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
+
+    @virtual_network_subnet_id.setter
+    def virtual_network_subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_subnet_id", value)
+
 
 class Standard(pulumi.CustomResource):
     @overload
@@ -753,12 +785,10 @@ class Standard(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_extension_bundle: Optional[pulumi.Input[bool]] = None,
                  version: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Logic App (Standard / Single Tenant)
-
-        > **Note:** To connect an Azure Logic App and a subnet within the same region `appservice.VirtualNetworkSwiftConnection` can be used.
-        For an example, check the `appservice.VirtualNetworkSwiftConnection` documentation.
 
         ## Example Usage
         ### With App Service Plan)
@@ -776,6 +806,7 @@ class Standard(pulumi.CustomResource):
         example_plan = azure.appservice.Plan("examplePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
+            kind="elastic",
             sku=azure.appservice.PlanSkuArgs(
                 tier="WorkflowStandard",
                 size="WS1",
@@ -855,6 +886,7 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
         :param pulumi.Input[str] version: The runtime version associated with the Logic App Defaults to `~1`.
+        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         """
         ...
     @overload
@@ -864,9 +896,6 @@ class Standard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logic App (Standard / Single Tenant)
-
-        > **Note:** To connect an Azure Logic App and a subnet within the same region `appservice.VirtualNetworkSwiftConnection` can be used.
-        For an example, check the `appservice.VirtualNetworkSwiftConnection` documentation.
 
         ## Example Usage
         ### With App Service Plan)
@@ -884,6 +913,7 @@ class Standard(pulumi.CustomResource):
         example_plan = azure.appservice.Plan("examplePlan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
+            kind="elastic",
             sku=azure.appservice.PlanSkuArgs(
                 tier="WorkflowStandard",
                 size="WS1",
@@ -976,6 +1006,7 @@ class Standard(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  use_extension_bundle: Optional[pulumi.Input[bool]] = None,
                  version: Optional[pulumi.Input[str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1012,6 +1043,7 @@ class Standard(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["use_extension_bundle"] = use_extension_bundle
             __props__.__dict__["version"] = version
+            __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
             __props__.__dict__["custom_domain_verification_id"] = None
             __props__.__dict__["default_hostname"] = None
             __props__.__dict__["kind"] = None
@@ -1052,7 +1084,8 @@ class Standard(pulumi.CustomResource):
             storage_account_share_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             use_extension_bundle: Optional[pulumi.Input[bool]] = None,
-            version: Optional[pulumi.Input[str]] = None) -> 'Standard':
+            version: Optional[pulumi.Input[str]] = None,
+            virtual_network_subnet_id: Optional[pulumi.Input[str]] = None) -> 'Standard':
         """
         Get an existing Standard resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1085,6 +1118,7 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Default true
         :param pulumi.Input[str] version: The runtime version associated with the Logic App Defaults to `~1`.
+        :param pulumi.Input[str] virtual_network_subnet_id: The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1115,6 +1149,7 @@ class Standard(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["use_extension_bundle"] = use_extension_bundle
         __props__.__dict__["version"] = version
+        __props__.__dict__["virtual_network_subnet_id"] = virtual_network_subnet_id
         return Standard(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1316,4 +1351,12 @@ class Standard(pulumi.CustomResource):
         The runtime version associated with the Logic App Defaults to `~1`.
         """
         return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="virtualNetworkSubnetId")
+    def virtual_network_subnet_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        """
+        return pulumi.get(self, "virtual_network_subnet_id")
 

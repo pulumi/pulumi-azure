@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -205,6 +206,10 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly osDisk!: pulumi.Output<outputs.compute.LinuxVirtualMachineOsDisk>;
     /**
+     * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     */
+    public readonly patchAssessmentMode!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      */
     public readonly patchMode!: pulumi.Output<string | undefined>;
@@ -334,6 +339,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
             resourceInputs["osDisk"] = state ? state.osDisk : undefined;
+            resourceInputs["patchAssessmentMode"] = state ? state.patchAssessmentMode : undefined;
             resourceInputs["patchMode"] = state ? state.patchMode : undefined;
             resourceInputs["plan"] = state ? state.plan : undefined;
             resourceInputs["platformFaultDomain"] = state ? state.platformFaultDomain : undefined;
@@ -398,6 +404,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkInterfaceIds"] = args ? args.networkInterfaceIds : undefined;
             resourceInputs["osDisk"] = args ? args.osDisk : undefined;
+            resourceInputs["patchAssessmentMode"] = args ? args.patchAssessmentMode : undefined;
             resourceInputs["patchMode"] = args ? args.patchMode : undefined;
             resourceInputs["plan"] = args ? args.plan : undefined;
             resourceInputs["platformFaultDomain"] = args ? args.platformFaultDomain : undefined;
@@ -527,6 +534,10 @@ export interface LinuxVirtualMachineState {
      * A `osDisk` block as defined below.
      */
     osDisk?: pulumi.Input<inputs.compute.LinuxVirtualMachineOsDisk>;
+    /**
+     * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     */
+    patchAssessmentMode?: pulumi.Input<string>;
     /**
      * Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      */
@@ -721,6 +732,10 @@ export interface LinuxVirtualMachineArgs {
      * A `osDisk` block as defined below.
      */
     osDisk: pulumi.Input<inputs.compute.LinuxVirtualMachineOsDisk>;
+    /**
+     * Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
+     */
+    patchAssessmentMode?: pulumi.Input<string>;
     /**
      * Specifies the mode of in-guest patching to this Linux Virtual Machine. Possible values are `AutomaticByPlatform` and `ImageDefault`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      */

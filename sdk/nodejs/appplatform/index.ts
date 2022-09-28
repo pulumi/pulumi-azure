@@ -5,52 +5,121 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getSpringCloudApp";
-export * from "./getSpringCloudService";
-export * from "./springCloudActiveDeployment";
-export * from "./springCloudApiPortal";
-export * from "./springCloudApiPortalCustomDomain";
-export * from "./springCloudApp";
-export * from "./springCloudAppCosmosDBAssociation";
-export * from "./springCloudAppMysqlAssociation";
-export * from "./springCloudAppRedisAssociation";
-export * from "./springCloudBuildDeployment";
-export * from "./springCloudBuildPackBinding";
-export * from "./springCloudBuilder";
-export * from "./springCloudCertificate";
-export * from "./springCloudConfigurationService";
-export * from "./springCloudConnection";
-export * from "./springCloudContainerDeployment";
-export * from "./springCloudCustomDomain";
-export * from "./springCloudGateway";
-export * from "./springCloudGatewayCustomDomain";
-export * from "./springCloudGatewayRouteConfig";
-export * from "./springCloudJavaDeployment";
-export * from "./springCloudService";
-export * from "./springCloudStorage";
+export { GetSpringCloudAppArgs, GetSpringCloudAppResult, GetSpringCloudAppOutputArgs } from "./getSpringCloudApp";
+export const getSpringCloudApp: typeof import("./getSpringCloudApp").getSpringCloudApp = null as any;
+export const getSpringCloudAppOutput: typeof import("./getSpringCloudApp").getSpringCloudAppOutput = null as any;
+utilities.lazyLoad(exports, ["getSpringCloudApp","getSpringCloudAppOutput"], () => require("./getSpringCloudApp"));
 
-// Import resources to register:
-import { SpringCloudActiveDeployment } from "./springCloudActiveDeployment";
-import { SpringCloudApiPortal } from "./springCloudApiPortal";
-import { SpringCloudApiPortalCustomDomain } from "./springCloudApiPortalCustomDomain";
-import { SpringCloudApp } from "./springCloudApp";
-import { SpringCloudAppCosmosDBAssociation } from "./springCloudAppCosmosDBAssociation";
-import { SpringCloudAppMysqlAssociation } from "./springCloudAppMysqlAssociation";
-import { SpringCloudAppRedisAssociation } from "./springCloudAppRedisAssociation";
-import { SpringCloudBuildDeployment } from "./springCloudBuildDeployment";
-import { SpringCloudBuildPackBinding } from "./springCloudBuildPackBinding";
-import { SpringCloudBuilder } from "./springCloudBuilder";
-import { SpringCloudCertificate } from "./springCloudCertificate";
-import { SpringCloudConfigurationService } from "./springCloudConfigurationService";
-import { SpringCloudConnection } from "./springCloudConnection";
-import { SpringCloudContainerDeployment } from "./springCloudContainerDeployment";
-import { SpringCloudCustomDomain } from "./springCloudCustomDomain";
-import { SpringCloudGateway } from "./springCloudGateway";
-import { SpringCloudGatewayCustomDomain } from "./springCloudGatewayCustomDomain";
-import { SpringCloudGatewayRouteConfig } from "./springCloudGatewayRouteConfig";
-import { SpringCloudJavaDeployment } from "./springCloudJavaDeployment";
-import { SpringCloudService } from "./springCloudService";
-import { SpringCloudStorage } from "./springCloudStorage";
+export { GetSpringCloudServiceArgs, GetSpringCloudServiceResult, GetSpringCloudServiceOutputArgs } from "./getSpringCloudService";
+export const getSpringCloudService: typeof import("./getSpringCloudService").getSpringCloudService = null as any;
+export const getSpringCloudServiceOutput: typeof import("./getSpringCloudService").getSpringCloudServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getSpringCloudService","getSpringCloudServiceOutput"], () => require("./getSpringCloudService"));
+
+export { SpringCloudActiveDeploymentArgs, SpringCloudActiveDeploymentState } from "./springCloudActiveDeployment";
+export type SpringCloudActiveDeployment = import("./springCloudActiveDeployment").SpringCloudActiveDeployment;
+export const SpringCloudActiveDeployment: typeof import("./springCloudActiveDeployment").SpringCloudActiveDeployment = null as any;
+utilities.lazyLoad(exports, ["SpringCloudActiveDeployment"], () => require("./springCloudActiveDeployment"));
+
+export { SpringCloudApiPortalArgs, SpringCloudApiPortalState } from "./springCloudApiPortal";
+export type SpringCloudApiPortal = import("./springCloudApiPortal").SpringCloudApiPortal;
+export const SpringCloudApiPortal: typeof import("./springCloudApiPortal").SpringCloudApiPortal = null as any;
+utilities.lazyLoad(exports, ["SpringCloudApiPortal"], () => require("./springCloudApiPortal"));
+
+export { SpringCloudApiPortalCustomDomainArgs, SpringCloudApiPortalCustomDomainState } from "./springCloudApiPortalCustomDomain";
+export type SpringCloudApiPortalCustomDomain = import("./springCloudApiPortalCustomDomain").SpringCloudApiPortalCustomDomain;
+export const SpringCloudApiPortalCustomDomain: typeof import("./springCloudApiPortalCustomDomain").SpringCloudApiPortalCustomDomain = null as any;
+utilities.lazyLoad(exports, ["SpringCloudApiPortalCustomDomain"], () => require("./springCloudApiPortalCustomDomain"));
+
+export { SpringCloudAppArgs, SpringCloudAppState } from "./springCloudApp";
+export type SpringCloudApp = import("./springCloudApp").SpringCloudApp;
+export const SpringCloudApp: typeof import("./springCloudApp").SpringCloudApp = null as any;
+utilities.lazyLoad(exports, ["SpringCloudApp"], () => require("./springCloudApp"));
+
+export { SpringCloudAppCosmosDBAssociationArgs, SpringCloudAppCosmosDBAssociationState } from "./springCloudAppCosmosDBAssociation";
+export type SpringCloudAppCosmosDBAssociation = import("./springCloudAppCosmosDBAssociation").SpringCloudAppCosmosDBAssociation;
+export const SpringCloudAppCosmosDBAssociation: typeof import("./springCloudAppCosmosDBAssociation").SpringCloudAppCosmosDBAssociation = null as any;
+utilities.lazyLoad(exports, ["SpringCloudAppCosmosDBAssociation"], () => require("./springCloudAppCosmosDBAssociation"));
+
+export { SpringCloudAppMysqlAssociationArgs, SpringCloudAppMysqlAssociationState } from "./springCloudAppMysqlAssociation";
+export type SpringCloudAppMysqlAssociation = import("./springCloudAppMysqlAssociation").SpringCloudAppMysqlAssociation;
+export const SpringCloudAppMysqlAssociation: typeof import("./springCloudAppMysqlAssociation").SpringCloudAppMysqlAssociation = null as any;
+utilities.lazyLoad(exports, ["SpringCloudAppMysqlAssociation"], () => require("./springCloudAppMysqlAssociation"));
+
+export { SpringCloudAppRedisAssociationArgs, SpringCloudAppRedisAssociationState } from "./springCloudAppRedisAssociation";
+export type SpringCloudAppRedisAssociation = import("./springCloudAppRedisAssociation").SpringCloudAppRedisAssociation;
+export const SpringCloudAppRedisAssociation: typeof import("./springCloudAppRedisAssociation").SpringCloudAppRedisAssociation = null as any;
+utilities.lazyLoad(exports, ["SpringCloudAppRedisAssociation"], () => require("./springCloudAppRedisAssociation"));
+
+export { SpringCloudBuildDeploymentArgs, SpringCloudBuildDeploymentState } from "./springCloudBuildDeployment";
+export type SpringCloudBuildDeployment = import("./springCloudBuildDeployment").SpringCloudBuildDeployment;
+export const SpringCloudBuildDeployment: typeof import("./springCloudBuildDeployment").SpringCloudBuildDeployment = null as any;
+utilities.lazyLoad(exports, ["SpringCloudBuildDeployment"], () => require("./springCloudBuildDeployment"));
+
+export { SpringCloudBuildPackBindingArgs, SpringCloudBuildPackBindingState } from "./springCloudBuildPackBinding";
+export type SpringCloudBuildPackBinding = import("./springCloudBuildPackBinding").SpringCloudBuildPackBinding;
+export const SpringCloudBuildPackBinding: typeof import("./springCloudBuildPackBinding").SpringCloudBuildPackBinding = null as any;
+utilities.lazyLoad(exports, ["SpringCloudBuildPackBinding"], () => require("./springCloudBuildPackBinding"));
+
+export { SpringCloudBuilderArgs, SpringCloudBuilderState } from "./springCloudBuilder";
+export type SpringCloudBuilder = import("./springCloudBuilder").SpringCloudBuilder;
+export const SpringCloudBuilder: typeof import("./springCloudBuilder").SpringCloudBuilder = null as any;
+utilities.lazyLoad(exports, ["SpringCloudBuilder"], () => require("./springCloudBuilder"));
+
+export { SpringCloudCertificateArgs, SpringCloudCertificateState } from "./springCloudCertificate";
+export type SpringCloudCertificate = import("./springCloudCertificate").SpringCloudCertificate;
+export const SpringCloudCertificate: typeof import("./springCloudCertificate").SpringCloudCertificate = null as any;
+utilities.lazyLoad(exports, ["SpringCloudCertificate"], () => require("./springCloudCertificate"));
+
+export { SpringCloudConfigurationServiceArgs, SpringCloudConfigurationServiceState } from "./springCloudConfigurationService";
+export type SpringCloudConfigurationService = import("./springCloudConfigurationService").SpringCloudConfigurationService;
+export const SpringCloudConfigurationService: typeof import("./springCloudConfigurationService").SpringCloudConfigurationService = null as any;
+utilities.lazyLoad(exports, ["SpringCloudConfigurationService"], () => require("./springCloudConfigurationService"));
+
+export { SpringCloudConnectionArgs, SpringCloudConnectionState } from "./springCloudConnection";
+export type SpringCloudConnection = import("./springCloudConnection").SpringCloudConnection;
+export const SpringCloudConnection: typeof import("./springCloudConnection").SpringCloudConnection = null as any;
+utilities.lazyLoad(exports, ["SpringCloudConnection"], () => require("./springCloudConnection"));
+
+export { SpringCloudContainerDeploymentArgs, SpringCloudContainerDeploymentState } from "./springCloudContainerDeployment";
+export type SpringCloudContainerDeployment = import("./springCloudContainerDeployment").SpringCloudContainerDeployment;
+export const SpringCloudContainerDeployment: typeof import("./springCloudContainerDeployment").SpringCloudContainerDeployment = null as any;
+utilities.lazyLoad(exports, ["SpringCloudContainerDeployment"], () => require("./springCloudContainerDeployment"));
+
+export { SpringCloudCustomDomainArgs, SpringCloudCustomDomainState } from "./springCloudCustomDomain";
+export type SpringCloudCustomDomain = import("./springCloudCustomDomain").SpringCloudCustomDomain;
+export const SpringCloudCustomDomain: typeof import("./springCloudCustomDomain").SpringCloudCustomDomain = null as any;
+utilities.lazyLoad(exports, ["SpringCloudCustomDomain"], () => require("./springCloudCustomDomain"));
+
+export { SpringCloudGatewayArgs, SpringCloudGatewayState } from "./springCloudGateway";
+export type SpringCloudGateway = import("./springCloudGateway").SpringCloudGateway;
+export const SpringCloudGateway: typeof import("./springCloudGateway").SpringCloudGateway = null as any;
+utilities.lazyLoad(exports, ["SpringCloudGateway"], () => require("./springCloudGateway"));
+
+export { SpringCloudGatewayCustomDomainArgs, SpringCloudGatewayCustomDomainState } from "./springCloudGatewayCustomDomain";
+export type SpringCloudGatewayCustomDomain = import("./springCloudGatewayCustomDomain").SpringCloudGatewayCustomDomain;
+export const SpringCloudGatewayCustomDomain: typeof import("./springCloudGatewayCustomDomain").SpringCloudGatewayCustomDomain = null as any;
+utilities.lazyLoad(exports, ["SpringCloudGatewayCustomDomain"], () => require("./springCloudGatewayCustomDomain"));
+
+export { SpringCloudGatewayRouteConfigArgs, SpringCloudGatewayRouteConfigState } from "./springCloudGatewayRouteConfig";
+export type SpringCloudGatewayRouteConfig = import("./springCloudGatewayRouteConfig").SpringCloudGatewayRouteConfig;
+export const SpringCloudGatewayRouteConfig: typeof import("./springCloudGatewayRouteConfig").SpringCloudGatewayRouteConfig = null as any;
+utilities.lazyLoad(exports, ["SpringCloudGatewayRouteConfig"], () => require("./springCloudGatewayRouteConfig"));
+
+export { SpringCloudJavaDeploymentArgs, SpringCloudJavaDeploymentState } from "./springCloudJavaDeployment";
+export type SpringCloudJavaDeployment = import("./springCloudJavaDeployment").SpringCloudJavaDeployment;
+export const SpringCloudJavaDeployment: typeof import("./springCloudJavaDeployment").SpringCloudJavaDeployment = null as any;
+utilities.lazyLoad(exports, ["SpringCloudJavaDeployment"], () => require("./springCloudJavaDeployment"));
+
+export { SpringCloudServiceArgs, SpringCloudServiceState } from "./springCloudService";
+export type SpringCloudService = import("./springCloudService").SpringCloudService;
+export const SpringCloudService: typeof import("./springCloudService").SpringCloudService = null as any;
+utilities.lazyLoad(exports, ["SpringCloudService"], () => require("./springCloudService"));
+
+export { SpringCloudStorageArgs, SpringCloudStorageState } from "./springCloudStorage";
+export type SpringCloudStorage = import("./springCloudStorage").SpringCloudStorage;
+export const SpringCloudStorage: typeof import("./springCloudStorage").SpringCloudStorage = null as any;
+utilities.lazyLoad(exports, ["SpringCloudStorage"], () => require("./springCloudStorage"));
+
 
 const _module = {
     version: utilities.getVersion(),

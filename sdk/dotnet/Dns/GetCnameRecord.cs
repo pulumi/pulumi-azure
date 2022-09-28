@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Dns
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCnameRecordResult> InvokeAsync(GetCnameRecordArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCnameRecordResult>("azure:dns/getCnameRecord:getCnameRecord", args ?? new GetCnameRecordArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCnameRecordResult>("azure:dns/getCnameRecord:getCnameRecord", args ?? new GetCnameRecordArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Dns
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetCnameRecordResult> Invoke(GetCnameRecordInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCnameRecordResult>("azure:dns/getCnameRecord:getCnameRecord", args ?? new GetCnameRecordInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCnameRecordResult>("azure:dns/getCnameRecord:getCnameRecord", args ?? new GetCnameRecordInvokeArgs(), options.WithDefaults());
     }
 
 

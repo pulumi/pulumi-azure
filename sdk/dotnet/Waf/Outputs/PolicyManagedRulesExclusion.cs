@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly Outputs.PolicyManagedRulesExclusionExcludedRuleSet? ExcludedRuleSet;
         /// <summary>
-        /// The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        /// The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
         /// </summary>
         public readonly string MatchVariable;
         /// <summary>

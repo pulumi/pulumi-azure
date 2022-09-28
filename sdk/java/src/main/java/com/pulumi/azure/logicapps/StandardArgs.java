@@ -306,6 +306,21 @@ public final class StandardArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.version);
     }
 
+    /**
+     * The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * 
+     */
+    @Import(name="virtualNetworkSubnetId")
+    private @Nullable Output<String> virtualNetworkSubnetId;
+
+    /**
+     * @return The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * 
+     */
+    public Optional<Output<String>> virtualNetworkSubnetId() {
+        return Optional.ofNullable(this.virtualNetworkSubnetId);
+    }
+
     private StandardArgs() {}
 
     private StandardArgs(StandardArgs $) {
@@ -328,6 +343,7 @@ public final class StandardArgs extends com.pulumi.resources.ResourceArgs {
         this.tags = $.tags;
         this.useExtensionBundle = $.useExtensionBundle;
         this.version = $.version;
+        this.virtualNetworkSubnetId = $.virtualNetworkSubnetId;
     }
 
     public static Builder builder() {
@@ -755,6 +771,27 @@ public final class StandardArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder version(String version) {
             return version(Output.of(version));
+        }
+
+        /**
+         * @param virtualNetworkSubnetId The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkSubnetId(@Nullable Output<String> virtualNetworkSubnetId) {
+            $.virtualNetworkSubnetId = virtualNetworkSubnetId;
+            return this;
+        }
+
+        /**
+         * @param virtualNetworkSubnetId The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
+            return virtualNetworkSubnetId(Output.of(virtualNetworkSubnetId));
         }
 
         public StandardArgs build() {

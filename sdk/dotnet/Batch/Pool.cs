@@ -170,10 +170,28 @@ namespace Pulumi.Azure.Batch
         public Output<Outputs.PoolContainerConfiguration?> ContainerConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// A `data_disks` block describes the data disk settings.
+        /// </summary>
+        [Output("dataDisks")]
+        public Output<ImmutableArray<Outputs.PoolDataDisk>> DataDisks { get; private set; } = null!;
+
+        /// <summary>
+        /// A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+        /// </summary>
+        [Output("diskEncryptions")]
+        public Output<ImmutableArray<Outputs.PoolDiskEncryption>> DiskEncryptions { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the display name of the Batch pool.
         /// </summary>
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// An `extensions` block as defined below.
+        /// </summary>
+        [Output("extensions")]
+        public Output<ImmutableArray<Outputs.PoolExtension>> Extensions { get; private set; } = null!;
 
         /// <summary>
         /// A `fixed_scale` block that describes the scale settings when using fixed scale.
@@ -186,6 +204,18 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         [Output("identity")]
         public Output<Outputs.PoolIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+        /// </summary>
+        [Output("interNodeCommunication")]
+        public Output<string?> InterNodeCommunication { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
+        /// </summary>
+        [Output("licenseType")]
+        public Output<string?> LicenseType { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
@@ -224,6 +254,18 @@ namespace Pulumi.Azure.Batch
         public Output<string> NodeAgentSkuId { get; private set; } = null!;
 
         /// <summary>
+        /// A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+        /// </summary>
+        [Output("nodePlacements")]
+        public Output<ImmutableArray<Outputs.PoolNodePlacement>> NodePlacements { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+        /// </summary>
+        [Output("osDiskPlacement")]
+        public Output<string?> OsDiskPlacement { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -245,10 +287,28 @@ namespace Pulumi.Azure.Batch
         public Output<Outputs.PoolStorageImageReference> StorageImageReference { get; private set; } = null!;
 
         /// <summary>
+        /// A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+        /// </summary>
+        [Output("taskSchedulingPolicies")]
+        public Output<ImmutableArray<Outputs.PoolTaskSchedulingPolicy>> TaskSchedulingPolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+        /// </summary>
+        [Output("userAccounts")]
+        public Output<ImmutableArray<Outputs.PoolUserAccount>> UserAccounts { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the size of the VM created in the Batch pool.
         /// </summary>
         [Output("vmSize")]
         public Output<string> VmSize { get; private set; } = null!;
+
+        /// <summary>
+        /// A `windows` block that describes the Windows configuration in the pool.
+        /// </summary>
+        [Output("windows")]
+        public Output<ImmutableArray<Outputs.PoolWindow>> Windows { get; private set; } = null!;
 
 
         /// <summary>
@@ -326,11 +386,47 @@ namespace Pulumi.Azure.Batch
         [Input("containerConfiguration")]
         public Input<Inputs.PoolContainerConfigurationArgs>? ContainerConfiguration { get; set; }
 
+        [Input("dataDisks")]
+        private InputList<Inputs.PoolDataDiskArgs>? _dataDisks;
+
+        /// <summary>
+        /// A `data_disks` block describes the data disk settings.
+        /// </summary>
+        public InputList<Inputs.PoolDataDiskArgs> DataDisks
+        {
+            get => _dataDisks ?? (_dataDisks = new InputList<Inputs.PoolDataDiskArgs>());
+            set => _dataDisks = value;
+        }
+
+        [Input("diskEncryptions")]
+        private InputList<Inputs.PoolDiskEncryptionArgs>? _diskEncryptions;
+
+        /// <summary>
+        /// A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+        /// </summary>
+        public InputList<Inputs.PoolDiskEncryptionArgs> DiskEncryptions
+        {
+            get => _diskEncryptions ?? (_diskEncryptions = new InputList<Inputs.PoolDiskEncryptionArgs>());
+            set => _diskEncryptions = value;
+        }
+
         /// <summary>
         /// Specifies the display name of the Batch pool.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        [Input("extensions")]
+        private InputList<Inputs.PoolExtensionArgs>? _extensions;
+
+        /// <summary>
+        /// An `extensions` block as defined below.
+        /// </summary>
+        public InputList<Inputs.PoolExtensionArgs> Extensions
+        {
+            get => _extensions ?? (_extensions = new InputList<Inputs.PoolExtensionArgs>());
+            set => _extensions = value;
+        }
 
         /// <summary>
         /// A `fixed_scale` block that describes the scale settings when using fixed scale.
@@ -343,6 +439,18 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         [Input("identity")]
         public Input<Inputs.PoolIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+        /// </summary>
+        [Input("interNodeCommunication")]
+        public Input<string>? InterNodeCommunication { get; set; }
+
+        /// <summary>
+        /// The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
+        /// </summary>
+        [Input("licenseType")]
+        public Input<string>? LicenseType { get; set; }
 
         /// <summary>
         /// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
@@ -392,6 +500,24 @@ namespace Pulumi.Azure.Batch
         [Input("nodeAgentSkuId", required: true)]
         public Input<string> NodeAgentSkuId { get; set; } = null!;
 
+        [Input("nodePlacements")]
+        private InputList<Inputs.PoolNodePlacementArgs>? _nodePlacements;
+
+        /// <summary>
+        /// A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+        /// </summary>
+        public InputList<Inputs.PoolNodePlacementArgs> NodePlacements
+        {
+            get => _nodePlacements ?? (_nodePlacements = new InputList<Inputs.PoolNodePlacementArgs>());
+            set => _nodePlacements = value;
+        }
+
+        /// <summary>
+        /// Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+        /// </summary>
+        [Input("osDiskPlacement")]
+        public Input<string>? OsDiskPlacement { get; set; }
+
         /// <summary>
         /// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
         /// </summary>
@@ -413,11 +539,47 @@ namespace Pulumi.Azure.Batch
         [Input("storageImageReference", required: true)]
         public Input<Inputs.PoolStorageImageReferenceArgs> StorageImageReference { get; set; } = null!;
 
+        [Input("taskSchedulingPolicies")]
+        private InputList<Inputs.PoolTaskSchedulingPolicyArgs>? _taskSchedulingPolicies;
+
+        /// <summary>
+        /// A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+        /// </summary>
+        public InputList<Inputs.PoolTaskSchedulingPolicyArgs> TaskSchedulingPolicies
+        {
+            get => _taskSchedulingPolicies ?? (_taskSchedulingPolicies = new InputList<Inputs.PoolTaskSchedulingPolicyArgs>());
+            set => _taskSchedulingPolicies = value;
+        }
+
+        [Input("userAccounts")]
+        private InputList<Inputs.PoolUserAccountArgs>? _userAccounts;
+
+        /// <summary>
+        /// A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+        /// </summary>
+        public InputList<Inputs.PoolUserAccountArgs> UserAccounts
+        {
+            get => _userAccounts ?? (_userAccounts = new InputList<Inputs.PoolUserAccountArgs>());
+            set => _userAccounts = value;
+        }
+
         /// <summary>
         /// Specifies the size of the VM created in the Batch pool.
         /// </summary>
         [Input("vmSize", required: true)]
         public Input<string> VmSize { get; set; } = null!;
+
+        [Input("windows")]
+        private InputList<Inputs.PoolWindowArgs>? _windows;
+
+        /// <summary>
+        /// A `windows` block that describes the Windows configuration in the pool.
+        /// </summary>
+        public InputList<Inputs.PoolWindowArgs> Windows
+        {
+            get => _windows ?? (_windows = new InputList<Inputs.PoolWindowArgs>());
+            set => _windows = value;
+        }
 
         public PoolArgs()
         {
@@ -457,11 +619,47 @@ namespace Pulumi.Azure.Batch
         [Input("containerConfiguration")]
         public Input<Inputs.PoolContainerConfigurationGetArgs>? ContainerConfiguration { get; set; }
 
+        [Input("dataDisks")]
+        private InputList<Inputs.PoolDataDiskGetArgs>? _dataDisks;
+
+        /// <summary>
+        /// A `data_disks` block describes the data disk settings.
+        /// </summary>
+        public InputList<Inputs.PoolDataDiskGetArgs> DataDisks
+        {
+            get => _dataDisks ?? (_dataDisks = new InputList<Inputs.PoolDataDiskGetArgs>());
+            set => _dataDisks = value;
+        }
+
+        [Input("diskEncryptions")]
+        private InputList<Inputs.PoolDiskEncryptionGetArgs>? _diskEncryptions;
+
+        /// <summary>
+        /// A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+        /// </summary>
+        public InputList<Inputs.PoolDiskEncryptionGetArgs> DiskEncryptions
+        {
+            get => _diskEncryptions ?? (_diskEncryptions = new InputList<Inputs.PoolDiskEncryptionGetArgs>());
+            set => _diskEncryptions = value;
+        }
+
         /// <summary>
         /// Specifies the display name of the Batch pool.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        [Input("extensions")]
+        private InputList<Inputs.PoolExtensionGetArgs>? _extensions;
+
+        /// <summary>
+        /// An `extensions` block as defined below.
+        /// </summary>
+        public InputList<Inputs.PoolExtensionGetArgs> Extensions
+        {
+            get => _extensions ?? (_extensions = new InputList<Inputs.PoolExtensionGetArgs>());
+            set => _extensions = value;
+        }
 
         /// <summary>
         /// A `fixed_scale` block that describes the scale settings when using fixed scale.
@@ -474,6 +672,18 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         [Input("identity")]
         public Input<Inputs.PoolIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+        /// </summary>
+        [Input("interNodeCommunication")]
+        public Input<string>? InterNodeCommunication { get; set; }
+
+        /// <summary>
+        /// The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: "Windows_Server" - The on-premises license is for Windows Server. "Windows_Client" - The on-premises license is for Windows Client.
+        /// </summary>
+        [Input("licenseType")]
+        public Input<string>? LicenseType { get; set; }
 
         /// <summary>
         /// Specifies the maximum number of tasks that can run concurrently on a single compute node in the pool. Defaults to `1`. Changing this forces a new resource to be created.
@@ -523,6 +733,24 @@ namespace Pulumi.Azure.Batch
         [Input("nodeAgentSkuId")]
         public Input<string>? NodeAgentSkuId { get; set; }
 
+        [Input("nodePlacements")]
+        private InputList<Inputs.PoolNodePlacementGetArgs>? _nodePlacements;
+
+        /// <summary>
+        /// A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+        /// </summary>
+        public InputList<Inputs.PoolNodePlacementGetArgs> NodePlacements
+        {
+            get => _nodePlacements ?? (_nodePlacements = new InputList<Inputs.PoolNodePlacementGetArgs>());
+            set => _nodePlacements = value;
+        }
+
+        /// <summary>
+        /// Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+        /// </summary>
+        [Input("osDiskPlacement")]
+        public Input<string>? OsDiskPlacement { get; set; }
+
         /// <summary>
         /// The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
         /// </summary>
@@ -544,11 +772,47 @@ namespace Pulumi.Azure.Batch
         [Input("storageImageReference")]
         public Input<Inputs.PoolStorageImageReferenceGetArgs>? StorageImageReference { get; set; }
 
+        [Input("taskSchedulingPolicies")]
+        private InputList<Inputs.PoolTaskSchedulingPolicyGetArgs>? _taskSchedulingPolicies;
+
+        /// <summary>
+        /// A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+        /// </summary>
+        public InputList<Inputs.PoolTaskSchedulingPolicyGetArgs> TaskSchedulingPolicies
+        {
+            get => _taskSchedulingPolicies ?? (_taskSchedulingPolicies = new InputList<Inputs.PoolTaskSchedulingPolicyGetArgs>());
+            set => _taskSchedulingPolicies = value;
+        }
+
+        [Input("userAccounts")]
+        private InputList<Inputs.PoolUserAccountGetArgs>? _userAccounts;
+
+        /// <summary>
+        /// A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+        /// </summary>
+        public InputList<Inputs.PoolUserAccountGetArgs> UserAccounts
+        {
+            get => _userAccounts ?? (_userAccounts = new InputList<Inputs.PoolUserAccountGetArgs>());
+            set => _userAccounts = value;
+        }
+
         /// <summary>
         /// Specifies the size of the VM created in the Batch pool.
         /// </summary>
         [Input("vmSize")]
         public Input<string>? VmSize { get; set; }
+
+        [Input("windows")]
+        private InputList<Inputs.PoolWindowGetArgs>? _windows;
+
+        /// <summary>
+        /// A `windows` block that describes the Windows configuration in the pool.
+        /// </summary>
+        public InputList<Inputs.PoolWindowGetArgs> Windows
+        {
+            get => _windows ?? (_windows = new InputList<Inputs.PoolWindowGetArgs>());
+            set => _windows = value;
+        }
 
         public PoolState()
         {

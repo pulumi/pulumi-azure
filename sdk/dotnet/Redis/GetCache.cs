@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Redis
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCacheResult> InvokeAsync(GetCacheArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure:redis/getCache:getCache", args ?? new GetCacheArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCacheResult>("azure:redis/getCache:getCache", args ?? new GetCacheArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Redis Cache
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Redis
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetCacheResult> Invoke(GetCacheInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCacheResult>("azure:redis/getCache:getCache", args ?? new GetCacheInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCacheResult>("azure:redis/getCache:getCache", args ?? new GetCacheInvokeArgs(), options.WithDefaults());
     }
 
 

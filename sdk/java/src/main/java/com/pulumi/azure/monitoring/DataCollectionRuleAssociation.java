@@ -17,6 +17,129 @@ import javax.annotation.Nullable;
 /**
  * Manages a Data Collection Rule Association.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.NetworkInterface;
+ * import com.pulumi.azure.network.NetworkInterfaceArgs;
+ * import com.pulumi.azure.network.inputs.NetworkInterfaceIpConfigurationArgs;
+ * import com.pulumi.azure.compute.LinuxVirtualMachine;
+ * import com.pulumi.azure.compute.LinuxVirtualMachineArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineOsDiskArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineSourceImageReferenceArgs;
+ * import com.pulumi.azure.monitoring.DataCollectionRule;
+ * import com.pulumi.azure.monitoring.DataCollectionRuleArgs;
+ * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDestinationsArgs;
+ * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDestinationsAzureMonitorMetricsArgs;
+ * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataFlowArgs;
+ * import com.pulumi.azure.monitoring.DataCollectionEndpoint;
+ * import com.pulumi.azure.monitoring.DataCollectionEndpointArgs;
+ * import com.pulumi.azure.monitoring.DataCollectionRuleAssociation;
+ * import com.pulumi.azure.monitoring.DataCollectionRuleAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .build());
+ * 
+ *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
+ *                 .name(&#34;internal&#34;)
+ *                 .subnetId(exampleSubnet.id())
+ *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine(&#34;exampleLinuxVirtualMachine&#34;, LinuxVirtualMachineArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .size(&#34;Standard_B1ls&#34;)
+ *             .adminUsername(&#34;adminuser&#34;)
+ *             .networkInterfaceIds(exampleNetworkInterface.id())
+ *             .adminPassword(&#34;example-Password@7890&#34;)
+ *             .disablePasswordAuthentication(false)
+ *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
+ *                 .caching(&#34;ReadWrite&#34;)
+ *                 .storageAccountType(&#34;Standard_LRS&#34;)
+ *                 .build())
+ *             .sourceImageReference(LinuxVirtualMachineSourceImageReferenceArgs.builder()
+ *                 .publisher(&#34;Canonical&#34;)
+ *                 .offer(&#34;UbuntuServer&#34;)
+ *                 .sku(&#34;16.04-LTS&#34;)
+ *                 .version(&#34;latest&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleDataCollectionRule = new DataCollectionRule(&#34;exampleDataCollectionRule&#34;, DataCollectionRuleArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .destinations(DataCollectionRuleDestinationsArgs.builder()
+ *                 .azureMonitorMetrics(DataCollectionRuleDestinationsAzureMonitorMetricsArgs.builder()
+ *                     .name(&#34;example-destination-metrics&#34;)
+ *                     .build())
+ *                 .build())
+ *             .dataFlows(DataCollectionRuleDataFlowArgs.builder()
+ *                 .streams(&#34;Microsoft-InsightsMetrics&#34;)
+ *                 .destinations(&#34;example-destination-metrics&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var test = new DataCollectionEndpoint(&#34;test&#34;, DataCollectionEndpointArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .build());
+ * 
+ *         var example1DataCollectionRuleAssociation = new DataCollectionRuleAssociation(&#34;example1DataCollectionRuleAssociation&#34;, DataCollectionRuleAssociationArgs.builder()        
+ *             .targetResourceId(exampleLinuxVirtualMachine.id())
+ *             .dataCollectionRuleId(exampleDataCollectionRule.id())
+ *             .description(&#34;example&#34;)
+ *             .build());
+ * 
+ *         var example1Monitoring_dataCollectionRuleAssociationDataCollectionRuleAssociation = new DataCollectionRuleAssociation(&#34;example1Monitoring/dataCollectionRuleAssociationDataCollectionRuleAssociation&#34;, DataCollectionRuleAssociationArgs.builder()        
+ *             .targetResourceId(exampleLinuxVirtualMachine.id())
+ *             .dataCollectionEndpointId(azurerm_monitor_data_collection_endpoint.example().id())
+ *             .description(&#34;example&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Data Collection Rules Association can be imported using the `resource id`, e.g.

@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Maintenance
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPublicConfigurationsResult> InvokeAsync(GetPublicConfigurationsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicConfigurationsResult>("azure:maintenance/getPublicConfigurations:getPublicConfigurations", args ?? new GetPublicConfigurationsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicConfigurationsResult>("azure:maintenance/getPublicConfigurations:getPublicConfigurations", args ?? new GetPublicConfigurationsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about existing Public Maintenance Configurations.
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Maintenance
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPublicConfigurationsResult> Invoke(GetPublicConfigurationsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPublicConfigurationsResult>("azure:maintenance/getPublicConfigurations:getPublicConfigurations", args ?? new GetPublicConfigurationsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPublicConfigurationsResult>("azure:maintenance/getPublicConfigurations:getPublicConfigurations", args ?? new GetPublicConfigurationsInvokeArgs(), options.WithDefaults());
     }
 
 

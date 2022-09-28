@@ -826,7 +826,7 @@ class EventHubNamespaceIdentity(dict):
                  principal_id: Optional[str] = None,
                  tenant_id: Optional[str] = None):
         """
-        :param str type: Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. The only possible value is `SystemAssigned`.
+        :param str type: Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are `SystemAssigned` or `UserAssigned`.
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -842,7 +842,7 @@ class EventHubNamespaceIdentity(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. The only possible value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are `SystemAssigned` or `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -877,6 +877,8 @@ class EventHubNamespaceNetworkRulesets(dict):
             suggest = "default_action"
         elif key == "ipRules":
             suggest = "ip_rules"
+        elif key == "publicNetworkAccessEnabled":
+            suggest = "public_network_access_enabled"
         elif key == "trustedServiceAccessEnabled":
             suggest = "trusted_service_access_enabled"
         elif key == "virtualNetworkRules":
@@ -896,17 +898,21 @@ class EventHubNamespaceNetworkRulesets(dict):
     def __init__(__self__, *,
                  default_action: str,
                  ip_rules: Optional[Sequence['outputs.EventHubNamespaceNetworkRulesetsIpRule']] = None,
+                 public_network_access_enabled: Optional[bool] = None,
                  trusted_service_access_enabled: Optional[bool] = None,
                  virtual_network_rules: Optional[Sequence['outputs.EventHubNamespaceNetworkRulesetsVirtualNetworkRule']] = None):
         """
         :param str default_action: The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
         :param Sequence['EventHubNamespaceNetworkRulesetsIpRuleArgs'] ip_rules: One or more `ip_rule` blocks as defined below.
+        :param bool public_network_access_enabled: Is public network access enabled for the EventHub Namespace? Defaults to `true`.
         :param bool trusted_service_access_enabled: Whether Trusted Microsoft Services are allowed to bypass firewall.
         :param Sequence['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs'] virtual_network_rules: One or more `virtual_network_rule` blocks as defined below.
         """
         pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if trusted_service_access_enabled is not None:
             pulumi.set(__self__, "trusted_service_access_enabled", trusted_service_access_enabled)
         if virtual_network_rules is not None:
@@ -927,6 +933,14 @@ class EventHubNamespaceNetworkRulesets(dict):
         One or more `ip_rule` blocks as defined below.
         """
         return pulumi.get(self, "ip_rules")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[bool]:
+        """
+        Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="trustedServiceAccessEnabled")

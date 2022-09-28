@@ -17,6 +17,9 @@ __all__ = [
     'PoolCertificateArgs',
     'PoolContainerConfigurationArgs',
     'PoolContainerConfigurationContainerRegistryArgs',
+    'PoolDataDiskArgs',
+    'PoolDiskEncryptionArgs',
+    'PoolExtensionArgs',
     'PoolFixedScaleArgs',
     'PoolIdentityArgs',
     'PoolMountArgs',
@@ -27,11 +30,17 @@ __all__ = [
     'PoolNetworkConfigurationArgs',
     'PoolNetworkConfigurationEndpointConfigurationArgs',
     'PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs',
+    'PoolNodePlacementArgs',
     'PoolStartTaskArgs',
     'PoolStartTaskResourceFileArgs',
     'PoolStartTaskUserIdentityArgs',
     'PoolStartTaskUserIdentityAutoUserArgs',
     'PoolStorageImageReferenceArgs',
+    'PoolTaskSchedulingPolicyArgs',
+    'PoolUserAccountArgs',
+    'PoolUserAccountLinuxUserConfigurationArgs',
+    'PoolUserAccountWindowsUserConfigurationArgs',
+    'PoolWindowArgs',
     'GetAccountEncryptionArgs',
 ]
 
@@ -394,6 +403,229 @@ class PoolContainerConfigurationContainerRegistryArgs:
     @user_name.setter
     def user_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_name", value)
+
+
+@pulumi.input_type
+class PoolDataDiskArgs:
+    def __init__(__self__, *,
+                 disk_size_gb: pulumi.Input[int],
+                 lun: pulumi.Input[int],
+                 caching: Optional[pulumi.Input[str]] = None,
+                 storage_account_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] disk_size_gb: The initial disk size in GB when creating new data disk.
+        :param pulumi.Input[int] lun: The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
+        :param pulumi.Input[str] caching: Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+        :param pulumi.Input[str] storage_account_type: The storage account type to be used for the data disk. If omitted, the default is "Standard_LRS". Values are: "Standard_LRS" - The data disk should use standard locally redundant storage. "Premium_LRS" - The data disk should use premium locally redundant storage.
+        """
+        pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        pulumi.set(__self__, "lun", lun)
+        if caching is not None:
+            pulumi.set(__self__, "caching", caching)
+        if storage_account_type is not None:
+            pulumi.set(__self__, "storage_account_type", storage_account_type)
+
+    @property
+    @pulumi.getter(name="diskSizeGb")
+    def disk_size_gb(self) -> pulumi.Input[int]:
+        """
+        The initial disk size in GB when creating new data disk.
+        """
+        return pulumi.get(self, "disk_size_gb")
+
+    @disk_size_gb.setter
+    def disk_size_gb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "disk_size_gb", value)
+
+    @property
+    @pulumi.getter
+    def lun(self) -> pulumi.Input[int]:
+        """
+        The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
+        """
+        return pulumi.get(self, "lun")
+
+    @lun.setter
+    def lun(self, value: pulumi.Input[int]):
+        pulumi.set(self, "lun", value)
+
+    @property
+    @pulumi.getter
+    def caching(self) -> Optional[pulumi.Input[str]]:
+        """
+        Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+        """
+        return pulumi.get(self, "caching")
+
+    @caching.setter
+    def caching(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "caching", value)
+
+    @property
+    @pulumi.getter(name="storageAccountType")
+    def storage_account_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The storage account type to be used for the data disk. If omitted, the default is "Standard_LRS". Values are: "Standard_LRS" - The data disk should use standard locally redundant storage. "Premium_LRS" - The data disk should use premium locally redundant storage.
+        """
+        return pulumi.get(self, "storage_account_type")
+
+    @storage_account_type.setter
+    def storage_account_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_type", value)
+
+
+@pulumi.input_type
+class PoolDiskEncryptionArgs:
+    def __init__(__self__, *,
+                 disk_encryption_target: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] disk_encryption_target: On Linux pool, only \\"TemporaryDisk\\" is supported; on Windows pool, \\"OsDisk\\" and \\"TemporaryDisk\\" must be specified.
+        """
+        pulumi.set(__self__, "disk_encryption_target", disk_encryption_target)
+
+    @property
+    @pulumi.getter(name="diskEncryptionTarget")
+    def disk_encryption_target(self) -> pulumi.Input[str]:
+        """
+        On Linux pool, only \\"TemporaryDisk\\" is supported; on Windows pool, \\"OsDisk\\" and \\"TemporaryDisk\\" must be specified.
+        """
+        return pulumi.get(self, "disk_encryption_target")
+
+    @disk_encryption_target.setter
+    def disk_encryption_target(self, value: pulumi.Input[str]):
+        pulumi.set(self, "disk_encryption_target", value)
+
+
+@pulumi.input_type
+class PoolExtensionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 publisher: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 protected_settings: Optional[pulumi.Input[str]] = None,
+                 provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 settings_json: Optional[pulumi.Input[str]] = None,
+                 type_handler_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the virtual machine extension.
+        :param pulumi.Input[str] publisher: The name of the extension handler publisher.The name of the extension handler publisher.
+        :param pulumi.Input[str] type: The type of the extensions.
+        :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        :param pulumi.Input[str] protected_settings: The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] provision_after_extensions: The collection of extension names. Collection of extension names after which this extension needs to be provisioned.
+        :param pulumi.Input[str] settings_json: JSON formatted public settings for the extension.
+        :param pulumi.Input[str] type_handler_version: The version of script handler.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "publisher", publisher)
+        pulumi.set(__self__, "type", type)
+        if auto_upgrade_minor_version is not None:
+            pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if protected_settings is not None:
+            pulumi.set(__self__, "protected_settings", protected_settings)
+        if provision_after_extensions is not None:
+            pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
+        if settings_json is not None:
+            pulumi.set(__self__, "settings_json", settings_json)
+        if type_handler_version is not None:
+            pulumi.set(__self__, "type_handler_version", type_handler_version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the virtual machine extension.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> pulumi.Input[str]:
+        """
+        The name of the extension handler publisher.The name of the extension handler publisher.
+        """
+        return pulumi.get(self, "publisher")
+
+    @publisher.setter
+    def publisher(self, value: pulumi.Input[str]):
+        pulumi.set(self, "publisher", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of the extensions.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="autoUpgradeMinorVersion")
+    def auto_upgrade_minor_version(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        """
+        return pulumi.get(self, "auto_upgrade_minor_version")
+
+    @auto_upgrade_minor_version.setter
+    def auto_upgrade_minor_version(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_upgrade_minor_version", value)
+
+    @property
+    @pulumi.getter(name="protectedSettings")
+    def protected_settings(self) -> Optional[pulumi.Input[str]]:
+        """
+        The extension can contain either `protected_settings` or `provision_after_extensions` or no protected settings at all.
+        """
+        return pulumi.get(self, "protected_settings")
+
+    @protected_settings.setter
+    def protected_settings(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protected_settings", value)
+
+    @property
+    @pulumi.getter(name="provisionAfterExtensions")
+    def provision_after_extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The collection of extension names. Collection of extension names after which this extension needs to be provisioned.
+        """
+        return pulumi.get(self, "provision_after_extensions")
+
+    @provision_after_extensions.setter
+    def provision_after_extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "provision_after_extensions", value)
+
+    @property
+    @pulumi.getter(name="settingsJson")
+    def settings_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        JSON formatted public settings for the extension.
+        """
+        return pulumi.get(self, "settings_json")
+
+    @settings_json.setter
+    def settings_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "settings_json", value)
+
+    @property
+    @pulumi.getter(name="typeHandlerVersion")
+    def type_handler_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of script handler.
+        """
+        return pulumi.get(self, "type_handler_version")
+
+    @type_handler_version.setter
+    def type_handler_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type_handler_version", value)
 
 
 @pulumi.input_type
@@ -1100,6 +1332,29 @@ class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs:
 
 
 @pulumi.input_type
+class PoolNodePlacementArgs:
+    def __init__(__self__, *,
+                 policy: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] policy: The placement policy for allocating nodes in the pool. Values are: "Regional": All nodes in the pool will be allocated in the same region; "Zonal": Nodes in the pool will be spread across different zones with the best effort balancing.
+        """
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The placement policy for allocating nodes in the pool. Values are: "Regional": All nodes in the pool will be allocated in the same region; "Zonal": Nodes in the pool will be spread across different zones with the best effort balancing.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy", value)
+
+
+@pulumi.input_type
 class PoolStartTaskArgs:
     def __init__(__self__, *,
                  command_line: pulumi.Input[str],
@@ -1208,7 +1463,8 @@ class PoolStartTaskResourceFileArgs:
                  file_mode: Optional[pulumi.Input[str]] = None,
                  file_path: Optional[pulumi.Input[str]] = None,
                  http_url: Optional[pulumi.Input[str]] = None,
-                 storage_container_url: Optional[pulumi.Input[str]] = None):
+                 storage_container_url: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] auto_storage_container_name: The storage container name in the auto storage account.
         :param pulumi.Input[str] blob_prefix: The blob prefix to use when downloading blobs from an Azure Storage container. Only the blobs whose names begin with the specified prefix will be downloaded. The property is valid only when `auto_storage_container_name` or `storage_container_url` is used. This prefix can be a partial filename or a subdirectory. If a prefix is not specified, all the files in the container will be downloaded.
@@ -1216,6 +1472,7 @@ class PoolStartTaskResourceFileArgs:
         :param pulumi.Input[str] file_path: The location on the compute node to which to download the file, relative to the task's working directory. If the `http_url` property is specified, the `file_path` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `auto_storage_container_name` or `storage_container_url` property is specified, `file_path` is optional and is the directory to download the files to. In the case where `file_path` is used as a directory, any directory structure already associated with the input data will be retained in full and appended to the specified filePath directory. The specified relative path cannot break out of the task's working directory (for example by using '..').
         :param pulumi.Input[str] http_url: The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read permissions on the blob, or set the ACL for the blob or its container to allow public access.
         :param pulumi.Input[str] storage_container_url: The URL of the blob container within Azure Blob Storage. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
+        :param pulumi.Input[str] user_assigned_identity_id: An identity reference from pool's user assigned managed identity list.
         """
         if auto_storage_container_name is not None:
             pulumi.set(__self__, "auto_storage_container_name", auto_storage_container_name)
@@ -1229,6 +1486,8 @@ class PoolStartTaskResourceFileArgs:
             pulumi.set(__self__, "http_url", http_url)
         if storage_container_url is not None:
             pulumi.set(__self__, "storage_container_url", storage_container_url)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="autoStorageContainerName")
@@ -1301,6 +1560,18 @@ class PoolStartTaskResourceFileArgs:
     @storage_container_url.setter
     def storage_container_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_container_url", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        An identity reference from pool's user assigned managed identity list.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_id", value)
 
 
 @pulumi.input_type
@@ -1468,6 +1739,213 @@ class PoolStorageImageReferenceArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class PoolTaskSchedulingPolicyArgs:
+    def __init__(__self__, *,
+                 node_fill_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] node_fill_type: Supported values are "Pack" and "Spread". "Pack" means as many tasks as possible (taskSlotsPerNode) should be assigned to each node in the pool before any tasks are assigned to the next node in the pool. "Spread" means that tasks should be assigned evenly across all nodes in the pool.
+        """
+        if node_fill_type is not None:
+            pulumi.set(__self__, "node_fill_type", node_fill_type)
+
+    @property
+    @pulumi.getter(name="nodeFillType")
+    def node_fill_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Supported values are "Pack" and "Spread". "Pack" means as many tasks as possible (taskSlotsPerNode) should be assigned to each node in the pool before any tasks are assigned to the next node in the pool. "Spread" means that tasks should be assigned evenly across all nodes in the pool.
+        """
+        return pulumi.get(self, "node_fill_type")
+
+    @node_fill_type.setter
+    def node_fill_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_fill_type", value)
+
+
+@pulumi.input_type
+class PoolUserAccountArgs:
+    def __init__(__self__, *,
+                 elevation_level: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 password: pulumi.Input[str],
+                 linux_user_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountLinuxUserConfigurationArgs']]]] = None,
+                 windows_user_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountWindowsUserConfigurationArgs']]]] = None):
+        """
+        :param pulumi.Input[str] elevation_level: The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
+        :param pulumi.Input[str] name: The name of the user account.
+        :param pulumi.Input[str] password: The password for the user account.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolUserAccountLinuxUserConfigurationArgs']]] linux_user_configurations: The `linux_user_configuration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+        :param pulumi.Input[Sequence[pulumi.Input['PoolUserAccountWindowsUserConfigurationArgs']]] windows_user_configurations: The `windows_user_configuration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+        """
+        pulumi.set(__self__, "elevation_level", elevation_level)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "password", password)
+        if linux_user_configurations is not None:
+            pulumi.set(__self__, "linux_user_configurations", linux_user_configurations)
+        if windows_user_configurations is not None:
+            pulumi.set(__self__, "windows_user_configurations", windows_user_configurations)
+
+    @property
+    @pulumi.getter(name="elevationLevel")
+    def elevation_level(self) -> pulumi.Input[str]:
+        """
+        The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
+        """
+        return pulumi.get(self, "elevation_level")
+
+    @elevation_level.setter
+    def elevation_level(self, value: pulumi.Input[str]):
+        pulumi.set(self, "elevation_level", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the user account.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        The password for the user account.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="linuxUserConfigurations")
+    def linux_user_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountLinuxUserConfigurationArgs']]]]:
+        """
+        The `linux_user_configuration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+        """
+        return pulumi.get(self, "linux_user_configurations")
+
+    @linux_user_configurations.setter
+    def linux_user_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountLinuxUserConfigurationArgs']]]]):
+        pulumi.set(self, "linux_user_configurations", value)
+
+    @property
+    @pulumi.getter(name="windowsUserConfigurations")
+    def windows_user_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountWindowsUserConfigurationArgs']]]]:
+        """
+        The `windows_user_configuration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+        """
+        return pulumi.get(self, "windows_user_configurations")
+
+    @windows_user_configurations.setter
+    def windows_user_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PoolUserAccountWindowsUserConfigurationArgs']]]]):
+        pulumi.set(self, "windows_user_configurations", value)
+
+
+@pulumi.input_type
+class PoolUserAccountLinuxUserConfigurationArgs:
+    def __init__(__self__, *,
+                 gid: Optional[pulumi.Input[int]] = None,
+                 ssh_private_key: Optional[pulumi.Input[str]] = None,
+                 uid: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] gid: The user ID of the user account. The `uid` and `gid` properties must be specified together or not at all. If not specified the underlying operating system picks the uid.
+        :param pulumi.Input[str] ssh_private_key: The SSH private key for the user account. The private key must not be password protected. The private key is used to automatically configure asymmetric-key based authentication for SSH between nodes in a Linux pool when the pool's enableInterNodeCommunication property is true (it is ignored if enableInterNodeCommunication is false). It does this by placing the key pair into the user's .ssh directory. If not specified, password-less SSH is not configured between nodes (no modification of the user's .ssh directory is done).
+        :param pulumi.Input[int] uid: The group ID for the user account. The `uid` and `gid` properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
+        """
+        if gid is not None:
+            pulumi.set(__self__, "gid", gid)
+        if ssh_private_key is not None:
+            pulumi.set(__self__, "ssh_private_key", ssh_private_key)
+        if uid is not None:
+            pulumi.set(__self__, "uid", uid)
+
+    @property
+    @pulumi.getter
+    def gid(self) -> Optional[pulumi.Input[int]]:
+        """
+        The user ID of the user account. The `uid` and `gid` properties must be specified together or not at all. If not specified the underlying operating system picks the uid.
+        """
+        return pulumi.get(self, "gid")
+
+    @gid.setter
+    def gid(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "gid", value)
+
+    @property
+    @pulumi.getter(name="sshPrivateKey")
+    def ssh_private_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The SSH private key for the user account. The private key must not be password protected. The private key is used to automatically configure asymmetric-key based authentication for SSH between nodes in a Linux pool when the pool's enableInterNodeCommunication property is true (it is ignored if enableInterNodeCommunication is false). It does this by placing the key pair into the user's .ssh directory. If not specified, password-less SSH is not configured between nodes (no modification of the user's .ssh directory is done).
+        """
+        return pulumi.get(self, "ssh_private_key")
+
+    @ssh_private_key.setter
+    def ssh_private_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssh_private_key", value)
+
+    @property
+    @pulumi.getter
+    def uid(self) -> Optional[pulumi.Input[int]]:
+        """
+        The group ID for the user account. The `uid` and `gid` properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
+        """
+        return pulumi.get(self, "uid")
+
+    @uid.setter
+    def uid(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "uid", value)
+
+
+@pulumi.input_type
+class PoolUserAccountWindowsUserConfigurationArgs:
+    def __init__(__self__, *,
+                 login_mode: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] login_mode: Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode. Values supported are "Batch" and "Interactive".
+        """
+        pulumi.set(__self__, "login_mode", login_mode)
+
+    @property
+    @pulumi.getter(name="loginMode")
+    def login_mode(self) -> pulumi.Input[str]:
+        """
+        Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode. Values supported are "Batch" and "Interactive".
+        """
+        return pulumi.get(self, "login_mode")
+
+    @login_mode.setter
+    def login_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "login_mode", value)
+
+
+@pulumi.input_type
+class PoolWindowArgs:
+    def __init__(__self__, *,
+                 enable_automatic_updates: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] enable_automatic_updates: Whether automatic updates are enabled on the virtual machine. If omitted, the default value is true.
+        """
+        if enable_automatic_updates is not None:
+            pulumi.set(__self__, "enable_automatic_updates", enable_automatic_updates)
+
+    @property
+    @pulumi.getter(name="enableAutomaticUpdates")
+    def enable_automatic_updates(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether automatic updates are enabled on the virtual machine. If omitted, the default value is true.
+        """
+        return pulumi.get(self, "enable_automatic_updates")
+
+    @enable_automatic_updates.setter
+    def enable_automatic_updates(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_automatic_updates", value)
 
 
 @pulumi.input_type

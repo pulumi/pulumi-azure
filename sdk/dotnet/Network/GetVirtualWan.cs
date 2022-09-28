@@ -15,13 +15,13 @@ namespace Pulumi.Azure.Network
         /// Use this data source to access information about an existing Virtual Wan.
         /// </summary>
         public static Task<GetVirtualWanResult> InvokeAsync(GetVirtualWanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualWanResult>("azure:network/getVirtualWan:getVirtualWan", args ?? new GetVirtualWanArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualWanResult>("azure:network/getVirtualWan:getVirtualWan", args ?? new GetVirtualWanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Virtual Wan.
         /// </summary>
         public static Output<GetVirtualWanResult> Invoke(GetVirtualWanInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualWanResult>("azure:network/getVirtualWan:getVirtualWan", args ?? new GetVirtualWanInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualWanResult>("azure:network/getVirtualWan:getVirtualWan", args ?? new GetVirtualWanInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -211,7 +211,7 @@ namespace Pulumi.Azure.Compute
         public Output<string?> EvictionPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+        /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
         /// </summary>
         [Output("extensionOperationsEnabled")]
         public Output<bool> ExtensionOperationsEnabled { get; private set; } = null!;
@@ -596,7 +596,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? EvictionPolicy { get; set; }
 
         /// <summary>
-        /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+        /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
         /// </summary>
         [Input("extensionOperationsEnabled")]
         public Input<bool>? ExtensionOperationsEnabled { get; set; }
@@ -973,7 +973,7 @@ namespace Pulumi.Azure.Compute
         public Input<string>? EvictionPolicy { get; set; }
 
         /// <summary>
-        /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+        /// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
         /// </summary>
         [Input("extensionOperationsEnabled")]
         public Input<bool>? ExtensionOperationsEnabled { get; set; }

@@ -70,6 +70,9 @@ type LookupAccountResult struct {
 	AccountTier string `pulumi:"accountTier"`
 	// Can nested items in the storage account opt into allowing public access?
 	AllowNestedItemsToBePublic bool `pulumi:"allowNestedItemsToBePublic"`
+	// A `azureFilesAuthentication` block as documented below.
+	// ---
+	AzureFilesAuthentications []GetAccountAzureFilesAuthentication `pulumi:"azureFilesAuthentications"`
 	// A `customDomain` block as documented below.
 	CustomDomains []GetAccountCustomDomain `pulumi:"customDomains"`
 	// Is traffic only allowed via HTTPS? See [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
@@ -81,7 +84,6 @@ type LookupAccountResult struct {
 	Identities []GetAccountIdentity `pulumi:"identities"`
 	// Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/azure/storage/common/infrastructure-encryption-enable/)
 	// for more information.
-	// ---
 	InfrastructureEncryptionEnabled bool `pulumi:"infrastructureEncryptionEnabled"`
 	// Is Hierarchical Namespace enabled?
 	IsHnsEnabled bool `pulumi:"isHnsEnabled"`
@@ -233,6 +235,12 @@ func (o LookupAccountResultOutput) AllowNestedItemsToBePublic() pulumi.BoolOutpu
 	return o.ApplyT(func(v LookupAccountResult) bool { return v.AllowNestedItemsToBePublic }).(pulumi.BoolOutput)
 }
 
+// A `azureFilesAuthentication` block as documented below.
+// ---
+func (o LookupAccountResultOutput) AzureFilesAuthentications() GetAccountAzureFilesAuthenticationArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []GetAccountAzureFilesAuthentication { return v.AzureFilesAuthentications }).(GetAccountAzureFilesAuthenticationArrayOutput)
+}
+
 // A `customDomain` block as documented below.
 func (o LookupAccountResultOutput) CustomDomains() GetAccountCustomDomainArrayOutput {
 	return o.ApplyT(func(v LookupAccountResult) []GetAccountCustomDomain { return v.CustomDomains }).(GetAccountCustomDomainArrayOutput)
@@ -256,7 +264,6 @@ func (o LookupAccountResultOutput) Identities() GetAccountIdentityArrayOutput {
 
 // Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/azure/storage/common/infrastructure-encryption-enable/)
 // for more information.
-// ---
 func (o LookupAccountResultOutput) InfrastructureEncryptionEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupAccountResult) bool { return v.InfrastructureEncryptionEnabled }).(pulumi.BoolOutput)
 }

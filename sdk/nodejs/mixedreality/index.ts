@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getSpatialAnchorsAccount";
-export * from "./spatialAnchorsAccount";
+export { GetSpatialAnchorsAccountArgs, GetSpatialAnchorsAccountResult, GetSpatialAnchorsAccountOutputArgs } from "./getSpatialAnchorsAccount";
+export const getSpatialAnchorsAccount: typeof import("./getSpatialAnchorsAccount").getSpatialAnchorsAccount = null as any;
+export const getSpatialAnchorsAccountOutput: typeof import("./getSpatialAnchorsAccount").getSpatialAnchorsAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getSpatialAnchorsAccount","getSpatialAnchorsAccountOutput"], () => require("./getSpatialAnchorsAccount"));
 
-// Import resources to register:
-import { SpatialAnchorsAccount } from "./spatialAnchorsAccount";
+export { SpatialAnchorsAccountArgs, SpatialAnchorsAccountState } from "./spatialAnchorsAccount";
+export type SpatialAnchorsAccount = import("./spatialAnchorsAccount").SpatialAnchorsAccount;
+export const SpatialAnchorsAccount: typeof import("./spatialAnchorsAccount").SpatialAnchorsAccount = null as any;
+utilities.lazyLoad(exports, ["SpatialAnchorsAccount"], () => require("./spatialAnchorsAccount"));
+
 
 const _module = {
     version: utilities.getVersion(),

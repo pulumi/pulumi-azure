@@ -13,9 +13,6 @@ import (
 
 // Manages a Logic App (Standard / Single Tenant)
 //
-// > **Note:** To connect an Azure Logic App and a subnet within the same region `appservice.VirtualNetworkSwiftConnection` can be used.
-// For an example, check the `appservice.VirtualNetworkSwiftConnection` documentation.
-//
 // ## Example Usage
 // ### With App Service Plan)
 //
@@ -52,6 +49,7 @@ import (
 //			examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
+//				Kind:              pulumi.Any("elastic"),
 //				Sku: &appservice.PlanSkuArgs{
 //					Tier: pulumi.String("WorkflowStandard"),
 //					Size: pulumi.String("WS1"),
@@ -208,6 +206,8 @@ type Standard struct {
 	UseExtensionBundle pulumi.BoolPtrOutput `pulumi:"useExtensionBundle"`
 	// The runtime version associated with the Logic App Defaults to `~1`.
 	Version pulumi.StringPtrOutput `pulumi:"version"`
+	// The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	VirtualNetworkSubnetId pulumi.StringPtrOutput `pulumi:"virtualNetworkSubnetId"`
 }
 
 // NewStandard registers a new resource with the given unique name, arguments, and options.
@@ -301,6 +301,8 @@ type standardState struct {
 	UseExtensionBundle *bool `pulumi:"useExtensionBundle"`
 	// The runtime version associated with the Logic App Defaults to `~1`.
 	Version *string `pulumi:"version"`
+	// The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
 type StandardState struct {
@@ -354,6 +356,8 @@ type StandardState struct {
 	UseExtensionBundle pulumi.BoolPtrInput
 	// The runtime version associated with the Logic App Defaults to `~1`.
 	Version pulumi.StringPtrInput
+	// The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	VirtualNetworkSubnetId pulumi.StringPtrInput
 }
 
 func (StandardState) ElementType() reflect.Type {
@@ -399,6 +403,8 @@ type standardArgs struct {
 	UseExtensionBundle *bool `pulumi:"useExtensionBundle"`
 	// The runtime version associated with the Logic App Defaults to `~1`.
 	Version *string `pulumi:"version"`
+	// The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	VirtualNetworkSubnetId *string `pulumi:"virtualNetworkSubnetId"`
 }
 
 // The set of arguments for constructing a Standard resource.
@@ -441,6 +447,8 @@ type StandardArgs struct {
 	UseExtensionBundle pulumi.BoolPtrInput
 	// The runtime version associated with the Logic App Defaults to `~1`.
 	Version pulumi.StringPtrInput
+	// The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+	VirtualNetworkSubnetId pulumi.StringPtrInput
 }
 
 func (StandardArgs) ElementType() reflect.Type {
@@ -653,6 +661,11 @@ func (o StandardOutput) UseExtensionBundle() pulumi.BoolPtrOutput {
 // The runtime version associated with the Logic App Defaults to `~1`.
 func (o StandardOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Standard) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+// The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+func (o StandardOutput) VirtualNetworkSubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Standard) pulumi.StringPtrOutput { return v.VirtualNetworkSubnetId }).(pulumi.StringPtrOutput)
 }
 
 type StandardArrayOutput struct{ *pulumi.OutputState }

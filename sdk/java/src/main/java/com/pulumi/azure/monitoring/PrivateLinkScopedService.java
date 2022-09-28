@@ -80,14 +80,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:monitoring/privateLinkScopedService:PrivateLinkScopedService")
 public class PrivateLinkScopedService extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+     * The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="linkedResourceId", type=String.class, parameters={})
     private Output<String> linkedResourceId;
 
     /**
-     * @return The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+     * @return The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> linkedResourceId() {

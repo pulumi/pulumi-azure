@@ -5856,6 +5856,5562 @@ func (o ActivityLogAlertCriteriaServiceHealthArrayOutput) Index(i pulumi.IntInpu
 	}).(ActivityLogAlertCriteriaServiceHealthOutput)
 }
 
+type AlertProcessingRuleActionGroupCondition struct {
+	// A `alertContext` block as defined above.
+	AlertContext *AlertProcessingRuleActionGroupConditionAlertContext `pulumi:"alertContext"`
+	// A `alertRuleId` block as defined above.
+	AlertRuleId *AlertProcessingRuleActionGroupConditionAlertRuleId `pulumi:"alertRuleId"`
+	// A `alertRuleName` block as defined above.
+	AlertRuleName *AlertProcessingRuleActionGroupConditionAlertRuleName `pulumi:"alertRuleName"`
+	// A `description` block as defined below.
+	Description *AlertProcessingRuleActionGroupConditionDescription `pulumi:"description"`
+	// A `monitorCondition` block as defined below.
+	MonitorCondition *AlertProcessingRuleActionGroupConditionMonitorCondition `pulumi:"monitorCondition"`
+	// A `monitorService` block as defined below.
+	MonitorService *AlertProcessingRuleActionGroupConditionMonitorService `pulumi:"monitorService"`
+	// A `severity` block as defined below.
+	Severity *AlertProcessingRuleActionGroupConditionSeverity `pulumi:"severity"`
+	// A `signalType` block as defined below.
+	SignalType *AlertProcessingRuleActionGroupConditionSignalType `pulumi:"signalType"`
+	// A `targetResource` block as defined below.
+	TargetResource *AlertProcessingRuleActionGroupConditionTargetResource `pulumi:"targetResource"`
+	// A `targetResourceGroup` block as defined below.
+	TargetResourceGroup *AlertProcessingRuleActionGroupConditionTargetResourceGroup `pulumi:"targetResourceGroup"`
+	// A `targetResourceType` block as defined below.
+	TargetResourceType *AlertProcessingRuleActionGroupConditionTargetResourceType `pulumi:"targetResourceType"`
+}
+
+// AlertProcessingRuleActionGroupConditionInput is an input type that accepts AlertProcessingRuleActionGroupConditionArgs and AlertProcessingRuleActionGroupConditionOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionInput` via:
+//
+//	AlertProcessingRuleActionGroupConditionArgs{...}
+type AlertProcessingRuleActionGroupConditionInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionOutput() AlertProcessingRuleActionGroupConditionOutput
+	ToAlertProcessingRuleActionGroupConditionOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionOutput
+}
+
+type AlertProcessingRuleActionGroupConditionArgs struct {
+	// A `alertContext` block as defined above.
+	AlertContext AlertProcessingRuleActionGroupConditionAlertContextPtrInput `pulumi:"alertContext"`
+	// A `alertRuleId` block as defined above.
+	AlertRuleId AlertProcessingRuleActionGroupConditionAlertRuleIdPtrInput `pulumi:"alertRuleId"`
+	// A `alertRuleName` block as defined above.
+	AlertRuleName AlertProcessingRuleActionGroupConditionAlertRuleNamePtrInput `pulumi:"alertRuleName"`
+	// A `description` block as defined below.
+	Description AlertProcessingRuleActionGroupConditionDescriptionPtrInput `pulumi:"description"`
+	// A `monitorCondition` block as defined below.
+	MonitorCondition AlertProcessingRuleActionGroupConditionMonitorConditionPtrInput `pulumi:"monitorCondition"`
+	// A `monitorService` block as defined below.
+	MonitorService AlertProcessingRuleActionGroupConditionMonitorServicePtrInput `pulumi:"monitorService"`
+	// A `severity` block as defined below.
+	Severity AlertProcessingRuleActionGroupConditionSeverityPtrInput `pulumi:"severity"`
+	// A `signalType` block as defined below.
+	SignalType AlertProcessingRuleActionGroupConditionSignalTypePtrInput `pulumi:"signalType"`
+	// A `targetResource` block as defined below.
+	TargetResource AlertProcessingRuleActionGroupConditionTargetResourcePtrInput `pulumi:"targetResource"`
+	// A `targetResourceGroup` block as defined below.
+	TargetResourceGroup AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrInput `pulumi:"targetResourceGroup"`
+	// A `targetResourceType` block as defined below.
+	TargetResourceType AlertProcessingRuleActionGroupConditionTargetResourceTypePtrInput `pulumi:"targetResourceType"`
+}
+
+func (AlertProcessingRuleActionGroupConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupCondition)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleActionGroupConditionArgs) ToAlertProcessingRuleActionGroupConditionOutput() AlertProcessingRuleActionGroupConditionOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionArgs) ToAlertProcessingRuleActionGroupConditionOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionOutput)
+}
+
+func (i AlertProcessingRuleActionGroupConditionArgs) ToAlertProcessingRuleActionGroupConditionPtrOutput() AlertProcessingRuleActionGroupConditionPtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionPtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionArgs) ToAlertProcessingRuleActionGroupConditionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionOutput).ToAlertProcessingRuleActionGroupConditionPtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleActionGroupConditionPtrInput is an input type that accepts AlertProcessingRuleActionGroupConditionArgs, AlertProcessingRuleActionGroupConditionPtr and AlertProcessingRuleActionGroupConditionPtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionPtrInput` via:
+//
+//	        AlertProcessingRuleActionGroupConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleActionGroupConditionPtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionPtrOutput() AlertProcessingRuleActionGroupConditionPtrOutput
+	ToAlertProcessingRuleActionGroupConditionPtrOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionPtrOutput
+}
+
+type alertProcessingRuleActionGroupConditionPtrType AlertProcessingRuleActionGroupConditionArgs
+
+func AlertProcessingRuleActionGroupConditionPtr(v *AlertProcessingRuleActionGroupConditionArgs) AlertProcessingRuleActionGroupConditionPtrInput {
+	return (*alertProcessingRuleActionGroupConditionPtrType)(v)
+}
+
+func (*alertProcessingRuleActionGroupConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupCondition)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleActionGroupConditionPtrType) ToAlertProcessingRuleActionGroupConditionPtrOutput() AlertProcessingRuleActionGroupConditionPtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleActionGroupConditionPtrType) ToAlertProcessingRuleActionGroupConditionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionPtrOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupCondition)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionOutput) ToAlertProcessingRuleActionGroupConditionOutput() AlertProcessingRuleActionGroupConditionOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionOutput) ToAlertProcessingRuleActionGroupConditionOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionOutput) ToAlertProcessingRuleActionGroupConditionPtrOutput() AlertProcessingRuleActionGroupConditionPtrOutput {
+	return o.ToAlertProcessingRuleActionGroupConditionPtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleActionGroupConditionOutput) ToAlertProcessingRuleActionGroupConditionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupCondition {
+		return &v
+	}).(AlertProcessingRuleActionGroupConditionPtrOutput)
+}
+
+// A `alertContext` block as defined above.
+func (o AlertProcessingRuleActionGroupConditionOutput) AlertContext() AlertProcessingRuleActionGroupConditionAlertContextPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionAlertContext {
+		return v.AlertContext
+	}).(AlertProcessingRuleActionGroupConditionAlertContextPtrOutput)
+}
+
+// A `alertRuleId` block as defined above.
+func (o AlertProcessingRuleActionGroupConditionOutput) AlertRuleId() AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionAlertRuleId {
+		return v.AlertRuleId
+	}).(AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput)
+}
+
+// A `alertRuleName` block as defined above.
+func (o AlertProcessingRuleActionGroupConditionOutput) AlertRuleName() AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionAlertRuleName {
+		return v.AlertRuleName
+	}).(AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput)
+}
+
+// A `description` block as defined below.
+func (o AlertProcessingRuleActionGroupConditionOutput) Description() AlertProcessingRuleActionGroupConditionDescriptionPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionDescription {
+		return v.Description
+	}).(AlertProcessingRuleActionGroupConditionDescriptionPtrOutput)
+}
+
+// A `monitorCondition` block as defined below.
+func (o AlertProcessingRuleActionGroupConditionOutput) MonitorCondition() AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionMonitorCondition {
+		return v.MonitorCondition
+	}).(AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput)
+}
+
+// A `monitorService` block as defined below.
+func (o AlertProcessingRuleActionGroupConditionOutput) MonitorService() AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionMonitorService {
+		return v.MonitorService
+	}).(AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput)
+}
+
+// A `severity` block as defined below.
+func (o AlertProcessingRuleActionGroupConditionOutput) Severity() AlertProcessingRuleActionGroupConditionSeverityPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionSeverity {
+		return v.Severity
+	}).(AlertProcessingRuleActionGroupConditionSeverityPtrOutput)
+}
+
+// A `signalType` block as defined below.
+func (o AlertProcessingRuleActionGroupConditionOutput) SignalType() AlertProcessingRuleActionGroupConditionSignalTypePtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionSignalType {
+		return v.SignalType
+	}).(AlertProcessingRuleActionGroupConditionSignalTypePtrOutput)
+}
+
+// A `targetResource` block as defined below.
+func (o AlertProcessingRuleActionGroupConditionOutput) TargetResource() AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionTargetResource {
+		return v.TargetResource
+	}).(AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput)
+}
+
+// A `targetResourceGroup` block as defined below.
+func (o AlertProcessingRuleActionGroupConditionOutput) TargetResourceGroup() AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionTargetResourceGroup {
+		return v.TargetResourceGroup
+	}).(AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput)
+}
+
+// A `targetResourceType` block as defined below.
+func (o AlertProcessingRuleActionGroupConditionOutput) TargetResourceType() AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionTargetResourceType {
+		return v.TargetResourceType
+	}).(AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupCondition)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionPtrOutput) ToAlertProcessingRuleActionGroupConditionPtrOutput() AlertProcessingRuleActionGroupConditionPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionPtrOutput) ToAlertProcessingRuleActionGroupConditionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionPtrOutput) Elem() AlertProcessingRuleActionGroupConditionOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupCondition) AlertProcessingRuleActionGroupCondition {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleActionGroupCondition
+		return ret
+	}).(AlertProcessingRuleActionGroupConditionOutput)
+}
+
+// A `alertContext` block as defined above.
+func (o AlertProcessingRuleActionGroupConditionPtrOutput) AlertContext() AlertProcessingRuleActionGroupConditionAlertContextPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionAlertContext {
+		if v == nil {
+			return nil
+		}
+		return v.AlertContext
+	}).(AlertProcessingRuleActionGroupConditionAlertContextPtrOutput)
+}
+
+// A `alertRuleId` block as defined above.
+func (o AlertProcessingRuleActionGroupConditionPtrOutput) AlertRuleId() AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionAlertRuleId {
+		if v == nil {
+			return nil
+		}
+		return v.AlertRuleId
+	}).(AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput)
+}
+
+// A `alertRuleName` block as defined above.
+func (o AlertProcessingRuleActionGroupConditionPtrOutput) AlertRuleName() AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionAlertRuleName {
+		if v == nil {
+			return nil
+		}
+		return v.AlertRuleName
+	}).(AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput)
+}
+
+// A `description` block as defined below.
+func (o AlertProcessingRuleActionGroupConditionPtrOutput) Description() AlertProcessingRuleActionGroupConditionDescriptionPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionDescription {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(AlertProcessingRuleActionGroupConditionDescriptionPtrOutput)
+}
+
+// A `monitorCondition` block as defined below.
+func (o AlertProcessingRuleActionGroupConditionPtrOutput) MonitorCondition() AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionMonitorCondition {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorCondition
+	}).(AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput)
+}
+
+// A `monitorService` block as defined below.
+func (o AlertProcessingRuleActionGroupConditionPtrOutput) MonitorService() AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionMonitorService {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorService
+	}).(AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput)
+}
+
+// A `severity` block as defined below.
+func (o AlertProcessingRuleActionGroupConditionPtrOutput) Severity() AlertProcessingRuleActionGroupConditionSeverityPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionSeverity {
+		if v == nil {
+			return nil
+		}
+		return v.Severity
+	}).(AlertProcessingRuleActionGroupConditionSeverityPtrOutput)
+}
+
+// A `signalType` block as defined below.
+func (o AlertProcessingRuleActionGroupConditionPtrOutput) SignalType() AlertProcessingRuleActionGroupConditionSignalTypePtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionSignalType {
+		if v == nil {
+			return nil
+		}
+		return v.SignalType
+	}).(AlertProcessingRuleActionGroupConditionSignalTypePtrOutput)
+}
+
+// A `targetResource` block as defined below.
+func (o AlertProcessingRuleActionGroupConditionPtrOutput) TargetResource() AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionTargetResource {
+		if v == nil {
+			return nil
+		}
+		return v.TargetResource
+	}).(AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput)
+}
+
+// A `targetResourceGroup` block as defined below.
+func (o AlertProcessingRuleActionGroupConditionPtrOutput) TargetResourceGroup() AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionTargetResourceGroup {
+		if v == nil {
+			return nil
+		}
+		return v.TargetResourceGroup
+	}).(AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput)
+}
+
+// A `targetResourceType` block as defined below.
+func (o AlertProcessingRuleActionGroupConditionPtrOutput) TargetResourceType() AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupCondition) *AlertProcessingRuleActionGroupConditionTargetResourceType {
+		if v == nil {
+			return nil
+		}
+		return v.TargetResourceType
+	}).(AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionAlertContext struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator string `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition.
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleActionGroupConditionAlertContextInput is an input type that accepts AlertProcessingRuleActionGroupConditionAlertContextArgs and AlertProcessingRuleActionGroupConditionAlertContextOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionAlertContextInput` via:
+//
+//	AlertProcessingRuleActionGroupConditionAlertContextArgs{...}
+type AlertProcessingRuleActionGroupConditionAlertContextInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionAlertContextOutput() AlertProcessingRuleActionGroupConditionAlertContextOutput
+	ToAlertProcessingRuleActionGroupConditionAlertContextOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionAlertContextOutput
+}
+
+type AlertProcessingRuleActionGroupConditionAlertContextArgs struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleActionGroupConditionAlertContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionAlertContext)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleActionGroupConditionAlertContextArgs) ToAlertProcessingRuleActionGroupConditionAlertContextOutput() AlertProcessingRuleActionGroupConditionAlertContextOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionAlertContextOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionAlertContextArgs) ToAlertProcessingRuleActionGroupConditionAlertContextOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionAlertContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionAlertContextOutput)
+}
+
+func (i AlertProcessingRuleActionGroupConditionAlertContextArgs) ToAlertProcessingRuleActionGroupConditionAlertContextPtrOutput() AlertProcessingRuleActionGroupConditionAlertContextPtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionAlertContextPtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionAlertContextArgs) ToAlertProcessingRuleActionGroupConditionAlertContextPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionAlertContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionAlertContextOutput).ToAlertProcessingRuleActionGroupConditionAlertContextPtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleActionGroupConditionAlertContextPtrInput is an input type that accepts AlertProcessingRuleActionGroupConditionAlertContextArgs, AlertProcessingRuleActionGroupConditionAlertContextPtr and AlertProcessingRuleActionGroupConditionAlertContextPtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionAlertContextPtrInput` via:
+//
+//	        AlertProcessingRuleActionGroupConditionAlertContextArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleActionGroupConditionAlertContextPtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionAlertContextPtrOutput() AlertProcessingRuleActionGroupConditionAlertContextPtrOutput
+	ToAlertProcessingRuleActionGroupConditionAlertContextPtrOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionAlertContextPtrOutput
+}
+
+type alertProcessingRuleActionGroupConditionAlertContextPtrType AlertProcessingRuleActionGroupConditionAlertContextArgs
+
+func AlertProcessingRuleActionGroupConditionAlertContextPtr(v *AlertProcessingRuleActionGroupConditionAlertContextArgs) AlertProcessingRuleActionGroupConditionAlertContextPtrInput {
+	return (*alertProcessingRuleActionGroupConditionAlertContextPtrType)(v)
+}
+
+func (*alertProcessingRuleActionGroupConditionAlertContextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionAlertContext)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleActionGroupConditionAlertContextPtrType) ToAlertProcessingRuleActionGroupConditionAlertContextPtrOutput() AlertProcessingRuleActionGroupConditionAlertContextPtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionAlertContextPtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleActionGroupConditionAlertContextPtrType) ToAlertProcessingRuleActionGroupConditionAlertContextPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionAlertContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionAlertContextPtrOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionAlertContextOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionAlertContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionAlertContext)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionAlertContextOutput) ToAlertProcessingRuleActionGroupConditionAlertContextOutput() AlertProcessingRuleActionGroupConditionAlertContextOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionAlertContextOutput) ToAlertProcessingRuleActionGroupConditionAlertContextOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionAlertContextOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionAlertContextOutput) ToAlertProcessingRuleActionGroupConditionAlertContextPtrOutput() AlertProcessingRuleActionGroupConditionAlertContextPtrOutput {
+	return o.ToAlertProcessingRuleActionGroupConditionAlertContextPtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleActionGroupConditionAlertContextOutput) ToAlertProcessingRuleActionGroupConditionAlertContextPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionAlertContextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleActionGroupConditionAlertContext) *AlertProcessingRuleActionGroupConditionAlertContext {
+		return &v
+	}).(AlertProcessingRuleActionGroupConditionAlertContextPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleActionGroupConditionAlertContextOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionAlertContext) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Specifies a list of values to match for a given condition.
+func (o AlertProcessingRuleActionGroupConditionAlertContextOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionAlertContext) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionAlertContextPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionAlertContextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionAlertContext)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionAlertContextPtrOutput) ToAlertProcessingRuleActionGroupConditionAlertContextPtrOutput() AlertProcessingRuleActionGroupConditionAlertContextPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionAlertContextPtrOutput) ToAlertProcessingRuleActionGroupConditionAlertContextPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionAlertContextPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionAlertContextPtrOutput) Elem() AlertProcessingRuleActionGroupConditionAlertContextOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionAlertContext) AlertProcessingRuleActionGroupConditionAlertContext {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleActionGroupConditionAlertContext
+		return ret
+	}).(AlertProcessingRuleActionGroupConditionAlertContextOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleActionGroupConditionAlertContextPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionAlertContext) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of values to match for a given condition.
+func (o AlertProcessingRuleActionGroupConditionAlertContextPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionAlertContext) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionAlertRuleId struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator string `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition.
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleActionGroupConditionAlertRuleIdInput is an input type that accepts AlertProcessingRuleActionGroupConditionAlertRuleIdArgs and AlertProcessingRuleActionGroupConditionAlertRuleIdOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionAlertRuleIdInput` via:
+//
+//	AlertProcessingRuleActionGroupConditionAlertRuleIdArgs{...}
+type AlertProcessingRuleActionGroupConditionAlertRuleIdInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionAlertRuleIdOutput() AlertProcessingRuleActionGroupConditionAlertRuleIdOutput
+	ToAlertProcessingRuleActionGroupConditionAlertRuleIdOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionAlertRuleIdOutput
+}
+
+type AlertProcessingRuleActionGroupConditionAlertRuleIdArgs struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleActionGroupConditionAlertRuleIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionAlertRuleId)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleActionGroupConditionAlertRuleIdArgs) ToAlertProcessingRuleActionGroupConditionAlertRuleIdOutput() AlertProcessingRuleActionGroupConditionAlertRuleIdOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionAlertRuleIdOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionAlertRuleIdArgs) ToAlertProcessingRuleActionGroupConditionAlertRuleIdOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionAlertRuleIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionAlertRuleIdOutput)
+}
+
+func (i AlertProcessingRuleActionGroupConditionAlertRuleIdArgs) ToAlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput() AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionAlertRuleIdArgs) ToAlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionAlertRuleIdOutput).ToAlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleActionGroupConditionAlertRuleIdPtrInput is an input type that accepts AlertProcessingRuleActionGroupConditionAlertRuleIdArgs, AlertProcessingRuleActionGroupConditionAlertRuleIdPtr and AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionAlertRuleIdPtrInput` via:
+//
+//	        AlertProcessingRuleActionGroupConditionAlertRuleIdArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleActionGroupConditionAlertRuleIdPtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput() AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput
+	ToAlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput
+}
+
+type alertProcessingRuleActionGroupConditionAlertRuleIdPtrType AlertProcessingRuleActionGroupConditionAlertRuleIdArgs
+
+func AlertProcessingRuleActionGroupConditionAlertRuleIdPtr(v *AlertProcessingRuleActionGroupConditionAlertRuleIdArgs) AlertProcessingRuleActionGroupConditionAlertRuleIdPtrInput {
+	return (*alertProcessingRuleActionGroupConditionAlertRuleIdPtrType)(v)
+}
+
+func (*alertProcessingRuleActionGroupConditionAlertRuleIdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionAlertRuleId)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleActionGroupConditionAlertRuleIdPtrType) ToAlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput() AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleActionGroupConditionAlertRuleIdPtrType) ToAlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionAlertRuleIdOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionAlertRuleIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionAlertRuleId)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionAlertRuleIdOutput) ToAlertProcessingRuleActionGroupConditionAlertRuleIdOutput() AlertProcessingRuleActionGroupConditionAlertRuleIdOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionAlertRuleIdOutput) ToAlertProcessingRuleActionGroupConditionAlertRuleIdOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionAlertRuleIdOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionAlertRuleIdOutput) ToAlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput() AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput {
+	return o.ToAlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleActionGroupConditionAlertRuleIdOutput) ToAlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleActionGroupConditionAlertRuleId) *AlertProcessingRuleActionGroupConditionAlertRuleId {
+		return &v
+	}).(AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleActionGroupConditionAlertRuleIdOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionAlertRuleId) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Specifies a list of values to match for a given condition.
+func (o AlertProcessingRuleActionGroupConditionAlertRuleIdOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionAlertRuleId) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionAlertRuleId)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput) ToAlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput() AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput) ToAlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput) Elem() AlertProcessingRuleActionGroupConditionAlertRuleIdOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionAlertRuleId) AlertProcessingRuleActionGroupConditionAlertRuleId {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleActionGroupConditionAlertRuleId
+		return ret
+	}).(AlertProcessingRuleActionGroupConditionAlertRuleIdOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionAlertRuleId) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of values to match for a given condition.
+func (o AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionAlertRuleId) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionAlertRuleName struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator string `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition.
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleActionGroupConditionAlertRuleNameInput is an input type that accepts AlertProcessingRuleActionGroupConditionAlertRuleNameArgs and AlertProcessingRuleActionGroupConditionAlertRuleNameOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionAlertRuleNameInput` via:
+//
+//	AlertProcessingRuleActionGroupConditionAlertRuleNameArgs{...}
+type AlertProcessingRuleActionGroupConditionAlertRuleNameInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionAlertRuleNameOutput() AlertProcessingRuleActionGroupConditionAlertRuleNameOutput
+	ToAlertProcessingRuleActionGroupConditionAlertRuleNameOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionAlertRuleNameOutput
+}
+
+type AlertProcessingRuleActionGroupConditionAlertRuleNameArgs struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleActionGroupConditionAlertRuleNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionAlertRuleName)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleActionGroupConditionAlertRuleNameArgs) ToAlertProcessingRuleActionGroupConditionAlertRuleNameOutput() AlertProcessingRuleActionGroupConditionAlertRuleNameOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionAlertRuleNameOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionAlertRuleNameArgs) ToAlertProcessingRuleActionGroupConditionAlertRuleNameOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionAlertRuleNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionAlertRuleNameOutput)
+}
+
+func (i AlertProcessingRuleActionGroupConditionAlertRuleNameArgs) ToAlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput() AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionAlertRuleNameArgs) ToAlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionAlertRuleNameOutput).ToAlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleActionGroupConditionAlertRuleNamePtrInput is an input type that accepts AlertProcessingRuleActionGroupConditionAlertRuleNameArgs, AlertProcessingRuleActionGroupConditionAlertRuleNamePtr and AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionAlertRuleNamePtrInput` via:
+//
+//	        AlertProcessingRuleActionGroupConditionAlertRuleNameArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleActionGroupConditionAlertRuleNamePtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput() AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput
+	ToAlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput
+}
+
+type alertProcessingRuleActionGroupConditionAlertRuleNamePtrType AlertProcessingRuleActionGroupConditionAlertRuleNameArgs
+
+func AlertProcessingRuleActionGroupConditionAlertRuleNamePtr(v *AlertProcessingRuleActionGroupConditionAlertRuleNameArgs) AlertProcessingRuleActionGroupConditionAlertRuleNamePtrInput {
+	return (*alertProcessingRuleActionGroupConditionAlertRuleNamePtrType)(v)
+}
+
+func (*alertProcessingRuleActionGroupConditionAlertRuleNamePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionAlertRuleName)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleActionGroupConditionAlertRuleNamePtrType) ToAlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput() AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleActionGroupConditionAlertRuleNamePtrType) ToAlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionAlertRuleNameOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionAlertRuleNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionAlertRuleName)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionAlertRuleNameOutput) ToAlertProcessingRuleActionGroupConditionAlertRuleNameOutput() AlertProcessingRuleActionGroupConditionAlertRuleNameOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionAlertRuleNameOutput) ToAlertProcessingRuleActionGroupConditionAlertRuleNameOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionAlertRuleNameOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionAlertRuleNameOutput) ToAlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput() AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput {
+	return o.ToAlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleActionGroupConditionAlertRuleNameOutput) ToAlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleActionGroupConditionAlertRuleName) *AlertProcessingRuleActionGroupConditionAlertRuleName {
+		return &v
+	}).(AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleActionGroupConditionAlertRuleNameOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionAlertRuleName) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Specifies a list of values to match for a given condition.
+func (o AlertProcessingRuleActionGroupConditionAlertRuleNameOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionAlertRuleName) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionAlertRuleName)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput) ToAlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput() AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput) ToAlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput) Elem() AlertProcessingRuleActionGroupConditionAlertRuleNameOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionAlertRuleName) AlertProcessingRuleActionGroupConditionAlertRuleName {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleActionGroupConditionAlertRuleName
+		return ret
+	}).(AlertProcessingRuleActionGroupConditionAlertRuleNameOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionAlertRuleName) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of values to match for a given condition.
+func (o AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionAlertRuleName) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionDescription struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator string `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition.
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleActionGroupConditionDescriptionInput is an input type that accepts AlertProcessingRuleActionGroupConditionDescriptionArgs and AlertProcessingRuleActionGroupConditionDescriptionOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionDescriptionInput` via:
+//
+//	AlertProcessingRuleActionGroupConditionDescriptionArgs{...}
+type AlertProcessingRuleActionGroupConditionDescriptionInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionDescriptionOutput() AlertProcessingRuleActionGroupConditionDescriptionOutput
+	ToAlertProcessingRuleActionGroupConditionDescriptionOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionDescriptionOutput
+}
+
+type AlertProcessingRuleActionGroupConditionDescriptionArgs struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleActionGroupConditionDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionDescription)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleActionGroupConditionDescriptionArgs) ToAlertProcessingRuleActionGroupConditionDescriptionOutput() AlertProcessingRuleActionGroupConditionDescriptionOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionDescriptionOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionDescriptionArgs) ToAlertProcessingRuleActionGroupConditionDescriptionOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionDescriptionOutput)
+}
+
+func (i AlertProcessingRuleActionGroupConditionDescriptionArgs) ToAlertProcessingRuleActionGroupConditionDescriptionPtrOutput() AlertProcessingRuleActionGroupConditionDescriptionPtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionDescriptionArgs) ToAlertProcessingRuleActionGroupConditionDescriptionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionDescriptionOutput).ToAlertProcessingRuleActionGroupConditionDescriptionPtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleActionGroupConditionDescriptionPtrInput is an input type that accepts AlertProcessingRuleActionGroupConditionDescriptionArgs, AlertProcessingRuleActionGroupConditionDescriptionPtr and AlertProcessingRuleActionGroupConditionDescriptionPtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionDescriptionPtrInput` via:
+//
+//	        AlertProcessingRuleActionGroupConditionDescriptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleActionGroupConditionDescriptionPtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionDescriptionPtrOutput() AlertProcessingRuleActionGroupConditionDescriptionPtrOutput
+	ToAlertProcessingRuleActionGroupConditionDescriptionPtrOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionDescriptionPtrOutput
+}
+
+type alertProcessingRuleActionGroupConditionDescriptionPtrType AlertProcessingRuleActionGroupConditionDescriptionArgs
+
+func AlertProcessingRuleActionGroupConditionDescriptionPtr(v *AlertProcessingRuleActionGroupConditionDescriptionArgs) AlertProcessingRuleActionGroupConditionDescriptionPtrInput {
+	return (*alertProcessingRuleActionGroupConditionDescriptionPtrType)(v)
+}
+
+func (*alertProcessingRuleActionGroupConditionDescriptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionDescription)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleActionGroupConditionDescriptionPtrType) ToAlertProcessingRuleActionGroupConditionDescriptionPtrOutput() AlertProcessingRuleActionGroupConditionDescriptionPtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleActionGroupConditionDescriptionPtrType) ToAlertProcessingRuleActionGroupConditionDescriptionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionDescriptionPtrOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionDescriptionOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionDescription)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionDescriptionOutput) ToAlertProcessingRuleActionGroupConditionDescriptionOutput() AlertProcessingRuleActionGroupConditionDescriptionOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionDescriptionOutput) ToAlertProcessingRuleActionGroupConditionDescriptionOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionDescriptionOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionDescriptionOutput) ToAlertProcessingRuleActionGroupConditionDescriptionPtrOutput() AlertProcessingRuleActionGroupConditionDescriptionPtrOutput {
+	return o.ToAlertProcessingRuleActionGroupConditionDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleActionGroupConditionDescriptionOutput) ToAlertProcessingRuleActionGroupConditionDescriptionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionDescriptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleActionGroupConditionDescription) *AlertProcessingRuleActionGroupConditionDescription {
+		return &v
+	}).(AlertProcessingRuleActionGroupConditionDescriptionPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleActionGroupConditionDescriptionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionDescription) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Specifies a list of values to match for a given condition.
+func (o AlertProcessingRuleActionGroupConditionDescriptionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionDescription) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionDescriptionPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionDescriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionDescription)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionDescriptionPtrOutput) ToAlertProcessingRuleActionGroupConditionDescriptionPtrOutput() AlertProcessingRuleActionGroupConditionDescriptionPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionDescriptionPtrOutput) ToAlertProcessingRuleActionGroupConditionDescriptionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionDescriptionPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionDescriptionPtrOutput) Elem() AlertProcessingRuleActionGroupConditionDescriptionOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionDescription) AlertProcessingRuleActionGroupConditionDescription {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleActionGroupConditionDescription
+		return ret
+	}).(AlertProcessingRuleActionGroupConditionDescriptionOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleActionGroupConditionDescriptionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of values to match for a given condition.
+func (o AlertProcessingRuleActionGroupConditionDescriptionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionDescription) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionMonitorCondition struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator string `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleActionGroupConditionMonitorConditionInput is an input type that accepts AlertProcessingRuleActionGroupConditionMonitorConditionArgs and AlertProcessingRuleActionGroupConditionMonitorConditionOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionMonitorConditionInput` via:
+//
+//	AlertProcessingRuleActionGroupConditionMonitorConditionArgs{...}
+type AlertProcessingRuleActionGroupConditionMonitorConditionInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionMonitorConditionOutput() AlertProcessingRuleActionGroupConditionMonitorConditionOutput
+	ToAlertProcessingRuleActionGroupConditionMonitorConditionOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionMonitorConditionOutput
+}
+
+type AlertProcessingRuleActionGroupConditionMonitorConditionArgs struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleActionGroupConditionMonitorConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionMonitorCondition)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleActionGroupConditionMonitorConditionArgs) ToAlertProcessingRuleActionGroupConditionMonitorConditionOutput() AlertProcessingRuleActionGroupConditionMonitorConditionOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionMonitorConditionOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionMonitorConditionArgs) ToAlertProcessingRuleActionGroupConditionMonitorConditionOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionMonitorConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionMonitorConditionOutput)
+}
+
+func (i AlertProcessingRuleActionGroupConditionMonitorConditionArgs) ToAlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput() AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionMonitorConditionPtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionMonitorConditionArgs) ToAlertProcessingRuleActionGroupConditionMonitorConditionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionMonitorConditionOutput).ToAlertProcessingRuleActionGroupConditionMonitorConditionPtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleActionGroupConditionMonitorConditionPtrInput is an input type that accepts AlertProcessingRuleActionGroupConditionMonitorConditionArgs, AlertProcessingRuleActionGroupConditionMonitorConditionPtr and AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionMonitorConditionPtrInput` via:
+//
+//	        AlertProcessingRuleActionGroupConditionMonitorConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleActionGroupConditionMonitorConditionPtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput() AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput
+	ToAlertProcessingRuleActionGroupConditionMonitorConditionPtrOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput
+}
+
+type alertProcessingRuleActionGroupConditionMonitorConditionPtrType AlertProcessingRuleActionGroupConditionMonitorConditionArgs
+
+func AlertProcessingRuleActionGroupConditionMonitorConditionPtr(v *AlertProcessingRuleActionGroupConditionMonitorConditionArgs) AlertProcessingRuleActionGroupConditionMonitorConditionPtrInput {
+	return (*alertProcessingRuleActionGroupConditionMonitorConditionPtrType)(v)
+}
+
+func (*alertProcessingRuleActionGroupConditionMonitorConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionMonitorCondition)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleActionGroupConditionMonitorConditionPtrType) ToAlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput() AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionMonitorConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleActionGroupConditionMonitorConditionPtrType) ToAlertProcessingRuleActionGroupConditionMonitorConditionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionMonitorConditionOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionMonitorConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionMonitorCondition)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionMonitorConditionOutput) ToAlertProcessingRuleActionGroupConditionMonitorConditionOutput() AlertProcessingRuleActionGroupConditionMonitorConditionOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionMonitorConditionOutput) ToAlertProcessingRuleActionGroupConditionMonitorConditionOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionMonitorConditionOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionMonitorConditionOutput) ToAlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput() AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput {
+	return o.ToAlertProcessingRuleActionGroupConditionMonitorConditionPtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleActionGroupConditionMonitorConditionOutput) ToAlertProcessingRuleActionGroupConditionMonitorConditionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleActionGroupConditionMonitorCondition) *AlertProcessingRuleActionGroupConditionMonitorCondition {
+		return &v
+	}).(AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o AlertProcessingRuleActionGroupConditionMonitorConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionMonitorCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Specifies a list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+func (o AlertProcessingRuleActionGroupConditionMonitorConditionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionMonitorCondition) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionMonitorCondition)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput) ToAlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput() AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput) ToAlertProcessingRuleActionGroupConditionMonitorConditionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput) Elem() AlertProcessingRuleActionGroupConditionMonitorConditionOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionMonitorCondition) AlertProcessingRuleActionGroupConditionMonitorCondition {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleActionGroupConditionMonitorCondition
+		return ret
+	}).(AlertProcessingRuleActionGroupConditionMonitorConditionOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionMonitorCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+func (o AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionMonitorCondition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionMonitorService struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Prometheus`, `Resource Health`, `Smart Detector`, and `VM Insights - Health`.
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleActionGroupConditionMonitorServiceInput is an input type that accepts AlertProcessingRuleActionGroupConditionMonitorServiceArgs and AlertProcessingRuleActionGroupConditionMonitorServiceOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionMonitorServiceInput` via:
+//
+//	AlertProcessingRuleActionGroupConditionMonitorServiceArgs{...}
+type AlertProcessingRuleActionGroupConditionMonitorServiceInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionMonitorServiceOutput() AlertProcessingRuleActionGroupConditionMonitorServiceOutput
+	ToAlertProcessingRuleActionGroupConditionMonitorServiceOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionMonitorServiceOutput
+}
+
+type AlertProcessingRuleActionGroupConditionMonitorServiceArgs struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Prometheus`, `Resource Health`, `Smart Detector`, and `VM Insights - Health`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleActionGroupConditionMonitorServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionMonitorService)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleActionGroupConditionMonitorServiceArgs) ToAlertProcessingRuleActionGroupConditionMonitorServiceOutput() AlertProcessingRuleActionGroupConditionMonitorServiceOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionMonitorServiceOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionMonitorServiceArgs) ToAlertProcessingRuleActionGroupConditionMonitorServiceOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionMonitorServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionMonitorServiceOutput)
+}
+
+func (i AlertProcessingRuleActionGroupConditionMonitorServiceArgs) ToAlertProcessingRuleActionGroupConditionMonitorServicePtrOutput() AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionMonitorServicePtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionMonitorServiceArgs) ToAlertProcessingRuleActionGroupConditionMonitorServicePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionMonitorServiceOutput).ToAlertProcessingRuleActionGroupConditionMonitorServicePtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleActionGroupConditionMonitorServicePtrInput is an input type that accepts AlertProcessingRuleActionGroupConditionMonitorServiceArgs, AlertProcessingRuleActionGroupConditionMonitorServicePtr and AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionMonitorServicePtrInput` via:
+//
+//	        AlertProcessingRuleActionGroupConditionMonitorServiceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleActionGroupConditionMonitorServicePtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionMonitorServicePtrOutput() AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput
+	ToAlertProcessingRuleActionGroupConditionMonitorServicePtrOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput
+}
+
+type alertProcessingRuleActionGroupConditionMonitorServicePtrType AlertProcessingRuleActionGroupConditionMonitorServiceArgs
+
+func AlertProcessingRuleActionGroupConditionMonitorServicePtr(v *AlertProcessingRuleActionGroupConditionMonitorServiceArgs) AlertProcessingRuleActionGroupConditionMonitorServicePtrInput {
+	return (*alertProcessingRuleActionGroupConditionMonitorServicePtrType)(v)
+}
+
+func (*alertProcessingRuleActionGroupConditionMonitorServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionMonitorService)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleActionGroupConditionMonitorServicePtrType) ToAlertProcessingRuleActionGroupConditionMonitorServicePtrOutput() AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionMonitorServicePtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleActionGroupConditionMonitorServicePtrType) ToAlertProcessingRuleActionGroupConditionMonitorServicePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionMonitorServiceOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionMonitorServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionMonitorService)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionMonitorServiceOutput) ToAlertProcessingRuleActionGroupConditionMonitorServiceOutput() AlertProcessingRuleActionGroupConditionMonitorServiceOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionMonitorServiceOutput) ToAlertProcessingRuleActionGroupConditionMonitorServiceOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionMonitorServiceOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionMonitorServiceOutput) ToAlertProcessingRuleActionGroupConditionMonitorServicePtrOutput() AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput {
+	return o.ToAlertProcessingRuleActionGroupConditionMonitorServicePtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleActionGroupConditionMonitorServiceOutput) ToAlertProcessingRuleActionGroupConditionMonitorServicePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleActionGroupConditionMonitorService) *AlertProcessingRuleActionGroupConditionMonitorService {
+		return &v
+	}).(AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o AlertProcessingRuleActionGroupConditionMonitorServiceOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionMonitorService) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Prometheus`, `Resource Health`, `Smart Detector`, and `VM Insights - Health`.
+func (o AlertProcessingRuleActionGroupConditionMonitorServiceOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionMonitorService) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionMonitorService)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput) ToAlertProcessingRuleActionGroupConditionMonitorServicePtrOutput() AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput) ToAlertProcessingRuleActionGroupConditionMonitorServicePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput) Elem() AlertProcessingRuleActionGroupConditionMonitorServiceOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionMonitorService) AlertProcessingRuleActionGroupConditionMonitorService {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleActionGroupConditionMonitorService
+		return ret
+	}).(AlertProcessingRuleActionGroupConditionMonitorServiceOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionMonitorService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Prometheus`, `Resource Health`, `Smart Detector`, and `VM Insights - Health`.
+func (o AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionMonitorService) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionSeverity struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator string `pulumi:"operator"`
+	// Specifies list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleActionGroupConditionSeverityInput is an input type that accepts AlertProcessingRuleActionGroupConditionSeverityArgs and AlertProcessingRuleActionGroupConditionSeverityOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionSeverityInput` via:
+//
+//	AlertProcessingRuleActionGroupConditionSeverityArgs{...}
+type AlertProcessingRuleActionGroupConditionSeverityInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionSeverityOutput() AlertProcessingRuleActionGroupConditionSeverityOutput
+	ToAlertProcessingRuleActionGroupConditionSeverityOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionSeverityOutput
+}
+
+type AlertProcessingRuleActionGroupConditionSeverityArgs struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Specifies list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleActionGroupConditionSeverityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionSeverity)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleActionGroupConditionSeverityArgs) ToAlertProcessingRuleActionGroupConditionSeverityOutput() AlertProcessingRuleActionGroupConditionSeverityOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionSeverityOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionSeverityArgs) ToAlertProcessingRuleActionGroupConditionSeverityOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionSeverityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionSeverityOutput)
+}
+
+func (i AlertProcessingRuleActionGroupConditionSeverityArgs) ToAlertProcessingRuleActionGroupConditionSeverityPtrOutput() AlertProcessingRuleActionGroupConditionSeverityPtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionSeverityPtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionSeverityArgs) ToAlertProcessingRuleActionGroupConditionSeverityPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionSeverityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionSeverityOutput).ToAlertProcessingRuleActionGroupConditionSeverityPtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleActionGroupConditionSeverityPtrInput is an input type that accepts AlertProcessingRuleActionGroupConditionSeverityArgs, AlertProcessingRuleActionGroupConditionSeverityPtr and AlertProcessingRuleActionGroupConditionSeverityPtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionSeverityPtrInput` via:
+//
+//	        AlertProcessingRuleActionGroupConditionSeverityArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleActionGroupConditionSeverityPtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionSeverityPtrOutput() AlertProcessingRuleActionGroupConditionSeverityPtrOutput
+	ToAlertProcessingRuleActionGroupConditionSeverityPtrOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionSeverityPtrOutput
+}
+
+type alertProcessingRuleActionGroupConditionSeverityPtrType AlertProcessingRuleActionGroupConditionSeverityArgs
+
+func AlertProcessingRuleActionGroupConditionSeverityPtr(v *AlertProcessingRuleActionGroupConditionSeverityArgs) AlertProcessingRuleActionGroupConditionSeverityPtrInput {
+	return (*alertProcessingRuleActionGroupConditionSeverityPtrType)(v)
+}
+
+func (*alertProcessingRuleActionGroupConditionSeverityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionSeverity)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleActionGroupConditionSeverityPtrType) ToAlertProcessingRuleActionGroupConditionSeverityPtrOutput() AlertProcessingRuleActionGroupConditionSeverityPtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionSeverityPtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleActionGroupConditionSeverityPtrType) ToAlertProcessingRuleActionGroupConditionSeverityPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionSeverityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionSeverityPtrOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionSeverityOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionSeverityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionSeverity)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionSeverityOutput) ToAlertProcessingRuleActionGroupConditionSeverityOutput() AlertProcessingRuleActionGroupConditionSeverityOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionSeverityOutput) ToAlertProcessingRuleActionGroupConditionSeverityOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionSeverityOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionSeverityOutput) ToAlertProcessingRuleActionGroupConditionSeverityPtrOutput() AlertProcessingRuleActionGroupConditionSeverityPtrOutput {
+	return o.ToAlertProcessingRuleActionGroupConditionSeverityPtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleActionGroupConditionSeverityOutput) ToAlertProcessingRuleActionGroupConditionSeverityPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionSeverityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleActionGroupConditionSeverity) *AlertProcessingRuleActionGroupConditionSeverity {
+		return &v
+	}).(AlertProcessingRuleActionGroupConditionSeverityPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o AlertProcessingRuleActionGroupConditionSeverityOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionSeverity) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Specifies list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+func (o AlertProcessingRuleActionGroupConditionSeverityOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionSeverity) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionSeverityPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionSeverityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionSeverity)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionSeverityPtrOutput) ToAlertProcessingRuleActionGroupConditionSeverityPtrOutput() AlertProcessingRuleActionGroupConditionSeverityPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionSeverityPtrOutput) ToAlertProcessingRuleActionGroupConditionSeverityPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionSeverityPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionSeverityPtrOutput) Elem() AlertProcessingRuleActionGroupConditionSeverityOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionSeverity) AlertProcessingRuleActionGroupConditionSeverity {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleActionGroupConditionSeverity
+		return ret
+	}).(AlertProcessingRuleActionGroupConditionSeverityOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o AlertProcessingRuleActionGroupConditionSeverityPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionSeverity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+func (o AlertProcessingRuleActionGroupConditionSeverityPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionSeverity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionSignalType struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator string `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition. Possible values are `Metric`, `Log`, `Unknown`, and `Health`.
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleActionGroupConditionSignalTypeInput is an input type that accepts AlertProcessingRuleActionGroupConditionSignalTypeArgs and AlertProcessingRuleActionGroupConditionSignalTypeOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionSignalTypeInput` via:
+//
+//	AlertProcessingRuleActionGroupConditionSignalTypeArgs{...}
+type AlertProcessingRuleActionGroupConditionSignalTypeInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionSignalTypeOutput() AlertProcessingRuleActionGroupConditionSignalTypeOutput
+	ToAlertProcessingRuleActionGroupConditionSignalTypeOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionSignalTypeOutput
+}
+
+type AlertProcessingRuleActionGroupConditionSignalTypeArgs struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition. Possible values are `Metric`, `Log`, `Unknown`, and `Health`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleActionGroupConditionSignalTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionSignalType)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleActionGroupConditionSignalTypeArgs) ToAlertProcessingRuleActionGroupConditionSignalTypeOutput() AlertProcessingRuleActionGroupConditionSignalTypeOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionSignalTypeOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionSignalTypeArgs) ToAlertProcessingRuleActionGroupConditionSignalTypeOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionSignalTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionSignalTypeOutput)
+}
+
+func (i AlertProcessingRuleActionGroupConditionSignalTypeArgs) ToAlertProcessingRuleActionGroupConditionSignalTypePtrOutput() AlertProcessingRuleActionGroupConditionSignalTypePtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionSignalTypePtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionSignalTypeArgs) ToAlertProcessingRuleActionGroupConditionSignalTypePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionSignalTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionSignalTypeOutput).ToAlertProcessingRuleActionGroupConditionSignalTypePtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleActionGroupConditionSignalTypePtrInput is an input type that accepts AlertProcessingRuleActionGroupConditionSignalTypeArgs, AlertProcessingRuleActionGroupConditionSignalTypePtr and AlertProcessingRuleActionGroupConditionSignalTypePtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionSignalTypePtrInput` via:
+//
+//	        AlertProcessingRuleActionGroupConditionSignalTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleActionGroupConditionSignalTypePtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionSignalTypePtrOutput() AlertProcessingRuleActionGroupConditionSignalTypePtrOutput
+	ToAlertProcessingRuleActionGroupConditionSignalTypePtrOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionSignalTypePtrOutput
+}
+
+type alertProcessingRuleActionGroupConditionSignalTypePtrType AlertProcessingRuleActionGroupConditionSignalTypeArgs
+
+func AlertProcessingRuleActionGroupConditionSignalTypePtr(v *AlertProcessingRuleActionGroupConditionSignalTypeArgs) AlertProcessingRuleActionGroupConditionSignalTypePtrInput {
+	return (*alertProcessingRuleActionGroupConditionSignalTypePtrType)(v)
+}
+
+func (*alertProcessingRuleActionGroupConditionSignalTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionSignalType)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleActionGroupConditionSignalTypePtrType) ToAlertProcessingRuleActionGroupConditionSignalTypePtrOutput() AlertProcessingRuleActionGroupConditionSignalTypePtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionSignalTypePtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleActionGroupConditionSignalTypePtrType) ToAlertProcessingRuleActionGroupConditionSignalTypePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionSignalTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionSignalTypePtrOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionSignalTypeOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionSignalTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionSignalType)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionSignalTypeOutput) ToAlertProcessingRuleActionGroupConditionSignalTypeOutput() AlertProcessingRuleActionGroupConditionSignalTypeOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionSignalTypeOutput) ToAlertProcessingRuleActionGroupConditionSignalTypeOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionSignalTypeOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionSignalTypeOutput) ToAlertProcessingRuleActionGroupConditionSignalTypePtrOutput() AlertProcessingRuleActionGroupConditionSignalTypePtrOutput {
+	return o.ToAlertProcessingRuleActionGroupConditionSignalTypePtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleActionGroupConditionSignalTypeOutput) ToAlertProcessingRuleActionGroupConditionSignalTypePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionSignalTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleActionGroupConditionSignalType) *AlertProcessingRuleActionGroupConditionSignalType {
+		return &v
+	}).(AlertProcessingRuleActionGroupConditionSignalTypePtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o AlertProcessingRuleActionGroupConditionSignalTypeOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionSignalType) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Specifies a list of values to match for a given condition. Possible values are `Metric`, `Log`, `Unknown`, and `Health`.
+func (o AlertProcessingRuleActionGroupConditionSignalTypeOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionSignalType) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionSignalTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionSignalTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionSignalType)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionSignalTypePtrOutput) ToAlertProcessingRuleActionGroupConditionSignalTypePtrOutput() AlertProcessingRuleActionGroupConditionSignalTypePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionSignalTypePtrOutput) ToAlertProcessingRuleActionGroupConditionSignalTypePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionSignalTypePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionSignalTypePtrOutput) Elem() AlertProcessingRuleActionGroupConditionSignalTypeOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionSignalType) AlertProcessingRuleActionGroupConditionSignalType {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleActionGroupConditionSignalType
+		return ret
+	}).(AlertProcessingRuleActionGroupConditionSignalTypeOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o AlertProcessingRuleActionGroupConditionSignalTypePtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionSignalType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of values to match for a given condition. Possible values are `Metric`, `Log`, `Unknown`, and `Health`.
+func (o AlertProcessingRuleActionGroupConditionSignalTypePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionSignalType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionTargetResource struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition. The values should be valid resource IDs.
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleActionGroupConditionTargetResourceInput is an input type that accepts AlertProcessingRuleActionGroupConditionTargetResourceArgs and AlertProcessingRuleActionGroupConditionTargetResourceOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionTargetResourceInput` via:
+//
+//	AlertProcessingRuleActionGroupConditionTargetResourceArgs{...}
+type AlertProcessingRuleActionGroupConditionTargetResourceInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionTargetResourceOutput() AlertProcessingRuleActionGroupConditionTargetResourceOutput
+	ToAlertProcessingRuleActionGroupConditionTargetResourceOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionTargetResourceOutput
+}
+
+type AlertProcessingRuleActionGroupConditionTargetResourceArgs struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition. The values should be valid resource IDs.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleActionGroupConditionTargetResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionTargetResource)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleActionGroupConditionTargetResourceArgs) ToAlertProcessingRuleActionGroupConditionTargetResourceOutput() AlertProcessingRuleActionGroupConditionTargetResourceOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionTargetResourceOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionTargetResourceArgs) ToAlertProcessingRuleActionGroupConditionTargetResourceOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionTargetResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionTargetResourceOutput)
+}
+
+func (i AlertProcessingRuleActionGroupConditionTargetResourceArgs) ToAlertProcessingRuleActionGroupConditionTargetResourcePtrOutput() AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionTargetResourcePtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionTargetResourceArgs) ToAlertProcessingRuleActionGroupConditionTargetResourcePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionTargetResourceOutput).ToAlertProcessingRuleActionGroupConditionTargetResourcePtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleActionGroupConditionTargetResourcePtrInput is an input type that accepts AlertProcessingRuleActionGroupConditionTargetResourceArgs, AlertProcessingRuleActionGroupConditionTargetResourcePtr and AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionTargetResourcePtrInput` via:
+//
+//	        AlertProcessingRuleActionGroupConditionTargetResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleActionGroupConditionTargetResourcePtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionTargetResourcePtrOutput() AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput
+	ToAlertProcessingRuleActionGroupConditionTargetResourcePtrOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput
+}
+
+type alertProcessingRuleActionGroupConditionTargetResourcePtrType AlertProcessingRuleActionGroupConditionTargetResourceArgs
+
+func AlertProcessingRuleActionGroupConditionTargetResourcePtr(v *AlertProcessingRuleActionGroupConditionTargetResourceArgs) AlertProcessingRuleActionGroupConditionTargetResourcePtrInput {
+	return (*alertProcessingRuleActionGroupConditionTargetResourcePtrType)(v)
+}
+
+func (*alertProcessingRuleActionGroupConditionTargetResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionTargetResource)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleActionGroupConditionTargetResourcePtrType) ToAlertProcessingRuleActionGroupConditionTargetResourcePtrOutput() AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionTargetResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleActionGroupConditionTargetResourcePtrType) ToAlertProcessingRuleActionGroupConditionTargetResourcePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionTargetResourceOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionTargetResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionTargetResource)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionTargetResourceOutput) ToAlertProcessingRuleActionGroupConditionTargetResourceOutput() AlertProcessingRuleActionGroupConditionTargetResourceOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionTargetResourceOutput) ToAlertProcessingRuleActionGroupConditionTargetResourceOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionTargetResourceOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionTargetResourceOutput) ToAlertProcessingRuleActionGroupConditionTargetResourcePtrOutput() AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput {
+	return o.ToAlertProcessingRuleActionGroupConditionTargetResourcePtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleActionGroupConditionTargetResourceOutput) ToAlertProcessingRuleActionGroupConditionTargetResourcePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleActionGroupConditionTargetResource) *AlertProcessingRuleActionGroupConditionTargetResource {
+		return &v
+	}).(AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleActionGroupConditionTargetResourceOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionTargetResource) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition. The values should be valid resource IDs.
+func (o AlertProcessingRuleActionGroupConditionTargetResourceOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionTargetResource) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionTargetResource)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput) ToAlertProcessingRuleActionGroupConditionTargetResourcePtrOutput() AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput) ToAlertProcessingRuleActionGroupConditionTargetResourcePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput) Elem() AlertProcessingRuleActionGroupConditionTargetResourceOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionTargetResource) AlertProcessingRuleActionGroupConditionTargetResource {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleActionGroupConditionTargetResource
+		return ret
+	}).(AlertProcessingRuleActionGroupConditionTargetResourceOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionTargetResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition. The values should be valid resource IDs.
+func (o AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionTargetResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionTargetResourceGroup struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition. The values should be valid resource group IDs.
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleActionGroupConditionTargetResourceGroupInput is an input type that accepts AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs and AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionTargetResourceGroupInput` via:
+//
+//	AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs{...}
+type AlertProcessingRuleActionGroupConditionTargetResourceGroupInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionTargetResourceGroupOutput() AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput
+	ToAlertProcessingRuleActionGroupConditionTargetResourceGroupOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput
+}
+
+type AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition. The values should be valid resource group IDs.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionTargetResourceGroup)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs) ToAlertProcessingRuleActionGroupConditionTargetResourceGroupOutput() AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionTargetResourceGroupOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs) ToAlertProcessingRuleActionGroupConditionTargetResourceGroupOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput)
+}
+
+func (i AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs) ToAlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput() AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs) ToAlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput).ToAlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrInput is an input type that accepts AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs, AlertProcessingRuleActionGroupConditionTargetResourceGroupPtr and AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrInput` via:
+//
+//	        AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput() AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput
+	ToAlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput
+}
+
+type alertProcessingRuleActionGroupConditionTargetResourceGroupPtrType AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs
+
+func AlertProcessingRuleActionGroupConditionTargetResourceGroupPtr(v *AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs) AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrInput {
+	return (*alertProcessingRuleActionGroupConditionTargetResourceGroupPtrType)(v)
+}
+
+func (*alertProcessingRuleActionGroupConditionTargetResourceGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionTargetResourceGroup)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleActionGroupConditionTargetResourceGroupPtrType) ToAlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput() AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleActionGroupConditionTargetResourceGroupPtrType) ToAlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionTargetResourceGroup)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput) ToAlertProcessingRuleActionGroupConditionTargetResourceGroupOutput() AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput) ToAlertProcessingRuleActionGroupConditionTargetResourceGroupOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput) ToAlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput() AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput {
+	return o.ToAlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput) ToAlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleActionGroupConditionTargetResourceGroup) *AlertProcessingRuleActionGroupConditionTargetResourceGroup {
+		return &v
+	}).(AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionTargetResourceGroup) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition. The values should be valid resource group IDs.
+func (o AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionTargetResourceGroup) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionTargetResourceGroup)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput) ToAlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput() AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput) ToAlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput) Elem() AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionTargetResourceGroup) AlertProcessingRuleActionGroupConditionTargetResourceGroup {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleActionGroupConditionTargetResourceGroup
+		return ret
+	}).(AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionTargetResourceGroup) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition. The values should be valid resource group IDs.
+func (o AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionTargetResourceGroup) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionTargetResourceType struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleActionGroupConditionTargetResourceTypeInput is an input type that accepts AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs and AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionTargetResourceTypeInput` via:
+//
+//	AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs{...}
+type AlertProcessingRuleActionGroupConditionTargetResourceTypeInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionTargetResourceTypeOutput() AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput
+	ToAlertProcessingRuleActionGroupConditionTargetResourceTypeOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput
+}
+
+type AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionTargetResourceType)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs) ToAlertProcessingRuleActionGroupConditionTargetResourceTypeOutput() AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionTargetResourceTypeOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs) ToAlertProcessingRuleActionGroupConditionTargetResourceTypeOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput)
+}
+
+func (i AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs) ToAlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput() AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs) ToAlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput).ToAlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleActionGroupConditionTargetResourceTypePtrInput is an input type that accepts AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs, AlertProcessingRuleActionGroupConditionTargetResourceTypePtr and AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupConditionTargetResourceTypePtrInput` via:
+//
+//	        AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleActionGroupConditionTargetResourceTypePtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput() AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput
+	ToAlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(context.Context) AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput
+}
+
+type alertProcessingRuleActionGroupConditionTargetResourceTypePtrType AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs
+
+func AlertProcessingRuleActionGroupConditionTargetResourceTypePtr(v *AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs) AlertProcessingRuleActionGroupConditionTargetResourceTypePtrInput {
+	return (*alertProcessingRuleActionGroupConditionTargetResourceTypePtrType)(v)
+}
+
+func (*alertProcessingRuleActionGroupConditionTargetResourceTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionTargetResourceType)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleActionGroupConditionTargetResourceTypePtrType) ToAlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput() AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput {
+	return i.ToAlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleActionGroupConditionTargetResourceTypePtrType) ToAlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupConditionTargetResourceType)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput) ToAlertProcessingRuleActionGroupConditionTargetResourceTypeOutput() AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput) ToAlertProcessingRuleActionGroupConditionTargetResourceTypeOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput) ToAlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput() AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput {
+	return o.ToAlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput) ToAlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleActionGroupConditionTargetResourceType) *AlertProcessingRuleActionGroupConditionTargetResourceType {
+		return &v
+	}).(AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionTargetResourceType) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
+func (o AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupConditionTargetResourceType) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupConditionTargetResourceType)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput) ToAlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput() AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput) ToAlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput) Elem() AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionTargetResourceType) AlertProcessingRuleActionGroupConditionTargetResourceType {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleActionGroupConditionTargetResourceType
+		return ret
+	}).(AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionTargetResourceType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
+func (o AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupConditionTargetResourceType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupSchedule struct {
+	// Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
+	EffectiveFrom *string `pulumi:"effectiveFrom"`
+	// Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
+	EffectiveUntil *string `pulumi:"effectiveUntil"`
+	// A `recurrence` block as defined above.
+	Recurrence *AlertProcessingRuleActionGroupScheduleRecurrence `pulumi:"recurrence"`
+	// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+	TimeZone *string `pulumi:"timeZone"`
+}
+
+// AlertProcessingRuleActionGroupScheduleInput is an input type that accepts AlertProcessingRuleActionGroupScheduleArgs and AlertProcessingRuleActionGroupScheduleOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupScheduleInput` via:
+//
+//	AlertProcessingRuleActionGroupScheduleArgs{...}
+type AlertProcessingRuleActionGroupScheduleInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupScheduleOutput() AlertProcessingRuleActionGroupScheduleOutput
+	ToAlertProcessingRuleActionGroupScheduleOutputWithContext(context.Context) AlertProcessingRuleActionGroupScheduleOutput
+}
+
+type AlertProcessingRuleActionGroupScheduleArgs struct {
+	// Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
+	EffectiveFrom pulumi.StringPtrInput `pulumi:"effectiveFrom"`
+	// Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
+	EffectiveUntil pulumi.StringPtrInput `pulumi:"effectiveUntil"`
+	// A `recurrence` block as defined above.
+	Recurrence AlertProcessingRuleActionGroupScheduleRecurrencePtrInput `pulumi:"recurrence"`
+	// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (AlertProcessingRuleActionGroupScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupSchedule)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleActionGroupScheduleArgs) ToAlertProcessingRuleActionGroupScheduleOutput() AlertProcessingRuleActionGroupScheduleOutput {
+	return i.ToAlertProcessingRuleActionGroupScheduleOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupScheduleArgs) ToAlertProcessingRuleActionGroupScheduleOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupScheduleOutput)
+}
+
+func (i AlertProcessingRuleActionGroupScheduleArgs) ToAlertProcessingRuleActionGroupSchedulePtrOutput() AlertProcessingRuleActionGroupSchedulePtrOutput {
+	return i.ToAlertProcessingRuleActionGroupSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupScheduleArgs) ToAlertProcessingRuleActionGroupSchedulePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupScheduleOutput).ToAlertProcessingRuleActionGroupSchedulePtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleActionGroupSchedulePtrInput is an input type that accepts AlertProcessingRuleActionGroupScheduleArgs, AlertProcessingRuleActionGroupSchedulePtr and AlertProcessingRuleActionGroupSchedulePtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupSchedulePtrInput` via:
+//
+//	        AlertProcessingRuleActionGroupScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleActionGroupSchedulePtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupSchedulePtrOutput() AlertProcessingRuleActionGroupSchedulePtrOutput
+	ToAlertProcessingRuleActionGroupSchedulePtrOutputWithContext(context.Context) AlertProcessingRuleActionGroupSchedulePtrOutput
+}
+
+type alertProcessingRuleActionGroupSchedulePtrType AlertProcessingRuleActionGroupScheduleArgs
+
+func AlertProcessingRuleActionGroupSchedulePtr(v *AlertProcessingRuleActionGroupScheduleArgs) AlertProcessingRuleActionGroupSchedulePtrInput {
+	return (*alertProcessingRuleActionGroupSchedulePtrType)(v)
+}
+
+func (*alertProcessingRuleActionGroupSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupSchedule)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleActionGroupSchedulePtrType) ToAlertProcessingRuleActionGroupSchedulePtrOutput() AlertProcessingRuleActionGroupSchedulePtrOutput {
+	return i.ToAlertProcessingRuleActionGroupSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleActionGroupSchedulePtrType) ToAlertProcessingRuleActionGroupSchedulePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupSchedulePtrOutput)
+}
+
+type AlertProcessingRuleActionGroupScheduleOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupSchedule)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupScheduleOutput) ToAlertProcessingRuleActionGroupScheduleOutput() AlertProcessingRuleActionGroupScheduleOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupScheduleOutput) ToAlertProcessingRuleActionGroupScheduleOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupScheduleOutput) ToAlertProcessingRuleActionGroupSchedulePtrOutput() AlertProcessingRuleActionGroupSchedulePtrOutput {
+	return o.ToAlertProcessingRuleActionGroupSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleActionGroupScheduleOutput) ToAlertProcessingRuleActionGroupSchedulePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleActionGroupSchedule) *AlertProcessingRuleActionGroupSchedule {
+		return &v
+	}).(AlertProcessingRuleActionGroupSchedulePtrOutput)
+}
+
+// Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
+func (o AlertProcessingRuleActionGroupScheduleOutput) EffectiveFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupSchedule) *string { return v.EffectiveFrom }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
+func (o AlertProcessingRuleActionGroupScheduleOutput) EffectiveUntil() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupSchedule) *string { return v.EffectiveUntil }).(pulumi.StringPtrOutput)
+}
+
+// A `recurrence` block as defined above.
+func (o AlertProcessingRuleActionGroupScheduleOutput) Recurrence() AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupSchedule) *AlertProcessingRuleActionGroupScheduleRecurrence {
+		return v.Recurrence
+	}).(AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput)
+}
+
+// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+func (o AlertProcessingRuleActionGroupScheduleOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupSchedule) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type AlertProcessingRuleActionGroupSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupSchedule)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupSchedulePtrOutput) ToAlertProcessingRuleActionGroupSchedulePtrOutput() AlertProcessingRuleActionGroupSchedulePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupSchedulePtrOutput) ToAlertProcessingRuleActionGroupSchedulePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupSchedulePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupSchedulePtrOutput) Elem() AlertProcessingRuleActionGroupScheduleOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupSchedule) AlertProcessingRuleActionGroupSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleActionGroupSchedule
+		return ret
+	}).(AlertProcessingRuleActionGroupScheduleOutput)
+}
+
+// Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
+func (o AlertProcessingRuleActionGroupSchedulePtrOutput) EffectiveFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EffectiveFrom
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
+func (o AlertProcessingRuleActionGroupSchedulePtrOutput) EffectiveUntil() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EffectiveUntil
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `recurrence` block as defined above.
+func (o AlertProcessingRuleActionGroupSchedulePtrOutput) Recurrence() AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupSchedule) *AlertProcessingRuleActionGroupScheduleRecurrence {
+		if v == nil {
+			return nil
+		}
+		return v.Recurrence
+	}).(AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput)
+}
+
+// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+func (o AlertProcessingRuleActionGroupSchedulePtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeZone
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlertProcessingRuleActionGroupScheduleRecurrence struct {
+	// One or more `daily` blocks as defined above.
+	Dailies []AlertProcessingRuleActionGroupScheduleRecurrenceDaily `pulumi:"dailies"`
+	// One or more `monthly` blocks as defined above.
+	Monthlies []AlertProcessingRuleActionGroupScheduleRecurrenceMonthly `pulumi:"monthlies"`
+	// One or more `weekly` blocks as defined below.
+	Weeklies []AlertProcessingRuleActionGroupScheduleRecurrenceWeekly `pulumi:"weeklies"`
+}
+
+// AlertProcessingRuleActionGroupScheduleRecurrenceInput is an input type that accepts AlertProcessingRuleActionGroupScheduleRecurrenceArgs and AlertProcessingRuleActionGroupScheduleRecurrenceOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupScheduleRecurrenceInput` via:
+//
+//	AlertProcessingRuleActionGroupScheduleRecurrenceArgs{...}
+type AlertProcessingRuleActionGroupScheduleRecurrenceInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupScheduleRecurrenceOutput() AlertProcessingRuleActionGroupScheduleRecurrenceOutput
+	ToAlertProcessingRuleActionGroupScheduleRecurrenceOutputWithContext(context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceOutput
+}
+
+type AlertProcessingRuleActionGroupScheduleRecurrenceArgs struct {
+	// One or more `daily` blocks as defined above.
+	Dailies AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayInput `pulumi:"dailies"`
+	// One or more `monthly` blocks as defined above.
+	Monthlies AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayInput `pulumi:"monthlies"`
+	// One or more `weekly` blocks as defined below.
+	Weeklies AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayInput `pulumi:"weeklies"`
+}
+
+func (AlertProcessingRuleActionGroupScheduleRecurrenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupScheduleRecurrence)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleActionGroupScheduleRecurrenceArgs) ToAlertProcessingRuleActionGroupScheduleRecurrenceOutput() AlertProcessingRuleActionGroupScheduleRecurrenceOutput {
+	return i.ToAlertProcessingRuleActionGroupScheduleRecurrenceOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupScheduleRecurrenceArgs) ToAlertProcessingRuleActionGroupScheduleRecurrenceOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupScheduleRecurrenceOutput)
+}
+
+func (i AlertProcessingRuleActionGroupScheduleRecurrenceArgs) ToAlertProcessingRuleActionGroupScheduleRecurrencePtrOutput() AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput {
+	return i.ToAlertProcessingRuleActionGroupScheduleRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupScheduleRecurrenceArgs) ToAlertProcessingRuleActionGroupScheduleRecurrencePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupScheduleRecurrenceOutput).ToAlertProcessingRuleActionGroupScheduleRecurrencePtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleActionGroupScheduleRecurrencePtrInput is an input type that accepts AlertProcessingRuleActionGroupScheduleRecurrenceArgs, AlertProcessingRuleActionGroupScheduleRecurrencePtr and AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupScheduleRecurrencePtrInput` via:
+//
+//	        AlertProcessingRuleActionGroupScheduleRecurrenceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleActionGroupScheduleRecurrencePtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupScheduleRecurrencePtrOutput() AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput
+	ToAlertProcessingRuleActionGroupScheduleRecurrencePtrOutputWithContext(context.Context) AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput
+}
+
+type alertProcessingRuleActionGroupScheduleRecurrencePtrType AlertProcessingRuleActionGroupScheduleRecurrenceArgs
+
+func AlertProcessingRuleActionGroupScheduleRecurrencePtr(v *AlertProcessingRuleActionGroupScheduleRecurrenceArgs) AlertProcessingRuleActionGroupScheduleRecurrencePtrInput {
+	return (*alertProcessingRuleActionGroupScheduleRecurrencePtrType)(v)
+}
+
+func (*alertProcessingRuleActionGroupScheduleRecurrencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupScheduleRecurrence)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleActionGroupScheduleRecurrencePtrType) ToAlertProcessingRuleActionGroupScheduleRecurrencePtrOutput() AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput {
+	return i.ToAlertProcessingRuleActionGroupScheduleRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleActionGroupScheduleRecurrencePtrType) ToAlertProcessingRuleActionGroupScheduleRecurrencePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput)
+}
+
+type AlertProcessingRuleActionGroupScheduleRecurrenceOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupScheduleRecurrenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupScheduleRecurrence)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceOutput) ToAlertProcessingRuleActionGroupScheduleRecurrenceOutput() AlertProcessingRuleActionGroupScheduleRecurrenceOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceOutput) ToAlertProcessingRuleActionGroupScheduleRecurrenceOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceOutput) ToAlertProcessingRuleActionGroupScheduleRecurrencePtrOutput() AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput {
+	return o.ToAlertProcessingRuleActionGroupScheduleRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceOutput) ToAlertProcessingRuleActionGroupScheduleRecurrencePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleActionGroupScheduleRecurrence) *AlertProcessingRuleActionGroupScheduleRecurrence {
+		return &v
+	}).(AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput)
+}
+
+// One or more `daily` blocks as defined above.
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceOutput) Dailies() AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupScheduleRecurrence) []AlertProcessingRuleActionGroupScheduleRecurrenceDaily {
+		return v.Dailies
+	}).(AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput)
+}
+
+// One or more `monthly` blocks as defined above.
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceOutput) Monthlies() AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupScheduleRecurrence) []AlertProcessingRuleActionGroupScheduleRecurrenceMonthly {
+		return v.Monthlies
+	}).(AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput)
+}
+
+// One or more `weekly` blocks as defined below.
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceOutput) Weeklies() AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupScheduleRecurrence) []AlertProcessingRuleActionGroupScheduleRecurrenceWeekly {
+		return v.Weeklies
+	}).(AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleActionGroupScheduleRecurrence)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput) ToAlertProcessingRuleActionGroupScheduleRecurrencePtrOutput() AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput) ToAlertProcessingRuleActionGroupScheduleRecurrencePtrOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput) Elem() AlertProcessingRuleActionGroupScheduleRecurrenceOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupScheduleRecurrence) AlertProcessingRuleActionGroupScheduleRecurrence {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleActionGroupScheduleRecurrence
+		return ret
+	}).(AlertProcessingRuleActionGroupScheduleRecurrenceOutput)
+}
+
+// One or more `daily` blocks as defined above.
+func (o AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput) Dailies() AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupScheduleRecurrence) []AlertProcessingRuleActionGroupScheduleRecurrenceDaily {
+		if v == nil {
+			return nil
+		}
+		return v.Dailies
+	}).(AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput)
+}
+
+// One or more `monthly` blocks as defined above.
+func (o AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput) Monthlies() AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupScheduleRecurrence) []AlertProcessingRuleActionGroupScheduleRecurrenceMonthly {
+		if v == nil {
+			return nil
+		}
+		return v.Monthlies
+	}).(AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput)
+}
+
+// One or more `weekly` blocks as defined below.
+func (o AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput) Weeklies() AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleActionGroupScheduleRecurrence) []AlertProcessingRuleActionGroupScheduleRecurrenceWeekly {
+		if v == nil {
+			return nil
+		}
+		return v.Weeklies
+	}).(AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupScheduleRecurrenceDaily struct {
+	// Specifies the recurrence end time (H:M:S).
+	EndTime string `pulumi:"endTime"`
+	// Specifies the recurrence start time (H:M:S).
+	StartTime string `pulumi:"startTime"`
+}
+
+// AlertProcessingRuleActionGroupScheduleRecurrenceDailyInput is an input type that accepts AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs and AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupScheduleRecurrenceDailyInput` via:
+//
+//	AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs{...}
+type AlertProcessingRuleActionGroupScheduleRecurrenceDailyInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput() AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput
+	ToAlertProcessingRuleActionGroupScheduleRecurrenceDailyOutputWithContext(context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput
+}
+
+type AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs struct {
+	// Specifies the recurrence end time (H:M:S).
+	EndTime pulumi.StringInput `pulumi:"endTime"`
+	// Specifies the recurrence start time (H:M:S).
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+}
+
+func (AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupScheduleRecurrenceDaily)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs) ToAlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput() AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput {
+	return i.ToAlertProcessingRuleActionGroupScheduleRecurrenceDailyOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs) ToAlertProcessingRuleActionGroupScheduleRecurrenceDailyOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput)
+}
+
+// AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayInput is an input type that accepts AlertProcessingRuleActionGroupScheduleRecurrenceDailyArray and AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayInput` via:
+//
+//	AlertProcessingRuleActionGroupScheduleRecurrenceDailyArray{ AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs{...} }
+type AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput() AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput
+	ToAlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutputWithContext(context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput
+}
+
+type AlertProcessingRuleActionGroupScheduleRecurrenceDailyArray []AlertProcessingRuleActionGroupScheduleRecurrenceDailyInput
+
+func (AlertProcessingRuleActionGroupScheduleRecurrenceDailyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertProcessingRuleActionGroupScheduleRecurrenceDaily)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleActionGroupScheduleRecurrenceDailyArray) ToAlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput() AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput {
+	return i.ToAlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupScheduleRecurrenceDailyArray) ToAlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupScheduleRecurrenceDaily)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput) ToAlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput() AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput) ToAlertProcessingRuleActionGroupScheduleRecurrenceDailyOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput {
+	return o
+}
+
+// Specifies the recurrence end time (H:M:S).
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput) EndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupScheduleRecurrenceDaily) string { return v.EndTime }).(pulumi.StringOutput)
+}
+
+// Specifies the recurrence start time (H:M:S).
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupScheduleRecurrenceDaily) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+type AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertProcessingRuleActionGroupScheduleRecurrenceDaily)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput) ToAlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput() AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput) ToAlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput) Index(i pulumi.IntInput) AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertProcessingRuleActionGroupScheduleRecurrenceDaily {
+		return vs[0].([]AlertProcessingRuleActionGroupScheduleRecurrenceDaily)[vs[1].(int)]
+	}).(AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput)
+}
+
+type AlertProcessingRuleActionGroupScheduleRecurrenceMonthly struct {
+	// Specifies a list of dayOfMonth to recurrence. Possible values are integers between `1` - `31`.
+	DaysOfMonths []int `pulumi:"daysOfMonths"`
+	// Specifies the recurrence end time (H:M:S).
+	EndTime *string `pulumi:"endTime"`
+	// Specifies the recurrence start time (H:M:S).
+	StartTime *string `pulumi:"startTime"`
+}
+
+// AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyInput is an input type that accepts AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs and AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyInput` via:
+//
+//	AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs{...}
+type AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput() AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput
+	ToAlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutputWithContext(context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput
+}
+
+type AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs struct {
+	// Specifies a list of dayOfMonth to recurrence. Possible values are integers between `1` - `31`.
+	DaysOfMonths pulumi.IntArrayInput `pulumi:"daysOfMonths"`
+	// Specifies the recurrence end time (H:M:S).
+	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
+	// Specifies the recurrence start time (H:M:S).
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+}
+
+func (AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupScheduleRecurrenceMonthly)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs) ToAlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput() AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput {
+	return i.ToAlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs) ToAlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput)
+}
+
+// AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayInput is an input type that accepts AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArray and AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayInput` via:
+//
+//	AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArray{ AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs{...} }
+type AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput() AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput
+	ToAlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutputWithContext(context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput
+}
+
+type AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArray []AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyInput
+
+func (AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertProcessingRuleActionGroupScheduleRecurrenceMonthly)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArray) ToAlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput() AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput {
+	return i.ToAlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArray) ToAlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupScheduleRecurrenceMonthly)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput) ToAlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput() AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput) ToAlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput {
+	return o
+}
+
+// Specifies a list of dayOfMonth to recurrence. Possible values are integers between `1` - `31`.
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput) DaysOfMonths() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupScheduleRecurrenceMonthly) []int { return v.DaysOfMonths }).(pulumi.IntArrayOutput)
+}
+
+// Specifies the recurrence end time (H:M:S).
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupScheduleRecurrenceMonthly) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the recurrence start time (H:M:S).
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupScheduleRecurrenceMonthly) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertProcessingRuleActionGroupScheduleRecurrenceMonthly)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput) ToAlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput() AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput) ToAlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput) Index(i pulumi.IntInput) AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertProcessingRuleActionGroupScheduleRecurrenceMonthly {
+		return vs[0].([]AlertProcessingRuleActionGroupScheduleRecurrenceMonthly)[vs[1].(int)]
+	}).(AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput)
+}
+
+type AlertProcessingRuleActionGroupScheduleRecurrenceWeekly struct {
+	// Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
+	// Specifies the recurrence end time (H:M:S).
+	EndTime *string `pulumi:"endTime"`
+	// Specifies the recurrence start time (H:M:S).
+	StartTime *string `pulumi:"startTime"`
+}
+
+// AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyInput is an input type that accepts AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs and AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyInput` via:
+//
+//	AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs{...}
+type AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput() AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput
+	ToAlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutputWithContext(context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput
+}
+
+type AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs struct {
+	// Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
+	// Specifies the recurrence end time (H:M:S).
+	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
+	// Specifies the recurrence start time (H:M:S).
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+}
+
+func (AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupScheduleRecurrenceWeekly)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs) ToAlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput() AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput {
+	return i.ToAlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs) ToAlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput)
+}
+
+// AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayInput is an input type that accepts AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArray and AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayInput` via:
+//
+//	AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArray{ AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs{...} }
+type AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput() AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput
+	ToAlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutputWithContext(context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput
+}
+
+type AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArray []AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyInput
+
+func (AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertProcessingRuleActionGroupScheduleRecurrenceWeekly)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArray) ToAlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput() AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput {
+	return i.ToAlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArray) ToAlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput)
+}
+
+type AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleActionGroupScheduleRecurrenceWeekly)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput) ToAlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput() AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput) ToAlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput {
+	return o
+}
+
+// Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput) DaysOfWeeks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupScheduleRecurrenceWeekly) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the recurrence end time (H:M:S).
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupScheduleRecurrenceWeekly) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the recurrence start time (H:M:S).
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleActionGroupScheduleRecurrenceWeekly) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertProcessingRuleActionGroupScheduleRecurrenceWeekly)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput) ToAlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput() AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput) ToAlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutputWithContext(ctx context.Context) AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput {
+	return o
+}
+
+func (o AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput) Index(i pulumi.IntInput) AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertProcessingRuleActionGroupScheduleRecurrenceWeekly {
+		return vs[0].([]AlertProcessingRuleActionGroupScheduleRecurrenceWeekly)[vs[1].(int)]
+	}).(AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput)
+}
+
+type AlertProcessingRuleSuppressionCondition struct {
+	// A `alertContext` block as defined above.
+	AlertContext *AlertProcessingRuleSuppressionConditionAlertContext `pulumi:"alertContext"`
+	// A `alertRuleId` block as defined above.
+	AlertRuleId *AlertProcessingRuleSuppressionConditionAlertRuleId `pulumi:"alertRuleId"`
+	// A `alertRuleName` block as defined above.
+	AlertRuleName *AlertProcessingRuleSuppressionConditionAlertRuleName `pulumi:"alertRuleName"`
+	// A `description` block as defined below.
+	Description *AlertProcessingRuleSuppressionConditionDescription `pulumi:"description"`
+	// A `monitorCondition` block as defined below.
+	MonitorCondition *AlertProcessingRuleSuppressionConditionMonitorCondition `pulumi:"monitorCondition"`
+	// A `monitorService` block as defined below.
+	MonitorService *AlertProcessingRuleSuppressionConditionMonitorService `pulumi:"monitorService"`
+	// A `severity` block as defined below.
+	Severity *AlertProcessingRuleSuppressionConditionSeverity `pulumi:"severity"`
+	// A `signalType` block as defined below.
+	SignalType *AlertProcessingRuleSuppressionConditionSignalType `pulumi:"signalType"`
+	// A `targetResource` block as defined below.
+	TargetResource *AlertProcessingRuleSuppressionConditionTargetResource `pulumi:"targetResource"`
+	// A `targetResourceGroup` block as defined below.
+	TargetResourceGroup *AlertProcessingRuleSuppressionConditionTargetResourceGroup `pulumi:"targetResourceGroup"`
+	// A `targetResourceType` block as defined below.
+	TargetResourceType *AlertProcessingRuleSuppressionConditionTargetResourceType `pulumi:"targetResourceType"`
+}
+
+// AlertProcessingRuleSuppressionConditionInput is an input type that accepts AlertProcessingRuleSuppressionConditionArgs and AlertProcessingRuleSuppressionConditionOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionInput` via:
+//
+//	AlertProcessingRuleSuppressionConditionArgs{...}
+type AlertProcessingRuleSuppressionConditionInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionOutput() AlertProcessingRuleSuppressionConditionOutput
+	ToAlertProcessingRuleSuppressionConditionOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionOutput
+}
+
+type AlertProcessingRuleSuppressionConditionArgs struct {
+	// A `alertContext` block as defined above.
+	AlertContext AlertProcessingRuleSuppressionConditionAlertContextPtrInput `pulumi:"alertContext"`
+	// A `alertRuleId` block as defined above.
+	AlertRuleId AlertProcessingRuleSuppressionConditionAlertRuleIdPtrInput `pulumi:"alertRuleId"`
+	// A `alertRuleName` block as defined above.
+	AlertRuleName AlertProcessingRuleSuppressionConditionAlertRuleNamePtrInput `pulumi:"alertRuleName"`
+	// A `description` block as defined below.
+	Description AlertProcessingRuleSuppressionConditionDescriptionPtrInput `pulumi:"description"`
+	// A `monitorCondition` block as defined below.
+	MonitorCondition AlertProcessingRuleSuppressionConditionMonitorConditionPtrInput `pulumi:"monitorCondition"`
+	// A `monitorService` block as defined below.
+	MonitorService AlertProcessingRuleSuppressionConditionMonitorServicePtrInput `pulumi:"monitorService"`
+	// A `severity` block as defined below.
+	Severity AlertProcessingRuleSuppressionConditionSeverityPtrInput `pulumi:"severity"`
+	// A `signalType` block as defined below.
+	SignalType AlertProcessingRuleSuppressionConditionSignalTypePtrInput `pulumi:"signalType"`
+	// A `targetResource` block as defined below.
+	TargetResource AlertProcessingRuleSuppressionConditionTargetResourcePtrInput `pulumi:"targetResource"`
+	// A `targetResourceGroup` block as defined below.
+	TargetResourceGroup AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrInput `pulumi:"targetResourceGroup"`
+	// A `targetResourceType` block as defined below.
+	TargetResourceType AlertProcessingRuleSuppressionConditionTargetResourceTypePtrInput `pulumi:"targetResourceType"`
+}
+
+func (AlertProcessingRuleSuppressionConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionCondition)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleSuppressionConditionArgs) ToAlertProcessingRuleSuppressionConditionOutput() AlertProcessingRuleSuppressionConditionOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionArgs) ToAlertProcessingRuleSuppressionConditionOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionOutput)
+}
+
+func (i AlertProcessingRuleSuppressionConditionArgs) ToAlertProcessingRuleSuppressionConditionPtrOutput() AlertProcessingRuleSuppressionConditionPtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionPtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionArgs) ToAlertProcessingRuleSuppressionConditionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionOutput).ToAlertProcessingRuleSuppressionConditionPtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleSuppressionConditionPtrInput is an input type that accepts AlertProcessingRuleSuppressionConditionArgs, AlertProcessingRuleSuppressionConditionPtr and AlertProcessingRuleSuppressionConditionPtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionPtrInput` via:
+//
+//	        AlertProcessingRuleSuppressionConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleSuppressionConditionPtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionPtrOutput() AlertProcessingRuleSuppressionConditionPtrOutput
+	ToAlertProcessingRuleSuppressionConditionPtrOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionPtrOutput
+}
+
+type alertProcessingRuleSuppressionConditionPtrType AlertProcessingRuleSuppressionConditionArgs
+
+func AlertProcessingRuleSuppressionConditionPtr(v *AlertProcessingRuleSuppressionConditionArgs) AlertProcessingRuleSuppressionConditionPtrInput {
+	return (*alertProcessingRuleSuppressionConditionPtrType)(v)
+}
+
+func (*alertProcessingRuleSuppressionConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionCondition)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleSuppressionConditionPtrType) ToAlertProcessingRuleSuppressionConditionPtrOutput() AlertProcessingRuleSuppressionConditionPtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleSuppressionConditionPtrType) ToAlertProcessingRuleSuppressionConditionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionPtrOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionCondition)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionOutput) ToAlertProcessingRuleSuppressionConditionOutput() AlertProcessingRuleSuppressionConditionOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionOutput) ToAlertProcessingRuleSuppressionConditionOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionOutput) ToAlertProcessingRuleSuppressionConditionPtrOutput() AlertProcessingRuleSuppressionConditionPtrOutput {
+	return o.ToAlertProcessingRuleSuppressionConditionPtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleSuppressionConditionOutput) ToAlertProcessingRuleSuppressionConditionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionCondition {
+		return &v
+	}).(AlertProcessingRuleSuppressionConditionPtrOutput)
+}
+
+// A `alertContext` block as defined above.
+func (o AlertProcessingRuleSuppressionConditionOutput) AlertContext() AlertProcessingRuleSuppressionConditionAlertContextPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionAlertContext {
+		return v.AlertContext
+	}).(AlertProcessingRuleSuppressionConditionAlertContextPtrOutput)
+}
+
+// A `alertRuleId` block as defined above.
+func (o AlertProcessingRuleSuppressionConditionOutput) AlertRuleId() AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionAlertRuleId {
+		return v.AlertRuleId
+	}).(AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput)
+}
+
+// A `alertRuleName` block as defined above.
+func (o AlertProcessingRuleSuppressionConditionOutput) AlertRuleName() AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionAlertRuleName {
+		return v.AlertRuleName
+	}).(AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput)
+}
+
+// A `description` block as defined below.
+func (o AlertProcessingRuleSuppressionConditionOutput) Description() AlertProcessingRuleSuppressionConditionDescriptionPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionDescription {
+		return v.Description
+	}).(AlertProcessingRuleSuppressionConditionDescriptionPtrOutput)
+}
+
+// A `monitorCondition` block as defined below.
+func (o AlertProcessingRuleSuppressionConditionOutput) MonitorCondition() AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionMonitorCondition {
+		return v.MonitorCondition
+	}).(AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput)
+}
+
+// A `monitorService` block as defined below.
+func (o AlertProcessingRuleSuppressionConditionOutput) MonitorService() AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionMonitorService {
+		return v.MonitorService
+	}).(AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput)
+}
+
+// A `severity` block as defined below.
+func (o AlertProcessingRuleSuppressionConditionOutput) Severity() AlertProcessingRuleSuppressionConditionSeverityPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionSeverity {
+		return v.Severity
+	}).(AlertProcessingRuleSuppressionConditionSeverityPtrOutput)
+}
+
+// A `signalType` block as defined below.
+func (o AlertProcessingRuleSuppressionConditionOutput) SignalType() AlertProcessingRuleSuppressionConditionSignalTypePtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionSignalType {
+		return v.SignalType
+	}).(AlertProcessingRuleSuppressionConditionSignalTypePtrOutput)
+}
+
+// A `targetResource` block as defined below.
+func (o AlertProcessingRuleSuppressionConditionOutput) TargetResource() AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionTargetResource {
+		return v.TargetResource
+	}).(AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput)
+}
+
+// A `targetResourceGroup` block as defined below.
+func (o AlertProcessingRuleSuppressionConditionOutput) TargetResourceGroup() AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionTargetResourceGroup {
+		return v.TargetResourceGroup
+	}).(AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput)
+}
+
+// A `targetResourceType` block as defined below.
+func (o AlertProcessingRuleSuppressionConditionOutput) TargetResourceType() AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionTargetResourceType {
+		return v.TargetResourceType
+	}).(AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionCondition)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionPtrOutput) ToAlertProcessingRuleSuppressionConditionPtrOutput() AlertProcessingRuleSuppressionConditionPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionPtrOutput) ToAlertProcessingRuleSuppressionConditionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionPtrOutput) Elem() AlertProcessingRuleSuppressionConditionOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionCondition) AlertProcessingRuleSuppressionCondition {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleSuppressionCondition
+		return ret
+	}).(AlertProcessingRuleSuppressionConditionOutput)
+}
+
+// A `alertContext` block as defined above.
+func (o AlertProcessingRuleSuppressionConditionPtrOutput) AlertContext() AlertProcessingRuleSuppressionConditionAlertContextPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionAlertContext {
+		if v == nil {
+			return nil
+		}
+		return v.AlertContext
+	}).(AlertProcessingRuleSuppressionConditionAlertContextPtrOutput)
+}
+
+// A `alertRuleId` block as defined above.
+func (o AlertProcessingRuleSuppressionConditionPtrOutput) AlertRuleId() AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionAlertRuleId {
+		if v == nil {
+			return nil
+		}
+		return v.AlertRuleId
+	}).(AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput)
+}
+
+// A `alertRuleName` block as defined above.
+func (o AlertProcessingRuleSuppressionConditionPtrOutput) AlertRuleName() AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionAlertRuleName {
+		if v == nil {
+			return nil
+		}
+		return v.AlertRuleName
+	}).(AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput)
+}
+
+// A `description` block as defined below.
+func (o AlertProcessingRuleSuppressionConditionPtrOutput) Description() AlertProcessingRuleSuppressionConditionDescriptionPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionDescription {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(AlertProcessingRuleSuppressionConditionDescriptionPtrOutput)
+}
+
+// A `monitorCondition` block as defined below.
+func (o AlertProcessingRuleSuppressionConditionPtrOutput) MonitorCondition() AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionMonitorCondition {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorCondition
+	}).(AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput)
+}
+
+// A `monitorService` block as defined below.
+func (o AlertProcessingRuleSuppressionConditionPtrOutput) MonitorService() AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionMonitorService {
+		if v == nil {
+			return nil
+		}
+		return v.MonitorService
+	}).(AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput)
+}
+
+// A `severity` block as defined below.
+func (o AlertProcessingRuleSuppressionConditionPtrOutput) Severity() AlertProcessingRuleSuppressionConditionSeverityPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionSeverity {
+		if v == nil {
+			return nil
+		}
+		return v.Severity
+	}).(AlertProcessingRuleSuppressionConditionSeverityPtrOutput)
+}
+
+// A `signalType` block as defined below.
+func (o AlertProcessingRuleSuppressionConditionPtrOutput) SignalType() AlertProcessingRuleSuppressionConditionSignalTypePtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionSignalType {
+		if v == nil {
+			return nil
+		}
+		return v.SignalType
+	}).(AlertProcessingRuleSuppressionConditionSignalTypePtrOutput)
+}
+
+// A `targetResource` block as defined below.
+func (o AlertProcessingRuleSuppressionConditionPtrOutput) TargetResource() AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionTargetResource {
+		if v == nil {
+			return nil
+		}
+		return v.TargetResource
+	}).(AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput)
+}
+
+// A `targetResourceGroup` block as defined below.
+func (o AlertProcessingRuleSuppressionConditionPtrOutput) TargetResourceGroup() AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionTargetResourceGroup {
+		if v == nil {
+			return nil
+		}
+		return v.TargetResourceGroup
+	}).(AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput)
+}
+
+// A `targetResourceType` block as defined below.
+func (o AlertProcessingRuleSuppressionConditionPtrOutput) TargetResourceType() AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionCondition) *AlertProcessingRuleSuppressionConditionTargetResourceType {
+		if v == nil {
+			return nil
+		}
+		return v.TargetResourceType
+	}).(AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionAlertContext struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator string `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition.
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleSuppressionConditionAlertContextInput is an input type that accepts AlertProcessingRuleSuppressionConditionAlertContextArgs and AlertProcessingRuleSuppressionConditionAlertContextOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionAlertContextInput` via:
+//
+//	AlertProcessingRuleSuppressionConditionAlertContextArgs{...}
+type AlertProcessingRuleSuppressionConditionAlertContextInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionAlertContextOutput() AlertProcessingRuleSuppressionConditionAlertContextOutput
+	ToAlertProcessingRuleSuppressionConditionAlertContextOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionAlertContextOutput
+}
+
+type AlertProcessingRuleSuppressionConditionAlertContextArgs struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleSuppressionConditionAlertContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionAlertContext)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleSuppressionConditionAlertContextArgs) ToAlertProcessingRuleSuppressionConditionAlertContextOutput() AlertProcessingRuleSuppressionConditionAlertContextOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionAlertContextOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionAlertContextArgs) ToAlertProcessingRuleSuppressionConditionAlertContextOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionAlertContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionAlertContextOutput)
+}
+
+func (i AlertProcessingRuleSuppressionConditionAlertContextArgs) ToAlertProcessingRuleSuppressionConditionAlertContextPtrOutput() AlertProcessingRuleSuppressionConditionAlertContextPtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionAlertContextPtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionAlertContextArgs) ToAlertProcessingRuleSuppressionConditionAlertContextPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionAlertContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionAlertContextOutput).ToAlertProcessingRuleSuppressionConditionAlertContextPtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleSuppressionConditionAlertContextPtrInput is an input type that accepts AlertProcessingRuleSuppressionConditionAlertContextArgs, AlertProcessingRuleSuppressionConditionAlertContextPtr and AlertProcessingRuleSuppressionConditionAlertContextPtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionAlertContextPtrInput` via:
+//
+//	        AlertProcessingRuleSuppressionConditionAlertContextArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleSuppressionConditionAlertContextPtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionAlertContextPtrOutput() AlertProcessingRuleSuppressionConditionAlertContextPtrOutput
+	ToAlertProcessingRuleSuppressionConditionAlertContextPtrOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionAlertContextPtrOutput
+}
+
+type alertProcessingRuleSuppressionConditionAlertContextPtrType AlertProcessingRuleSuppressionConditionAlertContextArgs
+
+func AlertProcessingRuleSuppressionConditionAlertContextPtr(v *AlertProcessingRuleSuppressionConditionAlertContextArgs) AlertProcessingRuleSuppressionConditionAlertContextPtrInput {
+	return (*alertProcessingRuleSuppressionConditionAlertContextPtrType)(v)
+}
+
+func (*alertProcessingRuleSuppressionConditionAlertContextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionAlertContext)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleSuppressionConditionAlertContextPtrType) ToAlertProcessingRuleSuppressionConditionAlertContextPtrOutput() AlertProcessingRuleSuppressionConditionAlertContextPtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionAlertContextPtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleSuppressionConditionAlertContextPtrType) ToAlertProcessingRuleSuppressionConditionAlertContextPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionAlertContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionAlertContextPtrOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionAlertContextOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionAlertContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionAlertContext)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionAlertContextOutput) ToAlertProcessingRuleSuppressionConditionAlertContextOutput() AlertProcessingRuleSuppressionConditionAlertContextOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionAlertContextOutput) ToAlertProcessingRuleSuppressionConditionAlertContextOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionAlertContextOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionAlertContextOutput) ToAlertProcessingRuleSuppressionConditionAlertContextPtrOutput() AlertProcessingRuleSuppressionConditionAlertContextPtrOutput {
+	return o.ToAlertProcessingRuleSuppressionConditionAlertContextPtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleSuppressionConditionAlertContextOutput) ToAlertProcessingRuleSuppressionConditionAlertContextPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionAlertContextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleSuppressionConditionAlertContext) *AlertProcessingRuleSuppressionConditionAlertContext {
+		return &v
+	}).(AlertProcessingRuleSuppressionConditionAlertContextPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleSuppressionConditionAlertContextOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionAlertContext) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Specifies a list of values to match for a given condition.
+func (o AlertProcessingRuleSuppressionConditionAlertContextOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionAlertContext) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionAlertContextPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionAlertContextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionAlertContext)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionAlertContextPtrOutput) ToAlertProcessingRuleSuppressionConditionAlertContextPtrOutput() AlertProcessingRuleSuppressionConditionAlertContextPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionAlertContextPtrOutput) ToAlertProcessingRuleSuppressionConditionAlertContextPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionAlertContextPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionAlertContextPtrOutput) Elem() AlertProcessingRuleSuppressionConditionAlertContextOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionAlertContext) AlertProcessingRuleSuppressionConditionAlertContext {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleSuppressionConditionAlertContext
+		return ret
+	}).(AlertProcessingRuleSuppressionConditionAlertContextOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleSuppressionConditionAlertContextPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionAlertContext) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of values to match for a given condition.
+func (o AlertProcessingRuleSuppressionConditionAlertContextPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionAlertContext) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionAlertRuleId struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator string `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition.
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleSuppressionConditionAlertRuleIdInput is an input type that accepts AlertProcessingRuleSuppressionConditionAlertRuleIdArgs and AlertProcessingRuleSuppressionConditionAlertRuleIdOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionAlertRuleIdInput` via:
+//
+//	AlertProcessingRuleSuppressionConditionAlertRuleIdArgs{...}
+type AlertProcessingRuleSuppressionConditionAlertRuleIdInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionAlertRuleIdOutput() AlertProcessingRuleSuppressionConditionAlertRuleIdOutput
+	ToAlertProcessingRuleSuppressionConditionAlertRuleIdOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionAlertRuleIdOutput
+}
+
+type AlertProcessingRuleSuppressionConditionAlertRuleIdArgs struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleSuppressionConditionAlertRuleIdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionAlertRuleId)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleSuppressionConditionAlertRuleIdArgs) ToAlertProcessingRuleSuppressionConditionAlertRuleIdOutput() AlertProcessingRuleSuppressionConditionAlertRuleIdOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionAlertRuleIdOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionAlertRuleIdArgs) ToAlertProcessingRuleSuppressionConditionAlertRuleIdOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionAlertRuleIdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionAlertRuleIdOutput)
+}
+
+func (i AlertProcessingRuleSuppressionConditionAlertRuleIdArgs) ToAlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput() AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionAlertRuleIdArgs) ToAlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionAlertRuleIdOutput).ToAlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleSuppressionConditionAlertRuleIdPtrInput is an input type that accepts AlertProcessingRuleSuppressionConditionAlertRuleIdArgs, AlertProcessingRuleSuppressionConditionAlertRuleIdPtr and AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionAlertRuleIdPtrInput` via:
+//
+//	        AlertProcessingRuleSuppressionConditionAlertRuleIdArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleSuppressionConditionAlertRuleIdPtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput() AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput
+	ToAlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput
+}
+
+type alertProcessingRuleSuppressionConditionAlertRuleIdPtrType AlertProcessingRuleSuppressionConditionAlertRuleIdArgs
+
+func AlertProcessingRuleSuppressionConditionAlertRuleIdPtr(v *AlertProcessingRuleSuppressionConditionAlertRuleIdArgs) AlertProcessingRuleSuppressionConditionAlertRuleIdPtrInput {
+	return (*alertProcessingRuleSuppressionConditionAlertRuleIdPtrType)(v)
+}
+
+func (*alertProcessingRuleSuppressionConditionAlertRuleIdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionAlertRuleId)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleSuppressionConditionAlertRuleIdPtrType) ToAlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput() AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleSuppressionConditionAlertRuleIdPtrType) ToAlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionAlertRuleIdOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionAlertRuleIdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionAlertRuleId)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionAlertRuleIdOutput) ToAlertProcessingRuleSuppressionConditionAlertRuleIdOutput() AlertProcessingRuleSuppressionConditionAlertRuleIdOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionAlertRuleIdOutput) ToAlertProcessingRuleSuppressionConditionAlertRuleIdOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionAlertRuleIdOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionAlertRuleIdOutput) ToAlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput() AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput {
+	return o.ToAlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleSuppressionConditionAlertRuleIdOutput) ToAlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleSuppressionConditionAlertRuleId) *AlertProcessingRuleSuppressionConditionAlertRuleId {
+		return &v
+	}).(AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleSuppressionConditionAlertRuleIdOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionAlertRuleId) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Specifies a list of values to match for a given condition.
+func (o AlertProcessingRuleSuppressionConditionAlertRuleIdOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionAlertRuleId) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionAlertRuleId)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput) ToAlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput() AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput) ToAlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput) Elem() AlertProcessingRuleSuppressionConditionAlertRuleIdOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionAlertRuleId) AlertProcessingRuleSuppressionConditionAlertRuleId {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleSuppressionConditionAlertRuleId
+		return ret
+	}).(AlertProcessingRuleSuppressionConditionAlertRuleIdOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionAlertRuleId) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of values to match for a given condition.
+func (o AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionAlertRuleId) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionAlertRuleName struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator string `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition.
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleSuppressionConditionAlertRuleNameInput is an input type that accepts AlertProcessingRuleSuppressionConditionAlertRuleNameArgs and AlertProcessingRuleSuppressionConditionAlertRuleNameOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionAlertRuleNameInput` via:
+//
+//	AlertProcessingRuleSuppressionConditionAlertRuleNameArgs{...}
+type AlertProcessingRuleSuppressionConditionAlertRuleNameInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionAlertRuleNameOutput() AlertProcessingRuleSuppressionConditionAlertRuleNameOutput
+	ToAlertProcessingRuleSuppressionConditionAlertRuleNameOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionAlertRuleNameOutput
+}
+
+type AlertProcessingRuleSuppressionConditionAlertRuleNameArgs struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleSuppressionConditionAlertRuleNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionAlertRuleName)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleSuppressionConditionAlertRuleNameArgs) ToAlertProcessingRuleSuppressionConditionAlertRuleNameOutput() AlertProcessingRuleSuppressionConditionAlertRuleNameOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionAlertRuleNameOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionAlertRuleNameArgs) ToAlertProcessingRuleSuppressionConditionAlertRuleNameOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionAlertRuleNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionAlertRuleNameOutput)
+}
+
+func (i AlertProcessingRuleSuppressionConditionAlertRuleNameArgs) ToAlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput() AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionAlertRuleNameArgs) ToAlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionAlertRuleNameOutput).ToAlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleSuppressionConditionAlertRuleNamePtrInput is an input type that accepts AlertProcessingRuleSuppressionConditionAlertRuleNameArgs, AlertProcessingRuleSuppressionConditionAlertRuleNamePtr and AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionAlertRuleNamePtrInput` via:
+//
+//	        AlertProcessingRuleSuppressionConditionAlertRuleNameArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleSuppressionConditionAlertRuleNamePtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput() AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput
+	ToAlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput
+}
+
+type alertProcessingRuleSuppressionConditionAlertRuleNamePtrType AlertProcessingRuleSuppressionConditionAlertRuleNameArgs
+
+func AlertProcessingRuleSuppressionConditionAlertRuleNamePtr(v *AlertProcessingRuleSuppressionConditionAlertRuleNameArgs) AlertProcessingRuleSuppressionConditionAlertRuleNamePtrInput {
+	return (*alertProcessingRuleSuppressionConditionAlertRuleNamePtrType)(v)
+}
+
+func (*alertProcessingRuleSuppressionConditionAlertRuleNamePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionAlertRuleName)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleSuppressionConditionAlertRuleNamePtrType) ToAlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput() AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleSuppressionConditionAlertRuleNamePtrType) ToAlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionAlertRuleNameOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionAlertRuleNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionAlertRuleName)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionAlertRuleNameOutput) ToAlertProcessingRuleSuppressionConditionAlertRuleNameOutput() AlertProcessingRuleSuppressionConditionAlertRuleNameOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionAlertRuleNameOutput) ToAlertProcessingRuleSuppressionConditionAlertRuleNameOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionAlertRuleNameOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionAlertRuleNameOutput) ToAlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput() AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput {
+	return o.ToAlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleSuppressionConditionAlertRuleNameOutput) ToAlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleSuppressionConditionAlertRuleName) *AlertProcessingRuleSuppressionConditionAlertRuleName {
+		return &v
+	}).(AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleSuppressionConditionAlertRuleNameOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionAlertRuleName) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Specifies a list of values to match for a given condition.
+func (o AlertProcessingRuleSuppressionConditionAlertRuleNameOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionAlertRuleName) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionAlertRuleName)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput) ToAlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput() AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput) ToAlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput) Elem() AlertProcessingRuleSuppressionConditionAlertRuleNameOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionAlertRuleName) AlertProcessingRuleSuppressionConditionAlertRuleName {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleSuppressionConditionAlertRuleName
+		return ret
+	}).(AlertProcessingRuleSuppressionConditionAlertRuleNameOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionAlertRuleName) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of values to match for a given condition.
+func (o AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionAlertRuleName) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionDescription struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator string `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition.
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleSuppressionConditionDescriptionInput is an input type that accepts AlertProcessingRuleSuppressionConditionDescriptionArgs and AlertProcessingRuleSuppressionConditionDescriptionOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionDescriptionInput` via:
+//
+//	AlertProcessingRuleSuppressionConditionDescriptionArgs{...}
+type AlertProcessingRuleSuppressionConditionDescriptionInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionDescriptionOutput() AlertProcessingRuleSuppressionConditionDescriptionOutput
+	ToAlertProcessingRuleSuppressionConditionDescriptionOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionDescriptionOutput
+}
+
+type AlertProcessingRuleSuppressionConditionDescriptionArgs struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleSuppressionConditionDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionDescription)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleSuppressionConditionDescriptionArgs) ToAlertProcessingRuleSuppressionConditionDescriptionOutput() AlertProcessingRuleSuppressionConditionDescriptionOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionDescriptionOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionDescriptionArgs) ToAlertProcessingRuleSuppressionConditionDescriptionOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionDescriptionOutput)
+}
+
+func (i AlertProcessingRuleSuppressionConditionDescriptionArgs) ToAlertProcessingRuleSuppressionConditionDescriptionPtrOutput() AlertProcessingRuleSuppressionConditionDescriptionPtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionDescriptionArgs) ToAlertProcessingRuleSuppressionConditionDescriptionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionDescriptionOutput).ToAlertProcessingRuleSuppressionConditionDescriptionPtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleSuppressionConditionDescriptionPtrInput is an input type that accepts AlertProcessingRuleSuppressionConditionDescriptionArgs, AlertProcessingRuleSuppressionConditionDescriptionPtr and AlertProcessingRuleSuppressionConditionDescriptionPtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionDescriptionPtrInput` via:
+//
+//	        AlertProcessingRuleSuppressionConditionDescriptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleSuppressionConditionDescriptionPtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionDescriptionPtrOutput() AlertProcessingRuleSuppressionConditionDescriptionPtrOutput
+	ToAlertProcessingRuleSuppressionConditionDescriptionPtrOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionDescriptionPtrOutput
+}
+
+type alertProcessingRuleSuppressionConditionDescriptionPtrType AlertProcessingRuleSuppressionConditionDescriptionArgs
+
+func AlertProcessingRuleSuppressionConditionDescriptionPtr(v *AlertProcessingRuleSuppressionConditionDescriptionArgs) AlertProcessingRuleSuppressionConditionDescriptionPtrInput {
+	return (*alertProcessingRuleSuppressionConditionDescriptionPtrType)(v)
+}
+
+func (*alertProcessingRuleSuppressionConditionDescriptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionDescription)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleSuppressionConditionDescriptionPtrType) ToAlertProcessingRuleSuppressionConditionDescriptionPtrOutput() AlertProcessingRuleSuppressionConditionDescriptionPtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleSuppressionConditionDescriptionPtrType) ToAlertProcessingRuleSuppressionConditionDescriptionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionDescriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionDescriptionPtrOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionDescriptionOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionDescription)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionDescriptionOutput) ToAlertProcessingRuleSuppressionConditionDescriptionOutput() AlertProcessingRuleSuppressionConditionDescriptionOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionDescriptionOutput) ToAlertProcessingRuleSuppressionConditionDescriptionOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionDescriptionOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionDescriptionOutput) ToAlertProcessingRuleSuppressionConditionDescriptionPtrOutput() AlertProcessingRuleSuppressionConditionDescriptionPtrOutput {
+	return o.ToAlertProcessingRuleSuppressionConditionDescriptionPtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleSuppressionConditionDescriptionOutput) ToAlertProcessingRuleSuppressionConditionDescriptionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionDescriptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleSuppressionConditionDescription) *AlertProcessingRuleSuppressionConditionDescription {
+		return &v
+	}).(AlertProcessingRuleSuppressionConditionDescriptionPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleSuppressionConditionDescriptionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionDescription) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Specifies a list of values to match for a given condition.
+func (o AlertProcessingRuleSuppressionConditionDescriptionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionDescription) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionDescriptionPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionDescriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionDescription)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionDescriptionPtrOutput) ToAlertProcessingRuleSuppressionConditionDescriptionPtrOutput() AlertProcessingRuleSuppressionConditionDescriptionPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionDescriptionPtrOutput) ToAlertProcessingRuleSuppressionConditionDescriptionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionDescriptionPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionDescriptionPtrOutput) Elem() AlertProcessingRuleSuppressionConditionDescriptionOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionDescription) AlertProcessingRuleSuppressionConditionDescription {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleSuppressionConditionDescription
+		return ret
+	}).(AlertProcessingRuleSuppressionConditionDescriptionOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleSuppressionConditionDescriptionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionDescription) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of values to match for a given condition.
+func (o AlertProcessingRuleSuppressionConditionDescriptionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionDescription) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionMonitorCondition struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator string `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleSuppressionConditionMonitorConditionInput is an input type that accepts AlertProcessingRuleSuppressionConditionMonitorConditionArgs and AlertProcessingRuleSuppressionConditionMonitorConditionOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionMonitorConditionInput` via:
+//
+//	AlertProcessingRuleSuppressionConditionMonitorConditionArgs{...}
+type AlertProcessingRuleSuppressionConditionMonitorConditionInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionMonitorConditionOutput() AlertProcessingRuleSuppressionConditionMonitorConditionOutput
+	ToAlertProcessingRuleSuppressionConditionMonitorConditionOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionMonitorConditionOutput
+}
+
+type AlertProcessingRuleSuppressionConditionMonitorConditionArgs struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleSuppressionConditionMonitorConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionMonitorCondition)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleSuppressionConditionMonitorConditionArgs) ToAlertProcessingRuleSuppressionConditionMonitorConditionOutput() AlertProcessingRuleSuppressionConditionMonitorConditionOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionMonitorConditionOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionMonitorConditionArgs) ToAlertProcessingRuleSuppressionConditionMonitorConditionOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionMonitorConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionMonitorConditionOutput)
+}
+
+func (i AlertProcessingRuleSuppressionConditionMonitorConditionArgs) ToAlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput() AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionMonitorConditionPtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionMonitorConditionArgs) ToAlertProcessingRuleSuppressionConditionMonitorConditionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionMonitorConditionOutput).ToAlertProcessingRuleSuppressionConditionMonitorConditionPtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleSuppressionConditionMonitorConditionPtrInput is an input type that accepts AlertProcessingRuleSuppressionConditionMonitorConditionArgs, AlertProcessingRuleSuppressionConditionMonitorConditionPtr and AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionMonitorConditionPtrInput` via:
+//
+//	        AlertProcessingRuleSuppressionConditionMonitorConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleSuppressionConditionMonitorConditionPtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput() AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput
+	ToAlertProcessingRuleSuppressionConditionMonitorConditionPtrOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput
+}
+
+type alertProcessingRuleSuppressionConditionMonitorConditionPtrType AlertProcessingRuleSuppressionConditionMonitorConditionArgs
+
+func AlertProcessingRuleSuppressionConditionMonitorConditionPtr(v *AlertProcessingRuleSuppressionConditionMonitorConditionArgs) AlertProcessingRuleSuppressionConditionMonitorConditionPtrInput {
+	return (*alertProcessingRuleSuppressionConditionMonitorConditionPtrType)(v)
+}
+
+func (*alertProcessingRuleSuppressionConditionMonitorConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionMonitorCondition)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleSuppressionConditionMonitorConditionPtrType) ToAlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput() AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionMonitorConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleSuppressionConditionMonitorConditionPtrType) ToAlertProcessingRuleSuppressionConditionMonitorConditionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionMonitorConditionOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionMonitorConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionMonitorCondition)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionMonitorConditionOutput) ToAlertProcessingRuleSuppressionConditionMonitorConditionOutput() AlertProcessingRuleSuppressionConditionMonitorConditionOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionMonitorConditionOutput) ToAlertProcessingRuleSuppressionConditionMonitorConditionOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionMonitorConditionOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionMonitorConditionOutput) ToAlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput() AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput {
+	return o.ToAlertProcessingRuleSuppressionConditionMonitorConditionPtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleSuppressionConditionMonitorConditionOutput) ToAlertProcessingRuleSuppressionConditionMonitorConditionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleSuppressionConditionMonitorCondition) *AlertProcessingRuleSuppressionConditionMonitorCondition {
+		return &v
+	}).(AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o AlertProcessingRuleSuppressionConditionMonitorConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionMonitorCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Specifies a list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+func (o AlertProcessingRuleSuppressionConditionMonitorConditionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionMonitorCondition) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionMonitorCondition)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput) ToAlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput() AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput) ToAlertProcessingRuleSuppressionConditionMonitorConditionPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput) Elem() AlertProcessingRuleSuppressionConditionMonitorConditionOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionMonitorCondition) AlertProcessingRuleSuppressionConditionMonitorCondition {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleSuppressionConditionMonitorCondition
+		return ret
+	}).(AlertProcessingRuleSuppressionConditionMonitorConditionOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionMonitorCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+func (o AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionMonitorCondition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionMonitorService struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Prometheus`, `Resource Health`, `Smart Detector`, and `VM Insights - Health`.
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleSuppressionConditionMonitorServiceInput is an input type that accepts AlertProcessingRuleSuppressionConditionMonitorServiceArgs and AlertProcessingRuleSuppressionConditionMonitorServiceOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionMonitorServiceInput` via:
+//
+//	AlertProcessingRuleSuppressionConditionMonitorServiceArgs{...}
+type AlertProcessingRuleSuppressionConditionMonitorServiceInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionMonitorServiceOutput() AlertProcessingRuleSuppressionConditionMonitorServiceOutput
+	ToAlertProcessingRuleSuppressionConditionMonitorServiceOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionMonitorServiceOutput
+}
+
+type AlertProcessingRuleSuppressionConditionMonitorServiceArgs struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Prometheus`, `Resource Health`, `Smart Detector`, and `VM Insights - Health`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleSuppressionConditionMonitorServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionMonitorService)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleSuppressionConditionMonitorServiceArgs) ToAlertProcessingRuleSuppressionConditionMonitorServiceOutput() AlertProcessingRuleSuppressionConditionMonitorServiceOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionMonitorServiceOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionMonitorServiceArgs) ToAlertProcessingRuleSuppressionConditionMonitorServiceOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionMonitorServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionMonitorServiceOutput)
+}
+
+func (i AlertProcessingRuleSuppressionConditionMonitorServiceArgs) ToAlertProcessingRuleSuppressionConditionMonitorServicePtrOutput() AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionMonitorServicePtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionMonitorServiceArgs) ToAlertProcessingRuleSuppressionConditionMonitorServicePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionMonitorServiceOutput).ToAlertProcessingRuleSuppressionConditionMonitorServicePtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleSuppressionConditionMonitorServicePtrInput is an input type that accepts AlertProcessingRuleSuppressionConditionMonitorServiceArgs, AlertProcessingRuleSuppressionConditionMonitorServicePtr and AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionMonitorServicePtrInput` via:
+//
+//	        AlertProcessingRuleSuppressionConditionMonitorServiceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleSuppressionConditionMonitorServicePtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionMonitorServicePtrOutput() AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput
+	ToAlertProcessingRuleSuppressionConditionMonitorServicePtrOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput
+}
+
+type alertProcessingRuleSuppressionConditionMonitorServicePtrType AlertProcessingRuleSuppressionConditionMonitorServiceArgs
+
+func AlertProcessingRuleSuppressionConditionMonitorServicePtr(v *AlertProcessingRuleSuppressionConditionMonitorServiceArgs) AlertProcessingRuleSuppressionConditionMonitorServicePtrInput {
+	return (*alertProcessingRuleSuppressionConditionMonitorServicePtrType)(v)
+}
+
+func (*alertProcessingRuleSuppressionConditionMonitorServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionMonitorService)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleSuppressionConditionMonitorServicePtrType) ToAlertProcessingRuleSuppressionConditionMonitorServicePtrOutput() AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionMonitorServicePtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleSuppressionConditionMonitorServicePtrType) ToAlertProcessingRuleSuppressionConditionMonitorServicePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionMonitorServiceOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionMonitorServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionMonitorService)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionMonitorServiceOutput) ToAlertProcessingRuleSuppressionConditionMonitorServiceOutput() AlertProcessingRuleSuppressionConditionMonitorServiceOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionMonitorServiceOutput) ToAlertProcessingRuleSuppressionConditionMonitorServiceOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionMonitorServiceOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionMonitorServiceOutput) ToAlertProcessingRuleSuppressionConditionMonitorServicePtrOutput() AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput {
+	return o.ToAlertProcessingRuleSuppressionConditionMonitorServicePtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleSuppressionConditionMonitorServiceOutput) ToAlertProcessingRuleSuppressionConditionMonitorServicePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleSuppressionConditionMonitorService) *AlertProcessingRuleSuppressionConditionMonitorService {
+		return &v
+	}).(AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o AlertProcessingRuleSuppressionConditionMonitorServiceOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionMonitorService) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Prometheus`, `Resource Health`, `Smart Detector`, and `VM Insights - Health`.
+func (o AlertProcessingRuleSuppressionConditionMonitorServiceOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionMonitorService) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionMonitorService)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput) ToAlertProcessingRuleSuppressionConditionMonitorServicePtrOutput() AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput) ToAlertProcessingRuleSuppressionConditionMonitorServicePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput) Elem() AlertProcessingRuleSuppressionConditionMonitorServiceOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionMonitorService) AlertProcessingRuleSuppressionConditionMonitorService {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleSuppressionConditionMonitorService
+		return ret
+	}).(AlertProcessingRuleSuppressionConditionMonitorServiceOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionMonitorService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Prometheus`, `Resource Health`, `Smart Detector`, and `VM Insights - Health`.
+func (o AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionMonitorService) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionSeverity struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator string `pulumi:"operator"`
+	// Specifies list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleSuppressionConditionSeverityInput is an input type that accepts AlertProcessingRuleSuppressionConditionSeverityArgs and AlertProcessingRuleSuppressionConditionSeverityOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionSeverityInput` via:
+//
+//	AlertProcessingRuleSuppressionConditionSeverityArgs{...}
+type AlertProcessingRuleSuppressionConditionSeverityInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionSeverityOutput() AlertProcessingRuleSuppressionConditionSeverityOutput
+	ToAlertProcessingRuleSuppressionConditionSeverityOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionSeverityOutput
+}
+
+type AlertProcessingRuleSuppressionConditionSeverityArgs struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Specifies list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleSuppressionConditionSeverityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionSeverity)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleSuppressionConditionSeverityArgs) ToAlertProcessingRuleSuppressionConditionSeverityOutput() AlertProcessingRuleSuppressionConditionSeverityOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionSeverityOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionSeverityArgs) ToAlertProcessingRuleSuppressionConditionSeverityOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionSeverityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionSeverityOutput)
+}
+
+func (i AlertProcessingRuleSuppressionConditionSeverityArgs) ToAlertProcessingRuleSuppressionConditionSeverityPtrOutput() AlertProcessingRuleSuppressionConditionSeverityPtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionSeverityPtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionSeverityArgs) ToAlertProcessingRuleSuppressionConditionSeverityPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionSeverityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionSeverityOutput).ToAlertProcessingRuleSuppressionConditionSeverityPtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleSuppressionConditionSeverityPtrInput is an input type that accepts AlertProcessingRuleSuppressionConditionSeverityArgs, AlertProcessingRuleSuppressionConditionSeverityPtr and AlertProcessingRuleSuppressionConditionSeverityPtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionSeverityPtrInput` via:
+//
+//	        AlertProcessingRuleSuppressionConditionSeverityArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleSuppressionConditionSeverityPtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionSeverityPtrOutput() AlertProcessingRuleSuppressionConditionSeverityPtrOutput
+	ToAlertProcessingRuleSuppressionConditionSeverityPtrOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionSeverityPtrOutput
+}
+
+type alertProcessingRuleSuppressionConditionSeverityPtrType AlertProcessingRuleSuppressionConditionSeverityArgs
+
+func AlertProcessingRuleSuppressionConditionSeverityPtr(v *AlertProcessingRuleSuppressionConditionSeverityArgs) AlertProcessingRuleSuppressionConditionSeverityPtrInput {
+	return (*alertProcessingRuleSuppressionConditionSeverityPtrType)(v)
+}
+
+func (*alertProcessingRuleSuppressionConditionSeverityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionSeverity)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleSuppressionConditionSeverityPtrType) ToAlertProcessingRuleSuppressionConditionSeverityPtrOutput() AlertProcessingRuleSuppressionConditionSeverityPtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionSeverityPtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleSuppressionConditionSeverityPtrType) ToAlertProcessingRuleSuppressionConditionSeverityPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionSeverityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionSeverityPtrOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionSeverityOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionSeverityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionSeverity)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionSeverityOutput) ToAlertProcessingRuleSuppressionConditionSeverityOutput() AlertProcessingRuleSuppressionConditionSeverityOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionSeverityOutput) ToAlertProcessingRuleSuppressionConditionSeverityOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionSeverityOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionSeverityOutput) ToAlertProcessingRuleSuppressionConditionSeverityPtrOutput() AlertProcessingRuleSuppressionConditionSeverityPtrOutput {
+	return o.ToAlertProcessingRuleSuppressionConditionSeverityPtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleSuppressionConditionSeverityOutput) ToAlertProcessingRuleSuppressionConditionSeverityPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionSeverityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleSuppressionConditionSeverity) *AlertProcessingRuleSuppressionConditionSeverity {
+		return &v
+	}).(AlertProcessingRuleSuppressionConditionSeverityPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o AlertProcessingRuleSuppressionConditionSeverityOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionSeverity) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Specifies list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+func (o AlertProcessingRuleSuppressionConditionSeverityOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionSeverity) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionSeverityPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionSeverityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionSeverity)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionSeverityPtrOutput) ToAlertProcessingRuleSuppressionConditionSeverityPtrOutput() AlertProcessingRuleSuppressionConditionSeverityPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionSeverityPtrOutput) ToAlertProcessingRuleSuppressionConditionSeverityPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionSeverityPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionSeverityPtrOutput) Elem() AlertProcessingRuleSuppressionConditionSeverityOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionSeverity) AlertProcessingRuleSuppressionConditionSeverity {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleSuppressionConditionSeverity
+		return ret
+	}).(AlertProcessingRuleSuppressionConditionSeverityOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o AlertProcessingRuleSuppressionConditionSeverityPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionSeverity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+func (o AlertProcessingRuleSuppressionConditionSeverityPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionSeverity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionSignalType struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator string `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition. Possible values are `Metric`, `Log`, `Unknown`, and `Health`.
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleSuppressionConditionSignalTypeInput is an input type that accepts AlertProcessingRuleSuppressionConditionSignalTypeArgs and AlertProcessingRuleSuppressionConditionSignalTypeOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionSignalTypeInput` via:
+//
+//	AlertProcessingRuleSuppressionConditionSignalTypeArgs{...}
+type AlertProcessingRuleSuppressionConditionSignalTypeInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionSignalTypeOutput() AlertProcessingRuleSuppressionConditionSignalTypeOutput
+	ToAlertProcessingRuleSuppressionConditionSignalTypeOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionSignalTypeOutput
+}
+
+type AlertProcessingRuleSuppressionConditionSignalTypeArgs struct {
+	// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Specifies a list of values to match for a given condition. Possible values are `Metric`, `Log`, `Unknown`, and `Health`.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleSuppressionConditionSignalTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionSignalType)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleSuppressionConditionSignalTypeArgs) ToAlertProcessingRuleSuppressionConditionSignalTypeOutput() AlertProcessingRuleSuppressionConditionSignalTypeOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionSignalTypeOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionSignalTypeArgs) ToAlertProcessingRuleSuppressionConditionSignalTypeOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionSignalTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionSignalTypeOutput)
+}
+
+func (i AlertProcessingRuleSuppressionConditionSignalTypeArgs) ToAlertProcessingRuleSuppressionConditionSignalTypePtrOutput() AlertProcessingRuleSuppressionConditionSignalTypePtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionSignalTypePtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionSignalTypeArgs) ToAlertProcessingRuleSuppressionConditionSignalTypePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionSignalTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionSignalTypeOutput).ToAlertProcessingRuleSuppressionConditionSignalTypePtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleSuppressionConditionSignalTypePtrInput is an input type that accepts AlertProcessingRuleSuppressionConditionSignalTypeArgs, AlertProcessingRuleSuppressionConditionSignalTypePtr and AlertProcessingRuleSuppressionConditionSignalTypePtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionSignalTypePtrInput` via:
+//
+//	        AlertProcessingRuleSuppressionConditionSignalTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleSuppressionConditionSignalTypePtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionSignalTypePtrOutput() AlertProcessingRuleSuppressionConditionSignalTypePtrOutput
+	ToAlertProcessingRuleSuppressionConditionSignalTypePtrOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionSignalTypePtrOutput
+}
+
+type alertProcessingRuleSuppressionConditionSignalTypePtrType AlertProcessingRuleSuppressionConditionSignalTypeArgs
+
+func AlertProcessingRuleSuppressionConditionSignalTypePtr(v *AlertProcessingRuleSuppressionConditionSignalTypeArgs) AlertProcessingRuleSuppressionConditionSignalTypePtrInput {
+	return (*alertProcessingRuleSuppressionConditionSignalTypePtrType)(v)
+}
+
+func (*alertProcessingRuleSuppressionConditionSignalTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionSignalType)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleSuppressionConditionSignalTypePtrType) ToAlertProcessingRuleSuppressionConditionSignalTypePtrOutput() AlertProcessingRuleSuppressionConditionSignalTypePtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionSignalTypePtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleSuppressionConditionSignalTypePtrType) ToAlertProcessingRuleSuppressionConditionSignalTypePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionSignalTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionSignalTypePtrOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionSignalTypeOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionSignalTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionSignalType)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionSignalTypeOutput) ToAlertProcessingRuleSuppressionConditionSignalTypeOutput() AlertProcessingRuleSuppressionConditionSignalTypeOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionSignalTypeOutput) ToAlertProcessingRuleSuppressionConditionSignalTypeOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionSignalTypeOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionSignalTypeOutput) ToAlertProcessingRuleSuppressionConditionSignalTypePtrOutput() AlertProcessingRuleSuppressionConditionSignalTypePtrOutput {
+	return o.ToAlertProcessingRuleSuppressionConditionSignalTypePtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleSuppressionConditionSignalTypeOutput) ToAlertProcessingRuleSuppressionConditionSignalTypePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionSignalTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleSuppressionConditionSignalType) *AlertProcessingRuleSuppressionConditionSignalType {
+		return &v
+	}).(AlertProcessingRuleSuppressionConditionSignalTypePtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o AlertProcessingRuleSuppressionConditionSignalTypeOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionSignalType) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Specifies a list of values to match for a given condition. Possible values are `Metric`, `Log`, `Unknown`, and `Health`.
+func (o AlertProcessingRuleSuppressionConditionSignalTypeOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionSignalType) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionSignalTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionSignalTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionSignalType)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionSignalTypePtrOutput) ToAlertProcessingRuleSuppressionConditionSignalTypePtrOutput() AlertProcessingRuleSuppressionConditionSignalTypePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionSignalTypePtrOutput) ToAlertProcessingRuleSuppressionConditionSignalTypePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionSignalTypePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionSignalTypePtrOutput) Elem() AlertProcessingRuleSuppressionConditionSignalTypeOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionSignalType) AlertProcessingRuleSuppressionConditionSignalType {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleSuppressionConditionSignalType
+		return ret
+	}).(AlertProcessingRuleSuppressionConditionSignalTypeOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+func (o AlertProcessingRuleSuppressionConditionSignalTypePtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionSignalType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a list of values to match for a given condition. Possible values are `Metric`, `Log`, `Unknown`, and `Health`.
+func (o AlertProcessingRuleSuppressionConditionSignalTypePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionSignalType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionTargetResource struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition. The values should be valid resource IDs.
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleSuppressionConditionTargetResourceInput is an input type that accepts AlertProcessingRuleSuppressionConditionTargetResourceArgs and AlertProcessingRuleSuppressionConditionTargetResourceOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionTargetResourceInput` via:
+//
+//	AlertProcessingRuleSuppressionConditionTargetResourceArgs{...}
+type AlertProcessingRuleSuppressionConditionTargetResourceInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionTargetResourceOutput() AlertProcessingRuleSuppressionConditionTargetResourceOutput
+	ToAlertProcessingRuleSuppressionConditionTargetResourceOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionTargetResourceOutput
+}
+
+type AlertProcessingRuleSuppressionConditionTargetResourceArgs struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition. The values should be valid resource IDs.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleSuppressionConditionTargetResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionTargetResource)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleSuppressionConditionTargetResourceArgs) ToAlertProcessingRuleSuppressionConditionTargetResourceOutput() AlertProcessingRuleSuppressionConditionTargetResourceOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionTargetResourceOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionTargetResourceArgs) ToAlertProcessingRuleSuppressionConditionTargetResourceOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionTargetResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionTargetResourceOutput)
+}
+
+func (i AlertProcessingRuleSuppressionConditionTargetResourceArgs) ToAlertProcessingRuleSuppressionConditionTargetResourcePtrOutput() AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionTargetResourcePtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionTargetResourceArgs) ToAlertProcessingRuleSuppressionConditionTargetResourcePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionTargetResourceOutput).ToAlertProcessingRuleSuppressionConditionTargetResourcePtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleSuppressionConditionTargetResourcePtrInput is an input type that accepts AlertProcessingRuleSuppressionConditionTargetResourceArgs, AlertProcessingRuleSuppressionConditionTargetResourcePtr and AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionTargetResourcePtrInput` via:
+//
+//	        AlertProcessingRuleSuppressionConditionTargetResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleSuppressionConditionTargetResourcePtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionTargetResourcePtrOutput() AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput
+	ToAlertProcessingRuleSuppressionConditionTargetResourcePtrOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput
+}
+
+type alertProcessingRuleSuppressionConditionTargetResourcePtrType AlertProcessingRuleSuppressionConditionTargetResourceArgs
+
+func AlertProcessingRuleSuppressionConditionTargetResourcePtr(v *AlertProcessingRuleSuppressionConditionTargetResourceArgs) AlertProcessingRuleSuppressionConditionTargetResourcePtrInput {
+	return (*alertProcessingRuleSuppressionConditionTargetResourcePtrType)(v)
+}
+
+func (*alertProcessingRuleSuppressionConditionTargetResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionTargetResource)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleSuppressionConditionTargetResourcePtrType) ToAlertProcessingRuleSuppressionConditionTargetResourcePtrOutput() AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionTargetResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleSuppressionConditionTargetResourcePtrType) ToAlertProcessingRuleSuppressionConditionTargetResourcePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionTargetResourceOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionTargetResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionTargetResource)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionTargetResourceOutput) ToAlertProcessingRuleSuppressionConditionTargetResourceOutput() AlertProcessingRuleSuppressionConditionTargetResourceOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionTargetResourceOutput) ToAlertProcessingRuleSuppressionConditionTargetResourceOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionTargetResourceOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionTargetResourceOutput) ToAlertProcessingRuleSuppressionConditionTargetResourcePtrOutput() AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput {
+	return o.ToAlertProcessingRuleSuppressionConditionTargetResourcePtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleSuppressionConditionTargetResourceOutput) ToAlertProcessingRuleSuppressionConditionTargetResourcePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleSuppressionConditionTargetResource) *AlertProcessingRuleSuppressionConditionTargetResource {
+		return &v
+	}).(AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleSuppressionConditionTargetResourceOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionTargetResource) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition. The values should be valid resource IDs.
+func (o AlertProcessingRuleSuppressionConditionTargetResourceOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionTargetResource) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionTargetResource)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput) ToAlertProcessingRuleSuppressionConditionTargetResourcePtrOutput() AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput) ToAlertProcessingRuleSuppressionConditionTargetResourcePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput) Elem() AlertProcessingRuleSuppressionConditionTargetResourceOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionTargetResource) AlertProcessingRuleSuppressionConditionTargetResource {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleSuppressionConditionTargetResource
+		return ret
+	}).(AlertProcessingRuleSuppressionConditionTargetResourceOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionTargetResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition. The values should be valid resource IDs.
+func (o AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionTargetResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionTargetResourceGroup struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition. The values should be valid resource group IDs.
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleSuppressionConditionTargetResourceGroupInput is an input type that accepts AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs and AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionTargetResourceGroupInput` via:
+//
+//	AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs{...}
+type AlertProcessingRuleSuppressionConditionTargetResourceGroupInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionTargetResourceGroupOutput() AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput
+	ToAlertProcessingRuleSuppressionConditionTargetResourceGroupOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput
+}
+
+type AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition. The values should be valid resource group IDs.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionTargetResourceGroup)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs) ToAlertProcessingRuleSuppressionConditionTargetResourceGroupOutput() AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionTargetResourceGroupOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs) ToAlertProcessingRuleSuppressionConditionTargetResourceGroupOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput)
+}
+
+func (i AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs) ToAlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput() AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs) ToAlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput).ToAlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrInput is an input type that accepts AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs, AlertProcessingRuleSuppressionConditionTargetResourceGroupPtr and AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrInput` via:
+//
+//	        AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput() AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput
+	ToAlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput
+}
+
+type alertProcessingRuleSuppressionConditionTargetResourceGroupPtrType AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs
+
+func AlertProcessingRuleSuppressionConditionTargetResourceGroupPtr(v *AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs) AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrInput {
+	return (*alertProcessingRuleSuppressionConditionTargetResourceGroupPtrType)(v)
+}
+
+func (*alertProcessingRuleSuppressionConditionTargetResourceGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionTargetResourceGroup)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleSuppressionConditionTargetResourceGroupPtrType) ToAlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput() AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleSuppressionConditionTargetResourceGroupPtrType) ToAlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionTargetResourceGroup)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput) ToAlertProcessingRuleSuppressionConditionTargetResourceGroupOutput() AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput) ToAlertProcessingRuleSuppressionConditionTargetResourceGroupOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput) ToAlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput() AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput {
+	return o.ToAlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput) ToAlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleSuppressionConditionTargetResourceGroup) *AlertProcessingRuleSuppressionConditionTargetResourceGroup {
+		return &v
+	}).(AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionTargetResourceGroup) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition. The values should be valid resource group IDs.
+func (o AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionTargetResourceGroup) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionTargetResourceGroup)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput) ToAlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput() AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput) ToAlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput) Elem() AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionTargetResourceGroup) AlertProcessingRuleSuppressionConditionTargetResourceGroup {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleSuppressionConditionTargetResourceGroup
+		return ret
+	}).(AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionTargetResourceGroup) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition. The values should be valid resource group IDs.
+func (o AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionTargetResourceGroup) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionTargetResourceType struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator string `pulumi:"operator"`
+	// A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
+	Values []string `pulumi:"values"`
+}
+
+// AlertProcessingRuleSuppressionConditionTargetResourceTypeInput is an input type that accepts AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs and AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionTargetResourceTypeInput` via:
+//
+//	AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs{...}
+type AlertProcessingRuleSuppressionConditionTargetResourceTypeInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionTargetResourceTypeOutput() AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput
+	ToAlertProcessingRuleSuppressionConditionTargetResourceTypeOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput
+}
+
+type AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs struct {
+	// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionTargetResourceType)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs) ToAlertProcessingRuleSuppressionConditionTargetResourceTypeOutput() AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionTargetResourceTypeOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs) ToAlertProcessingRuleSuppressionConditionTargetResourceTypeOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput)
+}
+
+func (i AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs) ToAlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput() AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs) ToAlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput).ToAlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleSuppressionConditionTargetResourceTypePtrInput is an input type that accepts AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs, AlertProcessingRuleSuppressionConditionTargetResourceTypePtr and AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionConditionTargetResourceTypePtrInput` via:
+//
+//	        AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleSuppressionConditionTargetResourceTypePtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput() AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput
+	ToAlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(context.Context) AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput
+}
+
+type alertProcessingRuleSuppressionConditionTargetResourceTypePtrType AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs
+
+func AlertProcessingRuleSuppressionConditionTargetResourceTypePtr(v *AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs) AlertProcessingRuleSuppressionConditionTargetResourceTypePtrInput {
+	return (*alertProcessingRuleSuppressionConditionTargetResourceTypePtrType)(v)
+}
+
+func (*alertProcessingRuleSuppressionConditionTargetResourceTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionTargetResourceType)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleSuppressionConditionTargetResourceTypePtrType) ToAlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput() AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput {
+	return i.ToAlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleSuppressionConditionTargetResourceTypePtrType) ToAlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionConditionTargetResourceType)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput) ToAlertProcessingRuleSuppressionConditionTargetResourceTypeOutput() AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput) ToAlertProcessingRuleSuppressionConditionTargetResourceTypeOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput) ToAlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput() AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput {
+	return o.ToAlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput) ToAlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleSuppressionConditionTargetResourceType) *AlertProcessingRuleSuppressionConditionTargetResourceType {
+		return &v
+	}).(AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionTargetResourceType) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
+func (o AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionConditionTargetResourceType) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionConditionTargetResourceType)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput) ToAlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput() AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput) ToAlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput) Elem() AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionTargetResourceType) AlertProcessingRuleSuppressionConditionTargetResourceType {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleSuppressionConditionTargetResourceType
+		return ret
+	}).(AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput)
+}
+
+// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+func (o AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionTargetResourceType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
+func (o AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionConditionTargetResourceType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionSchedule struct {
+	// Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
+	EffectiveFrom *string `pulumi:"effectiveFrom"`
+	// Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
+	EffectiveUntil *string `pulumi:"effectiveUntil"`
+	// A `recurrence` block as defined above.
+	Recurrence *AlertProcessingRuleSuppressionScheduleRecurrence `pulumi:"recurrence"`
+	// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+	TimeZone *string `pulumi:"timeZone"`
+}
+
+// AlertProcessingRuleSuppressionScheduleInput is an input type that accepts AlertProcessingRuleSuppressionScheduleArgs and AlertProcessingRuleSuppressionScheduleOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionScheduleInput` via:
+//
+//	AlertProcessingRuleSuppressionScheduleArgs{...}
+type AlertProcessingRuleSuppressionScheduleInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionScheduleOutput() AlertProcessingRuleSuppressionScheduleOutput
+	ToAlertProcessingRuleSuppressionScheduleOutputWithContext(context.Context) AlertProcessingRuleSuppressionScheduleOutput
+}
+
+type AlertProcessingRuleSuppressionScheduleArgs struct {
+	// Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
+	EffectiveFrom pulumi.StringPtrInput `pulumi:"effectiveFrom"`
+	// Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
+	EffectiveUntil pulumi.StringPtrInput `pulumi:"effectiveUntil"`
+	// A `recurrence` block as defined above.
+	Recurrence AlertProcessingRuleSuppressionScheduleRecurrencePtrInput `pulumi:"recurrence"`
+	// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (AlertProcessingRuleSuppressionScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionSchedule)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleSuppressionScheduleArgs) ToAlertProcessingRuleSuppressionScheduleOutput() AlertProcessingRuleSuppressionScheduleOutput {
+	return i.ToAlertProcessingRuleSuppressionScheduleOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionScheduleArgs) ToAlertProcessingRuleSuppressionScheduleOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionScheduleOutput)
+}
+
+func (i AlertProcessingRuleSuppressionScheduleArgs) ToAlertProcessingRuleSuppressionSchedulePtrOutput() AlertProcessingRuleSuppressionSchedulePtrOutput {
+	return i.ToAlertProcessingRuleSuppressionSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionScheduleArgs) ToAlertProcessingRuleSuppressionSchedulePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionScheduleOutput).ToAlertProcessingRuleSuppressionSchedulePtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleSuppressionSchedulePtrInput is an input type that accepts AlertProcessingRuleSuppressionScheduleArgs, AlertProcessingRuleSuppressionSchedulePtr and AlertProcessingRuleSuppressionSchedulePtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionSchedulePtrInput` via:
+//
+//	        AlertProcessingRuleSuppressionScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleSuppressionSchedulePtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionSchedulePtrOutput() AlertProcessingRuleSuppressionSchedulePtrOutput
+	ToAlertProcessingRuleSuppressionSchedulePtrOutputWithContext(context.Context) AlertProcessingRuleSuppressionSchedulePtrOutput
+}
+
+type alertProcessingRuleSuppressionSchedulePtrType AlertProcessingRuleSuppressionScheduleArgs
+
+func AlertProcessingRuleSuppressionSchedulePtr(v *AlertProcessingRuleSuppressionScheduleArgs) AlertProcessingRuleSuppressionSchedulePtrInput {
+	return (*alertProcessingRuleSuppressionSchedulePtrType)(v)
+}
+
+func (*alertProcessingRuleSuppressionSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionSchedule)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleSuppressionSchedulePtrType) ToAlertProcessingRuleSuppressionSchedulePtrOutput() AlertProcessingRuleSuppressionSchedulePtrOutput {
+	return i.ToAlertProcessingRuleSuppressionSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleSuppressionSchedulePtrType) ToAlertProcessingRuleSuppressionSchedulePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionSchedulePtrOutput)
+}
+
+type AlertProcessingRuleSuppressionScheduleOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionSchedule)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionScheduleOutput) ToAlertProcessingRuleSuppressionScheduleOutput() AlertProcessingRuleSuppressionScheduleOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionScheduleOutput) ToAlertProcessingRuleSuppressionScheduleOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionScheduleOutput) ToAlertProcessingRuleSuppressionSchedulePtrOutput() AlertProcessingRuleSuppressionSchedulePtrOutput {
+	return o.ToAlertProcessingRuleSuppressionSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleSuppressionScheduleOutput) ToAlertProcessingRuleSuppressionSchedulePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleSuppressionSchedule) *AlertProcessingRuleSuppressionSchedule {
+		return &v
+	}).(AlertProcessingRuleSuppressionSchedulePtrOutput)
+}
+
+// Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
+func (o AlertProcessingRuleSuppressionScheduleOutput) EffectiveFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionSchedule) *string { return v.EffectiveFrom }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
+func (o AlertProcessingRuleSuppressionScheduleOutput) EffectiveUntil() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionSchedule) *string { return v.EffectiveUntil }).(pulumi.StringPtrOutput)
+}
+
+// A `recurrence` block as defined above.
+func (o AlertProcessingRuleSuppressionScheduleOutput) Recurrence() AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionSchedule) *AlertProcessingRuleSuppressionScheduleRecurrence {
+		return v.Recurrence
+	}).(AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput)
+}
+
+// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+func (o AlertProcessingRuleSuppressionScheduleOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionSchedule) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type AlertProcessingRuleSuppressionSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionSchedule)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionSchedulePtrOutput) ToAlertProcessingRuleSuppressionSchedulePtrOutput() AlertProcessingRuleSuppressionSchedulePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionSchedulePtrOutput) ToAlertProcessingRuleSuppressionSchedulePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionSchedulePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionSchedulePtrOutput) Elem() AlertProcessingRuleSuppressionScheduleOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionSchedule) AlertProcessingRuleSuppressionSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleSuppressionSchedule
+		return ret
+	}).(AlertProcessingRuleSuppressionScheduleOutput)
+}
+
+// Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
+func (o AlertProcessingRuleSuppressionSchedulePtrOutput) EffectiveFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EffectiveFrom
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
+func (o AlertProcessingRuleSuppressionSchedulePtrOutput) EffectiveUntil() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EffectiveUntil
+	}).(pulumi.StringPtrOutput)
+}
+
+// A `recurrence` block as defined above.
+func (o AlertProcessingRuleSuppressionSchedulePtrOutput) Recurrence() AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionSchedule) *AlertProcessingRuleSuppressionScheduleRecurrence {
+		if v == nil {
+			return nil
+		}
+		return v.Recurrence
+	}).(AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput)
+}
+
+// The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
+func (o AlertProcessingRuleSuppressionSchedulePtrOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeZone
+	}).(pulumi.StringPtrOutput)
+}
+
+type AlertProcessingRuleSuppressionScheduleRecurrence struct {
+	// One or more `daily` blocks as defined above.
+	Dailies []AlertProcessingRuleSuppressionScheduleRecurrenceDaily `pulumi:"dailies"`
+	// One or more `monthly` blocks as defined above.
+	Monthlies []AlertProcessingRuleSuppressionScheduleRecurrenceMonthly `pulumi:"monthlies"`
+	// One or more `weekly` blocks as defined below.
+	Weeklies []AlertProcessingRuleSuppressionScheduleRecurrenceWeekly `pulumi:"weeklies"`
+}
+
+// AlertProcessingRuleSuppressionScheduleRecurrenceInput is an input type that accepts AlertProcessingRuleSuppressionScheduleRecurrenceArgs and AlertProcessingRuleSuppressionScheduleRecurrenceOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionScheduleRecurrenceInput` via:
+//
+//	AlertProcessingRuleSuppressionScheduleRecurrenceArgs{...}
+type AlertProcessingRuleSuppressionScheduleRecurrenceInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionScheduleRecurrenceOutput() AlertProcessingRuleSuppressionScheduleRecurrenceOutput
+	ToAlertProcessingRuleSuppressionScheduleRecurrenceOutputWithContext(context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceOutput
+}
+
+type AlertProcessingRuleSuppressionScheduleRecurrenceArgs struct {
+	// One or more `daily` blocks as defined above.
+	Dailies AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayInput `pulumi:"dailies"`
+	// One or more `monthly` blocks as defined above.
+	Monthlies AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayInput `pulumi:"monthlies"`
+	// One or more `weekly` blocks as defined below.
+	Weeklies AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayInput `pulumi:"weeklies"`
+}
+
+func (AlertProcessingRuleSuppressionScheduleRecurrenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionScheduleRecurrence)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleSuppressionScheduleRecurrenceArgs) ToAlertProcessingRuleSuppressionScheduleRecurrenceOutput() AlertProcessingRuleSuppressionScheduleRecurrenceOutput {
+	return i.ToAlertProcessingRuleSuppressionScheduleRecurrenceOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionScheduleRecurrenceArgs) ToAlertProcessingRuleSuppressionScheduleRecurrenceOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionScheduleRecurrenceOutput)
+}
+
+func (i AlertProcessingRuleSuppressionScheduleRecurrenceArgs) ToAlertProcessingRuleSuppressionScheduleRecurrencePtrOutput() AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput {
+	return i.ToAlertProcessingRuleSuppressionScheduleRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionScheduleRecurrenceArgs) ToAlertProcessingRuleSuppressionScheduleRecurrencePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionScheduleRecurrenceOutput).ToAlertProcessingRuleSuppressionScheduleRecurrencePtrOutputWithContext(ctx)
+}
+
+// AlertProcessingRuleSuppressionScheduleRecurrencePtrInput is an input type that accepts AlertProcessingRuleSuppressionScheduleRecurrenceArgs, AlertProcessingRuleSuppressionScheduleRecurrencePtr and AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionScheduleRecurrencePtrInput` via:
+//
+//	        AlertProcessingRuleSuppressionScheduleRecurrenceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AlertProcessingRuleSuppressionScheduleRecurrencePtrInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionScheduleRecurrencePtrOutput() AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput
+	ToAlertProcessingRuleSuppressionScheduleRecurrencePtrOutputWithContext(context.Context) AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput
+}
+
+type alertProcessingRuleSuppressionScheduleRecurrencePtrType AlertProcessingRuleSuppressionScheduleRecurrenceArgs
+
+func AlertProcessingRuleSuppressionScheduleRecurrencePtr(v *AlertProcessingRuleSuppressionScheduleRecurrenceArgs) AlertProcessingRuleSuppressionScheduleRecurrencePtrInput {
+	return (*alertProcessingRuleSuppressionScheduleRecurrencePtrType)(v)
+}
+
+func (*alertProcessingRuleSuppressionScheduleRecurrencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionScheduleRecurrence)(nil)).Elem()
+}
+
+func (i *alertProcessingRuleSuppressionScheduleRecurrencePtrType) ToAlertProcessingRuleSuppressionScheduleRecurrencePtrOutput() AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput {
+	return i.ToAlertProcessingRuleSuppressionScheduleRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (i *alertProcessingRuleSuppressionScheduleRecurrencePtrType) ToAlertProcessingRuleSuppressionScheduleRecurrencePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput)
+}
+
+type AlertProcessingRuleSuppressionScheduleRecurrenceOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionScheduleRecurrenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionScheduleRecurrence)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceOutput) ToAlertProcessingRuleSuppressionScheduleRecurrenceOutput() AlertProcessingRuleSuppressionScheduleRecurrenceOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceOutput) ToAlertProcessingRuleSuppressionScheduleRecurrenceOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceOutput) ToAlertProcessingRuleSuppressionScheduleRecurrencePtrOutput() AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput {
+	return o.ToAlertProcessingRuleSuppressionScheduleRecurrencePtrOutputWithContext(context.Background())
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceOutput) ToAlertProcessingRuleSuppressionScheduleRecurrencePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertProcessingRuleSuppressionScheduleRecurrence) *AlertProcessingRuleSuppressionScheduleRecurrence {
+		return &v
+	}).(AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput)
+}
+
+// One or more `daily` blocks as defined above.
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceOutput) Dailies() AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionScheduleRecurrence) []AlertProcessingRuleSuppressionScheduleRecurrenceDaily {
+		return v.Dailies
+	}).(AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput)
+}
+
+// One or more `monthly` blocks as defined above.
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceOutput) Monthlies() AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionScheduleRecurrence) []AlertProcessingRuleSuppressionScheduleRecurrenceMonthly {
+		return v.Monthlies
+	}).(AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput)
+}
+
+// One or more `weekly` blocks as defined below.
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceOutput) Weeklies() AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionScheduleRecurrence) []AlertProcessingRuleSuppressionScheduleRecurrenceWeekly {
+		return v.Weeklies
+	}).(AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AlertProcessingRuleSuppressionScheduleRecurrence)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput) ToAlertProcessingRuleSuppressionScheduleRecurrencePtrOutput() AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput) ToAlertProcessingRuleSuppressionScheduleRecurrencePtrOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput) Elem() AlertProcessingRuleSuppressionScheduleRecurrenceOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionScheduleRecurrence) AlertProcessingRuleSuppressionScheduleRecurrence {
+		if v != nil {
+			return *v
+		}
+		var ret AlertProcessingRuleSuppressionScheduleRecurrence
+		return ret
+	}).(AlertProcessingRuleSuppressionScheduleRecurrenceOutput)
+}
+
+// One or more `daily` blocks as defined above.
+func (o AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput) Dailies() AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionScheduleRecurrence) []AlertProcessingRuleSuppressionScheduleRecurrenceDaily {
+		if v == nil {
+			return nil
+		}
+		return v.Dailies
+	}).(AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput)
+}
+
+// One or more `monthly` blocks as defined above.
+func (o AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput) Monthlies() AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionScheduleRecurrence) []AlertProcessingRuleSuppressionScheduleRecurrenceMonthly {
+		if v == nil {
+			return nil
+		}
+		return v.Monthlies
+	}).(AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput)
+}
+
+// One or more `weekly` blocks as defined below.
+func (o AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput) Weeklies() AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput {
+	return o.ApplyT(func(v *AlertProcessingRuleSuppressionScheduleRecurrence) []AlertProcessingRuleSuppressionScheduleRecurrenceWeekly {
+		if v == nil {
+			return nil
+		}
+		return v.Weeklies
+	}).(AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionScheduleRecurrenceDaily struct {
+	// Specifies the recurrence end time (H:M:S).
+	EndTime string `pulumi:"endTime"`
+	// Specifies the recurrence start time (H:M:S).
+	StartTime string `pulumi:"startTime"`
+}
+
+// AlertProcessingRuleSuppressionScheduleRecurrenceDailyInput is an input type that accepts AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs and AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionScheduleRecurrenceDailyInput` via:
+//
+//	AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs{...}
+type AlertProcessingRuleSuppressionScheduleRecurrenceDailyInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput() AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput
+	ToAlertProcessingRuleSuppressionScheduleRecurrenceDailyOutputWithContext(context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput
+}
+
+type AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs struct {
+	// Specifies the recurrence end time (H:M:S).
+	EndTime pulumi.StringInput `pulumi:"endTime"`
+	// Specifies the recurrence start time (H:M:S).
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+}
+
+func (AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionScheduleRecurrenceDaily)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs) ToAlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput() AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput {
+	return i.ToAlertProcessingRuleSuppressionScheduleRecurrenceDailyOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs) ToAlertProcessingRuleSuppressionScheduleRecurrenceDailyOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput)
+}
+
+// AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayInput is an input type that accepts AlertProcessingRuleSuppressionScheduleRecurrenceDailyArray and AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayInput` via:
+//
+//	AlertProcessingRuleSuppressionScheduleRecurrenceDailyArray{ AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs{...} }
+type AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput() AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput
+	ToAlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutputWithContext(context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput
+}
+
+type AlertProcessingRuleSuppressionScheduleRecurrenceDailyArray []AlertProcessingRuleSuppressionScheduleRecurrenceDailyInput
+
+func (AlertProcessingRuleSuppressionScheduleRecurrenceDailyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertProcessingRuleSuppressionScheduleRecurrenceDaily)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleSuppressionScheduleRecurrenceDailyArray) ToAlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput() AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput {
+	return i.ToAlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionScheduleRecurrenceDailyArray) ToAlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionScheduleRecurrenceDaily)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput) ToAlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput() AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput) ToAlertProcessingRuleSuppressionScheduleRecurrenceDailyOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput {
+	return o
+}
+
+// Specifies the recurrence end time (H:M:S).
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput) EndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionScheduleRecurrenceDaily) string { return v.EndTime }).(pulumi.StringOutput)
+}
+
+// Specifies the recurrence start time (H:M:S).
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionScheduleRecurrenceDaily) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+type AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertProcessingRuleSuppressionScheduleRecurrenceDaily)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput) ToAlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput() AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput) ToAlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput) Index(i pulumi.IntInput) AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertProcessingRuleSuppressionScheduleRecurrenceDaily {
+		return vs[0].([]AlertProcessingRuleSuppressionScheduleRecurrenceDaily)[vs[1].(int)]
+	}).(AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput)
+}
+
+type AlertProcessingRuleSuppressionScheduleRecurrenceMonthly struct {
+	// Specifies a list of dayOfMonth to recurrence. Possible values are integers between `1` - `31`.
+	DaysOfMonths []int `pulumi:"daysOfMonths"`
+	// Specifies the recurrence end time (H:M:S).
+	EndTime *string `pulumi:"endTime"`
+	// Specifies the recurrence start time (H:M:S).
+	StartTime *string `pulumi:"startTime"`
+}
+
+// AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyInput is an input type that accepts AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs and AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyInput` via:
+//
+//	AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs{...}
+type AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput() AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput
+	ToAlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutputWithContext(context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput
+}
+
+type AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs struct {
+	// Specifies a list of dayOfMonth to recurrence. Possible values are integers between `1` - `31`.
+	DaysOfMonths pulumi.IntArrayInput `pulumi:"daysOfMonths"`
+	// Specifies the recurrence end time (H:M:S).
+	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
+	// Specifies the recurrence start time (H:M:S).
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+}
+
+func (AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionScheduleRecurrenceMonthly)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs) ToAlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput() AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput {
+	return i.ToAlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs) ToAlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput)
+}
+
+// AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayInput is an input type that accepts AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArray and AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayInput` via:
+//
+//	AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArray{ AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs{...} }
+type AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput() AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput
+	ToAlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutputWithContext(context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput
+}
+
+type AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArray []AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyInput
+
+func (AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertProcessingRuleSuppressionScheduleRecurrenceMonthly)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArray) ToAlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput() AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput {
+	return i.ToAlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArray) ToAlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionScheduleRecurrenceMonthly)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput) ToAlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput() AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput) ToAlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput {
+	return o
+}
+
+// Specifies a list of dayOfMonth to recurrence. Possible values are integers between `1` - `31`.
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput) DaysOfMonths() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionScheduleRecurrenceMonthly) []int { return v.DaysOfMonths }).(pulumi.IntArrayOutput)
+}
+
+// Specifies the recurrence end time (H:M:S).
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionScheduleRecurrenceMonthly) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the recurrence start time (H:M:S).
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionScheduleRecurrenceMonthly) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertProcessingRuleSuppressionScheduleRecurrenceMonthly)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput) ToAlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput() AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput) ToAlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput) Index(i pulumi.IntInput) AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertProcessingRuleSuppressionScheduleRecurrenceMonthly {
+		return vs[0].([]AlertProcessingRuleSuppressionScheduleRecurrenceMonthly)[vs[1].(int)]
+	}).(AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput)
+}
+
+type AlertProcessingRuleSuppressionScheduleRecurrenceWeekly struct {
+	// Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
+	// Specifies the recurrence end time (H:M:S).
+	EndTime *string `pulumi:"endTime"`
+	// Specifies the recurrence start time (H:M:S).
+	StartTime *string `pulumi:"startTime"`
+}
+
+// AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyInput is an input type that accepts AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs and AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyInput` via:
+//
+//	AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs{...}
+type AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput() AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput
+	ToAlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutputWithContext(context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput
+}
+
+type AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs struct {
+	// Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
+	// Specifies the recurrence end time (H:M:S).
+	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
+	// Specifies the recurrence start time (H:M:S).
+	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
+}
+
+func (AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionScheduleRecurrenceWeekly)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs) ToAlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput() AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput {
+	return i.ToAlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs) ToAlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput)
+}
+
+// AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayInput is an input type that accepts AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArray and AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput values.
+// You can construct a concrete instance of `AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayInput` via:
+//
+//	AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArray{ AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs{...} }
+type AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayInput interface {
+	pulumi.Input
+
+	ToAlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput() AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput
+	ToAlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutputWithContext(context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput
+}
+
+type AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArray []AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyInput
+
+func (AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertProcessingRuleSuppressionScheduleRecurrenceWeekly)(nil)).Elem()
+}
+
+func (i AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArray) ToAlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput() AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput {
+	return i.ToAlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutputWithContext(context.Background())
+}
+
+func (i AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArray) ToAlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput)
+}
+
+type AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AlertProcessingRuleSuppressionScheduleRecurrenceWeekly)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput) ToAlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput() AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput) ToAlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput {
+	return o
+}
+
+// Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput) DaysOfWeeks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionScheduleRecurrenceWeekly) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the recurrence end time (H:M:S).
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionScheduleRecurrenceWeekly) *string { return v.EndTime }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the recurrence start time (H:M:S).
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AlertProcessingRuleSuppressionScheduleRecurrenceWeekly) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+}
+
+type AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput struct{ *pulumi.OutputState }
+
+func (AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AlertProcessingRuleSuppressionScheduleRecurrenceWeekly)(nil)).Elem()
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput) ToAlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput() AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput) ToAlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput {
+	return o
+}
+
+func (o AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput) Index(i pulumi.IntInput) AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertProcessingRuleSuppressionScheduleRecurrenceWeekly {
+		return vs[0].([]AlertProcessingRuleSuppressionScheduleRecurrenceWeekly)[vs[1].(int)]
+	}).(AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput)
+}
+
 type AutoscaleSettingNotification struct {
 	// A `email` block as defined below.
 	Email *AutoscaleSettingNotificationEmail `pulumi:"email"`
@@ -7751,7 +13307,7 @@ type DataCollectionRuleDataSourcesPerformanceCounter struct {
 	CounterSpecifiers []string `pulumi:"counterSpecifiers"`
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name string `pulumi:"name"`
-	// The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+	// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
 	SamplingFrequencyInSeconds int `pulumi:"samplingFrequencyInSeconds"`
 	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
 	Streams []string `pulumi:"streams"`
@@ -7773,7 +13329,7 @@ type DataCollectionRuleDataSourcesPerformanceCounterArgs struct {
 	CounterSpecifiers pulumi.StringArrayInput `pulumi:"counterSpecifiers"`
 	// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+	// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
 	SamplingFrequencyInSeconds pulumi.IntInput `pulumi:"samplingFrequencyInSeconds"`
 	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
 	Streams pulumi.StringArrayInput `pulumi:"streams"`
@@ -7840,7 +13396,7 @@ func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) Name() pulumi.Str
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesPerformanceCounter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
 func (o DataCollectionRuleDataSourcesPerformanceCounterOutput) SamplingFrequencyInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v DataCollectionRuleDataSourcesPerformanceCounter) int { return v.SamplingFrequencyInSeconds }).(pulumi.IntOutput)
 }
@@ -14073,6 +19629,1042 @@ func (o GetActionGroupWebhookReceiverAadAuthArrayOutput) Index(i pulumi.IntInput
 	}).(GetActionGroupWebhookReceiverAadAuthOutput)
 }
 
+type GetDataCollectionRuleDataFlow struct {
+	// Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+	Destinations []string `pulumi:"destinations"`
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+	Streams []string `pulumi:"streams"`
+}
+
+// GetDataCollectionRuleDataFlowInput is an input type that accepts GetDataCollectionRuleDataFlowArgs and GetDataCollectionRuleDataFlowOutput values.
+// You can construct a concrete instance of `GetDataCollectionRuleDataFlowInput` via:
+//
+//	GetDataCollectionRuleDataFlowArgs{...}
+type GetDataCollectionRuleDataFlowInput interface {
+	pulumi.Input
+
+	ToGetDataCollectionRuleDataFlowOutput() GetDataCollectionRuleDataFlowOutput
+	ToGetDataCollectionRuleDataFlowOutputWithContext(context.Context) GetDataCollectionRuleDataFlowOutput
+}
+
+type GetDataCollectionRuleDataFlowArgs struct {
+	// Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+	Streams pulumi.StringArrayInput `pulumi:"streams"`
+}
+
+func (GetDataCollectionRuleDataFlowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCollectionRuleDataFlow)(nil)).Elem()
+}
+
+func (i GetDataCollectionRuleDataFlowArgs) ToGetDataCollectionRuleDataFlowOutput() GetDataCollectionRuleDataFlowOutput {
+	return i.ToGetDataCollectionRuleDataFlowOutputWithContext(context.Background())
+}
+
+func (i GetDataCollectionRuleDataFlowArgs) ToGetDataCollectionRuleDataFlowOutputWithContext(ctx context.Context) GetDataCollectionRuleDataFlowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataFlowOutput)
+}
+
+// GetDataCollectionRuleDataFlowArrayInput is an input type that accepts GetDataCollectionRuleDataFlowArray and GetDataCollectionRuleDataFlowArrayOutput values.
+// You can construct a concrete instance of `GetDataCollectionRuleDataFlowArrayInput` via:
+//
+//	GetDataCollectionRuleDataFlowArray{ GetDataCollectionRuleDataFlowArgs{...} }
+type GetDataCollectionRuleDataFlowArrayInput interface {
+	pulumi.Input
+
+	ToGetDataCollectionRuleDataFlowArrayOutput() GetDataCollectionRuleDataFlowArrayOutput
+	ToGetDataCollectionRuleDataFlowArrayOutputWithContext(context.Context) GetDataCollectionRuleDataFlowArrayOutput
+}
+
+type GetDataCollectionRuleDataFlowArray []GetDataCollectionRuleDataFlowInput
+
+func (GetDataCollectionRuleDataFlowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCollectionRuleDataFlow)(nil)).Elem()
+}
+
+func (i GetDataCollectionRuleDataFlowArray) ToGetDataCollectionRuleDataFlowArrayOutput() GetDataCollectionRuleDataFlowArrayOutput {
+	return i.ToGetDataCollectionRuleDataFlowArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataCollectionRuleDataFlowArray) ToGetDataCollectionRuleDataFlowArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataFlowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataFlowArrayOutput)
+}
+
+type GetDataCollectionRuleDataFlowOutput struct{ *pulumi.OutputState }
+
+func (GetDataCollectionRuleDataFlowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCollectionRuleDataFlow)(nil)).Elem()
+}
+
+func (o GetDataCollectionRuleDataFlowOutput) ToGetDataCollectionRuleDataFlowOutput() GetDataCollectionRuleDataFlowOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDataFlowOutput) ToGetDataCollectionRuleDataFlowOutputWithContext(ctx context.Context) GetDataCollectionRuleDataFlowOutput {
+	return o
+}
+
+// Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+func (o GetDataCollectionRuleDataFlowOutput) Destinations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataFlow) []string { return v.Destinations }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+func (o GetDataCollectionRuleDataFlowOutput) Streams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataFlow) []string { return v.Streams }).(pulumi.StringArrayOutput)
+}
+
+type GetDataCollectionRuleDataFlowArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataCollectionRuleDataFlowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCollectionRuleDataFlow)(nil)).Elem()
+}
+
+func (o GetDataCollectionRuleDataFlowArrayOutput) ToGetDataCollectionRuleDataFlowArrayOutput() GetDataCollectionRuleDataFlowArrayOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDataFlowArrayOutput) ToGetDataCollectionRuleDataFlowArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataFlowArrayOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDataFlowArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataFlowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataCollectionRuleDataFlow {
+		return vs[0].([]GetDataCollectionRuleDataFlow)[vs[1].(int)]
+	}).(GetDataCollectionRuleDataFlowOutput)
+}
+
+type GetDataCollectionRuleDataSource struct {
+	// One or more `extension` blocks as defined below.
+	Extensions []GetDataCollectionRuleDataSourceExtension `pulumi:"extensions"`
+	// One or more `performanceCounter` blocks as defined below.
+	PerformanceCounters []GetDataCollectionRuleDataSourcePerformanceCounter `pulumi:"performanceCounters"`
+	// One or more `syslog` blocks as defined below.
+	Syslogs []GetDataCollectionRuleDataSourceSyslog `pulumi:"syslogs"`
+	// One or more `windowsEventLog` blocks as defined below.
+	WindowsEventLogs []GetDataCollectionRuleDataSourceWindowsEventLog `pulumi:"windowsEventLogs"`
+}
+
+// GetDataCollectionRuleDataSourceInput is an input type that accepts GetDataCollectionRuleDataSourceArgs and GetDataCollectionRuleDataSourceOutput values.
+// You can construct a concrete instance of `GetDataCollectionRuleDataSourceInput` via:
+//
+//	GetDataCollectionRuleDataSourceArgs{...}
+type GetDataCollectionRuleDataSourceInput interface {
+	pulumi.Input
+
+	ToGetDataCollectionRuleDataSourceOutput() GetDataCollectionRuleDataSourceOutput
+	ToGetDataCollectionRuleDataSourceOutputWithContext(context.Context) GetDataCollectionRuleDataSourceOutput
+}
+
+type GetDataCollectionRuleDataSourceArgs struct {
+	// One or more `extension` blocks as defined below.
+	Extensions GetDataCollectionRuleDataSourceExtensionArrayInput `pulumi:"extensions"`
+	// One or more `performanceCounter` blocks as defined below.
+	PerformanceCounters GetDataCollectionRuleDataSourcePerformanceCounterArrayInput `pulumi:"performanceCounters"`
+	// One or more `syslog` blocks as defined below.
+	Syslogs GetDataCollectionRuleDataSourceSyslogArrayInput `pulumi:"syslogs"`
+	// One or more `windowsEventLog` blocks as defined below.
+	WindowsEventLogs GetDataCollectionRuleDataSourceWindowsEventLogArrayInput `pulumi:"windowsEventLogs"`
+}
+
+func (GetDataCollectionRuleDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCollectionRuleDataSource)(nil)).Elem()
+}
+
+func (i GetDataCollectionRuleDataSourceArgs) ToGetDataCollectionRuleDataSourceOutput() GetDataCollectionRuleDataSourceOutput {
+	return i.ToGetDataCollectionRuleDataSourceOutputWithContext(context.Background())
+}
+
+func (i GetDataCollectionRuleDataSourceArgs) ToGetDataCollectionRuleDataSourceOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceOutput)
+}
+
+// GetDataCollectionRuleDataSourceArrayInput is an input type that accepts GetDataCollectionRuleDataSourceArray and GetDataCollectionRuleDataSourceArrayOutput values.
+// You can construct a concrete instance of `GetDataCollectionRuleDataSourceArrayInput` via:
+//
+//	GetDataCollectionRuleDataSourceArray{ GetDataCollectionRuleDataSourceArgs{...} }
+type GetDataCollectionRuleDataSourceArrayInput interface {
+	pulumi.Input
+
+	ToGetDataCollectionRuleDataSourceArrayOutput() GetDataCollectionRuleDataSourceArrayOutput
+	ToGetDataCollectionRuleDataSourceArrayOutputWithContext(context.Context) GetDataCollectionRuleDataSourceArrayOutput
+}
+
+type GetDataCollectionRuleDataSourceArray []GetDataCollectionRuleDataSourceInput
+
+func (GetDataCollectionRuleDataSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCollectionRuleDataSource)(nil)).Elem()
+}
+
+func (i GetDataCollectionRuleDataSourceArray) ToGetDataCollectionRuleDataSourceArrayOutput() GetDataCollectionRuleDataSourceArrayOutput {
+	return i.ToGetDataCollectionRuleDataSourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataCollectionRuleDataSourceArray) ToGetDataCollectionRuleDataSourceArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceArrayOutput)
+}
+
+type GetDataCollectionRuleDataSourceOutput struct{ *pulumi.OutputState }
+
+func (GetDataCollectionRuleDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCollectionRuleDataSource)(nil)).Elem()
+}
+
+func (o GetDataCollectionRuleDataSourceOutput) ToGetDataCollectionRuleDataSourceOutput() GetDataCollectionRuleDataSourceOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDataSourceOutput) ToGetDataCollectionRuleDataSourceOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceOutput {
+	return o
+}
+
+// One or more `extension` blocks as defined below.
+func (o GetDataCollectionRuleDataSourceOutput) Extensions() GetDataCollectionRuleDataSourceExtensionArrayOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataSource) []GetDataCollectionRuleDataSourceExtension {
+		return v.Extensions
+	}).(GetDataCollectionRuleDataSourceExtensionArrayOutput)
+}
+
+// One or more `performanceCounter` blocks as defined below.
+func (o GetDataCollectionRuleDataSourceOutput) PerformanceCounters() GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataSource) []GetDataCollectionRuleDataSourcePerformanceCounter {
+		return v.PerformanceCounters
+	}).(GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput)
+}
+
+// One or more `syslog` blocks as defined below.
+func (o GetDataCollectionRuleDataSourceOutput) Syslogs() GetDataCollectionRuleDataSourceSyslogArrayOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataSource) []GetDataCollectionRuleDataSourceSyslog { return v.Syslogs }).(GetDataCollectionRuleDataSourceSyslogArrayOutput)
+}
+
+// One or more `windowsEventLog` blocks as defined below.
+func (o GetDataCollectionRuleDataSourceOutput) WindowsEventLogs() GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataSource) []GetDataCollectionRuleDataSourceWindowsEventLog {
+		return v.WindowsEventLogs
+	}).(GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput)
+}
+
+type GetDataCollectionRuleDataSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataCollectionRuleDataSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCollectionRuleDataSource)(nil)).Elem()
+}
+
+func (o GetDataCollectionRuleDataSourceArrayOutput) ToGetDataCollectionRuleDataSourceArrayOutput() GetDataCollectionRuleDataSourceArrayOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDataSourceArrayOutput) ToGetDataCollectionRuleDataSourceArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceArrayOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDataSourceArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataCollectionRuleDataSource {
+		return vs[0].([]GetDataCollectionRuleDataSource)[vs[1].(int)]
+	}).(GetDataCollectionRuleDataSourceOutput)
+}
+
+type GetDataCollectionRuleDataSourceExtension struct {
+	// A JSON String which specifies the extension setting.
+	ExtensionJson string `pulumi:"extensionJson"`
+	// The name of the VM extension.
+	ExtensionName string `pulumi:"extensionName"`
+	// Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performanceCounter`, `windowsEventLog`,and `syslog`.
+	InputDataSources []string `pulumi:"inputDataSources"`
+	// Specifies the name of the Data Collection Rule.
+	Name string `pulumi:"name"`
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+	Streams []string `pulumi:"streams"`
+}
+
+// GetDataCollectionRuleDataSourceExtensionInput is an input type that accepts GetDataCollectionRuleDataSourceExtensionArgs and GetDataCollectionRuleDataSourceExtensionOutput values.
+// You can construct a concrete instance of `GetDataCollectionRuleDataSourceExtensionInput` via:
+//
+//	GetDataCollectionRuleDataSourceExtensionArgs{...}
+type GetDataCollectionRuleDataSourceExtensionInput interface {
+	pulumi.Input
+
+	ToGetDataCollectionRuleDataSourceExtensionOutput() GetDataCollectionRuleDataSourceExtensionOutput
+	ToGetDataCollectionRuleDataSourceExtensionOutputWithContext(context.Context) GetDataCollectionRuleDataSourceExtensionOutput
+}
+
+type GetDataCollectionRuleDataSourceExtensionArgs struct {
+	// A JSON String which specifies the extension setting.
+	ExtensionJson pulumi.StringInput `pulumi:"extensionJson"`
+	// The name of the VM extension.
+	ExtensionName pulumi.StringInput `pulumi:"extensionName"`
+	// Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performanceCounter`, `windowsEventLog`,and `syslog`.
+	InputDataSources pulumi.StringArrayInput `pulumi:"inputDataSources"`
+	// Specifies the name of the Data Collection Rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+	Streams pulumi.StringArrayInput `pulumi:"streams"`
+}
+
+func (GetDataCollectionRuleDataSourceExtensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCollectionRuleDataSourceExtension)(nil)).Elem()
+}
+
+func (i GetDataCollectionRuleDataSourceExtensionArgs) ToGetDataCollectionRuleDataSourceExtensionOutput() GetDataCollectionRuleDataSourceExtensionOutput {
+	return i.ToGetDataCollectionRuleDataSourceExtensionOutputWithContext(context.Background())
+}
+
+func (i GetDataCollectionRuleDataSourceExtensionArgs) ToGetDataCollectionRuleDataSourceExtensionOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceExtensionOutput)
+}
+
+// GetDataCollectionRuleDataSourceExtensionArrayInput is an input type that accepts GetDataCollectionRuleDataSourceExtensionArray and GetDataCollectionRuleDataSourceExtensionArrayOutput values.
+// You can construct a concrete instance of `GetDataCollectionRuleDataSourceExtensionArrayInput` via:
+//
+//	GetDataCollectionRuleDataSourceExtensionArray{ GetDataCollectionRuleDataSourceExtensionArgs{...} }
+type GetDataCollectionRuleDataSourceExtensionArrayInput interface {
+	pulumi.Input
+
+	ToGetDataCollectionRuleDataSourceExtensionArrayOutput() GetDataCollectionRuleDataSourceExtensionArrayOutput
+	ToGetDataCollectionRuleDataSourceExtensionArrayOutputWithContext(context.Context) GetDataCollectionRuleDataSourceExtensionArrayOutput
+}
+
+type GetDataCollectionRuleDataSourceExtensionArray []GetDataCollectionRuleDataSourceExtensionInput
+
+func (GetDataCollectionRuleDataSourceExtensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCollectionRuleDataSourceExtension)(nil)).Elem()
+}
+
+func (i GetDataCollectionRuleDataSourceExtensionArray) ToGetDataCollectionRuleDataSourceExtensionArrayOutput() GetDataCollectionRuleDataSourceExtensionArrayOutput {
+	return i.ToGetDataCollectionRuleDataSourceExtensionArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataCollectionRuleDataSourceExtensionArray) ToGetDataCollectionRuleDataSourceExtensionArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceExtensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceExtensionArrayOutput)
+}
+
+type GetDataCollectionRuleDataSourceExtensionOutput struct{ *pulumi.OutputState }
+
+func (GetDataCollectionRuleDataSourceExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCollectionRuleDataSourceExtension)(nil)).Elem()
+}
+
+func (o GetDataCollectionRuleDataSourceExtensionOutput) ToGetDataCollectionRuleDataSourceExtensionOutput() GetDataCollectionRuleDataSourceExtensionOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDataSourceExtensionOutput) ToGetDataCollectionRuleDataSourceExtensionOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceExtensionOutput {
+	return o
+}
+
+// A JSON String which specifies the extension setting.
+func (o GetDataCollectionRuleDataSourceExtensionOutput) ExtensionJson() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataSourceExtension) string { return v.ExtensionJson }).(pulumi.StringOutput)
+}
+
+// The name of the VM extension.
+func (o GetDataCollectionRuleDataSourceExtensionOutput) ExtensionName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataSourceExtension) string { return v.ExtensionName }).(pulumi.StringOutput)
+}
+
+// Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performanceCounter`, `windowsEventLog`,and `syslog`.
+func (o GetDataCollectionRuleDataSourceExtensionOutput) InputDataSources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataSourceExtension) []string { return v.InputDataSources }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the name of the Data Collection Rule.
+func (o GetDataCollectionRuleDataSourceExtensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataSourceExtension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+func (o GetDataCollectionRuleDataSourceExtensionOutput) Streams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataSourceExtension) []string { return v.Streams }).(pulumi.StringArrayOutput)
+}
+
+type GetDataCollectionRuleDataSourceExtensionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataCollectionRuleDataSourceExtensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCollectionRuleDataSourceExtension)(nil)).Elem()
+}
+
+func (o GetDataCollectionRuleDataSourceExtensionArrayOutput) ToGetDataCollectionRuleDataSourceExtensionArrayOutput() GetDataCollectionRuleDataSourceExtensionArrayOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDataSourceExtensionArrayOutput) ToGetDataCollectionRuleDataSourceExtensionArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceExtensionArrayOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDataSourceExtensionArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataSourceExtensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataCollectionRuleDataSourceExtension {
+		return vs[0].([]GetDataCollectionRuleDataSourceExtension)[vs[1].(int)]
+	}).(GetDataCollectionRuleDataSourceExtensionOutput)
+}
+
+type GetDataCollectionRuleDataSourcePerformanceCounter struct {
+	// Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+	CounterSpecifiers []string `pulumi:"counterSpecifiers"`
+	// Specifies the name of the Data Collection Rule.
+	Name string `pulumi:"name"`
+	// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
+	SamplingFrequencyInSeconds int `pulumi:"samplingFrequencyInSeconds"`
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+	Streams []string `pulumi:"streams"`
+}
+
+// GetDataCollectionRuleDataSourcePerformanceCounterInput is an input type that accepts GetDataCollectionRuleDataSourcePerformanceCounterArgs and GetDataCollectionRuleDataSourcePerformanceCounterOutput values.
+// You can construct a concrete instance of `GetDataCollectionRuleDataSourcePerformanceCounterInput` via:
+//
+//	GetDataCollectionRuleDataSourcePerformanceCounterArgs{...}
+type GetDataCollectionRuleDataSourcePerformanceCounterInput interface {
+	pulumi.Input
+
+	ToGetDataCollectionRuleDataSourcePerformanceCounterOutput() GetDataCollectionRuleDataSourcePerformanceCounterOutput
+	ToGetDataCollectionRuleDataSourcePerformanceCounterOutputWithContext(context.Context) GetDataCollectionRuleDataSourcePerformanceCounterOutput
+}
+
+type GetDataCollectionRuleDataSourcePerformanceCounterArgs struct {
+	// Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+	CounterSpecifiers pulumi.StringArrayInput `pulumi:"counterSpecifiers"`
+	// Specifies the name of the Data Collection Rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
+	SamplingFrequencyInSeconds pulumi.IntInput `pulumi:"samplingFrequencyInSeconds"`
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+	Streams pulumi.StringArrayInput `pulumi:"streams"`
+}
+
+func (GetDataCollectionRuleDataSourcePerformanceCounterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCollectionRuleDataSourcePerformanceCounter)(nil)).Elem()
+}
+
+func (i GetDataCollectionRuleDataSourcePerformanceCounterArgs) ToGetDataCollectionRuleDataSourcePerformanceCounterOutput() GetDataCollectionRuleDataSourcePerformanceCounterOutput {
+	return i.ToGetDataCollectionRuleDataSourcePerformanceCounterOutputWithContext(context.Background())
+}
+
+func (i GetDataCollectionRuleDataSourcePerformanceCounterArgs) ToGetDataCollectionRuleDataSourcePerformanceCounterOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourcePerformanceCounterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourcePerformanceCounterOutput)
+}
+
+// GetDataCollectionRuleDataSourcePerformanceCounterArrayInput is an input type that accepts GetDataCollectionRuleDataSourcePerformanceCounterArray and GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput values.
+// You can construct a concrete instance of `GetDataCollectionRuleDataSourcePerformanceCounterArrayInput` via:
+//
+//	GetDataCollectionRuleDataSourcePerformanceCounterArray{ GetDataCollectionRuleDataSourcePerformanceCounterArgs{...} }
+type GetDataCollectionRuleDataSourcePerformanceCounterArrayInput interface {
+	pulumi.Input
+
+	ToGetDataCollectionRuleDataSourcePerformanceCounterArrayOutput() GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput
+	ToGetDataCollectionRuleDataSourcePerformanceCounterArrayOutputWithContext(context.Context) GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput
+}
+
+type GetDataCollectionRuleDataSourcePerformanceCounterArray []GetDataCollectionRuleDataSourcePerformanceCounterInput
+
+func (GetDataCollectionRuleDataSourcePerformanceCounterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCollectionRuleDataSourcePerformanceCounter)(nil)).Elem()
+}
+
+func (i GetDataCollectionRuleDataSourcePerformanceCounterArray) ToGetDataCollectionRuleDataSourcePerformanceCounterArrayOutput() GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput {
+	return i.ToGetDataCollectionRuleDataSourcePerformanceCounterArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataCollectionRuleDataSourcePerformanceCounterArray) ToGetDataCollectionRuleDataSourcePerformanceCounterArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput)
+}
+
+type GetDataCollectionRuleDataSourcePerformanceCounterOutput struct{ *pulumi.OutputState }
+
+func (GetDataCollectionRuleDataSourcePerformanceCounterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCollectionRuleDataSourcePerformanceCounter)(nil)).Elem()
+}
+
+func (o GetDataCollectionRuleDataSourcePerformanceCounterOutput) ToGetDataCollectionRuleDataSourcePerformanceCounterOutput() GetDataCollectionRuleDataSourcePerformanceCounterOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDataSourcePerformanceCounterOutput) ToGetDataCollectionRuleDataSourcePerformanceCounterOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourcePerformanceCounterOutput {
+	return o
+}
+
+// Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+func (o GetDataCollectionRuleDataSourcePerformanceCounterOutput) CounterSpecifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataSourcePerformanceCounter) []string { return v.CounterSpecifiers }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the name of the Data Collection Rule.
+func (o GetDataCollectionRuleDataSourcePerformanceCounterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataSourcePerformanceCounter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
+func (o GetDataCollectionRuleDataSourcePerformanceCounterOutput) SamplingFrequencyInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataSourcePerformanceCounter) int { return v.SamplingFrequencyInSeconds }).(pulumi.IntOutput)
+}
+
+// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+func (o GetDataCollectionRuleDataSourcePerformanceCounterOutput) Streams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataSourcePerformanceCounter) []string { return v.Streams }).(pulumi.StringArrayOutput)
+}
+
+type GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCollectionRuleDataSourcePerformanceCounter)(nil)).Elem()
+}
+
+func (o GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput) ToGetDataCollectionRuleDataSourcePerformanceCounterArrayOutput() GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput) ToGetDataCollectionRuleDataSourcePerformanceCounterArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataSourcePerformanceCounterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataCollectionRuleDataSourcePerformanceCounter {
+		return vs[0].([]GetDataCollectionRuleDataSourcePerformanceCounter)[vs[1].(int)]
+	}).(GetDataCollectionRuleDataSourcePerformanceCounterOutput)
+}
+
+type GetDataCollectionRuleDataSourceSyslog struct {
+	// Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
+	FacilityNames []string `pulumi:"facilityNames"`
+	// Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+	LogLevels []string `pulumi:"logLevels"`
+	// Specifies the name of the Data Collection Rule.
+	Name string `pulumi:"name"`
+}
+
+// GetDataCollectionRuleDataSourceSyslogInput is an input type that accepts GetDataCollectionRuleDataSourceSyslogArgs and GetDataCollectionRuleDataSourceSyslogOutput values.
+// You can construct a concrete instance of `GetDataCollectionRuleDataSourceSyslogInput` via:
+//
+//	GetDataCollectionRuleDataSourceSyslogArgs{...}
+type GetDataCollectionRuleDataSourceSyslogInput interface {
+	pulumi.Input
+
+	ToGetDataCollectionRuleDataSourceSyslogOutput() GetDataCollectionRuleDataSourceSyslogOutput
+	ToGetDataCollectionRuleDataSourceSyslogOutputWithContext(context.Context) GetDataCollectionRuleDataSourceSyslogOutput
+}
+
+type GetDataCollectionRuleDataSourceSyslogArgs struct {
+	// Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
+	FacilityNames pulumi.StringArrayInput `pulumi:"facilityNames"`
+	// Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+	LogLevels pulumi.StringArrayInput `pulumi:"logLevels"`
+	// Specifies the name of the Data Collection Rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetDataCollectionRuleDataSourceSyslogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCollectionRuleDataSourceSyslog)(nil)).Elem()
+}
+
+func (i GetDataCollectionRuleDataSourceSyslogArgs) ToGetDataCollectionRuleDataSourceSyslogOutput() GetDataCollectionRuleDataSourceSyslogOutput {
+	return i.ToGetDataCollectionRuleDataSourceSyslogOutputWithContext(context.Background())
+}
+
+func (i GetDataCollectionRuleDataSourceSyslogArgs) ToGetDataCollectionRuleDataSourceSyslogOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceSyslogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceSyslogOutput)
+}
+
+// GetDataCollectionRuleDataSourceSyslogArrayInput is an input type that accepts GetDataCollectionRuleDataSourceSyslogArray and GetDataCollectionRuleDataSourceSyslogArrayOutput values.
+// You can construct a concrete instance of `GetDataCollectionRuleDataSourceSyslogArrayInput` via:
+//
+//	GetDataCollectionRuleDataSourceSyslogArray{ GetDataCollectionRuleDataSourceSyslogArgs{...} }
+type GetDataCollectionRuleDataSourceSyslogArrayInput interface {
+	pulumi.Input
+
+	ToGetDataCollectionRuleDataSourceSyslogArrayOutput() GetDataCollectionRuleDataSourceSyslogArrayOutput
+	ToGetDataCollectionRuleDataSourceSyslogArrayOutputWithContext(context.Context) GetDataCollectionRuleDataSourceSyslogArrayOutput
+}
+
+type GetDataCollectionRuleDataSourceSyslogArray []GetDataCollectionRuleDataSourceSyslogInput
+
+func (GetDataCollectionRuleDataSourceSyslogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCollectionRuleDataSourceSyslog)(nil)).Elem()
+}
+
+func (i GetDataCollectionRuleDataSourceSyslogArray) ToGetDataCollectionRuleDataSourceSyslogArrayOutput() GetDataCollectionRuleDataSourceSyslogArrayOutput {
+	return i.ToGetDataCollectionRuleDataSourceSyslogArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataCollectionRuleDataSourceSyslogArray) ToGetDataCollectionRuleDataSourceSyslogArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceSyslogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceSyslogArrayOutput)
+}
+
+type GetDataCollectionRuleDataSourceSyslogOutput struct{ *pulumi.OutputState }
+
+func (GetDataCollectionRuleDataSourceSyslogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCollectionRuleDataSourceSyslog)(nil)).Elem()
+}
+
+func (o GetDataCollectionRuleDataSourceSyslogOutput) ToGetDataCollectionRuleDataSourceSyslogOutput() GetDataCollectionRuleDataSourceSyslogOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDataSourceSyslogOutput) ToGetDataCollectionRuleDataSourceSyslogOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceSyslogOutput {
+	return o
+}
+
+// Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
+func (o GetDataCollectionRuleDataSourceSyslogOutput) FacilityNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataSourceSyslog) []string { return v.FacilityNames }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+func (o GetDataCollectionRuleDataSourceSyslogOutput) LogLevels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataSourceSyslog) []string { return v.LogLevels }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the name of the Data Collection Rule.
+func (o GetDataCollectionRuleDataSourceSyslogOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataSourceSyslog) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetDataCollectionRuleDataSourceSyslogArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataCollectionRuleDataSourceSyslogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCollectionRuleDataSourceSyslog)(nil)).Elem()
+}
+
+func (o GetDataCollectionRuleDataSourceSyslogArrayOutput) ToGetDataCollectionRuleDataSourceSyslogArrayOutput() GetDataCollectionRuleDataSourceSyslogArrayOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDataSourceSyslogArrayOutput) ToGetDataCollectionRuleDataSourceSyslogArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceSyslogArrayOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDataSourceSyslogArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataSourceSyslogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataCollectionRuleDataSourceSyslog {
+		return vs[0].([]GetDataCollectionRuleDataSourceSyslog)[vs[1].(int)]
+	}).(GetDataCollectionRuleDataSourceSyslogOutput)
+}
+
+type GetDataCollectionRuleDataSourceWindowsEventLog struct {
+	// Specifies the name of the Data Collection Rule.
+	Name string `pulumi:"name"`
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+	Streams []string `pulumi:"streams"`
+	// Specifies a list of Windows Event Log queries in XPath expression.
+	XPathQueries []string `pulumi:"xPathQueries"`
+}
+
+// GetDataCollectionRuleDataSourceWindowsEventLogInput is an input type that accepts GetDataCollectionRuleDataSourceWindowsEventLogArgs and GetDataCollectionRuleDataSourceWindowsEventLogOutput values.
+// You can construct a concrete instance of `GetDataCollectionRuleDataSourceWindowsEventLogInput` via:
+//
+//	GetDataCollectionRuleDataSourceWindowsEventLogArgs{...}
+type GetDataCollectionRuleDataSourceWindowsEventLogInput interface {
+	pulumi.Input
+
+	ToGetDataCollectionRuleDataSourceWindowsEventLogOutput() GetDataCollectionRuleDataSourceWindowsEventLogOutput
+	ToGetDataCollectionRuleDataSourceWindowsEventLogOutputWithContext(context.Context) GetDataCollectionRuleDataSourceWindowsEventLogOutput
+}
+
+type GetDataCollectionRuleDataSourceWindowsEventLogArgs struct {
+	// Specifies the name of the Data Collection Rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+	Streams pulumi.StringArrayInput `pulumi:"streams"`
+	// Specifies a list of Windows Event Log queries in XPath expression.
+	XPathQueries pulumi.StringArrayInput `pulumi:"xPathQueries"`
+}
+
+func (GetDataCollectionRuleDataSourceWindowsEventLogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCollectionRuleDataSourceWindowsEventLog)(nil)).Elem()
+}
+
+func (i GetDataCollectionRuleDataSourceWindowsEventLogArgs) ToGetDataCollectionRuleDataSourceWindowsEventLogOutput() GetDataCollectionRuleDataSourceWindowsEventLogOutput {
+	return i.ToGetDataCollectionRuleDataSourceWindowsEventLogOutputWithContext(context.Background())
+}
+
+func (i GetDataCollectionRuleDataSourceWindowsEventLogArgs) ToGetDataCollectionRuleDataSourceWindowsEventLogOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceWindowsEventLogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceWindowsEventLogOutput)
+}
+
+// GetDataCollectionRuleDataSourceWindowsEventLogArrayInput is an input type that accepts GetDataCollectionRuleDataSourceWindowsEventLogArray and GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput values.
+// You can construct a concrete instance of `GetDataCollectionRuleDataSourceWindowsEventLogArrayInput` via:
+//
+//	GetDataCollectionRuleDataSourceWindowsEventLogArray{ GetDataCollectionRuleDataSourceWindowsEventLogArgs{...} }
+type GetDataCollectionRuleDataSourceWindowsEventLogArrayInput interface {
+	pulumi.Input
+
+	ToGetDataCollectionRuleDataSourceWindowsEventLogArrayOutput() GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput
+	ToGetDataCollectionRuleDataSourceWindowsEventLogArrayOutputWithContext(context.Context) GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput
+}
+
+type GetDataCollectionRuleDataSourceWindowsEventLogArray []GetDataCollectionRuleDataSourceWindowsEventLogInput
+
+func (GetDataCollectionRuleDataSourceWindowsEventLogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCollectionRuleDataSourceWindowsEventLog)(nil)).Elem()
+}
+
+func (i GetDataCollectionRuleDataSourceWindowsEventLogArray) ToGetDataCollectionRuleDataSourceWindowsEventLogArrayOutput() GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput {
+	return i.ToGetDataCollectionRuleDataSourceWindowsEventLogArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataCollectionRuleDataSourceWindowsEventLogArray) ToGetDataCollectionRuleDataSourceWindowsEventLogArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput)
+}
+
+type GetDataCollectionRuleDataSourceWindowsEventLogOutput struct{ *pulumi.OutputState }
+
+func (GetDataCollectionRuleDataSourceWindowsEventLogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCollectionRuleDataSourceWindowsEventLog)(nil)).Elem()
+}
+
+func (o GetDataCollectionRuleDataSourceWindowsEventLogOutput) ToGetDataCollectionRuleDataSourceWindowsEventLogOutput() GetDataCollectionRuleDataSourceWindowsEventLogOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDataSourceWindowsEventLogOutput) ToGetDataCollectionRuleDataSourceWindowsEventLogOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceWindowsEventLogOutput {
+	return o
+}
+
+// Specifies the name of the Data Collection Rule.
+func (o GetDataCollectionRuleDataSourceWindowsEventLogOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataSourceWindowsEventLog) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+func (o GetDataCollectionRuleDataSourceWindowsEventLogOutput) Streams() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataSourceWindowsEventLog) []string { return v.Streams }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of Windows Event Log queries in XPath expression.
+func (o GetDataCollectionRuleDataSourceWindowsEventLogOutput) XPathQueries() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDataSourceWindowsEventLog) []string { return v.XPathQueries }).(pulumi.StringArrayOutput)
+}
+
+type GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCollectionRuleDataSourceWindowsEventLog)(nil)).Elem()
+}
+
+func (o GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput) ToGetDataCollectionRuleDataSourceWindowsEventLogArrayOutput() GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput) ToGetDataCollectionRuleDataSourceWindowsEventLogArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDataSourceWindowsEventLogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataCollectionRuleDataSourceWindowsEventLog {
+		return vs[0].([]GetDataCollectionRuleDataSourceWindowsEventLog)[vs[1].(int)]
+	}).(GetDataCollectionRuleDataSourceWindowsEventLogOutput)
+}
+
+type GetDataCollectionRuleDestination struct {
+	// A `azureMonitorMetrics` block as defined above.
+	AzureMonitorMetrics []GetDataCollectionRuleDestinationAzureMonitorMetric `pulumi:"azureMonitorMetrics"`
+	// One or more `logAnalytics` blocks as defined below.
+	LogAnalytics []GetDataCollectionRuleDestinationLogAnalytic `pulumi:"logAnalytics"`
+}
+
+// GetDataCollectionRuleDestinationInput is an input type that accepts GetDataCollectionRuleDestinationArgs and GetDataCollectionRuleDestinationOutput values.
+// You can construct a concrete instance of `GetDataCollectionRuleDestinationInput` via:
+//
+//	GetDataCollectionRuleDestinationArgs{...}
+type GetDataCollectionRuleDestinationInput interface {
+	pulumi.Input
+
+	ToGetDataCollectionRuleDestinationOutput() GetDataCollectionRuleDestinationOutput
+	ToGetDataCollectionRuleDestinationOutputWithContext(context.Context) GetDataCollectionRuleDestinationOutput
+}
+
+type GetDataCollectionRuleDestinationArgs struct {
+	// A `azureMonitorMetrics` block as defined above.
+	AzureMonitorMetrics GetDataCollectionRuleDestinationAzureMonitorMetricArrayInput `pulumi:"azureMonitorMetrics"`
+	// One or more `logAnalytics` blocks as defined below.
+	LogAnalytics GetDataCollectionRuleDestinationLogAnalyticArrayInput `pulumi:"logAnalytics"`
+}
+
+func (GetDataCollectionRuleDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCollectionRuleDestination)(nil)).Elem()
+}
+
+func (i GetDataCollectionRuleDestinationArgs) ToGetDataCollectionRuleDestinationOutput() GetDataCollectionRuleDestinationOutput {
+	return i.ToGetDataCollectionRuleDestinationOutputWithContext(context.Background())
+}
+
+func (i GetDataCollectionRuleDestinationArgs) ToGetDataCollectionRuleDestinationOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationOutput)
+}
+
+// GetDataCollectionRuleDestinationArrayInput is an input type that accepts GetDataCollectionRuleDestinationArray and GetDataCollectionRuleDestinationArrayOutput values.
+// You can construct a concrete instance of `GetDataCollectionRuleDestinationArrayInput` via:
+//
+//	GetDataCollectionRuleDestinationArray{ GetDataCollectionRuleDestinationArgs{...} }
+type GetDataCollectionRuleDestinationArrayInput interface {
+	pulumi.Input
+
+	ToGetDataCollectionRuleDestinationArrayOutput() GetDataCollectionRuleDestinationArrayOutput
+	ToGetDataCollectionRuleDestinationArrayOutputWithContext(context.Context) GetDataCollectionRuleDestinationArrayOutput
+}
+
+type GetDataCollectionRuleDestinationArray []GetDataCollectionRuleDestinationInput
+
+func (GetDataCollectionRuleDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCollectionRuleDestination)(nil)).Elem()
+}
+
+func (i GetDataCollectionRuleDestinationArray) ToGetDataCollectionRuleDestinationArrayOutput() GetDataCollectionRuleDestinationArrayOutput {
+	return i.ToGetDataCollectionRuleDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataCollectionRuleDestinationArray) ToGetDataCollectionRuleDestinationArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationArrayOutput)
+}
+
+type GetDataCollectionRuleDestinationOutput struct{ *pulumi.OutputState }
+
+func (GetDataCollectionRuleDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCollectionRuleDestination)(nil)).Elem()
+}
+
+func (o GetDataCollectionRuleDestinationOutput) ToGetDataCollectionRuleDestinationOutput() GetDataCollectionRuleDestinationOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDestinationOutput) ToGetDataCollectionRuleDestinationOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationOutput {
+	return o
+}
+
+// A `azureMonitorMetrics` block as defined above.
+func (o GetDataCollectionRuleDestinationOutput) AzureMonitorMetrics() GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDestination) []GetDataCollectionRuleDestinationAzureMonitorMetric {
+		return v.AzureMonitorMetrics
+	}).(GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput)
+}
+
+// One or more `logAnalytics` blocks as defined below.
+func (o GetDataCollectionRuleDestinationOutput) LogAnalytics() GetDataCollectionRuleDestinationLogAnalyticArrayOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDestination) []GetDataCollectionRuleDestinationLogAnalytic {
+		return v.LogAnalytics
+	}).(GetDataCollectionRuleDestinationLogAnalyticArrayOutput)
+}
+
+type GetDataCollectionRuleDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataCollectionRuleDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCollectionRuleDestination)(nil)).Elem()
+}
+
+func (o GetDataCollectionRuleDestinationArrayOutput) ToGetDataCollectionRuleDestinationArrayOutput() GetDataCollectionRuleDestinationArrayOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDestinationArrayOutput) ToGetDataCollectionRuleDestinationArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationArrayOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDestinationArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataCollectionRuleDestination {
+		return vs[0].([]GetDataCollectionRuleDestination)[vs[1].(int)]
+	}).(GetDataCollectionRuleDestinationOutput)
+}
+
+type GetDataCollectionRuleDestinationAzureMonitorMetric struct {
+	// Specifies the name of the Data Collection Rule.
+	Name string `pulumi:"name"`
+}
+
+// GetDataCollectionRuleDestinationAzureMonitorMetricInput is an input type that accepts GetDataCollectionRuleDestinationAzureMonitorMetricArgs and GetDataCollectionRuleDestinationAzureMonitorMetricOutput values.
+// You can construct a concrete instance of `GetDataCollectionRuleDestinationAzureMonitorMetricInput` via:
+//
+//	GetDataCollectionRuleDestinationAzureMonitorMetricArgs{...}
+type GetDataCollectionRuleDestinationAzureMonitorMetricInput interface {
+	pulumi.Input
+
+	ToGetDataCollectionRuleDestinationAzureMonitorMetricOutput() GetDataCollectionRuleDestinationAzureMonitorMetricOutput
+	ToGetDataCollectionRuleDestinationAzureMonitorMetricOutputWithContext(context.Context) GetDataCollectionRuleDestinationAzureMonitorMetricOutput
+}
+
+type GetDataCollectionRuleDestinationAzureMonitorMetricArgs struct {
+	// Specifies the name of the Data Collection Rule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetDataCollectionRuleDestinationAzureMonitorMetricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCollectionRuleDestinationAzureMonitorMetric)(nil)).Elem()
+}
+
+func (i GetDataCollectionRuleDestinationAzureMonitorMetricArgs) ToGetDataCollectionRuleDestinationAzureMonitorMetricOutput() GetDataCollectionRuleDestinationAzureMonitorMetricOutput {
+	return i.ToGetDataCollectionRuleDestinationAzureMonitorMetricOutputWithContext(context.Background())
+}
+
+func (i GetDataCollectionRuleDestinationAzureMonitorMetricArgs) ToGetDataCollectionRuleDestinationAzureMonitorMetricOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationAzureMonitorMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationAzureMonitorMetricOutput)
+}
+
+// GetDataCollectionRuleDestinationAzureMonitorMetricArrayInput is an input type that accepts GetDataCollectionRuleDestinationAzureMonitorMetricArray and GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput values.
+// You can construct a concrete instance of `GetDataCollectionRuleDestinationAzureMonitorMetricArrayInput` via:
+//
+//	GetDataCollectionRuleDestinationAzureMonitorMetricArray{ GetDataCollectionRuleDestinationAzureMonitorMetricArgs{...} }
+type GetDataCollectionRuleDestinationAzureMonitorMetricArrayInput interface {
+	pulumi.Input
+
+	ToGetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput() GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput
+	ToGetDataCollectionRuleDestinationAzureMonitorMetricArrayOutputWithContext(context.Context) GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput
+}
+
+type GetDataCollectionRuleDestinationAzureMonitorMetricArray []GetDataCollectionRuleDestinationAzureMonitorMetricInput
+
+func (GetDataCollectionRuleDestinationAzureMonitorMetricArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCollectionRuleDestinationAzureMonitorMetric)(nil)).Elem()
+}
+
+func (i GetDataCollectionRuleDestinationAzureMonitorMetricArray) ToGetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput() GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput {
+	return i.ToGetDataCollectionRuleDestinationAzureMonitorMetricArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataCollectionRuleDestinationAzureMonitorMetricArray) ToGetDataCollectionRuleDestinationAzureMonitorMetricArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput)
+}
+
+type GetDataCollectionRuleDestinationAzureMonitorMetricOutput struct{ *pulumi.OutputState }
+
+func (GetDataCollectionRuleDestinationAzureMonitorMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCollectionRuleDestinationAzureMonitorMetric)(nil)).Elem()
+}
+
+func (o GetDataCollectionRuleDestinationAzureMonitorMetricOutput) ToGetDataCollectionRuleDestinationAzureMonitorMetricOutput() GetDataCollectionRuleDestinationAzureMonitorMetricOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDestinationAzureMonitorMetricOutput) ToGetDataCollectionRuleDestinationAzureMonitorMetricOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationAzureMonitorMetricOutput {
+	return o
+}
+
+// Specifies the name of the Data Collection Rule.
+func (o GetDataCollectionRuleDestinationAzureMonitorMetricOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDestinationAzureMonitorMetric) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCollectionRuleDestinationAzureMonitorMetric)(nil)).Elem()
+}
+
+func (o GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput) ToGetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput() GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput) ToGetDataCollectionRuleDestinationAzureMonitorMetricArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDestinationAzureMonitorMetricOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataCollectionRuleDestinationAzureMonitorMetric {
+		return vs[0].([]GetDataCollectionRuleDestinationAzureMonitorMetric)[vs[1].(int)]
+	}).(GetDataCollectionRuleDestinationAzureMonitorMetricOutput)
+}
+
+type GetDataCollectionRuleDestinationLogAnalytic struct {
+	// Specifies the name of the Data Collection Rule.
+	Name string `pulumi:"name"`
+	// The ID of a Log Analytic Workspace resource.
+	WorkspaceResourceId string `pulumi:"workspaceResourceId"`
+}
+
+// GetDataCollectionRuleDestinationLogAnalyticInput is an input type that accepts GetDataCollectionRuleDestinationLogAnalyticArgs and GetDataCollectionRuleDestinationLogAnalyticOutput values.
+// You can construct a concrete instance of `GetDataCollectionRuleDestinationLogAnalyticInput` via:
+//
+//	GetDataCollectionRuleDestinationLogAnalyticArgs{...}
+type GetDataCollectionRuleDestinationLogAnalyticInput interface {
+	pulumi.Input
+
+	ToGetDataCollectionRuleDestinationLogAnalyticOutput() GetDataCollectionRuleDestinationLogAnalyticOutput
+	ToGetDataCollectionRuleDestinationLogAnalyticOutputWithContext(context.Context) GetDataCollectionRuleDestinationLogAnalyticOutput
+}
+
+type GetDataCollectionRuleDestinationLogAnalyticArgs struct {
+	// Specifies the name of the Data Collection Rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The ID of a Log Analytic Workspace resource.
+	WorkspaceResourceId pulumi.StringInput `pulumi:"workspaceResourceId"`
+}
+
+func (GetDataCollectionRuleDestinationLogAnalyticArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCollectionRuleDestinationLogAnalytic)(nil)).Elem()
+}
+
+func (i GetDataCollectionRuleDestinationLogAnalyticArgs) ToGetDataCollectionRuleDestinationLogAnalyticOutput() GetDataCollectionRuleDestinationLogAnalyticOutput {
+	return i.ToGetDataCollectionRuleDestinationLogAnalyticOutputWithContext(context.Background())
+}
+
+func (i GetDataCollectionRuleDestinationLogAnalyticArgs) ToGetDataCollectionRuleDestinationLogAnalyticOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationLogAnalyticOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationLogAnalyticOutput)
+}
+
+// GetDataCollectionRuleDestinationLogAnalyticArrayInput is an input type that accepts GetDataCollectionRuleDestinationLogAnalyticArray and GetDataCollectionRuleDestinationLogAnalyticArrayOutput values.
+// You can construct a concrete instance of `GetDataCollectionRuleDestinationLogAnalyticArrayInput` via:
+//
+//	GetDataCollectionRuleDestinationLogAnalyticArray{ GetDataCollectionRuleDestinationLogAnalyticArgs{...} }
+type GetDataCollectionRuleDestinationLogAnalyticArrayInput interface {
+	pulumi.Input
+
+	ToGetDataCollectionRuleDestinationLogAnalyticArrayOutput() GetDataCollectionRuleDestinationLogAnalyticArrayOutput
+	ToGetDataCollectionRuleDestinationLogAnalyticArrayOutputWithContext(context.Context) GetDataCollectionRuleDestinationLogAnalyticArrayOutput
+}
+
+type GetDataCollectionRuleDestinationLogAnalyticArray []GetDataCollectionRuleDestinationLogAnalyticInput
+
+func (GetDataCollectionRuleDestinationLogAnalyticArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCollectionRuleDestinationLogAnalytic)(nil)).Elem()
+}
+
+func (i GetDataCollectionRuleDestinationLogAnalyticArray) ToGetDataCollectionRuleDestinationLogAnalyticArrayOutput() GetDataCollectionRuleDestinationLogAnalyticArrayOutput {
+	return i.ToGetDataCollectionRuleDestinationLogAnalyticArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataCollectionRuleDestinationLogAnalyticArray) ToGetDataCollectionRuleDestinationLogAnalyticArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationLogAnalyticArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataCollectionRuleDestinationLogAnalyticArrayOutput)
+}
+
+type GetDataCollectionRuleDestinationLogAnalyticOutput struct{ *pulumi.OutputState }
+
+func (GetDataCollectionRuleDestinationLogAnalyticOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataCollectionRuleDestinationLogAnalytic)(nil)).Elem()
+}
+
+func (o GetDataCollectionRuleDestinationLogAnalyticOutput) ToGetDataCollectionRuleDestinationLogAnalyticOutput() GetDataCollectionRuleDestinationLogAnalyticOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDestinationLogAnalyticOutput) ToGetDataCollectionRuleDestinationLogAnalyticOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationLogAnalyticOutput {
+	return o
+}
+
+// Specifies the name of the Data Collection Rule.
+func (o GetDataCollectionRuleDestinationLogAnalyticOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDestinationLogAnalytic) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of a Log Analytic Workspace resource.
+func (o GetDataCollectionRuleDestinationLogAnalyticOutput) WorkspaceResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataCollectionRuleDestinationLogAnalytic) string { return v.WorkspaceResourceId }).(pulumi.StringOutput)
+}
+
+type GetDataCollectionRuleDestinationLogAnalyticArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataCollectionRuleDestinationLogAnalyticArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataCollectionRuleDestinationLogAnalytic)(nil)).Elem()
+}
+
+func (o GetDataCollectionRuleDestinationLogAnalyticArrayOutput) ToGetDataCollectionRuleDestinationLogAnalyticArrayOutput() GetDataCollectionRuleDestinationLogAnalyticArrayOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDestinationLogAnalyticArrayOutput) ToGetDataCollectionRuleDestinationLogAnalyticArrayOutputWithContext(ctx context.Context) GetDataCollectionRuleDestinationLogAnalyticArrayOutput {
+	return o
+}
+
+func (o GetDataCollectionRuleDestinationLogAnalyticArrayOutput) Index(i pulumi.IntInput) GetDataCollectionRuleDestinationLogAnalyticOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataCollectionRuleDestinationLogAnalytic {
+		return vs[0].([]GetDataCollectionRuleDestinationLogAnalytic)[vs[1].(int)]
+	}).(GetDataCollectionRuleDestinationLogAnalyticOutput)
+}
+
 type GetLogProfileRetentionPolicy struct {
 	// The number of days for the retention policy.
 	Days int `pulumi:"days"`
@@ -14825,6 +21417,74 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertCriteriaResourceHealthArrayInput)(nil)).Elem(), ActivityLogAlertCriteriaResourceHealthArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertCriteriaServiceHealthInput)(nil)).Elem(), ActivityLogAlertCriteriaServiceHealthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActivityLogAlertCriteriaServiceHealthArrayInput)(nil)).Elem(), ActivityLogAlertCriteriaServiceHealthArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionPtrInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionAlertContextInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionAlertContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionAlertContextPtrInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionAlertContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionAlertRuleIdInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionAlertRuleIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionAlertRuleIdPtrInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionAlertRuleIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionAlertRuleNameInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionAlertRuleNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionAlertRuleNamePtrInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionAlertRuleNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionDescriptionInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionDescriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionDescriptionPtrInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionDescriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionMonitorConditionInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionMonitorConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionMonitorConditionPtrInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionMonitorConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionMonitorServiceInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionMonitorServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionMonitorServicePtrInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionMonitorServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionSeverityInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionSeverityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionSeverityPtrInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionSeverityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionSignalTypeInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionSignalTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionSignalTypePtrInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionSignalTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionTargetResourceInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionTargetResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionTargetResourcePtrInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionTargetResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionTargetResourceGroupInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionTargetResourceTypeInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupConditionTargetResourceTypePtrInput)(nil)).Elem(), AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupScheduleInput)(nil)).Elem(), AlertProcessingRuleActionGroupScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupSchedulePtrInput)(nil)).Elem(), AlertProcessingRuleActionGroupScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupScheduleRecurrenceInput)(nil)).Elem(), AlertProcessingRuleActionGroupScheduleRecurrenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupScheduleRecurrencePtrInput)(nil)).Elem(), AlertProcessingRuleActionGroupScheduleRecurrenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupScheduleRecurrenceDailyInput)(nil)).Elem(), AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayInput)(nil)).Elem(), AlertProcessingRuleActionGroupScheduleRecurrenceDailyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyInput)(nil)).Elem(), AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayInput)(nil)).Elem(), AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyInput)(nil)).Elem(), AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayInput)(nil)).Elem(), AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionPtrInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionAlertContextInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionAlertContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionAlertContextPtrInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionAlertContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionAlertRuleIdInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionAlertRuleIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionAlertRuleIdPtrInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionAlertRuleIdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionAlertRuleNameInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionAlertRuleNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionAlertRuleNamePtrInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionAlertRuleNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionDescriptionInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionDescriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionDescriptionPtrInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionDescriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionMonitorConditionInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionMonitorConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionMonitorConditionPtrInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionMonitorConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionMonitorServiceInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionMonitorServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionMonitorServicePtrInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionMonitorServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionSeverityInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionSeverityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionSeverityPtrInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionSeverityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionSignalTypeInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionSignalTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionSignalTypePtrInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionSignalTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionTargetResourceInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionTargetResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionTargetResourcePtrInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionTargetResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionTargetResourceGroupInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionTargetResourceTypeInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionConditionTargetResourceTypePtrInput)(nil)).Elem(), AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionScheduleInput)(nil)).Elem(), AlertProcessingRuleSuppressionScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionSchedulePtrInput)(nil)).Elem(), AlertProcessingRuleSuppressionScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionScheduleRecurrenceInput)(nil)).Elem(), AlertProcessingRuleSuppressionScheduleRecurrenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionScheduleRecurrencePtrInput)(nil)).Elem(), AlertProcessingRuleSuppressionScheduleRecurrenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionScheduleRecurrenceDailyInput)(nil)).Elem(), AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayInput)(nil)).Elem(), AlertProcessingRuleSuppressionScheduleRecurrenceDailyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyInput)(nil)).Elem(), AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayInput)(nil)).Elem(), AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyInput)(nil)).Elem(), AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayInput)(nil)).Elem(), AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingNotificationInput)(nil)).Elem(), AutoscaleSettingNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingNotificationPtrInput)(nil)).Elem(), AutoscaleSettingNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoscaleSettingNotificationEmailInput)(nil)).Elem(), AutoscaleSettingNotificationEmailArgs{})
@@ -14938,6 +21598,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionGroupWebhookReceiverArrayInput)(nil)).Elem(), GetActionGroupWebhookReceiverArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionGroupWebhookReceiverAadAuthInput)(nil)).Elem(), GetActionGroupWebhookReceiverAadAuthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetActionGroupWebhookReceiverAadAuthArrayInput)(nil)).Elem(), GetActionGroupWebhookReceiverAadAuthArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDataFlowInput)(nil)).Elem(), GetDataCollectionRuleDataFlowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDataFlowArrayInput)(nil)).Elem(), GetDataCollectionRuleDataFlowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDataSourceInput)(nil)).Elem(), GetDataCollectionRuleDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDataSourceArrayInput)(nil)).Elem(), GetDataCollectionRuleDataSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDataSourceExtensionInput)(nil)).Elem(), GetDataCollectionRuleDataSourceExtensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDataSourceExtensionArrayInput)(nil)).Elem(), GetDataCollectionRuleDataSourceExtensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDataSourcePerformanceCounterInput)(nil)).Elem(), GetDataCollectionRuleDataSourcePerformanceCounterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDataSourcePerformanceCounterArrayInput)(nil)).Elem(), GetDataCollectionRuleDataSourcePerformanceCounterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDataSourceSyslogInput)(nil)).Elem(), GetDataCollectionRuleDataSourceSyslogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDataSourceSyslogArrayInput)(nil)).Elem(), GetDataCollectionRuleDataSourceSyslogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDataSourceWindowsEventLogInput)(nil)).Elem(), GetDataCollectionRuleDataSourceWindowsEventLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDataSourceWindowsEventLogArrayInput)(nil)).Elem(), GetDataCollectionRuleDataSourceWindowsEventLogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationInput)(nil)).Elem(), GetDataCollectionRuleDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationArrayInput)(nil)).Elem(), GetDataCollectionRuleDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationAzureMonitorMetricInput)(nil)).Elem(), GetDataCollectionRuleDestinationAzureMonitorMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationAzureMonitorMetricArrayInput)(nil)).Elem(), GetDataCollectionRuleDestinationAzureMonitorMetricArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationLogAnalyticInput)(nil)).Elem(), GetDataCollectionRuleDestinationLogAnalyticArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCollectionRuleDestinationLogAnalyticArrayInput)(nil)).Elem(), GetDataCollectionRuleDestinationLogAnalyticArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogProfileRetentionPolicyInput)(nil)).Elem(), GetLogProfileRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLogProfileRetentionPolicyArrayInput)(nil)).Elem(), GetLogProfileRetentionPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetScheduledQueryRulesAlertActionInput)(nil)).Elem(), GetScheduledQueryRulesAlertActionArgs{})
@@ -15025,6 +21703,74 @@ func init() {
 	pulumi.RegisterOutputType(ActivityLogAlertCriteriaResourceHealthArrayOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertCriteriaServiceHealthOutput{})
 	pulumi.RegisterOutputType(ActivityLogAlertCriteriaServiceHealthArrayOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionPtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionAlertContextOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionAlertContextPtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionAlertRuleIdOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionAlertRuleIdPtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionAlertRuleNameOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionAlertRuleNamePtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionDescriptionOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionMonitorConditionOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionMonitorConditionPtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionMonitorServiceOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionMonitorServicePtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionSeverityOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionSeverityPtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionSignalTypeOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionSignalTypePtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionTargetResourceOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionTargetResourcePtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionTargetResourceGroupOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionTargetResourceGroupPtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionTargetResourceTypeOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupConditionTargetResourceTypePtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupScheduleOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupSchedulePtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupScheduleRecurrenceOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupScheduleRecurrencePtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupScheduleRecurrenceDailyOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupScheduleRecurrenceDailyArrayOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArrayOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArrayOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionPtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionAlertContextOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionAlertContextPtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionAlertRuleIdOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionAlertRuleIdPtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionAlertRuleNameOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionAlertRuleNamePtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionDescriptionOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionDescriptionPtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionMonitorConditionOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionMonitorConditionPtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionMonitorServiceOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionMonitorServicePtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionSeverityOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionSeverityPtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionSignalTypeOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionSignalTypePtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionTargetResourceOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionTargetResourcePtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionTargetResourceGroupOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionTargetResourceGroupPtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionTargetResourceTypeOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionConditionTargetResourceTypePtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionScheduleOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionSchedulePtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionScheduleRecurrenceOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionScheduleRecurrencePtrOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionScheduleRecurrenceDailyOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionScheduleRecurrenceDailyArrayOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArrayOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyOutput{})
+	pulumi.RegisterOutputType(AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArrayOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingNotificationOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingNotificationPtrOutput{})
 	pulumi.RegisterOutputType(AutoscaleSettingNotificationEmailOutput{})
@@ -15138,6 +21884,24 @@ func init() {
 	pulumi.RegisterOutputType(GetActionGroupWebhookReceiverArrayOutput{})
 	pulumi.RegisterOutputType(GetActionGroupWebhookReceiverAadAuthOutput{})
 	pulumi.RegisterOutputType(GetActionGroupWebhookReceiverAadAuthArrayOutput{})
+	pulumi.RegisterOutputType(GetDataCollectionRuleDataFlowOutput{})
+	pulumi.RegisterOutputType(GetDataCollectionRuleDataFlowArrayOutput{})
+	pulumi.RegisterOutputType(GetDataCollectionRuleDataSourceOutput{})
+	pulumi.RegisterOutputType(GetDataCollectionRuleDataSourceArrayOutput{})
+	pulumi.RegisterOutputType(GetDataCollectionRuleDataSourceExtensionOutput{})
+	pulumi.RegisterOutputType(GetDataCollectionRuleDataSourceExtensionArrayOutput{})
+	pulumi.RegisterOutputType(GetDataCollectionRuleDataSourcePerformanceCounterOutput{})
+	pulumi.RegisterOutputType(GetDataCollectionRuleDataSourcePerformanceCounterArrayOutput{})
+	pulumi.RegisterOutputType(GetDataCollectionRuleDataSourceSyslogOutput{})
+	pulumi.RegisterOutputType(GetDataCollectionRuleDataSourceSyslogArrayOutput{})
+	pulumi.RegisterOutputType(GetDataCollectionRuleDataSourceWindowsEventLogOutput{})
+	pulumi.RegisterOutputType(GetDataCollectionRuleDataSourceWindowsEventLogArrayOutput{})
+	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationOutput{})
+	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationArrayOutput{})
+	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationAzureMonitorMetricOutput{})
+	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationAzureMonitorMetricArrayOutput{})
+	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationLogAnalyticOutput{})
+	pulumi.RegisterOutputType(GetDataCollectionRuleDestinationLogAnalyticArrayOutput{})
 	pulumi.RegisterOutputType(GetLogProfileRetentionPolicyOutput{})
 	pulumi.RegisterOutputType(GetLogProfileRetentionPolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetScheduledQueryRulesAlertActionOutput{})

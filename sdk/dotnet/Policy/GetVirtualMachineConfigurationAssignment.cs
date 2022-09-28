@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Policy
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetVirtualMachineConfigurationAssignmentResult> InvokeAsync(GetVirtualMachineConfigurationAssignmentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineConfigurationAssignmentResult>("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", args ?? new GetVirtualMachineConfigurationAssignmentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineConfigurationAssignmentResult>("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", args ?? new GetVirtualMachineConfigurationAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Guest Configuration Policy.
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Policy
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetVirtualMachineConfigurationAssignmentResult> Invoke(GetVirtualMachineConfigurationAssignmentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVirtualMachineConfigurationAssignmentResult>("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", args ?? new GetVirtualMachineConfigurationAssignmentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineConfigurationAssignmentResult>("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", args ?? new GetVirtualMachineConfigurationAssignmentInvokeArgs(), options.WithDefaults());
     }
 
 

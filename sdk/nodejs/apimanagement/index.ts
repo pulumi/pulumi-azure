@@ -5,107 +5,271 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./api";
-export * from "./apiDiagnostic";
-export * from "./apiOperation";
-export * from "./apiOperationPolicy";
-export * from "./apiOperationTag";
-export * from "./apiPolicy";
-export * from "./apiRelease";
-export * from "./apiSchema";
-export * from "./apiTag";
-export * from "./apiTagDescription";
-export * from "./apiVersionSet";
-export * from "./authorizationServer";
-export * from "./backend";
-export * from "./certificate";
-export * from "./customDomain";
-export * from "./diagnostic";
-export * from "./emailTemplate";
-export * from "./gateway";
-export * from "./gatewayApi";
-export * from "./gatewayCertificateAuthority";
-export * from "./gatewayHostNameConfiguration";
-export * from "./getApi";
-export * from "./getApiVersionSet";
-export * from "./getGateway";
-export * from "./getGroup";
-export * from "./getProduct";
-export * from "./getService";
-export * from "./getUser";
-export * from "./globalSchema";
-export * from "./group";
-export * from "./groupUser";
-export * from "./identityProviderAad";
-export * from "./identityProviderAadb2c";
-export * from "./identityProviderFacebook";
-export * from "./identityProviderGoogle";
-export * from "./identityProviderMicrosoft";
-export * from "./identityProviderTwitter";
-export * from "./logger";
-export * from "./namedValue";
-export * from "./notificationRecipientEmail";
-export * from "./notificationRecipientUser";
-export * from "./openIdConnectProvider";
-export * from "./policy";
-export * from "./product";
-export * from "./productApi";
-export * from "./productGroup";
-export * from "./productPolicy";
-export * from "./productTag";
-export * from "./redisCache";
-export * from "./service";
-export * from "./subscription";
-export * from "./tag";
-export * from "./user";
+export { ApiArgs, ApiState } from "./api";
+export type Api = import("./api").Api;
+export const Api: typeof import("./api").Api = null as any;
+utilities.lazyLoad(exports, ["Api"], () => require("./api"));
 
-// Import resources to register:
-import { Api } from "./api";
-import { ApiDiagnostic } from "./apiDiagnostic";
-import { ApiOperation } from "./apiOperation";
-import { ApiOperationPolicy } from "./apiOperationPolicy";
-import { ApiOperationTag } from "./apiOperationTag";
-import { ApiPolicy } from "./apiPolicy";
-import { ApiRelease } from "./apiRelease";
-import { ApiSchema } from "./apiSchema";
-import { ApiTag } from "./apiTag";
-import { ApiTagDescription } from "./apiTagDescription";
-import { ApiVersionSet } from "./apiVersionSet";
-import { AuthorizationServer } from "./authorizationServer";
-import { Backend } from "./backend";
-import { Certificate } from "./certificate";
-import { CustomDomain } from "./customDomain";
-import { Diagnostic } from "./diagnostic";
-import { EmailTemplate } from "./emailTemplate";
-import { Gateway } from "./gateway";
-import { GatewayApi } from "./gatewayApi";
-import { GatewayCertificateAuthority } from "./gatewayCertificateAuthority";
-import { GatewayHostNameConfiguration } from "./gatewayHostNameConfiguration";
-import { GlobalSchema } from "./globalSchema";
-import { Group } from "./group";
-import { GroupUser } from "./groupUser";
-import { IdentityProviderAad } from "./identityProviderAad";
-import { IdentityProviderAadb2c } from "./identityProviderAadb2c";
-import { IdentityProviderFacebook } from "./identityProviderFacebook";
-import { IdentityProviderGoogle } from "./identityProviderGoogle";
-import { IdentityProviderMicrosoft } from "./identityProviderMicrosoft";
-import { IdentityProviderTwitter } from "./identityProviderTwitter";
-import { Logger } from "./logger";
-import { NamedValue } from "./namedValue";
-import { NotificationRecipientEmail } from "./notificationRecipientEmail";
-import { NotificationRecipientUser } from "./notificationRecipientUser";
-import { OpenIdConnectProvider } from "./openIdConnectProvider";
-import { Policy } from "./policy";
-import { Product } from "./product";
-import { ProductApi } from "./productApi";
-import { ProductGroup } from "./productGroup";
-import { ProductPolicy } from "./productPolicy";
-import { ProductTag } from "./productTag";
-import { RedisCache } from "./redisCache";
-import { Service } from "./service";
-import { Subscription } from "./subscription";
-import { Tag } from "./tag";
-import { User } from "./user";
+export { ApiDiagnosticArgs, ApiDiagnosticState } from "./apiDiagnostic";
+export type ApiDiagnostic = import("./apiDiagnostic").ApiDiagnostic;
+export const ApiDiagnostic: typeof import("./apiDiagnostic").ApiDiagnostic = null as any;
+utilities.lazyLoad(exports, ["ApiDiagnostic"], () => require("./apiDiagnostic"));
+
+export { ApiOperationArgs, ApiOperationState } from "./apiOperation";
+export type ApiOperation = import("./apiOperation").ApiOperation;
+export const ApiOperation: typeof import("./apiOperation").ApiOperation = null as any;
+utilities.lazyLoad(exports, ["ApiOperation"], () => require("./apiOperation"));
+
+export { ApiOperationPolicyArgs, ApiOperationPolicyState } from "./apiOperationPolicy";
+export type ApiOperationPolicy = import("./apiOperationPolicy").ApiOperationPolicy;
+export const ApiOperationPolicy: typeof import("./apiOperationPolicy").ApiOperationPolicy = null as any;
+utilities.lazyLoad(exports, ["ApiOperationPolicy"], () => require("./apiOperationPolicy"));
+
+export { ApiOperationTagArgs, ApiOperationTagState } from "./apiOperationTag";
+export type ApiOperationTag = import("./apiOperationTag").ApiOperationTag;
+export const ApiOperationTag: typeof import("./apiOperationTag").ApiOperationTag = null as any;
+utilities.lazyLoad(exports, ["ApiOperationTag"], () => require("./apiOperationTag"));
+
+export { ApiPolicyArgs, ApiPolicyState } from "./apiPolicy";
+export type ApiPolicy = import("./apiPolicy").ApiPolicy;
+export const ApiPolicy: typeof import("./apiPolicy").ApiPolicy = null as any;
+utilities.lazyLoad(exports, ["ApiPolicy"], () => require("./apiPolicy"));
+
+export { ApiReleaseArgs, ApiReleaseState } from "./apiRelease";
+export type ApiRelease = import("./apiRelease").ApiRelease;
+export const ApiRelease: typeof import("./apiRelease").ApiRelease = null as any;
+utilities.lazyLoad(exports, ["ApiRelease"], () => require("./apiRelease"));
+
+export { ApiSchemaArgs, ApiSchemaState } from "./apiSchema";
+export type ApiSchema = import("./apiSchema").ApiSchema;
+export const ApiSchema: typeof import("./apiSchema").ApiSchema = null as any;
+utilities.lazyLoad(exports, ["ApiSchema"], () => require("./apiSchema"));
+
+export { ApiTagArgs, ApiTagState } from "./apiTag";
+export type ApiTag = import("./apiTag").ApiTag;
+export const ApiTag: typeof import("./apiTag").ApiTag = null as any;
+utilities.lazyLoad(exports, ["ApiTag"], () => require("./apiTag"));
+
+export { ApiTagDescriptionArgs, ApiTagDescriptionState } from "./apiTagDescription";
+export type ApiTagDescription = import("./apiTagDescription").ApiTagDescription;
+export const ApiTagDescription: typeof import("./apiTagDescription").ApiTagDescription = null as any;
+utilities.lazyLoad(exports, ["ApiTagDescription"], () => require("./apiTagDescription"));
+
+export { ApiVersionSetArgs, ApiVersionSetState } from "./apiVersionSet";
+export type ApiVersionSet = import("./apiVersionSet").ApiVersionSet;
+export const ApiVersionSet: typeof import("./apiVersionSet").ApiVersionSet = null as any;
+utilities.lazyLoad(exports, ["ApiVersionSet"], () => require("./apiVersionSet"));
+
+export { AuthorizationServerArgs, AuthorizationServerState } from "./authorizationServer";
+export type AuthorizationServer = import("./authorizationServer").AuthorizationServer;
+export const AuthorizationServer: typeof import("./authorizationServer").AuthorizationServer = null as any;
+utilities.lazyLoad(exports, ["AuthorizationServer"], () => require("./authorizationServer"));
+
+export { BackendArgs, BackendState } from "./backend";
+export type Backend = import("./backend").Backend;
+export const Backend: typeof import("./backend").Backend = null as any;
+utilities.lazyLoad(exports, ["Backend"], () => require("./backend"));
+
+export { CertificateArgs, CertificateState } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+
+export { CustomDomainArgs, CustomDomainState } from "./customDomain";
+export type CustomDomain = import("./customDomain").CustomDomain;
+export const CustomDomain: typeof import("./customDomain").CustomDomain = null as any;
+utilities.lazyLoad(exports, ["CustomDomain"], () => require("./customDomain"));
+
+export { DiagnosticArgs, DiagnosticState } from "./diagnostic";
+export type Diagnostic = import("./diagnostic").Diagnostic;
+export const Diagnostic: typeof import("./diagnostic").Diagnostic = null as any;
+utilities.lazyLoad(exports, ["Diagnostic"], () => require("./diagnostic"));
+
+export { EmailTemplateArgs, EmailTemplateState } from "./emailTemplate";
+export type EmailTemplate = import("./emailTemplate").EmailTemplate;
+export const EmailTemplate: typeof import("./emailTemplate").EmailTemplate = null as any;
+utilities.lazyLoad(exports, ["EmailTemplate"], () => require("./emailTemplate"));
+
+export { GatewayArgs, GatewayState } from "./gateway";
+export type Gateway = import("./gateway").Gateway;
+export const Gateway: typeof import("./gateway").Gateway = null as any;
+utilities.lazyLoad(exports, ["Gateway"], () => require("./gateway"));
+
+export { GatewayApiArgs, GatewayApiState } from "./gatewayApi";
+export type GatewayApi = import("./gatewayApi").GatewayApi;
+export const GatewayApi: typeof import("./gatewayApi").GatewayApi = null as any;
+utilities.lazyLoad(exports, ["GatewayApi"], () => require("./gatewayApi"));
+
+export { GatewayCertificateAuthorityArgs, GatewayCertificateAuthorityState } from "./gatewayCertificateAuthority";
+export type GatewayCertificateAuthority = import("./gatewayCertificateAuthority").GatewayCertificateAuthority;
+export const GatewayCertificateAuthority: typeof import("./gatewayCertificateAuthority").GatewayCertificateAuthority = null as any;
+utilities.lazyLoad(exports, ["GatewayCertificateAuthority"], () => require("./gatewayCertificateAuthority"));
+
+export { GatewayHostNameConfigurationArgs, GatewayHostNameConfigurationState } from "./gatewayHostNameConfiguration";
+export type GatewayHostNameConfiguration = import("./gatewayHostNameConfiguration").GatewayHostNameConfiguration;
+export const GatewayHostNameConfiguration: typeof import("./gatewayHostNameConfiguration").GatewayHostNameConfiguration = null as any;
+utilities.lazyLoad(exports, ["GatewayHostNameConfiguration"], () => require("./gatewayHostNameConfiguration"));
+
+export { GetApiArgs, GetApiResult, GetApiOutputArgs } from "./getApi";
+export const getApi: typeof import("./getApi").getApi = null as any;
+export const getApiOutput: typeof import("./getApi").getApiOutput = null as any;
+utilities.lazyLoad(exports, ["getApi","getApiOutput"], () => require("./getApi"));
+
+export { GetApiVersionSetArgs, GetApiVersionSetResult, GetApiVersionSetOutputArgs } from "./getApiVersionSet";
+export const getApiVersionSet: typeof import("./getApiVersionSet").getApiVersionSet = null as any;
+export const getApiVersionSetOutput: typeof import("./getApiVersionSet").getApiVersionSetOutput = null as any;
+utilities.lazyLoad(exports, ["getApiVersionSet","getApiVersionSetOutput"], () => require("./getApiVersionSet"));
+
+export { GetGatewayArgs, GetGatewayResult, GetGatewayOutputArgs } from "./getGateway";
+export const getGateway: typeof import("./getGateway").getGateway = null as any;
+export const getGatewayOutput: typeof import("./getGateway").getGatewayOutput = null as any;
+utilities.lazyLoad(exports, ["getGateway","getGatewayOutput"], () => require("./getGateway"));
+
+export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
+export const getGroup: typeof import("./getGroup").getGroup = null as any;
+export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
+
+export { GetProductArgs, GetProductResult, GetProductOutputArgs } from "./getProduct";
+export const getProduct: typeof import("./getProduct").getProduct = null as any;
+export const getProductOutput: typeof import("./getProduct").getProductOutput = null as any;
+utilities.lazyLoad(exports, ["getProduct","getProductOutput"], () => require("./getProduct"));
+
+export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getService";
+export const getService: typeof import("./getService").getService = null as any;
+export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+
+export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
+export const getUser: typeof import("./getUser").getUser = null as any;
+export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
+utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
+
+export { GlobalSchemaArgs, GlobalSchemaState } from "./globalSchema";
+export type GlobalSchema = import("./globalSchema").GlobalSchema;
+export const GlobalSchema: typeof import("./globalSchema").GlobalSchema = null as any;
+utilities.lazyLoad(exports, ["GlobalSchema"], () => require("./globalSchema"));
+
+export { GroupArgs, GroupState } from "./group";
+export type Group = import("./group").Group;
+export const Group: typeof import("./group").Group = null as any;
+utilities.lazyLoad(exports, ["Group"], () => require("./group"));
+
+export { GroupUserArgs, GroupUserState } from "./groupUser";
+export type GroupUser = import("./groupUser").GroupUser;
+export const GroupUser: typeof import("./groupUser").GroupUser = null as any;
+utilities.lazyLoad(exports, ["GroupUser"], () => require("./groupUser"));
+
+export { IdentityProviderAadArgs, IdentityProviderAadState } from "./identityProviderAad";
+export type IdentityProviderAad = import("./identityProviderAad").IdentityProviderAad;
+export const IdentityProviderAad: typeof import("./identityProviderAad").IdentityProviderAad = null as any;
+utilities.lazyLoad(exports, ["IdentityProviderAad"], () => require("./identityProviderAad"));
+
+export { IdentityProviderAadb2cArgs, IdentityProviderAadb2cState } from "./identityProviderAadb2c";
+export type IdentityProviderAadb2c = import("./identityProviderAadb2c").IdentityProviderAadb2c;
+export const IdentityProviderAadb2c: typeof import("./identityProviderAadb2c").IdentityProviderAadb2c = null as any;
+utilities.lazyLoad(exports, ["IdentityProviderAadb2c"], () => require("./identityProviderAadb2c"));
+
+export { IdentityProviderFacebookArgs, IdentityProviderFacebookState } from "./identityProviderFacebook";
+export type IdentityProviderFacebook = import("./identityProviderFacebook").IdentityProviderFacebook;
+export const IdentityProviderFacebook: typeof import("./identityProviderFacebook").IdentityProviderFacebook = null as any;
+utilities.lazyLoad(exports, ["IdentityProviderFacebook"], () => require("./identityProviderFacebook"));
+
+export { IdentityProviderGoogleArgs, IdentityProviderGoogleState } from "./identityProviderGoogle";
+export type IdentityProviderGoogle = import("./identityProviderGoogle").IdentityProviderGoogle;
+export const IdentityProviderGoogle: typeof import("./identityProviderGoogle").IdentityProviderGoogle = null as any;
+utilities.lazyLoad(exports, ["IdentityProviderGoogle"], () => require("./identityProviderGoogle"));
+
+export { IdentityProviderMicrosoftArgs, IdentityProviderMicrosoftState } from "./identityProviderMicrosoft";
+export type IdentityProviderMicrosoft = import("./identityProviderMicrosoft").IdentityProviderMicrosoft;
+export const IdentityProviderMicrosoft: typeof import("./identityProviderMicrosoft").IdentityProviderMicrosoft = null as any;
+utilities.lazyLoad(exports, ["IdentityProviderMicrosoft"], () => require("./identityProviderMicrosoft"));
+
+export { IdentityProviderTwitterArgs, IdentityProviderTwitterState } from "./identityProviderTwitter";
+export type IdentityProviderTwitter = import("./identityProviderTwitter").IdentityProviderTwitter;
+export const IdentityProviderTwitter: typeof import("./identityProviderTwitter").IdentityProviderTwitter = null as any;
+utilities.lazyLoad(exports, ["IdentityProviderTwitter"], () => require("./identityProviderTwitter"));
+
+export { LoggerArgs, LoggerState } from "./logger";
+export type Logger = import("./logger").Logger;
+export const Logger: typeof import("./logger").Logger = null as any;
+utilities.lazyLoad(exports, ["Logger"], () => require("./logger"));
+
+export { NamedValueArgs, NamedValueState } from "./namedValue";
+export type NamedValue = import("./namedValue").NamedValue;
+export const NamedValue: typeof import("./namedValue").NamedValue = null as any;
+utilities.lazyLoad(exports, ["NamedValue"], () => require("./namedValue"));
+
+export { NotificationRecipientEmailArgs, NotificationRecipientEmailState } from "./notificationRecipientEmail";
+export type NotificationRecipientEmail = import("./notificationRecipientEmail").NotificationRecipientEmail;
+export const NotificationRecipientEmail: typeof import("./notificationRecipientEmail").NotificationRecipientEmail = null as any;
+utilities.lazyLoad(exports, ["NotificationRecipientEmail"], () => require("./notificationRecipientEmail"));
+
+export { NotificationRecipientUserArgs, NotificationRecipientUserState } from "./notificationRecipientUser";
+export type NotificationRecipientUser = import("./notificationRecipientUser").NotificationRecipientUser;
+export const NotificationRecipientUser: typeof import("./notificationRecipientUser").NotificationRecipientUser = null as any;
+utilities.lazyLoad(exports, ["NotificationRecipientUser"], () => require("./notificationRecipientUser"));
+
+export { OpenIdConnectProviderArgs, OpenIdConnectProviderState } from "./openIdConnectProvider";
+export type OpenIdConnectProvider = import("./openIdConnectProvider").OpenIdConnectProvider;
+export const OpenIdConnectProvider: typeof import("./openIdConnectProvider").OpenIdConnectProvider = null as any;
+utilities.lazyLoad(exports, ["OpenIdConnectProvider"], () => require("./openIdConnectProvider"));
+
+export { PolicyArgs, PolicyState } from "./policy";
+export type Policy = import("./policy").Policy;
+export const Policy: typeof import("./policy").Policy = null as any;
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
+
+export { ProductArgs, ProductState } from "./product";
+export type Product = import("./product").Product;
+export const Product: typeof import("./product").Product = null as any;
+utilities.lazyLoad(exports, ["Product"], () => require("./product"));
+
+export { ProductApiArgs, ProductApiState } from "./productApi";
+export type ProductApi = import("./productApi").ProductApi;
+export const ProductApi: typeof import("./productApi").ProductApi = null as any;
+utilities.lazyLoad(exports, ["ProductApi"], () => require("./productApi"));
+
+export { ProductGroupArgs, ProductGroupState } from "./productGroup";
+export type ProductGroup = import("./productGroup").ProductGroup;
+export const ProductGroup: typeof import("./productGroup").ProductGroup = null as any;
+utilities.lazyLoad(exports, ["ProductGroup"], () => require("./productGroup"));
+
+export { ProductPolicyArgs, ProductPolicyState } from "./productPolicy";
+export type ProductPolicy = import("./productPolicy").ProductPolicy;
+export const ProductPolicy: typeof import("./productPolicy").ProductPolicy = null as any;
+utilities.lazyLoad(exports, ["ProductPolicy"], () => require("./productPolicy"));
+
+export { ProductTagArgs, ProductTagState } from "./productTag";
+export type ProductTag = import("./productTag").ProductTag;
+export const ProductTag: typeof import("./productTag").ProductTag = null as any;
+utilities.lazyLoad(exports, ["ProductTag"], () => require("./productTag"));
+
+export { RedisCacheArgs, RedisCacheState } from "./redisCache";
+export type RedisCache = import("./redisCache").RedisCache;
+export const RedisCache: typeof import("./redisCache").RedisCache = null as any;
+utilities.lazyLoad(exports, ["RedisCache"], () => require("./redisCache"));
+
+export { ServiceArgs, ServiceState } from "./service";
+export type Service = import("./service").Service;
+export const Service: typeof import("./service").Service = null as any;
+utilities.lazyLoad(exports, ["Service"], () => require("./service"));
+
+export { SubscriptionArgs, SubscriptionState } from "./subscription";
+export type Subscription = import("./subscription").Subscription;
+export const Subscription: typeof import("./subscription").Subscription = null as any;
+utilities.lazyLoad(exports, ["Subscription"], () => require("./subscription"));
+
+export { TagArgs, TagState } from "./tag";
+export type Tag = import("./tag").Tag;
+export const Tag: typeof import("./tag").Tag = null as any;
+utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
+
+export { UserArgs, UserState } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
+
 
 const _module = {
     version: utilities.getVersion(),

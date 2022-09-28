@@ -43,7 +43,7 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetQueueAuthorizationRuleResult> InvokeAsync(GetQueueAuthorizationRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetQueueAuthorizationRuleResult>("azure:servicebus/getQueueAuthorizationRule:getQueueAuthorizationRule", args ?? new GetQueueAuthorizationRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueAuthorizationRuleResult>("azure:servicebus/getQueueAuthorizationRule:getQueueAuthorizationRule", args ?? new GetQueueAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing ServiceBus Queue Authorisation Rule within a ServiceBus Queue.
@@ -77,7 +77,7 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetQueueAuthorizationRuleResult> Invoke(GetQueueAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetQueueAuthorizationRuleResult>("azure:servicebus/getQueueAuthorizationRule:getQueueAuthorizationRule", args ?? new GetQueueAuthorizationRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetQueueAuthorizationRuleResult>("azure:servicebus/getQueueAuthorizationRule:getQueueAuthorizationRule", args ?? new GetQueueAuthorizationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

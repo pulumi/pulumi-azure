@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Blueprint
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPublishedVersionResult> InvokeAsync(GetPublishedVersionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPublishedVersionResult>("azure:blueprint/getPublishedVersion:getPublishedVersion", args ?? new GetPublishedVersionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublishedVersionResult>("azure:blueprint/getPublishedVersion:getPublishedVersion", args ?? new GetPublishedVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Blueprint Published Version
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Blueprint
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPublishedVersionResult> Invoke(GetPublishedVersionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPublishedVersionResult>("azure:blueprint/getPublishedVersion:getPublishedVersion", args ?? new GetPublishedVersionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPublishedVersionResult>("azure:blueprint/getPublishedVersion:getPublishedVersion", args ?? new GetPublishedVersionInvokeArgs(), options.WithDefaults());
     }
 
 

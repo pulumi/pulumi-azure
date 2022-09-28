@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Cdn
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetFrontdoorRuleSetResult> InvokeAsync(GetFrontdoorRuleSetArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorRuleSetResult>("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", args ?? new GetFrontdoorRuleSetArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorRuleSetResult>("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", args ?? new GetFrontdoorRuleSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about an existing CDN FrontDoor Rule Set.
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Cdn
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetFrontdoorRuleSetResult> Invoke(GetFrontdoorRuleSetInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFrontdoorRuleSetResult>("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", args ?? new GetFrontdoorRuleSetInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorRuleSetResult>("azure:cdn/getFrontdoorRuleSet:getFrontdoorRuleSet", args ?? new GetFrontdoorRuleSetInvokeArgs(), options.WithDefaults());
     }
 
 

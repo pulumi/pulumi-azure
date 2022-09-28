@@ -15,6 +15,10 @@ public final class GetPoolStorageImageReference {
      */
     private String id;
     private String offer;
+    /**
+     * @return The name of the extension handler publisher.The name of the extension handler publisher.
+     * 
+     */
     private String publisher;
     private String sku;
     private String version;
@@ -30,6 +34,10 @@ public final class GetPoolStorageImageReference {
     public String offer() {
         return this.offer;
     }
+    /**
+     * @return The name of the extension handler publisher.The name of the extension handler publisher.
+     * 
+     */
     public String publisher() {
         return this.publisher;
     }

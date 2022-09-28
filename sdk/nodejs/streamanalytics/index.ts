@@ -5,51 +5,116 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./cluster";
-export * from "./functionJavaScriptUDF";
-export * from "./functionJavascriptUda";
-export * from "./getJob";
-export * from "./job";
-export * from "./jobSchedule";
-export * from "./managedPrivateEndpoint";
-export * from "./outputBlob";
-export * from "./outputCosmosdb";
-export * from "./outputEventHub";
-export * from "./outputFunction";
-export * from "./outputMssql";
-export * from "./outputPowerbi";
-export * from "./outputServiceBusQueue";
-export * from "./outputServicebusTopic";
-export * from "./outputSynapse";
-export * from "./outputTable";
-export * from "./referenceInputBlob";
-export * from "./referenceInputMssql";
-export * from "./streamInputBlob";
-export * from "./streamInputEventHub";
-export * from "./streamInputIotHub";
+export { ClusterArgs, ClusterState } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
-// Import resources to register:
-import { Cluster } from "./cluster";
-import { FunctionJavaScriptUDF } from "./functionJavaScriptUDF";
-import { FunctionJavascriptUda } from "./functionJavascriptUda";
-import { Job } from "./job";
-import { JobSchedule } from "./jobSchedule";
-import { ManagedPrivateEndpoint } from "./managedPrivateEndpoint";
-import { OutputBlob } from "./outputBlob";
-import { OutputCosmosdb } from "./outputCosmosdb";
-import { OutputEventHub } from "./outputEventHub";
-import { OutputFunction } from "./outputFunction";
-import { OutputMssql } from "./outputMssql";
-import { OutputPowerbi } from "./outputPowerbi";
-import { OutputServiceBusQueue } from "./outputServiceBusQueue";
-import { OutputServicebusTopic } from "./outputServicebusTopic";
-import { OutputSynapse } from "./outputSynapse";
-import { OutputTable } from "./outputTable";
-import { ReferenceInputBlob } from "./referenceInputBlob";
-import { ReferenceInputMssql } from "./referenceInputMssql";
-import { StreamInputBlob } from "./streamInputBlob";
-import { StreamInputEventHub } from "./streamInputEventHub";
-import { StreamInputIotHub } from "./streamInputIotHub";
+export { FunctionJavaScriptUDFArgs, FunctionJavaScriptUDFState } from "./functionJavaScriptUDF";
+export type FunctionJavaScriptUDF = import("./functionJavaScriptUDF").FunctionJavaScriptUDF;
+export const FunctionJavaScriptUDF: typeof import("./functionJavaScriptUDF").FunctionJavaScriptUDF = null as any;
+utilities.lazyLoad(exports, ["FunctionJavaScriptUDF"], () => require("./functionJavaScriptUDF"));
+
+export { FunctionJavascriptUdaArgs, FunctionJavascriptUdaState } from "./functionJavascriptUda";
+export type FunctionJavascriptUda = import("./functionJavascriptUda").FunctionJavascriptUda;
+export const FunctionJavascriptUda: typeof import("./functionJavascriptUda").FunctionJavascriptUda = null as any;
+utilities.lazyLoad(exports, ["FunctionJavascriptUda"], () => require("./functionJavascriptUda"));
+
+export { GetJobArgs, GetJobResult, GetJobOutputArgs } from "./getJob";
+export const getJob: typeof import("./getJob").getJob = null as any;
+export const getJobOutput: typeof import("./getJob").getJobOutput = null as any;
+utilities.lazyLoad(exports, ["getJob","getJobOutput"], () => require("./getJob"));
+
+export { JobArgs, JobState } from "./job";
+export type Job = import("./job").Job;
+export const Job: typeof import("./job").Job = null as any;
+utilities.lazyLoad(exports, ["Job"], () => require("./job"));
+
+export { JobScheduleArgs, JobScheduleState } from "./jobSchedule";
+export type JobSchedule = import("./jobSchedule").JobSchedule;
+export const JobSchedule: typeof import("./jobSchedule").JobSchedule = null as any;
+utilities.lazyLoad(exports, ["JobSchedule"], () => require("./jobSchedule"));
+
+export { ManagedPrivateEndpointArgs, ManagedPrivateEndpointState } from "./managedPrivateEndpoint";
+export type ManagedPrivateEndpoint = import("./managedPrivateEndpoint").ManagedPrivateEndpoint;
+export const ManagedPrivateEndpoint: typeof import("./managedPrivateEndpoint").ManagedPrivateEndpoint = null as any;
+utilities.lazyLoad(exports, ["ManagedPrivateEndpoint"], () => require("./managedPrivateEndpoint"));
+
+export { OutputBlobArgs, OutputBlobState } from "./outputBlob";
+export type OutputBlob = import("./outputBlob").OutputBlob;
+export const OutputBlob: typeof import("./outputBlob").OutputBlob = null as any;
+utilities.lazyLoad(exports, ["OutputBlob"], () => require("./outputBlob"));
+
+export { OutputCosmosdbArgs, OutputCosmosdbState } from "./outputCosmosdb";
+export type OutputCosmosdb = import("./outputCosmosdb").OutputCosmosdb;
+export const OutputCosmosdb: typeof import("./outputCosmosdb").OutputCosmosdb = null as any;
+utilities.lazyLoad(exports, ["OutputCosmosdb"], () => require("./outputCosmosdb"));
+
+export { OutputEventHubArgs, OutputEventHubState } from "./outputEventHub";
+export type OutputEventHub = import("./outputEventHub").OutputEventHub;
+export const OutputEventHub: typeof import("./outputEventHub").OutputEventHub = null as any;
+utilities.lazyLoad(exports, ["OutputEventHub"], () => require("./outputEventHub"));
+
+export { OutputFunctionArgs, OutputFunctionState } from "./outputFunction";
+export type OutputFunction = import("./outputFunction").OutputFunction;
+export const OutputFunction: typeof import("./outputFunction").OutputFunction = null as any;
+utilities.lazyLoad(exports, ["OutputFunction"], () => require("./outputFunction"));
+
+export { OutputMssqlArgs, OutputMssqlState } from "./outputMssql";
+export type OutputMssql = import("./outputMssql").OutputMssql;
+export const OutputMssql: typeof import("./outputMssql").OutputMssql = null as any;
+utilities.lazyLoad(exports, ["OutputMssql"], () => require("./outputMssql"));
+
+export { OutputPowerbiArgs, OutputPowerbiState } from "./outputPowerbi";
+export type OutputPowerbi = import("./outputPowerbi").OutputPowerbi;
+export const OutputPowerbi: typeof import("./outputPowerbi").OutputPowerbi = null as any;
+utilities.lazyLoad(exports, ["OutputPowerbi"], () => require("./outputPowerbi"));
+
+export { OutputServiceBusQueueArgs, OutputServiceBusQueueState } from "./outputServiceBusQueue";
+export type OutputServiceBusQueue = import("./outputServiceBusQueue").OutputServiceBusQueue;
+export const OutputServiceBusQueue: typeof import("./outputServiceBusQueue").OutputServiceBusQueue = null as any;
+utilities.lazyLoad(exports, ["OutputServiceBusQueue"], () => require("./outputServiceBusQueue"));
+
+export { OutputServicebusTopicArgs, OutputServicebusTopicState } from "./outputServicebusTopic";
+export type OutputServicebusTopic = import("./outputServicebusTopic").OutputServicebusTopic;
+export const OutputServicebusTopic: typeof import("./outputServicebusTopic").OutputServicebusTopic = null as any;
+utilities.lazyLoad(exports, ["OutputServicebusTopic"], () => require("./outputServicebusTopic"));
+
+export { OutputSynapseArgs, OutputSynapseState } from "./outputSynapse";
+export type OutputSynapse = import("./outputSynapse").OutputSynapse;
+export const OutputSynapse: typeof import("./outputSynapse").OutputSynapse = null as any;
+utilities.lazyLoad(exports, ["OutputSynapse"], () => require("./outputSynapse"));
+
+export { OutputTableArgs, OutputTableState } from "./outputTable";
+export type OutputTable = import("./outputTable").OutputTable;
+export const OutputTable: typeof import("./outputTable").OutputTable = null as any;
+utilities.lazyLoad(exports, ["OutputTable"], () => require("./outputTable"));
+
+export { ReferenceInputBlobArgs, ReferenceInputBlobState } from "./referenceInputBlob";
+export type ReferenceInputBlob = import("./referenceInputBlob").ReferenceInputBlob;
+export const ReferenceInputBlob: typeof import("./referenceInputBlob").ReferenceInputBlob = null as any;
+utilities.lazyLoad(exports, ["ReferenceInputBlob"], () => require("./referenceInputBlob"));
+
+export { ReferenceInputMssqlArgs, ReferenceInputMssqlState } from "./referenceInputMssql";
+export type ReferenceInputMssql = import("./referenceInputMssql").ReferenceInputMssql;
+export const ReferenceInputMssql: typeof import("./referenceInputMssql").ReferenceInputMssql = null as any;
+utilities.lazyLoad(exports, ["ReferenceInputMssql"], () => require("./referenceInputMssql"));
+
+export { StreamInputBlobArgs, StreamInputBlobState } from "./streamInputBlob";
+export type StreamInputBlob = import("./streamInputBlob").StreamInputBlob;
+export const StreamInputBlob: typeof import("./streamInputBlob").StreamInputBlob = null as any;
+utilities.lazyLoad(exports, ["StreamInputBlob"], () => require("./streamInputBlob"));
+
+export { StreamInputEventHubArgs, StreamInputEventHubState } from "./streamInputEventHub";
+export type StreamInputEventHub = import("./streamInputEventHub").StreamInputEventHub;
+export const StreamInputEventHub: typeof import("./streamInputEventHub").StreamInputEventHub = null as any;
+utilities.lazyLoad(exports, ["StreamInputEventHub"], () => require("./streamInputEventHub"));
+
+export { StreamInputIotHubArgs, StreamInputIotHubState } from "./streamInputIotHub";
+export type StreamInputIotHub = import("./streamInputIotHub").StreamInputIotHub;
+export const StreamInputIotHub: typeof import("./streamInputIotHub").StreamInputIotHub = null as any;
+utilities.lazyLoad(exports, ["StreamInputIotHub"], () => require("./streamInputIotHub"));
+
 
 const _module = {
     version: utilities.getVersion(),

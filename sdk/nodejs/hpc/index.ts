@@ -5,18 +5,31 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./cache";
-export * from "./cacheAccessPolicy";
-export * from "./cacheBlobNfsTarget";
-export * from "./cacheBlobTarget";
-export * from "./cacheNfsTarget";
+export { CacheArgs, CacheState } from "./cache";
+export type Cache = import("./cache").Cache;
+export const Cache: typeof import("./cache").Cache = null as any;
+utilities.lazyLoad(exports, ["Cache"], () => require("./cache"));
 
-// Import resources to register:
-import { Cache } from "./cache";
-import { CacheAccessPolicy } from "./cacheAccessPolicy";
-import { CacheBlobNfsTarget } from "./cacheBlobNfsTarget";
-import { CacheBlobTarget } from "./cacheBlobTarget";
-import { CacheNfsTarget } from "./cacheNfsTarget";
+export { CacheAccessPolicyArgs, CacheAccessPolicyState } from "./cacheAccessPolicy";
+export type CacheAccessPolicy = import("./cacheAccessPolicy").CacheAccessPolicy;
+export const CacheAccessPolicy: typeof import("./cacheAccessPolicy").CacheAccessPolicy = null as any;
+utilities.lazyLoad(exports, ["CacheAccessPolicy"], () => require("./cacheAccessPolicy"));
+
+export { CacheBlobNfsTargetArgs, CacheBlobNfsTargetState } from "./cacheBlobNfsTarget";
+export type CacheBlobNfsTarget = import("./cacheBlobNfsTarget").CacheBlobNfsTarget;
+export const CacheBlobNfsTarget: typeof import("./cacheBlobNfsTarget").CacheBlobNfsTarget = null as any;
+utilities.lazyLoad(exports, ["CacheBlobNfsTarget"], () => require("./cacheBlobNfsTarget"));
+
+export { CacheBlobTargetArgs, CacheBlobTargetState } from "./cacheBlobTarget";
+export type CacheBlobTarget = import("./cacheBlobTarget").CacheBlobTarget;
+export const CacheBlobTarget: typeof import("./cacheBlobTarget").CacheBlobTarget = null as any;
+utilities.lazyLoad(exports, ["CacheBlobTarget"], () => require("./cacheBlobTarget"));
+
+export { CacheNfsTargetArgs, CacheNfsTargetState } from "./cacheNfsTarget";
+export type CacheNfsTarget = import("./cacheNfsTarget").CacheNfsTarget;
+export const CacheNfsTarget: typeof import("./cacheNfsTarget").CacheNfsTarget = null as any;
+utilities.lazyLoad(exports, ["CacheNfsTarget"], () => require("./cacheNfsTarget"));
+
 
 const _module = {
     version: utilities.getVersion(),

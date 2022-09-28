@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -43,7 +44,7 @@ export interface GetPoolArgs {
      */
     accountName: string;
     /**
-     * The name of the endpoint.
+     * The name of the user account.
      */
     name: string;
     resourceGroupName: string;
@@ -69,7 +70,19 @@ export interface GetPoolResult {
      * The container configuration used in the pool's VMs.
      */
     readonly containerConfigurations: outputs.batch.GetPoolContainerConfiguration[];
+    /**
+     * A `dataDisks` block describes the data disk settings.
+     */
+    readonly dataDisks: outputs.batch.GetPoolDataDisk[];
+    /**
+     * A `diskEncryption` block describes the disk encryption configuration applied on compute nodes in the pool.
+     */
+    readonly diskEncryptions: outputs.batch.GetPoolDiskEncryption[];
     readonly displayName: string;
+    /**
+     * An `extensions` block describes the extension settings
+     */
+    readonly extensions: outputs.batch.GetPoolExtension[];
     /**
      * A `fixedScale` block that describes the scale settings when using fixed scale.
      */
@@ -78,6 +91,14 @@ export interface GetPoolResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool.
+     */
+    readonly interNodeCommunication: string;
+    /**
+     * The type of on-premises license to be used when deploying the operating system.
+     */
+    readonly licenseType: string;
     /**
      * The maximum number of tasks that can run concurrently on a single compute node in the pool.
      */
@@ -88,7 +109,7 @@ export interface GetPoolResult {
      */
     readonly mounts: outputs.batch.GetPoolMount[];
     /**
-     * The name of the endpoint.
+     * The name of the user account.
      */
     readonly name: string;
     readonly networkConfigurations: outputs.batch.GetPoolNetworkConfiguration[];
@@ -96,6 +117,14 @@ export interface GetPoolResult {
      * The SKU of the node agents in the Batch pool.
      */
     readonly nodeAgentSkuId: string;
+    /**
+     * A `nodePlacement` block that describes the placement policy for allocating nodes in the pool.
+     */
+    readonly nodePlacements: outputs.batch.GetPoolNodePlacement[];
+    /**
+     * Specifies the ephemeral disk placement for operating system disk for all VMs in the pool.
+     */
+    readonly osDiskPlacement: string;
     readonly resourceGroupName: string;
     /**
      * A `startTask` block that describes the start task settings for the Batch pool.
@@ -106,9 +135,21 @@ export interface GetPoolResult {
      */
     readonly storageImageReferences: outputs.batch.GetPoolStorageImageReference[];
     /**
+     * A `taskSchedulingPolicy` block that describes how tasks are distributed across compute nodes in a pool.
+     */
+    readonly taskSchedulingPolicies: outputs.batch.GetPoolTaskSchedulingPolicy[];
+    /**
+     * A `userAccounts` block that describes the list of user accounts to be created on each node in the pool.
+     */
+    readonly userAccounts: outputs.batch.GetPoolUserAccount[];
+    /**
      * The size of the VM created in the Batch pool.
      */
     readonly vmSize: string;
+    /**
+     * A `windows` block that describes the Windows configuration in the pool.
+     */
+    readonly windows: outputs.batch.GetPoolWindow[];
 }
 
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
@@ -124,7 +165,7 @@ export interface GetPoolOutputArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * The name of the endpoint.
+     * The name of the user account.
      */
     name: pulumi.Input<string>;
     resourceGroupName: pulumi.Input<string>;

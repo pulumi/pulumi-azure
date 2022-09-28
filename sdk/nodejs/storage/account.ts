@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -176,7 +177,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly minTlsVersion!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+     * Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -596,7 +597,7 @@ export interface AccountState {
      */
     minTlsVersion?: pulumi.Input<string>;
     /**
-     * Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+     * Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
      */
     name?: pulumi.Input<string>;
     /**
@@ -859,7 +860,7 @@ export interface AccountArgs {
      */
     minTlsVersion?: pulumi.Input<string>;
     /**
-     * Specifies the name of the storage account. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
+     * Specifies the name of the storage account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. This must be unique across the entire Azure service, not just within the resource group.
      */
     name?: pulumi.Input<string>;
     /**

@@ -2,14 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Manages a Logic App (Standard / Single Tenant)
- *
- * > **Note:** To connect an Azure Logic App and a subnet within the same region `azure.appservice.VirtualNetworkSwiftConnection` can be used.
- * For an example, check the `azure.appservice.VirtualNetworkSwiftConnection` documentation.
  *
  * ## Example Usage
  * ### With App Service Plan)
@@ -28,6 +26,7 @@ import * as utilities from "../utilities";
  * const examplePlan = new azure.appservice.Plan("examplePlan", {
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
+ *     kind: "elastic",
  *     sku: {
  *         tier: "WorkflowStandard",
  *         size: "WS1",
@@ -219,6 +218,10 @@ export class Standard extends pulumi.CustomResource {
      * The runtime version associated with the Logic App Defaults to `~1`.
      */
     public readonly version!: pulumi.Output<string | undefined>;
+    /**
+     * The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     */
+    public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Standard resource with the given unique name, arguments, and options.
@@ -258,6 +261,7 @@ export class Standard extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["useExtensionBundle"] = state ? state.useExtensionBundle : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["virtualNetworkSubnetId"] = state ? state.virtualNetworkSubnetId : undefined;
         } else {
             const args = argsOrState as StandardArgs | undefined;
             if ((!args || args.appServicePlanId === undefined) && !opts.urn) {
@@ -291,6 +295,7 @@ export class Standard extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["useExtensionBundle"] = args ? args.useExtensionBundle : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -407,6 +412,10 @@ export interface StandardState {
      * The runtime version associated with the Logic App Defaults to `~1`.
      */
     version?: pulumi.Input<string>;
+    /**
+     * The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     */
+    virtualNetworkSubnetId?: pulumi.Input<string>;
 }
 
 /**
@@ -489,4 +498,8 @@ export interface StandardArgs {
      * The runtime version associated with the Logic App Defaults to `~1`.
      */
     version?: pulumi.Input<string>;
+    /**
+     * The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     */
+    virtualNetworkSubnetId?: pulumi.Input<string>;
 }

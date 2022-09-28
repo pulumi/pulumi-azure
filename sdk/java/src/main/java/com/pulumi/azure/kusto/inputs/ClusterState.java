@@ -173,14 +173,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+     * The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+     * @return The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -670,7 +670,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+         * @param name The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -681,7 +681,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+         * @param name The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

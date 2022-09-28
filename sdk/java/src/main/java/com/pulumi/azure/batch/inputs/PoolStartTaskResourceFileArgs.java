@@ -105,6 +105,21 @@ public final class PoolStartTaskResourceFileArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.storageContainerUrl);
     }
 
+    /**
+     * An identity reference from pool&#39;s user assigned managed identity list.
+     * 
+     */
+    @Import(name="userAssignedIdentityId")
+    private @Nullable Output<String> userAssignedIdentityId;
+
+    /**
+     * @return An identity reference from pool&#39;s user assigned managed identity list.
+     * 
+     */
+    public Optional<Output<String>> userAssignedIdentityId() {
+        return Optional.ofNullable(this.userAssignedIdentityId);
+    }
+
     private PoolStartTaskResourceFileArgs() {}
 
     private PoolStartTaskResourceFileArgs(PoolStartTaskResourceFileArgs $) {
@@ -114,6 +129,7 @@ public final class PoolStartTaskResourceFileArgs extends com.pulumi.resources.Re
         this.filePath = $.filePath;
         this.httpUrl = $.httpUrl;
         this.storageContainerUrl = $.storageContainerUrl;
+        this.userAssignedIdentityId = $.userAssignedIdentityId;
     }
 
     public static Builder builder() {
@@ -258,6 +274,27 @@ public final class PoolStartTaskResourceFileArgs extends com.pulumi.resources.Re
          */
         public Builder storageContainerUrl(String storageContainerUrl) {
             return storageContainerUrl(Output.of(storageContainerUrl));
+        }
+
+        /**
+         * @param userAssignedIdentityId An identity reference from pool&#39;s user assigned managed identity list.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAssignedIdentityId(@Nullable Output<String> userAssignedIdentityId) {
+            $.userAssignedIdentityId = userAssignedIdentityId;
+            return this;
+        }
+
+        /**
+         * @param userAssignedIdentityId An identity reference from pool&#39;s user assigned managed identity list.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAssignedIdentityId(String userAssignedIdentityId) {
+            return userAssignedIdentityId(Output.of(userAssignedIdentityId));
         }
 
         public PoolStartTaskResourceFileArgs build() {

@@ -794,12 +794,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_automation_connection_service_principal": {
 				Tok: azureResource(azureAutomation, "ConnectionServicePrincipal"),
 			},
-			"azurerm_automation_webhook":                     {Tok: azureResource(azureAutomation, "Webhook")},
-			"azurerm_automation_connection_type":             {Tok: azureResource(azureAutomation, "ConnectionType")},
-			"azurerm_automation_hybrid_runbook_worker":       {Tok: azureResource(azureAutomation, "HybridRunbookWorker")},
-			"azurerm_automation_hybrid_runbook_worker_group": {Tok: azureResource(azureAutomation, "HybridRunbookWorkerGroup")},
-			"azurerm_automation_source_control":              {Tok: azureResource(azureAutomation, "SourceControl")},
-			"azurerm_automation_watcher":                     {Tok: azureResource(azureAutomation, "Watcher")},
+			"azurerm_automation_webhook":                       {Tok: azureResource(azureAutomation, "Webhook")},
+			"azurerm_automation_connection_type":               {Tok: azureResource(azureAutomation, "ConnectionType")},
+			"azurerm_automation_hybrid_runbook_worker":         {Tok: azureResource(azureAutomation, "HybridRunbookWorker")},
+			"azurerm_automation_hybrid_runbook_worker_group":   {Tok: azureResource(azureAutomation, "HybridRunbookWorkerGroup")},
+			"azurerm_automation_source_control":                {Tok: azureResource(azureAutomation, "SourceControl")},
+			"azurerm_automation_watcher":                       {Tok: azureResource(azureAutomation, "Watcher")},
+			"azurerm_automation_software_update_configuration": {Tok: azureResource(azureAutomation, "SoftwareUpdateConfiguration")},
 
 			// Azure Container Service
 			"azurerm_container_registry": {
@@ -1523,7 +1524,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_monitor_scheduled_query_rules_alert_v2": {
 				Tok: azureResource(azureMonitoring, "ScheduledQueryRulesAlertV2"),
 			},
-			"azurerm_monitor_data_collection_rule_association": {Tok: azureResource(azureMonitoring, "DataCollectionRuleAssociation")},
+			"azurerm_monitor_data_collection_rule_association":   {Tok: azureResource(azureMonitoring, "DataCollectionRuleAssociation")},
+			"azurerm_monitor_alert_processing_rule_action_group": {Tok: azureResource(azureMonitoring, "AlertProcessingRuleActionGroup")},
+			"azurerm_monitor_alert_processing_rule_suppression":  {Tok: azureResource(azureMonitoring, "AlertProcessingRuleSuppression")},
 
 			// MS SQL
 			"azurerm_mssql_elasticpool": {Tok: azureResource(azureMSSQL, "ElasticPool")},
@@ -2567,6 +2570,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_monitor_data_collection_endpoint": {
 				Tok: azureDataSource(azureMonitoring, "getDataCollectionEndpoint"),
 			},
+			"azurerm_monitor_data_collection_rule": {Tok: azureDataSource(azureMonitoring, "getDataCollectionRule")},
 
 			"azurerm_mssql_elasticpool":      {Tok: azureDataSource(azureMSSQL, "getElasticPool")},
 			"azurerm_mssql_database":         {Tok: azureDataSource(azureMSSQL, "getDatabase")},
@@ -2847,15 +2851,16 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_consumption_budget_subscription":   {Tok: azureDataSource(azureConsumption, "getBudgetSubscription")},
 
 			// Private DNS
-			"azurerm_private_dns_zone":         {Tok: azureDataSource(azurePrivateDNS, "getDnsZone")},
-			"azurerm_private_dns_a_record":     {Tok: azureDataSource(azurePrivateDNS, "getARecord")},
-			"azurerm_private_dns_aaaa_record":  {Tok: azureDataSource(azurePrivateDNS, "getAAAARecord")},
-			"azurerm_private_dns_cname_record": {Tok: azureDataSource(azurePrivateDNS, "getCnameRecord")},
-			"azurerm_private_dns_mx_record":    {Tok: azureDataSource(azurePrivateDNS, "getMxRecord")},
-			"azurerm_private_dns_ptr_record":   {Tok: azureDataSource(azurePrivateDNS, "getPtrRecord")},
-			"azurerm_private_dns_soa_record":   {Tok: azureDataSource(azurePrivateDNS, "getSoaRecord")},
-			"azurerm_private_dns_srv_record":   {Tok: azureDataSource(azurePrivateDNS, "getSrvRecord")},
-			"azurerm_private_dns_txt_record":   {Tok: azureDataSource(azurePrivateDNS, "getTxtRecord")},
+			"azurerm_private_dns_zone":                      {Tok: azureDataSource(azurePrivateDNS, "getDnsZone")},
+			"azurerm_private_dns_a_record":                  {Tok: azureDataSource(azurePrivateDNS, "getARecord")},
+			"azurerm_private_dns_aaaa_record":               {Tok: azureDataSource(azurePrivateDNS, "getAAAARecord")},
+			"azurerm_private_dns_cname_record":              {Tok: azureDataSource(azurePrivateDNS, "getCnameRecord")},
+			"azurerm_private_dns_mx_record":                 {Tok: azureDataSource(azurePrivateDNS, "getMxRecord")},
+			"azurerm_private_dns_ptr_record":                {Tok: azureDataSource(azurePrivateDNS, "getPtrRecord")},
+			"azurerm_private_dns_soa_record":                {Tok: azureDataSource(azurePrivateDNS, "getSoaRecord")},
+			"azurerm_private_dns_srv_record":                {Tok: azureDataSource(azurePrivateDNS, "getSrvRecord")},
+			"azurerm_private_dns_txt_record":                {Tok: azureDataSource(azurePrivateDNS, "getTxtRecord")},
+			"azurerm_private_dns_zone_virtual_network_link": {Tok: azureDataSource(azurePrivateDNS, "getZoneVirtualNetworkLink")},
 
 			// Dashboard
 			// TODO: This resource is in the "Portal" module in the upstream provider. Move to a new namespace when terraform-provider-azurerm hits v3.0.

@@ -86,7 +86,7 @@ type Cluster struct {
 	LanguageExtensions pulumi.StringArrayOutput `pulumi:"languageExtensions"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+	// The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An `optimizedAutoScale` block as defined below.
 	OptimizedAutoScale ClusterOptimizedAutoScalePtrOutput `pulumi:"optimizedAutoScale"`
@@ -171,7 +171,7 @@ type clusterState struct {
 	LanguageExtensions []string `pulumi:"languageExtensions"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+	// The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// An `optimizedAutoScale` block as defined below.
 	OptimizedAutoScale *ClusterOptimizedAutoScale `pulumi:"optimizedAutoScale"`
@@ -222,7 +222,7 @@ type ClusterState struct {
 	LanguageExtensions pulumi.StringArrayInput
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+	// The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// An `optimizedAutoScale` block as defined below.
 	OptimizedAutoScale ClusterOptimizedAutoScalePtrInput
@@ -275,7 +275,7 @@ type clusterArgs struct {
 	LanguageExtensions []string `pulumi:"languageExtensions"`
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+	// The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// An `optimizedAutoScale` block as defined below.
 	OptimizedAutoScale *ClusterOptimizedAutoScale `pulumi:"optimizedAutoScale"`
@@ -323,7 +323,7 @@ type ClusterArgs struct {
 	LanguageExtensions pulumi.StringArrayInput
 	// The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+	// The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// An `optimizedAutoScale` block as defined below.
 	OptimizedAutoScale ClusterOptimizedAutoScalePtrInput
@@ -488,7 +488,7 @@ func (o ClusterOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+// The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
 func (o ClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

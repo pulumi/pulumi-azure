@@ -89,6 +89,7 @@ type LookupStandardResult struct {
 	Tags                        map[string]string           `pulumi:"tags"`
 	UseExtensionBundle          bool                        `pulumi:"useExtensionBundle"`
 	Version                     string                      `pulumi:"version"`
+	VirtualNetworkSubnetId      string                      `pulumi:"virtualNetworkSubnetId"`
 }
 
 func LookupStandardOutput(ctx *pulumi.Context, args LookupStandardOutputArgs, opts ...pulumi.InvokeOption) LookupStandardResultOutput {
@@ -238,6 +239,10 @@ func (o LookupStandardResultOutput) UseExtensionBundle() pulumi.BoolOutput {
 
 func (o LookupStandardResultOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStandardResult) string { return v.Version }).(pulumi.StringOutput)
+}
+
+func (o LookupStandardResultOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStandardResult) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
 }
 
 func init() {

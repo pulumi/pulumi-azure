@@ -104,7 +104,7 @@ import (
 //				VirtualMachineId:        exampleWindowsVirtualMachine.ID(),
 //				Publisher:               pulumi.String("Microsoft.GuestConfiguration"),
 //				Type:                    pulumi.String("ConfigurationforWindows"),
-//				TypeHandlerVersion:      pulumi.String("1.0"),
+//				TypeHandlerVersion:      pulumi.String("1.29"),
 //				AutoUpgradeMinorVersion: pulumi.Bool(true),
 //			})
 //			if err != nil {

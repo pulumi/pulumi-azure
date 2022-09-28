@@ -12,9 +12,6 @@ namespace Pulumi.Azure.LogicApps
     /// <summary>
     /// Manages a Logic App (Standard / Single Tenant)
     /// 
-    /// &gt; **Note:** To connect an Azure Logic App and a subnet within the same region `azure.appservice.VirtualNetworkSwiftConnection` can be used.
-    /// For an example, check the `azure.appservice.VirtualNetworkSwiftConnection` documentation.
-    /// 
     /// ## Example Usage
     /// ### With App Service Plan)
     /// 
@@ -42,6 +39,7 @@ namespace Pulumi.Azure.LogicApps
     ///     {
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Kind = "elastic",
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///         {
     ///             Tier = "WorkflowStandard",
@@ -280,6 +278,12 @@ namespace Pulumi.Azure.LogicApps
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
 
+        /// <summary>
+        /// The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        /// </summary>
+        [Output("virtualNetworkSubnetId")]
+        public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Standard resource with the given unique name, arguments, and options.
@@ -457,6 +461,12 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
+
+        /// <summary>
+        /// The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        /// </summary>
+        [Input("virtualNetworkSubnetId")]
+        public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         public StandardArgs()
         {
@@ -639,6 +649,12 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
+
+        /// <summary>
+        /// The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+        /// </summary>
+        [Input("virtualNetworkSubnetId")]
+        public Input<string>? VirtualNetworkSubnetId { get; set; }
 
         public StandardState()
         {

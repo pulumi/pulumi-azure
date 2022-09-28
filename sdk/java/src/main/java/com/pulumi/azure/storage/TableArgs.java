@@ -33,14 +33,14 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the storage table. Must be unique within the storage account the table is located.
+     * The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the storage table. Must be unique within the storage account the table is located.
+     * @return The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
      * 
      */
     public Optional<Output<String>> name() {
@@ -122,7 +122,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the storage table. Must be unique within the storage account the table is located.
+         * @param name The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the storage table. Must be unique within the storage account the table is located.
+         * @param name The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
          * 
          * @return builder
          * 

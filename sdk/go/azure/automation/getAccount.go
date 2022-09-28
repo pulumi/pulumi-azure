@@ -60,9 +60,13 @@ type LookupAccountArgs struct {
 type LookupAccountResult struct {
 	// The Endpoint for this Automation Account.
 	Endpoint string `pulumi:"endpoint"`
+	// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+	HybridServiceUrl string `pulumi:"hybridServiceUrl"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id string `pulumi:"id"`
+	// (Optional) An `identity` block as defined below.
+	Identities []GetAccountIdentity `pulumi:"identities"`
+	Name       string               `pulumi:"name"`
 	// The Primary Access Key for the Automation Account.
 	PrimaryKey                 string                                `pulumi:"primaryKey"`
 	PrivateEndpointConnections []GetAccountPrivateEndpointConnection `pulumi:"privateEndpointConnections"`
@@ -116,9 +120,19 @@ func (o LookupAccountResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
+// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+func (o LookupAccountResultOutput) HybridServiceUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.HybridServiceUrl }).(pulumi.StringOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupAccountResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (Optional) An `identity` block as defined below.
+func (o LookupAccountResultOutput) Identities() GetAccountIdentityArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []GetAccountIdentity { return v.Identities }).(GetAccountIdentityArrayOutput)
 }
 
 func (o LookupAccountResultOutput) Name() pulumi.StringOutput {

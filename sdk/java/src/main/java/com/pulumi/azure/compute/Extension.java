@@ -195,6 +195,20 @@ public class Extension extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.automaticUpgradeEnabled);
     }
     /**
+     * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
+    @Export(name="failureSuppressionEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> failureSuppressionEnabled;
+
+    /**
+     * @return Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> failureSuppressionEnabled() {
+        return Codegen.optional(this.failureSuppressionEnabled);
+    }
+    /**
      * The name of the virtual machine extension peering. Changing
      * this forces a new resource to be created.
      * 

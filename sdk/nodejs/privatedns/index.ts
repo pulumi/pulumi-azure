@@ -5,37 +5,106 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./aaaarecord";
-export * from "./arecord";
-export * from "./cnameRecord";
-export * from "./getAAAARecord";
-export * from "./getARecord";
-export * from "./getCnameRecord";
-export * from "./getDnsZone";
-export * from "./getMxRecord";
-export * from "./getPtrRecord";
-export * from "./getSoaRecord";
-export * from "./getSrvRecord";
-export * from "./getTxtRecord";
-export * from "./linkService";
-export * from "./mxRecord";
-export * from "./ptrrecord";
-export * from "./srvrecord";
-export * from "./txtRecord";
-export * from "./zone";
-export * from "./zoneVirtualNetworkLink";
+export { AAAARecordArgs, AAAARecordState } from "./aaaarecord";
+export type AAAARecord = import("./aaaarecord").AAAARecord;
+export const AAAARecord: typeof import("./aaaarecord").AAAARecord = null as any;
+utilities.lazyLoad(exports, ["AAAARecord"], () => require("./aaaarecord"));
 
-// Import resources to register:
-import { AAAARecord } from "./aaaarecord";
-import { ARecord } from "./arecord";
-import { CnameRecord } from "./cnameRecord";
-import { LinkService } from "./linkService";
-import { MxRecord } from "./mxRecord";
-import { PTRRecord } from "./ptrrecord";
-import { SRVRecord } from "./srvrecord";
-import { TxtRecord } from "./txtRecord";
-import { Zone } from "./zone";
-import { ZoneVirtualNetworkLink } from "./zoneVirtualNetworkLink";
+export { ARecordArgs, ARecordState } from "./arecord";
+export type ARecord = import("./arecord").ARecord;
+export const ARecord: typeof import("./arecord").ARecord = null as any;
+utilities.lazyLoad(exports, ["ARecord"], () => require("./arecord"));
+
+export { CnameRecordArgs, CnameRecordState } from "./cnameRecord";
+export type CnameRecord = import("./cnameRecord").CnameRecord;
+export const CnameRecord: typeof import("./cnameRecord").CnameRecord = null as any;
+utilities.lazyLoad(exports, ["CnameRecord"], () => require("./cnameRecord"));
+
+export { GetAAAARecordArgs, GetAAAARecordResult, GetAAAARecordOutputArgs } from "./getAAAARecord";
+export const getAAAARecord: typeof import("./getAAAARecord").getAAAARecord = null as any;
+export const getAAAARecordOutput: typeof import("./getAAAARecord").getAAAARecordOutput = null as any;
+utilities.lazyLoad(exports, ["getAAAARecord","getAAAARecordOutput"], () => require("./getAAAARecord"));
+
+export { GetARecordArgs, GetARecordResult, GetARecordOutputArgs } from "./getARecord";
+export const getARecord: typeof import("./getARecord").getARecord = null as any;
+export const getARecordOutput: typeof import("./getARecord").getARecordOutput = null as any;
+utilities.lazyLoad(exports, ["getARecord","getARecordOutput"], () => require("./getARecord"));
+
+export { GetCnameRecordArgs, GetCnameRecordResult, GetCnameRecordOutputArgs } from "./getCnameRecord";
+export const getCnameRecord: typeof import("./getCnameRecord").getCnameRecord = null as any;
+export const getCnameRecordOutput: typeof import("./getCnameRecord").getCnameRecordOutput = null as any;
+utilities.lazyLoad(exports, ["getCnameRecord","getCnameRecordOutput"], () => require("./getCnameRecord"));
+
+export { GetDnsZoneArgs, GetDnsZoneResult, GetDnsZoneOutputArgs } from "./getDnsZone";
+export const getDnsZone: typeof import("./getDnsZone").getDnsZone = null as any;
+export const getDnsZoneOutput: typeof import("./getDnsZone").getDnsZoneOutput = null as any;
+utilities.lazyLoad(exports, ["getDnsZone","getDnsZoneOutput"], () => require("./getDnsZone"));
+
+export { GetMxRecordArgs, GetMxRecordResult, GetMxRecordOutputArgs } from "./getMxRecord";
+export const getMxRecord: typeof import("./getMxRecord").getMxRecord = null as any;
+export const getMxRecordOutput: typeof import("./getMxRecord").getMxRecordOutput = null as any;
+utilities.lazyLoad(exports, ["getMxRecord","getMxRecordOutput"], () => require("./getMxRecord"));
+
+export { GetPtrRecordArgs, GetPtrRecordResult, GetPtrRecordOutputArgs } from "./getPtrRecord";
+export const getPtrRecord: typeof import("./getPtrRecord").getPtrRecord = null as any;
+export const getPtrRecordOutput: typeof import("./getPtrRecord").getPtrRecordOutput = null as any;
+utilities.lazyLoad(exports, ["getPtrRecord","getPtrRecordOutput"], () => require("./getPtrRecord"));
+
+export { GetSoaRecordArgs, GetSoaRecordResult, GetSoaRecordOutputArgs } from "./getSoaRecord";
+export const getSoaRecord: typeof import("./getSoaRecord").getSoaRecord = null as any;
+export const getSoaRecordOutput: typeof import("./getSoaRecord").getSoaRecordOutput = null as any;
+utilities.lazyLoad(exports, ["getSoaRecord","getSoaRecordOutput"], () => require("./getSoaRecord"));
+
+export { GetSrvRecordArgs, GetSrvRecordResult, GetSrvRecordOutputArgs } from "./getSrvRecord";
+export const getSrvRecord: typeof import("./getSrvRecord").getSrvRecord = null as any;
+export const getSrvRecordOutput: typeof import("./getSrvRecord").getSrvRecordOutput = null as any;
+utilities.lazyLoad(exports, ["getSrvRecord","getSrvRecordOutput"], () => require("./getSrvRecord"));
+
+export { GetTxtRecordArgs, GetTxtRecordResult, GetTxtRecordOutputArgs } from "./getTxtRecord";
+export const getTxtRecord: typeof import("./getTxtRecord").getTxtRecord = null as any;
+export const getTxtRecordOutput: typeof import("./getTxtRecord").getTxtRecordOutput = null as any;
+utilities.lazyLoad(exports, ["getTxtRecord","getTxtRecordOutput"], () => require("./getTxtRecord"));
+
+export { GetZoneVirtualNetworkLinkArgs, GetZoneVirtualNetworkLinkResult, GetZoneVirtualNetworkLinkOutputArgs } from "./getZoneVirtualNetworkLink";
+export const getZoneVirtualNetworkLink: typeof import("./getZoneVirtualNetworkLink").getZoneVirtualNetworkLink = null as any;
+export const getZoneVirtualNetworkLinkOutput: typeof import("./getZoneVirtualNetworkLink").getZoneVirtualNetworkLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getZoneVirtualNetworkLink","getZoneVirtualNetworkLinkOutput"], () => require("./getZoneVirtualNetworkLink"));
+
+export { LinkServiceArgs, LinkServiceState } from "./linkService";
+export type LinkService = import("./linkService").LinkService;
+export const LinkService: typeof import("./linkService").LinkService = null as any;
+utilities.lazyLoad(exports, ["LinkService"], () => require("./linkService"));
+
+export { MxRecordArgs, MxRecordState } from "./mxRecord";
+export type MxRecord = import("./mxRecord").MxRecord;
+export const MxRecord: typeof import("./mxRecord").MxRecord = null as any;
+utilities.lazyLoad(exports, ["MxRecord"], () => require("./mxRecord"));
+
+export { PTRRecordArgs, PTRRecordState } from "./ptrrecord";
+export type PTRRecord = import("./ptrrecord").PTRRecord;
+export const PTRRecord: typeof import("./ptrrecord").PTRRecord = null as any;
+utilities.lazyLoad(exports, ["PTRRecord"], () => require("./ptrrecord"));
+
+export { SRVRecordArgs, SRVRecordState } from "./srvrecord";
+export type SRVRecord = import("./srvrecord").SRVRecord;
+export const SRVRecord: typeof import("./srvrecord").SRVRecord = null as any;
+utilities.lazyLoad(exports, ["SRVRecord"], () => require("./srvrecord"));
+
+export { TxtRecordArgs, TxtRecordState } from "./txtRecord";
+export type TxtRecord = import("./txtRecord").TxtRecord;
+export const TxtRecord: typeof import("./txtRecord").TxtRecord = null as any;
+utilities.lazyLoad(exports, ["TxtRecord"], () => require("./txtRecord"));
+
+export { ZoneArgs, ZoneState } from "./zone";
+export type Zone = import("./zone").Zone;
+export const Zone: typeof import("./zone").Zone = null as any;
+utilities.lazyLoad(exports, ["Zone"], () => require("./zone"));
+
+export { ZoneVirtualNetworkLinkArgs, ZoneVirtualNetworkLinkState } from "./zoneVirtualNetworkLink";
+export type ZoneVirtualNetworkLink = import("./zoneVirtualNetworkLink").ZoneVirtualNetworkLink;
+export const ZoneVirtualNetworkLink: typeof import("./zoneVirtualNetworkLink").ZoneVirtualNetworkLink = null as any;
+utilities.lazyLoad(exports, ["ZoneVirtualNetworkLink"], () => require("./zoneVirtualNetworkLink"));
+
 
 const _module = {
     version: utilities.getVersion(),

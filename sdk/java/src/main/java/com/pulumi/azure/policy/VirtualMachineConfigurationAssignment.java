@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *             .virtualMachineId(exampleWindowsVirtualMachine.id())
  *             .publisher(&#34;Microsoft.GuestConfiguration&#34;)
  *             .type(&#34;ConfigurationforWindows&#34;)
- *             .typeHandlerVersion(&#34;1.0&#34;)
+ *             .typeHandlerVersion(&#34;1.29&#34;)
  *             .autoUpgradeMinorVersion(&#34;true&#34;)
  *             .build());
  * 

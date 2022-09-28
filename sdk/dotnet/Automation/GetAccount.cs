@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Automation
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:automation/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure:automation/getAccount:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Automation Account.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Automation
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure:automation/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure:automation/getAccount:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -126,9 +126,17 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
+        /// The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+        /// </summary>
+        public readonly string HybridServiceUrl;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// (Optional) An `identity` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAccountIdentityResult> Identities;
         public readonly string Name;
         /// <summary>
         /// The Primary Access Key for the Automation Account.
@@ -145,7 +153,11 @@ namespace Pulumi.Azure.Automation
         private GetAccountResult(
             string endpoint,
 
+            string hybridServiceUrl,
+
             string id,
+
+            ImmutableArray<Outputs.GetAccountIdentityResult> identities,
 
             string name,
 
@@ -158,7 +170,9 @@ namespace Pulumi.Azure.Automation
             string secondaryKey)
         {
             Endpoint = endpoint;
+            HybridServiceUrl = hybridServiceUrl;
             Id = id;
+            Identities = identities;
             Name = name;
             PrimaryKey = primaryKey;
             PrivateEndpointConnections = privateEndpointConnections;

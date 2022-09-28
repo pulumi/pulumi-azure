@@ -41,6 +41,11 @@ public final class PoolStartTaskResourceFile {
      * 
      */
     private @Nullable String storageContainerUrl;
+    /**
+     * @return An identity reference from pool&#39;s user assigned managed identity list.
+     * 
+     */
+    private @Nullable String userAssignedIdentityId;
 
     private PoolStartTaskResourceFile() {}
     /**
@@ -85,6 +90,13 @@ public final class PoolStartTaskResourceFile {
     public Optional<String> storageContainerUrl() {
         return Optional.ofNullable(this.storageContainerUrl);
     }
+    /**
+     * @return An identity reference from pool&#39;s user assigned managed identity list.
+     * 
+     */
+    public Optional<String> userAssignedIdentityId() {
+        return Optional.ofNullable(this.userAssignedIdentityId);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -101,6 +113,7 @@ public final class PoolStartTaskResourceFile {
         private @Nullable String filePath;
         private @Nullable String httpUrl;
         private @Nullable String storageContainerUrl;
+        private @Nullable String userAssignedIdentityId;
         public Builder() {}
         public Builder(PoolStartTaskResourceFile defaults) {
     	      Objects.requireNonNull(defaults);
@@ -110,6 +123,7 @@ public final class PoolStartTaskResourceFile {
     	      this.filePath = defaults.filePath;
     	      this.httpUrl = defaults.httpUrl;
     	      this.storageContainerUrl = defaults.storageContainerUrl;
+    	      this.userAssignedIdentityId = defaults.userAssignedIdentityId;
         }
 
         @CustomType.Setter
@@ -142,6 +156,11 @@ public final class PoolStartTaskResourceFile {
             this.storageContainerUrl = storageContainerUrl;
             return this;
         }
+        @CustomType.Setter
+        public Builder userAssignedIdentityId(@Nullable String userAssignedIdentityId) {
+            this.userAssignedIdentityId = userAssignedIdentityId;
+            return this;
+        }
         public PoolStartTaskResourceFile build() {
             final var o = new PoolStartTaskResourceFile();
             o.autoStorageContainerName = autoStorageContainerName;
@@ -150,6 +169,7 @@ public final class PoolStartTaskResourceFile {
             o.filePath = filePath;
             o.httpUrl = httpUrl;
             o.storageContainerUrl = storageContainerUrl;
+            o.userAssignedIdentityId = userAssignedIdentityId;
             return o;
         }
     }

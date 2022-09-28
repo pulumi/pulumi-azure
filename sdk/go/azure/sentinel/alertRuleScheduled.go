@@ -124,6 +124,8 @@ type AlertRuleScheduled struct {
 	SuppressionEnabled pulumi.BoolPtrOutput `pulumi:"suppressionEnabled"`
 	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
 	Tactics pulumi.StringArrayOutput `pulumi:"tactics"`
+	// A list of techniques of attacks by which to classify the rule.
+	Techniques pulumi.StringArrayOutput `pulumi:"techniques"`
 	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
 	TriggerOperator pulumi.StringPtrOutput `pulumi:"triggerOperator"`
 	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
@@ -209,6 +211,8 @@ type alertRuleScheduledState struct {
 	SuppressionEnabled *bool `pulumi:"suppressionEnabled"`
 	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
 	Tactics []string `pulumi:"tactics"`
+	// A list of techniques of attacks by which to classify the rule.
+	Techniques []string `pulumi:"techniques"`
 	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
 	TriggerOperator *string `pulumi:"triggerOperator"`
 	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
@@ -254,6 +258,8 @@ type AlertRuleScheduledState struct {
 	SuppressionEnabled pulumi.BoolPtrInput
 	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
 	Tactics pulumi.StringArrayInput
+	// A list of techniques of attacks by which to classify the rule.
+	Techniques pulumi.StringArrayInput
 	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
 	TriggerOperator pulumi.StringPtrInput
 	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
@@ -303,6 +309,8 @@ type alertRuleScheduledArgs struct {
 	SuppressionEnabled *bool `pulumi:"suppressionEnabled"`
 	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
 	Tactics []string `pulumi:"tactics"`
+	// A list of techniques of attacks by which to classify the rule.
+	Techniques []string `pulumi:"techniques"`
 	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
 	TriggerOperator *string `pulumi:"triggerOperator"`
 	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
@@ -349,6 +357,8 @@ type AlertRuleScheduledArgs struct {
 	SuppressionEnabled pulumi.BoolPtrInput
 	// A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
 	Tactics pulumi.StringArrayInput
+	// A list of techniques of attacks by which to classify the rule.
+	Techniques pulumi.StringArrayInput
 	// The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
 	TriggerOperator pulumi.StringPtrInput
 	// The baseline number of query results generated, combined with `triggerOperator`, setting alert threshold of this Sentinel Scheduled Alert Rule.
@@ -539,6 +549,11 @@ func (o AlertRuleScheduledOutput) SuppressionEnabled() pulumi.BoolPtrOutput {
 // A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `InitialAccess`, `LateralMovement`, `Persistence`,  `PrivilegeEscalation`, `ImpairProcessControl`, `InhibitResponseFunction`, `Reconnaissance` and `ResourceDevelopment`.
 func (o AlertRuleScheduledOutput) Tactics() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AlertRuleScheduled) pulumi.StringArrayOutput { return v.Tactics }).(pulumi.StringArrayOutput)
+}
+
+// A list of techniques of attacks by which to classify the rule.
+func (o AlertRuleScheduledOutput) Techniques() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AlertRuleScheduled) pulumi.StringArrayOutput { return v.Techniques }).(pulumi.StringArrayOutput)
 }
 
 // The alert trigger operator, combined with `triggerThreshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.

@@ -41,7 +41,7 @@ namespace Pulumi.Azure.LogicApps
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetStandardResult> InvokeAsync(GetStandardArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetStandardResult>("azure:logicapps/getStandard:getStandard", args ?? new GetStandardArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetStandardResult>("azure:logicapps/getStandard:getStandard", args ?? new GetStandardArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Logic App Standard instance.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.LogicApps
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetStandardResult> Invoke(GetStandardInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetStandardResult>("azure:logicapps/getStandard:getStandard", args ?? new GetStandardInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetStandardResult>("azure:logicapps/getStandard:getStandard", args ?? new GetStandardInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -178,6 +178,7 @@ namespace Pulumi.Azure.LogicApps
         public readonly ImmutableDictionary<string, string>? Tags;
         public readonly bool UseExtensionBundle;
         public readonly string Version;
+        public readonly string VirtualNetworkSubnetId;
 
         [OutputConstructor]
         private GetStandardResult(
@@ -231,7 +232,9 @@ namespace Pulumi.Azure.LogicApps
 
             bool useExtensionBundle,
 
-            string version)
+            string version,
+
+            string virtualNetworkSubnetId)
         {
             AppServicePlanId = appServicePlanId;
             AppSettings = appSettings;
@@ -259,6 +262,7 @@ namespace Pulumi.Azure.LogicApps
             Tags = tags;
             UseExtensionBundle = useExtensionBundle;
             Version = version;
+            VirtualNetworkSubnetId = virtualNetworkSubnetId;
         }
     }
 }

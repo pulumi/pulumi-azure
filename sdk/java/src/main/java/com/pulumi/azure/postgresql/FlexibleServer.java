@@ -360,14 +360,14 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sourceServerId);
     }
     /**
-     * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
+     * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
      * 
      */
     @Export(name="storageMb", type=Integer.class, parameters={})
     private Output<Integer> storageMb;
 
     /**
-     * @return The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
+     * @return The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
      * 
      */
     public Output<Integer> storageMb() {
@@ -375,7 +375,6 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     }
     /**
      * A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-     * *
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
@@ -383,7 +382,6 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-     * *
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

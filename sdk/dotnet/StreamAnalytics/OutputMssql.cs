@@ -83,6 +83,9 @@ namespace Pulumi.Azure.StreamAnalytics
         [Output("authenticationMode")]
         public Output<string?> AuthenticationMode { get; private set; } = null!;
 
+        /// <summary>
+        /// The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
+        /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
 
@@ -192,6 +195,9 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("authenticationMode")]
         public Input<string>? AuthenticationMode { get; set; }
 
+        /// <summary>
+        /// The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
@@ -263,6 +269,9 @@ namespace Pulumi.Azure.StreamAnalytics
         [Input("authenticationMode")]
         public Input<string>? AuthenticationMode { get; set; }
 
+        /// <summary>
+        /// The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
+        /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
 

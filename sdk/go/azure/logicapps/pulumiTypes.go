@@ -1565,11 +1565,13 @@ func (o StandardConnectionStringArrayOutput) Index(i pulumi.IntInput) StandardCo
 }
 
 type StandardIdentity struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+	IdentityIds []string `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
 	PrincipalId *string `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
 	TenantId *string `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. The only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
 	Type string `pulumi:"type"`
 }
 
@@ -1585,11 +1587,13 @@ type StandardIdentityInput interface {
 }
 
 type StandardIdentityArgs struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
 	// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
 	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
 	// The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service.
 	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
-	// Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. The only possible value is `SystemAssigned`.
+	// Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -1670,6 +1674,11 @@ func (o StandardIdentityOutput) ToStandardIdentityPtrOutputWithContext(ctx conte
 	}).(StandardIdentityPtrOutput)
 }
 
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+func (o StandardIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StandardIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
 func (o StandardIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
@@ -1680,7 +1689,7 @@ func (o StandardIdentityOutput) TenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StandardIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
 func (o StandardIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v StandardIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -1709,6 +1718,16 @@ func (o StandardIdentityPtrOutput) Elem() StandardIdentityOutput {
 	}).(StandardIdentityOutput)
 }
 
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+func (o StandardIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StandardIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
 func (o StandardIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StandardIdentity) *string {
@@ -1729,7 +1748,7 @@ func (o StandardIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. The only possible value is `SystemAssigned`.
+// Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
 func (o StandardIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StandardIdentity) *string {
 		if v == nil {

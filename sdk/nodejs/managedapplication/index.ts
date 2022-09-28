@@ -5,13 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./application";
-export * from "./definition";
-export * from "./getDefinition";
+export { ApplicationArgs, ApplicationState } from "./application";
+export type Application = import("./application").Application;
+export const Application: typeof import("./application").Application = null as any;
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
 
-// Import resources to register:
-import { Application } from "./application";
-import { Definition } from "./definition";
+export { DefinitionArgs, DefinitionState } from "./definition";
+export type Definition = import("./definition").Definition;
+export const Definition: typeof import("./definition").Definition = null as any;
+utilities.lazyLoad(exports, ["Definition"], () => require("./definition"));
+
+export { GetDefinitionArgs, GetDefinitionResult, GetDefinitionOutputArgs } from "./getDefinition";
+export const getDefinition: typeof import("./getDefinition").getDefinition = null as any;
+export const getDefinitionOutput: typeof import("./getDefinition").getDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getDefinition","getDefinitionOutput"], () => require("./getDefinition"));
+
 
 const _module = {
     version: utilities.getVersion(),

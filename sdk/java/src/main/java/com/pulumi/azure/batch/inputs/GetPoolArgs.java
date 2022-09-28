@@ -29,14 +29,14 @@ public final class GetPoolArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the endpoint.
+     * The name of the user account.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the endpoint.
+     * @return The name of the user account.
      * 
      */
     public Output<String> name() {
@@ -98,7 +98,7 @@ public final class GetPoolArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the endpoint.
+         * @param name The name of the user account.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GetPoolArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name The name of the endpoint.
+         * @param name The name of the user account.
          * 
          * @return builder
          * 

@@ -37,7 +37,7 @@ namespace Pulumi.Azure.MSSql
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetManagedInstanceResult> InvokeAsync(GetManagedInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceResult>("azure:mssql/getManagedInstance:getManagedInstance", args ?? new GetManagedInstanceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceResult>("azure:mssql/getManagedInstance:getManagedInstance", args ?? new GetManagedInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Microsoft SQL Azure Managed Instance.
@@ -65,7 +65,7 @@ namespace Pulumi.Azure.MSSql
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetManagedInstanceResult> Invoke(GetManagedInstanceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedInstanceResult>("azure:mssql/getManagedInstance:getManagedInstance", args ?? new GetManagedInstanceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstanceResult>("azure:mssql/getManagedInstance:getManagedInstance", args ?? new GetManagedInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

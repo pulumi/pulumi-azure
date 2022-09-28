@@ -5,53 +5,121 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./firewallRule";
-export * from "./getWorkspace";
-export * from "./integrationRuntimeAzure";
-export * from "./integrationRuntimeSelfHosted";
-export * from "./linkedService";
-export * from "./managedPrivateEndpoint";
-export * from "./privateLinkHub";
-export * from "./roleAssignment";
-export * from "./sparkPool";
-export * from "./sqlPool";
-export * from "./sqlPoolExtendedAuditingPolicy";
-export * from "./sqlPoolSecurityAlertPolicy";
-export * from "./sqlPoolVulnerabilityAssessment";
-export * from "./sqlPoolVulnerabilityAssessmentBaseline";
-export * from "./sqlPoolWorkloadClassifier";
-export * from "./sqlPoolWorkloadGroup";
-export * from "./workspace";
-export * from "./workspaceAadAdmin";
-export * from "./workspaceExtendedAuditingPolicy";
-export * from "./workspaceKey";
-export * from "./workspaceSecurityAlertPolicy";
-export * from "./workspaceSqlAadAdmin";
-export * from "./workspaceVulnerabilityAssessment";
+export { FirewallRuleArgs, FirewallRuleState } from "./firewallRule";
+export type FirewallRule = import("./firewallRule").FirewallRule;
+export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
+utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
 
-// Import resources to register:
-import { FirewallRule } from "./firewallRule";
-import { IntegrationRuntimeAzure } from "./integrationRuntimeAzure";
-import { IntegrationRuntimeSelfHosted } from "./integrationRuntimeSelfHosted";
-import { LinkedService } from "./linkedService";
-import { ManagedPrivateEndpoint } from "./managedPrivateEndpoint";
-import { PrivateLinkHub } from "./privateLinkHub";
-import { RoleAssignment } from "./roleAssignment";
-import { SparkPool } from "./sparkPool";
-import { SqlPool } from "./sqlPool";
-import { SqlPoolExtendedAuditingPolicy } from "./sqlPoolExtendedAuditingPolicy";
-import { SqlPoolSecurityAlertPolicy } from "./sqlPoolSecurityAlertPolicy";
-import { SqlPoolVulnerabilityAssessment } from "./sqlPoolVulnerabilityAssessment";
-import { SqlPoolVulnerabilityAssessmentBaseline } from "./sqlPoolVulnerabilityAssessmentBaseline";
-import { SqlPoolWorkloadClassifier } from "./sqlPoolWorkloadClassifier";
-import { SqlPoolWorkloadGroup } from "./sqlPoolWorkloadGroup";
-import { Workspace } from "./workspace";
-import { WorkspaceAadAdmin } from "./workspaceAadAdmin";
-import { WorkspaceExtendedAuditingPolicy } from "./workspaceExtendedAuditingPolicy";
-import { WorkspaceKey } from "./workspaceKey";
-import { WorkspaceSecurityAlertPolicy } from "./workspaceSecurityAlertPolicy";
-import { WorkspaceSqlAadAdmin } from "./workspaceSqlAadAdmin";
-import { WorkspaceVulnerabilityAssessment } from "./workspaceVulnerabilityAssessment";
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+
+export { IntegrationRuntimeAzureArgs, IntegrationRuntimeAzureState } from "./integrationRuntimeAzure";
+export type IntegrationRuntimeAzure = import("./integrationRuntimeAzure").IntegrationRuntimeAzure;
+export const IntegrationRuntimeAzure: typeof import("./integrationRuntimeAzure").IntegrationRuntimeAzure = null as any;
+utilities.lazyLoad(exports, ["IntegrationRuntimeAzure"], () => require("./integrationRuntimeAzure"));
+
+export { IntegrationRuntimeSelfHostedArgs, IntegrationRuntimeSelfHostedState } from "./integrationRuntimeSelfHosted";
+export type IntegrationRuntimeSelfHosted = import("./integrationRuntimeSelfHosted").IntegrationRuntimeSelfHosted;
+export const IntegrationRuntimeSelfHosted: typeof import("./integrationRuntimeSelfHosted").IntegrationRuntimeSelfHosted = null as any;
+utilities.lazyLoad(exports, ["IntegrationRuntimeSelfHosted"], () => require("./integrationRuntimeSelfHosted"));
+
+export { LinkedServiceArgs, LinkedServiceState } from "./linkedService";
+export type LinkedService = import("./linkedService").LinkedService;
+export const LinkedService: typeof import("./linkedService").LinkedService = null as any;
+utilities.lazyLoad(exports, ["LinkedService"], () => require("./linkedService"));
+
+export { ManagedPrivateEndpointArgs, ManagedPrivateEndpointState } from "./managedPrivateEndpoint";
+export type ManagedPrivateEndpoint = import("./managedPrivateEndpoint").ManagedPrivateEndpoint;
+export const ManagedPrivateEndpoint: typeof import("./managedPrivateEndpoint").ManagedPrivateEndpoint = null as any;
+utilities.lazyLoad(exports, ["ManagedPrivateEndpoint"], () => require("./managedPrivateEndpoint"));
+
+export { PrivateLinkHubArgs, PrivateLinkHubState } from "./privateLinkHub";
+export type PrivateLinkHub = import("./privateLinkHub").PrivateLinkHub;
+export const PrivateLinkHub: typeof import("./privateLinkHub").PrivateLinkHub = null as any;
+utilities.lazyLoad(exports, ["PrivateLinkHub"], () => require("./privateLinkHub"));
+
+export { RoleAssignmentArgs, RoleAssignmentState } from "./roleAssignment";
+export type RoleAssignment = import("./roleAssignment").RoleAssignment;
+export const RoleAssignment: typeof import("./roleAssignment").RoleAssignment = null as any;
+utilities.lazyLoad(exports, ["RoleAssignment"], () => require("./roleAssignment"));
+
+export { SparkPoolArgs, SparkPoolState } from "./sparkPool";
+export type SparkPool = import("./sparkPool").SparkPool;
+export const SparkPool: typeof import("./sparkPool").SparkPool = null as any;
+utilities.lazyLoad(exports, ["SparkPool"], () => require("./sparkPool"));
+
+export { SqlPoolArgs, SqlPoolState } from "./sqlPool";
+export type SqlPool = import("./sqlPool").SqlPool;
+export const SqlPool: typeof import("./sqlPool").SqlPool = null as any;
+utilities.lazyLoad(exports, ["SqlPool"], () => require("./sqlPool"));
+
+export { SqlPoolExtendedAuditingPolicyArgs, SqlPoolExtendedAuditingPolicyState } from "./sqlPoolExtendedAuditingPolicy";
+export type SqlPoolExtendedAuditingPolicy = import("./sqlPoolExtendedAuditingPolicy").SqlPoolExtendedAuditingPolicy;
+export const SqlPoolExtendedAuditingPolicy: typeof import("./sqlPoolExtendedAuditingPolicy").SqlPoolExtendedAuditingPolicy = null as any;
+utilities.lazyLoad(exports, ["SqlPoolExtendedAuditingPolicy"], () => require("./sqlPoolExtendedAuditingPolicy"));
+
+export { SqlPoolSecurityAlertPolicyArgs, SqlPoolSecurityAlertPolicyState } from "./sqlPoolSecurityAlertPolicy";
+export type SqlPoolSecurityAlertPolicy = import("./sqlPoolSecurityAlertPolicy").SqlPoolSecurityAlertPolicy;
+export const SqlPoolSecurityAlertPolicy: typeof import("./sqlPoolSecurityAlertPolicy").SqlPoolSecurityAlertPolicy = null as any;
+utilities.lazyLoad(exports, ["SqlPoolSecurityAlertPolicy"], () => require("./sqlPoolSecurityAlertPolicy"));
+
+export { SqlPoolVulnerabilityAssessmentArgs, SqlPoolVulnerabilityAssessmentState } from "./sqlPoolVulnerabilityAssessment";
+export type SqlPoolVulnerabilityAssessment = import("./sqlPoolVulnerabilityAssessment").SqlPoolVulnerabilityAssessment;
+export const SqlPoolVulnerabilityAssessment: typeof import("./sqlPoolVulnerabilityAssessment").SqlPoolVulnerabilityAssessment = null as any;
+utilities.lazyLoad(exports, ["SqlPoolVulnerabilityAssessment"], () => require("./sqlPoolVulnerabilityAssessment"));
+
+export { SqlPoolVulnerabilityAssessmentBaselineArgs, SqlPoolVulnerabilityAssessmentBaselineState } from "./sqlPoolVulnerabilityAssessmentBaseline";
+export type SqlPoolVulnerabilityAssessmentBaseline = import("./sqlPoolVulnerabilityAssessmentBaseline").SqlPoolVulnerabilityAssessmentBaseline;
+export const SqlPoolVulnerabilityAssessmentBaseline: typeof import("./sqlPoolVulnerabilityAssessmentBaseline").SqlPoolVulnerabilityAssessmentBaseline = null as any;
+utilities.lazyLoad(exports, ["SqlPoolVulnerabilityAssessmentBaseline"], () => require("./sqlPoolVulnerabilityAssessmentBaseline"));
+
+export { SqlPoolWorkloadClassifierArgs, SqlPoolWorkloadClassifierState } from "./sqlPoolWorkloadClassifier";
+export type SqlPoolWorkloadClassifier = import("./sqlPoolWorkloadClassifier").SqlPoolWorkloadClassifier;
+export const SqlPoolWorkloadClassifier: typeof import("./sqlPoolWorkloadClassifier").SqlPoolWorkloadClassifier = null as any;
+utilities.lazyLoad(exports, ["SqlPoolWorkloadClassifier"], () => require("./sqlPoolWorkloadClassifier"));
+
+export { SqlPoolWorkloadGroupArgs, SqlPoolWorkloadGroupState } from "./sqlPoolWorkloadGroup";
+export type SqlPoolWorkloadGroup = import("./sqlPoolWorkloadGroup").SqlPoolWorkloadGroup;
+export const SqlPoolWorkloadGroup: typeof import("./sqlPoolWorkloadGroup").SqlPoolWorkloadGroup = null as any;
+utilities.lazyLoad(exports, ["SqlPoolWorkloadGroup"], () => require("./sqlPoolWorkloadGroup"));
+
+export { WorkspaceArgs, WorkspaceState } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
+
+export { WorkspaceAadAdminArgs, WorkspaceAadAdminState } from "./workspaceAadAdmin";
+export type WorkspaceAadAdmin = import("./workspaceAadAdmin").WorkspaceAadAdmin;
+export const WorkspaceAadAdmin: typeof import("./workspaceAadAdmin").WorkspaceAadAdmin = null as any;
+utilities.lazyLoad(exports, ["WorkspaceAadAdmin"], () => require("./workspaceAadAdmin"));
+
+export { WorkspaceExtendedAuditingPolicyArgs, WorkspaceExtendedAuditingPolicyState } from "./workspaceExtendedAuditingPolicy";
+export type WorkspaceExtendedAuditingPolicy = import("./workspaceExtendedAuditingPolicy").WorkspaceExtendedAuditingPolicy;
+export const WorkspaceExtendedAuditingPolicy: typeof import("./workspaceExtendedAuditingPolicy").WorkspaceExtendedAuditingPolicy = null as any;
+utilities.lazyLoad(exports, ["WorkspaceExtendedAuditingPolicy"], () => require("./workspaceExtendedAuditingPolicy"));
+
+export { WorkspaceKeyArgs, WorkspaceKeyState } from "./workspaceKey";
+export type WorkspaceKey = import("./workspaceKey").WorkspaceKey;
+export const WorkspaceKey: typeof import("./workspaceKey").WorkspaceKey = null as any;
+utilities.lazyLoad(exports, ["WorkspaceKey"], () => require("./workspaceKey"));
+
+export { WorkspaceSecurityAlertPolicyArgs, WorkspaceSecurityAlertPolicyState } from "./workspaceSecurityAlertPolicy";
+export type WorkspaceSecurityAlertPolicy = import("./workspaceSecurityAlertPolicy").WorkspaceSecurityAlertPolicy;
+export const WorkspaceSecurityAlertPolicy: typeof import("./workspaceSecurityAlertPolicy").WorkspaceSecurityAlertPolicy = null as any;
+utilities.lazyLoad(exports, ["WorkspaceSecurityAlertPolicy"], () => require("./workspaceSecurityAlertPolicy"));
+
+export { WorkspaceSqlAadAdminArgs, WorkspaceSqlAadAdminState } from "./workspaceSqlAadAdmin";
+export type WorkspaceSqlAadAdmin = import("./workspaceSqlAadAdmin").WorkspaceSqlAadAdmin;
+export const WorkspaceSqlAadAdmin: typeof import("./workspaceSqlAadAdmin").WorkspaceSqlAadAdmin = null as any;
+utilities.lazyLoad(exports, ["WorkspaceSqlAadAdmin"], () => require("./workspaceSqlAadAdmin"));
+
+export { WorkspaceVulnerabilityAssessmentArgs, WorkspaceVulnerabilityAssessmentState } from "./workspaceVulnerabilityAssessment";
+export type WorkspaceVulnerabilityAssessment = import("./workspaceVulnerabilityAssessment").WorkspaceVulnerabilityAssessment;
+export const WorkspaceVulnerabilityAssessment: typeof import("./workspaceVulnerabilityAssessment").WorkspaceVulnerabilityAssessment = null as any;
+utilities.lazyLoad(exports, ["WorkspaceVulnerabilityAssessment"], () => require("./workspaceVulnerabilityAssessment"));
+
 
 const _module = {
     version: utilities.getVersion(),

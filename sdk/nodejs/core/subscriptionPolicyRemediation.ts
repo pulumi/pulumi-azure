@@ -37,7 +37,11 @@ export class SubscriptionPolicyRemediation extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly parallelDeployments!: pulumi.Output<number | undefined>;
     public readonly policyAssignmentId!: pulumi.Output<string>;
+    /**
+     * @deprecated `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+     */
     public readonly policyDefinitionId!: pulumi.Output<string | undefined>;
+    public readonly policyDefinitionReferenceId!: pulumi.Output<string | undefined>;
     public readonly resourceCount!: pulumi.Output<number | undefined>;
     public readonly resourceDiscoveryMode!: pulumi.Output<string | undefined>;
     public readonly subscriptionId!: pulumi.Output<string>;
@@ -61,6 +65,7 @@ export class SubscriptionPolicyRemediation extends pulumi.CustomResource {
             resourceInputs["parallelDeployments"] = state ? state.parallelDeployments : undefined;
             resourceInputs["policyAssignmentId"] = state ? state.policyAssignmentId : undefined;
             resourceInputs["policyDefinitionId"] = state ? state.policyDefinitionId : undefined;
+            resourceInputs["policyDefinitionReferenceId"] = state ? state.policyDefinitionReferenceId : undefined;
             resourceInputs["resourceCount"] = state ? state.resourceCount : undefined;
             resourceInputs["resourceDiscoveryMode"] = state ? state.resourceDiscoveryMode : undefined;
             resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
@@ -78,6 +83,7 @@ export class SubscriptionPolicyRemediation extends pulumi.CustomResource {
             resourceInputs["parallelDeployments"] = args ? args.parallelDeployments : undefined;
             resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
             resourceInputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
+            resourceInputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
             resourceInputs["resourceCount"] = args ? args.resourceCount : undefined;
             resourceInputs["resourceDiscoveryMode"] = args ? args.resourceDiscoveryMode : undefined;
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
@@ -96,7 +102,11 @@ export interface SubscriptionPolicyRemediationState {
     name?: pulumi.Input<string>;
     parallelDeployments?: pulumi.Input<number>;
     policyAssignmentId?: pulumi.Input<string>;
+    /**
+     * @deprecated `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+     */
     policyDefinitionId?: pulumi.Input<string>;
+    policyDefinitionReferenceId?: pulumi.Input<string>;
     resourceCount?: pulumi.Input<number>;
     resourceDiscoveryMode?: pulumi.Input<string>;
     subscriptionId?: pulumi.Input<string>;
@@ -111,7 +121,11 @@ export interface SubscriptionPolicyRemediationArgs {
     name?: pulumi.Input<string>;
     parallelDeployments?: pulumi.Input<number>;
     policyAssignmentId: pulumi.Input<string>;
+    /**
+     * @deprecated `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+     */
     policyDefinitionId?: pulumi.Input<string>;
+    policyDefinitionReferenceId?: pulumi.Input<string>;
     resourceCount?: pulumi.Input<number>;
     resourceDiscoveryMode?: pulumi.Input<string>;
     subscriptionId: pulumi.Input<string>;

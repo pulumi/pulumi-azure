@@ -63,14 +63,14 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     }
 
     /**
-     * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+     * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
      */
     @Import(name="patchAssessmentMode")
     private @Nullable Output<String> patchAssessmentMode;
 
     /**
-     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
      */
     public Optional<Output<String>> patchAssessmentMode() {
@@ -200,7 +200,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         }
 
         /**
-         * @param patchAssessmentMode Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+         * @param patchAssessmentMode Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         }
 
         /**
-         * @param patchAssessmentMode Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+         * @param patchAssessmentMode Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          * 
          * @return builder
          * 

@@ -79,14 +79,18 @@ type ApiSchema struct {
 	ApiManagementName pulumi.StringOutput `pulumi:"apiManagementName"`
 	// The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
 	ApiName pulumi.StringOutput `pulumi:"apiName"`
+	// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+	Components pulumi.StringPtrOutput `pulumi:"components"`
 	// The content type of the API Schema.
 	ContentType pulumi.StringOutput `pulumi:"contentType"`
+	// Types definitions. Used for Swagger/OpenAPI v1 schemas only.
+	Definitions pulumi.StringPtrOutput `pulumi:"definitions"`
 	// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A unique identifier for this API Schema. Changing this forces a new resource to be created.
 	SchemaId pulumi.StringOutput `pulumi:"schemaId"`
 	// The JSON escaped string defining the document representing the Schema.
-	Value pulumi.StringOutput `pulumi:"value"`
+	Value pulumi.StringPtrOutput `pulumi:"value"`
 }
 
 // NewApiSchema registers a new resource with the given unique name, arguments, and options.
@@ -110,9 +114,6 @@ func NewApiSchema(ctx *pulumi.Context,
 	}
 	if args.SchemaId == nil {
 		return nil, errors.New("invalid value for required argument 'SchemaId'")
-	}
-	if args.Value == nil {
-		return nil, errors.New("invalid value for required argument 'Value'")
 	}
 	var resource ApiSchema
 	err := ctx.RegisterResource("azure:apimanagement/apiSchema:ApiSchema", name, args, &resource, opts...)
@@ -140,8 +141,12 @@ type apiSchemaState struct {
 	ApiManagementName *string `pulumi:"apiManagementName"`
 	// The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
 	ApiName *string `pulumi:"apiName"`
+	// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+	Components *string `pulumi:"components"`
 	// The content type of the API Schema.
 	ContentType *string `pulumi:"contentType"`
+	// Types definitions. Used for Swagger/OpenAPI v1 schemas only.
+	Definitions *string `pulumi:"definitions"`
 	// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A unique identifier for this API Schema. Changing this forces a new resource to be created.
@@ -155,8 +160,12 @@ type ApiSchemaState struct {
 	ApiManagementName pulumi.StringPtrInput
 	// The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
 	ApiName pulumi.StringPtrInput
+	// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+	Components pulumi.StringPtrInput
 	// The content type of the API Schema.
 	ContentType pulumi.StringPtrInput
+	// Types definitions. Used for Swagger/OpenAPI v1 schemas only.
+	Definitions pulumi.StringPtrInput
 	// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A unique identifier for this API Schema. Changing this forces a new resource to be created.
@@ -174,14 +183,18 @@ type apiSchemaArgs struct {
 	ApiManagementName string `pulumi:"apiManagementName"`
 	// The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
 	ApiName string `pulumi:"apiName"`
+	// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+	Components *string `pulumi:"components"`
 	// The content type of the API Schema.
 	ContentType string `pulumi:"contentType"`
+	// Types definitions. Used for Swagger/OpenAPI v1 schemas only.
+	Definitions *string `pulumi:"definitions"`
 	// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A unique identifier for this API Schema. Changing this forces a new resource to be created.
 	SchemaId string `pulumi:"schemaId"`
 	// The JSON escaped string defining the document representing the Schema.
-	Value string `pulumi:"value"`
+	Value *string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a ApiSchema resource.
@@ -190,14 +203,18 @@ type ApiSchemaArgs struct {
 	ApiManagementName pulumi.StringInput
 	// The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created.
 	ApiName pulumi.StringInput
+	// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+	Components pulumi.StringPtrInput
 	// The content type of the API Schema.
 	ContentType pulumi.StringInput
+	// Types definitions. Used for Swagger/OpenAPI v1 schemas only.
+	Definitions pulumi.StringPtrInput
 	// The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A unique identifier for this API Schema. Changing this forces a new resource to be created.
 	SchemaId pulumi.StringInput
 	// The JSON escaped string defining the document representing the Schema.
-	Value pulumi.StringInput
+	Value pulumi.StringPtrInput
 }
 
 func (ApiSchemaArgs) ElementType() reflect.Type {
@@ -297,9 +314,19 @@ func (o ApiSchemaOutput) ApiName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiSchema) pulumi.StringOutput { return v.ApiName }).(pulumi.StringOutput)
 }
 
+// Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only.
+func (o ApiSchemaOutput) Components() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiSchema) pulumi.StringPtrOutput { return v.Components }).(pulumi.StringPtrOutput)
+}
+
 // The content type of the API Schema.
 func (o ApiSchemaOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiSchema) pulumi.StringOutput { return v.ContentType }).(pulumi.StringOutput)
+}
+
+// Types definitions. Used for Swagger/OpenAPI v1 schemas only.
+func (o ApiSchemaOutput) Definitions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiSchema) pulumi.StringPtrOutput { return v.Definitions }).(pulumi.StringPtrOutput)
 }
 
 // The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
@@ -313,8 +340,8 @@ func (o ApiSchemaOutput) SchemaId() pulumi.StringOutput {
 }
 
 // The JSON escaped string defining the document representing the Schema.
-func (o ApiSchemaOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v *ApiSchema) pulumi.StringOutput { return v.Value }).(pulumi.StringOutput)
+func (o ApiSchemaOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiSchema) pulumi.StringPtrOutput { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 type ApiSchemaArrayOutput struct{ *pulumi.OutputState }

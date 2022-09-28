@@ -5,23 +5,51 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./fabric";
-export * from "./getFabric";
-export * from "./getProtectionContainer";
-export * from "./getReplicationPolicy";
-export * from "./networkMapping";
-export * from "./protectionContainer";
-export * from "./protectionContainerMapping";
-export * from "./replicatedVM";
-export * from "./replicationPolicy";
+export { FabricArgs, FabricState } from "./fabric";
+export type Fabric = import("./fabric").Fabric;
+export const Fabric: typeof import("./fabric").Fabric = null as any;
+utilities.lazyLoad(exports, ["Fabric"], () => require("./fabric"));
 
-// Import resources to register:
-import { Fabric } from "./fabric";
-import { NetworkMapping } from "./networkMapping";
-import { ProtectionContainer } from "./protectionContainer";
-import { ProtectionContainerMapping } from "./protectionContainerMapping";
-import { ReplicatedVM } from "./replicatedVM";
-import { ReplicationPolicy } from "./replicationPolicy";
+export { GetFabricArgs, GetFabricResult, GetFabricOutputArgs } from "./getFabric";
+export const getFabric: typeof import("./getFabric").getFabric = null as any;
+export const getFabricOutput: typeof import("./getFabric").getFabricOutput = null as any;
+utilities.lazyLoad(exports, ["getFabric","getFabricOutput"], () => require("./getFabric"));
+
+export { GetProtectionContainerArgs, GetProtectionContainerResult, GetProtectionContainerOutputArgs } from "./getProtectionContainer";
+export const getProtectionContainer: typeof import("./getProtectionContainer").getProtectionContainer = null as any;
+export const getProtectionContainerOutput: typeof import("./getProtectionContainer").getProtectionContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getProtectionContainer","getProtectionContainerOutput"], () => require("./getProtectionContainer"));
+
+export { GetReplicationPolicyArgs, GetReplicationPolicyResult, GetReplicationPolicyOutputArgs } from "./getReplicationPolicy";
+export const getReplicationPolicy: typeof import("./getReplicationPolicy").getReplicationPolicy = null as any;
+export const getReplicationPolicyOutput: typeof import("./getReplicationPolicy").getReplicationPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getReplicationPolicy","getReplicationPolicyOutput"], () => require("./getReplicationPolicy"));
+
+export { NetworkMappingArgs, NetworkMappingState } from "./networkMapping";
+export type NetworkMapping = import("./networkMapping").NetworkMapping;
+export const NetworkMapping: typeof import("./networkMapping").NetworkMapping = null as any;
+utilities.lazyLoad(exports, ["NetworkMapping"], () => require("./networkMapping"));
+
+export { ProtectionContainerArgs, ProtectionContainerState } from "./protectionContainer";
+export type ProtectionContainer = import("./protectionContainer").ProtectionContainer;
+export const ProtectionContainer: typeof import("./protectionContainer").ProtectionContainer = null as any;
+utilities.lazyLoad(exports, ["ProtectionContainer"], () => require("./protectionContainer"));
+
+export { ProtectionContainerMappingArgs, ProtectionContainerMappingState } from "./protectionContainerMapping";
+export type ProtectionContainerMapping = import("./protectionContainerMapping").ProtectionContainerMapping;
+export const ProtectionContainerMapping: typeof import("./protectionContainerMapping").ProtectionContainerMapping = null as any;
+utilities.lazyLoad(exports, ["ProtectionContainerMapping"], () => require("./protectionContainerMapping"));
+
+export { ReplicatedVMArgs, ReplicatedVMState } from "./replicatedVM";
+export type ReplicatedVM = import("./replicatedVM").ReplicatedVM;
+export const ReplicatedVM: typeof import("./replicatedVM").ReplicatedVM = null as any;
+utilities.lazyLoad(exports, ["ReplicatedVM"], () => require("./replicatedVM"));
+
+export { ReplicationPolicyArgs, ReplicationPolicyState } from "./replicationPolicy";
+export type ReplicationPolicy = import("./replicationPolicy").ReplicationPolicy;
+export const ReplicationPolicy: typeof import("./replicationPolicy").ReplicationPolicy = null as any;
+utilities.lazyLoad(exports, ["ReplicationPolicy"], () => require("./replicationPolicy"));
+
 
 const _module = {
     version: utilities.getVersion(),

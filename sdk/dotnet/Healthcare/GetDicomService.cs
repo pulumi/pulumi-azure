@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Healthcare
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDicomServiceResult> InvokeAsync(GetDicomServiceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDicomServiceResult>("azure:healthcare/getDicomService:getDicomService", args ?? new GetDicomServiceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDicomServiceResult>("azure:healthcare/getDicomService:getDicomService", args ?? new GetDicomServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Healthcare DICOM Service
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Healthcare
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDicomServiceResult> Invoke(GetDicomServiceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDicomServiceResult>("azure:healthcare/getDicomService:getDicomService", args ?? new GetDicomServiceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDicomServiceResult>("azure:healthcare/getDicomService:getDicomService", args ?? new GetDicomServiceInvokeArgs(), options.WithDefaults());
     }
 
 

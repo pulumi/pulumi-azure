@@ -13,7 +13,9 @@ import (
 type BudgetManagementGroupFilter struct {
 	// One or more `dimension` blocks as defined below to filter the budget on.
 	Dimensions []BudgetManagementGroupFilterDimension `pulumi:"dimensions"`
-	// A `not` block as defined below to filter the budget on.
+	// A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+	//
+	// Deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 	Not *BudgetManagementGroupFilterNot `pulumi:"not"`
 	// One or more `tag` blocks as defined below to filter the budget on.
 	Tags []BudgetManagementGroupFilterTag `pulumi:"tags"`
@@ -33,7 +35,9 @@ type BudgetManagementGroupFilterInput interface {
 type BudgetManagementGroupFilterArgs struct {
 	// One or more `dimension` blocks as defined below to filter the budget on.
 	Dimensions BudgetManagementGroupFilterDimensionArrayInput `pulumi:"dimensions"`
-	// A `not` block as defined below to filter the budget on.
+	// A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+	//
+	// Deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 	Not BudgetManagementGroupFilterNotPtrInput `pulumi:"not"`
 	// One or more `tag` blocks as defined below to filter the budget on.
 	Tags BudgetManagementGroupFilterTagArrayInput `pulumi:"tags"`
@@ -121,7 +125,9 @@ func (o BudgetManagementGroupFilterOutput) Dimensions() BudgetManagementGroupFil
 	return o.ApplyT(func(v BudgetManagementGroupFilter) []BudgetManagementGroupFilterDimension { return v.Dimensions }).(BudgetManagementGroupFilterDimensionArrayOutput)
 }
 
-// A `not` block as defined below to filter the budget on.
+// A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+//
+// Deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 func (o BudgetManagementGroupFilterOutput) Not() BudgetManagementGroupFilterNotPtrOutput {
 	return o.ApplyT(func(v BudgetManagementGroupFilter) *BudgetManagementGroupFilterNot { return v.Not }).(BudgetManagementGroupFilterNotPtrOutput)
 }
@@ -165,7 +171,9 @@ func (o BudgetManagementGroupFilterPtrOutput) Dimensions() BudgetManagementGroup
 	}).(BudgetManagementGroupFilterDimensionArrayOutput)
 }
 
-// A `not` block as defined below to filter the budget on.
+// A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+//
+// Deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 func (o BudgetManagementGroupFilterPtrOutput) Not() BudgetManagementGroupFilterNotPtrOutput {
 	return o.ApplyT(func(v *BudgetManagementGroupFilter) *BudgetManagementGroupFilterNot {
 		if v == nil {
@@ -1213,7 +1221,9 @@ func (o BudgetManagementGroupTimePeriodPtrOutput) StartDate() pulumi.StringPtrOu
 type BudgetResourceGroupFilter struct {
 	// One or more `dimension` blocks as defined below to filter the budget on.
 	Dimensions []BudgetResourceGroupFilterDimension `pulumi:"dimensions"`
-	// A `not` block as defined below to filter the budget on.
+	// A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+	//
+	// Deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 	Not *BudgetResourceGroupFilterNot `pulumi:"not"`
 	// One or more `tag` blocks as defined below to filter the budget on.
 	Tags []BudgetResourceGroupFilterTag `pulumi:"tags"`
@@ -1233,7 +1243,9 @@ type BudgetResourceGroupFilterInput interface {
 type BudgetResourceGroupFilterArgs struct {
 	// One or more `dimension` blocks as defined below to filter the budget on.
 	Dimensions BudgetResourceGroupFilterDimensionArrayInput `pulumi:"dimensions"`
-	// A `not` block as defined below to filter the budget on.
+	// A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+	//
+	// Deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 	Not BudgetResourceGroupFilterNotPtrInput `pulumi:"not"`
 	// One or more `tag` blocks as defined below to filter the budget on.
 	Tags BudgetResourceGroupFilterTagArrayInput `pulumi:"tags"`
@@ -1321,7 +1333,9 @@ func (o BudgetResourceGroupFilterOutput) Dimensions() BudgetResourceGroupFilterD
 	return o.ApplyT(func(v BudgetResourceGroupFilter) []BudgetResourceGroupFilterDimension { return v.Dimensions }).(BudgetResourceGroupFilterDimensionArrayOutput)
 }
 
-// A `not` block as defined below to filter the budget on.
+// A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+//
+// Deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 func (o BudgetResourceGroupFilterOutput) Not() BudgetResourceGroupFilterNotPtrOutput {
 	return o.ApplyT(func(v BudgetResourceGroupFilter) *BudgetResourceGroupFilterNot { return v.Not }).(BudgetResourceGroupFilterNotPtrOutput)
 }
@@ -1365,7 +1379,9 @@ func (o BudgetResourceGroupFilterPtrOutput) Dimensions() BudgetResourceGroupFilt
 	}).(BudgetResourceGroupFilterDimensionArrayOutput)
 }
 
-// A `not` block as defined below to filter the budget on.
+// A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+//
+// Deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 func (o BudgetResourceGroupFilterPtrOutput) Not() BudgetResourceGroupFilterNotPtrOutput {
 	return o.ApplyT(func(v *BudgetResourceGroupFilter) *BudgetResourceGroupFilterNot {
 		if v == nil {
@@ -2431,7 +2447,9 @@ func (o BudgetResourceGroupTimePeriodPtrOutput) StartDate() pulumi.StringPtrOutp
 type BudgetSubscriptionFilter struct {
 	// One or more `dimension` blocks as defined below to filter the budget on.
 	Dimensions []BudgetSubscriptionFilterDimension `pulumi:"dimensions"`
-	// A `not` block as defined below to filter the budget on.
+	// A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+	//
+	// Deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 	Not *BudgetSubscriptionFilterNot `pulumi:"not"`
 	// One or more `tag` blocks as defined below to filter the budget on.
 	Tags []BudgetSubscriptionFilterTag `pulumi:"tags"`
@@ -2451,7 +2469,9 @@ type BudgetSubscriptionFilterInput interface {
 type BudgetSubscriptionFilterArgs struct {
 	// One or more `dimension` blocks as defined below to filter the budget on.
 	Dimensions BudgetSubscriptionFilterDimensionArrayInput `pulumi:"dimensions"`
-	// A `not` block as defined below to filter the budget on.
+	// A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+	//
+	// Deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 	Not BudgetSubscriptionFilterNotPtrInput `pulumi:"not"`
 	// One or more `tag` blocks as defined below to filter the budget on.
 	Tags BudgetSubscriptionFilterTagArrayInput `pulumi:"tags"`
@@ -2539,7 +2559,9 @@ func (o BudgetSubscriptionFilterOutput) Dimensions() BudgetSubscriptionFilterDim
 	return o.ApplyT(func(v BudgetSubscriptionFilter) []BudgetSubscriptionFilterDimension { return v.Dimensions }).(BudgetSubscriptionFilterDimensionArrayOutput)
 }
 
-// A `not` block as defined below to filter the budget on.
+// A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+//
+// Deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 func (o BudgetSubscriptionFilterOutput) Not() BudgetSubscriptionFilterNotPtrOutput {
 	return o.ApplyT(func(v BudgetSubscriptionFilter) *BudgetSubscriptionFilterNot { return v.Not }).(BudgetSubscriptionFilterNotPtrOutput)
 }
@@ -2583,7 +2605,9 @@ func (o BudgetSubscriptionFilterPtrOutput) Dimensions() BudgetSubscriptionFilter
 	}).(BudgetSubscriptionFilterDimensionArrayOutput)
 }
 
-// A `not` block as defined below to filter the budget on.
+// A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+//
+// Deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
 func (o BudgetSubscriptionFilterPtrOutput) Not() BudgetSubscriptionFilterNotPtrOutput {
 	return o.ApplyT(func(v *BudgetSubscriptionFilter) *BudgetSubscriptionFilterNot {
 		if v == nil {

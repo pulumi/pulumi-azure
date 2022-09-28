@@ -5,38 +5,106 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./accessPolicy";
-export * from "./certifiate";
-export * from "./certificate";
-export * from "./certificateIssuer";
-export * from "./getAccessPolicy";
-export * from "./getCertificate";
-export * from "./getCertificateData";
-export * from "./getCertificateIssuer";
-export * from "./getEncryptedValue";
-export * from "./getKey";
-export * from "./getKeyVault";
-export * from "./getManagedHardwareSecurityModule";
-export * from "./getSecret";
-export * from "./getSecrets";
-export * from "./key";
-export * from "./keyVault";
-export * from "./managedHardwareSecurityModule";
-export * from "./managedStorageAccount";
-export * from "./managedStorageAccountSasTokenDefinition";
-export * from "./secret";
+export { AccessPolicyArgs, AccessPolicyState } from "./accessPolicy";
+export type AccessPolicy = import("./accessPolicy").AccessPolicy;
+export const AccessPolicy: typeof import("./accessPolicy").AccessPolicy = null as any;
+utilities.lazyLoad(exports, ["AccessPolicy"], () => require("./accessPolicy"));
 
-// Import resources to register:
-import { AccessPolicy } from "./accessPolicy";
-import { Certifiate } from "./certifiate";
-import { Certificate } from "./certificate";
-import { CertificateIssuer } from "./certificateIssuer";
-import { Key } from "./key";
-import { KeyVault } from "./keyVault";
-import { ManagedHardwareSecurityModule } from "./managedHardwareSecurityModule";
-import { ManagedStorageAccount } from "./managedStorageAccount";
-import { ManagedStorageAccountSasTokenDefinition } from "./managedStorageAccountSasTokenDefinition";
-import { Secret } from "./secret";
+export { CertifiateArgs, CertifiateState } from "./certifiate";
+export type Certifiate = import("./certifiate").Certifiate;
+export const Certifiate: typeof import("./certifiate").Certifiate = null as any;
+utilities.lazyLoad(exports, ["Certifiate"], () => require("./certifiate"));
+
+export { CertificateArgs, CertificateState } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+
+export { CertificateIssuerArgs, CertificateIssuerState } from "./certificateIssuer";
+export type CertificateIssuer = import("./certificateIssuer").CertificateIssuer;
+export const CertificateIssuer: typeof import("./certificateIssuer").CertificateIssuer = null as any;
+utilities.lazyLoad(exports, ["CertificateIssuer"], () => require("./certificateIssuer"));
+
+export { GetAccessPolicyArgs, GetAccessPolicyResult, GetAccessPolicyOutputArgs } from "./getAccessPolicy";
+export const getAccessPolicy: typeof import("./getAccessPolicy").getAccessPolicy = null as any;
+export const getAccessPolicyOutput: typeof import("./getAccessPolicy").getAccessPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessPolicy","getAccessPolicyOutput"], () => require("./getAccessPolicy"));
+
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+
+export { GetCertificateDataArgs, GetCertificateDataResult, GetCertificateDataOutputArgs } from "./getCertificateData";
+export const getCertificateData: typeof import("./getCertificateData").getCertificateData = null as any;
+export const getCertificateDataOutput: typeof import("./getCertificateData").getCertificateDataOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificateData","getCertificateDataOutput"], () => require("./getCertificateData"));
+
+export { GetCertificateIssuerArgs, GetCertificateIssuerResult, GetCertificateIssuerOutputArgs } from "./getCertificateIssuer";
+export const getCertificateIssuer: typeof import("./getCertificateIssuer").getCertificateIssuer = null as any;
+export const getCertificateIssuerOutput: typeof import("./getCertificateIssuer").getCertificateIssuerOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificateIssuer","getCertificateIssuerOutput"], () => require("./getCertificateIssuer"));
+
+export { GetEncryptedValueArgs, GetEncryptedValueResult, GetEncryptedValueOutputArgs } from "./getEncryptedValue";
+export const getEncryptedValue: typeof import("./getEncryptedValue").getEncryptedValue = null as any;
+export const getEncryptedValueOutput: typeof import("./getEncryptedValue").getEncryptedValueOutput = null as any;
+utilities.lazyLoad(exports, ["getEncryptedValue","getEncryptedValueOutput"], () => require("./getEncryptedValue"));
+
+export { GetKeyArgs, GetKeyResult, GetKeyOutputArgs } from "./getKey";
+export const getKey: typeof import("./getKey").getKey = null as any;
+export const getKeyOutput: typeof import("./getKey").getKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getKey","getKeyOutput"], () => require("./getKey"));
+
+export { GetKeyVaultArgs, GetKeyVaultResult, GetKeyVaultOutputArgs } from "./getKeyVault";
+export const getKeyVault: typeof import("./getKeyVault").getKeyVault = null as any;
+export const getKeyVaultOutput: typeof import("./getKeyVault").getKeyVaultOutput = null as any;
+utilities.lazyLoad(exports, ["getKeyVault","getKeyVaultOutput"], () => require("./getKeyVault"));
+
+export { GetManagedHardwareSecurityModuleArgs, GetManagedHardwareSecurityModuleResult, GetManagedHardwareSecurityModuleOutputArgs } from "./getManagedHardwareSecurityModule";
+export const getManagedHardwareSecurityModule: typeof import("./getManagedHardwareSecurityModule").getManagedHardwareSecurityModule = null as any;
+export const getManagedHardwareSecurityModuleOutput: typeof import("./getManagedHardwareSecurityModule").getManagedHardwareSecurityModuleOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedHardwareSecurityModule","getManagedHardwareSecurityModuleOutput"], () => require("./getManagedHardwareSecurityModule"));
+
+export { GetSecretArgs, GetSecretResult, GetSecretOutputArgs } from "./getSecret";
+export const getSecret: typeof import("./getSecret").getSecret = null as any;
+export const getSecretOutput: typeof import("./getSecret").getSecretOutput = null as any;
+utilities.lazyLoad(exports, ["getSecret","getSecretOutput"], () => require("./getSecret"));
+
+export { GetSecretsArgs, GetSecretsResult, GetSecretsOutputArgs } from "./getSecrets";
+export const getSecrets: typeof import("./getSecrets").getSecrets = null as any;
+export const getSecretsOutput: typeof import("./getSecrets").getSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["getSecrets","getSecretsOutput"], () => require("./getSecrets"));
+
+export { KeyArgs, KeyState } from "./key";
+export type Key = import("./key").Key;
+export const Key: typeof import("./key").Key = null as any;
+utilities.lazyLoad(exports, ["Key"], () => require("./key"));
+
+export { KeyVaultArgs, KeyVaultState } from "./keyVault";
+export type KeyVault = import("./keyVault").KeyVault;
+export const KeyVault: typeof import("./keyVault").KeyVault = null as any;
+utilities.lazyLoad(exports, ["KeyVault"], () => require("./keyVault"));
+
+export { ManagedHardwareSecurityModuleArgs, ManagedHardwareSecurityModuleState } from "./managedHardwareSecurityModule";
+export type ManagedHardwareSecurityModule = import("./managedHardwareSecurityModule").ManagedHardwareSecurityModule;
+export const ManagedHardwareSecurityModule: typeof import("./managedHardwareSecurityModule").ManagedHardwareSecurityModule = null as any;
+utilities.lazyLoad(exports, ["ManagedHardwareSecurityModule"], () => require("./managedHardwareSecurityModule"));
+
+export { ManagedStorageAccountArgs, ManagedStorageAccountState } from "./managedStorageAccount";
+export type ManagedStorageAccount = import("./managedStorageAccount").ManagedStorageAccount;
+export const ManagedStorageAccount: typeof import("./managedStorageAccount").ManagedStorageAccount = null as any;
+utilities.lazyLoad(exports, ["ManagedStorageAccount"], () => require("./managedStorageAccount"));
+
+export { ManagedStorageAccountSasTokenDefinitionArgs, ManagedStorageAccountSasTokenDefinitionState } from "./managedStorageAccountSasTokenDefinition";
+export type ManagedStorageAccountSasTokenDefinition = import("./managedStorageAccountSasTokenDefinition").ManagedStorageAccountSasTokenDefinition;
+export const ManagedStorageAccountSasTokenDefinition: typeof import("./managedStorageAccountSasTokenDefinition").ManagedStorageAccountSasTokenDefinition = null as any;
+utilities.lazyLoad(exports, ["ManagedStorageAccountSasTokenDefinition"], () => require("./managedStorageAccountSasTokenDefinition"));
+
+export { SecretArgs, SecretState } from "./secret";
+export type Secret = import("./secret").Secret;
+export const Secret: typeof import("./secret").Secret = null as any;
+utilities.lazyLoad(exports, ["Secret"], () => require("./secret"));
+
 
 const _module = {
     version: utilities.getVersion(),

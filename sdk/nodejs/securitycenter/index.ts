@@ -5,30 +5,61 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./advancedThreatProtection";
-export * from "./assessment";
-export * from "./assessmentPolicy";
-export * from "./autoProvisioning";
-export * from "./automation";
-export * from "./contact";
-export * from "./serverVulnerabilityAssessment";
-export * from "./serverVulnerabilityAssessmentVirtualMachine";
-export * from "./setting";
-export * from "./subscriptionPricing";
-export * from "./workspace";
+export { AdvancedThreatProtectionArgs, AdvancedThreatProtectionState } from "./advancedThreatProtection";
+export type AdvancedThreatProtection = import("./advancedThreatProtection").AdvancedThreatProtection;
+export const AdvancedThreatProtection: typeof import("./advancedThreatProtection").AdvancedThreatProtection = null as any;
+utilities.lazyLoad(exports, ["AdvancedThreatProtection"], () => require("./advancedThreatProtection"));
 
-// Import resources to register:
-import { AdvancedThreatProtection } from "./advancedThreatProtection";
-import { Assessment } from "./assessment";
-import { AssessmentPolicy } from "./assessmentPolicy";
-import { AutoProvisioning } from "./autoProvisioning";
-import { Automation } from "./automation";
-import { Contact } from "./contact";
-import { ServerVulnerabilityAssessment } from "./serverVulnerabilityAssessment";
-import { ServerVulnerabilityAssessmentVirtualMachine } from "./serverVulnerabilityAssessmentVirtualMachine";
-import { Setting } from "./setting";
-import { SubscriptionPricing } from "./subscriptionPricing";
-import { Workspace } from "./workspace";
+export { AssessmentArgs, AssessmentState } from "./assessment";
+export type Assessment = import("./assessment").Assessment;
+export const Assessment: typeof import("./assessment").Assessment = null as any;
+utilities.lazyLoad(exports, ["Assessment"], () => require("./assessment"));
+
+export { AssessmentPolicyArgs, AssessmentPolicyState } from "./assessmentPolicy";
+export type AssessmentPolicy = import("./assessmentPolicy").AssessmentPolicy;
+export const AssessmentPolicy: typeof import("./assessmentPolicy").AssessmentPolicy = null as any;
+utilities.lazyLoad(exports, ["AssessmentPolicy"], () => require("./assessmentPolicy"));
+
+export { AutoProvisioningArgs, AutoProvisioningState } from "./autoProvisioning";
+export type AutoProvisioning = import("./autoProvisioning").AutoProvisioning;
+export const AutoProvisioning: typeof import("./autoProvisioning").AutoProvisioning = null as any;
+utilities.lazyLoad(exports, ["AutoProvisioning"], () => require("./autoProvisioning"));
+
+export { AutomationArgs, AutomationState } from "./automation";
+export type Automation = import("./automation").Automation;
+export const Automation: typeof import("./automation").Automation = null as any;
+utilities.lazyLoad(exports, ["Automation"], () => require("./automation"));
+
+export { ContactArgs, ContactState } from "./contact";
+export type Contact = import("./contact").Contact;
+export const Contact: typeof import("./contact").Contact = null as any;
+utilities.lazyLoad(exports, ["Contact"], () => require("./contact"));
+
+export { ServerVulnerabilityAssessmentArgs, ServerVulnerabilityAssessmentState } from "./serverVulnerabilityAssessment";
+export type ServerVulnerabilityAssessment = import("./serverVulnerabilityAssessment").ServerVulnerabilityAssessment;
+export const ServerVulnerabilityAssessment: typeof import("./serverVulnerabilityAssessment").ServerVulnerabilityAssessment = null as any;
+utilities.lazyLoad(exports, ["ServerVulnerabilityAssessment"], () => require("./serverVulnerabilityAssessment"));
+
+export { ServerVulnerabilityAssessmentVirtualMachineArgs, ServerVulnerabilityAssessmentVirtualMachineState } from "./serverVulnerabilityAssessmentVirtualMachine";
+export type ServerVulnerabilityAssessmentVirtualMachine = import("./serverVulnerabilityAssessmentVirtualMachine").ServerVulnerabilityAssessmentVirtualMachine;
+export const ServerVulnerabilityAssessmentVirtualMachine: typeof import("./serverVulnerabilityAssessmentVirtualMachine").ServerVulnerabilityAssessmentVirtualMachine = null as any;
+utilities.lazyLoad(exports, ["ServerVulnerabilityAssessmentVirtualMachine"], () => require("./serverVulnerabilityAssessmentVirtualMachine"));
+
+export { SettingArgs, SettingState } from "./setting";
+export type Setting = import("./setting").Setting;
+export const Setting: typeof import("./setting").Setting = null as any;
+utilities.lazyLoad(exports, ["Setting"], () => require("./setting"));
+
+export { SubscriptionPricingArgs, SubscriptionPricingState } from "./subscriptionPricing";
+export type SubscriptionPricing = import("./subscriptionPricing").SubscriptionPricing;
+export const SubscriptionPricing: typeof import("./subscriptionPricing").SubscriptionPricing = null as any;
+utilities.lazyLoad(exports, ["SubscriptionPricing"], () => require("./subscriptionPricing"));
+
+export { WorkspaceArgs, WorkspaceState } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
+
 
 const _module = {
     version: utilities.getVersion(),

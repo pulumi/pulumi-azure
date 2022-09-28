@@ -24,6 +24,18 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("examples")]
+        private InputList<Inputs.ApiOperationResponseRepresentationFormParameterExampleArgs>? _examples;
+
+        /// <summary>
+        /// (Optional) One or more `example` blocks as defined above.
+        /// </summary>
+        public InputList<Inputs.ApiOperationResponseRepresentationFormParameterExampleArgs> Examples
+        {
+            get => _examples ?? (_examples = new InputList<Inputs.ApiOperationResponseRepresentationFormParameterExampleArgs>());
+            set => _examples = value;
+        }
+
         /// <summary>
         /// The Name of this Form Parameter.
         /// </summary>
@@ -37,10 +49,22 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<bool> Required { get; set; } = null!;
 
         /// <summary>
+        /// The name of the Schema.
+        /// </summary>
+        [Input("schemaId")]
+        public Input<string>? SchemaId { get; set; }
+
+        /// <summary>
         /// The Type of this Form Parameter, such as a `string`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// The type name defined by the Schema.
+        /// </summary>
+        [Input("typeName")]
+        public Input<string>? TypeName { get; set; }
 
         [Input("values")]
         private InputList<string>? _values;

@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Monitoring
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLogProfileResult> InvokeAsync(GetLogProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLogProfileResult>("azure:monitoring/getLogProfile:getLogProfile", args ?? new GetLogProfileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogProfileResult>("azure:monitoring/getLogProfile:getLogProfile", args ?? new GetLogProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access the properties of a Log Profile.
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Monitoring
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetLogProfileResult> Invoke(GetLogProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLogProfileResult>("azure:monitoring/getLogProfile:getLogProfile", args ?? new GetLogProfileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogProfileResult>("azure:monitoring/getLogProfile:getLogProfile", args ?? new GetLogProfileInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -105,7 +106,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+     * The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -281,7 +282,7 @@ export interface ClusterState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+     * The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -379,7 +380,7 @@ export interface ClusterArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the Kusto Cluster to create. Changing this forces a new resource to be created.
+     * The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

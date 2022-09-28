@@ -276,14 +276,14 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
+     * The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
      * 
      */
     @Import(name="storageMb")
     private @Nullable Output<Integer> storageMb;
 
     /**
-     * @return The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
+     * @return The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
      * 
      */
     public Optional<Output<Integer>> storageMb() {
@@ -292,7 +292,6 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
 
     /**
      * A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-     * *
      * 
      */
     @Import(name="tags")
@@ -300,7 +299,6 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
 
     /**
      * @return A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-     * *
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -739,7 +737,7 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storageMb The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
+         * @param storageMb The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
          * 
          * @return builder
          * 
@@ -750,7 +748,7 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param storageMb The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
+         * @param storageMb The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, and `16777216`.
          * 
          * @return builder
          * 
@@ -761,7 +759,6 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param tags A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-         * *
          * 
          * @return builder
          * 
@@ -773,7 +770,6 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param tags A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
-         * *
          * 
          * @return builder
          * 

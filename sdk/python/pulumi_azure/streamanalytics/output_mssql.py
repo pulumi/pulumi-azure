@@ -27,6 +27,7 @@ class OutputMssqlArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OutputMssql resource.
+        :param pulumi.Input[str] database: The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: Password used together with username, to login to the Microsoft SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] server: The SQL server url. Changing this forces a new resource to be created.
@@ -57,6 +58,9 @@ class OutputMssqlArgs:
     @property
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
+        """
+        The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -201,6 +205,7 @@ class _OutputMssqlState:
         """
         Input properties used for looking up and filtering OutputMssql resources.
         :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        :param pulumi.Input[str] database: The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_batch_count: The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
         :param pulumi.Input[float] max_writer_count: The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
@@ -249,6 +254,9 @@ class _OutputMssqlState:
     @property
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
+        """
+        The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "database")
 
     @database.setter
@@ -428,6 +436,7 @@ class OutputMssql(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        :param pulumi.Input[str] database: The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_batch_count: The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
         :param pulumi.Input[float] max_writer_count: The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
@@ -577,6 +586,7 @@ class OutputMssql(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authentication_mode: The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        :param pulumi.Input[str] database: The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
         :param pulumi.Input[float] max_batch_count: The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`.
         :param pulumi.Input[float] max_writer_count: The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
@@ -615,6 +625,9 @@ class OutputMssql(pulumi.CustomResource):
     @property
     @pulumi.getter
     def database(self) -> pulumi.Output[str]:
+        """
+        The MS SQL database name where the reference table exists. Changing this forces a new resource to be created.
+        """
         return pulumi.get(self, "database")
 
     @property

@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ElasticCloud
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetElasticsearchResult> InvokeAsync(GetElasticsearchArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetElasticsearchResult>("azure:elasticcloud/getElasticsearch:getElasticsearch", args ?? new GetElasticsearchArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetElasticsearchResult>("azure:elasticcloud/getElasticsearch:getElasticsearch", args ?? new GetElasticsearchArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Elasticsearch resource.
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.ElasticCloud
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetElasticsearchResult> Invoke(GetElasticsearchInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetElasticsearchResult>("azure:elasticcloud/getElasticsearch:getElasticsearch", args ?? new GetElasticsearchInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetElasticsearchResult>("azure:elasticcloud/getElasticsearch:getElasticsearch", args ?? new GetElasticsearchInvokeArgs(), options.WithDefaults());
     }
 
 

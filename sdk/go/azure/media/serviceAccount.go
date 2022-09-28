@@ -81,7 +81,7 @@ type ServiceAccount struct {
 	KeyDeliveryAccessControl ServiceAccountKeyDeliveryAccessControlOutput `pulumi:"keyDeliveryAccessControl"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
+	// Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -141,7 +141,7 @@ type serviceAccountState struct {
 	KeyDeliveryAccessControl *ServiceAccountKeyDeliveryAccessControl `pulumi:"keyDeliveryAccessControl"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
+	// Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -161,7 +161,7 @@ type ServiceAccountState struct {
 	KeyDeliveryAccessControl ServiceAccountKeyDeliveryAccessControlPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
+	// Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -185,7 +185,7 @@ type serviceAccountArgs struct {
 	KeyDeliveryAccessControl *ServiceAccountKeyDeliveryAccessControl `pulumi:"keyDeliveryAccessControl"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
+	// Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -206,7 +206,7 @@ type ServiceAccountArgs struct {
 	KeyDeliveryAccessControl ServiceAccountKeyDeliveryAccessControlPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
+	// Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -323,7 +323,7 @@ func (o ServiceAccountOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceAccount) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
+// Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 func (o ServiceAccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceAccount) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -22,6 +22,10 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// (Optional) One or more `example` blocks as defined above.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApiOperationResponseRepresentationFormParameterExample> Examples;
+        /// <summary>
         /// The Name of this Form Parameter.
         /// </summary>
         public readonly string Name;
@@ -30,9 +34,17 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly bool Required;
         /// <summary>
+        /// The name of the Schema.
+        /// </summary>
+        public readonly string? SchemaId;
+        /// <summary>
         /// The Type of this Form Parameter, such as a `string`.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The type name defined by the Schema.
+        /// </summary>
+        public readonly string? TypeName;
         /// <summary>
         /// One or more acceptable values for this Form Parameter.
         /// </summary>
@@ -44,19 +56,28 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             string? description,
 
+            ImmutableArray<Outputs.ApiOperationResponseRepresentationFormParameterExample> examples,
+
             string name,
 
             bool required,
 
+            string? schemaId,
+
             string type,
+
+            string? typeName,
 
             ImmutableArray<string> values)
         {
             DefaultValue = defaultValue;
             Description = description;
+            Examples = examples;
             Name = name;
             Required = required;
+            SchemaId = schemaId;
             Type = type;
+            TypeName = typeName;
             Values = values;
         }
     }

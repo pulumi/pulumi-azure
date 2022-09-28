@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetIpGroupResult> InvokeAsync(GetIpGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIpGroupResult>("azure:network/getIpGroup:getIpGroup", args ?? new GetIpGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpGroupResult>("azure:network/getIpGroup:getIpGroup", args ?? new GetIpGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing IP Group.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetIpGroupResult> Invoke(GetIpGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIpGroupResult>("azure:network/getIpGroup:getIpGroup", args ?? new GetIpGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetIpGroupResult>("azure:network/getIpGroup:getIpGroup", args ?? new GetIpGroupInvokeArgs(), options.WithDefaults());
     }
 
 

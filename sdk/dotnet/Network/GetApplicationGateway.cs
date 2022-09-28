@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetApplicationGatewayResult> InvokeAsync(GetApplicationGatewayArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayResult>("azure:network/getApplicationGateway:getApplicationGateway", args ?? new GetApplicationGatewayArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGatewayResult>("azure:network/getApplicationGateway:getApplicationGateway", args ?? new GetApplicationGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Application Gateway.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetApplicationGatewayResult> Invoke(GetApplicationGatewayInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApplicationGatewayResult>("azure:network/getApplicationGateway:getApplicationGateway", args ?? new GetApplicationGatewayInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationGatewayResult>("azure:network/getApplicationGateway:getApplicationGateway", args ?? new GetApplicationGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

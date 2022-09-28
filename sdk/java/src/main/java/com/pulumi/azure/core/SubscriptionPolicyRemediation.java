@@ -49,11 +49,23 @@ public class SubscriptionPolicyRemediation extends com.pulumi.resources.CustomRe
     public Output<String> policyAssignmentId() {
         return this.policyAssignmentId;
     }
+    /**
+     * @deprecated
+     * `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+     * 
+     */
+    @Deprecated /* `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`. */
     @Export(name="policyDefinitionId", type=String.class, parameters={})
     private Output</* @Nullable */ String> policyDefinitionId;
 
     public Output<Optional<String>> policyDefinitionId() {
         return Codegen.optional(this.policyDefinitionId);
+    }
+    @Export(name="policyDefinitionReferenceId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> policyDefinitionReferenceId;
+
+    public Output<Optional<String>> policyDefinitionReferenceId() {
+        return Codegen.optional(this.policyDefinitionReferenceId);
     }
     @Export(name="resourceCount", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> resourceCount;

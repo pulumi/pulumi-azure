@@ -273,7 +273,7 @@ class PolicyManagedRulesExclusionArgs:
                  selector_match_operator: pulumi.Input[str],
                  excluded_rule_set: Optional[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetArgs']] = None):
         """
-        :param pulumi.Input[str] match_variable: The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        :param pulumi.Input[str] match_variable: The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
         :param pulumi.Input[str] selector: Describes field of the matchVariable collection.
         :param pulumi.Input[str] selector_match_operator: Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
         :param pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetArgs'] excluded_rule_set: One or more `excluded_rule_set` block defined below.
@@ -288,7 +288,7 @@ class PolicyManagedRulesExclusionArgs:
     @pulumi.getter(name="matchVariable")
     def match_variable(self) -> pulumi.Input[str]:
         """
-        The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
         """
         return pulumi.get(self, "match_variable")
 

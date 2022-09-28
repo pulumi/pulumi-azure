@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDiskAccessResult> InvokeAsync(GetDiskAccessArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDiskAccessResult>("azure:compute/getDiskAccess:getDiskAccess", args ?? new GetDiskAccessArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiskAccessResult>("azure:compute/getDiskAccess:getDiskAccess", args ?? new GetDiskAccessArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Disk Access.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDiskAccessResult> Invoke(GetDiskAccessInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDiskAccessResult>("azure:compute/getDiskAccess:getDiskAccess", args ?? new GetDiskAccessInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDiskAccessResult>("azure:compute/getDiskAccess:getDiskAccess", args ?? new GetDiskAccessInvokeArgs(), options.WithDefaults());
     }
 
 

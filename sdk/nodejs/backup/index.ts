@@ -5,22 +5,46 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./containerStorageAccount";
-export * from "./getPolicyFileshare";
-export * from "./getPolicyVM";
-export * from "./policyFileShare";
-export * from "./policyVM";
-export * from "./policyVMWorkload";
-export * from "./protectedFileShare";
-export * from "./protectedVM";
+export { ContainerStorageAccountArgs, ContainerStorageAccountState } from "./containerStorageAccount";
+export type ContainerStorageAccount = import("./containerStorageAccount").ContainerStorageAccount;
+export const ContainerStorageAccount: typeof import("./containerStorageAccount").ContainerStorageAccount = null as any;
+utilities.lazyLoad(exports, ["ContainerStorageAccount"], () => require("./containerStorageAccount"));
 
-// Import resources to register:
-import { ContainerStorageAccount } from "./containerStorageAccount";
-import { PolicyFileShare } from "./policyFileShare";
-import { PolicyVM } from "./policyVM";
-import { PolicyVMWorkload } from "./policyVMWorkload";
-import { ProtectedFileShare } from "./protectedFileShare";
-import { ProtectedVM } from "./protectedVM";
+export { GetPolicyFileshareArgs, GetPolicyFileshareResult, GetPolicyFileshareOutputArgs } from "./getPolicyFileshare";
+export const getPolicyFileshare: typeof import("./getPolicyFileshare").getPolicyFileshare = null as any;
+export const getPolicyFileshareOutput: typeof import("./getPolicyFileshare").getPolicyFileshareOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicyFileshare","getPolicyFileshareOutput"], () => require("./getPolicyFileshare"));
+
+export { GetPolicyVMArgs, GetPolicyVMResult, GetPolicyVMOutputArgs } from "./getPolicyVM";
+export const getPolicyVM: typeof import("./getPolicyVM").getPolicyVM = null as any;
+export const getPolicyVMOutput: typeof import("./getPolicyVM").getPolicyVMOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicyVM","getPolicyVMOutput"], () => require("./getPolicyVM"));
+
+export { PolicyFileShareArgs, PolicyFileShareState } from "./policyFileShare";
+export type PolicyFileShare = import("./policyFileShare").PolicyFileShare;
+export const PolicyFileShare: typeof import("./policyFileShare").PolicyFileShare = null as any;
+utilities.lazyLoad(exports, ["PolicyFileShare"], () => require("./policyFileShare"));
+
+export { PolicyVMArgs, PolicyVMState } from "./policyVM";
+export type PolicyVM = import("./policyVM").PolicyVM;
+export const PolicyVM: typeof import("./policyVM").PolicyVM = null as any;
+utilities.lazyLoad(exports, ["PolicyVM"], () => require("./policyVM"));
+
+export { PolicyVMWorkloadArgs, PolicyVMWorkloadState } from "./policyVMWorkload";
+export type PolicyVMWorkload = import("./policyVMWorkload").PolicyVMWorkload;
+export const PolicyVMWorkload: typeof import("./policyVMWorkload").PolicyVMWorkload = null as any;
+utilities.lazyLoad(exports, ["PolicyVMWorkload"], () => require("./policyVMWorkload"));
+
+export { ProtectedFileShareArgs, ProtectedFileShareState } from "./protectedFileShare";
+export type ProtectedFileShare = import("./protectedFileShare").ProtectedFileShare;
+export const ProtectedFileShare: typeof import("./protectedFileShare").ProtectedFileShare = null as any;
+utilities.lazyLoad(exports, ["ProtectedFileShare"], () => require("./protectedFileShare"));
+
+export { ProtectedVMArgs, ProtectedVMState } from "./protectedVM";
+export type ProtectedVM = import("./protectedVM").ProtectedVM;
+export const ProtectedVM: typeof import("./protectedVM").ProtectedVM = null as any;
+utilities.lazyLoad(exports, ["ProtectedVM"], () => require("./protectedVM"));
+
 
 const _module = {
     version: utilities.getVersion(),

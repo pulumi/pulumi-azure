@@ -39,7 +39,7 @@ namespace Pulumi.Azure.PrivateDns
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPtrRecordResult> InvokeAsync(GetPtrRecordArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPtrRecordResult>("azure:privatedns/getPtrRecord:getPtrRecord", args ?? new GetPtrRecordArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPtrRecordResult>("azure:privatedns/getPtrRecord:getPtrRecord", args ?? new GetPtrRecordArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.PrivateDns
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPtrRecordResult> Invoke(GetPtrRecordInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPtrRecordResult>("azure:privatedns/getPtrRecord:getPtrRecord", args ?? new GetPtrRecordInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPtrRecordResult>("azure:privatedns/getPtrRecord:getPtrRecord", args ?? new GetPtrRecordInvokeArgs(), options.WithDefaults());
     }
 
 

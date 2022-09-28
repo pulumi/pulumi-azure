@@ -20,7 +20,7 @@ class PrivateLinkScopedServiceArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PrivateLinkScopedService resource.
-        :param pulumi.Input[str] linked_resource_id: The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] linked_resource_id: The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Monitor Private Link Scoped Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope_name: The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Azure Monitor Private Link Scoped Service. Changing this forces a new resource to be created.
@@ -35,7 +35,7 @@ class PrivateLinkScopedServiceArgs:
     @pulumi.getter(name="linkedResourceId")
     def linked_resource_id(self) -> pulumi.Input[str]:
         """
-        The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+        The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "linked_resource_id")
 
@@ -89,7 +89,7 @@ class _PrivateLinkScopedServiceState:
                  scope_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PrivateLinkScopedService resources.
-        :param pulumi.Input[str] linked_resource_id: The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] linked_resource_id: The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Azure Monitor Private Link Scoped Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Monitor Private Link Scoped Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope_name: The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
@@ -107,7 +107,7 @@ class _PrivateLinkScopedServiceState:
     @pulumi.getter(name="linkedResourceId")
     def linked_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+        The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "linked_resource_id")
 
@@ -193,7 +193,7 @@ class PrivateLinkScopedService(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] linked_resource_id: The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] linked_resource_id: The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Azure Monitor Private Link Scoped Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Monitor Private Link Scoped Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope_name: The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
@@ -292,7 +292,7 @@ class PrivateLinkScopedService(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] linked_resource_id: The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] linked_resource_id: The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Azure Monitor Private Link Scoped Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Monitor Private Link Scoped Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope_name: The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
@@ -311,7 +311,7 @@ class PrivateLinkScopedService(pulumi.CustomResource):
     @pulumi.getter(name="linkedResourceId")
     def linked_resource_id(self) -> pulumi.Output[str]:
         """
-        The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+        The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "linked_resource_id")
 

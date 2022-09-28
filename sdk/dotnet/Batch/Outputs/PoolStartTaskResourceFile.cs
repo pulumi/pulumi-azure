@@ -37,6 +37,10 @@ namespace Pulumi.Azure.Batch.Outputs
         /// The URL of the blob container within Azure Blob Storage. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
         /// </summary>
         public readonly string? StorageContainerUrl;
+        /// <summary>
+        /// An identity reference from pool's user assigned managed identity list.
+        /// </summary>
+        public readonly string? UserAssignedIdentityId;
 
         [OutputConstructor]
         private PoolStartTaskResourceFile(
@@ -50,7 +54,9 @@ namespace Pulumi.Azure.Batch.Outputs
 
             string? httpUrl,
 
-            string? storageContainerUrl)
+            string? storageContainerUrl,
+
+            string? userAssignedIdentityId)
         {
             AutoStorageContainerName = autoStorageContainerName;
             BlobPrefix = blobPrefix;
@@ -58,6 +64,7 @@ namespace Pulumi.Azure.Batch.Outputs
             FilePath = filePath;
             HttpUrl = httpUrl;
             StorageContainerUrl = storageContainerUrl;
+            UserAssignedIdentityId = userAssignedIdentityId;
         }
     }
 }

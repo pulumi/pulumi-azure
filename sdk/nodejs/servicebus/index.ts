@@ -5,37 +5,97 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getNamespace";
-export * from "./getNamespaceAuthorizationRule";
-export * from "./getNamespaceDisasterRecoveryConfig";
-export * from "./getQueue";
-export * from "./getQueueAuthorizationRule";
-export * from "./getSubscription";
-export * from "./getTopic";
-export * from "./getTopicAuthorizationRule";
-export * from "./namespace";
-export * from "./namespaceAuthorizationRule";
-export * from "./namespaceDisasterRecoveryConfig";
-export * from "./namespaceNetworkRuleSet";
-export * from "./queue";
-export * from "./queueAuthorizationRule";
-export * from "./subscription";
-export * from "./subscriptionRule";
-export * from "./topic";
-export * from "./topicAuthorizationRule";
-export * from "./zMixins";
+export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
+export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
+export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
 
-// Import resources to register:
-import { Namespace } from "./namespace";
-import { NamespaceAuthorizationRule } from "./namespaceAuthorizationRule";
-import { NamespaceDisasterRecoveryConfig } from "./namespaceDisasterRecoveryConfig";
-import { NamespaceNetworkRuleSet } from "./namespaceNetworkRuleSet";
-import { Queue } from "./queue";
-import { QueueAuthorizationRule } from "./queueAuthorizationRule";
-import { Subscription } from "./subscription";
-import { SubscriptionRule } from "./subscriptionRule";
-import { Topic } from "./topic";
-import { TopicAuthorizationRule } from "./topicAuthorizationRule";
+export { GetNamespaceAuthorizationRuleArgs, GetNamespaceAuthorizationRuleResult, GetNamespaceAuthorizationRuleOutputArgs } from "./getNamespaceAuthorizationRule";
+export const getNamespaceAuthorizationRule: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRule = null as any;
+export const getNamespaceAuthorizationRuleOutput: typeof import("./getNamespaceAuthorizationRule").getNamespaceAuthorizationRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespaceAuthorizationRule","getNamespaceAuthorizationRuleOutput"], () => require("./getNamespaceAuthorizationRule"));
+
+export { GetNamespaceDisasterRecoveryConfigArgs, GetNamespaceDisasterRecoveryConfigResult, GetNamespaceDisasterRecoveryConfigOutputArgs } from "./getNamespaceDisasterRecoveryConfig";
+export const getNamespaceDisasterRecoveryConfig: typeof import("./getNamespaceDisasterRecoveryConfig").getNamespaceDisasterRecoveryConfig = null as any;
+export const getNamespaceDisasterRecoveryConfigOutput: typeof import("./getNamespaceDisasterRecoveryConfig").getNamespaceDisasterRecoveryConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespaceDisasterRecoveryConfig","getNamespaceDisasterRecoveryConfigOutput"], () => require("./getNamespaceDisasterRecoveryConfig"));
+
+export { GetQueueArgs, GetQueueResult, GetQueueOutputArgs } from "./getQueue";
+export const getQueue: typeof import("./getQueue").getQueue = null as any;
+export const getQueueOutput: typeof import("./getQueue").getQueueOutput = null as any;
+utilities.lazyLoad(exports, ["getQueue","getQueueOutput"], () => require("./getQueue"));
+
+export { GetQueueAuthorizationRuleArgs, GetQueueAuthorizationRuleResult, GetQueueAuthorizationRuleOutputArgs } from "./getQueueAuthorizationRule";
+export const getQueueAuthorizationRule: typeof import("./getQueueAuthorizationRule").getQueueAuthorizationRule = null as any;
+export const getQueueAuthorizationRuleOutput: typeof import("./getQueueAuthorizationRule").getQueueAuthorizationRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getQueueAuthorizationRule","getQueueAuthorizationRuleOutput"], () => require("./getQueueAuthorizationRule"));
+
+export { GetSubscriptionArgs, GetSubscriptionResult, GetSubscriptionOutputArgs } from "./getSubscription";
+export const getSubscription: typeof import("./getSubscription").getSubscription = null as any;
+export const getSubscriptionOutput: typeof import("./getSubscription").getSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getSubscription","getSubscriptionOutput"], () => require("./getSubscription"));
+
+export { GetTopicArgs, GetTopicResult, GetTopicOutputArgs } from "./getTopic";
+export const getTopic: typeof import("./getTopic").getTopic = null as any;
+export const getTopicOutput: typeof import("./getTopic").getTopicOutput = null as any;
+utilities.lazyLoad(exports, ["getTopic","getTopicOutput"], () => require("./getTopic"));
+
+export { GetTopicAuthorizationRuleArgs, GetTopicAuthorizationRuleResult, GetTopicAuthorizationRuleOutputArgs } from "./getTopicAuthorizationRule";
+export const getTopicAuthorizationRule: typeof import("./getTopicAuthorizationRule").getTopicAuthorizationRule = null as any;
+export const getTopicAuthorizationRuleOutput: typeof import("./getTopicAuthorizationRule").getTopicAuthorizationRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getTopicAuthorizationRule","getTopicAuthorizationRuleOutput"], () => require("./getTopicAuthorizationRule"));
+
+export { NamespaceArgs, NamespaceState } from "./namespace";
+export type Namespace = import("./namespace").Namespace;
+export const Namespace: typeof import("./namespace").Namespace = null as any;
+utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
+
+export { NamespaceAuthorizationRuleArgs, NamespaceAuthorizationRuleState } from "./namespaceAuthorizationRule";
+export type NamespaceAuthorizationRule = import("./namespaceAuthorizationRule").NamespaceAuthorizationRule;
+export const NamespaceAuthorizationRule: typeof import("./namespaceAuthorizationRule").NamespaceAuthorizationRule = null as any;
+utilities.lazyLoad(exports, ["NamespaceAuthorizationRule"], () => require("./namespaceAuthorizationRule"));
+
+export { NamespaceDisasterRecoveryConfigArgs, NamespaceDisasterRecoveryConfigState } from "./namespaceDisasterRecoveryConfig";
+export type NamespaceDisasterRecoveryConfig = import("./namespaceDisasterRecoveryConfig").NamespaceDisasterRecoveryConfig;
+export const NamespaceDisasterRecoveryConfig: typeof import("./namespaceDisasterRecoveryConfig").NamespaceDisasterRecoveryConfig = null as any;
+utilities.lazyLoad(exports, ["NamespaceDisasterRecoveryConfig"], () => require("./namespaceDisasterRecoveryConfig"));
+
+export { NamespaceNetworkRuleSetArgs, NamespaceNetworkRuleSetState } from "./namespaceNetworkRuleSet";
+export type NamespaceNetworkRuleSet = import("./namespaceNetworkRuleSet").NamespaceNetworkRuleSet;
+export const NamespaceNetworkRuleSet: typeof import("./namespaceNetworkRuleSet").NamespaceNetworkRuleSet = null as any;
+utilities.lazyLoad(exports, ["NamespaceNetworkRuleSet"], () => require("./namespaceNetworkRuleSet"));
+
+export { QueueArgs, QueueState } from "./queue";
+export type Queue = import("./queue").Queue;
+export const Queue: typeof import("./queue").Queue = null as any;
+utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
+
+export { QueueAuthorizationRuleArgs, QueueAuthorizationRuleState } from "./queueAuthorizationRule";
+export type QueueAuthorizationRule = import("./queueAuthorizationRule").QueueAuthorizationRule;
+export const QueueAuthorizationRule: typeof import("./queueAuthorizationRule").QueueAuthorizationRule = null as any;
+utilities.lazyLoad(exports, ["QueueAuthorizationRule"], () => require("./queueAuthorizationRule"));
+
+export { SubscriptionArgs, SubscriptionState } from "./subscription";
+export type Subscription = import("./subscription").Subscription;
+export const Subscription: typeof import("./subscription").Subscription = null as any;
+utilities.lazyLoad(exports, ["Subscription"], () => require("./subscription"));
+
+export { SubscriptionRuleArgs, SubscriptionRuleState } from "./subscriptionRule";
+export type SubscriptionRule = import("./subscriptionRule").SubscriptionRule;
+export const SubscriptionRule: typeof import("./subscriptionRule").SubscriptionRule = null as any;
+utilities.lazyLoad(exports, ["SubscriptionRule"], () => require("./subscriptionRule"));
+
+export { TopicArgs, TopicState } from "./topic";
+export type Topic = import("./topic").Topic;
+export const Topic: typeof import("./topic").Topic = null as any;
+utilities.lazyLoad(exports, ["Topic"], () => require("./topic"));
+
+export { TopicAuthorizationRuleArgs, TopicAuthorizationRuleState } from "./topicAuthorizationRule";
+export type TopicAuthorizationRule = import("./topicAuthorizationRule").TopicAuthorizationRule;
+export const TopicAuthorizationRule: typeof import("./topicAuthorizationRule").TopicAuthorizationRule = null as any;
+utilities.lazyLoad(exports, ["TopicAuthorizationRule"], () => require("./topicAuthorizationRule"));
+
+export * from "./zMixins";
 
 const _module = {
     version: utilities.getVersion(),

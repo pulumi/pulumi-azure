@@ -102,6 +102,8 @@ type VirtualMachineScaleSetExtension struct {
 	AutoUpgradeMinorVersion pulumi.BoolPtrOutput `pulumi:"autoUpgradeMinorVersion"`
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
 	AutomaticUpgradeEnabled pulumi.BoolPtrOutput `pulumi:"automaticUpgradeEnabled"`
+	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	FailureSuppressionEnabled pulumi.BoolPtrOutput `pulumi:"failureSuppressionEnabled"`
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag pulumi.StringPtrOutput `pulumi:"forceUpdateTag"`
 	// The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
@@ -167,6 +169,8 @@ type virtualMachineScaleSetExtensionState struct {
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
+	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	FailureSuppressionEnabled *bool `pulumi:"failureSuppressionEnabled"`
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
@@ -192,6 +196,8 @@ type VirtualMachineScaleSetExtensionState struct {
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput
+	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	FailureSuppressionEnabled pulumi.BoolPtrInput
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag pulumi.StringPtrInput
 	// The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
@@ -221,6 +227,8 @@ type virtualMachineScaleSetExtensionArgs struct {
 	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
 	AutomaticUpgradeEnabled *bool `pulumi:"automaticUpgradeEnabled"`
+	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	FailureSuppressionEnabled *bool `pulumi:"failureSuppressionEnabled"`
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
@@ -247,6 +255,8 @@ type VirtualMachineScaleSetExtensionArgs struct {
 	AutoUpgradeMinorVersion pulumi.BoolPtrInput
 	// Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
 	AutomaticUpgradeEnabled pulumi.BoolPtrInput
+	// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+	FailureSuppressionEnabled pulumi.BoolPtrInput
 	// A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
 	ForceUpdateTag pulumi.StringPtrInput
 	// The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
@@ -362,6 +372,11 @@ func (o VirtualMachineScaleSetExtensionOutput) AutoUpgradeMinorVersion() pulumi.
 // Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
 func (o VirtualMachineScaleSetExtensionOutput) AutomaticUpgradeEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VirtualMachineScaleSetExtension) pulumi.BoolPtrOutput { return v.AutomaticUpgradeEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+func (o VirtualMachineScaleSetExtensionOutput) FailureSuppressionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualMachineScaleSetExtension) pulumi.BoolPtrOutput { return v.FailureSuppressionEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.

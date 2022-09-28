@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Proximity
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPlacementGroupResult> InvokeAsync(GetPlacementGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPlacementGroupResult>("azure:proximity/getPlacementGroup:getPlacementGroup", args ?? new GetPlacementGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlacementGroupResult>("azure:proximity/getPlacementGroup:getPlacementGroup", args ?? new GetPlacementGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Proximity Placement Group.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Proximity
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPlacementGroupResult> Invoke(GetPlacementGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPlacementGroupResult>("azure:proximity/getPlacementGroup:getPlacementGroup", args ?? new GetPlacementGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPlacementGroupResult>("azure:proximity/getPlacementGroup:getPlacementGroup", args ?? new GetPlacementGroupInvokeArgs(), options.WithDefaults());
     }
 
 

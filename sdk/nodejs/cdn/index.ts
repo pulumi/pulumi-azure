@@ -5,37 +5,91 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./endpoint";
-export * from "./endpointCustomDomain";
-export * from "./frontdoorEndpoint";
-export * from "./frontdoorFirewallPolicy";
-export * from "./frontdoorOrigin";
-export * from "./frontdoorOriginGroup";
-export * from "./frontdoorProfile";
-export * from "./frontdoorRule";
-export * from "./frontdoorRuleSet";
-export * from "./frontdoorSecret";
-export * from "./frontdoorSecurityPolicy";
-export * from "./getFrontdoorEndpoint";
-export * from "./getFrontdoorOriginGroup";
-export * from "./getFrontdoorProfile";
-export * from "./getFrontdoorRuleSet";
-export * from "./getProfile";
-export * from "./profile";
+export { EndpointArgs, EndpointState } from "./endpoint";
+export type Endpoint = import("./endpoint").Endpoint;
+export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
+utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
 
-// Import resources to register:
-import { Endpoint } from "./endpoint";
-import { EndpointCustomDomain } from "./endpointCustomDomain";
-import { FrontdoorEndpoint } from "./frontdoorEndpoint";
-import { FrontdoorFirewallPolicy } from "./frontdoorFirewallPolicy";
-import { FrontdoorOrigin } from "./frontdoorOrigin";
-import { FrontdoorOriginGroup } from "./frontdoorOriginGroup";
-import { FrontdoorProfile } from "./frontdoorProfile";
-import { FrontdoorRule } from "./frontdoorRule";
-import { FrontdoorRuleSet } from "./frontdoorRuleSet";
-import { FrontdoorSecret } from "./frontdoorSecret";
-import { FrontdoorSecurityPolicy } from "./frontdoorSecurityPolicy";
-import { Profile } from "./profile";
+export { EndpointCustomDomainArgs, EndpointCustomDomainState } from "./endpointCustomDomain";
+export type EndpointCustomDomain = import("./endpointCustomDomain").EndpointCustomDomain;
+export const EndpointCustomDomain: typeof import("./endpointCustomDomain").EndpointCustomDomain = null as any;
+utilities.lazyLoad(exports, ["EndpointCustomDomain"], () => require("./endpointCustomDomain"));
+
+export { FrontdoorEndpointArgs, FrontdoorEndpointState } from "./frontdoorEndpoint";
+export type FrontdoorEndpoint = import("./frontdoorEndpoint").FrontdoorEndpoint;
+export const FrontdoorEndpoint: typeof import("./frontdoorEndpoint").FrontdoorEndpoint = null as any;
+utilities.lazyLoad(exports, ["FrontdoorEndpoint"], () => require("./frontdoorEndpoint"));
+
+export { FrontdoorFirewallPolicyArgs, FrontdoorFirewallPolicyState } from "./frontdoorFirewallPolicy";
+export type FrontdoorFirewallPolicy = import("./frontdoorFirewallPolicy").FrontdoorFirewallPolicy;
+export const FrontdoorFirewallPolicy: typeof import("./frontdoorFirewallPolicy").FrontdoorFirewallPolicy = null as any;
+utilities.lazyLoad(exports, ["FrontdoorFirewallPolicy"], () => require("./frontdoorFirewallPolicy"));
+
+export { FrontdoorOriginArgs, FrontdoorOriginState } from "./frontdoorOrigin";
+export type FrontdoorOrigin = import("./frontdoorOrigin").FrontdoorOrigin;
+export const FrontdoorOrigin: typeof import("./frontdoorOrigin").FrontdoorOrigin = null as any;
+utilities.lazyLoad(exports, ["FrontdoorOrigin"], () => require("./frontdoorOrigin"));
+
+export { FrontdoorOriginGroupArgs, FrontdoorOriginGroupState } from "./frontdoorOriginGroup";
+export type FrontdoorOriginGroup = import("./frontdoorOriginGroup").FrontdoorOriginGroup;
+export const FrontdoorOriginGroup: typeof import("./frontdoorOriginGroup").FrontdoorOriginGroup = null as any;
+utilities.lazyLoad(exports, ["FrontdoorOriginGroup"], () => require("./frontdoorOriginGroup"));
+
+export { FrontdoorProfileArgs, FrontdoorProfileState } from "./frontdoorProfile";
+export type FrontdoorProfile = import("./frontdoorProfile").FrontdoorProfile;
+export const FrontdoorProfile: typeof import("./frontdoorProfile").FrontdoorProfile = null as any;
+utilities.lazyLoad(exports, ["FrontdoorProfile"], () => require("./frontdoorProfile"));
+
+export { FrontdoorRuleArgs, FrontdoorRuleState } from "./frontdoorRule";
+export type FrontdoorRule = import("./frontdoorRule").FrontdoorRule;
+export const FrontdoorRule: typeof import("./frontdoorRule").FrontdoorRule = null as any;
+utilities.lazyLoad(exports, ["FrontdoorRule"], () => require("./frontdoorRule"));
+
+export { FrontdoorRuleSetArgs, FrontdoorRuleSetState } from "./frontdoorRuleSet";
+export type FrontdoorRuleSet = import("./frontdoorRuleSet").FrontdoorRuleSet;
+export const FrontdoorRuleSet: typeof import("./frontdoorRuleSet").FrontdoorRuleSet = null as any;
+utilities.lazyLoad(exports, ["FrontdoorRuleSet"], () => require("./frontdoorRuleSet"));
+
+export { FrontdoorSecretArgs, FrontdoorSecretState } from "./frontdoorSecret";
+export type FrontdoorSecret = import("./frontdoorSecret").FrontdoorSecret;
+export const FrontdoorSecret: typeof import("./frontdoorSecret").FrontdoorSecret = null as any;
+utilities.lazyLoad(exports, ["FrontdoorSecret"], () => require("./frontdoorSecret"));
+
+export { FrontdoorSecurityPolicyArgs, FrontdoorSecurityPolicyState } from "./frontdoorSecurityPolicy";
+export type FrontdoorSecurityPolicy = import("./frontdoorSecurityPolicy").FrontdoorSecurityPolicy;
+export const FrontdoorSecurityPolicy: typeof import("./frontdoorSecurityPolicy").FrontdoorSecurityPolicy = null as any;
+utilities.lazyLoad(exports, ["FrontdoorSecurityPolicy"], () => require("./frontdoorSecurityPolicy"));
+
+export { GetFrontdoorEndpointArgs, GetFrontdoorEndpointResult, GetFrontdoorEndpointOutputArgs } from "./getFrontdoorEndpoint";
+export const getFrontdoorEndpoint: typeof import("./getFrontdoorEndpoint").getFrontdoorEndpoint = null as any;
+export const getFrontdoorEndpointOutput: typeof import("./getFrontdoorEndpoint").getFrontdoorEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getFrontdoorEndpoint","getFrontdoorEndpointOutput"], () => require("./getFrontdoorEndpoint"));
+
+export { GetFrontdoorOriginGroupArgs, GetFrontdoorOriginGroupResult, GetFrontdoorOriginGroupOutputArgs } from "./getFrontdoorOriginGroup";
+export const getFrontdoorOriginGroup: typeof import("./getFrontdoorOriginGroup").getFrontdoorOriginGroup = null as any;
+export const getFrontdoorOriginGroupOutput: typeof import("./getFrontdoorOriginGroup").getFrontdoorOriginGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getFrontdoorOriginGroup","getFrontdoorOriginGroupOutput"], () => require("./getFrontdoorOriginGroup"));
+
+export { GetFrontdoorProfileArgs, GetFrontdoorProfileResult, GetFrontdoorProfileOutputArgs } from "./getFrontdoorProfile";
+export const getFrontdoorProfile: typeof import("./getFrontdoorProfile").getFrontdoorProfile = null as any;
+export const getFrontdoorProfileOutput: typeof import("./getFrontdoorProfile").getFrontdoorProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getFrontdoorProfile","getFrontdoorProfileOutput"], () => require("./getFrontdoorProfile"));
+
+export { GetFrontdoorRuleSetArgs, GetFrontdoorRuleSetResult, GetFrontdoorRuleSetOutputArgs } from "./getFrontdoorRuleSet";
+export const getFrontdoorRuleSet: typeof import("./getFrontdoorRuleSet").getFrontdoorRuleSet = null as any;
+export const getFrontdoorRuleSetOutput: typeof import("./getFrontdoorRuleSet").getFrontdoorRuleSetOutput = null as any;
+utilities.lazyLoad(exports, ["getFrontdoorRuleSet","getFrontdoorRuleSetOutput"], () => require("./getFrontdoorRuleSet"));
+
+export { GetProfileArgs, GetProfileResult, GetProfileOutputArgs } from "./getProfile";
+export const getProfile: typeof import("./getProfile").getProfile = null as any;
+export const getProfileOutput: typeof import("./getProfile").getProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getProfile","getProfileOutput"], () => require("./getProfile"));
+
+export { ProfileArgs, ProfileState } from "./profile";
+export type Profile = import("./profile").Profile;
+export const Profile: typeof import("./profile").Profile = null as any;
+utilities.lazyLoad(exports, ["Profile"], () => require("./profile"));
+
 
 const _module = {
     version: utilities.getVersion(),

@@ -3855,7 +3855,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration(dict):
                  secrets: Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret']] = None):
         """
         :param bool disable_password_authentication: When an `admin_password` is specified `disable_password_authentication` must be set to `false`. Defaults to `true`.
-        :param str patch_assessment_mode: Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+        :param str patch_assessment_mode: Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         :param str patch_mode: Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         """
         pulumi.set(__self__, "admin_username", admin_username)
@@ -3908,7 +3908,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration(dict):
     @pulumi.getter(name="patchAssessmentMode")
     def patch_assessment_mode(self) -> Optional[str]:
         """
-        Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+        Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         """
         return pulumi.get(self, "patch_assessment_mode")
 
@@ -4080,7 +4080,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration(dict):
                  winrm_listeners: Optional[Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener']] = None):
         """
         :param bool hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
-        :param str patch_assessment_mode: Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+        :param str patch_assessment_mode: Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         :param str patch_mode: Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         """
         pulumi.set(__self__, "admin_password", admin_password)
@@ -4136,7 +4136,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration(dict):
     @pulumi.getter(name="patchAssessmentMode")
     def patch_assessment_mode(self) -> Optional[str]:
         """
-        Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+        Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         """
         return pulumi.get(self, "patch_assessment_mode")
 

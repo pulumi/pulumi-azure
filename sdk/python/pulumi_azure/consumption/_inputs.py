@@ -44,11 +44,14 @@ class BudgetManagementGroupFilterArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgs']]] dimensions: One or more `dimension` blocks as defined below to filter the budget on.
-        :param pulumi.Input['BudgetManagementGroupFilterNotArgs'] not_: A `not` block as defined below to filter the budget on.
+        :param pulumi.Input['BudgetManagementGroupFilterNotArgs'] not_: A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgs']]] tags: One or more `tag` blocks as defined below to filter the budget on.
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
+        if not_ is not None:
+            warnings.warn("""This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""not_ is deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""")
         if not_ is not None:
             pulumi.set(__self__, "not_", not_)
         if tags is not None:
@@ -70,7 +73,7 @@ class BudgetManagementGroupFilterArgs:
     @pulumi.getter(name="not")
     def not_(self) -> Optional[pulumi.Input['BudgetManagementGroupFilterNotArgs']]:
         """
-        A `not` block as defined below to filter the budget on.
+        A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
         return pulumi.get(self, "not_")
 
@@ -472,11 +475,14 @@ class BudgetResourceGroupFilterArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgs']]] dimensions: One or more `dimension` blocks as defined below to filter the budget on.
-        :param pulumi.Input['BudgetResourceGroupFilterNotArgs'] not_: A `not` block as defined below to filter the budget on.
+        :param pulumi.Input['BudgetResourceGroupFilterNotArgs'] not_: A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgs']]] tags: One or more `tag` blocks as defined below to filter the budget on.
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
+        if not_ is not None:
+            warnings.warn("""This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""not_ is deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""")
         if not_ is not None:
             pulumi.set(__self__, "not_", not_)
         if tags is not None:
@@ -498,7 +504,7 @@ class BudgetResourceGroupFilterArgs:
     @pulumi.getter(name="not")
     def not_(self) -> Optional[pulumi.Input['BudgetResourceGroupFilterNotArgs']]:
         """
-        A `not` block as defined below to filter the budget on.
+        A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
         return pulumi.get(self, "not_")
 
@@ -933,11 +939,14 @@ class BudgetSubscriptionFilterArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgs']]] dimensions: One or more `dimension` blocks as defined below to filter the budget on.
-        :param pulumi.Input['BudgetSubscriptionFilterNotArgs'] not_: A `not` block as defined below to filter the budget on.
+        :param pulumi.Input['BudgetSubscriptionFilterNotArgs'] not_: A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         :param pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgs']]] tags: One or more `tag` blocks as defined below to filter the budget on.
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
+        if not_ is not None:
+            warnings.warn("""This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""not_ is deprecated: This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.""")
         if not_ is not None:
             pulumi.set(__self__, "not_", not_)
         if tags is not None:
@@ -959,7 +968,7 @@ class BudgetSubscriptionFilterArgs:
     @pulumi.getter(name="not")
     def not_(self) -> Optional[pulumi.Input['BudgetSubscriptionFilterNotArgs']]:
         """
-        A `not` block as defined below to filter the budget on.
+        A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
         return pulumi.get(self, "not_")
 

@@ -20,6 +20,7 @@ class VirtualMachineScaleSetExtensionArgs:
                  virtual_machine_scale_set_id: pulumi.Input[str],
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
                  automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
+                 failure_suppression_enabled: Optional[pulumi.Input[bool]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
@@ -33,6 +34,7 @@ class VirtualMachineScaleSetExtensionArgs:
         :param pulumi.Input[str] virtual_machine_scale_set_id: The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
         :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        :param pulumi.Input[bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
         :param pulumi.Input[str] force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param pulumi.Input[str] name: The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
@@ -47,6 +49,8 @@ class VirtualMachineScaleSetExtensionArgs:
             pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
         if automatic_upgrade_enabled is not None:
             pulumi.set(__self__, "automatic_upgrade_enabled", automatic_upgrade_enabled)
+        if failure_suppression_enabled is not None:
+            pulumi.set(__self__, "failure_suppression_enabled", failure_suppression_enabled)
         if force_update_tag is not None:
             pulumi.set(__self__, "force_update_tag", force_update_tag)
         if name is not None:
@@ -131,6 +135,18 @@ class VirtualMachineScaleSetExtensionArgs:
         pulumi.set(self, "automatic_upgrade_enabled", value)
 
     @property
+    @pulumi.getter(name="failureSuppressionEnabled")
+    def failure_suppression_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+        """
+        return pulumi.get(self, "failure_suppression_enabled")
+
+    @failure_suppression_enabled.setter
+    def failure_suppression_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "failure_suppression_enabled", value)
+
+    @property
     @pulumi.getter(name="forceUpdateTag")
     def force_update_tag(self) -> Optional[pulumi.Input[str]]:
         """
@@ -196,6 +212,7 @@ class _VirtualMachineScaleSetExtensionState:
     def __init__(__self__, *,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
                  automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
+                 failure_suppression_enabled: Optional[pulumi.Input[bool]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
@@ -209,6 +226,7 @@ class _VirtualMachineScaleSetExtensionState:
         Input properties used for looking up and filtering VirtualMachineScaleSetExtension resources.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
         :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        :param pulumi.Input[bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
         :param pulumi.Input[str] force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param pulumi.Input[str] name: The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
@@ -223,6 +241,8 @@ class _VirtualMachineScaleSetExtensionState:
             pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
         if automatic_upgrade_enabled is not None:
             pulumi.set(__self__, "automatic_upgrade_enabled", automatic_upgrade_enabled)
+        if failure_suppression_enabled is not None:
+            pulumi.set(__self__, "failure_suppression_enabled", failure_suppression_enabled)
         if force_update_tag is not None:
             pulumi.set(__self__, "force_update_tag", force_update_tag)
         if name is not None:
@@ -265,6 +285,18 @@ class _VirtualMachineScaleSetExtensionState:
     @automatic_upgrade_enabled.setter
     def automatic_upgrade_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "automatic_upgrade_enabled", value)
+
+    @property
+    @pulumi.getter(name="failureSuppressionEnabled")
+    def failure_suppression_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+        """
+        return pulumi.get(self, "failure_suppression_enabled")
+
+    @failure_suppression_enabled.setter
+    def failure_suppression_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "failure_suppression_enabled", value)
 
     @property
     @pulumi.getter(name="forceUpdateTag")
@@ -382,6 +414,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
                  automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
+                 failure_suppression_enabled: Optional[pulumi.Input[bool]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
@@ -443,6 +476,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
         :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        :param pulumi.Input[bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
         :param pulumi.Input[str] force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param pulumi.Input[str] name: The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
@@ -523,6 +557,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
                  automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
+                 failure_suppression_enabled: Optional[pulumi.Input[bool]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
@@ -543,6 +578,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
             __props__.__dict__["auto_upgrade_minor_version"] = auto_upgrade_minor_version
             __props__.__dict__["automatic_upgrade_enabled"] = automatic_upgrade_enabled
+            __props__.__dict__["failure_suppression_enabled"] = failure_suppression_enabled
             __props__.__dict__["force_update_tag"] = force_update_tag
             __props__.__dict__["name"] = name
             __props__.__dict__["protected_settings"] = protected_settings
@@ -572,6 +608,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
             automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
+            failure_suppression_enabled: Optional[pulumi.Input[bool]] = None,
             force_update_tag: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             protected_settings: Optional[pulumi.Input[str]] = None,
@@ -590,6 +627,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
         :param pulumi.Input[bool] automatic_upgrade_enabled: Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
+        :param pulumi.Input[bool] failure_suppression_enabled: Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
         :param pulumi.Input[str] force_update_tag: A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.
         :param pulumi.Input[str] name: The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created.
         :param pulumi.Input[str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
@@ -606,6 +644,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
 
         __props__.__dict__["auto_upgrade_minor_version"] = auto_upgrade_minor_version
         __props__.__dict__["automatic_upgrade_enabled"] = automatic_upgrade_enabled
+        __props__.__dict__["failure_suppression_enabled"] = failure_suppression_enabled
         __props__.__dict__["force_update_tag"] = force_update_tag
         __props__.__dict__["name"] = name
         __props__.__dict__["protected_settings"] = protected_settings
@@ -632,6 +671,14 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? Defaults to `false`.
         """
         return pulumi.get(self, "automatic_upgrade_enabled")
+
+    @property
+    @pulumi.getter(name="failureSuppressionEnabled")
+    def failure_suppression_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+        """
+        return pulumi.get(self, "failure_suppression_enabled")
 
     @property
     @pulumi.getter(name="forceUpdateTag")

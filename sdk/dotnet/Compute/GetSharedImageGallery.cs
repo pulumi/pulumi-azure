@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSharedImageGalleryResult> InvokeAsync(GetSharedImageGalleryArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageGalleryResult>("azure:compute/getSharedImageGallery:getSharedImageGallery", args ?? new GetSharedImageGalleryArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharedImageGalleryResult>("azure:compute/getSharedImageGallery:getSharedImageGallery", args ?? new GetSharedImageGalleryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Shared Image Gallery.
@@ -65,7 +65,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSharedImageGalleryResult> Invoke(GetSharedImageGalleryInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSharedImageGalleryResult>("azure:compute/getSharedImageGallery:getSharedImageGallery", args ?? new GetSharedImageGalleryInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSharedImageGalleryResult>("azure:compute/getSharedImageGallery:getSharedImageGallery", args ?? new GetSharedImageGalleryInvokeArgs(), options.WithDefaults());
     }
 
 

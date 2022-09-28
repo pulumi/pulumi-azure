@@ -208,6 +208,20 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return this.customDnsConfigs;
     }
     /**
+     * The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="customNetworkInterfaceName", type=String.class, parameters={})
+    private Output</* @Nullable */ String> customNetworkInterfaceName;
+
+    /**
+     * @return The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> customNetworkInterfaceName() {
+        return Codegen.optional(this.customNetworkInterfaceName);
+    }
+    /**
      * An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
      * 
      */

@@ -1469,6 +1469,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "automation/softwareUpdateConfiguration",
+  "fqn": "pulumi_azure.automation",
+  "classes": {
+   "azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration": "SoftwareUpdateConfiguration"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "automation/sourceControl",
   "fqn": "pulumi_azure.automation",
   "classes": {
@@ -4809,6 +4817,22 @@ _utilities.register(
   "fqn": "pulumi_azure.monitoring",
   "classes": {
    "azure:monitoring/activityLogAlert:ActivityLogAlert": "ActivityLogAlert"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "monitoring/alertProcessingRuleActionGroup",
+  "fqn": "pulumi_azure.monitoring",
+  "classes": {
+   "azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup": "AlertProcessingRuleActionGroup"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "monitoring/alertProcessingRuleSuppression",
+  "fqn": "pulumi_azure.monitoring",
+  "classes": {
+   "azure:monitoring/alertProcessingRuleSuppression:AlertProcessingRuleSuppression": "AlertProcessingRuleSuppression"
   }
  },
  {

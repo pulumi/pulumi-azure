@@ -188,6 +188,12 @@ namespace Pulumi.Azure.Sentinel
         public Output<ImmutableArray<string>> Tactics { get; private set; } = null!;
 
         /// <summary>
+        /// A list of techniques of attacks by which to classify the rule.
+        /// </summary>
+        [Output("techniques")]
+        public Output<ImmutableArray<string>> Techniques { get; private set; } = null!;
+
+        /// <summary>
         /// The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
         /// </summary>
         [Output("triggerOperator")]
@@ -383,6 +389,18 @@ namespace Pulumi.Azure.Sentinel
             set => _tactics = value;
         }
 
+        [Input("techniques")]
+        private InputList<string>? _techniques;
+
+        /// <summary>
+        /// A list of techniques of attacks by which to classify the rule.
+        /// </summary>
+        public InputList<string> Techniques
+        {
+            get => _techniques ?? (_techniques = new InputList<string>());
+            set => _techniques = value;
+        }
+
         /// <summary>
         /// The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`.
         /// </summary>
@@ -539,6 +557,18 @@ namespace Pulumi.Azure.Sentinel
         {
             get => _tactics ?? (_tactics = new InputList<string>());
             set => _tactics = value;
+        }
+
+        [Input("techniques")]
+        private InputList<string>? _techniques;
+
+        /// <summary>
+        /// A list of techniques of attacks by which to classify the rule.
+        /// </summary>
+        public InputList<string> Techniques
+        {
+            get => _techniques ?? (_techniques = new InputList<string>());
+            set => _techniques = value;
         }
 
         /// <summary>

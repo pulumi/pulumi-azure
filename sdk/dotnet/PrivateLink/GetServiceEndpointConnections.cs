@@ -41,7 +41,7 @@ namespace Pulumi.Azure.PrivateLink
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceEndpointConnectionsResult> InvokeAsync(GetServiceEndpointConnectionsArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointConnectionsResult>("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", args ?? new GetServiceEndpointConnectionsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceEndpointConnectionsResult>("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", args ?? new GetServiceEndpointConnectionsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access endpoint connection information about an existing Private Link Service.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.PrivateLink
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServiceEndpointConnectionsResult> Invoke(GetServiceEndpointConnectionsInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetServiceEndpointConnectionsResult>("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", args ?? new GetServiceEndpointConnectionsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceEndpointConnectionsResult>("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", args ?? new GetServiceEndpointConnectionsInvokeArgs(), options.WithDefaults());
     }
 
 

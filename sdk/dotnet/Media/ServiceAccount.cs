@@ -81,7 +81,7 @@ namespace Pulumi.Azure.Media
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
+        /// Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.Media
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
+        /// Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -249,7 +249,7 @@ namespace Pulumi.Azure.Media
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the name of the Media Services Account. Changing this forces a new resource to be created.
+        /// Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

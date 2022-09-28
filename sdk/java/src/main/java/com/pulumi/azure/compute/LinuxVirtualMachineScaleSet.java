@@ -368,14 +368,14 @@ public class LinuxVirtualMachineScaleSet extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.evictionPolicy);
     }
     /**
-     * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+     * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
      * 
      */
     @Export(name="extensionOperationsEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> extensionOperationsEnabled;
 
     /**
-     * @return Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `false`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
+     * @return Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Linux Virtual Machine Scale Set to be created.
      * 
      */
     public Output<Boolean> extensionOperationsEnabled() {

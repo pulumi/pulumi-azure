@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./apiConnection";
-export * from "./getManagedApi";
+export { ApiConnectionArgs, ApiConnectionState } from "./apiConnection";
+export type ApiConnection = import("./apiConnection").ApiConnection;
+export const ApiConnection: typeof import("./apiConnection").ApiConnection = null as any;
+utilities.lazyLoad(exports, ["ApiConnection"], () => require("./apiConnection"));
 
-// Import resources to register:
-import { ApiConnection } from "./apiConnection";
+export { GetManagedApiArgs, GetManagedApiResult, GetManagedApiOutputArgs } from "./getManagedApi";
+export const getManagedApi: typeof import("./getManagedApi").getManagedApi = null as any;
+export const getManagedApiOutput: typeof import("./getManagedApi").getManagedApiOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedApi","getManagedApiOutput"], () => require("./getManagedApi"));
+
 
 const _module = {
     version: utilities.getVersion(),

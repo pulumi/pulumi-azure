@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class GetPoolContainerConfigurationContainerRegistry {
     /**
-     * @return The password to use for authentication against the CIFS file system.
+     * @return The password for the user account.
      * 
      */
     private String password;
@@ -32,7 +32,7 @@ public final class GetPoolContainerConfigurationContainerRegistry {
 
     private GetPoolContainerConfigurationContainerRegistry() {}
     /**
-     * @return The password to use for authentication against the CIFS file system.
+     * @return The password for the user account.
      * 
      */
     public String password() {

@@ -5,30 +5,61 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./asset";
-export * from "./assetFilter";
-export * from "./contentKeyPolicy";
-export * from "./job";
-export * from "./liveEvent";
-export * from "./liveEventOutput";
-export * from "./serviceAccount";
-export * from "./streamingEndpoint";
-export * from "./streamingLocator";
-export * from "./streamingPolicy";
-export * from "./transform";
+export { AssetArgs, AssetState } from "./asset";
+export type Asset = import("./asset").Asset;
+export const Asset: typeof import("./asset").Asset = null as any;
+utilities.lazyLoad(exports, ["Asset"], () => require("./asset"));
 
-// Import resources to register:
-import { Asset } from "./asset";
-import { AssetFilter } from "./assetFilter";
-import { ContentKeyPolicy } from "./contentKeyPolicy";
-import { Job } from "./job";
-import { LiveEvent } from "./liveEvent";
-import { LiveEventOutput } from "./liveEventOutput";
-import { ServiceAccount } from "./serviceAccount";
-import { StreamingEndpoint } from "./streamingEndpoint";
-import { StreamingLocator } from "./streamingLocator";
-import { StreamingPolicy } from "./streamingPolicy";
-import { Transform } from "./transform";
+export { AssetFilterArgs, AssetFilterState } from "./assetFilter";
+export type AssetFilter = import("./assetFilter").AssetFilter;
+export const AssetFilter: typeof import("./assetFilter").AssetFilter = null as any;
+utilities.lazyLoad(exports, ["AssetFilter"], () => require("./assetFilter"));
+
+export { ContentKeyPolicyArgs, ContentKeyPolicyState } from "./contentKeyPolicy";
+export type ContentKeyPolicy = import("./contentKeyPolicy").ContentKeyPolicy;
+export const ContentKeyPolicy: typeof import("./contentKeyPolicy").ContentKeyPolicy = null as any;
+utilities.lazyLoad(exports, ["ContentKeyPolicy"], () => require("./contentKeyPolicy"));
+
+export { JobArgs, JobState } from "./job";
+export type Job = import("./job").Job;
+export const Job: typeof import("./job").Job = null as any;
+utilities.lazyLoad(exports, ["Job"], () => require("./job"));
+
+export { LiveEventArgs, LiveEventState } from "./liveEvent";
+export type LiveEvent = import("./liveEvent").LiveEvent;
+export const LiveEvent: typeof import("./liveEvent").LiveEvent = null as any;
+utilities.lazyLoad(exports, ["LiveEvent"], () => require("./liveEvent"));
+
+export { LiveEventOutputArgs, LiveEventOutputState } from "./liveEventOutput";
+export type LiveEventOutput = import("./liveEventOutput").LiveEventOutput;
+export const LiveEventOutput: typeof import("./liveEventOutput").LiveEventOutput = null as any;
+utilities.lazyLoad(exports, ["LiveEventOutput"], () => require("./liveEventOutput"));
+
+export { ServiceAccountArgs, ServiceAccountState } from "./serviceAccount";
+export type ServiceAccount = import("./serviceAccount").ServiceAccount;
+export const ServiceAccount: typeof import("./serviceAccount").ServiceAccount = null as any;
+utilities.lazyLoad(exports, ["ServiceAccount"], () => require("./serviceAccount"));
+
+export { StreamingEndpointArgs, StreamingEndpointState } from "./streamingEndpoint";
+export type StreamingEndpoint = import("./streamingEndpoint").StreamingEndpoint;
+export const StreamingEndpoint: typeof import("./streamingEndpoint").StreamingEndpoint = null as any;
+utilities.lazyLoad(exports, ["StreamingEndpoint"], () => require("./streamingEndpoint"));
+
+export { StreamingLocatorArgs, StreamingLocatorState } from "./streamingLocator";
+export type StreamingLocator = import("./streamingLocator").StreamingLocator;
+export const StreamingLocator: typeof import("./streamingLocator").StreamingLocator = null as any;
+utilities.lazyLoad(exports, ["StreamingLocator"], () => require("./streamingLocator"));
+
+export { StreamingPolicyArgs, StreamingPolicyState } from "./streamingPolicy";
+export type StreamingPolicy = import("./streamingPolicy").StreamingPolicy;
+export const StreamingPolicy: typeof import("./streamingPolicy").StreamingPolicy = null as any;
+utilities.lazyLoad(exports, ["StreamingPolicy"], () => require("./streamingPolicy"));
+
+export { TransformArgs, TransformState } from "./transform";
+export type Transform = import("./transform").Transform;
+export const Transform: typeof import("./transform").Transform = null as any;
+utilities.lazyLoad(exports, ["Transform"], () => require("./transform"));
+
 
 const _module = {
     version: utilities.getVersion(),

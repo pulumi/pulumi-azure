@@ -86,7 +86,7 @@ export class RegistryWebook extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the name of the Container Registry Webhook. Changing this forces a new resource to be created.
+     * Specifies the name of the Container Registry Webhook. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -187,7 +187,7 @@ export interface RegistryWebookState {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Container Registry Webhook. Changing this forces a new resource to be created.
+     * Specifies the name of the Container Registry Webhook. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -233,7 +233,7 @@ export interface RegistryWebookArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the name of the Container Registry Webhook. Changing this forces a new resource to be created.
+     * Specifies the name of the Container Registry Webhook. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

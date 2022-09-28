@@ -50,6 +50,21 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
+    @Import(name="failureSuppressionEnabled")
+    private @Nullable Output<Boolean> failureSuppressionEnabled;
+
+    /**
+     * @return Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> failureSuppressionEnabled() {
+        return Optional.ofNullable(this.failureSuppressionEnabled);
+    }
+
+    /**
      * The name of the virtual machine extension peering. Changing
      * this forces a new resource to be created.
      * 
@@ -184,6 +199,7 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
     private ExtensionState(ExtensionState $) {
         this.autoUpgradeMinorVersion = $.autoUpgradeMinorVersion;
         this.automaticUpgradeEnabled = $.automaticUpgradeEnabled;
+        this.failureSuppressionEnabled = $.failureSuppressionEnabled;
         this.name = $.name;
         this.protectedSettings = $.protectedSettings;
         this.publisher = $.publisher;
@@ -254,6 +270,27 @@ public final class ExtensionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder automaticUpgradeEnabled(Boolean automaticUpgradeEnabled) {
             return automaticUpgradeEnabled(Output.of(automaticUpgradeEnabled));
+        }
+
+        /**
+         * @param failureSuppressionEnabled Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder failureSuppressionEnabled(@Nullable Output<Boolean> failureSuppressionEnabled) {
+            $.failureSuppressionEnabled = failureSuppressionEnabled;
+            return this;
+        }
+
+        /**
+         * @param failureSuppressionEnabled Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder failureSuppressionEnabled(Boolean failureSuppressionEnabled) {
+            return failureSuppressionEnabled(Output.of(failureSuppressionEnabled));
         }
 
         /**

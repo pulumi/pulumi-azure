@@ -32,14 +32,14 @@ public final class PolicyManagedRulesExclusionArgs extends com.pulumi.resources.
     }
 
     /**
-     * The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+     * The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
      * 
      */
     @Import(name="matchVariable", required=true)
     private Output<String> matchVariable;
 
     /**
-     * @return The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+     * @return The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
      * 
      */
     public Output<String> matchVariable() {
@@ -125,7 +125,7 @@ public final class PolicyManagedRulesExclusionArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param matchVariable The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+         * @param matchVariable The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class PolicyManagedRulesExclusionArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param matchVariable The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+         * @param matchVariable The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
          * 
          * @return builder
          * 

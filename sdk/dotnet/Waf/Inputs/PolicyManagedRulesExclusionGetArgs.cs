@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Waf.Inputs
         public Input<Inputs.PolicyManagedRulesExclusionExcludedRuleSetGetArgs>? ExcludedRuleSet { get; set; }
 
         /// <summary>
-        /// The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        /// The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
         /// </summary>
         [Input("matchVariable", required: true)]
         public Input<string> MatchVariable { get; set; } = null!;

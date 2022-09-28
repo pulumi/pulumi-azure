@@ -177,6 +177,12 @@ namespace Pulumi.Azure.PrivateLink
         public Output<ImmutableArray<Outputs.EndpointCustomDnsConfig>> CustomDnsConfigs { get; private set; } = null!;
 
         /// <summary>
+        /// The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("customNetworkInterfaceName")]
+        public Output<string?> CustomNetworkInterfaceName { get; private set; } = null!;
+
+        /// <summary>
         /// An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
         /// </summary>
         [Output("ipConfiguration")]
@@ -277,6 +283,12 @@ namespace Pulumi.Azure.PrivateLink
     public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("customNetworkInterfaceName")]
+        public Input<string>? CustomNetworkInterfaceName { get; set; }
+
+        /// <summary>
         /// An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.
         /// </summary>
         [Input("ipConfiguration")]
@@ -345,6 +357,12 @@ namespace Pulumi.Azure.PrivateLink
             get => _customDnsConfigs ?? (_customDnsConfigs = new InputList<Inputs.EndpointCustomDnsConfigGetArgs>());
             set => _customDnsConfigs = value;
         }
+
+        /// <summary>
+        /// The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("customNetworkInterfaceName")]
+        public Input<string>? CustomNetworkInterfaceName { get; set; }
 
         /// <summary>
         /// An `ip_configuration` block as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. At most one IP configuration is allowed. Changing this forces a new resource to be created.

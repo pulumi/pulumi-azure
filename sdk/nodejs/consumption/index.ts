@@ -5,16 +5,31 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./budgetManagementGroup";
-export * from "./budgetResourceGroup";
-export * from "./budgetSubscription";
-export * from "./getBudgetResourceGroup";
-export * from "./getBudgetSubscription";
+export { BudgetManagementGroupArgs, BudgetManagementGroupState } from "./budgetManagementGroup";
+export type BudgetManagementGroup = import("./budgetManagementGroup").BudgetManagementGroup;
+export const BudgetManagementGroup: typeof import("./budgetManagementGroup").BudgetManagementGroup = null as any;
+utilities.lazyLoad(exports, ["BudgetManagementGroup"], () => require("./budgetManagementGroup"));
 
-// Import resources to register:
-import { BudgetManagementGroup } from "./budgetManagementGroup";
-import { BudgetResourceGroup } from "./budgetResourceGroup";
-import { BudgetSubscription } from "./budgetSubscription";
+export { BudgetResourceGroupArgs, BudgetResourceGroupState } from "./budgetResourceGroup";
+export type BudgetResourceGroup = import("./budgetResourceGroup").BudgetResourceGroup;
+export const BudgetResourceGroup: typeof import("./budgetResourceGroup").BudgetResourceGroup = null as any;
+utilities.lazyLoad(exports, ["BudgetResourceGroup"], () => require("./budgetResourceGroup"));
+
+export { BudgetSubscriptionArgs, BudgetSubscriptionState } from "./budgetSubscription";
+export type BudgetSubscription = import("./budgetSubscription").BudgetSubscription;
+export const BudgetSubscription: typeof import("./budgetSubscription").BudgetSubscription = null as any;
+utilities.lazyLoad(exports, ["BudgetSubscription"], () => require("./budgetSubscription"));
+
+export { GetBudgetResourceGroupArgs, GetBudgetResourceGroupResult, GetBudgetResourceGroupOutputArgs } from "./getBudgetResourceGroup";
+export const getBudgetResourceGroup: typeof import("./getBudgetResourceGroup").getBudgetResourceGroup = null as any;
+export const getBudgetResourceGroupOutput: typeof import("./getBudgetResourceGroup").getBudgetResourceGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getBudgetResourceGroup","getBudgetResourceGroupOutput"], () => require("./getBudgetResourceGroup"));
+
+export { GetBudgetSubscriptionArgs, GetBudgetSubscriptionResult, GetBudgetSubscriptionOutputArgs } from "./getBudgetSubscription";
+export const getBudgetSubscription: typeof import("./getBudgetSubscription").getBudgetSubscription = null as any;
+export const getBudgetSubscriptionOutput: typeof import("./getBudgetSubscription").getBudgetSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getBudgetSubscription","getBudgetSubscriptionOutput"], () => require("./getBudgetSubscription"));
+
 
 const _module = {
     version: utilities.getVersion(),

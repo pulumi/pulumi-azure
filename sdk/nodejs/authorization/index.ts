@@ -5,16 +5,31 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./assignment";
-export * from "./getRoleDefinition";
-export * from "./getUserAssignedIdentity";
-export * from "./roleDefinition";
-export * from "./userAssignedIdentity";
+export { AssignmentArgs, AssignmentState } from "./assignment";
+export type Assignment = import("./assignment").Assignment;
+export const Assignment: typeof import("./assignment").Assignment = null as any;
+utilities.lazyLoad(exports, ["Assignment"], () => require("./assignment"));
 
-// Import resources to register:
-import { Assignment } from "./assignment";
-import { RoleDefinition } from "./roleDefinition";
-import { UserAssignedIdentity } from "./userAssignedIdentity";
+export { GetRoleDefinitionArgs, GetRoleDefinitionResult, GetRoleDefinitionOutputArgs } from "./getRoleDefinition";
+export const getRoleDefinition: typeof import("./getRoleDefinition").getRoleDefinition = null as any;
+export const getRoleDefinitionOutput: typeof import("./getRoleDefinition").getRoleDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getRoleDefinition","getRoleDefinitionOutput"], () => require("./getRoleDefinition"));
+
+export { GetUserAssignedIdentityArgs, GetUserAssignedIdentityResult, GetUserAssignedIdentityOutputArgs } from "./getUserAssignedIdentity";
+export const getUserAssignedIdentity: typeof import("./getUserAssignedIdentity").getUserAssignedIdentity = null as any;
+export const getUserAssignedIdentityOutput: typeof import("./getUserAssignedIdentity").getUserAssignedIdentityOutput = null as any;
+utilities.lazyLoad(exports, ["getUserAssignedIdentity","getUserAssignedIdentityOutput"], () => require("./getUserAssignedIdentity"));
+
+export { RoleDefinitionArgs, RoleDefinitionState } from "./roleDefinition";
+export type RoleDefinition = import("./roleDefinition").RoleDefinition;
+export const RoleDefinition: typeof import("./roleDefinition").RoleDefinition = null as any;
+utilities.lazyLoad(exports, ["RoleDefinition"], () => require("./roleDefinition"));
+
+export { UserAssignedIdentityArgs, UserAssignedIdentityState } from "./userAssignedIdentity";
+export type UserAssignedIdentity = import("./userAssignedIdentity").UserAssignedIdentity;
+export const UserAssignedIdentity: typeof import("./userAssignedIdentity").UserAssignedIdentity = null as any;
+utilities.lazyLoad(exports, ["UserAssignedIdentity"], () => require("./userAssignedIdentity"));
+
 
 const _module = {
     version: utilities.getVersion(),

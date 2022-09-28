@@ -22,7 +22,7 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_nested_items_to_be_public=None, custom_domains=None, enable_https_traffic_only=None, id=None, identities=None, infrastructure_encryption_enabled=None, is_hns_enabled=None, location=None, min_tls_version=None, name=None, nfsv3_enabled=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, queue_encryption_key_type=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, table_encryption_key_type=None, tags=None):
+    def __init__(__self__, access_tier=None, account_kind=None, account_replication_type=None, account_tier=None, allow_nested_items_to_be_public=None, azure_files_authentications=None, custom_domains=None, enable_https_traffic_only=None, id=None, identities=None, infrastructure_encryption_enabled=None, is_hns_enabled=None, location=None, min_tls_version=None, name=None, nfsv3_enabled=None, primary_access_key=None, primary_blob_connection_string=None, primary_blob_endpoint=None, primary_blob_host=None, primary_connection_string=None, primary_dfs_endpoint=None, primary_dfs_host=None, primary_file_endpoint=None, primary_file_host=None, primary_location=None, primary_queue_endpoint=None, primary_queue_host=None, primary_table_endpoint=None, primary_table_host=None, primary_web_endpoint=None, primary_web_host=None, queue_encryption_key_type=None, resource_group_name=None, secondary_access_key=None, secondary_blob_connection_string=None, secondary_blob_endpoint=None, secondary_blob_host=None, secondary_connection_string=None, secondary_dfs_endpoint=None, secondary_dfs_host=None, secondary_file_endpoint=None, secondary_file_host=None, secondary_location=None, secondary_queue_endpoint=None, secondary_queue_host=None, secondary_table_endpoint=None, secondary_table_host=None, secondary_web_endpoint=None, secondary_web_host=None, table_encryption_key_type=None, tags=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
@@ -38,6 +38,9 @@ class GetAccountResult:
         if allow_nested_items_to_be_public and not isinstance(allow_nested_items_to_be_public, bool):
             raise TypeError("Expected argument 'allow_nested_items_to_be_public' to be a bool")
         pulumi.set(__self__, "allow_nested_items_to_be_public", allow_nested_items_to_be_public)
+        if azure_files_authentications and not isinstance(azure_files_authentications, list):
+            raise TypeError("Expected argument 'azure_files_authentications' to be a list")
+        pulumi.set(__self__, "azure_files_authentications", azure_files_authentications)
         if custom_domains and not isinstance(custom_domains, list):
             raise TypeError("Expected argument 'custom_domains' to be a list")
         pulumi.set(__self__, "custom_domains", custom_domains)
@@ -218,6 +221,15 @@ class GetAccountResult:
         return pulumi.get(self, "allow_nested_items_to_be_public")
 
     @property
+    @pulumi.getter(name="azureFilesAuthentications")
+    def azure_files_authentications(self) -> Sequence['outputs.GetAccountAzureFilesAuthenticationResult']:
+        """
+        A `azure_files_authentication` block as documented below.
+        ---
+        """
+        return pulumi.get(self, "azure_files_authentications")
+
+    @property
     @pulumi.getter(name="customDomains")
     def custom_domains(self) -> Sequence['outputs.GetAccountCustomDomainResult']:
         """
@@ -256,7 +268,6 @@ class GetAccountResult:
         """
         Is infrastructure encryption enabled? See [here](https://docs.microsoft.com/azure/storage/common/infrastructure-encryption-enable/)
         for more information.
-        ---
         """
         return pulumi.get(self, "infrastructure_encryption_enabled")
 
@@ -597,6 +608,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             account_replication_type=self.account_replication_type,
             account_tier=self.account_tier,
             allow_nested_items_to_be_public=self.allow_nested_items_to_be_public,
+            azure_files_authentications=self.azure_files_authentications,
             custom_domains=self.custom_domains,
             enable_https_traffic_only=self.enable_https_traffic_only,
             id=self.id,
@@ -681,6 +693,7 @@ def get_account(min_tls_version: Optional[str] = None,
         account_replication_type=__ret__.account_replication_type,
         account_tier=__ret__.account_tier,
         allow_nested_items_to_be_public=__ret__.allow_nested_items_to_be_public,
+        azure_files_authentications=__ret__.azure_files_authentications,
         custom_domains=__ret__.custom_domains,
         enable_https_traffic_only=__ret__.enable_https_traffic_only,
         id=__ret__.id,

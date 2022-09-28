@@ -5,50 +5,117 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./account";
-export * from "./cassandraCluster";
-export * from "./cassandraDatacenter";
-export * from "./cassandraKeyspace";
-export * from "./cassandraTable";
-export * from "./getAccount";
-export * from "./getMongoDatabase";
-export * from "./getRestorableDatabaseAccounts";
-export * from "./gremlinDatabase";
-export * from "./gremlinGraph";
-export * from "./mongoCollection";
-export * from "./mongoDatabase";
-export * from "./notebookWorkspace";
-export * from "./sqlContainer";
-export * from "./sqlDatabase";
-export * from "./sqlDedicatedGateway";
-export * from "./sqlFunction";
-export * from "./sqlRoleAssignment";
-export * from "./sqlRoleDefinition";
-export * from "./sqlStoredProcedure";
-export * from "./sqlTrigger";
-export * from "./table";
-export * from "./zMixins";
+export { AccountArgs, AccountState } from "./account";
+export type Account = import("./account").Account;
+export const Account: typeof import("./account").Account = null as any;
+utilities.lazyLoad(exports, ["Account"], () => require("./account"));
 
-// Import resources to register:
-import { Account } from "./account";
-import { CassandraCluster } from "./cassandraCluster";
-import { CassandraDatacenter } from "./cassandraDatacenter";
-import { CassandraKeyspace } from "./cassandraKeyspace";
-import { CassandraTable } from "./cassandraTable";
-import { GremlinDatabase } from "./gremlinDatabase";
-import { GremlinGraph } from "./gremlinGraph";
-import { MongoCollection } from "./mongoCollection";
-import { MongoDatabase } from "./mongoDatabase";
-import { NotebookWorkspace } from "./notebookWorkspace";
-import { SqlContainer } from "./sqlContainer";
-import { SqlDatabase } from "./sqlDatabase";
-import { SqlDedicatedGateway } from "./sqlDedicatedGateway";
-import { SqlFunction } from "./sqlFunction";
-import { SqlRoleAssignment } from "./sqlRoleAssignment";
-import { SqlRoleDefinition } from "./sqlRoleDefinition";
-import { SqlStoredProcedure } from "./sqlStoredProcedure";
-import { SqlTrigger } from "./sqlTrigger";
-import { Table } from "./table";
+export { CassandraClusterArgs, CassandraClusterState } from "./cassandraCluster";
+export type CassandraCluster = import("./cassandraCluster").CassandraCluster;
+export const CassandraCluster: typeof import("./cassandraCluster").CassandraCluster = null as any;
+utilities.lazyLoad(exports, ["CassandraCluster"], () => require("./cassandraCluster"));
+
+export { CassandraDatacenterArgs, CassandraDatacenterState } from "./cassandraDatacenter";
+export type CassandraDatacenter = import("./cassandraDatacenter").CassandraDatacenter;
+export const CassandraDatacenter: typeof import("./cassandraDatacenter").CassandraDatacenter = null as any;
+utilities.lazyLoad(exports, ["CassandraDatacenter"], () => require("./cassandraDatacenter"));
+
+export { CassandraKeyspaceArgs, CassandraKeyspaceState } from "./cassandraKeyspace";
+export type CassandraKeyspace = import("./cassandraKeyspace").CassandraKeyspace;
+export const CassandraKeyspace: typeof import("./cassandraKeyspace").CassandraKeyspace = null as any;
+utilities.lazyLoad(exports, ["CassandraKeyspace"], () => require("./cassandraKeyspace"));
+
+export { CassandraTableArgs, CassandraTableState } from "./cassandraTable";
+export type CassandraTable = import("./cassandraTable").CassandraTable;
+export const CassandraTable: typeof import("./cassandraTable").CassandraTable = null as any;
+utilities.lazyLoad(exports, ["CassandraTable"], () => require("./cassandraTable"));
+
+export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
+export const getAccount: typeof import("./getAccount").getAccount = null as any;
+export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./getAccount"));
+
+export { GetMongoDatabaseArgs, GetMongoDatabaseResult, GetMongoDatabaseOutputArgs } from "./getMongoDatabase";
+export const getMongoDatabase: typeof import("./getMongoDatabase").getMongoDatabase = null as any;
+export const getMongoDatabaseOutput: typeof import("./getMongoDatabase").getMongoDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getMongoDatabase","getMongoDatabaseOutput"], () => require("./getMongoDatabase"));
+
+export { GetRestorableDatabaseAccountsArgs, GetRestorableDatabaseAccountsResult, GetRestorableDatabaseAccountsOutputArgs } from "./getRestorableDatabaseAccounts";
+export const getRestorableDatabaseAccounts: typeof import("./getRestorableDatabaseAccounts").getRestorableDatabaseAccounts = null as any;
+export const getRestorableDatabaseAccountsOutput: typeof import("./getRestorableDatabaseAccounts").getRestorableDatabaseAccountsOutput = null as any;
+utilities.lazyLoad(exports, ["getRestorableDatabaseAccounts","getRestorableDatabaseAccountsOutput"], () => require("./getRestorableDatabaseAccounts"));
+
+export { GremlinDatabaseArgs, GremlinDatabaseState } from "./gremlinDatabase";
+export type GremlinDatabase = import("./gremlinDatabase").GremlinDatabase;
+export const GremlinDatabase: typeof import("./gremlinDatabase").GremlinDatabase = null as any;
+utilities.lazyLoad(exports, ["GremlinDatabase"], () => require("./gremlinDatabase"));
+
+export { GremlinGraphArgs, GremlinGraphState } from "./gremlinGraph";
+export type GremlinGraph = import("./gremlinGraph").GremlinGraph;
+export const GremlinGraph: typeof import("./gremlinGraph").GremlinGraph = null as any;
+utilities.lazyLoad(exports, ["GremlinGraph"], () => require("./gremlinGraph"));
+
+export { MongoCollectionArgs, MongoCollectionState } from "./mongoCollection";
+export type MongoCollection = import("./mongoCollection").MongoCollection;
+export const MongoCollection: typeof import("./mongoCollection").MongoCollection = null as any;
+utilities.lazyLoad(exports, ["MongoCollection"], () => require("./mongoCollection"));
+
+export { MongoDatabaseArgs, MongoDatabaseState } from "./mongoDatabase";
+export type MongoDatabase = import("./mongoDatabase").MongoDatabase;
+export const MongoDatabase: typeof import("./mongoDatabase").MongoDatabase = null as any;
+utilities.lazyLoad(exports, ["MongoDatabase"], () => require("./mongoDatabase"));
+
+export { NotebookWorkspaceArgs, NotebookWorkspaceState } from "./notebookWorkspace";
+export type NotebookWorkspace = import("./notebookWorkspace").NotebookWorkspace;
+export const NotebookWorkspace: typeof import("./notebookWorkspace").NotebookWorkspace = null as any;
+utilities.lazyLoad(exports, ["NotebookWorkspace"], () => require("./notebookWorkspace"));
+
+export { SqlContainerArgs, SqlContainerState } from "./sqlContainer";
+export type SqlContainer = import("./sqlContainer").SqlContainer;
+export const SqlContainer: typeof import("./sqlContainer").SqlContainer = null as any;
+utilities.lazyLoad(exports, ["SqlContainer"], () => require("./sqlContainer"));
+
+export { SqlDatabaseArgs, SqlDatabaseState } from "./sqlDatabase";
+export type SqlDatabase = import("./sqlDatabase").SqlDatabase;
+export const SqlDatabase: typeof import("./sqlDatabase").SqlDatabase = null as any;
+utilities.lazyLoad(exports, ["SqlDatabase"], () => require("./sqlDatabase"));
+
+export { SqlDedicatedGatewayArgs, SqlDedicatedGatewayState } from "./sqlDedicatedGateway";
+export type SqlDedicatedGateway = import("./sqlDedicatedGateway").SqlDedicatedGateway;
+export const SqlDedicatedGateway: typeof import("./sqlDedicatedGateway").SqlDedicatedGateway = null as any;
+utilities.lazyLoad(exports, ["SqlDedicatedGateway"], () => require("./sqlDedicatedGateway"));
+
+export { SqlFunctionArgs, SqlFunctionState } from "./sqlFunction";
+export type SqlFunction = import("./sqlFunction").SqlFunction;
+export const SqlFunction: typeof import("./sqlFunction").SqlFunction = null as any;
+utilities.lazyLoad(exports, ["SqlFunction"], () => require("./sqlFunction"));
+
+export { SqlRoleAssignmentArgs, SqlRoleAssignmentState } from "./sqlRoleAssignment";
+export type SqlRoleAssignment = import("./sqlRoleAssignment").SqlRoleAssignment;
+export const SqlRoleAssignment: typeof import("./sqlRoleAssignment").SqlRoleAssignment = null as any;
+utilities.lazyLoad(exports, ["SqlRoleAssignment"], () => require("./sqlRoleAssignment"));
+
+export { SqlRoleDefinitionArgs, SqlRoleDefinitionState } from "./sqlRoleDefinition";
+export type SqlRoleDefinition = import("./sqlRoleDefinition").SqlRoleDefinition;
+export const SqlRoleDefinition: typeof import("./sqlRoleDefinition").SqlRoleDefinition = null as any;
+utilities.lazyLoad(exports, ["SqlRoleDefinition"], () => require("./sqlRoleDefinition"));
+
+export { SqlStoredProcedureArgs, SqlStoredProcedureState } from "./sqlStoredProcedure";
+export type SqlStoredProcedure = import("./sqlStoredProcedure").SqlStoredProcedure;
+export const SqlStoredProcedure: typeof import("./sqlStoredProcedure").SqlStoredProcedure = null as any;
+utilities.lazyLoad(exports, ["SqlStoredProcedure"], () => require("./sqlStoredProcedure"));
+
+export { SqlTriggerArgs, SqlTriggerState } from "./sqlTrigger";
+export type SqlTrigger = import("./sqlTrigger").SqlTrigger;
+export const SqlTrigger: typeof import("./sqlTrigger").SqlTrigger = null as any;
+utilities.lazyLoad(exports, ["SqlTrigger"], () => require("./sqlTrigger"));
+
+export { TableArgs, TableState } from "./table";
+export type Table = import("./table").Table;
+export const Table: typeof import("./table").Table = null as any;
+utilities.lazyLoad(exports, ["Table"], () => require("./table"));
+
+export * from "./zMixins";
 
 const _module = {
     version: utilities.getVersion(),

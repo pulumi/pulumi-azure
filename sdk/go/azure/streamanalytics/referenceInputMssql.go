@@ -101,7 +101,7 @@ type ReferenceInputMssql struct {
 	FullSnapshotQuery pulumi.StringOutput `pulumi:"fullSnapshotQuery"`
 	// The name of the Reference Input MS SQL data. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The username to connect to the MS SQL database.
+	// The password to connect to the MS SQL database.
 	Password pulumi.StringOutput `pulumi:"password"`
 	// The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refreshType` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
 	RefreshIntervalDuration pulumi.StringPtrOutput `pulumi:"refreshIntervalDuration"`
@@ -180,7 +180,7 @@ type referenceInputMssqlState struct {
 	FullSnapshotQuery *string `pulumi:"fullSnapshotQuery"`
 	// The name of the Reference Input MS SQL data. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The username to connect to the MS SQL database.
+	// The password to connect to the MS SQL database.
 	Password *string `pulumi:"password"`
 	// The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refreshType` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
 	RefreshIntervalDuration *string `pulumi:"refreshIntervalDuration"`
@@ -207,7 +207,7 @@ type ReferenceInputMssqlState struct {
 	FullSnapshotQuery pulumi.StringPtrInput
 	// The name of the Reference Input MS SQL data. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The username to connect to the MS SQL database.
+	// The password to connect to the MS SQL database.
 	Password pulumi.StringPtrInput
 	// The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refreshType` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
 	RefreshIntervalDuration pulumi.StringPtrInput
@@ -238,7 +238,7 @@ type referenceInputMssqlArgs struct {
 	FullSnapshotQuery string `pulumi:"fullSnapshotQuery"`
 	// The name of the Reference Input MS SQL data. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The username to connect to the MS SQL database.
+	// The password to connect to the MS SQL database.
 	Password string `pulumi:"password"`
 	// The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refreshType` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
 	RefreshIntervalDuration *string `pulumi:"refreshIntervalDuration"`
@@ -266,7 +266,7 @@ type ReferenceInputMssqlArgs struct {
 	FullSnapshotQuery pulumi.StringInput
 	// The name of the Reference Input MS SQL data. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The username to connect to the MS SQL database.
+	// The password to connect to the MS SQL database.
 	Password pulumi.StringInput
 	// The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refreshType` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`.
 	RefreshIntervalDuration pulumi.StringPtrInput
@@ -391,7 +391,7 @@ func (o ReferenceInputMssqlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReferenceInputMssql) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The username to connect to the MS SQL database.
+// The password to connect to the MS SQL database.
 func (o ReferenceInputMssqlOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReferenceInputMssql) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
 }

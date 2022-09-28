@@ -38,7 +38,11 @@ export class GroupPolicyRemediation extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly parallelDeployments!: pulumi.Output<number | undefined>;
     public readonly policyAssignmentId!: pulumi.Output<string>;
+    /**
+     * @deprecated `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+     */
     public readonly policyDefinitionId!: pulumi.Output<string | undefined>;
+    public readonly policyDefinitionReferenceId!: pulumi.Output<string | undefined>;
     public readonly resourceCount!: pulumi.Output<number | undefined>;
     /**
      * @deprecated `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
@@ -65,6 +69,7 @@ export class GroupPolicyRemediation extends pulumi.CustomResource {
             resourceInputs["parallelDeployments"] = state ? state.parallelDeployments : undefined;
             resourceInputs["policyAssignmentId"] = state ? state.policyAssignmentId : undefined;
             resourceInputs["policyDefinitionId"] = state ? state.policyDefinitionId : undefined;
+            resourceInputs["policyDefinitionReferenceId"] = state ? state.policyDefinitionReferenceId : undefined;
             resourceInputs["resourceCount"] = state ? state.resourceCount : undefined;
             resourceInputs["resourceDiscoveryMode"] = state ? state.resourceDiscoveryMode : undefined;
         } else {
@@ -82,6 +87,7 @@ export class GroupPolicyRemediation extends pulumi.CustomResource {
             resourceInputs["parallelDeployments"] = args ? args.parallelDeployments : undefined;
             resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
             resourceInputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
+            resourceInputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
             resourceInputs["resourceCount"] = args ? args.resourceCount : undefined;
             resourceInputs["resourceDiscoveryMode"] = args ? args.resourceDiscoveryMode : undefined;
         }
@@ -100,7 +106,11 @@ export interface GroupPolicyRemediationState {
     name?: pulumi.Input<string>;
     parallelDeployments?: pulumi.Input<number>;
     policyAssignmentId?: pulumi.Input<string>;
+    /**
+     * @deprecated `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+     */
     policyDefinitionId?: pulumi.Input<string>;
+    policyDefinitionReferenceId?: pulumi.Input<string>;
     resourceCount?: pulumi.Input<number>;
     /**
      * @deprecated `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
@@ -118,7 +128,11 @@ export interface GroupPolicyRemediationArgs {
     name?: pulumi.Input<string>;
     parallelDeployments?: pulumi.Input<number>;
     policyAssignmentId: pulumi.Input<string>;
+    /**
+     * @deprecated `policy_definition_id` will be removed in version 4.0 of the AzureRM Provider in favour of `policy_definition_reference_id`.
+     */
     policyDefinitionId?: pulumi.Input<string>;
+    policyDefinitionReferenceId?: pulumi.Input<string>;
     resourceCount?: pulumi.Input<number>;
     /**
      * @deprecated `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.

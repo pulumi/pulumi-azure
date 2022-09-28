@@ -1227,7 +1227,7 @@ class Account(pulumi.CustomResource):
                     failover_priority=1,
                 ),
                 azure.cosmosdb.AccountGeoLocationArgs(
-                    location="eastus",
+                    location="westus",
                     failover_priority=0,
                 ),
             ])
@@ -1326,7 +1326,7 @@ class Account(pulumi.CustomResource):
                     failover_priority=1,
                 ),
                 azure.cosmosdb.AccountGeoLocationArgs(
-                    location="eastus",
+                    location="westus",
                     failover_priority=0,
                 ),
             ])

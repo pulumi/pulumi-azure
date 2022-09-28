@@ -6,12 +6,19 @@ package com.pulumi.azure.batch.inputs;
 import com.pulumi.azure.batch.inputs.PoolAutoScaleArgs;
 import com.pulumi.azure.batch.inputs.PoolCertificateArgs;
 import com.pulumi.azure.batch.inputs.PoolContainerConfigurationArgs;
+import com.pulumi.azure.batch.inputs.PoolDataDiskArgs;
+import com.pulumi.azure.batch.inputs.PoolDiskEncryptionArgs;
+import com.pulumi.azure.batch.inputs.PoolExtensionArgs;
 import com.pulumi.azure.batch.inputs.PoolFixedScaleArgs;
 import com.pulumi.azure.batch.inputs.PoolIdentityArgs;
 import com.pulumi.azure.batch.inputs.PoolMountArgs;
 import com.pulumi.azure.batch.inputs.PoolNetworkConfigurationArgs;
+import com.pulumi.azure.batch.inputs.PoolNodePlacementArgs;
 import com.pulumi.azure.batch.inputs.PoolStartTaskArgs;
 import com.pulumi.azure.batch.inputs.PoolStorageImageReferenceArgs;
+import com.pulumi.azure.batch.inputs.PoolTaskSchedulingPolicyArgs;
+import com.pulumi.azure.batch.inputs.PoolUserAccountArgs;
+import com.pulumi.azure.batch.inputs.PoolWindowArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -89,6 +96,36 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `data_disks` block describes the data disk settings.
+     * 
+     */
+    @Import(name="dataDisks")
+    private @Nullable Output<List<PoolDataDiskArgs>> dataDisks;
+
+    /**
+     * @return A `data_disks` block describes the data disk settings.
+     * 
+     */
+    public Optional<Output<List<PoolDataDiskArgs>>> dataDisks() {
+        return Optional.ofNullable(this.dataDisks);
+    }
+
+    /**
+     * A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+     * 
+     */
+    @Import(name="diskEncryptions")
+    private @Nullable Output<List<PoolDiskEncryptionArgs>> diskEncryptions;
+
+    /**
+     * @return A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+     * 
+     */
+    public Optional<Output<List<PoolDiskEncryptionArgs>>> diskEncryptions() {
+        return Optional.ofNullable(this.diskEncryptions);
+    }
+
+    /**
      * Specifies the display name of the Batch pool.
      * 
      */
@@ -101,6 +138,21 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> displayName() {
         return Optional.ofNullable(this.displayName);
+    }
+
+    /**
+     * An `extensions` block as defined below.
+     * 
+     */
+    @Import(name="extensions")
+    private @Nullable Output<List<PoolExtensionArgs>> extensions;
+
+    /**
+     * @return An `extensions` block as defined below.
+     * 
+     */
+    public Optional<Output<List<PoolExtensionArgs>>> extensions() {
+        return Optional.ofNullable(this.extensions);
     }
 
     /**
@@ -131,6 +183,36 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<PoolIdentityArgs>> identity() {
         return Optional.ofNullable(this.identity);
+    }
+
+    /**
+     * Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+     * 
+     */
+    @Import(name="interNodeCommunication")
+    private @Nullable Output<String> interNodeCommunication;
+
+    /**
+     * @return Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+     * 
+     */
+    public Optional<Output<String>> interNodeCommunication() {
+        return Optional.ofNullable(this.interNodeCommunication);
+    }
+
+    /**
+     * The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: &#34;Windows_Server&#34; - The on-premises license is for Windows Server. &#34;Windows_Client&#34; - The on-premises license is for Windows Client.
+     * 
+     */
+    @Import(name="licenseType")
+    private @Nullable Output<String> licenseType;
+
+    /**
+     * @return The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: &#34;Windows_Server&#34; - The on-premises license is for Windows Server. &#34;Windows_Client&#34; - The on-premises license is for Windows Client.
+     * 
+     */
+    public Optional<Output<String>> licenseType() {
+        return Optional.ofNullable(this.licenseType);
     }
 
     /**
@@ -224,6 +306,36 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+     * 
+     */
+    @Import(name="nodePlacements")
+    private @Nullable Output<List<PoolNodePlacementArgs>> nodePlacements;
+
+    /**
+     * @return A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+     * 
+     */
+    public Optional<Output<List<PoolNodePlacementArgs>>> nodePlacements() {
+        return Optional.ofNullable(this.nodePlacements);
+    }
+
+    /**
+     * Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+     * 
+     */
+    @Import(name="osDiskPlacement")
+    private @Nullable Output<String> osDiskPlacement;
+
+    /**
+     * @return Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+     * 
+     */
+    public Optional<Output<String>> osDiskPlacement() {
+        return Optional.ofNullable(this.osDiskPlacement);
+    }
+
+    /**
      * The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
      * 
      */
@@ -276,6 +388,36 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+     * 
+     */
+    @Import(name="taskSchedulingPolicies")
+    private @Nullable Output<List<PoolTaskSchedulingPolicyArgs>> taskSchedulingPolicies;
+
+    /**
+     * @return A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+     * 
+     */
+    public Optional<Output<List<PoolTaskSchedulingPolicyArgs>>> taskSchedulingPolicies() {
+        return Optional.ofNullable(this.taskSchedulingPolicies);
+    }
+
+    /**
+     * A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+     * 
+     */
+    @Import(name="userAccounts")
+    private @Nullable Output<List<PoolUserAccountArgs>> userAccounts;
+
+    /**
+     * @return A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+     * 
+     */
+    public Optional<Output<List<PoolUserAccountArgs>>> userAccounts() {
+        return Optional.ofNullable(this.userAccounts);
+    }
+
+    /**
      * Specifies the size of the VM created in the Batch pool.
      * 
      */
@@ -290,6 +432,21 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.vmSize);
     }
 
+    /**
+     * A `windows` block that describes the Windows configuration in the pool.
+     * 
+     */
+    @Import(name="windows")
+    private @Nullable Output<List<PoolWindowArgs>> windows;
+
+    /**
+     * @return A `windows` block that describes the Windows configuration in the pool.
+     * 
+     */
+    public Optional<Output<List<PoolWindowArgs>>> windows() {
+        return Optional.ofNullable(this.windows);
+    }
+
     private PoolState() {}
 
     private PoolState(PoolState $) {
@@ -297,20 +454,30 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
         this.autoScale = $.autoScale;
         this.certificates = $.certificates;
         this.containerConfiguration = $.containerConfiguration;
+        this.dataDisks = $.dataDisks;
+        this.diskEncryptions = $.diskEncryptions;
         this.displayName = $.displayName;
+        this.extensions = $.extensions;
         this.fixedScale = $.fixedScale;
         this.identity = $.identity;
+        this.interNodeCommunication = $.interNodeCommunication;
+        this.licenseType = $.licenseType;
         this.maxTasksPerNode = $.maxTasksPerNode;
         this.metadata = $.metadata;
         this.mounts = $.mounts;
         this.name = $.name;
         this.networkConfiguration = $.networkConfiguration;
         this.nodeAgentSkuId = $.nodeAgentSkuId;
+        this.nodePlacements = $.nodePlacements;
+        this.osDiskPlacement = $.osDiskPlacement;
         this.resourceGroupName = $.resourceGroupName;
         this.startTask = $.startTask;
         this.stopPendingResizeOperation = $.stopPendingResizeOperation;
         this.storageImageReference = $.storageImageReference;
+        this.taskSchedulingPolicies = $.taskSchedulingPolicies;
+        this.userAccounts = $.userAccounts;
         this.vmSize = $.vmSize;
+        this.windows = $.windows;
     }
 
     public static Builder builder() {
@@ -426,6 +593,68 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param dataDisks A `data_disks` block describes the data disk settings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataDisks(@Nullable Output<List<PoolDataDiskArgs>> dataDisks) {
+            $.dataDisks = dataDisks;
+            return this;
+        }
+
+        /**
+         * @param dataDisks A `data_disks` block describes the data disk settings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataDisks(List<PoolDataDiskArgs> dataDisks) {
+            return dataDisks(Output.of(dataDisks));
+        }
+
+        /**
+         * @param dataDisks A `data_disks` block describes the data disk settings.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataDisks(PoolDataDiskArgs... dataDisks) {
+            return dataDisks(List.of(dataDisks));
+        }
+
+        /**
+         * @param diskEncryptions A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder diskEncryptions(@Nullable Output<List<PoolDiskEncryptionArgs>> diskEncryptions) {
+            $.diskEncryptions = diskEncryptions;
+            return this;
+        }
+
+        /**
+         * @param diskEncryptions A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder diskEncryptions(List<PoolDiskEncryptionArgs> diskEncryptions) {
+            return diskEncryptions(Output.of(diskEncryptions));
+        }
+
+        /**
+         * @param diskEncryptions A `disk_encryption` block describes the disk encryption configuration applied on compute nodes in the pool. Disk encryption configuration is not supported on Linux pool created with Virtual Machine Image or Shared Image Gallery Image.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder diskEncryptions(PoolDiskEncryptionArgs... diskEncryptions) {
+            return diskEncryptions(List.of(diskEncryptions));
+        }
+
+        /**
          * @param displayName Specifies the display name of the Batch pool.
          * 
          * @return builder
@@ -444,6 +673,37 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
+        }
+
+        /**
+         * @param extensions An `extensions` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extensions(@Nullable Output<List<PoolExtensionArgs>> extensions) {
+            $.extensions = extensions;
+            return this;
+        }
+
+        /**
+         * @param extensions An `extensions` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extensions(List<PoolExtensionArgs> extensions) {
+            return extensions(Output.of(extensions));
+        }
+
+        /**
+         * @param extensions An `extensions` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extensions(PoolExtensionArgs... extensions) {
+            return extensions(List.of(extensions));
         }
 
         /**
@@ -486,6 +746,48 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder identity(PoolIdentityArgs identity) {
             return identity(Output.of(identity));
+        }
+
+        /**
+         * @param interNodeCommunication Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder interNodeCommunication(@Nullable Output<String> interNodeCommunication) {
+            $.interNodeCommunication = interNodeCommunication;
+            return this;
+        }
+
+        /**
+         * @param interNodeCommunication Whether the pool permits direct communication between nodes. This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to `Disabled`. Values allowed are `Disabled` and `Enabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder interNodeCommunication(String interNodeCommunication) {
+            return interNodeCommunication(Output.of(interNodeCommunication));
+        }
+
+        /**
+         * @param licenseType The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: &#34;Windows_Server&#34; - The on-premises license is for Windows Server. &#34;Windows_Client&#34; - The on-premises license is for Windows Client.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder licenseType(@Nullable Output<String> licenseType) {
+            $.licenseType = licenseType;
+            return this;
+        }
+
+        /**
+         * @param licenseType The type of on-premises license to be used when deploying the operating system. This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are: &#34;Windows_Server&#34; - The on-premises license is for Windows Server. &#34;Windows_Client&#34; - The on-premises license is for Windows Client.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder licenseType(String licenseType) {
+            return licenseType(Output.of(licenseType));
         }
 
         /**
@@ -625,6 +927,58 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param nodePlacements A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodePlacements(@Nullable Output<List<PoolNodePlacementArgs>> nodePlacements) {
+            $.nodePlacements = nodePlacements;
+            return this;
+        }
+
+        /**
+         * @param nodePlacements A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodePlacements(List<PoolNodePlacementArgs> nodePlacements) {
+            return nodePlacements(Output.of(nodePlacements));
+        }
+
+        /**
+         * @param nodePlacements A `node_placement` block that describes the placement policy for allocating nodes in the pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nodePlacements(PoolNodePlacementArgs... nodePlacements) {
+            return nodePlacements(List.of(nodePlacements));
+        }
+
+        /**
+         * @param osDiskPlacement Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder osDiskPlacement(@Nullable Output<String> osDiskPlacement) {
+            $.osDiskPlacement = osDiskPlacement;
+            return this;
+        }
+
+        /**
+         * @param osDiskPlacement Specifies the ephemeral disk placement for operating system disk for all VMs in the pool. This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder osDiskPlacement(String osDiskPlacement) {
+            return osDiskPlacement(Output.of(osDiskPlacement));
+        }
+
+        /**
          * @param resourceGroupName The name of the resource group in which to create the Batch pool. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -697,6 +1051,68 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param taskSchedulingPolicies A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder taskSchedulingPolicies(@Nullable Output<List<PoolTaskSchedulingPolicyArgs>> taskSchedulingPolicies) {
+            $.taskSchedulingPolicies = taskSchedulingPolicies;
+            return this;
+        }
+
+        /**
+         * @param taskSchedulingPolicies A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder taskSchedulingPolicies(List<PoolTaskSchedulingPolicyArgs> taskSchedulingPolicies) {
+            return taskSchedulingPolicies(Output.of(taskSchedulingPolicies));
+        }
+
+        /**
+         * @param taskSchedulingPolicies A `task_scheduling_policy` block that describes how tasks are distributed across compute nodes in a pool. If not specified, the default is spread.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder taskSchedulingPolicies(PoolTaskSchedulingPolicyArgs... taskSchedulingPolicies) {
+            return taskSchedulingPolicies(List.of(taskSchedulingPolicies));
+        }
+
+        /**
+         * @param userAccounts A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAccounts(@Nullable Output<List<PoolUserAccountArgs>> userAccounts) {
+            $.userAccounts = userAccounts;
+            return this;
+        }
+
+        /**
+         * @param userAccounts A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAccounts(List<PoolUserAccountArgs> userAccounts) {
+            return userAccounts(Output.of(userAccounts));
+        }
+
+        /**
+         * @param userAccounts A `user_accounts` block that describes the list of user accounts to be created on each node in the pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAccounts(PoolUserAccountArgs... userAccounts) {
+            return userAccounts(List.of(userAccounts));
+        }
+
+        /**
          * @param vmSize Specifies the size of the VM created in the Batch pool.
          * 
          * @return builder
@@ -715,6 +1131,37 @@ public final class PoolState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder vmSize(String vmSize) {
             return vmSize(Output.of(vmSize));
+        }
+
+        /**
+         * @param windows A `windows` block that describes the Windows configuration in the pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder windows(@Nullable Output<List<PoolWindowArgs>> windows) {
+            $.windows = windows;
+            return this;
+        }
+
+        /**
+         * @param windows A `windows` block that describes the Windows configuration in the pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder windows(List<PoolWindowArgs> windows) {
+            return windows(Output.of(windows));
+        }
+
+        /**
+         * @param windows A `windows` block that describes the Windows configuration in the pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder windows(PoolWindowArgs... windows) {
+            return windows(List.of(windows));
         }
 
         public PoolState build() {

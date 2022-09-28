@@ -1078,6 +1078,387 @@ func (o PoolContainerConfigurationContainerRegistryArrayOutput) Index(i pulumi.I
 	}).(PoolContainerConfigurationContainerRegistryOutput)
 }
 
+type PoolDataDisk struct {
+	// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+	Caching *string `pulumi:"caching"`
+	// The initial disk size in GB when creating new data disk.
+	DiskSizeGb int `pulumi:"diskSizeGb"`
+	// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
+	Lun int `pulumi:"lun"`
+	// The storage account type to be used for the data disk. If omitted, the default is "Standard_LRS". Values are: "Standard_LRS" - The data disk should use standard locally redundant storage. "Premium_LRS" - The data disk should use premium locally redundant storage.
+	StorageAccountType *string `pulumi:"storageAccountType"`
+}
+
+// PoolDataDiskInput is an input type that accepts PoolDataDiskArgs and PoolDataDiskOutput values.
+// You can construct a concrete instance of `PoolDataDiskInput` via:
+//
+//	PoolDataDiskArgs{...}
+type PoolDataDiskInput interface {
+	pulumi.Input
+
+	ToPoolDataDiskOutput() PoolDataDiskOutput
+	ToPoolDataDiskOutputWithContext(context.Context) PoolDataDiskOutput
+}
+
+type PoolDataDiskArgs struct {
+	// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+	Caching pulumi.StringPtrInput `pulumi:"caching"`
+	// The initial disk size in GB when creating new data disk.
+	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
+	// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
+	Lun pulumi.IntInput `pulumi:"lun"`
+	// The storage account type to be used for the data disk. If omitted, the default is "Standard_LRS". Values are: "Standard_LRS" - The data disk should use standard locally redundant storage. "Premium_LRS" - The data disk should use premium locally redundant storage.
+	StorageAccountType pulumi.StringPtrInput `pulumi:"storageAccountType"`
+}
+
+func (PoolDataDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolDataDisk)(nil)).Elem()
+}
+
+func (i PoolDataDiskArgs) ToPoolDataDiskOutput() PoolDataDiskOutput {
+	return i.ToPoolDataDiskOutputWithContext(context.Background())
+}
+
+func (i PoolDataDiskArgs) ToPoolDataDiskOutputWithContext(ctx context.Context) PoolDataDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolDataDiskOutput)
+}
+
+// PoolDataDiskArrayInput is an input type that accepts PoolDataDiskArray and PoolDataDiskArrayOutput values.
+// You can construct a concrete instance of `PoolDataDiskArrayInput` via:
+//
+//	PoolDataDiskArray{ PoolDataDiskArgs{...} }
+type PoolDataDiskArrayInput interface {
+	pulumi.Input
+
+	ToPoolDataDiskArrayOutput() PoolDataDiskArrayOutput
+	ToPoolDataDiskArrayOutputWithContext(context.Context) PoolDataDiskArrayOutput
+}
+
+type PoolDataDiskArray []PoolDataDiskInput
+
+func (PoolDataDiskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolDataDisk)(nil)).Elem()
+}
+
+func (i PoolDataDiskArray) ToPoolDataDiskArrayOutput() PoolDataDiskArrayOutput {
+	return i.ToPoolDataDiskArrayOutputWithContext(context.Background())
+}
+
+func (i PoolDataDiskArray) ToPoolDataDiskArrayOutputWithContext(ctx context.Context) PoolDataDiskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolDataDiskArrayOutput)
+}
+
+type PoolDataDiskOutput struct{ *pulumi.OutputState }
+
+func (PoolDataDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolDataDisk)(nil)).Elem()
+}
+
+func (o PoolDataDiskOutput) ToPoolDataDiskOutput() PoolDataDiskOutput {
+	return o
+}
+
+func (o PoolDataDiskOutput) ToPoolDataDiskOutputWithContext(ctx context.Context) PoolDataDiskOutput {
+	return o
+}
+
+// Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+func (o PoolDataDiskOutput) Caching() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolDataDisk) *string { return v.Caching }).(pulumi.StringPtrOutput)
+}
+
+// The initial disk size in GB when creating new data disk.
+func (o PoolDataDiskOutput) DiskSizeGb() pulumi.IntOutput {
+	return o.ApplyT(func(v PoolDataDisk) int { return v.DiskSizeGb }).(pulumi.IntOutput)
+}
+
+// The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
+func (o PoolDataDiskOutput) Lun() pulumi.IntOutput {
+	return o.ApplyT(func(v PoolDataDisk) int { return v.Lun }).(pulumi.IntOutput)
+}
+
+// The storage account type to be used for the data disk. If omitted, the default is "Standard_LRS". Values are: "Standard_LRS" - The data disk should use standard locally redundant storage. "Premium_LRS" - The data disk should use premium locally redundant storage.
+func (o PoolDataDiskOutput) StorageAccountType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolDataDisk) *string { return v.StorageAccountType }).(pulumi.StringPtrOutput)
+}
+
+type PoolDataDiskArrayOutput struct{ *pulumi.OutputState }
+
+func (PoolDataDiskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolDataDisk)(nil)).Elem()
+}
+
+func (o PoolDataDiskArrayOutput) ToPoolDataDiskArrayOutput() PoolDataDiskArrayOutput {
+	return o
+}
+
+func (o PoolDataDiskArrayOutput) ToPoolDataDiskArrayOutputWithContext(ctx context.Context) PoolDataDiskArrayOutput {
+	return o
+}
+
+func (o PoolDataDiskArrayOutput) Index(i pulumi.IntInput) PoolDataDiskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolDataDisk {
+		return vs[0].([]PoolDataDisk)[vs[1].(int)]
+	}).(PoolDataDiskOutput)
+}
+
+type PoolDiskEncryption struct {
+	// On Linux pool, only \"TemporaryDisk\" is supported; on Windows pool, \"OsDisk\" and \"TemporaryDisk\" must be specified.
+	DiskEncryptionTarget string `pulumi:"diskEncryptionTarget"`
+}
+
+// PoolDiskEncryptionInput is an input type that accepts PoolDiskEncryptionArgs and PoolDiskEncryptionOutput values.
+// You can construct a concrete instance of `PoolDiskEncryptionInput` via:
+//
+//	PoolDiskEncryptionArgs{...}
+type PoolDiskEncryptionInput interface {
+	pulumi.Input
+
+	ToPoolDiskEncryptionOutput() PoolDiskEncryptionOutput
+	ToPoolDiskEncryptionOutputWithContext(context.Context) PoolDiskEncryptionOutput
+}
+
+type PoolDiskEncryptionArgs struct {
+	// On Linux pool, only \"TemporaryDisk\" is supported; on Windows pool, \"OsDisk\" and \"TemporaryDisk\" must be specified.
+	DiskEncryptionTarget pulumi.StringInput `pulumi:"diskEncryptionTarget"`
+}
+
+func (PoolDiskEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolDiskEncryption)(nil)).Elem()
+}
+
+func (i PoolDiskEncryptionArgs) ToPoolDiskEncryptionOutput() PoolDiskEncryptionOutput {
+	return i.ToPoolDiskEncryptionOutputWithContext(context.Background())
+}
+
+func (i PoolDiskEncryptionArgs) ToPoolDiskEncryptionOutputWithContext(ctx context.Context) PoolDiskEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolDiskEncryptionOutput)
+}
+
+// PoolDiskEncryptionArrayInput is an input type that accepts PoolDiskEncryptionArray and PoolDiskEncryptionArrayOutput values.
+// You can construct a concrete instance of `PoolDiskEncryptionArrayInput` via:
+//
+//	PoolDiskEncryptionArray{ PoolDiskEncryptionArgs{...} }
+type PoolDiskEncryptionArrayInput interface {
+	pulumi.Input
+
+	ToPoolDiskEncryptionArrayOutput() PoolDiskEncryptionArrayOutput
+	ToPoolDiskEncryptionArrayOutputWithContext(context.Context) PoolDiskEncryptionArrayOutput
+}
+
+type PoolDiskEncryptionArray []PoolDiskEncryptionInput
+
+func (PoolDiskEncryptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolDiskEncryption)(nil)).Elem()
+}
+
+func (i PoolDiskEncryptionArray) ToPoolDiskEncryptionArrayOutput() PoolDiskEncryptionArrayOutput {
+	return i.ToPoolDiskEncryptionArrayOutputWithContext(context.Background())
+}
+
+func (i PoolDiskEncryptionArray) ToPoolDiskEncryptionArrayOutputWithContext(ctx context.Context) PoolDiskEncryptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolDiskEncryptionArrayOutput)
+}
+
+type PoolDiskEncryptionOutput struct{ *pulumi.OutputState }
+
+func (PoolDiskEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolDiskEncryption)(nil)).Elem()
+}
+
+func (o PoolDiskEncryptionOutput) ToPoolDiskEncryptionOutput() PoolDiskEncryptionOutput {
+	return o
+}
+
+func (o PoolDiskEncryptionOutput) ToPoolDiskEncryptionOutputWithContext(ctx context.Context) PoolDiskEncryptionOutput {
+	return o
+}
+
+// On Linux pool, only \"TemporaryDisk\" is supported; on Windows pool, \"OsDisk\" and \"TemporaryDisk\" must be specified.
+func (o PoolDiskEncryptionOutput) DiskEncryptionTarget() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolDiskEncryption) string { return v.DiskEncryptionTarget }).(pulumi.StringOutput)
+}
+
+type PoolDiskEncryptionArrayOutput struct{ *pulumi.OutputState }
+
+func (PoolDiskEncryptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolDiskEncryption)(nil)).Elem()
+}
+
+func (o PoolDiskEncryptionArrayOutput) ToPoolDiskEncryptionArrayOutput() PoolDiskEncryptionArrayOutput {
+	return o
+}
+
+func (o PoolDiskEncryptionArrayOutput) ToPoolDiskEncryptionArrayOutputWithContext(ctx context.Context) PoolDiskEncryptionArrayOutput {
+	return o
+}
+
+func (o PoolDiskEncryptionArrayOutput) Index(i pulumi.IntInput) PoolDiskEncryptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolDiskEncryption {
+		return vs[0].([]PoolDiskEncryption)[vs[1].(int)]
+	}).(PoolDiskEncryptionOutput)
+}
+
+type PoolExtension struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// The name of the virtual machine extension.
+	Name string `pulumi:"name"`
+	// The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
+	ProtectedSettings *string `pulumi:"protectedSettings"`
+	// The collection of extension names. Collection of extension names after which this extension needs to be provisioned.
+	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
+	// The name of the extension handler publisher.The name of the extension handler publisher.
+	Publisher string `pulumi:"publisher"`
+	// JSON formatted public settings for the extension.
+	SettingsJson *string `pulumi:"settingsJson"`
+	// The type of the extensions.
+	Type string `pulumi:"type"`
+	// The version of script handler.
+	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
+}
+
+// PoolExtensionInput is an input type that accepts PoolExtensionArgs and PoolExtensionOutput values.
+// You can construct a concrete instance of `PoolExtensionInput` via:
+//
+//	PoolExtensionArgs{...}
+type PoolExtensionInput interface {
+	pulumi.Input
+
+	ToPoolExtensionOutput() PoolExtensionOutput
+	ToPoolExtensionOutputWithContext(context.Context) PoolExtensionOutput
+}
+
+type PoolExtensionArgs struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
+	// The name of the virtual machine extension.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
+	ProtectedSettings pulumi.StringPtrInput `pulumi:"protectedSettings"`
+	// The collection of extension names. Collection of extension names after which this extension needs to be provisioned.
+	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
+	// The name of the extension handler publisher.The name of the extension handler publisher.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// JSON formatted public settings for the extension.
+	SettingsJson pulumi.StringPtrInput `pulumi:"settingsJson"`
+	// The type of the extensions.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The version of script handler.
+	TypeHandlerVersion pulumi.StringPtrInput `pulumi:"typeHandlerVersion"`
+}
+
+func (PoolExtensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolExtension)(nil)).Elem()
+}
+
+func (i PoolExtensionArgs) ToPoolExtensionOutput() PoolExtensionOutput {
+	return i.ToPoolExtensionOutputWithContext(context.Background())
+}
+
+func (i PoolExtensionArgs) ToPoolExtensionOutputWithContext(ctx context.Context) PoolExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolExtensionOutput)
+}
+
+// PoolExtensionArrayInput is an input type that accepts PoolExtensionArray and PoolExtensionArrayOutput values.
+// You can construct a concrete instance of `PoolExtensionArrayInput` via:
+//
+//	PoolExtensionArray{ PoolExtensionArgs{...} }
+type PoolExtensionArrayInput interface {
+	pulumi.Input
+
+	ToPoolExtensionArrayOutput() PoolExtensionArrayOutput
+	ToPoolExtensionArrayOutputWithContext(context.Context) PoolExtensionArrayOutput
+}
+
+type PoolExtensionArray []PoolExtensionInput
+
+func (PoolExtensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolExtension)(nil)).Elem()
+}
+
+func (i PoolExtensionArray) ToPoolExtensionArrayOutput() PoolExtensionArrayOutput {
+	return i.ToPoolExtensionArrayOutputWithContext(context.Background())
+}
+
+func (i PoolExtensionArray) ToPoolExtensionArrayOutputWithContext(ctx context.Context) PoolExtensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolExtensionArrayOutput)
+}
+
+type PoolExtensionOutput struct{ *pulumi.OutputState }
+
+func (PoolExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolExtension)(nil)).Elem()
+}
+
+func (o PoolExtensionOutput) ToPoolExtensionOutput() PoolExtensionOutput {
+	return o
+}
+
+func (o PoolExtensionOutput) ToPoolExtensionOutputWithContext(ctx context.Context) PoolExtensionOutput {
+	return o
+}
+
+// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+func (o PoolExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PoolExtension) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the virtual machine extension.
+func (o PoolExtensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolExtension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
+func (o PoolExtensionOutput) ProtectedSettings() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolExtension) *string { return v.ProtectedSettings }).(pulumi.StringPtrOutput)
+}
+
+// The collection of extension names. Collection of extension names after which this extension needs to be provisioned.
+func (o PoolExtensionOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PoolExtension) []string { return v.ProvisionAfterExtensions }).(pulumi.StringArrayOutput)
+}
+
+// The name of the extension handler publisher.The name of the extension handler publisher.
+func (o PoolExtensionOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolExtension) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+// JSON formatted public settings for the extension.
+func (o PoolExtensionOutput) SettingsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolExtension) *string { return v.SettingsJson }).(pulumi.StringPtrOutput)
+}
+
+// The type of the extensions.
+func (o PoolExtensionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolExtension) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The version of script handler.
+func (o PoolExtensionOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolExtension) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
+}
+
+type PoolExtensionArrayOutput struct{ *pulumi.OutputState }
+
+func (PoolExtensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolExtension)(nil)).Elem()
+}
+
+func (o PoolExtensionArrayOutput) ToPoolExtensionArrayOutput() PoolExtensionArrayOutput {
+	return o
+}
+
+func (o PoolExtensionArrayOutput) ToPoolExtensionArrayOutputWithContext(ctx context.Context) PoolExtensionArrayOutput {
+	return o
+}
+
+func (o PoolExtensionArrayOutput) Index(i pulumi.IntInput) PoolExtensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolExtension {
+		return vs[0].([]PoolExtension)[vs[1].(int)]
+	}).(PoolExtensionOutput)
+}
+
 type PoolFixedScale struct {
 	// The timeout for resize operations. Defaults to `PT15M`.
 	ResizeTimeout *string `pulumi:"resizeTimeout"`
@@ -2613,6 +2994,103 @@ func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArr
 	}).(PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput)
 }
 
+type PoolNodePlacement struct {
+	// The placement policy for allocating nodes in the pool. Values are: "Regional": All nodes in the pool will be allocated in the same region; "Zonal": Nodes in the pool will be spread across different zones with the best effort balancing.
+	Policy *string `pulumi:"policy"`
+}
+
+// PoolNodePlacementInput is an input type that accepts PoolNodePlacementArgs and PoolNodePlacementOutput values.
+// You can construct a concrete instance of `PoolNodePlacementInput` via:
+//
+//	PoolNodePlacementArgs{...}
+type PoolNodePlacementInput interface {
+	pulumi.Input
+
+	ToPoolNodePlacementOutput() PoolNodePlacementOutput
+	ToPoolNodePlacementOutputWithContext(context.Context) PoolNodePlacementOutput
+}
+
+type PoolNodePlacementArgs struct {
+	// The placement policy for allocating nodes in the pool. Values are: "Regional": All nodes in the pool will be allocated in the same region; "Zonal": Nodes in the pool will be spread across different zones with the best effort balancing.
+	Policy pulumi.StringPtrInput `pulumi:"policy"`
+}
+
+func (PoolNodePlacementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolNodePlacement)(nil)).Elem()
+}
+
+func (i PoolNodePlacementArgs) ToPoolNodePlacementOutput() PoolNodePlacementOutput {
+	return i.ToPoolNodePlacementOutputWithContext(context.Background())
+}
+
+func (i PoolNodePlacementArgs) ToPoolNodePlacementOutputWithContext(ctx context.Context) PoolNodePlacementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolNodePlacementOutput)
+}
+
+// PoolNodePlacementArrayInput is an input type that accepts PoolNodePlacementArray and PoolNodePlacementArrayOutput values.
+// You can construct a concrete instance of `PoolNodePlacementArrayInput` via:
+//
+//	PoolNodePlacementArray{ PoolNodePlacementArgs{...} }
+type PoolNodePlacementArrayInput interface {
+	pulumi.Input
+
+	ToPoolNodePlacementArrayOutput() PoolNodePlacementArrayOutput
+	ToPoolNodePlacementArrayOutputWithContext(context.Context) PoolNodePlacementArrayOutput
+}
+
+type PoolNodePlacementArray []PoolNodePlacementInput
+
+func (PoolNodePlacementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolNodePlacement)(nil)).Elem()
+}
+
+func (i PoolNodePlacementArray) ToPoolNodePlacementArrayOutput() PoolNodePlacementArrayOutput {
+	return i.ToPoolNodePlacementArrayOutputWithContext(context.Background())
+}
+
+func (i PoolNodePlacementArray) ToPoolNodePlacementArrayOutputWithContext(ctx context.Context) PoolNodePlacementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolNodePlacementArrayOutput)
+}
+
+type PoolNodePlacementOutput struct{ *pulumi.OutputState }
+
+func (PoolNodePlacementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolNodePlacement)(nil)).Elem()
+}
+
+func (o PoolNodePlacementOutput) ToPoolNodePlacementOutput() PoolNodePlacementOutput {
+	return o
+}
+
+func (o PoolNodePlacementOutput) ToPoolNodePlacementOutputWithContext(ctx context.Context) PoolNodePlacementOutput {
+	return o
+}
+
+// The placement policy for allocating nodes in the pool. Values are: "Regional": All nodes in the pool will be allocated in the same region; "Zonal": Nodes in the pool will be spread across different zones with the best effort balancing.
+func (o PoolNodePlacementOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolNodePlacement) *string { return v.Policy }).(pulumi.StringPtrOutput)
+}
+
+type PoolNodePlacementArrayOutput struct{ *pulumi.OutputState }
+
+func (PoolNodePlacementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolNodePlacement)(nil)).Elem()
+}
+
+func (o PoolNodePlacementArrayOutput) ToPoolNodePlacementArrayOutput() PoolNodePlacementArrayOutput {
+	return o
+}
+
+func (o PoolNodePlacementArrayOutput) ToPoolNodePlacementArrayOutputWithContext(ctx context.Context) PoolNodePlacementArrayOutput {
+	return o
+}
+
+func (o PoolNodePlacementArrayOutput) Index(i pulumi.IntInput) PoolNodePlacementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolNodePlacement {
+		return vs[0].([]PoolNodePlacement)[vs[1].(int)]
+	}).(PoolNodePlacementOutput)
+}
+
 type PoolStartTask struct {
 	// The command line executed by the start task.
 	CommandLine string `pulumi:"commandLine"`
@@ -2858,6 +3336,8 @@ type PoolStartTaskResourceFile struct {
 	HttpUrl *string `pulumi:"httpUrl"`
 	// The URL of the blob container within Azure Blob Storage. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
 	StorageContainerUrl *string `pulumi:"storageContainerUrl"`
+	// An identity reference from pool's user assigned managed identity list.
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 }
 
 // PoolStartTaskResourceFileInput is an input type that accepts PoolStartTaskResourceFileArgs and PoolStartTaskResourceFileOutput values.
@@ -2884,6 +3364,8 @@ type PoolStartTaskResourceFileArgs struct {
 	HttpUrl pulumi.StringPtrInput `pulumi:"httpUrl"`
 	// The URL of the blob container within Azure Blob Storage. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
 	StorageContainerUrl pulumi.StringPtrInput `pulumi:"storageContainerUrl"`
+	// An identity reference from pool's user assigned managed identity list.
+	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 }
 
 func (PoolStartTaskResourceFileArgs) ElementType() reflect.Type {
@@ -2965,6 +3447,11 @@ func (o PoolStartTaskResourceFileOutput) HttpUrl() pulumi.StringPtrOutput {
 // The URL of the blob container within Azure Blob Storage. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
 func (o PoolStartTaskResourceFileOutput) StorageContainerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolStartTaskResourceFile) *string { return v.StorageContainerUrl }).(pulumi.StringPtrOutput)
+}
+
+// An identity reference from pool's user assigned managed identity list.
+func (o PoolStartTaskResourceFileOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolStartTaskResourceFile) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
 
 type PoolStartTaskResourceFileArrayOutput struct{ *pulumi.OutputState }
@@ -3514,6 +4001,545 @@ func (o PoolStorageImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
 		}
 		return v.Version
 	}).(pulumi.StringPtrOutput)
+}
+
+type PoolTaskSchedulingPolicy struct {
+	// Supported values are "Pack" and "Spread". "Pack" means as many tasks as possible (taskSlotsPerNode) should be assigned to each node in the pool before any tasks are assigned to the next node in the pool. "Spread" means that tasks should be assigned evenly across all nodes in the pool.
+	NodeFillType *string `pulumi:"nodeFillType"`
+}
+
+// PoolTaskSchedulingPolicyInput is an input type that accepts PoolTaskSchedulingPolicyArgs and PoolTaskSchedulingPolicyOutput values.
+// You can construct a concrete instance of `PoolTaskSchedulingPolicyInput` via:
+//
+//	PoolTaskSchedulingPolicyArgs{...}
+type PoolTaskSchedulingPolicyInput interface {
+	pulumi.Input
+
+	ToPoolTaskSchedulingPolicyOutput() PoolTaskSchedulingPolicyOutput
+	ToPoolTaskSchedulingPolicyOutputWithContext(context.Context) PoolTaskSchedulingPolicyOutput
+}
+
+type PoolTaskSchedulingPolicyArgs struct {
+	// Supported values are "Pack" and "Spread". "Pack" means as many tasks as possible (taskSlotsPerNode) should be assigned to each node in the pool before any tasks are assigned to the next node in the pool. "Spread" means that tasks should be assigned evenly across all nodes in the pool.
+	NodeFillType pulumi.StringPtrInput `pulumi:"nodeFillType"`
+}
+
+func (PoolTaskSchedulingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolTaskSchedulingPolicy)(nil)).Elem()
+}
+
+func (i PoolTaskSchedulingPolicyArgs) ToPoolTaskSchedulingPolicyOutput() PoolTaskSchedulingPolicyOutput {
+	return i.ToPoolTaskSchedulingPolicyOutputWithContext(context.Background())
+}
+
+func (i PoolTaskSchedulingPolicyArgs) ToPoolTaskSchedulingPolicyOutputWithContext(ctx context.Context) PoolTaskSchedulingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolTaskSchedulingPolicyOutput)
+}
+
+// PoolTaskSchedulingPolicyArrayInput is an input type that accepts PoolTaskSchedulingPolicyArray and PoolTaskSchedulingPolicyArrayOutput values.
+// You can construct a concrete instance of `PoolTaskSchedulingPolicyArrayInput` via:
+//
+//	PoolTaskSchedulingPolicyArray{ PoolTaskSchedulingPolicyArgs{...} }
+type PoolTaskSchedulingPolicyArrayInput interface {
+	pulumi.Input
+
+	ToPoolTaskSchedulingPolicyArrayOutput() PoolTaskSchedulingPolicyArrayOutput
+	ToPoolTaskSchedulingPolicyArrayOutputWithContext(context.Context) PoolTaskSchedulingPolicyArrayOutput
+}
+
+type PoolTaskSchedulingPolicyArray []PoolTaskSchedulingPolicyInput
+
+func (PoolTaskSchedulingPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolTaskSchedulingPolicy)(nil)).Elem()
+}
+
+func (i PoolTaskSchedulingPolicyArray) ToPoolTaskSchedulingPolicyArrayOutput() PoolTaskSchedulingPolicyArrayOutput {
+	return i.ToPoolTaskSchedulingPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i PoolTaskSchedulingPolicyArray) ToPoolTaskSchedulingPolicyArrayOutputWithContext(ctx context.Context) PoolTaskSchedulingPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolTaskSchedulingPolicyArrayOutput)
+}
+
+type PoolTaskSchedulingPolicyOutput struct{ *pulumi.OutputState }
+
+func (PoolTaskSchedulingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolTaskSchedulingPolicy)(nil)).Elem()
+}
+
+func (o PoolTaskSchedulingPolicyOutput) ToPoolTaskSchedulingPolicyOutput() PoolTaskSchedulingPolicyOutput {
+	return o
+}
+
+func (o PoolTaskSchedulingPolicyOutput) ToPoolTaskSchedulingPolicyOutputWithContext(ctx context.Context) PoolTaskSchedulingPolicyOutput {
+	return o
+}
+
+// Supported values are "Pack" and "Spread". "Pack" means as many tasks as possible (taskSlotsPerNode) should be assigned to each node in the pool before any tasks are assigned to the next node in the pool. "Spread" means that tasks should be assigned evenly across all nodes in the pool.
+func (o PoolTaskSchedulingPolicyOutput) NodeFillType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolTaskSchedulingPolicy) *string { return v.NodeFillType }).(pulumi.StringPtrOutput)
+}
+
+type PoolTaskSchedulingPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (PoolTaskSchedulingPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolTaskSchedulingPolicy)(nil)).Elem()
+}
+
+func (o PoolTaskSchedulingPolicyArrayOutput) ToPoolTaskSchedulingPolicyArrayOutput() PoolTaskSchedulingPolicyArrayOutput {
+	return o
+}
+
+func (o PoolTaskSchedulingPolicyArrayOutput) ToPoolTaskSchedulingPolicyArrayOutputWithContext(ctx context.Context) PoolTaskSchedulingPolicyArrayOutput {
+	return o
+}
+
+func (o PoolTaskSchedulingPolicyArrayOutput) Index(i pulumi.IntInput) PoolTaskSchedulingPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolTaskSchedulingPolicy {
+		return vs[0].([]PoolTaskSchedulingPolicy)[vs[1].(int)]
+	}).(PoolTaskSchedulingPolicyOutput)
+}
+
+type PoolUserAccount struct {
+	// The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
+	ElevationLevel string `pulumi:"elevationLevel"`
+	// The `linuxUserConfiguration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+	LinuxUserConfigurations []PoolUserAccountLinuxUserConfiguration `pulumi:"linuxUserConfigurations"`
+	// The name of the user account.
+	Name string `pulumi:"name"`
+	// The password for the user account.
+	Password string `pulumi:"password"`
+	// The `windowsUserConfiguration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+	WindowsUserConfigurations []PoolUserAccountWindowsUserConfiguration `pulumi:"windowsUserConfigurations"`
+}
+
+// PoolUserAccountInput is an input type that accepts PoolUserAccountArgs and PoolUserAccountOutput values.
+// You can construct a concrete instance of `PoolUserAccountInput` via:
+//
+//	PoolUserAccountArgs{...}
+type PoolUserAccountInput interface {
+	pulumi.Input
+
+	ToPoolUserAccountOutput() PoolUserAccountOutput
+	ToPoolUserAccountOutputWithContext(context.Context) PoolUserAccountOutput
+}
+
+type PoolUserAccountArgs struct {
+	// The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
+	ElevationLevel pulumi.StringInput `pulumi:"elevationLevel"`
+	// The `linuxUserConfiguration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+	LinuxUserConfigurations PoolUserAccountLinuxUserConfigurationArrayInput `pulumi:"linuxUserConfigurations"`
+	// The name of the user account.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The password for the user account.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The `windowsUserConfiguration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+	WindowsUserConfigurations PoolUserAccountWindowsUserConfigurationArrayInput `pulumi:"windowsUserConfigurations"`
+}
+
+func (PoolUserAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolUserAccount)(nil)).Elem()
+}
+
+func (i PoolUserAccountArgs) ToPoolUserAccountOutput() PoolUserAccountOutput {
+	return i.ToPoolUserAccountOutputWithContext(context.Background())
+}
+
+func (i PoolUserAccountArgs) ToPoolUserAccountOutputWithContext(ctx context.Context) PoolUserAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolUserAccountOutput)
+}
+
+// PoolUserAccountArrayInput is an input type that accepts PoolUserAccountArray and PoolUserAccountArrayOutput values.
+// You can construct a concrete instance of `PoolUserAccountArrayInput` via:
+//
+//	PoolUserAccountArray{ PoolUserAccountArgs{...} }
+type PoolUserAccountArrayInput interface {
+	pulumi.Input
+
+	ToPoolUserAccountArrayOutput() PoolUserAccountArrayOutput
+	ToPoolUserAccountArrayOutputWithContext(context.Context) PoolUserAccountArrayOutput
+}
+
+type PoolUserAccountArray []PoolUserAccountInput
+
+func (PoolUserAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolUserAccount)(nil)).Elem()
+}
+
+func (i PoolUserAccountArray) ToPoolUserAccountArrayOutput() PoolUserAccountArrayOutput {
+	return i.ToPoolUserAccountArrayOutputWithContext(context.Background())
+}
+
+func (i PoolUserAccountArray) ToPoolUserAccountArrayOutputWithContext(ctx context.Context) PoolUserAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolUserAccountArrayOutput)
+}
+
+type PoolUserAccountOutput struct{ *pulumi.OutputState }
+
+func (PoolUserAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolUserAccount)(nil)).Elem()
+}
+
+func (o PoolUserAccountOutput) ToPoolUserAccountOutput() PoolUserAccountOutput {
+	return o
+}
+
+func (o PoolUserAccountOutput) ToPoolUserAccountOutputWithContext(ctx context.Context) PoolUserAccountOutput {
+	return o
+}
+
+// The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
+func (o PoolUserAccountOutput) ElevationLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolUserAccount) string { return v.ElevationLevel }).(pulumi.StringOutput)
+}
+
+// The `linuxUserConfiguration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+func (o PoolUserAccountOutput) LinuxUserConfigurations() PoolUserAccountLinuxUserConfigurationArrayOutput {
+	return o.ApplyT(func(v PoolUserAccount) []PoolUserAccountLinuxUserConfiguration { return v.LinuxUserConfigurations }).(PoolUserAccountLinuxUserConfigurationArrayOutput)
+}
+
+// The name of the user account.
+func (o PoolUserAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolUserAccount) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The password for the user account.
+func (o PoolUserAccountOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolUserAccount) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The `windowsUserConfiguration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+func (o PoolUserAccountOutput) WindowsUserConfigurations() PoolUserAccountWindowsUserConfigurationArrayOutput {
+	return o.ApplyT(func(v PoolUserAccount) []PoolUserAccountWindowsUserConfiguration { return v.WindowsUserConfigurations }).(PoolUserAccountWindowsUserConfigurationArrayOutput)
+}
+
+type PoolUserAccountArrayOutput struct{ *pulumi.OutputState }
+
+func (PoolUserAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolUserAccount)(nil)).Elem()
+}
+
+func (o PoolUserAccountArrayOutput) ToPoolUserAccountArrayOutput() PoolUserAccountArrayOutput {
+	return o
+}
+
+func (o PoolUserAccountArrayOutput) ToPoolUserAccountArrayOutputWithContext(ctx context.Context) PoolUserAccountArrayOutput {
+	return o
+}
+
+func (o PoolUserAccountArrayOutput) Index(i pulumi.IntInput) PoolUserAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolUserAccount {
+		return vs[0].([]PoolUserAccount)[vs[1].(int)]
+	}).(PoolUserAccountOutput)
+}
+
+type PoolUserAccountLinuxUserConfiguration struct {
+	// The user ID of the user account. The `uid` and `gid` properties must be specified together or not at all. If not specified the underlying operating system picks the uid.
+	Gid *int `pulumi:"gid"`
+	// The SSH private key for the user account. The private key must not be password protected. The private key is used to automatically configure asymmetric-key based authentication for SSH between nodes in a Linux pool when the pool's enableInterNodeCommunication property is true (it is ignored if enableInterNodeCommunication is false). It does this by placing the key pair into the user's .ssh directory. If not specified, password-less SSH is not configured between nodes (no modification of the user's .ssh directory is done).
+	SshPrivateKey *string `pulumi:"sshPrivateKey"`
+	// The group ID for the user account. The `uid` and `gid` properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
+	Uid *int `pulumi:"uid"`
+}
+
+// PoolUserAccountLinuxUserConfigurationInput is an input type that accepts PoolUserAccountLinuxUserConfigurationArgs and PoolUserAccountLinuxUserConfigurationOutput values.
+// You can construct a concrete instance of `PoolUserAccountLinuxUserConfigurationInput` via:
+//
+//	PoolUserAccountLinuxUserConfigurationArgs{...}
+type PoolUserAccountLinuxUserConfigurationInput interface {
+	pulumi.Input
+
+	ToPoolUserAccountLinuxUserConfigurationOutput() PoolUserAccountLinuxUserConfigurationOutput
+	ToPoolUserAccountLinuxUserConfigurationOutputWithContext(context.Context) PoolUserAccountLinuxUserConfigurationOutput
+}
+
+type PoolUserAccountLinuxUserConfigurationArgs struct {
+	// The user ID of the user account. The `uid` and `gid` properties must be specified together or not at all. If not specified the underlying operating system picks the uid.
+	Gid pulumi.IntPtrInput `pulumi:"gid"`
+	// The SSH private key for the user account. The private key must not be password protected. The private key is used to automatically configure asymmetric-key based authentication for SSH between nodes in a Linux pool when the pool's enableInterNodeCommunication property is true (it is ignored if enableInterNodeCommunication is false). It does this by placing the key pair into the user's .ssh directory. If not specified, password-less SSH is not configured between nodes (no modification of the user's .ssh directory is done).
+	SshPrivateKey pulumi.StringPtrInput `pulumi:"sshPrivateKey"`
+	// The group ID for the user account. The `uid` and `gid` properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
+	Uid pulumi.IntPtrInput `pulumi:"uid"`
+}
+
+func (PoolUserAccountLinuxUserConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolUserAccountLinuxUserConfiguration)(nil)).Elem()
+}
+
+func (i PoolUserAccountLinuxUserConfigurationArgs) ToPoolUserAccountLinuxUserConfigurationOutput() PoolUserAccountLinuxUserConfigurationOutput {
+	return i.ToPoolUserAccountLinuxUserConfigurationOutputWithContext(context.Background())
+}
+
+func (i PoolUserAccountLinuxUserConfigurationArgs) ToPoolUserAccountLinuxUserConfigurationOutputWithContext(ctx context.Context) PoolUserAccountLinuxUserConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolUserAccountLinuxUserConfigurationOutput)
+}
+
+// PoolUserAccountLinuxUserConfigurationArrayInput is an input type that accepts PoolUserAccountLinuxUserConfigurationArray and PoolUserAccountLinuxUserConfigurationArrayOutput values.
+// You can construct a concrete instance of `PoolUserAccountLinuxUserConfigurationArrayInput` via:
+//
+//	PoolUserAccountLinuxUserConfigurationArray{ PoolUserAccountLinuxUserConfigurationArgs{...} }
+type PoolUserAccountLinuxUserConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToPoolUserAccountLinuxUserConfigurationArrayOutput() PoolUserAccountLinuxUserConfigurationArrayOutput
+	ToPoolUserAccountLinuxUserConfigurationArrayOutputWithContext(context.Context) PoolUserAccountLinuxUserConfigurationArrayOutput
+}
+
+type PoolUserAccountLinuxUserConfigurationArray []PoolUserAccountLinuxUserConfigurationInput
+
+func (PoolUserAccountLinuxUserConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolUserAccountLinuxUserConfiguration)(nil)).Elem()
+}
+
+func (i PoolUserAccountLinuxUserConfigurationArray) ToPoolUserAccountLinuxUserConfigurationArrayOutput() PoolUserAccountLinuxUserConfigurationArrayOutput {
+	return i.ToPoolUserAccountLinuxUserConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i PoolUserAccountLinuxUserConfigurationArray) ToPoolUserAccountLinuxUserConfigurationArrayOutputWithContext(ctx context.Context) PoolUserAccountLinuxUserConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolUserAccountLinuxUserConfigurationArrayOutput)
+}
+
+type PoolUserAccountLinuxUserConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PoolUserAccountLinuxUserConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolUserAccountLinuxUserConfiguration)(nil)).Elem()
+}
+
+func (o PoolUserAccountLinuxUserConfigurationOutput) ToPoolUserAccountLinuxUserConfigurationOutput() PoolUserAccountLinuxUserConfigurationOutput {
+	return o
+}
+
+func (o PoolUserAccountLinuxUserConfigurationOutput) ToPoolUserAccountLinuxUserConfigurationOutputWithContext(ctx context.Context) PoolUserAccountLinuxUserConfigurationOutput {
+	return o
+}
+
+// The user ID of the user account. The `uid` and `gid` properties must be specified together or not at all. If not specified the underlying operating system picks the uid.
+func (o PoolUserAccountLinuxUserConfigurationOutput) Gid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PoolUserAccountLinuxUserConfiguration) *int { return v.Gid }).(pulumi.IntPtrOutput)
+}
+
+// The SSH private key for the user account. The private key must not be password protected. The private key is used to automatically configure asymmetric-key based authentication for SSH between nodes in a Linux pool when the pool's enableInterNodeCommunication property is true (it is ignored if enableInterNodeCommunication is false). It does this by placing the key pair into the user's .ssh directory. If not specified, password-less SSH is not configured between nodes (no modification of the user's .ssh directory is done).
+func (o PoolUserAccountLinuxUserConfigurationOutput) SshPrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolUserAccountLinuxUserConfiguration) *string { return v.SshPrivateKey }).(pulumi.StringPtrOutput)
+}
+
+// The group ID for the user account. The `uid` and `gid` properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
+func (o PoolUserAccountLinuxUserConfigurationOutput) Uid() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PoolUserAccountLinuxUserConfiguration) *int { return v.Uid }).(pulumi.IntPtrOutput)
+}
+
+type PoolUserAccountLinuxUserConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (PoolUserAccountLinuxUserConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolUserAccountLinuxUserConfiguration)(nil)).Elem()
+}
+
+func (o PoolUserAccountLinuxUserConfigurationArrayOutput) ToPoolUserAccountLinuxUserConfigurationArrayOutput() PoolUserAccountLinuxUserConfigurationArrayOutput {
+	return o
+}
+
+func (o PoolUserAccountLinuxUserConfigurationArrayOutput) ToPoolUserAccountLinuxUserConfigurationArrayOutputWithContext(ctx context.Context) PoolUserAccountLinuxUserConfigurationArrayOutput {
+	return o
+}
+
+func (o PoolUserAccountLinuxUserConfigurationArrayOutput) Index(i pulumi.IntInput) PoolUserAccountLinuxUserConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolUserAccountLinuxUserConfiguration {
+		return vs[0].([]PoolUserAccountLinuxUserConfiguration)[vs[1].(int)]
+	}).(PoolUserAccountLinuxUserConfigurationOutput)
+}
+
+type PoolUserAccountWindowsUserConfiguration struct {
+	// Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode. Values supported are "Batch" and "Interactive".
+	LoginMode string `pulumi:"loginMode"`
+}
+
+// PoolUserAccountWindowsUserConfigurationInput is an input type that accepts PoolUserAccountWindowsUserConfigurationArgs and PoolUserAccountWindowsUserConfigurationOutput values.
+// You can construct a concrete instance of `PoolUserAccountWindowsUserConfigurationInput` via:
+//
+//	PoolUserAccountWindowsUserConfigurationArgs{...}
+type PoolUserAccountWindowsUserConfigurationInput interface {
+	pulumi.Input
+
+	ToPoolUserAccountWindowsUserConfigurationOutput() PoolUserAccountWindowsUserConfigurationOutput
+	ToPoolUserAccountWindowsUserConfigurationOutputWithContext(context.Context) PoolUserAccountWindowsUserConfigurationOutput
+}
+
+type PoolUserAccountWindowsUserConfigurationArgs struct {
+	// Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode. Values supported are "Batch" and "Interactive".
+	LoginMode pulumi.StringInput `pulumi:"loginMode"`
+}
+
+func (PoolUserAccountWindowsUserConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolUserAccountWindowsUserConfiguration)(nil)).Elem()
+}
+
+func (i PoolUserAccountWindowsUserConfigurationArgs) ToPoolUserAccountWindowsUserConfigurationOutput() PoolUserAccountWindowsUserConfigurationOutput {
+	return i.ToPoolUserAccountWindowsUserConfigurationOutputWithContext(context.Background())
+}
+
+func (i PoolUserAccountWindowsUserConfigurationArgs) ToPoolUserAccountWindowsUserConfigurationOutputWithContext(ctx context.Context) PoolUserAccountWindowsUserConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolUserAccountWindowsUserConfigurationOutput)
+}
+
+// PoolUserAccountWindowsUserConfigurationArrayInput is an input type that accepts PoolUserAccountWindowsUserConfigurationArray and PoolUserAccountWindowsUserConfigurationArrayOutput values.
+// You can construct a concrete instance of `PoolUserAccountWindowsUserConfigurationArrayInput` via:
+//
+//	PoolUserAccountWindowsUserConfigurationArray{ PoolUserAccountWindowsUserConfigurationArgs{...} }
+type PoolUserAccountWindowsUserConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToPoolUserAccountWindowsUserConfigurationArrayOutput() PoolUserAccountWindowsUserConfigurationArrayOutput
+	ToPoolUserAccountWindowsUserConfigurationArrayOutputWithContext(context.Context) PoolUserAccountWindowsUserConfigurationArrayOutput
+}
+
+type PoolUserAccountWindowsUserConfigurationArray []PoolUserAccountWindowsUserConfigurationInput
+
+func (PoolUserAccountWindowsUserConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolUserAccountWindowsUserConfiguration)(nil)).Elem()
+}
+
+func (i PoolUserAccountWindowsUserConfigurationArray) ToPoolUserAccountWindowsUserConfigurationArrayOutput() PoolUserAccountWindowsUserConfigurationArrayOutput {
+	return i.ToPoolUserAccountWindowsUserConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i PoolUserAccountWindowsUserConfigurationArray) ToPoolUserAccountWindowsUserConfigurationArrayOutputWithContext(ctx context.Context) PoolUserAccountWindowsUserConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolUserAccountWindowsUserConfigurationArrayOutput)
+}
+
+type PoolUserAccountWindowsUserConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PoolUserAccountWindowsUserConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolUserAccountWindowsUserConfiguration)(nil)).Elem()
+}
+
+func (o PoolUserAccountWindowsUserConfigurationOutput) ToPoolUserAccountWindowsUserConfigurationOutput() PoolUserAccountWindowsUserConfigurationOutput {
+	return o
+}
+
+func (o PoolUserAccountWindowsUserConfigurationOutput) ToPoolUserAccountWindowsUserConfigurationOutputWithContext(ctx context.Context) PoolUserAccountWindowsUserConfigurationOutput {
+	return o
+}
+
+// Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode. Values supported are "Batch" and "Interactive".
+func (o PoolUserAccountWindowsUserConfigurationOutput) LoginMode() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolUserAccountWindowsUserConfiguration) string { return v.LoginMode }).(pulumi.StringOutput)
+}
+
+type PoolUserAccountWindowsUserConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (PoolUserAccountWindowsUserConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolUserAccountWindowsUserConfiguration)(nil)).Elem()
+}
+
+func (o PoolUserAccountWindowsUserConfigurationArrayOutput) ToPoolUserAccountWindowsUserConfigurationArrayOutput() PoolUserAccountWindowsUserConfigurationArrayOutput {
+	return o
+}
+
+func (o PoolUserAccountWindowsUserConfigurationArrayOutput) ToPoolUserAccountWindowsUserConfigurationArrayOutputWithContext(ctx context.Context) PoolUserAccountWindowsUserConfigurationArrayOutput {
+	return o
+}
+
+func (o PoolUserAccountWindowsUserConfigurationArrayOutput) Index(i pulumi.IntInput) PoolUserAccountWindowsUserConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolUserAccountWindowsUserConfiguration {
+		return vs[0].([]PoolUserAccountWindowsUserConfiguration)[vs[1].(int)]
+	}).(PoolUserAccountWindowsUserConfigurationOutput)
+}
+
+type PoolWindow struct {
+	// Whether automatic updates are enabled on the virtual machine. If omitted, the default value is true.
+	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
+}
+
+// PoolWindowInput is an input type that accepts PoolWindowArgs and PoolWindowOutput values.
+// You can construct a concrete instance of `PoolWindowInput` via:
+//
+//	PoolWindowArgs{...}
+type PoolWindowInput interface {
+	pulumi.Input
+
+	ToPoolWindowOutput() PoolWindowOutput
+	ToPoolWindowOutputWithContext(context.Context) PoolWindowOutput
+}
+
+type PoolWindowArgs struct {
+	// Whether automatic updates are enabled on the virtual machine. If omitted, the default value is true.
+	EnableAutomaticUpdates pulumi.BoolPtrInput `pulumi:"enableAutomaticUpdates"`
+}
+
+func (PoolWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolWindow)(nil)).Elem()
+}
+
+func (i PoolWindowArgs) ToPoolWindowOutput() PoolWindowOutput {
+	return i.ToPoolWindowOutputWithContext(context.Background())
+}
+
+func (i PoolWindowArgs) ToPoolWindowOutputWithContext(ctx context.Context) PoolWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolWindowOutput)
+}
+
+// PoolWindowArrayInput is an input type that accepts PoolWindowArray and PoolWindowArrayOutput values.
+// You can construct a concrete instance of `PoolWindowArrayInput` via:
+//
+//	PoolWindowArray{ PoolWindowArgs{...} }
+type PoolWindowArrayInput interface {
+	pulumi.Input
+
+	ToPoolWindowArrayOutput() PoolWindowArrayOutput
+	ToPoolWindowArrayOutputWithContext(context.Context) PoolWindowArrayOutput
+}
+
+type PoolWindowArray []PoolWindowInput
+
+func (PoolWindowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolWindow)(nil)).Elem()
+}
+
+func (i PoolWindowArray) ToPoolWindowArrayOutput() PoolWindowArrayOutput {
+	return i.ToPoolWindowArrayOutputWithContext(context.Background())
+}
+
+func (i PoolWindowArray) ToPoolWindowArrayOutputWithContext(ctx context.Context) PoolWindowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolWindowArrayOutput)
+}
+
+type PoolWindowOutput struct{ *pulumi.OutputState }
+
+func (PoolWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolWindow)(nil)).Elem()
+}
+
+func (o PoolWindowOutput) ToPoolWindowOutput() PoolWindowOutput {
+	return o
+}
+
+func (o PoolWindowOutput) ToPoolWindowOutputWithContext(ctx context.Context) PoolWindowOutput {
+	return o
+}
+
+// Whether automatic updates are enabled on the virtual machine. If omitted, the default value is true.
+func (o PoolWindowOutput) EnableAutomaticUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PoolWindow) *bool { return v.EnableAutomaticUpdates }).(pulumi.BoolPtrOutput)
+}
+
+type PoolWindowArrayOutput struct{ *pulumi.OutputState }
+
+func (PoolWindowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolWindow)(nil)).Elem()
+}
+
+func (o PoolWindowArrayOutput) ToPoolWindowArrayOutput() PoolWindowArrayOutput {
+	return o
+}
+
+func (o PoolWindowArrayOutput) ToPoolWindowArrayOutputWithContext(ctx context.Context) PoolWindowArrayOutput {
+	return o
+}
+
+func (o PoolWindowArrayOutput) Index(i pulumi.IntInput) PoolWindowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolWindow {
+		return vs[0].([]PoolWindow)[vs[1].(int)]
+	}).(PoolWindowOutput)
 }
 
 type GetAccountEncryption struct {
@@ -4103,7 +5129,7 @@ func (o GetPoolContainerConfigurationArrayOutput) Index(i pulumi.IntInput) GetPo
 }
 
 type GetPoolContainerConfigurationContainerRegistry struct {
-	// The password to use for authentication against the CIFS file system.
+	// The password for the user account.
 	Password string `pulumi:"password"`
 	// The container registry URL. The default is "docker.io".
 	RegistryServer string `pulumi:"registryServer"`
@@ -4125,7 +5151,7 @@ type GetPoolContainerConfigurationContainerRegistryInput interface {
 }
 
 type GetPoolContainerConfigurationContainerRegistryArgs struct {
-	// The password to use for authentication against the CIFS file system.
+	// The password for the user account.
 	Password pulumi.StringInput `pulumi:"password"`
 	// The container registry URL. The default is "docker.io".
 	RegistryServer pulumi.StringInput `pulumi:"registryServer"`
@@ -4186,7 +5212,7 @@ func (o GetPoolContainerConfigurationContainerRegistryOutput) ToGetPoolContainer
 	return o
 }
 
-// The password to use for authentication against the CIFS file system.
+// The password for the user account.
 func (o GetPoolContainerConfigurationContainerRegistryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolContainerConfigurationContainerRegistry) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -4224,6 +5250,387 @@ func (o GetPoolContainerConfigurationContainerRegistryArrayOutput) Index(i pulum
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolContainerConfigurationContainerRegistry {
 		return vs[0].([]GetPoolContainerConfigurationContainerRegistry)[vs[1].(int)]
 	}).(GetPoolContainerConfigurationContainerRegistryOutput)
+}
+
+type GetPoolDataDisk struct {
+	// The caching mode of data disks.
+	Caching string `pulumi:"caching"`
+	// The initial disk size in GB when creating new data disk.
+	DiskSizeGb int `pulumi:"diskSizeGb"`
+	// The lun is used to uniquely identify each data disk.
+	Lun int `pulumi:"lun"`
+	// The storage account type to be used for the data disk.
+	StorageAccountType string `pulumi:"storageAccountType"`
+}
+
+// GetPoolDataDiskInput is an input type that accepts GetPoolDataDiskArgs and GetPoolDataDiskOutput values.
+// You can construct a concrete instance of `GetPoolDataDiskInput` via:
+//
+//	GetPoolDataDiskArgs{...}
+type GetPoolDataDiskInput interface {
+	pulumi.Input
+
+	ToGetPoolDataDiskOutput() GetPoolDataDiskOutput
+	ToGetPoolDataDiskOutputWithContext(context.Context) GetPoolDataDiskOutput
+}
+
+type GetPoolDataDiskArgs struct {
+	// The caching mode of data disks.
+	Caching pulumi.StringInput `pulumi:"caching"`
+	// The initial disk size in GB when creating new data disk.
+	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
+	// The lun is used to uniquely identify each data disk.
+	Lun pulumi.IntInput `pulumi:"lun"`
+	// The storage account type to be used for the data disk.
+	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
+}
+
+func (GetPoolDataDiskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolDataDisk)(nil)).Elem()
+}
+
+func (i GetPoolDataDiskArgs) ToGetPoolDataDiskOutput() GetPoolDataDiskOutput {
+	return i.ToGetPoolDataDiskOutputWithContext(context.Background())
+}
+
+func (i GetPoolDataDiskArgs) ToGetPoolDataDiskOutputWithContext(ctx context.Context) GetPoolDataDiskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolDataDiskOutput)
+}
+
+// GetPoolDataDiskArrayInput is an input type that accepts GetPoolDataDiskArray and GetPoolDataDiskArrayOutput values.
+// You can construct a concrete instance of `GetPoolDataDiskArrayInput` via:
+//
+//	GetPoolDataDiskArray{ GetPoolDataDiskArgs{...} }
+type GetPoolDataDiskArrayInput interface {
+	pulumi.Input
+
+	ToGetPoolDataDiskArrayOutput() GetPoolDataDiskArrayOutput
+	ToGetPoolDataDiskArrayOutputWithContext(context.Context) GetPoolDataDiskArrayOutput
+}
+
+type GetPoolDataDiskArray []GetPoolDataDiskInput
+
+func (GetPoolDataDiskArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolDataDisk)(nil)).Elem()
+}
+
+func (i GetPoolDataDiskArray) ToGetPoolDataDiskArrayOutput() GetPoolDataDiskArrayOutput {
+	return i.ToGetPoolDataDiskArrayOutputWithContext(context.Background())
+}
+
+func (i GetPoolDataDiskArray) ToGetPoolDataDiskArrayOutputWithContext(ctx context.Context) GetPoolDataDiskArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolDataDiskArrayOutput)
+}
+
+type GetPoolDataDiskOutput struct{ *pulumi.OutputState }
+
+func (GetPoolDataDiskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolDataDisk)(nil)).Elem()
+}
+
+func (o GetPoolDataDiskOutput) ToGetPoolDataDiskOutput() GetPoolDataDiskOutput {
+	return o
+}
+
+func (o GetPoolDataDiskOutput) ToGetPoolDataDiskOutputWithContext(ctx context.Context) GetPoolDataDiskOutput {
+	return o
+}
+
+// The caching mode of data disks.
+func (o GetPoolDataDiskOutput) Caching() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolDataDisk) string { return v.Caching }).(pulumi.StringOutput)
+}
+
+// The initial disk size in GB when creating new data disk.
+func (o GetPoolDataDiskOutput) DiskSizeGb() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPoolDataDisk) int { return v.DiskSizeGb }).(pulumi.IntOutput)
+}
+
+// The lun is used to uniquely identify each data disk.
+func (o GetPoolDataDiskOutput) Lun() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPoolDataDisk) int { return v.Lun }).(pulumi.IntOutput)
+}
+
+// The storage account type to be used for the data disk.
+func (o GetPoolDataDiskOutput) StorageAccountType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
+}
+
+type GetPoolDataDiskArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPoolDataDiskArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolDataDisk)(nil)).Elem()
+}
+
+func (o GetPoolDataDiskArrayOutput) ToGetPoolDataDiskArrayOutput() GetPoolDataDiskArrayOutput {
+	return o
+}
+
+func (o GetPoolDataDiskArrayOutput) ToGetPoolDataDiskArrayOutputWithContext(ctx context.Context) GetPoolDataDiskArrayOutput {
+	return o
+}
+
+func (o GetPoolDataDiskArrayOutput) Index(i pulumi.IntInput) GetPoolDataDiskOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolDataDisk {
+		return vs[0].([]GetPoolDataDisk)[vs[1].(int)]
+	}).(GetPoolDataDiskOutput)
+}
+
+type GetPoolDiskEncryption struct {
+	// On Linux pool, only `TemporaryDisk` is supported; on Windows pool, `OsDisk` and `TemporaryDisk` must be specified.
+	DiskEncryptionTarget string `pulumi:"diskEncryptionTarget"`
+}
+
+// GetPoolDiskEncryptionInput is an input type that accepts GetPoolDiskEncryptionArgs and GetPoolDiskEncryptionOutput values.
+// You can construct a concrete instance of `GetPoolDiskEncryptionInput` via:
+//
+//	GetPoolDiskEncryptionArgs{...}
+type GetPoolDiskEncryptionInput interface {
+	pulumi.Input
+
+	ToGetPoolDiskEncryptionOutput() GetPoolDiskEncryptionOutput
+	ToGetPoolDiskEncryptionOutputWithContext(context.Context) GetPoolDiskEncryptionOutput
+}
+
+type GetPoolDiskEncryptionArgs struct {
+	// On Linux pool, only `TemporaryDisk` is supported; on Windows pool, `OsDisk` and `TemporaryDisk` must be specified.
+	DiskEncryptionTarget pulumi.StringInput `pulumi:"diskEncryptionTarget"`
+}
+
+func (GetPoolDiskEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolDiskEncryption)(nil)).Elem()
+}
+
+func (i GetPoolDiskEncryptionArgs) ToGetPoolDiskEncryptionOutput() GetPoolDiskEncryptionOutput {
+	return i.ToGetPoolDiskEncryptionOutputWithContext(context.Background())
+}
+
+func (i GetPoolDiskEncryptionArgs) ToGetPoolDiskEncryptionOutputWithContext(ctx context.Context) GetPoolDiskEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolDiskEncryptionOutput)
+}
+
+// GetPoolDiskEncryptionArrayInput is an input type that accepts GetPoolDiskEncryptionArray and GetPoolDiskEncryptionArrayOutput values.
+// You can construct a concrete instance of `GetPoolDiskEncryptionArrayInput` via:
+//
+//	GetPoolDiskEncryptionArray{ GetPoolDiskEncryptionArgs{...} }
+type GetPoolDiskEncryptionArrayInput interface {
+	pulumi.Input
+
+	ToGetPoolDiskEncryptionArrayOutput() GetPoolDiskEncryptionArrayOutput
+	ToGetPoolDiskEncryptionArrayOutputWithContext(context.Context) GetPoolDiskEncryptionArrayOutput
+}
+
+type GetPoolDiskEncryptionArray []GetPoolDiskEncryptionInput
+
+func (GetPoolDiskEncryptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolDiskEncryption)(nil)).Elem()
+}
+
+func (i GetPoolDiskEncryptionArray) ToGetPoolDiskEncryptionArrayOutput() GetPoolDiskEncryptionArrayOutput {
+	return i.ToGetPoolDiskEncryptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetPoolDiskEncryptionArray) ToGetPoolDiskEncryptionArrayOutputWithContext(ctx context.Context) GetPoolDiskEncryptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolDiskEncryptionArrayOutput)
+}
+
+type GetPoolDiskEncryptionOutput struct{ *pulumi.OutputState }
+
+func (GetPoolDiskEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolDiskEncryption)(nil)).Elem()
+}
+
+func (o GetPoolDiskEncryptionOutput) ToGetPoolDiskEncryptionOutput() GetPoolDiskEncryptionOutput {
+	return o
+}
+
+func (o GetPoolDiskEncryptionOutput) ToGetPoolDiskEncryptionOutputWithContext(ctx context.Context) GetPoolDiskEncryptionOutput {
+	return o
+}
+
+// On Linux pool, only `TemporaryDisk` is supported; on Windows pool, `OsDisk` and `TemporaryDisk` must be specified.
+func (o GetPoolDiskEncryptionOutput) DiskEncryptionTarget() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolDiskEncryption) string { return v.DiskEncryptionTarget }).(pulumi.StringOutput)
+}
+
+type GetPoolDiskEncryptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPoolDiskEncryptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolDiskEncryption)(nil)).Elem()
+}
+
+func (o GetPoolDiskEncryptionArrayOutput) ToGetPoolDiskEncryptionArrayOutput() GetPoolDiskEncryptionArrayOutput {
+	return o
+}
+
+func (o GetPoolDiskEncryptionArrayOutput) ToGetPoolDiskEncryptionArrayOutputWithContext(ctx context.Context) GetPoolDiskEncryptionArrayOutput {
+	return o
+}
+
+func (o GetPoolDiskEncryptionArrayOutput) Index(i pulumi.IntInput) GetPoolDiskEncryptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolDiskEncryption {
+		return vs[0].([]GetPoolDiskEncryption)[vs[1].(int)]
+	}).(GetPoolDiskEncryptionOutput)
+}
+
+type GetPoolExtension struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion bool `pulumi:"autoUpgradeMinorVersion"`
+	// The name of the user account.
+	Name string `pulumi:"name"`
+	// The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
+	ProtectedSettings string `pulumi:"protectedSettings"`
+	// The collection of extension names. Collection of extension names after which this extension needs to be provisioned.
+	ProvisionAfterExtensions []string `pulumi:"provisionAfterExtensions"`
+	// The name of the extension handler publisher.The name of the extension handler publisher.
+	Publisher string `pulumi:"publisher"`
+	// JSON formatted public settings for the extension.
+	SettingsJson string `pulumi:"settingsJson"`
+	// The type of container configuration.
+	Type string `pulumi:"type"`
+	// The version of script handler.
+	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
+}
+
+// GetPoolExtensionInput is an input type that accepts GetPoolExtensionArgs and GetPoolExtensionOutput values.
+// You can construct a concrete instance of `GetPoolExtensionInput` via:
+//
+//	GetPoolExtensionArgs{...}
+type GetPoolExtensionInput interface {
+	pulumi.Input
+
+	ToGetPoolExtensionOutput() GetPoolExtensionOutput
+	ToGetPoolExtensionOutputWithContext(context.Context) GetPoolExtensionOutput
+}
+
+type GetPoolExtensionArgs struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion pulumi.BoolInput `pulumi:"autoUpgradeMinorVersion"`
+	// The name of the user account.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
+	ProtectedSettings pulumi.StringInput `pulumi:"protectedSettings"`
+	// The collection of extension names. Collection of extension names after which this extension needs to be provisioned.
+	ProvisionAfterExtensions pulumi.StringArrayInput `pulumi:"provisionAfterExtensions"`
+	// The name of the extension handler publisher.The name of the extension handler publisher.
+	Publisher pulumi.StringInput `pulumi:"publisher"`
+	// JSON formatted public settings for the extension.
+	SettingsJson pulumi.StringInput `pulumi:"settingsJson"`
+	// The type of container configuration.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The version of script handler.
+	TypeHandlerVersion pulumi.StringInput `pulumi:"typeHandlerVersion"`
+}
+
+func (GetPoolExtensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolExtension)(nil)).Elem()
+}
+
+func (i GetPoolExtensionArgs) ToGetPoolExtensionOutput() GetPoolExtensionOutput {
+	return i.ToGetPoolExtensionOutputWithContext(context.Background())
+}
+
+func (i GetPoolExtensionArgs) ToGetPoolExtensionOutputWithContext(ctx context.Context) GetPoolExtensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolExtensionOutput)
+}
+
+// GetPoolExtensionArrayInput is an input type that accepts GetPoolExtensionArray and GetPoolExtensionArrayOutput values.
+// You can construct a concrete instance of `GetPoolExtensionArrayInput` via:
+//
+//	GetPoolExtensionArray{ GetPoolExtensionArgs{...} }
+type GetPoolExtensionArrayInput interface {
+	pulumi.Input
+
+	ToGetPoolExtensionArrayOutput() GetPoolExtensionArrayOutput
+	ToGetPoolExtensionArrayOutputWithContext(context.Context) GetPoolExtensionArrayOutput
+}
+
+type GetPoolExtensionArray []GetPoolExtensionInput
+
+func (GetPoolExtensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolExtension)(nil)).Elem()
+}
+
+func (i GetPoolExtensionArray) ToGetPoolExtensionArrayOutput() GetPoolExtensionArrayOutput {
+	return i.ToGetPoolExtensionArrayOutputWithContext(context.Background())
+}
+
+func (i GetPoolExtensionArray) ToGetPoolExtensionArrayOutputWithContext(ctx context.Context) GetPoolExtensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolExtensionArrayOutput)
+}
+
+type GetPoolExtensionOutput struct{ *pulumi.OutputState }
+
+func (GetPoolExtensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolExtension)(nil)).Elem()
+}
+
+func (o GetPoolExtensionOutput) ToGetPoolExtensionOutput() GetPoolExtensionOutput {
+	return o
+}
+
+func (o GetPoolExtensionOutput) ToGetPoolExtensionOutputWithContext(ctx context.Context) GetPoolExtensionOutput {
+	return o
+}
+
+// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+func (o GetPoolExtensionOutput) AutoUpgradeMinorVersion() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetPoolExtension) bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolOutput)
+}
+
+// The name of the user account.
+func (o GetPoolExtensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolExtension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
+func (o GetPoolExtensionOutput) ProtectedSettings() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolExtension) string { return v.ProtectedSettings }).(pulumi.StringOutput)
+}
+
+// The collection of extension names. Collection of extension names after which this extension needs to be provisioned.
+func (o GetPoolExtensionOutput) ProvisionAfterExtensions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPoolExtension) []string { return v.ProvisionAfterExtensions }).(pulumi.StringArrayOutput)
+}
+
+// The name of the extension handler publisher.The name of the extension handler publisher.
+func (o GetPoolExtensionOutput) Publisher() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolExtension) string { return v.Publisher }).(pulumi.StringOutput)
+}
+
+// JSON formatted public settings for the extension.
+func (o GetPoolExtensionOutput) SettingsJson() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolExtension) string { return v.SettingsJson }).(pulumi.StringOutput)
+}
+
+// The type of container configuration.
+func (o GetPoolExtensionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolExtension) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The version of script handler.
+func (o GetPoolExtensionOutput) TypeHandlerVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolExtension) string { return v.TypeHandlerVersion }).(pulumi.StringOutput)
+}
+
+type GetPoolExtensionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPoolExtensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolExtension)(nil)).Elem()
+}
+
+func (o GetPoolExtensionArrayOutput) ToGetPoolExtensionArrayOutput() GetPoolExtensionArrayOutput {
+	return o
+}
+
+func (o GetPoolExtensionArrayOutput) ToGetPoolExtensionArrayOutputWithContext(ctx context.Context) GetPoolExtensionArrayOutput {
+	return o
+}
+
+func (o GetPoolExtensionArrayOutput) Index(i pulumi.IntInput) GetPoolExtensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolExtension {
+		return vs[0].([]GetPoolExtension)[vs[1].(int)]
+	}).(GetPoolExtensionOutput)
 }
 
 type GetPoolFixedScale struct {
@@ -4752,7 +6159,7 @@ func (o GetPoolMountAzureFileShareArrayOutput) Index(i pulumi.IntInput) GetPoolM
 type GetPoolMountCifsMount struct {
 	// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
 	MountOptions string `pulumi:"mountOptions"`
-	// The password to use for authentication against the CIFS file system.
+	// The password for the user account.
 	Password string `pulumi:"password"`
 	// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
 	RelativeMountPath string `pulumi:"relativeMountPath"`
@@ -4776,7 +6183,7 @@ type GetPoolMountCifsMountInput interface {
 type GetPoolMountCifsMountArgs struct {
 	// Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
 	MountOptions pulumi.StringInput `pulumi:"mountOptions"`
-	// The password to use for authentication against the CIFS file system.
+	// The password for the user account.
 	Password pulumi.StringInput `pulumi:"password"`
 	// The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the `AZ_BATCH_NODE_MOUNTS_DIR` environment variable.
 	RelativeMountPath pulumi.StringInput `pulumi:"relativeMountPath"`
@@ -4842,7 +6249,7 @@ func (o GetPoolMountCifsMountOutput) MountOptions() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolMountCifsMount) string { return v.MountOptions }).(pulumi.StringOutput)
 }
 
-// The password to use for authentication against the CIFS file system.
+// The password for the user account.
 func (o GetPoolMountCifsMountOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolMountCifsMount) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -5122,7 +6529,7 @@ type GetPoolNetworkConfigurationEndpointConfiguration struct {
 	BackendPort int `pulumi:"backendPort"`
 	// The range of external ports that are used to provide inbound access to the backendPort on the individual compute nodes in the format of `1000-1100`.
 	FrontendPortRange string `pulumi:"frontendPortRange"`
-	// The name of the endpoint.
+	// The name of the user account.
 	Name string `pulumi:"name"`
 	// The list of network security group rules that are applied to the endpoint.
 	NetworkSecurityGroupRules []GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule `pulumi:"networkSecurityGroupRules"`
@@ -5146,7 +6553,7 @@ type GetPoolNetworkConfigurationEndpointConfigurationArgs struct {
 	BackendPort pulumi.IntInput `pulumi:"backendPort"`
 	// The range of external ports that are used to provide inbound access to the backendPort on the individual compute nodes in the format of `1000-1100`.
 	FrontendPortRange pulumi.StringInput `pulumi:"frontendPortRange"`
-	// The name of the endpoint.
+	// The name of the user account.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The list of network security group rules that are applied to the endpoint.
 	NetworkSecurityGroupRules GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput `pulumi:"networkSecurityGroupRules"`
@@ -5215,7 +6622,7 @@ func (o GetPoolNetworkConfigurationEndpointConfigurationOutput) FrontendPortRang
 	return o.ApplyT(func(v GetPoolNetworkConfigurationEndpointConfiguration) string { return v.FrontendPortRange }).(pulumi.StringOutput)
 }
 
-// The name of the endpoint.
+// The name of the user account.
 func (o GetPoolNetworkConfigurationEndpointConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolNetworkConfigurationEndpointConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -5373,6 +6780,103 @@ func (o GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule
 	}).(GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput)
 }
 
+type GetPoolNodePlacement struct {
+	// The placement policy for allocating nodes in the pool.
+	Policy string `pulumi:"policy"`
+}
+
+// GetPoolNodePlacementInput is an input type that accepts GetPoolNodePlacementArgs and GetPoolNodePlacementOutput values.
+// You can construct a concrete instance of `GetPoolNodePlacementInput` via:
+//
+//	GetPoolNodePlacementArgs{...}
+type GetPoolNodePlacementInput interface {
+	pulumi.Input
+
+	ToGetPoolNodePlacementOutput() GetPoolNodePlacementOutput
+	ToGetPoolNodePlacementOutputWithContext(context.Context) GetPoolNodePlacementOutput
+}
+
+type GetPoolNodePlacementArgs struct {
+	// The placement policy for allocating nodes in the pool.
+	Policy pulumi.StringInput `pulumi:"policy"`
+}
+
+func (GetPoolNodePlacementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolNodePlacement)(nil)).Elem()
+}
+
+func (i GetPoolNodePlacementArgs) ToGetPoolNodePlacementOutput() GetPoolNodePlacementOutput {
+	return i.ToGetPoolNodePlacementOutputWithContext(context.Background())
+}
+
+func (i GetPoolNodePlacementArgs) ToGetPoolNodePlacementOutputWithContext(ctx context.Context) GetPoolNodePlacementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolNodePlacementOutput)
+}
+
+// GetPoolNodePlacementArrayInput is an input type that accepts GetPoolNodePlacementArray and GetPoolNodePlacementArrayOutput values.
+// You can construct a concrete instance of `GetPoolNodePlacementArrayInput` via:
+//
+//	GetPoolNodePlacementArray{ GetPoolNodePlacementArgs{...} }
+type GetPoolNodePlacementArrayInput interface {
+	pulumi.Input
+
+	ToGetPoolNodePlacementArrayOutput() GetPoolNodePlacementArrayOutput
+	ToGetPoolNodePlacementArrayOutputWithContext(context.Context) GetPoolNodePlacementArrayOutput
+}
+
+type GetPoolNodePlacementArray []GetPoolNodePlacementInput
+
+func (GetPoolNodePlacementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolNodePlacement)(nil)).Elem()
+}
+
+func (i GetPoolNodePlacementArray) ToGetPoolNodePlacementArrayOutput() GetPoolNodePlacementArrayOutput {
+	return i.ToGetPoolNodePlacementArrayOutputWithContext(context.Background())
+}
+
+func (i GetPoolNodePlacementArray) ToGetPoolNodePlacementArrayOutputWithContext(ctx context.Context) GetPoolNodePlacementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolNodePlacementArrayOutput)
+}
+
+type GetPoolNodePlacementOutput struct{ *pulumi.OutputState }
+
+func (GetPoolNodePlacementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolNodePlacement)(nil)).Elem()
+}
+
+func (o GetPoolNodePlacementOutput) ToGetPoolNodePlacementOutput() GetPoolNodePlacementOutput {
+	return o
+}
+
+func (o GetPoolNodePlacementOutput) ToGetPoolNodePlacementOutputWithContext(ctx context.Context) GetPoolNodePlacementOutput {
+	return o
+}
+
+// The placement policy for allocating nodes in the pool.
+func (o GetPoolNodePlacementOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolNodePlacement) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+type GetPoolNodePlacementArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPoolNodePlacementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolNodePlacement)(nil)).Elem()
+}
+
+func (o GetPoolNodePlacementArrayOutput) ToGetPoolNodePlacementArrayOutput() GetPoolNodePlacementArrayOutput {
+	return o
+}
+
+func (o GetPoolNodePlacementArrayOutput) ToGetPoolNodePlacementArrayOutputWithContext(ctx context.Context) GetPoolNodePlacementArrayOutput {
+	return o
+}
+
+func (o GetPoolNodePlacementArrayOutput) Index(i pulumi.IntInput) GetPoolNodePlacementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolNodePlacement {
+		return vs[0].([]GetPoolNodePlacement)[vs[1].(int)]
+	}).(GetPoolNodePlacementOutput)
+}
+
 type GetPoolStartTask struct {
 	// The command line executed by the start task.
 	CommandLine string `pulumi:"commandLine"`
@@ -5528,6 +7032,8 @@ type GetPoolStartTaskResourceFile struct {
 	HttpUrl string `pulumi:"httpUrl"`
 	// The URL of the blob container within Azure Blob Storage.
 	StorageContainerUrl string `pulumi:"storageContainerUrl"`
+	// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
 }
 
 // GetPoolStartTaskResourceFileInput is an input type that accepts GetPoolStartTaskResourceFileArgs and GetPoolStartTaskResourceFileOutput values.
@@ -5554,6 +7060,8 @@ type GetPoolStartTaskResourceFileArgs struct {
 	HttpUrl pulumi.StringInput `pulumi:"httpUrl"`
 	// The URL of the blob container within Azure Blob Storage.
 	StorageContainerUrl pulumi.StringInput `pulumi:"storageContainerUrl"`
+	// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
+	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
 }
 
 func (GetPoolStartTaskResourceFileArgs) ElementType() reflect.Type {
@@ -5635,6 +7143,11 @@ func (o GetPoolStartTaskResourceFileOutput) HttpUrl() pulumi.StringOutput {
 // The URL of the blob container within Azure Blob Storage.
 func (o GetPoolStartTaskResourceFileOutput) StorageContainerUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolStartTaskResourceFile) string { return v.StorageContainerUrl }).(pulumi.StringOutput)
+}
+
+// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
+func (o GetPoolStartTaskResourceFileOutput) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolStartTaskResourceFile) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
 }
 
 type GetPoolStartTaskResourceFileArrayOutput struct{ *pulumi.OutputState }
@@ -5764,7 +7277,7 @@ func (o GetPoolStartTaskUserIdentityArrayOutput) Index(i pulumi.IntInput) GetPoo
 }
 
 type GetPoolStartTaskUserIdentityAutoUser struct {
-	// The elevation level of the user identity under which the start task runs.
+	// The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
 	ElevationLevel string `pulumi:"elevationLevel"`
 	// The scope of the user identity under which the start task runs.
 	Scope string `pulumi:"scope"`
@@ -5782,7 +7295,7 @@ type GetPoolStartTaskUserIdentityAutoUserInput interface {
 }
 
 type GetPoolStartTaskUserIdentityAutoUserArgs struct {
-	// The elevation level of the user identity under which the start task runs.
+	// The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
 	ElevationLevel pulumi.StringInput `pulumi:"elevationLevel"`
 	// The scope of the user identity under which the start task runs.
 	Scope pulumi.StringInput `pulumi:"scope"`
@@ -5839,7 +7352,7 @@ func (o GetPoolStartTaskUserIdentityAutoUserOutput) ToGetPoolStartTaskUserIdenti
 	return o
 }
 
-// The elevation level of the user identity under which the start task runs.
+// The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
 func (o GetPoolStartTaskUserIdentityAutoUserOutput) ElevationLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolStartTaskUserIdentityAutoUser) string { return v.ElevationLevel }).(pulumi.StringOutput)
 }
@@ -5871,8 +7384,9 @@ func (o GetPoolStartTaskUserIdentityAutoUserArrayOutput) Index(i pulumi.IntInput
 
 type GetPoolStorageImageReference struct {
 	// The fully qualified ID of the certificate installed on the pool.
-	Id        string `pulumi:"id"`
-	Offer     string `pulumi:"offer"`
+	Id    string `pulumi:"id"`
+	Offer string `pulumi:"offer"`
+	// The name of the extension handler publisher.The name of the extension handler publisher.
 	Publisher string `pulumi:"publisher"`
 	Sku       string `pulumi:"sku"`
 	Version   string `pulumi:"version"`
@@ -5891,8 +7405,9 @@ type GetPoolStorageImageReferenceInput interface {
 
 type GetPoolStorageImageReferenceArgs struct {
 	// The fully qualified ID of the certificate installed on the pool.
-	Id        pulumi.StringInput `pulumi:"id"`
-	Offer     pulumi.StringInput `pulumi:"offer"`
+	Id    pulumi.StringInput `pulumi:"id"`
+	Offer pulumi.StringInput `pulumi:"offer"`
+	// The name of the extension handler publisher.The name of the extension handler publisher.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 	Sku       pulumi.StringInput `pulumi:"sku"`
 	Version   pulumi.StringInput `pulumi:"version"`
@@ -5958,6 +7473,7 @@ func (o GetPoolStorageImageReferenceOutput) Offer() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolStorageImageReference) string { return v.Offer }).(pulumi.StringOutput)
 }
 
+// The name of the extension handler publisher.The name of the extension handler publisher.
 func (o GetPoolStorageImageReferenceOutput) Publisher() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolStorageImageReference) string { return v.Publisher }).(pulumi.StringOutput)
 }
@@ -5990,6 +7506,549 @@ func (o GetPoolStorageImageReferenceArrayOutput) Index(i pulumi.IntInput) GetPoo
 	}).(GetPoolStorageImageReferenceOutput)
 }
 
+type GetPoolTaskSchedulingPolicy struct {
+	// Supported values are `Pack` and `Spread`. `Pack` means as many tasks as possible (taskSlotsPerNode) should be assigned to each node in the pool before any tasks are assigned to the next node in the pool. `Spread` means that tasks should be assigned evenly across all nodes in the pool.
+	NodeFillType string `pulumi:"nodeFillType"`
+}
+
+// GetPoolTaskSchedulingPolicyInput is an input type that accepts GetPoolTaskSchedulingPolicyArgs and GetPoolTaskSchedulingPolicyOutput values.
+// You can construct a concrete instance of `GetPoolTaskSchedulingPolicyInput` via:
+//
+//	GetPoolTaskSchedulingPolicyArgs{...}
+type GetPoolTaskSchedulingPolicyInput interface {
+	pulumi.Input
+
+	ToGetPoolTaskSchedulingPolicyOutput() GetPoolTaskSchedulingPolicyOutput
+	ToGetPoolTaskSchedulingPolicyOutputWithContext(context.Context) GetPoolTaskSchedulingPolicyOutput
+}
+
+type GetPoolTaskSchedulingPolicyArgs struct {
+	// Supported values are `Pack` and `Spread`. `Pack` means as many tasks as possible (taskSlotsPerNode) should be assigned to each node in the pool before any tasks are assigned to the next node in the pool. `Spread` means that tasks should be assigned evenly across all nodes in the pool.
+	NodeFillType pulumi.StringInput `pulumi:"nodeFillType"`
+}
+
+func (GetPoolTaskSchedulingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolTaskSchedulingPolicy)(nil)).Elem()
+}
+
+func (i GetPoolTaskSchedulingPolicyArgs) ToGetPoolTaskSchedulingPolicyOutput() GetPoolTaskSchedulingPolicyOutput {
+	return i.ToGetPoolTaskSchedulingPolicyOutputWithContext(context.Background())
+}
+
+func (i GetPoolTaskSchedulingPolicyArgs) ToGetPoolTaskSchedulingPolicyOutputWithContext(ctx context.Context) GetPoolTaskSchedulingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolTaskSchedulingPolicyOutput)
+}
+
+// GetPoolTaskSchedulingPolicyArrayInput is an input type that accepts GetPoolTaskSchedulingPolicyArray and GetPoolTaskSchedulingPolicyArrayOutput values.
+// You can construct a concrete instance of `GetPoolTaskSchedulingPolicyArrayInput` via:
+//
+//	GetPoolTaskSchedulingPolicyArray{ GetPoolTaskSchedulingPolicyArgs{...} }
+type GetPoolTaskSchedulingPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetPoolTaskSchedulingPolicyArrayOutput() GetPoolTaskSchedulingPolicyArrayOutput
+	ToGetPoolTaskSchedulingPolicyArrayOutputWithContext(context.Context) GetPoolTaskSchedulingPolicyArrayOutput
+}
+
+type GetPoolTaskSchedulingPolicyArray []GetPoolTaskSchedulingPolicyInput
+
+func (GetPoolTaskSchedulingPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolTaskSchedulingPolicy)(nil)).Elem()
+}
+
+func (i GetPoolTaskSchedulingPolicyArray) ToGetPoolTaskSchedulingPolicyArrayOutput() GetPoolTaskSchedulingPolicyArrayOutput {
+	return i.ToGetPoolTaskSchedulingPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetPoolTaskSchedulingPolicyArray) ToGetPoolTaskSchedulingPolicyArrayOutputWithContext(ctx context.Context) GetPoolTaskSchedulingPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolTaskSchedulingPolicyArrayOutput)
+}
+
+type GetPoolTaskSchedulingPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetPoolTaskSchedulingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolTaskSchedulingPolicy)(nil)).Elem()
+}
+
+func (o GetPoolTaskSchedulingPolicyOutput) ToGetPoolTaskSchedulingPolicyOutput() GetPoolTaskSchedulingPolicyOutput {
+	return o
+}
+
+func (o GetPoolTaskSchedulingPolicyOutput) ToGetPoolTaskSchedulingPolicyOutputWithContext(ctx context.Context) GetPoolTaskSchedulingPolicyOutput {
+	return o
+}
+
+// Supported values are `Pack` and `Spread`. `Pack` means as many tasks as possible (taskSlotsPerNode) should be assigned to each node in the pool before any tasks are assigned to the next node in the pool. `Spread` means that tasks should be assigned evenly across all nodes in the pool.
+func (o GetPoolTaskSchedulingPolicyOutput) NodeFillType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolTaskSchedulingPolicy) string { return v.NodeFillType }).(pulumi.StringOutput)
+}
+
+type GetPoolTaskSchedulingPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPoolTaskSchedulingPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolTaskSchedulingPolicy)(nil)).Elem()
+}
+
+func (o GetPoolTaskSchedulingPolicyArrayOutput) ToGetPoolTaskSchedulingPolicyArrayOutput() GetPoolTaskSchedulingPolicyArrayOutput {
+	return o
+}
+
+func (o GetPoolTaskSchedulingPolicyArrayOutput) ToGetPoolTaskSchedulingPolicyArrayOutputWithContext(ctx context.Context) GetPoolTaskSchedulingPolicyArrayOutput {
+	return o
+}
+
+func (o GetPoolTaskSchedulingPolicyArrayOutput) Index(i pulumi.IntInput) GetPoolTaskSchedulingPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolTaskSchedulingPolicy {
+		return vs[0].([]GetPoolTaskSchedulingPolicy)[vs[1].(int)]
+	}).(GetPoolTaskSchedulingPolicyOutput)
+}
+
+type GetPoolUserAccount struct {
+	// The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
+	ElevationLevel string `pulumi:"elevationLevel"`
+	// The `linuxUserConfiguration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+	LinuxUserConfigurations []GetPoolUserAccountLinuxUserConfiguration `pulumi:"linuxUserConfigurations"`
+	// The name of the user account.
+	Name string `pulumi:"name"`
+	// The password for the user account.
+	Password string `pulumi:"password"`
+	// The `windowsUserConfiguration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+	WindowsUserConfigurations []GetPoolUserAccountWindowsUserConfiguration `pulumi:"windowsUserConfigurations"`
+}
+
+// GetPoolUserAccountInput is an input type that accepts GetPoolUserAccountArgs and GetPoolUserAccountOutput values.
+// You can construct a concrete instance of `GetPoolUserAccountInput` via:
+//
+//	GetPoolUserAccountArgs{...}
+type GetPoolUserAccountInput interface {
+	pulumi.Input
+
+	ToGetPoolUserAccountOutput() GetPoolUserAccountOutput
+	ToGetPoolUserAccountOutputWithContext(context.Context) GetPoolUserAccountOutput
+}
+
+type GetPoolUserAccountArgs struct {
+	// The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
+	ElevationLevel pulumi.StringInput `pulumi:"elevationLevel"`
+	// The `linuxUserConfiguration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+	LinuxUserConfigurations GetPoolUserAccountLinuxUserConfigurationArrayInput `pulumi:"linuxUserConfigurations"`
+	// The name of the user account.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The password for the user account.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The `windowsUserConfiguration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+	WindowsUserConfigurations GetPoolUserAccountWindowsUserConfigurationArrayInput `pulumi:"windowsUserConfigurations"`
+}
+
+func (GetPoolUserAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolUserAccount)(nil)).Elem()
+}
+
+func (i GetPoolUserAccountArgs) ToGetPoolUserAccountOutput() GetPoolUserAccountOutput {
+	return i.ToGetPoolUserAccountOutputWithContext(context.Background())
+}
+
+func (i GetPoolUserAccountArgs) ToGetPoolUserAccountOutputWithContext(ctx context.Context) GetPoolUserAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolUserAccountOutput)
+}
+
+// GetPoolUserAccountArrayInput is an input type that accepts GetPoolUserAccountArray and GetPoolUserAccountArrayOutput values.
+// You can construct a concrete instance of `GetPoolUserAccountArrayInput` via:
+//
+//	GetPoolUserAccountArray{ GetPoolUserAccountArgs{...} }
+type GetPoolUserAccountArrayInput interface {
+	pulumi.Input
+
+	ToGetPoolUserAccountArrayOutput() GetPoolUserAccountArrayOutput
+	ToGetPoolUserAccountArrayOutputWithContext(context.Context) GetPoolUserAccountArrayOutput
+}
+
+type GetPoolUserAccountArray []GetPoolUserAccountInput
+
+func (GetPoolUserAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolUserAccount)(nil)).Elem()
+}
+
+func (i GetPoolUserAccountArray) ToGetPoolUserAccountArrayOutput() GetPoolUserAccountArrayOutput {
+	return i.ToGetPoolUserAccountArrayOutputWithContext(context.Background())
+}
+
+func (i GetPoolUserAccountArray) ToGetPoolUserAccountArrayOutputWithContext(ctx context.Context) GetPoolUserAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolUserAccountArrayOutput)
+}
+
+type GetPoolUserAccountOutput struct{ *pulumi.OutputState }
+
+func (GetPoolUserAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolUserAccount)(nil)).Elem()
+}
+
+func (o GetPoolUserAccountOutput) ToGetPoolUserAccountOutput() GetPoolUserAccountOutput {
+	return o
+}
+
+func (o GetPoolUserAccountOutput) ToGetPoolUserAccountOutputWithContext(ctx context.Context) GetPoolUserAccountOutput {
+	return o
+}
+
+// The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
+func (o GetPoolUserAccountOutput) ElevationLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolUserAccount) string { return v.ElevationLevel }).(pulumi.StringOutput)
+}
+
+// The `linuxUserConfiguration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+func (o GetPoolUserAccountOutput) LinuxUserConfigurations() GetPoolUserAccountLinuxUserConfigurationArrayOutput {
+	return o.ApplyT(func(v GetPoolUserAccount) []GetPoolUserAccountLinuxUserConfiguration {
+		return v.LinuxUserConfigurations
+	}).(GetPoolUserAccountLinuxUserConfigurationArrayOutput)
+}
+
+// The name of the user account.
+func (o GetPoolUserAccountOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolUserAccount) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The password for the user account.
+func (o GetPoolUserAccountOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolUserAccount) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The `windowsUserConfiguration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+func (o GetPoolUserAccountOutput) WindowsUserConfigurations() GetPoolUserAccountWindowsUserConfigurationArrayOutput {
+	return o.ApplyT(func(v GetPoolUserAccount) []GetPoolUserAccountWindowsUserConfiguration {
+		return v.WindowsUserConfigurations
+	}).(GetPoolUserAccountWindowsUserConfigurationArrayOutput)
+}
+
+type GetPoolUserAccountArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPoolUserAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolUserAccount)(nil)).Elem()
+}
+
+func (o GetPoolUserAccountArrayOutput) ToGetPoolUserAccountArrayOutput() GetPoolUserAccountArrayOutput {
+	return o
+}
+
+func (o GetPoolUserAccountArrayOutput) ToGetPoolUserAccountArrayOutputWithContext(ctx context.Context) GetPoolUserAccountArrayOutput {
+	return o
+}
+
+func (o GetPoolUserAccountArrayOutput) Index(i pulumi.IntInput) GetPoolUserAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolUserAccount {
+		return vs[0].([]GetPoolUserAccount)[vs[1].(int)]
+	}).(GetPoolUserAccountOutput)
+}
+
+type GetPoolUserAccountLinuxUserConfiguration struct {
+	// The user ID of the user account.
+	Gid int `pulumi:"gid"`
+	// The SSH private key for the user account.
+	SshPrivateKey string `pulumi:"sshPrivateKey"`
+	// The group ID for the user account.
+	Uid int `pulumi:"uid"`
+}
+
+// GetPoolUserAccountLinuxUserConfigurationInput is an input type that accepts GetPoolUserAccountLinuxUserConfigurationArgs and GetPoolUserAccountLinuxUserConfigurationOutput values.
+// You can construct a concrete instance of `GetPoolUserAccountLinuxUserConfigurationInput` via:
+//
+//	GetPoolUserAccountLinuxUserConfigurationArgs{...}
+type GetPoolUserAccountLinuxUserConfigurationInput interface {
+	pulumi.Input
+
+	ToGetPoolUserAccountLinuxUserConfigurationOutput() GetPoolUserAccountLinuxUserConfigurationOutput
+	ToGetPoolUserAccountLinuxUserConfigurationOutputWithContext(context.Context) GetPoolUserAccountLinuxUserConfigurationOutput
+}
+
+type GetPoolUserAccountLinuxUserConfigurationArgs struct {
+	// The user ID of the user account.
+	Gid pulumi.IntInput `pulumi:"gid"`
+	// The SSH private key for the user account.
+	SshPrivateKey pulumi.StringInput `pulumi:"sshPrivateKey"`
+	// The group ID for the user account.
+	Uid pulumi.IntInput `pulumi:"uid"`
+}
+
+func (GetPoolUserAccountLinuxUserConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolUserAccountLinuxUserConfiguration)(nil)).Elem()
+}
+
+func (i GetPoolUserAccountLinuxUserConfigurationArgs) ToGetPoolUserAccountLinuxUserConfigurationOutput() GetPoolUserAccountLinuxUserConfigurationOutput {
+	return i.ToGetPoolUserAccountLinuxUserConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetPoolUserAccountLinuxUserConfigurationArgs) ToGetPoolUserAccountLinuxUserConfigurationOutputWithContext(ctx context.Context) GetPoolUserAccountLinuxUserConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolUserAccountLinuxUserConfigurationOutput)
+}
+
+// GetPoolUserAccountLinuxUserConfigurationArrayInput is an input type that accepts GetPoolUserAccountLinuxUserConfigurationArray and GetPoolUserAccountLinuxUserConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetPoolUserAccountLinuxUserConfigurationArrayInput` via:
+//
+//	GetPoolUserAccountLinuxUserConfigurationArray{ GetPoolUserAccountLinuxUserConfigurationArgs{...} }
+type GetPoolUserAccountLinuxUserConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetPoolUserAccountLinuxUserConfigurationArrayOutput() GetPoolUserAccountLinuxUserConfigurationArrayOutput
+	ToGetPoolUserAccountLinuxUserConfigurationArrayOutputWithContext(context.Context) GetPoolUserAccountLinuxUserConfigurationArrayOutput
+}
+
+type GetPoolUserAccountLinuxUserConfigurationArray []GetPoolUserAccountLinuxUserConfigurationInput
+
+func (GetPoolUserAccountLinuxUserConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolUserAccountLinuxUserConfiguration)(nil)).Elem()
+}
+
+func (i GetPoolUserAccountLinuxUserConfigurationArray) ToGetPoolUserAccountLinuxUserConfigurationArrayOutput() GetPoolUserAccountLinuxUserConfigurationArrayOutput {
+	return i.ToGetPoolUserAccountLinuxUserConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetPoolUserAccountLinuxUserConfigurationArray) ToGetPoolUserAccountLinuxUserConfigurationArrayOutputWithContext(ctx context.Context) GetPoolUserAccountLinuxUserConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolUserAccountLinuxUserConfigurationArrayOutput)
+}
+
+type GetPoolUserAccountLinuxUserConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetPoolUserAccountLinuxUserConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolUserAccountLinuxUserConfiguration)(nil)).Elem()
+}
+
+func (o GetPoolUserAccountLinuxUserConfigurationOutput) ToGetPoolUserAccountLinuxUserConfigurationOutput() GetPoolUserAccountLinuxUserConfigurationOutput {
+	return o
+}
+
+func (o GetPoolUserAccountLinuxUserConfigurationOutput) ToGetPoolUserAccountLinuxUserConfigurationOutputWithContext(ctx context.Context) GetPoolUserAccountLinuxUserConfigurationOutput {
+	return o
+}
+
+// The user ID of the user account.
+func (o GetPoolUserAccountLinuxUserConfigurationOutput) Gid() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPoolUserAccountLinuxUserConfiguration) int { return v.Gid }).(pulumi.IntOutput)
+}
+
+// The SSH private key for the user account.
+func (o GetPoolUserAccountLinuxUserConfigurationOutput) SshPrivateKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolUserAccountLinuxUserConfiguration) string { return v.SshPrivateKey }).(pulumi.StringOutput)
+}
+
+// The group ID for the user account.
+func (o GetPoolUserAccountLinuxUserConfigurationOutput) Uid() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPoolUserAccountLinuxUserConfiguration) int { return v.Uid }).(pulumi.IntOutput)
+}
+
+type GetPoolUserAccountLinuxUserConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPoolUserAccountLinuxUserConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolUserAccountLinuxUserConfiguration)(nil)).Elem()
+}
+
+func (o GetPoolUserAccountLinuxUserConfigurationArrayOutput) ToGetPoolUserAccountLinuxUserConfigurationArrayOutput() GetPoolUserAccountLinuxUserConfigurationArrayOutput {
+	return o
+}
+
+func (o GetPoolUserAccountLinuxUserConfigurationArrayOutput) ToGetPoolUserAccountLinuxUserConfigurationArrayOutputWithContext(ctx context.Context) GetPoolUserAccountLinuxUserConfigurationArrayOutput {
+	return o
+}
+
+func (o GetPoolUserAccountLinuxUserConfigurationArrayOutput) Index(i pulumi.IntInput) GetPoolUserAccountLinuxUserConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolUserAccountLinuxUserConfiguration {
+		return vs[0].([]GetPoolUserAccountLinuxUserConfiguration)[vs[1].(int)]
+	}).(GetPoolUserAccountLinuxUserConfigurationOutput)
+}
+
+type GetPoolUserAccountWindowsUserConfiguration struct {
+	// Specifies login mode for the user.
+	LoginMode string `pulumi:"loginMode"`
+}
+
+// GetPoolUserAccountWindowsUserConfigurationInput is an input type that accepts GetPoolUserAccountWindowsUserConfigurationArgs and GetPoolUserAccountWindowsUserConfigurationOutput values.
+// You can construct a concrete instance of `GetPoolUserAccountWindowsUserConfigurationInput` via:
+//
+//	GetPoolUserAccountWindowsUserConfigurationArgs{...}
+type GetPoolUserAccountWindowsUserConfigurationInput interface {
+	pulumi.Input
+
+	ToGetPoolUserAccountWindowsUserConfigurationOutput() GetPoolUserAccountWindowsUserConfigurationOutput
+	ToGetPoolUserAccountWindowsUserConfigurationOutputWithContext(context.Context) GetPoolUserAccountWindowsUserConfigurationOutput
+}
+
+type GetPoolUserAccountWindowsUserConfigurationArgs struct {
+	// Specifies login mode for the user.
+	LoginMode pulumi.StringInput `pulumi:"loginMode"`
+}
+
+func (GetPoolUserAccountWindowsUserConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolUserAccountWindowsUserConfiguration)(nil)).Elem()
+}
+
+func (i GetPoolUserAccountWindowsUserConfigurationArgs) ToGetPoolUserAccountWindowsUserConfigurationOutput() GetPoolUserAccountWindowsUserConfigurationOutput {
+	return i.ToGetPoolUserAccountWindowsUserConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetPoolUserAccountWindowsUserConfigurationArgs) ToGetPoolUserAccountWindowsUserConfigurationOutputWithContext(ctx context.Context) GetPoolUserAccountWindowsUserConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolUserAccountWindowsUserConfigurationOutput)
+}
+
+// GetPoolUserAccountWindowsUserConfigurationArrayInput is an input type that accepts GetPoolUserAccountWindowsUserConfigurationArray and GetPoolUserAccountWindowsUserConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetPoolUserAccountWindowsUserConfigurationArrayInput` via:
+//
+//	GetPoolUserAccountWindowsUserConfigurationArray{ GetPoolUserAccountWindowsUserConfigurationArgs{...} }
+type GetPoolUserAccountWindowsUserConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetPoolUserAccountWindowsUserConfigurationArrayOutput() GetPoolUserAccountWindowsUserConfigurationArrayOutput
+	ToGetPoolUserAccountWindowsUserConfigurationArrayOutputWithContext(context.Context) GetPoolUserAccountWindowsUserConfigurationArrayOutput
+}
+
+type GetPoolUserAccountWindowsUserConfigurationArray []GetPoolUserAccountWindowsUserConfigurationInput
+
+func (GetPoolUserAccountWindowsUserConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolUserAccountWindowsUserConfiguration)(nil)).Elem()
+}
+
+func (i GetPoolUserAccountWindowsUserConfigurationArray) ToGetPoolUserAccountWindowsUserConfigurationArrayOutput() GetPoolUserAccountWindowsUserConfigurationArrayOutput {
+	return i.ToGetPoolUserAccountWindowsUserConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetPoolUserAccountWindowsUserConfigurationArray) ToGetPoolUserAccountWindowsUserConfigurationArrayOutputWithContext(ctx context.Context) GetPoolUserAccountWindowsUserConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolUserAccountWindowsUserConfigurationArrayOutput)
+}
+
+type GetPoolUserAccountWindowsUserConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetPoolUserAccountWindowsUserConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolUserAccountWindowsUserConfiguration)(nil)).Elem()
+}
+
+func (o GetPoolUserAccountWindowsUserConfigurationOutput) ToGetPoolUserAccountWindowsUserConfigurationOutput() GetPoolUserAccountWindowsUserConfigurationOutput {
+	return o
+}
+
+func (o GetPoolUserAccountWindowsUserConfigurationOutput) ToGetPoolUserAccountWindowsUserConfigurationOutputWithContext(ctx context.Context) GetPoolUserAccountWindowsUserConfigurationOutput {
+	return o
+}
+
+// Specifies login mode for the user.
+func (o GetPoolUserAccountWindowsUserConfigurationOutput) LoginMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolUserAccountWindowsUserConfiguration) string { return v.LoginMode }).(pulumi.StringOutput)
+}
+
+type GetPoolUserAccountWindowsUserConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPoolUserAccountWindowsUserConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolUserAccountWindowsUserConfiguration)(nil)).Elem()
+}
+
+func (o GetPoolUserAccountWindowsUserConfigurationArrayOutput) ToGetPoolUserAccountWindowsUserConfigurationArrayOutput() GetPoolUserAccountWindowsUserConfigurationArrayOutput {
+	return o
+}
+
+func (o GetPoolUserAccountWindowsUserConfigurationArrayOutput) ToGetPoolUserAccountWindowsUserConfigurationArrayOutputWithContext(ctx context.Context) GetPoolUserAccountWindowsUserConfigurationArrayOutput {
+	return o
+}
+
+func (o GetPoolUserAccountWindowsUserConfigurationArrayOutput) Index(i pulumi.IntInput) GetPoolUserAccountWindowsUserConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolUserAccountWindowsUserConfiguration {
+		return vs[0].([]GetPoolUserAccountWindowsUserConfiguration)[vs[1].(int)]
+	}).(GetPoolUserAccountWindowsUserConfigurationOutput)
+}
+
+type GetPoolWindow struct {
+	// Whether automatic updates are enabled on the virtual machine.
+	EnableAutomaticUpdates bool `pulumi:"enableAutomaticUpdates"`
+}
+
+// GetPoolWindowInput is an input type that accepts GetPoolWindowArgs and GetPoolWindowOutput values.
+// You can construct a concrete instance of `GetPoolWindowInput` via:
+//
+//	GetPoolWindowArgs{...}
+type GetPoolWindowInput interface {
+	pulumi.Input
+
+	ToGetPoolWindowOutput() GetPoolWindowOutput
+	ToGetPoolWindowOutputWithContext(context.Context) GetPoolWindowOutput
+}
+
+type GetPoolWindowArgs struct {
+	// Whether automatic updates are enabled on the virtual machine.
+	EnableAutomaticUpdates pulumi.BoolInput `pulumi:"enableAutomaticUpdates"`
+}
+
+func (GetPoolWindowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolWindow)(nil)).Elem()
+}
+
+func (i GetPoolWindowArgs) ToGetPoolWindowOutput() GetPoolWindowOutput {
+	return i.ToGetPoolWindowOutputWithContext(context.Background())
+}
+
+func (i GetPoolWindowArgs) ToGetPoolWindowOutputWithContext(ctx context.Context) GetPoolWindowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolWindowOutput)
+}
+
+// GetPoolWindowArrayInput is an input type that accepts GetPoolWindowArray and GetPoolWindowArrayOutput values.
+// You can construct a concrete instance of `GetPoolWindowArrayInput` via:
+//
+//	GetPoolWindowArray{ GetPoolWindowArgs{...} }
+type GetPoolWindowArrayInput interface {
+	pulumi.Input
+
+	ToGetPoolWindowArrayOutput() GetPoolWindowArrayOutput
+	ToGetPoolWindowArrayOutputWithContext(context.Context) GetPoolWindowArrayOutput
+}
+
+type GetPoolWindowArray []GetPoolWindowInput
+
+func (GetPoolWindowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolWindow)(nil)).Elem()
+}
+
+func (i GetPoolWindowArray) ToGetPoolWindowArrayOutput() GetPoolWindowArrayOutput {
+	return i.ToGetPoolWindowArrayOutputWithContext(context.Background())
+}
+
+func (i GetPoolWindowArray) ToGetPoolWindowArrayOutputWithContext(ctx context.Context) GetPoolWindowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolWindowArrayOutput)
+}
+
+type GetPoolWindowOutput struct{ *pulumi.OutputState }
+
+func (GetPoolWindowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolWindow)(nil)).Elem()
+}
+
+func (o GetPoolWindowOutput) ToGetPoolWindowOutput() GetPoolWindowOutput {
+	return o
+}
+
+func (o GetPoolWindowOutput) ToGetPoolWindowOutputWithContext(ctx context.Context) GetPoolWindowOutput {
+	return o
+}
+
+// Whether automatic updates are enabled on the virtual machine.
+func (o GetPoolWindowOutput) EnableAutomaticUpdates() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetPoolWindow) bool { return v.EnableAutomaticUpdates }).(pulumi.BoolOutput)
+}
+
+type GetPoolWindowArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPoolWindowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolWindow)(nil)).Elem()
+}
+
+func (o GetPoolWindowArrayOutput) ToGetPoolWindowArrayOutput() GetPoolWindowArrayOutput {
+	return o
+}
+
+func (o GetPoolWindowArrayOutput) ToGetPoolWindowArrayOutputWithContext(ctx context.Context) GetPoolWindowArrayOutput {
+	return o
+}
+
+func (o GetPoolWindowArrayOutput) Index(i pulumi.IntInput) GetPoolWindowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolWindow {
+		return vs[0].([]GetPoolWindow)[vs[1].(int)]
+	}).(GetPoolWindowOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountEncryptionInput)(nil)).Elem(), AccountEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountEncryptionPtrInput)(nil)).Elem(), AccountEncryptionArgs{})
@@ -6005,6 +8064,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolContainerConfigurationPtrInput)(nil)).Elem(), PoolContainerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolContainerConfigurationContainerRegistryInput)(nil)).Elem(), PoolContainerConfigurationContainerRegistryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolContainerConfigurationContainerRegistryArrayInput)(nil)).Elem(), PoolContainerConfigurationContainerRegistryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolDataDiskInput)(nil)).Elem(), PoolDataDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolDataDiskArrayInput)(nil)).Elem(), PoolDataDiskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolDiskEncryptionInput)(nil)).Elem(), PoolDiskEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolDiskEncryptionArrayInput)(nil)).Elem(), PoolDiskEncryptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolExtensionInput)(nil)).Elem(), PoolExtensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolExtensionArrayInput)(nil)).Elem(), PoolExtensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolFixedScaleInput)(nil)).Elem(), PoolFixedScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolFixedScalePtrInput)(nil)).Elem(), PoolFixedScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolIdentityInput)(nil)).Elem(), PoolIdentityArgs{})
@@ -6025,6 +8090,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolNetworkConfigurationEndpointConfigurationArrayInput)(nil)).Elem(), PoolNetworkConfigurationEndpointConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleInput)(nil)).Elem(), PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput)(nil)).Elem(), PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolNodePlacementInput)(nil)).Elem(), PoolNodePlacementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolNodePlacementArrayInput)(nil)).Elem(), PoolNodePlacementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolStartTaskInput)(nil)).Elem(), PoolStartTaskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolStartTaskPtrInput)(nil)).Elem(), PoolStartTaskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolStartTaskResourceFileInput)(nil)).Elem(), PoolStartTaskResourceFileArgs{})
@@ -6035,6 +8102,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolStartTaskUserIdentityAutoUserPtrInput)(nil)).Elem(), PoolStartTaskUserIdentityAutoUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolStorageImageReferenceInput)(nil)).Elem(), PoolStorageImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolStorageImageReferencePtrInput)(nil)).Elem(), PoolStorageImageReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolTaskSchedulingPolicyInput)(nil)).Elem(), PoolTaskSchedulingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolTaskSchedulingPolicyArrayInput)(nil)).Elem(), PoolTaskSchedulingPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolUserAccountInput)(nil)).Elem(), PoolUserAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolUserAccountArrayInput)(nil)).Elem(), PoolUserAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolUserAccountLinuxUserConfigurationInput)(nil)).Elem(), PoolUserAccountLinuxUserConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolUserAccountLinuxUserConfigurationArrayInput)(nil)).Elem(), PoolUserAccountLinuxUserConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolUserAccountWindowsUserConfigurationInput)(nil)).Elem(), PoolUserAccountWindowsUserConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolUserAccountWindowsUserConfigurationArrayInput)(nil)).Elem(), PoolUserAccountWindowsUserConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolWindowInput)(nil)).Elem(), PoolWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolWindowArrayInput)(nil)).Elem(), PoolWindowArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountEncryptionInput)(nil)).Elem(), GetAccountEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountEncryptionPtrInput)(nil)).Elem(), GetAccountEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountKeyVaultReferenceInput)(nil)).Elem(), GetAccountKeyVaultReferenceArgs{})
@@ -6047,6 +8124,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolContainerConfigurationArrayInput)(nil)).Elem(), GetPoolContainerConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolContainerConfigurationContainerRegistryInput)(nil)).Elem(), GetPoolContainerConfigurationContainerRegistryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolContainerConfigurationContainerRegistryArrayInput)(nil)).Elem(), GetPoolContainerConfigurationContainerRegistryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolDataDiskInput)(nil)).Elem(), GetPoolDataDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolDataDiskArrayInput)(nil)).Elem(), GetPoolDataDiskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolDiskEncryptionInput)(nil)).Elem(), GetPoolDiskEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolDiskEncryptionArrayInput)(nil)).Elem(), GetPoolDiskEncryptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolExtensionInput)(nil)).Elem(), GetPoolExtensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolExtensionArrayInput)(nil)).Elem(), GetPoolExtensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolFixedScaleInput)(nil)).Elem(), GetPoolFixedScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolFixedScaleArrayInput)(nil)).Elem(), GetPoolFixedScaleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolMountInput)(nil)).Elem(), GetPoolMountArgs{})
@@ -6065,6 +8148,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolNetworkConfigurationEndpointConfigurationArrayInput)(nil)).Elem(), GetPoolNetworkConfigurationEndpointConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleInput)(nil)).Elem(), GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayInput)(nil)).Elem(), GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolNodePlacementInput)(nil)).Elem(), GetPoolNodePlacementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolNodePlacementArrayInput)(nil)).Elem(), GetPoolNodePlacementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskInput)(nil)).Elem(), GetPoolStartTaskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskArrayInput)(nil)).Elem(), GetPoolStartTaskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskResourceFileInput)(nil)).Elem(), GetPoolStartTaskResourceFileArgs{})
@@ -6075,6 +8160,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskUserIdentityAutoUserArrayInput)(nil)).Elem(), GetPoolStartTaskUserIdentityAutoUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStorageImageReferenceInput)(nil)).Elem(), GetPoolStorageImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStorageImageReferenceArrayInput)(nil)).Elem(), GetPoolStorageImageReferenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolTaskSchedulingPolicyInput)(nil)).Elem(), GetPoolTaskSchedulingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolTaskSchedulingPolicyArrayInput)(nil)).Elem(), GetPoolTaskSchedulingPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolUserAccountInput)(nil)).Elem(), GetPoolUserAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolUserAccountArrayInput)(nil)).Elem(), GetPoolUserAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolUserAccountLinuxUserConfigurationInput)(nil)).Elem(), GetPoolUserAccountLinuxUserConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolUserAccountLinuxUserConfigurationArrayInput)(nil)).Elem(), GetPoolUserAccountLinuxUserConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolUserAccountWindowsUserConfigurationInput)(nil)).Elem(), GetPoolUserAccountWindowsUserConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolUserAccountWindowsUserConfigurationArrayInput)(nil)).Elem(), GetPoolUserAccountWindowsUserConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolWindowInput)(nil)).Elem(), GetPoolWindowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolWindowArrayInput)(nil)).Elem(), GetPoolWindowArray{})
 	pulumi.RegisterOutputType(AccountEncryptionOutput{})
 	pulumi.RegisterOutputType(AccountEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(AccountIdentityOutput{})
@@ -6089,6 +8184,12 @@ func init() {
 	pulumi.RegisterOutputType(PoolContainerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PoolContainerConfigurationContainerRegistryOutput{})
 	pulumi.RegisterOutputType(PoolContainerConfigurationContainerRegistryArrayOutput{})
+	pulumi.RegisterOutputType(PoolDataDiskOutput{})
+	pulumi.RegisterOutputType(PoolDataDiskArrayOutput{})
+	pulumi.RegisterOutputType(PoolDiskEncryptionOutput{})
+	pulumi.RegisterOutputType(PoolDiskEncryptionArrayOutput{})
+	pulumi.RegisterOutputType(PoolExtensionOutput{})
+	pulumi.RegisterOutputType(PoolExtensionArrayOutput{})
 	pulumi.RegisterOutputType(PoolFixedScaleOutput{})
 	pulumi.RegisterOutputType(PoolFixedScalePtrOutput{})
 	pulumi.RegisterOutputType(PoolIdentityOutput{})
@@ -6109,6 +8210,8 @@ func init() {
 	pulumi.RegisterOutputType(PoolNetworkConfigurationEndpointConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput{})
 	pulumi.RegisterOutputType(PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput{})
+	pulumi.RegisterOutputType(PoolNodePlacementOutput{})
+	pulumi.RegisterOutputType(PoolNodePlacementArrayOutput{})
 	pulumi.RegisterOutputType(PoolStartTaskOutput{})
 	pulumi.RegisterOutputType(PoolStartTaskPtrOutput{})
 	pulumi.RegisterOutputType(PoolStartTaskResourceFileOutput{})
@@ -6119,6 +8222,16 @@ func init() {
 	pulumi.RegisterOutputType(PoolStartTaskUserIdentityAutoUserPtrOutput{})
 	pulumi.RegisterOutputType(PoolStorageImageReferenceOutput{})
 	pulumi.RegisterOutputType(PoolStorageImageReferencePtrOutput{})
+	pulumi.RegisterOutputType(PoolTaskSchedulingPolicyOutput{})
+	pulumi.RegisterOutputType(PoolTaskSchedulingPolicyArrayOutput{})
+	pulumi.RegisterOutputType(PoolUserAccountOutput{})
+	pulumi.RegisterOutputType(PoolUserAccountArrayOutput{})
+	pulumi.RegisterOutputType(PoolUserAccountLinuxUserConfigurationOutput{})
+	pulumi.RegisterOutputType(PoolUserAccountLinuxUserConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(PoolUserAccountWindowsUserConfigurationOutput{})
+	pulumi.RegisterOutputType(PoolUserAccountWindowsUserConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(PoolWindowOutput{})
+	pulumi.RegisterOutputType(PoolWindowArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountEncryptionOutput{})
 	pulumi.RegisterOutputType(GetAccountEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(GetAccountKeyVaultReferenceOutput{})
@@ -6131,6 +8244,12 @@ func init() {
 	pulumi.RegisterOutputType(GetPoolContainerConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolContainerConfigurationContainerRegistryOutput{})
 	pulumi.RegisterOutputType(GetPoolContainerConfigurationContainerRegistryArrayOutput{})
+	pulumi.RegisterOutputType(GetPoolDataDiskOutput{})
+	pulumi.RegisterOutputType(GetPoolDataDiskArrayOutput{})
+	pulumi.RegisterOutputType(GetPoolDiskEncryptionOutput{})
+	pulumi.RegisterOutputType(GetPoolDiskEncryptionArrayOutput{})
+	pulumi.RegisterOutputType(GetPoolExtensionOutput{})
+	pulumi.RegisterOutputType(GetPoolExtensionArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolFixedScaleOutput{})
 	pulumi.RegisterOutputType(GetPoolFixedScaleArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolMountOutput{})
@@ -6149,6 +8268,8 @@ func init() {
 	pulumi.RegisterOutputType(GetPoolNetworkConfigurationEndpointConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput{})
 	pulumi.RegisterOutputType(GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetPoolNodePlacementOutput{})
+	pulumi.RegisterOutputType(GetPoolNodePlacementArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolStartTaskOutput{})
 	pulumi.RegisterOutputType(GetPoolStartTaskArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolStartTaskResourceFileOutput{})
@@ -6159,4 +8280,14 @@ func init() {
 	pulumi.RegisterOutputType(GetPoolStartTaskUserIdentityAutoUserArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolStorageImageReferenceOutput{})
 	pulumi.RegisterOutputType(GetPoolStorageImageReferenceArrayOutput{})
+	pulumi.RegisterOutputType(GetPoolTaskSchedulingPolicyOutput{})
+	pulumi.RegisterOutputType(GetPoolTaskSchedulingPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetPoolUserAccountOutput{})
+	pulumi.RegisterOutputType(GetPoolUserAccountArrayOutput{})
+	pulumi.RegisterOutputType(GetPoolUserAccountLinuxUserConfigurationOutput{})
+	pulumi.RegisterOutputType(GetPoolUserAccountLinuxUserConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetPoolUserAccountWindowsUserConfigurationOutput{})
+	pulumi.RegisterOutputType(GetPoolUserAccountWindowsUserConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetPoolWindowOutput{})
+	pulumi.RegisterOutputType(GetPoolWindowArrayOutput{})
 }

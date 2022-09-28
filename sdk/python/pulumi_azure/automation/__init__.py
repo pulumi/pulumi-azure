@@ -29,6 +29,7 @@ from .job_schedule import *
 from .module import *
 from .run_book import *
 from .schedule import *
+from .software_update_configuration import *
 from .source_control import *
 from .string_variable import *
 from .watcher import *

@@ -76,14 +76,14 @@ public final class ReferenceInputMssqlArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The username to connect to the MS SQL database.
+     * The password to connect to the MS SQL database.
      * 
      */
     @Import(name="password", required=true)
     private Output<String> password;
 
     /**
-     * @return The username to connect to the MS SQL database.
+     * @return The password to connect to the MS SQL database.
      * 
      */
     public Output<String> password() {
@@ -315,7 +315,7 @@ public final class ReferenceInputMssqlArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param password The username to connect to the MS SQL database.
+         * @param password The password to connect to the MS SQL database.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class ReferenceInputMssqlArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param password The username to connect to the MS SQL database.
+         * @param password The password to connect to the MS SQL database.
          * 
          * @return builder
          * 

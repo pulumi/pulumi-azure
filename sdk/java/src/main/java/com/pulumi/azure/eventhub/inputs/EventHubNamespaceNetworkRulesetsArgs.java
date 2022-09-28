@@ -50,6 +50,21 @@ public final class EventHubNamespaceNetworkRulesetsArgs extends com.pulumi.resou
     }
 
     /**
+     * Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+     * 
+     */
+    @Import(name="publicNetworkAccessEnabled")
+    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
+    }
+
+    /**
      * Whether Trusted Microsoft Services are allowed to bypass firewall.
      * 
      */
@@ -84,6 +99,7 @@ public final class EventHubNamespaceNetworkRulesetsArgs extends com.pulumi.resou
     private EventHubNamespaceNetworkRulesetsArgs(EventHubNamespaceNetworkRulesetsArgs $) {
         this.defaultAction = $.defaultAction;
         this.ipRules = $.ipRules;
+        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.trustedServiceAccessEnabled = $.trustedServiceAccessEnabled;
         this.virtualNetworkRules = $.virtualNetworkRules;
     }
@@ -156,6 +172,27 @@ public final class EventHubNamespaceNetworkRulesetsArgs extends com.pulumi.resou
          */
         public Builder ipRules(EventHubNamespaceNetworkRulesetsIpRuleArgs... ipRules) {
             return ipRules(List.of(ipRules));
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
+            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
         /**

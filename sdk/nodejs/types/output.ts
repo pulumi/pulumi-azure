@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export namespace advisor {
     export interface GetRecommendationsRecommendation {
@@ -334,6 +335,10 @@ export namespace apimanagement {
          */
         description?: string;
         /**
+         * (Optional) One or more `example` blocks as defined above.
+         */
+        examples?: outputs.apimanagement.ApiOperationRequestHeaderExample[];
+        /**
          * The Name of this Header.
          */
         name: string;
@@ -342,13 +347,45 @@ export namespace apimanagement {
          */
         required: boolean;
         /**
+         * The name of the Schema.
+         */
+        schemaId?: string;
+        /**
          * The Type of this Header, such as a `string`.
          */
         type: string;
         /**
+         * The type name defined by the Schema.
+         * ---
+         */
+        typeName?: string;
+        /**
          * One or more acceptable values for this Header.
          */
         values?: string[];
+    }
+
+    export interface ApiOperationRequestHeaderExample {
+        /**
+         * A long description for this example.
+         */
+        description?: string;
+        /**
+         * A URL that points to the literal example.
+         */
+        externalValue?: string;
+        /**
+         * The name of this example.
+         */
+        name: string;
+        /**
+         * A short description for this example.
+         */
+        summary?: string;
+        /**
+         * The example of the representation.
+         */
+        value?: string;
     }
 
     export interface ApiOperationRequestQueryParameter {
@@ -361,6 +398,10 @@ export namespace apimanagement {
          */
         description?: string;
         /**
+         * (Optional) One or more `example` blocks as defined above.
+         */
+        examples?: outputs.apimanagement.ApiOperationRequestQueryParameterExample[];
+        /**
          * The Name of this Query Parameter.
          */
         name: string;
@@ -369,13 +410,44 @@ export namespace apimanagement {
          */
         required: boolean;
         /**
+         * The name of the Schema.
+         */
+        schemaId?: string;
+        /**
          * The Type of this Query Parameter, such as a `string`.
          */
         type: string;
         /**
+         * The type name defined by the Schema.
+         */
+        typeName?: string;
+        /**
          * One or more acceptable values for this Query Parameter.
          */
         values?: string[];
+    }
+
+    export interface ApiOperationRequestQueryParameterExample {
+        /**
+         * A long description for this example.
+         */
+        description?: string;
+        /**
+         * A URL that points to the literal example.
+         */
+        externalValue?: string;
+        /**
+         * The name of this example.
+         */
+        name: string;
+        /**
+         * A short description for this example.
+         */
+        summary?: string;
+        /**
+         * The example of the representation.
+         */
+        value?: string;
     }
 
     export interface ApiOperationRequestRepresentation {
@@ -434,6 +506,10 @@ export namespace apimanagement {
          */
         description?: string;
         /**
+         * (Optional) One or more `example` blocks as defined above.
+         */
+        examples?: outputs.apimanagement.ApiOperationRequestRepresentationFormParameterExample[];
+        /**
          * The Name of this Form Parameter.
          */
         name: string;
@@ -442,13 +518,44 @@ export namespace apimanagement {
          */
         required: boolean;
         /**
+         * The name of the Schema.
+         */
+        schemaId?: string;
+        /**
          * The Type of this Form Parameter, such as a `string`.
          */
         type: string;
         /**
+         * The type name defined by the Schema.
+         */
+        typeName?: string;
+        /**
          * One or more acceptable values for this Form Parameter.
          */
         values?: string[];
+    }
+
+    export interface ApiOperationRequestRepresentationFormParameterExample {
+        /**
+         * A long description for this example.
+         */
+        description?: string;
+        /**
+         * A URL that points to the literal example.
+         */
+        externalValue?: string;
+        /**
+         * The name of this example.
+         */
+        name: string;
+        /**
+         * A short description for this example.
+         */
+        summary?: string;
+        /**
+         * The example of the representation.
+         */
+        value?: string;
     }
 
     export interface ApiOperationResponse {
@@ -480,6 +587,10 @@ export namespace apimanagement {
          */
         description?: string;
         /**
+         * (Optional) One or more `example` blocks as defined above.
+         */
+        examples?: outputs.apimanagement.ApiOperationResponseHeaderExample[];
+        /**
          * The Name of this Header.
          */
         name: string;
@@ -488,13 +599,45 @@ export namespace apimanagement {
          */
         required: boolean;
         /**
+         * The name of the Schema.
+         */
+        schemaId?: string;
+        /**
          * The Type of this Header, such as a `string`.
          */
         type: string;
         /**
+         * The type name defined by the Schema.
+         * ---
+         */
+        typeName?: string;
+        /**
          * One or more acceptable values for this Header.
          */
         values?: string[];
+    }
+
+    export interface ApiOperationResponseHeaderExample {
+        /**
+         * A long description for this example.
+         */
+        description?: string;
+        /**
+         * A URL that points to the literal example.
+         */
+        externalValue?: string;
+        /**
+         * The name of this example.
+         */
+        name: string;
+        /**
+         * A short description for this example.
+         */
+        summary?: string;
+        /**
+         * The example of the representation.
+         */
+        value?: string;
     }
 
     export interface ApiOperationResponseRepresentation {
@@ -553,6 +696,10 @@ export namespace apimanagement {
          */
         description?: string;
         /**
+         * (Optional) One or more `example` blocks as defined above.
+         */
+        examples?: outputs.apimanagement.ApiOperationResponseRepresentationFormParameterExample[];
+        /**
          * The Name of this Form Parameter.
          */
         name: string;
@@ -561,13 +708,44 @@ export namespace apimanagement {
          */
         required: boolean;
         /**
+         * The name of the Schema.
+         */
+        schemaId?: string;
+        /**
          * The Type of this Form Parameter, such as a `string`.
          */
         type: string;
         /**
+         * The type name defined by the Schema.
+         */
+        typeName?: string;
+        /**
          * One or more acceptable values for this Form Parameter.
          */
         values?: string[];
+    }
+
+    export interface ApiOperationResponseRepresentationFormParameterExample {
+        /**
+         * A long description for this example.
+         */
+        description?: string;
+        /**
+         * A URL that points to the literal example.
+         */
+        externalValue?: string;
+        /**
+         * The name of this example.
+         */
+        name: string;
+        /**
+         * A short description for this example.
+         */
+        summary?: string;
+        /**
+         * The example of the representation.
+         */
+        value?: string;
     }
 
     export interface ApiOperationTemplateParameter {
@@ -580,6 +758,10 @@ export namespace apimanagement {
          */
         description?: string;
         /**
+         * (Optional) One or more `example` blocks as defined above.
+         */
+        examples?: outputs.apimanagement.ApiOperationTemplateParameterExample[];
+        /**
          * The Name of this Template Parameter.
          */
         name: string;
@@ -588,13 +770,44 @@ export namespace apimanagement {
          */
         required: boolean;
         /**
+         * The name of the Schema.
+         */
+        schemaId?: string;
+        /**
          * The Type of this Template Parameter, such as a `string`.
          */
         type: string;
         /**
+         * The type name defined by the Schema.
+         */
+        typeName?: string;
+        /**
          * One or more acceptable values for this Template Parameter.
          */
         values?: string[];
+    }
+
+    export interface ApiOperationTemplateParameterExample {
+        /**
+         * A long description for this example.
+         */
+        description?: string;
+        /**
+         * A URL that points to the literal example.
+         */
+        externalValue?: string;
+        /**
+         * The name of this example.
+         */
+        name: string;
+        /**
+         * A short description for this example.
+         */
+        summary?: string;
+        /**
+         * The example of the representation.
+         */
+        value?: string;
     }
 
     export interface ApiSubscriptionKeyParameterNames {
@@ -2587,6 +2800,7 @@ export namespace appplatform {
          */
         sampleRate?: number;
     }
+
 }
 
 export namespace appservice {
@@ -13210,6 +13424,25 @@ export namespace automation {
         type: string;
     }
 
+    export interface GetAccountIdentity {
+        /**
+         * The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+         */
+        identityIds: string[];
+        /**
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+         */
+        tenantId: string;
+        /**
+         * The type of Managed Service Identity that is configured on this API Management Service.
+         */
+        type: string;
+    }
+
     export interface GetAccountPrivateEndpointConnection {
         /**
          * The ID of the Automation Account
@@ -13264,6 +13497,175 @@ export namespace automation {
          * Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
          */
         occurrence: number;
+    }
+
+    export interface SoftwareUpdateConfigurationLinux {
+        /**
+         * Specifies the update classifications included in the Software Update Configuration. Possible values are `Unclassified`, `Critical`, `Security` and `Other`.
+         */
+        classificationIncluded?: string;
+        /**
+         * Specifies a list of packages to excluded from the Software Update Configuration.
+         */
+        excludedPackages?: string[];
+        /**
+         * Specifies a list of packages to included from the Software Update Configuration.
+         */
+        includedPackages?: string[];
+        /**
+         * Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+         */
+        reboot?: string;
+    }
+
+    export interface SoftwareUpdateConfigurationPostTask {
+        /**
+         * Specifies a map of parameters for the task.
+         */
+        parameters?: {[key: string]: string};
+        /**
+         * The name of the runbook for the post task.
+         */
+        source?: string;
+    }
+
+    export interface SoftwareUpdateConfigurationPreTask {
+        /**
+         * Specifies a map of parameters for the task.
+         */
+        parameters?: {[key: string]: string};
+        /**
+         * The name of the runbook for the pre task.
+         */
+        source?: string;
+    }
+
+    export interface SoftwareUpdateConfigurationSchedule {
+        /**
+         * List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`.
+         */
+        advancedMonthDays?: number[];
+        /**
+         * List of days of the week that the job should execute on. Only valid when frequency is `Week`.
+         */
+        advancedWeekDays?: string[];
+        creationTime: string;
+        /**
+         * A description for this Schedule.
+         */
+        description?: string;
+        /**
+         * The end time of the schedule.
+         */
+        expiryTime?: string;
+        expiryTimeOffsetMinutes: number;
+        /**
+         * The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`.
+         */
+        frequency?: string;
+        /**
+         * The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month` and defaults to `1`.
+         */
+        interval?: number;
+        /**
+         * Whether the schedule is enabled.
+         */
+        isEnabled?: boolean;
+        lastModifiedTime: string;
+        /**
+         * List of occurrences of days within a month. Only valid when frequency is `Month`. The `monthlyOccurrence` block supports fields documented below.
+         */
+        monthlyOccurrences?: outputs.automation.SoftwareUpdateConfigurationScheduleMonthlyOccurrence[];
+        nextRun: string;
+        nextRunOffsetMinutes: number;
+        /**
+         * Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
+         */
+        startTime?: string;
+        startTimeOffsetMinutes: number;
+        timeZone?: string;
+    }
+
+    export interface SoftwareUpdateConfigurationScheduleMonthlyOccurrence {
+        /**
+         * Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
+         */
+        day: string;
+        /**
+         * Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
+         */
+        occurrence: number;
+    }
+
+    export interface SoftwareUpdateConfigurationTarget {
+        /**
+         * One or more `azureQuery` blocks as defined above.
+         */
+        azureQueries?: outputs.automation.SoftwareUpdateConfigurationTargetAzureQuery[];
+        /**
+         * One or more `nonAzureQuery` blocks as defined above.
+         */
+        nonAzureQueries?: outputs.automation.SoftwareUpdateConfigurationTargetNonAzureQuery[];
+    }
+
+    export interface SoftwareUpdateConfigurationTargetAzureQuery {
+        /**
+         * Specifies a list of locations to scope the query to.
+         */
+        locations?: string[];
+        /**
+         * Specifies a list of Subscription or Resource Group ARM Ids to query.
+         */
+        scopes?: string[];
+        /**
+         * Specifies how the specified tags to filter VMs. Possible values are `Any` and `All`.
+         */
+        tagFilter?: string;
+        /**
+         * A mapping of tags used for query filter.
+         */
+        tags?: outputs.automation.SoftwareUpdateConfigurationTargetAzureQueryTag[];
+    }
+
+    export interface SoftwareUpdateConfigurationTargetAzureQueryTag {
+        /**
+         * Specifies the name of the tag to filter.
+         */
+        tag: string;
+        /**
+         * Specifies a list of values for this tag key.
+         */
+        values: string[];
+    }
+
+    export interface SoftwareUpdateConfigurationTargetNonAzureQuery {
+        /**
+         * Specifies the Log Analytics save search name.
+         */
+        functionAlias?: string;
+        /**
+         * The workspace id for Log Analytics in which the saved search in.
+         */
+        workspaceId?: string;
+    }
+
+    export interface SoftwareUpdateConfigurationWindow {
+        /**
+         * Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+         */
+        classificationIncluded?: string;
+        /**
+         * Specifies a list of knowledge base numbers excluded.
+         */
+        excludedKnowledgeBaseNumbers?: string[];
+        /**
+         * Specifies a list of knowledge base numbers included.
+         */
+        includedKnowledgeBaseNumbers?: string[];
+        /**
+         * Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+         */
+        reboot?: string;
     }
 
     export interface SourceControlSecurity {
@@ -13731,7 +14133,7 @@ export namespace batch {
 
     export interface GetPoolContainerConfigurationContainerRegistry {
         /**
-         * The password to use for authentication against the CIFS file system.
+         * The password for the user account.
          */
         password: string;
         /**
@@ -13746,6 +14148,67 @@ export namespace batch {
          * The user to use for authentication against the CIFS file system.
          */
         userName: string;
+    }
+
+    export interface GetPoolDataDisk {
+        /**
+         * The caching mode of data disks.
+         */
+        caching: string;
+        /**
+         * The initial disk size in GB when creating new data disk.
+         */
+        diskSizeGb: number;
+        /**
+         * The lun is used to uniquely identify each data disk.
+         */
+        lun: number;
+        /**
+         * The storage account type to be used for the data disk.
+         */
+        storageAccountType: string;
+    }
+
+    export interface GetPoolDiskEncryption {
+        /**
+         * On Linux pool, only `TemporaryDisk` is supported; on Windows pool, `OsDisk` and `TemporaryDisk` must be specified.
+         */
+        diskEncryptionTarget: string;
+    }
+
+    export interface GetPoolExtension {
+        /**
+         * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+         */
+        autoUpgradeMinorVersion: boolean;
+        /**
+         * The name of the user account.
+         */
+        name: string;
+        /**
+         * The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
+         */
+        protectedSettings: string;
+        /**
+         * The collection of extension names. Collection of extension names after which this extension needs to be provisioned.
+         */
+        provisionAfterExtensions: string[];
+        /**
+         * The name of the extension handler publisher.The name of the extension handler publisher.
+         */
+        publisher: string;
+        /**
+         * JSON formatted public settings for the extension.
+         */
+        settingsJson: string;
+        /**
+         * The type of container configuration.
+         */
+        type: string;
+        /**
+         * The version of script handler.
+         */
+        typeHandlerVersion: string;
     }
 
     export interface GetPoolFixedScale {
@@ -13842,7 +14305,7 @@ export namespace batch {
          */
         mountOptions: string;
         /**
-         * The password to use for authentication against the CIFS file system.
+         * The password for the user account.
          */
         password: string;
         /**
@@ -13897,7 +14360,7 @@ export namespace batch {
          */
         frontendPortRange: string;
         /**
-         * The name of the endpoint.
+         * The name of the user account.
          */
         name: string;
         /**
@@ -13923,6 +14386,13 @@ export namespace batch {
          * The source address prefix or tag to match for the rule.
          */
         sourceAddressPrefix: string;
+    }
+
+    export interface GetPoolNodePlacement {
+        /**
+         * The placement policy for allocating nodes in the pool.
+         */
+        policy: string;
     }
 
     export interface GetPoolStartTask {
@@ -13977,6 +14447,10 @@ export namespace batch {
          * The URL of the blob container within Azure Blob Storage.
          */
         storageContainerUrl: string;
+        /**
+         * The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
+         */
+        userAssignedIdentityId: string;
     }
 
     export interface GetPoolStartTaskUserIdentity {
@@ -13992,7 +14466,7 @@ export namespace batch {
 
     export interface GetPoolStartTaskUserIdentityAutoUser {
         /**
-         * The elevation level of the user identity under which the start task runs.
+         * The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
          */
         elevationLevel: string;
         /**
@@ -14007,9 +14481,71 @@ export namespace batch {
          */
         id: string;
         offer: string;
+        /**
+         * The name of the extension handler publisher.The name of the extension handler publisher.
+         */
         publisher: string;
         sku: string;
         version: string;
+    }
+
+    export interface GetPoolTaskSchedulingPolicy {
+        /**
+         * Supported values are `Pack` and `Spread`. `Pack` means as many tasks as possible (taskSlotsPerNode) should be assigned to each node in the pool before any tasks are assigned to the next node in the pool. `Spread` means that tasks should be assigned evenly across all nodes in the pool.
+         */
+        nodeFillType: string;
+    }
+
+    export interface GetPoolUserAccount {
+        /**
+         * The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
+         */
+        elevationLevel: string;
+        /**
+         * The `linuxUserConfiguration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+         */
+        linuxUserConfigurations: outputs.batch.GetPoolUserAccountLinuxUserConfiguration[];
+        /**
+         * The name of the user account.
+         */
+        name: string;
+        /**
+         * The password for the user account.
+         */
+        password: string;
+        /**
+         * The `windowsUserConfiguration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+         */
+        windowsUserConfigurations: outputs.batch.GetPoolUserAccountWindowsUserConfiguration[];
+    }
+
+    export interface GetPoolUserAccountLinuxUserConfiguration {
+        /**
+         * The user ID of the user account.
+         */
+        gid: number;
+        /**
+         * The SSH private key for the user account.
+         */
+        sshPrivateKey: string;
+        /**
+         * The group ID for the user account.
+         */
+        uid: number;
+    }
+
+    export interface GetPoolUserAccountWindowsUserConfiguration {
+        /**
+         * Specifies login mode for the user.
+         */
+        loginMode: string;
+    }
+
+    export interface GetPoolWindow {
+        /**
+         * Whether automatic updates are enabled on the virtual machine.
+         */
+        enableAutomaticUpdates: boolean;
     }
 
     export interface PoolAutoScale {
@@ -14074,6 +14610,67 @@ export namespace batch {
          * The user name to log into the registry server. Changing this forces a new resource to be created.
          */
         userName?: string;
+    }
+
+    export interface PoolDataDisk {
+        /**
+         * Values are: "none" - The caching mode for the disk is not enabled. "readOnly" - The caching mode for the disk is read only. "readWrite" - The caching mode for the disk is read and write. The default value for caching is "none". For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
+         */
+        caching?: string;
+        /**
+         * The initial disk size in GB when creating new data disk.
+         */
+        diskSizeGb: number;
+        /**
+         * The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
+         */
+        lun: number;
+        /**
+         * The storage account type to be used for the data disk. If omitted, the default is "Standard_LRS". Values are: "Standard_LRS" - The data disk should use standard locally redundant storage. "Premium_LRS" - The data disk should use premium locally redundant storage.
+         */
+        storageAccountType?: string;
+    }
+
+    export interface PoolDiskEncryption {
+        /**
+         * On Linux pool, only \"TemporaryDisk\" is supported; on Windows pool, \"OsDisk\" and \"TemporaryDisk\" must be specified.
+         */
+        diskEncryptionTarget: string;
+    }
+
+    export interface PoolExtension {
+        /**
+         * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+         */
+        autoUpgradeMinorVersion?: boolean;
+        /**
+         * The name of the virtual machine extension.
+         */
+        name: string;
+        /**
+         * The extension can contain either `protectedSettings` or `provisionAfterExtensions` or no protected settings at all.
+         */
+        protectedSettings?: string;
+        /**
+         * The collection of extension names. Collection of extension names after which this extension needs to be provisioned.
+         */
+        provisionAfterExtensions?: string[];
+        /**
+         * The name of the extension handler publisher.The name of the extension handler publisher.
+         */
+        publisher: string;
+        /**
+         * JSON formatted public settings for the extension.
+         */
+        settingsJson?: string;
+        /**
+         * The type of the extensions.
+         */
+        type: string;
+        /**
+         * The version of script handler.
+         */
+        typeHandlerVersion?: string;
     }
 
     export interface PoolFixedScale {
@@ -14270,6 +14867,13 @@ export namespace batch {
         sourceAddressPrefix: string;
     }
 
+    export interface PoolNodePlacement {
+        /**
+         * The placement policy for allocating nodes in the pool. Values are: "Regional": All nodes in the pool will be allocated in the same region; "Zonal": Nodes in the pool will be spread across different zones with the best effort balancing.
+         */
+        policy?: string;
+    }
+
     export interface PoolStartTask {
         /**
          * The command line executed by the start task.
@@ -14322,6 +14926,10 @@ export namespace batch {
          * The URL of the blob container within Azure Blob Storage. This URL must be readable and listable using anonymous access; that is, the Batch service does not present any credentials when downloading the blob. There are two ways to get such a URL for a blob in Azure storage: include a Shared Access Signature (SAS) granting read and list permissions on the blob, or set the ACL for the blob or its container to allow public access.
          */
         storageContainerUrl?: string;
+        /**
+         * An identity reference from pool's user assigned managed identity list.
+         */
+        userAssignedIdentityId?: string;
     }
 
     export interface PoolStartTaskUserIdentity {
@@ -14369,6 +14977,66 @@ export namespace batch {
          */
         version?: string;
     }
+
+    export interface PoolTaskSchedulingPolicy {
+        /**
+         * Supported values are "Pack" and "Spread". "Pack" means as many tasks as possible (taskSlotsPerNode) should be assigned to each node in the pool before any tasks are assigned to the next node in the pool. "Spread" means that tasks should be assigned evenly across all nodes in the pool.
+         */
+        nodeFillType: string;
+    }
+
+    export interface PoolUserAccount {
+        /**
+         * The elevation level of the user account. "NonAdmin" - The auto user is a standard user without elevated access. "Admin" - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
+         */
+        elevationLevel: string;
+        /**
+         * The `linuxUserConfiguration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
+         */
+        linuxUserConfigurations?: outputs.batch.PoolUserAccountLinuxUserConfiguration[];
+        /**
+         * The name of the user account.
+         */
+        name: string;
+        /**
+         * The password for the user account.
+         */
+        password: string;
+        /**
+         * The `windowsUserConfiguration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
+         */
+        windowsUserConfigurations?: outputs.batch.PoolUserAccountWindowsUserConfiguration[];
+    }
+
+    export interface PoolUserAccountLinuxUserConfiguration {
+        /**
+         * The user ID of the user account. The `uid` and `gid` properties must be specified together or not at all. If not specified the underlying operating system picks the uid.
+         */
+        gid?: number;
+        /**
+         * The SSH private key for the user account. The private key must not be password protected. The private key is used to automatically configure asymmetric-key based authentication for SSH between nodes in a Linux pool when the pool's enableInterNodeCommunication property is true (it is ignored if enableInterNodeCommunication is false). It does this by placing the key pair into the user's .ssh directory. If not specified, password-less SSH is not configured between nodes (no modification of the user's .ssh directory is done).
+         */
+        sshPrivateKey?: string;
+        /**
+         * The group ID for the user account. The `uid` and `gid` properties must be specified together or not at all. If not specified the underlying operating system picks the gid.
+         */
+        uid?: number;
+    }
+
+    export interface PoolUserAccountWindowsUserConfiguration {
+        /**
+         * Specifies login mode for the user. The default value for VirtualMachineConfiguration pools is interactive mode and for CloudServiceConfiguration pools is batch mode. Values supported are "Batch" and "Interactive".
+         */
+        loginMode: string;
+    }
+
+    export interface PoolWindow {
+        /**
+         * Whether automatic updates are enabled on the virtual machine. If omitted, the default value is true.
+         */
+        enableAutomaticUpdates?: boolean;
+    }
+
 }
 
 export namespace blueprint {
@@ -17333,7 +18001,7 @@ export namespace compute {
          */
         disablePasswordAuthentication?: boolean;
         /**
-         * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+         * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          */
         patchAssessmentMode?: string;
         /**
@@ -17377,7 +18045,7 @@ export namespace compute {
          */
         hotpatchingEnabled?: boolean;
         /**
-         * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+         * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          */
         patchAssessmentMode?: string;
         /**
@@ -18874,7 +19542,9 @@ export namespace consumption {
          */
         dimensions?: outputs.consumption.BudgetManagementGroupFilterDimension[];
         /**
-         * A `not` block as defined below to filter the budget on.
+         * A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+         *
+         * @deprecated This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
          */
         not?: outputs.consumption.BudgetManagementGroupFilterNot;
         /**
@@ -18994,7 +19664,9 @@ export namespace consumption {
          */
         dimensions?: outputs.consumption.BudgetResourceGroupFilterDimension[];
         /**
-         * A `not` block as defined below to filter the budget on.
+         * A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+         *
+         * @deprecated This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
          */
         not?: outputs.consumption.BudgetResourceGroupFilterNot;
         /**
@@ -19122,7 +19794,9 @@ export namespace consumption {
          */
         dimensions?: outputs.consumption.BudgetSubscriptionFilterDimension[];
         /**
-         * A `not` block as defined below to filter the budget on.
+         * A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+         *
+         * @deprecated This property has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
          */
         not?: outputs.consumption.BudgetSubscriptionFilterNot;
         /**
@@ -22042,6 +22716,10 @@ export namespace cosmosdb {
 
     export interface AccountIdentity {
         /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cosmos Account.
+         */
+        identityIds?: string[];
+        /**
          * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
@@ -22050,7 +22728,7 @@ export namespace cosmosdb {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Cosmos Account. The only possible value is `SystemAssigned`.
+         * The Type of Managed Identity assigned to this Cosmos account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
          */
         type: string;
     }
@@ -24986,6 +25664,7 @@ export namespace dns {
          */
         ttl?: number;
     }
+
 }
 
 export namespace domainservices {
@@ -26522,7 +27201,7 @@ export namespace eventhub {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. The only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are `SystemAssigned` or `UserAssigned`.
          */
         type: string;
     }
@@ -26536,6 +27215,10 @@ export namespace eventhub {
          * One or more `ipRule` blocks as defined below.
          */
         ipRules?: outputs.eventhub.EventHubNamespaceNetworkRulesetsIpRule[];
+        /**
+         * Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+         */
+        publicNetworkAccessEnabled?: boolean;
         /**
          * Whether Trusted Microsoft Services are allowed to bypass firewall.
          */
@@ -29769,6 +30452,7 @@ export namespace healthcare {
          */
         name: string;
     }
+
 }
 
 export namespace hpc {
@@ -31102,7 +31786,7 @@ export namespace kusto {
          */
         capacity: number;
         /**
-         * The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E64i_v3`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s`, `Standard_L8s`, `Standard_L16s_v2` and `Standard_L8s_v2`.
+         * The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_D16d_v5`, `Standard_D32d_v4`, `Standard_D32d_v5`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16a_v4`, `Standard_E16ads_v5`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16as_v5+3TB_PS`, `Standard_E16as_v5+4TB_PS`, `Standard_E16s_v4+3TB_PS`, `Standard_E16s_v4+4TB_PS`, `Standard_E16s_v5+3TB_PS`, `Standard_E16s_v5+4TB_PS`, `Standard_E2a_v4`, `Standard_E2ads_v5`,`Standard_E4a_v4`, `Standard_E4ads_v5`, `Standard_E64i_v3`, `Standard_E80ids_v4`, `Standard_E8a_v4`, `Standard_E8ads_v5`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8as_v5+1TB_PS`, `Standard_E8as_v5+2TB_PS`, `Standard_E8s_v4+1TB_PS`, `Standard_E8s_v4+2TB_PS`, `Standard_E8s_v5+1TB_PS`, `Standard_E8s_v5+2TB_PS`, `Standard_L16s`, `Standard_L16s_v2`, `Standard_L4s`, `Standard_L8s`, `Standard_L8s_v2`, "Standard_L8s_v3", `Standard_L16s_v3`, `Standard_L8as_v3`, `Standard_L16as_v3`, `Standard_EC8as_v5+1TB_PS`, `Standard_EC8as_v5+2TB_PS`, `Standard_EC16as_v5+3TB_PS`, `Standard_EC16as_v5+4TB_PS`, `Standard_EC8ads_v5`, `Standard_EC16ads_v5`, `Standard_E2d_v4`, `Standard_E4d_v4`, `Standard_E8d_v4`, `Standard_E16d_v4`, `Standard_E2d_v5`, `Standard_E4d_v5`, `Standard_E8d_v5` and `Standard_E16d_v5`.
          */
         name: string;
     }
@@ -31300,6 +31984,7 @@ export namespace lb {
          */
         name: string;
     }
+
 }
 
 export namespace lighthouse {
@@ -31609,6 +32294,10 @@ export namespace logicapps {
 
     export interface StandardIdentity {
         /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+         */
+        identityIds?: string[];
+        /**
          * The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
          */
         principalId: string;
@@ -31617,7 +32306,7 @@ export namespace logicapps {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. The only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned` (to enable both).
          */
         type: string;
     }
@@ -33640,6 +34329,492 @@ export namespace monitoring {
         services?: string[];
     }
 
+    export interface AlertProcessingRuleActionGroupCondition {
+        /**
+         * A `alertContext` block as defined above.
+         */
+        alertContext?: outputs.monitoring.AlertProcessingRuleActionGroupConditionAlertContext;
+        /**
+         * A `alertRuleId` block as defined above.
+         */
+        alertRuleId?: outputs.monitoring.AlertProcessingRuleActionGroupConditionAlertRuleId;
+        /**
+         * A `alertRuleName` block as defined above.
+         */
+        alertRuleName?: outputs.monitoring.AlertProcessingRuleActionGroupConditionAlertRuleName;
+        /**
+         * A `description` block as defined below.
+         */
+        description?: outputs.monitoring.AlertProcessingRuleActionGroupConditionDescription;
+        /**
+         * A `monitorCondition` block as defined below.
+         */
+        monitorCondition?: outputs.monitoring.AlertProcessingRuleActionGroupConditionMonitorCondition;
+        /**
+         * A `monitorService` block as defined below.
+         */
+        monitorService?: outputs.monitoring.AlertProcessingRuleActionGroupConditionMonitorService;
+        /**
+         * A `severity` block as defined below.
+         */
+        severity?: outputs.monitoring.AlertProcessingRuleActionGroupConditionSeverity;
+        /**
+         * A `signalType` block as defined below.
+         */
+        signalType?: outputs.monitoring.AlertProcessingRuleActionGroupConditionSignalType;
+        /**
+         * A `targetResource` block as defined below.
+         */
+        targetResource?: outputs.monitoring.AlertProcessingRuleActionGroupConditionTargetResource;
+        /**
+         * A `targetResourceGroup` block as defined below.
+         */
+        targetResourceGroup?: outputs.monitoring.AlertProcessingRuleActionGroupConditionTargetResourceGroup;
+        /**
+         * A `targetResourceType` block as defined below.
+         */
+        targetResourceType?: outputs.monitoring.AlertProcessingRuleActionGroupConditionTargetResourceType;
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionAlertContext {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: string;
+        /**
+         * Specifies a list of values to match for a given condition.
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionAlertRuleId {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: string;
+        /**
+         * Specifies a list of values to match for a given condition.
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionAlertRuleName {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: string;
+        /**
+         * Specifies a list of values to match for a given condition.
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionDescription {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: string;
+        /**
+         * Specifies a list of values to match for a given condition.
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionMonitorCondition {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: string;
+        /**
+         * Specifies a list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionMonitorService {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Prometheus`, `Resource Health`, `Smart Detector`, and `VM Insights - Health`.
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionSeverity {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: string;
+        /**
+         * Specifies list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionSignalType {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: string;
+        /**
+         * Specifies a list of values to match for a given condition. Possible values are `Metric`, `Log`, `Unknown`, and `Health`.
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionTargetResource {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition. The values should be valid resource IDs.
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionTargetResourceGroup {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition. The values should be valid resource group IDs.
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleActionGroupConditionTargetResourceType {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleActionGroupSchedule {
+        /**
+         * Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
+         */
+        effectiveFrom?: string;
+        /**
+         * Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
+         */
+        effectiveUntil?: string;
+        /**
+         * A `recurrence` block as defined above.
+         */
+        recurrence?: outputs.monitoring.AlertProcessingRuleActionGroupScheduleRecurrence;
+        /**
+         * The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+         */
+        timeZone?: string;
+    }
+
+    export interface AlertProcessingRuleActionGroupScheduleRecurrence {
+        /**
+         * One or more `daily` blocks as defined above.
+         */
+        dailies?: outputs.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceDaily[];
+        /**
+         * One or more `monthly` blocks as defined above.
+         */
+        monthlies?: outputs.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceMonthly[];
+        /**
+         * One or more `weekly` blocks as defined below.
+         */
+        weeklies?: outputs.monitoring.AlertProcessingRuleActionGroupScheduleRecurrenceWeekly[];
+    }
+
+    export interface AlertProcessingRuleActionGroupScheduleRecurrenceDaily {
+        /**
+         * Specifies the recurrence end time (H:M:S).
+         */
+        endTime: string;
+        /**
+         * Specifies the recurrence start time (H:M:S).
+         */
+        startTime: string;
+    }
+
+    export interface AlertProcessingRuleActionGroupScheduleRecurrenceMonthly {
+        /**
+         * Specifies a list of dayOfMonth to recurrence. Possible values are integers between `1` - `31`.
+         */
+        daysOfMonths: number[];
+        /**
+         * Specifies the recurrence end time (H:M:S).
+         */
+        endTime?: string;
+        /**
+         * Specifies the recurrence start time (H:M:S).
+         */
+        startTime?: string;
+    }
+
+    export interface AlertProcessingRuleActionGroupScheduleRecurrenceWeekly {
+        /**
+         * Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+         */
+        daysOfWeeks: string[];
+        /**
+         * Specifies the recurrence end time (H:M:S).
+         */
+        endTime?: string;
+        /**
+         * Specifies the recurrence start time (H:M:S).
+         */
+        startTime?: string;
+    }
+
+    export interface AlertProcessingRuleSuppressionCondition {
+        /**
+         * A `alertContext` block as defined above.
+         */
+        alertContext?: outputs.monitoring.AlertProcessingRuleSuppressionConditionAlertContext;
+        /**
+         * A `alertRuleId` block as defined above.
+         */
+        alertRuleId?: outputs.monitoring.AlertProcessingRuleSuppressionConditionAlertRuleId;
+        /**
+         * A `alertRuleName` block as defined above.
+         */
+        alertRuleName?: outputs.monitoring.AlertProcessingRuleSuppressionConditionAlertRuleName;
+        /**
+         * A `description` block as defined below.
+         */
+        description?: outputs.monitoring.AlertProcessingRuleSuppressionConditionDescription;
+        /**
+         * A `monitorCondition` block as defined below.
+         */
+        monitorCondition?: outputs.monitoring.AlertProcessingRuleSuppressionConditionMonitorCondition;
+        /**
+         * A `monitorService` block as defined below.
+         */
+        monitorService?: outputs.monitoring.AlertProcessingRuleSuppressionConditionMonitorService;
+        /**
+         * A `severity` block as defined below.
+         */
+        severity?: outputs.monitoring.AlertProcessingRuleSuppressionConditionSeverity;
+        /**
+         * A `signalType` block as defined below.
+         */
+        signalType?: outputs.monitoring.AlertProcessingRuleSuppressionConditionSignalType;
+        /**
+         * A `targetResource` block as defined below.
+         */
+        targetResource?: outputs.monitoring.AlertProcessingRuleSuppressionConditionTargetResource;
+        /**
+         * A `targetResourceGroup` block as defined below.
+         */
+        targetResourceGroup?: outputs.monitoring.AlertProcessingRuleSuppressionConditionTargetResourceGroup;
+        /**
+         * A `targetResourceType` block as defined below.
+         */
+        targetResourceType?: outputs.monitoring.AlertProcessingRuleSuppressionConditionTargetResourceType;
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionAlertContext {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: string;
+        /**
+         * Specifies a list of values to match for a given condition.
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionAlertRuleId {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: string;
+        /**
+         * Specifies a list of values to match for a given condition.
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionAlertRuleName {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: string;
+        /**
+         * Specifies a list of values to match for a given condition.
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionDescription {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: string;
+        /**
+         * Specifies a list of values to match for a given condition.
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionMonitorCondition {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: string;
+        /**
+         * Specifies a list of values to match for a given condition. Possible values are `Fired` and `Resolved`.
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionMonitorService {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition. Possible values are `ActivityLog Administrative`, `ActivityLog Autoscale`, `ActivityLog Policy`, `ActivityLog Recommendation`, `ActivityLog Security`, `Application Insights`, `Azure Backup`, `Azure Stack Edge`, `Azure Stack Hub`, `Custom`, `Data Box Gateway`, `Health Platform`, `Log Alerts V2`, `Log Analytics`, `Platform`, `Prometheus`, `Resource Health`, `Smart Detector`, and `VM Insights - Health`.
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionSeverity {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: string;
+        /**
+         * Specifies list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionSignalType {
+        /**
+         * The operator for a given condition. Possible values are `Equals` and `NotEquals`.
+         */
+        operator: string;
+        /**
+         * Specifies a list of values to match for a given condition. Possible values are `Metric`, `Log`, `Unknown`, and `Health`.
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionTargetResource {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition. The values should be valid resource IDs.
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionTargetResourceGroup {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition. The values should be valid resource group IDs.
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleSuppressionConditionTargetResourceType {
+        /**
+         * The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
+         */
+        operator: string;
+        /**
+         * A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
+         */
+        values: string[];
+    }
+
+    export interface AlertProcessingRuleSuppressionSchedule {
+        /**
+         * Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
+         */
+        effectiveFrom?: string;
+        /**
+         * Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
+         */
+        effectiveUntil?: string;
+        /**
+         * A `recurrence` block as defined above.
+         */
+        recurrence?: outputs.monitoring.AlertProcessingRuleSuppressionScheduleRecurrence;
+        /**
+         * The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+         */
+        timeZone?: string;
+    }
+
+    export interface AlertProcessingRuleSuppressionScheduleRecurrence {
+        /**
+         * One or more `daily` blocks as defined above.
+         */
+        dailies?: outputs.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceDaily[];
+        /**
+         * One or more `monthly` blocks as defined above.
+         */
+        monthlies?: outputs.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceMonthly[];
+        /**
+         * One or more `weekly` blocks as defined below.
+         */
+        weeklies?: outputs.monitoring.AlertProcessingRuleSuppressionScheduleRecurrenceWeekly[];
+    }
+
+    export interface AlertProcessingRuleSuppressionScheduleRecurrenceDaily {
+        /**
+         * Specifies the recurrence end time (H:M:S).
+         */
+        endTime: string;
+        /**
+         * Specifies the recurrence start time (H:M:S).
+         */
+        startTime: string;
+    }
+
+    export interface AlertProcessingRuleSuppressionScheduleRecurrenceMonthly {
+        /**
+         * Specifies a list of dayOfMonth to recurrence. Possible values are integers between `1` - `31`.
+         */
+        daysOfMonths: number[];
+        /**
+         * Specifies the recurrence end time (H:M:S).
+         */
+        endTime?: string;
+        /**
+         * Specifies the recurrence start time (H:M:S).
+         */
+        startTime?: string;
+    }
+
+    export interface AlertProcessingRuleSuppressionScheduleRecurrenceWeekly {
+        /**
+         * Specifies a list of dayOfWeek to recurrence.Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, and  `Saturday`.
+         */
+        daysOfWeeks: string[];
+        /**
+         * Specifies the recurrence end time (H:M:S).
+         */
+        endTime?: string;
+        /**
+         * Specifies the recurrence start time (H:M:S).
+         */
+        startTime?: string;
+    }
+
     export interface AutoscaleSettingNotification {
         /**
          * A `email` block as defined below.
@@ -33904,7 +35079,7 @@ export namespace monitoring {
          */
         name: string;
         /**
-         * The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+         * The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
          */
         samplingFrequencyInSeconds: number;
         /**
@@ -34251,6 +35426,137 @@ export namespace monitoring {
          * The Tenant ID for the subscription containing this Event Hub.
          */
         tenantId: string;
+    }
+
+    export interface GetDataCollectionRuleDataFlow {
+        /**
+         * Specifies a list of destination names. A `azureMonitorMetrics` data source only allows for stream of kind `Microsoft-InsightsMetrics`.
+         */
+        destinations: string[];
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+         */
+        streams: string[];
+    }
+
+    export interface GetDataCollectionRuleDataSource {
+        /**
+         * One or more `extension` blocks as defined below.
+         */
+        extensions: outputs.monitoring.GetDataCollectionRuleDataSourceExtension[];
+        /**
+         * One or more `performanceCounter` blocks as defined below.
+         */
+        performanceCounters: outputs.monitoring.GetDataCollectionRuleDataSourcePerformanceCounter[];
+        /**
+         * One or more `syslog` blocks as defined below.
+         */
+        syslogs: outputs.monitoring.GetDataCollectionRuleDataSourceSyslog[];
+        /**
+         * One or more `windowsEventLog` blocks as defined below.
+         */
+        windowsEventLogs: outputs.monitoring.GetDataCollectionRuleDataSourceWindowsEventLog[];
+    }
+
+    export interface GetDataCollectionRuleDataSourceExtension {
+        /**
+         * A JSON String which specifies the extension setting.
+         */
+        extensionJson: string;
+        /**
+         * The name of the VM extension.
+         */
+        extensionName: string;
+        /**
+         * Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: `performanceCounter`, `windowsEventLog`,and `syslog`.
+         */
+        inputDataSources: string[];
+        /**
+         * Specifies the name of the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+         */
+        streams: string[];
+    }
+
+    export interface GetDataCollectionRuleDataSourcePerformanceCounter {
+        /**
+         * Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
+         */
+        counterSpecifiers: string[];
+        /**
+         * Specifies the name of the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
+         */
+        samplingFrequencyInSeconds: number;
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+         */
+        streams: string[];
+    }
+
+    export interface GetDataCollectionRuleDataSourceSyslog {
+        /**
+         * Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
+         */
+        facilityNames: string[];
+        /**
+         * Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
+         */
+        logLevels: string[];
+        /**
+         * Specifies the name of the Data Collection Rule.
+         */
+        name: string;
+    }
+
+    export interface GetDataCollectionRuleDataSourceWindowsEventLog {
+        /**
+         * Specifies the name of the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-Event`,and `Microsoft-WindowsEvent`.
+         */
+        streams: string[];
+        /**
+         * Specifies a list of Windows Event Log queries in XPath expression.
+         */
+        xPathQueries: string[];
+    }
+
+    export interface GetDataCollectionRuleDestination {
+        /**
+         * A `azureMonitorMetrics` block as defined above.
+         */
+        azureMonitorMetrics: outputs.monitoring.GetDataCollectionRuleDestinationAzureMonitorMetric[];
+        /**
+         * One or more `logAnalytics` blocks as defined below.
+         */
+        logAnalytics: outputs.monitoring.GetDataCollectionRuleDestinationLogAnalytic[];
+    }
+
+    export interface GetDataCollectionRuleDestinationAzureMonitorMetric {
+        /**
+         * Specifies the name of the Data Collection Rule.
+         */
+        name: string;
+    }
+
+    export interface GetDataCollectionRuleDestinationLogAnalytic {
+        /**
+         * Specifies the name of the Data Collection Rule.
+         */
+        name: string;
+        /**
+         * The ID of a Log Analytic Workspace resource.
+         */
+        workspaceResourceId: string;
     }
 
     export interface GetLogProfileRetentionPolicy {
@@ -35322,6 +36628,7 @@ export namespace mysql {
          */
         storageEndpoint?: string;
     }
+
 }
 
 export namespace netapp {
@@ -35545,6 +36852,7 @@ export namespace netapp {
          */
         unixReadWrite?: boolean;
     }
+
 }
 
 export namespace network {
@@ -39714,6 +41022,7 @@ export namespace privatedns {
          */
         ttl?: number;
     }
+
 }
 
 export namespace privatelink {
@@ -42100,6 +43409,44 @@ export namespace storage {
         type: string;
     }
 
+    export interface GetAccountAzureFilesAuthentication {
+        /**
+         * An `activeDirectory` block as documented below.
+         */
+        activeDirectories: outputs.storage.GetAccountAzureFilesAuthenticationActiveDirectory[];
+        /**
+         * The directory service used for this Storage Account.
+         */
+        directoryType: string;
+    }
+
+    export interface GetAccountAzureFilesAuthenticationActiveDirectory {
+        /**
+         * The domain GUID.
+         */
+        domainGuid: string;
+        /**
+         * The primary domain that the AD DNS server is authoritative for.
+         */
+        domainName: string;
+        /**
+         * The domain security identifier.
+         */
+        domainSid: string;
+        /**
+         * The name of the Active Directory forest.
+         */
+        forestName: string;
+        /**
+         * The NetBIOS domain name.
+         */
+        netbiosDomainName: string;
+        /**
+         * The security identifier for Azure Storage.
+         */
+        storageSid: string;
+    }
+
     export interface GetAccountBlobContainerSASPermissions {
         /**
          * Should Add permissions be enabled for this SAS?
@@ -42569,6 +43916,7 @@ export namespace storage {
          */
         start: string;
     }
+
 }
 
 export namespace streamanalytics {
@@ -43167,7 +44515,7 @@ export namespace waf {
          */
         excludedRuleSet?: outputs.waf.PolicyManagedRulesExclusionExcludedRuleSet;
         /**
-         * The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+         * The name of the Match Variable. Possible values: `RequestArgKeys`, `RequestArgNames`, `RequestArgValues`, `RequestCookieKeys`, `RequestCookieNames`, `RequestCookieValues`, `RequestHeaderKeys`, `RequestHeaderNames`, `RequestHeaderValues`.
          */
         matchVariable: string;
         /**

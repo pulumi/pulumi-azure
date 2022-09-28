@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network
 {
     /// <summary>
-    /// Manages a Network Watcher Flow Log.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

@@ -31,6 +31,12 @@ namespace Pulumi.Azure.EventHub.Inputs
         }
 
         /// <summary>
+        /// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// Whether Trusted Microsoft Services are allowed to bypass firewall.
         /// </summary>
         [Input("trustedServiceAccessEnabled")]

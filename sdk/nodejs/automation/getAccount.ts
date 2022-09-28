@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -56,9 +57,17 @@ export interface GetAccountResult {
      */
     readonly endpoint: string;
     /**
+     * The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+     */
+    readonly hybridServiceUrl: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * (Optional) An `identity` block as defined below.
+     */
+    readonly identities: outputs.automation.GetAccountIdentity[];
     readonly name: string;
     /**
      * The Primary Access Key for the Automation Account.

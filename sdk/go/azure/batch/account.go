@@ -86,7 +86,7 @@ type Account struct {
 	KeyVaultReference AccountKeyVaultReferencePtrOutput `pulumi:"keyVaultReference"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the name of the Batch account. Changing this forces a new resource to be created.
+	// Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
 	PoolAllocationMode pulumi.StringPtrOutput `pulumi:"poolAllocationMode"`
@@ -152,7 +152,7 @@ type accountState struct {
 	KeyVaultReference *AccountKeyVaultReference `pulumi:"keyVaultReference"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Batch account. Changing this forces a new resource to be created.
+	// Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
 	PoolAllocationMode *string `pulumi:"poolAllocationMode"`
@@ -187,7 +187,7 @@ type AccountState struct {
 	KeyVaultReference AccountKeyVaultReferencePtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Batch account. Changing this forces a new resource to be created.
+	// Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
 	PoolAllocationMode pulumi.StringPtrInput
@@ -224,7 +224,7 @@ type accountArgs struct {
 	KeyVaultReference *AccountKeyVaultReference `pulumi:"keyVaultReference"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Specifies the name of the Batch account. Changing this forces a new resource to be created.
+	// Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
 	PoolAllocationMode *string `pulumi:"poolAllocationMode"`
@@ -254,7 +254,7 @@ type AccountArgs struct {
 	KeyVaultReference AccountKeyVaultReferencePtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Specifies the name of the Batch account. Changing this forces a new resource to be created.
+	// Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
 	PoolAllocationMode pulumi.StringPtrInput
@@ -389,7 +389,7 @@ func (o AccountOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the Batch account. Changing this forces a new resource to be created.
+// Specifies the name of the Batch account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created.
 func (o AccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

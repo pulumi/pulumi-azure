@@ -46,14 +46,14 @@ public final class DataCollectionRuleDataSourcesPerformanceCounterArgs extends c
     }
 
     /**
-     * The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+     * The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
      * 
      */
     @Import(name="samplingFrequencyInSeconds", required=true)
     private Output<Integer> samplingFrequencyInSeconds;
 
     /**
-     * @return The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+     * @return The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
      * 
      */
     public Output<Integer> samplingFrequencyInSeconds() {
@@ -155,7 +155,7 @@ public final class DataCollectionRuleDataSourcesPerformanceCounterArgs extends c
         }
 
         /**
-         * @param samplingFrequencyInSeconds The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+         * @param samplingFrequencyInSeconds The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class DataCollectionRuleDataSourcesPerformanceCounterArgs extends c
         }
 
         /**
-         * @param samplingFrequencyInSeconds The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
+         * @param samplingFrequencyInSeconds The number of seconds between consecutive counter measurements (samples). The value should be integer between `1` and `300` inclusive.
          * 
          * @return builder
          * 

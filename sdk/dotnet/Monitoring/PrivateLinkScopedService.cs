@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Monitoring
     public partial class PrivateLinkScopedService : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+        /// The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Output("linkedResourceId")]
         public Output<string> LinkedResourceId { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Azure.Monitoring
     public sealed class PrivateLinkScopedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+        /// The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("linkedResourceId", required: true)]
         public Input<string> LinkedResourceId { get; set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Azure.Monitoring
     public sealed class PrivateLinkScopedServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the linked resource. It must be the Log Analytics Workspace or the Application Insights component. Changing this forces a new resource to be created.
+        /// The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
         /// </summary>
         [Input("linkedResourceId")]
         public Input<string>? LinkedResourceId { get; set; }

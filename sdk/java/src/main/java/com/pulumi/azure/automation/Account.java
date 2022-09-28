@@ -130,6 +130,22 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.encryptions;
     }
     /**
+     * The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+     * ---
+     * 
+     */
+    @Export(name="hybridServiceUrl", type=String.class, parameters={})
+    private Output<String> hybridServiceUrl;
+
+    /**
+     * @return The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+     * ---
+     * 
+     */
+    public Output<String> hybridServiceUrl() {
+        return this.hybridServiceUrl;
+    }
+    /**
      * An `identity` block as defined below.
      * 
      */

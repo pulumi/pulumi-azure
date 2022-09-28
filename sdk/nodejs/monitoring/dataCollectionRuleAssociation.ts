@@ -7,6 +7,82 @@ import * as utilities from "../utilities";
 /**
  * Manages a Data Collection Rule Association.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ * });
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     ipConfigurations: [{
+ *         name: "internal",
+ *         subnetId: exampleSubnet.id,
+ *         privateIpAddressAllocation: "Dynamic",
+ *     }],
+ * });
+ * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     size: "Standard_B1ls",
+ *     adminUsername: "adminuser",
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
+ *     adminPassword: "example-Password@7890",
+ *     disablePasswordAuthentication: false,
+ *     osDisk: {
+ *         caching: "ReadWrite",
+ *         storageAccountType: "Standard_LRS",
+ *     },
+ *     sourceImageReference: {
+ *         publisher: "Canonical",
+ *         offer: "UbuntuServer",
+ *         sku: "16.04-LTS",
+ *         version: "latest",
+ *     },
+ * });
+ * const exampleDataCollectionRule = new azure.monitoring.DataCollectionRule("exampleDataCollectionRule", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     destinations: {
+ *         azureMonitorMetrics: {
+ *             name: "example-destination-metrics",
+ *         },
+ *     },
+ *     dataFlows: [{
+ *         streams: ["Microsoft-InsightsMetrics"],
+ *         destinations: ["example-destination-metrics"],
+ *     }],
+ * });
+ * const test = new azure.monitoring.DataCollectionEndpoint("test", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * // associate to a Data Collection Rule
+ * const example1DataCollectionRuleAssociation = new azure.monitoring.DataCollectionRuleAssociation("example1DataCollectionRuleAssociation", {
+ *     targetResourceId: exampleLinuxVirtualMachine.id,
+ *     dataCollectionRuleId: exampleDataCollectionRule.id,
+ *     description: "example",
+ * });
+ * // associate to a Data Collection Endpoint
+ * const example1Monitoring_dataCollectionRuleAssociationDataCollectionRuleAssociation = new azure.monitoring.DataCollectionRuleAssociation("example1Monitoring/dataCollectionRuleAssociationDataCollectionRuleAssociation", {
+ *     targetResourceId: exampleLinuxVirtualMachine.id,
+ *     dataCollectionEndpointId: azurerm_monitor_data_collection_endpoint.example.id,
+ *     description: "example",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Data Collection Rules Association can be imported using the `resource id`, e.g.

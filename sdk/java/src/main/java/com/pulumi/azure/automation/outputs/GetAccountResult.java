@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.automation.outputs;
 
+import com.pulumi.azure.automation.outputs.GetAccountIdentity;
 import com.pulumi.azure.automation.outputs.GetAccountPrivateEndpointConnection;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -17,10 +18,20 @@ public final class GetAccountResult {
      */
     private String endpoint;
     /**
+     * @return The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+     * 
+     */
+    private String hybridServiceUrl;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return (Optional) An `identity` block as defined below.
+     * 
+     */
+    private List<GetAccountIdentity> identities;
     private String name;
     /**
      * @return The Primary Access Key for the Automation Account.
@@ -44,11 +55,25 @@ public final class GetAccountResult {
         return this.endpoint;
     }
     /**
+     * @return The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+     * 
+     */
+    public String hybridServiceUrl() {
+        return this.hybridServiceUrl;
+    }
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return (Optional) An `identity` block as defined below.
+     * 
+     */
+    public List<GetAccountIdentity> identities() {
+        return this.identities;
     }
     public String name() {
         return this.name;
@@ -84,7 +109,9 @@ public final class GetAccountResult {
     @CustomType.Builder
     public static final class Builder {
         private String endpoint;
+        private String hybridServiceUrl;
         private String id;
+        private List<GetAccountIdentity> identities;
         private String name;
         private String primaryKey;
         private List<GetAccountPrivateEndpointConnection> privateEndpointConnections;
@@ -94,7 +121,9 @@ public final class GetAccountResult {
         public Builder(GetAccountResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpoint = defaults.endpoint;
+    	      this.hybridServiceUrl = defaults.hybridServiceUrl;
     	      this.id = defaults.id;
+    	      this.identities = defaults.identities;
     	      this.name = defaults.name;
     	      this.primaryKey = defaults.primaryKey;
     	      this.privateEndpointConnections = defaults.privateEndpointConnections;
@@ -108,9 +137,22 @@ public final class GetAccountResult {
             return this;
         }
         @CustomType.Setter
+        public Builder hybridServiceUrl(String hybridServiceUrl) {
+            this.hybridServiceUrl = Objects.requireNonNull(hybridServiceUrl);
+            return this;
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
+        }
+        @CustomType.Setter
+        public Builder identities(List<GetAccountIdentity> identities) {
+            this.identities = Objects.requireNonNull(identities);
+            return this;
+        }
+        public Builder identities(GetAccountIdentity... identities) {
+            return identities(List.of(identities));
         }
         @CustomType.Setter
         public Builder name(String name) {
@@ -143,7 +185,9 @@ public final class GetAccountResult {
         public GetAccountResult build() {
             final var o = new GetAccountResult();
             o.endpoint = endpoint;
+            o.hybridServiceUrl = hybridServiceUrl;
             o.id = id;
+            o.identities = identities;
             o.name = name;
             o.primaryKey = primaryKey;
             o.privateEndpointConnections = privateEndpointConnections;

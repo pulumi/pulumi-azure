@@ -49,7 +49,7 @@ namespace Pulumi.Azure.KeyVault
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCertificateDataResult> InvokeAsync(GetCertificateDataArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateDataResult>("azure:keyvault/getCertificateData:getCertificateData", args ?? new GetCertificateDataArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateDataResult>("azure:keyvault/getCertificateData:getCertificateData", args ?? new GetCertificateDataArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access data stored in an existing Key Vault Certificate.
@@ -89,7 +89,7 @@ namespace Pulumi.Azure.KeyVault
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetCertificateDataResult> Invoke(GetCertificateDataInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCertificateDataResult>("azure:keyvault/getCertificateData:getCertificateData", args ?? new GetCertificateDataInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetCertificateDataResult>("azure:keyvault/getCertificateData:getCertificateData", args ?? new GetCertificateDataInvokeArgs(), options.WithDefaults());
     }
 
 

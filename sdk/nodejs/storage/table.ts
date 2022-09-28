@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -65,7 +66,7 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly acls!: pulumi.Output<outputs.storage.TableAcl[] | undefined>;
     /**
-     * The name of the storage table. Must be unique within the storage account the table is located.
+     * The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -113,7 +114,7 @@ export interface TableState {
      */
     acls?: pulumi.Input<pulumi.Input<inputs.storage.TableAcl>[]>;
     /**
-     * The name of the storage table. Must be unique within the storage account the table is located.
+     * The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
      */
     name?: pulumi.Input<string>;
     /**
@@ -132,7 +133,7 @@ export interface TableArgs {
      */
     acls?: pulumi.Input<pulumi.Input<inputs.storage.TableAcl>[]>;
     /**
-     * The name of the storage table. Must be unique within the storage account the table is located.
+     * The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located.
      */
     name?: pulumi.Input<string>;
     /**

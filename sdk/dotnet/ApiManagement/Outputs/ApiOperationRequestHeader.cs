@@ -22,6 +22,10 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// (Optional) One or more `example` blocks as defined above.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApiOperationRequestHeaderExample> Examples;
+        /// <summary>
         /// The Name of this Header.
         /// </summary>
         public readonly string Name;
@@ -30,9 +34,18 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly bool Required;
         /// <summary>
+        /// The name of the Schema.
+        /// </summary>
+        public readonly string? SchemaId;
+        /// <summary>
         /// The Type of this Header, such as a `string`.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The type name defined by the Schema.
+        /// ---
+        /// </summary>
+        public readonly string? TypeName;
         /// <summary>
         /// One or more acceptable values for this Header.
         /// </summary>
@@ -44,19 +57,28 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             string? description,
 
+            ImmutableArray<Outputs.ApiOperationRequestHeaderExample> examples,
+
             string name,
 
             bool required,
 
+            string? schemaId,
+
             string type,
+
+            string? typeName,
 
             ImmutableArray<string> values)
         {
             DefaultValue = defaultValue;
             Description = description;
+            Examples = examples;
             Name = name;
             Required = required;
+            SchemaId = schemaId;
             Type = type;
+            TypeName = typeName;
             Values = values;
         }
     }

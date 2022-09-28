@@ -97,7 +97,7 @@ namespace Pulumi.Azure.Policy
     ///         VirtualMachineId = exampleWindowsVirtualMachine.Id,
     ///         Publisher = "Microsoft.GuestConfiguration",
     ///         Type = "ConfigurationforWindows",
-    ///         TypeHandlerVersion = "1.0",
+    ///         TypeHandlerVersion = "1.29",
     ///         AutoUpgradeMinorVersion = true,
     ///     });
     /// 

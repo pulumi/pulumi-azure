@@ -25,7 +25,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
      */
     private @Nullable Boolean disablePasswordAuthentication;
     /**
-     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
      */
     private @Nullable String patchAssessmentMode;
@@ -58,7 +58,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         return Optional.ofNullable(this.disablePasswordAuthentication);
     }
     /**
-     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `AutomaticByPlatform`.
+     * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
      */
     public Optional<String> patchAssessmentMode() {

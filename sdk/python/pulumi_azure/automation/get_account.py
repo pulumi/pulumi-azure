@@ -22,13 +22,19 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, endpoint=None, id=None, name=None, primary_key=None, private_endpoint_connections=None, resource_group_name=None, secondary_key=None):
+    def __init__(__self__, endpoint=None, hybrid_service_url=None, id=None, identities=None, name=None, primary_key=None, private_endpoint_connections=None, resource_group_name=None, secondary_key=None):
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
+        if hybrid_service_url and not isinstance(hybrid_service_url, str):
+            raise TypeError("Expected argument 'hybrid_service_url' to be a str")
+        pulumi.set(__self__, "hybrid_service_url", hybrid_service_url)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        pulumi.set(__self__, "identities", identities)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -54,12 +60,28 @@ class GetAccountResult:
         return pulumi.get(self, "endpoint")
 
     @property
+    @pulumi.getter(name="hybridServiceUrl")
+    def hybrid_service_url(self) -> str:
+        """
+        The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account.
+        """
+        return pulumi.get(self, "hybrid_service_url")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identities(self) -> Sequence['outputs.GetAccountIdentityResult']:
+        """
+        (Optional) An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identities")
 
     @property
     @pulumi.getter
@@ -100,7 +122,9 @@ class AwaitableGetAccountResult(GetAccountResult):
             yield self
         return GetAccountResult(
             endpoint=self.endpoint,
+            hybrid_service_url=self.hybrid_service_url,
             id=self.id,
+            identities=self.identities,
             name=self.name,
             primary_key=self.primary_key,
             private_endpoint_connections=self.private_endpoint_connections,
@@ -137,7 +161,9 @@ def get_account(name: Optional[str] = None,
 
     return AwaitableGetAccountResult(
         endpoint=__ret__.endpoint,
+        hybrid_service_url=__ret__.hybrid_service_url,
         id=__ret__.id,
+        identities=__ret__.identities,
         name=__ret__.name,
         primary_key=__ret__.primary_key,
         private_endpoint_connections=__ret__.private_endpoint_connections,

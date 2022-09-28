@@ -73,7 +73,7 @@ import (
 //						FailoverPriority: pulumi.Int(1),
 //					},
 //					&cosmosdb.AccountGeoLocationArgs{
-//						Location:         pulumi.String("eastus"),
+//						Location:         pulumi.String("westus"),
 //						FailoverPriority: pulumi.Int(0),
 //					},
 //				},

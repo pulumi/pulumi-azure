@@ -766,7 +766,7 @@ class EventHubNamespaceIdentityArgs:
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. The only possible value is `SystemAssigned`.
+        :param pulumi.Input[str] type: Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are `SystemAssigned` or `UserAssigned`.
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
@@ -782,7 +782,7 @@ class EventHubNamespaceIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. The only possible value is `SystemAssigned`.
+        Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are `SystemAssigned` or `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -829,17 +829,21 @@ class EventHubNamespaceNetworkRulesetsArgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input[str],
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsIpRuleArgs']]]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  trusted_service_access_enabled: Optional[pulumi.Input[bool]] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs']]]] = None):
         """
         :param pulumi.Input[str] default_action: The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsIpRuleArgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
+        :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[bool] trusted_service_access_enabled: Whether Trusted Microsoft Services are allowed to bypass firewall.
         :param pulumi.Input[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs']]] virtual_network_rules: One or more `virtual_network_rule` blocks as defined below.
         """
         pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if trusted_service_access_enabled is not None:
             pulumi.set(__self__, "trusted_service_access_enabled", trusted_service_access_enabled)
         if virtual_network_rules is not None:
@@ -868,6 +872,18 @@ class EventHubNamespaceNetworkRulesetsArgs:
     @ip_rules.setter
     def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsIpRuleArgs']]]]):
         pulumi.set(self, "ip_rules", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
 
     @property
     @pulumi.getter(name="trustedServiceAccessEnabled")
