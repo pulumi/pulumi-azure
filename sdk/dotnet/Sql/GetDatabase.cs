@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Sql
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure:sql/getDatabase:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure:sql/getDatabase:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Sql
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("azure:sql/getDatabase:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("azure:sql/getDatabase:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
     }
 
 

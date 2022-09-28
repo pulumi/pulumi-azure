@@ -41,7 +41,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetLinuxFunctionAppResult> InvokeAsync(GetLinuxFunctionAppArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetLinuxFunctionAppResult>("azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp", args ?? new GetLinuxFunctionAppArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinuxFunctionAppResult>("azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp", args ?? new GetLinuxFunctionAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Linux Function App.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetLinuxFunctionAppResult> Invoke(GetLinuxFunctionAppInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetLinuxFunctionAppResult>("azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp", args ?? new GetLinuxFunctionAppInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetLinuxFunctionAppResult>("azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp", args ?? new GetLinuxFunctionAppInvokeArgs(), options.WithDefaults());
     }
 
 

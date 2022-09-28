@@ -5,13 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./dashboard";
-export * from "./getDashboard";
-export * from "./portalDashboard";
+export { DashboardArgs, DashboardState } from "./dashboard";
+export type Dashboard = import("./dashboard").Dashboard;
+export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
+utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
 
-// Import resources to register:
-import { Dashboard } from "./dashboard";
-import { PortalDashboard } from "./portalDashboard";
+export { GetDashboardArgs, GetDashboardResult, GetDashboardOutputArgs } from "./getDashboard";
+export const getDashboard: typeof import("./getDashboard").getDashboard = null as any;
+export const getDashboardOutput: typeof import("./getDashboard").getDashboardOutput = null as any;
+utilities.lazyLoad(exports, ["getDashboard","getDashboardOutput"], () => require("./getDashboard"));
+
+export { PortalDashboardArgs, PortalDashboardState } from "./portalDashboard";
+export type PortalDashboard = import("./portalDashboard").PortalDashboard;
+export const PortalDashboard: typeof import("./portalDashboard").PortalDashboard = null as any;
+utilities.lazyLoad(exports, ["PortalDashboard"], () => require("./portalDashboard"));
+
 
 const _module = {
     version: utilities.getVersion(),

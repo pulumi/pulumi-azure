@@ -5,22 +5,41 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./application";
-export * from "./applicationGroup";
-export * from "./getHostPoolRegistrationInfo";
-export * from "./hostPool";
-export * from "./scalingPlan";
-export * from "./workspace";
-export * from "./workspaceApplicationGroupAssociation";
+export { ApplicationArgs, ApplicationState } from "./application";
+export type Application = import("./application").Application;
+export const Application: typeof import("./application").Application = null as any;
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
 
-// Import resources to register:
-import { Application } from "./application";
-import { ApplicationGroup } from "./applicationGroup";
-import { GetHostPoolRegistrationInfo } from "./getHostPoolRegistrationInfo";
-import { HostPool } from "./hostPool";
-import { ScalingPlan } from "./scalingPlan";
-import { Workspace } from "./workspace";
-import { WorkspaceApplicationGroupAssociation } from "./workspaceApplicationGroupAssociation";
+export { ApplicationGroupArgs, ApplicationGroupState } from "./applicationGroup";
+export type ApplicationGroup = import("./applicationGroup").ApplicationGroup;
+export const ApplicationGroup: typeof import("./applicationGroup").ApplicationGroup = null as any;
+utilities.lazyLoad(exports, ["ApplicationGroup"], () => require("./applicationGroup"));
+
+export { GetHostPoolRegistrationInfoArgs, GetHostPoolRegistrationInfoState } from "./getHostPoolRegistrationInfo";
+export type GetHostPoolRegistrationInfo = import("./getHostPoolRegistrationInfo").GetHostPoolRegistrationInfo;
+export const GetHostPoolRegistrationInfo: typeof import("./getHostPoolRegistrationInfo").GetHostPoolRegistrationInfo = null as any;
+utilities.lazyLoad(exports, ["GetHostPoolRegistrationInfo"], () => require("./getHostPoolRegistrationInfo"));
+
+export { HostPoolArgs, HostPoolState } from "./hostPool";
+export type HostPool = import("./hostPool").HostPool;
+export const HostPool: typeof import("./hostPool").HostPool = null as any;
+utilities.lazyLoad(exports, ["HostPool"], () => require("./hostPool"));
+
+export { ScalingPlanArgs, ScalingPlanState } from "./scalingPlan";
+export type ScalingPlan = import("./scalingPlan").ScalingPlan;
+export const ScalingPlan: typeof import("./scalingPlan").ScalingPlan = null as any;
+utilities.lazyLoad(exports, ["ScalingPlan"], () => require("./scalingPlan"));
+
+export { WorkspaceArgs, WorkspaceState } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
+
+export { WorkspaceApplicationGroupAssociationArgs, WorkspaceApplicationGroupAssociationState } from "./workspaceApplicationGroupAssociation";
+export type WorkspaceApplicationGroupAssociation = import("./workspaceApplicationGroupAssociation").WorkspaceApplicationGroupAssociation;
+export const WorkspaceApplicationGroupAssociation: typeof import("./workspaceApplicationGroupAssociation").WorkspaceApplicationGroupAssociation = null as any;
+utilities.lazyLoad(exports, ["WorkspaceApplicationGroupAssociation"], () => require("./workspaceApplicationGroupAssociation"));
+
 
 const _module = {
     version: utilities.getVersion(),

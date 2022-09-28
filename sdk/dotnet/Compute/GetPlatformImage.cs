@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPlatformImageResult> InvokeAsync(GetPlatformImageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPlatformImageResult>("azure:compute/getPlatformImage:getPlatformImage", args ?? new GetPlatformImageArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlatformImageResult>("azure:compute/getPlatformImage:getPlatformImage", args ?? new GetPlatformImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about a Platform Image.
@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPlatformImageResult> Invoke(GetPlatformImageInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPlatformImageResult>("azure:compute/getPlatformImage:getPlatformImage", args ?? new GetPlatformImageInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPlatformImageResult>("azure:compute/getPlatformImage:getPlatformImage", args ?? new GetPlatformImageInvokeArgs(), options.WithDefaults());
     }
 
 

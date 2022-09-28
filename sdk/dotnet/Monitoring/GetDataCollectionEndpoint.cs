@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Monitoring
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDataCollectionEndpointResult> InvokeAsync(GetDataCollectionEndpointArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionEndpointResult>("azure:monitoring/getDataCollectionEndpoint:getDataCollectionEndpoint", args ?? new GetDataCollectionEndpointArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionEndpointResult>("azure:monitoring/getDataCollectionEndpoint:getDataCollectionEndpoint", args ?? new GetDataCollectionEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Data Collection Endpoint.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Monitoring
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDataCollectionEndpointResult> Invoke(GetDataCollectionEndpointInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataCollectionEndpointResult>("azure:monitoring/getDataCollectionEndpoint:getDataCollectionEndpoint", args ?? new GetDataCollectionEndpointInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataCollectionEndpointResult>("azure:monitoring/getDataCollectionEndpoint:getDataCollectionEndpoint", args ?? new GetDataCollectionEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

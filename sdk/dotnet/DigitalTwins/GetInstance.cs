@@ -41,7 +41,7 @@ namespace Pulumi.Azure.DigitalTwins
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("azure:digitaltwins/getInstance:getInstance", args ?? new GetInstanceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("azure:digitaltwins/getInstance:getInstance", args ?? new GetInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Digital Twins instance.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.DigitalTwins
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure:digitaltwins/getInstance:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure:digitaltwins/getInstance:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

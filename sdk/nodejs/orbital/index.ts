@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./spacecraft";
+export { SpacecraftArgs, SpacecraftState } from "./spacecraft";
+export type Spacecraft = import("./spacecraft").Spacecraft;
+export const Spacecraft: typeof import("./spacecraft").Spacecraft = null as any;
+utilities.lazyLoad(exports, ["Spacecraft"], () => require("./spacecraft"));
 
-// Import resources to register:
-import { Spacecraft } from "./spacecraft";
 
 const _module = {
     version: utilities.getVersion(),

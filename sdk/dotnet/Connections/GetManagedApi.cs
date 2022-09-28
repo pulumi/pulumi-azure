@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Connections
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetManagedApiResult> InvokeAsync(GetManagedApiArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetManagedApiResult>("azure:connections/getManagedApi:getManagedApi", args ?? new GetManagedApiArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedApiResult>("azure:connections/getManagedApi:getManagedApi", args ?? new GetManagedApiArgs(), options.WithDefaults());
 
         /// <summary>
         /// Uses this data source to access information about an existing Managed API.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Connections
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetManagedApiResult> Invoke(GetManagedApiInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetManagedApiResult>("azure:connections/getManagedApi:getManagedApi", args ?? new GetManagedApiInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedApiResult>("azure:connections/getManagedApi:getManagedApi", args ?? new GetManagedApiInvokeArgs(), options.WithDefaults());
     }
 
 

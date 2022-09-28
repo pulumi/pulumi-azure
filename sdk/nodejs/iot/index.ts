@@ -5,57 +5,137 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./certificate";
-export * from "./consumerGroup";
-export * from "./dpsSharedAccessPolicy";
-export * from "./endpointEventhub";
-export * from "./endpointServicebusQueue";
-export * from "./endpointServicebusTopic";
-export * from "./endpointStorageContainer";
-export * from "./enrichment";
-export * from "./fallbackRoute";
-export * from "./getDps";
-export * from "./getDpsSharedAccessPolicy";
-export * from "./getIotHub";
-export * from "./getSharedAccessPolicy";
-export * from "./ioTHub";
-export * from "./iotHubCertificate";
-export * from "./iotHubDps";
-export * from "./route";
-export * from "./securityDeviceGroup";
-export * from "./securitySolution";
-export * from "./sharedAccessPolicy";
-export * from "./timeSeriesInsightsAccessPolicy";
-export * from "./timeSeriesInsightsEventSourceEventhub";
-export * from "./timeSeriesInsightsEventSourceIothub";
-export * from "./timeSeriesInsightsGen2Environment";
-export * from "./timeSeriesInsightsReferenceDataSet";
-export * from "./timeSeriesInsightsStandardEnvironment";
-export * from "./zMixins";
+export { CertificateArgs, CertificateState } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
-// Import resources to register:
-import { Certificate } from "./certificate";
-import { ConsumerGroup } from "./consumerGroup";
-import { DpsSharedAccessPolicy } from "./dpsSharedAccessPolicy";
-import { EndpointEventhub } from "./endpointEventhub";
-import { EndpointServicebusQueue } from "./endpointServicebusQueue";
-import { EndpointServicebusTopic } from "./endpointServicebusTopic";
-import { EndpointStorageContainer } from "./endpointStorageContainer";
-import { Enrichment } from "./enrichment";
-import { FallbackRoute } from "./fallbackRoute";
-import { IoTHub } from "./ioTHub";
-import { IotHubCertificate } from "./iotHubCertificate";
-import { IotHubDps } from "./iotHubDps";
-import { Route } from "./route";
-import { SecurityDeviceGroup } from "./securityDeviceGroup";
-import { SecuritySolution } from "./securitySolution";
-import { SharedAccessPolicy } from "./sharedAccessPolicy";
-import { TimeSeriesInsightsAccessPolicy } from "./timeSeriesInsightsAccessPolicy";
-import { TimeSeriesInsightsEventSourceEventhub } from "./timeSeriesInsightsEventSourceEventhub";
-import { TimeSeriesInsightsEventSourceIothub } from "./timeSeriesInsightsEventSourceIothub";
-import { TimeSeriesInsightsGen2Environment } from "./timeSeriesInsightsGen2Environment";
-import { TimeSeriesInsightsReferenceDataSet } from "./timeSeriesInsightsReferenceDataSet";
-import { TimeSeriesInsightsStandardEnvironment } from "./timeSeriesInsightsStandardEnvironment";
+export { ConsumerGroupArgs, ConsumerGroupState } from "./consumerGroup";
+export type ConsumerGroup = import("./consumerGroup").ConsumerGroup;
+export const ConsumerGroup: typeof import("./consumerGroup").ConsumerGroup = null as any;
+utilities.lazyLoad(exports, ["ConsumerGroup"], () => require("./consumerGroup"));
+
+export { DpsSharedAccessPolicyArgs, DpsSharedAccessPolicyState } from "./dpsSharedAccessPolicy";
+export type DpsSharedAccessPolicy = import("./dpsSharedAccessPolicy").DpsSharedAccessPolicy;
+export const DpsSharedAccessPolicy: typeof import("./dpsSharedAccessPolicy").DpsSharedAccessPolicy = null as any;
+utilities.lazyLoad(exports, ["DpsSharedAccessPolicy"], () => require("./dpsSharedAccessPolicy"));
+
+export { EndpointEventhubArgs, EndpointEventhubState } from "./endpointEventhub";
+export type EndpointEventhub = import("./endpointEventhub").EndpointEventhub;
+export const EndpointEventhub: typeof import("./endpointEventhub").EndpointEventhub = null as any;
+utilities.lazyLoad(exports, ["EndpointEventhub"], () => require("./endpointEventhub"));
+
+export { EndpointServicebusQueueArgs, EndpointServicebusQueueState } from "./endpointServicebusQueue";
+export type EndpointServicebusQueue = import("./endpointServicebusQueue").EndpointServicebusQueue;
+export const EndpointServicebusQueue: typeof import("./endpointServicebusQueue").EndpointServicebusQueue = null as any;
+utilities.lazyLoad(exports, ["EndpointServicebusQueue"], () => require("./endpointServicebusQueue"));
+
+export { EndpointServicebusTopicArgs, EndpointServicebusTopicState } from "./endpointServicebusTopic";
+export type EndpointServicebusTopic = import("./endpointServicebusTopic").EndpointServicebusTopic;
+export const EndpointServicebusTopic: typeof import("./endpointServicebusTopic").EndpointServicebusTopic = null as any;
+utilities.lazyLoad(exports, ["EndpointServicebusTopic"], () => require("./endpointServicebusTopic"));
+
+export { EndpointStorageContainerArgs, EndpointStorageContainerState } from "./endpointStorageContainer";
+export type EndpointStorageContainer = import("./endpointStorageContainer").EndpointStorageContainer;
+export const EndpointStorageContainer: typeof import("./endpointStorageContainer").EndpointStorageContainer = null as any;
+utilities.lazyLoad(exports, ["EndpointStorageContainer"], () => require("./endpointStorageContainer"));
+
+export { EnrichmentArgs, EnrichmentState } from "./enrichment";
+export type Enrichment = import("./enrichment").Enrichment;
+export const Enrichment: typeof import("./enrichment").Enrichment = null as any;
+utilities.lazyLoad(exports, ["Enrichment"], () => require("./enrichment"));
+
+export { FallbackRouteArgs, FallbackRouteState } from "./fallbackRoute";
+export type FallbackRoute = import("./fallbackRoute").FallbackRoute;
+export const FallbackRoute: typeof import("./fallbackRoute").FallbackRoute = null as any;
+utilities.lazyLoad(exports, ["FallbackRoute"], () => require("./fallbackRoute"));
+
+export { GetDpsArgs, GetDpsResult, GetDpsOutputArgs } from "./getDps";
+export const getDps: typeof import("./getDps").getDps = null as any;
+export const getDpsOutput: typeof import("./getDps").getDpsOutput = null as any;
+utilities.lazyLoad(exports, ["getDps","getDpsOutput"], () => require("./getDps"));
+
+export { GetDpsSharedAccessPolicyArgs, GetDpsSharedAccessPolicyResult, GetDpsSharedAccessPolicyOutputArgs } from "./getDpsSharedAccessPolicy";
+export const getDpsSharedAccessPolicy: typeof import("./getDpsSharedAccessPolicy").getDpsSharedAccessPolicy = null as any;
+export const getDpsSharedAccessPolicyOutput: typeof import("./getDpsSharedAccessPolicy").getDpsSharedAccessPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getDpsSharedAccessPolicy","getDpsSharedAccessPolicyOutput"], () => require("./getDpsSharedAccessPolicy"));
+
+export { GetIotHubArgs, GetIotHubResult, GetIotHubOutputArgs } from "./getIotHub";
+export const getIotHub: typeof import("./getIotHub").getIotHub = null as any;
+export const getIotHubOutput: typeof import("./getIotHub").getIotHubOutput = null as any;
+utilities.lazyLoad(exports, ["getIotHub","getIotHubOutput"], () => require("./getIotHub"));
+
+export { GetSharedAccessPolicyArgs, GetSharedAccessPolicyResult, GetSharedAccessPolicyOutputArgs } from "./getSharedAccessPolicy";
+export const getSharedAccessPolicy: typeof import("./getSharedAccessPolicy").getSharedAccessPolicy = null as any;
+export const getSharedAccessPolicyOutput: typeof import("./getSharedAccessPolicy").getSharedAccessPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getSharedAccessPolicy","getSharedAccessPolicyOutput"], () => require("./getSharedAccessPolicy"));
+
+export { IoTHubArgs, IoTHubState } from "./ioTHub";
+export type IoTHub = import("./ioTHub").IoTHub;
+export const IoTHub: typeof import("./ioTHub").IoTHub = null as any;
+utilities.lazyLoad(exports, ["IoTHub"], () => require("./ioTHub"));
+
+export { IotHubCertificateArgs, IotHubCertificateState } from "./iotHubCertificate";
+export type IotHubCertificate = import("./iotHubCertificate").IotHubCertificate;
+export const IotHubCertificate: typeof import("./iotHubCertificate").IotHubCertificate = null as any;
+utilities.lazyLoad(exports, ["IotHubCertificate"], () => require("./iotHubCertificate"));
+
+export { IotHubDpsArgs, IotHubDpsState } from "./iotHubDps";
+export type IotHubDps = import("./iotHubDps").IotHubDps;
+export const IotHubDps: typeof import("./iotHubDps").IotHubDps = null as any;
+utilities.lazyLoad(exports, ["IotHubDps"], () => require("./iotHubDps"));
+
+export { RouteArgs, RouteState } from "./route";
+export type Route = import("./route").Route;
+export const Route: typeof import("./route").Route = null as any;
+utilities.lazyLoad(exports, ["Route"], () => require("./route"));
+
+export { SecurityDeviceGroupArgs, SecurityDeviceGroupState } from "./securityDeviceGroup";
+export type SecurityDeviceGroup = import("./securityDeviceGroup").SecurityDeviceGroup;
+export const SecurityDeviceGroup: typeof import("./securityDeviceGroup").SecurityDeviceGroup = null as any;
+utilities.lazyLoad(exports, ["SecurityDeviceGroup"], () => require("./securityDeviceGroup"));
+
+export { SecuritySolutionArgs, SecuritySolutionState } from "./securitySolution";
+export type SecuritySolution = import("./securitySolution").SecuritySolution;
+export const SecuritySolution: typeof import("./securitySolution").SecuritySolution = null as any;
+utilities.lazyLoad(exports, ["SecuritySolution"], () => require("./securitySolution"));
+
+export { SharedAccessPolicyArgs, SharedAccessPolicyState } from "./sharedAccessPolicy";
+export type SharedAccessPolicy = import("./sharedAccessPolicy").SharedAccessPolicy;
+export const SharedAccessPolicy: typeof import("./sharedAccessPolicy").SharedAccessPolicy = null as any;
+utilities.lazyLoad(exports, ["SharedAccessPolicy"], () => require("./sharedAccessPolicy"));
+
+export { TimeSeriesInsightsAccessPolicyArgs, TimeSeriesInsightsAccessPolicyState } from "./timeSeriesInsightsAccessPolicy";
+export type TimeSeriesInsightsAccessPolicy = import("./timeSeriesInsightsAccessPolicy").TimeSeriesInsightsAccessPolicy;
+export const TimeSeriesInsightsAccessPolicy: typeof import("./timeSeriesInsightsAccessPolicy").TimeSeriesInsightsAccessPolicy = null as any;
+utilities.lazyLoad(exports, ["TimeSeriesInsightsAccessPolicy"], () => require("./timeSeriesInsightsAccessPolicy"));
+
+export { TimeSeriesInsightsEventSourceEventhubArgs, TimeSeriesInsightsEventSourceEventhubState } from "./timeSeriesInsightsEventSourceEventhub";
+export type TimeSeriesInsightsEventSourceEventhub = import("./timeSeriesInsightsEventSourceEventhub").TimeSeriesInsightsEventSourceEventhub;
+export const TimeSeriesInsightsEventSourceEventhub: typeof import("./timeSeriesInsightsEventSourceEventhub").TimeSeriesInsightsEventSourceEventhub = null as any;
+utilities.lazyLoad(exports, ["TimeSeriesInsightsEventSourceEventhub"], () => require("./timeSeriesInsightsEventSourceEventhub"));
+
+export { TimeSeriesInsightsEventSourceIothubArgs, TimeSeriesInsightsEventSourceIothubState } from "./timeSeriesInsightsEventSourceIothub";
+export type TimeSeriesInsightsEventSourceIothub = import("./timeSeriesInsightsEventSourceIothub").TimeSeriesInsightsEventSourceIothub;
+export const TimeSeriesInsightsEventSourceIothub: typeof import("./timeSeriesInsightsEventSourceIothub").TimeSeriesInsightsEventSourceIothub = null as any;
+utilities.lazyLoad(exports, ["TimeSeriesInsightsEventSourceIothub"], () => require("./timeSeriesInsightsEventSourceIothub"));
+
+export { TimeSeriesInsightsGen2EnvironmentArgs, TimeSeriesInsightsGen2EnvironmentState } from "./timeSeriesInsightsGen2Environment";
+export type TimeSeriesInsightsGen2Environment = import("./timeSeriesInsightsGen2Environment").TimeSeriesInsightsGen2Environment;
+export const TimeSeriesInsightsGen2Environment: typeof import("./timeSeriesInsightsGen2Environment").TimeSeriesInsightsGen2Environment = null as any;
+utilities.lazyLoad(exports, ["TimeSeriesInsightsGen2Environment"], () => require("./timeSeriesInsightsGen2Environment"));
+
+export { TimeSeriesInsightsReferenceDataSetArgs, TimeSeriesInsightsReferenceDataSetState } from "./timeSeriesInsightsReferenceDataSet";
+export type TimeSeriesInsightsReferenceDataSet = import("./timeSeriesInsightsReferenceDataSet").TimeSeriesInsightsReferenceDataSet;
+export const TimeSeriesInsightsReferenceDataSet: typeof import("./timeSeriesInsightsReferenceDataSet").TimeSeriesInsightsReferenceDataSet = null as any;
+utilities.lazyLoad(exports, ["TimeSeriesInsightsReferenceDataSet"], () => require("./timeSeriesInsightsReferenceDataSet"));
+
+export { TimeSeriesInsightsStandardEnvironmentArgs, TimeSeriesInsightsStandardEnvironmentState } from "./timeSeriesInsightsStandardEnvironment";
+export type TimeSeriesInsightsStandardEnvironment = import("./timeSeriesInsightsStandardEnvironment").TimeSeriesInsightsStandardEnvironment;
+export const TimeSeriesInsightsStandardEnvironment: typeof import("./timeSeriesInsightsStandardEnvironment").TimeSeriesInsightsStandardEnvironment = null as any;
+utilities.lazyLoad(exports, ["TimeSeriesInsightsStandardEnvironment"], () => require("./timeSeriesInsightsStandardEnvironment"));
+
+export * from "./zMixins";
 
 const _module = {
     version: utilities.getVersion(),

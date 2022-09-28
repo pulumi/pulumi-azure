@@ -5,19 +5,36 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./configuration";
-export * from "./database";
-export * from "./firewallRule";
-export * from "./getMariaDbServer";
-export * from "./server";
-export * from "./virtualNetworkRule";
+export { ConfigurationArgs, ConfigurationState } from "./configuration";
+export type Configuration = import("./configuration").Configuration;
+export const Configuration: typeof import("./configuration").Configuration = null as any;
+utilities.lazyLoad(exports, ["Configuration"], () => require("./configuration"));
 
-// Import resources to register:
-import { Configuration } from "./configuration";
-import { Database } from "./database";
-import { FirewallRule } from "./firewallRule";
-import { Server } from "./server";
-import { VirtualNetworkRule } from "./virtualNetworkRule";
+export { DatabaseArgs, DatabaseState } from "./database";
+export type Database = import("./database").Database;
+export const Database: typeof import("./database").Database = null as any;
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+
+export { FirewallRuleArgs, FirewallRuleState } from "./firewallRule";
+export type FirewallRule = import("./firewallRule").FirewallRule;
+export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
+utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
+
+export { GetMariaDbServerArgs, GetMariaDbServerResult, GetMariaDbServerOutputArgs } from "./getMariaDbServer";
+export const getMariaDbServer: typeof import("./getMariaDbServer").getMariaDbServer = null as any;
+export const getMariaDbServerOutput: typeof import("./getMariaDbServer").getMariaDbServerOutput = null as any;
+utilities.lazyLoad(exports, ["getMariaDbServer","getMariaDbServerOutput"], () => require("./getMariaDbServer"));
+
+export { ServerArgs, ServerState } from "./server";
+export type Server = import("./server").Server;
+export const Server: typeof import("./server").Server = null as any;
+utilities.lazyLoad(exports, ["Server"], () => require("./server"));
+
+export { VirtualNetworkRuleArgs, VirtualNetworkRuleState } from "./virtualNetworkRule";
+export type VirtualNetworkRule = import("./virtualNetworkRule").VirtualNetworkRule;
+export const VirtualNetworkRule: typeof import("./virtualNetworkRule").VirtualNetworkRule = null as any;
+utilities.lazyLoad(exports, ["VirtualNetworkRule"], () => require("./virtualNetworkRule"));
+
 
 const _module = {
     version: utilities.getVersion(),

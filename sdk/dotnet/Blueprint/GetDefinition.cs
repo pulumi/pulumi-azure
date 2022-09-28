@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Blueprint
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDefinitionResult> InvokeAsync(GetDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDefinitionResult>("azure:blueprint/getDefinition:getDefinition", args ?? new GetDefinitionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDefinitionResult>("azure:blueprint/getDefinition:getDefinition", args ?? new GetDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Azure Blueprint Definition
@@ -83,7 +83,7 @@ namespace Pulumi.Azure.Blueprint
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDefinitionResult> Invoke(GetDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDefinitionResult>("azure:blueprint/getDefinition:getDefinition", args ?? new GetDefinitionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDefinitionResult>("azure:blueprint/getDefinition:getDefinition", args ?? new GetDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

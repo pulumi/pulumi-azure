@@ -47,7 +47,7 @@ namespace Pulumi.Azure.DataShare
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetShareResult> InvokeAsync(GetShareArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure:datashare/getShare:getShare", args ?? new GetShareArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetShareResult>("azure:datashare/getShare:getShare", args ?? new GetShareArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Data Share.
@@ -85,7 +85,7 @@ namespace Pulumi.Azure.DataShare
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetShareResult> Invoke(GetShareInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure:datashare/getShare:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetShareResult>("azure:datashare/getShare:getShare", args ?? new GetShareInvokeArgs(), options.WithDefaults());
     }
 
 

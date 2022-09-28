@@ -39,7 +39,7 @@ namespace Pulumi.Azure.EventHub
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetConsumeGroupResult> InvokeAsync(GetConsumeGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConsumeGroupResult>("azure:eventhub/getConsumeGroup:getConsumeGroup", args ?? new GetConsumeGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConsumeGroupResult>("azure:eventhub/getConsumeGroup:getConsumeGroup", args ?? new GetConsumeGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Event Hubs Consumer Group within an Event Hub.
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.EventHub
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetConsumeGroupResult> Invoke(GetConsumeGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConsumeGroupResult>("azure:eventhub/getConsumeGroup:getConsumeGroup", args ?? new GetConsumeGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConsumeGroupResult>("azure:eventhub/getConsumeGroup:getConsumeGroup", args ?? new GetConsumeGroupInvokeArgs(), options.WithDefaults());
     }
 
 

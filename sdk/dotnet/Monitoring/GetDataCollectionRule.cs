@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Monitoring
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDataCollectionRuleResult> InvokeAsync(GetDataCollectionRuleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleResult>("azure:monitoring/getDataCollectionRule:getDataCollectionRule", args ?? new GetDataCollectionRuleArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleResult>("azure:monitoring/getDataCollectionRule:getDataCollectionRule", args ?? new GetDataCollectionRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Data Collection Rule.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Monitoring
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDataCollectionRuleResult> Invoke(GetDataCollectionRuleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataCollectionRuleResult>("azure:monitoring/getDataCollectionRule:getDataCollectionRule", args ?? new GetDataCollectionRuleInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataCollectionRuleResult>("azure:monitoring/getDataCollectionRule:getDataCollectionRule", args ?? new GetDataCollectionRuleInvokeArgs(), options.WithDefaults());
     }
 
 

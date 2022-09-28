@@ -41,7 +41,7 @@ namespace Pulumi.Azure.EventGrid
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure:eventgrid/getDomain:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure:eventgrid/getDomain:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing EventGrid Domain
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.EventGrid
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure:eventgrid/getDomain:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure:eventgrid/getDomain:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 

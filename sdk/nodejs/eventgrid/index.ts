@@ -5,25 +5,57 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./domain";
-export * from "./domainTopic";
-export * from "./eventSubscription";
-export * from "./getDomain";
-export * from "./getDomainTopic";
-export * from "./getSystemTopic";
-export * from "./getTopic";
-export * from "./systemTopic";
-export * from "./systemTopicEventSubscription";
-export * from "./topic";
-export * from "./zMixins";
+export { DomainArgs, DomainState } from "./domain";
+export type Domain = import("./domain").Domain;
+export const Domain: typeof import("./domain").Domain = null as any;
+utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
 
-// Import resources to register:
-import { Domain } from "./domain";
-import { DomainTopic } from "./domainTopic";
-import { EventSubscription } from "./eventSubscription";
-import { SystemTopic } from "./systemTopic";
-import { SystemTopicEventSubscription } from "./systemTopicEventSubscription";
-import { Topic } from "./topic";
+export { DomainTopicArgs, DomainTopicState } from "./domainTopic";
+export type DomainTopic = import("./domainTopic").DomainTopic;
+export const DomainTopic: typeof import("./domainTopic").DomainTopic = null as any;
+utilities.lazyLoad(exports, ["DomainTopic"], () => require("./domainTopic"));
+
+export { EventSubscriptionArgs, EventSubscriptionState } from "./eventSubscription";
+export type EventSubscription = import("./eventSubscription").EventSubscription;
+export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
+utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
+
+export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
+export const getDomain: typeof import("./getDomain").getDomain = null as any;
+export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
+utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
+
+export { GetDomainTopicArgs, GetDomainTopicResult, GetDomainTopicOutputArgs } from "./getDomainTopic";
+export const getDomainTopic: typeof import("./getDomainTopic").getDomainTopic = null as any;
+export const getDomainTopicOutput: typeof import("./getDomainTopic").getDomainTopicOutput = null as any;
+utilities.lazyLoad(exports, ["getDomainTopic","getDomainTopicOutput"], () => require("./getDomainTopic"));
+
+export { GetSystemTopicArgs, GetSystemTopicResult, GetSystemTopicOutputArgs } from "./getSystemTopic";
+export const getSystemTopic: typeof import("./getSystemTopic").getSystemTopic = null as any;
+export const getSystemTopicOutput: typeof import("./getSystemTopic").getSystemTopicOutput = null as any;
+utilities.lazyLoad(exports, ["getSystemTopic","getSystemTopicOutput"], () => require("./getSystemTopic"));
+
+export { GetTopicArgs, GetTopicResult, GetTopicOutputArgs } from "./getTopic";
+export const getTopic: typeof import("./getTopic").getTopic = null as any;
+export const getTopicOutput: typeof import("./getTopic").getTopicOutput = null as any;
+utilities.lazyLoad(exports, ["getTopic","getTopicOutput"], () => require("./getTopic"));
+
+export { SystemTopicArgs, SystemTopicState } from "./systemTopic";
+export type SystemTopic = import("./systemTopic").SystemTopic;
+export const SystemTopic: typeof import("./systemTopic").SystemTopic = null as any;
+utilities.lazyLoad(exports, ["SystemTopic"], () => require("./systemTopic"));
+
+export { SystemTopicEventSubscriptionArgs, SystemTopicEventSubscriptionState } from "./systemTopicEventSubscription";
+export type SystemTopicEventSubscription = import("./systemTopicEventSubscription").SystemTopicEventSubscription;
+export const SystemTopicEventSubscription: typeof import("./systemTopicEventSubscription").SystemTopicEventSubscription = null as any;
+utilities.lazyLoad(exports, ["SystemTopicEventSubscription"], () => require("./systemTopicEventSubscription"));
+
+export { TopicArgs, TopicState } from "./topic";
+export type Topic = import("./topic").Topic;
+export const Topic: typeof import("./topic").Topic = null as any;
+utilities.lazyLoad(exports, ["Topic"], () => require("./topic"));
+
+export * from "./zMixins";
 
 const _module = {
     version: utilities.getVersion(),

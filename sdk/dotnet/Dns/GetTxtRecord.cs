@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Dns
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetTxtRecordResult> InvokeAsync(GetTxtRecordArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTxtRecordResult>("azure:dns/getTxtRecord:getTxtRecord", args ?? new GetTxtRecordArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTxtRecordResult>("azure:dns/getTxtRecord:getTxtRecord", args ?? new GetTxtRecordArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Dns
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetTxtRecordResult> Invoke(GetTxtRecordInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTxtRecordResult>("azure:dns/getTxtRecord:getTxtRecord", args ?? new GetTxtRecordInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTxtRecordResult>("azure:dns/getTxtRecord:getTxtRecord", args ?? new GetTxtRecordInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Policy
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPolicySetDefinitionResult> InvokeAsync(GetPolicySetDefinitionArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicySetDefinitionResult>("azure:policy/getPolicySetDefinition:getPolicySetDefinition", args ?? new GetPolicySetDefinitionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicySetDefinitionResult>("azure:policy/getPolicySetDefinition:getPolicySetDefinition", args ?? new GetPolicySetDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Policy Set Definition.
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Policy
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPolicySetDefinitionResult> Invoke(GetPolicySetDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPolicySetDefinitionResult>("azure:policy/getPolicySetDefinition:getPolicySetDefinition", args ?? new GetPolicySetDefinitionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicySetDefinitionResult>("azure:policy/getPolicySetDefinition:getPolicySetDefinition", args ?? new GetPolicySetDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

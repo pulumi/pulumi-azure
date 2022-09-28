@@ -5,32 +5,71 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./attachedDatabaseConfiguration";
-export * from "./cluster";
-export * from "./clusterCustomerManagedKey";
-export * from "./clusterManagedPrivateEndpoint";
-export * from "./clusterPrincipalAssignment";
-export * from "./database";
-export * from "./databasePrincipalAssignment";
-export * from "./eventGridDataConnection";
-export * from "./eventhubDataConnection";
-export * from "./getCluster";
-export * from "./getDatabase";
-export * from "./iotHubDataConnection";
-export * from "./script";
+export { AttachedDatabaseConfigurationArgs, AttachedDatabaseConfigurationState } from "./attachedDatabaseConfiguration";
+export type AttachedDatabaseConfiguration = import("./attachedDatabaseConfiguration").AttachedDatabaseConfiguration;
+export const AttachedDatabaseConfiguration: typeof import("./attachedDatabaseConfiguration").AttachedDatabaseConfiguration = null as any;
+utilities.lazyLoad(exports, ["AttachedDatabaseConfiguration"], () => require("./attachedDatabaseConfiguration"));
 
-// Import resources to register:
-import { AttachedDatabaseConfiguration } from "./attachedDatabaseConfiguration";
-import { Cluster } from "./cluster";
-import { ClusterCustomerManagedKey } from "./clusterCustomerManagedKey";
-import { ClusterManagedPrivateEndpoint } from "./clusterManagedPrivateEndpoint";
-import { ClusterPrincipalAssignment } from "./clusterPrincipalAssignment";
-import { Database } from "./database";
-import { DatabasePrincipalAssignment } from "./databasePrincipalAssignment";
-import { EventGridDataConnection } from "./eventGridDataConnection";
-import { EventhubDataConnection } from "./eventhubDataConnection";
-import { IotHubDataConnection } from "./iotHubDataConnection";
-import { Script } from "./script";
+export { ClusterArgs, ClusterState } from "./cluster";
+export type Cluster = import("./cluster").Cluster;
+export const Cluster: typeof import("./cluster").Cluster = null as any;
+utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+
+export { ClusterCustomerManagedKeyArgs, ClusterCustomerManagedKeyState } from "./clusterCustomerManagedKey";
+export type ClusterCustomerManagedKey = import("./clusterCustomerManagedKey").ClusterCustomerManagedKey;
+export const ClusterCustomerManagedKey: typeof import("./clusterCustomerManagedKey").ClusterCustomerManagedKey = null as any;
+utilities.lazyLoad(exports, ["ClusterCustomerManagedKey"], () => require("./clusterCustomerManagedKey"));
+
+export { ClusterManagedPrivateEndpointArgs, ClusterManagedPrivateEndpointState } from "./clusterManagedPrivateEndpoint";
+export type ClusterManagedPrivateEndpoint = import("./clusterManagedPrivateEndpoint").ClusterManagedPrivateEndpoint;
+export const ClusterManagedPrivateEndpoint: typeof import("./clusterManagedPrivateEndpoint").ClusterManagedPrivateEndpoint = null as any;
+utilities.lazyLoad(exports, ["ClusterManagedPrivateEndpoint"], () => require("./clusterManagedPrivateEndpoint"));
+
+export { ClusterPrincipalAssignmentArgs, ClusterPrincipalAssignmentState } from "./clusterPrincipalAssignment";
+export type ClusterPrincipalAssignment = import("./clusterPrincipalAssignment").ClusterPrincipalAssignment;
+export const ClusterPrincipalAssignment: typeof import("./clusterPrincipalAssignment").ClusterPrincipalAssignment = null as any;
+utilities.lazyLoad(exports, ["ClusterPrincipalAssignment"], () => require("./clusterPrincipalAssignment"));
+
+export { DatabaseArgs, DatabaseState } from "./database";
+export type Database = import("./database").Database;
+export const Database: typeof import("./database").Database = null as any;
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+
+export { DatabasePrincipalAssignmentArgs, DatabasePrincipalAssignmentState } from "./databasePrincipalAssignment";
+export type DatabasePrincipalAssignment = import("./databasePrincipalAssignment").DatabasePrincipalAssignment;
+export const DatabasePrincipalAssignment: typeof import("./databasePrincipalAssignment").DatabasePrincipalAssignment = null as any;
+utilities.lazyLoad(exports, ["DatabasePrincipalAssignment"], () => require("./databasePrincipalAssignment"));
+
+export { EventGridDataConnectionArgs, EventGridDataConnectionState } from "./eventGridDataConnection";
+export type EventGridDataConnection = import("./eventGridDataConnection").EventGridDataConnection;
+export const EventGridDataConnection: typeof import("./eventGridDataConnection").EventGridDataConnection = null as any;
+utilities.lazyLoad(exports, ["EventGridDataConnection"], () => require("./eventGridDataConnection"));
+
+export { EventhubDataConnectionArgs, EventhubDataConnectionState } from "./eventhubDataConnection";
+export type EventhubDataConnection = import("./eventhubDataConnection").EventhubDataConnection;
+export const EventhubDataConnection: typeof import("./eventhubDataConnection").EventhubDataConnection = null as any;
+utilities.lazyLoad(exports, ["EventhubDataConnection"], () => require("./eventhubDataConnection"));
+
+export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
+export const getCluster: typeof import("./getCluster").getCluster = null as any;
+export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+
+export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
+export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
+export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
+
+export { IotHubDataConnectionArgs, IotHubDataConnectionState } from "./iotHubDataConnection";
+export type IotHubDataConnection = import("./iotHubDataConnection").IotHubDataConnection;
+export const IotHubDataConnection: typeof import("./iotHubDataConnection").IotHubDataConnection = null as any;
+utilities.lazyLoad(exports, ["IotHubDataConnection"], () => require("./iotHubDataConnection"));
+
+export { ScriptArgs, ScriptState } from "./script";
+export type Script = import("./script").Script;
+export const Script: typeof import("./script").Script = null as any;
+utilities.lazyLoad(exports, ["Script"], () => require("./script"));
+
 
 const _module = {
     version: utilities.getVersion(),

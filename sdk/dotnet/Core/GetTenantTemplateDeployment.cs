@@ -15,13 +15,13 @@ namespace Pulumi.Azure.Core
         /// Use this data source to access information about an existing Tenant Template Deployment.
         /// </summary>
         public static Task<GetTenantTemplateDeploymentResult> InvokeAsync(GetTenantTemplateDeploymentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTenantTemplateDeploymentResult>("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", args ?? new GetTenantTemplateDeploymentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTenantTemplateDeploymentResult>("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", args ?? new GetTenantTemplateDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Tenant Template Deployment.
         /// </summary>
         public static Output<GetTenantTemplateDeploymentResult> Invoke(GetTenantTemplateDeploymentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTenantTemplateDeploymentResult>("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", args ?? new GetTenantTemplateDeploymentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTenantTemplateDeploymentResult>("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", args ?? new GetTenantTemplateDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 

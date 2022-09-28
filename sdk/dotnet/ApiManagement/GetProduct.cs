@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure:apimanagement/getProduct:getProduct", args ?? new GetProductArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("azure:apimanagement/getProduct:getProduct", args ?? new GetProductArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing API Management Product.
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure:apimanagement/getProduct:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetProductResult>("azure:apimanagement/getProduct:getProduct", args ?? new GetProductInvokeArgs(), options.WithDefaults());
     }
 
 

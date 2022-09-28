@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetConfidentialLedgerResult> InvokeAsync(GetConfidentialLedgerArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfidentialLedgerResult>("azure:compute/getConfidentialLedger:getConfidentialLedger", args ?? new GetConfidentialLedgerArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfidentialLedgerResult>("azure:compute/getConfidentialLedger:getConfidentialLedger", args ?? new GetConfidentialLedgerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about an existing Confidential Ledger.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetConfidentialLedgerResult> Invoke(GetConfidentialLedgerInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfidentialLedgerResult>("azure:compute/getConfidentialLedger:getConfidentialLedger", args ?? new GetConfidentialLedgerInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfidentialLedgerResult>("azure:compute/getConfidentialLedger:getConfidentialLedger", args ?? new GetConfidentialLedgerInvokeArgs(), options.WithDefaults());
     }
 
 

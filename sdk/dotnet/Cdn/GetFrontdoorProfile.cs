@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Cdn
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetFrontdoorProfileResult> InvokeAsync(GetFrontdoorProfileArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorProfileResult>("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", args ?? new GetFrontdoorProfileArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorProfileResult>("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", args ?? new GetFrontdoorProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing CDN FrontDoor Profile.
@@ -65,7 +65,7 @@ namespace Pulumi.Azure.Cdn
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetFrontdoorProfileResult> Invoke(GetFrontdoorProfileInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetFrontdoorProfileResult>("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", args ?? new GetFrontdoorProfileInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorProfileResult>("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", args ?? new GetFrontdoorProfileInvokeArgs(), options.WithDefaults());
     }
 
 

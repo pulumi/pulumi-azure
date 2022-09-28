@@ -5,12 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./assignment";
-export * from "./definition";
+export { AssignmentArgs, AssignmentState } from "./assignment";
+export type Assignment = import("./assignment").Assignment;
+export const Assignment: typeof import("./assignment").Assignment = null as any;
+utilities.lazyLoad(exports, ["Assignment"], () => require("./assignment"));
 
-// Import resources to register:
-import { Assignment } from "./assignment";
-import { Definition } from "./definition";
+export { DefinitionArgs, DefinitionState } from "./definition";
+export type Definition = import("./definition").Definition;
+export const Definition: typeof import("./definition").Definition = null as any;
+utilities.lazyLoad(exports, ["Definition"], () => require("./definition"));
+
 
 const _module = {
     version: utilities.getVersion(),

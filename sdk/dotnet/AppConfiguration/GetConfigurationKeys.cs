@@ -42,7 +42,7 @@ namespace Pulumi.Azure.AppConfiguration
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetConfigurationKeysResult> InvokeAsync(GetConfigurationKeysArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationKeysResult>("azure:appconfiguration/getConfigurationKeys:getConfigurationKeys", args ?? new GetConfigurationKeysArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationKeysResult>("azure:appconfiguration/getConfigurationKeys:getConfigurationKeys", args ?? new GetConfigurationKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about existing Azure App Configuration Keys.
@@ -75,7 +75,7 @@ namespace Pulumi.Azure.AppConfiguration
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetConfigurationKeysResult> Invoke(GetConfigurationKeysInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetConfigurationKeysResult>("azure:appconfiguration/getConfigurationKeys:getConfigurationKeys", args ?? new GetConfigurationKeysInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationKeysResult>("azure:appconfiguration/getConfigurationKeys:getConfigurationKeys", args ?? new GetConfigurationKeysInvokeArgs(), options.WithDefaults());
     }
 
 

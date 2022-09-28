@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetNetworkSecurityGroupResult> InvokeAsync(GetNetworkSecurityGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityGroupResult>("azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityGroupResult>("azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Network Security Group.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetNetworkSecurityGroupResult> Invoke(GetNetworkSecurityGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityGroupResult>("azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityGroupResult>("azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup", args ?? new GetNetworkSecurityGroupInvokeArgs(), options.WithDefaults());
     }
 
 

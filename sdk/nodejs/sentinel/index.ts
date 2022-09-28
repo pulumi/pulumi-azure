@@ -5,46 +5,106 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./alertRuleFusion";
-export * from "./alertRuleMachineLearningBehaviorAnalytics";
-export * from "./alertRuleMsSecurityIncident";
-export * from "./alertRuleNrt";
-export * from "./alertRuleScheduled";
-export * from "./authomationRule";
-export * from "./automationRule";
-export * from "./dataConnectorAwsCloudTrail";
-export * from "./dataConnectorAwsS3";
-export * from "./dataConnectorAzureActiveDirectory";
-export * from "./dataConnectorAzureAdvancedThreadProtection";
-export * from "./dataConnectorAzureSecurityCenter";
-export * from "./dataConnectorMicrosoftCloudAppSecurity";
-export * from "./dataConnectorMicrosoftDefenderAdvancedThreatProtection";
-export * from "./dataConnectorOffice365";
-export * from "./dataConnectorThreatIntelligence";
-export * from "./getAlertRule";
-export * from "./getAlertRuleTemplate";
-export * from "./watchlist";
-export * from "./watchlistItem";
+export { AlertRuleFusionArgs, AlertRuleFusionState } from "./alertRuleFusion";
+export type AlertRuleFusion = import("./alertRuleFusion").AlertRuleFusion;
+export const AlertRuleFusion: typeof import("./alertRuleFusion").AlertRuleFusion = null as any;
+utilities.lazyLoad(exports, ["AlertRuleFusion"], () => require("./alertRuleFusion"));
 
-// Import resources to register:
-import { AlertRuleFusion } from "./alertRuleFusion";
-import { AlertRuleMachineLearningBehaviorAnalytics } from "./alertRuleMachineLearningBehaviorAnalytics";
-import { AlertRuleMsSecurityIncident } from "./alertRuleMsSecurityIncident";
-import { AlertRuleNrt } from "./alertRuleNrt";
-import { AlertRuleScheduled } from "./alertRuleScheduled";
-import { AuthomationRule } from "./authomationRule";
-import { AutomationRule } from "./automationRule";
-import { DataConnectorAwsCloudTrail } from "./dataConnectorAwsCloudTrail";
-import { DataConnectorAwsS3 } from "./dataConnectorAwsS3";
-import { DataConnectorAzureActiveDirectory } from "./dataConnectorAzureActiveDirectory";
-import { DataConnectorAzureAdvancedThreadProtection } from "./dataConnectorAzureAdvancedThreadProtection";
-import { DataConnectorAzureSecurityCenter } from "./dataConnectorAzureSecurityCenter";
-import { DataConnectorMicrosoftCloudAppSecurity } from "./dataConnectorMicrosoftCloudAppSecurity";
-import { DataConnectorMicrosoftDefenderAdvancedThreatProtection } from "./dataConnectorMicrosoftDefenderAdvancedThreatProtection";
-import { DataConnectorOffice365 } from "./dataConnectorOffice365";
-import { DataConnectorThreatIntelligence } from "./dataConnectorThreatIntelligence";
-import { Watchlist } from "./watchlist";
-import { WatchlistItem } from "./watchlistItem";
+export { AlertRuleMachineLearningBehaviorAnalyticsArgs, AlertRuleMachineLearningBehaviorAnalyticsState } from "./alertRuleMachineLearningBehaviorAnalytics";
+export type AlertRuleMachineLearningBehaviorAnalytics = import("./alertRuleMachineLearningBehaviorAnalytics").AlertRuleMachineLearningBehaviorAnalytics;
+export const AlertRuleMachineLearningBehaviorAnalytics: typeof import("./alertRuleMachineLearningBehaviorAnalytics").AlertRuleMachineLearningBehaviorAnalytics = null as any;
+utilities.lazyLoad(exports, ["AlertRuleMachineLearningBehaviorAnalytics"], () => require("./alertRuleMachineLearningBehaviorAnalytics"));
+
+export { AlertRuleMsSecurityIncidentArgs, AlertRuleMsSecurityIncidentState } from "./alertRuleMsSecurityIncident";
+export type AlertRuleMsSecurityIncident = import("./alertRuleMsSecurityIncident").AlertRuleMsSecurityIncident;
+export const AlertRuleMsSecurityIncident: typeof import("./alertRuleMsSecurityIncident").AlertRuleMsSecurityIncident = null as any;
+utilities.lazyLoad(exports, ["AlertRuleMsSecurityIncident"], () => require("./alertRuleMsSecurityIncident"));
+
+export { AlertRuleNrtArgs, AlertRuleNrtState } from "./alertRuleNrt";
+export type AlertRuleNrt = import("./alertRuleNrt").AlertRuleNrt;
+export const AlertRuleNrt: typeof import("./alertRuleNrt").AlertRuleNrt = null as any;
+utilities.lazyLoad(exports, ["AlertRuleNrt"], () => require("./alertRuleNrt"));
+
+export { AlertRuleScheduledArgs, AlertRuleScheduledState } from "./alertRuleScheduled";
+export type AlertRuleScheduled = import("./alertRuleScheduled").AlertRuleScheduled;
+export const AlertRuleScheduled: typeof import("./alertRuleScheduled").AlertRuleScheduled = null as any;
+utilities.lazyLoad(exports, ["AlertRuleScheduled"], () => require("./alertRuleScheduled"));
+
+export { AuthomationRuleArgs, AuthomationRuleState } from "./authomationRule";
+export type AuthomationRule = import("./authomationRule").AuthomationRule;
+export const AuthomationRule: typeof import("./authomationRule").AuthomationRule = null as any;
+utilities.lazyLoad(exports, ["AuthomationRule"], () => require("./authomationRule"));
+
+export { AutomationRuleArgs, AutomationRuleState } from "./automationRule";
+export type AutomationRule = import("./automationRule").AutomationRule;
+export const AutomationRule: typeof import("./automationRule").AutomationRule = null as any;
+utilities.lazyLoad(exports, ["AutomationRule"], () => require("./automationRule"));
+
+export { DataConnectorAwsCloudTrailArgs, DataConnectorAwsCloudTrailState } from "./dataConnectorAwsCloudTrail";
+export type DataConnectorAwsCloudTrail = import("./dataConnectorAwsCloudTrail").DataConnectorAwsCloudTrail;
+export const DataConnectorAwsCloudTrail: typeof import("./dataConnectorAwsCloudTrail").DataConnectorAwsCloudTrail = null as any;
+utilities.lazyLoad(exports, ["DataConnectorAwsCloudTrail"], () => require("./dataConnectorAwsCloudTrail"));
+
+export { DataConnectorAwsS3Args, DataConnectorAwsS3State } from "./dataConnectorAwsS3";
+export type DataConnectorAwsS3 = import("./dataConnectorAwsS3").DataConnectorAwsS3;
+export const DataConnectorAwsS3: typeof import("./dataConnectorAwsS3").DataConnectorAwsS3 = null as any;
+utilities.lazyLoad(exports, ["DataConnectorAwsS3"], () => require("./dataConnectorAwsS3"));
+
+export { DataConnectorAzureActiveDirectoryArgs, DataConnectorAzureActiveDirectoryState } from "./dataConnectorAzureActiveDirectory";
+export type DataConnectorAzureActiveDirectory = import("./dataConnectorAzureActiveDirectory").DataConnectorAzureActiveDirectory;
+export const DataConnectorAzureActiveDirectory: typeof import("./dataConnectorAzureActiveDirectory").DataConnectorAzureActiveDirectory = null as any;
+utilities.lazyLoad(exports, ["DataConnectorAzureActiveDirectory"], () => require("./dataConnectorAzureActiveDirectory"));
+
+export { DataConnectorAzureAdvancedThreadProtectionArgs, DataConnectorAzureAdvancedThreadProtectionState } from "./dataConnectorAzureAdvancedThreadProtection";
+export type DataConnectorAzureAdvancedThreadProtection = import("./dataConnectorAzureAdvancedThreadProtection").DataConnectorAzureAdvancedThreadProtection;
+export const DataConnectorAzureAdvancedThreadProtection: typeof import("./dataConnectorAzureAdvancedThreadProtection").DataConnectorAzureAdvancedThreadProtection = null as any;
+utilities.lazyLoad(exports, ["DataConnectorAzureAdvancedThreadProtection"], () => require("./dataConnectorAzureAdvancedThreadProtection"));
+
+export { DataConnectorAzureSecurityCenterArgs, DataConnectorAzureSecurityCenterState } from "./dataConnectorAzureSecurityCenter";
+export type DataConnectorAzureSecurityCenter = import("./dataConnectorAzureSecurityCenter").DataConnectorAzureSecurityCenter;
+export const DataConnectorAzureSecurityCenter: typeof import("./dataConnectorAzureSecurityCenter").DataConnectorAzureSecurityCenter = null as any;
+utilities.lazyLoad(exports, ["DataConnectorAzureSecurityCenter"], () => require("./dataConnectorAzureSecurityCenter"));
+
+export { DataConnectorMicrosoftCloudAppSecurityArgs, DataConnectorMicrosoftCloudAppSecurityState } from "./dataConnectorMicrosoftCloudAppSecurity";
+export type DataConnectorMicrosoftCloudAppSecurity = import("./dataConnectorMicrosoftCloudAppSecurity").DataConnectorMicrosoftCloudAppSecurity;
+export const DataConnectorMicrosoftCloudAppSecurity: typeof import("./dataConnectorMicrosoftCloudAppSecurity").DataConnectorMicrosoftCloudAppSecurity = null as any;
+utilities.lazyLoad(exports, ["DataConnectorMicrosoftCloudAppSecurity"], () => require("./dataConnectorMicrosoftCloudAppSecurity"));
+
+export { DataConnectorMicrosoftDefenderAdvancedThreatProtectionArgs, DataConnectorMicrosoftDefenderAdvancedThreatProtectionState } from "./dataConnectorMicrosoftDefenderAdvancedThreatProtection";
+export type DataConnectorMicrosoftDefenderAdvancedThreatProtection = import("./dataConnectorMicrosoftDefenderAdvancedThreatProtection").DataConnectorMicrosoftDefenderAdvancedThreatProtection;
+export const DataConnectorMicrosoftDefenderAdvancedThreatProtection: typeof import("./dataConnectorMicrosoftDefenderAdvancedThreatProtection").DataConnectorMicrosoftDefenderAdvancedThreatProtection = null as any;
+utilities.lazyLoad(exports, ["DataConnectorMicrosoftDefenderAdvancedThreatProtection"], () => require("./dataConnectorMicrosoftDefenderAdvancedThreatProtection"));
+
+export { DataConnectorOffice365Args, DataConnectorOffice365State } from "./dataConnectorOffice365";
+export type DataConnectorOffice365 = import("./dataConnectorOffice365").DataConnectorOffice365;
+export const DataConnectorOffice365: typeof import("./dataConnectorOffice365").DataConnectorOffice365 = null as any;
+utilities.lazyLoad(exports, ["DataConnectorOffice365"], () => require("./dataConnectorOffice365"));
+
+export { DataConnectorThreatIntelligenceArgs, DataConnectorThreatIntelligenceState } from "./dataConnectorThreatIntelligence";
+export type DataConnectorThreatIntelligence = import("./dataConnectorThreatIntelligence").DataConnectorThreatIntelligence;
+export const DataConnectorThreatIntelligence: typeof import("./dataConnectorThreatIntelligence").DataConnectorThreatIntelligence = null as any;
+utilities.lazyLoad(exports, ["DataConnectorThreatIntelligence"], () => require("./dataConnectorThreatIntelligence"));
+
+export { GetAlertRuleArgs, GetAlertRuleResult, GetAlertRuleOutputArgs } from "./getAlertRule";
+export const getAlertRule: typeof import("./getAlertRule").getAlertRule = null as any;
+export const getAlertRuleOutput: typeof import("./getAlertRule").getAlertRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getAlertRule","getAlertRuleOutput"], () => require("./getAlertRule"));
+
+export { GetAlertRuleTemplateArgs, GetAlertRuleTemplateResult, GetAlertRuleTemplateOutputArgs } from "./getAlertRuleTemplate";
+export const getAlertRuleTemplate: typeof import("./getAlertRuleTemplate").getAlertRuleTemplate = null as any;
+export const getAlertRuleTemplateOutput: typeof import("./getAlertRuleTemplate").getAlertRuleTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getAlertRuleTemplate","getAlertRuleTemplateOutput"], () => require("./getAlertRuleTemplate"));
+
+export { WatchlistArgs, WatchlistState } from "./watchlist";
+export type Watchlist = import("./watchlist").Watchlist;
+export const Watchlist: typeof import("./watchlist").Watchlist = null as any;
+utilities.lazyLoad(exports, ["Watchlist"], () => require("./watchlist"));
+
+export { WatchlistItemArgs, WatchlistItemState } from "./watchlistItem";
+export type WatchlistItem = import("./watchlistItem").WatchlistItem;
+export const WatchlistItem: typeof import("./watchlistItem").WatchlistItem = null as any;
+utilities.lazyLoad(exports, ["WatchlistItem"], () => require("./watchlistItem"));
+
 
 const _module = {
     version: utilities.getVersion(),

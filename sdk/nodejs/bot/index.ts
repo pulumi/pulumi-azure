@@ -5,38 +5,81 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./channelAlexa";
-export * from "./channelDirectLine";
-export * from "./channelDirectLineSpeech";
-export * from "./channelEmail";
-export * from "./channelFacebook";
-export * from "./channelLine";
-export * from "./channelSlack";
-export * from "./channelSms";
-export * from "./channelTeams";
-export * from "./channelWebChat";
-export * from "./channelsRegistration";
-export * from "./connection";
-export * from "./healthbot";
-export * from "./serviceAzureBot";
-export * from "./webApp";
+export { ChannelAlexaArgs, ChannelAlexaState } from "./channelAlexa";
+export type ChannelAlexa = import("./channelAlexa").ChannelAlexa;
+export const ChannelAlexa: typeof import("./channelAlexa").ChannelAlexa = null as any;
+utilities.lazyLoad(exports, ["ChannelAlexa"], () => require("./channelAlexa"));
 
-// Import resources to register:
-import { ChannelAlexa } from "./channelAlexa";
-import { ChannelDirectLine } from "./channelDirectLine";
-import { ChannelDirectLineSpeech } from "./channelDirectLineSpeech";
-import { ChannelEmail } from "./channelEmail";
-import { ChannelFacebook } from "./channelFacebook";
-import { ChannelLine } from "./channelLine";
-import { ChannelSlack } from "./channelSlack";
-import { ChannelSms } from "./channelSms";
-import { ChannelTeams } from "./channelTeams";
-import { ChannelWebChat } from "./channelWebChat";
-import { ChannelsRegistration } from "./channelsRegistration";
-import { Connection } from "./connection";
-import { Healthbot } from "./healthbot";
-import { ServiceAzureBot } from "./serviceAzureBot";
-import { WebApp } from "./webApp";
+export { ChannelDirectLineArgs, ChannelDirectLineState } from "./channelDirectLine";
+export type ChannelDirectLine = import("./channelDirectLine").ChannelDirectLine;
+export const ChannelDirectLine: typeof import("./channelDirectLine").ChannelDirectLine = null as any;
+utilities.lazyLoad(exports, ["ChannelDirectLine"], () => require("./channelDirectLine"));
+
+export { ChannelDirectLineSpeechArgs, ChannelDirectLineSpeechState } from "./channelDirectLineSpeech";
+export type ChannelDirectLineSpeech = import("./channelDirectLineSpeech").ChannelDirectLineSpeech;
+export const ChannelDirectLineSpeech: typeof import("./channelDirectLineSpeech").ChannelDirectLineSpeech = null as any;
+utilities.lazyLoad(exports, ["ChannelDirectLineSpeech"], () => require("./channelDirectLineSpeech"));
+
+export { ChannelEmailArgs, ChannelEmailState } from "./channelEmail";
+export type ChannelEmail = import("./channelEmail").ChannelEmail;
+export const ChannelEmail: typeof import("./channelEmail").ChannelEmail = null as any;
+utilities.lazyLoad(exports, ["ChannelEmail"], () => require("./channelEmail"));
+
+export { ChannelFacebookArgs, ChannelFacebookState } from "./channelFacebook";
+export type ChannelFacebook = import("./channelFacebook").ChannelFacebook;
+export const ChannelFacebook: typeof import("./channelFacebook").ChannelFacebook = null as any;
+utilities.lazyLoad(exports, ["ChannelFacebook"], () => require("./channelFacebook"));
+
+export { ChannelLineArgs, ChannelLineState } from "./channelLine";
+export type ChannelLine = import("./channelLine").ChannelLine;
+export const ChannelLine: typeof import("./channelLine").ChannelLine = null as any;
+utilities.lazyLoad(exports, ["ChannelLine"], () => require("./channelLine"));
+
+export { ChannelSlackArgs, ChannelSlackState } from "./channelSlack";
+export type ChannelSlack = import("./channelSlack").ChannelSlack;
+export const ChannelSlack: typeof import("./channelSlack").ChannelSlack = null as any;
+utilities.lazyLoad(exports, ["ChannelSlack"], () => require("./channelSlack"));
+
+export { ChannelSmsArgs, ChannelSmsState } from "./channelSms";
+export type ChannelSms = import("./channelSms").ChannelSms;
+export const ChannelSms: typeof import("./channelSms").ChannelSms = null as any;
+utilities.lazyLoad(exports, ["ChannelSms"], () => require("./channelSms"));
+
+export { ChannelTeamsArgs, ChannelTeamsState } from "./channelTeams";
+export type ChannelTeams = import("./channelTeams").ChannelTeams;
+export const ChannelTeams: typeof import("./channelTeams").ChannelTeams = null as any;
+utilities.lazyLoad(exports, ["ChannelTeams"], () => require("./channelTeams"));
+
+export { ChannelWebChatArgs, ChannelWebChatState } from "./channelWebChat";
+export type ChannelWebChat = import("./channelWebChat").ChannelWebChat;
+export const ChannelWebChat: typeof import("./channelWebChat").ChannelWebChat = null as any;
+utilities.lazyLoad(exports, ["ChannelWebChat"], () => require("./channelWebChat"));
+
+export { ChannelsRegistrationArgs, ChannelsRegistrationState } from "./channelsRegistration";
+export type ChannelsRegistration = import("./channelsRegistration").ChannelsRegistration;
+export const ChannelsRegistration: typeof import("./channelsRegistration").ChannelsRegistration = null as any;
+utilities.lazyLoad(exports, ["ChannelsRegistration"], () => require("./channelsRegistration"));
+
+export { ConnectionArgs, ConnectionState } from "./connection";
+export type Connection = import("./connection").Connection;
+export const Connection: typeof import("./connection").Connection = null as any;
+utilities.lazyLoad(exports, ["Connection"], () => require("./connection"));
+
+export { HealthbotArgs, HealthbotState } from "./healthbot";
+export type Healthbot = import("./healthbot").Healthbot;
+export const Healthbot: typeof import("./healthbot").Healthbot = null as any;
+utilities.lazyLoad(exports, ["Healthbot"], () => require("./healthbot"));
+
+export { ServiceAzureBotArgs, ServiceAzureBotState } from "./serviceAzureBot";
+export type ServiceAzureBot = import("./serviceAzureBot").ServiceAzureBot;
+export const ServiceAzureBot: typeof import("./serviceAzureBot").ServiceAzureBot = null as any;
+utilities.lazyLoad(exports, ["ServiceAzureBot"], () => require("./serviceAzureBot"));
+
+export { WebAppArgs, WebAppState } from "./webApp";
+export type WebApp = import("./webApp").WebApp;
+export const WebApp: typeof import("./webApp").WebApp = null as any;
+utilities.lazyLoad(exports, ["WebApp"], () => require("./webApp"));
+
 
 const _module = {
     version: utilities.getVersion(),

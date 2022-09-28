@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDedicatedHostGroupResult> InvokeAsync(GetDedicatedHostGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostGroupResult>("azure:compute/getDedicatedHostGroup:getDedicatedHostGroup", args ?? new GetDedicatedHostGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostGroupResult>("azure:compute/getDedicatedHostGroup:getDedicatedHostGroup", args ?? new GetDedicatedHostGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Dedicated Host Group.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDedicatedHostGroupResult> Invoke(GetDedicatedHostGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDedicatedHostGroupResult>("azure:compute/getDedicatedHostGroup:getDedicatedHostGroup", args ?? new GetDedicatedHostGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedHostGroupResult>("azure:compute/getDedicatedHostGroup:getDedicatedHostGroup", args ?? new GetDedicatedHostGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -43,7 +43,7 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetApiResult> InvokeAsync(GetApiArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetApiResult>("azure:apimanagement/getApi:getApi", args ?? new GetApiArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetApiResult>("azure:apimanagement/getApi:getApi", args ?? new GetApiArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing API Management API.
@@ -77,7 +77,7 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetApiResult> Invoke(GetApiInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetApiResult>("azure:apimanagement/getApi:getApi", args ?? new GetApiInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiResult>("azure:apimanagement/getApi:getApi", args ?? new GetApiInvokeArgs(), options.WithDefaults());
     }
 
 

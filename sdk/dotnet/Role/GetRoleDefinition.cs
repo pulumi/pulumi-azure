@@ -16,13 +16,13 @@ namespace Pulumi.Azure.Role
         /// Use this data source to access information about an existing Role Definition.
         /// </summary>
         public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure:role/getRoleDefinition:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure:role/getRoleDefinition:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Role Definition.
         /// </summary>
         public static Output<GetRoleDefinitionResult> Invoke(GetRoleDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRoleDefinitionResult>("azure:role/getRoleDefinition:getRoleDefinition", args ?? new GetRoleDefinitionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoleDefinitionResult>("azure:role/getRoleDefinition:getRoleDefinition", args ?? new GetRoleDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

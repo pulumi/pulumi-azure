@@ -5,25 +5,51 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./backupInstanceBlogStorage";
-export * from "./backupInstanceDisk";
-export * from "./backupInstancePostgresql";
-export * from "./backupPolicyBlobStorage";
-export * from "./backupPolicyDisk";
-export * from "./backupPolicyPostgresql";
-export * from "./backupVault";
-export * from "./getBackupVault";
-export * from "./resourceGuard";
+export { BackupInstanceBlogStorageArgs, BackupInstanceBlogStorageState } from "./backupInstanceBlogStorage";
+export type BackupInstanceBlogStorage = import("./backupInstanceBlogStorage").BackupInstanceBlogStorage;
+export const BackupInstanceBlogStorage: typeof import("./backupInstanceBlogStorage").BackupInstanceBlogStorage = null as any;
+utilities.lazyLoad(exports, ["BackupInstanceBlogStorage"], () => require("./backupInstanceBlogStorage"));
 
-// Import resources to register:
-import { BackupInstanceBlogStorage } from "./backupInstanceBlogStorage";
-import { BackupInstanceDisk } from "./backupInstanceDisk";
-import { BackupInstancePostgresql } from "./backupInstancePostgresql";
-import { BackupPolicyBlobStorage } from "./backupPolicyBlobStorage";
-import { BackupPolicyDisk } from "./backupPolicyDisk";
-import { BackupPolicyPostgresql } from "./backupPolicyPostgresql";
-import { BackupVault } from "./backupVault";
-import { ResourceGuard } from "./resourceGuard";
+export { BackupInstanceDiskArgs, BackupInstanceDiskState } from "./backupInstanceDisk";
+export type BackupInstanceDisk = import("./backupInstanceDisk").BackupInstanceDisk;
+export const BackupInstanceDisk: typeof import("./backupInstanceDisk").BackupInstanceDisk = null as any;
+utilities.lazyLoad(exports, ["BackupInstanceDisk"], () => require("./backupInstanceDisk"));
+
+export { BackupInstancePostgresqlArgs, BackupInstancePostgresqlState } from "./backupInstancePostgresql";
+export type BackupInstancePostgresql = import("./backupInstancePostgresql").BackupInstancePostgresql;
+export const BackupInstancePostgresql: typeof import("./backupInstancePostgresql").BackupInstancePostgresql = null as any;
+utilities.lazyLoad(exports, ["BackupInstancePostgresql"], () => require("./backupInstancePostgresql"));
+
+export { BackupPolicyBlobStorageArgs, BackupPolicyBlobStorageState } from "./backupPolicyBlobStorage";
+export type BackupPolicyBlobStorage = import("./backupPolicyBlobStorage").BackupPolicyBlobStorage;
+export const BackupPolicyBlobStorage: typeof import("./backupPolicyBlobStorage").BackupPolicyBlobStorage = null as any;
+utilities.lazyLoad(exports, ["BackupPolicyBlobStorage"], () => require("./backupPolicyBlobStorage"));
+
+export { BackupPolicyDiskArgs, BackupPolicyDiskState } from "./backupPolicyDisk";
+export type BackupPolicyDisk = import("./backupPolicyDisk").BackupPolicyDisk;
+export const BackupPolicyDisk: typeof import("./backupPolicyDisk").BackupPolicyDisk = null as any;
+utilities.lazyLoad(exports, ["BackupPolicyDisk"], () => require("./backupPolicyDisk"));
+
+export { BackupPolicyPostgresqlArgs, BackupPolicyPostgresqlState } from "./backupPolicyPostgresql";
+export type BackupPolicyPostgresql = import("./backupPolicyPostgresql").BackupPolicyPostgresql;
+export const BackupPolicyPostgresql: typeof import("./backupPolicyPostgresql").BackupPolicyPostgresql = null as any;
+utilities.lazyLoad(exports, ["BackupPolicyPostgresql"], () => require("./backupPolicyPostgresql"));
+
+export { BackupVaultArgs, BackupVaultState } from "./backupVault";
+export type BackupVault = import("./backupVault").BackupVault;
+export const BackupVault: typeof import("./backupVault").BackupVault = null as any;
+utilities.lazyLoad(exports, ["BackupVault"], () => require("./backupVault"));
+
+export { GetBackupVaultArgs, GetBackupVaultResult, GetBackupVaultOutputArgs } from "./getBackupVault";
+export const getBackupVault: typeof import("./getBackupVault").getBackupVault = null as any;
+export const getBackupVaultOutput: typeof import("./getBackupVault").getBackupVaultOutput = null as any;
+utilities.lazyLoad(exports, ["getBackupVault","getBackupVaultOutput"], () => require("./getBackupVault"));
+
+export { ResourceGuardArgs, ResourceGuardState } from "./resourceGuard";
+export type ResourceGuard = import("./resourceGuard").ResourceGuard;
+export const ResourceGuard: typeof import("./resourceGuard").ResourceGuard = null as any;
+utilities.lazyLoad(exports, ["ResourceGuard"], () => require("./resourceGuard"));
+
 
 const _module = {
     version: utilities.getVersion(),

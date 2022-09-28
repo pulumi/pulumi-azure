@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("azure:compute/getImage:getImage", args ?? new GetImageArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("azure:compute/getImage:getImage", args ?? new GetImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Image.
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Compute
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetImageResult>("azure:compute/getImage:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("azure:compute/getImage:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
     }
 
 

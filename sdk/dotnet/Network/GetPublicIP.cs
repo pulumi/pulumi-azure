@@ -132,7 +132,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPublicIPResult> InvokeAsync(GetPublicIPArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPResult>("azure:network/getPublicIP:getPublicIP", args ?? new GetPublicIPArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPublicIPResult>("azure:network/getPublicIP:getPublicIP", args ?? new GetPublicIPArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Public IP Address.
@@ -255,7 +255,7 @@ namespace Pulumi.Azure.Network
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPublicIPResult> Invoke(GetPublicIPInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPublicIPResult>("azure:network/getPublicIP:getPublicIP", args ?? new GetPublicIPInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPublicIPResult>("azure:network/getPublicIP:getPublicIP", args ?? new GetPublicIPInvokeArgs(), options.WithDefaults());
     }
 
 

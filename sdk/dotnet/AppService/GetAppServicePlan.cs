@@ -39,7 +39,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAppServicePlanResult> InvokeAsync(GetAppServicePlanArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAppServicePlanResult>("azure:appservice/getAppServicePlan:getAppServicePlan", args ?? new GetAppServicePlanArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppServicePlanResult>("azure:appservice/getAppServicePlan:getAppServicePlan", args ?? new GetAppServicePlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.AppService
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAppServicePlanResult> Invoke(GetAppServicePlanInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAppServicePlanResult>("azure:appservice/getAppServicePlan:getAppServicePlan", args ?? new GetAppServicePlanInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppServicePlanResult>("azure:appservice/getAppServicePlan:getAppServicePlan", args ?? new GetAppServicePlanInvokeArgs(), options.WithDefaults());
     }
 
 

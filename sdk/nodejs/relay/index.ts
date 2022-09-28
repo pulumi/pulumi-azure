@@ -5,16 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./hybridConnection";
-export * from "./hybridConnectionAuthorizationRule";
-export * from "./namespace";
-export * from "./namespaceAuthorizationRule";
+export { HybridConnectionArgs, HybridConnectionState } from "./hybridConnection";
+export type HybridConnection = import("./hybridConnection").HybridConnection;
+export const HybridConnection: typeof import("./hybridConnection").HybridConnection = null as any;
+utilities.lazyLoad(exports, ["HybridConnection"], () => require("./hybridConnection"));
 
-// Import resources to register:
-import { HybridConnection } from "./hybridConnection";
-import { HybridConnectionAuthorizationRule } from "./hybridConnectionAuthorizationRule";
-import { Namespace } from "./namespace";
-import { NamespaceAuthorizationRule } from "./namespaceAuthorizationRule";
+export { HybridConnectionAuthorizationRuleArgs, HybridConnectionAuthorizationRuleState } from "./hybridConnectionAuthorizationRule";
+export type HybridConnectionAuthorizationRule = import("./hybridConnectionAuthorizationRule").HybridConnectionAuthorizationRule;
+export const HybridConnectionAuthorizationRule: typeof import("./hybridConnectionAuthorizationRule").HybridConnectionAuthorizationRule = null as any;
+utilities.lazyLoad(exports, ["HybridConnectionAuthorizationRule"], () => require("./hybridConnectionAuthorizationRule"));
+
+export { NamespaceArgs, NamespaceState } from "./namespace";
+export type Namespace = import("./namespace").Namespace;
+export const Namespace: typeof import("./namespace").Namespace = null as any;
+utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
+
+export { NamespaceAuthorizationRuleArgs, NamespaceAuthorizationRuleState } from "./namespaceAuthorizationRule";
+export type NamespaceAuthorizationRule = import("./namespaceAuthorizationRule").NamespaceAuthorizationRule;
+export const NamespaceAuthorizationRule: typeof import("./namespaceAuthorizationRule").NamespaceAuthorizationRule = null as any;
+utilities.lazyLoad(exports, ["NamespaceAuthorizationRule"], () => require("./namespaceAuthorizationRule"));
+
 
 const _module = {
     version: utilities.getVersion(),

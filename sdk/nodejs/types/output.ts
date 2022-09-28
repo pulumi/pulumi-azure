@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export namespace advisor {
     export interface GetRecommendationsRecommendation {
@@ -2799,6 +2800,7 @@ export namespace appplatform {
          */
         sampleRate?: number;
     }
+
 }
 
 export namespace appservice {
@@ -15034,6 +15036,7 @@ export namespace batch {
          */
         enableAutomaticUpdates?: boolean;
     }
+
 }
 
 export namespace blueprint {
@@ -25661,6 +25664,7 @@ export namespace dns {
          */
         ttl?: number;
     }
+
 }
 
 export namespace domainservices {
@@ -30448,6 +30452,7 @@ export namespace healthcare {
          */
         name: string;
     }
+
 }
 
 export namespace hpc {
@@ -31979,6 +31984,7 @@ export namespace lb {
          */
         name: string;
     }
+
 }
 
 export namespace lighthouse {
@@ -36622,6 +36628,7 @@ export namespace mysql {
          */
         storageEndpoint?: string;
     }
+
 }
 
 export namespace netapp {
@@ -36845,6 +36852,7 @@ export namespace netapp {
          */
         unixReadWrite?: boolean;
     }
+
 }
 
 export namespace network {
@@ -41014,6 +41022,7 @@ export namespace privatedns {
          */
         ttl?: number;
     }
+
 }
 
 export namespace privatelink {
@@ -43907,6 +43916,7 @@ export namespace storage {
          */
         start: string;
     }
+
 }
 
 export namespace streamanalytics {

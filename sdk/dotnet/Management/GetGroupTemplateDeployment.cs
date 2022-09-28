@@ -15,13 +15,13 @@ namespace Pulumi.Azure.Management
         /// Use this data source to access information about an existing Management Group Template Deployment.
         /// </summary>
         public static Task<GetGroupTemplateDeploymentResult> InvokeAsync(GetGroupTemplateDeploymentArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupTemplateDeploymentResult>("azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment", args ?? new GetGroupTemplateDeploymentArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupTemplateDeploymentResult>("azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment", args ?? new GetGroupTemplateDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Management Group Template Deployment.
         /// </summary>
         public static Output<GetGroupTemplateDeploymentResult> Invoke(GetGroupTemplateDeploymentInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGroupTemplateDeploymentResult>("azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment", args ?? new GetGroupTemplateDeploymentInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupTemplateDeploymentResult>("azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment", args ?? new GetGroupTemplateDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 

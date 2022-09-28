@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface ProviderFeatures {
     apiManagement?: pulumi.Input<inputs.ProviderFeaturesApiManagement>;
@@ -2376,7 +2377,6 @@ export namespace appplatform {
          */
         sampleRate?: pulumi.Input<number>;
     }
-
 }
 
 export namespace appservice {
@@ -10959,7 +10959,6 @@ export namespace batch {
          */
         enableAutomaticUpdates?: pulumi.Input<boolean>;
     }
-
 }
 
 export namespace blueprint {
@@ -20008,7 +20007,6 @@ export namespace dns {
          */
         ttl?: pulumi.Input<number>;
     }
-
 }
 
 export namespace domainservices {
@@ -24548,7 +24546,6 @@ export namespace healthcare {
          */
         name?: pulumi.Input<string>;
     }
-
 }
 
 export namespace hpc {
@@ -25818,7 +25815,6 @@ export namespace lb {
          */
         name: pulumi.Input<string>;
     }
-
 }
 
 export namespace lighthouse {
@@ -25938,19 +25934,6 @@ export namespace logicapps {
         supportCredentials?: pulumi.Input<boolean>;
     }
 
-    export interface GetStandardSiteConfigIpRestrictionArgs {
-        action?: pulumi.Input<string>;
-        headers?: pulumi.Input<inputs.logicapps.GetStandardSiteConfigIpRestrictionHeadersArgs>;
-        ipAddress?: pulumi.Input<string>;
-        /**
-         * The name of this Logic App.
-         */
-        name?: pulumi.Input<string>;
-        priority?: pulumi.Input<number>;
-        serviceTag?: pulumi.Input<string>;
-        virtualNetworkSubnetId?: pulumi.Input<string>;
-    }
-
     export interface GetStandardSiteConfigIpRestriction {
         action?: string;
         headers?: inputs.logicapps.GetStandardSiteConfigIpRestrictionHeaders;
@@ -25964,11 +25947,17 @@ export namespace logicapps {
         virtualNetworkSubnetId?: string;
     }
 
-    export interface GetStandardSiteConfigIpRestrictionHeadersArgs {
-        xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
-        xFdHealthProbe?: pulumi.Input<string>;
-        xForwardedFors?: pulumi.Input<pulumi.Input<string>[]>;
-        xForwardedHosts?: pulumi.Input<pulumi.Input<string>[]>;
+    export interface GetStandardSiteConfigIpRestrictionArgs {
+        action?: pulumi.Input<string>;
+        headers?: pulumi.Input<inputs.logicapps.GetStandardSiteConfigIpRestrictionHeadersArgs>;
+        ipAddress?: pulumi.Input<string>;
+        /**
+         * The name of this Logic App.
+         */
+        name?: pulumi.Input<string>;
+        priority?: pulumi.Input<number>;
+        serviceTag?: pulumi.Input<string>;
+        virtualNetworkSubnetId?: pulumi.Input<string>;
     }
 
     export interface GetStandardSiteConfigIpRestrictionHeaders {
@@ -25976,6 +25965,13 @@ export namespace logicapps {
         xFdHealthProbe?: string;
         xForwardedFors?: string[];
         xForwardedHosts?: string[];
+    }
+
+    export interface GetStandardSiteConfigIpRestrictionHeadersArgs {
+        xAzureFdids?: pulumi.Input<pulumi.Input<string>[]>;
+        xFdHealthProbe?: pulumi.Input<string>;
+        xForwardedFors?: pulumi.Input<pulumi.Input<string>[]>;
+        xForwardedHosts?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface IntegrationAccountAgreementGuestIdentity {
@@ -29778,7 +29774,6 @@ export namespace mysql {
          */
         storageEndpoint?: pulumi.Input<string>;
     }
-
 }
 
 export namespace netapp {
@@ -29922,7 +29917,6 @@ export namespace netapp {
          */
         unixReadWrite?: pulumi.Input<boolean>;
     }
-
 }
 
 export namespace network {
@@ -33303,7 +33297,6 @@ export namespace privatedns {
          */
         ttl?: pulumi.Input<number>;
     }
-
 }
 
 export namespace privatelink {
@@ -35402,33 +35395,6 @@ export namespace storage {
         type: pulumi.Input<string>;
     }
 
-    export interface GetAccountBlobContainerSASPermissionsArgs {
-        /**
-         * Should Add permissions be enabled for this SAS?
-         */
-        add: pulumi.Input<boolean>;
-        /**
-         * Should Create permissions be enabled for this SAS?
-         */
-        create: pulumi.Input<boolean>;
-        /**
-         * Should Delete permissions be enabled for this SAS?
-         */
-        delete: pulumi.Input<boolean>;
-        /**
-         * Should List permissions be enabled for this SAS?
-         */
-        list: pulumi.Input<boolean>;
-        /**
-         * Should Read permissions be enabled for this SAS?
-         */
-        read: pulumi.Input<boolean>;
-        /**
-         * Should Write permissions be enabled for this SAS?
-         */
-        write: pulumi.Input<boolean>;
-    }
-
     export interface GetAccountBlobContainerSASPermissions {
         /**
          * Should Add permissions be enabled for this SAS?
@@ -35456,7 +35422,7 @@ export namespace storage {
         write: boolean;
     }
 
-    export interface GetAccountSASPermissionsArgs {
+    export interface GetAccountBlobContainerSASPermissionsArgs {
         /**
          * Should Add permissions be enabled for this SAS?
          */
@@ -35470,29 +35436,13 @@ export namespace storage {
          */
         delete: pulumi.Input<boolean>;
         /**
-         * Should Filter by Index Tags permissions be enabled for this SAS?
-         */
-        filter: pulumi.Input<boolean>;
-        /**
          * Should List permissions be enabled for this SAS?
          */
         list: pulumi.Input<boolean>;
         /**
-         * Should Process permissions be enabled for this SAS?
-         */
-        process: pulumi.Input<boolean>;
-        /**
          * Should Read permissions be enabled for this SAS?
          */
         read: pulumi.Input<boolean>;
-        /**
-         * Should Get / Set Index Tags permissions be enabled for this SAS?
-         */
-        tag: pulumi.Input<boolean>;
-        /**
-         * Should Update permissions be enabled for this SAS?
-         */
-        update: pulumi.Input<boolean>;
         /**
          * Should Write permissions be enabled for this SAS?
          */
@@ -35542,19 +35492,47 @@ export namespace storage {
         write: boolean;
     }
 
-    export interface GetAccountSASResourceTypesArgs {
+    export interface GetAccountSASPermissionsArgs {
         /**
-         * Should permission be granted to the container?
+         * Should Add permissions be enabled for this SAS?
          */
-        container: pulumi.Input<boolean>;
+        add: pulumi.Input<boolean>;
         /**
-         * Should permission be granted only to a specific object?
+         * Should Create permissions be enabled for this SAS?
          */
-        object: pulumi.Input<boolean>;
+        create: pulumi.Input<boolean>;
         /**
-         * Should permission be granted to the entire service?
+         * Should Delete permissions be enabled for this SAS?
          */
-        service: pulumi.Input<boolean>;
+        delete: pulumi.Input<boolean>;
+        /**
+         * Should Filter by Index Tags permissions be enabled for this SAS?
+         */
+        filter: pulumi.Input<boolean>;
+        /**
+         * Should List permissions be enabled for this SAS?
+         */
+        list: pulumi.Input<boolean>;
+        /**
+         * Should Process permissions be enabled for this SAS?
+         */
+        process: pulumi.Input<boolean>;
+        /**
+         * Should Read permissions be enabled for this SAS?
+         */
+        read: pulumi.Input<boolean>;
+        /**
+         * Should Get / Set Index Tags permissions be enabled for this SAS?
+         */
+        tag: pulumi.Input<boolean>;
+        /**
+         * Should Update permissions be enabled for this SAS?
+         */
+        update: pulumi.Input<boolean>;
+        /**
+         * Should Write permissions be enabled for this SAS?
+         */
+        write: pulumi.Input<boolean>;
     }
 
     export interface GetAccountSASResourceTypes {
@@ -35572,23 +35550,19 @@ export namespace storage {
         service: boolean;
     }
 
-    export interface GetAccountSASServicesArgs {
+    export interface GetAccountSASResourceTypesArgs {
         /**
-         * Should permission be granted to `blob` services within this storage account?
+         * Should permission be granted to the container?
          */
-        blob: pulumi.Input<boolean>;
+        container: pulumi.Input<boolean>;
         /**
-         * Should permission be granted to `file` services within this storage account?
+         * Should permission be granted only to a specific object?
          */
-        file: pulumi.Input<boolean>;
+        object: pulumi.Input<boolean>;
         /**
-         * Should permission be granted to `queue` services within this storage account?
+         * Should permission be granted to the entire service?
          */
-        queue: pulumi.Input<boolean>;
-        /**
-         * Should permission be granted to `table` services within this storage account?
-         */
-        table: pulumi.Input<boolean>;
+        service: pulumi.Input<boolean>;
     }
 
     export interface GetAccountSASServices {
@@ -35608,6 +35582,25 @@ export namespace storage {
          * Should permission be granted to `table` services within this storage account?
          */
         table: boolean;
+    }
+
+    export interface GetAccountSASServicesArgs {
+        /**
+         * Should permission be granted to `blob` services within this storage account?
+         */
+        blob: pulumi.Input<boolean>;
+        /**
+         * Should permission be granted to `file` services within this storage account?
+         */
+        file: pulumi.Input<boolean>;
+        /**
+         * Should permission be granted to `queue` services within this storage account?
+         */
+        queue: pulumi.Input<boolean>;
+        /**
+         * Should permission be granted to `table` services within this storage account?
+         */
+        table: pulumi.Input<boolean>;
     }
 
     export interface GetShareAcl {
@@ -35854,7 +35847,6 @@ export namespace storage {
          */
         start: pulumi.Input<string>;
     }
-
 }
 
 export namespace streamanalytics {

@@ -5,105 +5,276 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./activeSlot";
-export * from "./appService";
-export * from "./certificate";
-export * from "./certificateBinding";
-export * from "./certificateOrder";
-export * from "./connection";
-export * from "./customHostnameBinding";
-export * from "./environment";
-export * from "./environmentV3";
-export * from "./functionApp";
-export * from "./functionAppActiveSlot";
-export * from "./functionAppFunction";
-export * from "./functionAppHybridConnection";
-export * from "./functionAppSlot";
-export * from "./getAppService";
-export * from "./getAppServiceEnvironment";
-export * from "./getAppServicePlan";
-export * from "./getCertificate";
-export * from "./getCertificateOrder";
-export * from "./getEnvironmentV3";
-export * from "./getFunctionApp";
-export * from "./getFunctionAppHostKeys";
-export * from "./getLinuxFunctionApp";
-export * from "./getLinuxWebApp";
-export * from "./getServicePlan";
-export * from "./getSourceControlToken";
-export * from "./getWindowsFunctionApp";
-export * from "./getWindowsWebApp";
-export * from "./hybridConnection";
+export { ActiveSlotArgs, ActiveSlotState } from "./activeSlot";
+export type ActiveSlot = import("./activeSlot").ActiveSlot;
+export const ActiveSlot: typeof import("./activeSlot").ActiveSlot = null as any;
+utilities.lazyLoad(exports, ["ActiveSlot"], () => require("./activeSlot"));
+
+export { AppServiceArgs, AppServiceState } from "./appService";
+export type AppService = import("./appService").AppService;
+export const AppService: typeof import("./appService").AppService = null as any;
+utilities.lazyLoad(exports, ["AppService"], () => require("./appService"));
+
+export { CertificateArgs, CertificateState } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+
+export { CertificateBindingArgs, CertificateBindingState } from "./certificateBinding";
+export type CertificateBinding = import("./certificateBinding").CertificateBinding;
+export const CertificateBinding: typeof import("./certificateBinding").CertificateBinding = null as any;
+utilities.lazyLoad(exports, ["CertificateBinding"], () => require("./certificateBinding"));
+
+export { CertificateOrderArgs, CertificateOrderState } from "./certificateOrder";
+export type CertificateOrder = import("./certificateOrder").CertificateOrder;
+export const CertificateOrder: typeof import("./certificateOrder").CertificateOrder = null as any;
+utilities.lazyLoad(exports, ["CertificateOrder"], () => require("./certificateOrder"));
+
+export { ConnectionArgs, ConnectionState } from "./connection";
+export type Connection = import("./connection").Connection;
+export const Connection: typeof import("./connection").Connection = null as any;
+utilities.lazyLoad(exports, ["Connection"], () => require("./connection"));
+
+export { CustomHostnameBindingArgs, CustomHostnameBindingState } from "./customHostnameBinding";
+export type CustomHostnameBinding = import("./customHostnameBinding").CustomHostnameBinding;
+export const CustomHostnameBinding: typeof import("./customHostnameBinding").CustomHostnameBinding = null as any;
+utilities.lazyLoad(exports, ["CustomHostnameBinding"], () => require("./customHostnameBinding"));
+
+export { EnvironmentArgs, EnvironmentState } from "./environment";
+export type Environment = import("./environment").Environment;
+export const Environment: typeof import("./environment").Environment = null as any;
+utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
+
+export { EnvironmentV3Args, EnvironmentV3State } from "./environmentV3";
+export type EnvironmentV3 = import("./environmentV3").EnvironmentV3;
+export const EnvironmentV3: typeof import("./environmentV3").EnvironmentV3 = null as any;
+utilities.lazyLoad(exports, ["EnvironmentV3"], () => require("./environmentV3"));
+
+export { FunctionAppArgs, FunctionAppState } from "./functionApp";
+export type FunctionApp = import("./functionApp").FunctionApp;
+export const FunctionApp: typeof import("./functionApp").FunctionApp = null as any;
+utilities.lazyLoad(exports, ["FunctionApp"], () => require("./functionApp"));
+
+export { FunctionAppActiveSlotArgs, FunctionAppActiveSlotState } from "./functionAppActiveSlot";
+export type FunctionAppActiveSlot = import("./functionAppActiveSlot").FunctionAppActiveSlot;
+export const FunctionAppActiveSlot: typeof import("./functionAppActiveSlot").FunctionAppActiveSlot = null as any;
+utilities.lazyLoad(exports, ["FunctionAppActiveSlot"], () => require("./functionAppActiveSlot"));
+
+export { FunctionAppFunctionArgs, FunctionAppFunctionState } from "./functionAppFunction";
+export type FunctionAppFunction = import("./functionAppFunction").FunctionAppFunction;
+export const FunctionAppFunction: typeof import("./functionAppFunction").FunctionAppFunction = null as any;
+utilities.lazyLoad(exports, ["FunctionAppFunction"], () => require("./functionAppFunction"));
+
+export { FunctionAppHybridConnectionArgs, FunctionAppHybridConnectionState } from "./functionAppHybridConnection";
+export type FunctionAppHybridConnection = import("./functionAppHybridConnection").FunctionAppHybridConnection;
+export const FunctionAppHybridConnection: typeof import("./functionAppHybridConnection").FunctionAppHybridConnection = null as any;
+utilities.lazyLoad(exports, ["FunctionAppHybridConnection"], () => require("./functionAppHybridConnection"));
+
+export { FunctionAppSlotArgs, FunctionAppSlotState } from "./functionAppSlot";
+export type FunctionAppSlot = import("./functionAppSlot").FunctionAppSlot;
+export const FunctionAppSlot: typeof import("./functionAppSlot").FunctionAppSlot = null as any;
+utilities.lazyLoad(exports, ["FunctionAppSlot"], () => require("./functionAppSlot"));
+
+export { GetAppServiceArgs, GetAppServiceResult, GetAppServiceOutputArgs } from "./getAppService";
+export const getAppService: typeof import("./getAppService").getAppService = null as any;
+export const getAppServiceOutput: typeof import("./getAppService").getAppServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getAppService","getAppServiceOutput"], () => require("./getAppService"));
+
+export { GetAppServiceEnvironmentArgs, GetAppServiceEnvironmentResult, GetAppServiceEnvironmentOutputArgs } from "./getAppServiceEnvironment";
+export const getAppServiceEnvironment: typeof import("./getAppServiceEnvironment").getAppServiceEnvironment = null as any;
+export const getAppServiceEnvironmentOutput: typeof import("./getAppServiceEnvironment").getAppServiceEnvironmentOutput = null as any;
+utilities.lazyLoad(exports, ["getAppServiceEnvironment","getAppServiceEnvironmentOutput"], () => require("./getAppServiceEnvironment"));
+
+export { GetAppServicePlanArgs, GetAppServicePlanResult, GetAppServicePlanOutputArgs } from "./getAppServicePlan";
+export const getAppServicePlan: typeof import("./getAppServicePlan").getAppServicePlan = null as any;
+export const getAppServicePlanOutput: typeof import("./getAppServicePlan").getAppServicePlanOutput = null as any;
+utilities.lazyLoad(exports, ["getAppServicePlan","getAppServicePlanOutput"], () => require("./getAppServicePlan"));
+
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+
+export { GetCertificateOrderArgs, GetCertificateOrderResult, GetCertificateOrderOutputArgs } from "./getCertificateOrder";
+export const getCertificateOrder: typeof import("./getCertificateOrder").getCertificateOrder = null as any;
+export const getCertificateOrderOutput: typeof import("./getCertificateOrder").getCertificateOrderOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificateOrder","getCertificateOrderOutput"], () => require("./getCertificateOrder"));
+
+export { GetEnvironmentV3Args, GetEnvironmentV3Result, GetEnvironmentV3OutputArgs } from "./getEnvironmentV3";
+export const getEnvironmentV3: typeof import("./getEnvironmentV3").getEnvironmentV3 = null as any;
+export const getEnvironmentV3Output: typeof import("./getEnvironmentV3").getEnvironmentV3Output = null as any;
+utilities.lazyLoad(exports, ["getEnvironmentV3","getEnvironmentV3Output"], () => require("./getEnvironmentV3"));
+
+export { GetFunctionAppArgs, GetFunctionAppResult, GetFunctionAppOutputArgs } from "./getFunctionApp";
+export const getFunctionApp: typeof import("./getFunctionApp").getFunctionApp = null as any;
+export const getFunctionAppOutput: typeof import("./getFunctionApp").getFunctionAppOutput = null as any;
+utilities.lazyLoad(exports, ["getFunctionApp","getFunctionAppOutput"], () => require("./getFunctionApp"));
+
+export { GetFunctionAppHostKeysArgs, GetFunctionAppHostKeysResult, GetFunctionAppHostKeysOutputArgs } from "./getFunctionAppHostKeys";
+export const getFunctionAppHostKeys: typeof import("./getFunctionAppHostKeys").getFunctionAppHostKeys = null as any;
+export const getFunctionAppHostKeysOutput: typeof import("./getFunctionAppHostKeys").getFunctionAppHostKeysOutput = null as any;
+utilities.lazyLoad(exports, ["getFunctionAppHostKeys","getFunctionAppHostKeysOutput"], () => require("./getFunctionAppHostKeys"));
+
+export { GetLinuxFunctionAppArgs, GetLinuxFunctionAppResult, GetLinuxFunctionAppOutputArgs } from "./getLinuxFunctionApp";
+export const getLinuxFunctionApp: typeof import("./getLinuxFunctionApp").getLinuxFunctionApp = null as any;
+export const getLinuxFunctionAppOutput: typeof import("./getLinuxFunctionApp").getLinuxFunctionAppOutput = null as any;
+utilities.lazyLoad(exports, ["getLinuxFunctionApp","getLinuxFunctionAppOutput"], () => require("./getLinuxFunctionApp"));
+
+export { GetLinuxWebAppArgs, GetLinuxWebAppResult, GetLinuxWebAppOutputArgs } from "./getLinuxWebApp";
+export const getLinuxWebApp: typeof import("./getLinuxWebApp").getLinuxWebApp = null as any;
+export const getLinuxWebAppOutput: typeof import("./getLinuxWebApp").getLinuxWebAppOutput = null as any;
+utilities.lazyLoad(exports, ["getLinuxWebApp","getLinuxWebAppOutput"], () => require("./getLinuxWebApp"));
+
+export { GetServicePlanArgs, GetServicePlanResult, GetServicePlanOutputArgs } from "./getServicePlan";
+export const getServicePlan: typeof import("./getServicePlan").getServicePlan = null as any;
+export const getServicePlanOutput: typeof import("./getServicePlan").getServicePlanOutput = null as any;
+utilities.lazyLoad(exports, ["getServicePlan","getServicePlanOutput"], () => require("./getServicePlan"));
+
+export { GetSourceControlTokenArgs, GetSourceControlTokenResult, GetSourceControlTokenOutputArgs } from "./getSourceControlToken";
+export const getSourceControlToken: typeof import("./getSourceControlToken").getSourceControlToken = null as any;
+export const getSourceControlTokenOutput: typeof import("./getSourceControlToken").getSourceControlTokenOutput = null as any;
+utilities.lazyLoad(exports, ["getSourceControlToken","getSourceControlTokenOutput"], () => require("./getSourceControlToken"));
+
+export { GetWindowsFunctionAppArgs, GetWindowsFunctionAppResult, GetWindowsFunctionAppOutputArgs } from "./getWindowsFunctionApp";
+export const getWindowsFunctionApp: typeof import("./getWindowsFunctionApp").getWindowsFunctionApp = null as any;
+export const getWindowsFunctionAppOutput: typeof import("./getWindowsFunctionApp").getWindowsFunctionAppOutput = null as any;
+utilities.lazyLoad(exports, ["getWindowsFunctionApp","getWindowsFunctionAppOutput"], () => require("./getWindowsFunctionApp"));
+
+export { GetWindowsWebAppArgs, GetWindowsWebAppResult, GetWindowsWebAppOutputArgs } from "./getWindowsWebApp";
+export const getWindowsWebApp: typeof import("./getWindowsWebApp").getWindowsWebApp = null as any;
+export const getWindowsWebAppOutput: typeof import("./getWindowsWebApp").getWindowsWebAppOutput = null as any;
+utilities.lazyLoad(exports, ["getWindowsWebApp","getWindowsWebAppOutput"], () => require("./getWindowsWebApp"));
+
+export { HybridConnectionArgs, HybridConnectionState } from "./hybridConnection";
+export type HybridConnection = import("./hybridConnection").HybridConnection;
+export const HybridConnection: typeof import("./hybridConnection").HybridConnection = null as any;
+utilities.lazyLoad(exports, ["HybridConnection"], () => require("./hybridConnection"));
+
 export * from "./kind";
-export * from "./linuxFunctionApp";
-export * from "./linuxFunctionAppSlot";
-export * from "./linuxWebApp";
-export * from "./linuxWebAppSlot";
-export * from "./managedCertificate";
-export * from "./plan";
-export * from "./publicCertificate";
-export * from "./servicePlan";
-export * from "./slot";
-export * from "./slotCustomHostnameBinding";
-export * from "./slotVirtualNetworkSwiftConnection";
-export * from "./sourceCodeToken";
-export * from "./sourceControl";
-export * from "./sourceControlSlot";
-export * from "./sourceControlToken";
-export * from "./staticSite";
-export * from "./staticSiteCustomDomain";
-export * from "./virtualNetworkSwiftConnection";
-export * from "./webAppActiveSlot";
-export * from "./webAppHybridConnection";
-export * from "./windowsFunctionApp";
-export * from "./windowsFunctionAppSlot";
-export * from "./windowsWebApp";
-export * from "./windowsWebAppSlot";
+export { LinuxFunctionAppArgs, LinuxFunctionAppState } from "./linuxFunctionApp";
+export type LinuxFunctionApp = import("./linuxFunctionApp").LinuxFunctionApp;
+export const LinuxFunctionApp: typeof import("./linuxFunctionApp").LinuxFunctionApp = null as any;
+utilities.lazyLoad(exports, ["LinuxFunctionApp"], () => require("./linuxFunctionApp"));
+
+export { LinuxFunctionAppSlotArgs, LinuxFunctionAppSlotState } from "./linuxFunctionAppSlot";
+export type LinuxFunctionAppSlot = import("./linuxFunctionAppSlot").LinuxFunctionAppSlot;
+export const LinuxFunctionAppSlot: typeof import("./linuxFunctionAppSlot").LinuxFunctionAppSlot = null as any;
+utilities.lazyLoad(exports, ["LinuxFunctionAppSlot"], () => require("./linuxFunctionAppSlot"));
+
+export { LinuxWebAppArgs, LinuxWebAppState } from "./linuxWebApp";
+export type LinuxWebApp = import("./linuxWebApp").LinuxWebApp;
+export const LinuxWebApp: typeof import("./linuxWebApp").LinuxWebApp = null as any;
+utilities.lazyLoad(exports, ["LinuxWebApp"], () => require("./linuxWebApp"));
+
+export { LinuxWebAppSlotArgs, LinuxWebAppSlotState } from "./linuxWebAppSlot";
+export type LinuxWebAppSlot = import("./linuxWebAppSlot").LinuxWebAppSlot;
+export const LinuxWebAppSlot: typeof import("./linuxWebAppSlot").LinuxWebAppSlot = null as any;
+utilities.lazyLoad(exports, ["LinuxWebAppSlot"], () => require("./linuxWebAppSlot"));
+
+export { ManagedCertificateArgs, ManagedCertificateState } from "./managedCertificate";
+export type ManagedCertificate = import("./managedCertificate").ManagedCertificate;
+export const ManagedCertificate: typeof import("./managedCertificate").ManagedCertificate = null as any;
+utilities.lazyLoad(exports, ["ManagedCertificate"], () => require("./managedCertificate"));
+
+export { PlanArgs, PlanState } from "./plan";
+export type Plan = import("./plan").Plan;
+export const Plan: typeof import("./plan").Plan = null as any;
+utilities.lazyLoad(exports, ["Plan"], () => require("./plan"));
+
+export { PublicCertificateArgs, PublicCertificateState } from "./publicCertificate";
+export type PublicCertificate = import("./publicCertificate").PublicCertificate;
+export const PublicCertificate: typeof import("./publicCertificate").PublicCertificate = null as any;
+utilities.lazyLoad(exports, ["PublicCertificate"], () => require("./publicCertificate"));
+
+export { ServicePlanArgs, ServicePlanState } from "./servicePlan";
+export type ServicePlan = import("./servicePlan").ServicePlan;
+export const ServicePlan: typeof import("./servicePlan").ServicePlan = null as any;
+utilities.lazyLoad(exports, ["ServicePlan"], () => require("./servicePlan"));
+
+export { SlotArgs, SlotState } from "./slot";
+export type Slot = import("./slot").Slot;
+export const Slot: typeof import("./slot").Slot = null as any;
+utilities.lazyLoad(exports, ["Slot"], () => require("./slot"));
+
+export { SlotCustomHostnameBindingArgs, SlotCustomHostnameBindingState } from "./slotCustomHostnameBinding";
+export type SlotCustomHostnameBinding = import("./slotCustomHostnameBinding").SlotCustomHostnameBinding;
+export const SlotCustomHostnameBinding: typeof import("./slotCustomHostnameBinding").SlotCustomHostnameBinding = null as any;
+utilities.lazyLoad(exports, ["SlotCustomHostnameBinding"], () => require("./slotCustomHostnameBinding"));
+
+export { SlotVirtualNetworkSwiftConnectionArgs, SlotVirtualNetworkSwiftConnectionState } from "./slotVirtualNetworkSwiftConnection";
+export type SlotVirtualNetworkSwiftConnection = import("./slotVirtualNetworkSwiftConnection").SlotVirtualNetworkSwiftConnection;
+export const SlotVirtualNetworkSwiftConnection: typeof import("./slotVirtualNetworkSwiftConnection").SlotVirtualNetworkSwiftConnection = null as any;
+utilities.lazyLoad(exports, ["SlotVirtualNetworkSwiftConnection"], () => require("./slotVirtualNetworkSwiftConnection"));
+
+export { SourceCodeTokenArgs, SourceCodeTokenState } from "./sourceCodeToken";
+export type SourceCodeToken = import("./sourceCodeToken").SourceCodeToken;
+export const SourceCodeToken: typeof import("./sourceCodeToken").SourceCodeToken = null as any;
+utilities.lazyLoad(exports, ["SourceCodeToken"], () => require("./sourceCodeToken"));
+
+export { SourceControlArgs, SourceControlState } from "./sourceControl";
+export type SourceControl = import("./sourceControl").SourceControl;
+export const SourceControl: typeof import("./sourceControl").SourceControl = null as any;
+utilities.lazyLoad(exports, ["SourceControl"], () => require("./sourceControl"));
+
+export { SourceControlSlotArgs, SourceControlSlotState } from "./sourceControlSlot";
+export type SourceControlSlot = import("./sourceControlSlot").SourceControlSlot;
+export const SourceControlSlot: typeof import("./sourceControlSlot").SourceControlSlot = null as any;
+utilities.lazyLoad(exports, ["SourceControlSlot"], () => require("./sourceControlSlot"));
+
+export { SourceControlTokenArgs, SourceControlTokenState } from "./sourceControlToken";
+export type SourceControlToken = import("./sourceControlToken").SourceControlToken;
+export const SourceControlToken: typeof import("./sourceControlToken").SourceControlToken = null as any;
+utilities.lazyLoad(exports, ["SourceControlToken"], () => require("./sourceControlToken"));
+
+export { StaticSiteArgs, StaticSiteState } from "./staticSite";
+export type StaticSite = import("./staticSite").StaticSite;
+export const StaticSite: typeof import("./staticSite").StaticSite = null as any;
+utilities.lazyLoad(exports, ["StaticSite"], () => require("./staticSite"));
+
+export { StaticSiteCustomDomainArgs, StaticSiteCustomDomainState } from "./staticSiteCustomDomain";
+export type StaticSiteCustomDomain = import("./staticSiteCustomDomain").StaticSiteCustomDomain;
+export const StaticSiteCustomDomain: typeof import("./staticSiteCustomDomain").StaticSiteCustomDomain = null as any;
+utilities.lazyLoad(exports, ["StaticSiteCustomDomain"], () => require("./staticSiteCustomDomain"));
+
+export { VirtualNetworkSwiftConnectionArgs, VirtualNetworkSwiftConnectionState } from "./virtualNetworkSwiftConnection";
+export type VirtualNetworkSwiftConnection = import("./virtualNetworkSwiftConnection").VirtualNetworkSwiftConnection;
+export const VirtualNetworkSwiftConnection: typeof import("./virtualNetworkSwiftConnection").VirtualNetworkSwiftConnection = null as any;
+utilities.lazyLoad(exports, ["VirtualNetworkSwiftConnection"], () => require("./virtualNetworkSwiftConnection"));
+
+export { WebAppActiveSlotArgs, WebAppActiveSlotState } from "./webAppActiveSlot";
+export type WebAppActiveSlot = import("./webAppActiveSlot").WebAppActiveSlot;
+export const WebAppActiveSlot: typeof import("./webAppActiveSlot").WebAppActiveSlot = null as any;
+utilities.lazyLoad(exports, ["WebAppActiveSlot"], () => require("./webAppActiveSlot"));
+
+export { WebAppHybridConnectionArgs, WebAppHybridConnectionState } from "./webAppHybridConnection";
+export type WebAppHybridConnection = import("./webAppHybridConnection").WebAppHybridConnection;
+export const WebAppHybridConnection: typeof import("./webAppHybridConnection").WebAppHybridConnection = null as any;
+utilities.lazyLoad(exports, ["WebAppHybridConnection"], () => require("./webAppHybridConnection"));
+
+export { WindowsFunctionAppArgs, WindowsFunctionAppState } from "./windowsFunctionApp";
+export type WindowsFunctionApp = import("./windowsFunctionApp").WindowsFunctionApp;
+export const WindowsFunctionApp: typeof import("./windowsFunctionApp").WindowsFunctionApp = null as any;
+utilities.lazyLoad(exports, ["WindowsFunctionApp"], () => require("./windowsFunctionApp"));
+
+export { WindowsFunctionAppSlotArgs, WindowsFunctionAppSlotState } from "./windowsFunctionAppSlot";
+export type WindowsFunctionAppSlot = import("./windowsFunctionAppSlot").WindowsFunctionAppSlot;
+export const WindowsFunctionAppSlot: typeof import("./windowsFunctionAppSlot").WindowsFunctionAppSlot = null as any;
+utilities.lazyLoad(exports, ["WindowsFunctionAppSlot"], () => require("./windowsFunctionAppSlot"));
+
+export { WindowsWebAppArgs, WindowsWebAppState } from "./windowsWebApp";
+export type WindowsWebApp = import("./windowsWebApp").WindowsWebApp;
+export const WindowsWebApp: typeof import("./windowsWebApp").WindowsWebApp = null as any;
+utilities.lazyLoad(exports, ["WindowsWebApp"], () => require("./windowsWebApp"));
+
+export { WindowsWebAppSlotArgs, WindowsWebAppSlotState } from "./windowsWebAppSlot";
+export type WindowsWebAppSlot = import("./windowsWebAppSlot").WindowsWebAppSlot;
+export const WindowsWebAppSlot: typeof import("./windowsWebAppSlot").WindowsWebAppSlot = null as any;
+utilities.lazyLoad(exports, ["WindowsWebAppSlot"], () => require("./windowsWebAppSlot"));
+
 export * from "./zMixins";
 export * from "./zMixins_durable";
 export * from "./zMixins_http";
 export * from "./zMixins_timer";
-
-// Import resources to register:
-import { ActiveSlot } from "./activeSlot";
-import { AppService } from "./appService";
-import { Certificate } from "./certificate";
-import { CertificateBinding } from "./certificateBinding";
-import { CertificateOrder } from "./certificateOrder";
-import { Connection } from "./connection";
-import { CustomHostnameBinding } from "./customHostnameBinding";
-import { Environment } from "./environment";
-import { EnvironmentV3 } from "./environmentV3";
-import { FunctionApp } from "./functionApp";
-import { FunctionAppActiveSlot } from "./functionAppActiveSlot";
-import { FunctionAppFunction } from "./functionAppFunction";
-import { FunctionAppHybridConnection } from "./functionAppHybridConnection";
-import { FunctionAppSlot } from "./functionAppSlot";
-import { HybridConnection } from "./hybridConnection";
-import { LinuxFunctionApp } from "./linuxFunctionApp";
-import { LinuxFunctionAppSlot } from "./linuxFunctionAppSlot";
-import { LinuxWebApp } from "./linuxWebApp";
-import { LinuxWebAppSlot } from "./linuxWebAppSlot";
-import { ManagedCertificate } from "./managedCertificate";
-import { Plan } from "./plan";
-import { PublicCertificate } from "./publicCertificate";
-import { ServicePlan } from "./servicePlan";
-import { Slot } from "./slot";
-import { SlotCustomHostnameBinding } from "./slotCustomHostnameBinding";
-import { SlotVirtualNetworkSwiftConnection } from "./slotVirtualNetworkSwiftConnection";
-import { SourceCodeToken } from "./sourceCodeToken";
-import { SourceControl } from "./sourceControl";
-import { SourceControlSlot } from "./sourceControlSlot";
-import { SourceControlToken } from "./sourceControlToken";
-import { StaticSite } from "./staticSite";
-import { StaticSiteCustomDomain } from "./staticSiteCustomDomain";
-import { VirtualNetworkSwiftConnection } from "./virtualNetworkSwiftConnection";
-import { WebAppActiveSlot } from "./webAppActiveSlot";
-import { WebAppHybridConnection } from "./webAppHybridConnection";
-import { WindowsFunctionApp } from "./windowsFunctionApp";
-import { WindowsFunctionAppSlot } from "./windowsFunctionAppSlot";
-import { WindowsWebApp } from "./windowsWebApp";
-import { WindowsWebAppSlot } from "./windowsWebAppSlot";
 
 const _module = {
     version: utilities.getVersion(),

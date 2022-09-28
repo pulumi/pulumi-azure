@@ -39,7 +39,7 @@ namespace Pulumi.Azure.Sql
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetSqlManagedInstanceResult> InvokeAsync(GetSqlManagedInstanceArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetSqlManagedInstanceResult>("azure:sql/getSqlManagedInstance:getSqlManagedInstance", args ?? new GetSqlManagedInstanceArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlManagedInstanceResult>("azure:sql/getSqlManagedInstance:getSqlManagedInstance", args ?? new GetSqlManagedInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// {{% examples %}}
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Sql
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetSqlManagedInstanceResult> Invoke(GetSqlManagedInstanceInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetSqlManagedInstanceResult>("azure:sql/getSqlManagedInstance:getSqlManagedInstance", args ?? new GetSqlManagedInstanceInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetSqlManagedInstanceResult>("azure:sql/getSqlManagedInstance:getSqlManagedInstance", args ?? new GetSqlManagedInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

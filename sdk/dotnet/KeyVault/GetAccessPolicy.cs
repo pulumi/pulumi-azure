@@ -40,7 +40,7 @@ namespace Pulumi.Azure.KeyVault
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetAccessPolicyResult> InvokeAsync(GetAccessPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure:keyvault/getAccessPolicy:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyResult>("azure:keyvault/getAccessPolicy:getAccessPolicy", args ?? new GetAccessPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about the permissions from the Management Key Vault Templates.
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.KeyVault
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("azure:keyvault/getAccessPolicy:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("azure:keyvault/getAccessPolicy:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

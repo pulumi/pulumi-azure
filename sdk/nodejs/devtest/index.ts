@@ -5,24 +5,51 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getLab";
-export * from "./getVirtualNetwork";
-export * from "./globalVMShutdownSchedule";
-export * from "./lab";
-export * from "./linuxVirtualMachine";
-export * from "./policy";
-export * from "./schedule";
-export * from "./virtualNetwork";
-export * from "./windowsVirtualMachine";
+export { GetLabArgs, GetLabResult, GetLabOutputArgs } from "./getLab";
+export const getLab: typeof import("./getLab").getLab = null as any;
+export const getLabOutput: typeof import("./getLab").getLabOutput = null as any;
+utilities.lazyLoad(exports, ["getLab","getLabOutput"], () => require("./getLab"));
 
-// Import resources to register:
-import { GlobalVMShutdownSchedule } from "./globalVMShutdownSchedule";
-import { Lab } from "./lab";
-import { LinuxVirtualMachine } from "./linuxVirtualMachine";
-import { Policy } from "./policy";
-import { Schedule } from "./schedule";
-import { VirtualNetwork } from "./virtualNetwork";
-import { WindowsVirtualMachine } from "./windowsVirtualMachine";
+export { GetVirtualNetworkArgs, GetVirtualNetworkResult, GetVirtualNetworkOutputArgs } from "./getVirtualNetwork";
+export const getVirtualNetwork: typeof import("./getVirtualNetwork").getVirtualNetwork = null as any;
+export const getVirtualNetworkOutput: typeof import("./getVirtualNetwork").getVirtualNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualNetwork","getVirtualNetworkOutput"], () => require("./getVirtualNetwork"));
+
+export { GlobalVMShutdownScheduleArgs, GlobalVMShutdownScheduleState } from "./globalVMShutdownSchedule";
+export type GlobalVMShutdownSchedule = import("./globalVMShutdownSchedule").GlobalVMShutdownSchedule;
+export const GlobalVMShutdownSchedule: typeof import("./globalVMShutdownSchedule").GlobalVMShutdownSchedule = null as any;
+utilities.lazyLoad(exports, ["GlobalVMShutdownSchedule"], () => require("./globalVMShutdownSchedule"));
+
+export { LabArgs, LabState } from "./lab";
+export type Lab = import("./lab").Lab;
+export const Lab: typeof import("./lab").Lab = null as any;
+utilities.lazyLoad(exports, ["Lab"], () => require("./lab"));
+
+export { LinuxVirtualMachineArgs, LinuxVirtualMachineState } from "./linuxVirtualMachine";
+export type LinuxVirtualMachine = import("./linuxVirtualMachine").LinuxVirtualMachine;
+export const LinuxVirtualMachine: typeof import("./linuxVirtualMachine").LinuxVirtualMachine = null as any;
+utilities.lazyLoad(exports, ["LinuxVirtualMachine"], () => require("./linuxVirtualMachine"));
+
+export { PolicyArgs, PolicyState } from "./policy";
+export type Policy = import("./policy").Policy;
+export const Policy: typeof import("./policy").Policy = null as any;
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
+
+export { ScheduleArgs, ScheduleState } from "./schedule";
+export type Schedule = import("./schedule").Schedule;
+export const Schedule: typeof import("./schedule").Schedule = null as any;
+utilities.lazyLoad(exports, ["Schedule"], () => require("./schedule"));
+
+export { VirtualNetworkArgs, VirtualNetworkState } from "./virtualNetwork";
+export type VirtualNetwork = import("./virtualNetwork").VirtualNetwork;
+export const VirtualNetwork: typeof import("./virtualNetwork").VirtualNetwork = null as any;
+utilities.lazyLoad(exports, ["VirtualNetwork"], () => require("./virtualNetwork"));
+
+export { WindowsVirtualMachineArgs, WindowsVirtualMachineState } from "./windowsVirtualMachine";
+export type WindowsVirtualMachine = import("./windowsVirtualMachine").WindowsVirtualMachine;
+export const WindowsVirtualMachine: typeof import("./windowsVirtualMachine").WindowsVirtualMachine = null as any;
+utilities.lazyLoad(exports, ["WindowsVirtualMachine"], () => require("./windowsVirtualMachine"));
+
 
 const _module = {
     version: utilities.getVersion(),

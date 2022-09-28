@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Core
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetResourceGroupResult> InvokeAsync(GetResourceGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupResult>("azure:core/getResourceGroup:getResourceGroup", args ?? new GetResourceGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupResult>("azure:core/getResourceGroup:getResourceGroup", args ?? new GetResourceGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Resource Group.
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Core
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetResourceGroupResult> Invoke(GetResourceGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetResourceGroupResult>("azure:core/getResourceGroup:getResourceGroup", args ?? new GetResourceGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceGroupResult>("azure:core/getResourceGroup:getResourceGroup", args ?? new GetResourceGroupInvokeArgs(), options.WithDefaults());
     }
 
 

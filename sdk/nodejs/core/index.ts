@@ -5,60 +5,161 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./customProvider";
-export * from "./getClientConfig";
-export * from "./getExtendedLocations";
-export * from "./getResourceGroup";
-export * from "./getResourceGroupTemplateDeployment";
-export * from "./getResources";
-export * from "./getSubscription";
-export * from "./getSubscriptionTemplateDeployment";
-export * from "./getSubscriptions";
-export * from "./getTemplateSpecVersion";
-export * from "./getTenantTemplateDeployment";
-export * from "./getUserAssignedIdentity";
-export * from "./portalTenantConfiguration";
-export * from "./resourceGroup";
-export * from "./resourceGroupCostManagementExport";
-export * from "./resourceGroupPolicyAssignment";
-export * from "./resourceGroupPolicyExemption";
-export * from "./resourceGroupPolicyRemediation";
-export * from "./resourceGroupTemplateDeployment";
-export * from "./resourcePolicyAssignment";
-export * from "./resourcePolicyExemption";
-export * from "./resourcePolicyRemediation";
-export * from "./resourceProviderRegistration";
-export * from "./subscription";
-export * from "./subscriptionCostManagementExport";
-export * from "./subscriptionPolicyAssignment";
-export * from "./subscriptionPolicyExemption";
-export * from "./subscriptionPolicyRemediation";
-export * from "./subscriptionTemplateDeployment";
-export * from "./templateDeployment";
-export * from "./tenantTemplateDeployment";
-export * from "./zMixins";
+export { CustomProviderArgs, CustomProviderState } from "./customProvider";
+export type CustomProvider = import("./customProvider").CustomProvider;
+export const CustomProvider: typeof import("./customProvider").CustomProvider = null as any;
+utilities.lazyLoad(exports, ["CustomProvider"], () => require("./customProvider"));
 
-// Import resources to register:
-import { CustomProvider } from "./customProvider";
-import { PortalTenantConfiguration } from "./portalTenantConfiguration";
-import { ResourceGroup } from "./resourceGroup";
-import { ResourceGroupCostManagementExport } from "./resourceGroupCostManagementExport";
-import { ResourceGroupPolicyAssignment } from "./resourceGroupPolicyAssignment";
-import { ResourceGroupPolicyExemption } from "./resourceGroupPolicyExemption";
-import { ResourceGroupPolicyRemediation } from "./resourceGroupPolicyRemediation";
-import { ResourceGroupTemplateDeployment } from "./resourceGroupTemplateDeployment";
-import { ResourcePolicyAssignment } from "./resourcePolicyAssignment";
-import { ResourcePolicyExemption } from "./resourcePolicyExemption";
-import { ResourcePolicyRemediation } from "./resourcePolicyRemediation";
-import { ResourceProviderRegistration } from "./resourceProviderRegistration";
-import { Subscription } from "./subscription";
-import { SubscriptionCostManagementExport } from "./subscriptionCostManagementExport";
-import { SubscriptionPolicyAssignment } from "./subscriptionPolicyAssignment";
-import { SubscriptionPolicyExemption } from "./subscriptionPolicyExemption";
-import { SubscriptionPolicyRemediation } from "./subscriptionPolicyRemediation";
-import { SubscriptionTemplateDeployment } from "./subscriptionTemplateDeployment";
-import { TemplateDeployment } from "./templateDeployment";
-import { TenantTemplateDeployment } from "./tenantTemplateDeployment";
+export { GetClientConfigResult } from "./getClientConfig";
+export const getClientConfig: typeof import("./getClientConfig").getClientConfig = null as any;
+utilities.lazyLoad(exports, ["getClientConfig"], () => require("./getClientConfig"));
+
+export { GetExtendedLocationsArgs, GetExtendedLocationsResult, GetExtendedLocationsOutputArgs } from "./getExtendedLocations";
+export const getExtendedLocations: typeof import("./getExtendedLocations").getExtendedLocations = null as any;
+export const getExtendedLocationsOutput: typeof import("./getExtendedLocations").getExtendedLocationsOutput = null as any;
+utilities.lazyLoad(exports, ["getExtendedLocations","getExtendedLocationsOutput"], () => require("./getExtendedLocations"));
+
+export { GetResourceGroupArgs, GetResourceGroupResult, GetResourceGroupOutputArgs } from "./getResourceGroup";
+export const getResourceGroup: typeof import("./getResourceGroup").getResourceGroup = null as any;
+export const getResourceGroupOutput: typeof import("./getResourceGroup").getResourceGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceGroup","getResourceGroupOutput"], () => require("./getResourceGroup"));
+
+export { GetResourceGroupTemplateDeploymentArgs, GetResourceGroupTemplateDeploymentResult, GetResourceGroupTemplateDeploymentOutputArgs } from "./getResourceGroupTemplateDeployment";
+export const getResourceGroupTemplateDeployment: typeof import("./getResourceGroupTemplateDeployment").getResourceGroupTemplateDeployment = null as any;
+export const getResourceGroupTemplateDeploymentOutput: typeof import("./getResourceGroupTemplateDeployment").getResourceGroupTemplateDeploymentOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceGroupTemplateDeployment","getResourceGroupTemplateDeploymentOutput"], () => require("./getResourceGroupTemplateDeployment"));
+
+export { GetResourcesArgs, GetResourcesResult, GetResourcesOutputArgs } from "./getResources";
+export const getResources: typeof import("./getResources").getResources = null as any;
+export const getResourcesOutput: typeof import("./getResources").getResourcesOutput = null as any;
+utilities.lazyLoad(exports, ["getResources","getResourcesOutput"], () => require("./getResources"));
+
+export { GetSubscriptionArgs, GetSubscriptionResult, GetSubscriptionOutputArgs } from "./getSubscription";
+export const getSubscription: typeof import("./getSubscription").getSubscription = null as any;
+export const getSubscriptionOutput: typeof import("./getSubscription").getSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getSubscription","getSubscriptionOutput"], () => require("./getSubscription"));
+
+export { GetSubscriptionTemplateDeploymentArgs, GetSubscriptionTemplateDeploymentResult, GetSubscriptionTemplateDeploymentOutputArgs } from "./getSubscriptionTemplateDeployment";
+export const getSubscriptionTemplateDeployment: typeof import("./getSubscriptionTemplateDeployment").getSubscriptionTemplateDeployment = null as any;
+export const getSubscriptionTemplateDeploymentOutput: typeof import("./getSubscriptionTemplateDeployment").getSubscriptionTemplateDeploymentOutput = null as any;
+utilities.lazyLoad(exports, ["getSubscriptionTemplateDeployment","getSubscriptionTemplateDeploymentOutput"], () => require("./getSubscriptionTemplateDeployment"));
+
+export { GetSubscriptionsArgs, GetSubscriptionsResult, GetSubscriptionsOutputArgs } from "./getSubscriptions";
+export const getSubscriptions: typeof import("./getSubscriptions").getSubscriptions = null as any;
+export const getSubscriptionsOutput: typeof import("./getSubscriptions").getSubscriptionsOutput = null as any;
+utilities.lazyLoad(exports, ["getSubscriptions","getSubscriptionsOutput"], () => require("./getSubscriptions"));
+
+export { GetTemplateSpecVersionArgs, GetTemplateSpecVersionResult, GetTemplateSpecVersionOutputArgs } from "./getTemplateSpecVersion";
+export const getTemplateSpecVersion: typeof import("./getTemplateSpecVersion").getTemplateSpecVersion = null as any;
+export const getTemplateSpecVersionOutput: typeof import("./getTemplateSpecVersion").getTemplateSpecVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getTemplateSpecVersion","getTemplateSpecVersionOutput"], () => require("./getTemplateSpecVersion"));
+
+export { GetTenantTemplateDeploymentArgs, GetTenantTemplateDeploymentResult, GetTenantTemplateDeploymentOutputArgs } from "./getTenantTemplateDeployment";
+export const getTenantTemplateDeployment: typeof import("./getTenantTemplateDeployment").getTenantTemplateDeployment = null as any;
+export const getTenantTemplateDeploymentOutput: typeof import("./getTenantTemplateDeployment").getTenantTemplateDeploymentOutput = null as any;
+utilities.lazyLoad(exports, ["getTenantTemplateDeployment","getTenantTemplateDeploymentOutput"], () => require("./getTenantTemplateDeployment"));
+
+export { GetUserAssignedIdentityArgs, GetUserAssignedIdentityResult, GetUserAssignedIdentityOutputArgs } from "./getUserAssignedIdentity";
+export const getUserAssignedIdentity: typeof import("./getUserAssignedIdentity").getUserAssignedIdentity = null as any;
+export const getUserAssignedIdentityOutput: typeof import("./getUserAssignedIdentity").getUserAssignedIdentityOutput = null as any;
+utilities.lazyLoad(exports, ["getUserAssignedIdentity","getUserAssignedIdentityOutput"], () => require("./getUserAssignedIdentity"));
+
+export { PortalTenantConfigurationArgs, PortalTenantConfigurationState } from "./portalTenantConfiguration";
+export type PortalTenantConfiguration = import("./portalTenantConfiguration").PortalTenantConfiguration;
+export const PortalTenantConfiguration: typeof import("./portalTenantConfiguration").PortalTenantConfiguration = null as any;
+utilities.lazyLoad(exports, ["PortalTenantConfiguration"], () => require("./portalTenantConfiguration"));
+
+export { ResourceGroupArgs, ResourceGroupState } from "./resourceGroup";
+export type ResourceGroup = import("./resourceGroup").ResourceGroup;
+export const ResourceGroup: typeof import("./resourceGroup").ResourceGroup = null as any;
+utilities.lazyLoad(exports, ["ResourceGroup"], () => require("./resourceGroup"));
+
+export { ResourceGroupCostManagementExportArgs, ResourceGroupCostManagementExportState } from "./resourceGroupCostManagementExport";
+export type ResourceGroupCostManagementExport = import("./resourceGroupCostManagementExport").ResourceGroupCostManagementExport;
+export const ResourceGroupCostManagementExport: typeof import("./resourceGroupCostManagementExport").ResourceGroupCostManagementExport = null as any;
+utilities.lazyLoad(exports, ["ResourceGroupCostManagementExport"], () => require("./resourceGroupCostManagementExport"));
+
+export { ResourceGroupPolicyAssignmentArgs, ResourceGroupPolicyAssignmentState } from "./resourceGroupPolicyAssignment";
+export type ResourceGroupPolicyAssignment = import("./resourceGroupPolicyAssignment").ResourceGroupPolicyAssignment;
+export const ResourceGroupPolicyAssignment: typeof import("./resourceGroupPolicyAssignment").ResourceGroupPolicyAssignment = null as any;
+utilities.lazyLoad(exports, ["ResourceGroupPolicyAssignment"], () => require("./resourceGroupPolicyAssignment"));
+
+export { ResourceGroupPolicyExemptionArgs, ResourceGroupPolicyExemptionState } from "./resourceGroupPolicyExemption";
+export type ResourceGroupPolicyExemption = import("./resourceGroupPolicyExemption").ResourceGroupPolicyExemption;
+export const ResourceGroupPolicyExemption: typeof import("./resourceGroupPolicyExemption").ResourceGroupPolicyExemption = null as any;
+utilities.lazyLoad(exports, ["ResourceGroupPolicyExemption"], () => require("./resourceGroupPolicyExemption"));
+
+export { ResourceGroupPolicyRemediationArgs, ResourceGroupPolicyRemediationState } from "./resourceGroupPolicyRemediation";
+export type ResourceGroupPolicyRemediation = import("./resourceGroupPolicyRemediation").ResourceGroupPolicyRemediation;
+export const ResourceGroupPolicyRemediation: typeof import("./resourceGroupPolicyRemediation").ResourceGroupPolicyRemediation = null as any;
+utilities.lazyLoad(exports, ["ResourceGroupPolicyRemediation"], () => require("./resourceGroupPolicyRemediation"));
+
+export { ResourceGroupTemplateDeploymentArgs, ResourceGroupTemplateDeploymentState } from "./resourceGroupTemplateDeployment";
+export type ResourceGroupTemplateDeployment = import("./resourceGroupTemplateDeployment").ResourceGroupTemplateDeployment;
+export const ResourceGroupTemplateDeployment: typeof import("./resourceGroupTemplateDeployment").ResourceGroupTemplateDeployment = null as any;
+utilities.lazyLoad(exports, ["ResourceGroupTemplateDeployment"], () => require("./resourceGroupTemplateDeployment"));
+
+export { ResourcePolicyAssignmentArgs, ResourcePolicyAssignmentState } from "./resourcePolicyAssignment";
+export type ResourcePolicyAssignment = import("./resourcePolicyAssignment").ResourcePolicyAssignment;
+export const ResourcePolicyAssignment: typeof import("./resourcePolicyAssignment").ResourcePolicyAssignment = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicyAssignment"], () => require("./resourcePolicyAssignment"));
+
+export { ResourcePolicyExemptionArgs, ResourcePolicyExemptionState } from "./resourcePolicyExemption";
+export type ResourcePolicyExemption = import("./resourcePolicyExemption").ResourcePolicyExemption;
+export const ResourcePolicyExemption: typeof import("./resourcePolicyExemption").ResourcePolicyExemption = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicyExemption"], () => require("./resourcePolicyExemption"));
+
+export { ResourcePolicyRemediationArgs, ResourcePolicyRemediationState } from "./resourcePolicyRemediation";
+export type ResourcePolicyRemediation = import("./resourcePolicyRemediation").ResourcePolicyRemediation;
+export const ResourcePolicyRemediation: typeof import("./resourcePolicyRemediation").ResourcePolicyRemediation = null as any;
+utilities.lazyLoad(exports, ["ResourcePolicyRemediation"], () => require("./resourcePolicyRemediation"));
+
+export { ResourceProviderRegistrationArgs, ResourceProviderRegistrationState } from "./resourceProviderRegistration";
+export type ResourceProviderRegistration = import("./resourceProviderRegistration").ResourceProviderRegistration;
+export const ResourceProviderRegistration: typeof import("./resourceProviderRegistration").ResourceProviderRegistration = null as any;
+utilities.lazyLoad(exports, ["ResourceProviderRegistration"], () => require("./resourceProviderRegistration"));
+
+export { SubscriptionArgs, SubscriptionState } from "./subscription";
+export type Subscription = import("./subscription").Subscription;
+export const Subscription: typeof import("./subscription").Subscription = null as any;
+utilities.lazyLoad(exports, ["Subscription"], () => require("./subscription"));
+
+export { SubscriptionCostManagementExportArgs, SubscriptionCostManagementExportState } from "./subscriptionCostManagementExport";
+export type SubscriptionCostManagementExport = import("./subscriptionCostManagementExport").SubscriptionCostManagementExport;
+export const SubscriptionCostManagementExport: typeof import("./subscriptionCostManagementExport").SubscriptionCostManagementExport = null as any;
+utilities.lazyLoad(exports, ["SubscriptionCostManagementExport"], () => require("./subscriptionCostManagementExport"));
+
+export { SubscriptionPolicyAssignmentArgs, SubscriptionPolicyAssignmentState } from "./subscriptionPolicyAssignment";
+export type SubscriptionPolicyAssignment = import("./subscriptionPolicyAssignment").SubscriptionPolicyAssignment;
+export const SubscriptionPolicyAssignment: typeof import("./subscriptionPolicyAssignment").SubscriptionPolicyAssignment = null as any;
+utilities.lazyLoad(exports, ["SubscriptionPolicyAssignment"], () => require("./subscriptionPolicyAssignment"));
+
+export { SubscriptionPolicyExemptionArgs, SubscriptionPolicyExemptionState } from "./subscriptionPolicyExemption";
+export type SubscriptionPolicyExemption = import("./subscriptionPolicyExemption").SubscriptionPolicyExemption;
+export const SubscriptionPolicyExemption: typeof import("./subscriptionPolicyExemption").SubscriptionPolicyExemption = null as any;
+utilities.lazyLoad(exports, ["SubscriptionPolicyExemption"], () => require("./subscriptionPolicyExemption"));
+
+export { SubscriptionPolicyRemediationArgs, SubscriptionPolicyRemediationState } from "./subscriptionPolicyRemediation";
+export type SubscriptionPolicyRemediation = import("./subscriptionPolicyRemediation").SubscriptionPolicyRemediation;
+export const SubscriptionPolicyRemediation: typeof import("./subscriptionPolicyRemediation").SubscriptionPolicyRemediation = null as any;
+utilities.lazyLoad(exports, ["SubscriptionPolicyRemediation"], () => require("./subscriptionPolicyRemediation"));
+
+export { SubscriptionTemplateDeploymentArgs, SubscriptionTemplateDeploymentState } from "./subscriptionTemplateDeployment";
+export type SubscriptionTemplateDeployment = import("./subscriptionTemplateDeployment").SubscriptionTemplateDeployment;
+export const SubscriptionTemplateDeployment: typeof import("./subscriptionTemplateDeployment").SubscriptionTemplateDeployment = null as any;
+utilities.lazyLoad(exports, ["SubscriptionTemplateDeployment"], () => require("./subscriptionTemplateDeployment"));
+
+export { TemplateDeploymentArgs, TemplateDeploymentState } from "./templateDeployment";
+export type TemplateDeployment = import("./templateDeployment").TemplateDeployment;
+export const TemplateDeployment: typeof import("./templateDeployment").TemplateDeployment = null as any;
+utilities.lazyLoad(exports, ["TemplateDeployment"], () => require("./templateDeployment"));
+
+export { TenantTemplateDeploymentArgs, TenantTemplateDeploymentState } from "./tenantTemplateDeployment";
+export type TenantTemplateDeployment = import("./tenantTemplateDeployment").TenantTemplateDeployment;
+export const TenantTemplateDeployment: typeof import("./tenantTemplateDeployment").TenantTemplateDeployment = null as any;
+utilities.lazyLoad(exports, ["TenantTemplateDeployment"], () => require("./tenantTemplateDeployment"));
+
+export * from "./zMixins";
 
 const _module = {
     version: utilities.getVersion(),
