@@ -5,17 +5,17 @@ go 1.18
 replace github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
 
 require (
-	github.com/pulumi/pulumi/pkg/v3 v3.39.0
+	github.com/pulumi/pulumi/pkg/v3 v3.40.3-0.20220928152524-977c89fcacd7
 	github.com/stretchr/testify v1.8.0
 )
 
 require (
 	cloud.google.com/go v0.100.2 // indirect
-	cloud.google.com/go/compute v1.5.0 // indirect
+	cloud.google.com/go/compute v1.6.0 // indirect
 	cloud.google.com/go/iam v0.3.0 // indirect
 	cloud.google.com/go/kms v1.1.0 // indirect
 	cloud.google.com/go/logging v1.0.0 // indirect
-	cloud.google.com/go/storage v1.22.0 // indirect
+	cloud.google.com/go/storage v1.22.1 // indirect
 	github.com/Azure/azure-pipeline-go v0.2.3 // indirect
 	github.com/Azure/azure-sdk-for-go v57.0.0+incompatible // indirect
 	github.com/Azure/azure-storage-blob-go v0.14.0 // indirect
@@ -71,7 +71,7 @@ require (
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/google/wire v0.5.0 // indirect
-	github.com/googleapis/gax-go/v2 v2.2.0 // indirect
+	github.com/googleapis/gax-go/v2 v2.3.0 // indirect
 	github.com/googleapis/go-type-adapters v1.0.0 // indirect
 	github.com/gorilla/mux v1.7.4 // indirect
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
@@ -112,7 +112,7 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	github.com/pulumi/pulumi/sdk/v3 v3.40.1 // indirect
+	github.com/pulumi/pulumi/sdk/v3 v3.40.3-0.20220928152524-977c89fcacd7 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
 	github.com/rogpeppe/go-internal v1.8.1 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
@@ -138,16 +138,16 @@ require (
 	gocloud.dev/secrets/hashivault v0.24.0 // indirect
 	golang.org/x/crypto v0.0.0-20220824171710-5757bc0c5503 // indirect
 	golang.org/x/net v0.0.0-20220325170049-de3da57026de // indirect
-	golang.org/x/oauth2 v0.0.0-20220309155454-6242fa91716a // indirect
+	golang.org/x/oauth2 v0.0.0-20220411215720-9780585627b5 // indirect
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c // indirect
 	golang.org/x/sys v0.0.0-20220823224334-20c2bfdbfe24 // indirect
 	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/time v0.0.0-20210723032227-1f47c861a9ac // indirect
-	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
+	golang.org/x/xerrors v0.0.0-20220411194840-2f41105eb62f // indirect
 	google.golang.org/api v0.74.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/genproto v0.0.0-20220405205423-9d709892a2bf // indirect
+	google.golang.org/genproto v0.0.0-20220518221133-4f43b3371335 // indirect
 	google.golang.org/grpc v1.49.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/AlecAivazis/survey.v1 v1.8.9-0.20200217094205-6773bdf39b7f // indirect
