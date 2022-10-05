@@ -33,6 +33,10 @@ public final class FrontdoorRuleConditionsPostArgsCondition {
      * 
      */
     private String postArgsName;
+    /**
+     * @return A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+     * 
+     */
     private @Nullable List<String> transforms;
 
     private FrontdoorRuleConditionsPostArgsCondition() {}
@@ -64,6 +68,10 @@ public final class FrontdoorRuleConditionsPostArgsCondition {
     public String postArgsName() {
         return this.postArgsName;
     }
+    /**
+     * @return A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+     * 
+     */
     public List<String> transforms() {
         return this.transforms == null ? List.of() : this.transforms;
     }

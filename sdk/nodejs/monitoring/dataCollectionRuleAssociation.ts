@@ -65,20 +65,20 @@ import * as utilities from "../utilities";
  *         destinations: ["example-destination-metrics"],
  *     }],
  * });
- * const test = new azure.monitoring.DataCollectionEndpoint("test", {
+ * const exampleDataCollectionEndpoint = new azure.monitoring.DataCollectionEndpoint("exampleDataCollectionEndpoint", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  * });
  * // associate to a Data Collection Rule
- * const example1DataCollectionRuleAssociation = new azure.monitoring.DataCollectionRuleAssociation("example1DataCollectionRuleAssociation", {
+ * const example1 = new azure.monitoring.DataCollectionRuleAssociation("example1", {
  *     targetResourceId: exampleLinuxVirtualMachine.id,
  *     dataCollectionRuleId: exampleDataCollectionRule.id,
  *     description: "example",
  * });
  * // associate to a Data Collection Endpoint
- * const example1Monitoring_dataCollectionRuleAssociationDataCollectionRuleAssociation = new azure.monitoring.DataCollectionRuleAssociation("example1Monitoring/dataCollectionRuleAssociationDataCollectionRuleAssociation", {
+ * const example2 = new azure.monitoring.DataCollectionRuleAssociation("example2", {
  *     targetResourceId: exampleLinuxVirtualMachine.id,
- *     dataCollectionEndpointId: azurerm_monitor_data_collection_endpoint.example.id,
+ *     dataCollectionEndpointId: exampleDataCollectionEndpoint.id,
  *     description: "example",
  * });
  * ```

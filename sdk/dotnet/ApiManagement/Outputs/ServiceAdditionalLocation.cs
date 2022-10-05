@@ -18,6 +18,10 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly int? Capacity;
         /// <summary>
+        /// Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+        /// </summary>
+        public readonly bool? GatewayDisabled;
+        /// <summary>
         /// The URL of the Regional Gateway for the API Management Service in the specified region.
         /// </summary>
         public readonly string? GatewayRegionalUrl;
@@ -50,6 +54,8 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         private ServiceAdditionalLocation(
             int? capacity,
 
+            bool? gatewayDisabled,
+
             string? gatewayRegionalUrl,
 
             string location,
@@ -65,6 +71,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
             ImmutableArray<string> zones)
         {
             Capacity = capacity;
+            GatewayDisabled = gatewayDisabled;
             GatewayRegionalUrl = gatewayRegionalUrl;
             Location = location;
             PrivateIpAddresses = privateIpAddresses;

@@ -22,6 +22,14 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly string? CertificatePassword;
         /// <summary>
+        /// The source of the certificate.
+        /// </summary>
+        public readonly string? CertificateSource;
+        /// <summary>
+        /// The status of the certificate.
+        /// </summary>
+        public readonly string? CertificateStatus;
+        /// <summary>
         /// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
         /// </summary>
         public readonly bool? DefaultSslBinding;
@@ -60,6 +68,10 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             string? certificatePassword,
 
+            string? certificateSource,
+
+            string? certificateStatus,
+
             bool? defaultSslBinding,
 
             string? expiry,
@@ -78,6 +90,8 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         {
             Certificate = certificate;
             CertificatePassword = certificatePassword;
+            CertificateSource = certificateSource;
+            CertificateStatus = certificateStatus;
             DefaultSslBinding = defaultSslBinding;
             Expiry = expiry;
             HostName = hostName;

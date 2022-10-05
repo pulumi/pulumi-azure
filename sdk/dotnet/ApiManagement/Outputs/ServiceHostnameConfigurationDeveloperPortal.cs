@@ -22,6 +22,14 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly string? CertificatePassword;
         /// <summary>
+        /// The source of the certificate.
+        /// </summary>
+        public readonly string? CertificateSource;
+        /// <summary>
+        /// The status of the certificate.
+        /// </summary>
+        public readonly string? CertificateStatus;
+        /// <summary>
         /// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         /// </summary>
         public readonly string? Expiry;
@@ -56,6 +64,10 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             string? certificatePassword,
 
+            string? certificateSource,
+
+            string? certificateStatus,
+
             string? expiry,
 
             string hostName,
@@ -72,6 +84,8 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         {
             Certificate = certificate;
             CertificatePassword = certificatePassword;
+            CertificateSource = certificateSource;
+            CertificateStatus = certificateStatus;
             Expiry = expiry;
             HostName = hostName;
             KeyVaultId = keyVaultId;

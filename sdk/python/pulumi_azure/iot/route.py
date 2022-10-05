@@ -29,7 +29,7 @@ class RouteArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source: The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`.
         :param pulumi.Input[str] condition: The condition that is evaluated to apply the routing rule. If no condition is provided, it evaluates to `true` by default. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
-        :param pulumi.Input[str] name: The name of the route.
+        :param pulumi.Input[str] name: The name of the route. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "endpoint_names", endpoint_names)
@@ -117,7 +117,7 @@ class RouteArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the route.
+        The name of the route. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -142,7 +142,7 @@ class _RouteState:
         :param pulumi.Input[bool] enabled: Specifies whether a route is enabled.
         :param pulumi.Input[str] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
         :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the route.
+        :param pulumi.Input[str] name: The name of the route. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source: The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`.
         """
@@ -213,7 +213,7 @@ class _RouteState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the route.
+        The name of the route. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -278,7 +278,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Specifies whether a route is enabled.
         :param pulumi.Input[str] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
         :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the route.
+        :param pulumi.Input[str] name: The name of the route. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source: The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`.
         """
@@ -377,7 +377,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Specifies whether a route is enabled.
         :param pulumi.Input[str] endpoint_names: The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed.
         :param pulumi.Input[str] iothub_name: The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] name: The name of the route.
+        :param pulumi.Input[str] name: The name of the route. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source: The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`.
         """
@@ -430,7 +430,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the route.
+        The name of the route. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

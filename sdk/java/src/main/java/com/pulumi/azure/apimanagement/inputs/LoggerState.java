@@ -124,14 +124,14 @@ public final class LoggerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The target resource id which will be linked in the API-Management portal page.
+     * The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
     /**
-     * @return The target resource id which will be linked in the API-Management portal page.
+     * @return The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> resourceId() {
@@ -317,7 +317,7 @@ public final class LoggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceId The target resource id which will be linked in the API-Management portal page.
+         * @param resourceId The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class LoggerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceId The target resource id which will be linked in the API-Management portal page.
+         * @param resourceId The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

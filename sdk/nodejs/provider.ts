@@ -73,6 +73,10 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly oidcToken!: pulumi.Output<string | undefined>;
     /**
+     * The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+     */
+    public readonly oidcTokenFilePath!: pulumi.Output<string | undefined>;
+    /**
      * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
      */
     public readonly partnerId!: pulumi.Output<string | undefined>;
@@ -110,6 +114,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["oidcRequestToken"] = args ? args.oidcRequestToken : undefined;
             resourceInputs["oidcRequestUrl"] = args ? args.oidcRequestUrl : undefined;
             resourceInputs["oidcToken"] = args ? args.oidcToken : undefined;
+            resourceInputs["oidcTokenFilePath"] = args ? args.oidcTokenFilePath : undefined;
             resourceInputs["partnerId"] = args ? args.partnerId : undefined;
             resourceInputs["skipProviderRegistration"] = pulumi.output((args ? args.skipProviderRegistration : undefined) ?? (utilities.getEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") || false)).apply(JSON.stringify);
             resourceInputs["storageUseAzuread"] = pulumi.output((args ? args.storageUseAzuread : undefined) ?? (utilities.getEnvBoolean("ARM_STORAGE_USE_AZUREAD") || false)).apply(JSON.stringify);
@@ -182,6 +187,10 @@ export interface ProviderArgs {
      * The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
      */
     oidcToken?: pulumi.Input<string>;
+    /**
+     * The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+     */
+    oidcTokenFilePath?: pulumi.Input<string>;
     /**
      * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
      */

@@ -46,6 +46,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
                  source_image_reference: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  termination_notification: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs']] = None,
+                 user_data_base64: Optional[pulumi.Input[str]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -62,9 +63,10 @@ class OrchestratedVirtualMachineScaleSetArgs:
         :param pulumi.Input[str] name: The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
-        :param pulumi.Input[str] sku_name: Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+        :param pulumi.Input[str] sku_name: Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
+        :param pulumi.Input[str] user_data_base64: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
         """
         pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
@@ -125,6 +127,8 @@ class OrchestratedVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "tags", tags)
         if termination_notification is not None:
             pulumi.set(__self__, "termination_notification", termination_notification)
+        if user_data_base64 is not None:
+            pulumi.set(__self__, "user_data_base64", user_data_base64)
         if zone_balance is not None:
             pulumi.set(__self__, "zone_balance", zone_balance)
         if zones is not None:
@@ -395,7 +399,7 @@ class OrchestratedVirtualMachineScaleSetArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+        Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -444,6 +448,18 @@ class OrchestratedVirtualMachineScaleSetArgs:
     @termination_notification.setter
     def termination_notification(self, value: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs']]):
         pulumi.set(self, "termination_notification", value)
+
+    @property
+    @pulumi.getter(name="userDataBase64")
+    def user_data_base64(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+        """
+        return pulumi.get(self, "user_data_base64")
+
+    @user_data_base64.setter
+    def user_data_base64(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_data_base64", value)
 
     @property
     @pulumi.getter(name="zoneBalance")
@@ -501,6 +517,7 @@ class _OrchestratedVirtualMachineScaleSetState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  termination_notification: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs']] = None,
                  unique_id: Optional[pulumi.Input[str]] = None,
+                 user_data_base64: Optional[pulumi.Input[str]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -517,10 +534,11 @@ class _OrchestratedVirtualMachineScaleSetState:
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
-        :param pulumi.Input[str] sku_name: Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+        :param pulumi.Input[str] sku_name: Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs'] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
         :param pulumi.Input[str] unique_id: The Unique ID for the Orchestrated Virtual Machine Scale Set.
+        :param pulumi.Input[str] user_data_base64: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
         """
         if additional_capabilities is not None:
@@ -585,6 +603,8 @@ class _OrchestratedVirtualMachineScaleSetState:
             pulumi.set(__self__, "termination_notification", termination_notification)
         if unique_id is not None:
             pulumi.set(__self__, "unique_id", unique_id)
+        if user_data_base64 is not None:
+            pulumi.set(__self__, "user_data_base64", user_data_base64)
         if zone_balance is not None:
             pulumi.set(__self__, "zone_balance", zone_balance)
         if zones is not None:
@@ -855,7 +875,7 @@ class _OrchestratedVirtualMachineScaleSetState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+        Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -918,6 +938,18 @@ class _OrchestratedVirtualMachineScaleSetState:
         pulumi.set(self, "unique_id", value)
 
     @property
+    @pulumi.getter(name="userDataBase64")
+    def user_data_base64(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+        """
+        return pulumi.get(self, "user_data_base64")
+
+    @user_data_base64.setter
+    def user_data_base64(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_data_base64", value)
+
+    @property
     @pulumi.getter(name="zoneBalance")
     def zone_balance(self) -> Optional[pulumi.Input[bool]]:
         return pulumi.get(self, "zone_balance")
@@ -974,6 +1006,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                  source_image_reference: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  termination_notification: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs']]] = None,
+                 user_data_base64: Optional[pulumi.Input[str]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1022,9 +1055,10 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
-        :param pulumi.Input[str] sku_name: Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+        :param pulumi.Input[str] sku_name: Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
+        :param pulumi.Input[str] user_data_base64: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
         """
         ...
@@ -1109,6 +1143,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
                  source_image_reference: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  termination_notification: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs']]] = None,
+                 user_data_base64: Optional[pulumi.Input[str]] = None,
                  zone_balance: Optional[pulumi.Input[bool]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1154,6 +1189,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["source_image_reference"] = source_image_reference
             __props__.__dict__["tags"] = tags
             __props__.__dict__["termination_notification"] = termination_notification
+            __props__.__dict__["user_data_base64"] = user_data_base64
             __props__.__dict__["zone_balance"] = zone_balance
             __props__.__dict__["zones"] = zones
             __props__.__dict__["unique_id"] = None
@@ -1198,6 +1234,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             termination_notification: Optional[pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetTerminationNotificationArgs']]] = None,
             unique_id: Optional[pulumi.Input[str]] = None,
+            user_data_base64: Optional[pulumi.Input[str]] = None,
             zone_balance: Optional[pulumi.Input[bool]] = None,
             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'OrchestratedVirtualMachineScaleSet':
         """
@@ -1219,10 +1256,11 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the Proximity Placement Group which the Orchestrated Virtual Machine should be assigned to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Orchestrated Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
-        :param pulumi.Input[str] sku_name: Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+        :param pulumi.Input[str] sku_name: Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs']] source_image_reference: A `source_image_reference` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
         :param pulumi.Input[str] unique_id: The Unique ID for the Orchestrated Virtual Machine Scale Set.
+        :param pulumi.Input[str] user_data_base64: The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1260,6 +1298,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["termination_notification"] = termination_notification
         __props__.__dict__["unique_id"] = unique_id
+        __props__.__dict__["user_data_base64"] = user_data_base64
         __props__.__dict__["zone_balance"] = zone_balance
         __props__.__dict__["zones"] = zones
         return OrchestratedVirtualMachineScaleSet(resource_name, opts=opts, __props__=__props__)
@@ -1429,7 +1468,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+        Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -1466,6 +1505,14 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         The Unique ID for the Orchestrated Virtual Machine Scale Set.
         """
         return pulumi.get(self, "unique_id")
+
+    @property
+    @pulumi.getter(name="userDataBase64")
+    def user_data_base64(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+        """
+        return pulumi.get(self, "user_data_base64")
 
     @property
     @pulumi.getter(name="zoneBalance")

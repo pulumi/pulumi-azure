@@ -35,7 +35,7 @@ type Route struct {
 	EndpointNames pulumi.StringOutput `pulumi:"endpointNames"`
 	// The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
 	IothubName pulumi.StringOutput `pulumi:"iothubName"`
-	// The name of the route.
+	// The name of the route. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -95,7 +95,7 @@ type routeState struct {
 	EndpointNames *string `pulumi:"endpointNames"`
 	// The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
 	IothubName *string `pulumi:"iothubName"`
-	// The name of the route.
+	// The name of the route. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -112,7 +112,7 @@ type RouteState struct {
 	EndpointNames pulumi.StringPtrInput
 	// The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
 	IothubName pulumi.StringPtrInput
-	// The name of the route.
+	// The name of the route. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -133,7 +133,7 @@ type routeArgs struct {
 	EndpointNames string `pulumi:"endpointNames"`
 	// The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
 	IothubName string `pulumi:"iothubName"`
-	// The name of the route.
+	// The name of the route. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -151,7 +151,7 @@ type RouteArgs struct {
 	EndpointNames pulumi.StringInput
 	// The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created.
 	IothubName pulumi.StringInput
-	// The name of the route.
+	// The name of the route. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -266,7 +266,7 @@ func (o RouteOutput) IothubName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.IothubName }).(pulumi.StringOutput)
 }
 
-// The name of the route.
+// The name of the route. Changing this forces a new resource to be created.
 func (o RouteOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

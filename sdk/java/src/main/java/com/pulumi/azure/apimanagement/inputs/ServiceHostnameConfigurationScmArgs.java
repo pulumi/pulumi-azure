@@ -47,6 +47,36 @@ public final class ServiceHostnameConfigurationScmArgs extends com.pulumi.resour
     }
 
     /**
+     * The source of the certificate.
+     * 
+     */
+    @Import(name="certificateSource")
+    private @Nullable Output<String> certificateSource;
+
+    /**
+     * @return The source of the certificate.
+     * 
+     */
+    public Optional<Output<String>> certificateSource() {
+        return Optional.ofNullable(this.certificateSource);
+    }
+
+    /**
+     * The status of the certificate.
+     * 
+     */
+    @Import(name="certificateStatus")
+    private @Nullable Output<String> certificateStatus;
+
+    /**
+     * @return The status of the certificate.
+     * 
+     */
+    public Optional<Output<String>> certificateStatus() {
+        return Optional.ofNullable(this.certificateStatus);
+    }
+
+    /**
      * The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
      * 
      */
@@ -156,6 +186,8 @@ public final class ServiceHostnameConfigurationScmArgs extends com.pulumi.resour
     private ServiceHostnameConfigurationScmArgs(ServiceHostnameConfigurationScmArgs $) {
         this.certificate = $.certificate;
         this.certificatePassword = $.certificatePassword;
+        this.certificateSource = $.certificateSource;
+        this.certificateStatus = $.certificateStatus;
         this.expiry = $.expiry;
         this.hostName = $.hostName;
         this.keyVaultId = $.keyVaultId;
@@ -223,6 +255,48 @@ public final class ServiceHostnameConfigurationScmArgs extends com.pulumi.resour
          */
         public Builder certificatePassword(String certificatePassword) {
             return certificatePassword(Output.of(certificatePassword));
+        }
+
+        /**
+         * @param certificateSource The source of the certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateSource(@Nullable Output<String> certificateSource) {
+            $.certificateSource = certificateSource;
+            return this;
+        }
+
+        /**
+         * @param certificateSource The source of the certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateSource(String certificateSource) {
+            return certificateSource(Output.of(certificateSource));
+        }
+
+        /**
+         * @param certificateStatus The status of the certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateStatus(@Nullable Output<String> certificateStatus) {
+            $.certificateStatus = certificateStatus;
+            return this;
+        }
+
+        /**
+         * @param certificateStatus The status of the certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateStatus(String certificateStatus) {
+            return certificateStatus(Output.of(certificateStatus));
         }
 
         /**

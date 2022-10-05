@@ -9,6 +9,7 @@ import com.pulumi.azure.compute.inputs.LinuxVirtualMachineState;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineAdditionalCapabilities;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineAdminSshKey;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineBootDiagnostics;
+import com.pulumi.azure.compute.outputs.LinuxVirtualMachineGalleryApplication;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineIdentity;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachineOsDisk;
 import com.pulumi.azure.compute.outputs.LinuxVirtualMachinePlan;
@@ -379,6 +380,20 @@ public class LinuxVirtualMachine extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> extensionsTimeBudget() {
         return Codegen.optional(this.extensionsTimeBudget);
+    }
+    /**
+     * A `gallery_application` block as defined below.
+     * 
+     */
+    @Export(name="galleryApplications", type=List.class, parameters={LinuxVirtualMachineGalleryApplication.class})
+    private Output</* @Nullable */ List<LinuxVirtualMachineGalleryApplication>> galleryApplications;
+
+    /**
+     * @return A `gallery_application` block as defined below.
+     * 
+     */
+    public Output<Optional<List<LinuxVirtualMachineGalleryApplication>>> galleryApplications() {
+        return Codegen.optional(this.galleryApplications);
     }
     /**
      * An `identity` block as defined below.

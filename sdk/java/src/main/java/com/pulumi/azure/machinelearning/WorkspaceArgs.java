@@ -194,14 +194,22 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Enable public access when this Machine Learning Workspace is behind a VNet.
      * 
+     * @deprecated
+     * `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider. */
     @Import(name="publicAccessBehindVirtualNetworkEnabled")
     private @Nullable Output<Boolean> publicAccessBehindVirtualNetworkEnabled;
 
     /**
      * @return Enable public access when this Machine Learning Workspace is behind a VNet.
      * 
+     * @deprecated
+     * `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider. */
     public Optional<Output<Boolean>> publicAccessBehindVirtualNetworkEnabled() {
         return Optional.ofNullable(this.publicAccessBehindVirtualNetworkEnabled);
     }
@@ -209,22 +217,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Enable public access when this Machine Learning Workspace is behind VNet.
      * 
-     * @deprecated
-     * `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.
-     * 
      */
-    @Deprecated /* `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider. */
     @Import(name="publicNetworkAccessEnabled")
     private @Nullable Output<Boolean> publicNetworkAccessEnabled;
 
     /**
      * @return Enable public access when this Machine Learning Workspace is behind VNet.
      * 
-     * @deprecated
-     * `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.
-     * 
      */
-    @Deprecated /* `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider. */
     public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
         return Optional.ofNullable(this.publicNetworkAccessEnabled);
     }
@@ -289,6 +289,21 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+     * 
+     */
+    @Import(name="v1LegacyModeEnabled")
+    private @Nullable Output<Boolean> v1LegacyModeEnabled;
+
+    /**
+     * @return Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> v1LegacyModeEnabled() {
+        return Optional.ofNullable(this.v1LegacyModeEnabled);
+    }
+
     private WorkspaceArgs() {}
 
     private WorkspaceArgs(WorkspaceArgs $) {
@@ -310,6 +325,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         this.skuName = $.skuName;
         this.storageAccountId = $.storageAccountId;
         this.tags = $.tags;
+        this.v1LegacyModeEnabled = $.v1LegacyModeEnabled;
     }
 
     public static Builder builder() {
@@ -575,7 +591,11 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider. */
         public Builder publicAccessBehindVirtualNetworkEnabled(@Nullable Output<Boolean> publicAccessBehindVirtualNetworkEnabled) {
             $.publicAccessBehindVirtualNetworkEnabled = publicAccessBehindVirtualNetworkEnabled;
             return this;
@@ -586,7 +606,11 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+         * 
          */
+        @Deprecated /* `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider. */
         public Builder publicAccessBehindVirtualNetworkEnabled(Boolean publicAccessBehindVirtualNetworkEnabled) {
             return publicAccessBehindVirtualNetworkEnabled(Output.of(publicAccessBehindVirtualNetworkEnabled));
         }
@@ -596,11 +620,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.
-         * 
          */
-        @Deprecated /* `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider. */
         public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
             $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             return this;
@@ -611,11 +631,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.
-         * 
          */
-        @Deprecated /* `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider. */
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
             return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
@@ -702,6 +718,27 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param v1LegacyModeEnabled Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder v1LegacyModeEnabled(@Nullable Output<Boolean> v1LegacyModeEnabled) {
+            $.v1LegacyModeEnabled = v1LegacyModeEnabled;
+            return this;
+        }
+
+        /**
+         * @param v1LegacyModeEnabled Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder v1LegacyModeEnabled(Boolean v1LegacyModeEnabled) {
+            return v1LegacyModeEnabled(Output.of(v1LegacyModeEnabled));
         }
 
         public WorkspaceArgs build() {

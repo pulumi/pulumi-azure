@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Cdn
     /// <summary>
     /// Manages a Frontdoor Rule.
     /// 
-    /// !&gt;**IMPORTANT:** To create the Frontdoor Rules resource successfully you **must** add a `depends_on` attribute to the `azure.cdn.FrontdoorRule` code block and reference both the `azure.cdn.FrontdoorOrigin` and the `azure.cdn.FrontdoorOriginGroup` that are associated with the Frontdoor Rule resource.
+    /// !&gt;**IMPORTANT:** The Rules resource **must** include a `depends_on` meta-argument which references the `azure.cdn.FrontdoorOrigin`, `azure.cdn.FrontdoorOriginGroup` and the `azure.cdn.FrontdoorRoute` that are associated with the Rule resource. The `azure.cdn.FrontdoorRoute` definition has been excluded from the below `Example Usage`, for brevity, but has been included in the `depends_on` meta-argument as an example of the correct way to define the `azure.cdn.FrontdoorRule` resource.
     /// 
     /// ## Specifying IP Address Ranges
     /// 
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.Cdn
         public Output<string> CdnFrontdoorRuleSetName { get; private set; } = null!;
 
         /// <summary>
-        /// An `conditions` block as defined below.
+        /// A `conditions` block as defined below.
         /// </summary>
         [Output("conditions")]
         public Output<Outputs.FrontdoorRuleConditions?> Conditions { get; private set; } = null!;
@@ -253,7 +253,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string> CdnFrontdoorRuleSetId { get; set; } = null!;
 
         /// <summary>
-        /// An `conditions` block as defined below.
+        /// A `conditions` block as defined below.
         /// </summary>
         [Input("conditions")]
         public Input<Inputs.FrontdoorRuleConditionsArgs>? Conditions { get; set; }
@@ -303,7 +303,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? CdnFrontdoorRuleSetName { get; set; }
 
         /// <summary>
-        /// An `conditions` block as defined below.
+        /// A `conditions` block as defined below.
         /// </summary>
         [Input("conditions")]
         public Input<Inputs.FrontdoorRuleConditionsGetArgs>? Conditions { get; set; }

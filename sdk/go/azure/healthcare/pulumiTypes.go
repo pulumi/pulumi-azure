@@ -952,6 +952,121 @@ func (o FhirServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type FhirServiceOciArtifact struct {
+	// A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down.
+	Digest *string `pulumi:"digest"`
+	// An image within Azure container registry used for export operations of the service instance.
+	ImageName *string `pulumi:"imageName"`
+	// An Azure container registry used for export operations of the service instance.
+	LoginServer string `pulumi:"loginServer"`
+}
+
+// FhirServiceOciArtifactInput is an input type that accepts FhirServiceOciArtifactArgs and FhirServiceOciArtifactOutput values.
+// You can construct a concrete instance of `FhirServiceOciArtifactInput` via:
+//
+//	FhirServiceOciArtifactArgs{...}
+type FhirServiceOciArtifactInput interface {
+	pulumi.Input
+
+	ToFhirServiceOciArtifactOutput() FhirServiceOciArtifactOutput
+	ToFhirServiceOciArtifactOutputWithContext(context.Context) FhirServiceOciArtifactOutput
+}
+
+type FhirServiceOciArtifactArgs struct {
+	// A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down.
+	Digest pulumi.StringPtrInput `pulumi:"digest"`
+	// An image within Azure container registry used for export operations of the service instance.
+	ImageName pulumi.StringPtrInput `pulumi:"imageName"`
+	// An Azure container registry used for export operations of the service instance.
+	LoginServer pulumi.StringInput `pulumi:"loginServer"`
+}
+
+func (FhirServiceOciArtifactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceOciArtifact)(nil)).Elem()
+}
+
+func (i FhirServiceOciArtifactArgs) ToFhirServiceOciArtifactOutput() FhirServiceOciArtifactOutput {
+	return i.ToFhirServiceOciArtifactOutputWithContext(context.Background())
+}
+
+func (i FhirServiceOciArtifactArgs) ToFhirServiceOciArtifactOutputWithContext(ctx context.Context) FhirServiceOciArtifactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceOciArtifactOutput)
+}
+
+// FhirServiceOciArtifactArrayInput is an input type that accepts FhirServiceOciArtifactArray and FhirServiceOciArtifactArrayOutput values.
+// You can construct a concrete instance of `FhirServiceOciArtifactArrayInput` via:
+//
+//	FhirServiceOciArtifactArray{ FhirServiceOciArtifactArgs{...} }
+type FhirServiceOciArtifactArrayInput interface {
+	pulumi.Input
+
+	ToFhirServiceOciArtifactArrayOutput() FhirServiceOciArtifactArrayOutput
+	ToFhirServiceOciArtifactArrayOutputWithContext(context.Context) FhirServiceOciArtifactArrayOutput
+}
+
+type FhirServiceOciArtifactArray []FhirServiceOciArtifactInput
+
+func (FhirServiceOciArtifactArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FhirServiceOciArtifact)(nil)).Elem()
+}
+
+func (i FhirServiceOciArtifactArray) ToFhirServiceOciArtifactArrayOutput() FhirServiceOciArtifactArrayOutput {
+	return i.ToFhirServiceOciArtifactArrayOutputWithContext(context.Background())
+}
+
+func (i FhirServiceOciArtifactArray) ToFhirServiceOciArtifactArrayOutputWithContext(ctx context.Context) FhirServiceOciArtifactArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceOciArtifactArrayOutput)
+}
+
+type FhirServiceOciArtifactOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceOciArtifactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FhirServiceOciArtifact)(nil)).Elem()
+}
+
+func (o FhirServiceOciArtifactOutput) ToFhirServiceOciArtifactOutput() FhirServiceOciArtifactOutput {
+	return o
+}
+
+func (o FhirServiceOciArtifactOutput) ToFhirServiceOciArtifactOutputWithContext(ctx context.Context) FhirServiceOciArtifactOutput {
+	return o
+}
+
+// A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down.
+func (o FhirServiceOciArtifactOutput) Digest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FhirServiceOciArtifact) *string { return v.Digest }).(pulumi.StringPtrOutput)
+}
+
+// An image within Azure container registry used for export operations of the service instance.
+func (o FhirServiceOciArtifactOutput) ImageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FhirServiceOciArtifact) *string { return v.ImageName }).(pulumi.StringPtrOutput)
+}
+
+// An Azure container registry used for export operations of the service instance.
+func (o FhirServiceOciArtifactOutput) LoginServer() pulumi.StringOutput {
+	return o.ApplyT(func(v FhirServiceOciArtifact) string { return v.LoginServer }).(pulumi.StringOutput)
+}
+
+type FhirServiceOciArtifactArrayOutput struct{ *pulumi.OutputState }
+
+func (FhirServiceOciArtifactArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FhirServiceOciArtifact)(nil)).Elem()
+}
+
+func (o FhirServiceOciArtifactArrayOutput) ToFhirServiceOciArtifactArrayOutput() FhirServiceOciArtifactArrayOutput {
+	return o
+}
+
+func (o FhirServiceOciArtifactArrayOutput) ToFhirServiceOciArtifactArrayOutputWithContext(ctx context.Context) FhirServiceOciArtifactArrayOutput {
+	return o
+}
+
+func (o FhirServiceOciArtifactArrayOutput) Index(i pulumi.IntInput) FhirServiceOciArtifactOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FhirServiceOciArtifact {
+		return vs[0].([]FhirServiceOciArtifact)[vs[1].(int)]
+	}).(FhirServiceOciArtifactOutput)
+}
+
 type MedtechServiceIdentity struct {
 	// The Principal ID associated with this System Assigned Managed Service Identity.
 	PrincipalId *string `pulumi:"principalId"`
@@ -2676,6 +2791,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirServiceCorsPtrInput)(nil)).Elem(), FhirServiceCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirServiceIdentityInput)(nil)).Elem(), FhirServiceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FhirServiceIdentityPtrInput)(nil)).Elem(), FhirServiceIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirServiceOciArtifactInput)(nil)).Elem(), FhirServiceOciArtifactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FhirServiceOciArtifactArrayInput)(nil)).Elem(), FhirServiceOciArtifactArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MedtechServiceIdentityInput)(nil)).Elem(), MedtechServiceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MedtechServiceIdentityPtrInput)(nil)).Elem(), MedtechServiceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAuthenticationConfigurationInput)(nil)).Elem(), ServiceAuthenticationConfigurationArgs{})
@@ -2714,6 +2831,8 @@ func init() {
 	pulumi.RegisterOutputType(FhirServiceCorsPtrOutput{})
 	pulumi.RegisterOutputType(FhirServiceIdentityOutput{})
 	pulumi.RegisterOutputType(FhirServiceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(FhirServiceOciArtifactOutput{})
+	pulumi.RegisterOutputType(FhirServiceOciArtifactArrayOutput{})
 	pulumi.RegisterOutputType(MedtechServiceIdentityOutput{})
 	pulumi.RegisterOutputType(MedtechServiceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationOutput{})

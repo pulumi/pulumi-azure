@@ -103,6 +103,10 @@ export class BgpConnection extends pulumi.CustomResource {
      * The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
      */
     public readonly virtualHubId!: pulumi.Output<string>;
+    /**
+     * The ID of virtual network connection.
+     */
+    public readonly virtualNetworkConnectionId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a BgpConnection resource with the given unique name, arguments, and options.
@@ -121,6 +125,7 @@ export class BgpConnection extends pulumi.CustomResource {
             resourceInputs["peerAsn"] = state ? state.peerAsn : undefined;
             resourceInputs["peerIp"] = state ? state.peerIp : undefined;
             resourceInputs["virtualHubId"] = state ? state.virtualHubId : undefined;
+            resourceInputs["virtualNetworkConnectionId"] = state ? state.virtualNetworkConnectionId : undefined;
         } else {
             const args = argsOrState as BgpConnectionArgs | undefined;
             if ((!args || args.peerAsn === undefined) && !opts.urn) {
@@ -136,6 +141,7 @@ export class BgpConnection extends pulumi.CustomResource {
             resourceInputs["peerAsn"] = args ? args.peerAsn : undefined;
             resourceInputs["peerIp"] = args ? args.peerIp : undefined;
             resourceInputs["virtualHubId"] = args ? args.virtualHubId : undefined;
+            resourceInputs["virtualNetworkConnectionId"] = args ? args.virtualNetworkConnectionId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(BgpConnection.__pulumiType, name, resourceInputs, opts);
@@ -162,6 +168,10 @@ export interface BgpConnectionState {
      * The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
      */
     virtualHubId?: pulumi.Input<string>;
+    /**
+     * The ID of virtual network connection.
+     */
+    virtualNetworkConnectionId?: pulumi.Input<string>;
 }
 
 /**
@@ -184,4 +194,8 @@ export interface BgpConnectionArgs {
      * The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
      */
     virtualHubId: pulumi.Input<string>;
+    /**
+     * The ID of virtual network connection.
+     */
+    virtualNetworkConnectionId?: pulumi.Input<string>;
 }

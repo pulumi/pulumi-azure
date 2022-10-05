@@ -37,6 +37,7 @@ class WindowsVirtualMachineArgs:
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
+                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]]] = None,
                  hotpatching_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['WindowsVirtualMachineIdentityArgs']] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
@@ -85,6 +86,7 @@ class WindowsVirtualMachineArgs:
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]] gallery_applications: A `gallery_application` block as defined below.
         :param pulumi.Input[bool] hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
         :param pulumi.Input['WindowsVirtualMachineIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -147,6 +149,8 @@ class WindowsVirtualMachineArgs:
             pulumi.set(__self__, "eviction_policy", eviction_policy)
         if extensions_time_budget is not None:
             pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
+        if gallery_applications is not None:
+            pulumi.set(__self__, "gallery_applications", gallery_applications)
         if hotpatching_enabled is not None:
             pulumi.set(__self__, "hotpatching_enabled", hotpatching_enabled)
         if identity is not None:
@@ -449,6 +453,18 @@ class WindowsVirtualMachineArgs:
     @extensions_time_budget.setter
     def extensions_time_budget(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "extensions_time_budget", value)
+
+    @property
+    @pulumi.getter(name="galleryApplications")
+    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]]]:
+        """
+        A `gallery_application` block as defined below.
+        """
+        return pulumi.get(self, "gallery_applications")
+
+    @gallery_applications.setter
+    def gallery_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]]]):
+        pulumi.set(self, "gallery_applications", value)
 
     @property
     @pulumi.getter(name="hotpatchingEnabled")
@@ -771,6 +787,7 @@ class _WindowsVirtualMachineState:
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
+                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]]] = None,
                  hotpatching_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['WindowsVirtualMachineIdentityArgs']] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
@@ -824,6 +841,7 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]] gallery_applications: A `gallery_application` block as defined below.
         :param pulumi.Input[bool] hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
         :param pulumi.Input['WindowsVirtualMachineIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -893,6 +911,8 @@ class _WindowsVirtualMachineState:
             pulumi.set(__self__, "eviction_policy", eviction_policy)
         if extensions_time_budget is not None:
             pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
+        if gallery_applications is not None:
+            pulumi.set(__self__, "gallery_applications", gallery_applications)
         if hotpatching_enabled is not None:
             pulumi.set(__self__, "hotpatching_enabled", hotpatching_enabled)
         if identity is not None:
@@ -1165,6 +1185,18 @@ class _WindowsVirtualMachineState:
     @extensions_time_budget.setter
     def extensions_time_budget(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "extensions_time_budget", value)
+
+    @property
+    @pulumi.getter(name="galleryApplications")
+    def gallery_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]]]:
+        """
+        A `gallery_application` block as defined below.
+        """
+        return pulumi.get(self, "gallery_applications")
+
+    @gallery_applications.setter
+    def gallery_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineGalleryApplicationArgs']]]]):
+        pulumi.set(self, "gallery_applications", value)
 
     @property
     @pulumi.getter(name="hotpatchingEnabled")
@@ -1597,6 +1629,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
+                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineGalleryApplicationArgs']]]]] = None,
                  hotpatching_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineIdentityArgs']]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
@@ -1713,6 +1746,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineGalleryApplicationArgs']]]] gallery_applications: A `gallery_application` block as defined below.
         :param pulumi.Input[bool] hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -1848,6 +1882,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
                  encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  extensions_time_budget: Optional[pulumi.Input[str]] = None,
+                 gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineGalleryApplicationArgs']]]]] = None,
                  hotpatching_enabled: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineIdentityArgs']]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
@@ -1907,6 +1942,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["encryption_at_host_enabled"] = encryption_at_host_enabled
             __props__.__dict__["eviction_policy"] = eviction_policy
             __props__.__dict__["extensions_time_budget"] = extensions_time_budget
+            __props__.__dict__["gallery_applications"] = gallery_applications
             __props__.__dict__["hotpatching_enabled"] = hotpatching_enabled
             __props__.__dict__["identity"] = identity
             __props__.__dict__["license_type"] = license_type
@@ -1976,6 +2012,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
             encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
             eviction_policy: Optional[pulumi.Input[str]] = None,
             extensions_time_budget: Optional[pulumi.Input[str]] = None,
+            gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineGalleryApplicationArgs']]]]] = None,
             hotpatching_enabled: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['WindowsVirtualMachineIdentityArgs']]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
@@ -2034,6 +2071,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[str] eviction_policy: Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] extensions_time_budget: Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsVirtualMachineGalleryApplicationArgs']]]] gallery_applications: A `gallery_application` block as defined below.
         :param pulumi.Input[bool] hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
         :param pulumi.Input[pulumi.InputType['WindowsVirtualMachineIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`.
@@ -2090,6 +2128,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["encryption_at_host_enabled"] = encryption_at_host_enabled
         __props__.__dict__["eviction_policy"] = eviction_policy
         __props__.__dict__["extensions_time_budget"] = extensions_time_budget
+        __props__.__dict__["gallery_applications"] = gallery_applications
         __props__.__dict__["hotpatching_enabled"] = hotpatching_enabled
         __props__.__dict__["identity"] = identity
         __props__.__dict__["license_type"] = license_type
@@ -2261,6 +2300,14 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
         """
         return pulumi.get(self, "extensions_time_budget")
+
+    @property
+    @pulumi.getter(name="galleryApplications")
+    def gallery_applications(self) -> pulumi.Output[Optional[Sequence['outputs.WindowsVirtualMachineGalleryApplication']]]:
+        """
+        A `gallery_application` block as defined below.
+        """
+        return pulumi.get(self, "gallery_applications")
 
     @property
     @pulumi.getter(name="hotpatchingEnabled")

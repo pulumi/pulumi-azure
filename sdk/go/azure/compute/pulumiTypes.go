@@ -1707,6 +1707,130 @@ func (o LinuxVirtualMachineBootDiagnosticsPtrOutput) StorageAccountUri() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+type LinuxVirtualMachineGalleryApplication struct {
+	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
+	ConfigurationBlobUri *string `pulumi:"configurationBlobUri"`
+	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+	Order *int `pulumi:"order"`
+	// Specifies a passthrough value for more generic context. This field can be any valid `string` value.
+	Tag *string `pulumi:"tag"`
+	// Specifies the Gallery Application Version resource ID.
+	VersionId string `pulumi:"versionId"`
+}
+
+// LinuxVirtualMachineGalleryApplicationInput is an input type that accepts LinuxVirtualMachineGalleryApplicationArgs and LinuxVirtualMachineGalleryApplicationOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineGalleryApplicationInput` via:
+//
+//	LinuxVirtualMachineGalleryApplicationArgs{...}
+type LinuxVirtualMachineGalleryApplicationInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineGalleryApplicationOutput() LinuxVirtualMachineGalleryApplicationOutput
+	ToLinuxVirtualMachineGalleryApplicationOutputWithContext(context.Context) LinuxVirtualMachineGalleryApplicationOutput
+}
+
+type LinuxVirtualMachineGalleryApplicationArgs struct {
+	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
+	ConfigurationBlobUri pulumi.StringPtrInput `pulumi:"configurationBlobUri"`
+	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+	Order pulumi.IntPtrInput `pulumi:"order"`
+	// Specifies a passthrough value for more generic context. This field can be any valid `string` value.
+	Tag pulumi.StringPtrInput `pulumi:"tag"`
+	// Specifies the Gallery Application Version resource ID.
+	VersionId pulumi.StringInput `pulumi:"versionId"`
+}
+
+func (LinuxVirtualMachineGalleryApplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineGalleryApplication)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineGalleryApplicationArgs) ToLinuxVirtualMachineGalleryApplicationOutput() LinuxVirtualMachineGalleryApplicationOutput {
+	return i.ToLinuxVirtualMachineGalleryApplicationOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineGalleryApplicationArgs) ToLinuxVirtualMachineGalleryApplicationOutputWithContext(ctx context.Context) LinuxVirtualMachineGalleryApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineGalleryApplicationOutput)
+}
+
+// LinuxVirtualMachineGalleryApplicationArrayInput is an input type that accepts LinuxVirtualMachineGalleryApplicationArray and LinuxVirtualMachineGalleryApplicationArrayOutput values.
+// You can construct a concrete instance of `LinuxVirtualMachineGalleryApplicationArrayInput` via:
+//
+//	LinuxVirtualMachineGalleryApplicationArray{ LinuxVirtualMachineGalleryApplicationArgs{...} }
+type LinuxVirtualMachineGalleryApplicationArrayInput interface {
+	pulumi.Input
+
+	ToLinuxVirtualMachineGalleryApplicationArrayOutput() LinuxVirtualMachineGalleryApplicationArrayOutput
+	ToLinuxVirtualMachineGalleryApplicationArrayOutputWithContext(context.Context) LinuxVirtualMachineGalleryApplicationArrayOutput
+}
+
+type LinuxVirtualMachineGalleryApplicationArray []LinuxVirtualMachineGalleryApplicationInput
+
+func (LinuxVirtualMachineGalleryApplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineGalleryApplication)(nil)).Elem()
+}
+
+func (i LinuxVirtualMachineGalleryApplicationArray) ToLinuxVirtualMachineGalleryApplicationArrayOutput() LinuxVirtualMachineGalleryApplicationArrayOutput {
+	return i.ToLinuxVirtualMachineGalleryApplicationArrayOutputWithContext(context.Background())
+}
+
+func (i LinuxVirtualMachineGalleryApplicationArray) ToLinuxVirtualMachineGalleryApplicationArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineGalleryApplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LinuxVirtualMachineGalleryApplicationArrayOutput)
+}
+
+type LinuxVirtualMachineGalleryApplicationOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineGalleryApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LinuxVirtualMachineGalleryApplication)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineGalleryApplicationOutput) ToLinuxVirtualMachineGalleryApplicationOutput() LinuxVirtualMachineGalleryApplicationOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineGalleryApplicationOutput) ToLinuxVirtualMachineGalleryApplicationOutputWithContext(ctx context.Context) LinuxVirtualMachineGalleryApplicationOutput {
+	return o
+}
+
+// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
+func (o LinuxVirtualMachineGalleryApplicationOutput) ConfigurationBlobUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineGalleryApplication) *string { return v.ConfigurationBlobUri }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+func (o LinuxVirtualMachineGalleryApplicationOutput) Order() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineGalleryApplication) *int { return v.Order }).(pulumi.IntPtrOutput)
+}
+
+// Specifies a passthrough value for more generic context. This field can be any valid `string` value.
+func (o LinuxVirtualMachineGalleryApplicationOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineGalleryApplication) *string { return v.Tag }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Gallery Application Version resource ID.
+func (o LinuxVirtualMachineGalleryApplicationOutput) VersionId() pulumi.StringOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineGalleryApplication) string { return v.VersionId }).(pulumi.StringOutput)
+}
+
+type LinuxVirtualMachineGalleryApplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (LinuxVirtualMachineGalleryApplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LinuxVirtualMachineGalleryApplication)(nil)).Elem()
+}
+
+func (o LinuxVirtualMachineGalleryApplicationArrayOutput) ToLinuxVirtualMachineGalleryApplicationArrayOutput() LinuxVirtualMachineGalleryApplicationArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineGalleryApplicationArrayOutput) ToLinuxVirtualMachineGalleryApplicationArrayOutputWithContext(ctx context.Context) LinuxVirtualMachineGalleryApplicationArrayOutput {
+	return o
+}
+
+func (o LinuxVirtualMachineGalleryApplicationArrayOutput) Index(i pulumi.IntInput) LinuxVirtualMachineGalleryApplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LinuxVirtualMachineGalleryApplication {
+		return vs[0].([]LinuxVirtualMachineGalleryApplication)[vs[1].(int)]
+	}).(LinuxVirtualMachineGalleryApplicationOutput)
+}
+
 type LinuxVirtualMachineIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -8396,7 +8520,7 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
 	Primary           *bool                                                                              `pulumi:"primary"`
 	PublicIpAddresses []OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress `pulumi:"publicIpAddresses"`
 	SubnetId          *string                                                                            `pulumi:"subnetId"`
-	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
 	Version *string `pulumi:"version"`
 }
 
@@ -8420,7 +8544,7 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs struc
 	Primary           pulumi.BoolPtrInput                                                                        `pulumi:"primary"`
 	PublicIpAddresses OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput `pulumi:"publicIpAddresses"`
 	SubnetId          pulumi.StringPtrInput                                                                      `pulumi:"subnetId"`
-	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -8512,7 +8636,7 @@ func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput)
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -8544,9 +8668,9 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAd
 	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	Name             string  `pulumi:"name"`
 	PublicIpPrefixId *string `pulumi:"publicIpPrefixId"`
-	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
 	SkuName *string `pulumi:"skuName"`
-	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
 	Version *string `pulumi:"version"`
 }
 
@@ -8568,9 +8692,9 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAd
 	// The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	Name             pulumi.StringInput    `pulumi:"name"`
 	PublicIpPrefixId pulumi.StringPtrInput `pulumi:"publicIpPrefixId"`
-	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
 	SkuName pulumi.StringPtrInput `pulumi:"skuName"`
-	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -8656,14 +8780,14 @@ func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicI
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
 		return v.SkuName
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
 		return v.Version
@@ -10710,7 +10834,7 @@ type OrchestratedVirtualMachineScaleSetSourceImageReference struct {
 	Offer     string `pulumi:"offer"`
 	Publisher string `pulumi:"publisher"`
 	Sku       string `pulumi:"sku"`
-	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
 	Version string `pulumi:"version"`
 }
 
@@ -10729,7 +10853,7 @@ type OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs struct {
 	Offer     pulumi.StringInput `pulumi:"offer"`
 	Publisher pulumi.StringInput `pulumi:"publisher"`
 	Sku       pulumi.StringInput `pulumi:"sku"`
-	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -10822,7 +10946,7 @@ func (o OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput) Sku() pulu
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetSourceImageReference) string { return v.Sku }).(pulumi.StringOutput)
 }
 
-// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetSourceImageReference) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -10878,7 +11002,7 @@ func (o OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput) Sku() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetSourceImageReference) *string {
 		if v == nil {
@@ -18152,6 +18276,130 @@ func (o WindowsVirtualMachineBootDiagnosticsPtrOutput) StorageAccountUri() pulum
 		}
 		return v.StorageAccountUri
 	}).(pulumi.StringPtrOutput)
+}
+
+type WindowsVirtualMachineGalleryApplication struct {
+	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
+	ConfigurationBlobUri *string `pulumi:"configurationBlobUri"`
+	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+	Order *int `pulumi:"order"`
+	// Specifies a passthrough value for more generic context. This field can be any valid `string` value.
+	Tag *string `pulumi:"tag"`
+	// Specifies the Gallery Application Version resource ID.
+	VersionId string `pulumi:"versionId"`
+}
+
+// WindowsVirtualMachineGalleryApplicationInput is an input type that accepts WindowsVirtualMachineGalleryApplicationArgs and WindowsVirtualMachineGalleryApplicationOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineGalleryApplicationInput` via:
+//
+//	WindowsVirtualMachineGalleryApplicationArgs{...}
+type WindowsVirtualMachineGalleryApplicationInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineGalleryApplicationOutput() WindowsVirtualMachineGalleryApplicationOutput
+	ToWindowsVirtualMachineGalleryApplicationOutputWithContext(context.Context) WindowsVirtualMachineGalleryApplicationOutput
+}
+
+type WindowsVirtualMachineGalleryApplicationArgs struct {
+	// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
+	ConfigurationBlobUri pulumi.StringPtrInput `pulumi:"configurationBlobUri"`
+	// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+	Order pulumi.IntPtrInput `pulumi:"order"`
+	// Specifies a passthrough value for more generic context. This field can be any valid `string` value.
+	Tag pulumi.StringPtrInput `pulumi:"tag"`
+	// Specifies the Gallery Application Version resource ID.
+	VersionId pulumi.StringInput `pulumi:"versionId"`
+}
+
+func (WindowsVirtualMachineGalleryApplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineGalleryApplication)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineGalleryApplicationArgs) ToWindowsVirtualMachineGalleryApplicationOutput() WindowsVirtualMachineGalleryApplicationOutput {
+	return i.ToWindowsVirtualMachineGalleryApplicationOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineGalleryApplicationArgs) ToWindowsVirtualMachineGalleryApplicationOutputWithContext(ctx context.Context) WindowsVirtualMachineGalleryApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineGalleryApplicationOutput)
+}
+
+// WindowsVirtualMachineGalleryApplicationArrayInput is an input type that accepts WindowsVirtualMachineGalleryApplicationArray and WindowsVirtualMachineGalleryApplicationArrayOutput values.
+// You can construct a concrete instance of `WindowsVirtualMachineGalleryApplicationArrayInput` via:
+//
+//	WindowsVirtualMachineGalleryApplicationArray{ WindowsVirtualMachineGalleryApplicationArgs{...} }
+type WindowsVirtualMachineGalleryApplicationArrayInput interface {
+	pulumi.Input
+
+	ToWindowsVirtualMachineGalleryApplicationArrayOutput() WindowsVirtualMachineGalleryApplicationArrayOutput
+	ToWindowsVirtualMachineGalleryApplicationArrayOutputWithContext(context.Context) WindowsVirtualMachineGalleryApplicationArrayOutput
+}
+
+type WindowsVirtualMachineGalleryApplicationArray []WindowsVirtualMachineGalleryApplicationInput
+
+func (WindowsVirtualMachineGalleryApplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineGalleryApplication)(nil)).Elem()
+}
+
+func (i WindowsVirtualMachineGalleryApplicationArray) ToWindowsVirtualMachineGalleryApplicationArrayOutput() WindowsVirtualMachineGalleryApplicationArrayOutput {
+	return i.ToWindowsVirtualMachineGalleryApplicationArrayOutputWithContext(context.Background())
+}
+
+func (i WindowsVirtualMachineGalleryApplicationArray) ToWindowsVirtualMachineGalleryApplicationArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineGalleryApplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WindowsVirtualMachineGalleryApplicationArrayOutput)
+}
+
+type WindowsVirtualMachineGalleryApplicationOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineGalleryApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WindowsVirtualMachineGalleryApplication)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineGalleryApplicationOutput) ToWindowsVirtualMachineGalleryApplicationOutput() WindowsVirtualMachineGalleryApplicationOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineGalleryApplicationOutput) ToWindowsVirtualMachineGalleryApplicationOutputWithContext(ctx context.Context) WindowsVirtualMachineGalleryApplicationOutput {
+	return o
+}
+
+// Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
+func (o WindowsVirtualMachineGalleryApplicationOutput) ConfigurationBlobUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineGalleryApplication) *string { return v.ConfigurationBlobUri }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+func (o WindowsVirtualMachineGalleryApplicationOutput) Order() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineGalleryApplication) *int { return v.Order }).(pulumi.IntPtrOutput)
+}
+
+// Specifies a passthrough value for more generic context. This field can be any valid `string` value.
+func (o WindowsVirtualMachineGalleryApplicationOutput) Tag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineGalleryApplication) *string { return v.Tag }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Gallery Application Version resource ID.
+func (o WindowsVirtualMachineGalleryApplicationOutput) VersionId() pulumi.StringOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineGalleryApplication) string { return v.VersionId }).(pulumi.StringOutput)
+}
+
+type WindowsVirtualMachineGalleryApplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (WindowsVirtualMachineGalleryApplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WindowsVirtualMachineGalleryApplication)(nil)).Elem()
+}
+
+func (o WindowsVirtualMachineGalleryApplicationArrayOutput) ToWindowsVirtualMachineGalleryApplicationArrayOutput() WindowsVirtualMachineGalleryApplicationArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineGalleryApplicationArrayOutput) ToWindowsVirtualMachineGalleryApplicationArrayOutputWithContext(ctx context.Context) WindowsVirtualMachineGalleryApplicationArrayOutput {
+	return o
+}
+
+func (o WindowsVirtualMachineGalleryApplicationArrayOutput) Index(i pulumi.IntInput) WindowsVirtualMachineGalleryApplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WindowsVirtualMachineGalleryApplication {
+		return vs[0].([]WindowsVirtualMachineGalleryApplication)[vs[1].(int)]
+	}).(WindowsVirtualMachineGalleryApplicationOutput)
 }
 
 type WindowsVirtualMachineIdentity struct {
@@ -26637,6 +26885,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineAdminSshKeyArrayInput)(nil)).Elem(), LinuxVirtualMachineAdminSshKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineBootDiagnosticsInput)(nil)).Elem(), LinuxVirtualMachineBootDiagnosticsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineBootDiagnosticsPtrInput)(nil)).Elem(), LinuxVirtualMachineBootDiagnosticsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineGalleryApplicationInput)(nil)).Elem(), LinuxVirtualMachineGalleryApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineGalleryApplicationArrayInput)(nil)).Elem(), LinuxVirtualMachineGalleryApplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineIdentityInput)(nil)).Elem(), LinuxVirtualMachineIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineIdentityPtrInput)(nil)).Elem(), LinuxVirtualMachineIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinuxVirtualMachineOsDiskInput)(nil)).Elem(), LinuxVirtualMachineOsDiskArgs{})
@@ -26845,6 +27095,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineAdditionalUnattendContentArrayInput)(nil)).Elem(), WindowsVirtualMachineAdditionalUnattendContentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineBootDiagnosticsInput)(nil)).Elem(), WindowsVirtualMachineBootDiagnosticsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineBootDiagnosticsPtrInput)(nil)).Elem(), WindowsVirtualMachineBootDiagnosticsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineGalleryApplicationInput)(nil)).Elem(), WindowsVirtualMachineGalleryApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineGalleryApplicationArrayInput)(nil)).Elem(), WindowsVirtualMachineGalleryApplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineIdentityInput)(nil)).Elem(), WindowsVirtualMachineIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineIdentityPtrInput)(nil)).Elem(), WindowsVirtualMachineIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsVirtualMachineOsDiskInput)(nil)).Elem(), WindowsVirtualMachineOsDiskArgs{})
@@ -26983,6 +27235,8 @@ func init() {
 	pulumi.RegisterOutputType(LinuxVirtualMachineAdminSshKeyArrayOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineBootDiagnosticsOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineBootDiagnosticsPtrOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineGalleryApplicationOutput{})
+	pulumi.RegisterOutputType(LinuxVirtualMachineGalleryApplicationArrayOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineIdentityOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineIdentityPtrOutput{})
 	pulumi.RegisterOutputType(LinuxVirtualMachineOsDiskOutput{})
@@ -27191,6 +27445,8 @@ func init() {
 	pulumi.RegisterOutputType(WindowsVirtualMachineAdditionalUnattendContentArrayOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineBootDiagnosticsOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineBootDiagnosticsPtrOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineGalleryApplicationOutput{})
+	pulumi.RegisterOutputType(WindowsVirtualMachineGalleryApplicationArrayOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineIdentityOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineIdentityPtrOutput{})
 	pulumi.RegisterOutputType(WindowsVirtualMachineOsDiskOutput{})

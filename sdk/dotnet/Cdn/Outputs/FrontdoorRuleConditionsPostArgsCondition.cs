@@ -29,6 +29,9 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// A string value representing the name of the `POST` argument.
         /// </summary>
         public readonly string PostArgsName;
+        /// <summary>
+        /// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+        /// </summary>
         public readonly ImmutableArray<string> Transforms;
 
         [OutputConstructor]

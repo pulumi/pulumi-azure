@@ -68,10 +68,14 @@ type Application struct {
 
 	// A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// An `identity` block as defined below.
+	Identity ApplicationIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
@@ -121,10 +125,14 @@ func GetApplication(ctx *pulumi.Context,
 type applicationState struct {
 	// A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
 	DisplayName *string `pulumi:"displayName"`
+	// An `identity` block as defined below.
+	Identity *ApplicationIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
@@ -140,10 +148,14 @@ type applicationState struct {
 type ApplicationState struct {
 	// A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
 	DisplayName pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity ApplicationIdentityPtrInput
 	// Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
@@ -163,10 +175,14 @@ func (ApplicationState) ElementType() reflect.Type {
 type applicationArgs struct {
 	// A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
 	DisplayName *string `pulumi:"displayName"`
+	// An `identity` block as defined below.
+	Identity *ApplicationIdentity `pulumi:"identity"`
 	// Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
@@ -183,10 +199,14 @@ type applicationArgs struct {
 type ApplicationArgs struct {
 	// A `displayName` name. Custom display name for the IoT Central application. Default is resource name.
 	DisplayName pulumi.StringPtrInput
+	// An `identity` block as defined below.
+	Identity ApplicationIdentityPtrInput
 	// Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
@@ -291,6 +311,11 @@ func (o ApplicationOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// An `identity` block as defined below.
+func (o ApplicationOutput) Identity() ApplicationIdentityPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationIdentityPtrOutput { return v.Identity }).(ApplicationIdentityPtrOutput)
+}
+
 // Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
 func (o ApplicationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
@@ -299,6 +324,11 @@ func (o ApplicationOutput) Location() pulumi.StringOutput {
 // Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
 func (o ApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
+func (o ApplicationOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.

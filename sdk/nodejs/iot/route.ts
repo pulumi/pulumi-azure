@@ -62,7 +62,7 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly iothubName!: pulumi.Output<string>;
     /**
-     * The name of the route.
+     * The name of the route. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -145,7 +145,7 @@ export interface RouteState {
      */
     iothubName?: pulumi.Input<string>;
     /**
-     * The name of the route.
+     * The name of the route. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -179,7 +179,7 @@ export interface RouteArgs {
      */
     iothubName: pulumi.Input<string>;
     /**
-     * The name of the route.
+     * The name of the route. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

@@ -12,23 +12,46 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 
-public final class SoftwareUpdateConfigurationWindowArgs extends com.pulumi.resources.ResourceArgs {
+public final class SoftwareUpdateConfigurationWindowsArgs extends com.pulumi.resources.ResourceArgs {
 
-    public static final SoftwareUpdateConfigurationWindowArgs Empty = new SoftwareUpdateConfigurationWindowArgs();
+    public static final SoftwareUpdateConfigurationWindowsArgs Empty = new SoftwareUpdateConfigurationWindowsArgs();
 
     /**
      * Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
      * 
+     * @deprecated
+     * windows classification can be set as a list, use `classifications_included` instead.
+     * 
      */
+    @Deprecated /* windows classification can be set as a list, use `classifications_included` instead. */
     @Import(name="classificationIncluded")
     private @Nullable Output<String> classificationIncluded;
 
     /**
      * @return Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
      * 
+     * @deprecated
+     * windows classification can be set as a list, use `classifications_included` instead.
+     * 
      */
+    @Deprecated /* windows classification can be set as a list, use `classifications_included` instead. */
     public Optional<Output<String>> classificationIncluded() {
         return Optional.ofNullable(this.classificationIncluded);
+    }
+
+    /**
+     * Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+     * 
+     */
+    @Import(name="classificationsIncludeds")
+    private @Nullable Output<List<String>> classificationsIncludeds;
+
+    /**
+     * @return Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+     * 
+     */
+    public Optional<Output<List<String>>> classificationsIncludeds() {
+        return Optional.ofNullable(this.classificationsIncludeds);
     }
 
     /**
@@ -76,10 +99,11 @@ public final class SoftwareUpdateConfigurationWindowArgs extends com.pulumi.reso
         return Optional.ofNullable(this.reboot);
     }
 
-    private SoftwareUpdateConfigurationWindowArgs() {}
+    private SoftwareUpdateConfigurationWindowsArgs() {}
 
-    private SoftwareUpdateConfigurationWindowArgs(SoftwareUpdateConfigurationWindowArgs $) {
+    private SoftwareUpdateConfigurationWindowsArgs(SoftwareUpdateConfigurationWindowsArgs $) {
         this.classificationIncluded = $.classificationIncluded;
+        this.classificationsIncludeds = $.classificationsIncludeds;
         this.excludedKnowledgeBaseNumbers = $.excludedKnowledgeBaseNumbers;
         this.includedKnowledgeBaseNumbers = $.includedKnowledgeBaseNumbers;
         this.reboot = $.reboot;
@@ -88,19 +112,19 @@ public final class SoftwareUpdateConfigurationWindowArgs extends com.pulumi.reso
     public static Builder builder() {
         return new Builder();
     }
-    public static Builder builder(SoftwareUpdateConfigurationWindowArgs defaults) {
+    public static Builder builder(SoftwareUpdateConfigurationWindowsArgs defaults) {
         return new Builder(defaults);
     }
 
     public static final class Builder {
-        private SoftwareUpdateConfigurationWindowArgs $;
+        private SoftwareUpdateConfigurationWindowsArgs $;
 
         public Builder() {
-            $ = new SoftwareUpdateConfigurationWindowArgs();
+            $ = new SoftwareUpdateConfigurationWindowsArgs();
         }
 
-        public Builder(SoftwareUpdateConfigurationWindowArgs defaults) {
-            $ = new SoftwareUpdateConfigurationWindowArgs(Objects.requireNonNull(defaults));
+        public Builder(SoftwareUpdateConfigurationWindowsArgs defaults) {
+            $ = new SoftwareUpdateConfigurationWindowsArgs(Objects.requireNonNull(defaults));
         }
 
         /**
@@ -108,7 +132,11 @@ public final class SoftwareUpdateConfigurationWindowArgs extends com.pulumi.reso
          * 
          * @return builder
          * 
+         * @deprecated
+         * windows classification can be set as a list, use `classifications_included` instead.
+         * 
          */
+        @Deprecated /* windows classification can be set as a list, use `classifications_included` instead. */
         public Builder classificationIncluded(@Nullable Output<String> classificationIncluded) {
             $.classificationIncluded = classificationIncluded;
             return this;
@@ -119,9 +147,44 @@ public final class SoftwareUpdateConfigurationWindowArgs extends com.pulumi.reso
          * 
          * @return builder
          * 
+         * @deprecated
+         * windows classification can be set as a list, use `classifications_included` instead.
+         * 
          */
+        @Deprecated /* windows classification can be set as a list, use `classifications_included` instead. */
         public Builder classificationIncluded(String classificationIncluded) {
             return classificationIncluded(Output.of(classificationIncluded));
+        }
+
+        /**
+         * @param classificationsIncludeds Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder classificationsIncludeds(@Nullable Output<List<String>> classificationsIncludeds) {
+            $.classificationsIncludeds = classificationsIncludeds;
+            return this;
+        }
+
+        /**
+         * @param classificationsIncludeds Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder classificationsIncludeds(List<String> classificationsIncludeds) {
+            return classificationsIncludeds(Output.of(classificationsIncludeds));
+        }
+
+        /**
+         * @param classificationsIncludeds Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder classificationsIncludeds(String... classificationsIncludeds) {
+            return classificationsIncludeds(List.of(classificationsIncludeds));
         }
 
         /**
@@ -207,7 +270,7 @@ public final class SoftwareUpdateConfigurationWindowArgs extends com.pulumi.reso
             return reboot(Output.of(reboot));
         }
 
-        public SoftwareUpdateConfigurationWindowArgs build() {
+        public SoftwareUpdateConfigurationWindowsArgs build() {
             return $;
         }
     }

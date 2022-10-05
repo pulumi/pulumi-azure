@@ -1365,11 +1365,13 @@ class AccountSharePropertiesSmbArgs:
                  authentication_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  channel_encryption_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kerberos_ticket_encryption_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 multichannel_enabled: Optional[pulumi.Input[bool]] = None,
                  versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authentication_types: A set of SMB authentication methods. Possible values are `NTLMv2`, and `Kerberos`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] channel_encryption_types: A set of SMB channel encryption. Possible values are `AES-128-CCM`, `AES-128-GCM`, and `AES-256-GCM`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] kerberos_ticket_encryption_types: A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
+        :param pulumi.Input[bool] multichannel_enabled: Indicates whether multichannel is enabled. Defaults to `false`. This is only supported on Premium storage accounts.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] versions: A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
         """
         if authentication_types is not None:
@@ -1378,6 +1380,8 @@ class AccountSharePropertiesSmbArgs:
             pulumi.set(__self__, "channel_encryption_types", channel_encryption_types)
         if kerberos_ticket_encryption_types is not None:
             pulumi.set(__self__, "kerberos_ticket_encryption_types", kerberos_ticket_encryption_types)
+        if multichannel_enabled is not None:
+            pulumi.set(__self__, "multichannel_enabled", multichannel_enabled)
         if versions is not None:
             pulumi.set(__self__, "versions", versions)
 
@@ -1416,6 +1420,18 @@ class AccountSharePropertiesSmbArgs:
     @kerberos_ticket_encryption_types.setter
     def kerberos_ticket_encryption_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "kerberos_ticket_encryption_types", value)
+
+    @property
+    @pulumi.getter(name="multichannelEnabled")
+    def multichannel_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether multichannel is enabled. Defaults to `false`. This is only supported on Premium storage accounts.
+        """
+        return pulumi.get(self, "multichannel_enabled")
+
+    @multichannel_enabled.setter
+    def multichannel_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "multichannel_enabled", value)
 
     @property
     @pulumi.getter

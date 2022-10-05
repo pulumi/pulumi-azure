@@ -61,7 +61,9 @@ type LookupWorkspaceArgs struct {
 // A collection of values returned by getWorkspace.
 type LookupWorkspaceResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id                string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The Azure location where the Databricks Workspace exists.
+	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// SKU of this Databricks Workspace.
@@ -119,6 +121,11 @@ func (o LookupWorkspaceResultOutput) ToLookupWorkspaceResultOutputWithContext(ct
 // The provider-assigned unique ID for this managed resource.
 func (o LookupWorkspaceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The Azure location where the Databricks Workspace exists.
+func (o LookupWorkspaceResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
 func (o LookupWorkspaceResultOutput) Name() pulumi.StringOutput {

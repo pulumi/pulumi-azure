@@ -456,7 +456,7 @@ namespace Pulumi.Azure.MachineLearning
         /// Enable public access when this Machine Learning Workspace is behind a VNet.
         /// </summary>
         [Output("publicAccessBehindVirtualNetworkEnabled")]
-        public Output<bool> PublicAccessBehindVirtualNetworkEnabled { get; private set; } = null!;
+        public Output<bool?> PublicAccessBehindVirtualNetworkEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Enable public access when this Machine Learning Workspace is behind VNet.
@@ -487,6 +487,12 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+        /// </summary>
+        [Output("v1LegacyModeEnabled")]
+        public Output<bool?> V1LegacyModeEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -645,6 +651,12 @@ namespace Pulumi.Azure.MachineLearning
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+        /// </summary>
+        [Input("v1LegacyModeEnabled")]
+        public Input<bool>? V1LegacyModeEnabled { get; set; }
+
         public WorkspaceArgs()
         {
         }
@@ -769,6 +781,12 @@ namespace Pulumi.Azure.MachineLearning
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+        /// </summary>
+        [Input("v1LegacyModeEnabled")]
+        public Input<bool>? V1LegacyModeEnabled { get; set; }
 
         public WorkspaceState()
         {

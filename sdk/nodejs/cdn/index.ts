@@ -15,6 +15,11 @@ export type EndpointCustomDomain = import("./endpointCustomDomain").EndpointCust
 export const EndpointCustomDomain: typeof import("./endpointCustomDomain").EndpointCustomDomain = null as any;
 utilities.lazyLoad(exports, ["EndpointCustomDomain"], () => require("./endpointCustomDomain"));
 
+export { FrontdoorCustomEndpointArgs, FrontdoorCustomEndpointState } from "./frontdoorCustomEndpoint";
+export type FrontdoorCustomEndpoint = import("./frontdoorCustomEndpoint").FrontdoorCustomEndpoint;
+export const FrontdoorCustomEndpoint: typeof import("./frontdoorCustomEndpoint").FrontdoorCustomEndpoint = null as any;
+utilities.lazyLoad(exports, ["FrontdoorCustomEndpoint"], () => require("./frontdoorCustomEndpoint"));
+
 export { FrontdoorEndpointArgs, FrontdoorEndpointState } from "./frontdoorEndpoint";
 export type FrontdoorEndpoint = import("./frontdoorEndpoint").FrontdoorEndpoint;
 export const FrontdoorEndpoint: typeof import("./frontdoorEndpoint").FrontdoorEndpoint = null as any;
@@ -39,6 +44,16 @@ export { FrontdoorProfileArgs, FrontdoorProfileState } from "./frontdoorProfile"
 export type FrontdoorProfile = import("./frontdoorProfile").FrontdoorProfile;
 export const FrontdoorProfile: typeof import("./frontdoorProfile").FrontdoorProfile = null as any;
 utilities.lazyLoad(exports, ["FrontdoorProfile"], () => require("./frontdoorProfile"));
+
+export { FrontdoorRouteArgs, FrontdoorRouteState } from "./frontdoorRoute";
+export type FrontdoorRoute = import("./frontdoorRoute").FrontdoorRoute;
+export const FrontdoorRoute: typeof import("./frontdoorRoute").FrontdoorRoute = null as any;
+utilities.lazyLoad(exports, ["FrontdoorRoute"], () => require("./frontdoorRoute"));
+
+export { FrontdoorRouteDisableLinkToDefaultDomainArgs, FrontdoorRouteDisableLinkToDefaultDomainState } from "./frontdoorRouteDisableLinkToDefaultDomain";
+export type FrontdoorRouteDisableLinkToDefaultDomain = import("./frontdoorRouteDisableLinkToDefaultDomain").FrontdoorRouteDisableLinkToDefaultDomain;
+export const FrontdoorRouteDisableLinkToDefaultDomain: typeof import("./frontdoorRouteDisableLinkToDefaultDomain").FrontdoorRouteDisableLinkToDefaultDomain = null as any;
+utilities.lazyLoad(exports, ["FrontdoorRouteDisableLinkToDefaultDomain"], () => require("./frontdoorRouteDisableLinkToDefaultDomain"));
 
 export { FrontdoorRuleArgs, FrontdoorRuleState } from "./frontdoorRule";
 export type FrontdoorRule = import("./frontdoorRule").FrontdoorRule;
@@ -99,6 +114,8 @@ const _module = {
                 return new Endpoint(name, <any>undefined, { urn })
             case "azure:cdn/endpointCustomDomain:EndpointCustomDomain":
                 return new EndpointCustomDomain(name, <any>undefined, { urn })
+            case "azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint":
+                return new FrontdoorCustomEndpoint(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorEndpoint:FrontdoorEndpoint":
                 return new FrontdoorEndpoint(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy":
@@ -109,6 +126,10 @@ const _module = {
                 return new FrontdoorOriginGroup(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorProfile:FrontdoorProfile":
                 return new FrontdoorProfile(name, <any>undefined, { urn })
+            case "azure:cdn/frontdoorRoute:FrontdoorRoute":
+                return new FrontdoorRoute(name, <any>undefined, { urn })
+            case "azure:cdn/frontdoorRouteDisableLinkToDefaultDomain:FrontdoorRouteDisableLinkToDefaultDomain":
+                return new FrontdoorRouteDisableLinkToDefaultDomain(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorRule:FrontdoorRule":
                 return new FrontdoorRule(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorRuleSet:FrontdoorRuleSet":
@@ -126,11 +147,14 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "cdn/endpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/endpointCustomDomain", _module)
+pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorCustomEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorFirewallPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorOrigin", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorOriginGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorProfile", _module)
+pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorRoute", _module)
+pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorRouteDisableLinkToDefaultDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorRule", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorRuleSet", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorSecret", _module)

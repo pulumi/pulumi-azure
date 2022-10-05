@@ -33,6 +33,9 @@ class LabArgs:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if storage_type is not None:
+            warnings.warn("""`storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""", DeprecationWarning)
+            pulumi.log.warn("""storage_type is deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""")
+        if storage_type is not None:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
@@ -142,6 +145,9 @@ class _LabState:
             pulumi.set(__self__, "premium_data_disk_storage_account_id", premium_data_disk_storage_account_id)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if storage_type is not None:
+            warnings.warn("""`storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""", DeprecationWarning)
+            pulumi.log.warn("""storage_type is deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""")
         if storage_type is not None:
             pulumi.set(__self__, "storage_type", storage_type)
         if tags is not None:
@@ -393,6 +399,9 @@ class Lab(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if storage_type is not None and not opts.urn:
+                warnings.warn("""`storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""", DeprecationWarning)
+                pulumi.log.warn("""storage_type is deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.""")
             __props__.__dict__["storage_type"] = storage_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["artifacts_storage_account_id"] = None

@@ -26,6 +26,10 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly ImmutableArray<string> KerberosTicketEncryptionTypes;
         /// <summary>
+        /// Indicates whether multichannel is enabled. Defaults to `false`. This is only supported on Premium storage accounts.
+        /// </summary>
+        public readonly bool? MultichannelEnabled;
+        /// <summary>
         /// A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
         /// </summary>
         public readonly ImmutableArray<string> Versions;
@@ -38,11 +42,14 @@ namespace Pulumi.Azure.Storage.Outputs
 
             ImmutableArray<string> kerberosTicketEncryptionTypes,
 
+            bool? multichannelEnabled,
+
             ImmutableArray<string> versions)
         {
             AuthenticationTypes = authenticationTypes;
             ChannelEncryptionTypes = channelEncryptionTypes;
             KerberosTicketEncryptionTypes = kerberosTicketEncryptionTypes;
+            MultichannelEnabled = multichannelEnabled;
             Versions = versions;
         }
     }

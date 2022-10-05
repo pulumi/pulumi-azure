@@ -8,7 +8,7 @@ import com.pulumi.azure.automation.inputs.SoftwareUpdateConfigurationPostTaskArg
 import com.pulumi.azure.automation.inputs.SoftwareUpdateConfigurationPreTaskArgs;
 import com.pulumi.azure.automation.inputs.SoftwareUpdateConfigurationScheduleArgs;
 import com.pulumi.azure.automation.inputs.SoftwareUpdateConfigurationTargetArgs;
-import com.pulumi.azure.automation.inputs.SoftwareUpdateConfigurationWindowArgs;
+import com.pulumi.azure.automation.inputs.SoftwareUpdateConfigurationWindowsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -192,13 +192,13 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
      * 
      */
     @Import(name="windows")
-    private @Nullable Output<List<SoftwareUpdateConfigurationWindowArgs>> windows;
+    private @Nullable Output<SoftwareUpdateConfigurationWindowsArgs> windows;
 
     /**
      * @return One or more `windows` blocks as defined below.
      * 
      */
-    public Optional<Output<List<SoftwareUpdateConfigurationWindowArgs>>> windows() {
+    public Optional<Output<SoftwareUpdateConfigurationWindowsArgs>> windows() {
         return Optional.ofNullable(this.windows);
     }
 
@@ -534,7 +534,7 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder windows(@Nullable Output<List<SoftwareUpdateConfigurationWindowArgs>> windows) {
+        public Builder windows(@Nullable Output<SoftwareUpdateConfigurationWindowsArgs> windows) {
             $.windows = windows;
             return this;
         }
@@ -545,18 +545,8 @@ public final class SoftwareUpdateConfigurationArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder windows(List<SoftwareUpdateConfigurationWindowArgs> windows) {
+        public Builder windows(SoftwareUpdateConfigurationWindowsArgs windows) {
             return windows(Output.of(windows));
-        }
-
-        /**
-         * @param windows One or more `windows` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder windows(SoftwareUpdateConfigurationWindowArgs... windows) {
-            return windows(List.of(windows));
         }
 
         public SoftwareUpdateConfigurationArgs build() {

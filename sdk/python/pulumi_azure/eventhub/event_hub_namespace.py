@@ -34,7 +34,7 @@ class EventHubNamespaceArgs:
         """
         The set of arguments for constructing a EventHubNamespace resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zone_redundant` to true.
+        :param pulumi.Input[str] sku: Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         :param pulumi.Input[bool] auto_inflate_enabled: Is Auto Inflate enabled for the EventHub Namespace?
         :param pulumi.Input[int] capacity: Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis.
         :param pulumi.Input[str] dedicated_cluster_id: Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created.
@@ -94,7 +94,7 @@ class EventHubNamespaceArgs:
     @pulumi.getter
     def sku(self) -> pulumi.Input[str]:
         """
-        Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zone_redundant` to true.
+        Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         """
         return pulumi.get(self, "sku")
 
@@ -307,7 +307,7 @@ class _EventHubNamespaceState:
         :param pulumi.Input['EventHubNamespaceNetworkRulesetsArgs'] network_rulesets: A `network_rulesets` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zone_redundant` to true.
+        :param pulumi.Input[str] sku: Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
         """
@@ -578,7 +578,7 @@ class _EventHubNamespaceState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zone_redundant` to true.
+        Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         """
         return pulumi.get(self, "sku")
 
@@ -674,7 +674,7 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventHubNamespaceNetworkRulesetsArgs']] network_rulesets: A `network_rulesets` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zone_redundant` to true.
+        :param pulumi.Input[str] sku: Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
         """
@@ -836,7 +836,7 @@ class EventHubNamespace(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventHubNamespaceNetworkRulesetsArgs']] network_rulesets: A `network_rulesets` block as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Is public network access enabled for the EventHub Namespace? Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku: Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zone_redundant` to true.
+        :param pulumi.Input[str] sku: Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`.
         """
@@ -1019,7 +1019,7 @@ class EventHubNamespace(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[str]:
         """
-        Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zone_redundant` to true.
+        Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         """
         return pulumi.get(self, "sku")
 

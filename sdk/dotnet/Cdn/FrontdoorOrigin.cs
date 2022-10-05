@@ -34,10 +34,13 @@ namespace Pulumi.Azure.Cdn
         public Output<bool> CertificateNameCheckEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Should the health probes be enabled against the origins defined within the origin group? Possible values are `true` or `false`. Defaults to `true`.
+        /// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         /// </summary>
+        [Output("enabled")]
+        public Output<bool> Enabled { get; private set; } = null!;
+
         [Output("healthProbesEnabled")]
-        public Output<bool?> HealthProbesEnabled { get; private set; } = null!;
+        public Output<bool> HealthProbesEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The IPv4 address, IPv6 address or Domain name of the Origin.
@@ -146,8 +149,11 @@ namespace Pulumi.Azure.Cdn
         public Input<bool> CertificateNameCheckEnabled { get; set; } = null!;
 
         /// <summary>
-        /// Should the health probes be enabled against the origins defined within the origin group? Possible values are `true` or `false`. Defaults to `true`.
+        /// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
         [Input("healthProbesEnabled")]
         public Input<bool>? HealthProbesEnabled { get; set; }
 
@@ -220,8 +226,11 @@ namespace Pulumi.Azure.Cdn
         public Input<bool>? CertificateNameCheckEnabled { get; set; }
 
         /// <summary>
-        /// Should the health probes be enabled against the origins defined within the origin group? Possible values are `true` or `false`. Defaults to `true`.
+        /// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
         [Input("healthProbesEnabled")]
         public Input<bool>? HealthProbesEnabled { get; set; }
 

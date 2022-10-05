@@ -3580,6 +3580,8 @@ type AccountSharePropertiesSmb struct {
 	ChannelEncryptionTypes []string `pulumi:"channelEncryptionTypes"`
 	// A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
 	KerberosTicketEncryptionTypes []string `pulumi:"kerberosTicketEncryptionTypes"`
+	// Indicates whether multichannel is enabled. Defaults to `false`. This is only supported on Premium storage accounts.
+	MultichannelEnabled *bool `pulumi:"multichannelEnabled"`
 	// A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
 	Versions []string `pulumi:"versions"`
 }
@@ -3602,6 +3604,8 @@ type AccountSharePropertiesSmbArgs struct {
 	ChannelEncryptionTypes pulumi.StringArrayInput `pulumi:"channelEncryptionTypes"`
 	// A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
 	KerberosTicketEncryptionTypes pulumi.StringArrayInput `pulumi:"kerberosTicketEncryptionTypes"`
+	// Indicates whether multichannel is enabled. Defaults to `false`. This is only supported on Premium storage accounts.
+	MultichannelEnabled pulumi.BoolPtrInput `pulumi:"multichannelEnabled"`
 	// A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
 	Versions pulumi.StringArrayInput `pulumi:"versions"`
 }
@@ -3698,6 +3702,11 @@ func (o AccountSharePropertiesSmbOutput) KerberosTicketEncryptionTypes() pulumi.
 	return o.ApplyT(func(v AccountSharePropertiesSmb) []string { return v.KerberosTicketEncryptionTypes }).(pulumi.StringArrayOutput)
 }
 
+// Indicates whether multichannel is enabled. Defaults to `false`. This is only supported on Premium storage accounts.
+func (o AccountSharePropertiesSmbOutput) MultichannelEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountSharePropertiesSmb) *bool { return v.MultichannelEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
 func (o AccountSharePropertiesSmbOutput) Versions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AccountSharePropertiesSmb) []string { return v.Versions }).(pulumi.StringArrayOutput)
@@ -3755,6 +3764,16 @@ func (o AccountSharePropertiesSmbPtrOutput) KerberosTicketEncryptionTypes() pulu
 		}
 		return v.KerberosTicketEncryptionTypes
 	}).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether multichannel is enabled. Defaults to `false`. This is only supported on Premium storage accounts.
+func (o AccountSharePropertiesSmbPtrOutput) MultichannelEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountSharePropertiesSmb) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MultichannelEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.

@@ -103,7 +103,7 @@ export class Logger extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The target resource id which will be linked in the API-Management portal page.
+     * The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
      */
     public readonly resourceId!: pulumi.Output<string | undefined>;
 
@@ -183,7 +183,7 @@ export interface LoggerState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The target resource id which will be linked in the API-Management portal page.
+     * The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
      */
     resourceId?: pulumi.Input<string>;
 }
@@ -221,7 +221,7 @@ export interface LoggerArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The target resource id which will be linked in the API-Management portal page.
+     * The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
      */
     resourceId?: pulumi.Input<string>;
 }

@@ -11,7 +11,7 @@ import com.pulumi.azure.automation.outputs.SoftwareUpdateConfigurationPostTask;
 import com.pulumi.azure.automation.outputs.SoftwareUpdateConfigurationPreTask;
 import com.pulumi.azure.automation.outputs.SoftwareUpdateConfigurationSchedule;
 import com.pulumi.azure.automation.outputs.SoftwareUpdateConfigurationTarget;
-import com.pulumi.azure.automation.outputs.SoftwareUpdateConfigurationWindow;
+import com.pulumi.azure.automation.outputs.SoftwareUpdateConfigurationWindows;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -275,14 +275,14 @@ public class SoftwareUpdateConfiguration extends com.pulumi.resources.CustomReso
      * One or more `windows` blocks as defined below.
      * 
      */
-    @Export(name="windows", type=List.class, parameters={SoftwareUpdateConfigurationWindow.class})
-    private Output</* @Nullable */ List<SoftwareUpdateConfigurationWindow>> windows;
+    @Export(name="windows", type=SoftwareUpdateConfigurationWindows.class, parameters={})
+    private Output</* @Nullable */ SoftwareUpdateConfigurationWindows> windows;
 
     /**
      * @return One or more `windows` blocks as defined below.
      * 
      */
-    public Output<Optional<List<SoftwareUpdateConfigurationWindow>>> windows() {
+    public Output<Optional<SoftwareUpdateConfigurationWindows>> windows() {
         return Codegen.optional(this.windows);
     }
 

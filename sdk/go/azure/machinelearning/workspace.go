@@ -446,10 +446,10 @@ type Workspace struct {
 	// The user assigned identity id that represents the workspace identity.
 	PrimaryUserAssignedIdentity pulumi.StringPtrOutput `pulumi:"primaryUserAssignedIdentity"`
 	// Enable public access when this Machine Learning Workspace is behind a VNet.
-	PublicAccessBehindVirtualNetworkEnabled pulumi.BoolOutput `pulumi:"publicAccessBehindVirtualNetworkEnabled"`
-	// Enable public access when this Machine Learning Workspace is behind VNet.
 	//
-	// Deprecated: `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.
+	// Deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+	PublicAccessBehindVirtualNetworkEnabled pulumi.BoolPtrOutput `pulumi:"publicAccessBehindVirtualNetworkEnabled"`
+	// Enable public access when this Machine Learning Workspace is behind VNet.
 	PublicNetworkAccessEnabled pulumi.BoolOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -459,6 +459,8 @@ type Workspace struct {
 	StorageAccountId pulumi.StringOutput `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Enable V1 API features, enabling `v1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+	V1LegacyModeEnabled pulumi.BoolPtrOutput `pulumi:"v1LegacyModeEnabled"`
 }
 
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -531,10 +533,10 @@ type workspaceState struct {
 	// The user assigned identity id that represents the workspace identity.
 	PrimaryUserAssignedIdentity *string `pulumi:"primaryUserAssignedIdentity"`
 	// Enable public access when this Machine Learning Workspace is behind a VNet.
+	//
+	// Deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
 	PublicAccessBehindVirtualNetworkEnabled *bool `pulumi:"publicAccessBehindVirtualNetworkEnabled"`
 	// Enable public access when this Machine Learning Workspace is behind VNet.
-	//
-	// Deprecated: `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -544,6 +546,8 @@ type workspaceState struct {
 	StorageAccountId *string `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Enable V1 API features, enabling `v1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+	V1LegacyModeEnabled *bool `pulumi:"v1LegacyModeEnabled"`
 }
 
 type WorkspaceState struct {
@@ -573,10 +577,10 @@ type WorkspaceState struct {
 	// The user assigned identity id that represents the workspace identity.
 	PrimaryUserAssignedIdentity pulumi.StringPtrInput
 	// Enable public access when this Machine Learning Workspace is behind a VNet.
+	//
+	// Deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
 	PublicAccessBehindVirtualNetworkEnabled pulumi.BoolPtrInput
 	// Enable public access when this Machine Learning Workspace is behind VNet.
-	//
-	// Deprecated: `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -586,6 +590,8 @@ type WorkspaceState struct {
 	StorageAccountId pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Enable V1 API features, enabling `v1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+	V1LegacyModeEnabled pulumi.BoolPtrInput
 }
 
 func (WorkspaceState) ElementType() reflect.Type {
@@ -617,10 +623,10 @@ type workspaceArgs struct {
 	// The user assigned identity id that represents the workspace identity.
 	PrimaryUserAssignedIdentity *string `pulumi:"primaryUserAssignedIdentity"`
 	// Enable public access when this Machine Learning Workspace is behind a VNet.
+	//
+	// Deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
 	PublicAccessBehindVirtualNetworkEnabled *bool `pulumi:"publicAccessBehindVirtualNetworkEnabled"`
 	// Enable public access when this Machine Learning Workspace is behind VNet.
-	//
-	// Deprecated: `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -630,6 +636,8 @@ type workspaceArgs struct {
 	StorageAccountId string `pulumi:"storageAccountId"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Enable V1 API features, enabling `v1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+	V1LegacyModeEnabled *bool `pulumi:"v1LegacyModeEnabled"`
 }
 
 // The set of arguments for constructing a Workspace resource.
@@ -658,10 +666,10 @@ type WorkspaceArgs struct {
 	// The user assigned identity id that represents the workspace identity.
 	PrimaryUserAssignedIdentity pulumi.StringPtrInput
 	// Enable public access when this Machine Learning Workspace is behind a VNet.
+	//
+	// Deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
 	PublicAccessBehindVirtualNetworkEnabled pulumi.BoolPtrInput
 	// Enable public access when this Machine Learning Workspace is behind VNet.
-	//
-	// Deprecated: `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
@@ -671,6 +679,8 @@ type WorkspaceArgs struct {
 	StorageAccountId pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
+	// Enable V1 API features, enabling `v1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+	V1LegacyModeEnabled pulumi.BoolPtrInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {
@@ -825,13 +835,13 @@ func (o WorkspaceOutput) PrimaryUserAssignedIdentity() pulumi.StringPtrOutput {
 }
 
 // Enable public access when this Machine Learning Workspace is behind a VNet.
-func (o WorkspaceOutput) PublicAccessBehindVirtualNetworkEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Workspace) pulumi.BoolOutput { return v.PublicAccessBehindVirtualNetworkEnabled }).(pulumi.BoolOutput)
+//
+// Deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+func (o WorkspaceOutput) PublicAccessBehindVirtualNetworkEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.PublicAccessBehindVirtualNetworkEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Enable public access when this Machine Learning Workspace is behind VNet.
-//
-// Deprecated: `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.
 func (o WorkspaceOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.BoolOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
 }
@@ -854,6 +864,11 @@ func (o WorkspaceOutput) StorageAccountId() pulumi.StringOutput {
 // A mapping of tags to assign to the resource.
 func (o WorkspaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Enable V1 API features, enabling `v1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+func (o WorkspaceOutput) V1LegacyModeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.BoolPtrOutput { return v.V1LegacyModeEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type WorkspaceArrayOutput struct{ *pulumi.OutputState }

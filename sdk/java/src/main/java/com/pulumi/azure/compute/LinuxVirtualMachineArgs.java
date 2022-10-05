@@ -6,6 +6,7 @@ package com.pulumi.azure.compute;
 import com.pulumi.azure.compute.inputs.LinuxVirtualMachineAdditionalCapabilitiesArgs;
 import com.pulumi.azure.compute.inputs.LinuxVirtualMachineAdminSshKeyArgs;
 import com.pulumi.azure.compute.inputs.LinuxVirtualMachineBootDiagnosticsArgs;
+import com.pulumi.azure.compute.inputs.LinuxVirtualMachineGalleryApplicationArgs;
 import com.pulumi.azure.compute.inputs.LinuxVirtualMachineIdentityArgs;
 import com.pulumi.azure.compute.inputs.LinuxVirtualMachineOsDiskArgs;
 import com.pulumi.azure.compute.inputs.LinuxVirtualMachinePlanArgs;
@@ -282,6 +283,21 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
      */
     public Optional<Output<String>> extensionsTimeBudget() {
         return Optional.ofNullable(this.extensionsTimeBudget);
+    }
+
+    /**
+     * A `gallery_application` block as defined below.
+     * 
+     */
+    @Import(name="galleryApplications")
+    private @Nullable Output<List<LinuxVirtualMachineGalleryApplicationArgs>> galleryApplications;
+
+    /**
+     * @return A `gallery_application` block as defined below.
+     * 
+     */
+    public Optional<Output<List<LinuxVirtualMachineGalleryApplicationArgs>>> galleryApplications() {
+        return Optional.ofNullable(this.galleryApplications);
     }
 
     /**
@@ -694,6 +710,7 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
         this.encryptionAtHostEnabled = $.encryptionAtHostEnabled;
         this.evictionPolicy = $.evictionPolicy;
         this.extensionsTimeBudget = $.extensionsTimeBudget;
+        this.galleryApplications = $.galleryApplications;
         this.identity = $.identity;
         this.licenseType = $.licenseType;
         this.location = $.location;
@@ -1105,6 +1122,37 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
          */
         public Builder extensionsTimeBudget(String extensionsTimeBudget) {
             return extensionsTimeBudget(Output.of(extensionsTimeBudget));
+        }
+
+        /**
+         * @param galleryApplications A `gallery_application` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder galleryApplications(@Nullable Output<List<LinuxVirtualMachineGalleryApplicationArgs>> galleryApplications) {
+            $.galleryApplications = galleryApplications;
+            return this;
+        }
+
+        /**
+         * @param galleryApplications A `gallery_application` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder galleryApplications(List<LinuxVirtualMachineGalleryApplicationArgs> galleryApplications) {
+            return galleryApplications(Output.of(galleryApplications));
+        }
+
+        /**
+         * @param galleryApplications A `gallery_application` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder galleryApplications(LinuxVirtualMachineGalleryApplicationArgs... galleryApplications) {
+            return galleryApplications(List.of(galleryApplications));
         }
 
         /**

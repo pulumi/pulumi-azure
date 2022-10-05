@@ -140,7 +140,7 @@ export class EventHubNamespace extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zoneRedundant` to true.
+     * Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
      */
     public readonly sku!: pulumi.Output<string>;
     /**
@@ -302,7 +302,7 @@ export interface EventHubNamespaceState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zoneRedundant` to true.
+     * Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
      */
     sku?: pulumi.Input<string>;
     /**
@@ -368,7 +368,7 @@ export interface EventHubNamespaceArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zoneRedundant` to true.
+     * Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
      */
     sku: pulumi.Input<string>;
     /**

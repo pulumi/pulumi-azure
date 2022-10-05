@@ -15,14 +15,14 @@ public final class LinkedStorageAccountArgs extends com.pulumi.resources.Resourc
     public static final LinkedStorageAccountArgs Empty = new LinkedStorageAccountArgs();
 
     /**
-     * The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+     * The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
      * 
      */
     @Import(name="dataSourceType", required=true)
     private Output<String> dataSourceType;
 
     /**
-     * @return The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+     * @return The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
      * 
      */
     public Output<String> dataSourceType() {
@@ -102,7 +102,7 @@ public final class LinkedStorageAccountArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param dataSourceType The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+         * @param dataSourceType The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class LinkedStorageAccountArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param dataSourceType The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+         * @param dataSourceType The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
          * 
          * @return builder
          * 

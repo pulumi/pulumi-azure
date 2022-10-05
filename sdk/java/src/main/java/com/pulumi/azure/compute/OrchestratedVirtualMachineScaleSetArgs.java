@@ -304,14 +304,14 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
     }
 
     /**
-     * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+     * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
      * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
-     * @return Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+     * @return Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -360,6 +360,21 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
 
     public Optional<Output<OrchestratedVirtualMachineScaleSetTerminationNotificationArgs>> terminationNotification() {
         return Optional.ofNullable(this.terminationNotification);
+    }
+
+    /**
+     * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+     * 
+     */
+    @Import(name="userDataBase64")
+    private @Nullable Output<String> userDataBase64;
+
+    /**
+     * @return The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+     * 
+     */
+    public Optional<Output<String>> userDataBase64() {
+        return Optional.ofNullable(this.userDataBase64);
     }
 
     @Import(name="zoneBalance")
@@ -417,6 +432,7 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         this.sourceImageReference = $.sourceImageReference;
         this.tags = $.tags;
         this.terminationNotification = $.terminationNotification;
+        this.userDataBase64 = $.userDataBase64;
         this.zoneBalance = $.zoneBalance;
         this.zones = $.zones;
     }
@@ -821,7 +837,7 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         }
 
         /**
-         * @param skuName Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+         * @param skuName Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -832,7 +848,7 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
         }
 
         /**
-         * @param skuName Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+         * @param skuName Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -899,6 +915,27 @@ public final class OrchestratedVirtualMachineScaleSetArgs extends com.pulumi.res
 
         public Builder terminationNotification(OrchestratedVirtualMachineScaleSetTerminationNotificationArgs terminationNotification) {
             return terminationNotification(Output.of(terminationNotification));
+        }
+
+        /**
+         * @param userDataBase64 The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userDataBase64(@Nullable Output<String> userDataBase64) {
+            $.userDataBase64 = userDataBase64;
+            return this;
+        }
+
+        /**
+         * @param userDataBase64 The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userDataBase64(String userDataBase64) {
+            return userDataBase64(Output.of(userDataBase64));
         }
 
         public Builder zoneBalance(@Nullable Output<Boolean> zoneBalance) {

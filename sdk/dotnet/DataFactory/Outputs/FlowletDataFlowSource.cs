@@ -34,6 +34,10 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// A `rejected_linked_service` block as defined below.
+        /// </summary>
+        public readonly Outputs.FlowletDataFlowSourceRejectedLinkedService? RejectedLinkedService;
+        /// <summary>
         /// A `schema_linked_service` block as defined below.
         /// </summary>
         public readonly Outputs.FlowletDataFlowSourceSchemaLinkedService? SchemaLinkedService;
@@ -50,6 +54,8 @@ namespace Pulumi.Azure.DataFactory.Outputs
 
             string name,
 
+            Outputs.FlowletDataFlowSourceRejectedLinkedService? rejectedLinkedService,
+
             Outputs.FlowletDataFlowSourceSchemaLinkedService? schemaLinkedService)
         {
             Dataset = dataset;
@@ -57,6 +63,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
             Flowlet = flowlet;
             LinkedService = linkedService;
             Name = name;
+            RejectedLinkedService = rejectedLinkedService;
             SchemaLinkedService = schemaLinkedService;
         }
     }

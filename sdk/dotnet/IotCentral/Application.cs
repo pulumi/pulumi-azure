@@ -61,6 +61,12 @@ namespace Pulumi.Azure.IotCentral
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ApplicationIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -71,6 +77,12 @@ namespace Pulumi.Azure.IotCentral
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
@@ -155,6 +167,12 @@ namespace Pulumi.Azure.IotCentral
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ApplicationIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -165,6 +183,12 @@ namespace Pulumi.Azure.IotCentral
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
@@ -217,6 +241,12 @@ namespace Pulumi.Azure.IotCentral
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ApplicationIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -227,6 +257,12 @@ namespace Pulumi.Azure.IotCentral
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.

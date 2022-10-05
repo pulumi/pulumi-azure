@@ -16,11 +16,13 @@ __all__ = [
     'DataFlowSinkDataset',
     'DataFlowSinkFlowlet',
     'DataFlowSinkLinkedService',
+    'DataFlowSinkRejectedLinkedService',
     'DataFlowSinkSchemaLinkedService',
     'DataFlowSource',
     'DataFlowSourceDataset',
     'DataFlowSourceFlowlet',
     'DataFlowSourceLinkedService',
+    'DataFlowSourceRejectedLinkedService',
     'DataFlowSourceSchemaLinkedService',
     'DataFlowTransformation',
     'DataFlowTransformationDataset',
@@ -55,11 +57,13 @@ __all__ = [
     'FlowletDataFlowSinkDataset',
     'FlowletDataFlowSinkFlowlet',
     'FlowletDataFlowSinkLinkedService',
+    'FlowletDataFlowSinkRejectedLinkedService',
     'FlowletDataFlowSinkSchemaLinkedService',
     'FlowletDataFlowSource',
     'FlowletDataFlowSourceDataset',
     'FlowletDataFlowSourceFlowlet',
     'FlowletDataFlowSourceLinkedService',
+    'FlowletDataFlowSourceRejectedLinkedService',
     'FlowletDataFlowSourceSchemaLinkedService',
     'FlowletDataFlowTransformation',
     'FlowletDataFlowTransformationDataset',
@@ -146,6 +150,8 @@ class DataFlowSink(dict):
         suggest = None
         if key == "linkedService":
             suggest = "linked_service"
+        elif key == "rejectedLinkedService":
+            suggest = "rejected_linked_service"
         elif key == "schemaLinkedService":
             suggest = "schema_linked_service"
 
@@ -166,6 +172,7 @@ class DataFlowSink(dict):
                  description: Optional[str] = None,
                  flowlet: Optional['outputs.DataFlowSinkFlowlet'] = None,
                  linked_service: Optional['outputs.DataFlowSinkLinkedService'] = None,
+                 rejected_linked_service: Optional['outputs.DataFlowSinkRejectedLinkedService'] = None,
                  schema_linked_service: Optional['outputs.DataFlowSinkSchemaLinkedService'] = None):
         """
         :param str name: The name for the Data Flow Source.
@@ -173,6 +180,7 @@ class DataFlowSink(dict):
         :param str description: The description for the Data Flow Source.
         :param 'DataFlowSinkFlowletArgs' flowlet: A `flowlet` block as defined below.
         :param 'DataFlowSinkLinkedServiceArgs' linked_service: A `linked_service` block as defined below.
+        :param 'DataFlowSinkRejectedLinkedServiceArgs' rejected_linked_service: A `rejected_linked_service` block as defined below.
         :param 'DataFlowSinkSchemaLinkedServiceArgs' schema_linked_service: A `schema_linked_service` block as defined below.
         """
         pulumi.set(__self__, "name", name)
@@ -184,6 +192,8 @@ class DataFlowSink(dict):
             pulumi.set(__self__, "flowlet", flowlet)
         if linked_service is not None:
             pulumi.set(__self__, "linked_service", linked_service)
+        if rejected_linked_service is not None:
+            pulumi.set(__self__, "rejected_linked_service", rejected_linked_service)
         if schema_linked_service is not None:
             pulumi.set(__self__, "schema_linked_service", schema_linked_service)
 
@@ -226,6 +236,14 @@ class DataFlowSink(dict):
         A `linked_service` block as defined below.
         """
         return pulumi.get(self, "linked_service")
+
+    @property
+    @pulumi.getter(name="rejectedLinkedService")
+    def rejected_linked_service(self) -> Optional['outputs.DataFlowSinkRejectedLinkedService']:
+        """
+        A `rejected_linked_service` block as defined below.
+        """
+        return pulumi.get(self, "rejected_linked_service")
 
     @property
     @pulumi.getter(name="schemaLinkedService")
@@ -352,6 +370,36 @@ class DataFlowSinkLinkedService(dict):
 
 
 @pulumi.output_type
+class DataFlowSinkRejectedLinkedService(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The name for the Data Factory Linked Service with schema.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Factory Linked Service with schema.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class DataFlowSinkSchemaLinkedService(dict):
     def __init__(__self__, *,
                  name: str,
@@ -388,6 +436,8 @@ class DataFlowSource(dict):
         suggest = None
         if key == "linkedService":
             suggest = "linked_service"
+        elif key == "rejectedLinkedService":
+            suggest = "rejected_linked_service"
         elif key == "schemaLinkedService":
             suggest = "schema_linked_service"
 
@@ -408,6 +458,7 @@ class DataFlowSource(dict):
                  description: Optional[str] = None,
                  flowlet: Optional['outputs.DataFlowSourceFlowlet'] = None,
                  linked_service: Optional['outputs.DataFlowSourceLinkedService'] = None,
+                 rejected_linked_service: Optional['outputs.DataFlowSourceRejectedLinkedService'] = None,
                  schema_linked_service: Optional['outputs.DataFlowSourceSchemaLinkedService'] = None):
         """
         :param str name: The name for the Data Flow Source.
@@ -415,6 +466,7 @@ class DataFlowSource(dict):
         :param str description: The description for the Data Flow Source.
         :param 'DataFlowSourceFlowletArgs' flowlet: A `flowlet` block as defined below.
         :param 'DataFlowSourceLinkedServiceArgs' linked_service: A `linked_service` block as defined below.
+        :param 'DataFlowSourceRejectedLinkedServiceArgs' rejected_linked_service: A `rejected_linked_service` block as defined below.
         :param 'DataFlowSourceSchemaLinkedServiceArgs' schema_linked_service: A `schema_linked_service` block as defined below.
         """
         pulumi.set(__self__, "name", name)
@@ -426,6 +478,8 @@ class DataFlowSource(dict):
             pulumi.set(__self__, "flowlet", flowlet)
         if linked_service is not None:
             pulumi.set(__self__, "linked_service", linked_service)
+        if rejected_linked_service is not None:
+            pulumi.set(__self__, "rejected_linked_service", rejected_linked_service)
         if schema_linked_service is not None:
             pulumi.set(__self__, "schema_linked_service", schema_linked_service)
 
@@ -468,6 +522,14 @@ class DataFlowSource(dict):
         A `linked_service` block as defined below.
         """
         return pulumi.get(self, "linked_service")
+
+    @property
+    @pulumi.getter(name="rejectedLinkedService")
+    def rejected_linked_service(self) -> Optional['outputs.DataFlowSourceRejectedLinkedService']:
+        """
+        A `rejected_linked_service` block as defined below.
+        """
+        return pulumi.get(self, "rejected_linked_service")
 
     @property
     @pulumi.getter(name="schemaLinkedService")
@@ -581,6 +643,36 @@ class DataFlowSourceLinkedService(dict):
     def name(self) -> str:
         """
         The name for the Data Factory Linked Service.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class DataFlowSourceRejectedLinkedService(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The name for the Data Factory Linked Service with schema.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Factory Linked Service with schema.
         """
         return pulumi.get(self, "name")
 
@@ -2456,6 +2548,8 @@ class FlowletDataFlowSink(dict):
         suggest = None
         if key == "linkedService":
             suggest = "linked_service"
+        elif key == "rejectedLinkedService":
+            suggest = "rejected_linked_service"
         elif key == "schemaLinkedService":
             suggest = "schema_linked_service"
 
@@ -2476,6 +2570,7 @@ class FlowletDataFlowSink(dict):
                  description: Optional[str] = None,
                  flowlet: Optional['outputs.FlowletDataFlowSinkFlowlet'] = None,
                  linked_service: Optional['outputs.FlowletDataFlowSinkLinkedService'] = None,
+                 rejected_linked_service: Optional['outputs.FlowletDataFlowSinkRejectedLinkedService'] = None,
                  schema_linked_service: Optional['outputs.FlowletDataFlowSinkSchemaLinkedService'] = None):
         """
         :param str name: The name for the Data Flow Source.
@@ -2483,6 +2578,7 @@ class FlowletDataFlowSink(dict):
         :param str description: The description for the Data Flow Source.
         :param 'FlowletDataFlowSinkFlowletArgs' flowlet: A `flowlet` block as defined below.
         :param 'FlowletDataFlowSinkLinkedServiceArgs' linked_service: A `linked_service` block as defined below.
+        :param 'FlowletDataFlowSinkRejectedLinkedServiceArgs' rejected_linked_service: A `rejected_linked_service` block as defined below.
         :param 'FlowletDataFlowSinkSchemaLinkedServiceArgs' schema_linked_service: A `schema_linked_service` block as defined below.
         """
         pulumi.set(__self__, "name", name)
@@ -2494,6 +2590,8 @@ class FlowletDataFlowSink(dict):
             pulumi.set(__self__, "flowlet", flowlet)
         if linked_service is not None:
             pulumi.set(__self__, "linked_service", linked_service)
+        if rejected_linked_service is not None:
+            pulumi.set(__self__, "rejected_linked_service", rejected_linked_service)
         if schema_linked_service is not None:
             pulumi.set(__self__, "schema_linked_service", schema_linked_service)
 
@@ -2536,6 +2634,14 @@ class FlowletDataFlowSink(dict):
         A `linked_service` block as defined below.
         """
         return pulumi.get(self, "linked_service")
+
+    @property
+    @pulumi.getter(name="rejectedLinkedService")
+    def rejected_linked_service(self) -> Optional['outputs.FlowletDataFlowSinkRejectedLinkedService']:
+        """
+        A `rejected_linked_service` block as defined below.
+        """
+        return pulumi.get(self, "rejected_linked_service")
 
     @property
     @pulumi.getter(name="schemaLinkedService")
@@ -2662,6 +2768,36 @@ class FlowletDataFlowSinkLinkedService(dict):
 
 
 @pulumi.output_type
+class FlowletDataFlowSinkRejectedLinkedService(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The name for the Data Factory Linked Service with schema.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Factory Linked Service with schema.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class FlowletDataFlowSinkSchemaLinkedService(dict):
     def __init__(__self__, *,
                  name: str,
@@ -2698,6 +2834,8 @@ class FlowletDataFlowSource(dict):
         suggest = None
         if key == "linkedService":
             suggest = "linked_service"
+        elif key == "rejectedLinkedService":
+            suggest = "rejected_linked_service"
         elif key == "schemaLinkedService":
             suggest = "schema_linked_service"
 
@@ -2718,6 +2856,7 @@ class FlowletDataFlowSource(dict):
                  description: Optional[str] = None,
                  flowlet: Optional['outputs.FlowletDataFlowSourceFlowlet'] = None,
                  linked_service: Optional['outputs.FlowletDataFlowSourceLinkedService'] = None,
+                 rejected_linked_service: Optional['outputs.FlowletDataFlowSourceRejectedLinkedService'] = None,
                  schema_linked_service: Optional['outputs.FlowletDataFlowSourceSchemaLinkedService'] = None):
         """
         :param str name: The name for the Data Flow Source.
@@ -2725,6 +2864,7 @@ class FlowletDataFlowSource(dict):
         :param str description: The description for the Data Flow Source.
         :param 'FlowletDataFlowSourceFlowletArgs' flowlet: A `flowlet` block as defined below.
         :param 'FlowletDataFlowSourceLinkedServiceArgs' linked_service: A `linked_service` block as defined below.
+        :param 'FlowletDataFlowSourceRejectedLinkedServiceArgs' rejected_linked_service: A `rejected_linked_service` block as defined below.
         :param 'FlowletDataFlowSourceSchemaLinkedServiceArgs' schema_linked_service: A `schema_linked_service` block as defined below.
         """
         pulumi.set(__self__, "name", name)
@@ -2736,6 +2876,8 @@ class FlowletDataFlowSource(dict):
             pulumi.set(__self__, "flowlet", flowlet)
         if linked_service is not None:
             pulumi.set(__self__, "linked_service", linked_service)
+        if rejected_linked_service is not None:
+            pulumi.set(__self__, "rejected_linked_service", rejected_linked_service)
         if schema_linked_service is not None:
             pulumi.set(__self__, "schema_linked_service", schema_linked_service)
 
@@ -2778,6 +2920,14 @@ class FlowletDataFlowSource(dict):
         A `linked_service` block as defined below.
         """
         return pulumi.get(self, "linked_service")
+
+    @property
+    @pulumi.getter(name="rejectedLinkedService")
+    def rejected_linked_service(self) -> Optional['outputs.FlowletDataFlowSourceRejectedLinkedService']:
+        """
+        A `rejected_linked_service` block as defined below.
+        """
+        return pulumi.get(self, "rejected_linked_service")
 
     @property
     @pulumi.getter(name="schemaLinkedService")
@@ -2891,6 +3041,36 @@ class FlowletDataFlowSourceLinkedService(dict):
     def name(self) -> str:
         """
         The name for the Data Factory Linked Service.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class FlowletDataFlowSourceRejectedLinkedService(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The name for the Data Factory Linked Service with schema.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Factory Linked Service with schema.
         """
         return pulumi.get(self, "name")
 

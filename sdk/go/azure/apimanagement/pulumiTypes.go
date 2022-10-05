@@ -6811,6 +6811,8 @@ type CustomDomainDeveloperPortal struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	CertificateSource   *string `pulumi:"certificateSource"`
+	CertificateStatus   *string `pulumi:"certificateStatus"`
 	Expiry              *string `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName string `pulumi:"hostName"`
@@ -6839,6 +6841,8 @@ type CustomDomainDeveloperPortalArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	CertificateSource   pulumi.StringPtrInput `pulumi:"certificateSource"`
+	CertificateStatus   pulumi.StringPtrInput `pulumi:"certificateStatus"`
 	Expiry              pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName pulumi.StringInput `pulumi:"hostName"`
@@ -6912,6 +6916,14 @@ func (o CustomDomainDeveloperPortalOutput) CertificatePassword() pulumi.StringPt
 	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+func (o CustomDomainDeveloperPortalOutput) CertificateSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomDomainDeveloperPortalOutput) CertificateStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.CertificateStatus }).(pulumi.StringPtrOutput)
+}
+
 func (o CustomDomainDeveloperPortalOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainDeveloperPortal) *string { return v.Expiry }).(pulumi.StringPtrOutput)
 }
@@ -6968,6 +6980,8 @@ type CustomDomainGateway struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	CertificateSource   *string `pulumi:"certificateSource"`
+	CertificateStatus   *string `pulumi:"certificateStatus"`
 	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
 	DefaultSslBinding *bool   `pulumi:"defaultSslBinding"`
 	Expiry            *string `pulumi:"expiry"`
@@ -6998,6 +7012,8 @@ type CustomDomainGatewayArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	CertificateSource   pulumi.StringPtrInput `pulumi:"certificateSource"`
+	CertificateStatus   pulumi.StringPtrInput `pulumi:"certificateStatus"`
 	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
 	DefaultSslBinding pulumi.BoolPtrInput   `pulumi:"defaultSslBinding"`
 	Expiry            pulumi.StringPtrInput `pulumi:"expiry"`
@@ -7073,6 +7089,14 @@ func (o CustomDomainGatewayOutput) CertificatePassword() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v CustomDomainGateway) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+func (o CustomDomainGatewayOutput) CertificateSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainGateway) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomDomainGatewayOutput) CertificateStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainGateway) *string { return v.CertificateStatus }).(pulumi.StringPtrOutput)
+}
+
 // Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
 func (o CustomDomainGatewayOutput) DefaultSslBinding() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CustomDomainGateway) *bool { return v.DefaultSslBinding }).(pulumi.BoolPtrOutput)
@@ -7134,6 +7158,8 @@ type CustomDomainManagement struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	CertificateSource   *string `pulumi:"certificateSource"`
+	CertificateStatus   *string `pulumi:"certificateStatus"`
 	Expiry              *string `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName string `pulumi:"hostName"`
@@ -7162,6 +7188,8 @@ type CustomDomainManagementArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	CertificateSource   pulumi.StringPtrInput `pulumi:"certificateSource"`
+	CertificateStatus   pulumi.StringPtrInput `pulumi:"certificateStatus"`
 	Expiry              pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName pulumi.StringInput `pulumi:"hostName"`
@@ -7235,6 +7263,14 @@ func (o CustomDomainManagementOutput) CertificatePassword() pulumi.StringPtrOutp
 	return o.ApplyT(func(v CustomDomainManagement) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+func (o CustomDomainManagementOutput) CertificateSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainManagement) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomDomainManagementOutput) CertificateStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainManagement) *string { return v.CertificateStatus }).(pulumi.StringPtrOutput)
+}
+
 func (o CustomDomainManagementOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainManagement) *string { return v.Expiry }).(pulumi.StringPtrOutput)
 }
@@ -7291,6 +7327,8 @@ type CustomDomainPortal struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	CertificateSource   *string `pulumi:"certificateSource"`
+	CertificateStatus   *string `pulumi:"certificateStatus"`
 	Expiry              *string `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName string `pulumi:"hostName"`
@@ -7319,6 +7357,8 @@ type CustomDomainPortalArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	CertificateSource   pulumi.StringPtrInput `pulumi:"certificateSource"`
+	CertificateStatus   pulumi.StringPtrInput `pulumi:"certificateStatus"`
 	Expiry              pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName pulumi.StringInput `pulumi:"hostName"`
@@ -7392,6 +7432,14 @@ func (o CustomDomainPortalOutput) CertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainPortal) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+func (o CustomDomainPortalOutput) CertificateSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainPortal) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomDomainPortalOutput) CertificateStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainPortal) *string { return v.CertificateStatus }).(pulumi.StringPtrOutput)
+}
+
 func (o CustomDomainPortalOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainPortal) *string { return v.Expiry }).(pulumi.StringPtrOutput)
 }
@@ -7448,6 +7496,8 @@ type CustomDomainScm struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	CertificateSource   *string `pulumi:"certificateSource"`
+	CertificateStatus   *string `pulumi:"certificateStatus"`
 	Expiry              *string `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName string `pulumi:"hostName"`
@@ -7476,6 +7526,8 @@ type CustomDomainScmArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	CertificateSource   pulumi.StringPtrInput `pulumi:"certificateSource"`
+	CertificateStatus   pulumi.StringPtrInput `pulumi:"certificateStatus"`
 	Expiry              pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the corresponding endpoint.
 	HostName pulumi.StringInput `pulumi:"hostName"`
@@ -7547,6 +7599,14 @@ func (o CustomDomainScmOutput) Certificate() pulumi.StringPtrOutput {
 // The password associated with the certificate provided above.
 func (o CustomDomainScmOutput) CertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomDomainScm) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomDomainScmOutput) CertificateSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainScm) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
+}
+
+func (o CustomDomainScmOutput) CertificateStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomDomainScm) *string { return v.CertificateStatus }).(pulumi.StringPtrOutput)
 }
 
 func (o CustomDomainScmOutput) Expiry() pulumi.StringPtrOutput {
@@ -10338,6 +10398,8 @@ func (o NamedValueValueFromKeyVaultPtrOutput) SecretId() pulumi.StringPtrOutput 
 type ServiceAdditionalLocation struct {
 	// The number of compute units in this region. Defaults to the capacity of the main region.
 	Capacity *int `pulumi:"capacity"`
+	// Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+	GatewayDisabled *bool `pulumi:"gatewayDisabled"`
 	// The URL of the Regional Gateway for the API Management Service in the specified region.
 	GatewayRegionalUrl *string `pulumi:"gatewayRegionalUrl"`
 	// The name of the Azure Region in which the API Management Service should be expanded to.
@@ -10368,6 +10430,8 @@ type ServiceAdditionalLocationInput interface {
 type ServiceAdditionalLocationArgs struct {
 	// The number of compute units in this region. Defaults to the capacity of the main region.
 	Capacity pulumi.IntPtrInput `pulumi:"capacity"`
+	// Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+	GatewayDisabled pulumi.BoolPtrInput `pulumi:"gatewayDisabled"`
 	// The URL of the Regional Gateway for the API Management Service in the specified region.
 	GatewayRegionalUrl pulumi.StringPtrInput `pulumi:"gatewayRegionalUrl"`
 	// The name of the Azure Region in which the API Management Service should be expanded to.
@@ -10438,6 +10502,11 @@ func (o ServiceAdditionalLocationOutput) ToServiceAdditionalLocationOutputWithCo
 // The number of compute units in this region. Defaults to the capacity of the main region.
 func (o ServiceAdditionalLocationOutput) Capacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceAdditionalLocation) *int { return v.Capacity }).(pulumi.IntPtrOutput)
+}
+
+// Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+func (o ServiceAdditionalLocationOutput) GatewayDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceAdditionalLocation) *bool { return v.GatewayDisabled }).(pulumi.BoolPtrOutput)
 }
 
 // The URL of the Regional Gateway for the API Management Service in the specified region.
@@ -10996,6 +11065,10 @@ type ServiceHostnameConfigurationDeveloperPortal struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password for the certificate.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	// The source of the certificate.
+	CertificateSource *string `pulumi:"certificateSource"`
+	// The status of the certificate.
+	CertificateStatus *string `pulumi:"certificateStatus"`
 	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
 	Expiry *string `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
@@ -11028,6 +11101,10 @@ type ServiceHostnameConfigurationDeveloperPortalArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password for the certificate.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	// The source of the certificate.
+	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
+	// The status of the certificate.
+	CertificateStatus pulumi.StringPtrInput `pulumi:"certificateStatus"`
 	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
 	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
@@ -11105,6 +11182,16 @@ func (o ServiceHostnameConfigurationDeveloperPortalOutput) CertificatePassword()
 	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+// The source of the certificate.
+func (o ServiceHostnameConfigurationDeveloperPortalOutput) CertificateSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
+}
+
+// The status of the certificate.
+func (o ServiceHostnameConfigurationDeveloperPortalOutput) CertificateStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) *string { return v.CertificateStatus }).(pulumi.StringPtrOutput)
+}
+
 // The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
 func (o ServiceHostnameConfigurationDeveloperPortalOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationDeveloperPortal) *string { return v.Expiry }).(pulumi.StringPtrOutput)
@@ -11165,6 +11252,10 @@ type ServiceHostnameConfigurationManagement struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	// The source of the certificate.
+	CertificateSource *string `pulumi:"certificateSource"`
+	// The status of the certificate.
+	CertificateStatus *string `pulumi:"certificateStatus"`
 	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
 	Expiry *string `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
@@ -11197,6 +11288,10 @@ type ServiceHostnameConfigurationManagementArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	// The source of the certificate.
+	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
+	// The status of the certificate.
+	CertificateStatus pulumi.StringPtrInput `pulumi:"certificateStatus"`
 	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
 	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
@@ -11274,6 +11369,16 @@ func (o ServiceHostnameConfigurationManagementOutput) CertificatePassword() pulu
 	return o.ApplyT(func(v ServiceHostnameConfigurationManagement) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+// The source of the certificate.
+func (o ServiceHostnameConfigurationManagementOutput) CertificateSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationManagement) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
+}
+
+// The status of the certificate.
+func (o ServiceHostnameConfigurationManagementOutput) CertificateStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationManagement) *string { return v.CertificateStatus }).(pulumi.StringPtrOutput)
+}
+
 // The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
 func (o ServiceHostnameConfigurationManagementOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationManagement) *string { return v.Expiry }).(pulumi.StringPtrOutput)
@@ -11334,6 +11439,10 @@ type ServiceHostnameConfigurationPortal struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password for the certificate.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	// The source of the certificate.
+	CertificateSource *string `pulumi:"certificateSource"`
+	// The status of the certificate.
+	CertificateStatus *string `pulumi:"certificateStatus"`
 	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
 	Expiry *string `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
@@ -11366,6 +11475,10 @@ type ServiceHostnameConfigurationPortalArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password for the certificate.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	// The source of the certificate.
+	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
+	// The status of the certificate.
+	CertificateStatus pulumi.StringPtrInput `pulumi:"certificateStatus"`
 	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
 	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
@@ -11443,6 +11556,16 @@ func (o ServiceHostnameConfigurationPortalOutput) CertificatePassword() pulumi.S
 	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+// The source of the certificate.
+func (o ServiceHostnameConfigurationPortalOutput) CertificateSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
+}
+
+// The status of the certificate.
+func (o ServiceHostnameConfigurationPortalOutput) CertificateStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) *string { return v.CertificateStatus }).(pulumi.StringPtrOutput)
+}
+
 // The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
 func (o ServiceHostnameConfigurationPortalOutput) Expiry() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationPortal) *string { return v.Expiry }).(pulumi.StringPtrOutput)
@@ -11503,6 +11626,10 @@ type ServiceHostnameConfigurationProxy struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	// The source of the certificate.
+	CertificateSource *string `pulumi:"certificateSource"`
+	// The status of the certificate.
+	CertificateStatus *string `pulumi:"certificateStatus"`
 	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
 	DefaultSslBinding *bool `pulumi:"defaultSslBinding"`
 	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
@@ -11537,6 +11664,10 @@ type ServiceHostnameConfigurationProxyArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password associated with the certificate provided above.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	// The source of the certificate.
+	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
+	// The status of the certificate.
+	CertificateStatus pulumi.StringPtrInput `pulumi:"certificateStatus"`
 	// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
 	DefaultSslBinding pulumi.BoolPtrInput `pulumi:"defaultSslBinding"`
 	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
@@ -11616,6 +11747,16 @@ func (o ServiceHostnameConfigurationProxyOutput) CertificatePassword() pulumi.St
 	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
 }
 
+// The source of the certificate.
+func (o ServiceHostnameConfigurationProxyOutput) CertificateSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
+}
+
+// The status of the certificate.
+func (o ServiceHostnameConfigurationProxyOutput) CertificateStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) *string { return v.CertificateStatus }).(pulumi.StringPtrOutput)
+}
+
 // Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
 func (o ServiceHostnameConfigurationProxyOutput) DefaultSslBinding() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationProxy) *bool { return v.DefaultSslBinding }).(pulumi.BoolPtrOutput)
@@ -11681,6 +11822,10 @@ type ServiceHostnameConfigurationScm struct {
 	Certificate *string `pulumi:"certificate"`
 	// The password for the certificate.
 	CertificatePassword *string `pulumi:"certificatePassword"`
+	// The source of the certificate.
+	CertificateSource *string `pulumi:"certificateSource"`
+	// The status of the certificate.
+	CertificateStatus *string `pulumi:"certificateStatus"`
 	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
 	Expiry *string `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
@@ -11713,6 +11858,10 @@ type ServiceHostnameConfigurationScmArgs struct {
 	Certificate pulumi.StringPtrInput `pulumi:"certificate"`
 	// The password for the certificate.
 	CertificatePassword pulumi.StringPtrInput `pulumi:"certificatePassword"`
+	// The source of the certificate.
+	CertificateSource pulumi.StringPtrInput `pulumi:"certificateSource"`
+	// The status of the certificate.
+	CertificateStatus pulumi.StringPtrInput `pulumi:"certificateStatus"`
 	// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
 	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
 	// The Hostname to use for the Management API.
@@ -11788,6 +11937,16 @@ func (o ServiceHostnameConfigurationScmOutput) Certificate() pulumi.StringPtrOut
 // The password for the certificate.
 func (o ServiceHostnameConfigurationScmOutput) CertificatePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceHostnameConfigurationScm) *string { return v.CertificatePassword }).(pulumi.StringPtrOutput)
+}
+
+// The source of the certificate.
+func (o ServiceHostnameConfigurationScmOutput) CertificateSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationScm) *string { return v.CertificateSource }).(pulumi.StringPtrOutput)
+}
+
+// The status of the certificate.
+func (o ServiceHostnameConfigurationScmOutput) CertificateStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceHostnameConfigurationScm) *string { return v.CertificateStatus }).(pulumi.StringPtrOutput)
 }
 
 // The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.

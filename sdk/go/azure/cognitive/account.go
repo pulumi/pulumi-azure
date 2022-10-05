@@ -68,6 +68,8 @@ type Account struct {
 	CustomQuestionAnsweringSearchServiceKey pulumi.StringPtrOutput `pulumi:"customQuestionAnsweringSearchServiceKey"`
 	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
 	CustomSubdomainName pulumi.StringPtrOutput `pulumi:"customSubdomainName"`
+	// A `customerManagedKey` block as documented below.
+	CustomerManagedKey AccountCustomerManagedKeyTypePtrOutput `pulumi:"customerManagedKey"`
 	// The endpoint used to connect to the Cognitive Service Account.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// List of FQDNs allowed for the Cognitive Account.
@@ -156,6 +158,8 @@ type accountState struct {
 	CustomQuestionAnsweringSearchServiceKey *string `pulumi:"customQuestionAnsweringSearchServiceKey"`
 	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
+	// A `customerManagedKey` block as documented below.
+	CustomerManagedKey *AccountCustomerManagedKeyType `pulumi:"customerManagedKey"`
 	// The endpoint used to connect to the Cognitive Service Account.
 	Endpoint *string `pulumi:"endpoint"`
 	// List of FQDNs allowed for the Cognitive Account.
@@ -207,6 +211,8 @@ type AccountState struct {
 	CustomQuestionAnsweringSearchServiceKey pulumi.StringPtrInput
 	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
 	CustomSubdomainName pulumi.StringPtrInput
+	// A `customerManagedKey` block as documented below.
+	CustomerManagedKey AccountCustomerManagedKeyTypePtrInput
 	// The endpoint used to connect to the Cognitive Service Account.
 	Endpoint pulumi.StringPtrInput
 	// List of FQDNs allowed for the Cognitive Account.
@@ -262,6 +268,8 @@ type accountArgs struct {
 	CustomQuestionAnsweringSearchServiceKey *string `pulumi:"customQuestionAnsweringSearchServiceKey"`
 	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
+	// A `customerManagedKey` block as documented below.
+	CustomerManagedKey *AccountCustomerManagedKeyType `pulumi:"customerManagedKey"`
 	// List of FQDNs allowed for the Cognitive Account.
 	Fqdns []string `pulumi:"fqdns"`
 	// An `identity` block as defined below.
@@ -308,6 +316,8 @@ type AccountArgs struct {
 	CustomQuestionAnsweringSearchServiceKey pulumi.StringPtrInput
 	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
 	CustomSubdomainName pulumi.StringPtrInput
+	// A `customerManagedKey` block as documented below.
+	CustomerManagedKey AccountCustomerManagedKeyTypePtrInput
 	// List of FQDNs allowed for the Cognitive Account.
 	Fqdns pulumi.StringArrayInput
 	// An `identity` block as defined below.
@@ -446,6 +456,11 @@ func (o AccountOutput) CustomQuestionAnsweringSearchServiceKey() pulumi.StringPt
 // The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
 func (o AccountOutput) CustomSubdomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.CustomSubdomainName }).(pulumi.StringPtrOutput)
+}
+
+// A `customerManagedKey` block as documented below.
+func (o AccountOutput) CustomerManagedKey() AccountCustomerManagedKeyTypePtrOutput {
+	return o.ApplyT(func(v *Account) AccountCustomerManagedKeyTypePtrOutput { return v.CustomerManagedKey }).(AccountCustomerManagedKeyTypePtrOutput)
 }
 
 // The endpoint used to connect to the Cognitive Service Account.

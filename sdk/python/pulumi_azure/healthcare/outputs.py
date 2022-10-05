@@ -16,6 +16,7 @@ __all__ = [
     'FhirServiceAuthentication',
     'FhirServiceCors',
     'FhirServiceIdentity',
+    'FhirServiceOciArtifact',
     'MedtechServiceIdentity',
     'ServiceAuthenticationConfiguration',
     'ServiceCorsConfiguration',
@@ -346,6 +347,67 @@ class FhirServiceIdentity(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class FhirServiceOciArtifact(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loginServer":
+            suggest = "login_server"
+        elif key == "imageName":
+            suggest = "image_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FhirServiceOciArtifact. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FhirServiceOciArtifact.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FhirServiceOciArtifact.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 login_server: str,
+                 digest: Optional[str] = None,
+                 image_name: Optional[str] = None):
+        """
+        :param str login_server: An Azure container registry used for export operations of the service instance.
+        :param str digest: A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down.
+        :param str image_name: An image within Azure container registry used for export operations of the service instance.
+        """
+        pulumi.set(__self__, "login_server", login_server)
+        if digest is not None:
+            pulumi.set(__self__, "digest", digest)
+        if image_name is not None:
+            pulumi.set(__self__, "image_name", image_name)
+
+    @property
+    @pulumi.getter(name="loginServer")
+    def login_server(self) -> str:
+        """
+        An Azure container registry used for export operations of the service instance.
+        """
+        return pulumi.get(self, "login_server")
+
+    @property
+    @pulumi.getter
+    def digest(self) -> Optional[str]:
+        """
+        A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down.
+        """
+        return pulumi.get(self, "digest")
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> Optional[str]:
+        """
+        An image within Azure container registry used for export operations of the service instance.
+        """
+        return pulumi.get(self, "image_name")
 
 
 @pulumi.output_type

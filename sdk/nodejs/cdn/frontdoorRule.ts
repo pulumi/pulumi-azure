@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Frontdoor Rule.
  *
- * !>**IMPORTANT:** To create the Frontdoor Rules resource successfully you **must** add a `dependsOn` attribute to the `azure.cdn.FrontdoorRule` code block and reference both the `azure.cdn.FrontdoorOrigin` and the `azure.cdn.FrontdoorOriginGroup` that are associated with the Frontdoor Rule resource.
+ * !>**IMPORTANT:** The Rules resource **must** include a `dependsOn` meta-argument which references the `azure.cdn.FrontdoorOrigin`, `azure.cdn.FrontdoorOriginGroup` and the `azure.cdn.FrontdoorRoute` that are associated with the Rule resource. The `azure.cdn.FrontdoorRoute` definition has been excluded from the below `Example Usage`, for brevity, but has been included in the `dependsOn` meta-argument as an example of the correct way to define the `azure.cdn.FrontdoorRule` resource.
  *
  * ## Specifying IP Address Ranges
  *
@@ -185,7 +185,7 @@ export class FrontdoorRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly cdnFrontdoorRuleSetName!: pulumi.Output<string>;
     /**
-     * An `conditions` block as defined below.
+     * A `conditions` block as defined below.
      */
     public readonly conditions!: pulumi.Output<outputs.cdn.FrontdoorRuleConditions | undefined>;
     /**
@@ -262,7 +262,7 @@ export interface FrontdoorRuleState {
      */
     cdnFrontdoorRuleSetName?: pulumi.Input<string>;
     /**
-     * An `conditions` block as defined below.
+     * A `conditions` block as defined below.
      */
     conditions?: pulumi.Input<inputs.cdn.FrontdoorRuleConditions>;
     /**
@@ -292,7 +292,7 @@ export interface FrontdoorRuleArgs {
      */
     cdnFrontdoorRuleSetId: pulumi.Input<string>;
     /**
-     * An `conditions` block as defined below.
+     * A `conditions` block as defined below.
      */
     conditions?: pulumi.Input<inputs.cdn.FrontdoorRuleConditions>;
     /**

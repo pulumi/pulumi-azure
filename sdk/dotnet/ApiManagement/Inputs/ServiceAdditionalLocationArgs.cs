@@ -19,6 +19,12 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<int>? Capacity { get; set; }
 
         /// <summary>
+        /// Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+        /// </summary>
+        [Input("gatewayDisabled")]
+        public Input<bool>? GatewayDisabled { get; set; }
+
+        /// <summary>
         /// The URL of the Regional Gateway for the API Management Service in the specified region.
         /// </summary>
         [Input("gatewayRegionalUrl")]

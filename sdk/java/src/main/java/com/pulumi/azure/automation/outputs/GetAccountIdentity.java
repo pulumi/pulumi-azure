@@ -11,50 +11,50 @@ import java.util.Objects;
 @CustomType
 public final class GetAccountIdentity {
     /**
-     * @return The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+     * @return The list of User Assigned Managed Identity IDs assigned to this Automation Account.
      * 
      */
     private List<String> identityIds;
     /**
-     * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+     * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this Automation Account.
      * 
      */
     private String principalId;
     /**
-     * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+     * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this Automation Account.
      * 
      */
     private String tenantId;
     /**
-     * @return The type of Managed Service Identity that is configured on this API Management Service.
+     * @return The type of Managed Service Identity that is configured on this Automation Account.
      * 
      */
     private String type;
 
     private GetAccountIdentity() {}
     /**
-     * @return The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+     * @return The list of User Assigned Managed Identity IDs assigned to this Automation Account.
      * 
      */
     public List<String> identityIds() {
         return this.identityIds;
     }
     /**
-     * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+     * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this Automation Account.
      * 
      */
     public String principalId() {
         return this.principalId;
     }
     /**
-     * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+     * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this Automation Account.
      * 
      */
     public String tenantId() {
         return this.tenantId;
     }
     /**
-     * @return The type of Managed Service Identity that is configured on this API Management Service.
+     * @return The type of Managed Service Identity that is configured on this Automation Account.
      * 
      */
     public String type() {

@@ -24,6 +24,7 @@ class BackupInstanceBlogStorageArgs:
         :param pulumi.Input[str] backup_policy_id: The ID of the Backup Policy.
         :param pulumi.Input[str] storage_account_id: The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created.
+        :param pulumi.Input[str] location: The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
         """
         pulumi.set(__self__, "backup_policy_id", backup_policy_id)
@@ -73,6 +74,9 @@ class BackupInstanceBlogStorageArgs:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
+        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -103,6 +107,7 @@ class _BackupInstanceBlogStorageState:
         """
         Input properties used for looking up and filtering BackupInstanceBlogStorage resources.
         :param pulumi.Input[str] backup_policy_id: The ID of the Backup Policy.
+        :param pulumi.Input[str] location: The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created.
@@ -133,6 +138,9 @@ class _BackupInstanceBlogStorageState:
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
+        """
         return pulumi.get(self, "location")
 
     @location.setter
@@ -236,6 +244,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_policy_id: The ID of the Backup Policy.
+        :param pulumi.Input[str] location: The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created.
@@ -355,6 +364,7 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_policy_id: The ID of the Backup Policy.
+        :param pulumi.Input[str] location: The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[str] storage_account_id: The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created.
@@ -381,6 +391,9 @@ class BackupInstanceBlogStorage(pulumi.CustomResource):
     @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
+        """
+        The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
+        """
         return pulumi.get(self, "location")
 
     @property

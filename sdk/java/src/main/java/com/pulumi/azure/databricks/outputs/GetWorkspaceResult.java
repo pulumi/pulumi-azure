@@ -16,6 +16,11 @@ public final class GetWorkspaceResult {
      * 
      */
     private String id;
+    /**
+     * @return The Azure location where the Databricks Workspace exists.
+     * 
+     */
+    private String location;
     private String name;
     private String resourceGroupName;
     /**
@@ -46,6 +51,13 @@ public final class GetWorkspaceResult {
      */
     public String id() {
         return this.id;
+    }
+    /**
+     * @return The Azure location where the Databricks Workspace exists.
+     * 
+     */
+    public String location() {
+        return this.location;
     }
     public String name() {
         return this.name;
@@ -92,6 +104,7 @@ public final class GetWorkspaceResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
+        private String location;
         private String name;
         private String resourceGroupName;
         private String sku;
@@ -102,6 +115,7 @@ public final class GetWorkspaceResult {
         public Builder(GetWorkspaceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
+    	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.sku = defaults.sku;
@@ -113,6 +127,11 @@ public final class GetWorkspaceResult {
         @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder location(String location) {
+            this.location = Objects.requireNonNull(location);
             return this;
         }
         @CustomType.Setter
@@ -148,6 +167,7 @@ public final class GetWorkspaceResult {
         public GetWorkspaceResult build() {
             final var o = new GetWorkspaceResult();
             o.id = id;
+            o.location = location;
             o.name = name;
             o.resourceGroupName = resourceGroupName;
             o.sku = sku;

@@ -4959,6 +4959,181 @@ func (o EndpointOriginArrayOutput) Index(i pulumi.IntInput) EndpointOriginOutput
 	}).(EndpointOriginOutput)
 }
 
+type FrontdoorCustomEndpointTls struct {
+	// Resource ID of the Frontdoor Secrect.
+	CdnFrontdoorSecretId *string `pulumi:"cdnFrontdoorSecretId"`
+	// Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+	CertificateType *string `pulumi:"certificateType"`
+	// TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
+}
+
+// FrontdoorCustomEndpointTlsInput is an input type that accepts FrontdoorCustomEndpointTlsArgs and FrontdoorCustomEndpointTlsOutput values.
+// You can construct a concrete instance of `FrontdoorCustomEndpointTlsInput` via:
+//
+//	FrontdoorCustomEndpointTlsArgs{...}
+type FrontdoorCustomEndpointTlsInput interface {
+	pulumi.Input
+
+	ToFrontdoorCustomEndpointTlsOutput() FrontdoorCustomEndpointTlsOutput
+	ToFrontdoorCustomEndpointTlsOutputWithContext(context.Context) FrontdoorCustomEndpointTlsOutput
+}
+
+type FrontdoorCustomEndpointTlsArgs struct {
+	// Resource ID of the Frontdoor Secrect.
+	CdnFrontdoorSecretId pulumi.StringPtrInput `pulumi:"cdnFrontdoorSecretId"`
+	// Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+	CertificateType pulumi.StringPtrInput `pulumi:"certificateType"`
+	// TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+	MinimumTlsVersion pulumi.StringPtrInput `pulumi:"minimumTlsVersion"`
+}
+
+func (FrontdoorCustomEndpointTlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorCustomEndpointTls)(nil)).Elem()
+}
+
+func (i FrontdoorCustomEndpointTlsArgs) ToFrontdoorCustomEndpointTlsOutput() FrontdoorCustomEndpointTlsOutput {
+	return i.ToFrontdoorCustomEndpointTlsOutputWithContext(context.Background())
+}
+
+func (i FrontdoorCustomEndpointTlsArgs) ToFrontdoorCustomEndpointTlsOutputWithContext(ctx context.Context) FrontdoorCustomEndpointTlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorCustomEndpointTlsOutput)
+}
+
+func (i FrontdoorCustomEndpointTlsArgs) ToFrontdoorCustomEndpointTlsPtrOutput() FrontdoorCustomEndpointTlsPtrOutput {
+	return i.ToFrontdoorCustomEndpointTlsPtrOutputWithContext(context.Background())
+}
+
+func (i FrontdoorCustomEndpointTlsArgs) ToFrontdoorCustomEndpointTlsPtrOutputWithContext(ctx context.Context) FrontdoorCustomEndpointTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorCustomEndpointTlsOutput).ToFrontdoorCustomEndpointTlsPtrOutputWithContext(ctx)
+}
+
+// FrontdoorCustomEndpointTlsPtrInput is an input type that accepts FrontdoorCustomEndpointTlsArgs, FrontdoorCustomEndpointTlsPtr and FrontdoorCustomEndpointTlsPtrOutput values.
+// You can construct a concrete instance of `FrontdoorCustomEndpointTlsPtrInput` via:
+//
+//	        FrontdoorCustomEndpointTlsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FrontdoorCustomEndpointTlsPtrInput interface {
+	pulumi.Input
+
+	ToFrontdoorCustomEndpointTlsPtrOutput() FrontdoorCustomEndpointTlsPtrOutput
+	ToFrontdoorCustomEndpointTlsPtrOutputWithContext(context.Context) FrontdoorCustomEndpointTlsPtrOutput
+}
+
+type frontdoorCustomEndpointTlsPtrType FrontdoorCustomEndpointTlsArgs
+
+func FrontdoorCustomEndpointTlsPtr(v *FrontdoorCustomEndpointTlsArgs) FrontdoorCustomEndpointTlsPtrInput {
+	return (*frontdoorCustomEndpointTlsPtrType)(v)
+}
+
+func (*frontdoorCustomEndpointTlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorCustomEndpointTls)(nil)).Elem()
+}
+
+func (i *frontdoorCustomEndpointTlsPtrType) ToFrontdoorCustomEndpointTlsPtrOutput() FrontdoorCustomEndpointTlsPtrOutput {
+	return i.ToFrontdoorCustomEndpointTlsPtrOutputWithContext(context.Background())
+}
+
+func (i *frontdoorCustomEndpointTlsPtrType) ToFrontdoorCustomEndpointTlsPtrOutputWithContext(ctx context.Context) FrontdoorCustomEndpointTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorCustomEndpointTlsPtrOutput)
+}
+
+type FrontdoorCustomEndpointTlsOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorCustomEndpointTlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorCustomEndpointTls)(nil)).Elem()
+}
+
+func (o FrontdoorCustomEndpointTlsOutput) ToFrontdoorCustomEndpointTlsOutput() FrontdoorCustomEndpointTlsOutput {
+	return o
+}
+
+func (o FrontdoorCustomEndpointTlsOutput) ToFrontdoorCustomEndpointTlsOutputWithContext(ctx context.Context) FrontdoorCustomEndpointTlsOutput {
+	return o
+}
+
+func (o FrontdoorCustomEndpointTlsOutput) ToFrontdoorCustomEndpointTlsPtrOutput() FrontdoorCustomEndpointTlsPtrOutput {
+	return o.ToFrontdoorCustomEndpointTlsPtrOutputWithContext(context.Background())
+}
+
+func (o FrontdoorCustomEndpointTlsOutput) ToFrontdoorCustomEndpointTlsPtrOutputWithContext(ctx context.Context) FrontdoorCustomEndpointTlsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorCustomEndpointTls) *FrontdoorCustomEndpointTls {
+		return &v
+	}).(FrontdoorCustomEndpointTlsPtrOutput)
+}
+
+// Resource ID of the Frontdoor Secrect.
+func (o FrontdoorCustomEndpointTlsOutput) CdnFrontdoorSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorCustomEndpointTls) *string { return v.CdnFrontdoorSecretId }).(pulumi.StringPtrOutput)
+}
+
+// Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+func (o FrontdoorCustomEndpointTlsOutput) CertificateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorCustomEndpointTls) *string { return v.CertificateType }).(pulumi.StringPtrOutput)
+}
+
+// TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+func (o FrontdoorCustomEndpointTlsOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorCustomEndpointTls) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorCustomEndpointTlsPtrOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorCustomEndpointTlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorCustomEndpointTls)(nil)).Elem()
+}
+
+func (o FrontdoorCustomEndpointTlsPtrOutput) ToFrontdoorCustomEndpointTlsPtrOutput() FrontdoorCustomEndpointTlsPtrOutput {
+	return o
+}
+
+func (o FrontdoorCustomEndpointTlsPtrOutput) ToFrontdoorCustomEndpointTlsPtrOutputWithContext(ctx context.Context) FrontdoorCustomEndpointTlsPtrOutput {
+	return o
+}
+
+func (o FrontdoorCustomEndpointTlsPtrOutput) Elem() FrontdoorCustomEndpointTlsOutput {
+	return o.ApplyT(func(v *FrontdoorCustomEndpointTls) FrontdoorCustomEndpointTls {
+		if v != nil {
+			return *v
+		}
+		var ret FrontdoorCustomEndpointTls
+		return ret
+	}).(FrontdoorCustomEndpointTlsOutput)
+}
+
+// Resource ID of the Frontdoor Secrect.
+func (o FrontdoorCustomEndpointTlsPtrOutput) CdnFrontdoorSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorCustomEndpointTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CdnFrontdoorSecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+func (o FrontdoorCustomEndpointTlsPtrOutput) CertificateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorCustomEndpointTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateType
+	}).(pulumi.StringPtrOutput)
+}
+
+// TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+func (o FrontdoorCustomEndpointTlsPtrOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorCustomEndpointTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumTlsVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 type FrontdoorFirewallPolicyCustomRule struct {
 	// The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
 	Action string `pulumi:"action"`
@@ -6553,6 +6728,200 @@ func (o FrontdoorOriginPrivateLinkPtrOutput) TargetType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type FrontdoorRouteCache struct {
+	// Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
+	CompressionEnabled *bool `pulumi:"compressionEnabled"`
+	// A list of one or more `Content types` (formerly known as `MIME types`) to compress. Possible values include `application/eot`, `application/font`, `application/font-sfnt`, `application/javascript`, `application/json`, `application/opentype`, `application/otf`, `application/pkcs7-mime`, `application/truetype`, `application/ttf`, `application/vnd.ms-fontobject`, `application/xhtml+xml`, `application/xml`, `application/xml+rss`, `application/x-font-opentype`, `application/x-font-truetype`, `application/x-font-ttf`, `application/x-httpd-cgi`, `application/x-mpegurl`, `application/x-opentype`, `application/x-otf`, `application/x-perl`, `application/x-ttf`, `application/x-javascript`, `font/eot`, `font/ttf`, `font/otf`, `font/opentype`, `image/svg+xml`, `text/css`, `text/csv`, `text/html`, `text/javascript`, `text/js`, `text/plain`, `text/richtext`, `text/tab-separated-values`, `text/xml`, `text/x-script`, `text/x-component` or `text/x-java-source`.
+	ContentTypesToCompresses []string `pulumi:"contentTypesToCompresses"`
+	// Defines how the Frontdoor will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+	QueryStringCachingBehavior *string `pulumi:"queryStringCachingBehavior"`
+	// Query strings to include or ignore.
+	QueryStrings []string `pulumi:"queryStrings"`
+}
+
+// FrontdoorRouteCacheInput is an input type that accepts FrontdoorRouteCacheArgs and FrontdoorRouteCacheOutput values.
+// You can construct a concrete instance of `FrontdoorRouteCacheInput` via:
+//
+//	FrontdoorRouteCacheArgs{...}
+type FrontdoorRouteCacheInput interface {
+	pulumi.Input
+
+	ToFrontdoorRouteCacheOutput() FrontdoorRouteCacheOutput
+	ToFrontdoorRouteCacheOutputWithContext(context.Context) FrontdoorRouteCacheOutput
+}
+
+type FrontdoorRouteCacheArgs struct {
+	// Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
+	CompressionEnabled pulumi.BoolPtrInput `pulumi:"compressionEnabled"`
+	// A list of one or more `Content types` (formerly known as `MIME types`) to compress. Possible values include `application/eot`, `application/font`, `application/font-sfnt`, `application/javascript`, `application/json`, `application/opentype`, `application/otf`, `application/pkcs7-mime`, `application/truetype`, `application/ttf`, `application/vnd.ms-fontobject`, `application/xhtml+xml`, `application/xml`, `application/xml+rss`, `application/x-font-opentype`, `application/x-font-truetype`, `application/x-font-ttf`, `application/x-httpd-cgi`, `application/x-mpegurl`, `application/x-opentype`, `application/x-otf`, `application/x-perl`, `application/x-ttf`, `application/x-javascript`, `font/eot`, `font/ttf`, `font/otf`, `font/opentype`, `image/svg+xml`, `text/css`, `text/csv`, `text/html`, `text/javascript`, `text/js`, `text/plain`, `text/richtext`, `text/tab-separated-values`, `text/xml`, `text/x-script`, `text/x-component` or `text/x-java-source`.
+	ContentTypesToCompresses pulumi.StringArrayInput `pulumi:"contentTypesToCompresses"`
+	// Defines how the Frontdoor will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+	QueryStringCachingBehavior pulumi.StringPtrInput `pulumi:"queryStringCachingBehavior"`
+	// Query strings to include or ignore.
+	QueryStrings pulumi.StringArrayInput `pulumi:"queryStrings"`
+}
+
+func (FrontdoorRouteCacheArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRouteCache)(nil)).Elem()
+}
+
+func (i FrontdoorRouteCacheArgs) ToFrontdoorRouteCacheOutput() FrontdoorRouteCacheOutput {
+	return i.ToFrontdoorRouteCacheOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRouteCacheArgs) ToFrontdoorRouteCacheOutputWithContext(ctx context.Context) FrontdoorRouteCacheOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRouteCacheOutput)
+}
+
+func (i FrontdoorRouteCacheArgs) ToFrontdoorRouteCachePtrOutput() FrontdoorRouteCachePtrOutput {
+	return i.ToFrontdoorRouteCachePtrOutputWithContext(context.Background())
+}
+
+func (i FrontdoorRouteCacheArgs) ToFrontdoorRouteCachePtrOutputWithContext(ctx context.Context) FrontdoorRouteCachePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRouteCacheOutput).ToFrontdoorRouteCachePtrOutputWithContext(ctx)
+}
+
+// FrontdoorRouteCachePtrInput is an input type that accepts FrontdoorRouteCacheArgs, FrontdoorRouteCachePtr and FrontdoorRouteCachePtrOutput values.
+// You can construct a concrete instance of `FrontdoorRouteCachePtrInput` via:
+//
+//	        FrontdoorRouteCacheArgs{...}
+//
+//	or:
+//
+//	        nil
+type FrontdoorRouteCachePtrInput interface {
+	pulumi.Input
+
+	ToFrontdoorRouteCachePtrOutput() FrontdoorRouteCachePtrOutput
+	ToFrontdoorRouteCachePtrOutputWithContext(context.Context) FrontdoorRouteCachePtrOutput
+}
+
+type frontdoorRouteCachePtrType FrontdoorRouteCacheArgs
+
+func FrontdoorRouteCachePtr(v *FrontdoorRouteCacheArgs) FrontdoorRouteCachePtrInput {
+	return (*frontdoorRouteCachePtrType)(v)
+}
+
+func (*frontdoorRouteCachePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorRouteCache)(nil)).Elem()
+}
+
+func (i *frontdoorRouteCachePtrType) ToFrontdoorRouteCachePtrOutput() FrontdoorRouteCachePtrOutput {
+	return i.ToFrontdoorRouteCachePtrOutputWithContext(context.Background())
+}
+
+func (i *frontdoorRouteCachePtrType) ToFrontdoorRouteCachePtrOutputWithContext(ctx context.Context) FrontdoorRouteCachePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRouteCachePtrOutput)
+}
+
+type FrontdoorRouteCacheOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRouteCacheOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorRouteCache)(nil)).Elem()
+}
+
+func (o FrontdoorRouteCacheOutput) ToFrontdoorRouteCacheOutput() FrontdoorRouteCacheOutput {
+	return o
+}
+
+func (o FrontdoorRouteCacheOutput) ToFrontdoorRouteCacheOutputWithContext(ctx context.Context) FrontdoorRouteCacheOutput {
+	return o
+}
+
+func (o FrontdoorRouteCacheOutput) ToFrontdoorRouteCachePtrOutput() FrontdoorRouteCachePtrOutput {
+	return o.ToFrontdoorRouteCachePtrOutputWithContext(context.Background())
+}
+
+func (o FrontdoorRouteCacheOutput) ToFrontdoorRouteCachePtrOutputWithContext(ctx context.Context) FrontdoorRouteCachePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorRouteCache) *FrontdoorRouteCache {
+		return &v
+	}).(FrontdoorRouteCachePtrOutput)
+}
+
+// Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
+func (o FrontdoorRouteCacheOutput) CompressionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorRouteCache) *bool { return v.CompressionEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// A list of one or more `Content types` (formerly known as `MIME types`) to compress. Possible values include `application/eot`, `application/font`, `application/font-sfnt`, `application/javascript`, `application/json`, `application/opentype`, `application/otf`, `application/pkcs7-mime`, `application/truetype`, `application/ttf`, `application/vnd.ms-fontobject`, `application/xhtml+xml`, `application/xml`, `application/xml+rss`, `application/x-font-opentype`, `application/x-font-truetype`, `application/x-font-ttf`, `application/x-httpd-cgi`, `application/x-mpegurl`, `application/x-opentype`, `application/x-otf`, `application/x-perl`, `application/x-ttf`, `application/x-javascript`, `font/eot`, `font/ttf`, `font/otf`, `font/opentype`, `image/svg+xml`, `text/css`, `text/csv`, `text/html`, `text/javascript`, `text/js`, `text/plain`, `text/richtext`, `text/tab-separated-values`, `text/xml`, `text/x-script`, `text/x-component` or `text/x-java-source`.
+func (o FrontdoorRouteCacheOutput) ContentTypesToCompresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRouteCache) []string { return v.ContentTypesToCompresses }).(pulumi.StringArrayOutput)
+}
+
+// Defines how the Frontdoor will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+func (o FrontdoorRouteCacheOutput) QueryStringCachingBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorRouteCache) *string { return v.QueryStringCachingBehavior }).(pulumi.StringPtrOutput)
+}
+
+// Query strings to include or ignore.
+func (o FrontdoorRouteCacheOutput) QueryStrings() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorRouteCache) []string { return v.QueryStrings }).(pulumi.StringArrayOutput)
+}
+
+type FrontdoorRouteCachePtrOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorRouteCachePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorRouteCache)(nil)).Elem()
+}
+
+func (o FrontdoorRouteCachePtrOutput) ToFrontdoorRouteCachePtrOutput() FrontdoorRouteCachePtrOutput {
+	return o
+}
+
+func (o FrontdoorRouteCachePtrOutput) ToFrontdoorRouteCachePtrOutputWithContext(ctx context.Context) FrontdoorRouteCachePtrOutput {
+	return o
+}
+
+func (o FrontdoorRouteCachePtrOutput) Elem() FrontdoorRouteCacheOutput {
+	return o.ApplyT(func(v *FrontdoorRouteCache) FrontdoorRouteCache {
+		if v != nil {
+			return *v
+		}
+		var ret FrontdoorRouteCache
+		return ret
+	}).(FrontdoorRouteCacheOutput)
+}
+
+// Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
+func (o FrontdoorRouteCachePtrOutput) CompressionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRouteCache) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CompressionEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A list of one or more `Content types` (formerly known as `MIME types`) to compress. Possible values include `application/eot`, `application/font`, `application/font-sfnt`, `application/javascript`, `application/json`, `application/opentype`, `application/otf`, `application/pkcs7-mime`, `application/truetype`, `application/ttf`, `application/vnd.ms-fontobject`, `application/xhtml+xml`, `application/xml`, `application/xml+rss`, `application/x-font-opentype`, `application/x-font-truetype`, `application/x-font-ttf`, `application/x-httpd-cgi`, `application/x-mpegurl`, `application/x-opentype`, `application/x-otf`, `application/x-perl`, `application/x-ttf`, `application/x-javascript`, `font/eot`, `font/ttf`, `font/otf`, `font/opentype`, `image/svg+xml`, `text/css`, `text/csv`, `text/html`, `text/javascript`, `text/js`, `text/plain`, `text/richtext`, `text/tab-separated-values`, `text/xml`, `text/x-script`, `text/x-component` or `text/x-java-source`.
+func (o FrontdoorRouteCachePtrOutput) ContentTypesToCompresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRouteCache) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentTypesToCompresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// Defines how the Frontdoor will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+func (o FrontdoorRouteCachePtrOutput) QueryStringCachingBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRouteCache) *string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryStringCachingBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// Query strings to include or ignore.
+func (o FrontdoorRouteCachePtrOutput) QueryStrings() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRouteCache) []string {
+		if v == nil {
+			return nil
+		}
+		return v.QueryStrings
+	}).(pulumi.StringArrayOutput)
+}
+
 type FrontdoorRuleActions struct {
 	// A `requestHeaderAction` block as defined below.
 	RequestHeaderActions []FrontdoorRuleActionsRequestHeaderAction `pulumi:"requestHeaderActions"`
@@ -7256,13 +7625,13 @@ func (o FrontdoorRuleActionsRouteConfigurationOverrideActionPtrOutput) QueryStri
 }
 
 type FrontdoorRuleActionsUrlRedirectAction struct {
-	// The fragment to use in the redirect. Leave blank to preserve the incoming fragment.
+	// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
 	DestinationFragment *string `pulumi:"destinationFragment"`
-	// The host name you want the request to be redirected to. Leave blank to preserve the incoming host.
+	// The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host. Defaults to an empty string.
 	DestinationHostname string `pulumi:"destinationHostname"`
-	// The path to use in the redirect. Include the leading `/`. Leave blank to preserve the incoming path.
+	// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
 	DestinationPath *string `pulumi:"destinationPath"`
-	// The query string used in the redirect URL. Don't include the leading `?`. Leave blank to preserve the incoming query string.
+	// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Defaults to an empty string.
 	QueryString *string `pulumi:"queryString"`
 	// The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
 	RedirectProtocol *string `pulumi:"redirectProtocol"`
@@ -7282,13 +7651,13 @@ type FrontdoorRuleActionsUrlRedirectActionInput interface {
 }
 
 type FrontdoorRuleActionsUrlRedirectActionArgs struct {
-	// The fragment to use in the redirect. Leave blank to preserve the incoming fragment.
+	// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
 	DestinationFragment pulumi.StringPtrInput `pulumi:"destinationFragment"`
-	// The host name you want the request to be redirected to. Leave blank to preserve the incoming host.
+	// The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host. Defaults to an empty string.
 	DestinationHostname pulumi.StringInput `pulumi:"destinationHostname"`
-	// The path to use in the redirect. Include the leading `/`. Leave blank to preserve the incoming path.
+	// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
 	DestinationPath pulumi.StringPtrInput `pulumi:"destinationPath"`
-	// The query string used in the redirect URL. Don't include the leading `?`. Leave blank to preserve the incoming query string.
+	// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Defaults to an empty string.
 	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
 	// The protocol the request will be redirected as. Possible values include `MatchRequest`, `Http` or `Https`. Defaults to `MatchRequest`.
 	RedirectProtocol pulumi.StringPtrInput `pulumi:"redirectProtocol"`
@@ -7373,22 +7742,22 @@ func (o FrontdoorRuleActionsUrlRedirectActionOutput) ToFrontdoorRuleActionsUrlRe
 	}).(FrontdoorRuleActionsUrlRedirectActionPtrOutput)
 }
 
-// The fragment to use in the redirect. Leave blank to preserve the incoming fragment.
+// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
 func (o FrontdoorRuleActionsUrlRedirectActionOutput) DestinationFragment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) *string { return v.DestinationFragment }).(pulumi.StringPtrOutput)
 }
 
-// The host name you want the request to be redirected to. Leave blank to preserve the incoming host.
+// The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host. Defaults to an empty string.
 func (o FrontdoorRuleActionsUrlRedirectActionOutput) DestinationHostname() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) string { return v.DestinationHostname }).(pulumi.StringOutput)
 }
 
-// The path to use in the redirect. Include the leading `/`. Leave blank to preserve the incoming path.
+// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
 func (o FrontdoorRuleActionsUrlRedirectActionOutput) DestinationPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) *string { return v.DestinationPath }).(pulumi.StringPtrOutput)
 }
 
-// The query string used in the redirect URL. Don't include the leading `?`. Leave blank to preserve the incoming query string.
+// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Defaults to an empty string.
 func (o FrontdoorRuleActionsUrlRedirectActionOutput) QueryString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorRuleActionsUrlRedirectAction) *string { return v.QueryString }).(pulumi.StringPtrOutput)
 }
@@ -7427,7 +7796,7 @@ func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) Elem() FrontdoorRuleActi
 	}).(FrontdoorRuleActionsUrlRedirectActionOutput)
 }
 
-// The fragment to use in the redirect. Leave blank to preserve the incoming fragment.
+// The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
 func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) DestinationFragment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRedirectAction) *string {
 		if v == nil {
@@ -7437,7 +7806,7 @@ func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) DestinationFragment() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The host name you want the request to be redirected to. Leave blank to preserve the incoming host.
+// The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host. Defaults to an empty string.
 func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) DestinationHostname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRedirectAction) *string {
 		if v == nil {
@@ -7447,7 +7816,7 @@ func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) DestinationHostname() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path to use in the redirect. Include the leading `/`. Leave blank to preserve the incoming path.
+// The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
 func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) DestinationPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRedirectAction) *string {
 		if v == nil {
@@ -7457,7 +7826,7 @@ func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) DestinationPath() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The query string used in the redirect URL. Don't include the leading `?`. Leave blank to preserve the incoming query string.
+// The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Defaults to an empty string.
 func (o FrontdoorRuleActionsUrlRedirectActionPtrOutput) QueryString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRuleActionsUrlRedirectAction) *string {
 		if v == nil {
@@ -8298,7 +8667,8 @@ type FrontdoorRuleConditionsCookiesCondition struct {
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-	Operator   string   `pulumi:"operator"`
+	Operator string `pulumi:"operator"`
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -8321,7 +8691,8 @@ type FrontdoorRuleConditionsCookiesConditionArgs struct {
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-	Operator   pulumi.StringInput      `pulumi:"operator"`
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -8396,6 +8767,7 @@ func (o FrontdoorRuleConditionsCookiesConditionOutput) Operator() pulumi.StringO
 	return o.ApplyT(func(v FrontdoorRuleConditionsCookiesCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsCookiesConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsCookiesCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -8426,7 +8798,8 @@ type FrontdoorRuleConditionsHostNameCondition struct {
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-	Operator   string   `pulumi:"operator"`
+	Operator string `pulumi:"operator"`
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -8447,7 +8820,8 @@ type FrontdoorRuleConditionsHostNameConditionArgs struct {
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-	Operator   pulumi.StringInput      `pulumi:"operator"`
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -8517,6 +8891,7 @@ func (o FrontdoorRuleConditionsHostNameConditionOutput) Operator() pulumi.String
 	return o.ApplyT(func(v FrontdoorRuleConditionsHostNameCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsHostNameConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsHostNameCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -8779,8 +9154,9 @@ type FrontdoorRuleConditionsPostArgsCondition struct {
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator string `pulumi:"operator"`
 	// A string value representing the name of the `POST` argument.
-	PostArgsName string   `pulumi:"postArgsName"`
-	Transforms   []string `pulumi:"transforms"`
+	PostArgsName string `pulumi:"postArgsName"`
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	Transforms []string `pulumi:"transforms"`
 }
 
 // FrontdoorRuleConditionsPostArgsConditionInput is an input type that accepts FrontdoorRuleConditionsPostArgsConditionArgs and FrontdoorRuleConditionsPostArgsConditionOutput values.
@@ -8802,8 +9178,9 @@ type FrontdoorRuleConditionsPostArgsConditionArgs struct {
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
 	Operator pulumi.StringInput `pulumi:"operator"`
 	// A string value representing the name of the `POST` argument.
-	PostArgsName pulumi.StringInput      `pulumi:"postArgsName"`
-	Transforms   pulumi.StringArrayInput `pulumi:"transforms"`
+	PostArgsName pulumi.StringInput `pulumi:"postArgsName"`
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
 func (FrontdoorRuleConditionsPostArgsConditionArgs) ElementType() reflect.Type {
@@ -8877,6 +9254,7 @@ func (o FrontdoorRuleConditionsPostArgsConditionOutput) PostArgsName() pulumi.St
 	return o.ApplyT(func(v FrontdoorRuleConditionsPostArgsCondition) string { return v.PostArgsName }).(pulumi.StringOutput)
 }
 
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsPostArgsConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsPostArgsCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -8907,7 +9285,8 @@ type FrontdoorRuleConditionsQueryStringCondition struct {
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-	Operator   string   `pulumi:"operator"`
+	Operator string `pulumi:"operator"`
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -8928,7 +9307,8 @@ type FrontdoorRuleConditionsQueryStringConditionArgs struct {
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-	Operator   pulumi.StringInput      `pulumi:"operator"`
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -8998,6 +9378,7 @@ func (o FrontdoorRuleConditionsQueryStringConditionOutput) Operator() pulumi.Str
 	return o.ApplyT(func(v FrontdoorRuleConditionsQueryStringCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsQueryStringConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsQueryStringCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -9143,7 +9524,8 @@ type FrontdoorRuleConditionsRequestBodyCondition struct {
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-	Operator   string   `pulumi:"operator"`
+	Operator string `pulumi:"operator"`
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -9164,7 +9546,8 @@ type FrontdoorRuleConditionsRequestBodyConditionArgs struct {
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-	Operator   pulumi.StringInput      `pulumi:"operator"`
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -9234,6 +9617,7 @@ func (o FrontdoorRuleConditionsRequestBodyConditionOutput) Operator() pulumi.Str
 	return o.ApplyT(func(v FrontdoorRuleConditionsRequestBodyCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsRequestBodyConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsRequestBodyCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -9266,7 +9650,8 @@ type FrontdoorRuleConditionsRequestHeaderCondition struct {
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-	Operator   string   `pulumi:"operator"`
+	Operator string `pulumi:"operator"`
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -9289,7 +9674,8 @@ type FrontdoorRuleConditionsRequestHeaderConditionArgs struct {
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-	Operator   pulumi.StringInput      `pulumi:"operator"`
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -9364,6 +9750,7 @@ func (o FrontdoorRuleConditionsRequestHeaderConditionOutput) Operator() pulumi.S
 	return o.ApplyT(func(v FrontdoorRuleConditionsRequestHeaderCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsRequestHeaderConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsRequestHeaderCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -9624,7 +10011,8 @@ type FrontdoorRuleConditionsRequestUriCondition struct {
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-	Operator   string   `pulumi:"operator"`
+	Operator string `pulumi:"operator"`
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -9645,7 +10033,8 @@ type FrontdoorRuleConditionsRequestUriConditionArgs struct {
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-	Operator   pulumi.StringInput      `pulumi:"operator"`
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -9715,6 +10104,7 @@ func (o FrontdoorRuleConditionsRequestUriConditionOutput) Operator() pulumi.Stri
 	return o.ApplyT(func(v FrontdoorRuleConditionsRequestUriCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsRequestUriConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsRequestUriCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -10090,7 +10480,8 @@ type FrontdoorRuleConditionsUrlFileExtensionCondition struct {
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-	Operator   string   `pulumi:"operator"`
+	Operator string `pulumi:"operator"`
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -10111,7 +10502,8 @@ type FrontdoorRuleConditionsUrlFileExtensionConditionArgs struct {
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-	Operator   pulumi.StringInput      `pulumi:"operator"`
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -10181,6 +10573,7 @@ func (o FrontdoorRuleConditionsUrlFileExtensionConditionOutput) Operator() pulum
 	return o.ApplyT(func(v FrontdoorRuleConditionsUrlFileExtensionCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsUrlFileExtensionConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsUrlFileExtensionCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -10211,7 +10604,8 @@ type FrontdoorRuleConditionsUrlFilenameCondition struct {
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-	Operator   string   `pulumi:"operator"`
+	Operator string `pulumi:"operator"`
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -10232,7 +10626,8 @@ type FrontdoorRuleConditionsUrlFilenameConditionArgs struct {
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-	Operator   pulumi.StringInput      `pulumi:"operator"`
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -10302,6 +10697,7 @@ func (o FrontdoorRuleConditionsUrlFilenameConditionOutput) Operator() pulumi.Str
 	return o.ApplyT(func(v FrontdoorRuleConditionsUrlFilenameCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsUrlFilenameConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsUrlFilenameCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -10332,7 +10728,8 @@ type FrontdoorRuleConditionsUrlPathCondition struct {
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition *bool `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-	Operator   string   `pulumi:"operator"`
+	Operator string `pulumi:"operator"`
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 	Transforms []string `pulumi:"transforms"`
 }
 
@@ -10353,7 +10750,8 @@ type FrontdoorRuleConditionsUrlPathConditionArgs struct {
 	// If `true` operator becomes the opposite of its value. Possible values `true` or `false`. Defaults to `false`. Details can be found in the `Condition Operator List` below.
 	NegateCondition pulumi.BoolPtrInput `pulumi:"negateCondition"`
 	// A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
-	Operator   pulumi.StringInput      `pulumi:"operator"`
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
 }
 
@@ -10423,6 +10821,7 @@ func (o FrontdoorRuleConditionsUrlPathConditionOutput) Operator() pulumi.StringO
 	return o.ApplyT(func(v FrontdoorRuleConditionsUrlPathCondition) string { return v.Operator }).(pulumi.StringOutput)
 }
 
+// A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
 func (o FrontdoorRuleConditionsUrlPathConditionOutput) Transforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FrontdoorRuleConditionsUrlPathCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
 }
@@ -11559,6 +11958,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGlobalDeliveryRuleUrlRewriteActionPtrInput)(nil)).Elem(), EndpointGlobalDeliveryRuleUrlRewriteActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointOriginInput)(nil)).Elem(), EndpointOriginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointOriginArrayInput)(nil)).Elem(), EndpointOriginArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorCustomEndpointTlsInput)(nil)).Elem(), FrontdoorCustomEndpointTlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorCustomEndpointTlsPtrInput)(nil)).Elem(), FrontdoorCustomEndpointTlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyCustomRuleInput)(nil)).Elem(), FrontdoorFirewallPolicyCustomRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyCustomRuleArrayInput)(nil)).Elem(), FrontdoorFirewallPolicyCustomRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyCustomRuleMatchConditionInput)(nil)).Elem(), FrontdoorFirewallPolicyCustomRuleMatchConditionArgs{})
@@ -11581,6 +11982,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginGroupLoadBalancingPtrInput)(nil)).Elem(), FrontdoorOriginGroupLoadBalancingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginPrivateLinkInput)(nil)).Elem(), FrontdoorOriginPrivateLinkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginPrivateLinkPtrInput)(nil)).Elem(), FrontdoorOriginPrivateLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRouteCacheInput)(nil)).Elem(), FrontdoorRouteCacheArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRouteCachePtrInput)(nil)).Elem(), FrontdoorRouteCacheArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleActionsInput)(nil)).Elem(), FrontdoorRuleActionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleActionsPtrInput)(nil)).Elem(), FrontdoorRuleActionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorRuleActionsRequestHeaderActionInput)(nil)).Elem(), FrontdoorRuleActionsRequestHeaderActionArgs{})
@@ -11713,6 +12116,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput{})
 	pulumi.RegisterOutputType(EndpointOriginOutput{})
 	pulumi.RegisterOutputType(EndpointOriginArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorCustomEndpointTlsOutput{})
+	pulumi.RegisterOutputType(FrontdoorCustomEndpointTlsPtrOutput{})
 	pulumi.RegisterOutputType(FrontdoorFirewallPolicyCustomRuleOutput{})
 	pulumi.RegisterOutputType(FrontdoorFirewallPolicyCustomRuleArrayOutput{})
 	pulumi.RegisterOutputType(FrontdoorFirewallPolicyCustomRuleMatchConditionOutput{})
@@ -11735,6 +12140,8 @@ func init() {
 	pulumi.RegisterOutputType(FrontdoorOriginGroupLoadBalancingPtrOutput{})
 	pulumi.RegisterOutputType(FrontdoorOriginPrivateLinkOutput{})
 	pulumi.RegisterOutputType(FrontdoorOriginPrivateLinkPtrOutput{})
+	pulumi.RegisterOutputType(FrontdoorRouteCacheOutput{})
+	pulumi.RegisterOutputType(FrontdoorRouteCachePtrOutput{})
 	pulumi.RegisterOutputType(FrontdoorRuleActionsOutput{})
 	pulumi.RegisterOutputType(FrontdoorRuleActionsPtrOutput{})
 	pulumi.RegisterOutputType(FrontdoorRuleActionsRequestHeaderActionOutput{})

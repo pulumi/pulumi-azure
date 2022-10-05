@@ -10,11 +10,50 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AccountCustomerManagedKeyArgs',
     'AccountIdentityArgs',
     'AccountNetworkAclsArgs',
     'AccountNetworkAclsVirtualNetworkRuleArgs',
     'AccountStorageArgs',
 ]
+
+@pulumi.input_type
+class AccountCustomerManagedKeyArgs:
+    def __init__(__self__, *,
+                 key_vault_key_id: pulumi.Input[str],
+                 identity_client_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
+        :param pulumi.Input[str] identity_client_id: The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
+        """
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_key_id", value)
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @identity_client_id.setter
+    def identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_client_id", value)
+
 
 @pulumi.input_type
 class AccountIdentityArgs:

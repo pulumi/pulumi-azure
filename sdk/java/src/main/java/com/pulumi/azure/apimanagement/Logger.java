@@ -190,14 +190,14 @@ public class Logger extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The target resource id which will be linked in the API-Management portal page.
+     * The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceId", type=String.class, parameters={})
     private Output</* @Nullable */ String> resourceId;
 
     /**
-     * @return The target resource id which will be linked in the API-Management portal page.
+     * @return The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> resourceId() {

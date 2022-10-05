@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Endpoint{}
 	case "azure:cdn/endpointCustomDomain:EndpointCustomDomain":
 		r = &EndpointCustomDomain{}
+	case "azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint":
+		r = &FrontdoorCustomEndpoint{}
 	case "azure:cdn/frontdoorEndpoint:FrontdoorEndpoint":
 		r = &FrontdoorEndpoint{}
 	case "azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy":
@@ -35,6 +37,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FrontdoorOriginGroup{}
 	case "azure:cdn/frontdoorProfile:FrontdoorProfile":
 		r = &FrontdoorProfile{}
+	case "azure:cdn/frontdoorRoute:FrontdoorRoute":
+		r = &FrontdoorRoute{}
+	case "azure:cdn/frontdoorRouteDisableLinkToDefaultDomain:FrontdoorRouteDisableLinkToDefaultDomain":
+		r = &FrontdoorRouteDisableLinkToDefaultDomain{}
 	case "azure:cdn/frontdoorRule:FrontdoorRule":
 		r = &FrontdoorRule{}
 	case "azure:cdn/frontdoorRuleSet:FrontdoorRuleSet":
@@ -70,6 +76,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
+		"cdn/frontdoorCustomEndpoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
 		"cdn/frontdoorEndpoint",
 		&module{version},
 	)
@@ -91,6 +102,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"cdn/frontdoorProfile",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cdn/frontdoorRoute",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cdn/frontdoorRouteDisableLinkToDefaultDomain",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

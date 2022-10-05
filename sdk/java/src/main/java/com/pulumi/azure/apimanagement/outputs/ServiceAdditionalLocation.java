@@ -5,6 +5,7 @@ package com.pulumi.azure.apimanagement.outputs;
 
 import com.pulumi.azure.apimanagement.outputs.ServiceAdditionalLocationVirtualNetworkConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -19,6 +20,11 @@ public final class ServiceAdditionalLocation {
      * 
      */
     private @Nullable Integer capacity;
+    /**
+     * @return Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+     * 
+     */
+    private @Nullable Boolean gatewayDisabled;
     /**
      * @return The URL of the Regional Gateway for the API Management Service in the specified region.
      * 
@@ -62,6 +68,13 @@ public final class ServiceAdditionalLocation {
      */
     public Optional<Integer> capacity() {
         return Optional.ofNullable(this.capacity);
+    }
+    /**
+     * @return Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+     * 
+     */
+    public Optional<Boolean> gatewayDisabled() {
+        return Optional.ofNullable(this.gatewayDisabled);
     }
     /**
      * @return The URL of the Regional Gateway for the API Management Service in the specified region.
@@ -123,6 +136,7 @@ public final class ServiceAdditionalLocation {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer capacity;
+        private @Nullable Boolean gatewayDisabled;
         private @Nullable String gatewayRegionalUrl;
         private String location;
         private @Nullable List<String> privateIpAddresses;
@@ -134,6 +148,7 @@ public final class ServiceAdditionalLocation {
         public Builder(ServiceAdditionalLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacity = defaults.capacity;
+    	      this.gatewayDisabled = defaults.gatewayDisabled;
     	      this.gatewayRegionalUrl = defaults.gatewayRegionalUrl;
     	      this.location = defaults.location;
     	      this.privateIpAddresses = defaults.privateIpAddresses;
@@ -146,6 +161,11 @@ public final class ServiceAdditionalLocation {
         @CustomType.Setter
         public Builder capacity(@Nullable Integer capacity) {
             this.capacity = capacity;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder gatewayDisabled(@Nullable Boolean gatewayDisabled) {
+            this.gatewayDisabled = gatewayDisabled;
             return this;
         }
         @CustomType.Setter
@@ -195,6 +215,7 @@ public final class ServiceAdditionalLocation {
         public ServiceAdditionalLocation build() {
             final var o = new ServiceAdditionalLocation();
             o.capacity = capacity;
+            o.gatewayDisabled = gatewayDisabled;
             o.gatewayRegionalUrl = gatewayRegionalUrl;
             o.location = location;
             o.privateIpAddresses = privateIpAddresses;

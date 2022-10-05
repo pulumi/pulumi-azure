@@ -105,7 +105,7 @@ namespace Pulumi.Azure.Automation
         /// One or more `windows` blocks as defined below.
         /// </summary>
         [Output("windows")]
-        public Output<ImmutableArray<Outputs.SoftwareUpdateConfigurationWindow>> Windows { get; private set; } = null!;
+        public Output<Outputs.SoftwareUpdateConfigurationWindows?> Windows { get; private set; } = null!;
 
 
         /// <summary>
@@ -255,17 +255,11 @@ namespace Pulumi.Azure.Automation
             set => _virtualMachineIds = value;
         }
 
-        [Input("windows")]
-        private InputList<Inputs.SoftwareUpdateConfigurationWindowArgs>? _windows;
-
         /// <summary>
         /// One or more `windows` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.SoftwareUpdateConfigurationWindowArgs> Windows
-        {
-            get => _windows ?? (_windows = new InputList<Inputs.SoftwareUpdateConfigurationWindowArgs>());
-            set => _windows = value;
-        }
+        [Input("windows")]
+        public Input<Inputs.SoftwareUpdateConfigurationWindowsArgs>? Windows { get; set; }
 
         public SoftwareUpdateConfigurationArgs()
         {
@@ -389,17 +383,11 @@ namespace Pulumi.Azure.Automation
             set => _virtualMachineIds = value;
         }
 
-        [Input("windows")]
-        private InputList<Inputs.SoftwareUpdateConfigurationWindowGetArgs>? _windows;
-
         /// <summary>
         /// One or more `windows` blocks as defined below.
         /// </summary>
-        public InputList<Inputs.SoftwareUpdateConfigurationWindowGetArgs> Windows
-        {
-            get => _windows ?? (_windows = new InputList<Inputs.SoftwareUpdateConfigurationWindowGetArgs>());
-            set => _windows = value;
-        }
+        [Input("windows")]
+        public Input<Inputs.SoftwareUpdateConfigurationWindowsGetArgs>? Windows { get; set; }
 
         public SoftwareUpdateConfigurationState()
         {

@@ -591,25 +591,25 @@ public class Workspace extends com.pulumi.resources.CustomResource {
     /**
      * Enable public access when this Machine Learning Workspace is behind a VNet.
      * 
+     * @deprecated
+     * `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
+     * 
      */
+    @Deprecated /* `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider. */
     @Export(name="publicAccessBehindVirtualNetworkEnabled", type=Boolean.class, parameters={})
-    private Output<Boolean> publicAccessBehindVirtualNetworkEnabled;
+    private Output</* @Nullable */ Boolean> publicAccessBehindVirtualNetworkEnabled;
 
     /**
      * @return Enable public access when this Machine Learning Workspace is behind a VNet.
      * 
      */
-    public Output<Boolean> publicAccessBehindVirtualNetworkEnabled() {
-        return this.publicAccessBehindVirtualNetworkEnabled;
+    public Output<Optional<Boolean>> publicAccessBehindVirtualNetworkEnabled() {
+        return Codegen.optional(this.publicAccessBehindVirtualNetworkEnabled);
     }
     /**
      * Enable public access when this Machine Learning Workspace is behind VNet.
      * 
-     * @deprecated
-     * `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.
-     * 
      */
-    @Deprecated /* `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider. */
     @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
     private Output<Boolean> publicNetworkAccessEnabled;
 
@@ -675,6 +675,20 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
+    }
+    /**
+     * Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+     * 
+     */
+    @Export(name="v1LegacyModeEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> v1LegacyModeEnabled;
+
+    /**
+     * @return Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> v1LegacyModeEnabled() {
+        return Codegen.optional(this.v1LegacyModeEnabled);
     }
 
     /**

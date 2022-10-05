@@ -11,11 +11,61 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AccountCustomerManagedKey',
     'AccountIdentity',
     'AccountNetworkAcls',
     'AccountNetworkAclsVirtualNetworkRule',
     'AccountStorage',
 ]
+
+@pulumi.output_type
+class AccountCustomerManagedKey(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultKeyId":
+            suggest = "key_vault_key_id"
+        elif key == "identityClientId":
+            suggest = "identity_client_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountCustomerManagedKey. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountCustomerManagedKey.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountCustomerManagedKey.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault_key_id: str,
+                 identity_client_id: Optional[str] = None):
+        """
+        :param str key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
+        :param str identity_client_id: The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
+        """
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> str:
+        """
+        The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[str]:
+        """
+        The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
+        """
+        return pulumi.get(self, "identity_client_id")
+
 
 @pulumi.output_type
 class AccountIdentity(dict):

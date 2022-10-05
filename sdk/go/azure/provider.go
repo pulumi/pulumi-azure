@@ -42,6 +42,8 @@ type Provider struct {
 	OidcRequestUrl pulumi.StringPtrOutput `pulumi:"oidcRequestUrl"`
 	// The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
 	OidcToken pulumi.StringPtrOutput `pulumi:"oidcToken"`
+	// The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+	OidcTokenFilePath pulumi.StringPtrOutput `pulumi:"oidcTokenFilePath"`
 	// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
 	PartnerId pulumi.StringPtrOutput `pulumi:"partnerId"`
 	// The Subscription ID which should be used.
@@ -112,6 +114,8 @@ type providerArgs struct {
 	OidcRequestUrl *string `pulumi:"oidcRequestUrl"`
 	// The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
 	OidcToken *string `pulumi:"oidcToken"`
+	// The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+	OidcTokenFilePath *string `pulumi:"oidcTokenFilePath"`
 	// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
 	PartnerId *string `pulumi:"partnerId"`
 	// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
@@ -162,6 +166,8 @@ type ProviderArgs struct {
 	OidcRequestUrl pulumi.StringPtrInput
 	// The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
 	OidcToken pulumi.StringPtrInput
+	// The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+	OidcTokenFilePath pulumi.StringPtrInput
 	// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
 	PartnerId pulumi.StringPtrInput
 	// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already
@@ -269,6 +275,11 @@ func (o ProviderOutput) OidcRequestUrl() pulumi.StringPtrOutput {
 // The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
 func (o ProviderOutput) OidcToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OidcToken }).(pulumi.StringPtrOutput)
+}
+
+// The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+func (o ProviderOutput) OidcTokenFilePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OidcTokenFilePath }).(pulumi.StringPtrOutput)
 }
 
 // A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.

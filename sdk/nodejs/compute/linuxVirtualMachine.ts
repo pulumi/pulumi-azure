@@ -178,6 +178,10 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly extensionsTimeBudget!: pulumi.Output<string | undefined>;
     /**
+     * A `galleryApplication` block as defined below.
+     */
+    public readonly galleryApplications!: pulumi.Output<outputs.compute.LinuxVirtualMachineGalleryApplication[] | undefined>;
+    /**
      * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.compute.LinuxVirtualMachineIdentity | undefined>;
@@ -332,6 +336,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             resourceInputs["encryptionAtHostEnabled"] = state ? state.encryptionAtHostEnabled : undefined;
             resourceInputs["evictionPolicy"] = state ? state.evictionPolicy : undefined;
             resourceInputs["extensionsTimeBudget"] = state ? state.extensionsTimeBudget : undefined;
+            resourceInputs["galleryApplications"] = state ? state.galleryApplications : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["licenseType"] = state ? state.licenseType : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -397,6 +402,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
             resourceInputs["encryptionAtHostEnabled"] = args ? args.encryptionAtHostEnabled : undefined;
             resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
             resourceInputs["extensionsTimeBudget"] = args ? args.extensionsTimeBudget : undefined;
+            resourceInputs["galleryApplications"] = args ? args.galleryApplications : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["licenseType"] = args ? args.licenseType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -506,6 +512,10 @@ export interface LinuxVirtualMachineState {
      * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
      */
     extensionsTimeBudget?: pulumi.Input<string>;
+    /**
+     * A `galleryApplication` block as defined below.
+     */
+    galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineGalleryApplication>[]>;
     /**
      * An `identity` block as defined below.
      */
@@ -704,6 +714,10 @@ export interface LinuxVirtualMachineArgs {
      * Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
      */
     extensionsTimeBudget?: pulumi.Input<string>;
+    /**
+     * A `galleryApplication` block as defined below.
+     */
+    galleryApplications?: pulumi.Input<pulumi.Input<inputs.compute.LinuxVirtualMachineGalleryApplication>[]>;
     /**
      * An `identity` block as defined below.
      */

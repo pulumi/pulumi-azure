@@ -171,6 +171,17 @@ Object.defineProperty(exports, "oidcToken", {
 });
 
 /**
+ * The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+ */
+export declare const oidcTokenFilePath: string | undefined;
+Object.defineProperty(exports, "oidcTokenFilePath", {
+    get() {
+        return __config.get("oidcTokenFilePath");
+    },
+    enumerable: true,
+});
+
+/**
  * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
  */
 export declare const partnerId: string | undefined;

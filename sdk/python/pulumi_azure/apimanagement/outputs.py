@@ -3179,6 +3179,10 @@ class CustomDomainDeveloperPortal(dict):
             suggest = "host_name"
         elif key == "certificatePassword":
             suggest = "certificate_password"
+        elif key == "certificateSource":
+            suggest = "certificate_source"
+        elif key == "certificateStatus":
+            suggest = "certificate_status"
         elif key == "keyVaultId":
             suggest = "key_vault_id"
         elif key == "negotiateClientCertificate":
@@ -3201,6 +3205,8 @@ class CustomDomainDeveloperPortal(dict):
                  host_name: str,
                  certificate: Optional[str] = None,
                  certificate_password: Optional[str] = None,
+                 certificate_source: Optional[str] = None,
+                 certificate_status: Optional[str] = None,
                  expiry: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
                  negotiate_client_certificate: Optional[bool] = None,
@@ -3219,6 +3225,10 @@ class CustomDomainDeveloperPortal(dict):
             pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if certificate_source is not None:
+            pulumi.set(__self__, "certificate_source", certificate_source)
+        if certificate_status is not None:
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if expiry is not None:
             pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
@@ -3255,6 +3265,16 @@ class CustomDomainDeveloperPortal(dict):
         The password associated with the certificate provided above.
         """
         return pulumi.get(self, "certificate_password")
+
+    @property
+    @pulumi.getter(name="certificateSource")
+    def certificate_source(self) -> Optional[str]:
+        return pulumi.get(self, "certificate_source")
+
+    @property
+    @pulumi.getter(name="certificateStatus")
+    def certificate_status(self) -> Optional[str]:
+        return pulumi.get(self, "certificate_status")
 
     @property
     @pulumi.getter
@@ -3302,6 +3322,10 @@ class CustomDomainGateway(dict):
             suggest = "host_name"
         elif key == "certificatePassword":
             suggest = "certificate_password"
+        elif key == "certificateSource":
+            suggest = "certificate_source"
+        elif key == "certificateStatus":
+            suggest = "certificate_status"
         elif key == "defaultSslBinding":
             suggest = "default_ssl_binding"
         elif key == "keyVaultId":
@@ -3326,6 +3350,8 @@ class CustomDomainGateway(dict):
                  host_name: str,
                  certificate: Optional[str] = None,
                  certificate_password: Optional[str] = None,
+                 certificate_source: Optional[str] = None,
+                 certificate_status: Optional[str] = None,
                  default_ssl_binding: Optional[bool] = None,
                  expiry: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
@@ -3346,6 +3372,10 @@ class CustomDomainGateway(dict):
             pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if certificate_source is not None:
+            pulumi.set(__self__, "certificate_source", certificate_source)
+        if certificate_status is not None:
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if default_ssl_binding is not None:
             pulumi.set(__self__, "default_ssl_binding", default_ssl_binding)
         if expiry is not None:
@@ -3384,6 +3414,16 @@ class CustomDomainGateway(dict):
         The password associated with the certificate provided above.
         """
         return pulumi.get(self, "certificate_password")
+
+    @property
+    @pulumi.getter(name="certificateSource")
+    def certificate_source(self) -> Optional[str]:
+        return pulumi.get(self, "certificate_source")
+
+    @property
+    @pulumi.getter(name="certificateStatus")
+    def certificate_status(self) -> Optional[str]:
+        return pulumi.get(self, "certificate_status")
 
     @property
     @pulumi.getter(name="defaultSslBinding")
@@ -3439,6 +3479,10 @@ class CustomDomainManagement(dict):
             suggest = "host_name"
         elif key == "certificatePassword":
             suggest = "certificate_password"
+        elif key == "certificateSource":
+            suggest = "certificate_source"
+        elif key == "certificateStatus":
+            suggest = "certificate_status"
         elif key == "keyVaultId":
             suggest = "key_vault_id"
         elif key == "negotiateClientCertificate":
@@ -3461,6 +3505,8 @@ class CustomDomainManagement(dict):
                  host_name: str,
                  certificate: Optional[str] = None,
                  certificate_password: Optional[str] = None,
+                 certificate_source: Optional[str] = None,
+                 certificate_status: Optional[str] = None,
                  expiry: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
                  negotiate_client_certificate: Optional[bool] = None,
@@ -3479,6 +3525,10 @@ class CustomDomainManagement(dict):
             pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if certificate_source is not None:
+            pulumi.set(__self__, "certificate_source", certificate_source)
+        if certificate_status is not None:
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if expiry is not None:
             pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
@@ -3515,6 +3565,16 @@ class CustomDomainManagement(dict):
         The password associated with the certificate provided above.
         """
         return pulumi.get(self, "certificate_password")
+
+    @property
+    @pulumi.getter(name="certificateSource")
+    def certificate_source(self) -> Optional[str]:
+        return pulumi.get(self, "certificate_source")
+
+    @property
+    @pulumi.getter(name="certificateStatus")
+    def certificate_status(self) -> Optional[str]:
+        return pulumi.get(self, "certificate_status")
 
     @property
     @pulumi.getter
@@ -3562,6 +3622,10 @@ class CustomDomainPortal(dict):
             suggest = "host_name"
         elif key == "certificatePassword":
             suggest = "certificate_password"
+        elif key == "certificateSource":
+            suggest = "certificate_source"
+        elif key == "certificateStatus":
+            suggest = "certificate_status"
         elif key == "keyVaultId":
             suggest = "key_vault_id"
         elif key == "negotiateClientCertificate":
@@ -3584,6 +3648,8 @@ class CustomDomainPortal(dict):
                  host_name: str,
                  certificate: Optional[str] = None,
                  certificate_password: Optional[str] = None,
+                 certificate_source: Optional[str] = None,
+                 certificate_status: Optional[str] = None,
                  expiry: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
                  negotiate_client_certificate: Optional[bool] = None,
@@ -3602,6 +3668,10 @@ class CustomDomainPortal(dict):
             pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if certificate_source is not None:
+            pulumi.set(__self__, "certificate_source", certificate_source)
+        if certificate_status is not None:
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if expiry is not None:
             pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
@@ -3638,6 +3708,16 @@ class CustomDomainPortal(dict):
         The password associated with the certificate provided above.
         """
         return pulumi.get(self, "certificate_password")
+
+    @property
+    @pulumi.getter(name="certificateSource")
+    def certificate_source(self) -> Optional[str]:
+        return pulumi.get(self, "certificate_source")
+
+    @property
+    @pulumi.getter(name="certificateStatus")
+    def certificate_status(self) -> Optional[str]:
+        return pulumi.get(self, "certificate_status")
 
     @property
     @pulumi.getter
@@ -3685,6 +3765,10 @@ class CustomDomainScm(dict):
             suggest = "host_name"
         elif key == "certificatePassword":
             suggest = "certificate_password"
+        elif key == "certificateSource":
+            suggest = "certificate_source"
+        elif key == "certificateStatus":
+            suggest = "certificate_status"
         elif key == "keyVaultId":
             suggest = "key_vault_id"
         elif key == "negotiateClientCertificate":
@@ -3707,6 +3791,8 @@ class CustomDomainScm(dict):
                  host_name: str,
                  certificate: Optional[str] = None,
                  certificate_password: Optional[str] = None,
+                 certificate_source: Optional[str] = None,
+                 certificate_status: Optional[str] = None,
                  expiry: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
                  negotiate_client_certificate: Optional[bool] = None,
@@ -3725,6 +3811,10 @@ class CustomDomainScm(dict):
             pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if certificate_source is not None:
+            pulumi.set(__self__, "certificate_source", certificate_source)
+        if certificate_status is not None:
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if expiry is not None:
             pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
@@ -3761,6 +3851,16 @@ class CustomDomainScm(dict):
         The password associated with the certificate provided above.
         """
         return pulumi.get(self, "certificate_password")
+
+    @property
+    @pulumi.getter(name="certificateSource")
+    def certificate_source(self) -> Optional[str]:
+        return pulumi.get(self, "certificate_source")
+
+    @property
+    @pulumi.getter(name="certificateStatus")
+    def certificate_status(self) -> Optional[str]:
+        return pulumi.get(self, "certificate_status")
 
     @property
     @pulumi.getter
@@ -4532,7 +4632,9 @@ class ServiceAdditionalLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "gatewayRegionalUrl":
+        if key == "gatewayDisabled":
+            suggest = "gateway_disabled"
+        elif key == "gatewayRegionalUrl":
             suggest = "gateway_regional_url"
         elif key == "privateIpAddresses":
             suggest = "private_ip_addresses"
@@ -4557,6 +4659,7 @@ class ServiceAdditionalLocation(dict):
     def __init__(__self__, *,
                  location: str,
                  capacity: Optional[int] = None,
+                 gateway_disabled: Optional[bool] = None,
                  gateway_regional_url: Optional[str] = None,
                  private_ip_addresses: Optional[Sequence[str]] = None,
                  public_ip_address_id: Optional[str] = None,
@@ -4566,6 +4669,7 @@ class ServiceAdditionalLocation(dict):
         """
         :param str location: The name of the Azure Region in which the API Management Service should be expanded to.
         :param int capacity: The number of compute units in this region. Defaults to the capacity of the main region.
+        :param bool gateway_disabled: Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
         :param str gateway_regional_url: The URL of the Regional Gateway for the API Management Service in the specified region.
         :param Sequence[str] private_ip_addresses: The Private IP addresses of the API Management Service.  Available only when the API Manager instance is using Virtual Network mode.
         :param str public_ip_address_id: ID of a standard SKU IPv4 Public IP.
@@ -4576,6 +4680,8 @@ class ServiceAdditionalLocation(dict):
         pulumi.set(__self__, "location", location)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
+        if gateway_disabled is not None:
+            pulumi.set(__self__, "gateway_disabled", gateway_disabled)
         if gateway_regional_url is not None:
             pulumi.set(__self__, "gateway_regional_url", gateway_regional_url)
         if private_ip_addresses is not None:
@@ -4604,6 +4710,14 @@ class ServiceAdditionalLocation(dict):
         The number of compute units in this region. Defaults to the capacity of the main region.
         """
         return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter(name="gatewayDisabled")
+    def gateway_disabled(self) -> Optional[bool]:
+        """
+        Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+        """
+        return pulumi.get(self, "gateway_disabled")
 
     @property
     @pulumi.getter(name="gatewayRegionalUrl")
@@ -4880,6 +4994,10 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
             suggest = "host_name"
         elif key == "certificatePassword":
             suggest = "certificate_password"
+        elif key == "certificateSource":
+            suggest = "certificate_source"
+        elif key == "certificateStatus":
+            suggest = "certificate_status"
         elif key == "keyVaultId":
             suggest = "key_vault_id"
         elif key == "negotiateClientCertificate":
@@ -4902,6 +5020,8 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
                  host_name: str,
                  certificate: Optional[str] = None,
                  certificate_password: Optional[str] = None,
+                 certificate_source: Optional[str] = None,
+                 certificate_status: Optional[str] = None,
                  expiry: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
                  negotiate_client_certificate: Optional[bool] = None,
@@ -4912,6 +5032,8 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
         :param str host_name: The Hostname to use for the Management API.
         :param str certificate: One or more (up to 10) `certificate` blocks as defined below.
         :param str certificate_password: The password for the certificate.
+        :param str certificate_source: The source of the certificate.
+        :param str certificate_status: The status of the certificate.
         :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
@@ -4924,6 +5046,10 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
             pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if certificate_source is not None:
+            pulumi.set(__self__, "certificate_source", certificate_source)
+        if certificate_status is not None:
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if expiry is not None:
             pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
@@ -4960,6 +5086,22 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
         The password for the certificate.
         """
         return pulumi.get(self, "certificate_password")
+
+    @property
+    @pulumi.getter(name="certificateSource")
+    def certificate_source(self) -> Optional[str]:
+        """
+        The source of the certificate.
+        """
+        return pulumi.get(self, "certificate_source")
+
+    @property
+    @pulumi.getter(name="certificateStatus")
+    def certificate_status(self) -> Optional[str]:
+        """
+        The status of the certificate.
+        """
+        return pulumi.get(self, "certificate_status")
 
     @property
     @pulumi.getter
@@ -5019,6 +5161,10 @@ class ServiceHostnameConfigurationManagement(dict):
             suggest = "host_name"
         elif key == "certificatePassword":
             suggest = "certificate_password"
+        elif key == "certificateSource":
+            suggest = "certificate_source"
+        elif key == "certificateStatus":
+            suggest = "certificate_status"
         elif key == "keyVaultId":
             suggest = "key_vault_id"
         elif key == "negotiateClientCertificate":
@@ -5041,6 +5187,8 @@ class ServiceHostnameConfigurationManagement(dict):
                  host_name: str,
                  certificate: Optional[str] = None,
                  certificate_password: Optional[str] = None,
+                 certificate_source: Optional[str] = None,
+                 certificate_status: Optional[str] = None,
                  expiry: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
                  negotiate_client_certificate: Optional[bool] = None,
@@ -5051,6 +5199,8 @@ class ServiceHostnameConfigurationManagement(dict):
         :param str host_name: The Hostname to use for the Management API.
         :param str certificate: The Base64 Encoded Certificate.
         :param str certificate_password: The password associated with the certificate provided above.
+        :param str certificate_source: The source of the certificate.
+        :param str certificate_status: The status of the certificate.
         :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
@@ -5063,6 +5213,10 @@ class ServiceHostnameConfigurationManagement(dict):
             pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if certificate_source is not None:
+            pulumi.set(__self__, "certificate_source", certificate_source)
+        if certificate_status is not None:
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if expiry is not None:
             pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
@@ -5099,6 +5253,22 @@ class ServiceHostnameConfigurationManagement(dict):
         The password associated with the certificate provided above.
         """
         return pulumi.get(self, "certificate_password")
+
+    @property
+    @pulumi.getter(name="certificateSource")
+    def certificate_source(self) -> Optional[str]:
+        """
+        The source of the certificate.
+        """
+        return pulumi.get(self, "certificate_source")
+
+    @property
+    @pulumi.getter(name="certificateStatus")
+    def certificate_status(self) -> Optional[str]:
+        """
+        The status of the certificate.
+        """
+        return pulumi.get(self, "certificate_status")
 
     @property
     @pulumi.getter
@@ -5158,6 +5328,10 @@ class ServiceHostnameConfigurationPortal(dict):
             suggest = "host_name"
         elif key == "certificatePassword":
             suggest = "certificate_password"
+        elif key == "certificateSource":
+            suggest = "certificate_source"
+        elif key == "certificateStatus":
+            suggest = "certificate_status"
         elif key == "keyVaultId":
             suggest = "key_vault_id"
         elif key == "negotiateClientCertificate":
@@ -5180,6 +5354,8 @@ class ServiceHostnameConfigurationPortal(dict):
                  host_name: str,
                  certificate: Optional[str] = None,
                  certificate_password: Optional[str] = None,
+                 certificate_source: Optional[str] = None,
+                 certificate_status: Optional[str] = None,
                  expiry: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
                  negotiate_client_certificate: Optional[bool] = None,
@@ -5190,6 +5366,8 @@ class ServiceHostnameConfigurationPortal(dict):
         :param str host_name: The Hostname to use for the Management API.
         :param str certificate: One or more (up to 10) `certificate` blocks as defined below.
         :param str certificate_password: The password for the certificate.
+        :param str certificate_source: The source of the certificate.
+        :param str certificate_status: The status of the certificate.
         :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
@@ -5202,6 +5380,10 @@ class ServiceHostnameConfigurationPortal(dict):
             pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if certificate_source is not None:
+            pulumi.set(__self__, "certificate_source", certificate_source)
+        if certificate_status is not None:
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if expiry is not None:
             pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
@@ -5238,6 +5420,22 @@ class ServiceHostnameConfigurationPortal(dict):
         The password for the certificate.
         """
         return pulumi.get(self, "certificate_password")
+
+    @property
+    @pulumi.getter(name="certificateSource")
+    def certificate_source(self) -> Optional[str]:
+        """
+        The source of the certificate.
+        """
+        return pulumi.get(self, "certificate_source")
+
+    @property
+    @pulumi.getter(name="certificateStatus")
+    def certificate_status(self) -> Optional[str]:
+        """
+        The status of the certificate.
+        """
+        return pulumi.get(self, "certificate_status")
 
     @property
     @pulumi.getter
@@ -5297,6 +5495,10 @@ class ServiceHostnameConfigurationProxy(dict):
             suggest = "host_name"
         elif key == "certificatePassword":
             suggest = "certificate_password"
+        elif key == "certificateSource":
+            suggest = "certificate_source"
+        elif key == "certificateStatus":
+            suggest = "certificate_status"
         elif key == "defaultSslBinding":
             suggest = "default_ssl_binding"
         elif key == "keyVaultId":
@@ -5321,6 +5523,8 @@ class ServiceHostnameConfigurationProxy(dict):
                  host_name: str,
                  certificate: Optional[str] = None,
                  certificate_password: Optional[str] = None,
+                 certificate_source: Optional[str] = None,
+                 certificate_status: Optional[str] = None,
                  default_ssl_binding: Optional[bool] = None,
                  expiry: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
@@ -5332,6 +5536,8 @@ class ServiceHostnameConfigurationProxy(dict):
         :param str host_name: The Hostname to use for the Management API.
         :param str certificate: The Base64 Encoded Certificate.
         :param str certificate_password: The password associated with the certificate provided above.
+        :param str certificate_source: The source of the certificate.
+        :param str certificate_status: The status of the certificate.
         :param bool default_ssl_binding: Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
         :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
@@ -5345,6 +5551,10 @@ class ServiceHostnameConfigurationProxy(dict):
             pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if certificate_source is not None:
+            pulumi.set(__self__, "certificate_source", certificate_source)
+        if certificate_status is not None:
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if default_ssl_binding is not None:
             pulumi.set(__self__, "default_ssl_binding", default_ssl_binding)
         if expiry is not None:
@@ -5383,6 +5593,22 @@ class ServiceHostnameConfigurationProxy(dict):
         The password associated with the certificate provided above.
         """
         return pulumi.get(self, "certificate_password")
+
+    @property
+    @pulumi.getter(name="certificateSource")
+    def certificate_source(self) -> Optional[str]:
+        """
+        The source of the certificate.
+        """
+        return pulumi.get(self, "certificate_source")
+
+    @property
+    @pulumi.getter(name="certificateStatus")
+    def certificate_status(self) -> Optional[str]:
+        """
+        The status of the certificate.
+        """
+        return pulumi.get(self, "certificate_status")
 
     @property
     @pulumi.getter(name="defaultSslBinding")
@@ -5450,6 +5676,10 @@ class ServiceHostnameConfigurationScm(dict):
             suggest = "host_name"
         elif key == "certificatePassword":
             suggest = "certificate_password"
+        elif key == "certificateSource":
+            suggest = "certificate_source"
+        elif key == "certificateStatus":
+            suggest = "certificate_status"
         elif key == "keyVaultId":
             suggest = "key_vault_id"
         elif key == "negotiateClientCertificate":
@@ -5472,6 +5702,8 @@ class ServiceHostnameConfigurationScm(dict):
                  host_name: str,
                  certificate: Optional[str] = None,
                  certificate_password: Optional[str] = None,
+                 certificate_source: Optional[str] = None,
+                 certificate_status: Optional[str] = None,
                  expiry: Optional[str] = None,
                  key_vault_id: Optional[str] = None,
                  negotiate_client_certificate: Optional[bool] = None,
@@ -5482,6 +5714,8 @@ class ServiceHostnameConfigurationScm(dict):
         :param str host_name: The Hostname to use for the Management API.
         :param str certificate: One or more (up to 10) `certificate` blocks as defined below.
         :param str certificate_password: The password for the certificate.
+        :param str certificate_source: The source of the certificate.
+        :param str certificate_status: The status of the certificate.
         :param str expiry: The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         :param str key_vault_id: The ID of the Key Vault Secret containing the SSL Certificate, which must be should be of the type `application/x-pkcs12`.
         :param bool negotiate_client_certificate: Should Client Certificate Negotiation be enabled for this Hostname? Defaults to `false`.
@@ -5494,6 +5728,10 @@ class ServiceHostnameConfigurationScm(dict):
             pulumi.set(__self__, "certificate", certificate)
         if certificate_password is not None:
             pulumi.set(__self__, "certificate_password", certificate_password)
+        if certificate_source is not None:
+            pulumi.set(__self__, "certificate_source", certificate_source)
+        if certificate_status is not None:
+            pulumi.set(__self__, "certificate_status", certificate_status)
         if expiry is not None:
             pulumi.set(__self__, "expiry", expiry)
         if key_vault_id is not None:
@@ -5530,6 +5768,22 @@ class ServiceHostnameConfigurationScm(dict):
         The password for the certificate.
         """
         return pulumi.get(self, "certificate_password")
+
+    @property
+    @pulumi.getter(name="certificateSource")
+    def certificate_source(self) -> Optional[str]:
+        """
+        The source of the certificate.
+        """
+        return pulumi.get(self, "certificate_source")
+
+    @property
+    @pulumi.getter(name="certificateStatus")
+    def certificate_status(self) -> Optional[str]:
+        """
+        The status of the certificate.
+        """
+        return pulumi.get(self, "certificate_status")
 
     @property
     @pulumi.getter

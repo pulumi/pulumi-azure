@@ -334,14 +334,14 @@ public class EventHubNamespace extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zone_redundant` to true.
+     * Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
      * 
      */
     @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
     /**
-     * @return Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zone_redundant` to true.
+     * @return Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
      * 
      */
     public Output<String> sku() {

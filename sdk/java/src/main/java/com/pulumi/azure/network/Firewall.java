@@ -258,14 +258,14 @@ public class Firewall extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `&#34;&#34;`(empty string). Defaults to `Alert`.
+     * The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
      * 
      */
     @Export(name="threatIntelMode", type=String.class, parameters={})
     private Output<String> threatIntelMode;
 
     /**
-     * @return The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `&#34;&#34;`(empty string). Defaults to `Alert`.
+     * @return The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
      * 
      */
     public Output<String> threatIntelMode() {

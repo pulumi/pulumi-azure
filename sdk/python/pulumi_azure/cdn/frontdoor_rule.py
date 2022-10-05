@@ -28,7 +28,7 @@ class FrontdoorRuleArgs:
         :param pulumi.Input[str] cdn_frontdoor_rule_set_id: The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
         :param pulumi.Input[int] order: The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
         :param pulumi.Input[str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
-        :param pulumi.Input['FrontdoorRuleConditionsArgs'] conditions: An `conditions` block as defined below.
+        :param pulumi.Input['FrontdoorRuleConditionsArgs'] conditions: A `conditions` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
         """
         pulumi.set(__self__, "actions", actions)
@@ -93,7 +93,7 @@ class FrontdoorRuleArgs:
     @pulumi.getter
     def conditions(self) -> Optional[pulumi.Input['FrontdoorRuleConditionsArgs']]:
         """
-        An `conditions` block as defined below.
+        A `conditions` block as defined below.
         """
         return pulumi.get(self, "conditions")
 
@@ -130,7 +130,7 @@ class _FrontdoorRuleState:
         :param pulumi.Input[str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         :param pulumi.Input[str] cdn_frontdoor_rule_set_id: The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
         :param pulumi.Input[str] cdn_frontdoor_rule_set_name: The name of the Frontdoor Rule Set containing this Frontdoor Rule.
-        :param pulumi.Input['FrontdoorRuleConditionsArgs'] conditions: An `conditions` block as defined below.
+        :param pulumi.Input['FrontdoorRuleConditionsArgs'] conditions: A `conditions` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
         :param pulumi.Input[int] order: The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
         """
@@ -201,7 +201,7 @@ class _FrontdoorRuleState:
     @pulumi.getter
     def conditions(self) -> Optional[pulumi.Input['FrontdoorRuleConditionsArgs']]:
         """
-        An `conditions` block as defined below.
+        A `conditions` block as defined below.
         """
         return pulumi.get(self, "conditions")
 
@@ -249,7 +249,7 @@ class FrontdoorRule(pulumi.CustomResource):
         """
         Manages a Frontdoor Rule.
 
-        !>**IMPORTANT:** To create the Frontdoor Rules resource successfully you **must** add a `depends_on` attribute to the `cdn.FrontdoorRule` code block and reference both the `cdn.FrontdoorOrigin` and the `cdn.FrontdoorOriginGroup` that are associated with the Frontdoor Rule resource.
+        !>**IMPORTANT:** The Rules resource **must** include a `depends_on` meta-argument which references the `cdn.FrontdoorOrigin`, `cdn.FrontdoorOriginGroup` and the `cdn.FrontdoorRoute` that are associated with the Rule resource. The `cdn.FrontdoorRoute` definition has been excluded from the below `Example Usage`, for brevity, but has been included in the `depends_on` meta-argument as an example of the correct way to define the `cdn.FrontdoorRule` resource.
 
         ## Specifying IP Address Ranges
 
@@ -385,7 +385,7 @@ class FrontdoorRule(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FrontdoorRuleActionsArgs']] actions: An `actions` block as defined below.
         :param pulumi.Input[str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         :param pulumi.Input[str] cdn_frontdoor_rule_set_id: The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
-        :param pulumi.Input[pulumi.InputType['FrontdoorRuleConditionsArgs']] conditions: An `conditions` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FrontdoorRuleConditionsArgs']] conditions: A `conditions` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
         :param pulumi.Input[int] order: The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
         """
@@ -398,7 +398,7 @@ class FrontdoorRule(pulumi.CustomResource):
         """
         Manages a Frontdoor Rule.
 
-        !>**IMPORTANT:** To create the Frontdoor Rules resource successfully you **must** add a `depends_on` attribute to the `cdn.FrontdoorRule` code block and reference both the `cdn.FrontdoorOrigin` and the `cdn.FrontdoorOriginGroup` that are associated with the Frontdoor Rule resource.
+        !>**IMPORTANT:** The Rules resource **must** include a `depends_on` meta-argument which references the `cdn.FrontdoorOrigin`, `cdn.FrontdoorOriginGroup` and the `cdn.FrontdoorRoute` that are associated with the Rule resource. The `cdn.FrontdoorRoute` definition has been excluded from the below `Example Usage`, for brevity, but has been included in the `depends_on` meta-argument as an example of the correct way to define the `cdn.FrontdoorRule` resource.
 
         ## Specifying IP Address Ranges
 
@@ -600,7 +600,7 @@ class FrontdoorRule(pulumi.CustomResource):
         :param pulumi.Input[str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         :param pulumi.Input[str] cdn_frontdoor_rule_set_id: The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
         :param pulumi.Input[str] cdn_frontdoor_rule_set_name: The name of the Frontdoor Rule Set containing this Frontdoor Rule.
-        :param pulumi.Input[pulumi.InputType['FrontdoorRuleConditionsArgs']] conditions: An `conditions` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FrontdoorRuleConditionsArgs']] conditions: A `conditions` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
         :param pulumi.Input[int] order: The order in which the rules will be applied for the Frontdoor Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Frontdoor Rule with a lesser order value will be applied before a rule with a greater order value.
         """
@@ -653,7 +653,7 @@ class FrontdoorRule(pulumi.CustomResource):
     @pulumi.getter
     def conditions(self) -> pulumi.Output[Optional['outputs.FrontdoorRuleConditions']]:
         """
-        An `conditions` block as defined below.
+        A `conditions` block as defined below.
         """
         return pulumi.get(self, "conditions")
 

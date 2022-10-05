@@ -76,6 +76,21 @@ public final class BgpConnectionState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.virtualHubId);
     }
 
+    /**
+     * The ID of virtual network connection.
+     * 
+     */
+    @Import(name="virtualNetworkConnectionId")
+    private @Nullable Output<String> virtualNetworkConnectionId;
+
+    /**
+     * @return The ID of virtual network connection.
+     * 
+     */
+    public Optional<Output<String>> virtualNetworkConnectionId() {
+        return Optional.ofNullable(this.virtualNetworkConnectionId);
+    }
+
     private BgpConnectionState() {}
 
     private BgpConnectionState(BgpConnectionState $) {
@@ -83,6 +98,7 @@ public final class BgpConnectionState extends com.pulumi.resources.ResourceArgs 
         this.peerAsn = $.peerAsn;
         this.peerIp = $.peerIp;
         this.virtualHubId = $.virtualHubId;
+        this.virtualNetworkConnectionId = $.virtualNetworkConnectionId;
     }
 
     public static Builder builder() {
@@ -185,6 +201,27 @@ public final class BgpConnectionState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder virtualHubId(String virtualHubId) {
             return virtualHubId(Output.of(virtualHubId));
+        }
+
+        /**
+         * @param virtualNetworkConnectionId The ID of virtual network connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkConnectionId(@Nullable Output<String> virtualNetworkConnectionId) {
+            $.virtualNetworkConnectionId = virtualNetworkConnectionId;
+            return this;
+        }
+
+        /**
+         * @param virtualNetworkConnectionId The ID of virtual network connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkConnectionId(String virtualNetworkConnectionId) {
+            return virtualNetworkConnectionId(Output.of(virtualNetworkConnectionId));
         }
 
         public BgpConnectionState build() {

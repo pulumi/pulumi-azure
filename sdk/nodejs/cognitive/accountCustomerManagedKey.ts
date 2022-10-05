@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Customer Managed Key for a Cognitive Services Account.
  *
+ * > **NOTE:** It's possible to define a Customer Managed Key both within the `azure.cognitive.Account` resource via the `customerManagedKey` block and by using the `azure.cognitive.AccountCustomerManagedKey` resource. However it's not possible to use both methods to manage a Customer Managed Key for a Cognitive Account, since there'll be conflicts.
+ *
  * ## Example Usage
  *
  * ```typescript

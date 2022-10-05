@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ApplicationArgs', 'Application']
 
@@ -17,8 +19,10 @@ class ApplicationArgs:
                  resource_group_name: pulumi.Input[str],
                  sub_domain: pulumi.Input[str],
                  display_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['ApplicationIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template: Optional[pulumi.Input[str]] = None):
@@ -27,8 +31,10 @@ class ApplicationArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sub_domain: A `sub_domain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
         :param pulumi.Input[str] display_name: A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
+        :param pulumi.Input['ApplicationIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
         :param pulumi.Input[str] sku: A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] template: A `template` name. IoT Central application template name. Default is a custom application.
@@ -37,10 +43,14 @@ class ApplicationArgs:
         pulumi.set(__self__, "sub_domain", sub_domain)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -86,6 +96,18 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ApplicationIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ApplicationIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
@@ -107,6 +129,18 @@ class ApplicationArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
 
     @property
     @pulumi.getter
@@ -149,8 +183,10 @@ class ApplicationArgs:
 class _ApplicationState:
     def __init__(__self__, *,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['ApplicationIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  sub_domain: Optional[pulumi.Input[str]] = None,
@@ -159,8 +195,10 @@ class _ApplicationState:
         """
         Input properties used for looking up and filtering Application resources.
         :param pulumi.Input[str] display_name: A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
+        :param pulumi.Input['ApplicationIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
         :param pulumi.Input[str] sub_domain: A `sub_domain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
@@ -169,10 +207,14 @@ class _ApplicationState:
         """
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku is not None:
@@ -198,6 +240,18 @@ class _ApplicationState:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ApplicationIdentityArgs']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ApplicationIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
@@ -219,6 +273,18 @@ class _ApplicationState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -287,8 +353,10 @@ class Application(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ApplicationIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  sub_domain: Optional[pulumi.Input[str]] = None,
@@ -328,8 +396,10 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
+        :param pulumi.Input[pulumi.InputType['ApplicationIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
         :param pulumi.Input[str] sub_domain: A `sub_domain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
@@ -388,8 +458,10 @@ class Application(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ApplicationIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
                  sub_domain: Optional[pulumi.Input[str]] = None,
@@ -405,8 +477,10 @@ class Application(pulumi.CustomResource):
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
             __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -427,8 +501,10 @@ class Application(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             display_name: Optional[pulumi.Input[str]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['ApplicationIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[str]] = None,
             sub_domain: Optional[pulumi.Input[str]] = None,
@@ -442,8 +518,10 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: A `display_name` name. Custom display name for the IoT Central application. Default is resource name.
+        :param pulumi.Input[pulumi.InputType['ApplicationIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
         :param pulumi.Input[str] sub_domain: A `sub_domain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
@@ -455,8 +533,10 @@ class Application(pulumi.CustomResource):
         __props__ = _ApplicationState.__new__(_ApplicationState)
 
         __props__.__dict__["display_name"] = display_name
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku"] = sku
         __props__.__dict__["sub_domain"] = sub_domain
@@ -474,6 +554,14 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ApplicationIdentity']]:
+        """
+        An `identity` block as defined below.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
         Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
@@ -487,6 +575,14 @@ class Application(pulumi.CustomResource):
         Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

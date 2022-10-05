@@ -64,14 +64,14 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An `conditions` block as defined below.
+     * A `conditions` block as defined below.
      * 
      */
     @Import(name="conditions")
     private @Nullable Output<FrontdoorRuleConditionsArgs> conditions;
 
     /**
-     * @return An `conditions` block as defined below.
+     * @return A `conditions` block as defined below.
      * 
      */
     public Optional<Output<FrontdoorRuleConditionsArgs>> conditions() {
@@ -201,7 +201,7 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conditions An `conditions` block as defined below.
+         * @param conditions A `conditions` block as defined below.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conditions An `conditions` block as defined below.
+         * @param conditions A `conditions` block as defined below.
          * 
          * @return builder
          * 

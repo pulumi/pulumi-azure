@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Iot
         public Output<string> IothubName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the route.
+        /// The name of the route. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Azure.Iot
         public Input<string> IothubName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the route.
+        /// The name of the route. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -188,7 +188,7 @@ namespace Pulumi.Azure.Iot
         public Input<string>? IothubName { get; set; }
 
         /// <summary>
-        /// The name of the route.
+        /// The name of the route. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -84,6 +84,12 @@ namespace Pulumi.Azure
         public Output<string?> OidcToken { get; private set; } = null!;
 
         /// <summary>
+        /// The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+        /// </summary>
+        [Output("oidcTokenFilePath")]
+        public Output<string?> OidcTokenFilePath { get; private set; } = null!;
+
+        /// <summary>
         /// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
         /// </summary>
         [Output("partnerId")]
@@ -216,6 +222,12 @@ namespace Pulumi.Azure
         /// </summary>
         [Input("oidcToken")]
         public Input<string>? OidcToken { get; set; }
+
+        /// <summary>
+        /// The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+        /// </summary>
+        [Input("oidcTokenFilePath")]
+        public Input<string>? OidcTokenFilePath { get; set; }
 
         /// <summary>
         /// A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.

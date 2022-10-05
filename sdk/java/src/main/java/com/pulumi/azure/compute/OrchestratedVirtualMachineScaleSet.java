@@ -337,14 +337,14 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
         return this.singlePlacementGroup;
     }
     /**
-     * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+     * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
      * 
      */
     @Export(name="skuName", type=String.class, parameters={})
     private Output</* @Nullable */ String> skuName;
 
     /**
-     * @return Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+     * @return Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> skuName() {
@@ -403,6 +403,20 @@ public class OrchestratedVirtualMachineScaleSet extends com.pulumi.resources.Cus
      */
     public Output<String> uniqueId() {
         return this.uniqueId;
+    }
+    /**
+     * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+     * 
+     */
+    @Export(name="userDataBase64", type=String.class, parameters={})
+    private Output</* @Nullable */ String> userDataBase64;
+
+    /**
+     * @return The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+     * 
+     */
+    public Output<Optional<String>> userDataBase64() {
+        return Codegen.optional(this.userDataBase64);
     }
     @Export(name="zoneBalance", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> zoneBalance;

@@ -224,6 +224,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+     * 
+     */
+    @Import(name="oidcTokenFilePath")
+    private @Nullable Output<String> oidcTokenFilePath;
+
+    /**
+     * @return The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+     * 
+     */
+    public Optional<Output<String>> oidcTokenFilePath() {
+        return Optional.ofNullable(this.oidcTokenFilePath);
+    }
+
+    /**
      * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
      * 
      */
@@ -347,6 +362,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.oidcRequestToken = $.oidcRequestToken;
         this.oidcRequestUrl = $.oidcRequestUrl;
         this.oidcToken = $.oidcToken;
+        this.oidcTokenFilePath = $.oidcTokenFilePath;
         this.partnerId = $.partnerId;
         this.skipProviderRegistration = $.skipProviderRegistration;
         this.storageUseAzuread = $.storageUseAzuread;
@@ -656,6 +672,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder oidcToken(String oidcToken) {
             return oidcToken(Output.of(oidcToken));
+        }
+
+        /**
+         * @param oidcTokenFilePath The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oidcTokenFilePath(@Nullable Output<String> oidcTokenFilePath) {
+            $.oidcTokenFilePath = oidcTokenFilePath;
+            return this;
+        }
+
+        /**
+         * @param oidcTokenFilePath The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oidcTokenFilePath(String oidcTokenFilePath) {
+            return oidcTokenFilePath(Output.of(oidcTokenFilePath));
         }
 
         /**

@@ -20,7 +20,7 @@ class LinkedStorageAccountArgs:
                  workspace_resource_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a LinkedStorageAccount resource.
-        :param pulumi.Input[str] data_source_type: The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+        :param pulumi.Input[str] data_source_type: The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_ids: The storage account resource ids to be linked.
         :param pulumi.Input[str] workspace_resource_id: The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
@@ -34,7 +34,7 @@ class LinkedStorageAccountArgs:
     @pulumi.getter(name="dataSourceType")
     def data_source_type(self) -> pulumi.Input[str]:
         """
-        The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+        The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
         """
         return pulumi.get(self, "data_source_type")
 
@@ -88,7 +88,7 @@ class _LinkedStorageAccountState:
                  workspace_resource_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering LinkedStorageAccount resources.
-        :param pulumi.Input[str] data_source_type: The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+        :param pulumi.Input[str] data_source_type: The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_ids: The storage account resource ids to be linked.
         :param pulumi.Input[str] workspace_resource_id: The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
@@ -106,7 +106,7 @@ class _LinkedStorageAccountState:
     @pulumi.getter(name="dataSourceType")
     def data_source_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+        The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
         """
         return pulumi.get(self, "data_source_type")
 
@@ -181,7 +181,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku="PerGB2018")
         example_linked_storage_account = azure.loganalytics.LinkedStorageAccount("exampleLinkedStorageAccount",
-            data_source_type="customlogs",
+            data_source_type="CustomLogs",
             resource_group_name=example_resource_group.name,
             workspace_resource_id=example_analytics_workspace.id,
             storage_account_ids=[example_account.id])
@@ -197,7 +197,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] data_source_type: The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+        :param pulumi.Input[str] data_source_type: The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_ids: The storage account resource ids to be linked.
         :param pulumi.Input[str] workspace_resource_id: The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
@@ -228,7 +228,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku="PerGB2018")
         example_linked_storage_account = azure.loganalytics.LinkedStorageAccount("exampleLinkedStorageAccount",
-            data_source_type="customlogs",
+            data_source_type="CustomLogs",
             resource_group_name=example_resource_group.name,
             workspace_resource_id=example_analytics_workspace.id,
             storage_account_ids=[example_account.id])
@@ -303,7 +303,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] data_source_type: The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+        :param pulumi.Input[str] data_source_type: The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] storage_account_ids: The storage account resource ids to be linked.
         :param pulumi.Input[str] workspace_resource_id: The resource ID of the Log Analytics Workspace. Changing this forces a new Log Analytics Linked Storage Account to be created.
@@ -322,7 +322,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
     @pulumi.getter(name="dataSourceType")
     def data_source_type(self) -> pulumi.Output[str]:
         """
-        The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+        The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
         """
         return pulumi.get(self, "data_source_type")
 

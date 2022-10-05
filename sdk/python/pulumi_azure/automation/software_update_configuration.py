@@ -27,7 +27,7 @@ class SoftwareUpdateConfigurationArgs:
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleArgs']]]] = None,
                  target: Optional[pulumi.Input['SoftwareUpdateConfigurationTargetArgs']] = None,
                  virtual_machine_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 windows: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationWindowArgs']]]] = None):
+                 windows: Optional[pulumi.Input['SoftwareUpdateConfigurationWindowsArgs']] = None):
         """
         The set of arguments for constructing a SoftwareUpdateConfiguration resource.
         :param pulumi.Input[str] automation_account_id: The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created.
@@ -41,7 +41,7 @@ class SoftwareUpdateConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleArgs']]] schedules: One or more `schedule` blocks as defined below.
         :param pulumi.Input['SoftwareUpdateConfigurationTargetArgs'] target: One or more `target` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_machine_ids: Specifies a list of azure resource Ids of azure virtual machines.
-        :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationWindowArgs']]] windows: One or more `windows` blocks as defined below.
+        :param pulumi.Input['SoftwareUpdateConfigurationWindowsArgs'] windows: One or more `windows` blocks as defined below.
         """
         pulumi.set(__self__, "automation_account_id", automation_account_id)
         pulumi.set(__self__, "operating_system", operating_system)
@@ -200,14 +200,14 @@ class SoftwareUpdateConfigurationArgs:
 
     @property
     @pulumi.getter
-    def windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationWindowArgs']]]]:
+    def windows(self) -> Optional[pulumi.Input['SoftwareUpdateConfigurationWindowsArgs']]:
         """
         One or more `windows` blocks as defined below.
         """
         return pulumi.get(self, "windows")
 
     @windows.setter
-    def windows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationWindowArgs']]]]):
+    def windows(self, value: Optional[pulumi.Input['SoftwareUpdateConfigurationWindowsArgs']]):
         pulumi.set(self, "windows", value)
 
 
@@ -227,7 +227,7 @@ class _SoftwareUpdateConfigurationState:
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleArgs']]]] = None,
                  target: Optional[pulumi.Input['SoftwareUpdateConfigurationTargetArgs']] = None,
                  virtual_machine_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 windows: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationWindowArgs']]]] = None):
+                 windows: Optional[pulumi.Input['SoftwareUpdateConfigurationWindowsArgs']] = None):
         """
         Input properties used for looking up and filtering SoftwareUpdateConfiguration resources.
         :param pulumi.Input[str] automation_account_id: The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created.
@@ -243,7 +243,7 @@ class _SoftwareUpdateConfigurationState:
         :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationScheduleArgs']]] schedules: One or more `schedule` blocks as defined below.
         :param pulumi.Input['SoftwareUpdateConfigurationTargetArgs'] target: One or more `target` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_machine_ids: Specifies a list of azure resource Ids of azure virtual machines.
-        :param pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationWindowArgs']]] windows: One or more `windows` blocks as defined below.
+        :param pulumi.Input['SoftwareUpdateConfigurationWindowsArgs'] windows: One or more `windows` blocks as defined below.
         """
         if automation_account_id is not None:
             pulumi.set(__self__, "automation_account_id", automation_account_id)
@@ -432,14 +432,14 @@ class _SoftwareUpdateConfigurationState:
 
     @property
     @pulumi.getter
-    def windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationWindowArgs']]]]:
+    def windows(self) -> Optional[pulumi.Input['SoftwareUpdateConfigurationWindowsArgs']]:
         """
         One or more `windows` blocks as defined below.
         """
         return pulumi.get(self, "windows")
 
     @windows.setter
-    def windows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SoftwareUpdateConfigurationWindowArgs']]]]):
+    def windows(self, value: Optional[pulumi.Input['SoftwareUpdateConfigurationWindowsArgs']]):
         pulumi.set(self, "windows", value)
 
 
@@ -459,7 +459,7 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationScheduleArgs']]]]] = None,
                  target: Optional[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationTargetArgs']]] = None,
                  virtual_machine_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 windows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationWindowArgs']]]]] = None,
+                 windows: Optional[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationWindowsArgs']]] = None,
                  __props__=None):
         """
         Manages an Automation Software Update Configuraion.
@@ -485,7 +485,7 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationScheduleArgs']]]] schedules: One or more `schedule` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationTargetArgs']] target: One or more `target` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_machine_ids: Specifies a list of azure resource Ids of azure virtual machines.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationWindowArgs']]]] windows: One or more `windows` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationWindowsArgs']] windows: One or more `windows` blocks as defined below.
         """
         ...
     @overload
@@ -530,7 +530,7 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
                  schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationScheduleArgs']]]]] = None,
                  target: Optional[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationTargetArgs']]] = None,
                  virtual_machine_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 windows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationWindowArgs']]]]] = None,
+                 windows: Optional[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationWindowsArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -581,7 +581,7 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
             schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationScheduleArgs']]]]] = None,
             target: Optional[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationTargetArgs']]] = None,
             virtual_machine_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            windows: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationWindowArgs']]]]] = None) -> 'SoftwareUpdateConfiguration':
+            windows: Optional[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationWindowsArgs']]] = None) -> 'SoftwareUpdateConfiguration':
         """
         Get an existing SoftwareUpdateConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -602,7 +602,7 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationScheduleArgs']]]] schedules: One or more `schedule` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationTargetArgs']] target: One or more `target` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_machine_ids: Specifies a list of azure resource Ids of azure virtual machines.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationWindowArgs']]]] windows: One or more `windows` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['SoftwareUpdateConfigurationWindowsArgs']] windows: One or more `windows` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -730,7 +730,7 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def windows(self) -> pulumi.Output[Optional[Sequence['outputs.SoftwareUpdateConfigurationWindow']]]:
+    def windows(self) -> pulumi.Output[Optional['outputs.SoftwareUpdateConfigurationWindows']]:
         """
         One or more `windows` blocks as defined below.
         """

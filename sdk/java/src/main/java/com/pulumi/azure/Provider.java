@@ -173,6 +173,20 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.oidcToken);
     }
     /**
+     * The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+     * 
+     */
+    @Export(name="oidcTokenFilePath", type=String.class, parameters={})
+    private Output</* @Nullable */ String> oidcTokenFilePath;
+
+    /**
+     * @return The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+     * 
+     */
+    public Output<Optional<String>> oidcTokenFilePath() {
+        return Codegen.optional(this.oidcTokenFilePath);
+    }
+    /**
      * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
      * 
      */

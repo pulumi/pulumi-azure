@@ -12,22 +12,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorRuleActionsUrlRedirectAction {
     /**
-     * @return The fragment to use in the redirect. Leave blank to preserve the incoming fragment.
+     * @return The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
      * 
      */
     private @Nullable String destinationFragment;
     /**
-     * @return The host name you want the request to be redirected to. Leave blank to preserve the incoming host.
+     * @return The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host. Defaults to an empty string.
      * 
      */
     private String destinationHostname;
     /**
-     * @return The path to use in the redirect. Include the leading `/`. Leave blank to preserve the incoming path.
+     * @return The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
      * 
      */
     private @Nullable String destinationPath;
     /**
-     * @return The query string used in the redirect URL. Don&#39;t include the leading `?`. Leave blank to preserve the incoming query string.
+     * @return The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Defaults to an empty string.
      * 
      */
     private @Nullable String queryString;
@@ -44,28 +44,28 @@ public final class FrontdoorRuleActionsUrlRedirectAction {
 
     private FrontdoorRuleActionsUrlRedirectAction() {}
     /**
-     * @return The fragment to use in the redirect. Leave blank to preserve the incoming fragment.
+     * @return The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
      * 
      */
     public Optional<String> destinationFragment() {
         return Optional.ofNullable(this.destinationFragment);
     }
     /**
-     * @return The host name you want the request to be redirected to. Leave blank to preserve the incoming host.
+     * @return The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host. Defaults to an empty string.
      * 
      */
     public String destinationHostname() {
         return this.destinationHostname;
     }
     /**
-     * @return The path to use in the redirect. Include the leading `/`. Leave blank to preserve the incoming path.
+     * @return The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
      * 
      */
     public Optional<String> destinationPath() {
         return Optional.ofNullable(this.destinationPath);
     }
     /**
-     * @return The query string used in the redirect URL. Don&#39;t include the leading `?`. Leave blank to preserve the incoming query string.
+     * @return The query string used in the redirect URL. The value must be in the &amp;lt;key&gt;=&amp;lt;value&gt; or &amp;lt;key&gt;={`action_server_variable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Defaults to an empty string.
      * 
      */
     public Optional<String> queryString() {

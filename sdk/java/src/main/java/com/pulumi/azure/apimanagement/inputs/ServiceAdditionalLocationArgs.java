@@ -6,6 +6,7 @@ package com.pulumi.azure.apimanagement.inputs;
 import com.pulumi.azure.apimanagement.inputs.ServiceAdditionalLocationVirtualNetworkConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -31,6 +32,21 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
      */
     public Optional<Output<Integer>> capacity() {
         return Optional.ofNullable(this.capacity);
+    }
+
+    /**
+     * Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+     * 
+     */
+    @Import(name="gatewayDisabled")
+    private @Nullable Output<Boolean> gatewayDisabled;
+
+    /**
+     * @return Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+     * 
+     */
+    public Optional<Output<Boolean>> gatewayDisabled() {
+        return Optional.ofNullable(this.gatewayDisabled);
     }
 
     /**
@@ -142,6 +158,7 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
 
     private ServiceAdditionalLocationArgs(ServiceAdditionalLocationArgs $) {
         this.capacity = $.capacity;
+        this.gatewayDisabled = $.gatewayDisabled;
         this.gatewayRegionalUrl = $.gatewayRegionalUrl;
         this.location = $.location;
         this.privateIpAddresses = $.privateIpAddresses;
@@ -188,6 +205,27 @@ public final class ServiceAdditionalLocationArgs extends com.pulumi.resources.Re
          */
         public Builder capacity(Integer capacity) {
             return capacity(Output.of(capacity));
+        }
+
+        /**
+         * @param gatewayDisabled Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gatewayDisabled(@Nullable Output<Boolean> gatewayDisabled) {
+            $.gatewayDisabled = gatewayDisabled;
+            return this;
+        }
+
+        /**
+         * @param gatewayDisabled Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gatewayDisabled(Boolean gatewayDisabled) {
+            return gatewayDisabled(Output.of(gatewayDisabled));
         }
 
         /**

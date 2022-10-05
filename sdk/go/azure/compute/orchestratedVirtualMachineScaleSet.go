@@ -106,7 +106,7 @@ type OrchestratedVirtualMachineScaleSet struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
 	SinglePlacementGroup pulumi.BoolOutput `pulumi:"singlePlacementGroup"`
-	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
 	SkuName       pulumi.StringPtrOutput `pulumi:"skuName"`
 	SourceImageId pulumi.StringPtrOutput `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below.
@@ -115,8 +115,10 @@ type OrchestratedVirtualMachineScaleSet struct {
 	Tags                    pulumi.StringMapOutput                                          `pulumi:"tags"`
 	TerminationNotification OrchestratedVirtualMachineScaleSetTerminationNotificationOutput `pulumi:"terminationNotification"`
 	// The Unique ID for the Orchestrated Virtual Machine Scale Set.
-	UniqueId    pulumi.StringOutput  `pulumi:"uniqueId"`
-	ZoneBalance pulumi.BoolPtrOutput `pulumi:"zoneBalance"`
+	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
+	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+	UserDataBase64 pulumi.StringPtrOutput `pulumi:"userDataBase64"`
+	ZoneBalance    pulumi.BoolPtrOutput   `pulumi:"zoneBalance"`
 	// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
 	Zones pulumi.StringArrayOutput `pulumi:"zones"`
 }
@@ -193,7 +195,7 @@ type orchestratedVirtualMachineScaleSetState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
-	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
 	SkuName       *string `pulumi:"skuName"`
 	SourceImageId *string `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below.
@@ -202,8 +204,10 @@ type orchestratedVirtualMachineScaleSetState struct {
 	Tags                    map[string]string                                          `pulumi:"tags"`
 	TerminationNotification *OrchestratedVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
 	// The Unique ID for the Orchestrated Virtual Machine Scale Set.
-	UniqueId    *string `pulumi:"uniqueId"`
-	ZoneBalance *bool   `pulumi:"zoneBalance"`
+	UniqueId *string `pulumi:"uniqueId"`
+	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+	UserDataBase64 *string `pulumi:"userDataBase64"`
+	ZoneBalance    *bool   `pulumi:"zoneBalance"`
 	// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
 	Zones []string `pulumi:"zones"`
 }
@@ -246,7 +250,7 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
 	SinglePlacementGroup pulumi.BoolPtrInput
-	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
 	SkuName       pulumi.StringPtrInput
 	SourceImageId pulumi.StringPtrInput
 	// A `sourceImageReference` block as defined below.
@@ -255,8 +259,10 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	Tags                    pulumi.StringMapInput
 	TerminationNotification OrchestratedVirtualMachineScaleSetTerminationNotificationPtrInput
 	// The Unique ID for the Orchestrated Virtual Machine Scale Set.
-	UniqueId    pulumi.StringPtrInput
-	ZoneBalance pulumi.BoolPtrInput
+	UniqueId pulumi.StringPtrInput
+	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+	UserDataBase64 pulumi.StringPtrInput
+	ZoneBalance    pulumi.BoolPtrInput
 	// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
 	Zones pulumi.StringArrayInput
 }
@@ -303,7 +309,7 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
-	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
 	SkuName       *string `pulumi:"skuName"`
 	SourceImageId *string `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below.
@@ -311,7 +317,9 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	// A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
 	Tags                    map[string]string                                          `pulumi:"tags"`
 	TerminationNotification *OrchestratedVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
-	ZoneBalance             *bool                                                      `pulumi:"zoneBalance"`
+	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+	UserDataBase64 *string `pulumi:"userDataBase64"`
+	ZoneBalance    *bool   `pulumi:"zoneBalance"`
 	// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
 	Zones []string `pulumi:"zones"`
 }
@@ -355,7 +363,7 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
 	SinglePlacementGroup pulumi.BoolPtrInput
-	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
 	SkuName       pulumi.StringPtrInput
 	SourceImageId pulumi.StringPtrInput
 	// A `sourceImageReference` block as defined below.
@@ -363,7 +371,9 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	// A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set.
 	Tags                    pulumi.StringMapInput
 	TerminationNotification OrchestratedVirtualMachineScaleSetTerminationNotificationPtrInput
-	ZoneBalance             pulumi.BoolPtrInput
+	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+	UserDataBase64 pulumi.StringPtrInput
+	ZoneBalance    pulumi.BoolPtrInput
 	// Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
 	Zones pulumi.StringArrayInput
 }
@@ -589,7 +599,7 @@ func (o OrchestratedVirtualMachineScaleSetOutput) SinglePlacementGroup() pulumi.
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.BoolOutput { return v.SinglePlacementGroup }).(pulumi.BoolOutput)
 }
 
-// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.SkuName }).(pulumi.StringPtrOutput)
 }
@@ -619,6 +629,11 @@ func (o OrchestratedVirtualMachineScaleSetOutput) TerminationNotification() Orch
 // The Unique ID for the Orchestrated Virtual Machine Scale Set.
 func (o OrchestratedVirtualMachineScaleSetOutput) UniqueId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringOutput { return v.UniqueId }).(pulumi.StringOutput)
+}
+
+// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+func (o OrchestratedVirtualMachineScaleSetOutput) UserDataBase64() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.UserDataBase64 }).(pulumi.StringPtrOutput)
 }
 
 func (o OrchestratedVirtualMachineScaleSetOutput) ZoneBalance() pulumi.BoolPtrOutput {

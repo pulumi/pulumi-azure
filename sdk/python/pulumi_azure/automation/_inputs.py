@@ -29,7 +29,7 @@ __all__ = [
     'SoftwareUpdateConfigurationTargetAzureQueryArgs',
     'SoftwareUpdateConfigurationTargetAzureQueryTagArgs',
     'SoftwareUpdateConfigurationTargetNonAzureQueryArgs',
-    'SoftwareUpdateConfigurationWindowArgs',
+    'SoftwareUpdateConfigurationWindowsArgs',
     'SourceControlSecurityArgs',
 ]
 
@@ -1096,20 +1096,27 @@ class SoftwareUpdateConfigurationTargetNonAzureQueryArgs:
 
 
 @pulumi.input_type
-class SoftwareUpdateConfigurationWindowArgs:
+class SoftwareUpdateConfigurationWindowsArgs:
     def __init__(__self__, *,
                  classification_included: Optional[pulumi.Input[str]] = None,
+                 classifications_includeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  excluded_knowledge_base_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  included_knowledge_base_numbers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  reboot: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] classification_included: Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] classifications_includeds: Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_knowledge_base_numbers: Specifies a list of knowledge base numbers excluded.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] included_knowledge_base_numbers: Specifies a list of knowledge base numbers included.
         :param pulumi.Input[str] reboot: Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
         """
         if classification_included is not None:
+            warnings.warn("""windows classification can be set as a list, use `classifications_included` instead.""", DeprecationWarning)
+            pulumi.log.warn("""classification_included is deprecated: windows classification can be set as a list, use `classifications_included` instead.""")
+        if classification_included is not None:
             pulumi.set(__self__, "classification_included", classification_included)
+        if classifications_includeds is not None:
+            pulumi.set(__self__, "classifications_includeds", classifications_includeds)
         if excluded_knowledge_base_numbers is not None:
             pulumi.set(__self__, "excluded_knowledge_base_numbers", excluded_knowledge_base_numbers)
         if included_knowledge_base_numbers is not None:
@@ -1128,6 +1135,18 @@ class SoftwareUpdateConfigurationWindowArgs:
     @classification_included.setter
     def classification_included(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "classification_included", value)
+
+    @property
+    @pulumi.getter(name="classificationsIncludeds")
+    def classifications_includeds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+        """
+        return pulumi.get(self, "classifications_includeds")
+
+    @classifications_includeds.setter
+    def classifications_includeds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "classifications_includeds", value)
 
     @property
     @pulumi.getter(name="excludedKnowledgeBaseNumbers")

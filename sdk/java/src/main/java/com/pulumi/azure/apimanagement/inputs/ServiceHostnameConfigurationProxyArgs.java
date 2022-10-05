@@ -47,6 +47,36 @@ public final class ServiceHostnameConfigurationProxyArgs extends com.pulumi.reso
     }
 
     /**
+     * The source of the certificate.
+     * 
+     */
+    @Import(name="certificateSource")
+    private @Nullable Output<String> certificateSource;
+
+    /**
+     * @return The source of the certificate.
+     * 
+     */
+    public Optional<Output<String>> certificateSource() {
+        return Optional.ofNullable(this.certificateSource);
+    }
+
+    /**
+     * The status of the certificate.
+     * 
+     */
+    @Import(name="certificateStatus")
+    private @Nullable Output<String> certificateStatus;
+
+    /**
+     * @return The status of the certificate.
+     * 
+     */
+    public Optional<Output<String>> certificateStatus() {
+        return Optional.ofNullable(this.certificateStatus);
+    }
+
+    /**
      * Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn&#39;t specified by a client. Defaults to `false`.
      * 
      */
@@ -171,6 +201,8 @@ public final class ServiceHostnameConfigurationProxyArgs extends com.pulumi.reso
     private ServiceHostnameConfigurationProxyArgs(ServiceHostnameConfigurationProxyArgs $) {
         this.certificate = $.certificate;
         this.certificatePassword = $.certificatePassword;
+        this.certificateSource = $.certificateSource;
+        this.certificateStatus = $.certificateStatus;
         this.defaultSslBinding = $.defaultSslBinding;
         this.expiry = $.expiry;
         this.hostName = $.hostName;
@@ -239,6 +271,48 @@ public final class ServiceHostnameConfigurationProxyArgs extends com.pulumi.reso
          */
         public Builder certificatePassword(String certificatePassword) {
             return certificatePassword(Output.of(certificatePassword));
+        }
+
+        /**
+         * @param certificateSource The source of the certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateSource(@Nullable Output<String> certificateSource) {
+            $.certificateSource = certificateSource;
+            return this;
+        }
+
+        /**
+         * @param certificateSource The source of the certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateSource(String certificateSource) {
+            return certificateSource(Output.of(certificateSource));
+        }
+
+        /**
+         * @param certificateStatus The status of the certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateStatus(@Nullable Output<String> certificateStatus) {
+            $.certificateStatus = certificateStatus;
+            return this;
+        }
+
+        /**
+         * @param certificateStatus The status of the certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateStatus(String certificateStatus) {
+            return certificateStatus(Output.of(certificateStatus));
         }
 
         /**

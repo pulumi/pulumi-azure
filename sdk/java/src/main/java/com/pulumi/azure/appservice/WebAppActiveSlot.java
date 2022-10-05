@@ -134,7 +134,6 @@ import javax.annotation.Nullable;
  * 
  *         var exampleLinuxWebAppSlot = new LinuxWebAppSlot(&#34;exampleLinuxWebAppSlot&#34;, LinuxWebAppSlotArgs.builder()        
  *             .appServiceName(exampleLinuxWebApp.name())
- *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleServicePlan.location())
  *             .servicePlanId(exampleServicePlan.id())
  *             .siteConfig()

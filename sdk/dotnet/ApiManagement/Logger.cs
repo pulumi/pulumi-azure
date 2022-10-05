@@ -110,7 +110,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The target resource id which will be linked in the API-Management portal page.
+        /// The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceId")]
         public Output<string?> ResourceId { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The target resource id which will be linked in the API-Management portal page.
+        /// The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
@@ -260,7 +260,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The target resource id which will be linked in the API-Management portal page.
+        /// The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }
