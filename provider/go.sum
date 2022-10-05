@@ -498,8 +498,8 @@ github.com/hashicorp/errwrap v1.0.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brv
 github.com/hashicorp/errwrap v1.1.0 h1:OxrOeh75EUXMY8TBjag2fzXGZ40LB6IKw45YeGUDY2I=
 github.com/hashicorp/errwrap v1.1.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brvKWEqk/Jc4=
 github.com/hashicorp/go-azure-helpers v0.12.0/go.mod h1:Zc3v4DNeX6PDdy7NljlYpnrdac1++qNW0I4U+ofGwpg=
-github.com/hashicorp/go-azure-helpers v0.40.0 h1:NjiyF+jN+0mRdFBU894yzZSxu1SNrbvj8l4rEDpCB0A=
-github.com/hashicorp/go-azure-helpers v0.40.0/go.mod h1:gcutZ/Hf/O7YN9M3UIvyZ9l0Rxv7Yrc9x5sSfM9cuSw=
+github.com/hashicorp/go-azure-helpers v0.41.0 h1:t2WBNr7CguPKqXA04jj0dKrysFWfAq3gfkNZQbaw3JI=
+github.com/hashicorp/go-azure-helpers v0.41.0/go.mod h1:gcutZ/Hf/O7YN9M3UIvyZ9l0Rxv7Yrc9x5sSfM9cuSw=
 github.com/hashicorp/go-azure-sdk v0.20220916.1125744 h1:13Q0gsr+6UZJyH3OQ9z/2HX2qrbdzY2anS4ttL2NkHY=
 github.com/hashicorp/go-azure-sdk v0.20220916.1125744/go.mod h1:jOhjVttoXh2We/glz4BC/0t0Lo8+M9WQBA4sbAPQPMY=
 github.com/hashicorp/go-checkpoint v0.5.0 h1:MFYpPZCnQqQTE18jFwSII6eUQrD/oxMFp3mlgcqk5mU=
@@ -819,8 +819,8 @@ github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Di
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9 h1:JMw+t5I+6E8Lna7JF+ghAoOLOl23UIbshJyRNP+K1HU=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9/go.mod h1:mYPs/uchNcBq7AclQv9QUtSf9iNcfp1Ag21jqTlDf2M=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220923214953-9abea3c6f19c h1:W4ld/vZRElv2jVxwta+B80J5mqccQUbKnvC7XbDDkIg=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20220923214953-9abea3c6f19c/go.mod h1:f7kHzUgnkd4tdfNW/xxyRqY2tO90wBxGhMjnpb/x0V8=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20221005195921-aacb8b1da214 h1:CWCtAChveySbIaaTynOoBIWgTy9dpR2InOmxD7FXgw4=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20221005195921-aacb8b1da214/go.mod h1:9KmgYokwwaT10t8qkF4OaFA0icf1nM4eFfu+JdAzSvk=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9/go.mod h1:L8WrssTzvgYw34/Ppa0JpJfI7KKXZ2cVGI6Djt0brUU=
 github.com/rickb777/plural v1.2.0 h1:5tvEc7UBCZ7l8h/2UeybSkt/uu1DQsZFOFdNevmUhlE=
