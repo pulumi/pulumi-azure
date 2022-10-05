@@ -23,6 +23,16 @@ public final class ServiceHostnameConfigurationPortal {
      */
     private @Nullable String certificatePassword;
     /**
+     * @return The source of the certificate.
+     * 
+     */
+    private @Nullable String certificateSource;
+    /**
+     * @return The status of the certificate.
+     * 
+     */
+    private @Nullable String certificateStatus;
+    /**
      * @return The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
      * 
      */
@@ -72,6 +82,20 @@ public final class ServiceHostnameConfigurationPortal {
      */
     public Optional<String> certificatePassword() {
         return Optional.ofNullable(this.certificatePassword);
+    }
+    /**
+     * @return The source of the certificate.
+     * 
+     */
+    public Optional<String> certificateSource() {
+        return Optional.ofNullable(this.certificateSource);
+    }
+    /**
+     * @return The status of the certificate.
+     * 
+     */
+    public Optional<String> certificateStatus() {
+        return Optional.ofNullable(this.certificateStatus);
     }
     /**
      * @return The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
@@ -134,6 +158,8 @@ public final class ServiceHostnameConfigurationPortal {
     public static final class Builder {
         private @Nullable String certificate;
         private @Nullable String certificatePassword;
+        private @Nullable String certificateSource;
+        private @Nullable String certificateStatus;
         private @Nullable String expiry;
         private String hostName;
         private @Nullable String keyVaultId;
@@ -146,6 +172,8 @@ public final class ServiceHostnameConfigurationPortal {
     	      Objects.requireNonNull(defaults);
     	      this.certificate = defaults.certificate;
     	      this.certificatePassword = defaults.certificatePassword;
+    	      this.certificateSource = defaults.certificateSource;
+    	      this.certificateStatus = defaults.certificateStatus;
     	      this.expiry = defaults.expiry;
     	      this.hostName = defaults.hostName;
     	      this.keyVaultId = defaults.keyVaultId;
@@ -163,6 +191,16 @@ public final class ServiceHostnameConfigurationPortal {
         @CustomType.Setter
         public Builder certificatePassword(@Nullable String certificatePassword) {
             this.certificatePassword = certificatePassword;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder certificateSource(@Nullable String certificateSource) {
+            this.certificateSource = certificateSource;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder certificateStatus(@Nullable String certificateStatus) {
+            this.certificateStatus = certificateStatus;
             return this;
         }
         @CustomType.Setter
@@ -204,6 +242,8 @@ public final class ServiceHostnameConfigurationPortal {
             final var o = new ServiceHostnameConfigurationPortal();
             o.certificate = certificate;
             o.certificatePassword = certificatePassword;
+            o.certificateSource = certificateSource;
+            o.certificateStatus = certificateStatus;
             o.expiry = expiry;
             o.hostName = hostName;
             o.keyVaultId = keyVaultId;

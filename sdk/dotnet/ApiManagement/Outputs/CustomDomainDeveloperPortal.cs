@@ -21,6 +21,8 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// The password associated with the certificate provided above.
         /// </summary>
         public readonly string? CertificatePassword;
+        public readonly string? CertificateSource;
+        public readonly string? CertificateStatus;
         public readonly string? Expiry;
         /// <summary>
         /// The Hostname to use for the corresponding endpoint.
@@ -44,6 +46,10 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             string? certificatePassword,
 
+            string? certificateSource,
+
+            string? certificateStatus,
+
             string? expiry,
 
             string hostName,
@@ -60,6 +66,8 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         {
             Certificate = certificate;
             CertificatePassword = certificatePassword;
+            CertificateSource = certificateSource;
+            CertificateStatus = certificateStatus;
             Expiry = expiry;
             HostName = hostName;
             KeyVaultId = keyVaultId;

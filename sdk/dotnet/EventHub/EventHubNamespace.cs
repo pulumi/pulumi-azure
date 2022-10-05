@@ -165,7 +165,7 @@ namespace Pulumi.Azure.EventHub
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zone_redundant` to true.
+        /// Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
@@ -301,7 +301,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zone_redundant` to true.
+        /// Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
@@ -445,7 +445,7 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zone_redundant` to true.
+        /// Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

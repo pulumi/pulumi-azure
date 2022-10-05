@@ -46,6 +46,20 @@ public final class CustomDomainDeveloperPortalArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.certificatePassword);
     }
 
+    @Import(name="certificateSource")
+    private @Nullable Output<String> certificateSource;
+
+    public Optional<Output<String>> certificateSource() {
+        return Optional.ofNullable(this.certificateSource);
+    }
+
+    @Import(name="certificateStatus")
+    private @Nullable Output<String> certificateStatus;
+
+    public Optional<Output<String>> certificateStatus() {
+        return Optional.ofNullable(this.certificateStatus);
+    }
+
     @Import(name="expiry")
     private @Nullable Output<String> expiry;
 
@@ -124,6 +138,8 @@ public final class CustomDomainDeveloperPortalArgs extends com.pulumi.resources.
     private CustomDomainDeveloperPortalArgs(CustomDomainDeveloperPortalArgs $) {
         this.certificate = $.certificate;
         this.certificatePassword = $.certificatePassword;
+        this.certificateSource = $.certificateSource;
+        this.certificateStatus = $.certificateStatus;
         this.expiry = $.expiry;
         this.hostName = $.hostName;
         this.keyVaultId = $.keyVaultId;
@@ -191,6 +207,24 @@ public final class CustomDomainDeveloperPortalArgs extends com.pulumi.resources.
          */
         public Builder certificatePassword(String certificatePassword) {
             return certificatePassword(Output.of(certificatePassword));
+        }
+
+        public Builder certificateSource(@Nullable Output<String> certificateSource) {
+            $.certificateSource = certificateSource;
+            return this;
+        }
+
+        public Builder certificateSource(String certificateSource) {
+            return certificateSource(Output.of(certificateSource));
+        }
+
+        public Builder certificateStatus(@Nullable Output<String> certificateStatus) {
+            $.certificateStatus = certificateStatus;
+            return this;
+        }
+
+        public Builder certificateStatus(String certificateStatus) {
+            return certificateStatus(Output.of(certificateStatus));
         }
 
         public Builder expiry(@Nullable Output<String> expiry) {

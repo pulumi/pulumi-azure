@@ -253,18 +253,18 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
                 streams=["Microsoft-InsightsMetrics"],
                 destinations=["example-destination-metrics"],
             )])
-        test = azure.monitoring.DataCollectionEndpoint("test",
+        example_data_collection_endpoint = azure.monitoring.DataCollectionEndpoint("exampleDataCollectionEndpoint",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location)
         # associate to a Data Collection Rule
-        example1_data_collection_rule_association = azure.monitoring.DataCollectionRuleAssociation("example1DataCollectionRuleAssociation",
+        example1 = azure.monitoring.DataCollectionRuleAssociation("example1",
             target_resource_id=example_linux_virtual_machine.id,
             data_collection_rule_id=example_data_collection_rule.id,
             description="example")
         # associate to a Data Collection Endpoint
-        example1_monitoring_data_collection_rule_association_data_collection_rule_association = azure.monitoring.DataCollectionRuleAssociation("example1Monitoring/dataCollectionRuleAssociationDataCollectionRuleAssociation",
+        example2 = azure.monitoring.DataCollectionRuleAssociation("example2",
             target_resource_id=example_linux_virtual_machine.id,
-            data_collection_endpoint_id=azurerm_monitor_data_collection_endpoint["example"]["id"],
+            data_collection_endpoint_id=example_data_collection_endpoint.id,
             description="example")
         ```
 
@@ -346,18 +346,18 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
                 streams=["Microsoft-InsightsMetrics"],
                 destinations=["example-destination-metrics"],
             )])
-        test = azure.monitoring.DataCollectionEndpoint("test",
+        example_data_collection_endpoint = azure.monitoring.DataCollectionEndpoint("exampleDataCollectionEndpoint",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location)
         # associate to a Data Collection Rule
-        example1_data_collection_rule_association = azure.monitoring.DataCollectionRuleAssociation("example1DataCollectionRuleAssociation",
+        example1 = azure.monitoring.DataCollectionRuleAssociation("example1",
             target_resource_id=example_linux_virtual_machine.id,
             data_collection_rule_id=example_data_collection_rule.id,
             description="example")
         # associate to a Data Collection Endpoint
-        example1_monitoring_data_collection_rule_association_data_collection_rule_association = azure.monitoring.DataCollectionRuleAssociation("example1Monitoring/dataCollectionRuleAssociationDataCollectionRuleAssociation",
+        example2 = azure.monitoring.DataCollectionRuleAssociation("example2",
             target_resource_id=example_linux_virtual_machine.id,
-            data_collection_endpoint_id=azurerm_monitor_data_collection_endpoint["example"]["id"],
+            data_collection_endpoint_id=example_data_collection_endpoint.id,
             description="example")
         ```
 

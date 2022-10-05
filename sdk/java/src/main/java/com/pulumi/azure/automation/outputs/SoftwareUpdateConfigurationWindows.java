@@ -11,12 +11,21 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
-public final class SoftwareUpdateConfigurationWindow {
+public final class SoftwareUpdateConfigurationWindows {
     /**
      * @return Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
      * 
+     * @deprecated
+     * windows classification can be set as a list, use `classifications_included` instead.
+     * 
      */
+    @Deprecated /* windows classification can be set as a list, use `classifications_included` instead. */
     private @Nullable String classificationIncluded;
+    /**
+     * @return Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+     * 
+     */
+    private @Nullable List<String> classificationsIncludeds;
     /**
      * @return Specifies a list of knowledge base numbers excluded.
      * 
@@ -33,13 +42,24 @@ public final class SoftwareUpdateConfigurationWindow {
      */
     private @Nullable String reboot;
 
-    private SoftwareUpdateConfigurationWindow() {}
+    private SoftwareUpdateConfigurationWindows() {}
     /**
      * @return Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
      * 
+     * @deprecated
+     * windows classification can be set as a list, use `classifications_included` instead.
+     * 
      */
+    @Deprecated /* windows classification can be set as a list, use `classifications_included` instead. */
     public Optional<String> classificationIncluded() {
         return Optional.ofNullable(this.classificationIncluded);
+    }
+    /**
+     * @return Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+     * 
+     */
+    public List<String> classificationsIncludeds() {
+        return this.classificationsIncludeds == null ? List.of() : this.classificationsIncludeds;
     }
     /**
      * @return Specifies a list of knowledge base numbers excluded.
@@ -67,19 +87,21 @@ public final class SoftwareUpdateConfigurationWindow {
         return new Builder();
     }
 
-    public static Builder builder(SoftwareUpdateConfigurationWindow defaults) {
+    public static Builder builder(SoftwareUpdateConfigurationWindows defaults) {
         return new Builder(defaults);
     }
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String classificationIncluded;
+        private @Nullable List<String> classificationsIncludeds;
         private @Nullable List<String> excludedKnowledgeBaseNumbers;
         private @Nullable List<String> includedKnowledgeBaseNumbers;
         private @Nullable String reboot;
         public Builder() {}
-        public Builder(SoftwareUpdateConfigurationWindow defaults) {
+        public Builder(SoftwareUpdateConfigurationWindows defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.classificationIncluded = defaults.classificationIncluded;
+    	      this.classificationsIncludeds = defaults.classificationsIncludeds;
     	      this.excludedKnowledgeBaseNumbers = defaults.excludedKnowledgeBaseNumbers;
     	      this.includedKnowledgeBaseNumbers = defaults.includedKnowledgeBaseNumbers;
     	      this.reboot = defaults.reboot;
@@ -89,6 +111,14 @@ public final class SoftwareUpdateConfigurationWindow {
         public Builder classificationIncluded(@Nullable String classificationIncluded) {
             this.classificationIncluded = classificationIncluded;
             return this;
+        }
+        @CustomType.Setter
+        public Builder classificationsIncludeds(@Nullable List<String> classificationsIncludeds) {
+            this.classificationsIncludeds = classificationsIncludeds;
+            return this;
+        }
+        public Builder classificationsIncludeds(String... classificationsIncludeds) {
+            return classificationsIncludeds(List.of(classificationsIncludeds));
         }
         @CustomType.Setter
         public Builder excludedKnowledgeBaseNumbers(@Nullable List<String> excludedKnowledgeBaseNumbers) {
@@ -111,9 +141,10 @@ public final class SoftwareUpdateConfigurationWindow {
             this.reboot = reboot;
             return this;
         }
-        public SoftwareUpdateConfigurationWindow build() {
-            final var o = new SoftwareUpdateConfigurationWindow();
+        public SoftwareUpdateConfigurationWindows build() {
+            final var o = new SoftwareUpdateConfigurationWindows();
             o.classificationIncluded = classificationIncluded;
+            o.classificationsIncludeds = classificationsIncludeds;
             o.excludedKnowledgeBaseNumbers = excludedKnowledgeBaseNumbers;
             o.includedKnowledgeBaseNumbers = includedKnowledgeBaseNumbers;
             o.reboot = reboot;

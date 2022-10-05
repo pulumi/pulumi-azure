@@ -58,18 +58,30 @@ public class FrontdoorOrigin extends com.pulumi.resources.CustomResource {
         return this.certificateNameCheckEnabled;
     }
     /**
-     * Should the health probes be enabled against the origins defined within the origin group? Possible values are `true` or `false`. Defaults to `true`.
+     * Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
      * 
      */
-    @Export(name="healthProbesEnabled", type=Boolean.class, parameters={})
-    private Output</* @Nullable */ Boolean> healthProbesEnabled;
+    @Export(name="enabled", type=Boolean.class, parameters={})
+    private Output<Boolean> enabled;
 
     /**
-     * @return Should the health probes be enabled against the origins defined within the origin group? Possible values are `true` or `false`. Defaults to `true`.
+     * @return Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
      * 
      */
-    public Output<Optional<Boolean>> healthProbesEnabled() {
-        return Codegen.optional(this.healthProbesEnabled);
+    public Output<Boolean> enabled() {
+        return this.enabled;
+    }
+    /**
+     * @deprecated
+     * `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
+     * 
+     */
+    @Deprecated /* `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider. */
+    @Export(name="healthProbesEnabled", type=Boolean.class, parameters={})
+    private Output<Boolean> healthProbesEnabled;
+
+    public Output<Boolean> healthProbesEnabled() {
+        return this.healthProbesEnabled;
     }
     /**
      * The IPv4 address, IPv6 address or Domain name of the Origin.

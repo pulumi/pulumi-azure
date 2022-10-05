@@ -12,6 +12,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -167,6 +168,20 @@ public class BgpConnection extends com.pulumi.resources.CustomResource {
      */
     public Output<String> virtualHubId() {
         return this.virtualHubId;
+    }
+    /**
+     * The ID of virtual network connection.
+     * 
+     */
+    @Export(name="virtualNetworkConnectionId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> virtualNetworkConnectionId;
+
+    /**
+     * @return The ID of virtual network connection.
+     * 
+     */
+    public Output<Optional<String>> virtualNetworkConnectionId() {
+        return Codegen.optional(this.virtualNetworkConnectionId);
     }
 
     /**

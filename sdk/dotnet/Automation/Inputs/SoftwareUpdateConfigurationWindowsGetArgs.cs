@@ -10,13 +10,25 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Automation.Inputs
 {
 
-    public sealed class SoftwareUpdateConfigurationWindowArgs : global::Pulumi.ResourceArgs
+    public sealed class SoftwareUpdateConfigurationWindowsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
         /// </summary>
         [Input("classificationIncluded")]
         public Input<string>? ClassificationIncluded { get; set; }
+
+        [Input("classificationsIncludeds")]
+        private InputList<string>? _classificationsIncludeds;
+
+        /// <summary>
+        /// Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+        /// </summary>
+        public InputList<string> ClassificationsIncludeds
+        {
+            get => _classificationsIncludeds ?? (_classificationsIncludeds = new InputList<string>());
+            set => _classificationsIncludeds = value;
+        }
 
         [Input("excludedKnowledgeBaseNumbers")]
         private InputList<string>? _excludedKnowledgeBaseNumbers;
@@ -48,9 +60,9 @@ namespace Pulumi.Azure.Automation.Inputs
         [Input("reboot")]
         public Input<string>? Reboot { get; set; }
 
-        public SoftwareUpdateConfigurationWindowArgs()
+        public SoftwareUpdateConfigurationWindowsGetArgs()
         {
         }
-        public static new SoftwareUpdateConfigurationWindowArgs Empty => new SoftwareUpdateConfigurationWindowArgs();
+        public static new SoftwareUpdateConfigurationWindowsGetArgs Empty => new SoftwareUpdateConfigurationWindowsGetArgs();
     }
 }

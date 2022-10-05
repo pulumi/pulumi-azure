@@ -43,6 +43,12 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// A `rejected_linked_service` block as defined below.
+        /// </summary>
+        [Input("rejectedLinkedService")]
+        public Input<Inputs.DataFlowSinkRejectedLinkedServiceArgs>? RejectedLinkedService { get; set; }
+
+        /// <summary>
         /// A `schema_linked_service` block as defined below.
         /// </summary>
         [Input("schemaLinkedService")]

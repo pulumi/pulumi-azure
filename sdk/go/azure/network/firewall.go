@@ -119,7 +119,7 @@ type Firewall struct {
 	SkuTier pulumi.StringOutput `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
+	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
 	ThreatIntelMode pulumi.StringOutput `pulumi:"threatIntelMode"`
 	// A `virtualHub` block as documented below.
 	VirtualHub FirewallVirtualHubPtrOutput `pulumi:"virtualHub"`
@@ -187,7 +187,7 @@ type firewallState struct {
 	SkuTier *string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
+	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
 	ThreatIntelMode *string `pulumi:"threatIntelMode"`
 	// A `virtualHub` block as documented below.
 	VirtualHub *FirewallVirtualHub `pulumi:"virtualHub"`
@@ -218,7 +218,7 @@ type FirewallState struct {
 	SkuTier pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
+	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
 	ThreatIntelMode pulumi.StringPtrInput
 	// A `virtualHub` block as documented below.
 	VirtualHub FirewallVirtualHubPtrInput
@@ -253,7 +253,7 @@ type firewallArgs struct {
 	SkuTier string `pulumi:"skuTier"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
+	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
 	ThreatIntelMode *string `pulumi:"threatIntelMode"`
 	// A `virtualHub` block as documented below.
 	VirtualHub *FirewallVirtualHub `pulumi:"virtualHub"`
@@ -285,7 +285,7 @@ type FirewallArgs struct {
 	SkuTier pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
+	// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
 	ThreatIntelMode pulumi.StringPtrInput
 	// A `virtualHub` block as documented below.
 	VirtualHub FirewallVirtualHubPtrInput
@@ -435,7 +435,7 @@ func (o FirewallOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
+// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
 func (o FirewallOutput) ThreatIntelMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.ThreatIntelMode }).(pulumi.StringOutput)
 }

@@ -54,7 +54,7 @@ import (
 //				return err
 //			}
 //			_, err = loganalytics.NewLinkedStorageAccount(ctx, "exampleLinkedStorageAccount", &loganalytics.LinkedStorageAccountArgs{
-//				DataSourceType:      pulumi.String("customlogs"),
+//				DataSourceType:      pulumi.String("CustomLogs"),
 //				ResourceGroupName:   exampleResourceGroup.Name,
 //				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
 //				StorageAccountIds: pulumi.StringArray{
@@ -82,7 +82,7 @@ import (
 type LinkedStorageAccount struct {
 	pulumi.CustomResourceState
 
-	// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+	// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
 	DataSourceType pulumi.StringOutput `pulumi:"dataSourceType"`
 	// The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
@@ -133,7 +133,7 @@ func GetLinkedStorageAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LinkedStorageAccount resources.
 type linkedStorageAccountState struct {
-	// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+	// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
 	DataSourceType *string `pulumi:"dataSourceType"`
 	// The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
@@ -144,7 +144,7 @@ type linkedStorageAccountState struct {
 }
 
 type LinkedStorageAccountState struct {
-	// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+	// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
 	DataSourceType pulumi.StringPtrInput
 	// The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
 	ResourceGroupName pulumi.StringPtrInput
@@ -159,7 +159,7 @@ func (LinkedStorageAccountState) ElementType() reflect.Type {
 }
 
 type linkedStorageAccountArgs struct {
-	// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+	// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
 	DataSourceType string `pulumi:"dataSourceType"`
 	// The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -171,7 +171,7 @@ type linkedStorageAccountArgs struct {
 
 // The set of arguments for constructing a LinkedStorageAccount resource.
 type LinkedStorageAccountArgs struct {
-	// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+	// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
 	DataSourceType pulumi.StringInput
 	// The name of the Resource Group where the Log Analytics Linked Storage Account should exist. Changing this forces a new Log Analytics Linked Storage Account to be created.
 	ResourceGroupName pulumi.StringInput
@@ -268,7 +268,7 @@ func (o LinkedStorageAccountOutput) ToLinkedStorageAccountOutputWithContext(ctx 
 	return o
 }
 
-// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+// The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
 func (o LinkedStorageAccountOutput) DataSourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkedStorageAccount) pulumi.StringOutput { return v.DataSourceType }).(pulumi.StringOutput)
 }

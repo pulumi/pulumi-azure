@@ -46,6 +46,20 @@ public final class CustomDomainGatewayArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.certificatePassword);
     }
 
+    @Import(name="certificateSource")
+    private @Nullable Output<String> certificateSource;
+
+    public Optional<Output<String>> certificateSource() {
+        return Optional.ofNullable(this.certificateSource);
+    }
+
+    @Import(name="certificateStatus")
+    private @Nullable Output<String> certificateStatus;
+
+    public Optional<Output<String>> certificateStatus() {
+        return Optional.ofNullable(this.certificateStatus);
+    }
+
     /**
      * Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn&#39;t specified by a client. Defaults to false.
      * 
@@ -139,6 +153,8 @@ public final class CustomDomainGatewayArgs extends com.pulumi.resources.Resource
     private CustomDomainGatewayArgs(CustomDomainGatewayArgs $) {
         this.certificate = $.certificate;
         this.certificatePassword = $.certificatePassword;
+        this.certificateSource = $.certificateSource;
+        this.certificateStatus = $.certificateStatus;
         this.defaultSslBinding = $.defaultSslBinding;
         this.expiry = $.expiry;
         this.hostName = $.hostName;
@@ -207,6 +223,24 @@ public final class CustomDomainGatewayArgs extends com.pulumi.resources.Resource
          */
         public Builder certificatePassword(String certificatePassword) {
             return certificatePassword(Output.of(certificatePassword));
+        }
+
+        public Builder certificateSource(@Nullable Output<String> certificateSource) {
+            $.certificateSource = certificateSource;
+            return this;
+        }
+
+        public Builder certificateSource(String certificateSource) {
+            return certificateSource(Output.of(certificateSource));
+        }
+
+        public Builder certificateStatus(@Nullable Output<String> certificateStatus) {
+            $.certificateStatus = certificateStatus;
+            return this;
+        }
+
+        public Builder certificateStatus(String certificateStatus) {
+            return certificateStatus(Output.of(certificateStatus));
         }
 
         /**

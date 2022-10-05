@@ -169,7 +169,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool> SinglePlacementGroup { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+        /// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
         /// </summary>
         [Output("skuName")]
         public Output<string?> SkuName { get; private set; } = null!;
@@ -197,6 +197,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("uniqueId")]
         public Output<string> UniqueId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+        /// </summary>
+        [Output("userDataBase64")]
+        public Output<string?> UserDataBase64 { get; private set; } = null!;
 
         [Output("zoneBalance")]
         public Output<bool?> ZoneBalance { get; private set; } = null!;
@@ -380,7 +386,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? SinglePlacementGroup { get; set; }
 
         /// <summary>
-        /// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+        /// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -408,6 +414,12 @@ namespace Pulumi.Azure.Compute
 
         [Input("terminationNotification")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetTerminationNotificationArgs>? TerminationNotification { get; set; }
+
+        /// <summary>
+        /// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+        /// </summary>
+        [Input("userDataBase64")]
+        public Input<string>? UserDataBase64 { get; set; }
 
         [Input("zoneBalance")]
         public Input<bool>? ZoneBalance { get; set; }
@@ -559,7 +571,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? SinglePlacementGroup { get; set; }
 
         /// <summary>
-        /// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+        /// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -593,6 +605,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("uniqueId")]
         public Input<string>? UniqueId { get; set; }
+
+        /// <summary>
+        /// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+        /// </summary>
+        [Input("userDataBase64")]
+        public Input<string>? UserDataBase64 { get; set; }
 
         [Input("zoneBalance")]
         public Input<bool>? ZoneBalance { get; set; }

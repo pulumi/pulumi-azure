@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.cognitive;
 
+import com.pulumi.azure.cognitive.inputs.AccountCustomerManagedKeyArgs;
 import com.pulumi.azure.cognitive.inputs.AccountIdentityArgs;
 import com.pulumi.azure.cognitive.inputs.AccountNetworkAclsArgs;
 import com.pulumi.azure.cognitive.inputs.AccountStorageArgs;
@@ -64,6 +65,21 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> customSubdomainName() {
         return Optional.ofNullable(this.customSubdomainName);
+    }
+
+    /**
+     * A `customer_managed_key` block as documented below.
+     * 
+     */
+    @Import(name="customerManagedKey")
+    private @Nullable Output<AccountCustomerManagedKeyArgs> customerManagedKey;
+
+    /**
+     * @return A `customer_managed_key` block as documented below.
+     * 
+     */
+    public Optional<Output<AccountCustomerManagedKeyArgs>> customerManagedKey() {
+        return Optional.ofNullable(this.customerManagedKey);
     }
 
     /**
@@ -342,6 +358,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         this.customQuestionAnsweringSearchServiceId = $.customQuestionAnsweringSearchServiceId;
         this.customQuestionAnsweringSearchServiceKey = $.customQuestionAnsweringSearchServiceKey;
         this.customSubdomainName = $.customSubdomainName;
+        this.customerManagedKey = $.customerManagedKey;
         this.fqdns = $.fqdns;
         this.identity = $.identity;
         this.kind = $.kind;
@@ -441,6 +458,27 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder customSubdomainName(String customSubdomainName) {
             return customSubdomainName(Output.of(customSubdomainName));
+        }
+
+        /**
+         * @param customerManagedKey A `customer_managed_key` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customerManagedKey(@Nullable Output<AccountCustomerManagedKeyArgs> customerManagedKey) {
+            $.customerManagedKey = customerManagedKey;
+            return this;
+        }
+
+        /**
+         * @param customerManagedKey A `customer_managed_key` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customerManagedKey(AccountCustomerManagedKeyArgs customerManagedKey) {
+            return customerManagedKey(Output.of(customerManagedKey));
         }
 
         /**

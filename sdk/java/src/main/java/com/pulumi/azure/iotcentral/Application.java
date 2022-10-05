@@ -6,10 +6,12 @@ package com.pulumi.azure.iotcentral;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.iotcentral.ApplicationArgs;
 import com.pulumi.azure.iotcentral.inputs.ApplicationState;
+import com.pulumi.azure.iotcentral.outputs.ApplicationIdentity;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
 import java.util.Optional;
@@ -86,6 +88,20 @@ public class Application extends com.pulumi.resources.CustomResource {
         return this.displayName;
     }
     /**
+     * An `identity` block as defined below.
+     * 
+     */
+    @Export(name="identity", type=ApplicationIdentity.class, parameters={})
+    private Output</* @Nullable */ ApplicationIdentity> identity;
+
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
+    public Output<Optional<ApplicationIdentity>> identity() {
+        return Codegen.optional(this.identity);
+    }
+    /**
      * Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
      * 
      */
@@ -112,6 +128,20 @@ public class Application extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
+     * 
+     */
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
+        return Codegen.optional(this.publicNetworkAccessEnabled);
     }
     /**
      * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.

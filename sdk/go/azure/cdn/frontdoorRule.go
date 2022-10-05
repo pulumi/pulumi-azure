@@ -13,7 +13,7 @@ import (
 
 // Manages a Frontdoor Rule.
 //
-// !>**IMPORTANT:** To create the Frontdoor Rules resource successfully you **must** add a `dependsOn` attribute to the `cdn.FrontdoorRule` code block and reference both the `cdn.FrontdoorOrigin` and the `cdn.FrontdoorOriginGroup` that are associated with the Frontdoor Rule resource.
+// !>**IMPORTANT:** The Rules resource **must** include a `dependsOn` meta-argument which references the `cdn.FrontdoorOrigin`, `cdn.FrontdoorOriginGroup` and the `cdn.FrontdoorRoute` that are associated with the Rule resource. The `cdn.FrontdoorRoute` definition has been excluded from the below `Example Usage`, for brevity, but has been included in the `dependsOn` meta-argument as an example of the correct way to define the `cdn.FrontdoorRule` resource.
 //
 // ## Specifying IP Address Ranges
 //
@@ -156,7 +156,7 @@ type FrontdoorRule struct {
 	CdnFrontdoorRuleSetId pulumi.StringOutput `pulumi:"cdnFrontdoorRuleSetId"`
 	// The name of the Frontdoor Rule Set containing this Frontdoor Rule.
 	CdnFrontdoorRuleSetName pulumi.StringOutput `pulumi:"cdnFrontdoorRuleSetName"`
-	// An `conditions` block as defined below.
+	// A `conditions` block as defined below.
 	Conditions FrontdoorRuleConditionsPtrOutput `pulumi:"conditions"`
 	// The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -210,7 +210,7 @@ type frontdoorRuleState struct {
 	CdnFrontdoorRuleSetId *string `pulumi:"cdnFrontdoorRuleSetId"`
 	// The name of the Frontdoor Rule Set containing this Frontdoor Rule.
 	CdnFrontdoorRuleSetName *string `pulumi:"cdnFrontdoorRuleSetName"`
-	// An `conditions` block as defined below.
+	// A `conditions` block as defined below.
 	Conditions *FrontdoorRuleConditions `pulumi:"conditions"`
 	// The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
 	Name *string `pulumi:"name"`
@@ -227,7 +227,7 @@ type FrontdoorRuleState struct {
 	CdnFrontdoorRuleSetId pulumi.StringPtrInput
 	// The name of the Frontdoor Rule Set containing this Frontdoor Rule.
 	CdnFrontdoorRuleSetName pulumi.StringPtrInput
-	// An `conditions` block as defined below.
+	// A `conditions` block as defined below.
 	Conditions FrontdoorRuleConditionsPtrInput
 	// The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
 	Name pulumi.StringPtrInput
@@ -246,7 +246,7 @@ type frontdoorRuleArgs struct {
 	BehaviorOnMatch *string `pulumi:"behaviorOnMatch"`
 	// The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
 	CdnFrontdoorRuleSetId string `pulumi:"cdnFrontdoorRuleSetId"`
-	// An `conditions` block as defined below.
+	// A `conditions` block as defined below.
 	Conditions *FrontdoorRuleConditions `pulumi:"conditions"`
 	// The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
 	Name *string `pulumi:"name"`
@@ -262,7 +262,7 @@ type FrontdoorRuleArgs struct {
 	BehaviorOnMatch pulumi.StringPtrInput
 	// The resource ID of the Frontdoor Rule Set for this Frontdoor Rule. Changing this forces a new Frontdoor Rule to be created.
 	CdnFrontdoorRuleSetId pulumi.StringInput
-	// An `conditions` block as defined below.
+	// A `conditions` block as defined below.
 	Conditions FrontdoorRuleConditionsPtrInput
 	// The name which should be used for this Frontdoor Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Frontdoor Rule to be created.
 	Name pulumi.StringPtrInput
@@ -377,7 +377,7 @@ func (o FrontdoorRuleOutput) CdnFrontdoorRuleSetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorRule) pulumi.StringOutput { return v.CdnFrontdoorRuleSetName }).(pulumi.StringOutput)
 }
 
-// An `conditions` block as defined below.
+// A `conditions` block as defined below.
 func (o FrontdoorRuleOutput) Conditions() FrontdoorRuleConditionsPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRule) FrontdoorRuleConditionsPtrOutput { return v.Conditions }).(FrontdoorRuleConditionsPtrOutput)
 }

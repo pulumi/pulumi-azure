@@ -62,9 +62,17 @@ public final class FrontdoorRuleConditionsUrlPathConditionArgs extends com.pulum
         return this.operator;
     }
 
+    /**
+     * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+     * 
+     */
     @Import(name="transforms")
     private @Nullable Output<List<String>> transforms;
 
+    /**
+     * @return A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+     * 
+     */
     public Optional<Output<List<String>>> transforms() {
         return Optional.ofNullable(this.transforms);
     }
@@ -169,15 +177,33 @@ public final class FrontdoorRuleConditionsUrlPathConditionArgs extends com.pulum
             return operator(Output.of(operator));
         }
 
+        /**
+         * @param transforms A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder transforms(@Nullable Output<List<String>> transforms) {
             $.transforms = transforms;
             return this;
         }
 
+        /**
+         * @param transforms A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder transforms(List<String> transforms) {
             return transforms(Output.of(transforms));
         }
 
+        /**
+         * @param transforms A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder transforms(String... transforms) {
             return transforms(List.of(transforms));
         }

@@ -217,6 +217,12 @@ namespace Pulumi.Azure.Compute
         public Output<string?> ExtensionsTimeBudget { get; private set; } = null!;
 
         /// <summary>
+        /// A `gallery_application` block as defined below.
+        /// </summary>
+        [Output("galleryApplications")]
+        public Output<ImmutableArray<Outputs.WindowsVirtualMachineGalleryApplication>> GalleryApplications { get; private set; } = null!;
+
+        /// <summary>
         /// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
         /// </summary>
         [Output("hotpatchingEnabled")]
@@ -574,6 +580,18 @@ namespace Pulumi.Azure.Compute
         [Input("extensionsTimeBudget")]
         public Input<string>? ExtensionsTimeBudget { get; set; }
 
+        [Input("galleryApplications")]
+        private InputList<Inputs.WindowsVirtualMachineGalleryApplicationArgs>? _galleryApplications;
+
+        /// <summary>
+        /// A `gallery_application` block as defined below.
+        /// </summary>
+        public InputList<Inputs.WindowsVirtualMachineGalleryApplicationArgs> GalleryApplications
+        {
+            get => _galleryApplications ?? (_galleryApplications = new InputList<Inputs.WindowsVirtualMachineGalleryApplicationArgs>());
+            set => _galleryApplications = value;
+        }
+
         /// <summary>
         /// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
         /// </summary>
@@ -887,6 +905,18 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("extensionsTimeBudget")]
         public Input<string>? ExtensionsTimeBudget { get; set; }
+
+        [Input("galleryApplications")]
+        private InputList<Inputs.WindowsVirtualMachineGalleryApplicationGetArgs>? _galleryApplications;
+
+        /// <summary>
+        /// A `gallery_application` block as defined below.
+        /// </summary>
+        public InputList<Inputs.WindowsVirtualMachineGalleryApplicationGetArgs> GalleryApplications
+        {
+            get => _galleryApplications ?? (_galleryApplications = new InputList<Inputs.WindowsVirtualMachineGalleryApplicationGetArgs>());
+            set => _galleryApplications = value;
+        }
 
         /// <summary>
         /// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).

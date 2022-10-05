@@ -352,12 +352,12 @@ export class Workspace extends pulumi.CustomResource {
     public readonly primaryUserAssignedIdentity!: pulumi.Output<string | undefined>;
     /**
      * Enable public access when this Machine Learning Workspace is behind a VNet.
+     *
+     * @deprecated `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
      */
-    public readonly publicAccessBehindVirtualNetworkEnabled!: pulumi.Output<boolean>;
+    public readonly publicAccessBehindVirtualNetworkEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Enable public access when this Machine Learning Workspace is behind VNet.
-     *
-     * @deprecated `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.
      */
     public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean>;
     /**
@@ -376,6 +376,10 @@ export class Workspace extends pulumi.CustomResource {
      * A mapping of tags to assign to the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Enable V1 API features, enabling `v1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+     */
+    public readonly v1LegacyModeEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -409,6 +413,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["skuName"] = state ? state.skuName : undefined;
             resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["v1LegacyModeEnabled"] = state ? state.v1LegacyModeEnabled : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
             if ((!args || args.applicationInsightsId === undefined) && !opts.urn) {
@@ -444,6 +449,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["skuName"] = args ? args.skuName : undefined;
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["v1LegacyModeEnabled"] = args ? args.v1LegacyModeEnabled : undefined;
             resourceInputs["discoveryUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -506,12 +512,12 @@ export interface WorkspaceState {
     primaryUserAssignedIdentity?: pulumi.Input<string>;
     /**
      * Enable public access when this Machine Learning Workspace is behind a VNet.
+     *
+     * @deprecated `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
      */
     publicAccessBehindVirtualNetworkEnabled?: pulumi.Input<boolean>;
     /**
      * Enable public access when this Machine Learning Workspace is behind VNet.
-     *
-     * @deprecated `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -530,6 +536,10 @@ export interface WorkspaceState {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Enable V1 API features, enabling `v1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+     */
+    v1LegacyModeEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -583,12 +593,12 @@ export interface WorkspaceArgs {
     primaryUserAssignedIdentity?: pulumi.Input<string>;
     /**
      * Enable public access when this Machine Learning Workspace is behind a VNet.
+     *
+     * @deprecated `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.
      */
     publicAccessBehindVirtualNetworkEnabled?: pulumi.Input<boolean>;
     /**
      * Enable public access when this Machine Learning Workspace is behind VNet.
-     *
-     * @deprecated `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.
      */
     publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
@@ -607,4 +617,8 @@ export interface WorkspaceArgs {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Enable V1 API features, enabling `v1LegacyMode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+     */
+    v1LegacyModeEnabled?: pulumi.Input<boolean>;
 }

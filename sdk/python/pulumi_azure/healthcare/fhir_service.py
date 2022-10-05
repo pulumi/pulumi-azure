@@ -27,6 +27,7 @@ class FhirServiceArgs:
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 oci_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['FhirServiceOciArtifactArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FhirService resource.
@@ -40,6 +41,7 @@ class FhirServiceArgs:
         :param pulumi.Input[str] kind: Specifies the kind of the Healthcare FHIR Service. Possible values are: `fhir-Stu3` and `fhir-R4`. Defaults to `fhir-R4`. Changing this forces a new Healthcare FHIR Service to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare FHIR Service should be created. Changing this forces a new Healthcare FHIR Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['FhirServiceOciArtifactArgs']]] oci_artifacts: [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
         """
         pulumi.set(__self__, "authentication", authentication)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -60,6 +62,8 @@ class FhirServiceArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if oci_artifacts is not None:
+            pulumi.set(__self__, "oci_artifacts", oci_artifacts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -193,6 +197,18 @@ class FhirServiceArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="ociArtifacts")
+    def oci_artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FhirServiceOciArtifactArgs']]]]:
+        """
+        [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+        """
+        return pulumi.get(self, "oci_artifacts")
+
+    @oci_artifacts.setter
+    def oci_artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FhirServiceOciArtifactArgs']]]]):
+        pulumi.set(self, "oci_artifacts", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
@@ -214,6 +230,8 @@ class _FhirServiceState:
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 oci_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['FhirServiceOciArtifactArgs']]]] = None,
+                 public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None):
@@ -228,6 +246,8 @@ class _FhirServiceState:
         :param pulumi.Input[str] kind: Specifies the kind of the Healthcare FHIR Service. Possible values are: `fhir-Stu3` and `fhir-R4`. Defaults to `fhir-R4`. Changing this forces a new Healthcare FHIR Service to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare FHIR Service should be created. Changing this forces a new Healthcare FHIR Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['FhirServiceOciArtifactArgs']]] oci_artifacts: [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public networks access is enabled.
         :param pulumi.Input[str] workspace_id: Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
         """
         if access_policy_object_ids is not None:
@@ -248,6 +268,10 @@ class _FhirServiceState:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if oci_artifacts is not None:
+            pulumi.set(__self__, "oci_artifacts", oci_artifacts)
+        if public_network_access_enabled is not None:
+            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
@@ -364,6 +388,30 @@ class _FhirServiceState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="ociArtifacts")
+    def oci_artifacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FhirServiceOciArtifactArgs']]]]:
+        """
+        [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+        """
+        return pulumi.get(self, "oci_artifacts")
+
+    @oci_artifacts.setter
+    def oci_artifacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FhirServiceOciArtifactArgs']]]]):
+        pulumi.set(self, "oci_artifacts", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether public networks access is enabled.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @public_network_access_enabled.setter
+    def public_network_access_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_network_access_enabled", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "resource_group_name")
@@ -408,6 +456,7 @@ class FhirService(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 oci_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FhirServiceOciArtifactArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
@@ -476,6 +525,7 @@ class FhirService(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Specifies the kind of the Healthcare FHIR Service. Possible values are: `fhir-Stu3` and `fhir-R4`. Defaults to `fhir-R4`. Changing this forces a new Healthcare FHIR Service to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare FHIR Service should be created. Changing this forces a new Healthcare FHIR Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FhirServiceOciArtifactArgs']]]] oci_artifacts: [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
         :param pulumi.Input[str] workspace_id: Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
         """
         ...
@@ -561,6 +611,7 @@ class FhirService(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 oci_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FhirServiceOciArtifactArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
@@ -584,6 +635,7 @@ class FhirService(pulumi.CustomResource):
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["oci_artifacts"] = oci_artifacts
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -591,6 +643,7 @@ class FhirService(pulumi.CustomResource):
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
             __props__.__dict__["workspace_id"] = workspace_id
+            __props__.__dict__["public_network_access_enabled"] = None
         super(FhirService, __self__).__init__(
             'azure:healthcare/fhirService:FhirService',
             resource_name,
@@ -610,6 +663,8 @@ class FhirService(pulumi.CustomResource):
             kind: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            oci_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FhirServiceOciArtifactArgs']]]]] = None,
+            public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             workspace_id: Optional[pulumi.Input[str]] = None) -> 'FhirService':
@@ -629,6 +684,8 @@ class FhirService(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Specifies the kind of the Healthcare FHIR Service. Possible values are: `fhir-Stu3` and `fhir-R4`. Defaults to `fhir-R4`. Changing this forces a new Healthcare FHIR Service to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare FHIR Service should be created. Changing this forces a new Healthcare FHIR Service to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FhirServiceOciArtifactArgs']]]] oci_artifacts: [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+        :param pulumi.Input[bool] public_network_access_enabled: Whether public networks access is enabled.
         :param pulumi.Input[str] workspace_id: Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -644,6 +701,8 @@ class FhirService(pulumi.CustomResource):
         __props__.__dict__["kind"] = kind
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
+        __props__.__dict__["oci_artifacts"] = oci_artifacts
+        __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
         __props__.__dict__["workspace_id"] = workspace_id
@@ -720,6 +779,22 @@ class FhirService(pulumi.CustomResource):
         Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="ociArtifacts")
+    def oci_artifacts(self) -> pulumi.Output[Optional[Sequence['outputs.FhirServiceOciArtifact']]]:
+        """
+        [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+        """
+        return pulumi.get(self, "oci_artifacts")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> pulumi.Output[bool]:
+        """
+        Whether public networks access is enabled.
+        """
+        return pulumi.get(self, "public_network_access_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

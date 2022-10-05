@@ -225,6 +225,12 @@ namespace Pulumi.Azure.Compute
         public Output<string?> ExtensionsTimeBudget { get; private set; } = null!;
 
         /// <summary>
+        /// A `gallery_application` block as defined below.
+        /// </summary>
+        [Output("galleryApplications")]
+        public Output<ImmutableArray<Outputs.LinuxVirtualMachineGalleryApplication>> GalleryApplications { get; private set; } = null!;
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
@@ -564,6 +570,18 @@ namespace Pulumi.Azure.Compute
         [Input("extensionsTimeBudget")]
         public Input<string>? ExtensionsTimeBudget { get; set; }
 
+        [Input("galleryApplications")]
+        private InputList<Inputs.LinuxVirtualMachineGalleryApplicationArgs>? _galleryApplications;
+
+        /// <summary>
+        /// A `gallery_application` block as defined below.
+        /// </summary>
+        public InputList<Inputs.LinuxVirtualMachineGalleryApplicationArgs> GalleryApplications
+        {
+            get => _galleryApplications ?? (_galleryApplications = new InputList<Inputs.LinuxVirtualMachineGalleryApplicationArgs>());
+            set => _galleryApplications = value;
+        }
+
         /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
@@ -853,6 +871,18 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("extensionsTimeBudget")]
         public Input<string>? ExtensionsTimeBudget { get; set; }
+
+        [Input("galleryApplications")]
+        private InputList<Inputs.LinuxVirtualMachineGalleryApplicationGetArgs>? _galleryApplications;
+
+        /// <summary>
+        /// A `gallery_application` block as defined below.
+        /// </summary>
+        public InputList<Inputs.LinuxVirtualMachineGalleryApplicationGetArgs> GalleryApplications
+        {
+            get => _galleryApplications ?? (_galleryApplications = new InputList<Inputs.LinuxVirtualMachineGalleryApplicationGetArgs>());
+            set => _galleryApplications = value;
+        }
 
         /// <summary>
         /// An `identity` block as defined below.

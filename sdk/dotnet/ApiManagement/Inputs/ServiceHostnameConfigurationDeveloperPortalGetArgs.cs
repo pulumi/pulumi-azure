@@ -25,6 +25,18 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<string>? CertificatePassword { get; set; }
 
         /// <summary>
+        /// The source of the certificate.
+        /// </summary>
+        [Input("certificateSource")]
+        public Input<string>? CertificateSource { get; set; }
+
+        /// <summary>
+        /// The status of the certificate.
+        /// </summary>
+        [Input("certificateStatus")]
+        public Input<string>? CertificateStatus { get; set; }
+
+        /// <summary>
         /// The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
         /// </summary>
         [Input("expiry")]

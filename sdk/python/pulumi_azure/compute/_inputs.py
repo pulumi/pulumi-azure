@@ -21,6 +21,7 @@ __all__ = [
     'LinuxVirtualMachineAdditionalCapabilitiesArgs',
     'LinuxVirtualMachineAdminSshKeyArgs',
     'LinuxVirtualMachineBootDiagnosticsArgs',
+    'LinuxVirtualMachineGalleryApplicationArgs',
     'LinuxVirtualMachineIdentityArgs',
     'LinuxVirtualMachineOsDiskArgs',
     'LinuxVirtualMachineOsDiskDiffDiskSettingsArgs',
@@ -125,6 +126,7 @@ __all__ = [
     'WindowsVirtualMachineAdditionalCapabilitiesArgs',
     'WindowsVirtualMachineAdditionalUnattendContentArgs',
     'WindowsVirtualMachineBootDiagnosticsArgs',
+    'WindowsVirtualMachineGalleryApplicationArgs',
     'WindowsVirtualMachineIdentityArgs',
     'WindowsVirtualMachineOsDiskArgs',
     'WindowsVirtualMachineOsDiskDiffDiskSettingsArgs',
@@ -719,6 +721,76 @@ class LinuxVirtualMachineBootDiagnosticsArgs:
     @storage_account_uri.setter
     def storage_account_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_uri", value)
+
+
+@pulumi.input_type
+class LinuxVirtualMachineGalleryApplicationArgs:
+    def __init__(__self__, *,
+                 version_id: pulumi.Input[str],
+                 configuration_blob_uri: Optional[pulumi.Input[str]] = None,
+                 order: Optional[pulumi.Input[int]] = None,
+                 tag: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] version_id: Specifies the Gallery Application Version resource ID.
+        :param pulumi.Input[str] configuration_blob_uri: Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
+        :param pulumi.Input[int] order: Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+        :param pulumi.Input[str] tag: Specifies a passthrough value for more generic context. This field can be any valid `string` value.
+        """
+        pulumi.set(__self__, "version_id", version_id)
+        if configuration_blob_uri is not None:
+            pulumi.set(__self__, "configuration_blob_uri", configuration_blob_uri)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+
+    @property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the Gallery Application Version resource ID.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "version_id", value)
+
+    @property
+    @pulumi.getter(name="configurationBlobUri")
+    def configuration_blob_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
+        """
+        return pulumi.get(self, "configuration_blob_uri")
+
+    @configuration_blob_uri.setter
+    def configuration_blob_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configuration_blob_uri", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter
+    def tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a passthrough value for more generic context. This field can be any valid `string` value.
+        """
+        return pulumi.get(self, "tag")
+
+    @tag.setter
+    def tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tag", value)
 
 
 @pulumi.input_type
@@ -3391,7 +3463,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
                  version: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] version: The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        :param pulumi.Input[str] version: The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         if application_gateway_backend_address_pool_ids is not None:
@@ -3479,7 +3551,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "version")
 
@@ -3500,8 +3572,8 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
                  version: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] sku_name: Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
-        :param pulumi.Input[str] version: The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        :param pulumi.Input[str] sku_name: Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+        :param pulumi.Input[str] version: The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
         if domain_name_label is not None:
@@ -3569,7 +3641,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+        Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku_name")
 
@@ -3581,7 +3653,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "version")
 
@@ -4272,7 +4344,7 @@ class OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs:
                  sku: pulumi.Input[str],
                  version: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] version: The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        :param pulumi.Input[str] version: The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "offer", offer)
         pulumi.set(__self__, "publisher", publisher)
@@ -4310,7 +4382,7 @@ class OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[str]:
         """
-        The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+        The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "version")
 
@@ -7065,6 +7137,76 @@ class WindowsVirtualMachineBootDiagnosticsArgs:
     @storage_account_uri.setter
     def storage_account_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_uri", value)
+
+
+@pulumi.input_type
+class WindowsVirtualMachineGalleryApplicationArgs:
+    def __init__(__self__, *,
+                 version_id: pulumi.Input[str],
+                 configuration_blob_uri: Optional[pulumi.Input[str]] = None,
+                 order: Optional[pulumi.Input[int]] = None,
+                 tag: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] version_id: Specifies the Gallery Application Version resource ID.
+        :param pulumi.Input[str] configuration_blob_uri: Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
+        :param pulumi.Input[int] order: Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+        :param pulumi.Input[str] tag: Specifies a passthrough value for more generic context. This field can be any valid `string` value.
+        """
+        pulumi.set(__self__, "version_id", version_id)
+        if configuration_blob_uri is not None:
+            pulumi.set(__self__, "configuration_blob_uri", configuration_blob_uri)
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+
+    @property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[str]:
+        """
+        Specifies the Gallery Application Version resource ID.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "version_id", value)
+
+    @property
+    @pulumi.getter(name="configurationBlobUri")
+    def configuration_blob_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
+        """
+        return pulumi.get(self, "configuration_blob_uri")
+
+    @configuration_blob_uri.setter
+    def configuration_blob_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configuration_blob_uri", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter
+    def tag(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a passthrough value for more generic context. This field can be any valid `string` value.
+        """
+        return pulumi.get(self, "tag")
+
+    @tag.setter
+    def tag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tag", value)
 
 
 @pulumi.input_type

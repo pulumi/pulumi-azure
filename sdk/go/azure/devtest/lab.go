@@ -79,6 +79,8 @@ type Lab struct {
 	// The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+	//
+	// Deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
 	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -135,6 +137,8 @@ type labState struct {
 	// The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+	//
+	// Deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
 	StorageType *string `pulumi:"storageType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -160,6 +164,8 @@ type LabState struct {
 	// The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+	//
+	// Deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
 	StorageType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -179,6 +185,8 @@ type labArgs struct {
 	// The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+	//
+	// Deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
 	StorageType *string `pulumi:"storageType"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -193,6 +201,8 @@ type LabArgs struct {
 	// The name of the resource group under which the Dev Test Lab resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+	//
+	// Deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
 	StorageType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -326,6 +336,8 @@ func (o LabOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+//
+// Deprecated: `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
 func (o LabOutput) StorageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Lab) pulumi.StringPtrOutput { return v.StorageType }).(pulumi.StringPtrOutput)
 }

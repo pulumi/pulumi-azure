@@ -19,6 +19,7 @@ class FrontdoorOriginArgs:
                  cdn_frontdoor_origin_group_id: pulumi.Input[str],
                  certificate_name_check_enabled: pulumi.Input[bool],
                  host_name: pulumi.Input[str],
+                 enabled: Optional[pulumi.Input[bool]] = None,
                  health_probes_enabled: Optional[pulumi.Input[bool]] = None,
                  http_port: Optional[pulumi.Input[int]] = None,
                  https_port: Optional[pulumi.Input[int]] = None,
@@ -32,7 +33,7 @@ class FrontdoorOriginArgs:
         :param pulumi.Input[str] cdn_frontdoor_origin_group_id: The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
         :param pulumi.Input[bool] certificate_name_check_enabled: Specifies whether certificate name checks are enabled for this origin.
         :param pulumi.Input[str] host_name: The IPv4 address, IPv6 address or Domain name of the Origin.
-        :param pulumi.Input[bool] health_probes_enabled: Should the health probes be enabled against the origins defined within the origin group? Possible values are `true` or `false`. Defaults to `true`.
+        :param pulumi.Input[bool] enabled: Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[int] http_port: The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
         :param pulumi.Input[int] https_port: The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
         :param pulumi.Input[str] name: The name which should be used for this CDN FrontDoor Origin. Changing this forces a new CDN FrontDoor Origin to be created.
@@ -44,6 +45,11 @@ class FrontdoorOriginArgs:
         pulumi.set(__self__, "cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
         pulumi.set(__self__, "certificate_name_check_enabled", certificate_name_check_enabled)
         pulumi.set(__self__, "host_name", host_name)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if health_probes_enabled is not None:
+            warnings.warn("""`health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""health_probes_enabled is deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""")
         if health_probes_enabled is not None:
             pulumi.set(__self__, "health_probes_enabled", health_probes_enabled)
         if http_port is not None:
@@ -98,11 +104,20 @@ class FrontdoorOriginArgs:
         pulumi.set(self, "host_name", value)
 
     @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
     @pulumi.getter(name="healthProbesEnabled")
     def health_probes_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should the health probes be enabled against the origins defined within the origin group? Possible values are `true` or `false`. Defaults to `true`.
-        """
         return pulumi.get(self, "health_probes_enabled")
 
     @health_probes_enabled.setter
@@ -199,6 +214,7 @@ class _FrontdoorOriginState:
     def __init__(__self__, *,
                  cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
                  certificate_name_check_enabled: Optional[pulumi.Input[bool]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
                  health_probes_enabled: Optional[pulumi.Input[bool]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  http_port: Optional[pulumi.Input[int]] = None,
@@ -212,7 +228,7 @@ class _FrontdoorOriginState:
         Input properties used for looking up and filtering FrontdoorOrigin resources.
         :param pulumi.Input[str] cdn_frontdoor_origin_group_id: The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
         :param pulumi.Input[bool] certificate_name_check_enabled: Specifies whether certificate name checks are enabled for this origin.
-        :param pulumi.Input[bool] health_probes_enabled: Should the health probes be enabled against the origins defined within the origin group? Possible values are `true` or `false`. Defaults to `true`.
+        :param pulumi.Input[bool] enabled: Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] host_name: The IPv4 address, IPv6 address or Domain name of the Origin.
         :param pulumi.Input[int] http_port: The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
         :param pulumi.Input[int] https_port: The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
@@ -226,6 +242,11 @@ class _FrontdoorOriginState:
             pulumi.set(__self__, "cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
         if certificate_name_check_enabled is not None:
             pulumi.set(__self__, "certificate_name_check_enabled", certificate_name_check_enabled)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if health_probes_enabled is not None:
+            warnings.warn("""`health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""health_probes_enabled is deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""")
         if health_probes_enabled is not None:
             pulumi.set(__self__, "health_probes_enabled", health_probes_enabled)
         if host_name is not None:
@@ -270,11 +291,20 @@ class _FrontdoorOriginState:
         pulumi.set(self, "certificate_name_check_enabled", value)
 
     @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
     @pulumi.getter(name="healthProbesEnabled")
     def health_probes_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Should the health probes be enabled against the origins defined within the origin group? Possible values are `true` or `false`. Defaults to `true`.
-        """
         return pulumi.get(self, "health_probes_enabled")
 
     @health_probes_enabled.setter
@@ -385,6 +415,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
                  certificate_name_check_enabled: Optional[pulumi.Input[bool]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
                  health_probes_enabled: Optional[pulumi.Input[bool]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  http_port: Optional[pulumi.Input[int]] = None,
@@ -408,7 +439,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cdn_frontdoor_origin_group_id: The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
         :param pulumi.Input[bool] certificate_name_check_enabled: Specifies whether certificate name checks are enabled for this origin.
-        :param pulumi.Input[bool] health_probes_enabled: Should the health probes be enabled against the origins defined within the origin group? Possible values are `true` or `false`. Defaults to `true`.
+        :param pulumi.Input[bool] enabled: Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] host_name: The IPv4 address, IPv6 address or Domain name of the Origin.
         :param pulumi.Input[int] http_port: The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
         :param pulumi.Input[int] https_port: The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
@@ -450,6 +481,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
                  certificate_name_check_enabled: Optional[pulumi.Input[bool]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
                  health_probes_enabled: Optional[pulumi.Input[bool]] = None,
                  host_name: Optional[pulumi.Input[str]] = None,
                  http_port: Optional[pulumi.Input[int]] = None,
@@ -474,6 +506,10 @@ class FrontdoorOrigin(pulumi.CustomResource):
             if certificate_name_check_enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_name_check_enabled'")
             __props__.__dict__["certificate_name_check_enabled"] = certificate_name_check_enabled
+            __props__.__dict__["enabled"] = enabled
+            if health_probes_enabled is not None and not opts.urn:
+                warnings.warn("""`health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+                pulumi.log.warn("""health_probes_enabled is deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""")
             __props__.__dict__["health_probes_enabled"] = health_probes_enabled
             if host_name is None and not opts.urn:
                 raise TypeError("Missing required property 'host_name'")
@@ -497,6 +533,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
             certificate_name_check_enabled: Optional[pulumi.Input[bool]] = None,
+            enabled: Optional[pulumi.Input[bool]] = None,
             health_probes_enabled: Optional[pulumi.Input[bool]] = None,
             host_name: Optional[pulumi.Input[str]] = None,
             http_port: Optional[pulumi.Input[int]] = None,
@@ -515,7 +552,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cdn_frontdoor_origin_group_id: The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
         :param pulumi.Input[bool] certificate_name_check_enabled: Specifies whether certificate name checks are enabled for this origin.
-        :param pulumi.Input[bool] health_probes_enabled: Should the health probes be enabled against the origins defined within the origin group? Possible values are `true` or `false`. Defaults to `true`.
+        :param pulumi.Input[bool] enabled: Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[str] host_name: The IPv4 address, IPv6 address or Domain name of the Origin.
         :param pulumi.Input[int] http_port: The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
         :param pulumi.Input[int] https_port: The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
@@ -531,6 +568,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
 
         __props__.__dict__["cdn_frontdoor_origin_group_id"] = cdn_frontdoor_origin_group_id
         __props__.__dict__["certificate_name_check_enabled"] = certificate_name_check_enabled
+        __props__.__dict__["enabled"] = enabled
         __props__.__dict__["health_probes_enabled"] = health_probes_enabled
         __props__.__dict__["host_name"] = host_name
         __props__.__dict__["http_port"] = http_port
@@ -559,11 +597,16 @@ class FrontdoorOrigin(pulumi.CustomResource):
         return pulumi.get(self, "certificate_name_check_enabled")
 
     @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Output[bool]:
+        """
+        Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
     @pulumi.getter(name="healthProbesEnabled")
-    def health_probes_enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Should the health probes be enabled against the origins defined within the origin group? Possible values are `true` or `false`. Defaults to `true`.
-        """
+    def health_probes_enabled(self) -> pulumi.Output[bool]:
         return pulumi.get(self, "health_probes_enabled")
 
     @property

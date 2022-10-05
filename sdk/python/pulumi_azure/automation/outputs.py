@@ -30,7 +30,7 @@ __all__ = [
     'SoftwareUpdateConfigurationTargetAzureQuery',
     'SoftwareUpdateConfigurationTargetAzureQueryTag',
     'SoftwareUpdateConfigurationTargetNonAzureQuery',
-    'SoftwareUpdateConfigurationWindow',
+    'SoftwareUpdateConfigurationWindows',
     'SourceControlSecurity',
     'GetAccountIdentityResult',
     'GetAccountPrivateEndpointConnectionResult',
@@ -1042,41 +1042,47 @@ class SoftwareUpdateConfigurationTargetNonAzureQuery(dict):
 
 
 @pulumi.output_type
-class SoftwareUpdateConfigurationWindow(dict):
+class SoftwareUpdateConfigurationWindows(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "classificationIncluded":
             suggest = "classification_included"
+        elif key == "classificationsIncludeds":
+            suggest = "classifications_includeds"
         elif key == "excludedKnowledgeBaseNumbers":
             suggest = "excluded_knowledge_base_numbers"
         elif key == "includedKnowledgeBaseNumbers":
             suggest = "included_knowledge_base_numbers"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SoftwareUpdateConfigurationWindow. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in SoftwareUpdateConfigurationWindows. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        SoftwareUpdateConfigurationWindow.__key_warning(key)
+        SoftwareUpdateConfigurationWindows.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        SoftwareUpdateConfigurationWindow.__key_warning(key)
+        SoftwareUpdateConfigurationWindows.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  classification_included: Optional[str] = None,
+                 classifications_includeds: Optional[Sequence[str]] = None,
                  excluded_knowledge_base_numbers: Optional[Sequence[str]] = None,
                  included_knowledge_base_numbers: Optional[Sequence[str]] = None,
                  reboot: Optional[str] = None):
         """
         :param str classification_included: Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+        :param Sequence[str] classifications_includeds: Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
         :param Sequence[str] excluded_knowledge_base_numbers: Specifies a list of knowledge base numbers excluded.
         :param Sequence[str] included_knowledge_base_numbers: Specifies a list of knowledge base numbers included.
         :param str reboot: Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
         """
         if classification_included is not None:
             pulumi.set(__self__, "classification_included", classification_included)
+        if classifications_includeds is not None:
+            pulumi.set(__self__, "classifications_includeds", classifications_includeds)
         if excluded_knowledge_base_numbers is not None:
             pulumi.set(__self__, "excluded_knowledge_base_numbers", excluded_knowledge_base_numbers)
         if included_knowledge_base_numbers is not None:
@@ -1091,6 +1097,14 @@ class SoftwareUpdateConfigurationWindow(dict):
         Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
         """
         return pulumi.get(self, "classification_included")
+
+    @property
+    @pulumi.getter(name="classificationsIncludeds")
+    def classifications_includeds(self) -> Optional[Sequence[str]]:
+        """
+        Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+        """
+        return pulumi.get(self, "classifications_includeds")
 
     @property
     @pulumi.getter(name="excludedKnowledgeBaseNumbers")
@@ -1185,10 +1199,10 @@ class GetAccountIdentityResult(dict):
                  tenant_id: str,
                  type: str):
         """
-        :param Sequence[str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this API Management Service.
-        :param str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
-        :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
-        :param str type: The type of Managed Service Identity that is configured on this API Management Service.
+        :param Sequence[str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Automation Account.
+        :param str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Automation Account.
+        :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Automation Account.
+        :param str type: The type of Managed Service Identity that is configured on this Automation Account.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "principal_id", principal_id)
@@ -1199,7 +1213,7 @@ class GetAccountIdentityResult(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Sequence[str]:
         """
-        The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+        The list of User Assigned Managed Identity IDs assigned to this Automation Account.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -1207,7 +1221,7 @@ class GetAccountIdentityResult(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+        The Principal ID of the System Assigned Managed Service Identity that is configured on this Automation Account.
         """
         return pulumi.get(self, "principal_id")
 
@@ -1215,7 +1229,7 @@ class GetAccountIdentityResult(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+        The Tenant ID of the System Assigned Managed Service Identity that is configured on this Automation Account.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -1223,7 +1237,7 @@ class GetAccountIdentityResult(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of Managed Service Identity that is configured on this API Management Service.
+        The type of Managed Service Identity that is configured on this Automation Account.
         """
         return pulumi.get(self, "type")
 

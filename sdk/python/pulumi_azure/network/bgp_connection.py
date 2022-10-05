@@ -17,19 +17,23 @@ class BgpConnectionArgs:
                  peer_asn: pulumi.Input[int],
                  peer_ip: pulumi.Input[str],
                  virtual_hub_id: pulumi.Input[str],
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 virtual_network_connection_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BgpConnection resource.
         :param pulumi.Input[int] peer_asn: The peer autonomous system number for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] peer_ip: The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_connection_id: The ID of virtual network connection.
         """
         pulumi.set(__self__, "peer_asn", peer_asn)
         pulumi.set(__self__, "peer_ip", peer_ip)
         pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if virtual_network_connection_id is not None:
+            pulumi.set(__self__, "virtual_network_connection_id", virtual_network_connection_id)
 
     @property
     @pulumi.getter(name="peerAsn")
@@ -79,6 +83,18 @@ class BgpConnectionArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="virtualNetworkConnectionId")
+    def virtual_network_connection_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of virtual network connection.
+        """
+        return pulumi.get(self, "virtual_network_connection_id")
+
+    @virtual_network_connection_id.setter
+    def virtual_network_connection_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_connection_id", value)
+
 
 @pulumi.input_type
 class _BgpConnectionState:
@@ -86,13 +102,15 @@ class _BgpConnectionState:
                  name: Optional[pulumi.Input[str]] = None,
                  peer_asn: Optional[pulumi.Input[int]] = None,
                  peer_ip: Optional[pulumi.Input[str]] = None,
-                 virtual_hub_id: Optional[pulumi.Input[str]] = None):
+                 virtual_hub_id: Optional[pulumi.Input[str]] = None,
+                 virtual_network_connection_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BgpConnection resources.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[int] peer_asn: The peer autonomous system number for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] peer_ip: The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_connection_id: The ID of virtual network connection.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -102,6 +120,8 @@ class _BgpConnectionState:
             pulumi.set(__self__, "peer_ip", peer_ip)
         if virtual_hub_id is not None:
             pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+        if virtual_network_connection_id is not None:
+            pulumi.set(__self__, "virtual_network_connection_id", virtual_network_connection_id)
 
     @property
     @pulumi.getter
@@ -151,6 +171,18 @@ class _BgpConnectionState:
     def virtual_hub_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_hub_id", value)
 
+    @property
+    @pulumi.getter(name="virtualNetworkConnectionId")
+    def virtual_network_connection_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of virtual network connection.
+        """
+        return pulumi.get(self, "virtual_network_connection_id")
+
+    @virtual_network_connection_id.setter
+    def virtual_network_connection_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "virtual_network_connection_id", value)
+
 
 class BgpConnection(pulumi.CustomResource):
     @overload
@@ -161,6 +193,7 @@ class BgpConnection(pulumi.CustomResource):
                  peer_asn: Optional[pulumi.Input[int]] = None,
                  peer_ip: Optional[pulumi.Input[str]] = None,
                  virtual_hub_id: Optional[pulumi.Input[str]] = None,
+                 virtual_network_connection_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Bgp Connection for a Virtual Hub.
@@ -216,6 +249,7 @@ class BgpConnection(pulumi.CustomResource):
         :param pulumi.Input[int] peer_asn: The peer autonomous system number for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] peer_ip: The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_connection_id: The ID of virtual network connection.
         """
         ...
     @overload
@@ -290,6 +324,7 @@ class BgpConnection(pulumi.CustomResource):
                  peer_asn: Optional[pulumi.Input[int]] = None,
                  peer_ip: Optional[pulumi.Input[str]] = None,
                  virtual_hub_id: Optional[pulumi.Input[str]] = None,
+                 virtual_network_connection_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -309,6 +344,7 @@ class BgpConnection(pulumi.CustomResource):
             if virtual_hub_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_hub_id'")
             __props__.__dict__["virtual_hub_id"] = virtual_hub_id
+            __props__.__dict__["virtual_network_connection_id"] = virtual_network_connection_id
         super(BgpConnection, __self__).__init__(
             'azure:network/bgpConnection:BgpConnection',
             resource_name,
@@ -322,7 +358,8 @@ class BgpConnection(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             peer_asn: Optional[pulumi.Input[int]] = None,
             peer_ip: Optional[pulumi.Input[str]] = None,
-            virtual_hub_id: Optional[pulumi.Input[str]] = None) -> 'BgpConnection':
+            virtual_hub_id: Optional[pulumi.Input[str]] = None,
+            virtual_network_connection_id: Optional[pulumi.Input[str]] = None) -> 'BgpConnection':
         """
         Get an existing BgpConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -334,6 +371,7 @@ class BgpConnection(pulumi.CustomResource):
         :param pulumi.Input[int] peer_asn: The peer autonomous system number for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] peer_ip: The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] virtual_network_connection_id: The ID of virtual network connection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -343,6 +381,7 @@ class BgpConnection(pulumi.CustomResource):
         __props__.__dict__["peer_asn"] = peer_asn
         __props__.__dict__["peer_ip"] = peer_ip
         __props__.__dict__["virtual_hub_id"] = virtual_hub_id
+        __props__.__dict__["virtual_network_connection_id"] = virtual_network_connection_id
         return BgpConnection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -376,4 +415,12 @@ class BgpConnection(pulumi.CustomResource):
         The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "virtual_hub_id")
+
+    @property
+    @pulumi.getter(name="virtualNetworkConnectionId")
+    def virtual_network_connection_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of virtual network connection.
+        """
+        return pulumi.get(self, "virtual_network_connection_id")
 

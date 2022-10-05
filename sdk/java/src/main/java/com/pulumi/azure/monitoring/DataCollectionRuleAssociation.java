@@ -119,20 +119,20 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var test = new DataCollectionEndpoint(&#34;test&#34;, DataCollectionEndpointArgs.builder()        
+ *         var exampleDataCollectionEndpoint = new DataCollectionEndpoint(&#34;exampleDataCollectionEndpoint&#34;, DataCollectionEndpointArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .build());
  * 
- *         var example1DataCollectionRuleAssociation = new DataCollectionRuleAssociation(&#34;example1DataCollectionRuleAssociation&#34;, DataCollectionRuleAssociationArgs.builder()        
+ *         var example1 = new DataCollectionRuleAssociation(&#34;example1&#34;, DataCollectionRuleAssociationArgs.builder()        
  *             .targetResourceId(exampleLinuxVirtualMachine.id())
  *             .dataCollectionRuleId(exampleDataCollectionRule.id())
  *             .description(&#34;example&#34;)
  *             .build());
  * 
- *         var example1Monitoring_dataCollectionRuleAssociationDataCollectionRuleAssociation = new DataCollectionRuleAssociation(&#34;example1Monitoring/dataCollectionRuleAssociationDataCollectionRuleAssociation&#34;, DataCollectionRuleAssociationArgs.builder()        
+ *         var example2 = new DataCollectionRuleAssociation(&#34;example2&#34;, DataCollectionRuleAssociationArgs.builder()        
  *             .targetResourceId(exampleLinuxVirtualMachine.id())
- *             .dataCollectionEndpointId(azurerm_monitor_data_collection_endpoint.example().id())
+ *             .dataCollectionEndpointId(exampleDataCollectionEndpoint.id())
  *             .description(&#34;example&#34;)
  *             .build());
  * 

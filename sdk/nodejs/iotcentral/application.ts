@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -68,6 +70,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
+     * An `identity` block as defined below.
+     */
+    public readonly identity!: pulumi.Output<outputs.iotcentral.ApplicationIdentity | undefined>;
+    /**
      * Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -75,6 +81,10 @@ export class Application extends pulumi.CustomResource {
      * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
      */
@@ -110,8 +120,10 @@ export class Application extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
             resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
             resourceInputs["subDomain"] = state ? state.subDomain : undefined;
@@ -126,8 +138,10 @@ export class Application extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subDomain'");
             }
             resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["subDomain"] = args ? args.subDomain : undefined;
@@ -148,6 +162,10 @@ export interface ApplicationState {
      */
     displayName?: pulumi.Input<string>;
     /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.iotcentral.ApplicationIdentity>;
+    /**
      * Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
@@ -155,6 +173,10 @@ export interface ApplicationState {
      * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
      */
@@ -186,6 +208,10 @@ export interface ApplicationArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
+     * An `identity` block as defined below.
+     */
+    identity?: pulumi.Input<inputs.iotcentral.ApplicationIdentity>;
+    /**
      * Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
@@ -193,6 +219,10 @@ export interface ApplicationArgs {
      * Specifies the name of the IotHub resource. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Whether public network access is allowed for the IoT Central Application. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
      */

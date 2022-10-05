@@ -33,7 +33,7 @@ class LoggerArgs:
         :param pulumi.Input[str] description: A description of this Logger.
         :param pulumi.Input['LoggerEventhubArgs'] eventhub: An `eventhub` block as documented below.
         :param pulumi.Input[str] name: The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_id: The target resource id which will be linked in the API-Management portal page.
+        :param pulumi.Input[str] resource_id: The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "api_management_name", api_management_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -138,7 +138,7 @@ class LoggerArgs:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The target resource id which will be linked in the API-Management portal page.
+        The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_id")
 
@@ -167,7 +167,7 @@ class _LoggerState:
         :param pulumi.Input['LoggerEventhubArgs'] eventhub: An `eventhub` block as documented below.
         :param pulumi.Input[str] name: The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_id: The target resource id which will be linked in the API-Management portal page.
+        :param pulumi.Input[str] resource_id: The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
         """
         if api_management_name is not None:
             pulumi.set(__self__, "api_management_name", api_management_name)
@@ -274,7 +274,7 @@ class _LoggerState:
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The target resource id which will be linked in the API-Management portal page.
+        The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_id")
 
@@ -343,7 +343,7 @@ class Logger(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LoggerEventhubArgs']] eventhub: An `eventhub` block as documented below.
         :param pulumi.Input[str] name: The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_id: The target resource id which will be linked in the API-Management portal page.
+        :param pulumi.Input[str] resource_id: The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -464,7 +464,7 @@ class Logger(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['LoggerEventhubArgs']] eventhub: An `eventhub` block as documented below.
         :param pulumi.Input[str] name: The name of this Logger, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] resource_id: The target resource id which will be linked in the API-Management portal page.
+        :param pulumi.Input[str] resource_id: The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -540,7 +540,7 @@ class Logger(pulumi.CustomResource):
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The target resource id which will be linked in the API-Management portal page.
+        The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_id")
 

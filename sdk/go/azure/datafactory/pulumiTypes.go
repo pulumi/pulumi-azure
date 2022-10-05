@@ -177,6 +177,8 @@ type DataFlowSink struct {
 	LinkedService *DataFlowSinkLinkedService `pulumi:"linkedService"`
 	// The name for the Data Flow Source.
 	Name string `pulumi:"name"`
+	// A `rejectedLinkedService` block as defined below.
+	RejectedLinkedService *DataFlowSinkRejectedLinkedService `pulumi:"rejectedLinkedService"`
 	// A `schemaLinkedService` block as defined below.
 	SchemaLinkedService *DataFlowSinkSchemaLinkedService `pulumi:"schemaLinkedService"`
 }
@@ -203,6 +205,8 @@ type DataFlowSinkArgs struct {
 	LinkedService DataFlowSinkLinkedServicePtrInput `pulumi:"linkedService"`
 	// The name for the Data Flow Source.
 	Name pulumi.StringInput `pulumi:"name"`
+	// A `rejectedLinkedService` block as defined below.
+	RejectedLinkedService DataFlowSinkRejectedLinkedServicePtrInput `pulumi:"rejectedLinkedService"`
 	// A `schemaLinkedService` block as defined below.
 	SchemaLinkedService DataFlowSinkSchemaLinkedServicePtrInput `pulumi:"schemaLinkedService"`
 }
@@ -281,6 +285,11 @@ func (o DataFlowSinkOutput) LinkedService() DataFlowSinkLinkedServicePtrOutput {
 // The name for the Data Flow Source.
 func (o DataFlowSinkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataFlowSink) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `rejectedLinkedService` block as defined below.
+func (o DataFlowSinkOutput) RejectedLinkedService() DataFlowSinkRejectedLinkedServicePtrOutput {
+	return o.ApplyT(func(v DataFlowSink) *DataFlowSinkRejectedLinkedService { return v.RejectedLinkedService }).(DataFlowSinkRejectedLinkedServicePtrOutput)
 }
 
 // A `schemaLinkedService` block as defined below.
@@ -791,6 +800,162 @@ func (o DataFlowSinkLinkedServicePtrOutput) Parameters() pulumi.StringMapOutput 
 	}).(pulumi.StringMapOutput)
 }
 
+type DataFlowSinkRejectedLinkedService struct {
+	// The name for the Data Factory Linked Service with schema.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// DataFlowSinkRejectedLinkedServiceInput is an input type that accepts DataFlowSinkRejectedLinkedServiceArgs and DataFlowSinkRejectedLinkedServiceOutput values.
+// You can construct a concrete instance of `DataFlowSinkRejectedLinkedServiceInput` via:
+//
+//	DataFlowSinkRejectedLinkedServiceArgs{...}
+type DataFlowSinkRejectedLinkedServiceInput interface {
+	pulumi.Input
+
+	ToDataFlowSinkRejectedLinkedServiceOutput() DataFlowSinkRejectedLinkedServiceOutput
+	ToDataFlowSinkRejectedLinkedServiceOutputWithContext(context.Context) DataFlowSinkRejectedLinkedServiceOutput
+}
+
+type DataFlowSinkRejectedLinkedServiceArgs struct {
+	// The name for the Data Factory Linked Service with schema.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (DataFlowSinkRejectedLinkedServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSinkRejectedLinkedService)(nil)).Elem()
+}
+
+func (i DataFlowSinkRejectedLinkedServiceArgs) ToDataFlowSinkRejectedLinkedServiceOutput() DataFlowSinkRejectedLinkedServiceOutput {
+	return i.ToDataFlowSinkRejectedLinkedServiceOutputWithContext(context.Background())
+}
+
+func (i DataFlowSinkRejectedLinkedServiceArgs) ToDataFlowSinkRejectedLinkedServiceOutputWithContext(ctx context.Context) DataFlowSinkRejectedLinkedServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSinkRejectedLinkedServiceOutput)
+}
+
+func (i DataFlowSinkRejectedLinkedServiceArgs) ToDataFlowSinkRejectedLinkedServicePtrOutput() DataFlowSinkRejectedLinkedServicePtrOutput {
+	return i.ToDataFlowSinkRejectedLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i DataFlowSinkRejectedLinkedServiceArgs) ToDataFlowSinkRejectedLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSinkRejectedLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSinkRejectedLinkedServiceOutput).ToDataFlowSinkRejectedLinkedServicePtrOutputWithContext(ctx)
+}
+
+// DataFlowSinkRejectedLinkedServicePtrInput is an input type that accepts DataFlowSinkRejectedLinkedServiceArgs, DataFlowSinkRejectedLinkedServicePtr and DataFlowSinkRejectedLinkedServicePtrOutput values.
+// You can construct a concrete instance of `DataFlowSinkRejectedLinkedServicePtrInput` via:
+//
+//	        DataFlowSinkRejectedLinkedServiceArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataFlowSinkRejectedLinkedServicePtrInput interface {
+	pulumi.Input
+
+	ToDataFlowSinkRejectedLinkedServicePtrOutput() DataFlowSinkRejectedLinkedServicePtrOutput
+	ToDataFlowSinkRejectedLinkedServicePtrOutputWithContext(context.Context) DataFlowSinkRejectedLinkedServicePtrOutput
+}
+
+type dataFlowSinkRejectedLinkedServicePtrType DataFlowSinkRejectedLinkedServiceArgs
+
+func DataFlowSinkRejectedLinkedServicePtr(v *DataFlowSinkRejectedLinkedServiceArgs) DataFlowSinkRejectedLinkedServicePtrInput {
+	return (*dataFlowSinkRejectedLinkedServicePtrType)(v)
+}
+
+func (*dataFlowSinkRejectedLinkedServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowSinkRejectedLinkedService)(nil)).Elem()
+}
+
+func (i *dataFlowSinkRejectedLinkedServicePtrType) ToDataFlowSinkRejectedLinkedServicePtrOutput() DataFlowSinkRejectedLinkedServicePtrOutput {
+	return i.ToDataFlowSinkRejectedLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i *dataFlowSinkRejectedLinkedServicePtrType) ToDataFlowSinkRejectedLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSinkRejectedLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSinkRejectedLinkedServicePtrOutput)
+}
+
+type DataFlowSinkRejectedLinkedServiceOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSinkRejectedLinkedServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSinkRejectedLinkedService)(nil)).Elem()
+}
+
+func (o DataFlowSinkRejectedLinkedServiceOutput) ToDataFlowSinkRejectedLinkedServiceOutput() DataFlowSinkRejectedLinkedServiceOutput {
+	return o
+}
+
+func (o DataFlowSinkRejectedLinkedServiceOutput) ToDataFlowSinkRejectedLinkedServiceOutputWithContext(ctx context.Context) DataFlowSinkRejectedLinkedServiceOutput {
+	return o
+}
+
+func (o DataFlowSinkRejectedLinkedServiceOutput) ToDataFlowSinkRejectedLinkedServicePtrOutput() DataFlowSinkRejectedLinkedServicePtrOutput {
+	return o.ToDataFlowSinkRejectedLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (o DataFlowSinkRejectedLinkedServiceOutput) ToDataFlowSinkRejectedLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSinkRejectedLinkedServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataFlowSinkRejectedLinkedService) *DataFlowSinkRejectedLinkedService {
+		return &v
+	}).(DataFlowSinkRejectedLinkedServicePtrOutput)
+}
+
+// The name for the Data Factory Linked Service with schema.
+func (o DataFlowSinkRejectedLinkedServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataFlowSinkRejectedLinkedService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o DataFlowSinkRejectedLinkedServiceOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DataFlowSinkRejectedLinkedService) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type DataFlowSinkRejectedLinkedServicePtrOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSinkRejectedLinkedServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowSinkRejectedLinkedService)(nil)).Elem()
+}
+
+func (o DataFlowSinkRejectedLinkedServicePtrOutput) ToDataFlowSinkRejectedLinkedServicePtrOutput() DataFlowSinkRejectedLinkedServicePtrOutput {
+	return o
+}
+
+func (o DataFlowSinkRejectedLinkedServicePtrOutput) ToDataFlowSinkRejectedLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSinkRejectedLinkedServicePtrOutput {
+	return o
+}
+
+func (o DataFlowSinkRejectedLinkedServicePtrOutput) Elem() DataFlowSinkRejectedLinkedServiceOutput {
+	return o.ApplyT(func(v *DataFlowSinkRejectedLinkedService) DataFlowSinkRejectedLinkedService {
+		if v != nil {
+			return *v
+		}
+		var ret DataFlowSinkRejectedLinkedService
+		return ret
+	}).(DataFlowSinkRejectedLinkedServiceOutput)
+}
+
+// The name for the Data Factory Linked Service with schema.
+func (o DataFlowSinkRejectedLinkedServicePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataFlowSinkRejectedLinkedService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o DataFlowSinkRejectedLinkedServicePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataFlowSinkRejectedLinkedService) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
 type DataFlowSinkSchemaLinkedService struct {
 	// The name for the Data Factory Linked Service with schema.
 	Name string `pulumi:"name"`
@@ -958,6 +1123,8 @@ type DataFlowSource struct {
 	LinkedService *DataFlowSourceLinkedService `pulumi:"linkedService"`
 	// The name for the Data Flow Source.
 	Name string `pulumi:"name"`
+	// A `rejectedLinkedService` block as defined below.
+	RejectedLinkedService *DataFlowSourceRejectedLinkedService `pulumi:"rejectedLinkedService"`
 	// A `schemaLinkedService` block as defined below.
 	SchemaLinkedService *DataFlowSourceSchemaLinkedService `pulumi:"schemaLinkedService"`
 }
@@ -984,6 +1151,8 @@ type DataFlowSourceArgs struct {
 	LinkedService DataFlowSourceLinkedServicePtrInput `pulumi:"linkedService"`
 	// The name for the Data Flow Source.
 	Name pulumi.StringInput `pulumi:"name"`
+	// A `rejectedLinkedService` block as defined below.
+	RejectedLinkedService DataFlowSourceRejectedLinkedServicePtrInput `pulumi:"rejectedLinkedService"`
 	// A `schemaLinkedService` block as defined below.
 	SchemaLinkedService DataFlowSourceSchemaLinkedServicePtrInput `pulumi:"schemaLinkedService"`
 }
@@ -1062,6 +1231,11 @@ func (o DataFlowSourceOutput) LinkedService() DataFlowSourceLinkedServicePtrOutp
 // The name for the Data Flow Source.
 func (o DataFlowSourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataFlowSource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `rejectedLinkedService` block as defined below.
+func (o DataFlowSourceOutput) RejectedLinkedService() DataFlowSourceRejectedLinkedServicePtrOutput {
+	return o.ApplyT(func(v DataFlowSource) *DataFlowSourceRejectedLinkedService { return v.RejectedLinkedService }).(DataFlowSourceRejectedLinkedServicePtrOutput)
 }
 
 // A `schemaLinkedService` block as defined below.
@@ -1565,6 +1739,162 @@ func (o DataFlowSourceLinkedServicePtrOutput) Name() pulumi.StringPtrOutput {
 // A map of parameters to associate with the Data Factory Linked Service.
 func (o DataFlowSourceLinkedServicePtrOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataFlowSourceLinkedService) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type DataFlowSourceRejectedLinkedService struct {
+	// The name for the Data Factory Linked Service with schema.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// DataFlowSourceRejectedLinkedServiceInput is an input type that accepts DataFlowSourceRejectedLinkedServiceArgs and DataFlowSourceRejectedLinkedServiceOutput values.
+// You can construct a concrete instance of `DataFlowSourceRejectedLinkedServiceInput` via:
+//
+//	DataFlowSourceRejectedLinkedServiceArgs{...}
+type DataFlowSourceRejectedLinkedServiceInput interface {
+	pulumi.Input
+
+	ToDataFlowSourceRejectedLinkedServiceOutput() DataFlowSourceRejectedLinkedServiceOutput
+	ToDataFlowSourceRejectedLinkedServiceOutputWithContext(context.Context) DataFlowSourceRejectedLinkedServiceOutput
+}
+
+type DataFlowSourceRejectedLinkedServiceArgs struct {
+	// The name for the Data Factory Linked Service with schema.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (DataFlowSourceRejectedLinkedServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSourceRejectedLinkedService)(nil)).Elem()
+}
+
+func (i DataFlowSourceRejectedLinkedServiceArgs) ToDataFlowSourceRejectedLinkedServiceOutput() DataFlowSourceRejectedLinkedServiceOutput {
+	return i.ToDataFlowSourceRejectedLinkedServiceOutputWithContext(context.Background())
+}
+
+func (i DataFlowSourceRejectedLinkedServiceArgs) ToDataFlowSourceRejectedLinkedServiceOutputWithContext(ctx context.Context) DataFlowSourceRejectedLinkedServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSourceRejectedLinkedServiceOutput)
+}
+
+func (i DataFlowSourceRejectedLinkedServiceArgs) ToDataFlowSourceRejectedLinkedServicePtrOutput() DataFlowSourceRejectedLinkedServicePtrOutput {
+	return i.ToDataFlowSourceRejectedLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i DataFlowSourceRejectedLinkedServiceArgs) ToDataFlowSourceRejectedLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSourceRejectedLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSourceRejectedLinkedServiceOutput).ToDataFlowSourceRejectedLinkedServicePtrOutputWithContext(ctx)
+}
+
+// DataFlowSourceRejectedLinkedServicePtrInput is an input type that accepts DataFlowSourceRejectedLinkedServiceArgs, DataFlowSourceRejectedLinkedServicePtr and DataFlowSourceRejectedLinkedServicePtrOutput values.
+// You can construct a concrete instance of `DataFlowSourceRejectedLinkedServicePtrInput` via:
+//
+//	        DataFlowSourceRejectedLinkedServiceArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataFlowSourceRejectedLinkedServicePtrInput interface {
+	pulumi.Input
+
+	ToDataFlowSourceRejectedLinkedServicePtrOutput() DataFlowSourceRejectedLinkedServicePtrOutput
+	ToDataFlowSourceRejectedLinkedServicePtrOutputWithContext(context.Context) DataFlowSourceRejectedLinkedServicePtrOutput
+}
+
+type dataFlowSourceRejectedLinkedServicePtrType DataFlowSourceRejectedLinkedServiceArgs
+
+func DataFlowSourceRejectedLinkedServicePtr(v *DataFlowSourceRejectedLinkedServiceArgs) DataFlowSourceRejectedLinkedServicePtrInput {
+	return (*dataFlowSourceRejectedLinkedServicePtrType)(v)
+}
+
+func (*dataFlowSourceRejectedLinkedServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowSourceRejectedLinkedService)(nil)).Elem()
+}
+
+func (i *dataFlowSourceRejectedLinkedServicePtrType) ToDataFlowSourceRejectedLinkedServicePtrOutput() DataFlowSourceRejectedLinkedServicePtrOutput {
+	return i.ToDataFlowSourceRejectedLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i *dataFlowSourceRejectedLinkedServicePtrType) ToDataFlowSourceRejectedLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSourceRejectedLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSourceRejectedLinkedServicePtrOutput)
+}
+
+type DataFlowSourceRejectedLinkedServiceOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSourceRejectedLinkedServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSourceRejectedLinkedService)(nil)).Elem()
+}
+
+func (o DataFlowSourceRejectedLinkedServiceOutput) ToDataFlowSourceRejectedLinkedServiceOutput() DataFlowSourceRejectedLinkedServiceOutput {
+	return o
+}
+
+func (o DataFlowSourceRejectedLinkedServiceOutput) ToDataFlowSourceRejectedLinkedServiceOutputWithContext(ctx context.Context) DataFlowSourceRejectedLinkedServiceOutput {
+	return o
+}
+
+func (o DataFlowSourceRejectedLinkedServiceOutput) ToDataFlowSourceRejectedLinkedServicePtrOutput() DataFlowSourceRejectedLinkedServicePtrOutput {
+	return o.ToDataFlowSourceRejectedLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (o DataFlowSourceRejectedLinkedServiceOutput) ToDataFlowSourceRejectedLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSourceRejectedLinkedServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataFlowSourceRejectedLinkedService) *DataFlowSourceRejectedLinkedService {
+		return &v
+	}).(DataFlowSourceRejectedLinkedServicePtrOutput)
+}
+
+// The name for the Data Factory Linked Service with schema.
+func (o DataFlowSourceRejectedLinkedServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataFlowSourceRejectedLinkedService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o DataFlowSourceRejectedLinkedServiceOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DataFlowSourceRejectedLinkedService) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type DataFlowSourceRejectedLinkedServicePtrOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSourceRejectedLinkedServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowSourceRejectedLinkedService)(nil)).Elem()
+}
+
+func (o DataFlowSourceRejectedLinkedServicePtrOutput) ToDataFlowSourceRejectedLinkedServicePtrOutput() DataFlowSourceRejectedLinkedServicePtrOutput {
+	return o
+}
+
+func (o DataFlowSourceRejectedLinkedServicePtrOutput) ToDataFlowSourceRejectedLinkedServicePtrOutputWithContext(ctx context.Context) DataFlowSourceRejectedLinkedServicePtrOutput {
+	return o
+}
+
+func (o DataFlowSourceRejectedLinkedServicePtrOutput) Elem() DataFlowSourceRejectedLinkedServiceOutput {
+	return o.ApplyT(func(v *DataFlowSourceRejectedLinkedService) DataFlowSourceRejectedLinkedService {
+		if v != nil {
+			return *v
+		}
+		var ret DataFlowSourceRejectedLinkedService
+		return ret
+	}).(DataFlowSourceRejectedLinkedServiceOutput)
+}
+
+// The name for the Data Factory Linked Service with schema.
+func (o DataFlowSourceRejectedLinkedServicePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataFlowSourceRejectedLinkedService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o DataFlowSourceRejectedLinkedServicePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataFlowSourceRejectedLinkedService) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -6573,6 +6903,8 @@ type FlowletDataFlowSink struct {
 	LinkedService *FlowletDataFlowSinkLinkedService `pulumi:"linkedService"`
 	// The name for the Data Flow Source.
 	Name string `pulumi:"name"`
+	// A `rejectedLinkedService` block as defined below.
+	RejectedLinkedService *FlowletDataFlowSinkRejectedLinkedService `pulumi:"rejectedLinkedService"`
 	// A `schemaLinkedService` block as defined below.
 	SchemaLinkedService *FlowletDataFlowSinkSchemaLinkedService `pulumi:"schemaLinkedService"`
 }
@@ -6599,6 +6931,8 @@ type FlowletDataFlowSinkArgs struct {
 	LinkedService FlowletDataFlowSinkLinkedServicePtrInput `pulumi:"linkedService"`
 	// The name for the Data Flow Source.
 	Name pulumi.StringInput `pulumi:"name"`
+	// A `rejectedLinkedService` block as defined below.
+	RejectedLinkedService FlowletDataFlowSinkRejectedLinkedServicePtrInput `pulumi:"rejectedLinkedService"`
 	// A `schemaLinkedService` block as defined below.
 	SchemaLinkedService FlowletDataFlowSinkSchemaLinkedServicePtrInput `pulumi:"schemaLinkedService"`
 }
@@ -6677,6 +7011,11 @@ func (o FlowletDataFlowSinkOutput) LinkedService() FlowletDataFlowSinkLinkedServ
 // The name for the Data Flow Source.
 func (o FlowletDataFlowSinkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowletDataFlowSink) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `rejectedLinkedService` block as defined below.
+func (o FlowletDataFlowSinkOutput) RejectedLinkedService() FlowletDataFlowSinkRejectedLinkedServicePtrOutput {
+	return o.ApplyT(func(v FlowletDataFlowSink) *FlowletDataFlowSinkRejectedLinkedService { return v.RejectedLinkedService }).(FlowletDataFlowSinkRejectedLinkedServicePtrOutput)
 }
 
 // A `schemaLinkedService` block as defined below.
@@ -7187,6 +7526,162 @@ func (o FlowletDataFlowSinkLinkedServicePtrOutput) Parameters() pulumi.StringMap
 	}).(pulumi.StringMapOutput)
 }
 
+type FlowletDataFlowSinkRejectedLinkedService struct {
+	// The name for the Data Factory Linked Service with schema.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// FlowletDataFlowSinkRejectedLinkedServiceInput is an input type that accepts FlowletDataFlowSinkRejectedLinkedServiceArgs and FlowletDataFlowSinkRejectedLinkedServiceOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSinkRejectedLinkedServiceInput` via:
+//
+//	FlowletDataFlowSinkRejectedLinkedServiceArgs{...}
+type FlowletDataFlowSinkRejectedLinkedServiceInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSinkRejectedLinkedServiceOutput() FlowletDataFlowSinkRejectedLinkedServiceOutput
+	ToFlowletDataFlowSinkRejectedLinkedServiceOutputWithContext(context.Context) FlowletDataFlowSinkRejectedLinkedServiceOutput
+}
+
+type FlowletDataFlowSinkRejectedLinkedServiceArgs struct {
+	// The name for the Data Factory Linked Service with schema.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (FlowletDataFlowSinkRejectedLinkedServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSinkRejectedLinkedService)(nil)).Elem()
+}
+
+func (i FlowletDataFlowSinkRejectedLinkedServiceArgs) ToFlowletDataFlowSinkRejectedLinkedServiceOutput() FlowletDataFlowSinkRejectedLinkedServiceOutput {
+	return i.ToFlowletDataFlowSinkRejectedLinkedServiceOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSinkRejectedLinkedServiceArgs) ToFlowletDataFlowSinkRejectedLinkedServiceOutputWithContext(ctx context.Context) FlowletDataFlowSinkRejectedLinkedServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSinkRejectedLinkedServiceOutput)
+}
+
+func (i FlowletDataFlowSinkRejectedLinkedServiceArgs) ToFlowletDataFlowSinkRejectedLinkedServicePtrOutput() FlowletDataFlowSinkRejectedLinkedServicePtrOutput {
+	return i.ToFlowletDataFlowSinkRejectedLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSinkRejectedLinkedServiceArgs) ToFlowletDataFlowSinkRejectedLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSinkRejectedLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSinkRejectedLinkedServiceOutput).ToFlowletDataFlowSinkRejectedLinkedServicePtrOutputWithContext(ctx)
+}
+
+// FlowletDataFlowSinkRejectedLinkedServicePtrInput is an input type that accepts FlowletDataFlowSinkRejectedLinkedServiceArgs, FlowletDataFlowSinkRejectedLinkedServicePtr and FlowletDataFlowSinkRejectedLinkedServicePtrOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSinkRejectedLinkedServicePtrInput` via:
+//
+//	        FlowletDataFlowSinkRejectedLinkedServiceArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowletDataFlowSinkRejectedLinkedServicePtrInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSinkRejectedLinkedServicePtrOutput() FlowletDataFlowSinkRejectedLinkedServicePtrOutput
+	ToFlowletDataFlowSinkRejectedLinkedServicePtrOutputWithContext(context.Context) FlowletDataFlowSinkRejectedLinkedServicePtrOutput
+}
+
+type flowletDataFlowSinkRejectedLinkedServicePtrType FlowletDataFlowSinkRejectedLinkedServiceArgs
+
+func FlowletDataFlowSinkRejectedLinkedServicePtr(v *FlowletDataFlowSinkRejectedLinkedServiceArgs) FlowletDataFlowSinkRejectedLinkedServicePtrInput {
+	return (*flowletDataFlowSinkRejectedLinkedServicePtrType)(v)
+}
+
+func (*flowletDataFlowSinkRejectedLinkedServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowSinkRejectedLinkedService)(nil)).Elem()
+}
+
+func (i *flowletDataFlowSinkRejectedLinkedServicePtrType) ToFlowletDataFlowSinkRejectedLinkedServicePtrOutput() FlowletDataFlowSinkRejectedLinkedServicePtrOutput {
+	return i.ToFlowletDataFlowSinkRejectedLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i *flowletDataFlowSinkRejectedLinkedServicePtrType) ToFlowletDataFlowSinkRejectedLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSinkRejectedLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSinkRejectedLinkedServicePtrOutput)
+}
+
+type FlowletDataFlowSinkRejectedLinkedServiceOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSinkRejectedLinkedServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSinkRejectedLinkedService)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSinkRejectedLinkedServiceOutput) ToFlowletDataFlowSinkRejectedLinkedServiceOutput() FlowletDataFlowSinkRejectedLinkedServiceOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkRejectedLinkedServiceOutput) ToFlowletDataFlowSinkRejectedLinkedServiceOutputWithContext(ctx context.Context) FlowletDataFlowSinkRejectedLinkedServiceOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkRejectedLinkedServiceOutput) ToFlowletDataFlowSinkRejectedLinkedServicePtrOutput() FlowletDataFlowSinkRejectedLinkedServicePtrOutput {
+	return o.ToFlowletDataFlowSinkRejectedLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (o FlowletDataFlowSinkRejectedLinkedServiceOutput) ToFlowletDataFlowSinkRejectedLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSinkRejectedLinkedServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowletDataFlowSinkRejectedLinkedService) *FlowletDataFlowSinkRejectedLinkedService {
+		return &v
+	}).(FlowletDataFlowSinkRejectedLinkedServicePtrOutput)
+}
+
+// The name for the Data Factory Linked Service with schema.
+func (o FlowletDataFlowSinkRejectedLinkedServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowletDataFlowSinkRejectedLinkedService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o FlowletDataFlowSinkRejectedLinkedServiceOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FlowletDataFlowSinkRejectedLinkedService) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowSinkRejectedLinkedServicePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSinkRejectedLinkedServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowSinkRejectedLinkedService)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSinkRejectedLinkedServicePtrOutput) ToFlowletDataFlowSinkRejectedLinkedServicePtrOutput() FlowletDataFlowSinkRejectedLinkedServicePtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkRejectedLinkedServicePtrOutput) ToFlowletDataFlowSinkRejectedLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSinkRejectedLinkedServicePtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkRejectedLinkedServicePtrOutput) Elem() FlowletDataFlowSinkRejectedLinkedServiceOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSinkRejectedLinkedService) FlowletDataFlowSinkRejectedLinkedService {
+		if v != nil {
+			return *v
+		}
+		var ret FlowletDataFlowSinkRejectedLinkedService
+		return ret
+	}).(FlowletDataFlowSinkRejectedLinkedServiceOutput)
+}
+
+// The name for the Data Factory Linked Service with schema.
+func (o FlowletDataFlowSinkRejectedLinkedServicePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSinkRejectedLinkedService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o FlowletDataFlowSinkRejectedLinkedServicePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSinkRejectedLinkedService) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
 type FlowletDataFlowSinkSchemaLinkedService struct {
 	// The name for the Data Factory Linked Service with schema.
 	Name string `pulumi:"name"`
@@ -7354,6 +7849,8 @@ type FlowletDataFlowSource struct {
 	LinkedService *FlowletDataFlowSourceLinkedService `pulumi:"linkedService"`
 	// The name for the Data Flow Source.
 	Name string `pulumi:"name"`
+	// A `rejectedLinkedService` block as defined below.
+	RejectedLinkedService *FlowletDataFlowSourceRejectedLinkedService `pulumi:"rejectedLinkedService"`
 	// A `schemaLinkedService` block as defined below.
 	SchemaLinkedService *FlowletDataFlowSourceSchemaLinkedService `pulumi:"schemaLinkedService"`
 }
@@ -7380,6 +7877,8 @@ type FlowletDataFlowSourceArgs struct {
 	LinkedService FlowletDataFlowSourceLinkedServicePtrInput `pulumi:"linkedService"`
 	// The name for the Data Flow Source.
 	Name pulumi.StringInput `pulumi:"name"`
+	// A `rejectedLinkedService` block as defined below.
+	RejectedLinkedService FlowletDataFlowSourceRejectedLinkedServicePtrInput `pulumi:"rejectedLinkedService"`
 	// A `schemaLinkedService` block as defined below.
 	SchemaLinkedService FlowletDataFlowSourceSchemaLinkedServicePtrInput `pulumi:"schemaLinkedService"`
 }
@@ -7458,6 +7957,13 @@ func (o FlowletDataFlowSourceOutput) LinkedService() FlowletDataFlowSourceLinked
 // The name for the Data Flow Source.
 func (o FlowletDataFlowSourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowletDataFlowSource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `rejectedLinkedService` block as defined below.
+func (o FlowletDataFlowSourceOutput) RejectedLinkedService() FlowletDataFlowSourceRejectedLinkedServicePtrOutput {
+	return o.ApplyT(func(v FlowletDataFlowSource) *FlowletDataFlowSourceRejectedLinkedService {
+		return v.RejectedLinkedService
+	}).(FlowletDataFlowSourceRejectedLinkedServicePtrOutput)
 }
 
 // A `schemaLinkedService` block as defined below.
@@ -7961,6 +8467,162 @@ func (o FlowletDataFlowSourceLinkedServicePtrOutput) Name() pulumi.StringPtrOutp
 // A map of parameters to associate with the Data Factory Linked Service.
 func (o FlowletDataFlowSourceLinkedServicePtrOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlowletDataFlowSourceLinkedService) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowSourceRejectedLinkedService struct {
+	// The name for the Data Factory Linked Service with schema.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// FlowletDataFlowSourceRejectedLinkedServiceInput is an input type that accepts FlowletDataFlowSourceRejectedLinkedServiceArgs and FlowletDataFlowSourceRejectedLinkedServiceOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSourceRejectedLinkedServiceInput` via:
+//
+//	FlowletDataFlowSourceRejectedLinkedServiceArgs{...}
+type FlowletDataFlowSourceRejectedLinkedServiceInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSourceRejectedLinkedServiceOutput() FlowletDataFlowSourceRejectedLinkedServiceOutput
+	ToFlowletDataFlowSourceRejectedLinkedServiceOutputWithContext(context.Context) FlowletDataFlowSourceRejectedLinkedServiceOutput
+}
+
+type FlowletDataFlowSourceRejectedLinkedServiceArgs struct {
+	// The name for the Data Factory Linked Service with schema.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (FlowletDataFlowSourceRejectedLinkedServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSourceRejectedLinkedService)(nil)).Elem()
+}
+
+func (i FlowletDataFlowSourceRejectedLinkedServiceArgs) ToFlowletDataFlowSourceRejectedLinkedServiceOutput() FlowletDataFlowSourceRejectedLinkedServiceOutput {
+	return i.ToFlowletDataFlowSourceRejectedLinkedServiceOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSourceRejectedLinkedServiceArgs) ToFlowletDataFlowSourceRejectedLinkedServiceOutputWithContext(ctx context.Context) FlowletDataFlowSourceRejectedLinkedServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSourceRejectedLinkedServiceOutput)
+}
+
+func (i FlowletDataFlowSourceRejectedLinkedServiceArgs) ToFlowletDataFlowSourceRejectedLinkedServicePtrOutput() FlowletDataFlowSourceRejectedLinkedServicePtrOutput {
+	return i.ToFlowletDataFlowSourceRejectedLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSourceRejectedLinkedServiceArgs) ToFlowletDataFlowSourceRejectedLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSourceRejectedLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSourceRejectedLinkedServiceOutput).ToFlowletDataFlowSourceRejectedLinkedServicePtrOutputWithContext(ctx)
+}
+
+// FlowletDataFlowSourceRejectedLinkedServicePtrInput is an input type that accepts FlowletDataFlowSourceRejectedLinkedServiceArgs, FlowletDataFlowSourceRejectedLinkedServicePtr and FlowletDataFlowSourceRejectedLinkedServicePtrOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSourceRejectedLinkedServicePtrInput` via:
+//
+//	        FlowletDataFlowSourceRejectedLinkedServiceArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowletDataFlowSourceRejectedLinkedServicePtrInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSourceRejectedLinkedServicePtrOutput() FlowletDataFlowSourceRejectedLinkedServicePtrOutput
+	ToFlowletDataFlowSourceRejectedLinkedServicePtrOutputWithContext(context.Context) FlowletDataFlowSourceRejectedLinkedServicePtrOutput
+}
+
+type flowletDataFlowSourceRejectedLinkedServicePtrType FlowletDataFlowSourceRejectedLinkedServiceArgs
+
+func FlowletDataFlowSourceRejectedLinkedServicePtr(v *FlowletDataFlowSourceRejectedLinkedServiceArgs) FlowletDataFlowSourceRejectedLinkedServicePtrInput {
+	return (*flowletDataFlowSourceRejectedLinkedServicePtrType)(v)
+}
+
+func (*flowletDataFlowSourceRejectedLinkedServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowSourceRejectedLinkedService)(nil)).Elem()
+}
+
+func (i *flowletDataFlowSourceRejectedLinkedServicePtrType) ToFlowletDataFlowSourceRejectedLinkedServicePtrOutput() FlowletDataFlowSourceRejectedLinkedServicePtrOutput {
+	return i.ToFlowletDataFlowSourceRejectedLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i *flowletDataFlowSourceRejectedLinkedServicePtrType) ToFlowletDataFlowSourceRejectedLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSourceRejectedLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSourceRejectedLinkedServicePtrOutput)
+}
+
+type FlowletDataFlowSourceRejectedLinkedServiceOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSourceRejectedLinkedServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSourceRejectedLinkedService)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSourceRejectedLinkedServiceOutput) ToFlowletDataFlowSourceRejectedLinkedServiceOutput() FlowletDataFlowSourceRejectedLinkedServiceOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceRejectedLinkedServiceOutput) ToFlowletDataFlowSourceRejectedLinkedServiceOutputWithContext(ctx context.Context) FlowletDataFlowSourceRejectedLinkedServiceOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceRejectedLinkedServiceOutput) ToFlowletDataFlowSourceRejectedLinkedServicePtrOutput() FlowletDataFlowSourceRejectedLinkedServicePtrOutput {
+	return o.ToFlowletDataFlowSourceRejectedLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (o FlowletDataFlowSourceRejectedLinkedServiceOutput) ToFlowletDataFlowSourceRejectedLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSourceRejectedLinkedServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowletDataFlowSourceRejectedLinkedService) *FlowletDataFlowSourceRejectedLinkedService {
+		return &v
+	}).(FlowletDataFlowSourceRejectedLinkedServicePtrOutput)
+}
+
+// The name for the Data Factory Linked Service with schema.
+func (o FlowletDataFlowSourceRejectedLinkedServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowletDataFlowSourceRejectedLinkedService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o FlowletDataFlowSourceRejectedLinkedServiceOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FlowletDataFlowSourceRejectedLinkedService) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowSourceRejectedLinkedServicePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSourceRejectedLinkedServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowSourceRejectedLinkedService)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSourceRejectedLinkedServicePtrOutput) ToFlowletDataFlowSourceRejectedLinkedServicePtrOutput() FlowletDataFlowSourceRejectedLinkedServicePtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceRejectedLinkedServicePtrOutput) ToFlowletDataFlowSourceRejectedLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSourceRejectedLinkedServicePtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceRejectedLinkedServicePtrOutput) Elem() FlowletDataFlowSourceRejectedLinkedServiceOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSourceRejectedLinkedService) FlowletDataFlowSourceRejectedLinkedService {
+		if v != nil {
+			return *v
+		}
+		var ret FlowletDataFlowSourceRejectedLinkedService
+		return ret
+	}).(FlowletDataFlowSourceRejectedLinkedServiceOutput)
+}
+
+// The name for the Data Factory Linked Service with schema.
+func (o FlowletDataFlowSourceRejectedLinkedServicePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSourceRejectedLinkedService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o FlowletDataFlowSourceRejectedLinkedServicePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSourceRejectedLinkedService) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -15331,6 +15993,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSinkFlowletPtrInput)(nil)).Elem(), DataFlowSinkFlowletArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSinkLinkedServiceInput)(nil)).Elem(), DataFlowSinkLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSinkLinkedServicePtrInput)(nil)).Elem(), DataFlowSinkLinkedServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSinkRejectedLinkedServiceInput)(nil)).Elem(), DataFlowSinkRejectedLinkedServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSinkRejectedLinkedServicePtrInput)(nil)).Elem(), DataFlowSinkRejectedLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSinkSchemaLinkedServiceInput)(nil)).Elem(), DataFlowSinkSchemaLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSinkSchemaLinkedServicePtrInput)(nil)).Elem(), DataFlowSinkSchemaLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSourceInput)(nil)).Elem(), DataFlowSourceArgs{})
@@ -15341,6 +16005,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSourceFlowletPtrInput)(nil)).Elem(), DataFlowSourceFlowletArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSourceLinkedServiceInput)(nil)).Elem(), DataFlowSourceLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSourceLinkedServicePtrInput)(nil)).Elem(), DataFlowSourceLinkedServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSourceRejectedLinkedServiceInput)(nil)).Elem(), DataFlowSourceRejectedLinkedServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSourceRejectedLinkedServicePtrInput)(nil)).Elem(), DataFlowSourceRejectedLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSourceSchemaLinkedServiceInput)(nil)).Elem(), DataFlowSourceSchemaLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSourceSchemaLinkedServicePtrInput)(nil)).Elem(), DataFlowSourceSchemaLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowTransformationInput)(nil)).Elem(), DataFlowTransformationArgs{})
@@ -15409,6 +16075,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSinkFlowletPtrInput)(nil)).Elem(), FlowletDataFlowSinkFlowletArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSinkLinkedServiceInput)(nil)).Elem(), FlowletDataFlowSinkLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSinkLinkedServicePtrInput)(nil)).Elem(), FlowletDataFlowSinkLinkedServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSinkRejectedLinkedServiceInput)(nil)).Elem(), FlowletDataFlowSinkRejectedLinkedServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSinkRejectedLinkedServicePtrInput)(nil)).Elem(), FlowletDataFlowSinkRejectedLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSinkSchemaLinkedServiceInput)(nil)).Elem(), FlowletDataFlowSinkSchemaLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSinkSchemaLinkedServicePtrInput)(nil)).Elem(), FlowletDataFlowSinkSchemaLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSourceInput)(nil)).Elem(), FlowletDataFlowSourceArgs{})
@@ -15419,6 +16087,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSourceFlowletPtrInput)(nil)).Elem(), FlowletDataFlowSourceFlowletArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSourceLinkedServiceInput)(nil)).Elem(), FlowletDataFlowSourceLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSourceLinkedServicePtrInput)(nil)).Elem(), FlowletDataFlowSourceLinkedServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSourceRejectedLinkedServiceInput)(nil)).Elem(), FlowletDataFlowSourceRejectedLinkedServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSourceRejectedLinkedServicePtrInput)(nil)).Elem(), FlowletDataFlowSourceRejectedLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSourceSchemaLinkedServiceInput)(nil)).Elem(), FlowletDataFlowSourceSchemaLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSourceSchemaLinkedServicePtrInput)(nil)).Elem(), FlowletDataFlowSourceSchemaLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowTransformationInput)(nil)).Elem(), FlowletDataFlowTransformationArgs{})
@@ -15523,6 +16193,8 @@ func init() {
 	pulumi.RegisterOutputType(DataFlowSinkFlowletPtrOutput{})
 	pulumi.RegisterOutputType(DataFlowSinkLinkedServiceOutput{})
 	pulumi.RegisterOutputType(DataFlowSinkLinkedServicePtrOutput{})
+	pulumi.RegisterOutputType(DataFlowSinkRejectedLinkedServiceOutput{})
+	pulumi.RegisterOutputType(DataFlowSinkRejectedLinkedServicePtrOutput{})
 	pulumi.RegisterOutputType(DataFlowSinkSchemaLinkedServiceOutput{})
 	pulumi.RegisterOutputType(DataFlowSinkSchemaLinkedServicePtrOutput{})
 	pulumi.RegisterOutputType(DataFlowSourceOutput{})
@@ -15533,6 +16205,8 @@ func init() {
 	pulumi.RegisterOutputType(DataFlowSourceFlowletPtrOutput{})
 	pulumi.RegisterOutputType(DataFlowSourceLinkedServiceOutput{})
 	pulumi.RegisterOutputType(DataFlowSourceLinkedServicePtrOutput{})
+	pulumi.RegisterOutputType(DataFlowSourceRejectedLinkedServiceOutput{})
+	pulumi.RegisterOutputType(DataFlowSourceRejectedLinkedServicePtrOutput{})
 	pulumi.RegisterOutputType(DataFlowSourceSchemaLinkedServiceOutput{})
 	pulumi.RegisterOutputType(DataFlowSourceSchemaLinkedServicePtrOutput{})
 	pulumi.RegisterOutputType(DataFlowTransformationOutput{})
@@ -15601,6 +16275,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowletDataFlowSinkFlowletPtrOutput{})
 	pulumi.RegisterOutputType(FlowletDataFlowSinkLinkedServiceOutput{})
 	pulumi.RegisterOutputType(FlowletDataFlowSinkLinkedServicePtrOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSinkRejectedLinkedServiceOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSinkRejectedLinkedServicePtrOutput{})
 	pulumi.RegisterOutputType(FlowletDataFlowSinkSchemaLinkedServiceOutput{})
 	pulumi.RegisterOutputType(FlowletDataFlowSinkSchemaLinkedServicePtrOutput{})
 	pulumi.RegisterOutputType(FlowletDataFlowSourceOutput{})
@@ -15611,6 +16287,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowletDataFlowSourceFlowletPtrOutput{})
 	pulumi.RegisterOutputType(FlowletDataFlowSourceLinkedServiceOutput{})
 	pulumi.RegisterOutputType(FlowletDataFlowSourceLinkedServicePtrOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSourceRejectedLinkedServiceOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSourceRejectedLinkedServicePtrOutput{})
 	pulumi.RegisterOutputType(FlowletDataFlowSourceSchemaLinkedServiceOutput{})
 	pulumi.RegisterOutputType(FlowletDataFlowSourceSchemaLinkedServicePtrOutput{})
 	pulumi.RegisterOutputType(FlowletDataFlowTransformationOutput{})

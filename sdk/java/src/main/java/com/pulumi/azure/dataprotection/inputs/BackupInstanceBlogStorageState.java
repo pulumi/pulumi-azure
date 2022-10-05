@@ -30,9 +30,17 @@ public final class BackupInstanceBlogStorageState extends com.pulumi.resources.R
         return Optional.ofNullable(this.backupPolicyId);
     }
 
+    /**
+     * The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
+     * 
+     */
     @Import(name="location")
     private @Nullable Output<String> location;
 
+    /**
+     * @return The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
+     * 
+     */
     public Optional<Output<String>> location() {
         return Optional.ofNullable(this.location);
     }
@@ -131,11 +139,23 @@ public final class BackupInstanceBlogStorageState extends com.pulumi.resources.R
             return backupPolicyId(Output.of(backupPolicyId));
         }
 
+        /**
+         * @param location The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder location(@Nullable Output<String> location) {
             $.location = location;
             return this;
         }
 
+        /**
+         * @param location The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
+         * 
+         * @return builder
+         * 
+         */
         public Builder location(String location) {
             return location(Output.of(location));
         }

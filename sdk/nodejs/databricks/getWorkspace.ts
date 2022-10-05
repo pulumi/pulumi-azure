@@ -59,6 +59,10 @@ export interface GetWorkspaceResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The Azure location where the Databricks Workspace exists.
+     */
+    readonly location: string;
     readonly name: string;
     readonly resourceGroupName: string;
     /**

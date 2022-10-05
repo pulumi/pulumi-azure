@@ -935,6 +935,8 @@ export namespace apimanagement {
          * The password associated with the certificate provided above.
          */
         certificatePassword?: string;
+        certificateSource: string;
+        certificateStatus: string;
         expiry: string;
         /**
          * The Hostname to use for the corresponding endpoint.
@@ -962,6 +964,8 @@ export namespace apimanagement {
          * The password associated with the certificate provided above.
          */
         certificatePassword?: string;
+        certificateSource: string;
+        certificateStatus: string;
         /**
          * Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to false.
          */
@@ -993,6 +997,8 @@ export namespace apimanagement {
          * The password associated with the certificate provided above.
          */
         certificatePassword?: string;
+        certificateSource: string;
+        certificateStatus: string;
         expiry: string;
         /**
          * The Hostname to use for the corresponding endpoint.
@@ -1020,6 +1026,8 @@ export namespace apimanagement {
          * The password associated with the certificate provided above.
          */
         certificatePassword?: string;
+        certificateSource: string;
+        certificateStatus: string;
         expiry: string;
         /**
          * The Hostname to use for the corresponding endpoint.
@@ -1047,6 +1055,8 @@ export namespace apimanagement {
          * The password associated with the certificate provided above.
          */
         certificatePassword?: string;
+        certificateSource: string;
+        certificateStatus: string;
         expiry: string;
         /**
          * The Hostname to use for the corresponding endpoint.
@@ -1406,6 +1416,10 @@ export namespace apimanagement {
          */
         capacity: number;
         /**
+         * Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+         */
+        gatewayDisabled?: boolean;
+        /**
          * The URL of the Regional Gateway for the API Management Service in the specified region.
          */
         gatewayRegionalUrl: string;
@@ -1502,6 +1516,14 @@ export namespace apimanagement {
          */
         certificatePassword?: string;
         /**
+         * The source of the certificate.
+         */
+        certificateSource: string;
+        /**
+         * The status of the certificate.
+         */
+        certificateStatus: string;
+        /**
          * The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
          */
         expiry: string;
@@ -1540,6 +1562,14 @@ export namespace apimanagement {
          * The password associated with the certificate provided above.
          */
         certificatePassword?: string;
+        /**
+         * The source of the certificate.
+         */
+        certificateSource: string;
+        /**
+         * The status of the certificate.
+         */
+        certificateStatus: string;
         /**
          * The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
          */
@@ -1580,6 +1610,14 @@ export namespace apimanagement {
          */
         certificatePassword?: string;
         /**
+         * The source of the certificate.
+         */
+        certificateSource: string;
+        /**
+         * The status of the certificate.
+         */
+        certificateStatus: string;
+        /**
          * The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
          */
         expiry: string;
@@ -1618,6 +1656,14 @@ export namespace apimanagement {
          * The password associated with the certificate provided above.
          */
         certificatePassword?: string;
+        /**
+         * The source of the certificate.
+         */
+        certificateSource: string;
+        /**
+         * The status of the certificate.
+         */
+        certificateStatus: string;
         /**
          * Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
          */
@@ -1661,6 +1707,14 @@ export namespace apimanagement {
          * The password for the certificate.
          */
         certificatePassword?: string;
+        /**
+         * The source of the certificate.
+         */
+        certificateSource: string;
+        /**
+         * The status of the certificate.
+         */
+        certificateStatus: string;
         /**
          * The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
          */
@@ -13426,19 +13480,19 @@ export namespace automation {
 
     export interface GetAccountIdentity {
         /**
-         * The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+         * The list of User Assigned Managed Identity IDs assigned to this Automation Account.
          */
         identityIds: string[];
         /**
-         * The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Automation Account.
          */
         principalId: string;
         /**
-         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Automation Account.
          */
         tenantId: string;
         /**
-         * The type of Managed Service Identity that is configured on this API Management Service.
+         * The type of Managed Service Identity that is configured on this Automation Account.
          */
         type: string;
     }
@@ -13649,11 +13703,17 @@ export namespace automation {
         workspaceId?: string;
     }
 
-    export interface SoftwareUpdateConfigurationWindow {
+    export interface SoftwareUpdateConfigurationWindows {
         /**
          * Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+         *
+         * @deprecated windows classification can be set as a list, use `classifications_included` instead.
          */
-        classificationIncluded?: string;
+        classificationIncluded: string;
+        /**
+         * Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+         */
+        classificationsIncludeds: string[];
         /**
          * Specifies a list of knowledge base numbers excluded.
          */
@@ -15748,6 +15808,21 @@ export namespace cdn {
         name: string;
     }
 
+    export interface FrontdoorCustomEndpointTls {
+        /**
+         * Resource ID of the Frontdoor Secrect.
+         */
+        cdnFrontdoorSecretId: string;
+        /**
+         * Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+         */
+        certificateType?: string;
+        /**
+         * TLS protocol version that will be used for Https. Possible values include `TLS10` and `TLS12`. Defaults to `TLS12`.
+         */
+        minimumTlsVersion?: string;
+    }
+
     export interface FrontdoorFirewallPolicyCustomRule {
         /**
          * The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
@@ -15965,6 +16040,25 @@ export namespace cdn {
         targetType?: string;
     }
 
+    export interface FrontdoorRouteCache {
+        /**
+         * Is content compression enabled? Possible values are `true` or `false`. Defaults to `false`.
+         */
+        compressionEnabled?: boolean;
+        /**
+         * A list of one or more `Content types` (formerly known as `MIME types`) to compress. Possible values include `application/eot`, `application/font`, `application/font-sfnt`, `application/javascript`, `application/json`, `application/opentype`, `application/otf`, `application/pkcs7-mime`, `application/truetype`, `application/ttf`, `application/vnd.ms-fontobject`, `application/xhtml+xml`, `application/xml`, `application/xml+rss`, `application/x-font-opentype`, `application/x-font-truetype`, `application/x-font-ttf`, `application/x-httpd-cgi`, `application/x-mpegurl`, `application/x-opentype`, `application/x-otf`, `application/x-perl`, `application/x-ttf`, `application/x-javascript`, `font/eot`, `font/ttf`, `font/otf`, `font/opentype`, `image/svg+xml`, `text/css`, `text/csv`, `text/html`, `text/javascript`, `text/js`, `text/plain`, `text/richtext`, `text/tab-separated-values`, `text/xml`, `text/x-script`, `text/x-component` or `text/x-java-source`.
+         */
+        contentTypesToCompresses?: string[];
+        /**
+         * Defines how the Frontdoor will cache requests that include query strings. Possible values include `IgnoreQueryString`, `IgnoreSpecifiedQueryStrings`, `IncludeSpecifiedQueryStrings` or `UseQueryString`. Defaults it `IgnoreQueryString`.
+         */
+        queryStringCachingBehavior?: string;
+        /**
+         * Query strings to include or ignore.
+         */
+        queryStrings?: string[];
+    }
+
     export interface FrontdoorRuleActions {
         /**
          * A `requestHeaderAction` block as defined below.
@@ -16051,19 +16145,19 @@ export namespace cdn {
 
     export interface FrontdoorRuleActionsUrlRedirectAction {
         /**
-         * The fragment to use in the redirect. Leave blank to preserve the incoming fragment.
+         * The fragment to use in the redirect. The value must be a string between `0` and `1024` characters in length, leave blank to preserve the incoming fragment. Defaults to an empty string.
          */
         destinationFragment?: string;
         /**
-         * The host name you want the request to be redirected to. Leave blank to preserve the incoming host.
+         * The host name you want the request to be redirected to. The value must be a string between `0` and `2048` characters in length, leave blank to preserve the incoming host. Defaults to an empty string.
          */
         destinationHostname: string;
         /**
-         * The path to use in the redirect. Include the leading `/`. Leave blank to preserve the incoming path.
+         * The path to use in the redirect. The value must be a string and include the leading `/`, leave blank to preserve the incoming path. Defaults to an empty string.
          */
         destinationPath?: string;
         /**
-         * The query string used in the redirect URL. Don't include the leading `?`. Leave blank to preserve the incoming query string.
+         * The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={`actionServerVariable`} format and must not include the leading `?`, leave blank to preserve the incoming query string. Defaults to an empty string.
          */
         queryString?: string;
         /**
@@ -16202,6 +16296,9 @@ export namespace cdn {
          * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
          */
         operator: string;
+        /**
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         */
         transforms?: string[];
     }
 
@@ -16218,6 +16315,9 @@ export namespace cdn {
          * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
          */
         operator: string;
+        /**
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         */
         transforms?: string[];
     }
 
@@ -16268,6 +16368,9 @@ export namespace cdn {
          * A string value representing the name of the `POST` argument.
          */
         postArgsName: string;
+        /**
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         */
         transforms?: string[];
     }
 
@@ -16284,6 +16387,9 @@ export namespace cdn {
          * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
          */
         operator: string;
+        /**
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         */
         transforms?: string[];
     }
 
@@ -16315,6 +16421,9 @@ export namespace cdn {
          * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
          */
         operator: string;
+        /**
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         */
         transforms?: string[];
     }
 
@@ -16335,6 +16444,9 @@ export namespace cdn {
          * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
          */
         operator: string;
+        /**
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         */
         transforms?: string[];
     }
 
@@ -16381,6 +16493,9 @@ export namespace cdn {
          * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
          */
         operator: string;
+        /**
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         */
         transforms?: string[];
     }
 
@@ -16442,6 +16557,9 @@ export namespace cdn {
          * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
          */
         operator: string;
+        /**
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         */
         transforms?: string[];
     }
 
@@ -16458,6 +16576,9 @@ export namespace cdn {
          * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
          */
         operator: string;
+        /**
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         */
         transforms?: string[];
     }
 
@@ -16474,6 +16595,9 @@ export namespace cdn {
          * A Conditional operator. Possible values include `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual` or `RegEx`. Details can be found in the `Condition Operator List` below.
          */
         operator: string;
+        /**
+         * A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+         */
         transforms?: string[];
     }
 
@@ -16572,6 +16696,17 @@ export namespace cdn {
 }
 
 export namespace cognitive {
+    export interface AccountCustomerManagedKey {
+        /**
+         * The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
+         */
+        identityClientId?: string;
+        /**
+         * The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
+         */
+        keyVaultKeyId: string;
+    }
+
     export interface AccountIdentity {
         /**
          * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
@@ -17243,6 +17378,25 @@ export namespace compute {
          * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
          */
         storageAccountUri?: string;
+    }
+
+    export interface LinuxVirtualMachineGalleryApplication {
+        /**
+         * Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
+         */
+        configurationBlobUri?: string;
+        /**
+         * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+         */
+        order?: number;
+        /**
+         * Specifies a passthrough value for more generic context. This field can be any valid `string` value.
+         */
+        tag?: string;
+        /**
+         * Specifies the Gallery Application Version resource ID.
+         */
+        versionId: string;
     }
 
     export interface LinuxVirtualMachineIdentity {
@@ -17936,7 +18090,7 @@ export namespace compute {
         publicIpAddresses?: outputs.compute.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress[];
         subnetId?: string;
         /**
-         * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
          */
         version?: string;
     }
@@ -17951,11 +18105,11 @@ export namespace compute {
         name: string;
         publicIpPrefixId?: string;
         /**
-         * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+         * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
          */
         skuName?: string;
         /**
-         * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
          */
         version?: string;
     }
@@ -18090,7 +18244,7 @@ export namespace compute {
         publisher: string;
         sku: string;
         /**
-         * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
+         * The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
          */
         version: string;
     }
@@ -18832,6 +18986,25 @@ export namespace compute {
          * The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
          */
         storageAccountUri?: string;
+    }
+
+    export interface WindowsVirtualMachineGalleryApplication {
+        /**
+         * Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
+         */
+        configurationBlobUri?: string;
+        /**
+         * Specifies the order in which the packages have to be installed. Possible values are between `0` and `2,147,483,647`.
+         */
+        order?: number;
+        /**
+         * Specifies a passthrough value for more generic context. This field can be any valid `string` value.
+         */
+        tag?: string;
+        /**
+         * Specifies the Gallery Application Version resource ID.
+         */
+        versionId: string;
     }
 
     export interface WindowsVirtualMachineIdentity {
@@ -23539,6 +23712,10 @@ export namespace datafactory {
          */
         name: string;
         /**
+         * A `rejectedLinkedService` block as defined below.
+         */
+        rejectedLinkedService?: outputs.datafactory.DataFlowSinkRejectedLinkedService;
+        /**
          * A `schemaLinkedService` block as defined below.
          */
         schemaLinkedService?: outputs.datafactory.DataFlowSinkSchemaLinkedService;
@@ -23570,6 +23747,17 @@ export namespace datafactory {
     export interface DataFlowSinkLinkedService {
         /**
          * The name for the Data Factory Linked Service.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface DataFlowSinkRejectedLinkedService {
+        /**
+         * The name for the Data Factory Linked Service with schema.
          */
         name: string;
         /**
@@ -23611,6 +23799,10 @@ export namespace datafactory {
          */
         name: string;
         /**
+         * A `rejectedLinkedService` block as defined below.
+         */
+        rejectedLinkedService?: outputs.datafactory.DataFlowSourceRejectedLinkedService;
+        /**
          * A `schemaLinkedService` block as defined below.
          */
         schemaLinkedService?: outputs.datafactory.DataFlowSourceSchemaLinkedService;
@@ -23642,6 +23834,17 @@ export namespace datafactory {
     export interface DataFlowSourceLinkedService {
         /**
          * The name for the Data Factory Linked Service.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface DataFlowSourceRejectedLinkedService {
+        /**
+         * The name for the Data Factory Linked Service with schema.
          */
         name: string;
         /**
@@ -24223,6 +24426,10 @@ export namespace datafactory {
          */
         name: string;
         /**
+         * A `rejectedLinkedService` block as defined below.
+         */
+        rejectedLinkedService?: outputs.datafactory.FlowletDataFlowSinkRejectedLinkedService;
+        /**
          * A `schemaLinkedService` block as defined below.
          */
         schemaLinkedService?: outputs.datafactory.FlowletDataFlowSinkSchemaLinkedService;
@@ -24254,6 +24461,17 @@ export namespace datafactory {
     export interface FlowletDataFlowSinkLinkedService {
         /**
          * The name for the Data Factory Linked Service.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface FlowletDataFlowSinkRejectedLinkedService {
+        /**
+         * The name for the Data Factory Linked Service with schema.
          */
         name: string;
         /**
@@ -24295,6 +24513,10 @@ export namespace datafactory {
          */
         name: string;
         /**
+         * A `rejectedLinkedService` block as defined below.
+         */
+        rejectedLinkedService?: outputs.datafactory.FlowletDataFlowSourceRejectedLinkedService;
+        /**
          * A `schemaLinkedService` block as defined below.
          */
         schemaLinkedService?: outputs.datafactory.FlowletDataFlowSourceSchemaLinkedService;
@@ -24326,6 +24548,17 @@ export namespace datafactory {
     export interface FlowletDataFlowSourceLinkedService {
         /**
          * The name for the Data Factory Linked Service.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface FlowletDataFlowSourceRejectedLinkedService {
+        /**
+         * The name for the Data Factory Linked Service with schema.
          */
         name: string;
         /**
@@ -25312,7 +25545,7 @@ export namespace desktopvirtualization {
          */
         rampDownWaitTimeMinutes: number;
         /**
-         * Specify minimum percentage of session host virtual machines to start for ramp-up and peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
+         * This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%` and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
          */
         rampUpCapacityThresholdPercent?: number;
         /**
@@ -25320,7 +25553,7 @@ export namespace desktopvirtualization {
          */
         rampUpLoadBalancingAlgorithm: string;
         /**
-         * This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
+         * Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%` and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
          */
         rampUpMinimumHostsPercent?: number;
         /**
@@ -30265,6 +30498,21 @@ export namespace healthcare {
         type: string;
     }
 
+    export interface FhirServiceOciArtifact {
+        /**
+         * A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down.
+         */
+        digest?: string;
+        /**
+         * An image within Azure container registry used for export operations of the service instance.
+         */
+        imageName?: string;
+        /**
+         * An Azure container registry used for export operations of the service instance.
+         */
+        loginServer: string;
+    }
+
     export interface GetDicomServiceAuthentication {
         /**
          * The intended audience to receive authentication tokens for the service. The default value is https://dicom.azurehealthcareapis.azure.com
@@ -31118,6 +31366,24 @@ export namespace iot {
         name: string;
         /**
          * The data type of the key property. Valid values include `Bool`, `DateTime`, `Double`, `String`. Changing this forces a new resource to be created.
+         */
+        type: string;
+    }
+
+}
+
+export namespace iotcentral {
+    export interface ApplicationIdentity {
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this IoT Central Application. The only possible value is `SystemAssigned`.
          */
         type: string;
     }
@@ -43304,6 +43570,10 @@ export namespace storage {
          * A set of Kerberos ticket encryption. Possible values are `RC4-HMAC`, and `AES-256`.
          */
         kerberosTicketEncryptionTypes?: string[];
+        /**
+         * Indicates whether multichannel is enabled. Defaults to `false`. This is only supported on Premium storage accounts.
+         */
+        multichannelEnabled?: boolean;
         /**
          * A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
          */

@@ -16,6 +16,7 @@ __all__ = [
     'FhirServiceAuthenticationArgs',
     'FhirServiceCorsArgs',
     'FhirServiceIdentityArgs',
+    'FhirServiceOciArtifactArgs',
     'MedtechServiceIdentityArgs',
     'ServiceAuthenticationConfigurationArgs',
     'ServiceCorsConfigurationArgs',
@@ -331,6 +332,60 @@ class FhirServiceIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class FhirServiceOciArtifactArgs:
+    def __init__(__self__, *,
+                 login_server: pulumi.Input[str],
+                 digest: Optional[pulumi.Input[str]] = None,
+                 image_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] login_server: An Azure container registry used for export operations of the service instance.
+        :param pulumi.Input[str] digest: A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down.
+        :param pulumi.Input[str] image_name: An image within Azure container registry used for export operations of the service instance.
+        """
+        pulumi.set(__self__, "login_server", login_server)
+        if digest is not None:
+            pulumi.set(__self__, "digest", digest)
+        if image_name is not None:
+            pulumi.set(__self__, "image_name", image_name)
+
+    @property
+    @pulumi.getter(name="loginServer")
+    def login_server(self) -> pulumi.Input[str]:
+        """
+        An Azure container registry used for export operations of the service instance.
+        """
+        return pulumi.get(self, "login_server")
+
+    @login_server.setter
+    def login_server(self, value: pulumi.Input[str]):
+        pulumi.set(self, "login_server", value)
+
+    @property
+    @pulumi.getter
+    def digest(self) -> Optional[pulumi.Input[str]]:
+        """
+        A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down.
+        """
+        return pulumi.get(self, "digest")
+
+    @digest.setter
+    def digest(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "digest", value)
+
+    @property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        An image within Azure container registry used for export operations of the service instance.
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "image_name", value)
 
 
 @pulumi.input_type

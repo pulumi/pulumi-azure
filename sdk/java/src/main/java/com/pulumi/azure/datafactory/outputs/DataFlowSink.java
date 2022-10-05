@@ -6,6 +6,7 @@ package com.pulumi.azure.datafactory.outputs;
 import com.pulumi.azure.datafactory.outputs.DataFlowSinkDataset;
 import com.pulumi.azure.datafactory.outputs.DataFlowSinkFlowlet;
 import com.pulumi.azure.datafactory.outputs.DataFlowSinkLinkedService;
+import com.pulumi.azure.datafactory.outputs.DataFlowSinkRejectedLinkedService;
 import com.pulumi.azure.datafactory.outputs.DataFlowSinkSchemaLinkedService;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -40,6 +41,11 @@ public final class DataFlowSink {
      * 
      */
     private String name;
+    /**
+     * @return A `rejected_linked_service` block as defined below.
+     * 
+     */
+    private @Nullable DataFlowSinkRejectedLinkedService rejectedLinkedService;
     /**
      * @return A `schema_linked_service` block as defined below.
      * 
@@ -83,6 +89,13 @@ public final class DataFlowSink {
         return this.name;
     }
     /**
+     * @return A `rejected_linked_service` block as defined below.
+     * 
+     */
+    public Optional<DataFlowSinkRejectedLinkedService> rejectedLinkedService() {
+        return Optional.ofNullable(this.rejectedLinkedService);
+    }
+    /**
      * @return A `schema_linked_service` block as defined below.
      * 
      */
@@ -104,6 +117,7 @@ public final class DataFlowSink {
         private @Nullable DataFlowSinkFlowlet flowlet;
         private @Nullable DataFlowSinkLinkedService linkedService;
         private String name;
+        private @Nullable DataFlowSinkRejectedLinkedService rejectedLinkedService;
         private @Nullable DataFlowSinkSchemaLinkedService schemaLinkedService;
         public Builder() {}
         public Builder(DataFlowSink defaults) {
@@ -113,6 +127,7 @@ public final class DataFlowSink {
     	      this.flowlet = defaults.flowlet;
     	      this.linkedService = defaults.linkedService;
     	      this.name = defaults.name;
+    	      this.rejectedLinkedService = defaults.rejectedLinkedService;
     	      this.schemaLinkedService = defaults.schemaLinkedService;
         }
 
@@ -142,6 +157,11 @@ public final class DataFlowSink {
             return this;
         }
         @CustomType.Setter
+        public Builder rejectedLinkedService(@Nullable DataFlowSinkRejectedLinkedService rejectedLinkedService) {
+            this.rejectedLinkedService = rejectedLinkedService;
+            return this;
+        }
+        @CustomType.Setter
         public Builder schemaLinkedService(@Nullable DataFlowSinkSchemaLinkedService schemaLinkedService) {
             this.schemaLinkedService = schemaLinkedService;
             return this;
@@ -153,6 +173,7 @@ public final class DataFlowSink {
             o.flowlet = flowlet;
             o.linkedService = linkedService;
             o.name = name;
+            o.rejectedLinkedService = rejectedLinkedService;
             o.schemaLinkedService = schemaLinkedService;
             return o;
         }

@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinkedStorageAccount = new LinkedStorageAccount(&#34;exampleLinkedStorageAccount&#34;, LinkedStorageAccountArgs.builder()        
- *             .dataSourceType(&#34;customlogs&#34;)
+ *             .dataSourceType(&#34;CustomLogs&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
  *             .storageAccountIds(exampleAccount.id())
@@ -85,14 +85,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:loganalytics/linkedStorageAccount:LinkedStorageAccount")
 public class LinkedStorageAccount extends com.pulumi.resources.CustomResource {
     /**
-     * The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+     * The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
      * 
      */
     @Export(name="dataSourceType", type=String.class, parameters={})
     private Output<String> dataSourceType;
 
     /**
-     * @return The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `customlogs`, `azurewatson`, `query`, `ingestion` and `alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
+     * @return The data source type which should be used for this Log Analytics Linked Storage Account. Possible values are `CustomLogs`, `AzureWatson`, `Query`, `Ingestion` and `Alerts`. Changing this forces a new Log Analytics Linked Storage Account to be created.
      * 
      */
     public Output<String> dataSourceType() {

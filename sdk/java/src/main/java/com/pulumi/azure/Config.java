@@ -113,6 +113,13 @@ public final class Config {
         return Codegen.stringProp("oidcToken").config(config).get();
     }
 /**
+ * The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+ * 
+ */
+    public Optional<String> oidcTokenFilePath() {
+        return Codegen.stringProp("oidcTokenFilePath").config(config).get();
+    }
+/**
  * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
  * 
  */

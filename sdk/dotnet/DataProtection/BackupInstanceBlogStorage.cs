@@ -93,6 +93,9 @@ namespace Pulumi.Azure.DataProtection
         [Output("backupPolicyId")]
         public Output<string> BackupPolicyId { get; private set; } = null!;
 
+        /// <summary>
+        /// The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
+        /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
@@ -166,6 +169,9 @@ namespace Pulumi.Azure.DataProtection
         [Input("backupPolicyId", required: true)]
         public Input<string> BackupPolicyId { get; set; } = null!;
 
+        /// <summary>
+        /// The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
@@ -201,6 +207,9 @@ namespace Pulumi.Azure.DataProtection
         [Input("backupPolicyId")]
         public Input<string>? BackupPolicyId { get; set; }
 
+        /// <summary>
+        /// The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
+        /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 

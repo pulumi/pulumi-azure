@@ -173,6 +173,8 @@ type LinuxVirtualMachine struct {
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
+	// A `galleryApplication` block as defined below.
+	GalleryApplications LinuxVirtualMachineGalleryApplicationArrayOutput `pulumi:"galleryApplications"`
 	// An `identity` block as defined below.
 	Identity LinuxVirtualMachineIdentityPtrOutput `pulumi:"identity"`
 	// Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
@@ -315,6 +317,8 @@ type linuxVirtualMachineState struct {
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
+	// A `galleryApplication` block as defined below.
+	GalleryApplications []LinuxVirtualMachineGalleryApplication `pulumi:"galleryApplications"`
 	// An `identity` block as defined below.
 	Identity *LinuxVirtualMachineIdentity `pulumi:"identity"`
 	// Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
@@ -414,6 +418,8 @@ type LinuxVirtualMachineState struct {
 	EvictionPolicy pulumi.StringPtrInput
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrInput
+	// A `galleryApplication` block as defined below.
+	GalleryApplications LinuxVirtualMachineGalleryApplicationArrayInput
 	// An `identity` block as defined below.
 	Identity LinuxVirtualMachineIdentityPtrInput
 	// Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
@@ -517,6 +523,8 @@ type linuxVirtualMachineArgs struct {
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
+	// A `galleryApplication` block as defined below.
+	GalleryApplications []LinuxVirtualMachineGalleryApplication `pulumi:"galleryApplications"`
 	// An `identity` block as defined below.
 	Identity *LinuxVirtualMachineIdentity `pulumi:"identity"`
 	// Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
@@ -607,6 +615,8 @@ type LinuxVirtualMachineArgs struct {
 	EvictionPolicy pulumi.StringPtrInput
 	// Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 	ExtensionsTimeBudget pulumi.StringPtrInput
+	// A `galleryApplication` block as defined below.
+	GalleryApplications LinuxVirtualMachineGalleryApplicationArrayInput
 	// An `identity` block as defined below.
 	Identity LinuxVirtualMachineIdentityPtrInput
 	// Specifies the BYOL Type for this Virtual Machine. Possible values are `RHEL_BYOS` and `SLES_BYOS`.
@@ -833,6 +843,13 @@ func (o LinuxVirtualMachineOutput) EvictionPolicy() pulumi.StringPtrOutput {
 // Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to 90 minutes (`PT1H30M`).
 func (o LinuxVirtualMachineOutput) ExtensionsTimeBudget() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringPtrOutput { return v.ExtensionsTimeBudget }).(pulumi.StringPtrOutput)
+}
+
+// A `galleryApplication` block as defined below.
+func (o LinuxVirtualMachineOutput) GalleryApplications() LinuxVirtualMachineGalleryApplicationArrayOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachine) LinuxVirtualMachineGalleryApplicationArrayOutput {
+		return v.GalleryApplications
+	}).(LinuxVirtualMachineGalleryApplicationArrayOutput)
 }
 
 // An `identity` block as defined below.

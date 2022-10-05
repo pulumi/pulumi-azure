@@ -116,14 +116,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = monitoring.NewDataCollectionEndpoint(ctx, "test", &monitoring.DataCollectionEndpointArgs{
+//			exampleDataCollectionEndpoint, err := monitoring.NewDataCollectionEndpoint(ctx, "exampleDataCollectionEndpoint", &monitoring.DataCollectionEndpointArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = monitoring.NewDataCollectionRuleAssociation(ctx, "example1DataCollectionRuleAssociation", &monitoring.DataCollectionRuleAssociationArgs{
+//			_, err = monitoring.NewDataCollectionRuleAssociation(ctx, "example1", &monitoring.DataCollectionRuleAssociationArgs{
 //				TargetResourceId:     exampleLinuxVirtualMachine.ID(),
 //				DataCollectionRuleId: exampleDataCollectionRule.ID(),
 //				Description:          pulumi.String("example"),
@@ -131,9 +131,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = monitoring.NewDataCollectionRuleAssociation(ctx, "example1Monitoring/dataCollectionRuleAssociationDataCollectionRuleAssociation", &monitoring.DataCollectionRuleAssociationArgs{
+//			_, err = monitoring.NewDataCollectionRuleAssociation(ctx, "example2", &monitoring.DataCollectionRuleAssociationArgs{
 //				TargetResourceId:         exampleLinuxVirtualMachine.ID(),
-//				DataCollectionEndpointId: pulumi.Any(azurerm_monitor_data_collection_endpoint.Example.Id),
+//				DataCollectionEndpointId: exampleDataCollectionEndpoint.ID(),
 //				Description:              pulumi.String("example"),
 //			})
 //			if err != nil {

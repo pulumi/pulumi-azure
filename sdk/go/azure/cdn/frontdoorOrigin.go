@@ -27,8 +27,10 @@ type FrontdoorOrigin struct {
 	CdnFrontdoorOriginGroupId pulumi.StringOutput `pulumi:"cdnFrontdoorOriginGroupId"`
 	// Specifies whether certificate name checks are enabled for this origin.
 	CertificateNameCheckEnabled pulumi.BoolOutput `pulumi:"certificateNameCheckEnabled"`
-	// Should the health probes be enabled against the origins defined within the origin group? Possible values are `true` or `false`. Defaults to `true`.
-	HealthProbesEnabled pulumi.BoolPtrOutput `pulumi:"healthProbesEnabled"`
+	// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
+	Enabled pulumi.BoolOutput `pulumi:"enabled"`
+	// Deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
+	HealthProbesEnabled pulumi.BoolOutput `pulumi:"healthProbesEnabled"`
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	HostName pulumi.StringOutput `pulumi:"hostName"`
 	// The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
@@ -89,7 +91,9 @@ type frontdoorOriginState struct {
 	CdnFrontdoorOriginGroupId *string `pulumi:"cdnFrontdoorOriginGroupId"`
 	// Specifies whether certificate name checks are enabled for this origin.
 	CertificateNameCheckEnabled *bool `pulumi:"certificateNameCheckEnabled"`
-	// Should the health probes be enabled against the origins defined within the origin group? Possible values are `true` or `false`. Defaults to `true`.
+	// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// Deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
 	HealthProbesEnabled *bool `pulumi:"healthProbesEnabled"`
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	HostName *string `pulumi:"hostName"`
@@ -114,7 +118,9 @@ type FrontdoorOriginState struct {
 	CdnFrontdoorOriginGroupId pulumi.StringPtrInput
 	// Specifies whether certificate name checks are enabled for this origin.
 	CertificateNameCheckEnabled pulumi.BoolPtrInput
-	// Should the health probes be enabled against the origins defined within the origin group? Possible values are `true` or `false`. Defaults to `true`.
+	// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput
+	// Deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
 	HealthProbesEnabled pulumi.BoolPtrInput
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	HostName pulumi.StringPtrInput
@@ -143,7 +149,9 @@ type frontdoorOriginArgs struct {
 	CdnFrontdoorOriginGroupId string `pulumi:"cdnFrontdoorOriginGroupId"`
 	// Specifies whether certificate name checks are enabled for this origin.
 	CertificateNameCheckEnabled bool `pulumi:"certificateNameCheckEnabled"`
-	// Should the health probes be enabled against the origins defined within the origin group? Possible values are `true` or `false`. Defaults to `true`.
+	// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// Deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
 	HealthProbesEnabled *bool `pulumi:"healthProbesEnabled"`
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	HostName string `pulumi:"hostName"`
@@ -169,7 +177,9 @@ type FrontdoorOriginArgs struct {
 	CdnFrontdoorOriginGroupId pulumi.StringInput
 	// Specifies whether certificate name checks are enabled for this origin.
 	CertificateNameCheckEnabled pulumi.BoolInput
-	// Should the health probes be enabled against the origins defined within the origin group? Possible values are `true` or `false`. Defaults to `true`.
+	// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
+	Enabled pulumi.BoolPtrInput
+	// Deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
 	HealthProbesEnabled pulumi.BoolPtrInput
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	HostName pulumi.StringInput
@@ -286,9 +296,14 @@ func (o FrontdoorOriginOutput) CertificateNameCheckEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *FrontdoorOrigin) pulumi.BoolOutput { return v.CertificateNameCheckEnabled }).(pulumi.BoolOutput)
 }
 
-// Should the health probes be enabled against the origins defined within the origin group? Possible values are `true` or `false`. Defaults to `true`.
-func (o FrontdoorOriginOutput) HealthProbesEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *FrontdoorOrigin) pulumi.BoolPtrOutput { return v.HealthProbesEnabled }).(pulumi.BoolPtrOutput)
+// Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
+func (o FrontdoorOriginOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *FrontdoorOrigin) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.
+func (o FrontdoorOriginOutput) HealthProbesEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *FrontdoorOrigin) pulumi.BoolOutput { return v.HealthProbesEnabled }).(pulumi.BoolOutput)
 }
 
 // The IPv4 address, IPv6 address or Domain name of the Origin.

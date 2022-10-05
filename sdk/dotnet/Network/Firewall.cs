@@ -152,7 +152,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
+        /// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
         /// </summary>
         [Output("threatIntelMode")]
         public Output<string> ThreatIntelMode { get; private set; } = null!;
@@ -306,7 +306,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
+        /// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
         /// </summary>
         [Input("threatIntelMode")]
         public Input<string>? ThreatIntelMode { get; set; }
@@ -428,7 +428,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
+        /// The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
         /// </summary>
         [Input("threatIntelMode")]
         public Input<string>? ThreatIntelMode { get; set; }

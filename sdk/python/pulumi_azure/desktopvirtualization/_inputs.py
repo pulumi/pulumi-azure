@@ -199,8 +199,8 @@ class ScalingPlanScheduleArgs:
         :param pulumi.Input[int] ramp_down_wait_time_minutes: The number of minutes during Ramp-Down period that autoscale will wait after setting the session host VMs to drain mode, notifying any currently signed in users to save their work before forcing the users to logoff. Once all user sessions on the session host VM have been logged off, Autoscale will shut down the VM.
         :param pulumi.Input[str] ramp_up_load_balancing_algorithm: The load Balancing Algorithm to use during the Ramp-Up period. Possible values are `DepthFirst` and `BreadthFirst`.
         :param pulumi.Input[str] ramp_up_start_time: The time at which Ramp-Up scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in "HH:MM" format.
-        :param pulumi.Input[int] ramp_up_capacity_threshold_percent: Specify minimum percentage of session host virtual machines to start for ramp-up and peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
-        :param pulumi.Input[int] ramp_up_minimum_hosts_percent: This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
+        :param pulumi.Input[int] ramp_up_capacity_threshold_percent: This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%` and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
+        :param pulumi.Input[int] ramp_up_minimum_hosts_percent: Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%` and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
         """
         pulumi.set(__self__, "days_of_weeks", days_of_weeks)
         pulumi.set(__self__, "name", name)
@@ -419,7 +419,7 @@ class ScalingPlanScheduleArgs:
     @pulumi.getter(name="rampUpCapacityThresholdPercent")
     def ramp_up_capacity_threshold_percent(self) -> Optional[pulumi.Input[int]]:
         """
-        Specify minimum percentage of session host virtual machines to start for ramp-up and peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
+        This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%` and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
         """
         return pulumi.get(self, "ramp_up_capacity_threshold_percent")
 
@@ -431,7 +431,7 @@ class ScalingPlanScheduleArgs:
     @pulumi.getter(name="rampUpMinimumHostsPercent")
     def ramp_up_minimum_hosts_percent(self) -> Optional[pulumi.Input[int]]:
         """
-        This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
+        Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%` and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
         """
         return pulumi.get(self, "ramp_up_minimum_hosts_percent")
 

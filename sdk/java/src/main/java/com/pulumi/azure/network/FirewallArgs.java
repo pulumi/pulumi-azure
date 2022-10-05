@@ -186,14 +186,14 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `&#34;&#34;`(empty string). Defaults to `Alert`.
+     * The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
      * 
      */
     @Import(name="threatIntelMode")
     private @Nullable Output<String> threatIntelMode;
 
     /**
-     * @return The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `&#34;&#34;`(empty string). Defaults to `Alert`.
+     * @return The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
      * 
      */
     public Optional<Output<String>> threatIntelMode() {
@@ -529,7 +529,7 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param threatIntelMode The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `&#34;&#34;`(empty string). Defaults to `Alert`.
+         * @param threatIntelMode The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
          * 
          * @return builder
          * 
@@ -540,7 +540,7 @@ public final class FirewallArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param threatIntelMode The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `&#34;&#34;`(empty string). Defaults to `Alert`.
+         * @param threatIntelMode The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
          * 
          * @return builder
          * 

@@ -2535,9 +2535,13 @@ func (o SoftwareUpdateConfigurationTargetNonAzureQueryArrayOutput) Index(i pulum
 	}).(SoftwareUpdateConfigurationTargetNonAzureQueryOutput)
 }
 
-type SoftwareUpdateConfigurationWindow struct {
+type SoftwareUpdateConfigurationWindows struct {
 	// Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+	//
+	// Deprecated: windows classification can be set as a list, use `classifications_included` instead.
 	ClassificationIncluded *string `pulumi:"classificationIncluded"`
+	// Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+	ClassificationsIncludeds []string `pulumi:"classificationsIncludeds"`
 	// Specifies a list of knowledge base numbers excluded.
 	ExcludedKnowledgeBaseNumbers []string `pulumi:"excludedKnowledgeBaseNumbers"`
 	// Specifies a list of knowledge base numbers included.
@@ -2546,20 +2550,24 @@ type SoftwareUpdateConfigurationWindow struct {
 	Reboot *string `pulumi:"reboot"`
 }
 
-// SoftwareUpdateConfigurationWindowInput is an input type that accepts SoftwareUpdateConfigurationWindowArgs and SoftwareUpdateConfigurationWindowOutput values.
-// You can construct a concrete instance of `SoftwareUpdateConfigurationWindowInput` via:
+// SoftwareUpdateConfigurationWindowsInput is an input type that accepts SoftwareUpdateConfigurationWindowsArgs and SoftwareUpdateConfigurationWindowsOutput values.
+// You can construct a concrete instance of `SoftwareUpdateConfigurationWindowsInput` via:
 //
-//	SoftwareUpdateConfigurationWindowArgs{...}
-type SoftwareUpdateConfigurationWindowInput interface {
+//	SoftwareUpdateConfigurationWindowsArgs{...}
+type SoftwareUpdateConfigurationWindowsInput interface {
 	pulumi.Input
 
-	ToSoftwareUpdateConfigurationWindowOutput() SoftwareUpdateConfigurationWindowOutput
-	ToSoftwareUpdateConfigurationWindowOutputWithContext(context.Context) SoftwareUpdateConfigurationWindowOutput
+	ToSoftwareUpdateConfigurationWindowsOutput() SoftwareUpdateConfigurationWindowsOutput
+	ToSoftwareUpdateConfigurationWindowsOutputWithContext(context.Context) SoftwareUpdateConfigurationWindowsOutput
 }
 
-type SoftwareUpdateConfigurationWindowArgs struct {
+type SoftwareUpdateConfigurationWindowsArgs struct {
 	// Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+	//
+	// Deprecated: windows classification can be set as a list, use `classifications_included` instead.
 	ClassificationIncluded pulumi.StringPtrInput `pulumi:"classificationIncluded"`
+	// Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+	ClassificationsIncludeds pulumi.StringArrayInput `pulumi:"classificationsIncludeds"`
 	// Specifies a list of knowledge base numbers excluded.
 	ExcludedKnowledgeBaseNumbers pulumi.StringArrayInput `pulumi:"excludedKnowledgeBaseNumbers"`
 	// Specifies a list of knowledge base numbers included.
@@ -2568,95 +2576,184 @@ type SoftwareUpdateConfigurationWindowArgs struct {
 	Reboot pulumi.StringPtrInput `pulumi:"reboot"`
 }
 
-func (SoftwareUpdateConfigurationWindowArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SoftwareUpdateConfigurationWindow)(nil)).Elem()
+func (SoftwareUpdateConfigurationWindowsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwareUpdateConfigurationWindows)(nil)).Elem()
 }
 
-func (i SoftwareUpdateConfigurationWindowArgs) ToSoftwareUpdateConfigurationWindowOutput() SoftwareUpdateConfigurationWindowOutput {
-	return i.ToSoftwareUpdateConfigurationWindowOutputWithContext(context.Background())
+func (i SoftwareUpdateConfigurationWindowsArgs) ToSoftwareUpdateConfigurationWindowsOutput() SoftwareUpdateConfigurationWindowsOutput {
+	return i.ToSoftwareUpdateConfigurationWindowsOutputWithContext(context.Background())
 }
 
-func (i SoftwareUpdateConfigurationWindowArgs) ToSoftwareUpdateConfigurationWindowOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationWindowOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationWindowOutput)
+func (i SoftwareUpdateConfigurationWindowsArgs) ToSoftwareUpdateConfigurationWindowsOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationWindowsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationWindowsOutput)
 }
 
-// SoftwareUpdateConfigurationWindowArrayInput is an input type that accepts SoftwareUpdateConfigurationWindowArray and SoftwareUpdateConfigurationWindowArrayOutput values.
-// You can construct a concrete instance of `SoftwareUpdateConfigurationWindowArrayInput` via:
+func (i SoftwareUpdateConfigurationWindowsArgs) ToSoftwareUpdateConfigurationWindowsPtrOutput() SoftwareUpdateConfigurationWindowsPtrOutput {
+	return i.ToSoftwareUpdateConfigurationWindowsPtrOutputWithContext(context.Background())
+}
+
+func (i SoftwareUpdateConfigurationWindowsArgs) ToSoftwareUpdateConfigurationWindowsPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationWindowsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationWindowsOutput).ToSoftwareUpdateConfigurationWindowsPtrOutputWithContext(ctx)
+}
+
+// SoftwareUpdateConfigurationWindowsPtrInput is an input type that accepts SoftwareUpdateConfigurationWindowsArgs, SoftwareUpdateConfigurationWindowsPtr and SoftwareUpdateConfigurationWindowsPtrOutput values.
+// You can construct a concrete instance of `SoftwareUpdateConfigurationWindowsPtrInput` via:
 //
-//	SoftwareUpdateConfigurationWindowArray{ SoftwareUpdateConfigurationWindowArgs{...} }
-type SoftwareUpdateConfigurationWindowArrayInput interface {
+//	        SoftwareUpdateConfigurationWindowsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SoftwareUpdateConfigurationWindowsPtrInput interface {
 	pulumi.Input
 
-	ToSoftwareUpdateConfigurationWindowArrayOutput() SoftwareUpdateConfigurationWindowArrayOutput
-	ToSoftwareUpdateConfigurationWindowArrayOutputWithContext(context.Context) SoftwareUpdateConfigurationWindowArrayOutput
+	ToSoftwareUpdateConfigurationWindowsPtrOutput() SoftwareUpdateConfigurationWindowsPtrOutput
+	ToSoftwareUpdateConfigurationWindowsPtrOutputWithContext(context.Context) SoftwareUpdateConfigurationWindowsPtrOutput
 }
 
-type SoftwareUpdateConfigurationWindowArray []SoftwareUpdateConfigurationWindowInput
+type softwareUpdateConfigurationWindowsPtrType SoftwareUpdateConfigurationWindowsArgs
 
-func (SoftwareUpdateConfigurationWindowArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SoftwareUpdateConfigurationWindow)(nil)).Elem()
+func SoftwareUpdateConfigurationWindowsPtr(v *SoftwareUpdateConfigurationWindowsArgs) SoftwareUpdateConfigurationWindowsPtrInput {
+	return (*softwareUpdateConfigurationWindowsPtrType)(v)
 }
 
-func (i SoftwareUpdateConfigurationWindowArray) ToSoftwareUpdateConfigurationWindowArrayOutput() SoftwareUpdateConfigurationWindowArrayOutput {
-	return i.ToSoftwareUpdateConfigurationWindowArrayOutputWithContext(context.Background())
+func (*softwareUpdateConfigurationWindowsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwareUpdateConfigurationWindows)(nil)).Elem()
 }
 
-func (i SoftwareUpdateConfigurationWindowArray) ToSoftwareUpdateConfigurationWindowArrayOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationWindowArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationWindowArrayOutput)
+func (i *softwareUpdateConfigurationWindowsPtrType) ToSoftwareUpdateConfigurationWindowsPtrOutput() SoftwareUpdateConfigurationWindowsPtrOutput {
+	return i.ToSoftwareUpdateConfigurationWindowsPtrOutputWithContext(context.Background())
 }
 
-type SoftwareUpdateConfigurationWindowOutput struct{ *pulumi.OutputState }
-
-func (SoftwareUpdateConfigurationWindowOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SoftwareUpdateConfigurationWindow)(nil)).Elem()
+func (i *softwareUpdateConfigurationWindowsPtrType) ToSoftwareUpdateConfigurationWindowsPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationWindowsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SoftwareUpdateConfigurationWindowsPtrOutput)
 }
 
-func (o SoftwareUpdateConfigurationWindowOutput) ToSoftwareUpdateConfigurationWindowOutput() SoftwareUpdateConfigurationWindowOutput {
+type SoftwareUpdateConfigurationWindowsOutput struct{ *pulumi.OutputState }
+
+func (SoftwareUpdateConfigurationWindowsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SoftwareUpdateConfigurationWindows)(nil)).Elem()
+}
+
+func (o SoftwareUpdateConfigurationWindowsOutput) ToSoftwareUpdateConfigurationWindowsOutput() SoftwareUpdateConfigurationWindowsOutput {
 	return o
 }
 
-func (o SoftwareUpdateConfigurationWindowOutput) ToSoftwareUpdateConfigurationWindowOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationWindowOutput {
+func (o SoftwareUpdateConfigurationWindowsOutput) ToSoftwareUpdateConfigurationWindowsOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationWindowsOutput {
 	return o
+}
+
+func (o SoftwareUpdateConfigurationWindowsOutput) ToSoftwareUpdateConfigurationWindowsPtrOutput() SoftwareUpdateConfigurationWindowsPtrOutput {
+	return o.ToSoftwareUpdateConfigurationWindowsPtrOutputWithContext(context.Background())
+}
+
+func (o SoftwareUpdateConfigurationWindowsOutput) ToSoftwareUpdateConfigurationWindowsPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationWindowsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SoftwareUpdateConfigurationWindows) *SoftwareUpdateConfigurationWindows {
+		return &v
+	}).(SoftwareUpdateConfigurationWindowsPtrOutput)
 }
 
 // Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
-func (o SoftwareUpdateConfigurationWindowOutput) ClassificationIncluded() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SoftwareUpdateConfigurationWindow) *string { return v.ClassificationIncluded }).(pulumi.StringPtrOutput)
+//
+// Deprecated: windows classification can be set as a list, use `classifications_included` instead.
+func (o SoftwareUpdateConfigurationWindowsOutput) ClassificationIncluded() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SoftwareUpdateConfigurationWindows) *string { return v.ClassificationIncluded }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+func (o SoftwareUpdateConfigurationWindowsOutput) ClassificationsIncludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SoftwareUpdateConfigurationWindows) []string { return v.ClassificationsIncludeds }).(pulumi.StringArrayOutput)
 }
 
 // Specifies a list of knowledge base numbers excluded.
-func (o SoftwareUpdateConfigurationWindowOutput) ExcludedKnowledgeBaseNumbers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SoftwareUpdateConfigurationWindow) []string { return v.ExcludedKnowledgeBaseNumbers }).(pulumi.StringArrayOutput)
+func (o SoftwareUpdateConfigurationWindowsOutput) ExcludedKnowledgeBaseNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SoftwareUpdateConfigurationWindows) []string { return v.ExcludedKnowledgeBaseNumbers }).(pulumi.StringArrayOutput)
 }
 
 // Specifies a list of knowledge base numbers included.
-func (o SoftwareUpdateConfigurationWindowOutput) IncludedKnowledgeBaseNumbers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SoftwareUpdateConfigurationWindow) []string { return v.IncludedKnowledgeBaseNumbers }).(pulumi.StringArrayOutput)
+func (o SoftwareUpdateConfigurationWindowsOutput) IncludedKnowledgeBaseNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SoftwareUpdateConfigurationWindows) []string { return v.IncludedKnowledgeBaseNumbers }).(pulumi.StringArrayOutput)
 }
 
 // Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
-func (o SoftwareUpdateConfigurationWindowOutput) Reboot() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SoftwareUpdateConfigurationWindow) *string { return v.Reboot }).(pulumi.StringPtrOutput)
+func (o SoftwareUpdateConfigurationWindowsOutput) Reboot() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SoftwareUpdateConfigurationWindows) *string { return v.Reboot }).(pulumi.StringPtrOutput)
 }
 
-type SoftwareUpdateConfigurationWindowArrayOutput struct{ *pulumi.OutputState }
+type SoftwareUpdateConfigurationWindowsPtrOutput struct{ *pulumi.OutputState }
 
-func (SoftwareUpdateConfigurationWindowArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SoftwareUpdateConfigurationWindow)(nil)).Elem()
+func (SoftwareUpdateConfigurationWindowsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SoftwareUpdateConfigurationWindows)(nil)).Elem()
 }
 
-func (o SoftwareUpdateConfigurationWindowArrayOutput) ToSoftwareUpdateConfigurationWindowArrayOutput() SoftwareUpdateConfigurationWindowArrayOutput {
+func (o SoftwareUpdateConfigurationWindowsPtrOutput) ToSoftwareUpdateConfigurationWindowsPtrOutput() SoftwareUpdateConfigurationWindowsPtrOutput {
 	return o
 }
 
-func (o SoftwareUpdateConfigurationWindowArrayOutput) ToSoftwareUpdateConfigurationWindowArrayOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationWindowArrayOutput {
+func (o SoftwareUpdateConfigurationWindowsPtrOutput) ToSoftwareUpdateConfigurationWindowsPtrOutputWithContext(ctx context.Context) SoftwareUpdateConfigurationWindowsPtrOutput {
 	return o
 }
 
-func (o SoftwareUpdateConfigurationWindowArrayOutput) Index(i pulumi.IntInput) SoftwareUpdateConfigurationWindowOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SoftwareUpdateConfigurationWindow {
-		return vs[0].([]SoftwareUpdateConfigurationWindow)[vs[1].(int)]
-	}).(SoftwareUpdateConfigurationWindowOutput)
+func (o SoftwareUpdateConfigurationWindowsPtrOutput) Elem() SoftwareUpdateConfigurationWindowsOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationWindows) SoftwareUpdateConfigurationWindows {
+		if v != nil {
+			return *v
+		}
+		var ret SoftwareUpdateConfigurationWindows
+		return ret
+	}).(SoftwareUpdateConfigurationWindowsOutput)
+}
+
+// Specifies the update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+//
+// Deprecated: windows classification can be set as a list, use `classifications_included` instead.
+func (o SoftwareUpdateConfigurationWindowsPtrOutput) ClassificationIncluded() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationWindows) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClassificationIncluded
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the list of update classification. Possible values are `Unclassified`, `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
+func (o SoftwareUpdateConfigurationWindowsPtrOutput) ClassificationsIncludeds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationWindows) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ClassificationsIncludeds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of knowledge base numbers excluded.
+func (o SoftwareUpdateConfigurationWindowsPtrOutput) ExcludedKnowledgeBaseNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationWindows) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedKnowledgeBaseNumbers
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of knowledge base numbers included.
+func (o SoftwareUpdateConfigurationWindowsPtrOutput) IncludedKnowledgeBaseNumbers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationWindows) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedKnowledgeBaseNumbers
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the reboot settings after software update, possible values are `IfRequired`, `Never` and `Always`
+func (o SoftwareUpdateConfigurationWindowsPtrOutput) Reboot() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfigurationWindows) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Reboot
+	}).(pulumi.StringPtrOutput)
 }
 
 type SourceControlSecurity struct {
@@ -2835,13 +2932,13 @@ func (o SourceControlSecurityPtrOutput) TokenType() pulumi.StringPtrOutput {
 }
 
 type GetAccountIdentity struct {
-	// The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+	// The list of User Assigned Managed Identity IDs assigned to this Automation Account.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Automation Account.
 	PrincipalId string `pulumi:"principalId"`
-	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Automation Account.
 	TenantId string `pulumi:"tenantId"`
-	// The type of Managed Service Identity that is configured on this API Management Service.
+	// The type of Managed Service Identity that is configured on this Automation Account.
 	Type string `pulumi:"type"`
 }
 
@@ -2857,13 +2954,13 @@ type GetAccountIdentityInput interface {
 }
 
 type GetAccountIdentityArgs struct {
-	// The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+	// The list of User Assigned Managed Identity IDs assigned to this Automation Account.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Automation Account.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Automation Account.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// The type of Managed Service Identity that is configured on this API Management Service.
+	// The type of Managed Service Identity that is configured on this Automation Account.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2918,22 +3015,22 @@ func (o GetAccountIdentityOutput) ToGetAccountIdentityOutputWithContext(ctx cont
 	return o
 }
 
-// The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+// The list of User Assigned Managed Identity IDs assigned to this Automation Account.
 func (o GetAccountIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAccountIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Automation Account.
 func (o GetAccountIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Automation Account.
 func (o GetAccountIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// The type of Managed Service Identity that is configured on this API Management Service.
+// The type of Managed Service Identity that is configured on this Automation Account.
 func (o GetAccountIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -3103,8 +3200,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationTargetAzureQueryTagArrayInput)(nil)).Elem(), SoftwareUpdateConfigurationTargetAzureQueryTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationTargetNonAzureQueryInput)(nil)).Elem(), SoftwareUpdateConfigurationTargetNonAzureQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationTargetNonAzureQueryArrayInput)(nil)).Elem(), SoftwareUpdateConfigurationTargetNonAzureQueryArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationWindowInput)(nil)).Elem(), SoftwareUpdateConfigurationWindowArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationWindowArrayInput)(nil)).Elem(), SoftwareUpdateConfigurationWindowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationWindowsInput)(nil)).Elem(), SoftwareUpdateConfigurationWindowsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SoftwareUpdateConfigurationWindowsPtrInput)(nil)).Elem(), SoftwareUpdateConfigurationWindowsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceControlSecurityInput)(nil)).Elem(), SourceControlSecurityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceControlSecurityPtrInput)(nil)).Elem(), SourceControlSecurityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountIdentityInput)(nil)).Elem(), GetAccountIdentityArgs{})
@@ -3149,8 +3246,8 @@ func init() {
 	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTargetAzureQueryTagArrayOutput{})
 	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTargetNonAzureQueryOutput{})
 	pulumi.RegisterOutputType(SoftwareUpdateConfigurationTargetNonAzureQueryArrayOutput{})
-	pulumi.RegisterOutputType(SoftwareUpdateConfigurationWindowOutput{})
-	pulumi.RegisterOutputType(SoftwareUpdateConfigurationWindowArrayOutput{})
+	pulumi.RegisterOutputType(SoftwareUpdateConfigurationWindowsOutput{})
+	pulumi.RegisterOutputType(SoftwareUpdateConfigurationWindowsPtrOutput{})
 	pulumi.RegisterOutputType(SourceControlSecurityOutput{})
 	pulumi.RegisterOutputType(SourceControlSecurityPtrOutput{})
 	pulumi.RegisterOutputType(GetAccountIdentityOutput{})

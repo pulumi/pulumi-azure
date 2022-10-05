@@ -100,7 +100,7 @@ export class SoftwareUpdateConfiguration extends pulumi.CustomResource {
     /**
      * One or more `windows` blocks as defined below.
      */
-    public readonly windows!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationWindow[] | undefined>;
+    public readonly windows!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationWindows | undefined>;
 
     /**
      * Create a SoftwareUpdateConfiguration resource with the given unique name, arguments, and options.
@@ -216,7 +216,7 @@ export interface SoftwareUpdateConfigurationState {
     /**
      * One or more `windows` blocks as defined below.
      */
-    windows?: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationWindow>[]>;
+    windows?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationWindows>;
 }
 
 /**
@@ -270,5 +270,5 @@ export interface SoftwareUpdateConfigurationArgs {
     /**
      * One or more `windows` blocks as defined below.
      */
-    windows?: pulumi.Input<pulumi.Input<inputs.automation.SoftwareUpdateConfigurationWindow>[]>;
+    windows?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationWindows>;
 }

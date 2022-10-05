@@ -74,6 +74,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly customSubdomainName!: pulumi.Output<string | undefined>;
     /**
+     * A `customerManagedKey` block as documented below.
+     */
+    public readonly customerManagedKey!: pulumi.Output<outputs.cognitive.AccountCustomerManagedKey | undefined>;
+    /**
      * The endpoint used to connect to the Cognitive Service Account.
      */
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
@@ -174,6 +178,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["customQuestionAnsweringSearchServiceId"] = state ? state.customQuestionAnsweringSearchServiceId : undefined;
             resourceInputs["customQuestionAnsweringSearchServiceKey"] = state ? state.customQuestionAnsweringSearchServiceKey : undefined;
             resourceInputs["customSubdomainName"] = state ? state.customSubdomainName : undefined;
+            resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["fqdns"] = state ? state.fqdns : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
@@ -209,6 +214,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["customQuestionAnsweringSearchServiceId"] = args ? args.customQuestionAnsweringSearchServiceId : undefined;
             resourceInputs["customQuestionAnsweringSearchServiceKey"] = args ? args.customQuestionAnsweringSearchServiceKey : undefined;
             resourceInputs["customSubdomainName"] = args ? args.customSubdomainName : undefined;
+            resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
             resourceInputs["fqdns"] = args ? args.fqdns : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
@@ -252,6 +258,10 @@ export interface AccountState {
      * The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
      */
     customSubdomainName?: pulumi.Input<string>;
+    /**
+     * A `customerManagedKey` block as documented below.
+     */
+    customerManagedKey?: pulumi.Input<inputs.cognitive.AccountCustomerManagedKey>;
     /**
      * The endpoint used to connect to the Cognitive Service Account.
      */
@@ -354,6 +364,10 @@ export interface AccountArgs {
      * The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
      */
     customSubdomainName?: pulumi.Input<string>;
+    /**
+     * A `customerManagedKey` block as documented below.
+     */
+    customerManagedKey?: pulumi.Input<inputs.cognitive.AccountCustomerManagedKey>;
     /**
      * List of FQDNs allowed for the Cognitive Account.
      */

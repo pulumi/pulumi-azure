@@ -24,6 +24,12 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         [Input("certificatePassword")]
         public Input<string>? CertificatePassword { get; set; }
 
+        [Input("certificateSource")]
+        public Input<string>? CertificateSource { get; set; }
+
+        [Input("certificateStatus")]
+        public Input<string>? CertificateStatus { get; set; }
+
         [Input("expiry")]
         public Input<string>? Expiry { get; set; }
 

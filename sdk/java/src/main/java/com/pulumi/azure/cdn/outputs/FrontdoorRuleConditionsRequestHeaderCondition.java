@@ -33,6 +33,10 @@ public final class FrontdoorRuleConditionsRequestHeaderCondition {
      * 
      */
     private String operator;
+    /**
+     * @return A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+     * 
+     */
     private @Nullable List<String> transforms;
 
     private FrontdoorRuleConditionsRequestHeaderCondition() {}
@@ -64,6 +68,10 @@ public final class FrontdoorRuleConditionsRequestHeaderCondition {
     public String operator() {
         return this.operator;
     }
+    /**
+     * @return A Conditional operator. Possible values include `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode` or `UrlEncode`. Defaults to `Lowercase`.  Details can be found in the `Condition Transform List` below.
+     * 
+     */
     public List<String> transforms() {
         return this.transforms == null ? List.of() : this.transforms;
     }

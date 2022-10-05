@@ -149,6 +149,10 @@ namespace Pulumi.Azure.DataBricks
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The Azure location where the Databricks Workspace exists.
+        /// </summary>
+        public readonly string Location;
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
@@ -172,6 +176,8 @@ namespace Pulumi.Azure.DataBricks
         private GetWorkspaceResult(
             string id,
 
+            string location,
+
             string name,
 
             string resourceGroupName,
@@ -185,6 +191,7 @@ namespace Pulumi.Azure.DataBricks
             string workspaceUrl)
         {
             Id = id;
+            Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
             Sku = sku;

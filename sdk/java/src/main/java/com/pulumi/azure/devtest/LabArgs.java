@@ -64,14 +64,22 @@ public final class LabArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
      * 
+     * @deprecated
+     * `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
+     * 
      */
+    @Deprecated /* `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
     /**
      * @return The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
      * 
+     * @deprecated
+     * `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
+     * 
      */
+    @Deprecated /* `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. */
     public Optional<Output<String>> storageType() {
         return Optional.ofNullable(this.storageType);
     }
@@ -187,7 +195,11 @@ public final class LabArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
+         * 
          */
+        @Deprecated /* `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. */
         public Builder storageType(@Nullable Output<String> storageType) {
             $.storageType = storageType;
             return this;
@@ -198,7 +210,11 @@ public final class LabArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
+         * 
          */
+        @Deprecated /* `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. */
         public Builder storageType(String storageType) {
             return storageType(Output.of(storageType));
         }

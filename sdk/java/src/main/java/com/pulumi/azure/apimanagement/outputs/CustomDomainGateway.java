@@ -22,6 +22,8 @@ public final class CustomDomainGateway {
      * 
      */
     private @Nullable String certificatePassword;
+    private @Nullable String certificateSource;
+    private @Nullable String certificateStatus;
     /**
      * @return Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn&#39;t specified by a client. Defaults to false.
      * 
@@ -61,6 +63,12 @@ public final class CustomDomainGateway {
      */
     public Optional<String> certificatePassword() {
         return Optional.ofNullable(this.certificatePassword);
+    }
+    public Optional<String> certificateSource() {
+        return Optional.ofNullable(this.certificateSource);
+    }
+    public Optional<String> certificateStatus() {
+        return Optional.ofNullable(this.certificateStatus);
     }
     /**
      * @return Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn&#39;t specified by a client. Defaults to false.
@@ -114,6 +122,8 @@ public final class CustomDomainGateway {
     public static final class Builder {
         private @Nullable String certificate;
         private @Nullable String certificatePassword;
+        private @Nullable String certificateSource;
+        private @Nullable String certificateStatus;
         private @Nullable Boolean defaultSslBinding;
         private @Nullable String expiry;
         private String hostName;
@@ -127,6 +137,8 @@ public final class CustomDomainGateway {
     	      Objects.requireNonNull(defaults);
     	      this.certificate = defaults.certificate;
     	      this.certificatePassword = defaults.certificatePassword;
+    	      this.certificateSource = defaults.certificateSource;
+    	      this.certificateStatus = defaults.certificateStatus;
     	      this.defaultSslBinding = defaults.defaultSslBinding;
     	      this.expiry = defaults.expiry;
     	      this.hostName = defaults.hostName;
@@ -145,6 +157,16 @@ public final class CustomDomainGateway {
         @CustomType.Setter
         public Builder certificatePassword(@Nullable String certificatePassword) {
             this.certificatePassword = certificatePassword;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder certificateSource(@Nullable String certificateSource) {
+            this.certificateSource = certificateSource;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder certificateStatus(@Nullable String certificateStatus) {
+            this.certificateStatus = certificateStatus;
             return this;
         }
         @CustomType.Setter
@@ -191,6 +213,8 @@ public final class CustomDomainGateway {
             final var o = new CustomDomainGateway();
             o.certificate = certificate;
             o.certificatePassword = certificatePassword;
+            o.certificateSource = certificateSource;
+            o.certificateStatus = certificateStatus;
             o.defaultSslBinding = defaultSslBinding;
             o.expiry = expiry;
             o.hostName = hostName;

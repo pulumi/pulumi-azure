@@ -88,6 +88,9 @@ export class BackupInstanceBlogStorage extends pulumi.CustomResource {
      * The ID of the Backup Policy.
      */
     public readonly backupPolicyId!: pulumi.Output<string>;
+    /**
+     * The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
+     */
     public readonly location!: pulumi.Output<string>;
     /**
      * The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
@@ -150,6 +153,9 @@ export interface BackupInstanceBlogStorageState {
      * The ID of the Backup Policy.
      */
     backupPolicyId?: pulumi.Input<string>;
+    /**
+     * The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
+     */
     location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
@@ -173,6 +179,9 @@ export interface BackupInstanceBlogStorageArgs {
      * The ID of the Backup Policy.
      */
     backupPolicyId: pulumi.Input<string>;
+    /**
+     * The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
+     */
     location?: pulumi.Input<string>;
     /**
      * The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.

@@ -121,6 +121,12 @@ namespace Pulumi.Azure.Network
         [Output("virtualHubId")]
         public Output<string> VirtualHubId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of virtual network connection.
+        /// </summary>
+        [Output("virtualNetworkConnectionId")]
+        public Output<string?> VirtualNetworkConnectionId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a BgpConnection resource with the given unique name, arguments, and options.
@@ -191,6 +197,12 @@ namespace Pulumi.Azure.Network
         [Input("virtualHubId", required: true)]
         public Input<string> VirtualHubId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of virtual network connection.
+        /// </summary>
+        [Input("virtualNetworkConnectionId")]
+        public Input<string>? VirtualNetworkConnectionId { get; set; }
+
         public BgpConnectionArgs()
         {
         }
@@ -222,6 +234,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("virtualHubId")]
         public Input<string>? VirtualHubId { get; set; }
+
+        /// <summary>
+        /// The ID of virtual network connection.
+        /// </summary>
+        [Input("virtualNetworkConnectionId")]
+        public Input<string>? VirtualNetworkConnectionId { get; set; }
 
         public BgpConnectionState()
         {

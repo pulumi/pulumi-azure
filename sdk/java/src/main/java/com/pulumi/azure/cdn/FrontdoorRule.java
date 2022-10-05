@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Frontdoor Rule.
  * 
- * !&gt;**IMPORTANT:** To create the Frontdoor Rules resource successfully you **must** add a `depends_on` attribute to the `azure.cdn.FrontdoorRule` code block and reference both the `azure.cdn.FrontdoorOrigin` and the `azure.cdn.FrontdoorOriginGroup` that are associated with the Frontdoor Rule resource.
+ * !&gt;**IMPORTANT:** The Rules resource **must** include a `depends_on` meta-argument which references the `azure.cdn.FrontdoorOrigin`, `azure.cdn.FrontdoorOriginGroup` and the `azure.cdn.FrontdoorRoute` that are associated with the Rule resource. The `azure.cdn.FrontdoorRoute` definition has been excluded from the below `Example Usage`, for brevity, but has been included in the `depends_on` meta-argument as an example of the correct way to define the `azure.cdn.FrontdoorRule` resource.
  * 
  * ## Example Usage
  * 
@@ -178,7 +178,8 @@ import javax.annotation.Nullable;
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     exampleFrontdoorOriginGroup,
- *                     exampleFrontdoorOrigin)
+ *                     exampleFrontdoorOrigin,
+ *                     azurerm_cdn_frontdoor_route.example())
  *                 .build());
  * 
  *     }
@@ -373,14 +374,14 @@ public class FrontdoorRule extends com.pulumi.resources.CustomResource {
         return this.cdnFrontdoorRuleSetName;
     }
     /**
-     * An `conditions` block as defined below.
+     * A `conditions` block as defined below.
      * 
      */
     @Export(name="conditions", type=FrontdoorRuleConditions.class, parameters={})
     private Output</* @Nullable */ FrontdoorRuleConditions> conditions;
 
     /**
-     * @return An `conditions` block as defined below.
+     * @return A `conditions` block as defined below.
      * 
      */
     public Output<Optional<FrontdoorRuleConditions>> conditions() {

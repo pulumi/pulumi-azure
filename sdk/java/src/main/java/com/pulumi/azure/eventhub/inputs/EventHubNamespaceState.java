@@ -299,14 +299,14 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zone_redundant` to true.
+     * Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zone_redundant` to true.
+     * @return Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -774,7 +774,7 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sku Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zone_redundant` to true.
+         * @param sku Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
          * 
          * @return builder
          * 
@@ -785,7 +785,7 @@ public final class EventHubNamespaceState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param sku Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource and also requires setting `zone_redundant` to true.
+         * @param sku Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource.
          * 
          * @return builder
          * 

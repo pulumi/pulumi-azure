@@ -103,7 +103,7 @@ namespace Pulumi.Azure.DesktopVirtualization.Inputs
         public Input<int> RampDownWaitTimeMinutes { get; set; } = null!;
 
         /// <summary>
-        /// Specify minimum percentage of session host virtual machines to start for ramp-up and peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections.
+        /// This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as `60%` and your total host pool capacity is `100` sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of `60` sessions.
         /// </summary>
         [Input("rampUpCapacityThresholdPercent")]
         public Input<int>? RampUpCapacityThresholdPercent { get; set; }
@@ -115,7 +115,7 @@ namespace Pulumi.Azure.DesktopVirtualization.Inputs
         public Input<string> RampUpLoadBalancingAlgorithm { get; set; } = null!;
 
         /// <summary>
-        /// This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions.
+        /// Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as `10%` and total number of session hosts in your host pool is `10`, autoscale will ensure a minimum of `1` session host is available to take user connections.
         /// </summary>
         [Input("rampUpMinimumHostsPercent")]
         public Input<int>? RampUpMinimumHostsPercent { get; set; }

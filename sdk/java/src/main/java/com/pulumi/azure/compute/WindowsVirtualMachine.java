@@ -9,6 +9,7 @@ import com.pulumi.azure.compute.inputs.WindowsVirtualMachineState;
 import com.pulumi.azure.compute.outputs.WindowsVirtualMachineAdditionalCapabilities;
 import com.pulumi.azure.compute.outputs.WindowsVirtualMachineAdditionalUnattendContent;
 import com.pulumi.azure.compute.outputs.WindowsVirtualMachineBootDiagnostics;
+import com.pulumi.azure.compute.outputs.WindowsVirtualMachineGalleryApplication;
 import com.pulumi.azure.compute.outputs.WindowsVirtualMachineIdentity;
 import com.pulumi.azure.compute.outputs.WindowsVirtualMachineOsDisk;
 import com.pulumi.azure.compute.outputs.WindowsVirtualMachinePlan;
@@ -376,6 +377,20 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> extensionsTimeBudget() {
         return Codegen.optional(this.extensionsTimeBudget);
+    }
+    /**
+     * A `gallery_application` block as defined below.
+     * 
+     */
+    @Export(name="galleryApplications", type=List.class, parameters={WindowsVirtualMachineGalleryApplication.class})
+    private Output</* @Nullable */ List<WindowsVirtualMachineGalleryApplication>> galleryApplications;
+
+    /**
+     * @return A `gallery_application` block as defined below.
+     * 
+     */
+    public Output<Optional<List<WindowsVirtualMachineGalleryApplication>>> galleryApplications() {
+        return Codegen.optional(this.galleryApplications);
     }
     /**
      * Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).

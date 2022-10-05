@@ -69,6 +69,12 @@ namespace Pulumi.Azure.Cognitive
         public Output<string?> CustomSubdomainName { get; private set; } = null!;
 
         /// <summary>
+        /// A `customer_managed_key` block as documented below.
+        /// </summary>
+        [Output("customerManagedKey")]
+        public Output<Outputs.AccountCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
+
+        /// <summary>
         /// The endpoint used to connect to the Cognitive Service Account.
         /// </summary>
         [Output("endpoint")]
@@ -258,6 +264,12 @@ namespace Pulumi.Azure.Cognitive
         [Input("customSubdomainName")]
         public Input<string>? CustomSubdomainName { get; set; }
 
+        /// <summary>
+        /// A `customer_managed_key` block as documented below.
+        /// </summary>
+        [Input("customerManagedKey")]
+        public Input<Inputs.AccountCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
+
         [Input("fqdns")]
         private InputList<string>? _fqdns;
 
@@ -409,6 +421,12 @@ namespace Pulumi.Azure.Cognitive
         /// </summary>
         [Input("customSubdomainName")]
         public Input<string>? CustomSubdomainName { get; set; }
+
+        /// <summary>
+        /// A `customer_managed_key` block as documented below.
+        /// </summary>
+        [Input("customerManagedKey")]
+        public Input<Inputs.AccountCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }
 
         /// <summary>
         /// The endpoint used to connect to the Cognitive Service Account.

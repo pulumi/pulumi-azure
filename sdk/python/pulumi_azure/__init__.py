@@ -1765,6 +1765,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "cdn/frontdoorCustomEndpoint",
+  "fqn": "pulumi_azure.cdn",
+  "classes": {
+   "azure:cdn/frontdoorCustomEndpoint:FrontdoorCustomEndpoint": "FrontdoorCustomEndpoint"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "cdn/frontdoorEndpoint",
   "fqn": "pulumi_azure.cdn",
   "classes": {
@@ -1801,6 +1809,22 @@ _utilities.register(
   "fqn": "pulumi_azure.cdn",
   "classes": {
    "azure:cdn/frontdoorProfile:FrontdoorProfile": "FrontdoorProfile"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cdn/frontdoorRoute",
+  "fqn": "pulumi_azure.cdn",
+  "classes": {
+   "azure:cdn/frontdoorRoute:FrontdoorRoute": "FrontdoorRoute"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cdn/frontdoorRouteDisableLinkToDefaultDomain",
+  "fqn": "pulumi_azure.cdn",
+  "classes": {
+   "azure:cdn/frontdoorRouteDisableLinkToDefaultDomain:FrontdoorRouteDisableLinkToDefaultDomain": "FrontdoorRouteDisableLinkToDefaultDomain"
   }
  },
  {

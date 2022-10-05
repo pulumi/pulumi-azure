@@ -119,9 +119,13 @@ type FhirService struct {
 	// Specifies the Azure Region where the Healthcare FHIR Service should be created. Changing this forces a new Healthcare FHIR Service to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
-	Name              pulumi.StringOutput    `pulumi:"name"`
-	ResourceGroupName pulumi.StringOutput    `pulumi:"resourceGroupName"`
-	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+	OciArtifacts FhirServiceOciArtifactArrayOutput `pulumi:"ociArtifacts"`
+	// Whether public networks access is enabled.
+	PublicNetworkAccessEnabled pulumi.BoolOutput      `pulumi:"publicNetworkAccessEnabled"`
+	ResourceGroupName          pulumi.StringOutput    `pulumi:"resourceGroupName"`
+	Tags                       pulumi.StringMapOutput `pulumi:"tags"`
 	// Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
@@ -181,9 +185,13 @@ type fhirServiceState struct {
 	// Specifies the Azure Region where the Healthcare FHIR Service should be created. Changing this forces a new Healthcare FHIR Service to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
-	Name              *string           `pulumi:"name"`
-	ResourceGroupName *string           `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
+	Name *string `pulumi:"name"`
+	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+	OciArtifacts []FhirServiceOciArtifact `pulumi:"ociArtifacts"`
+	// Whether public networks access is enabled.
+	PublicNetworkAccessEnabled *bool             `pulumi:"publicNetworkAccessEnabled"`
+	ResourceGroupName          *string           `pulumi:"resourceGroupName"`
+	Tags                       map[string]string `pulumi:"tags"`
 	// Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
@@ -206,9 +214,13 @@ type FhirServiceState struct {
 	// Specifies the Azure Region where the Healthcare FHIR Service should be created. Changing this forces a new Healthcare FHIR Service to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
-	Name              pulumi.StringPtrInput
-	ResourceGroupName pulumi.StringPtrInput
-	Tags              pulumi.StringMapInput
+	Name pulumi.StringPtrInput
+	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+	OciArtifacts FhirServiceOciArtifactArrayInput
+	// Whether public networks access is enabled.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
+	ResourceGroupName          pulumi.StringPtrInput
+	Tags                       pulumi.StringMapInput
 	// Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
 	WorkspaceId pulumi.StringPtrInput
 }
@@ -235,9 +247,11 @@ type fhirServiceArgs struct {
 	// Specifies the Azure Region where the Healthcare FHIR Service should be created. Changing this forces a new Healthcare FHIR Service to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
-	Name              *string           `pulumi:"name"`
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
+	Name *string `pulumi:"name"`
+	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+	OciArtifacts      []FhirServiceOciArtifact `pulumi:"ociArtifacts"`
+	ResourceGroupName string                   `pulumi:"resourceGroupName"`
+	Tags              map[string]string        `pulumi:"tags"`
 	// Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
@@ -261,7 +275,9 @@ type FhirServiceArgs struct {
 	// Specifies the Azure Region where the Healthcare FHIR Service should be created. Changing this forces a new Healthcare FHIR Service to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
-	Name              pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+	OciArtifacts      FhirServiceOciArtifactArrayInput
 	ResourceGroupName pulumi.StringInput
 	Tags              pulumi.StringMapInput
 	// Specifies the name of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
@@ -398,6 +414,16 @@ func (o FhirServiceOutput) Location() pulumi.StringOutput {
 // Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
 func (o FhirServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FhirService) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+func (o FhirServiceOutput) OciArtifacts() FhirServiceOciArtifactArrayOutput {
+	return o.ApplyT(func(v *FhirService) FhirServiceOciArtifactArrayOutput { return v.OciArtifacts }).(FhirServiceOciArtifactArrayOutput)
+}
+
+// Whether public networks access is enabled.
+func (o FhirServiceOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *FhirService) pulumi.BoolOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
 }
 
 func (o FhirServiceOutput) ResourceGroupName() pulumi.StringOutput {

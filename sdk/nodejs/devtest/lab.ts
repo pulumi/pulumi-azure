@@ -93,6 +93,8 @@ export class Lab extends pulumi.CustomResource {
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
      * The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+     *
+     * @deprecated `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
      */
     public readonly storageType!: pulumi.Output<string | undefined>;
     /**
@@ -188,6 +190,8 @@ export interface LabState {
     resourceGroupName?: pulumi.Input<string>;
     /**
      * The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+     *
+     * @deprecated `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
      */
     storageType?: pulumi.Input<string>;
     /**
@@ -218,6 +222,8 @@ export interface LabArgs {
     resourceGroupName: pulumi.Input<string>;
     /**
      * The type of storage used by the Dev Test Lab. Possible values are `Standard` and `Premium`. Defaults to `Premium`. Changing this forces a new resource to be created.
+     *
+     * @deprecated `storage_type` is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0.
      */
     storageType?: pulumi.Input<string>;
     /**

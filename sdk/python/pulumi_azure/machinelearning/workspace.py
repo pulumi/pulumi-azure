@@ -33,7 +33,8 @@ class WorkspaceArgs:
                  public_access_behind_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 v1_legacy_mode_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -53,6 +54,7 @@ class WorkspaceArgs:
         :param pulumi.Input[bool] public_network_access_enabled: Enable public access when this Machine Learning Workspace is behind VNet.
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] v1_legacy_mode_enabled: Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
         """
         pulumi.set(__self__, "application_insights_id", application_insights_id)
         pulumi.set(__self__, "identity", identity)
@@ -78,16 +80,18 @@ class WorkspaceArgs:
         if primary_user_assigned_identity is not None:
             pulumi.set(__self__, "primary_user_assigned_identity", primary_user_assigned_identity)
         if public_access_behind_virtual_network_enabled is not None:
+            warnings.warn("""`public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""public_access_behind_virtual_network_enabled is deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
+        if public_access_behind_virtual_network_enabled is not None:
             pulumi.set(__self__, "public_access_behind_virtual_network_enabled", public_access_behind_virtual_network_enabled)
-        if public_network_access_enabled is not None:
-            warnings.warn("""`public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""public_network_access_enabled is deprecated: `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.""")
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if v1_legacy_mode_enabled is not None:
+            pulumi.set(__self__, "v1_legacy_mode_enabled", v1_legacy_mode_enabled)
 
     @property
     @pulumi.getter(name="applicationInsightsId")
@@ -302,6 +306,18 @@ class WorkspaceArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="v1LegacyModeEnabled")
+    def v1_legacy_mode_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+        """
+        return pulumi.get(self, "v1_legacy_mode_enabled")
+
+    @v1_legacy_mode_enabled.setter
+    def v1_legacy_mode_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "v1_legacy_mode_enabled", value)
+
 
 @pulumi.input_type
 class _WorkspaceState:
@@ -324,7 +340,8 @@ class _WorkspaceState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 v1_legacy_mode_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Workspace resources.
         :param pulumi.Input[str] application_insights_id: The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -345,6 +362,7 @@ class _WorkspaceState:
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] v1_legacy_mode_enabled: Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
         """
         if application_insights_id is not None:
             pulumi.set(__self__, "application_insights_id", application_insights_id)
@@ -373,10 +391,10 @@ class _WorkspaceState:
         if primary_user_assigned_identity is not None:
             pulumi.set(__self__, "primary_user_assigned_identity", primary_user_assigned_identity)
         if public_access_behind_virtual_network_enabled is not None:
+            warnings.warn("""`public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+            pulumi.log.warn("""public_access_behind_virtual_network_enabled is deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
+        if public_access_behind_virtual_network_enabled is not None:
             pulumi.set(__self__, "public_access_behind_virtual_network_enabled", public_access_behind_virtual_network_enabled)
-        if public_network_access_enabled is not None:
-            warnings.warn("""`public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""public_network_access_enabled is deprecated: `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.""")
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
@@ -387,6 +405,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "storage_account_id", storage_account_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if v1_legacy_mode_enabled is not None:
+            pulumi.set(__self__, "v1_legacy_mode_enabled", v1_legacy_mode_enabled)
 
     @property
     @pulumi.getter(name="applicationInsightsId")
@@ -613,6 +633,18 @@ class _WorkspaceState:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="v1LegacyModeEnabled")
+    def v1_legacy_mode_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+        """
+        return pulumi.get(self, "v1_legacy_mode_enabled")
+
+    @v1_legacy_mode_enabled.setter
+    def v1_legacy_mode_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "v1_legacy_mode_enabled", value)
+
 
 class Workspace(pulumi.CustomResource):
     @overload
@@ -637,6 +669,7 @@ class Workspace(pulumi.CustomResource):
                  sku_name: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 v1_legacy_mode_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -895,6 +928,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] v1_legacy_mode_enabled: Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
         """
         ...
     @overload
@@ -1173,6 +1207,7 @@ class Workspace(pulumi.CustomResource):
                  sku_name: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 v1_legacy_mode_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1200,10 +1235,10 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["primary_user_assigned_identity"] = primary_user_assigned_identity
+            if public_access_behind_virtual_network_enabled is not None and not opts.urn:
+                warnings.warn("""`public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
+                pulumi.log.warn("""public_access_behind_virtual_network_enabled is deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
             __props__.__dict__["public_access_behind_virtual_network_enabled"] = public_access_behind_virtual_network_enabled
-            if public_network_access_enabled is not None and not opts.urn:
-                warnings.warn("""`public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
-                pulumi.log.warn("""public_network_access_enabled is deprecated: `public_network_access_enabled` will be removed in favour of the property `public_access_behind_virtual_network_enabled` in version 4.0 of the AzureRM Provider.""")
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -1213,6 +1248,7 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_account_id'")
             __props__.__dict__["storage_account_id"] = storage_account_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["v1_legacy_mode_enabled"] = v1_legacy_mode_enabled
             __props__.__dict__["discovery_url"] = None
         super(Workspace, __self__).__init__(
             'azure:machinelearning/workspace:Workspace',
@@ -1242,7 +1278,8 @@ class Workspace(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Workspace':
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            v1_legacy_mode_enabled: Optional[pulumi.Input[bool]] = None) -> 'Workspace':
         """
         Get an existing Workspace resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1268,6 +1305,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`.
         :param pulumi.Input[str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[bool] v1_legacy_mode_enabled: Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1292,6 +1330,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["storage_account_id"] = storage_account_id
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["v1_legacy_mode_enabled"] = v1_legacy_mode_enabled
         return Workspace(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1397,7 +1436,7 @@ class Workspace(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicAccessBehindVirtualNetworkEnabled")
-    def public_access_behind_virtual_network_enabled(self) -> pulumi.Output[bool]:
+    def public_access_behind_virtual_network_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable public access when this Machine Learning Workspace is behind a VNet.
         """
@@ -1442,4 +1481,12 @@ class Workspace(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="v1LegacyModeEnabled")
+    def v1_legacy_mode_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
+        """
+        return pulumi.get(self, "v1_legacy_mode_enabled")
 

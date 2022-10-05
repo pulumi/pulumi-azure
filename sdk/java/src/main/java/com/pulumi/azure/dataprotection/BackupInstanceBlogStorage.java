@@ -120,9 +120,17 @@ public class BackupInstanceBlogStorage extends com.pulumi.resources.CustomResour
     public Output<String> backupPolicyId() {
         return this.backupPolicyId;
     }
+    /**
+     * The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
+     * 
+     */
     @Export(name="location", type=String.class, parameters={})
     private Output<String> location;
 
+    /**
+     * @return The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
+     * 
+     */
     public Output<String> location() {
         return this.location;
     }

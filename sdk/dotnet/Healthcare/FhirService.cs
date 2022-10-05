@@ -148,6 +148,18 @@ namespace Pulumi.Azure.Healthcare
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+        /// </summary>
+        [Output("ociArtifacts")]
+        public Output<ImmutableArray<Outputs.FhirServiceOciArtifact>> OciArtifacts { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether public networks access is enabled.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool> PublicNetworkAccessEnabled { get; private set; } = null!;
+
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
@@ -272,6 +284,18 @@ namespace Pulumi.Azure.Healthcare
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("ociArtifacts")]
+        private InputList<Inputs.FhirServiceOciArtifactArgs>? _ociArtifacts;
+
+        /// <summary>
+        /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+        /// </summary>
+        public InputList<Inputs.FhirServiceOciArtifactArgs> OciArtifacts
+        {
+            get => _ociArtifacts ?? (_ociArtifacts = new InputList<Inputs.FhirServiceOciArtifactArgs>());
+            set => _ociArtifacts = value;
+        }
+
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
@@ -362,6 +386,24 @@ namespace Pulumi.Azure.Healthcare
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("ociArtifacts")]
+        private InputList<Inputs.FhirServiceOciArtifactGetArgs>? _ociArtifacts;
+
+        /// <summary>
+        /// [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+        /// </summary>
+        public InputList<Inputs.FhirServiceOciArtifactGetArgs> OciArtifacts
+        {
+            get => _ociArtifacts ?? (_ociArtifacts = new InputList<Inputs.FhirServiceOciArtifactGetArgs>());
+            set => _ociArtifacts = value;
+        }
+
+        /// <summary>
+        /// Whether public networks access is enabled.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

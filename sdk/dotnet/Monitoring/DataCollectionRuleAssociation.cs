@@ -114,14 +114,14 @@ namespace Pulumi.Azure.Monitoring
     ///         },
     ///     });
     /// 
-    ///     var test = new Azure.Monitoring.DataCollectionEndpoint("test", new()
+    ///     var exampleDataCollectionEndpoint = new Azure.Monitoring.DataCollectionEndpoint("exampleDataCollectionEndpoint", new()
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///     });
     /// 
     ///     // associate to a Data Collection Rule
-    ///     var example1DataCollectionRuleAssociation = new Azure.Monitoring.DataCollectionRuleAssociation("example1DataCollectionRuleAssociation", new()
+    ///     var example1 = new Azure.Monitoring.DataCollectionRuleAssociation("example1", new()
     ///     {
     ///         TargetResourceId = exampleLinuxVirtualMachine.Id,
     ///         DataCollectionRuleId = exampleDataCollectionRule.Id,
@@ -129,10 +129,10 @@ namespace Pulumi.Azure.Monitoring
     ///     });
     /// 
     ///     // associate to a Data Collection Endpoint
-    ///     var example1Monitoring_dataCollectionRuleAssociationDataCollectionRuleAssociation = new Azure.Monitoring.DataCollectionRuleAssociation("example1Monitoring/dataCollectionRuleAssociationDataCollectionRuleAssociation", new()
+    ///     var example2 = new Azure.Monitoring.DataCollectionRuleAssociation("example2", new()
     ///     {
     ///         TargetResourceId = exampleLinuxVirtualMachine.Id,
-    ///         DataCollectionEndpointId = azurerm_monitor_data_collection_endpoint.Example.Id,
+    ///         DataCollectionEndpointId = exampleDataCollectionEndpoint.Id,
     ///         Description = "example",
     ///     });
     /// 

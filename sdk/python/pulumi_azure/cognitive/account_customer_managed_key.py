@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AccountCustomerManagedKeyArgs', 'AccountCustomerManagedKey']
+__all__ = ['AccountCustomerManagedKeyInitArgs', 'AccountCustomerManagedKey']
 
 @pulumi.input_type
-class AccountCustomerManagedKeyArgs:
+class AccountCustomerManagedKeyInitArgs:
     def __init__(__self__, *,
                  cognitive_account_id: pulumi.Input[str],
                  key_vault_key_id: pulumi.Input[str],
@@ -133,6 +133,8 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
         """
         Manages a Customer Managed Key for a Cognitive Services Account.
 
+        > **NOTE:** It's possible to define a Customer Managed Key both within the `cognitive.Account` resource via the `customer_managed_key` block and by using the `cognitive.AccountCustomerManagedKey` resource. However it's not possible to use both methods to manage a Customer Managed Key for a Cognitive Account, since there'll be conflicts.
+
         ## Example Usage
 
         ```python
@@ -257,10 +259,12 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AccountCustomerManagedKeyArgs,
+                 args: AccountCustomerManagedKeyInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Customer Managed Key for a Cognitive Services Account.
+
+        > **NOTE:** It's possible to define a Customer Managed Key both within the `cognitive.Account` resource via the `customer_managed_key` block and by using the `cognitive.AccountCustomerManagedKey` resource. However it's not possible to use both methods to manage a Customer Managed Key for a Cognitive Account, since there'll be conflicts.
 
         ## Example Usage
 
@@ -377,12 +381,12 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AccountCustomerManagedKeyArgs args: The arguments to use to populate this resource's properties.
+        :param AccountCustomerManagedKeyInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccountCustomerManagedKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccountCustomerManagedKeyInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -401,7 +405,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccountCustomerManagedKeyArgs.__new__(AccountCustomerManagedKeyArgs)
+            __props__ = AccountCustomerManagedKeyInitArgs.__new__(AccountCustomerManagedKeyInitArgs)
 
             if cognitive_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cognitive_account_id'")

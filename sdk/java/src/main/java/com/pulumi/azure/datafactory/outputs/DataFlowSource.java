@@ -6,6 +6,7 @@ package com.pulumi.azure.datafactory.outputs;
 import com.pulumi.azure.datafactory.outputs.DataFlowSourceDataset;
 import com.pulumi.azure.datafactory.outputs.DataFlowSourceFlowlet;
 import com.pulumi.azure.datafactory.outputs.DataFlowSourceLinkedService;
+import com.pulumi.azure.datafactory.outputs.DataFlowSourceRejectedLinkedService;
 import com.pulumi.azure.datafactory.outputs.DataFlowSourceSchemaLinkedService;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -40,6 +41,11 @@ public final class DataFlowSource {
      * 
      */
     private String name;
+    /**
+     * @return A `rejected_linked_service` block as defined below.
+     * 
+     */
+    private @Nullable DataFlowSourceRejectedLinkedService rejectedLinkedService;
     /**
      * @return A `schema_linked_service` block as defined below.
      * 
@@ -83,6 +89,13 @@ public final class DataFlowSource {
         return this.name;
     }
     /**
+     * @return A `rejected_linked_service` block as defined below.
+     * 
+     */
+    public Optional<DataFlowSourceRejectedLinkedService> rejectedLinkedService() {
+        return Optional.ofNullable(this.rejectedLinkedService);
+    }
+    /**
      * @return A `schema_linked_service` block as defined below.
      * 
      */
@@ -104,6 +117,7 @@ public final class DataFlowSource {
         private @Nullable DataFlowSourceFlowlet flowlet;
         private @Nullable DataFlowSourceLinkedService linkedService;
         private String name;
+        private @Nullable DataFlowSourceRejectedLinkedService rejectedLinkedService;
         private @Nullable DataFlowSourceSchemaLinkedService schemaLinkedService;
         public Builder() {}
         public Builder(DataFlowSource defaults) {
@@ -113,6 +127,7 @@ public final class DataFlowSource {
     	      this.flowlet = defaults.flowlet;
     	      this.linkedService = defaults.linkedService;
     	      this.name = defaults.name;
+    	      this.rejectedLinkedService = defaults.rejectedLinkedService;
     	      this.schemaLinkedService = defaults.schemaLinkedService;
         }
 
@@ -142,6 +157,11 @@ public final class DataFlowSource {
             return this;
         }
         @CustomType.Setter
+        public Builder rejectedLinkedService(@Nullable DataFlowSourceRejectedLinkedService rejectedLinkedService) {
+            this.rejectedLinkedService = rejectedLinkedService;
+            return this;
+        }
+        @CustomType.Setter
         public Builder schemaLinkedService(@Nullable DataFlowSourceSchemaLinkedService schemaLinkedService) {
             this.schemaLinkedService = schemaLinkedService;
             return this;
@@ -153,6 +173,7 @@ public final class DataFlowSource {
             o.flowlet = flowlet;
             o.linkedService = linkedService;
             o.name = name;
+            o.rejectedLinkedService = rejectedLinkedService;
             o.schemaLinkedService = schemaLinkedService;
             return o;
         }

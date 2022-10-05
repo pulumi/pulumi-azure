@@ -43,7 +43,7 @@ class FirewallArgs:
         :param pulumi.Input[str] name: Specifies the name of the Firewall. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_ranges: A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] threat_intel_mode: The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
+        :param pulumi.Input[str] threat_intel_mode: The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
         :param pulumi.Input['FirewallVirtualHubArgs'] virtual_hub: A `virtual_hub` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
         """
@@ -209,7 +209,7 @@ class FirewallArgs:
     @pulumi.getter(name="threatIntelMode")
     def threat_intel_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
+        The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
         """
         return pulumi.get(self, "threat_intel_mode")
 
@@ -272,7 +272,7 @@ class _FirewallState:
         :param pulumi.Input[str] sku_name: SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_tier: SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] threat_intel_mode: The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
+        :param pulumi.Input[str] threat_intel_mode: The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
         :param pulumi.Input['FirewallVirtualHubArgs'] virtual_hub: A `virtual_hub` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
         """
@@ -441,7 +441,7 @@ class _FirewallState:
     @pulumi.getter(name="threatIntelMode")
     def threat_intel_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
+        The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
         """
         return pulumi.get(self, "threat_intel_mode")
 
@@ -550,7 +550,7 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_tier: SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] threat_intel_mode: The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
+        :param pulumi.Input[str] threat_intel_mode: The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
         :param pulumi.Input[pulumi.InputType['FirewallVirtualHubArgs']] virtual_hub: A `virtual_hub` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
         """
@@ -703,7 +703,7 @@ class Firewall(pulumi.CustomResource):
         :param pulumi.Input[str] sku_name: SKU name of the Firewall. Possible values are `AZFW_Hub` and `AZFW_VNet`.  Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_tier: SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] threat_intel_mode: The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
+        :param pulumi.Input[str] threat_intel_mode: The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
         :param pulumi.Input[pulumi.InputType['FirewallVirtualHubArgs']] virtual_hub: A `virtual_hub` block as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created.
         """
@@ -819,7 +819,7 @@ class Firewall(pulumi.CustomResource):
     @pulumi.getter(name="threatIntelMode")
     def threat_intel_mode(self) -> pulumi.Output[str]:
         """
-        The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert`,`Deny` and `""`(empty string). Defaults to `Alert`.
+        The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`.
         """
         return pulumi.get(self, "threat_intel_mode")
 

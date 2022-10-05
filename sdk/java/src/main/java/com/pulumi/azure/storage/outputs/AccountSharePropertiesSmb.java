@@ -4,9 +4,11 @@
 package com.pulumi.azure.storage.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -26,6 +28,11 @@ public final class AccountSharePropertiesSmb {
      * 
      */
     private @Nullable List<String> kerberosTicketEncryptionTypes;
+    /**
+     * @return Indicates whether multichannel is enabled. Defaults to `false`. This is only supported on Premium storage accounts.
+     * 
+     */
+    private @Nullable Boolean multichannelEnabled;
     /**
      * @return A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
      * 
@@ -55,6 +62,13 @@ public final class AccountSharePropertiesSmb {
         return this.kerberosTicketEncryptionTypes == null ? List.of() : this.kerberosTicketEncryptionTypes;
     }
     /**
+     * @return Indicates whether multichannel is enabled. Defaults to `false`. This is only supported on Premium storage accounts.
+     * 
+     */
+    public Optional<Boolean> multichannelEnabled() {
+        return Optional.ofNullable(this.multichannelEnabled);
+    }
+    /**
      * @return A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
      * 
      */
@@ -74,6 +88,7 @@ public final class AccountSharePropertiesSmb {
         private @Nullable List<String> authenticationTypes;
         private @Nullable List<String> channelEncryptionTypes;
         private @Nullable List<String> kerberosTicketEncryptionTypes;
+        private @Nullable Boolean multichannelEnabled;
         private @Nullable List<String> versions;
         public Builder() {}
         public Builder(AccountSharePropertiesSmb defaults) {
@@ -81,6 +96,7 @@ public final class AccountSharePropertiesSmb {
     	      this.authenticationTypes = defaults.authenticationTypes;
     	      this.channelEncryptionTypes = defaults.channelEncryptionTypes;
     	      this.kerberosTicketEncryptionTypes = defaults.kerberosTicketEncryptionTypes;
+    	      this.multichannelEnabled = defaults.multichannelEnabled;
     	      this.versions = defaults.versions;
         }
 
@@ -109,6 +125,11 @@ public final class AccountSharePropertiesSmb {
             return kerberosTicketEncryptionTypes(List.of(kerberosTicketEncryptionTypes));
         }
         @CustomType.Setter
+        public Builder multichannelEnabled(@Nullable Boolean multichannelEnabled) {
+            this.multichannelEnabled = multichannelEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder versions(@Nullable List<String> versions) {
             this.versions = versions;
             return this;
@@ -121,6 +142,7 @@ public final class AccountSharePropertiesSmb {
             o.authenticationTypes = authenticationTypes;
             o.channelEncryptionTypes = channelEncryptionTypes;
             o.kerberosTicketEncryptionTypes = kerberosTicketEncryptionTypes;
+            o.multichannelEnabled = multichannelEnabled;
             o.versions = versions;
             return o;
         }

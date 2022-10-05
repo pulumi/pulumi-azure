@@ -105,7 +105,8 @@ type BackupInstanceBlogStorage struct {
 
 	// The ID of the Backup Policy.
 	BackupPolicyId pulumi.StringOutput `pulumi:"backupPolicyId"`
-	Location       pulumi.StringOutput `pulumi:"location"`
+	// The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
+	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
@@ -154,7 +155,8 @@ func GetBackupInstanceBlogStorage(ctx *pulumi.Context,
 type backupInstanceBlogStorageState struct {
 	// The ID of the Backup Policy.
 	BackupPolicyId *string `pulumi:"backupPolicyId"`
-	Location       *string `pulumi:"location"`
+	// The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
+	Location *string `pulumi:"location"`
 	// The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
@@ -166,7 +168,8 @@ type backupInstanceBlogStorageState struct {
 type BackupInstanceBlogStorageState struct {
 	// The ID of the Backup Policy.
 	BackupPolicyId pulumi.StringPtrInput
-	Location       pulumi.StringPtrInput
+	// The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
+	Location pulumi.StringPtrInput
 	// The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
@@ -181,8 +184,9 @@ func (BackupInstanceBlogStorageState) ElementType() reflect.Type {
 
 type backupInstanceBlogStorageArgs struct {
 	// The ID of the Backup Policy.
-	BackupPolicyId string  `pulumi:"backupPolicyId"`
-	Location       *string `pulumi:"location"`
+	BackupPolicyId string `pulumi:"backupPolicyId"`
+	// The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
+	Location *string `pulumi:"location"`
 	// The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
@@ -195,7 +199,8 @@ type backupInstanceBlogStorageArgs struct {
 type BackupInstanceBlogStorageArgs struct {
 	// The ID of the Backup Policy.
 	BackupPolicyId pulumi.StringInput
-	Location       pulumi.StringPtrInput
+	// The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
+	Location pulumi.StringPtrInput
 	// The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
@@ -296,6 +301,7 @@ func (o BackupInstanceBlogStorageOutput) BackupPolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupInstanceBlogStorage) pulumi.StringOutput { return v.BackupPolicyId }).(pulumi.StringOutput)
 }
 
+// The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created.
 func (o BackupInstanceBlogStorageOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupInstanceBlogStorage) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }

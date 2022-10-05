@@ -17,7 +17,7 @@
 package main
 
 import (
-    _ "embed"
+	_ "embed"
 	_ "unsafe" // Import go:linkname
 
 	azure "github.com/pulumi/pulumi-azure/provider/v5"

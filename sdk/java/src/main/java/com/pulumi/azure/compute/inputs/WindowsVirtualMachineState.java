@@ -6,6 +6,7 @@ package com.pulumi.azure.compute.inputs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineAdditionalCapabilitiesArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineAdditionalUnattendContentArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineBootDiagnosticsArgs;
+import com.pulumi.azure.compute.inputs.WindowsVirtualMachineGalleryApplicationArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineIdentityArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachineOsDiskArgs;
 import com.pulumi.azure.compute.inputs.WindowsVirtualMachinePlanArgs;
@@ -283,6 +284,21 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
      */
     public Optional<Output<String>> extensionsTimeBudget() {
         return Optional.ofNullable(this.extensionsTimeBudget);
+    }
+
+    /**
+     * A `gallery_application` block as defined below.
+     * 
+     */
+    @Import(name="galleryApplications")
+    private @Nullable Output<List<WindowsVirtualMachineGalleryApplicationArgs>> galleryApplications;
+
+    /**
+     * @return A `gallery_application` block as defined below.
+     * 
+     */
+    public Optional<Output<List<WindowsVirtualMachineGalleryApplicationArgs>>> galleryApplications() {
+        return Optional.ofNullable(this.galleryApplications);
     }
 
     /**
@@ -815,6 +831,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         this.encryptionAtHostEnabled = $.encryptionAtHostEnabled;
         this.evictionPolicy = $.evictionPolicy;
         this.extensionsTimeBudget = $.extensionsTimeBudget;
+        this.galleryApplications = $.galleryApplications;
         this.hotpatchingEnabled = $.hotpatchingEnabled;
         this.identity = $.identity;
         this.licenseType = $.licenseType;
@@ -1234,6 +1251,37 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
          */
         public Builder extensionsTimeBudget(String extensionsTimeBudget) {
             return extensionsTimeBudget(Output.of(extensionsTimeBudget));
+        }
+
+        /**
+         * @param galleryApplications A `gallery_application` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder galleryApplications(@Nullable Output<List<WindowsVirtualMachineGalleryApplicationArgs>> galleryApplications) {
+            $.galleryApplications = galleryApplications;
+            return this;
+        }
+
+        /**
+         * @param galleryApplications A `gallery_application` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder galleryApplications(List<WindowsVirtualMachineGalleryApplicationArgs> galleryApplications) {
+            return galleryApplications(Output.of(galleryApplications));
+        }
+
+        /**
+         * @param galleryApplications A `gallery_application` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder galleryApplications(WindowsVirtualMachineGalleryApplicationArgs... galleryApplications) {
+            return galleryApplications(List.of(galleryApplications));
         }
 
         /**

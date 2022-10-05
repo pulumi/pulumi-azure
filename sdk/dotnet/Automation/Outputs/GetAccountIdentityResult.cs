@@ -14,19 +14,19 @@ namespace Pulumi.Azure.Automation.Outputs
     public sealed class GetAccountIdentityResult
     {
         /// <summary>
-        /// The list of User Assigned Managed Identity IDs assigned to this API Management Service.
+        /// The list of User Assigned Managed Identity IDs assigned to this Automation Account.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// The Principal ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+        /// The Principal ID of the System Assigned Managed Service Identity that is configured on this Automation Account.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// The Tenant ID of the System Assigned Managed Service Identity that is configured on this API Management Service.
+        /// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Automation Account.
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The type of Managed Service Identity that is configured on this API Management Service.
+        /// The type of Managed Service Identity that is configured on this Automation Account.
         /// </summary>
         public readonly string Type;
 

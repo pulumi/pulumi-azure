@@ -5,6 +5,7 @@ package com.pulumi.azure.storage.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -62,6 +63,21 @@ public final class AccountSharePropertiesSmbArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * Indicates whether multichannel is enabled. Defaults to `false`. This is only supported on Premium storage accounts.
+     * 
+     */
+    @Import(name="multichannelEnabled")
+    private @Nullable Output<Boolean> multichannelEnabled;
+
+    /**
+     * @return Indicates whether multichannel is enabled. Defaults to `false`. This is only supported on Premium storage accounts.
+     * 
+     */
+    public Optional<Output<Boolean>> multichannelEnabled() {
+        return Optional.ofNullable(this.multichannelEnabled);
+    }
+
+    /**
      * A set of SMB protocol versions. Possible values are `SMB2.1`, `SMB3.0`, and `SMB3.1.1`.
      * 
      */
@@ -82,6 +98,7 @@ public final class AccountSharePropertiesSmbArgs extends com.pulumi.resources.Re
         this.authenticationTypes = $.authenticationTypes;
         this.channelEncryptionTypes = $.channelEncryptionTypes;
         this.kerberosTicketEncryptionTypes = $.kerberosTicketEncryptionTypes;
+        this.multichannelEnabled = $.multichannelEnabled;
         this.versions = $.versions;
     }
 
@@ -194,6 +211,27 @@ public final class AccountSharePropertiesSmbArgs extends com.pulumi.resources.Re
          */
         public Builder kerberosTicketEncryptionTypes(String... kerberosTicketEncryptionTypes) {
             return kerberosTicketEncryptionTypes(List.of(kerberosTicketEncryptionTypes));
+        }
+
+        /**
+         * @param multichannelEnabled Indicates whether multichannel is enabled. Defaults to `false`. This is only supported on Premium storage accounts.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder multichannelEnabled(@Nullable Output<Boolean> multichannelEnabled) {
+            $.multichannelEnabled = multichannelEnabled;
+            return this;
+        }
+
+        /**
+         * @param multichannelEnabled Indicates whether multichannel is enabled. Defaults to `false`. This is only supported on Premium storage accounts.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder multichannelEnabled(Boolean multichannelEnabled) {
+            return multichannelEnabled(Output.of(multichannelEnabled));
         }
 
         /**

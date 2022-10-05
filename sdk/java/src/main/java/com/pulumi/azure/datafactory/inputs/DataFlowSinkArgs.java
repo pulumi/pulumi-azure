@@ -6,6 +6,7 @@ package com.pulumi.azure.datafactory.inputs;
 import com.pulumi.azure.datafactory.inputs.DataFlowSinkDatasetArgs;
 import com.pulumi.azure.datafactory.inputs.DataFlowSinkFlowletArgs;
 import com.pulumi.azure.datafactory.inputs.DataFlowSinkLinkedServiceArgs;
+import com.pulumi.azure.datafactory.inputs.DataFlowSinkRejectedLinkedServiceArgs;
 import com.pulumi.azure.datafactory.inputs.DataFlowSinkSchemaLinkedServiceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -95,6 +96,21 @@ public final class DataFlowSinkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `rejected_linked_service` block as defined below.
+     * 
+     */
+    @Import(name="rejectedLinkedService")
+    private @Nullable Output<DataFlowSinkRejectedLinkedServiceArgs> rejectedLinkedService;
+
+    /**
+     * @return A `rejected_linked_service` block as defined below.
+     * 
+     */
+    public Optional<Output<DataFlowSinkRejectedLinkedServiceArgs>> rejectedLinkedService() {
+        return Optional.ofNullable(this.rejectedLinkedService);
+    }
+
+    /**
      * A `schema_linked_service` block as defined below.
      * 
      */
@@ -117,6 +133,7 @@ public final class DataFlowSinkArgs extends com.pulumi.resources.ResourceArgs {
         this.flowlet = $.flowlet;
         this.linkedService = $.linkedService;
         this.name = $.name;
+        this.rejectedLinkedService = $.rejectedLinkedService;
         this.schemaLinkedService = $.schemaLinkedService;
     }
 
@@ -241,6 +258,27 @@ public final class DataFlowSinkArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param rejectedLinkedService A `rejected_linked_service` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rejectedLinkedService(@Nullable Output<DataFlowSinkRejectedLinkedServiceArgs> rejectedLinkedService) {
+            $.rejectedLinkedService = rejectedLinkedService;
+            return this;
+        }
+
+        /**
+         * @param rejectedLinkedService A `rejected_linked_service` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rejectedLinkedService(DataFlowSinkRejectedLinkedServiceArgs rejectedLinkedService) {
+            return rejectedLinkedService(Output.of(rejectedLinkedService));
         }
 
         /**

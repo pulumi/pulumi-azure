@@ -25,6 +25,18 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public Input<string>? CertificatePassword { get; set; }
 
         /// <summary>
+        /// The source of the certificate.
+        /// </summary>
+        [Input("certificateSource")]
+        public Input<string>? CertificateSource { get; set; }
+
+        /// <summary>
+        /// The status of the certificate.
+        /// </summary>
+        [Input("certificateStatus")]
+        public Input<string>? CertificateStatus { get; set; }
+
+        /// <summary>
         /// Is the certificate associated with this Hostname the Default SSL Certificate? This is used when an SNI header isn't specified by a client. Defaults to `false`.
         /// </summary>
         [Input("defaultSslBinding")]

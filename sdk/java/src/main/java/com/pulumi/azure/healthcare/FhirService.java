@@ -9,10 +9,12 @@ import com.pulumi.azure.healthcare.inputs.FhirServiceState;
 import com.pulumi.azure.healthcare.outputs.FhirServiceAuthentication;
 import com.pulumi.azure.healthcare.outputs.FhirServiceCors;
 import com.pulumi.azure.healthcare.outputs.FhirServiceIdentity;
+import com.pulumi.azure.healthcare.outputs.FhirServiceOciArtifact;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -232,6 +234,34 @@ public class FhirService extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+     * 
+     */
+    @Export(name="ociArtifacts", type=List.class, parameters={FhirServiceOciArtifact.class})
+    private Output</* @Nullable */ List<FhirServiceOciArtifact>> ociArtifacts;
+
+    /**
+     * @return [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+     * 
+     */
+    public Output<Optional<List<FhirServiceOciArtifact>>> ociArtifacts() {
+        return Codegen.optional(this.ociArtifacts);
+    }
+    /**
+     * Whether public networks access is enabled.
+     * 
+     */
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    private Output<Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Whether public networks access is enabled.
+     * 
+     */
+    public Output<Boolean> publicNetworkAccessEnabled() {
+        return this.publicNetworkAccessEnabled;
     }
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;

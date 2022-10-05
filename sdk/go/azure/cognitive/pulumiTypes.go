@@ -10,6 +10,162 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AccountCustomerManagedKeyType struct {
+	// The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
+	IdentityClientId *string `pulumi:"identityClientId"`
+	// The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
+	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
+}
+
+// AccountCustomerManagedKeyTypeInput is an input type that accepts AccountCustomerManagedKeyTypeArgs and AccountCustomerManagedKeyTypeOutput values.
+// You can construct a concrete instance of `AccountCustomerManagedKeyTypeInput` via:
+//
+//	AccountCustomerManagedKeyTypeArgs{...}
+type AccountCustomerManagedKeyTypeInput interface {
+	pulumi.Input
+
+	ToAccountCustomerManagedKeyTypeOutput() AccountCustomerManagedKeyTypeOutput
+	ToAccountCustomerManagedKeyTypeOutputWithContext(context.Context) AccountCustomerManagedKeyTypeOutput
+}
+
+type AccountCustomerManagedKeyTypeArgs struct {
+	// The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
+	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
+	// The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
+	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
+}
+
+func (AccountCustomerManagedKeyTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountCustomerManagedKeyType)(nil)).Elem()
+}
+
+func (i AccountCustomerManagedKeyTypeArgs) ToAccountCustomerManagedKeyTypeOutput() AccountCustomerManagedKeyTypeOutput {
+	return i.ToAccountCustomerManagedKeyTypeOutputWithContext(context.Background())
+}
+
+func (i AccountCustomerManagedKeyTypeArgs) ToAccountCustomerManagedKeyTypeOutputWithContext(ctx context.Context) AccountCustomerManagedKeyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountCustomerManagedKeyTypeOutput)
+}
+
+func (i AccountCustomerManagedKeyTypeArgs) ToAccountCustomerManagedKeyTypePtrOutput() AccountCustomerManagedKeyTypePtrOutput {
+	return i.ToAccountCustomerManagedKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (i AccountCustomerManagedKeyTypeArgs) ToAccountCustomerManagedKeyTypePtrOutputWithContext(ctx context.Context) AccountCustomerManagedKeyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountCustomerManagedKeyTypeOutput).ToAccountCustomerManagedKeyTypePtrOutputWithContext(ctx)
+}
+
+// AccountCustomerManagedKeyTypePtrInput is an input type that accepts AccountCustomerManagedKeyTypeArgs, AccountCustomerManagedKeyTypePtr and AccountCustomerManagedKeyTypePtrOutput values.
+// You can construct a concrete instance of `AccountCustomerManagedKeyTypePtrInput` via:
+//
+//	        AccountCustomerManagedKeyTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountCustomerManagedKeyTypePtrInput interface {
+	pulumi.Input
+
+	ToAccountCustomerManagedKeyTypePtrOutput() AccountCustomerManagedKeyTypePtrOutput
+	ToAccountCustomerManagedKeyTypePtrOutputWithContext(context.Context) AccountCustomerManagedKeyTypePtrOutput
+}
+
+type accountCustomerManagedKeyTypePtrType AccountCustomerManagedKeyTypeArgs
+
+func AccountCustomerManagedKeyTypePtr(v *AccountCustomerManagedKeyTypeArgs) AccountCustomerManagedKeyTypePtrInput {
+	return (*accountCustomerManagedKeyTypePtrType)(v)
+}
+
+func (*accountCustomerManagedKeyTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountCustomerManagedKeyType)(nil)).Elem()
+}
+
+func (i *accountCustomerManagedKeyTypePtrType) ToAccountCustomerManagedKeyTypePtrOutput() AccountCustomerManagedKeyTypePtrOutput {
+	return i.ToAccountCustomerManagedKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (i *accountCustomerManagedKeyTypePtrType) ToAccountCustomerManagedKeyTypePtrOutputWithContext(ctx context.Context) AccountCustomerManagedKeyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountCustomerManagedKeyTypePtrOutput)
+}
+
+type AccountCustomerManagedKeyTypeOutput struct{ *pulumi.OutputState }
+
+func (AccountCustomerManagedKeyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountCustomerManagedKeyType)(nil)).Elem()
+}
+
+func (o AccountCustomerManagedKeyTypeOutput) ToAccountCustomerManagedKeyTypeOutput() AccountCustomerManagedKeyTypeOutput {
+	return o
+}
+
+func (o AccountCustomerManagedKeyTypeOutput) ToAccountCustomerManagedKeyTypeOutputWithContext(ctx context.Context) AccountCustomerManagedKeyTypeOutput {
+	return o
+}
+
+func (o AccountCustomerManagedKeyTypeOutput) ToAccountCustomerManagedKeyTypePtrOutput() AccountCustomerManagedKeyTypePtrOutput {
+	return o.ToAccountCustomerManagedKeyTypePtrOutputWithContext(context.Background())
+}
+
+func (o AccountCustomerManagedKeyTypeOutput) ToAccountCustomerManagedKeyTypePtrOutputWithContext(ctx context.Context) AccountCustomerManagedKeyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountCustomerManagedKeyType) *AccountCustomerManagedKeyType {
+		return &v
+	}).(AccountCustomerManagedKeyTypePtrOutput)
+}
+
+// The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
+func (o AccountCustomerManagedKeyTypeOutput) IdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountCustomerManagedKeyType) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
+func (o AccountCustomerManagedKeyTypeOutput) KeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountCustomerManagedKeyType) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+}
+
+type AccountCustomerManagedKeyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AccountCustomerManagedKeyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountCustomerManagedKeyType)(nil)).Elem()
+}
+
+func (o AccountCustomerManagedKeyTypePtrOutput) ToAccountCustomerManagedKeyTypePtrOutput() AccountCustomerManagedKeyTypePtrOutput {
+	return o
+}
+
+func (o AccountCustomerManagedKeyTypePtrOutput) ToAccountCustomerManagedKeyTypePtrOutputWithContext(ctx context.Context) AccountCustomerManagedKeyTypePtrOutput {
+	return o
+}
+
+func (o AccountCustomerManagedKeyTypePtrOutput) Elem() AccountCustomerManagedKeyTypeOutput {
+	return o.ApplyT(func(v *AccountCustomerManagedKeyType) AccountCustomerManagedKeyType {
+		if v != nil {
+			return *v
+		}
+		var ret AccountCustomerManagedKeyType
+		return ret
+	}).(AccountCustomerManagedKeyTypeOutput)
+}
+
+// The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.
+func (o AccountCustomerManagedKeyTypePtrOutput) IdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountCustomerManagedKeyType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.
+func (o AccountCustomerManagedKeyTypePtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountCustomerManagedKeyType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyVaultKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
 type AccountIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -592,6 +748,8 @@ func (o AccountStorageArrayOutput) Index(i pulumi.IntInput) AccountStorageOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomerManagedKeyTypeInput)(nil)).Elem(), AccountCustomerManagedKeyTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountCustomerManagedKeyTypePtrInput)(nil)).Elem(), AccountCustomerManagedKeyTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityInput)(nil)).Elem(), AccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityPtrInput)(nil)).Elem(), AccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkAclsInput)(nil)).Elem(), AccountNetworkAclsArgs{})
@@ -600,6 +758,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkAclsVirtualNetworkRuleArrayInput)(nil)).Elem(), AccountNetworkAclsVirtualNetworkRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountStorageInput)(nil)).Elem(), AccountStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountStorageArrayInput)(nil)).Elem(), AccountStorageArray{})
+	pulumi.RegisterOutputType(AccountCustomerManagedKeyTypeOutput{})
+	pulumi.RegisterOutputType(AccountCustomerManagedKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(AccountIdentityOutput{})
 	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(AccountNetworkAclsOutput{})

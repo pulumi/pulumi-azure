@@ -48,6 +48,12 @@ namespace Pulumi.Azure.Storage.Inputs
             set => _kerberosTicketEncryptionTypes = value;
         }
 
+        /// <summary>
+        /// Indicates whether multichannel is enabled. Defaults to `false`. This is only supported on Premium storage accounts.
+        /// </summary>
+        [Input("multichannelEnabled")]
+        public Input<bool>? MultichannelEnabled { get; set; }
+
         [Input("versions")]
         private InputList<string>? _versions;
 

@@ -52,7 +52,7 @@ type SoftwareUpdateConfiguration struct {
 	// Specifies a list of azure resource Ids of azure virtual machines.
 	VirtualMachineIds pulumi.StringArrayOutput `pulumi:"virtualMachineIds"`
 	// One or more `windows` blocks as defined below.
-	Windows SoftwareUpdateConfigurationWindowArrayOutput `pulumi:"windows"`
+	Windows SoftwareUpdateConfigurationWindowsPtrOutput `pulumi:"windows"`
 }
 
 // NewSoftwareUpdateConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -117,7 +117,7 @@ type softwareUpdateConfigurationState struct {
 	// Specifies a list of azure resource Ids of azure virtual machines.
 	VirtualMachineIds []string `pulumi:"virtualMachineIds"`
 	// One or more `windows` blocks as defined below.
-	Windows []SoftwareUpdateConfigurationWindow `pulumi:"windows"`
+	Windows *SoftwareUpdateConfigurationWindows `pulumi:"windows"`
 }
 
 type SoftwareUpdateConfigurationState struct {
@@ -148,7 +148,7 @@ type SoftwareUpdateConfigurationState struct {
 	// Specifies a list of azure resource Ids of azure virtual machines.
 	VirtualMachineIds pulumi.StringArrayInput
 	// One or more `windows` blocks as defined below.
-	Windows SoftwareUpdateConfigurationWindowArrayInput
+	Windows SoftwareUpdateConfigurationWindowsPtrInput
 }
 
 func (SoftwareUpdateConfigurationState) ElementType() reflect.Type {
@@ -179,7 +179,7 @@ type softwareUpdateConfigurationArgs struct {
 	// Specifies a list of azure resource Ids of azure virtual machines.
 	VirtualMachineIds []string `pulumi:"virtualMachineIds"`
 	// One or more `windows` blocks as defined below.
-	Windows []SoftwareUpdateConfigurationWindow `pulumi:"windows"`
+	Windows *SoftwareUpdateConfigurationWindows `pulumi:"windows"`
 }
 
 // The set of arguments for constructing a SoftwareUpdateConfiguration resource.
@@ -207,7 +207,7 @@ type SoftwareUpdateConfigurationArgs struct {
 	// Specifies a list of azure resource Ids of azure virtual machines.
 	VirtualMachineIds pulumi.StringArrayInput
 	// One or more `windows` blocks as defined below.
-	Windows SoftwareUpdateConfigurationWindowArrayInput
+	Windows SoftwareUpdateConfigurationWindowsPtrInput
 }
 
 func (SoftwareUpdateConfigurationArgs) ElementType() reflect.Type {
@@ -367,8 +367,8 @@ func (o SoftwareUpdateConfigurationOutput) VirtualMachineIds() pulumi.StringArra
 }
 
 // One or more `windows` blocks as defined below.
-func (o SoftwareUpdateConfigurationOutput) Windows() SoftwareUpdateConfigurationWindowArrayOutput {
-	return o.ApplyT(func(v *SoftwareUpdateConfiguration) SoftwareUpdateConfigurationWindowArrayOutput { return v.Windows }).(SoftwareUpdateConfigurationWindowArrayOutput)
+func (o SoftwareUpdateConfigurationOutput) Windows() SoftwareUpdateConfigurationWindowsPtrOutput {
+	return o.ApplyT(func(v *SoftwareUpdateConfiguration) SoftwareUpdateConfigurationWindowsPtrOutput { return v.Windows }).(SoftwareUpdateConfigurationWindowsPtrOutput)
 }
 
 type SoftwareUpdateConfigurationArrayOutput struct{ *pulumi.OutputState }

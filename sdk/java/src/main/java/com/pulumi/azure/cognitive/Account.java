@@ -6,6 +6,7 @@ package com.pulumi.azure.cognitive;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.cognitive.AccountArgs;
 import com.pulumi.azure.cognitive.inputs.AccountState;
+import com.pulumi.azure.cognitive.outputs.AccountCustomerManagedKey;
 import com.pulumi.azure.cognitive.outputs.AccountIdentity;
 import com.pulumi.azure.cognitive.outputs.AccountNetworkAcls;
 import com.pulumi.azure.cognitive.outputs.AccountStorage;
@@ -113,6 +114,20 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> customSubdomainName() {
         return Codegen.optional(this.customSubdomainName);
+    }
+    /**
+     * A `customer_managed_key` block as documented below.
+     * 
+     */
+    @Export(name="customerManagedKey", type=AccountCustomerManagedKey.class, parameters={})
+    private Output</* @Nullable */ AccountCustomerManagedKey> customerManagedKey;
+
+    /**
+     * @return A `customer_managed_key` block as documented below.
+     * 
+     */
+    public Output<Optional<AccountCustomerManagedKey>> customerManagedKey() {
+        return Codegen.optional(this.customerManagedKey);
     }
     /**
      * The endpoint used to connect to the Cognitive Service Account.

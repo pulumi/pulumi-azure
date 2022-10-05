@@ -118,6 +118,13 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('oidcToken')
 
     @property
+    def oidc_token_file_path(self) -> Optional[str]:
+        """
+        The path to a file containing an OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+        """
+        return __config__.get('oidcTokenFilePath')
+
+    @property
     def partner_id(self) -> Optional[str]:
         """
         A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.

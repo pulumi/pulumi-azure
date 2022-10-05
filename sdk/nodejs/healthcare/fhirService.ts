@@ -125,6 +125,14 @@ export class FhirService extends pulumi.CustomResource {
      * Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+     */
+    public readonly ociArtifacts!: pulumi.Output<outputs.healthcare.FhirServiceOciArtifact[] | undefined>;
+    /**
+     * Whether public networks access is enabled.
+     */
+    public /*out*/ readonly publicNetworkAccessEnabled!: pulumi.Output<boolean>;
     public readonly resourceGroupName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -154,6 +162,8 @@ export class FhirService extends pulumi.CustomResource {
             resourceInputs["kind"] = state ? state.kind : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ociArtifacts"] = state ? state.ociArtifacts : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
@@ -177,9 +187,11 @@ export class FhirService extends pulumi.CustomResource {
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ociArtifacts"] = args ? args.ociArtifacts : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FhirService.__pulumiType, name, resourceInputs, opts);
@@ -226,6 +238,14 @@ export interface FhirServiceState {
      * Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+     */
+    ociArtifacts?: pulumi.Input<pulumi.Input<inputs.healthcare.FhirServiceOciArtifact>[]>;
+    /**
+     * Whether public networks access is enabled.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     resourceGroupName?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -274,6 +294,10 @@ export interface FhirServiceArgs {
      * Specifies the name of the Healthcare FHIR Service. Changing this forces a new Healthcare FHIR Service to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+     */
+    ociArtifacts?: pulumi.Input<pulumi.Input<inputs.healthcare.FhirServiceOciArtifact>[]>;
     resourceGroupName: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

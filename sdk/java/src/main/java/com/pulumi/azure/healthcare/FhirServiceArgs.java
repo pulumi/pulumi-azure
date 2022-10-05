@@ -6,6 +6,7 @@ package com.pulumi.azure.healthcare;
 import com.pulumi.azure.healthcare.inputs.FhirServiceAuthenticationArgs;
 import com.pulumi.azure.healthcare.inputs.FhirServiceCorsArgs;
 import com.pulumi.azure.healthcare.inputs.FhirServiceIdentityArgs;
+import com.pulumi.azure.healthcare.inputs.FhirServiceOciArtifactArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -155,6 +156,21 @@ public final class FhirServiceArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    /**
+     * [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+     * 
+     */
+    @Import(name="ociArtifacts")
+    private @Nullable Output<List<FhirServiceOciArtifactArgs>> ociArtifacts;
+
+    /**
+     * @return [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+     * 
+     */
+    public Optional<Output<List<FhirServiceOciArtifactArgs>>> ociArtifacts() {
+        return Optional.ofNullable(this.ociArtifacts);
+    }
+
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
@@ -196,6 +212,7 @@ public final class FhirServiceArgs extends com.pulumi.resources.ResourceArgs {
         this.kind = $.kind;
         this.location = $.location;
         this.name = $.name;
+        this.ociArtifacts = $.ociArtifacts;
         this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
         this.workspaceId = $.workspaceId;
@@ -426,6 +443,37 @@ public final class FhirServiceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param ociArtifacts [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ociArtifacts(@Nullable Output<List<FhirServiceOciArtifactArgs>> ociArtifacts) {
+            $.ociArtifacts = ociArtifacts;
+            return this;
+        }
+
+        /**
+         * @param ociArtifacts [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ociArtifacts(List<FhirServiceOciArtifactArgs> ociArtifacts) {
+            return ociArtifacts(Output.of(ociArtifacts));
+        }
+
+        /**
+         * @param ociArtifacts [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ociArtifacts(FhirServiceOciArtifactArgs... ociArtifacts) {
+            return ociArtifacts(List.of(ociArtifacts));
         }
 
         public Builder resourceGroupName(Output<String> resourceGroupName) {

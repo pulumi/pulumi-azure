@@ -128,7 +128,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly singlePlacementGroup!: pulumi.Output<boolean>;
     /**
-     * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+     * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
      */
     public readonly skuName!: pulumi.Output<string | undefined>;
     public readonly sourceImageId!: pulumi.Output<string | undefined>;
@@ -145,6 +145,10 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
      * The Unique ID for the Orchestrated Virtual Machine Scale Set.
      */
     public /*out*/ readonly uniqueId!: pulumi.Output<string>;
+    /**
+     * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+     */
+    public readonly userDataBase64!: pulumi.Output<string | undefined>;
     public readonly zoneBalance!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
@@ -195,6 +199,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["terminationNotification"] = state ? state.terminationNotification : undefined;
             resourceInputs["uniqueId"] = state ? state.uniqueId : undefined;
+            resourceInputs["userDataBase64"] = state ? state.userDataBase64 : undefined;
             resourceInputs["zoneBalance"] = state ? state.zoneBalance : undefined;
             resourceInputs["zones"] = state ? state.zones : undefined;
         } else {
@@ -235,6 +240,7 @@ export class OrchestratedVirtualMachineScaleSet extends pulumi.CustomResource {
             resourceInputs["sourceImageReference"] = args ? args.sourceImageReference : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["terminationNotification"] = args ? args.terminationNotification : undefined;
+            resourceInputs["userDataBase64"] = args ? args.userDataBase64 : undefined;
             resourceInputs["zoneBalance"] = args ? args.zoneBalance : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["uniqueId"] = undefined /*out*/;
@@ -310,7 +316,7 @@ export interface OrchestratedVirtualMachineScaleSetState {
      */
     singlePlacementGroup?: pulumi.Input<boolean>;
     /**
-     * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+     * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
      */
     skuName?: pulumi.Input<string>;
     sourceImageId?: pulumi.Input<string>;
@@ -327,6 +333,10 @@ export interface OrchestratedVirtualMachineScaleSetState {
      * The Unique ID for the Orchestrated Virtual Machine Scale Set.
      */
     uniqueId?: pulumi.Input<string>;
+    /**
+     * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+     */
+    userDataBase64?: pulumi.Input<string>;
     zoneBalance?: pulumi.Input<boolean>;
     /**
      * Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
@@ -400,7 +410,7 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
      */
     singlePlacementGroup?: pulumi.Input<boolean>;
     /**
-     * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
+     * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. Defaults to `Basic_Regional`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
      */
     skuName?: pulumi.Input<string>;
     sourceImageId?: pulumi.Input<string>;
@@ -413,6 +423,10 @@ export interface OrchestratedVirtualMachineScaleSetArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     terminationNotification?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetTerminationNotification>;
+    /**
+     * The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
+     */
+    userDataBase64?: pulumi.Input<string>;
     zoneBalance?: pulumi.Input<boolean>;
     /**
      * Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created.
