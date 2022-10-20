@@ -14,12 +14,15 @@ __all__ = [
     'ConfigurationFeatureTargetingFilter',
     'ConfigurationFeatureTargetingFilterGroup',
     'ConfigurationFeatureTimewindowFilter',
+    'ConfigurationStoreEncryption',
     'ConfigurationStoreIdentity',
     'ConfigurationStorePrimaryReadKey',
     'ConfigurationStorePrimaryWriteKey',
     'ConfigurationStoreSecondaryReadKey',
     'ConfigurationStoreSecondaryWriteKey',
     'GetConfigurationKeysItemResult',
+    'GetConfigurationStoreEncryptionResult',
+    'GetConfigurationStoreIdentityResult',
     'GetConfigurationStorePrimaryReadKeyResult',
     'GetConfigurationStorePrimaryWriteKeyResult',
     'GetConfigurationStoreSecondaryReadKeyResult',
@@ -160,6 +163,56 @@ class ConfigurationFeatureTimewindowFilter(dict):
         The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
         """
         return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class ConfigurationStoreEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityClientId":
+            suggest = "identity_client_id"
+        elif key == "keyVaultKeyIdentifier":
+            suggest = "key_vault_key_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfigurationStoreEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfigurationStoreEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfigurationStoreEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_client_id: Optional[str] = None,
+                 key_vault_key_identifier: Optional[str] = None):
+        """
+        :param str identity_client_id: Specifies the client id of the identity which will be used to access key vault.
+        :param str key_vault_key_identifier: Specifies the URI of the key vault key used to encrypt data.
+        """
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
+        if key_vault_key_identifier is not None:
+            pulumi.set(__self__, "key_vault_key_identifier", key_vault_key_identifier)
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[str]:
+        """
+        Specifies the client id of the identity which will be used to access key vault.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @property
+    @pulumi.getter(name="keyVaultKeyIdentifier")
+    def key_vault_key_identifier(self) -> Optional[str]:
+        """
+        Specifies the URI of the key vault key used to encrypt data.
+        """
+        return pulumi.get(self, "key_vault_key_identifier")
 
 
 @pulumi.output_type
@@ -581,6 +634,58 @@ class GetConfigurationKeysItemResult(dict):
         The ID of the vault secret this App Configuration Key refers to, when `type` is `vault`.
         """
         return pulumi.get(self, "vault_key_reference")
+
+
+@pulumi.output_type
+class GetConfigurationStoreEncryptionResult(dict):
+    def __init__(__self__, *,
+                 identity_client_id: str,
+                 key_vault_key_identifier: str):
+        pulumi.set(__self__, "identity_client_id", identity_client_id)
+        pulumi.set(__self__, "key_vault_key_identifier", key_vault_key_identifier)
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> str:
+        return pulumi.get(self, "identity_client_id")
+
+    @property
+    @pulumi.getter(name="keyVaultKeyIdentifier")
+    def key_vault_key_identifier(self) -> str:
+        return pulumi.get(self, "key_vault_key_identifier")
+
+
+@pulumi.output_type
+class GetConfigurationStoreIdentityResult(dict):
+    def __init__(__self__, *,
+                 identity_ids: Sequence[str],
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        pulumi.set(__self__, "identity_ids", identity_ids)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> Sequence[str]:
+        return pulumi.get(self, "identity_ids")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

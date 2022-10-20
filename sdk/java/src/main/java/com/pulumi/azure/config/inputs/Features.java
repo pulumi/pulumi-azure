@@ -4,6 +4,7 @@
 package com.pulumi.azure.config.inputs;
 
 import com.pulumi.azure.config.outputs.FeaturesApiManagement;
+import com.pulumi.azure.config.outputs.FeaturesAppConfiguration;
 import com.pulumi.azure.config.outputs.FeaturesApplicationInsights;
 import com.pulumi.azure.config.outputs.FeaturesCognitiveAccount;
 import com.pulumi.azure.config.outputs.FeaturesKeyVault;
@@ -21,6 +22,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class Features {
     private @Nullable FeaturesApiManagement apiManagement;
+    private @Nullable FeaturesAppConfiguration appConfiguration;
     private @Nullable FeaturesApplicationInsights applicationInsights;
     private @Nullable FeaturesCognitiveAccount cognitiveAccount;
     private @Nullable FeaturesKeyVault keyVault;
@@ -34,6 +36,9 @@ public final class Features {
     private Features() {}
     public Optional<FeaturesApiManagement> apiManagement() {
         return Optional.ofNullable(this.apiManagement);
+    }
+    public Optional<FeaturesAppConfiguration> appConfiguration() {
+        return Optional.ofNullable(this.appConfiguration);
     }
     public Optional<FeaturesApplicationInsights> applicationInsights() {
         return Optional.ofNullable(this.applicationInsights);
@@ -73,6 +78,7 @@ public final class Features {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable FeaturesApiManagement apiManagement;
+        private @Nullable FeaturesAppConfiguration appConfiguration;
         private @Nullable FeaturesApplicationInsights applicationInsights;
         private @Nullable FeaturesCognitiveAccount cognitiveAccount;
         private @Nullable FeaturesKeyVault keyVault;
@@ -86,6 +92,7 @@ public final class Features {
         public Builder(Features defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiManagement = defaults.apiManagement;
+    	      this.appConfiguration = defaults.appConfiguration;
     	      this.applicationInsights = defaults.applicationInsights;
     	      this.cognitiveAccount = defaults.cognitiveAccount;
     	      this.keyVault = defaults.keyVault;
@@ -100,6 +107,11 @@ public final class Features {
         @CustomType.Setter
         public Builder apiManagement(@Nullable FeaturesApiManagement apiManagement) {
             this.apiManagement = apiManagement;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder appConfiguration(@Nullable FeaturesAppConfiguration appConfiguration) {
+            this.appConfiguration = appConfiguration;
             return this;
         }
         @CustomType.Setter
@@ -150,6 +162,7 @@ public final class Features {
         public Features build() {
             final var o = new Features();
             o.apiManagement = apiManagement;
+            o.appConfiguration = appConfiguration;
             o.applicationInsights = applicationInsights;
             o.cognitiveAccount = cognitiveAccount;
             o.keyVault = keyVault;

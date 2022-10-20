@@ -55,6 +55,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly int? MaxPods;
         /// <summary>
+        /// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? MessageOfTheDay;
+        /// <summary>
         /// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         /// </summary>
         public readonly int? MinCount;
@@ -101,6 +105,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         public readonly string? PodSubnetId;
         public readonly string? ProximityPlacementGroupId;
         /// <summary>
+        /// Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? ScaleDownMode;
+        /// <summary>
         /// A mapping of tags to assign to the Node Pool.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -124,6 +132,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? VnetSubnetId;
+        /// <summary>
+        /// Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+        /// </summary>
+        public readonly string? WorkloadRuntime;
         /// <summary>
         /// Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
         /// </summary>
@@ -153,6 +165,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             int? maxPods,
 
+            string? messageOfTheDay,
+
             int? minCount,
 
             string name,
@@ -179,6 +193,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? proximityPlacementGroupId,
 
+            string? scaleDownMode,
+
             ImmutableDictionary<string, string>? tags,
 
             string? type,
@@ -190,6 +206,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
             string vmSize,
 
             string? vnetSubnetId,
+
+            string? workloadRuntime,
 
             ImmutableArray<string> zones)
         {
@@ -204,6 +222,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             LinuxOsConfig = linuxOsConfig;
             MaxCount = maxCount;
             MaxPods = maxPods;
+            MessageOfTheDay = messageOfTheDay;
             MinCount = minCount;
             Name = name;
             NodeCount = nodeCount;
@@ -217,12 +236,14 @@ namespace Pulumi.Azure.ContainerService.Outputs
             OsSku = osSku;
             PodSubnetId = podSubnetId;
             ProximityPlacementGroupId = proximityPlacementGroupId;
+            ScaleDownMode = scaleDownMode;
             Tags = tags;
             Type = type;
             UltraSsdEnabled = ultraSsdEnabled;
             UpgradeSettings = upgradeSettings;
             VmSize = vmSize;
             VnetSubnetId = vnetSubnetId;
+            WorkloadRuntime = workloadRuntime;
             Zones = zones;
         }
     }

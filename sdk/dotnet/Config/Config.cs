@@ -265,6 +265,7 @@ namespace Pulumi.Azure
              public class Features
              {
                 public Pulumi.Azure.Config.Types.FeaturesApiManagement? ApiManagement { get; set; } = null!;
+                public Pulumi.Azure.Config.Types.FeaturesAppConfiguration? AppConfiguration { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesApplicationInsights? ApplicationInsights { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesCognitiveAccount? CognitiveAccount { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesKeyVault? KeyVault { get; set; } = null!;
@@ -277,6 +278,12 @@ namespace Pulumi.Azure
             }
 
              public class FeaturesApiManagement
+             {
+                public bool? PurgeSoftDeleteOnDestroy { get; set; }
+                public bool? RecoverSoftDeleted { get; set; }
+            }
+
+             public class FeaturesAppConfiguration
              {
                 public bool? PurgeSoftDeleteOnDestroy { get; set; }
                 public bool? RecoverSoftDeleted { get; set; }

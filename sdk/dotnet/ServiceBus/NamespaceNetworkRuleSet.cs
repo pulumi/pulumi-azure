@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceBus
 {
     /// <summary>
-    /// Manages a ServiceBus Namespace Network Rule Set Set.
+    /// Manages a ServiceBus Namespace Network Rule Set.
     /// 
     /// ## Example Usage
     /// 

@@ -88,7 +88,7 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly collation!: pulumi.Output<string>;
     /**
-     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
      */
     public readonly createMode!: pulumi.Output<string | undefined>;
     /**
@@ -103,6 +103,10 @@ export class Database extends pulumi.CustomResource {
      * A boolean that specifies if the Geo Backup Policy is enabled.
      */
     public readonly geoBackupEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * A Database Import block as documented below. Mutually exclusive with `createMode`.
+     */
+    public readonly import!: pulumi.Output<outputs.mssql.DatabaseImport | undefined>;
     /**
      * A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
      */
@@ -207,6 +211,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["creationSourceDatabaseId"] = state ? state.creationSourceDatabaseId : undefined;
             resourceInputs["elasticPoolId"] = state ? state.elasticPoolId : undefined;
             resourceInputs["geoBackupEnabled"] = state ? state.geoBackupEnabled : undefined;
+            resourceInputs["import"] = state ? state.import : undefined;
             resourceInputs["ledgerEnabled"] = state ? state.ledgerEnabled : undefined;
             resourceInputs["licenseType"] = state ? state.licenseType : undefined;
             resourceInputs["longTermRetentionPolicy"] = state ? state.longTermRetentionPolicy : undefined;
@@ -239,6 +244,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["creationSourceDatabaseId"] = args ? args.creationSourceDatabaseId : undefined;
             resourceInputs["elasticPoolId"] = args ? args.elasticPoolId : undefined;
             resourceInputs["geoBackupEnabled"] = args ? args.geoBackupEnabled : undefined;
+            resourceInputs["import"] = args ? args.import : undefined;
             resourceInputs["ledgerEnabled"] = args ? args.ledgerEnabled : undefined;
             resourceInputs["licenseType"] = args ? args.licenseType : undefined;
             resourceInputs["longTermRetentionPolicy"] = args ? args.longTermRetentionPolicy : undefined;
@@ -279,7 +285,7 @@ export interface DatabaseState {
      */
     collation?: pulumi.Input<string>;
     /**
-     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
      */
     createMode?: pulumi.Input<string>;
     /**
@@ -294,6 +300,10 @@ export interface DatabaseState {
      * A boolean that specifies if the Geo Backup Policy is enabled.
      */
     geoBackupEnabled?: pulumi.Input<boolean>;
+    /**
+     * A Database Import block as documented below. Mutually exclusive with `createMode`.
+     */
+    import?: pulumi.Input<inputs.mssql.DatabaseImport>;
     /**
      * A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
      */
@@ -393,7 +403,7 @@ export interface DatabaseArgs {
      */
     collation?: pulumi.Input<string>;
     /**
-     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
      */
     createMode?: pulumi.Input<string>;
     /**
@@ -408,6 +418,10 @@ export interface DatabaseArgs {
      * A boolean that specifies if the Geo Backup Policy is enabled.
      */
     geoBackupEnabled?: pulumi.Input<boolean>;
+    /**
+     * A Database Import block as documented below. Mutually exclusive with `createMode`.
+     */
+    import?: pulumi.Input<inputs.mssql.DatabaseImport>;
     /**
      * A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
      */

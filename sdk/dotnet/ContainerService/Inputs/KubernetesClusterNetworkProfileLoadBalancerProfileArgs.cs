@@ -36,6 +36,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("managedOutboundIpCount")]
         public Input<int>? ManagedOutboundIpCount { get; set; }
 
+        /// <summary>
+        /// The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+        /// </summary>
+        [Input("managedOutboundIpv6Count")]
+        public Input<int>? ManagedOutboundIpv6Count { get; set; }
+
         [Input("outboundIpAddressIds")]
         private InputList<string>? _outboundIpAddressIds;
 

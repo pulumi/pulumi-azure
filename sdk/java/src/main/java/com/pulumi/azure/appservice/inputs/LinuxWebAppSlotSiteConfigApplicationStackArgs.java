@@ -136,14 +136,14 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
     }
 
     /**
-     * The version of Python to run. Possible values include `3.7`, `3.8`, and `3.9`.
+     * The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
      * 
      */
     @Import(name="pythonVersion")
     private @Nullable Output<String> pythonVersion;
 
     /**
-     * @return The version of Python to run. Possible values include `3.7`, `3.8`, and `3.9`.
+     * @return The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
      * 
      */
     public Optional<Output<String>> pythonVersion() {
@@ -367,7 +367,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
         }
 
         /**
-         * @param pythonVersion The version of Python to run. Possible values include `3.7`, `3.8`, and `3.9`.
+         * @param pythonVersion The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
          * 
          * @return builder
          * 
@@ -378,7 +378,7 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
         }
 
         /**
-         * @param pythonVersion The version of Python to run. Possible values include `3.7`, `3.8`, and `3.9`.
+         * @param pythonVersion The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
          * 
          * @return builder
          * 

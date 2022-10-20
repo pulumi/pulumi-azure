@@ -19,6 +19,21 @@ public final class OutputServiceBusQueueState extends com.pulumi.resources.Resou
     public static final OutputServiceBusQueueState Empty = new OutputServiceBusQueueState();
 
     /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     * 
+     */
+    @Import(name="authenticationMode")
+    private @Nullable Output<String> authenticationMode;
+
+    /**
+     * @return The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     * 
+     */
+    public Optional<Output<String>> authenticationMode() {
+        return Optional.ofNullable(this.authenticationMode);
+    }
+
+    /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      * 
      */
@@ -171,6 +186,7 @@ public final class OutputServiceBusQueueState extends com.pulumi.resources.Resou
     private OutputServiceBusQueueState() {}
 
     private OutputServiceBusQueueState(OutputServiceBusQueueState $) {
+        this.authenticationMode = $.authenticationMode;
         this.name = $.name;
         this.propertyColumns = $.propertyColumns;
         this.queueName = $.queueName;
@@ -199,6 +215,27 @@ public final class OutputServiceBusQueueState extends com.pulumi.resources.Resou
 
         public Builder(OutputServiceBusQueueState defaults) {
             $ = new OutputServiceBusQueueState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param authenticationMode The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationMode(@Nullable Output<String> authenticationMode) {
+            $.authenticationMode = authenticationMode;
+            return this;
+        }
+
+        /**
+         * @param authenticationMode The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authenticationMode(String authenticationMode) {
+            return authenticationMode(Output.of(authenticationMode));
         }
 
         /**

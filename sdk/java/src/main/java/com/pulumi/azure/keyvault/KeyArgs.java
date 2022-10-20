@@ -79,14 +79,14 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+     * Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="keyType", required=true)
     private Output<String> keyType;
 
     /**
-     * @return Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+     * @return Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> keyType() {
@@ -280,7 +280,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyType Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+         * @param keyType Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyType Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+         * @param keyType Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

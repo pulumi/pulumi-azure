@@ -7,7 +7,10 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs extends com.pulumi.resources.ResourceArgs {
@@ -59,12 +62,28 @@ public final class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityG
         return this.sourceAddressPrefix;
     }
 
+    /**
+     * The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can&#39;t overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+     * 
+     */
+    @Import(name="sourcePortRanges")
+    private @Nullable Output<List<String>> sourcePortRanges;
+
+    /**
+     * @return The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can&#39;t overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+     * 
+     */
+    public Optional<Output<List<String>>> sourcePortRanges() {
+        return Optional.ofNullable(this.sourcePortRanges);
+    }
+
     private PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs() {}
 
     private PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs(PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs $) {
         this.access = $.access;
         this.priority = $.priority;
         this.sourceAddressPrefix = $.sourceAddressPrefix;
+        this.sourcePortRanges = $.sourcePortRanges;
     }
 
     public static Builder builder() {
@@ -146,6 +165,37 @@ public final class PoolNetworkConfigurationEndpointConfigurationNetworkSecurityG
          */
         public Builder sourceAddressPrefix(String sourceAddressPrefix) {
             return sourceAddressPrefix(Output.of(sourceAddressPrefix));
+        }
+
+        /**
+         * @param sourcePortRanges The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can&#39;t overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourcePortRanges(@Nullable Output<List<String>> sourcePortRanges) {
+            $.sourcePortRanges = sourcePortRanges;
+            return this;
+        }
+
+        /**
+         * @param sourcePortRanges The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can&#39;t overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourcePortRanges(List<String> sourcePortRanges) {
+            return sourcePortRanges(Output.of(sourcePortRanges));
+        }
+
+        /**
+         * @param sourcePortRanges The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can&#39;t overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourcePortRanges(String... sourcePortRanges) {
+            return sourcePortRanges(List.of(sourcePortRanges));
         }
 
         public PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs build() {

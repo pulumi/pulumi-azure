@@ -25,6 +25,10 @@ namespace Pulumi.Azure.Batch.Outputs
         /// The source address prefix or tag to match for the rule.
         /// </summary>
         public readonly string SourceAddressPrefix;
+        /// <summary>
+        /// The source port ranges to match for the rule.
+        /// </summary>
+        public readonly ImmutableArray<string> SourcePortRanges;
 
         [OutputConstructor]
         private GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleResult(
@@ -32,11 +36,14 @@ namespace Pulumi.Azure.Batch.Outputs
 
             int priority,
 
-            string sourceAddressPrefix)
+            string sourceAddressPrefix,
+
+            ImmutableArray<string> sourcePortRanges)
         {
             Access = access;
             Priority = priority;
             SourceAddressPrefix = sourceAddressPrefix;
+            SourcePortRanges = sourcePortRanges;
         }
     }
 }

@@ -17,10 +17,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// A `disk_encryption_key` block as defined above.
         /// </summary>
         public readonly Outputs.ManagedDiskEncryptionSettingsDiskEncryptionKey? DiskEncryptionKey;
-        /// <summary>
-        /// Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly bool Enabled;
+        public readonly bool? Enabled;
         /// <summary>
         /// A `key_encryption_key` block as defined below.
         /// </summary>
@@ -30,7 +27,7 @@ namespace Pulumi.Azure.Compute.Outputs
         private ManagedDiskEncryptionSettings(
             Outputs.ManagedDiskEncryptionSettingsDiskEncryptionKey? diskEncryptionKey,
 
-            bool enabled,
+            bool? enabled,
 
             Outputs.ManagedDiskEncryptionSettingsKeyEncryptionKey? keyEncryptionKey)
         {

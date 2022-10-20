@@ -339,6 +339,162 @@ func (o ConfigurationFeatureTimewindowFilterArrayOutput) Index(i pulumi.IntInput
 	}).(ConfigurationFeatureTimewindowFilterOutput)
 }
 
+type ConfigurationStoreEncryption struct {
+	// Specifies the client id of the identity which will be used to access key vault.
+	IdentityClientId *string `pulumi:"identityClientId"`
+	// Specifies the URI of the key vault key used to encrypt data.
+	KeyVaultKeyIdentifier *string `pulumi:"keyVaultKeyIdentifier"`
+}
+
+// ConfigurationStoreEncryptionInput is an input type that accepts ConfigurationStoreEncryptionArgs and ConfigurationStoreEncryptionOutput values.
+// You can construct a concrete instance of `ConfigurationStoreEncryptionInput` via:
+//
+//	ConfigurationStoreEncryptionArgs{...}
+type ConfigurationStoreEncryptionInput interface {
+	pulumi.Input
+
+	ToConfigurationStoreEncryptionOutput() ConfigurationStoreEncryptionOutput
+	ToConfigurationStoreEncryptionOutputWithContext(context.Context) ConfigurationStoreEncryptionOutput
+}
+
+type ConfigurationStoreEncryptionArgs struct {
+	// Specifies the client id of the identity which will be used to access key vault.
+	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
+	// Specifies the URI of the key vault key used to encrypt data.
+	KeyVaultKeyIdentifier pulumi.StringPtrInput `pulumi:"keyVaultKeyIdentifier"`
+}
+
+func (ConfigurationStoreEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationStoreEncryption)(nil)).Elem()
+}
+
+func (i ConfigurationStoreEncryptionArgs) ToConfigurationStoreEncryptionOutput() ConfigurationStoreEncryptionOutput {
+	return i.ToConfigurationStoreEncryptionOutputWithContext(context.Background())
+}
+
+func (i ConfigurationStoreEncryptionArgs) ToConfigurationStoreEncryptionOutputWithContext(ctx context.Context) ConfigurationStoreEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreEncryptionOutput)
+}
+
+func (i ConfigurationStoreEncryptionArgs) ToConfigurationStoreEncryptionPtrOutput() ConfigurationStoreEncryptionPtrOutput {
+	return i.ToConfigurationStoreEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationStoreEncryptionArgs) ToConfigurationStoreEncryptionPtrOutputWithContext(ctx context.Context) ConfigurationStoreEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreEncryptionOutput).ToConfigurationStoreEncryptionPtrOutputWithContext(ctx)
+}
+
+// ConfigurationStoreEncryptionPtrInput is an input type that accepts ConfigurationStoreEncryptionArgs, ConfigurationStoreEncryptionPtr and ConfigurationStoreEncryptionPtrOutput values.
+// You can construct a concrete instance of `ConfigurationStoreEncryptionPtrInput` via:
+//
+//	        ConfigurationStoreEncryptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationStoreEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationStoreEncryptionPtrOutput() ConfigurationStoreEncryptionPtrOutput
+	ToConfigurationStoreEncryptionPtrOutputWithContext(context.Context) ConfigurationStoreEncryptionPtrOutput
+}
+
+type configurationStoreEncryptionPtrType ConfigurationStoreEncryptionArgs
+
+func ConfigurationStoreEncryptionPtr(v *ConfigurationStoreEncryptionArgs) ConfigurationStoreEncryptionPtrInput {
+	return (*configurationStoreEncryptionPtrType)(v)
+}
+
+func (*configurationStoreEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationStoreEncryption)(nil)).Elem()
+}
+
+func (i *configurationStoreEncryptionPtrType) ToConfigurationStoreEncryptionPtrOutput() ConfigurationStoreEncryptionPtrOutput {
+	return i.ToConfigurationStoreEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationStoreEncryptionPtrType) ToConfigurationStoreEncryptionPtrOutputWithContext(ctx context.Context) ConfigurationStoreEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreEncryptionPtrOutput)
+}
+
+type ConfigurationStoreEncryptionOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationStoreEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationStoreEncryption)(nil)).Elem()
+}
+
+func (o ConfigurationStoreEncryptionOutput) ToConfigurationStoreEncryptionOutput() ConfigurationStoreEncryptionOutput {
+	return o
+}
+
+func (o ConfigurationStoreEncryptionOutput) ToConfigurationStoreEncryptionOutputWithContext(ctx context.Context) ConfigurationStoreEncryptionOutput {
+	return o
+}
+
+func (o ConfigurationStoreEncryptionOutput) ToConfigurationStoreEncryptionPtrOutput() ConfigurationStoreEncryptionPtrOutput {
+	return o.ToConfigurationStoreEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationStoreEncryptionOutput) ToConfigurationStoreEncryptionPtrOutputWithContext(ctx context.Context) ConfigurationStoreEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationStoreEncryption) *ConfigurationStoreEncryption {
+		return &v
+	}).(ConfigurationStoreEncryptionPtrOutput)
+}
+
+// Specifies the client id of the identity which will be used to access key vault.
+func (o ConfigurationStoreEncryptionOutput) IdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationStoreEncryption) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the URI of the key vault key used to encrypt data.
+func (o ConfigurationStoreEncryptionOutput) KeyVaultKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationStoreEncryption) *string { return v.KeyVaultKeyIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationStoreEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationStoreEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationStoreEncryption)(nil)).Elem()
+}
+
+func (o ConfigurationStoreEncryptionPtrOutput) ToConfigurationStoreEncryptionPtrOutput() ConfigurationStoreEncryptionPtrOutput {
+	return o
+}
+
+func (o ConfigurationStoreEncryptionPtrOutput) ToConfigurationStoreEncryptionPtrOutputWithContext(ctx context.Context) ConfigurationStoreEncryptionPtrOutput {
+	return o
+}
+
+func (o ConfigurationStoreEncryptionPtrOutput) Elem() ConfigurationStoreEncryptionOutput {
+	return o.ApplyT(func(v *ConfigurationStoreEncryption) ConfigurationStoreEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationStoreEncryption
+		return ret
+	}).(ConfigurationStoreEncryptionOutput)
+}
+
+// Specifies the client id of the identity which will be used to access key vault.
+func (o ConfigurationStoreEncryptionPtrOutput) IdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationStoreEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the URI of the key vault key used to encrypt data.
+func (o ConfigurationStoreEncryptionPtrOutput) KeyVaultKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationStoreEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultKeyIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConfigurationStoreIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this App Configuration.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -1162,6 +1318,218 @@ func (o GetConfigurationKeysItemArrayOutput) Index(i pulumi.IntInput) GetConfigu
 	}).(GetConfigurationKeysItemOutput)
 }
 
+type GetConfigurationStoreEncryption struct {
+	IdentityClientId      string `pulumi:"identityClientId"`
+	KeyVaultKeyIdentifier string `pulumi:"keyVaultKeyIdentifier"`
+}
+
+// GetConfigurationStoreEncryptionInput is an input type that accepts GetConfigurationStoreEncryptionArgs and GetConfigurationStoreEncryptionOutput values.
+// You can construct a concrete instance of `GetConfigurationStoreEncryptionInput` via:
+//
+//	GetConfigurationStoreEncryptionArgs{...}
+type GetConfigurationStoreEncryptionInput interface {
+	pulumi.Input
+
+	ToGetConfigurationStoreEncryptionOutput() GetConfigurationStoreEncryptionOutput
+	ToGetConfigurationStoreEncryptionOutputWithContext(context.Context) GetConfigurationStoreEncryptionOutput
+}
+
+type GetConfigurationStoreEncryptionArgs struct {
+	IdentityClientId      pulumi.StringInput `pulumi:"identityClientId"`
+	KeyVaultKeyIdentifier pulumi.StringInput `pulumi:"keyVaultKeyIdentifier"`
+}
+
+func (GetConfigurationStoreEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationStoreEncryption)(nil)).Elem()
+}
+
+func (i GetConfigurationStoreEncryptionArgs) ToGetConfigurationStoreEncryptionOutput() GetConfigurationStoreEncryptionOutput {
+	return i.ToGetConfigurationStoreEncryptionOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationStoreEncryptionArgs) ToGetConfigurationStoreEncryptionOutputWithContext(ctx context.Context) GetConfigurationStoreEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStoreEncryptionOutput)
+}
+
+// GetConfigurationStoreEncryptionArrayInput is an input type that accepts GetConfigurationStoreEncryptionArray and GetConfigurationStoreEncryptionArrayOutput values.
+// You can construct a concrete instance of `GetConfigurationStoreEncryptionArrayInput` via:
+//
+//	GetConfigurationStoreEncryptionArray{ GetConfigurationStoreEncryptionArgs{...} }
+type GetConfigurationStoreEncryptionArrayInput interface {
+	pulumi.Input
+
+	ToGetConfigurationStoreEncryptionArrayOutput() GetConfigurationStoreEncryptionArrayOutput
+	ToGetConfigurationStoreEncryptionArrayOutputWithContext(context.Context) GetConfigurationStoreEncryptionArrayOutput
+}
+
+type GetConfigurationStoreEncryptionArray []GetConfigurationStoreEncryptionInput
+
+func (GetConfigurationStoreEncryptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationStoreEncryption)(nil)).Elem()
+}
+
+func (i GetConfigurationStoreEncryptionArray) ToGetConfigurationStoreEncryptionArrayOutput() GetConfigurationStoreEncryptionArrayOutput {
+	return i.ToGetConfigurationStoreEncryptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationStoreEncryptionArray) ToGetConfigurationStoreEncryptionArrayOutputWithContext(ctx context.Context) GetConfigurationStoreEncryptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStoreEncryptionArrayOutput)
+}
+
+type GetConfigurationStoreEncryptionOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationStoreEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationStoreEncryption)(nil)).Elem()
+}
+
+func (o GetConfigurationStoreEncryptionOutput) ToGetConfigurationStoreEncryptionOutput() GetConfigurationStoreEncryptionOutput {
+	return o
+}
+
+func (o GetConfigurationStoreEncryptionOutput) ToGetConfigurationStoreEncryptionOutputWithContext(ctx context.Context) GetConfigurationStoreEncryptionOutput {
+	return o
+}
+
+func (o GetConfigurationStoreEncryptionOutput) IdentityClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationStoreEncryption) string { return v.IdentityClientId }).(pulumi.StringOutput)
+}
+
+func (o GetConfigurationStoreEncryptionOutput) KeyVaultKeyIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationStoreEncryption) string { return v.KeyVaultKeyIdentifier }).(pulumi.StringOutput)
+}
+
+type GetConfigurationStoreEncryptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationStoreEncryptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationStoreEncryption)(nil)).Elem()
+}
+
+func (o GetConfigurationStoreEncryptionArrayOutput) ToGetConfigurationStoreEncryptionArrayOutput() GetConfigurationStoreEncryptionArrayOutput {
+	return o
+}
+
+func (o GetConfigurationStoreEncryptionArrayOutput) ToGetConfigurationStoreEncryptionArrayOutputWithContext(ctx context.Context) GetConfigurationStoreEncryptionArrayOutput {
+	return o
+}
+
+func (o GetConfigurationStoreEncryptionArrayOutput) Index(i pulumi.IntInput) GetConfigurationStoreEncryptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationStoreEncryption {
+		return vs[0].([]GetConfigurationStoreEncryption)[vs[1].(int)]
+	}).(GetConfigurationStoreEncryptionOutput)
+}
+
+type GetConfigurationStoreIdentity struct {
+	IdentityIds []string `pulumi:"identityIds"`
+	PrincipalId string   `pulumi:"principalId"`
+	TenantId    string   `pulumi:"tenantId"`
+	Type        string   `pulumi:"type"`
+}
+
+// GetConfigurationStoreIdentityInput is an input type that accepts GetConfigurationStoreIdentityArgs and GetConfigurationStoreIdentityOutput values.
+// You can construct a concrete instance of `GetConfigurationStoreIdentityInput` via:
+//
+//	GetConfigurationStoreIdentityArgs{...}
+type GetConfigurationStoreIdentityInput interface {
+	pulumi.Input
+
+	ToGetConfigurationStoreIdentityOutput() GetConfigurationStoreIdentityOutput
+	ToGetConfigurationStoreIdentityOutputWithContext(context.Context) GetConfigurationStoreIdentityOutput
+}
+
+type GetConfigurationStoreIdentityArgs struct {
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	PrincipalId pulumi.StringInput      `pulumi:"principalId"`
+	TenantId    pulumi.StringInput      `pulumi:"tenantId"`
+	Type        pulumi.StringInput      `pulumi:"type"`
+}
+
+func (GetConfigurationStoreIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationStoreIdentity)(nil)).Elem()
+}
+
+func (i GetConfigurationStoreIdentityArgs) ToGetConfigurationStoreIdentityOutput() GetConfigurationStoreIdentityOutput {
+	return i.ToGetConfigurationStoreIdentityOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationStoreIdentityArgs) ToGetConfigurationStoreIdentityOutputWithContext(ctx context.Context) GetConfigurationStoreIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStoreIdentityOutput)
+}
+
+// GetConfigurationStoreIdentityArrayInput is an input type that accepts GetConfigurationStoreIdentityArray and GetConfigurationStoreIdentityArrayOutput values.
+// You can construct a concrete instance of `GetConfigurationStoreIdentityArrayInput` via:
+//
+//	GetConfigurationStoreIdentityArray{ GetConfigurationStoreIdentityArgs{...} }
+type GetConfigurationStoreIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetConfigurationStoreIdentityArrayOutput() GetConfigurationStoreIdentityArrayOutput
+	ToGetConfigurationStoreIdentityArrayOutputWithContext(context.Context) GetConfigurationStoreIdentityArrayOutput
+}
+
+type GetConfigurationStoreIdentityArray []GetConfigurationStoreIdentityInput
+
+func (GetConfigurationStoreIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationStoreIdentity)(nil)).Elem()
+}
+
+func (i GetConfigurationStoreIdentityArray) ToGetConfigurationStoreIdentityArrayOutput() GetConfigurationStoreIdentityArrayOutput {
+	return i.ToGetConfigurationStoreIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetConfigurationStoreIdentityArray) ToGetConfigurationStoreIdentityArrayOutputWithContext(ctx context.Context) GetConfigurationStoreIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationStoreIdentityArrayOutput)
+}
+
+type GetConfigurationStoreIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationStoreIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetConfigurationStoreIdentity)(nil)).Elem()
+}
+
+func (o GetConfigurationStoreIdentityOutput) ToGetConfigurationStoreIdentityOutput() GetConfigurationStoreIdentityOutput {
+	return o
+}
+
+func (o GetConfigurationStoreIdentityOutput) ToGetConfigurationStoreIdentityOutputWithContext(ctx context.Context) GetConfigurationStoreIdentityOutput {
+	return o
+}
+
+func (o GetConfigurationStoreIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetConfigurationStoreIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+func (o GetConfigurationStoreIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationStoreIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+func (o GetConfigurationStoreIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationStoreIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+func (o GetConfigurationStoreIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetConfigurationStoreIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetConfigurationStoreIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetConfigurationStoreIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetConfigurationStoreIdentity)(nil)).Elem()
+}
+
+func (o GetConfigurationStoreIdentityArrayOutput) ToGetConfigurationStoreIdentityArrayOutput() GetConfigurationStoreIdentityArrayOutput {
+	return o
+}
+
+func (o GetConfigurationStoreIdentityArrayOutput) ToGetConfigurationStoreIdentityArrayOutputWithContext(ctx context.Context) GetConfigurationStoreIdentityArrayOutput {
+	return o
+}
+
+func (o GetConfigurationStoreIdentityArrayOutput) Index(i pulumi.IntInput) GetConfigurationStoreIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConfigurationStoreIdentity {
+		return vs[0].([]GetConfigurationStoreIdentity)[vs[1].(int)]
+	}).(GetConfigurationStoreIdentityOutput)
+}
+
 type GetConfigurationStorePrimaryReadKey struct {
 	// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
 	ConnectionString string `pulumi:"connectionString"`
@@ -1629,6 +1997,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationFeatureTargetingFilterGroupArrayInput)(nil)).Elem(), ConfigurationFeatureTargetingFilterGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationFeatureTimewindowFilterInput)(nil)).Elem(), ConfigurationFeatureTimewindowFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationFeatureTimewindowFilterArrayInput)(nil)).Elem(), ConfigurationFeatureTimewindowFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStoreEncryptionInput)(nil)).Elem(), ConfigurationStoreEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStoreEncryptionPtrInput)(nil)).Elem(), ConfigurationStoreEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStoreIdentityInput)(nil)).Elem(), ConfigurationStoreIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStoreIdentityPtrInput)(nil)).Elem(), ConfigurationStoreIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStorePrimaryReadKeyInput)(nil)).Elem(), ConfigurationStorePrimaryReadKeyArgs{})
@@ -1641,6 +2011,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationStoreSecondaryWriteKeyArrayInput)(nil)).Elem(), ConfigurationStoreSecondaryWriteKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationKeysItemInput)(nil)).Elem(), GetConfigurationKeysItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationKeysItemArrayInput)(nil)).Elem(), GetConfigurationKeysItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationStoreEncryptionInput)(nil)).Elem(), GetConfigurationStoreEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationStoreEncryptionArrayInput)(nil)).Elem(), GetConfigurationStoreEncryptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationStoreIdentityInput)(nil)).Elem(), GetConfigurationStoreIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationStoreIdentityArrayInput)(nil)).Elem(), GetConfigurationStoreIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationStorePrimaryReadKeyInput)(nil)).Elem(), GetConfigurationStorePrimaryReadKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationStorePrimaryReadKeyArrayInput)(nil)).Elem(), GetConfigurationStorePrimaryReadKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetConfigurationStorePrimaryWriteKeyInput)(nil)).Elem(), GetConfigurationStorePrimaryWriteKeyArgs{})
@@ -1655,6 +2029,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationFeatureTargetingFilterGroupArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationFeatureTimewindowFilterOutput{})
 	pulumi.RegisterOutputType(ConfigurationFeatureTimewindowFilterArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationStoreEncryptionOutput{})
+	pulumi.RegisterOutputType(ConfigurationStoreEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationStoreIdentityOutput{})
 	pulumi.RegisterOutputType(ConfigurationStoreIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationStorePrimaryReadKeyOutput{})
@@ -1667,6 +2043,10 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationStoreSecondaryWriteKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetConfigurationKeysItemOutput{})
 	pulumi.RegisterOutputType(GetConfigurationKeysItemArrayOutput{})
+	pulumi.RegisterOutputType(GetConfigurationStoreEncryptionOutput{})
+	pulumi.RegisterOutputType(GetConfigurationStoreEncryptionArrayOutput{})
+	pulumi.RegisterOutputType(GetConfigurationStoreIdentityOutput{})
+	pulumi.RegisterOutputType(GetConfigurationStoreIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetConfigurationStorePrimaryReadKeyOutput{})
 	pulumi.RegisterOutputType(GetConfigurationStorePrimaryReadKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetConfigurationStorePrimaryWriteKeyOutput{})

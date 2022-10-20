@@ -498,10 +498,10 @@ github.com/hashicorp/errwrap v1.0.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brv
 github.com/hashicorp/errwrap v1.1.0 h1:OxrOeh75EUXMY8TBjag2fzXGZ40LB6IKw45YeGUDY2I=
 github.com/hashicorp/errwrap v1.1.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brvKWEqk/Jc4=
 github.com/hashicorp/go-azure-helpers v0.12.0/go.mod h1:Zc3v4DNeX6PDdy7NljlYpnrdac1++qNW0I4U+ofGwpg=
-github.com/hashicorp/go-azure-helpers v0.41.0 h1:t2WBNr7CguPKqXA04jj0dKrysFWfAq3gfkNZQbaw3JI=
-github.com/hashicorp/go-azure-helpers v0.41.0/go.mod h1:gcutZ/Hf/O7YN9M3UIvyZ9l0Rxv7Yrc9x5sSfM9cuSw=
-github.com/hashicorp/go-azure-sdk v0.20220916.1125744 h1:13Q0gsr+6UZJyH3OQ9z/2HX2qrbdzY2anS4ttL2NkHY=
-github.com/hashicorp/go-azure-sdk v0.20220916.1125744/go.mod h1:jOhjVttoXh2We/glz4BC/0t0Lo8+M9WQBA4sbAPQPMY=
+github.com/hashicorp/go-azure-helpers v0.44.0 h1:ETmIJnKJpdyRtNvKv9azJRYlwNde/5C6SUjHsGajpMw=
+github.com/hashicorp/go-azure-helpers v0.44.0/go.mod h1:WiJNl0fD6PoM/MYuGTZ8yuzIaXQR3m2H2g6+EJ8nSwc=
+github.com/hashicorp/go-azure-sdk v0.20221013.1082942 h1:WPxzVJ8OVIifdTXBAlM6L3xgDq2zx5/qjua/Z15zCYc=
+github.com/hashicorp/go-azure-sdk v0.20221013.1082942/go.mod h1:BEjoURzcFwd+K3MqkbOt9jArIIrsqpBQ2Gz6DdemFIs=
 github.com/hashicorp/go-checkpoint v0.5.0 h1:MFYpPZCnQqQTE18jFwSII6eUQrD/oxMFp3mlgcqk5mU=
 github.com/hashicorp/go-checkpoint v0.5.0/go.mod h1:7nfLNL10NsxqO4iWuW6tWW0HjZuDrwkBuEQsVcpCOgg=
 github.com/hashicorp/go-cleanhttp v0.5.0/go.mod h1:JpRdi6/HCYpAwUzNwuwqhbovhLtngrth3wmdIIUrZ80=
@@ -668,8 +668,8 @@ github.com/kylelemons/godebug v1.1.0/go.mod h1:9/0rRGxNHcop5bhtWyNeEfOS8JIWk580+
 github.com/leodido/go-urn v1.2.0/go.mod h1:+8+nEpDfqqsY+g338gtMEUOtuK+4dEMhiQEgxpxOKII=
 github.com/lib/pq v1.10.2/go.mod h1:AlVN5x4E4T544tWzH6hKfbfQvm3HdbOxrmggDNAPY9o=
 github.com/manicminer/hamilton v0.43.0/go.mod h1:lbVyngC+/nCWuDp8UhC6Bw+bh7jcP/E+YwqzHTmzemk=
-github.com/manicminer/hamilton v0.44.0 h1:mLb4Vxbt2dsAvOpaB7xd/5D8LaTTX6ACwVP4TmW8qwE=
-github.com/manicminer/hamilton v0.44.0/go.mod h1:lbVyngC+/nCWuDp8UhC6Bw+bh7jcP/E+YwqzHTmzemk=
+github.com/manicminer/hamilton v0.50.0 h1:EPne7iH6zbXUPPjP/XZvqXzmqkt1WyF5X1A21uosPM4=
+github.com/manicminer/hamilton v0.50.0/go.mod h1:lbVyngC+/nCWuDp8UhC6Bw+bh7jcP/E+YwqzHTmzemk=
 github.com/manicminer/hamilton-autorest v0.2.0 h1:dDL+t2DrQza0EfNYINYCvXISeNwVqzgVAQh+CH/19ZU=
 github.com/manicminer/hamilton-autorest v0.2.0/go.mod h1:NselDpNTImEmOc/fa41kPg6YhDt/6S95ejWbTGZ6tlg=
 github.com/matryer/is v1.2.0 h1:92UTHpy8CDwaJ08GqLDzhhuixiBUUD1p3AU6PHddz4A=
@@ -819,8 +819,8 @@ github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Di
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9 h1:JMw+t5I+6E8Lna7JF+ghAoOLOl23UIbshJyRNP+K1HU=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220824175045-450992f2f5b9/go.mod h1:mYPs/uchNcBq7AclQv9QUtSf9iNcfp1Ag21jqTlDf2M=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20221005195921-aacb8b1da214 h1:CWCtAChveySbIaaTynOoBIWgTy9dpR2InOmxD7FXgw4=
-github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20221005195921-aacb8b1da214/go.mod h1:9KmgYokwwaT10t8qkF4OaFA0icf1nM4eFfu+JdAzSvk=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20221019222546-edb82ffc23f8 h1:Ygj5/AEiFgu75d3DJ7SR4Lwuqsa3glQruXPItHMQmnU=
+github.com/pulumi/terraform-provider-azurerm v1.41.1-0.20221019222546-edb82ffc23f8/go.mod h1:CFd6On2YphW/kfbp9rLRD8dZdxuuWVZU//mJtG/TVHE=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9 h1:czJCcoUR3FMpHnRQow2E84H/0CPrX1fMAGn9HugzyI4=
 github.com/rickb777/date v1.12.5-0.20200422084442-6300e543c4d9/go.mod h1:L8WrssTzvgYw34/Ppa0JpJfI7KKXZ2cVGI6Djt0brUU=
 github.com/rickb777/plural v1.2.0 h1:5tvEc7UBCZ7l8h/2UeybSkt/uu1DQsZFOFdNevmUhlE=

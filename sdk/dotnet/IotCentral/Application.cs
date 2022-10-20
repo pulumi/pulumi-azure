@@ -91,7 +91,7 @@ namespace Pulumi.Azure.IotCentral
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+        /// A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.Azure.IotCentral
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A `template` name. IoT Central application template name. Default is a custom application.
+        /// A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
         /// </summary>
         [Output("template")]
         public Output<string> Template { get; private set; } = null!;
@@ -197,7 +197,7 @@ namespace Pulumi.Azure.IotCentral
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+        /// A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -221,7 +221,7 @@ namespace Pulumi.Azure.IotCentral
         }
 
         /// <summary>
-        /// A `template` name. IoT Central application template name. Default is a custom application.
+        /// A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
         /// </summary>
         [Input("template")]
         public Input<string>? Template { get; set; }
@@ -271,7 +271,7 @@ namespace Pulumi.Azure.IotCentral
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+        /// A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Azure.IotCentral
         }
 
         /// <summary>
-        /// A `template` name. IoT Central application template name. Default is a custom application.
+        /// A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
         /// </summary>
         [Input("template")]
         public Input<string>? Template { get; set; }

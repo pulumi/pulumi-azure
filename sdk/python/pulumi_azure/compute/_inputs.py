@@ -2893,31 +2893,22 @@ class LinuxVirtualMachineTerminationNotificationArgs:
 @pulumi.input_type
 class ManagedDiskEncryptionSettingsArgs:
     def __init__(__self__, *,
-                 enabled: pulumi.Input[bool],
                  disk_encryption_key: Optional[pulumi.Input['ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs']] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
                  key_encryption_key: Optional[pulumi.Input['ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs']] = None):
         """
-        :param pulumi.Input[bool] enabled: Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
         :param pulumi.Input['ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs'] disk_encryption_key: A `disk_encryption_key` block as defined above.
         :param pulumi.Input['ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs'] key_encryption_key: A `key_encryption_key` block as defined below.
         """
-        pulumi.set(__self__, "enabled", enabled)
         if disk_encryption_key is not None:
             pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
+        if enabled is not None:
+            warnings.warn("""Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`""", DeprecationWarning)
+            pulumi.log.warn("""enabled is deprecated: Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`""")
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
         if key_encryption_key is not None:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[bool]:
-        """
-        Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "enabled", value)
 
     @property
     @pulumi.getter(name="diskEncryptionKey")
@@ -2930,6 +2921,15 @@ class ManagedDiskEncryptionSettingsArgs:
     @disk_encryption_key.setter
     def disk_encryption_key(self, value: Optional[pulumi.Input['ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs']]):
         pulumi.set(self, "disk_encryption_key", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
     @property
     @pulumi.getter(name="keyEncryptionKey")
@@ -2951,7 +2951,7 @@ class ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs:
                  source_vault_id: pulumi.Input[str]):
         """
         :param pulumi.Input[str] secret_url: The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
-        :param pulumi.Input[str] source_vault_id: The ID of the source Key Vault.
+        :param pulumi.Input[str] source_vault_id: The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
         """
         pulumi.set(__self__, "secret_url", secret_url)
         pulumi.set(__self__, "source_vault_id", source_vault_id)
@@ -2972,7 +2972,7 @@ class ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs:
     @pulumi.getter(name="sourceVaultId")
     def source_vault_id(self) -> pulumi.Input[str]:
         """
-        The ID of the source Key Vault.
+        The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
         """
         return pulumi.get(self, "source_vault_id")
 
@@ -2988,7 +2988,7 @@ class ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs:
                  source_vault_id: pulumi.Input[str]):
         """
         :param pulumi.Input[str] key_url: The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
-        :param pulumi.Input[str] source_vault_id: The ID of the source Key Vault.
+        :param pulumi.Input[str] source_vault_id: The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
         """
         pulumi.set(__self__, "key_url", key_url)
         pulumi.set(__self__, "source_vault_id", source_vault_id)
@@ -3009,7 +3009,7 @@ class ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs:
     @pulumi.getter(name="sourceVaultId")
     def source_vault_id(self) -> pulumi.Input[str]:
         """
-        The ID of the source Key Vault.
+        The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
         """
         return pulumi.get(self, "source_vault_id")
 
@@ -5988,27 +5988,29 @@ class SharedImageVersionTargetRegionArgs:
 @pulumi.input_type
 class SnapshotEncryptionSettingsArgs:
     def __init__(__self__, *,
-                 enabled: pulumi.Input[bool],
                  disk_encryption_key: Optional[pulumi.Input['SnapshotEncryptionSettingsDiskEncryptionKeyArgs']] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
                  key_encryption_key: Optional[pulumi.Input['SnapshotEncryptionSettingsKeyEncryptionKeyArgs']] = None):
-        pulumi.set(__self__, "enabled", enabled)
+        """
+        :param pulumi.Input['SnapshotEncryptionSettingsDiskEncryptionKeyArgs'] disk_encryption_key: A `disk_encryption_key` block as defined below.
+        :param pulumi.Input['SnapshotEncryptionSettingsKeyEncryptionKeyArgs'] key_encryption_key: A `key_encryption_key` block as defined below.
+        """
         if disk_encryption_key is not None:
             pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
+        if enabled is not None:
+            warnings.warn("""Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`""", DeprecationWarning)
+            pulumi.log.warn("""enabled is deprecated: Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`""")
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
         if key_encryption_key is not None:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
 
     @property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[bool]:
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "enabled", value)
-
-    @property
     @pulumi.getter(name="diskEncryptionKey")
     def disk_encryption_key(self) -> Optional[pulumi.Input['SnapshotEncryptionSettingsDiskEncryptionKeyArgs']]:
+        """
+        A `disk_encryption_key` block as defined below.
+        """
         return pulumi.get(self, "disk_encryption_key")
 
     @disk_encryption_key.setter
@@ -6016,8 +6018,20 @@ class SnapshotEncryptionSettingsArgs:
         pulumi.set(self, "disk_encryption_key", value)
 
     @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
     @pulumi.getter(name="keyEncryptionKey")
     def key_encryption_key(self) -> Optional[pulumi.Input['SnapshotEncryptionSettingsKeyEncryptionKeyArgs']]:
+        """
+        A `key_encryption_key` block as defined below.
+        """
         return pulumi.get(self, "key_encryption_key")
 
     @key_encryption_key.setter
@@ -6030,12 +6044,19 @@ class SnapshotEncryptionSettingsDiskEncryptionKeyArgs:
     def __init__(__self__, *,
                  secret_url: pulumi.Input[str],
                  source_vault_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] secret_url: The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
+        :param pulumi.Input[str] source_vault_id: The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
+        """
         pulumi.set(__self__, "secret_url", secret_url)
         pulumi.set(__self__, "source_vault_id", source_vault_id)
 
     @property
     @pulumi.getter(name="secretUrl")
     def secret_url(self) -> pulumi.Input[str]:
+        """
+        The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
+        """
         return pulumi.get(self, "secret_url")
 
     @secret_url.setter
@@ -6045,6 +6066,9 @@ class SnapshotEncryptionSettingsDiskEncryptionKeyArgs:
     @property
     @pulumi.getter(name="sourceVaultId")
     def source_vault_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
+        """
         return pulumi.get(self, "source_vault_id")
 
     @source_vault_id.setter
@@ -6057,12 +6081,19 @@ class SnapshotEncryptionSettingsKeyEncryptionKeyArgs:
     def __init__(__self__, *,
                  key_url: pulumi.Input[str],
                  source_vault_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key_url: The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
+        :param pulumi.Input[str] source_vault_id: The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
+        """
         pulumi.set(__self__, "key_url", key_url)
         pulumi.set(__self__, "source_vault_id", source_vault_id)
 
     @property
     @pulumi.getter(name="keyUrl")
     def key_url(self) -> pulumi.Input[str]:
+        """
+        The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
+        """
         return pulumi.get(self, "key_url")
 
     @key_url.setter
@@ -6072,6 +6103,9 @@ class SnapshotEncryptionSettingsKeyEncryptionKeyArgs:
     @property
     @pulumi.getter(name="sourceVaultId")
     def source_vault_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
+        """
         return pulumi.get(self, "source_vault_id")
 
     @source_vault_id.setter

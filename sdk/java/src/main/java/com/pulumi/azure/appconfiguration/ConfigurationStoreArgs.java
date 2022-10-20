@@ -3,9 +3,12 @@
 
 package com.pulumi.azure.appconfiguration;
 
+import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreEncryptionArgs;
 import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -16,6 +19,13 @@ import javax.annotation.Nullable;
 public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ConfigurationStoreArgs Empty = new ConfigurationStoreArgs();
+
+    @Import(name="encryption")
+    private @Nullable Output<ConfigurationStoreEncryptionArgs> encryption;
+
+    public Optional<Output<ConfigurationStoreEncryptionArgs>> encryption() {
+        return Optional.ofNullable(this.encryption);
+    }
 
     /**
      * An `identity` block as defined below.
@@ -30,6 +40,21 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<ConfigurationStoreIdentityArgs>> identity() {
         return Optional.ofNullable(this.identity);
+    }
+
+    /**
+     * Whether local authentication methods is enabled. Defaults to `true`.
+     * 
+     */
+    @Import(name="localAuthEnabled")
+    private @Nullable Output<Boolean> localAuthEnabled;
+
+    /**
+     * @return Whether local authentication methods is enabled. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> localAuthEnabled() {
+        return Optional.ofNullable(this.localAuthEnabled);
     }
 
     /**
@@ -63,18 +88,33 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Public Network Access setting of this App Configuration.
+     * The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      * 
      */
     @Import(name="publicNetworkAccess")
     private @Nullable Output<String> publicNetworkAccess;
 
     /**
-     * @return The Public Network Access setting of this App Configuration.
+     * @return The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
      * 
      */
     public Optional<Output<String>> publicNetworkAccess() {
         return Optional.ofNullable(this.publicNetworkAccess);
+    }
+
+    /**
+     * Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+     * 
+     */
+    @Import(name="purgeProtectionEnabled")
+    private @Nullable Output<Boolean> purgeProtectionEnabled;
+
+    /**
+     * @return Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> purgeProtectionEnabled() {
+        return Optional.ofNullable(this.purgeProtectionEnabled);
     }
 
     /**
@@ -108,6 +148,21 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="softDeleteRetentionDays")
+    private @Nullable Output<Integer> softDeleteRetentionDays;
+
+    /**
+     * @return The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Integer>> softDeleteRetentionDays() {
+        return Optional.ofNullable(this.softDeleteRetentionDays);
+    }
+
+    /**
      * A mapping of tags to assign to the resource.
      * 
      */
@@ -125,12 +180,16 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
     private ConfigurationStoreArgs() {}
 
     private ConfigurationStoreArgs(ConfigurationStoreArgs $) {
+        this.encryption = $.encryption;
         this.identity = $.identity;
+        this.localAuthEnabled = $.localAuthEnabled;
         this.location = $.location;
         this.name = $.name;
         this.publicNetworkAccess = $.publicNetworkAccess;
+        this.purgeProtectionEnabled = $.purgeProtectionEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.sku = $.sku;
+        this.softDeleteRetentionDays = $.softDeleteRetentionDays;
         this.tags = $.tags;
     }
 
@@ -152,6 +211,15 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
             $ = new ConfigurationStoreArgs(Objects.requireNonNull(defaults));
         }
 
+        public Builder encryption(@Nullable Output<ConfigurationStoreEncryptionArgs> encryption) {
+            $.encryption = encryption;
+            return this;
+        }
+
+        public Builder encryption(ConfigurationStoreEncryptionArgs encryption) {
+            return encryption(Output.of(encryption));
+        }
+
         /**
          * @param identity An `identity` block as defined below.
          * 
@@ -171,6 +239,27 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
          */
         public Builder identity(ConfigurationStoreIdentityArgs identity) {
             return identity(Output.of(identity));
+        }
+
+        /**
+         * @param localAuthEnabled Whether local authentication methods is enabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localAuthEnabled(@Nullable Output<Boolean> localAuthEnabled) {
+            $.localAuthEnabled = localAuthEnabled;
+            return this;
+        }
+
+        /**
+         * @param localAuthEnabled Whether local authentication methods is enabled. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localAuthEnabled(Boolean localAuthEnabled) {
+            return localAuthEnabled(Output.of(localAuthEnabled));
         }
 
         /**
@@ -216,7 +305,7 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param publicNetworkAccess The Public Network Access setting of this App Configuration.
+         * @param publicNetworkAccess The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
          * 
          * @return builder
          * 
@@ -227,13 +316,34 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param publicNetworkAccess The Public Network Access setting of this App Configuration.
+         * @param publicNetworkAccess The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`.
          * 
          * @return builder
          * 
          */
         public Builder publicNetworkAccess(String publicNetworkAccess) {
             return publicNetworkAccess(Output.of(publicNetworkAccess));
+        }
+
+        /**
+         * @param purgeProtectionEnabled Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder purgeProtectionEnabled(@Nullable Output<Boolean> purgeProtectionEnabled) {
+            $.purgeProtectionEnabled = purgeProtectionEnabled;
+            return this;
+        }
+
+        /**
+         * @param purgeProtectionEnabled Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder purgeProtectionEnabled(Boolean purgeProtectionEnabled) {
+            return purgeProtectionEnabled(Output.of(purgeProtectionEnabled));
         }
 
         /**
@@ -276,6 +386,27 @@ public final class ConfigurationStoreArgs extends com.pulumi.resources.ResourceA
          */
         public Builder sku(String sku) {
             return sku(Output.of(sku));
+        }
+
+        /**
+         * @param softDeleteRetentionDays The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder softDeleteRetentionDays(@Nullable Output<Integer> softDeleteRetentionDays) {
+            $.softDeleteRetentionDays = softDeleteRetentionDays;
+            return this;
+        }
+
+        /**
+         * @param softDeleteRetentionDays The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder softDeleteRetentionDays(Integer softDeleteRetentionDays) {
+            return softDeleteRetentionDays(Output.of(softDeleteRetentionDays));
         }
 
         /**

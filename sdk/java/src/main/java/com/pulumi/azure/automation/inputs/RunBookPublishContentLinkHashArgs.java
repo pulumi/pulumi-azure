@@ -13,16 +13,32 @@ public final class RunBookPublishContentLinkHashArgs extends com.pulumi.resource
 
     public static final RunBookPublishContentLinkHashArgs Empty = new RunBookPublishContentLinkHashArgs();
 
+    /**
+     * Specifies the hash algorithm used to hash the content.
+     * 
+     */
     @Import(name="algorithm", required=true)
     private Output<String> algorithm;
 
+    /**
+     * @return Specifies the hash algorithm used to hash the content.
+     * 
+     */
     public Output<String> algorithm() {
         return this.algorithm;
     }
 
+    /**
+     * Specifies the expected hash value of the content.
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return Specifies the expected hash value of the content.
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -52,20 +68,44 @@ public final class RunBookPublishContentLinkHashArgs extends com.pulumi.resource
             $ = new RunBookPublishContentLinkHashArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param algorithm Specifies the hash algorithm used to hash the content.
+         * 
+         * @return builder
+         * 
+         */
         public Builder algorithm(Output<String> algorithm) {
             $.algorithm = algorithm;
             return this;
         }
 
+        /**
+         * @param algorithm Specifies the hash algorithm used to hash the content.
+         * 
+         * @return builder
+         * 
+         */
         public Builder algorithm(String algorithm) {
             return algorithm(Output.of(algorithm));
         }
 
+        /**
+         * @param value Specifies the expected hash value of the content.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Specifies the expected hash value of the content.
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.batch.outputs;
 
+import com.pulumi.azure.batch.outputs.GetPoolStartTaskContainer;
 import com.pulumi.azure.batch.outputs.GetPoolStartTaskResourceFile;
 import com.pulumi.azure.batch.outputs.GetPoolStartTaskUserIdentity;
 import com.pulumi.core.annotations.CustomType;
@@ -26,6 +27,11 @@ public final class GetPoolStartTask {
      * 
      */
     private @Nullable Map<String,String> commonEnvironmentProperties;
+    /**
+     * @return The settings for the container under which the start task runs.
+     * 
+     */
+    private List<GetPoolStartTaskContainer> containers;
     /**
      * @return One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
      * 
@@ -61,6 +67,13 @@ public final class GetPoolStartTask {
      */
     public Map<String,String> commonEnvironmentProperties() {
         return this.commonEnvironmentProperties == null ? Map.of() : this.commonEnvironmentProperties;
+    }
+    /**
+     * @return The settings for the container under which the start task runs.
+     * 
+     */
+    public List<GetPoolStartTaskContainer> containers() {
+        return this.containers;
     }
     /**
      * @return One or more `resource_file` blocks that describe the files to be downloaded to a compute node.
@@ -102,6 +115,7 @@ public final class GetPoolStartTask {
     public static final class Builder {
         private String commandLine;
         private @Nullable Map<String,String> commonEnvironmentProperties;
+        private List<GetPoolStartTaskContainer> containers;
         private List<GetPoolStartTaskResourceFile> resourceFiles;
         private Integer taskRetryMaximum;
         private List<GetPoolStartTaskUserIdentity> userIdentities;
@@ -111,6 +125,7 @@ public final class GetPoolStartTask {
     	      Objects.requireNonNull(defaults);
     	      this.commandLine = defaults.commandLine;
     	      this.commonEnvironmentProperties = defaults.commonEnvironmentProperties;
+    	      this.containers = defaults.containers;
     	      this.resourceFiles = defaults.resourceFiles;
     	      this.taskRetryMaximum = defaults.taskRetryMaximum;
     	      this.userIdentities = defaults.userIdentities;
@@ -126,6 +141,14 @@ public final class GetPoolStartTask {
         public Builder commonEnvironmentProperties(@Nullable Map<String,String> commonEnvironmentProperties) {
             this.commonEnvironmentProperties = commonEnvironmentProperties;
             return this;
+        }
+        @CustomType.Setter
+        public Builder containers(List<GetPoolStartTaskContainer> containers) {
+            this.containers = Objects.requireNonNull(containers);
+            return this;
+        }
+        public Builder containers(GetPoolStartTaskContainer... containers) {
+            return containers(List.of(containers));
         }
         @CustomType.Setter
         public Builder resourceFiles(List<GetPoolStartTaskResourceFile> resourceFiles) {
@@ -157,6 +180,7 @@ public final class GetPoolStartTask {
             final var o = new GetPoolStartTask();
             o.commandLine = commandLine;
             o.commonEnvironmentProperties = commonEnvironmentProperties;
+            o.containers = containers;
             o.resourceFiles = resourceFiles;
             o.taskRetryMaximum = taskRetryMaximum;
             o.userIdentities = userIdentities;

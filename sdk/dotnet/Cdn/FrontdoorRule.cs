@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Cdn
     /// <summary>
     /// Manages a Frontdoor Rule.
     /// 
-    /// !&gt;**IMPORTANT:** The Rules resource **must** include a `depends_on` meta-argument which references the `azure.cdn.FrontdoorOrigin`, `azure.cdn.FrontdoorOriginGroup` and the `azure.cdn.FrontdoorRoute` that are associated with the Rule resource. The `azure.cdn.FrontdoorRoute` definition has been excluded from the below `Example Usage`, for brevity, but has been included in the `depends_on` meta-argument as an example of the correct way to define the `azure.cdn.FrontdoorRule` resource.
+    /// !&gt;**IMPORTANT:** The Rules resource **must** include a `depends_on` meta-argument which references the `azure.cdn.FrontdoorOrigin` and the `azure.cdn.FrontdoorOriginGroup`.
     /// 
     /// ## Specifying IP Address Ranges
     /// 

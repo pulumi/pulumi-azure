@@ -4129,6 +4129,8 @@ type KubernetesClusterDefaultNodePool struct {
 	MaxCount *int `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 	MaxPods *int `pulumi:"maxPods"`
+	// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+	MessageOfTheDay *string `pulumi:"messageOfTheDay"`
 	// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 	MinCount *int `pulumi:"minCount"`
 	// The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
@@ -4153,6 +4155,8 @@ type KubernetesClusterDefaultNodePool struct {
 	// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
 	PodSubnetId               *string `pulumi:"podSubnetId"`
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
+	// Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
+	ScaleDownMode *string `pulumi:"scaleDownMode"`
 	// A mapping of tags to assign to the Node Pool.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
@@ -4165,6 +4169,8 @@ type KubernetesClusterDefaultNodePool struct {
 	VmSize string `pulumi:"vmSize"`
 	// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
+	// Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+	WorkloadRuntime *string `pulumi:"workloadRuntime"`
 	// Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
 	Zones []string `pulumi:"zones"`
 }
@@ -4202,6 +4208,8 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	MaxCount pulumi.IntPtrInput `pulumi:"maxCount"`
 	// The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
 	MaxPods pulumi.IntPtrInput `pulumi:"maxPods"`
+	// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+	MessageOfTheDay pulumi.StringPtrInput `pulumi:"messageOfTheDay"`
 	// The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 	MinCount pulumi.IntPtrInput `pulumi:"minCount"`
 	// The name which should be used for the default Kubernetes Node Pool. Changing this forces a new resource to be created.
@@ -4226,6 +4234,8 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	// The ID of the Subnet where the pods in the default Node Pool should exist. Changing this forces a new resource to be created.
 	PodSubnetId               pulumi.StringPtrInput `pulumi:"podSubnetId"`
 	ProximityPlacementGroupId pulumi.StringPtrInput `pulumi:"proximityPlacementGroupId"`
+	// Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
+	ScaleDownMode pulumi.StringPtrInput `pulumi:"scaleDownMode"`
 	// A mapping of tags to assign to the Node Pool.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The type of Node Pool which should be created. Possible values are `AvailabilitySet` and `VirtualMachineScaleSets`. Defaults to `VirtualMachineScaleSets`.
@@ -4238,6 +4248,8 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	VmSize pulumi.StringInput `pulumi:"vmSize"`
 	// The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
 	VnetSubnetId pulumi.StringPtrInput `pulumi:"vnetSubnetId"`
+	// Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+	WorkloadRuntime pulumi.StringPtrInput `pulumi:"workloadRuntime"`
 	// Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
 	Zones pulumi.StringArrayInput `pulumi:"zones"`
 }
@@ -4377,6 +4389,11 @@ func (o KubernetesClusterDefaultNodePoolOutput) MaxPods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MaxPods }).(pulumi.IntPtrOutput)
 }
 
+// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolOutput) MessageOfTheDay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.MessageOfTheDay }).(pulumi.StringPtrOutput)
+}
+
 // The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 func (o KubernetesClusterDefaultNodePoolOutput) MinCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *int { return v.MinCount }).(pulumi.IntPtrOutput)
@@ -4440,6 +4457,11 @@ func (o KubernetesClusterDefaultNodePoolOutput) ProximityPlacementGroupId() pulu
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.ProximityPlacementGroupId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolOutput) ScaleDownMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.ScaleDownMode }).(pulumi.StringPtrOutput)
+}
+
 // A mapping of tags to assign to the Node Pool.
 func (o KubernetesClusterDefaultNodePoolOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
@@ -4470,6 +4492,11 @@ func (o KubernetesClusterDefaultNodePoolOutput) VmSize() pulumi.StringOutput {
 // The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
 func (o KubernetesClusterDefaultNodePoolOutput) VnetSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.VnetSubnetId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+func (o KubernetesClusterDefaultNodePoolOutput) WorkloadRuntime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.WorkloadRuntime }).(pulumi.StringPtrOutput)
 }
 
 // Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
@@ -4610,6 +4637,16 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) MaxPods() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
+// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) MessageOfTheDay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MessageOfTheDay
+	}).(pulumi.StringPtrOutput)
+}
+
 // The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) MinCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *int {
@@ -4738,6 +4775,16 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) ProximityPlacementGroupId() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) ScaleDownMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleDownMode
+	}).(pulumi.StringPtrOutput)
+}
+
 // A mapping of tags to assign to the Node Pool.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) map[string]string {
@@ -4795,6 +4842,16 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) VnetSubnetId() pulumi.StringP
 			return nil
 		}
 		return v.VnetSubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+func (o KubernetesClusterDefaultNodePoolPtrOutput) WorkloadRuntime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WorkloadRuntime
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8467,8 +8524,12 @@ type KubernetesClusterNetworkProfile struct {
 	OutboundType *string `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
 	PodCidr *string `pulumi:"podCidr"`
+	// A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+	PodCidrs []string `pulumi:"podCidrs"`
 	// The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
 	ServiceCidr *string `pulumi:"serviceCidr"`
+	// A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+	ServiceCidrs []string `pulumi:"serviceCidrs"`
 }
 
 // KubernetesClusterNetworkProfileInput is an input type that accepts KubernetesClusterNetworkProfileArgs and KubernetesClusterNetworkProfileOutput values.
@@ -8505,8 +8566,12 @@ type KubernetesClusterNetworkProfileArgs struct {
 	OutboundType pulumi.StringPtrInput `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. This field can only be set when `networkPlugin` is set to `kubenet`. Changing this forces a new resource to be created.
 	PodCidr pulumi.StringPtrInput `pulumi:"podCidr"`
+	// A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+	PodCidrs pulumi.StringArrayInput `pulumi:"podCidrs"`
 	// The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
 	ServiceCidr pulumi.StringPtrInput `pulumi:"serviceCidr"`
+	// A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+	ServiceCidrs pulumi.StringArrayInput `pulumi:"serviceCidrs"`
 }
 
 func (KubernetesClusterNetworkProfileArgs) ElementType() reflect.Type {
@@ -8645,9 +8710,19 @@ func (o KubernetesClusterNetworkProfileOutput) PodCidr() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.PodCidr }).(pulumi.StringPtrOutput)
 }
 
+// A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+func (o KubernetesClusterNetworkProfileOutput) PodCidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) []string { return v.PodCidrs }).(pulumi.StringArrayOutput)
+}
+
 // The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfileOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfile) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
+}
+
+// A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+func (o KubernetesClusterNetworkProfileOutput) ServiceCidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterNetworkProfile) []string { return v.ServiceCidrs }).(pulumi.StringArrayOutput)
 }
 
 type KubernetesClusterNetworkProfilePtrOutput struct{ *pulumi.OutputState }
@@ -8784,6 +8859,16 @@ func (o KubernetesClusterNetworkProfilePtrOutput) PodCidr() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+func (o KubernetesClusterNetworkProfilePtrOutput) PodCidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PodCidrs
+	}).(pulumi.StringArrayOutput)
+}
+
 // The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
 func (o KubernetesClusterNetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) *string {
@@ -8794,6 +8879,16 @@ func (o KubernetesClusterNetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+func (o KubernetesClusterNetworkProfilePtrOutput) ServiceCidrs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceCidrs
+	}).(pulumi.StringArrayOutput)
+}
+
 type KubernetesClusterNetworkProfileLoadBalancerProfile struct {
 	// The outcome (resource IDs) of the specified arguments.
 	EffectiveOutboundIps []string `pulumi:"effectiveOutboundIps"`
@@ -8801,6 +8896,8 @@ type KubernetesClusterNetworkProfileLoadBalancerProfile struct {
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
 	ManagedOutboundIpCount *int `pulumi:"managedOutboundIpCount"`
+	// The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+	ManagedOutboundIpv6Count *int `pulumi:"managedOutboundIpv6Count"`
 	// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
 	OutboundIpAddressIds []string `pulumi:"outboundIpAddressIds"`
 	// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
@@ -8827,6 +8924,8 @@ type KubernetesClusterNetworkProfileLoadBalancerProfileArgs struct {
 	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
 	// Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
 	ManagedOutboundIpCount pulumi.IntPtrInput `pulumi:"managedOutboundIpCount"`
+	// The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+	ManagedOutboundIpv6Count pulumi.IntPtrInput `pulumi:"managedOutboundIpv6Count"`
 	// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
 	OutboundIpAddressIds pulumi.StringArrayInput `pulumi:"outboundIpAddressIds"`
 	// The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
@@ -8927,6 +9026,11 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) ManagedOutboun
 	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) *int { return v.ManagedOutboundIpCount }).(pulumi.IntPtrOutput)
 }
 
+// The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) ManagedOutboundIpv6Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) *int { return v.ManagedOutboundIpv6Count }).(pulumi.IntPtrOutput)
+}
+
 // The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
 func (o KubernetesClusterNetworkProfileLoadBalancerProfileOutput) OutboundIpAddressIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterNetworkProfileLoadBalancerProfile) []string { return v.OutboundIpAddressIds }).(pulumi.StringArrayOutput)
@@ -8993,6 +9097,16 @@ func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) ManagedOutb
 			return nil
 		}
 		return v.ManagedOutboundIpCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+func (o KubernetesClusterNetworkProfileLoadBalancerProfilePtrOutput) ManagedOutboundIpv6Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNetworkProfileLoadBalancerProfile) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedOutboundIpv6Count
 	}).(pulumi.IntPtrOutput)
 }
 

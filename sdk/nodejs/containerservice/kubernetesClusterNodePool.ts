@@ -133,6 +133,10 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly maxPods!: pulumi.Output<number>;
     /**
+     * A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+     */
+    public readonly messageOfTheDay!: pulumi.Output<string | undefined>;
+    /**
      * The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `maxCount`.
      */
     public readonly minCount!: pulumi.Output<number | undefined>;
@@ -255,6 +259,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["linuxOsConfig"] = state ? state.linuxOsConfig : undefined;
             resourceInputs["maxCount"] = state ? state.maxCount : undefined;
             resourceInputs["maxPods"] = state ? state.maxPods : undefined;
+            resourceInputs["messageOfTheDay"] = state ? state.messageOfTheDay : undefined;
             resourceInputs["minCount"] = state ? state.minCount : undefined;
             resourceInputs["mode"] = state ? state.mode : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -300,6 +305,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
             resourceInputs["linuxOsConfig"] = args ? args.linuxOsConfig : undefined;
             resourceInputs["maxCount"] = args ? args.maxCount : undefined;
             resourceInputs["maxPods"] = args ? args.maxPods : undefined;
+            resourceInputs["messageOfTheDay"] = args ? args.messageOfTheDay : undefined;
             resourceInputs["minCount"] = args ? args.minCount : undefined;
             resourceInputs["mode"] = args ? args.mode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -386,6 +392,10 @@ export interface KubernetesClusterNodePoolState {
      * The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
      */
     maxPods?: pulumi.Input<number>;
+    /**
+     * A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+     */
+    messageOfTheDay?: pulumi.Input<string>;
     /**
      * The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `maxCount`.
      */
@@ -540,6 +550,10 @@ export interface KubernetesClusterNodePoolArgs {
      * The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
      */
     maxPods?: pulumi.Input<number>;
+    /**
+     * A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+     */
+    messageOfTheDay?: pulumi.Input<string>;
     /**
      * The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `maxCount`.
      */

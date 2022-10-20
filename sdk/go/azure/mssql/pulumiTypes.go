@@ -10,6 +10,257 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type DatabaseImport struct {
+	// Specifies the name of the SQL administrator.
+	AdministratorLogin string `pulumi:"administratorLogin"`
+	// Specifies the password of the SQL administrator.
+	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
+	// Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storageUri parameter.
+	StorageAccountId *string `pulumi:"storageAccountId"`
+	// Specifies the access key for the storage account.
+	StorageKey string `pulumi:"storageKey"`
+	// Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
+	StorageKeyType string `pulumi:"storageKeyType"`
+	// Specifies the blob URI of the .bacpac file.
+	StorageUri string `pulumi:"storageUri"`
+}
+
+// DatabaseImportInput is an input type that accepts DatabaseImportArgs and DatabaseImportOutput values.
+// You can construct a concrete instance of `DatabaseImportInput` via:
+//
+//	DatabaseImportArgs{...}
+type DatabaseImportInput interface {
+	pulumi.Input
+
+	ToDatabaseImportOutput() DatabaseImportOutput
+	ToDatabaseImportOutputWithContext(context.Context) DatabaseImportOutput
+}
+
+type DatabaseImportArgs struct {
+	// Specifies the name of the SQL administrator.
+	AdministratorLogin pulumi.StringInput `pulumi:"administratorLogin"`
+	// Specifies the password of the SQL administrator.
+	AdministratorLoginPassword pulumi.StringInput `pulumi:"administratorLoginPassword"`
+	// Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storageUri parameter.
+	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
+	// Specifies the access key for the storage account.
+	StorageKey pulumi.StringInput `pulumi:"storageKey"`
+	// Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
+	StorageKeyType pulumi.StringInput `pulumi:"storageKeyType"`
+	// Specifies the blob URI of the .bacpac file.
+	StorageUri pulumi.StringInput `pulumi:"storageUri"`
+}
+
+func (DatabaseImportArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseImport)(nil)).Elem()
+}
+
+func (i DatabaseImportArgs) ToDatabaseImportOutput() DatabaseImportOutput {
+	return i.ToDatabaseImportOutputWithContext(context.Background())
+}
+
+func (i DatabaseImportArgs) ToDatabaseImportOutputWithContext(ctx context.Context) DatabaseImportOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseImportOutput)
+}
+
+func (i DatabaseImportArgs) ToDatabaseImportPtrOutput() DatabaseImportPtrOutput {
+	return i.ToDatabaseImportPtrOutputWithContext(context.Background())
+}
+
+func (i DatabaseImportArgs) ToDatabaseImportPtrOutputWithContext(ctx context.Context) DatabaseImportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseImportOutput).ToDatabaseImportPtrOutputWithContext(ctx)
+}
+
+// DatabaseImportPtrInput is an input type that accepts DatabaseImportArgs, DatabaseImportPtr and DatabaseImportPtrOutput values.
+// You can construct a concrete instance of `DatabaseImportPtrInput` via:
+//
+//	        DatabaseImportArgs{...}
+//
+//	or:
+//
+//	        nil
+type DatabaseImportPtrInput interface {
+	pulumi.Input
+
+	ToDatabaseImportPtrOutput() DatabaseImportPtrOutput
+	ToDatabaseImportPtrOutputWithContext(context.Context) DatabaseImportPtrOutput
+}
+
+type databaseImportPtrType DatabaseImportArgs
+
+func DatabaseImportPtr(v *DatabaseImportArgs) DatabaseImportPtrInput {
+	return (*databaseImportPtrType)(v)
+}
+
+func (*databaseImportPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseImport)(nil)).Elem()
+}
+
+func (i *databaseImportPtrType) ToDatabaseImportPtrOutput() DatabaseImportPtrOutput {
+	return i.ToDatabaseImportPtrOutputWithContext(context.Background())
+}
+
+func (i *databaseImportPtrType) ToDatabaseImportPtrOutputWithContext(ctx context.Context) DatabaseImportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DatabaseImportPtrOutput)
+}
+
+type DatabaseImportOutput struct{ *pulumi.OutputState }
+
+func (DatabaseImportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DatabaseImport)(nil)).Elem()
+}
+
+func (o DatabaseImportOutput) ToDatabaseImportOutput() DatabaseImportOutput {
+	return o
+}
+
+func (o DatabaseImportOutput) ToDatabaseImportOutputWithContext(ctx context.Context) DatabaseImportOutput {
+	return o
+}
+
+func (o DatabaseImportOutput) ToDatabaseImportPtrOutput() DatabaseImportPtrOutput {
+	return o.ToDatabaseImportPtrOutputWithContext(context.Background())
+}
+
+func (o DatabaseImportOutput) ToDatabaseImportPtrOutputWithContext(ctx context.Context) DatabaseImportPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatabaseImport) *DatabaseImport {
+		return &v
+	}).(DatabaseImportPtrOutput)
+}
+
+// Specifies the name of the SQL administrator.
+func (o DatabaseImportOutput) AdministratorLogin() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseImport) string { return v.AdministratorLogin }).(pulumi.StringOutput)
+}
+
+// Specifies the password of the SQL administrator.
+func (o DatabaseImportOutput) AdministratorLoginPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseImport) string { return v.AdministratorLoginPassword }).(pulumi.StringOutput)
+}
+
+// Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
+func (o DatabaseImportOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseImport) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+// The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storageUri parameter.
+func (o DatabaseImportOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DatabaseImport) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the access key for the storage account.
+func (o DatabaseImportOutput) StorageKey() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseImport) string { return v.StorageKey }).(pulumi.StringOutput)
+}
+
+// Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
+func (o DatabaseImportOutput) StorageKeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseImport) string { return v.StorageKeyType }).(pulumi.StringOutput)
+}
+
+// Specifies the blob URI of the .bacpac file.
+func (o DatabaseImportOutput) StorageUri() pulumi.StringOutput {
+	return o.ApplyT(func(v DatabaseImport) string { return v.StorageUri }).(pulumi.StringOutput)
+}
+
+type DatabaseImportPtrOutput struct{ *pulumi.OutputState }
+
+func (DatabaseImportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DatabaseImport)(nil)).Elem()
+}
+
+func (o DatabaseImportPtrOutput) ToDatabaseImportPtrOutput() DatabaseImportPtrOutput {
+	return o
+}
+
+func (o DatabaseImportPtrOutput) ToDatabaseImportPtrOutputWithContext(ctx context.Context) DatabaseImportPtrOutput {
+	return o
+}
+
+func (o DatabaseImportPtrOutput) Elem() DatabaseImportOutput {
+	return o.ApplyT(func(v *DatabaseImport) DatabaseImport {
+		if v != nil {
+			return *v
+		}
+		var ret DatabaseImport
+		return ret
+	}).(DatabaseImportOutput)
+}
+
+// Specifies the name of the SQL administrator.
+func (o DatabaseImportPtrOutput) AdministratorLogin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseImport) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AdministratorLogin
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the password of the SQL administrator.
+func (o DatabaseImportPtrOutput) AdministratorLoginPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseImport) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AdministratorLoginPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
+func (o DatabaseImportPtrOutput) AuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseImport) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthenticationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storageUri parameter.
+func (o DatabaseImportPtrOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseImport) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the access key for the storage account.
+func (o DatabaseImportPtrOutput) StorageKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseImport) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
+func (o DatabaseImportPtrOutput) StorageKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseImport) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageKeyType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the blob URI of the .bacpac file.
+func (o DatabaseImportPtrOutput) StorageUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseImport) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageUri
+	}).(pulumi.StringPtrOutput)
+}
+
 type DatabaseLongTermRetentionPolicy struct {
 	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
 	MonthlyRetention *string `pulumi:"monthlyRetention"`
@@ -4369,6 +4620,8 @@ func (o GetServerIdentityArrayOutput) Index(i pulumi.IntInput) GetServerIdentity
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseImportInput)(nil)).Elem(), DatabaseImportArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseImportPtrInput)(nil)).Elem(), DatabaseImportArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseLongTermRetentionPolicyInput)(nil)).Elem(), DatabaseLongTermRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseLongTermRetentionPolicyPtrInput)(nil)).Elem(), DatabaseLongTermRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseShortTermRetentionPolicyInput)(nil)).Elem(), DatabaseShortTermRetentionPolicyArgs{})
@@ -4421,6 +4674,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedInstanceIdentityArrayInput)(nil)).Elem(), GetManagedInstanceIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityInput)(nil)).Elem(), GetServerIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerIdentityArrayInput)(nil)).Elem(), GetServerIdentityArray{})
+	pulumi.RegisterOutputType(DatabaseImportOutput{})
+	pulumi.RegisterOutputType(DatabaseImportPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseLongTermRetentionPolicyOutput{})
 	pulumi.RegisterOutputType(DatabaseLongTermRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseShortTermRetentionPolicyOutput{})

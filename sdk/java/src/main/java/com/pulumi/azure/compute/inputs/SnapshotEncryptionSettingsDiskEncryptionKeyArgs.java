@@ -13,16 +13,32 @@ public final class SnapshotEncryptionSettingsDiskEncryptionKeyArgs extends com.p
 
     public static final SnapshotEncryptionSettingsDiskEncryptionKeyArgs Empty = new SnapshotEncryptionSettingsDiskEncryptionKeyArgs();
 
+    /**
+     * The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `azure.keyvault.Secret` resource.
+     * 
+     */
     @Import(name="secretUrl", required=true)
     private Output<String> secretUrl;
 
+    /**
+     * @return The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `azure.keyvault.Secret` resource.
+     * 
+     */
     public Output<String> secretUrl() {
         return this.secretUrl;
     }
 
+    /**
+     * The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
+     * 
+     */
     @Import(name="sourceVaultId", required=true)
     private Output<String> sourceVaultId;
 
+    /**
+     * @return The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
+     * 
+     */
     public Output<String> sourceVaultId() {
         return this.sourceVaultId;
     }
@@ -52,20 +68,44 @@ public final class SnapshotEncryptionSettingsDiskEncryptionKeyArgs extends com.p
             $ = new SnapshotEncryptionSettingsDiskEncryptionKeyArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param secretUrl The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `azure.keyvault.Secret` resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secretUrl(Output<String> secretUrl) {
             $.secretUrl = secretUrl;
             return this;
         }
 
+        /**
+         * @param secretUrl The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `azure.keyvault.Secret` resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder secretUrl(String secretUrl) {
             return secretUrl(Output.of(secretUrl));
         }
 
+        /**
+         * @param sourceVaultId The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceVaultId(Output<String> sourceVaultId) {
             $.sourceVaultId = sourceVaultId;
             return this;
         }
 
+        /**
+         * @param sourceVaultId The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceVaultId(String sourceVaultId) {
             return sourceVaultId(Output.of(sourceVaultId));
         }

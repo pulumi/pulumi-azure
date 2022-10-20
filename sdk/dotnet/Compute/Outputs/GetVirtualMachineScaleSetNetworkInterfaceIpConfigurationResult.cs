@@ -45,6 +45,9 @@ namespace Pulumi.Azure.Compute.Outputs
         /// The the identifier of the subnet.
         /// </summary>
         public readonly string SubnetId;
+        /// <summary>
+        /// The Internet Protocol Version of the public IP address.
+        /// </summary>
         public readonly string Version;
 
         [OutputConstructor]

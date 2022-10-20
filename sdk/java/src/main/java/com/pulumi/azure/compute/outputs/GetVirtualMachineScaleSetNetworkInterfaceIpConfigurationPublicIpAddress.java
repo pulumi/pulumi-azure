@@ -37,6 +37,11 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPubli
      * 
      */
     private String publicIpPrefixId;
+    /**
+     * @return The Internet Protocol Version of the public IP address.
+     * 
+     */
+    private String version;
 
     private GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress() {}
     /**
@@ -74,6 +79,13 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPubli
     public String publicIpPrefixId() {
         return this.publicIpPrefixId;
     }
+    /**
+     * @return The Internet Protocol Version of the public IP address.
+     * 
+     */
+    public String version() {
+        return this.version;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -89,6 +101,7 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPubli
         private List<GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags;
         private String name;
         private String publicIpPrefixId;
+        private String version;
         public Builder() {}
         public Builder(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress defaults) {
     	      Objects.requireNonNull(defaults);
@@ -97,6 +110,7 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPubli
     	      this.ipTags = defaults.ipTags;
     	      this.name = defaults.name;
     	      this.publicIpPrefixId = defaults.publicIpPrefixId;
+    	      this.version = defaults.version;
         }
 
         @CustomType.Setter
@@ -127,6 +141,11 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPubli
             this.publicIpPrefixId = Objects.requireNonNull(publicIpPrefixId);
             return this;
         }
+        @CustomType.Setter
+        public Builder version(String version) {
+            this.version = Objects.requireNonNull(version);
+            return this;
+        }
         public GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress build() {
             final var o = new GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress();
             o.domainNameLabel = domainNameLabel;
@@ -134,6 +153,7 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPubli
             o.ipTags = ipTags;
             o.name = name;
             o.publicIpPrefixId = publicIpPrefixId;
+            o.version = version;
             return o;
         }
     }

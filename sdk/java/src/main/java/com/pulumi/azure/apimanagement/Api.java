@@ -6,7 +6,9 @@ package com.pulumi.azure.apimanagement;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.apimanagement.ApiArgs;
 import com.pulumi.azure.apimanagement.inputs.ApiState;
+import com.pulumi.azure.apimanagement.outputs.ApiContact;
 import com.pulumi.azure.apimanagement.outputs.ApiImport;
+import com.pulumi.azure.apimanagement.outputs.ApiLicense;
 import com.pulumi.azure.apimanagement.outputs.ApiOauth2Authorization;
 import com.pulumi.azure.apimanagement.outputs.ApiOpenidAuthentication;
 import com.pulumi.azure.apimanagement.outputs.ApiSubscriptionKeyParameterNames;
@@ -119,6 +121,20 @@ public class Api extends com.pulumi.resources.CustomResource {
         return this.apiType;
     }
     /**
+     * A `contact` block as documented below.
+     * 
+     */
+    @Export(name="contact", type=ApiContact.class, parameters={})
+    private Output</* @Nullable */ ApiContact> contact;
+
+    /**
+     * @return A `contact` block as documented below.
+     * 
+     */
+    public Output<Optional<ApiContact>> contact() {
+        return Codegen.optional(this.contact);
+    }
+    /**
      * A description of the API Management API, which may include HTML formatting tags.
      * 
      */
@@ -187,6 +203,20 @@ public class Api extends com.pulumi.resources.CustomResource {
      */
     public Output<Boolean> isOnline() {
         return this.isOnline;
+    }
+    /**
+     * A `license` block as documented below.
+     * 
+     */
+    @Export(name="license", type=ApiLicense.class, parameters={})
+    private Output</* @Nullable */ ApiLicense> license;
+
+    /**
+     * @return A `license` block as documented below.
+     * 
+     */
+    public Output<Optional<ApiLicense>> license() {
+        return Codegen.optional(this.license);
     }
     /**
      * The name of the API Management API. Changing this forces a new resource to be created.
@@ -373,6 +403,20 @@ public class Api extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> subscriptionRequired() {
         return Codegen.optional(this.subscriptionRequired);
+    }
+    /**
+     * Absolute URL of the Terms of Service for the API.
+     * 
+     */
+    @Export(name="termsOfServiceUrl", type=String.class, parameters={})
+    private Output</* @Nullable */ String> termsOfServiceUrl;
+
+    /**
+     * @return Absolute URL of the Terms of Service for the API.
+     * 
+     */
+    public Output<Optional<String>> termsOfServiceUrl() {
+        return Codegen.optional(this.termsOfServiceUrl);
     }
     /**
      * The Version number of this API, if this API is versioned.

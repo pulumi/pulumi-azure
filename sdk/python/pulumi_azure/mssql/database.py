@@ -23,6 +23,7 @@ class DatabaseArgs:
                  creation_source_database_id: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
+                 import_: Optional[pulumi.Input['DatabaseImportArgs']] = None,
                  ledger_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']] = None,
@@ -48,10 +49,11 @@ class DatabaseArgs:
         :param pulumi.Input[str] server_id: The id of the MS SQL Server on which to create the database. Changing this forces a new resource to be created.
         :param pulumi.Input[int] auto_pause_delay_in_minutes: Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
         :param pulumi.Input[str] collation: Specifies the collation of the database. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+        :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
         :param pulumi.Input[str] creation_source_database_id: The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled.
+        :param pulumi.Input['DatabaseImportArgs'] import_: A Database Import block as documented below. Mutually exclusive with `create_mode`.
         :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input['DatabaseLongTermRetentionPolicyArgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
@@ -86,6 +88,8 @@ class DatabaseArgs:
             pulumi.set(__self__, "elastic_pool_id", elastic_pool_id)
         if geo_backup_enabled is not None:
             pulumi.set(__self__, "geo_backup_enabled", geo_backup_enabled)
+        if import_ is not None:
+            pulumi.set(__self__, "import_", import_)
         if ledger_enabled is not None:
             pulumi.set(__self__, "ledger_enabled", ledger_enabled)
         if license_type is not None:
@@ -167,7 +171,7 @@ class DatabaseArgs:
     @pulumi.getter(name="createMode")
     def create_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+        The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
         """
         return pulumi.get(self, "create_mode")
 
@@ -210,6 +214,18 @@ class DatabaseArgs:
     @geo_backup_enabled.setter
     def geo_backup_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "geo_backup_enabled", value)
+
+    @property
+    @pulumi.getter(name="import")
+    def import_(self) -> Optional[pulumi.Input['DatabaseImportArgs']]:
+        """
+        A Database Import block as documented below. Mutually exclusive with `create_mode`.
+        """
+        return pulumi.get(self, "import_")
+
+    @import_.setter
+    def import_(self, value: Optional[pulumi.Input['DatabaseImportArgs']]):
+        pulumi.set(self, "import_", value)
 
     @property
     @pulumi.getter(name="ledgerEnabled")
@@ -461,6 +477,7 @@ class _DatabaseState:
                  creation_source_database_id: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
+                 import_: Optional[pulumi.Input['DatabaseImportArgs']] = None,
                  ledger_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input['DatabaseLongTermRetentionPolicyArgs']] = None,
@@ -486,10 +503,11 @@ class _DatabaseState:
         Input properties used for looking up and filtering Database resources.
         :param pulumi.Input[int] auto_pause_delay_in_minutes: Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
         :param pulumi.Input[str] collation: Specifies the collation of the database. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+        :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
         :param pulumi.Input[str] creation_source_database_id: The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled.
+        :param pulumi.Input['DatabaseImportArgs'] import_: A Database Import block as documented below. Mutually exclusive with `create_mode`.
         :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input['DatabaseLongTermRetentionPolicyArgs'] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
@@ -524,6 +542,8 @@ class _DatabaseState:
             pulumi.set(__self__, "elastic_pool_id", elastic_pool_id)
         if geo_backup_enabled is not None:
             pulumi.set(__self__, "geo_backup_enabled", geo_backup_enabled)
+        if import_ is not None:
+            pulumi.set(__self__, "import_", import_)
         if ledger_enabled is not None:
             pulumi.set(__self__, "ledger_enabled", ledger_enabled)
         if license_type is not None:
@@ -595,7 +615,7 @@ class _DatabaseState:
     @pulumi.getter(name="createMode")
     def create_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+        The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
         """
         return pulumi.get(self, "create_mode")
 
@@ -638,6 +658,18 @@ class _DatabaseState:
     @geo_backup_enabled.setter
     def geo_backup_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "geo_backup_enabled", value)
+
+    @property
+    @pulumi.getter(name="import")
+    def import_(self) -> Optional[pulumi.Input['DatabaseImportArgs']]:
+        """
+        A Database Import block as documented below. Mutually exclusive with `create_mode`.
+        """
+        return pulumi.get(self, "import_")
+
+    @import_.setter
+    def import_(self, value: Optional[pulumi.Input['DatabaseImportArgs']]):
+        pulumi.set(self, "import_", value)
 
     @property
     @pulumi.getter(name="ledgerEnabled")
@@ -903,6 +935,7 @@ class Database(pulumi.CustomResource):
                  creation_source_database_id: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
+                 import_: Optional[pulumi.Input[pulumi.InputType['DatabaseImportArgs']]] = None,
                  ledger_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']]] = None,
@@ -971,10 +1004,11 @@ class Database(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] auto_pause_delay_in_minutes: Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
         :param pulumi.Input[str] collation: Specifies the collation of the database. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+        :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
         :param pulumi.Input[str] creation_source_database_id: The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled.
+        :param pulumi.Input[pulumi.InputType['DatabaseImportArgs']] import_: A Database Import block as documented below. Mutually exclusive with `create_mode`.
         :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
@@ -1066,6 +1100,7 @@ class Database(pulumi.CustomResource):
                  creation_source_database_id: Optional[pulumi.Input[str]] = None,
                  elastic_pool_id: Optional[pulumi.Input[str]] = None,
                  geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
+                 import_: Optional[pulumi.Input[pulumi.InputType['DatabaseImportArgs']]] = None,
                  ledger_enabled: Optional[pulumi.Input[bool]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']]] = None,
@@ -1102,6 +1137,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["creation_source_database_id"] = creation_source_database_id
             __props__.__dict__["elastic_pool_id"] = elastic_pool_id
             __props__.__dict__["geo_backup_enabled"] = geo_backup_enabled
+            __props__.__dict__["import_"] = import_
             __props__.__dict__["ledger_enabled"] = ledger_enabled
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["long_term_retention_policy"] = long_term_retention_policy
@@ -1141,6 +1177,7 @@ class Database(pulumi.CustomResource):
             creation_source_database_id: Optional[pulumi.Input[str]] = None,
             elastic_pool_id: Optional[pulumi.Input[str]] = None,
             geo_backup_enabled: Optional[pulumi.Input[bool]] = None,
+            import_: Optional[pulumi.Input[pulumi.InputType['DatabaseImportArgs']]] = None,
             ledger_enabled: Optional[pulumi.Input[bool]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
             long_term_retention_policy: Optional[pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']]] = None,
@@ -1171,10 +1208,11 @@ class Database(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] auto_pause_delay_in_minutes: Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for General Purpose Serverless databases.
         :param pulumi.Input[str] collation: Specifies the collation of the database. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+        :param pulumi.Input[str] create_mode: The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
         :param pulumi.Input[str] creation_source_database_id: The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created.
         :param pulumi.Input[str] elastic_pool_id: Specifies the ID of the elastic pool containing this database.
         :param pulumi.Input[bool] geo_backup_enabled: A boolean that specifies if the Geo Backup Policy is enabled.
+        :param pulumi.Input[pulumi.InputType['DatabaseImportArgs']] import_: A Database Import block as documented below. Mutually exclusive with `create_mode`.
         :param pulumi.Input[bool] ledger_enabled: A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[pulumi.InputType['DatabaseLongTermRetentionPolicyArgs']] long_term_retention_policy: A `long_term_retention_policy` block as defined below.
@@ -1207,6 +1245,7 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["creation_source_database_id"] = creation_source_database_id
         __props__.__dict__["elastic_pool_id"] = elastic_pool_id
         __props__.__dict__["geo_backup_enabled"] = geo_backup_enabled
+        __props__.__dict__["import_"] = import_
         __props__.__dict__["ledger_enabled"] = ledger_enabled
         __props__.__dict__["license_type"] = license_type
         __props__.__dict__["long_term_retention_policy"] = long_term_retention_policy
@@ -1250,7 +1289,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="createMode")
     def create_mode(self) -> pulumi.Output[Optional[str]]:
         """
-        The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+        The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
         """
         return pulumi.get(self, "create_mode")
 
@@ -1277,6 +1316,14 @@ class Database(pulumi.CustomResource):
         A boolean that specifies if the Geo Backup Policy is enabled.
         """
         return pulumi.get(self, "geo_backup_enabled")
+
+    @property
+    @pulumi.getter(name="import")
+    def import_(self) -> pulumi.Output[Optional['outputs.DatabaseImport']]:
+        """
+        A Database Import block as documented below. Mutually exclusive with `create_mode`.
+        """
+        return pulumi.get(self, "import_")
 
     @property
     @pulumi.getter(name="ledgerEnabled")

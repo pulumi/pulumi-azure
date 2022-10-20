@@ -156,14 +156,14 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
+     * SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
      * 
      */
     @Import(name="skuTier")
     private @Nullable Output<String> skuTier;
 
     /**
-     * @return SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
+     * @return SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
      * 
      */
     public Optional<Output<String>> skuTier() {
@@ -487,7 +487,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuTier SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
+         * @param skuTier SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
          * 
          * @return builder
          * 
@@ -498,7 +498,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuTier SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
+         * @param skuTier SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
          * 
          * @return builder
          * 

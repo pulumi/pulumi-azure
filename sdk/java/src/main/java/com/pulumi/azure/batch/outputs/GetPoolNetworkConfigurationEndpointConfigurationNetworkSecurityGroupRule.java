@@ -6,6 +6,7 @@ package com.pulumi.azure.batch.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -25,6 +26,11 @@ public final class GetPoolNetworkConfigurationEndpointConfigurationNetworkSecuri
      * 
      */
     private String sourceAddressPrefix;
+    /**
+     * @return The source port ranges to match for the rule.
+     * 
+     */
+    private List<String> sourcePortRanges;
 
     private GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule() {}
     /**
@@ -48,6 +54,13 @@ public final class GetPoolNetworkConfigurationEndpointConfigurationNetworkSecuri
     public String sourceAddressPrefix() {
         return this.sourceAddressPrefix;
     }
+    /**
+     * @return The source port ranges to match for the rule.
+     * 
+     */
+    public List<String> sourcePortRanges() {
+        return this.sourcePortRanges;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -61,12 +74,14 @@ public final class GetPoolNetworkConfigurationEndpointConfigurationNetworkSecuri
         private String access;
         private Integer priority;
         private String sourceAddressPrefix;
+        private List<String> sourcePortRanges;
         public Builder() {}
         public Builder(GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.access = defaults.access;
     	      this.priority = defaults.priority;
     	      this.sourceAddressPrefix = defaults.sourceAddressPrefix;
+    	      this.sourcePortRanges = defaults.sourcePortRanges;
         }
 
         @CustomType.Setter
@@ -84,11 +99,20 @@ public final class GetPoolNetworkConfigurationEndpointConfigurationNetworkSecuri
             this.sourceAddressPrefix = Objects.requireNonNull(sourceAddressPrefix);
             return this;
         }
+        @CustomType.Setter
+        public Builder sourcePortRanges(List<String> sourcePortRanges) {
+            this.sourcePortRanges = Objects.requireNonNull(sourcePortRanges);
+            return this;
+        }
+        public Builder sourcePortRanges(String... sourcePortRanges) {
+            return sourcePortRanges(List.of(sourcePortRanges));
+        }
         public GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule build() {
             final var o = new GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule();
             o.access = access;
             o.priority = priority;
             o.sourceAddressPrefix = sourceAddressPrefix;
+            o.sourcePortRanges = sourcePortRanges;
             return o;
         }
     }

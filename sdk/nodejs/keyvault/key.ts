@@ -105,7 +105,7 @@ export class Key extends pulumi.CustomResource {
      */
     public readonly keySize!: pulumi.Output<number | undefined>;
     /**
-     * Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+     * Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
      */
     public readonly keyType!: pulumi.Output<string>;
     /**
@@ -254,7 +254,7 @@ export interface KeyState {
      */
     keySize?: pulumi.Input<number>;
     /**
-     * Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+     * Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
      */
     keyType?: pulumi.Input<string>;
     /**
@@ -332,7 +332,7 @@ export interface KeyArgs {
      */
     keySize?: pulumi.Input<number>;
     /**
-     * Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+     * Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
      */
     keyType: pulumi.Input<string>;
     /**

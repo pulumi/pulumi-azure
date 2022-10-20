@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.hdinsight.outputs;
 
+import com.pulumi.azure.hdinsight.outputs.HBaseClusterRolesZookeeperNodeScriptAction;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
@@ -17,6 +18,11 @@ public final class HBaseClusterRolesZookeeperNode {
      * 
      */
     private @Nullable String password;
+    /**
+     * @return The script action which will run on the cluster.
+     * 
+     */
+    private @Nullable List<HBaseClusterRolesZookeeperNodeScriptAction> scriptActions;
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
      * 
@@ -50,6 +56,13 @@ public final class HBaseClusterRolesZookeeperNode {
      */
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
+    }
+    /**
+     * @return The script action which will run on the cluster.
+     * 
+     */
+    public List<HBaseClusterRolesZookeeperNodeScriptAction> scriptActions() {
+        return this.scriptActions == null ? List.of() : this.scriptActions;
     }
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -97,6 +110,7 @@ public final class HBaseClusterRolesZookeeperNode {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String password;
+        private @Nullable List<HBaseClusterRolesZookeeperNodeScriptAction> scriptActions;
         private @Nullable List<String> sshKeys;
         private @Nullable String subnetId;
         private String username;
@@ -106,6 +120,7 @@ public final class HBaseClusterRolesZookeeperNode {
         public Builder(HBaseClusterRolesZookeeperNode defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.password = defaults.password;
+    	      this.scriptActions = defaults.scriptActions;
     	      this.sshKeys = defaults.sshKeys;
     	      this.subnetId = defaults.subnetId;
     	      this.username = defaults.username;
@@ -117,6 +132,14 @@ public final class HBaseClusterRolesZookeeperNode {
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
+        }
+        @CustomType.Setter
+        public Builder scriptActions(@Nullable List<HBaseClusterRolesZookeeperNodeScriptAction> scriptActions) {
+            this.scriptActions = scriptActions;
+            return this;
+        }
+        public Builder scriptActions(HBaseClusterRolesZookeeperNodeScriptAction... scriptActions) {
+            return scriptActions(List.of(scriptActions));
         }
         @CustomType.Setter
         public Builder sshKeys(@Nullable List<String> sshKeys) {
@@ -149,6 +172,7 @@ public final class HBaseClusterRolesZookeeperNode {
         public HBaseClusterRolesZookeeperNode build() {
             final var o = new HBaseClusterRolesZookeeperNode();
             o.password = password;
+            o.scriptActions = scriptActions;
             o.sshKeys = sshKeys;
             o.subnetId = subnetId;
             o.username = username;

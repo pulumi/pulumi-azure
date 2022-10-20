@@ -80,6 +80,12 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ApiType { get; private set; } = null!;
 
         /// <summary>
+        /// A `contact` block as documented below.
+        /// </summary>
+        [Output("contact")]
+        public Output<Outputs.ApiContact?> Contact { get; private set; } = null!;
+
+        /// <summary>
         /// A description of the API Management API, which may include HTML formatting tags.
         /// </summary>
         [Output("description")]
@@ -108,6 +114,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Output("isOnline")]
         public Output<bool> IsOnline { get; private set; } = null!;
+
+        /// <summary>
+        /// A `license` block as documented below.
+        /// </summary>
+        [Output("license")]
+        public Output<Outputs.ApiLicense?> License { get; private set; } = null!;
 
         /// <summary>
         /// The name of the API Management API. Changing this forces a new resource to be created.
@@ -188,6 +200,12 @@ namespace Pulumi.Azure.ApiManagement
         public Output<bool?> SubscriptionRequired { get; private set; } = null!;
 
         /// <summary>
+        /// Absolute URL of the Terms of Service for the API.
+        /// </summary>
+        [Output("termsOfServiceUrl")]
+        public Output<string?> TermsOfServiceUrl { get; private set; } = null!;
+
+        /// <summary>
         /// The Version number of this API, if this API is versioned.
         /// </summary>
         [Output("version")]
@@ -264,6 +282,12 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ApiType { get; set; }
 
         /// <summary>
+        /// A `contact` block as documented below.
+        /// </summary>
+        [Input("contact")]
+        public Input<Inputs.ApiContactArgs>? Contact { get; set; }
+
+        /// <summary>
         /// A description of the API Management API, which may include HTML formatting tags.
         /// </summary>
         [Input("description")]
@@ -280,6 +304,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("import")]
         public Input<Inputs.ApiImportArgs>? Import { get; set; }
+
+        /// <summary>
+        /// A `license` block as documented below.
+        /// </summary>
+        [Input("license")]
+        public Input<Inputs.ApiLicenseArgs>? License { get; set; }
 
         /// <summary>
         /// The name of the API Management API. Changing this forces a new resource to be created.
@@ -366,6 +396,12 @@ namespace Pulumi.Azure.ApiManagement
         public Input<bool>? SubscriptionRequired { get; set; }
 
         /// <summary>
+        /// Absolute URL of the Terms of Service for the API.
+        /// </summary>
+        [Input("termsOfServiceUrl")]
+        public Input<string>? TermsOfServiceUrl { get; set; }
+
+        /// <summary>
         /// The Version number of this API, if this API is versioned.
         /// </summary>
         [Input("version")]
@@ -404,6 +440,12 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ApiType { get; set; }
 
         /// <summary>
+        /// A `contact` block as documented below.
+        /// </summary>
+        [Input("contact")]
+        public Input<Inputs.ApiContactGetArgs>? Contact { get; set; }
+
+        /// <summary>
         /// A description of the API Management API, which may include HTML formatting tags.
         /// </summary>
         [Input("description")]
@@ -432,6 +474,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("isOnline")]
         public Input<bool>? IsOnline { get; set; }
+
+        /// <summary>
+        /// A `license` block as documented below.
+        /// </summary>
+        [Input("license")]
+        public Input<Inputs.ApiLicenseGetArgs>? License { get; set; }
 
         /// <summary>
         /// The name of the API Management API. Changing this forces a new resource to be created.
@@ -516,6 +564,12 @@ namespace Pulumi.Azure.ApiManagement
         /// </summary>
         [Input("subscriptionRequired")]
         public Input<bool>? SubscriptionRequired { get; set; }
+
+        /// <summary>
+        /// Absolute URL of the Terms of Service for the API.
+        /// </summary>
+        [Input("termsOfServiceUrl")]
+        public Input<string>? TermsOfServiceUrl { get; set; }
 
         /// <summary>
         /// The Version number of this API, if this API is versioned.

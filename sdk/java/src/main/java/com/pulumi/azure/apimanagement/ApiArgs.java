@@ -3,7 +3,9 @@
 
 package com.pulumi.azure.apimanagement;
 
+import com.pulumi.azure.apimanagement.inputs.ApiContactArgs;
 import com.pulumi.azure.apimanagement.inputs.ApiImportArgs;
+import com.pulumi.azure.apimanagement.inputs.ApiLicenseArgs;
 import com.pulumi.azure.apimanagement.inputs.ApiOauth2AuthorizationArgs;
 import com.pulumi.azure.apimanagement.inputs.ApiOpenidAuthenticationArgs;
 import com.pulumi.azure.apimanagement.inputs.ApiSubscriptionKeyParameterNamesArgs;
@@ -52,6 +54,21 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `contact` block as documented below.
+     * 
+     */
+    @Import(name="contact")
+    private @Nullable Output<ApiContactArgs> contact;
+
+    /**
+     * @return A `contact` block as documented below.
+     * 
+     */
+    public Optional<Output<ApiContactArgs>> contact() {
+        return Optional.ofNullable(this.contact);
+    }
+
+    /**
      * A description of the API Management API, which may include HTML formatting tags.
      * 
      */
@@ -94,6 +111,21 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<ApiImportArgs>> import_() {
         return Optional.ofNullable(this.import_);
+    }
+
+    /**
+     * A `license` block as documented below.
+     * 
+     */
+    @Import(name="license")
+    private @Nullable Output<ApiLicenseArgs> license;
+
+    /**
+     * @return A `license` block as documented below.
+     * 
+     */
+    public Optional<Output<ApiLicenseArgs>> license() {
+        return Optional.ofNullable(this.license);
     }
 
     /**
@@ -300,6 +332,21 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Absolute URL of the Terms of Service for the API.
+     * 
+     */
+    @Import(name="termsOfServiceUrl")
+    private @Nullable Output<String> termsOfServiceUrl;
+
+    /**
+     * @return Absolute URL of the Terms of Service for the API.
+     * 
+     */
+    public Optional<Output<String>> termsOfServiceUrl() {
+        return Optional.ofNullable(this.termsOfServiceUrl);
+    }
+
+    /**
      * The Version number of this API, if this API is versioned.
      * 
      */
@@ -349,9 +396,11 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
     private ApiArgs(ApiArgs $) {
         this.apiManagementName = $.apiManagementName;
         this.apiType = $.apiType;
+        this.contact = $.contact;
         this.description = $.description;
         this.displayName = $.displayName;
         this.import_ = $.import_;
+        this.license = $.license;
         this.name = $.name;
         this.oauth2Authorization = $.oauth2Authorization;
         this.openidAuthentication = $.openidAuthentication;
@@ -365,6 +414,7 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         this.sourceApiId = $.sourceApiId;
         this.subscriptionKeyParameterNames = $.subscriptionKeyParameterNames;
         this.subscriptionRequired = $.subscriptionRequired;
+        this.termsOfServiceUrl = $.termsOfServiceUrl;
         this.version = $.version;
         this.versionDescription = $.versionDescription;
         this.versionSetId = $.versionSetId;
@@ -431,6 +481,27 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param contact A `contact` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder contact(@Nullable Output<ApiContactArgs> contact) {
+            $.contact = contact;
+            return this;
+        }
+
+        /**
+         * @param contact A `contact` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder contact(ApiContactArgs contact) {
+            return contact(Output.of(contact));
+        }
+
+        /**
          * @param description A description of the API Management API, which may include HTML formatting tags.
          * 
          * @return builder
@@ -491,6 +562,27 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder import_(ApiImportArgs import_) {
             return import_(Output.of(import_));
+        }
+
+        /**
+         * @param license A `license` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder license(@Nullable Output<ApiLicenseArgs> license) {
+            $.license = license;
+            return this;
+        }
+
+        /**
+         * @param license A `license` block as documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder license(ApiLicenseArgs license) {
+            return license(Output.of(license));
         }
 
         /**
@@ -782,6 +874,27 @@ public final class ApiArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder subscriptionRequired(Boolean subscriptionRequired) {
             return subscriptionRequired(Output.of(subscriptionRequired));
+        }
+
+        /**
+         * @param termsOfServiceUrl Absolute URL of the Terms of Service for the API.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder termsOfServiceUrl(@Nullable Output<String> termsOfServiceUrl) {
+            $.termsOfServiceUrl = termsOfServiceUrl;
+            return this;
+        }
+
+        /**
+         * @param termsOfServiceUrl Absolute URL of the Terms of Service for the API.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder termsOfServiceUrl(String termsOfServiceUrl) {
+            return termsOfServiceUrl(Output.of(termsOfServiceUrl));
         }
 
         /**

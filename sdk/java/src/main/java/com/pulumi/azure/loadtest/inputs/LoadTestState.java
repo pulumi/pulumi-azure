@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.loadtest.inputs;
 
+import com.pulumi.azure.loadtest.inputs.LoadTestIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -17,18 +18,48 @@ public final class LoadTestState extends com.pulumi.resources.ResourceArgs {
     public static final LoadTestState Empty = new LoadTestState();
 
     /**
-     * Public URI of the Data Plane.
+     * Resource data plane URI.
      * 
      */
-    @Import(name="dataplaneUri")
-    private @Nullable Output<String> dataplaneUri;
+    @Import(name="dataPlaneUri")
+    private @Nullable Output<String> dataPlaneUri;
 
     /**
-     * @return Public URI of the Data Plane.
+     * @return Resource data plane URI.
      * 
      */
-    public Optional<Output<String>> dataplaneUri() {
-        return Optional.ofNullable(this.dataplaneUri);
+    public Optional<Output<String>> dataPlaneUri() {
+        return Optional.ofNullable(this.dataPlaneUri);
+    }
+
+    /**
+     * Description of the resource. Changing this forces a new Load Test to be created.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return Description of the resource. Changing this forces a new Load Test to be created.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * Specifies the Managed Identity which should be assigned to this Load Test.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<LoadTestIdentityArgs> identity;
+
+    /**
+     * @return Specifies the Managed Identity which should be assigned to this Load Test.
+     * 
+     */
+    public Optional<Output<LoadTestIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
     }
 
     /**
@@ -47,14 +78,14 @@ public final class LoadTestState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+     * Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+     * @return Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -62,14 +93,14 @@ public final class LoadTestState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+     * Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
      * 
      */
     @Import(name="resourceGroupName")
     private @Nullable Output<String> resourceGroupName;
 
     /**
-     * @return The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+     * @return Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
      * 
      */
     public Optional<Output<String>> resourceGroupName() {
@@ -94,7 +125,9 @@ public final class LoadTestState extends com.pulumi.resources.ResourceArgs {
     private LoadTestState() {}
 
     private LoadTestState(LoadTestState $) {
-        this.dataplaneUri = $.dataplaneUri;
+        this.dataPlaneUri = $.dataPlaneUri;
+        this.description = $.description;
+        this.identity = $.identity;
         this.location = $.location;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
@@ -120,24 +153,66 @@ public final class LoadTestState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataplaneUri Public URI of the Data Plane.
+         * @param dataPlaneUri Resource data plane URI.
          * 
          * @return builder
          * 
          */
-        public Builder dataplaneUri(@Nullable Output<String> dataplaneUri) {
-            $.dataplaneUri = dataplaneUri;
+        public Builder dataPlaneUri(@Nullable Output<String> dataPlaneUri) {
+            $.dataPlaneUri = dataPlaneUri;
             return this;
         }
 
         /**
-         * @param dataplaneUri Public URI of the Data Plane.
+         * @param dataPlaneUri Resource data plane URI.
          * 
          * @return builder
          * 
          */
-        public Builder dataplaneUri(String dataplaneUri) {
-            return dataplaneUri(Output.of(dataplaneUri));
+        public Builder dataPlaneUri(String dataPlaneUri) {
+            return dataPlaneUri(Output.of(dataPlaneUri));
+        }
+
+        /**
+         * @param description Description of the resource. Changing this forces a new Load Test to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description Description of the resource. Changing this forces a new Load Test to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
+        }
+
+        /**
+         * @param identity Specifies the Managed Identity which should be assigned to this Load Test.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<LoadTestIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity Specifies the Managed Identity which should be assigned to this Load Test.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(LoadTestIdentityArgs identity) {
+            return identity(Output.of(identity));
         }
 
         /**
@@ -162,7 +237,7 @@ public final class LoadTestState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+         * @param name Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
          * 
          * @return builder
          * 
@@ -173,7 +248,7 @@ public final class LoadTestState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+         * @param name Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
          * 
          * @return builder
          * 
@@ -183,7 +258,7 @@ public final class LoadTestState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+         * @param resourceGroupName Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
          * 
          * @return builder
          * 
@@ -194,7 +269,7 @@ public final class LoadTestState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+         * @param resourceGroupName Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
          * 
          * @return builder
          * 

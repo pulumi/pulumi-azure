@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ContainerService
     ///             },
     ///             new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
     ///             {
-    ///                 Location = "westeurope",
+    ///                 Location = "North Europe",
     ///                 ZoneRedundancyEnabled = true,
     ///                 Tags = ,
     ///             },

@@ -69,6 +69,9 @@ namespace Pulumi.Azure.Compute
         [Output("diskSizeGb")]
         public Output<int> DiskSizeGb { get; private set; } = null!;
 
+        /// <summary>
+        /// A `encryption_settings` block as defined below.
+        /// </summary>
         [Output("encryptionSettings")]
         public Output<Outputs.SnapshotEncryptionSettings?> EncryptionSettings { get; private set; } = null!;
 
@@ -178,6 +181,9 @@ namespace Pulumi.Azure.Compute
         [Input("diskSizeGb")]
         public Input<int>? DiskSizeGb { get; set; }
 
+        /// <summary>
+        /// A `encryption_settings` block as defined below.
+        /// </summary>
         [Input("encryptionSettings")]
         public Input<Inputs.SnapshotEncryptionSettingsArgs>? EncryptionSettings { get; set; }
 
@@ -249,6 +255,9 @@ namespace Pulumi.Azure.Compute
         [Input("diskSizeGb")]
         public Input<int>? DiskSizeGb { get; set; }
 
+        /// <summary>
+        /// A `encryption_settings` block as defined below.
+        /// </summary>
         [Input("encryptionSettings")]
         public Input<Inputs.SnapshotEncryptionSettingsGetArgs>? EncryptionSettings { get; set; }
 

@@ -45,6 +45,16 @@ export const getRestorableDatabaseAccounts: typeof import("./getRestorableDataba
 export const getRestorableDatabaseAccountsOutput: typeof import("./getRestorableDatabaseAccounts").getRestorableDatabaseAccountsOutput = null as any;
 utilities.lazyLoad(exports, ["getRestorableDatabaseAccounts","getRestorableDatabaseAccountsOutput"], () => require("./getRestorableDatabaseAccounts"));
 
+export { GetSqlDatabaseArgs, GetSqlDatabaseResult, GetSqlDatabaseOutputArgs } from "./getSqlDatabase";
+export const getSqlDatabase: typeof import("./getSqlDatabase").getSqlDatabase = null as any;
+export const getSqlDatabaseOutput: typeof import("./getSqlDatabase").getSqlDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlDatabase","getSqlDatabaseOutput"], () => require("./getSqlDatabase"));
+
+export { GetSqlRoleDefinitionArgs, GetSqlRoleDefinitionResult, GetSqlRoleDefinitionOutputArgs } from "./getSqlRoleDefinition";
+export const getSqlRoleDefinition: typeof import("./getSqlRoleDefinition").getSqlRoleDefinition = null as any;
+export const getSqlRoleDefinitionOutput: typeof import("./getSqlRoleDefinition").getSqlRoleDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlRoleDefinition","getSqlRoleDefinitionOutput"], () => require("./getSqlRoleDefinition"));
+
 export { GremlinDatabaseArgs, GremlinDatabaseState } from "./gremlinDatabase";
 export type GremlinDatabase = import("./gremlinDatabase").GremlinDatabase;
 export const GremlinDatabase: typeof import("./gremlinDatabase").GremlinDatabase = null as any;

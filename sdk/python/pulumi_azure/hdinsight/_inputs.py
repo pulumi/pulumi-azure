@@ -22,11 +22,14 @@ __all__ = [
     'HBaseClusterNetworkArgs',
     'HBaseClusterRolesArgs',
     'HBaseClusterRolesHeadNodeArgs',
+    'HBaseClusterRolesHeadNodeScriptActionArgs',
     'HBaseClusterRolesWorkerNodeArgs',
     'HBaseClusterRolesWorkerNodeAutoscaleArgs',
     'HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs',
     'HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs',
+    'HBaseClusterRolesWorkerNodeScriptActionArgs',
     'HBaseClusterRolesZookeeperNodeArgs',
+    'HBaseClusterRolesZookeeperNodeScriptActionArgs',
     'HBaseClusterSecurityProfileArgs',
     'HBaseClusterStorageAccountArgs',
     'HBaseClusterStorageAccountGen2Args',
@@ -46,12 +49,15 @@ __all__ = [
     'HadoopClusterRolesEdgeNodeInstallScriptActionArgs',
     'HadoopClusterRolesEdgeNodeUninstallScriptActionArgs',
     'HadoopClusterRolesHeadNodeArgs',
+    'HadoopClusterRolesHeadNodeScriptActionArgs',
     'HadoopClusterRolesWorkerNodeArgs',
     'HadoopClusterRolesWorkerNodeAutoscaleArgs',
     'HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs',
     'HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs',
     'HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs',
+    'HadoopClusterRolesWorkerNodeScriptActionArgs',
     'HadoopClusterRolesZookeeperNodeArgs',
+    'HadoopClusterRolesZookeeperNodeScriptActionArgs',
     'HadoopClusterSecurityProfileArgs',
     'HadoopClusterStorageAccountArgs',
     'HadoopClusterStorageAccountGen2Args',
@@ -67,12 +73,15 @@ __all__ = [
     'InteractiveQueryClusterNetworkArgs',
     'InteractiveQueryClusterRolesArgs',
     'InteractiveQueryClusterRolesHeadNodeArgs',
+    'InteractiveQueryClusterRolesHeadNodeScriptActionArgs',
     'InteractiveQueryClusterRolesWorkerNodeArgs',
     'InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs',
     'InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityArgs',
     'InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs',
     'InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs',
+    'InteractiveQueryClusterRolesWorkerNodeScriptActionArgs',
     'InteractiveQueryClusterRolesZookeeperNodeArgs',
+    'InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs',
     'InteractiveQueryClusterSecurityProfileArgs',
     'InteractiveQueryClusterStorageAccountArgs',
     'InteractiveQueryClusterStorageAccountGen2Args',
@@ -89,9 +98,13 @@ __all__ = [
     'KafkaClusterRestProxyArgs',
     'KafkaClusterRolesArgs',
     'KafkaClusterRolesHeadNodeArgs',
+    'KafkaClusterRolesHeadNodeScriptActionArgs',
     'KafkaClusterRolesKafkaManagementNodeArgs',
+    'KafkaClusterRolesKafkaManagementNodeScriptActionArgs',
     'KafkaClusterRolesWorkerNodeArgs',
+    'KafkaClusterRolesWorkerNodeScriptActionArgs',
     'KafkaClusterRolesZookeeperNodeArgs',
+    'KafkaClusterRolesZookeeperNodeScriptActionArgs',
     'KafkaClusterSecurityProfileArgs',
     'KafkaClusterStorageAccountArgs',
     'KafkaClusterStorageAccountGen2Args',
@@ -107,12 +120,15 @@ __all__ = [
     'SparkClusterNetworkArgs',
     'SparkClusterRolesArgs',
     'SparkClusterRolesHeadNodeArgs',
+    'SparkClusterRolesHeadNodeScriptActionArgs',
     'SparkClusterRolesWorkerNodeArgs',
     'SparkClusterRolesWorkerNodeAutoscaleArgs',
     'SparkClusterRolesWorkerNodeAutoscaleCapacityArgs',
     'SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs',
     'SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs',
+    'SparkClusterRolesWorkerNodeScriptActionArgs',
     'SparkClusterRolesZookeeperNodeArgs',
+    'SparkClusterRolesZookeeperNodeScriptActionArgs',
     'SparkClusterSecurityProfileArgs',
     'SparkClusterStorageAccountArgs',
     'SparkClusterStorageAccountGen2Args',
@@ -675,6 +691,7 @@ class HBaseClusterRolesHeadNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -682,6 +699,7 @@ class HBaseClusterRolesHeadNodeArgs:
         :param pulumi.Input[str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -690,6 +708,8 @@ class HBaseClusterRolesHeadNodeArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if script_actions is not None:
+            pulumi.set(__self__, "script_actions", script_actions)
         if ssh_keys is not None:
             pulumi.set(__self__, "ssh_keys", ssh_keys)
         if subnet_id is not None:
@@ -734,6 +754,18 @@ class HBaseClusterRolesHeadNodeArgs:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter(name="scriptActions")
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgs']]]]:
+        """
+        The script action which will run on the cluster.
+        """
+        return pulumi.get(self, "script_actions")
+
+    @script_actions.setter
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgs']]]]):
+        pulumi.set(self, "script_actions", value)
+
+    @property
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -771,6 +803,59 @@ class HBaseClusterRolesHeadNodeArgs:
 
 
 @pulumi.input_type
+class HBaseClusterRolesHeadNodeScriptActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 uri: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] uri: The URI to the script.
+        :param pulumi.Input[str] parameters: The parameters for the script provided.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        The URI to the script.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameters for the script provided.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
 class HBaseClusterRolesWorkerNodeArgs:
     def __init__(__self__, *,
                  target_instance_count: pulumi.Input[int],
@@ -778,6 +863,7 @@ class HBaseClusterRolesWorkerNodeArgs:
                  vm_size: pulumi.Input[str],
                  autoscale: Optional[pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleArgs']] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -787,6 +873,7 @@ class HBaseClusterRolesWorkerNodeArgs:
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input['HBaseClusterRolesWorkerNodeAutoscaleArgs'] autoscale: A `autoscale` block as defined below.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -798,6 +885,8 @@ class HBaseClusterRolesWorkerNodeArgs:
             pulumi.set(__self__, "autoscale", autoscale)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if script_actions is not None:
+            pulumi.set(__self__, "script_actions", script_actions)
         if ssh_keys is not None:
             pulumi.set(__self__, "ssh_keys", ssh_keys)
         if subnet_id is not None:
@@ -864,6 +953,18 @@ class HBaseClusterRolesWorkerNodeArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="scriptActions")
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgs']]]]:
+        """
+        The script action which will run on the cluster.
+        """
+        return pulumi.get(self, "script_actions")
+
+    @script_actions.setter
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgs']]]]):
+        pulumi.set(self, "script_actions", value)
 
     @property
     @pulumi.getter(name="sshKeys")
@@ -1015,11 +1116,65 @@ class HBaseClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
 
 
 @pulumi.input_type
+class HBaseClusterRolesWorkerNodeScriptActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 uri: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] uri: The URI to the script.
+        :param pulumi.Input[str] parameters: The parameters for the script provided.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        The URI to the script.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameters for the script provided.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
 class HBaseClusterRolesZookeeperNodeArgs:
     def __init__(__self__, *,
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -1027,6 +1182,7 @@ class HBaseClusterRolesZookeeperNodeArgs:
         :param pulumi.Input[str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -1035,6 +1191,8 @@ class HBaseClusterRolesZookeeperNodeArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if script_actions is not None:
+            pulumi.set(__self__, "script_actions", script_actions)
         if ssh_keys is not None:
             pulumi.set(__self__, "ssh_keys", ssh_keys)
         if subnet_id is not None:
@@ -1079,6 +1237,18 @@ class HBaseClusterRolesZookeeperNodeArgs:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter(name="scriptActions")
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgs']]]]:
+        """
+        The script action which will run on the cluster.
+        """
+        return pulumi.get(self, "script_actions")
+
+    @script_actions.setter
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgs']]]]):
+        pulumi.set(self, "script_actions", value)
+
+    @property
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -1113,6 +1283,59 @@ class HBaseClusterRolesZookeeperNodeArgs:
     @virtual_network_id.setter
     def virtual_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_id", value)
+
+
+@pulumi.input_type
+class HBaseClusterRolesZookeeperNodeScriptActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 uri: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] uri: The URI to the script.
+        :param pulumi.Input[str] parameters: The parameters for the script provided.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        The URI to the script.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameters for the script provided.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type
@@ -2205,6 +2428,7 @@ class HadoopClusterRolesHeadNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -2212,6 +2436,7 @@ class HadoopClusterRolesHeadNodeArgs:
         :param pulumi.Input[str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -2220,6 +2445,8 @@ class HadoopClusterRolesHeadNodeArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if script_actions is not None:
+            pulumi.set(__self__, "script_actions", script_actions)
         if ssh_keys is not None:
             pulumi.set(__self__, "ssh_keys", ssh_keys)
         if subnet_id is not None:
@@ -2264,6 +2491,18 @@ class HadoopClusterRolesHeadNodeArgs:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter(name="scriptActions")
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]]]:
+        """
+        The script action which will run on the cluster.
+        """
+        return pulumi.get(self, "script_actions")
+
+    @script_actions.setter
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]]]):
+        pulumi.set(self, "script_actions", value)
+
+    @property
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -2301,6 +2540,59 @@ class HadoopClusterRolesHeadNodeArgs:
 
 
 @pulumi.input_type
+class HadoopClusterRolesHeadNodeScriptActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 uri: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] uri: The URI to the script.
+        :param pulumi.Input[str] parameters: The parameters for the script provided.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        The URI to the script.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameters for the script provided.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
 class HadoopClusterRolesWorkerNodeArgs:
     def __init__(__self__, *,
                  target_instance_count: pulumi.Input[int],
@@ -2308,6 +2600,7 @@ class HadoopClusterRolesWorkerNodeArgs:
                  vm_size: pulumi.Input[str],
                  autoscale: Optional[pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleArgs']] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -2317,6 +2610,7 @@ class HadoopClusterRolesWorkerNodeArgs:
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input['HadoopClusterRolesWorkerNodeAutoscaleArgs'] autoscale: A `autoscale` block as defined below.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -2328,6 +2622,8 @@ class HadoopClusterRolesWorkerNodeArgs:
             pulumi.set(__self__, "autoscale", autoscale)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if script_actions is not None:
+            pulumi.set(__self__, "script_actions", script_actions)
         if ssh_keys is not None:
             pulumi.set(__self__, "ssh_keys", ssh_keys)
         if subnet_id is not None:
@@ -2394,6 +2690,18 @@ class HadoopClusterRolesWorkerNodeArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="scriptActions")
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]]]:
+        """
+        The script action which will run on the cluster.
+        """
+        return pulumi.get(self, "script_actions")
+
+    @script_actions.setter
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]]]):
+        pulumi.set(self, "script_actions", value)
 
     @property
     @pulumi.getter(name="sshKeys")
@@ -2598,11 +2906,65 @@ class HadoopClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
 
 
 @pulumi.input_type
+class HadoopClusterRolesWorkerNodeScriptActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 uri: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] uri: The URI to the script.
+        :param pulumi.Input[str] parameters: The parameters for the script provided.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        The URI to the script.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameters for the script provided.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
 class HadoopClusterRolesZookeeperNodeArgs:
     def __init__(__self__, *,
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -2610,6 +2972,7 @@ class HadoopClusterRolesZookeeperNodeArgs:
         :param pulumi.Input[str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -2618,6 +2981,8 @@ class HadoopClusterRolesZookeeperNodeArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if script_actions is not None:
+            pulumi.set(__self__, "script_actions", script_actions)
         if ssh_keys is not None:
             pulumi.set(__self__, "ssh_keys", ssh_keys)
         if subnet_id is not None:
@@ -2662,6 +3027,18 @@ class HadoopClusterRolesZookeeperNodeArgs:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter(name="scriptActions")
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]]]:
+        """
+        The script action which will run on the cluster.
+        """
+        return pulumi.get(self, "script_actions")
+
+    @script_actions.setter
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]]]):
+        pulumi.set(self, "script_actions", value)
+
+    @property
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -2696,6 +3073,59 @@ class HadoopClusterRolesZookeeperNodeArgs:
     @virtual_network_id.setter
     def virtual_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_id", value)
+
+
+@pulumi.input_type
+class HadoopClusterRolesZookeeperNodeScriptActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 uri: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] uri: The URI to the script.
+        :param pulumi.Input[str] parameters: The parameters for the script provided.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        The URI to the script.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameters for the script provided.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type
@@ -3497,6 +3927,7 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -3504,6 +3935,7 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
         :param pulumi.Input[str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -3512,6 +3944,8 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if script_actions is not None:
+            pulumi.set(__self__, "script_actions", script_actions)
         if ssh_keys is not None:
             pulumi.set(__self__, "ssh_keys", ssh_keys)
         if subnet_id is not None:
@@ -3556,6 +3990,18 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter(name="scriptActions")
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgs']]]]:
+        """
+        The script action which will run on the cluster.
+        """
+        return pulumi.get(self, "script_actions")
+
+    @script_actions.setter
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgs']]]]):
+        pulumi.set(self, "script_actions", value)
+
+    @property
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -3593,6 +4039,59 @@ class InteractiveQueryClusterRolesHeadNodeArgs:
 
 
 @pulumi.input_type
+class InteractiveQueryClusterRolesHeadNodeScriptActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 uri: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] uri: The URI to the script.
+        :param pulumi.Input[str] parameters: The parameters for the script provided.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        The URI to the script.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameters for the script provided.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
 class InteractiveQueryClusterRolesWorkerNodeArgs:
     def __init__(__self__, *,
                  target_instance_count: pulumi.Input[int],
@@ -3600,6 +4099,7 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
                  vm_size: pulumi.Input[str],
                  autoscale: Optional[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs']] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -3609,6 +4109,7 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs'] autoscale: A `autoscale` block as defined below.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -3620,6 +4121,8 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
             pulumi.set(__self__, "autoscale", autoscale)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if script_actions is not None:
+            pulumi.set(__self__, "script_actions", script_actions)
         if ssh_keys is not None:
             pulumi.set(__self__, "ssh_keys", ssh_keys)
         if subnet_id is not None:
@@ -3686,6 +4189,18 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="scriptActions")
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs']]]]:
+        """
+        The script action which will run on the cluster.
+        """
+        return pulumi.get(self, "script_actions")
+
+    @script_actions.setter
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs']]]]):
+        pulumi.set(self, "script_actions", value)
 
     @property
     @pulumi.getter(name="sshKeys")
@@ -3890,11 +4405,65 @@ class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
 
 
 @pulumi.input_type
+class InteractiveQueryClusterRolesWorkerNodeScriptActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 uri: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] uri: The URI to the script.
+        :param pulumi.Input[str] parameters: The parameters for the script provided.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        The URI to the script.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameters for the script provided.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
 class InteractiveQueryClusterRolesZookeeperNodeArgs:
     def __init__(__self__, *,
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -3902,6 +4471,7 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
         :param pulumi.Input[str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -3910,6 +4480,8 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if script_actions is not None:
+            pulumi.set(__self__, "script_actions", script_actions)
         if ssh_keys is not None:
             pulumi.set(__self__, "ssh_keys", ssh_keys)
         if subnet_id is not None:
@@ -3954,6 +4526,18 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter(name="scriptActions")
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs']]]]:
+        """
+        The script action which will run on the cluster.
+        """
+        return pulumi.get(self, "script_actions")
+
+    @script_actions.setter
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs']]]]):
+        pulumi.set(self, "script_actions", value)
+
+    @property
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -3988,6 +4572,59 @@ class InteractiveQueryClusterRolesZookeeperNodeArgs:
     @virtual_network_id.setter
     def virtual_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_id", value)
+
+
+@pulumi.input_type
+class InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 uri: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] uri: The URI to the script.
+        :param pulumi.Input[str] parameters: The parameters for the script provided.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        The URI to the script.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameters for the script provided.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type
@@ -4848,6 +5485,7 @@ class KafkaClusterRolesHeadNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -4863,6 +5501,8 @@ class KafkaClusterRolesHeadNodeArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if script_actions is not None:
+            pulumi.set(__self__, "script_actions", script_actions)
         if ssh_keys is not None:
             pulumi.set(__self__, "ssh_keys", ssh_keys)
         if subnet_id is not None:
@@ -4907,6 +5547,15 @@ class KafkaClusterRolesHeadNodeArgs:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter(name="scriptActions")
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgs']]]]:
+        return pulumi.get(self, "script_actions")
+
+    @script_actions.setter
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgs']]]]):
+        pulumi.set(self, "script_actions", value)
+
+    @property
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -4944,11 +5593,57 @@ class KafkaClusterRolesHeadNodeArgs:
 
 
 @pulumi.input_type
+class KafkaClusterRolesHeadNodeScriptActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 uri: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
 class KafkaClusterRolesKafkaManagementNodeArgs:
     def __init__(__self__, *,
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -4964,6 +5659,8 @@ class KafkaClusterRolesKafkaManagementNodeArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if script_actions is not None:
+            pulumi.set(__self__, "script_actions", script_actions)
         if ssh_keys is not None:
             pulumi.set(__self__, "ssh_keys", ssh_keys)
         if subnet_id is not None:
@@ -5008,6 +5705,15 @@ class KafkaClusterRolesKafkaManagementNodeArgs:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter(name="scriptActions")
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgs']]]]:
+        return pulumi.get(self, "script_actions")
+
+    @script_actions.setter
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgs']]]]):
+        pulumi.set(self, "script_actions", value)
+
+    @property
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -5045,6 +5751,51 @@ class KafkaClusterRolesKafkaManagementNodeArgs:
 
 
 @pulumi.input_type
+class KafkaClusterRolesKafkaManagementNodeScriptActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 uri: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
 class KafkaClusterRolesWorkerNodeArgs:
     def __init__(__self__, *,
                  number_of_disks_per_node: pulumi.Input[int],
@@ -5052,6 +5803,7 @@ class KafkaClusterRolesWorkerNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -5071,6 +5823,8 @@ class KafkaClusterRolesWorkerNodeArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if script_actions is not None:
+            pulumi.set(__self__, "script_actions", script_actions)
         if ssh_keys is not None:
             pulumi.set(__self__, "ssh_keys", ssh_keys)
         if subnet_id is not None:
@@ -5139,6 +5893,15 @@ class KafkaClusterRolesWorkerNodeArgs:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter(name="scriptActions")
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgs']]]]:
+        return pulumi.get(self, "script_actions")
+
+    @script_actions.setter
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgs']]]]):
+        pulumi.set(self, "script_actions", value)
+
+    @property
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -5176,11 +5939,57 @@ class KafkaClusterRolesWorkerNodeArgs:
 
 
 @pulumi.input_type
+class KafkaClusterRolesWorkerNodeScriptActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 uri: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
 class KafkaClusterRolesZookeeperNodeArgs:
     def __init__(__self__, *,
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -5196,6 +6005,8 @@ class KafkaClusterRolesZookeeperNodeArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if script_actions is not None:
+            pulumi.set(__self__, "script_actions", script_actions)
         if ssh_keys is not None:
             pulumi.set(__self__, "ssh_keys", ssh_keys)
         if subnet_id is not None:
@@ -5240,6 +6051,15 @@ class KafkaClusterRolesZookeeperNodeArgs:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter(name="scriptActions")
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgs']]]]:
+        return pulumi.get(self, "script_actions")
+
+    @script_actions.setter
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgs']]]]):
+        pulumi.set(self, "script_actions", value)
+
+    @property
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -5274,6 +6094,51 @@ class KafkaClusterRolesZookeeperNodeArgs:
     @virtual_network_id.setter
     def virtual_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_id", value)
+
+
+@pulumi.input_type
+class KafkaClusterRolesZookeeperNodeScriptActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 uri: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type
@@ -6081,6 +6946,7 @@ class SparkClusterRolesHeadNodeArgs:
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -6088,6 +6954,7 @@ class SparkClusterRolesHeadNodeArgs:
         :param pulumi.Input[str] username: The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -6096,6 +6963,8 @@ class SparkClusterRolesHeadNodeArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if script_actions is not None:
+            pulumi.set(__self__, "script_actions", script_actions)
         if ssh_keys is not None:
             pulumi.set(__self__, "ssh_keys", ssh_keys)
         if subnet_id is not None:
@@ -6140,6 +7009,18 @@ class SparkClusterRolesHeadNodeArgs:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter(name="scriptActions")
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgs']]]]:
+        """
+        The script action which will run on the cluster.
+        """
+        return pulumi.get(self, "script_actions")
+
+    @script_actions.setter
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgs']]]]):
+        pulumi.set(self, "script_actions", value)
+
+    @property
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -6177,6 +7058,59 @@ class SparkClusterRolesHeadNodeArgs:
 
 
 @pulumi.input_type
+class SparkClusterRolesHeadNodeScriptActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 uri: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] uri: The URI to the script.
+        :param pulumi.Input[str] parameters: The parameters for the script provided.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        The URI to the script.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameters for the script provided.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
 class SparkClusterRolesWorkerNodeArgs:
     def __init__(__self__, *,
                  target_instance_count: pulumi.Input[int],
@@ -6184,6 +7118,7 @@ class SparkClusterRolesWorkerNodeArgs:
                  vm_size: pulumi.Input[str],
                  autoscale: Optional[pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleArgs']] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -6193,6 +7128,7 @@ class SparkClusterRolesWorkerNodeArgs:
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input['SparkClusterRolesWorkerNodeAutoscaleArgs'] autoscale: A `autoscale` block as defined below.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -6204,6 +7140,8 @@ class SparkClusterRolesWorkerNodeArgs:
             pulumi.set(__self__, "autoscale", autoscale)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if script_actions is not None:
+            pulumi.set(__self__, "script_actions", script_actions)
         if ssh_keys is not None:
             pulumi.set(__self__, "ssh_keys", ssh_keys)
         if subnet_id is not None:
@@ -6270,6 +7208,18 @@ class SparkClusterRolesWorkerNodeArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="scriptActions")
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgs']]]]:
+        """
+        The script action which will run on the cluster.
+        """
+        return pulumi.get(self, "script_actions")
+
+    @script_actions.setter
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgs']]]]):
+        pulumi.set(self, "script_actions", value)
 
     @property
     @pulumi.getter(name="sshKeys")
@@ -6474,11 +7424,65 @@ class SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs:
 
 
 @pulumi.input_type
+class SparkClusterRolesWorkerNodeScriptActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 uri: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] uri: The URI to the script.
+        :param pulumi.Input[str] parameters: The parameters for the script provided.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        The URI to the script.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameters for the script provided.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
 class SparkClusterRolesZookeeperNodeArgs:
     def __init__(__self__, *,
                  username: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
+                 script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgs']]]] = None,
                  ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
@@ -6486,6 +7490,7 @@ class SparkClusterRolesZookeeperNodeArgs:
         :param pulumi.Input[str] username: The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vm_size: The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] password: The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgs']]] script_actions: The script action which will run on the cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ssh_keys: A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
@@ -6494,6 +7499,8 @@ class SparkClusterRolesZookeeperNodeArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if script_actions is not None:
+            pulumi.set(__self__, "script_actions", script_actions)
         if ssh_keys is not None:
             pulumi.set(__self__, "ssh_keys", ssh_keys)
         if subnet_id is not None:
@@ -6538,6 +7545,18 @@ class SparkClusterRolesZookeeperNodeArgs:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter(name="scriptActions")
+    def script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgs']]]]:
+        """
+        The script action which will run on the cluster.
+        """
+        return pulumi.get(self, "script_actions")
+
+    @script_actions.setter
+    def script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgs']]]]):
+        pulumi.set(self, "script_actions", value)
+
+    @property
     @pulumi.getter(name="sshKeys")
     def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -6572,6 +7591,59 @@ class SparkClusterRolesZookeeperNodeArgs:
     @virtual_network_id.setter
     def virtual_network_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "virtual_network_id", value)
+
+
+@pulumi.input_type
+class SparkClusterRolesZookeeperNodeScriptActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 uri: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] uri: The URI to the script.
+        :param pulumi.Input[str] parameters: The parameters for the script provided.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        The URI to the script.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameters for the script provided.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type

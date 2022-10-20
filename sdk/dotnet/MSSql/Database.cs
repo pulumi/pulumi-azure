@@ -85,7 +85,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> Collation { get; private set; } = null!;
 
         /// <summary>
-        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
         /// </summary>
         [Output("createMode")]
         public Output<string?> CreateMode { get; private set; } = null!;
@@ -107,6 +107,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Output("geoBackupEnabled")]
         public Output<bool?> GeoBackupEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// A Database Import block as documented below. Mutually exclusive with `create_mode`.
+        /// </summary>
+        [Output("import")]
+        public Output<Outputs.DatabaseImport?> Import { get; private set; } = null!;
 
         /// <summary>
         /// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
@@ -293,7 +299,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
@@ -315,6 +321,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("geoBackupEnabled")]
         public Input<bool>? GeoBackupEnabled { get; set; }
+
+        /// <summary>
+        /// A Database Import block as documented below. Mutually exclusive with `create_mode`.
+        /// </summary>
+        [Input("import")]
+        public Input<Inputs.DatabaseImportArgs>? Import { get; set; }
 
         /// <summary>
         /// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.
@@ -469,7 +481,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Collation { get; set; }
 
         /// <summary>
-        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+        /// The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
         /// </summary>
         [Input("createMode")]
         public Input<string>? CreateMode { get; set; }
@@ -491,6 +503,12 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("geoBackupEnabled")]
         public Input<bool>? GeoBackupEnabled { get; set; }
+
+        /// <summary>
+        /// A Database Import block as documented below. Mutually exclusive with `create_mode`.
+        /// </summary>
+        [Input("import")]
+        public Input<Inputs.DatabaseImportGetArgs>? Import { get; set; }
 
         /// <summary>
         /// A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.

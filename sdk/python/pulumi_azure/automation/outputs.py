@@ -17,6 +17,10 @@ __all__ = [
     'ConnectionTypeField',
     'ModuleModuleLink',
     'ModuleModuleLinkHash',
+    'RunBookDraft',
+    'RunBookDraftContentLink',
+    'RunBookDraftContentLinkHash',
+    'RunBookDraftParameter',
     'RunBookJobSchedule',
     'RunBookPublishContentLink',
     'RunBookPublishContentLinkHash',
@@ -323,6 +327,247 @@ class ModuleModuleLinkHash(dict):
 
 
 @pulumi.output_type
+class RunBookDraft(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentLink":
+            suggest = "content_link"
+        elif key == "creationTime":
+            suggest = "creation_time"
+        elif key == "editModeEnabled":
+            suggest = "edit_mode_enabled"
+        elif key == "lastModifiedTime":
+            suggest = "last_modified_time"
+        elif key == "outputTypes":
+            suggest = "output_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RunBookDraft. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RunBookDraft.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RunBookDraft.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_link: Optional['outputs.RunBookDraftContentLink'] = None,
+                 creation_time: Optional[str] = None,
+                 edit_mode_enabled: Optional[bool] = None,
+                 last_modified_time: Optional[str] = None,
+                 output_types: Optional[Sequence[str]] = None,
+                 parameters: Optional[Sequence['outputs.RunBookDraftParameter']] = None):
+        """
+        :param 'RunBookDraftContentLinkArgs' content_link: The Draft Content Link defined as `publish_content_link` above.
+        :param bool edit_mode_enabled: Whether the draft in edit mode.
+        :param Sequence[str] output_types: Specifies the output types of the runbook.
+        """
+        if content_link is not None:
+            pulumi.set(__self__, "content_link", content_link)
+        if creation_time is not None:
+            pulumi.set(__self__, "creation_time", creation_time)
+        if edit_mode_enabled is not None:
+            pulumi.set(__self__, "edit_mode_enabled", edit_mode_enabled)
+        if last_modified_time is not None:
+            pulumi.set(__self__, "last_modified_time", last_modified_time)
+        if output_types is not None:
+            pulumi.set(__self__, "output_types", output_types)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="contentLink")
+    def content_link(self) -> Optional['outputs.RunBookDraftContentLink']:
+        """
+        The Draft Content Link defined as `publish_content_link` above.
+        """
+        return pulumi.get(self, "content_link")
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional[str]:
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="editModeEnabled")
+    def edit_mode_enabled(self) -> Optional[bool]:
+        """
+        Whether the draft in edit mode.
+        """
+        return pulumi.get(self, "edit_mode_enabled")
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> Optional[str]:
+        return pulumi.get(self, "last_modified_time")
+
+    @property
+    @pulumi.getter(name="outputTypes")
+    def output_types(self) -> Optional[Sequence[str]]:
+        """
+        Specifies the output types of the runbook.
+        """
+        return pulumi.get(self, "output_types")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence['outputs.RunBookDraftParameter']]:
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class RunBookDraftContentLink(dict):
+    def __init__(__self__, *,
+                 uri: str,
+                 hash: Optional['outputs.RunBookDraftContentLinkHash'] = None,
+                 version: Optional[str] = None):
+        """
+        :param str uri: The URI of the runbook content.
+        :param 'RunBookDraftContentLinkHashArgs' hash: A `hash` block as defined blow.
+        :param str version: Specifies the version of the content
+        """
+        pulumi.set(__self__, "uri", uri)
+        if hash is not None:
+            pulumi.set(__self__, "hash", hash)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        The URI of the runbook content.
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter
+    def hash(self) -> Optional['outputs.RunBookDraftContentLinkHash']:
+        """
+        A `hash` block as defined blow.
+        """
+        return pulumi.get(self, "hash")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Specifies the version of the content
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class RunBookDraftContentLinkHash(dict):
+    def __init__(__self__, *,
+                 algorithm: str,
+                 value: str):
+        """
+        :param str algorithm: Specifies the hash algorithm used to hash the content.
+        :param str value: Specifies the expected hash value of the content.
+        """
+        pulumi.set(__self__, "algorithm", algorithm)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> str:
+        """
+        Specifies the hash algorithm used to hash the content.
+        """
+        return pulumi.get(self, "algorithm")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Specifies the expected hash value of the content.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class RunBookDraftParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RunBookDraftParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RunBookDraftParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RunBookDraftParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key: str,
+                 type: str,
+                 default_value: Optional[str] = None,
+                 mandatory: Optional[bool] = None,
+                 position: Optional[int] = None):
+        """
+        :param str key: The name of the parameter.
+        :param str type: Specifies the type of this parameter.
+        :param str default_value: Specifies the default value of the parameter.
+        :param bool mandatory: Whether this parameter is mandatory.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "type", type)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if mandatory is not None:
+            pulumi.set(__self__, "mandatory", mandatory)
+        if position is not None:
+            pulumi.set(__self__, "position", position)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The name of the parameter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of this parameter.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[str]:
+        """
+        Specifies the default value of the parameter.
+        """
+        return pulumi.get(self, "default_value")
+
+    @property
+    @pulumi.getter
+    def mandatory(self) -> Optional[bool]:
+        """
+        Whether this parameter is mandatory.
+        """
+        return pulumi.get(self, "mandatory")
+
+    @property
+    @pulumi.getter
+    def position(self) -> Optional[int]:
+        return pulumi.get(self, "position")
+
+
+@pulumi.output_type
 class RunBookJobSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -387,6 +632,8 @@ class RunBookPublishContentLink(dict):
                  version: Optional[str] = None):
         """
         :param str uri: The URI of the runbook content.
+        :param 'RunBookPublishContentLinkHashArgs' hash: A `hash` block as defined blow.
+        :param str version: Specifies the version of the content
         """
         pulumi.set(__self__, "uri", uri)
         if hash is not None:
@@ -405,11 +652,17 @@ class RunBookPublishContentLink(dict):
     @property
     @pulumi.getter
     def hash(self) -> Optional['outputs.RunBookPublishContentLinkHash']:
+        """
+        A `hash` block as defined blow.
+        """
         return pulumi.get(self, "hash")
 
     @property
     @pulumi.getter
     def version(self) -> Optional[str]:
+        """
+        Specifies the version of the content
+        """
         return pulumi.get(self, "version")
 
 
@@ -418,17 +671,27 @@ class RunBookPublishContentLinkHash(dict):
     def __init__(__self__, *,
                  algorithm: str,
                  value: str):
+        """
+        :param str algorithm: Specifies the hash algorithm used to hash the content.
+        :param str value: Specifies the expected hash value of the content.
+        """
         pulumi.set(__self__, "algorithm", algorithm)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def algorithm(self) -> str:
+        """
+        Specifies the hash algorithm used to hash the content.
+        """
         return pulumi.get(self, "algorithm")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        Specifies the expected hash value of the content.
+        """
         return pulumi.get(self, "value")
 
 

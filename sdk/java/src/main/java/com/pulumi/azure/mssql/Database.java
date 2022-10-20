@@ -6,6 +6,7 @@ package com.pulumi.azure.mssql;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.mssql.DatabaseArgs;
 import com.pulumi.azure.mssql.inputs.DatabaseState;
+import com.pulumi.azure.mssql.outputs.DatabaseImport;
 import com.pulumi.azure.mssql.outputs.DatabaseLongTermRetentionPolicy;
 import com.pulumi.azure.mssql.outputs.DatabaseShortTermRetentionPolicy;
 import com.pulumi.azure.mssql.outputs.DatabaseThreatDetectionPolicy;
@@ -126,14 +127,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.collation;
     }
     /**
-     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
      * 
      */
     @Export(name="createMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> createMode;
 
     /**
-     * @return The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+     * @return The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
      * 
      */
     public Output<Optional<String>> createMode() {
@@ -180,6 +181,20 @@ public class Database extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> geoBackupEnabled() {
         return Codegen.optional(this.geoBackupEnabled);
+    }
+    /**
+     * A Database Import block as documented below. Mutually exclusive with `create_mode`.
+     * 
+     */
+    @Export(name="import", type=DatabaseImport.class, parameters={})
+    private Output</* @Nullable */ DatabaseImport> import_;
+
+    /**
+     * @return A Database Import block as documented below. Mutually exclusive with `create_mode`.
+     * 
+     */
+    public Output<Optional<DatabaseImport>> import_() {
+        return Codegen.optional(this.import_);
     }
     /**
      * A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created.

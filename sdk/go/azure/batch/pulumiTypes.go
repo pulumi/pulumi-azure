@@ -1460,6 +1460,8 @@ func (o PoolExtensionArrayOutput) Index(i pulumi.IntInput) PoolExtensionOutput {
 }
 
 type PoolFixedScale struct {
+	// It determines what to do with a node and its running task(s) if the pool size is decreasing. Values are `Requeue`, `RetainedData`, `TaskCompletion` and `Terminate`.
+	NodeDeallocationMethod *string `pulumi:"nodeDeallocationMethod"`
 	// The timeout for resize operations. Defaults to `PT15M`.
 	ResizeTimeout *string `pulumi:"resizeTimeout"`
 	// The number of nodes in the Batch pool. Defaults to `1`.
@@ -1480,6 +1482,8 @@ type PoolFixedScaleInput interface {
 }
 
 type PoolFixedScaleArgs struct {
+	// It determines what to do with a node and its running task(s) if the pool size is decreasing. Values are `Requeue`, `RetainedData`, `TaskCompletion` and `Terminate`.
+	NodeDeallocationMethod pulumi.StringPtrInput `pulumi:"nodeDeallocationMethod"`
 	// The timeout for resize operations. Defaults to `PT15M`.
 	ResizeTimeout pulumi.StringPtrInput `pulumi:"resizeTimeout"`
 	// The number of nodes in the Batch pool. Defaults to `1`.
@@ -1565,6 +1569,11 @@ func (o PoolFixedScaleOutput) ToPoolFixedScalePtrOutputWithContext(ctx context.C
 	}).(PoolFixedScalePtrOutput)
 }
 
+// It determines what to do with a node and its running task(s) if the pool size is decreasing. Values are `Requeue`, `RetainedData`, `TaskCompletion` and `Terminate`.
+func (o PoolFixedScaleOutput) NodeDeallocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolFixedScale) *string { return v.NodeDeallocationMethod }).(pulumi.StringPtrOutput)
+}
+
 // The timeout for resize operations. Defaults to `PT15M`.
 func (o PoolFixedScaleOutput) ResizeTimeout() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PoolFixedScale) *string { return v.ResizeTimeout }).(pulumi.StringPtrOutput)
@@ -1602,6 +1611,16 @@ func (o PoolFixedScalePtrOutput) Elem() PoolFixedScaleOutput {
 		var ret PoolFixedScale
 		return ret
 	}).(PoolFixedScaleOutput)
+}
+
+// It determines what to do with a node and its running task(s) if the pool size is decreasing. Values are `Requeue`, `RetainedData`, `TaskCompletion` and `Terminate`.
+func (o PoolFixedScalePtrOutput) NodeDeallocationMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PoolFixedScale) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NodeDeallocationMethod
+	}).(pulumi.StringPtrOutput)
 }
 
 // The timeout for resize operations. Defaults to `PT15M`.
@@ -2547,6 +2566,8 @@ func (o PoolMountNfsMountArrayOutput) Index(i pulumi.IntInput) PoolMountNfsMount
 }
 
 type PoolNetworkConfiguration struct {
+	// The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+	DynamicVnetAssignmentScope *string `pulumi:"dynamicVnetAssignmentScope"`
 	// A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
 	EndpointConfigurations []PoolNetworkConfigurationEndpointConfiguration `pulumi:"endpointConfigurations"`
 	// Type of public IP address provisioning. Supported values are `BatchManaged`, `UserManaged` and `NoPublicIPAddresses`.
@@ -2569,6 +2590,8 @@ type PoolNetworkConfigurationInput interface {
 }
 
 type PoolNetworkConfigurationArgs struct {
+	// The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+	DynamicVnetAssignmentScope pulumi.StringPtrInput `pulumi:"dynamicVnetAssignmentScope"`
 	// A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
 	EndpointConfigurations PoolNetworkConfigurationEndpointConfigurationArrayInput `pulumi:"endpointConfigurations"`
 	// Type of public IP address provisioning. Supported values are `BatchManaged`, `UserManaged` and `NoPublicIPAddresses`.
@@ -2656,6 +2679,11 @@ func (o PoolNetworkConfigurationOutput) ToPoolNetworkConfigurationPtrOutputWithC
 	}).(PoolNetworkConfigurationPtrOutput)
 }
 
+// The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+func (o PoolNetworkConfigurationOutput) DynamicVnetAssignmentScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolNetworkConfiguration) *string { return v.DynamicVnetAssignmentScope }).(pulumi.StringPtrOutput)
+}
+
 // A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
 func (o PoolNetworkConfigurationOutput) EndpointConfigurations() PoolNetworkConfigurationEndpointConfigurationArrayOutput {
 	return o.ApplyT(func(v PoolNetworkConfiguration) []PoolNetworkConfigurationEndpointConfiguration {
@@ -2700,6 +2728,16 @@ func (o PoolNetworkConfigurationPtrOutput) Elem() PoolNetworkConfigurationOutput
 		var ret PoolNetworkConfiguration
 		return ret
 	}).(PoolNetworkConfigurationOutput)
+}
+
+// The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+func (o PoolNetworkConfigurationPtrOutput) DynamicVnetAssignmentScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PoolNetworkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicVnetAssignmentScope
+	}).(pulumi.StringPtrOutput)
 }
 
 // A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
@@ -2884,6 +2922,8 @@ type PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule struc
 	Priority int `pulumi:"priority"`
 	// The source address prefix or tag to match for the rule. Changing this forces a new resource to be created.
 	SourceAddressPrefix string `pulumi:"sourceAddressPrefix"`
+	// The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can't overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+	SourcePortRanges []string `pulumi:"sourcePortRanges"`
 }
 
 // PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleInput is an input type that accepts PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs and PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput values.
@@ -2904,6 +2944,8 @@ type PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs s
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// The source address prefix or tag to match for the rule. Changing this forces a new resource to be created.
 	SourceAddressPrefix pulumi.StringInput `pulumi:"sourceAddressPrefix"`
+	// The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can't overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+	SourcePortRanges pulumi.StringArrayInput `pulumi:"sourcePortRanges"`
 }
 
 func (PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs) ElementType() reflect.Type {
@@ -2972,6 +3014,13 @@ func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOut
 	return o.ApplyT(func(v PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule) string {
 		return v.SourceAddressPrefix
 	}).(pulumi.StringOutput)
+}
+
+// The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can't overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+func (o PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput) SourcePortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule) []string {
+		return v.SourcePortRanges
+	}).(pulumi.StringArrayOutput)
 }
 
 type PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput struct{ *pulumi.OutputState }
@@ -3096,6 +3145,8 @@ type PoolStartTask struct {
 	CommandLine string `pulumi:"commandLine"`
 	// A map of strings (key,value) that represents the environment variables to set in the start task.
 	CommonEnvironmentProperties map[string]string `pulumi:"commonEnvironmentProperties"`
+	// A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+	Containers []PoolStartTaskContainer `pulumi:"containers"`
 	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 	ResourceFiles []PoolStartTaskResourceFile `pulumi:"resourceFiles"`
 	// The number of retry count. Defaults to `1`.
@@ -3122,6 +3173,8 @@ type PoolStartTaskArgs struct {
 	CommandLine pulumi.StringInput `pulumi:"commandLine"`
 	// A map of strings (key,value) that represents the environment variables to set in the start task.
 	CommonEnvironmentProperties pulumi.StringMapInput `pulumi:"commonEnvironmentProperties"`
+	// A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+	Containers PoolStartTaskContainerArrayInput `pulumi:"containers"`
 	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 	ResourceFiles PoolStartTaskResourceFileArrayInput `pulumi:"resourceFiles"`
 	// The number of retry count. Defaults to `1`.
@@ -3219,6 +3272,11 @@ func (o PoolStartTaskOutput) CommonEnvironmentProperties() pulumi.StringMapOutpu
 	return o.ApplyT(func(v PoolStartTask) map[string]string { return v.CommonEnvironmentProperties }).(pulumi.StringMapOutput)
 }
 
+// A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+func (o PoolStartTaskOutput) Containers() PoolStartTaskContainerArrayOutput {
+	return o.ApplyT(func(v PoolStartTask) []PoolStartTaskContainer { return v.Containers }).(PoolStartTaskContainerArrayOutput)
+}
+
 // One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 func (o PoolStartTaskOutput) ResourceFiles() PoolStartTaskResourceFileArrayOutput {
 	return o.ApplyT(func(v PoolStartTask) []PoolStartTaskResourceFile { return v.ResourceFiles }).(PoolStartTaskResourceFileArrayOutput)
@@ -3283,6 +3341,16 @@ func (o PoolStartTaskPtrOutput) CommonEnvironmentProperties() pulumi.StringMapOu
 	}).(pulumi.StringMapOutput)
 }
 
+// A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+func (o PoolStartTaskPtrOutput) Containers() PoolStartTaskContainerArrayOutput {
+	return o.ApplyT(func(v *PoolStartTask) []PoolStartTaskContainer {
+		if v == nil {
+			return nil
+		}
+		return v.Containers
+	}).(PoolStartTaskContainerArrayOutput)
+}
+
 // One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 func (o PoolStartTaskPtrOutput) ResourceFiles() PoolStartTaskResourceFileArrayOutput {
 	return o.ApplyT(func(v *PoolStartTask) []PoolStartTaskResourceFile {
@@ -3321,6 +3389,254 @@ func (o PoolStartTaskPtrOutput) WaitForSuccess() pulumi.BoolPtrOutput {
 		}
 		return v.WaitForSuccess
 	}).(pulumi.BoolPtrOutput)
+}
+
+type PoolStartTaskContainer struct {
+	// The image to use to create the container in which the task will run. This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
+	ImageName string `pulumi:"imageName"`
+	// The same reference as `containerRegistries` block defined as follows.
+	Registries []PoolStartTaskContainerRegistry `pulumi:"registries"`
+	// Additional options to the container create command. These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
+	RunOptions *string `pulumi:"runOptions"`
+	// A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
+	WorkingDirectory *string `pulumi:"workingDirectory"`
+}
+
+// PoolStartTaskContainerInput is an input type that accepts PoolStartTaskContainerArgs and PoolStartTaskContainerOutput values.
+// You can construct a concrete instance of `PoolStartTaskContainerInput` via:
+//
+//	PoolStartTaskContainerArgs{...}
+type PoolStartTaskContainerInput interface {
+	pulumi.Input
+
+	ToPoolStartTaskContainerOutput() PoolStartTaskContainerOutput
+	ToPoolStartTaskContainerOutputWithContext(context.Context) PoolStartTaskContainerOutput
+}
+
+type PoolStartTaskContainerArgs struct {
+	// The image to use to create the container in which the task will run. This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// The same reference as `containerRegistries` block defined as follows.
+	Registries PoolStartTaskContainerRegistryArrayInput `pulumi:"registries"`
+	// Additional options to the container create command. These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
+	RunOptions pulumi.StringPtrInput `pulumi:"runOptions"`
+	// A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
+	WorkingDirectory pulumi.StringPtrInput `pulumi:"workingDirectory"`
+}
+
+func (PoolStartTaskContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolStartTaskContainer)(nil)).Elem()
+}
+
+func (i PoolStartTaskContainerArgs) ToPoolStartTaskContainerOutput() PoolStartTaskContainerOutput {
+	return i.ToPoolStartTaskContainerOutputWithContext(context.Background())
+}
+
+func (i PoolStartTaskContainerArgs) ToPoolStartTaskContainerOutputWithContext(ctx context.Context) PoolStartTaskContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskContainerOutput)
+}
+
+// PoolStartTaskContainerArrayInput is an input type that accepts PoolStartTaskContainerArray and PoolStartTaskContainerArrayOutput values.
+// You can construct a concrete instance of `PoolStartTaskContainerArrayInput` via:
+//
+//	PoolStartTaskContainerArray{ PoolStartTaskContainerArgs{...} }
+type PoolStartTaskContainerArrayInput interface {
+	pulumi.Input
+
+	ToPoolStartTaskContainerArrayOutput() PoolStartTaskContainerArrayOutput
+	ToPoolStartTaskContainerArrayOutputWithContext(context.Context) PoolStartTaskContainerArrayOutput
+}
+
+type PoolStartTaskContainerArray []PoolStartTaskContainerInput
+
+func (PoolStartTaskContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolStartTaskContainer)(nil)).Elem()
+}
+
+func (i PoolStartTaskContainerArray) ToPoolStartTaskContainerArrayOutput() PoolStartTaskContainerArrayOutput {
+	return i.ToPoolStartTaskContainerArrayOutputWithContext(context.Background())
+}
+
+func (i PoolStartTaskContainerArray) ToPoolStartTaskContainerArrayOutputWithContext(ctx context.Context) PoolStartTaskContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskContainerArrayOutput)
+}
+
+type PoolStartTaskContainerOutput struct{ *pulumi.OutputState }
+
+func (PoolStartTaskContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolStartTaskContainer)(nil)).Elem()
+}
+
+func (o PoolStartTaskContainerOutput) ToPoolStartTaskContainerOutput() PoolStartTaskContainerOutput {
+	return o
+}
+
+func (o PoolStartTaskContainerOutput) ToPoolStartTaskContainerOutputWithContext(ctx context.Context) PoolStartTaskContainerOutput {
+	return o
+}
+
+// The image to use to create the container in which the task will run. This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
+func (o PoolStartTaskContainerOutput) ImageName() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolStartTaskContainer) string { return v.ImageName }).(pulumi.StringOutput)
+}
+
+// The same reference as `containerRegistries` block defined as follows.
+func (o PoolStartTaskContainerOutput) Registries() PoolStartTaskContainerRegistryArrayOutput {
+	return o.ApplyT(func(v PoolStartTaskContainer) []PoolStartTaskContainerRegistry { return v.Registries }).(PoolStartTaskContainerRegistryArrayOutput)
+}
+
+// Additional options to the container create command. These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
+func (o PoolStartTaskContainerOutput) RunOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolStartTaskContainer) *string { return v.RunOptions }).(pulumi.StringPtrOutput)
+}
+
+// A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
+func (o PoolStartTaskContainerOutput) WorkingDirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolStartTaskContainer) *string { return v.WorkingDirectory }).(pulumi.StringPtrOutput)
+}
+
+type PoolStartTaskContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (PoolStartTaskContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolStartTaskContainer)(nil)).Elem()
+}
+
+func (o PoolStartTaskContainerArrayOutput) ToPoolStartTaskContainerArrayOutput() PoolStartTaskContainerArrayOutput {
+	return o
+}
+
+func (o PoolStartTaskContainerArrayOutput) ToPoolStartTaskContainerArrayOutputWithContext(ctx context.Context) PoolStartTaskContainerArrayOutput {
+	return o
+}
+
+func (o PoolStartTaskContainerArrayOutput) Index(i pulumi.IntInput) PoolStartTaskContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolStartTaskContainer {
+		return vs[0].([]PoolStartTaskContainer)[vs[1].(int)]
+	}).(PoolStartTaskContainerOutput)
+}
+
+type PoolStartTaskContainerRegistry struct {
+	// The password to log into the registry server. Changing this forces a new resource to be created.
+	Password *string `pulumi:"password"`
+	// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+	RegistryServer string `pulumi:"registryServer"`
+	// An identity reference from pool's user assigned managed identity list.
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
+	// The username to be used by the Batch pool start task.
+	UserName *string `pulumi:"userName"`
+}
+
+// PoolStartTaskContainerRegistryInput is an input type that accepts PoolStartTaskContainerRegistryArgs and PoolStartTaskContainerRegistryOutput values.
+// You can construct a concrete instance of `PoolStartTaskContainerRegistryInput` via:
+//
+//	PoolStartTaskContainerRegistryArgs{...}
+type PoolStartTaskContainerRegistryInput interface {
+	pulumi.Input
+
+	ToPoolStartTaskContainerRegistryOutput() PoolStartTaskContainerRegistryOutput
+	ToPoolStartTaskContainerRegistryOutputWithContext(context.Context) PoolStartTaskContainerRegistryOutput
+}
+
+type PoolStartTaskContainerRegistryArgs struct {
+	// The password to log into the registry server. Changing this forces a new resource to be created.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+	RegistryServer pulumi.StringInput `pulumi:"registryServer"`
+	// An identity reference from pool's user assigned managed identity list.
+	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
+	// The username to be used by the Batch pool start task.
+	UserName pulumi.StringPtrInput `pulumi:"userName"`
+}
+
+func (PoolStartTaskContainerRegistryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolStartTaskContainerRegistry)(nil)).Elem()
+}
+
+func (i PoolStartTaskContainerRegistryArgs) ToPoolStartTaskContainerRegistryOutput() PoolStartTaskContainerRegistryOutput {
+	return i.ToPoolStartTaskContainerRegistryOutputWithContext(context.Background())
+}
+
+func (i PoolStartTaskContainerRegistryArgs) ToPoolStartTaskContainerRegistryOutputWithContext(ctx context.Context) PoolStartTaskContainerRegistryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskContainerRegistryOutput)
+}
+
+// PoolStartTaskContainerRegistryArrayInput is an input type that accepts PoolStartTaskContainerRegistryArray and PoolStartTaskContainerRegistryArrayOutput values.
+// You can construct a concrete instance of `PoolStartTaskContainerRegistryArrayInput` via:
+//
+//	PoolStartTaskContainerRegistryArray{ PoolStartTaskContainerRegistryArgs{...} }
+type PoolStartTaskContainerRegistryArrayInput interface {
+	pulumi.Input
+
+	ToPoolStartTaskContainerRegistryArrayOutput() PoolStartTaskContainerRegistryArrayOutput
+	ToPoolStartTaskContainerRegistryArrayOutputWithContext(context.Context) PoolStartTaskContainerRegistryArrayOutput
+}
+
+type PoolStartTaskContainerRegistryArray []PoolStartTaskContainerRegistryInput
+
+func (PoolStartTaskContainerRegistryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolStartTaskContainerRegistry)(nil)).Elem()
+}
+
+func (i PoolStartTaskContainerRegistryArray) ToPoolStartTaskContainerRegistryArrayOutput() PoolStartTaskContainerRegistryArrayOutput {
+	return i.ToPoolStartTaskContainerRegistryArrayOutputWithContext(context.Background())
+}
+
+func (i PoolStartTaskContainerRegistryArray) ToPoolStartTaskContainerRegistryArrayOutputWithContext(ctx context.Context) PoolStartTaskContainerRegistryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolStartTaskContainerRegistryArrayOutput)
+}
+
+type PoolStartTaskContainerRegistryOutput struct{ *pulumi.OutputState }
+
+func (PoolStartTaskContainerRegistryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolStartTaskContainerRegistry)(nil)).Elem()
+}
+
+func (o PoolStartTaskContainerRegistryOutput) ToPoolStartTaskContainerRegistryOutput() PoolStartTaskContainerRegistryOutput {
+	return o
+}
+
+func (o PoolStartTaskContainerRegistryOutput) ToPoolStartTaskContainerRegistryOutputWithContext(ctx context.Context) PoolStartTaskContainerRegistryOutput {
+	return o
+}
+
+// The password to log into the registry server. Changing this forces a new resource to be created.
+func (o PoolStartTaskContainerRegistryOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolStartTaskContainerRegistry) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+func (o PoolStartTaskContainerRegistryOutput) RegistryServer() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolStartTaskContainerRegistry) string { return v.RegistryServer }).(pulumi.StringOutput)
+}
+
+// An identity reference from pool's user assigned managed identity list.
+func (o PoolStartTaskContainerRegistryOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolStartTaskContainerRegistry) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+// The username to be used by the Batch pool start task.
+func (o PoolStartTaskContainerRegistryOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolStartTaskContainerRegistry) *string { return v.UserName }).(pulumi.StringPtrOutput)
+}
+
+type PoolStartTaskContainerRegistryArrayOutput struct{ *pulumi.OutputState }
+
+func (PoolStartTaskContainerRegistryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolStartTaskContainerRegistry)(nil)).Elem()
+}
+
+func (o PoolStartTaskContainerRegistryArrayOutput) ToPoolStartTaskContainerRegistryArrayOutput() PoolStartTaskContainerRegistryArrayOutput {
+	return o
+}
+
+func (o PoolStartTaskContainerRegistryArrayOutput) ToPoolStartTaskContainerRegistryArrayOutputWithContext(ctx context.Context) PoolStartTaskContainerRegistryArrayOutput {
+	return o
+}
+
+func (o PoolStartTaskContainerRegistryArrayOutput) Index(i pulumi.IntInput) PoolStartTaskContainerRegistryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolStartTaskContainerRegistry {
+		return vs[0].([]PoolStartTaskContainerRegistry)[vs[1].(int)]
+	}).(PoolStartTaskContainerRegistryOutput)
 }
 
 type PoolStartTaskResourceFile struct {
@@ -6405,10 +6721,14 @@ func (o GetPoolMountNfsMountArrayOutput) Index(i pulumi.IntInput) GetPoolMountNf
 }
 
 type GetPoolNetworkConfiguration struct {
+	// The scope of dynamic vnet assignment.
+	DynamicVnetAssignmentScope string `pulumi:"dynamicVnetAssignmentScope"`
 	// The inbound NAT pools that are used to address specific ports on the individual compute node externally.
-	EndpointConfigurations        []GetPoolNetworkConfigurationEndpointConfiguration `pulumi:"endpointConfigurations"`
-	PublicAddressProvisioningType string                                             `pulumi:"publicAddressProvisioningType"`
-	PublicIps                     []string                                           `pulumi:"publicIps"`
+	EndpointConfigurations []GetPoolNetworkConfigurationEndpointConfiguration `pulumi:"endpointConfigurations"`
+	// Type of public IP address provisioning.
+	PublicAddressProvisioningType string `pulumi:"publicAddressProvisioningType"`
+	// A list of public IP ids that will be allocated to nodes.
+	PublicIps []string `pulumi:"publicIps"`
 	// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
 	SubnetId string `pulumi:"subnetId"`
 }
@@ -6425,10 +6745,14 @@ type GetPoolNetworkConfigurationInput interface {
 }
 
 type GetPoolNetworkConfigurationArgs struct {
+	// The scope of dynamic vnet assignment.
+	DynamicVnetAssignmentScope pulumi.StringInput `pulumi:"dynamicVnetAssignmentScope"`
 	// The inbound NAT pools that are used to address specific ports on the individual compute node externally.
-	EndpointConfigurations        GetPoolNetworkConfigurationEndpointConfigurationArrayInput `pulumi:"endpointConfigurations"`
-	PublicAddressProvisioningType pulumi.StringInput                                         `pulumi:"publicAddressProvisioningType"`
-	PublicIps                     pulumi.StringArrayInput                                    `pulumi:"publicIps"`
+	EndpointConfigurations GetPoolNetworkConfigurationEndpointConfigurationArrayInput `pulumi:"endpointConfigurations"`
+	// Type of public IP address provisioning.
+	PublicAddressProvisioningType pulumi.StringInput `pulumi:"publicAddressProvisioningType"`
+	// A list of public IP ids that will be allocated to nodes.
+	PublicIps pulumi.StringArrayInput `pulumi:"publicIps"`
 	// The ARM resource identifier of the virtual network subnet which the compute nodes of the pool are joined too.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
@@ -6484,6 +6808,11 @@ func (o GetPoolNetworkConfigurationOutput) ToGetPoolNetworkConfigurationOutputWi
 	return o
 }
 
+// The scope of dynamic vnet assignment.
+func (o GetPoolNetworkConfigurationOutput) DynamicVnetAssignmentScope() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolNetworkConfiguration) string { return v.DynamicVnetAssignmentScope }).(pulumi.StringOutput)
+}
+
 // The inbound NAT pools that are used to address specific ports on the individual compute node externally.
 func (o GetPoolNetworkConfigurationOutput) EndpointConfigurations() GetPoolNetworkConfigurationEndpointConfigurationArrayOutput {
 	return o.ApplyT(func(v GetPoolNetworkConfiguration) []GetPoolNetworkConfigurationEndpointConfiguration {
@@ -6491,10 +6820,12 @@ func (o GetPoolNetworkConfigurationOutput) EndpointConfigurations() GetPoolNetwo
 	}).(GetPoolNetworkConfigurationEndpointConfigurationArrayOutput)
 }
 
+// Type of public IP address provisioning.
 func (o GetPoolNetworkConfigurationOutput) PublicAddressProvisioningType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolNetworkConfiguration) string { return v.PublicAddressProvisioningType }).(pulumi.StringOutput)
 }
 
+// A list of public IP ids that will be allocated to nodes.
 func (o GetPoolNetworkConfigurationOutput) PublicIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPoolNetworkConfiguration) []string { return v.PublicIps }).(pulumi.StringArrayOutput)
 }
@@ -6666,6 +6997,8 @@ type GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule st
 	Priority int `pulumi:"priority"`
 	// The source address prefix or tag to match for the rule.
 	SourceAddressPrefix string `pulumi:"sourceAddressPrefix"`
+	// The source port ranges to match for the rule.
+	SourcePortRanges []string `pulumi:"sourcePortRanges"`
 }
 
 // GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleInput is an input type that accepts GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs and GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput values.
@@ -6686,6 +7019,8 @@ type GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArg
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// The source address prefix or tag to match for the rule.
 	SourceAddressPrefix pulumi.StringInput `pulumi:"sourceAddressPrefix"`
+	// The source port ranges to match for the rule.
+	SourcePortRanges pulumi.StringArrayInput `pulumi:"sourcePortRanges"`
 }
 
 func (GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs) ElementType() reflect.Type {
@@ -6758,6 +7093,13 @@ func (o GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule
 	return o.ApplyT(func(v GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule) string {
 		return v.SourceAddressPrefix
 	}).(pulumi.StringOutput)
+}
+
+// The source port ranges to match for the rule.
+func (o GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleOutput) SourcePortRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule) []string {
+		return v.SourcePortRanges
+	}).(pulumi.StringArrayOutput)
 }
 
 type GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArrayOutput struct{ *pulumi.OutputState }
@@ -6882,6 +7224,8 @@ type GetPoolStartTask struct {
 	CommandLine string `pulumi:"commandLine"`
 	// A map of strings (key,value) that represents the environment variables to set in the start task.
 	CommonEnvironmentProperties map[string]string `pulumi:"commonEnvironmentProperties"`
+	// The settings for the container under which the start task runs.
+	Containers []GetPoolStartTaskContainer `pulumi:"containers"`
 	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 	ResourceFiles []GetPoolStartTaskResourceFile `pulumi:"resourceFiles"`
 	// The number of retry count
@@ -6908,6 +7252,8 @@ type GetPoolStartTaskArgs struct {
 	CommandLine pulumi.StringInput `pulumi:"commandLine"`
 	// A map of strings (key,value) that represents the environment variables to set in the start task.
 	CommonEnvironmentProperties pulumi.StringMapInput `pulumi:"commonEnvironmentProperties"`
+	// The settings for the container under which the start task runs.
+	Containers GetPoolStartTaskContainerArrayInput `pulumi:"containers"`
 	// One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 	ResourceFiles GetPoolStartTaskResourceFileArrayInput `pulumi:"resourceFiles"`
 	// The number of retry count
@@ -6979,6 +7325,11 @@ func (o GetPoolStartTaskOutput) CommonEnvironmentProperties() pulumi.StringMapOu
 	return o.ApplyT(func(v GetPoolStartTask) map[string]string { return v.CommonEnvironmentProperties }).(pulumi.StringMapOutput)
 }
 
+// The settings for the container under which the start task runs.
+func (o GetPoolStartTaskOutput) Containers() GetPoolStartTaskContainerArrayOutput {
+	return o.ApplyT(func(v GetPoolStartTask) []GetPoolStartTaskContainer { return v.Containers }).(GetPoolStartTaskContainerArrayOutput)
+}
+
 // One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
 func (o GetPoolStartTaskOutput) ResourceFiles() GetPoolStartTaskResourceFileArrayOutput {
 	return o.ApplyT(func(v GetPoolStartTask) []GetPoolStartTaskResourceFile { return v.ResourceFiles }).(GetPoolStartTaskResourceFileArrayOutput)
@@ -7017,6 +7368,254 @@ func (o GetPoolStartTaskArrayOutput) Index(i pulumi.IntInput) GetPoolStartTaskOu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolStartTask {
 		return vs[0].([]GetPoolStartTask)[vs[1].(int)]
 	}).(GetPoolStartTaskOutput)
+}
+
+type GetPoolStartTaskContainer struct {
+	// The image to use to create the container in which the task will run.
+	ImageName string `pulumi:"imageName"`
+	// The same reference as `containerRegistries` block defined as follows.
+	Registries []GetPoolStartTaskContainerRegistry `pulumi:"registries"`
+	// Additional options to the container create command.
+	RunOptions string `pulumi:"runOptions"`
+	// A flag to indicate where the container task working directory is.
+	WorkingDirectory string `pulumi:"workingDirectory"`
+}
+
+// GetPoolStartTaskContainerInput is an input type that accepts GetPoolStartTaskContainerArgs and GetPoolStartTaskContainerOutput values.
+// You can construct a concrete instance of `GetPoolStartTaskContainerInput` via:
+//
+//	GetPoolStartTaskContainerArgs{...}
+type GetPoolStartTaskContainerInput interface {
+	pulumi.Input
+
+	ToGetPoolStartTaskContainerOutput() GetPoolStartTaskContainerOutput
+	ToGetPoolStartTaskContainerOutputWithContext(context.Context) GetPoolStartTaskContainerOutput
+}
+
+type GetPoolStartTaskContainerArgs struct {
+	// The image to use to create the container in which the task will run.
+	ImageName pulumi.StringInput `pulumi:"imageName"`
+	// The same reference as `containerRegistries` block defined as follows.
+	Registries GetPoolStartTaskContainerRegistryArrayInput `pulumi:"registries"`
+	// Additional options to the container create command.
+	RunOptions pulumi.StringInput `pulumi:"runOptions"`
+	// A flag to indicate where the container task working directory is.
+	WorkingDirectory pulumi.StringInput `pulumi:"workingDirectory"`
+}
+
+func (GetPoolStartTaskContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolStartTaskContainer)(nil)).Elem()
+}
+
+func (i GetPoolStartTaskContainerArgs) ToGetPoolStartTaskContainerOutput() GetPoolStartTaskContainerOutput {
+	return i.ToGetPoolStartTaskContainerOutputWithContext(context.Background())
+}
+
+func (i GetPoolStartTaskContainerArgs) ToGetPoolStartTaskContainerOutputWithContext(ctx context.Context) GetPoolStartTaskContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskContainerOutput)
+}
+
+// GetPoolStartTaskContainerArrayInput is an input type that accepts GetPoolStartTaskContainerArray and GetPoolStartTaskContainerArrayOutput values.
+// You can construct a concrete instance of `GetPoolStartTaskContainerArrayInput` via:
+//
+//	GetPoolStartTaskContainerArray{ GetPoolStartTaskContainerArgs{...} }
+type GetPoolStartTaskContainerArrayInput interface {
+	pulumi.Input
+
+	ToGetPoolStartTaskContainerArrayOutput() GetPoolStartTaskContainerArrayOutput
+	ToGetPoolStartTaskContainerArrayOutputWithContext(context.Context) GetPoolStartTaskContainerArrayOutput
+}
+
+type GetPoolStartTaskContainerArray []GetPoolStartTaskContainerInput
+
+func (GetPoolStartTaskContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolStartTaskContainer)(nil)).Elem()
+}
+
+func (i GetPoolStartTaskContainerArray) ToGetPoolStartTaskContainerArrayOutput() GetPoolStartTaskContainerArrayOutput {
+	return i.ToGetPoolStartTaskContainerArrayOutputWithContext(context.Background())
+}
+
+func (i GetPoolStartTaskContainerArray) ToGetPoolStartTaskContainerArrayOutputWithContext(ctx context.Context) GetPoolStartTaskContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskContainerArrayOutput)
+}
+
+type GetPoolStartTaskContainerOutput struct{ *pulumi.OutputState }
+
+func (GetPoolStartTaskContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolStartTaskContainer)(nil)).Elem()
+}
+
+func (o GetPoolStartTaskContainerOutput) ToGetPoolStartTaskContainerOutput() GetPoolStartTaskContainerOutput {
+	return o
+}
+
+func (o GetPoolStartTaskContainerOutput) ToGetPoolStartTaskContainerOutputWithContext(ctx context.Context) GetPoolStartTaskContainerOutput {
+	return o
+}
+
+// The image to use to create the container in which the task will run.
+func (o GetPoolStartTaskContainerOutput) ImageName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolStartTaskContainer) string { return v.ImageName }).(pulumi.StringOutput)
+}
+
+// The same reference as `containerRegistries` block defined as follows.
+func (o GetPoolStartTaskContainerOutput) Registries() GetPoolStartTaskContainerRegistryArrayOutput {
+	return o.ApplyT(func(v GetPoolStartTaskContainer) []GetPoolStartTaskContainerRegistry { return v.Registries }).(GetPoolStartTaskContainerRegistryArrayOutput)
+}
+
+// Additional options to the container create command.
+func (o GetPoolStartTaskContainerOutput) RunOptions() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolStartTaskContainer) string { return v.RunOptions }).(pulumi.StringOutput)
+}
+
+// A flag to indicate where the container task working directory is.
+func (o GetPoolStartTaskContainerOutput) WorkingDirectory() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolStartTaskContainer) string { return v.WorkingDirectory }).(pulumi.StringOutput)
+}
+
+type GetPoolStartTaskContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPoolStartTaskContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolStartTaskContainer)(nil)).Elem()
+}
+
+func (o GetPoolStartTaskContainerArrayOutput) ToGetPoolStartTaskContainerArrayOutput() GetPoolStartTaskContainerArrayOutput {
+	return o
+}
+
+func (o GetPoolStartTaskContainerArrayOutput) ToGetPoolStartTaskContainerArrayOutputWithContext(ctx context.Context) GetPoolStartTaskContainerArrayOutput {
+	return o
+}
+
+func (o GetPoolStartTaskContainerArrayOutput) Index(i pulumi.IntInput) GetPoolStartTaskContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolStartTaskContainer {
+		return vs[0].([]GetPoolStartTaskContainer)[vs[1].(int)]
+	}).(GetPoolStartTaskContainerOutput)
+}
+
+type GetPoolStartTaskContainerRegistry struct {
+	// The password for the user account.
+	Password string `pulumi:"password"`
+	// The container registry URL. The default is "docker.io".
+	RegistryServer string `pulumi:"registryServer"`
+	// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
+	// The user to use for authentication against the CIFS file system.
+	UserName string `pulumi:"userName"`
+}
+
+// GetPoolStartTaskContainerRegistryInput is an input type that accepts GetPoolStartTaskContainerRegistryArgs and GetPoolStartTaskContainerRegistryOutput values.
+// You can construct a concrete instance of `GetPoolStartTaskContainerRegistryInput` via:
+//
+//	GetPoolStartTaskContainerRegistryArgs{...}
+type GetPoolStartTaskContainerRegistryInput interface {
+	pulumi.Input
+
+	ToGetPoolStartTaskContainerRegistryOutput() GetPoolStartTaskContainerRegistryOutput
+	ToGetPoolStartTaskContainerRegistryOutputWithContext(context.Context) GetPoolStartTaskContainerRegistryOutput
+}
+
+type GetPoolStartTaskContainerRegistryArgs struct {
+	// The password for the user account.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The container registry URL. The default is "docker.io".
+	RegistryServer pulumi.StringInput `pulumi:"registryServer"`
+	// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
+	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
+	// The user to use for authentication against the CIFS file system.
+	UserName pulumi.StringInput `pulumi:"userName"`
+}
+
+func (GetPoolStartTaskContainerRegistryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolStartTaskContainerRegistry)(nil)).Elem()
+}
+
+func (i GetPoolStartTaskContainerRegistryArgs) ToGetPoolStartTaskContainerRegistryOutput() GetPoolStartTaskContainerRegistryOutput {
+	return i.ToGetPoolStartTaskContainerRegistryOutputWithContext(context.Background())
+}
+
+func (i GetPoolStartTaskContainerRegistryArgs) ToGetPoolStartTaskContainerRegistryOutputWithContext(ctx context.Context) GetPoolStartTaskContainerRegistryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskContainerRegistryOutput)
+}
+
+// GetPoolStartTaskContainerRegistryArrayInput is an input type that accepts GetPoolStartTaskContainerRegistryArray and GetPoolStartTaskContainerRegistryArrayOutput values.
+// You can construct a concrete instance of `GetPoolStartTaskContainerRegistryArrayInput` via:
+//
+//	GetPoolStartTaskContainerRegistryArray{ GetPoolStartTaskContainerRegistryArgs{...} }
+type GetPoolStartTaskContainerRegistryArrayInput interface {
+	pulumi.Input
+
+	ToGetPoolStartTaskContainerRegistryArrayOutput() GetPoolStartTaskContainerRegistryArrayOutput
+	ToGetPoolStartTaskContainerRegistryArrayOutputWithContext(context.Context) GetPoolStartTaskContainerRegistryArrayOutput
+}
+
+type GetPoolStartTaskContainerRegistryArray []GetPoolStartTaskContainerRegistryInput
+
+func (GetPoolStartTaskContainerRegistryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolStartTaskContainerRegistry)(nil)).Elem()
+}
+
+func (i GetPoolStartTaskContainerRegistryArray) ToGetPoolStartTaskContainerRegistryArrayOutput() GetPoolStartTaskContainerRegistryArrayOutput {
+	return i.ToGetPoolStartTaskContainerRegistryArrayOutputWithContext(context.Background())
+}
+
+func (i GetPoolStartTaskContainerRegistryArray) ToGetPoolStartTaskContainerRegistryArrayOutputWithContext(ctx context.Context) GetPoolStartTaskContainerRegistryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPoolStartTaskContainerRegistryArrayOutput)
+}
+
+type GetPoolStartTaskContainerRegistryOutput struct{ *pulumi.OutputState }
+
+func (GetPoolStartTaskContainerRegistryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPoolStartTaskContainerRegistry)(nil)).Elem()
+}
+
+func (o GetPoolStartTaskContainerRegistryOutput) ToGetPoolStartTaskContainerRegistryOutput() GetPoolStartTaskContainerRegistryOutput {
+	return o
+}
+
+func (o GetPoolStartTaskContainerRegistryOutput) ToGetPoolStartTaskContainerRegistryOutputWithContext(ctx context.Context) GetPoolStartTaskContainerRegistryOutput {
+	return o
+}
+
+// The password for the user account.
+func (o GetPoolStartTaskContainerRegistryOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolStartTaskContainerRegistry) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The container registry URL. The default is "docker.io".
+func (o GetPoolStartTaskContainerRegistryOutput) RegistryServer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolStartTaskContainerRegistry) string { return v.RegistryServer }).(pulumi.StringOutput)
+}
+
+// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
+func (o GetPoolStartTaskContainerRegistryOutput) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolStartTaskContainerRegistry) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
+}
+
+// The user to use for authentication against the CIFS file system.
+func (o GetPoolStartTaskContainerRegistryOutput) UserName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolStartTaskContainerRegistry) string { return v.UserName }).(pulumi.StringOutput)
+}
+
+type GetPoolStartTaskContainerRegistryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPoolStartTaskContainerRegistryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPoolStartTaskContainerRegistry)(nil)).Elem()
+}
+
+func (o GetPoolStartTaskContainerRegistryArrayOutput) ToGetPoolStartTaskContainerRegistryArrayOutput() GetPoolStartTaskContainerRegistryArrayOutput {
+	return o
+}
+
+func (o GetPoolStartTaskContainerRegistryArrayOutput) ToGetPoolStartTaskContainerRegistryArrayOutputWithContext(ctx context.Context) GetPoolStartTaskContainerRegistryArrayOutput {
+	return o
+}
+
+func (o GetPoolStartTaskContainerRegistryArrayOutput) Index(i pulumi.IntInput) GetPoolStartTaskContainerRegistryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolStartTaskContainerRegistry {
+		return vs[0].([]GetPoolStartTaskContainerRegistry)[vs[1].(int)]
+	}).(GetPoolStartTaskContainerRegistryOutput)
 }
 
 type GetPoolStartTaskResourceFile struct {
@@ -8094,6 +8693,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolNodePlacementArrayInput)(nil)).Elem(), PoolNodePlacementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolStartTaskInput)(nil)).Elem(), PoolStartTaskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolStartTaskPtrInput)(nil)).Elem(), PoolStartTaskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolStartTaskContainerInput)(nil)).Elem(), PoolStartTaskContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolStartTaskContainerArrayInput)(nil)).Elem(), PoolStartTaskContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolStartTaskContainerRegistryInput)(nil)).Elem(), PoolStartTaskContainerRegistryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolStartTaskContainerRegistryArrayInput)(nil)).Elem(), PoolStartTaskContainerRegistryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolStartTaskResourceFileInput)(nil)).Elem(), PoolStartTaskResourceFileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolStartTaskResourceFileArrayInput)(nil)).Elem(), PoolStartTaskResourceFileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolStartTaskUserIdentityInput)(nil)).Elem(), PoolStartTaskUserIdentityArgs{})
@@ -8152,6 +8755,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolNodePlacementArrayInput)(nil)).Elem(), GetPoolNodePlacementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskInput)(nil)).Elem(), GetPoolStartTaskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskArrayInput)(nil)).Elem(), GetPoolStartTaskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskContainerInput)(nil)).Elem(), GetPoolStartTaskContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskContainerArrayInput)(nil)).Elem(), GetPoolStartTaskContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskContainerRegistryInput)(nil)).Elem(), GetPoolStartTaskContainerRegistryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskContainerRegistryArrayInput)(nil)).Elem(), GetPoolStartTaskContainerRegistryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskResourceFileInput)(nil)).Elem(), GetPoolStartTaskResourceFileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskResourceFileArrayInput)(nil)).Elem(), GetPoolStartTaskResourceFileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolStartTaskUserIdentityInput)(nil)).Elem(), GetPoolStartTaskUserIdentityArgs{})
@@ -8214,6 +8821,10 @@ func init() {
 	pulumi.RegisterOutputType(PoolNodePlacementArrayOutput{})
 	pulumi.RegisterOutputType(PoolStartTaskOutput{})
 	pulumi.RegisterOutputType(PoolStartTaskPtrOutput{})
+	pulumi.RegisterOutputType(PoolStartTaskContainerOutput{})
+	pulumi.RegisterOutputType(PoolStartTaskContainerArrayOutput{})
+	pulumi.RegisterOutputType(PoolStartTaskContainerRegistryOutput{})
+	pulumi.RegisterOutputType(PoolStartTaskContainerRegistryArrayOutput{})
 	pulumi.RegisterOutputType(PoolStartTaskResourceFileOutput{})
 	pulumi.RegisterOutputType(PoolStartTaskResourceFileArrayOutput{})
 	pulumi.RegisterOutputType(PoolStartTaskUserIdentityOutput{})
@@ -8272,6 +8883,10 @@ func init() {
 	pulumi.RegisterOutputType(GetPoolNodePlacementArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolStartTaskOutput{})
 	pulumi.RegisterOutputType(GetPoolStartTaskArrayOutput{})
+	pulumi.RegisterOutputType(GetPoolStartTaskContainerOutput{})
+	pulumi.RegisterOutputType(GetPoolStartTaskContainerArrayOutput{})
+	pulumi.RegisterOutputType(GetPoolStartTaskContainerRegistryOutput{})
+	pulumi.RegisterOutputType(GetPoolStartTaskContainerRegistryArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolStartTaskResourceFileOutput{})
 	pulumi.RegisterOutputType(GetPoolStartTaskResourceFileArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolStartTaskUserIdentityOutput{})

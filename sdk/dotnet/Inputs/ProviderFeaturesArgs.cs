@@ -15,6 +15,9 @@ namespace Pulumi.Azure.Inputs
         [Input("apiManagement")]
         public Input<Inputs.ProviderFeaturesApiManagementArgs>? ApiManagement { get; set; }
 
+        [Input("appConfiguration")]
+        public Input<Inputs.ProviderFeaturesAppConfigurationArgs>? AppConfiguration { get; set; }
+
         [Input("applicationInsights")]
         public Input<Inputs.ProviderFeaturesApplicationInsightsArgs>? ApplicationInsights { get; set; }
 

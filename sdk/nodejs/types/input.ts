@@ -7,6 +7,7 @@ import * as outputs from "../types/output";
 
 export interface ProviderFeatures {
     apiManagement?: pulumi.Input<inputs.ProviderFeaturesApiManagement>;
+    appConfiguration?: pulumi.Input<inputs.ProviderFeaturesAppConfiguration>;
     applicationInsights?: pulumi.Input<inputs.ProviderFeaturesApplicationInsights>;
     cognitiveAccount?: pulumi.Input<inputs.ProviderFeaturesCognitiveAccount>;
     keyVault?: pulumi.Input<inputs.ProviderFeaturesKeyVault>;
@@ -19,6 +20,11 @@ export interface ProviderFeatures {
 }
 
 export interface ProviderFeaturesApiManagement {
+    purgeSoftDeleteOnDestroy?: pulumi.Input<boolean>;
+    recoverSoftDeleted?: pulumi.Input<boolean>;
+}
+
+export interface ProviderFeaturesAppConfiguration {
     purgeSoftDeleteOnDestroy?: pulumi.Input<boolean>;
     recoverSoftDeleted?: pulumi.Input<boolean>;
 }
@@ -91,6 +97,21 @@ export namespace analysisservices {
 }
 
 export namespace apimanagement {
+    export interface ApiContact {
+        /**
+         * The email address of the contact person/organization.
+         */
+        email?: pulumi.Input<string>;
+        /**
+         * The name of the contact person/organization.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Absolute URL of the contact information.
+         */
+        url?: pulumi.Input<string>;
+    }
+
     export interface ApiDiagnosticBackendRequest {
         /**
          * Number of payload bytes to log (up to 8192).
@@ -307,6 +328,17 @@ export namespace apimanagement {
          * The name of service to import from WSDL.
          */
         serviceName: pulumi.Input<string>;
+    }
+
+    export interface ApiLicense {
+        /**
+         * The name of the license .
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Absolute URL of the license.
+         */
+        url?: pulumi.Input<string>;
     }
 
     export interface ApiOauth2Authorization {
@@ -1785,6 +1817,17 @@ export namespace appconfiguration {
          * The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
          */
         start?: pulumi.Input<string>;
+    }
+
+    export interface ConfigurationStoreEncryption {
+        /**
+         * Specifies the client id of the identity which will be used to access key vault.
+         */
+        identityClientId?: pulumi.Input<string>;
+        /**
+         * Specifies the URI of the key vault key used to encrypt data.
+         */
+        keyVaultKeyIdentifier?: pulumi.Input<string>;
     }
 
     export interface ConfigurationStoreIdentity {
@@ -5521,7 +5564,7 @@ export namespace appservice {
          */
         phpVersion?: pulumi.Input<string>;
         /**
-         * The version of Python to run. Possible values include `3.7`, `3.8`, and `3.9`.
+         * The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
          */
         pythonVersion?: pulumi.Input<string>;
         /**
@@ -6228,7 +6271,7 @@ export namespace appservice {
          */
         phpVersion?: pulumi.Input<string>;
         /**
-         * The version of Python to run. Possible values include `3.7`, `3.8`, and `3.9`.
+         * The version of Python to run. Possible values include `3.7`, `3.8`, `3.9` and `3.10`.
          */
         pythonVersion?: pulumi.Input<string>;
         /**
@@ -9814,11 +9857,11 @@ export namespace appservice {
 
     export interface WindowsWebAppStickySettings {
         /**
-         * A list of `appSetting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+         * A list of `appSetting` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
          */
         appSettingNames?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * A list of `connectionString` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
+         * A list of `connectionString` names that the Windows Web App will not swap between Slots when a swap operation is triggered.
          */
         connectionStringNames?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -9950,6 +9993,70 @@ export namespace automation {
         value: pulumi.Input<string>;
     }
 
+    export interface RunBookDraft {
+        /**
+         * The Draft Content Link defined as `publishContentLink` above.
+         */
+        contentLink?: pulumi.Input<inputs.automation.RunBookDraftContentLink>;
+        creationTime?: pulumi.Input<string>;
+        /**
+         * Whether the draft in edit mode.
+         */
+        editModeEnabled?: pulumi.Input<boolean>;
+        lastModifiedTime?: pulumi.Input<string>;
+        /**
+         * Specifies the output types of the runbook.
+         */
+        outputTypes?: pulumi.Input<pulumi.Input<string>[]>;
+        parameters?: pulumi.Input<pulumi.Input<inputs.automation.RunBookDraftParameter>[]>;
+    }
+
+    export interface RunBookDraftContentLink {
+        /**
+         * A `hash` block as defined blow.
+         */
+        hash?: pulumi.Input<inputs.automation.RunBookDraftContentLinkHash>;
+        /**
+         * The URI of the runbook content.
+         */
+        uri: pulumi.Input<string>;
+        /**
+         * Specifies the version of the content
+         */
+        version?: pulumi.Input<string>;
+    }
+
+    export interface RunBookDraftContentLinkHash {
+        /**
+         * Specifies the hash algorithm used to hash the content.
+         */
+        algorithm: pulumi.Input<string>;
+        /**
+         * Specifies the expected hash value of the content.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface RunBookDraftParameter {
+        /**
+         * Specifies the default value of the parameter.
+         */
+        defaultValue?: pulumi.Input<string>;
+        /**
+         * The name of the parameter.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Whether this parameter is mandatory.
+         */
+        mandatory?: pulumi.Input<boolean>;
+        position?: pulumi.Input<number>;
+        /**
+         * Specifies the type of this parameter.
+         */
+        type: pulumi.Input<string>;
+    }
+
     export interface RunBookJobSchedule {
         jobScheduleId?: pulumi.Input<string>;
         parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -9958,16 +10065,28 @@ export namespace automation {
     }
 
     export interface RunBookPublishContentLink {
+        /**
+         * A `hash` block as defined blow.
+         */
         hash?: pulumi.Input<inputs.automation.RunBookPublishContentLinkHash>;
         /**
          * The URI of the runbook content.
          */
         uri: pulumi.Input<string>;
+        /**
+         * Specifies the version of the content
+         */
         version?: pulumi.Input<string>;
     }
 
     export interface RunBookPublishContentLinkHash {
+        /**
+         * Specifies the hash algorithm used to hash the content.
+         */
         algorithm: pulumi.Input<string>;
+        /**
+         * Specifies the expected hash value of the content.
+         */
         value: pulumi.Input<string>;
     }
 
@@ -10658,6 +10777,10 @@ export namespace batch {
 
     export interface PoolFixedScale {
         /**
+         * It determines what to do with a node and its running task(s) if the pool size is decreasing. Values are `Requeue`, `RetainedData`, `TaskCompletion` and `Terminate`.
+         */
+        nodeDeallocationMethod?: pulumi.Input<string>;
+        /**
          * The timeout for resize operations. Defaults to `PT15M`.
          */
         resizeTimeout?: pulumi.Input<string>;
@@ -10795,6 +10918,10 @@ export namespace batch {
 
     export interface PoolNetworkConfiguration {
         /**
+         * The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+         */
+        dynamicVnetAssignmentScope?: pulumi.Input<string>;
+        /**
          * A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inboundNatPools block below. Changing this forces a new resource to be created.
          */
         endpointConfigurations?: pulumi.Input<pulumi.Input<inputs.batch.PoolNetworkConfigurationEndpointConfiguration>[]>;
@@ -10848,6 +10975,10 @@ export namespace batch {
          * The source address prefix or tag to match for the rule. Changing this forces a new resource to be created.
          */
         sourceAddressPrefix: pulumi.Input<string>;
+        /**
+         * The source port ranges to match for the rule. Valid values are `*` (for all ports 0 - 65535) or arrays of ports or port ranges (i.e. `100-200`). The ports should in the range of 0 to 65535 and the port ranges or ports can't overlap. If any other values are provided the request fails with HTTP status code 400. Default value will be `*`.
+         */
+        sourcePortRanges?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface PoolNodePlacement {
@@ -10867,6 +10998,10 @@ export namespace batch {
          */
         commonEnvironmentProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
+         * A `container` block is the settings for the container under which the start task runs. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
+         */
+        containers?: pulumi.Input<pulumi.Input<inputs.batch.PoolStartTaskContainer>[]>;
+        /**
          * One or more `resourceFile` blocks that describe the files to be downloaded to a compute node.
          */
         resourceFiles?: pulumi.Input<pulumi.Input<inputs.batch.PoolStartTaskResourceFile>[]>;
@@ -10882,6 +11017,44 @@ export namespace batch {
          * A flag that indicates if the Batch pool should wait for the start task to be completed. Default to `false`.
          */
         waitForSuccess?: pulumi.Input<boolean>;
+    }
+
+    export interface PoolStartTaskContainer {
+        /**
+         * The image to use to create the container in which the task will run. This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
+         */
+        imageName: pulumi.Input<string>;
+        /**
+         * The same reference as `containerRegistries` block defined as follows.
+         */
+        registries?: pulumi.Input<pulumi.Input<inputs.batch.PoolStartTaskContainerRegistry>[]>;
+        /**
+         * Additional options to the container create command. These additional options are supplied as arguments to the "docker create" command, in addition to those controlled by the Batch Service.
+         */
+        runOptions?: pulumi.Input<string>;
+        /**
+         * A flag to indicate where the container task working directory is. The default is `TaskWorkingDirectory`, an alternative value is `ContainerImageDefault`.
+         */
+        workingDirectory?: pulumi.Input<string>;
+    }
+
+    export interface PoolStartTaskContainerRegistry {
+        /**
+         * The password to log into the registry server. Changing this forces a new resource to be created.
+         */
+        password?: pulumi.Input<string>;
+        /**
+         * The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+         */
+        registryServer: pulumi.Input<string>;
+        /**
+         * An identity reference from pool's user assigned managed identity list.
+         */
+        userAssignedIdentityId?: pulumi.Input<string>;
+        /**
+         * The username to be used by the Batch pool start task.
+         */
+        userName?: pulumi.Input<string>;
     }
 
     export interface PoolStartTaskResourceFile {
@@ -11728,7 +11901,7 @@ export namespace cdn {
         name: pulumi.Input<string>;
     }
 
-    export interface FrontdoorCustomEndpointTls {
+    export interface FrontdoorCustomDomainTls {
         /**
          * Resource ID of the Frontdoor Secrect.
          */
@@ -13407,9 +13580,9 @@ export namespace compute {
          */
         diskEncryptionKey?: pulumi.Input<inputs.compute.ManagedDiskEncryptionSettingsDiskEncryptionKey>;
         /**
-         * Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
+         * @deprecated Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
          */
-        enabled: pulumi.Input<boolean>;
+        enabled?: pulumi.Input<boolean>;
         /**
          * A `keyEncryptionKey` block as defined below.
          */
@@ -13422,7 +13595,7 @@ export namespace compute {
          */
         secretUrl: pulumi.Input<string>;
         /**
-         * The ID of the source Key Vault.
+         * The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
          */
         sourceVaultId: pulumi.Input<string>;
     }
@@ -13433,7 +13606,7 @@ export namespace compute {
          */
         keyUrl: pulumi.Input<string>;
         /**
-         * The ID of the source Key Vault.
+         * The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
          */
         sourceVaultId: pulumi.Input<string>;
     }
@@ -14107,18 +14280,39 @@ export namespace compute {
     }
 
     export interface SnapshotEncryptionSettings {
+        /**
+         * A `diskEncryptionKey` block as defined below.
+         */
         diskEncryptionKey?: pulumi.Input<inputs.compute.SnapshotEncryptionSettingsDiskEncryptionKey>;
-        enabled: pulumi.Input<boolean>;
+        /**
+         * @deprecated Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * A `keyEncryptionKey` block as defined below.
+         */
         keyEncryptionKey?: pulumi.Input<inputs.compute.SnapshotEncryptionSettingsKeyEncryptionKey>;
     }
 
     export interface SnapshotEncryptionSettingsDiskEncryptionKey {
+        /**
+         * The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `azure.keyvault.Secret` resource.
+         */
         secretUrl: pulumi.Input<string>;
+        /**
+         * The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
+         */
         sourceVaultId: pulumi.Input<string>;
     }
 
     export interface SnapshotEncryptionSettingsKeyEncryptionKey {
+        /**
+         * The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `azure.keyvault.Key` resource.
+         */
         keyUrl: pulumi.Input<string>;
+        /**
+         * The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
+         */
         sourceVaultId: pulumi.Input<string>;
     }
 
@@ -16042,6 +16236,10 @@ export namespace containerservice {
          */
         maxPods?: pulumi.Input<number>;
         /**
+         * A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+         */
+        messageOfTheDay?: pulumi.Input<string>;
+        /**
          * The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
          */
         minCount?: pulumi.Input<number>;
@@ -16088,6 +16286,10 @@ export namespace containerservice {
         podSubnetId?: pulumi.Input<string>;
         proximityPlacementGroupId?: pulumi.Input<string>;
         /**
+         * Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to 'ScaleDownModeDelete'. Possible values include 'ScaleDownModeDelete' and 'ScaleDownModeDeallocate'. Changing this forces a new resource to be created.
+         */
+        scaleDownMode?: pulumi.Input<string>;
+        /**
          * A mapping of tags to assign to the Node Pool.
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -16111,6 +16313,10 @@ export namespace containerservice {
          * The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
          */
         vnetSubnetId?: pulumi.Input<string>;
+        /**
+         * Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+         */
+        workloadRuntime?: pulumi.Input<string>;
         /**
          * Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
          */
@@ -16588,9 +16794,17 @@ export namespace containerservice {
          */
         podCidr?: pulumi.Input<string>;
         /**
+         * A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+         */
+        podCidrs?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
          */
         serviceCidr?: pulumi.Input<string>;
+        /**
+         * A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+         */
+        serviceCidrs?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface KubernetesClusterNetworkProfileLoadBalancerProfile {
@@ -16606,6 +16820,10 @@ export namespace containerservice {
          * Count of desired managed outbound IPs for the cluster load balancer. Must be between `1` and `100` inclusive.
          */
         managedOutboundIpCount?: pulumi.Input<number>;
+        /**
+         * The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+         */
+        managedOutboundIpv6Count?: pulumi.Input<number>;
         /**
          * The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
          */
@@ -19261,7 +19479,11 @@ export namespace datafactory {
          */
         dualStandbyPairName?: pulumi.Input<string>;
         /**
-         * Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `S0`, `S1`, `S2`, `S3`, `S4`, `S6`, `S7`, `S9`, `S12`, `P1`, `P2`, `P4`, `P6`, `P11`, `P15`, `GP_S_Gen5_1`, `GP_S_Gen5_2`, `GP_S_Gen5_4`, `GP_S_Gen5_6`, `GP_S_Gen5_8`, `GP_S_Gen5_10`, `GP_S_Gen5_12`, `GP_S_Gen5_14`, `GP_S_Gen5_16`, `GP_S_Gen5_18`, `GP_S_Gen5_20`, `GP_S_Gen5_24`, `GP_S_Gen5_32`, `GP_S_Gen5_40`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_6`, `GP_Gen5_8`, `GP_Gen5_10`, `GP_Gen5_12`, `GP_Gen5_14`, `GP_Gen5_16`, `GP_Gen5_18`, `GP_Gen5_20`, `GP_Gen5_24`, `GP_Gen5_32`, `GP_Gen5_40`, `GP_Gen5_80`, `BC_Gen5_2`, `BC_Gen5_4`, `BC_Gen5_6`, `BC_Gen5_8`, `BC_Gen5_10`, `BC_Gen5_12`, `BC_Gen5_14`, `BC_Gen5_16`, `BC_Gen5_18`, `BC_Gen5_20`, `BC_Gen5_24`, `BC_Gen5_32`, `BC_Gen5_40`, `BC_Gen5_80`, `HS_Gen5_2`, `HS_Gen5_4`, `HS_Gen5_6`, `HS_Gen5_8`, `HS_Gen5_10`, `HS_Gen5_12`, `HS_Gen5_14`, `HS_Gen5_16`, `HS_Gen5_18`, `HS_Gen5_20`, `HS_Gen5_24`, `HS_Gen5_32`, `HS_Gen5_40` and `HS_Gen5_80`.
+         * The name of SQL elastic pool where the database will be created for the SSIS catalog. Mutually exclusive with `pricingTier`.
+         */
+        elasticPoolName?: pulumi.Input<string>;
+        /**
+         * Pricing tier for the database that will be created for the SSIS catalog. Valid values are: `Basic`, `S0`, `S1`, `S2`, `S3`, `S4`, `S6`, `S7`, `S9`, `S12`, `P1`, `P2`, `P4`, `P6`, `P11`, `P15`, `GP_S_Gen5_1`, `GP_S_Gen5_2`, `GP_S_Gen5_4`, `GP_S_Gen5_6`, `GP_S_Gen5_8`, `GP_S_Gen5_10`, `GP_S_Gen5_12`, `GP_S_Gen5_14`, `GP_S_Gen5_16`, `GP_S_Gen5_18`, `GP_S_Gen5_20`, `GP_S_Gen5_24`, `GP_S_Gen5_32`, `GP_S_Gen5_40`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_6`, `GP_Gen5_8`, `GP_Gen5_10`, `GP_Gen5_12`, `GP_Gen5_14`, `GP_Gen5_16`, `GP_Gen5_18`, `GP_Gen5_20`, `GP_Gen5_24`, `GP_Gen5_32`, `GP_Gen5_40`, `GP_Gen5_80`, `BC_Gen5_2`, `BC_Gen5_4`, `BC_Gen5_6`, `BC_Gen5_8`, `BC_Gen5_10`, `BC_Gen5_12`, `BC_Gen5_14`, `BC_Gen5_16`, `BC_Gen5_18`, `BC_Gen5_20`, `BC_Gen5_24`, `BC_Gen5_32`, `BC_Gen5_40`, `BC_Gen5_80`, `HS_Gen5_2`, `HS_Gen5_4`, `HS_Gen5_6`, `HS_Gen5_8`, `HS_Gen5_10`, `HS_Gen5_12`, `HS_Gen5_14`, `HS_Gen5_16`, `HS_Gen5_18`, `HS_Gen5_20`, `HS_Gen5_24`, `HS_Gen5_32`, `HS_Gen5_40` and `HS_Gen5_80`. Mutually exclusive with `elasticPoolName`.
          */
         pricingTier?: pulumi.Input<string>;
         /**
@@ -22938,6 +23160,10 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
+         * The script action which will run on the cluster.
+         */
+        scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterRolesHeadNodeScriptAction>[]>;
+        /**
          * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
          */
         sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
@@ -22959,6 +23185,21 @@ export namespace hdinsight {
         vmSize: pulumi.Input<string>;
     }
 
+    export interface HBaseClusterRolesHeadNodeScriptAction {
+        /**
+         * Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The parameters for the script provided.
+         */
+        parameters?: pulumi.Input<string>;
+        /**
+         * The URI to the script.
+         */
+        uri: pulumi.Input<string>;
+    }
+
     export interface HBaseClusterRolesWorkerNode {
         /**
          * A `autoscale` block as defined below.
@@ -22968,6 +23209,10 @@ export namespace hdinsight {
          * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
          */
         password?: pulumi.Input<string>;
+        /**
+         * The script action which will run on the cluster.
+         */
+        scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterRolesWorkerNodeScriptAction>[]>;
         /**
          * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
          */
@@ -23027,11 +23272,30 @@ export namespace hdinsight {
         time: pulumi.Input<string>;
     }
 
+    export interface HBaseClusterRolesWorkerNodeScriptAction {
+        /**
+         * Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The parameters for the script provided.
+         */
+        parameters?: pulumi.Input<string>;
+        /**
+         * The URI to the script.
+         */
+        uri: pulumi.Input<string>;
+    }
+
     export interface HBaseClusterRolesZookeeperNode {
         /**
          * The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
          */
         password?: pulumi.Input<string>;
+        /**
+         * The script action which will run on the cluster.
+         */
+        scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HBaseClusterRolesZookeeperNodeScriptAction>[]>;
         /**
          * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
          */
@@ -23052,6 +23316,21 @@ export namespace hdinsight {
          * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
          */
         vmSize: pulumi.Input<string>;
+    }
+
+    export interface HBaseClusterRolesZookeeperNodeScriptAction {
+        /**
+         * Specifies the name for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The parameters for the script provided.
+         */
+        parameters?: pulumi.Input<string>;
+        /**
+         * The URI to the script.
+         */
+        uri: pulumi.Input<string>;
     }
 
     export interface HBaseClusterSecurityProfile {
@@ -23360,6 +23639,10 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
+         * The script action which will run on the cluster.
+         */
+        scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterRolesHeadNodeScriptAction>[]>;
+        /**
          * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
          */
         sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
@@ -23381,6 +23664,21 @@ export namespace hdinsight {
         vmSize: pulumi.Input<string>;
     }
 
+    export interface HadoopClusterRolesHeadNodeScriptAction {
+        /**
+         * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The parameters for the script provided.
+         */
+        parameters?: pulumi.Input<string>;
+        /**
+         * The URI to the script.
+         */
+        uri: pulumi.Input<string>;
+    }
+
     export interface HadoopClusterRolesWorkerNode {
         /**
          * A `autoscale` block as defined below.
@@ -23390,6 +23688,10 @@ export namespace hdinsight {
          * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
          */
         password?: pulumi.Input<string>;
+        /**
+         * The script action which will run on the cluster.
+         */
+        scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterRolesWorkerNodeScriptAction>[]>;
         /**
          * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
          */
@@ -23464,11 +23766,30 @@ export namespace hdinsight {
         time: pulumi.Input<string>;
     }
 
+    export interface HadoopClusterRolesWorkerNodeScriptAction {
+        /**
+         * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The parameters for the script provided.
+         */
+        parameters?: pulumi.Input<string>;
+        /**
+         * The URI to the script.
+         */
+        uri: pulumi.Input<string>;
+    }
+
     export interface HadoopClusterRolesZookeeperNode {
         /**
          * The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
          */
         password?: pulumi.Input<string>;
+        /**
+         * The script action which will run on the cluster.
+         */
+        scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.HadoopClusterRolesZookeeperNodeScriptAction>[]>;
         /**
          * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
          */
@@ -23489,6 +23810,21 @@ export namespace hdinsight {
          * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
          */
         vmSize: pulumi.Input<string>;
+    }
+
+    export interface HadoopClusterRolesZookeeperNodeScriptAction {
+        /**
+         * Specifies the name for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The parameters for the script provided.
+         */
+        parameters?: pulumi.Input<string>;
+        /**
+         * The URI to the script.
+         */
+        uri: pulumi.Input<string>;
     }
 
     export interface HadoopClusterSecurityProfile {
@@ -23720,6 +24056,10 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
+         * The script action which will run on the cluster.
+         */
+        scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.InteractiveQueryClusterRolesHeadNodeScriptAction>[]>;
+        /**
          * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
          */
         sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
@@ -23741,6 +24081,21 @@ export namespace hdinsight {
         vmSize: pulumi.Input<string>;
     }
 
+    export interface InteractiveQueryClusterRolesHeadNodeScriptAction {
+        /**
+         * Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The parameters for the script provided.
+         */
+        parameters?: pulumi.Input<string>;
+        /**
+         * The URI to the script.
+         */
+        uri: pulumi.Input<string>;
+    }
+
     export interface InteractiveQueryClusterRolesWorkerNode {
         /**
          * A `autoscale` block as defined below.
@@ -23750,6 +24105,10 @@ export namespace hdinsight {
          * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
          */
         password?: pulumi.Input<string>;
+        /**
+         * The script action which will run on the cluster.
+         */
+        scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.InteractiveQueryClusterRolesWorkerNodeScriptAction>[]>;
         /**
          * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
          */
@@ -23824,11 +24183,30 @@ export namespace hdinsight {
         time: pulumi.Input<string>;
     }
 
+    export interface InteractiveQueryClusterRolesWorkerNodeScriptAction {
+        /**
+         * Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The parameters for the script provided.
+         */
+        parameters?: pulumi.Input<string>;
+        /**
+         * The URI to the script.
+         */
+        uri: pulumi.Input<string>;
+    }
+
     export interface InteractiveQueryClusterRolesZookeeperNode {
         /**
          * The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
          */
         password?: pulumi.Input<string>;
+        /**
+         * The script action which will run on the cluster.
+         */
+        scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.InteractiveQueryClusterRolesZookeeperNodeScriptAction>[]>;
         /**
          * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
          */
@@ -23849,6 +24227,21 @@ export namespace hdinsight {
          * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
          */
         vmSize: pulumi.Input<string>;
+    }
+
+    export interface InteractiveQueryClusterRolesZookeeperNodeScriptAction {
+        /**
+         * Specifies the name for this HDInsight Interactive Query Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The parameters for the script provided.
+         */
+        parameters?: pulumi.Input<string>;
+        /**
+         * The URI to the script.
+         */
+        uri: pulumi.Input<string>;
     }
 
     export interface InteractiveQueryClusterSecurityProfile {
@@ -24097,6 +24490,7 @@ export namespace hdinsight {
          * The Password associated with the local administrator for the Head Nodes. Changing this forces a new resource to be created.
          */
         password?: pulumi.Input<string>;
+        scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterRolesHeadNodeScriptAction>[]>;
         /**
          * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
          */
@@ -24119,11 +24513,21 @@ export namespace hdinsight {
         vmSize: pulumi.Input<string>;
     }
 
+    export interface KafkaClusterRolesHeadNodeScriptAction {
+        /**
+         * Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        parameters?: pulumi.Input<string>;
+        uri: pulumi.Input<string>;
+    }
+
     export interface KafkaClusterRolesKafkaManagementNode {
         /**
          * The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
          */
         password?: pulumi.Input<string>;
+        scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterRolesKafkaManagementNodeScriptAction>[]>;
         /**
          * A list of SSH Keys which should be used for the local administrator on the Kafka Management Nodes. Changing this forces a new resource to be created.
          */
@@ -24146,6 +24550,15 @@ export namespace hdinsight {
         vmSize: pulumi.Input<string>;
     }
 
+    export interface KafkaClusterRolesKafkaManagementNodeScriptAction {
+        /**
+         * Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        parameters?: pulumi.Input<string>;
+        uri: pulumi.Input<string>;
+    }
+
     export interface KafkaClusterRolesWorkerNode {
         /**
          * The number of Data Disks which should be assigned to each Worker Node, which can be between 1 and 8. Changing this forces a new resource to be created.
@@ -24155,6 +24568,7 @@ export namespace hdinsight {
          * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
          */
         password?: pulumi.Input<string>;
+        scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterRolesWorkerNodeScriptAction>[]>;
         /**
          * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
          */
@@ -24181,11 +24595,21 @@ export namespace hdinsight {
         vmSize: pulumi.Input<string>;
     }
 
+    export interface KafkaClusterRolesWorkerNodeScriptAction {
+        /**
+         * Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        parameters?: pulumi.Input<string>;
+        uri: pulumi.Input<string>;
+    }
+
     export interface KafkaClusterRolesZookeeperNode {
         /**
          * The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
          */
         password?: pulumi.Input<string>;
+        scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.KafkaClusterRolesZookeeperNodeScriptAction>[]>;
         /**
          * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
          */
@@ -24206,6 +24630,15 @@ export namespace hdinsight {
          * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
          */
         vmSize: pulumi.Input<string>;
+    }
+
+    export interface KafkaClusterRolesZookeeperNodeScriptAction {
+        /**
+         * Specifies the name for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        parameters?: pulumi.Input<string>;
+        uri: pulumi.Input<string>;
     }
 
     export interface KafkaClusterSecurityProfile {
@@ -24440,6 +24873,10 @@ export namespace hdinsight {
          */
         password?: pulumi.Input<string>;
         /**
+         * The script action which will run on the cluster.
+         */
+        scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.SparkClusterRolesHeadNodeScriptAction>[]>;
+        /**
          * A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
          */
         sshKeys?: pulumi.Input<pulumi.Input<string>[]>;
@@ -24461,6 +24898,21 @@ export namespace hdinsight {
         vmSize: pulumi.Input<string>;
     }
 
+    export interface SparkClusterRolesHeadNodeScriptAction {
+        /**
+         * Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The parameters for the script provided.
+         */
+        parameters?: pulumi.Input<string>;
+        /**
+         * The URI to the script.
+         */
+        uri: pulumi.Input<string>;
+    }
+
     export interface SparkClusterRolesWorkerNode {
         /**
          * A `autoscale` block as defined below.
@@ -24470,6 +24922,10 @@ export namespace hdinsight {
          * The Password associated with the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
          */
         password?: pulumi.Input<string>;
+        /**
+         * The script action which will run on the cluster.
+         */
+        scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.SparkClusterRolesWorkerNodeScriptAction>[]>;
         /**
          * A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
          */
@@ -24544,11 +25000,30 @@ export namespace hdinsight {
         time: pulumi.Input<string>;
     }
 
+    export interface SparkClusterRolesWorkerNodeScriptAction {
+        /**
+         * Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The parameters for the script provided.
+         */
+        parameters?: pulumi.Input<string>;
+        /**
+         * The URI to the script.
+         */
+        uri: pulumi.Input<string>;
+    }
+
     export interface SparkClusterRolesZookeeperNode {
         /**
          * The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
          */
         password?: pulumi.Input<string>;
+        /**
+         * The script action which will run on the cluster.
+         */
+        scriptActions?: pulumi.Input<pulumi.Input<inputs.hdinsight.SparkClusterRolesZookeeperNodeScriptAction>[]>;
         /**
          * A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
          */
@@ -24569,6 +25044,21 @@ export namespace hdinsight {
          * The Size of the Virtual Machine which should be used as the Zookeeper Nodes. Changing this forces a new resource to be created.
          */
         vmSize: pulumi.Input<string>;
+    }
+
+    export interface SparkClusterRolesZookeeperNodeScriptAction {
+        /**
+         * Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The parameters for the script provided.
+         */
+        parameters?: pulumi.Input<string>;
+        /**
+         * The URI to the script.
+         */
+        uri: pulumi.Input<string>;
     }
 
     export interface SparkClusterSecurityProfile {
@@ -24997,6 +25487,17 @@ export namespace hpc {
 }
 
 export namespace hsm {
+    export interface ModuleManagementNetworkProfile {
+        /**
+         * The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
+         */
+        networkInterfacePrivateIpAddresses: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the subnet. Changing this forces a new Dedicated Hardware Security Module to be created.
+         */
+        subnetId: pulumi.Input<string>;
+    }
+
     export interface ModuleNetworkProfile {
         /**
          * The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
@@ -25476,6 +25977,17 @@ export namespace iotcentral {
          * Specifies the type of Managed Service Identity that should be configured on this IoT Central Application. The only possible value is `SystemAssigned`.
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface ApplicationNetworkRuleSetIpRule {
+        /**
+         * The IP address range in CIDR notation for the IP Rule.
+         */
+        ipMask: pulumi.Input<string>;
+        /**
+         * The name of the IP Rule
+         */
+        name: pulumi.Input<string>;
     }
 }
 
@@ -26119,6 +26631,14 @@ export namespace lighthouse {
          * The version of the plan.
          */
         version: pulumi.Input<string>;
+    }
+}
+
+export namespace loadtest {
+    export interface LoadTestIdentity {
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
     }
 }
 
@@ -29582,6 +30102,37 @@ export namespace monitoring {
 }
 
 export namespace mssql {
+    export interface DatabaseImport {
+        /**
+         * Specifies the name of the SQL administrator.
+         */
+        administratorLogin: pulumi.Input<string>;
+        /**
+         * Specifies the password of the SQL administrator.
+         */
+        administratorLoginPassword: pulumi.Input<string>;
+        /**
+         * Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
+         */
+        authenticationType: pulumi.Input<string>;
+        /**
+         * The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storageUri parameter.
+         */
+        storageAccountId?: pulumi.Input<string>;
+        /**
+         * Specifies the access key for the storage account.
+         */
+        storageKey: pulumi.Input<string>;
+        /**
+         * Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
+         */
+        storageKeyType: pulumi.Input<string>;
+        /**
+         * Specifies the blob URI of the .bacpac file.
+         */
+        storageUri: pulumi.Input<string>;
+    }
+
     export interface DatabaseLongTermRetentionPolicy {
         /**
          * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
@@ -32304,7 +32855,7 @@ export namespace network {
 
     export interface SubnetDelegationServiceDelegation {
         /**
-         * A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+         * A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/publicIPAddresses/read`,`Microsoft.Network/virtualNetworks/read`,`Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
          */
         actions?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -33232,6 +33783,61 @@ export namespace network {
     }
 }
 
+export namespace nginx {
+    export interface DeploymentFrontendPrivate {
+        /**
+         * Specify the methos of allocating the private IP. Possible values are `Static` and `Dynamic`.
+         */
+        allocationMethod: pulumi.Input<string>;
+        /**
+         * Specify the IP Address of this private IP.
+         */
+        ipAddress: pulumi.Input<string>;
+        /**
+         * Specify the SubNet Resource ID to this Nginx Deployment.
+         */
+        subnetId: pulumi.Input<string>;
+    }
+
+    export interface DeploymentFrontendPublic {
+        /**
+         * Specifies a list of Public IP Resouce ID to this Nginx Deployment.
+         */
+        ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DeploymentIdentity {
+        /**
+         * Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[]>;
+        principalId?: pulumi.Input<string>;
+        tenantId?: pulumi.Input<string>;
+        /**
+         * Specifies the identity type of the Nginx Deployment. Possible values is `UserAssigned` where you can specify the Service Principal IDs in the `identityIds` field.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface DeploymentLoggingStorageAccount {
+        /**
+         * Specify the container name of Stoage Account for logging.
+         */
+        containerName?: pulumi.Input<string>;
+        /**
+         * The account name of the StorageAccount for Nginx Logging.
+         */
+        name?: pulumi.Input<string>;
+    }
+
+    export interface DeploymentNetworkInterface {
+        /**
+         * Specify The SubNet Resource ID to this Nginx Deployment.
+         */
+        subnetId: pulumi.Input<string>;
+    }
+}
+
 export namespace notificationhub {
     export interface HubApnsCredential {
         /**
@@ -33283,6 +33889,71 @@ export namespace operationalinsights {
 }
 
 export namespace orbital {
+    export interface ContactProfileLink {
+        /**
+         * A list of contact profile link channels. A `channel` block as defined below.
+         */
+        channels: pulumi.Input<pulumi.Input<inputs.orbital.ContactProfileLinkChannel>[]>;
+        /**
+         * Direction of the link. Possible values are `Uplink` and `Downlink`.
+         */
+        direction: pulumi.Input<string>;
+        /**
+         * Name of the link.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Polarization of the link. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizonal`.
+         */
+        polarization: pulumi.Input<string>;
+    }
+
+    export interface ContactProfileLinkChannel {
+        /**
+         * Bandwidth in MHz.
+         */
+        bandwidthMhz: pulumi.Input<number>;
+        /**
+         * Center frequency in MHz.
+         */
+        centerFrequencyMhz: pulumi.Input<number>;
+        /**
+         * Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
+         */
+        demodulationConfiguration?: pulumi.Input<string>;
+        /**
+         * Customer End point to store/retrieve data during a contact. An `endPoint` block as defined below.
+         */
+        endPoints: pulumi.Input<pulumi.Input<inputs.orbital.ContactProfileLinkChannelEndPoint>[]>;
+        /**
+         * Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
+         */
+        modulationConfiguration?: pulumi.Input<string>;
+        /**
+         * Name of the channel.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface ContactProfileLinkChannelEndPoint {
+        /**
+         * -(Required) Name of an end point.
+         */
+        endPointName: pulumi.Input<string>;
+        /**
+         * IP address of an end point.
+         */
+        ipAddress: pulumi.Input<string>;
+        /**
+         * TCP port to listen on to receive data.
+         */
+        port: pulumi.Input<string>;
+        /**
+         * Protocol of an end point. Possible values are `TCP` and `UDP`.
+         */
+        protocol: pulumi.Input<string>;
+    }
+
     export interface SpacecraftLink {
         /**
          * Bandwidth in Mhz.

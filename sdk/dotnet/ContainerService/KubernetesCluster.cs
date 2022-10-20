@@ -362,6 +362,12 @@ namespace Pulumi.Azure.ContainerService
         [Output("windowsProfile")]
         public Output<Outputs.KubernetesClusterWindowsProfile> WindowsProfile { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+        /// </summary>
+        [Output("workloadIdentityEnabled")]
+        public Output<bool?> WorkloadIdentityEnabled { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a KubernetesCluster resource with the given unique name, arguments, and options.
@@ -659,6 +665,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("windowsProfile")]
         public Input<Inputs.KubernetesClusterWindowsProfileArgs>? WindowsProfile { get; set; }
+
+        /// <summary>
+        /// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+        /// </summary>
+        [Input("workloadIdentityEnabled")]
+        public Input<bool>? WorkloadIdentityEnabled { get; set; }
 
         public KubernetesClusterArgs()
         {
@@ -985,6 +997,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("windowsProfile")]
         public Input<Inputs.KubernetesClusterWindowsProfileGetArgs>? WindowsProfile { get; set; }
+
+        /// <summary>
+        /// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+        /// </summary>
+        [Input("workloadIdentityEnabled")]
+        public Input<bool>? WorkloadIdentityEnabled { get; set; }
 
         public KubernetesClusterState()
         {

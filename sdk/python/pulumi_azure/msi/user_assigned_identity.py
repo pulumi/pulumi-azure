@@ -20,13 +20,10 @@ class UserAssignedIdentityArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a UserAssignedIdentity resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the user assigned identity.
-        :param pulumi.Input[str] location: The location/region where the user assigned identity is
-               created.
-        :param pulumi.Input[str] name: The name of the user assigned identity. Changing this forces a
-               new identity to be created.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
+        :param pulumi.Input[str] location: The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
+        :param pulumi.Input[str] name: Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the User Assigned Identity.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
@@ -40,8 +37,7 @@ class UserAssignedIdentityArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group in which to
-        create the user assigned identity.
+        Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -53,8 +49,7 @@ class UserAssignedIdentityArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location/region where the user assigned identity is
-        created.
+        The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
         """
         return pulumi.get(self, "location")
 
@@ -66,8 +61,7 @@ class UserAssignedIdentityArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the user assigned identity. Changing this forces a
-        new identity to be created.
+        Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
         """
         return pulumi.get(self, "name")
 
@@ -79,7 +73,7 @@ class UserAssignedIdentityArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags to assign to the resource.
+        A mapping of tags which should be assigned to the User Assigned Identity.
         """
         return pulumi.get(self, "tags")
 
@@ -100,16 +94,13 @@ class _UserAssignedIdentityState:
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering UserAssignedIdentity resources.
-        :param pulumi.Input[str] client_id: Client ID associated with the user assigned identity.
-        :param pulumi.Input[str] location: The location/region where the user assigned identity is
-               created.
-        :param pulumi.Input[str] name: The name of the user assigned identity. Changing this forces a
-               new identity to be created.
-        :param pulumi.Input[str] principal_id: Service Principal ID associated with the user assigned identity.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the user assigned identity.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] tenant_id: Tenant ID associated with the user assigned identity.
+        :param pulumi.Input[str] client_id: The ID of the app associated with the Identity.
+        :param pulumi.Input[str] location: The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
+        :param pulumi.Input[str] name: Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
+        :param pulumi.Input[str] principal_id: The ID of the Service Principal object associated with the created Identity.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the User Assigned Identity.
+        :param pulumi.Input[str] tenant_id: The ID of the Tenant which the Identity belongs to.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -130,7 +121,7 @@ class _UserAssignedIdentityState:
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Client ID associated with the user assigned identity.
+        The ID of the app associated with the Identity.
         """
         return pulumi.get(self, "client_id")
 
@@ -142,8 +133,7 @@ class _UserAssignedIdentityState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The location/region where the user assigned identity is
-        created.
+        The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
         """
         return pulumi.get(self, "location")
 
@@ -155,8 +145,7 @@ class _UserAssignedIdentityState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the user assigned identity. Changing this forces a
-        new identity to be created.
+        Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
         """
         return pulumi.get(self, "name")
 
@@ -168,7 +157,7 @@ class _UserAssignedIdentityState:
     @pulumi.getter(name="principalId")
     def principal_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Service Principal ID associated with the user assigned identity.
+        The ID of the Service Principal object associated with the created Identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -180,8 +169,7 @@ class _UserAssignedIdentityState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the resource group in which to
-        create the user assigned identity.
+        Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -193,7 +181,7 @@ class _UserAssignedIdentityState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A mapping of tags to assign to the resource.
+        A mapping of tags which should be assigned to the User Assigned Identity.
         """
         return pulumi.get(self, "tags")
 
@@ -205,7 +193,7 @@ class _UserAssignedIdentityState:
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Tenant ID associated with the user assigned identity.
+        The ID of the Tenant which the Identity belongs to.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -230,7 +218,9 @@ class UserAssignedIdentity(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Manages a user assigned identity.
+        <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
+
+        Manages a User Assigned Identity.
 
         ## Example Usage
 
@@ -238,29 +228,27 @@ class UserAssignedIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
+        example = azure.authorization.UserAssignedIdentity("example",
+            location=azurerm_resource_group["example"]["location"],
+            resource_group_name=azurerm_resource_group["example"]["name"])
         ```
 
         ## Import
 
-        User Assigned Identities can be imported using the `resource id`, e.g.
+        An existing User Assigned Identity can be imported into Terraform using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:msi/userAssignedIdentity:UserAssignedIdentity exampleIdentity /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/acceptanceTestResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testIdentity
+         $ pulumi import azure:msi/userAssignedIdentity:UserAssignedIdentity example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{resourceName}
         ```
+
+         * Where `{subscriptionId}` is the ID of the Azure Subscription where the User Assigned Identity exists. For example `12345678-1234-9876-4563-123456789012`. * Where `{resourceGroupName}` is the name of Resource Group where this User Assigned Identity exists. For example `example-resource-group`. * Where `{resourceName}` is the name of the Resource. For example `resourceValue`.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] location: The location/region where the user assigned identity is
-               created.
-        :param pulumi.Input[str] name: The name of the user assigned identity. Changing this forces a
-               new identity to be created.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the user assigned identity.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
+        :param pulumi.Input[str] location: The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
+        :param pulumi.Input[str] name: Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the User Assigned Identity.
         """
         ...
     @overload
@@ -269,7 +257,9 @@ class UserAssignedIdentity(pulumi.CustomResource):
                  args: UserAssignedIdentityArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a user assigned identity.
+        <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
+
+        Manages a User Assigned Identity.
 
         ## Example Usage
 
@@ -277,19 +267,20 @@ class UserAssignedIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
+        example = azure.authorization.UserAssignedIdentity("example",
+            location=azurerm_resource_group["example"]["location"],
+            resource_group_name=azurerm_resource_group["example"]["name"])
         ```
 
         ## Import
 
-        User Assigned Identities can be imported using the `resource id`, e.g.
+        An existing User Assigned Identity can be imported into Terraform using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:msi/userAssignedIdentity:UserAssignedIdentity exampleIdentity /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/acceptanceTestResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testIdentity
+         $ pulumi import azure:msi/userAssignedIdentity:UserAssignedIdentity example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{resourceName}
         ```
+
+         * Where `{subscriptionId}` is the ID of the Azure Subscription where the User Assigned Identity exists. For example `12345678-1234-9876-4563-123456789012`. * Where `{resourceGroupName}` is the name of Resource Group where this User Assigned Identity exists. For example `example-resource-group`. * Where `{resourceName}` is the name of the Resource. For example `resourceValue`.
 
         :param str resource_name: The name of the resource.
         :param UserAssignedIdentityArgs args: The arguments to use to populate this resource's properties.
@@ -353,16 +344,13 @@ class UserAssignedIdentity(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] client_id: Client ID associated with the user assigned identity.
-        :param pulumi.Input[str] location: The location/region where the user assigned identity is
-               created.
-        :param pulumi.Input[str] name: The name of the user assigned identity. Changing this forces a
-               new identity to be created.
-        :param pulumi.Input[str] principal_id: Service Principal ID associated with the user assigned identity.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group in which to
-               create the user assigned identity.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] tenant_id: Tenant ID associated with the user assigned identity.
+        :param pulumi.Input[str] client_id: The ID of the app associated with the Identity.
+        :param pulumi.Input[str] location: The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
+        :param pulumi.Input[str] name: Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
+        :param pulumi.Input[str] principal_id: The ID of the Service Principal object associated with the created Identity.
+        :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the User Assigned Identity.
+        :param pulumi.Input[str] tenant_id: The ID of the Tenant which the Identity belongs to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -381,7 +369,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Output[str]:
         """
-        Client ID associated with the user assigned identity.
+        The ID of the app associated with the Identity.
         """
         return pulumi.get(self, "client_id")
 
@@ -389,8 +377,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        The location/region where the user assigned identity is
-        created.
+        The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
         """
         return pulumi.get(self, "location")
 
@@ -398,8 +385,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the user assigned identity. Changing this forces a
-        new identity to be created.
+        Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
         """
         return pulumi.get(self, "name")
 
@@ -407,7 +393,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> pulumi.Output[str]:
         """
-        Service Principal ID associated with the user assigned identity.
+        The ID of the Service Principal object associated with the created Identity.
         """
         return pulumi.get(self, "principal_id")
 
@@ -415,8 +401,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        The name of the resource group in which to
-        create the user assigned identity.
+        Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -424,7 +409,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A mapping of tags to assign to the resource.
+        A mapping of tags which should be assigned to the User Assigned Identity.
         """
         return pulumi.get(self, "tags")
 
@@ -432,7 +417,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Output[str]:
         """
-        Tenant ID associated with the user assigned identity.
+        The ID of the Tenant which the Identity belongs to.
         """
         return pulumi.get(self, "tenant_id")
 

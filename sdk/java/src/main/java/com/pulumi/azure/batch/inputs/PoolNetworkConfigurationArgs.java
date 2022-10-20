@@ -18,6 +18,21 @@ public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.Res
     public static final PoolNetworkConfigurationArgs Empty = new PoolNetworkConfigurationArgs();
 
     /**
+     * The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+     * 
+     */
+    @Import(name="dynamicVnetAssignmentScope")
+    private @Nullable Output<String> dynamicVnetAssignmentScope;
+
+    /**
+     * @return The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+     * 
+     */
+    public Optional<Output<String>> dynamicVnetAssignmentScope() {
+        return Optional.ofNullable(this.dynamicVnetAssignmentScope);
+    }
+
+    /**
      * A list of inbound NAT pools that can be used to address specific ports on an individual compute node externally. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
      * 
      */
@@ -80,6 +95,7 @@ public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.Res
     private PoolNetworkConfigurationArgs() {}
 
     private PoolNetworkConfigurationArgs(PoolNetworkConfigurationArgs $) {
+        this.dynamicVnetAssignmentScope = $.dynamicVnetAssignmentScope;
         this.endpointConfigurations = $.endpointConfigurations;
         this.publicAddressProvisioningType = $.publicAddressProvisioningType;
         this.publicIps = $.publicIps;
@@ -102,6 +118,27 @@ public final class PoolNetworkConfigurationArgs extends com.pulumi.resources.Res
 
         public Builder(PoolNetworkConfigurationArgs defaults) {
             $ = new PoolNetworkConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param dynamicVnetAssignmentScope The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicVnetAssignmentScope(@Nullable Output<String> dynamicVnetAssignmentScope) {
+            $.dynamicVnetAssignmentScope = dynamicVnetAssignmentScope;
+            return this;
+        }
+
+        /**
+         * @param dynamicVnetAssignmentScope The scope of dynamic vnet assignment. Allowed values: `none`, `job`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dynamicVnetAssignmentScope(String dynamicVnetAssignmentScope) {
+            return dynamicVnetAssignmentScope(Output.of(dynamicVnetAssignmentScope));
         }
 
         /**

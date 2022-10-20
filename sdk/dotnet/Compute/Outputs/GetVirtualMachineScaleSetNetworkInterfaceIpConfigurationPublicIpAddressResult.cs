@@ -33,6 +33,10 @@ namespace Pulumi.Azure.Compute.Outputs
         /// The ID of the public IP prefix.
         /// </summary>
         public readonly string PublicIpPrefixId;
+        /// <summary>
+        /// The Internet Protocol Version of the public IP address.
+        /// </summary>
+        public readonly string Version;
 
         [OutputConstructor]
         private GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult(
@@ -44,13 +48,16 @@ namespace Pulumi.Azure.Compute.Outputs
 
             string name,
 
-            string publicIpPrefixId)
+            string publicIpPrefixId,
+
+            string version)
         {
             DomainNameLabel = domainNameLabel;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;
             IpTags = ipTags;
             Name = name;
             PublicIpPrefixId = publicIpPrefixId;
+            Version = version;
         }
     }
 }

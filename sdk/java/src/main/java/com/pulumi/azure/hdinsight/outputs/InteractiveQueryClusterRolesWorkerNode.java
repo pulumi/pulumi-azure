@@ -4,6 +4,7 @@
 package com.pulumi.azure.hdinsight.outputs;
 
 import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterRolesWorkerNodeAutoscale;
+import com.pulumi.azure.hdinsight.outputs.InteractiveQueryClusterRolesWorkerNodeScriptAction;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
@@ -24,6 +25,11 @@ public final class InteractiveQueryClusterRolesWorkerNode {
      * 
      */
     private @Nullable String password;
+    /**
+     * @return The script action which will run on the cluster.
+     * 
+     */
+    private @Nullable List<InteractiveQueryClusterRolesWorkerNodeScriptAction> scriptActions;
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
      * 
@@ -69,6 +75,13 @@ public final class InteractiveQueryClusterRolesWorkerNode {
      */
     public Optional<String> password() {
         return Optional.ofNullable(this.password);
+    }
+    /**
+     * @return The script action which will run on the cluster.
+     * 
+     */
+    public List<InteractiveQueryClusterRolesWorkerNodeScriptAction> scriptActions() {
+        return this.scriptActions == null ? List.of() : this.scriptActions;
     }
     /**
      * @return A list of SSH Keys which should be used for the local administrator on the Worker Nodes. Changing this forces a new resource to be created.
@@ -124,6 +137,7 @@ public final class InteractiveQueryClusterRolesWorkerNode {
     public static final class Builder {
         private @Nullable InteractiveQueryClusterRolesWorkerNodeAutoscale autoscale;
         private @Nullable String password;
+        private @Nullable List<InteractiveQueryClusterRolesWorkerNodeScriptAction> scriptActions;
         private @Nullable List<String> sshKeys;
         private @Nullable String subnetId;
         private Integer targetInstanceCount;
@@ -135,6 +149,7 @@ public final class InteractiveQueryClusterRolesWorkerNode {
     	      Objects.requireNonNull(defaults);
     	      this.autoscale = defaults.autoscale;
     	      this.password = defaults.password;
+    	      this.scriptActions = defaults.scriptActions;
     	      this.sshKeys = defaults.sshKeys;
     	      this.subnetId = defaults.subnetId;
     	      this.targetInstanceCount = defaults.targetInstanceCount;
@@ -152,6 +167,14 @@ public final class InteractiveQueryClusterRolesWorkerNode {
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
+        }
+        @CustomType.Setter
+        public Builder scriptActions(@Nullable List<InteractiveQueryClusterRolesWorkerNodeScriptAction> scriptActions) {
+            this.scriptActions = scriptActions;
+            return this;
+        }
+        public Builder scriptActions(InteractiveQueryClusterRolesWorkerNodeScriptAction... scriptActions) {
+            return scriptActions(List.of(scriptActions));
         }
         @CustomType.Setter
         public Builder sshKeys(@Nullable List<String> sshKeys) {
@@ -190,6 +213,7 @@ public final class InteractiveQueryClusterRolesWorkerNode {
             final var o = new InteractiveQueryClusterRolesWorkerNode();
             o.autoscale = autoscale;
             o.password = password;
+            o.scriptActions = scriptActions;
             o.sshKeys = sshKeys;
             o.subnetId = subnetId;
             o.targetInstanceCount = targetInstanceCount;

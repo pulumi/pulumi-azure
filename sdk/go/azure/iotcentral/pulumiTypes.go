@@ -185,9 +185,119 @@ func (o ApplicationIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ApplicationNetworkRuleSetIpRule struct {
+	// The IP address range in CIDR notation for the IP Rule.
+	IpMask string `pulumi:"ipMask"`
+	// The name of the IP Rule
+	Name string `pulumi:"name"`
+}
+
+// ApplicationNetworkRuleSetIpRuleInput is an input type that accepts ApplicationNetworkRuleSetIpRuleArgs and ApplicationNetworkRuleSetIpRuleOutput values.
+// You can construct a concrete instance of `ApplicationNetworkRuleSetIpRuleInput` via:
+//
+//	ApplicationNetworkRuleSetIpRuleArgs{...}
+type ApplicationNetworkRuleSetIpRuleInput interface {
+	pulumi.Input
+
+	ToApplicationNetworkRuleSetIpRuleOutput() ApplicationNetworkRuleSetIpRuleOutput
+	ToApplicationNetworkRuleSetIpRuleOutputWithContext(context.Context) ApplicationNetworkRuleSetIpRuleOutput
+}
+
+type ApplicationNetworkRuleSetIpRuleArgs struct {
+	// The IP address range in CIDR notation for the IP Rule.
+	IpMask pulumi.StringInput `pulumi:"ipMask"`
+	// The name of the IP Rule
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ApplicationNetworkRuleSetIpRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationNetworkRuleSetIpRule)(nil)).Elem()
+}
+
+func (i ApplicationNetworkRuleSetIpRuleArgs) ToApplicationNetworkRuleSetIpRuleOutput() ApplicationNetworkRuleSetIpRuleOutput {
+	return i.ToApplicationNetworkRuleSetIpRuleOutputWithContext(context.Background())
+}
+
+func (i ApplicationNetworkRuleSetIpRuleArgs) ToApplicationNetworkRuleSetIpRuleOutputWithContext(ctx context.Context) ApplicationNetworkRuleSetIpRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNetworkRuleSetIpRuleOutput)
+}
+
+// ApplicationNetworkRuleSetIpRuleArrayInput is an input type that accepts ApplicationNetworkRuleSetIpRuleArray and ApplicationNetworkRuleSetIpRuleArrayOutput values.
+// You can construct a concrete instance of `ApplicationNetworkRuleSetIpRuleArrayInput` via:
+//
+//	ApplicationNetworkRuleSetIpRuleArray{ ApplicationNetworkRuleSetIpRuleArgs{...} }
+type ApplicationNetworkRuleSetIpRuleArrayInput interface {
+	pulumi.Input
+
+	ToApplicationNetworkRuleSetIpRuleArrayOutput() ApplicationNetworkRuleSetIpRuleArrayOutput
+	ToApplicationNetworkRuleSetIpRuleArrayOutputWithContext(context.Context) ApplicationNetworkRuleSetIpRuleArrayOutput
+}
+
+type ApplicationNetworkRuleSetIpRuleArray []ApplicationNetworkRuleSetIpRuleInput
+
+func (ApplicationNetworkRuleSetIpRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationNetworkRuleSetIpRule)(nil)).Elem()
+}
+
+func (i ApplicationNetworkRuleSetIpRuleArray) ToApplicationNetworkRuleSetIpRuleArrayOutput() ApplicationNetworkRuleSetIpRuleArrayOutput {
+	return i.ToApplicationNetworkRuleSetIpRuleArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationNetworkRuleSetIpRuleArray) ToApplicationNetworkRuleSetIpRuleArrayOutputWithContext(ctx context.Context) ApplicationNetworkRuleSetIpRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNetworkRuleSetIpRuleArrayOutput)
+}
+
+type ApplicationNetworkRuleSetIpRuleOutput struct{ *pulumi.OutputState }
+
+func (ApplicationNetworkRuleSetIpRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationNetworkRuleSetIpRule)(nil)).Elem()
+}
+
+func (o ApplicationNetworkRuleSetIpRuleOutput) ToApplicationNetworkRuleSetIpRuleOutput() ApplicationNetworkRuleSetIpRuleOutput {
+	return o
+}
+
+func (o ApplicationNetworkRuleSetIpRuleOutput) ToApplicationNetworkRuleSetIpRuleOutputWithContext(ctx context.Context) ApplicationNetworkRuleSetIpRuleOutput {
+	return o
+}
+
+// The IP address range in CIDR notation for the IP Rule.
+func (o ApplicationNetworkRuleSetIpRuleOutput) IpMask() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationNetworkRuleSetIpRule) string { return v.IpMask }).(pulumi.StringOutput)
+}
+
+// The name of the IP Rule
+func (o ApplicationNetworkRuleSetIpRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationNetworkRuleSetIpRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ApplicationNetworkRuleSetIpRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationNetworkRuleSetIpRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationNetworkRuleSetIpRule)(nil)).Elem()
+}
+
+func (o ApplicationNetworkRuleSetIpRuleArrayOutput) ToApplicationNetworkRuleSetIpRuleArrayOutput() ApplicationNetworkRuleSetIpRuleArrayOutput {
+	return o
+}
+
+func (o ApplicationNetworkRuleSetIpRuleArrayOutput) ToApplicationNetworkRuleSetIpRuleArrayOutputWithContext(ctx context.Context) ApplicationNetworkRuleSetIpRuleArrayOutput {
+	return o
+}
+
+func (o ApplicationNetworkRuleSetIpRuleArrayOutput) Index(i pulumi.IntInput) ApplicationNetworkRuleSetIpRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationNetworkRuleSetIpRule {
+		return vs[0].([]ApplicationNetworkRuleSetIpRule)[vs[1].(int)]
+	}).(ApplicationNetworkRuleSetIpRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationIdentityInput)(nil)).Elem(), ApplicationIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationIdentityPtrInput)(nil)).Elem(), ApplicationIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationNetworkRuleSetIpRuleInput)(nil)).Elem(), ApplicationNetworkRuleSetIpRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationNetworkRuleSetIpRuleArrayInput)(nil)).Elem(), ApplicationNetworkRuleSetIpRuleArray{})
 	pulumi.RegisterOutputType(ApplicationIdentityOutput{})
 	pulumi.RegisterOutputType(ApplicationIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationNetworkRuleSetIpRuleOutput{})
+	pulumi.RegisterOutputType(ApplicationNetworkRuleSetIpRuleArrayOutput{})
 }

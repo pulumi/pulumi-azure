@@ -31,6 +31,7 @@ class SnapshotArgs:
         :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
         :param pulumi.Input[int] disk_size_gb: The size of the Snapshotted Disk in GB.
+        :param pulumi.Input['SnapshotEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_resource_id: Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
@@ -96,6 +97,9 @@ class SnapshotArgs:
     @property
     @pulumi.getter(name="encryptionSettings")
     def encryption_settings(self) -> Optional[pulumi.Input['SnapshotEncryptionSettingsArgs']]:
+        """
+        A `encryption_settings` block as defined below.
+        """
         return pulumi.get(self, "encryption_settings")
 
     @encryption_settings.setter
@@ -193,6 +197,7 @@ class _SnapshotState:
         Input properties used for looking up and filtering Snapshot resources.
         :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] disk_size_gb: The size of the Snapshotted Disk in GB.
+        :param pulumi.Input['SnapshotEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
@@ -252,6 +257,9 @@ class _SnapshotState:
     @property
     @pulumi.getter(name="encryptionSettings")
     def encryption_settings(self) -> Optional[pulumi.Input['SnapshotEncryptionSettingsArgs']]:
+        """
+        A `encryption_settings` block as defined below.
+        """
         return pulumi.get(self, "encryption_settings")
 
     @encryption_settings.setter
@@ -406,6 +414,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] disk_size_gb: The size of the Snapshotted Disk in GB.
+        :param pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
@@ -530,6 +539,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] disk_size_gb: The size of the Snapshotted Disk in GB.
+        :param pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
@@ -575,6 +585,9 @@ class Snapshot(pulumi.CustomResource):
     @property
     @pulumi.getter(name="encryptionSettings")
     def encryption_settings(self) -> pulumi.Output[Optional['outputs.SnapshotEncryptionSettings']]:
+        """
+        A `encryption_settings` block as defined below.
+        """
         return pulumi.get(self, "encryption_settings")
 
     @property

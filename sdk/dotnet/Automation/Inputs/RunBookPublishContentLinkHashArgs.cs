@@ -12,9 +12,15 @@ namespace Pulumi.Azure.Automation.Inputs
 
     public sealed class RunBookPublishContentLinkHashArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the hash algorithm used to hash the content.
+        /// </summary>
         [Input("algorithm", required: true)]
         public Input<string> Algorithm { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies the expected hash value of the content.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

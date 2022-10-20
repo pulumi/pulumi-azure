@@ -78,13 +78,13 @@ type Application struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+	// A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// A `subDomain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
 	SubDomain pulumi.StringOutput `pulumi:"subDomain"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A `template` name. IoT Central application template name. Default is a custom application.
+	// A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
 	Template pulumi.StringOutput `pulumi:"template"`
 }
 
@@ -135,13 +135,13 @@ type applicationState struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+	// A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
 	Sku *string `pulumi:"sku"`
 	// A `subDomain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
 	SubDomain *string `pulumi:"subDomain"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A `template` name. IoT Central application template name. Default is a custom application.
+	// A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
 	Template *string `pulumi:"template"`
 }
 
@@ -158,13 +158,13 @@ type ApplicationState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+	// A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
 	Sku pulumi.StringPtrInput
 	// A `subDomain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
 	SubDomain pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A `template` name. IoT Central application template name. Default is a custom application.
+	// A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
 	Template pulumi.StringPtrInput
 }
 
@@ -185,13 +185,13 @@ type applicationArgs struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+	// A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
 	Sku *string `pulumi:"sku"`
 	// A `subDomain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
 	SubDomain string `pulumi:"subDomain"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// A `template` name. IoT Central application template name. Default is a custom application.
+	// A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
 	Template *string `pulumi:"template"`
 }
 
@@ -209,13 +209,13 @@ type ApplicationArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+	// A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
 	Sku pulumi.StringPtrInput
 	// A `subDomain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain.
 	SubDomain pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// A `template` name. IoT Central application template name. Default is a custom application.
+	// A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
 	Template pulumi.StringPtrInput
 }
 
@@ -336,7 +336,7 @@ func (o ApplicationOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+// A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
 func (o ApplicationOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
 }
@@ -351,7 +351,7 @@ func (o ApplicationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A `template` name. IoT Central application template name. Default is a custom application.
+// A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
 func (o ApplicationOutput) Template() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Template }).(pulumi.StringOutput)
 }

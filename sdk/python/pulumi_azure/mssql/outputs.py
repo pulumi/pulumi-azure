@@ -11,6 +11,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'DatabaseImport',
     'DatabaseLongTermRetentionPolicy',
     'DatabaseShortTermRetentionPolicy',
     'DatabaseThreatDetectionPolicy',
@@ -38,6 +39,120 @@ __all__ = [
     'GetManagedInstanceIdentityResult',
     'GetServerIdentityResult',
 ]
+
+@pulumi.output_type
+class DatabaseImport(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "administratorLogin":
+            suggest = "administrator_login"
+        elif key == "administratorLoginPassword":
+            suggest = "administrator_login_password"
+        elif key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "storageKey":
+            suggest = "storage_key"
+        elif key == "storageKeyType":
+            suggest = "storage_key_type"
+        elif key == "storageUri":
+            suggest = "storage_uri"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseImport. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseImport.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseImport.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 administrator_login: str,
+                 administrator_login_password: str,
+                 authentication_type: str,
+                 storage_key: str,
+                 storage_key_type: str,
+                 storage_uri: str,
+                 storage_account_id: Optional[str] = None):
+        """
+        :param str administrator_login: Specifies the name of the SQL administrator.
+        :param str administrator_login_password: Specifies the password of the SQL administrator.
+        :param str authentication_type: Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
+        :param str storage_key: Specifies the access key for the storage account.
+        :param str storage_key_type: Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
+        :param str storage_uri: Specifies the blob URI of the .bacpac file.
+        :param str storage_account_id: The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter.
+        """
+        pulumi.set(__self__, "administrator_login", administrator_login)
+        pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+        pulumi.set(__self__, "authentication_type", authentication_type)
+        pulumi.set(__self__, "storage_key", storage_key)
+        pulumi.set(__self__, "storage_key_type", storage_key_type)
+        pulumi.set(__self__, "storage_uri", storage_uri)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+
+    @property
+    @pulumi.getter(name="administratorLogin")
+    def administrator_login(self) -> str:
+        """
+        Specifies the name of the SQL administrator.
+        """
+        return pulumi.get(self, "administrator_login")
+
+    @property
+    @pulumi.getter(name="administratorLoginPassword")
+    def administrator_login_password(self) -> str:
+        """
+        Specifies the password of the SQL administrator.
+        """
+        return pulumi.get(self, "administrator_login_password")
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> str:
+        """
+        Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="storageKey")
+    def storage_key(self) -> str:
+        """
+        Specifies the access key for the storage account.
+        """
+        return pulumi.get(self, "storage_key")
+
+    @property
+    @pulumi.getter(name="storageKeyType")
+    def storage_key_type(self) -> str:
+        """
+        Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
+        """
+        return pulumi.get(self, "storage_key_type")
+
+    @property
+    @pulumi.getter(name="storageUri")
+    def storage_uri(self) -> str:
+        """
+        Specifies the blob URI of the .bacpac file.
+        """
+        return pulumi.get(self, "storage_uri")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> Optional[str]:
+        """
+        The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter.
+        """
+        return pulumi.get(self, "storage_account_id")
+
 
 @pulumi.output_type
 class DatabaseLongTermRetentionPolicy(dict):

@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.mssql.inputs;
 
+import com.pulumi.azure.mssql.inputs.DatabaseImportArgs;
 import com.pulumi.azure.mssql.inputs.DatabaseLongTermRetentionPolicyArgs;
 import com.pulumi.azure.mssql.inputs.DatabaseShortTermRetentionPolicyArgs;
 import com.pulumi.azure.mssql.inputs.DatabaseThreatDetectionPolicyArgs;
@@ -53,14 +54,14 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+     * The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
      * 
      */
     @Import(name="createMode")
     private @Nullable Output<String> createMode;
 
     /**
-     * @return The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+     * @return The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
      * 
      */
     public Optional<Output<String>> createMode() {
@@ -110,6 +111,21 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> geoBackupEnabled() {
         return Optional.ofNullable(this.geoBackupEnabled);
+    }
+
+    /**
+     * A Database Import block as documented below. Mutually exclusive with `create_mode`.
+     * 
+     */
+    @Import(name="import")
+    private @Nullable Output<DatabaseImportArgs> import_;
+
+    /**
+     * @return A Database Import block as documented below. Mutually exclusive with `create_mode`.
+     * 
+     */
+    public Optional<Output<DatabaseImportArgs>> import_() {
+        return Optional.ofNullable(this.import_);
     }
 
     /**
@@ -436,6 +452,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         this.creationSourceDatabaseId = $.creationSourceDatabaseId;
         this.elasticPoolId = $.elasticPoolId;
         this.geoBackupEnabled = $.geoBackupEnabled;
+        this.import_ = $.import_;
         this.ledgerEnabled = $.ledgerEnabled;
         this.licenseType = $.licenseType;
         this.longTermRetentionPolicy = $.longTermRetentionPolicy;
@@ -520,7 +537,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createMode The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+         * @param createMode The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
          * 
          * @return builder
          * 
@@ -531,7 +548,7 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createMode The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`.
+         * @param createMode The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`.
          * 
          * @return builder
          * 
@@ -601,6 +618,27 @@ public final class DatabaseState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder geoBackupEnabled(Boolean geoBackupEnabled) {
             return geoBackupEnabled(Output.of(geoBackupEnabled));
+        }
+
+        /**
+         * @param import_ A Database Import block as documented below. Mutually exclusive with `create_mode`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder import_(@Nullable Output<DatabaseImportArgs> import_) {
+            $.import_ = import_;
+            return this;
+        }
+
+        /**
+         * @param import_ A Database Import block as documented below. Mutually exclusive with `create_mode`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder import_(DatabaseImportArgs import_) {
+            return import_(Output.of(import_));
         }
 
         /**

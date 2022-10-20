@@ -175,6 +175,8 @@ type KubernetesCluster struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `windowsProfile` block as defined below.
 	WindowsProfile KubernetesClusterWindowsProfileOutput `pulumi:"windowsProfile"`
+	// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+	WorkloadIdentityEnabled pulumi.BoolPtrOutput `pulumi:"workloadIdentityEnabled"`
 }
 
 // NewKubernetesCluster registers a new resource with the given unique name, arguments, and options.
@@ -310,6 +312,8 @@ type kubernetesClusterState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A `windowsProfile` block as defined below.
 	WindowsProfile *KubernetesClusterWindowsProfile `pulumi:"windowsProfile"`
+	// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+	WorkloadIdentityEnabled *bool `pulumi:"workloadIdentityEnabled"`
 }
 
 type KubernetesClusterState struct {
@@ -411,6 +415,8 @@ type KubernetesClusterState struct {
 	Tags pulumi.StringMapInput
 	// A `windowsProfile` block as defined below.
 	WindowsProfile KubernetesClusterWindowsProfilePtrInput
+	// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+	WorkloadIdentityEnabled pulumi.BoolPtrInput
 }
 
 func (KubernetesClusterState) ElementType() reflect.Type {
@@ -498,6 +504,8 @@ type kubernetesClusterArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A `windowsProfile` block as defined below.
 	WindowsProfile *KubernetesClusterWindowsProfile `pulumi:"windowsProfile"`
+	// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+	WorkloadIdentityEnabled *bool `pulumi:"workloadIdentityEnabled"`
 }
 
 // The set of arguments for constructing a KubernetesCluster resource.
@@ -582,6 +590,8 @@ type KubernetesClusterArgs struct {
 	Tags pulumi.StringMapInput
 	// A `windowsProfile` block as defined below.
 	WindowsProfile KubernetesClusterWindowsProfilePtrInput
+	// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+	WorkloadIdentityEnabled pulumi.BoolPtrInput
 }
 
 func (KubernetesClusterArgs) ElementType() reflect.Type {
@@ -923,6 +933,11 @@ func (o KubernetesClusterOutput) Tags() pulumi.StringMapOutput {
 // A `windowsProfile` block as defined below.
 func (o KubernetesClusterOutput) WindowsProfile() KubernetesClusterWindowsProfileOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterWindowsProfileOutput { return v.WindowsProfile }).(KubernetesClusterWindowsProfileOutput)
+}
+
+// Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`.
+func (o KubernetesClusterOutput) WorkloadIdentityEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolPtrOutput { return v.WorkloadIdentityEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type KubernetesClusterArrayOutput struct{ *pulumi.OutputState }

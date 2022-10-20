@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.hsm.inputs;
 
+import com.pulumi.azure.hsm.inputs.ModuleManagementNetworkProfileArgs;
 import com.pulumi.azure.hsm.inputs.ModuleNetworkProfileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -31,6 +32,21 @@ public final class ModuleState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> location() {
         return Optional.ofNullable(this.location);
+    }
+
+    /**
+     * A `management_network_profile` block as defined below.
+     * 
+     */
+    @Import(name="managementNetworkProfile")
+    private @Nullable Output<ModuleManagementNetworkProfileArgs> managementNetworkProfile;
+
+    /**
+     * @return A `management_network_profile` block as defined below.
+     * 
+     */
+    public Optional<Output<ModuleManagementNetworkProfileArgs>> managementNetworkProfile() {
+        return Optional.ofNullable(this.managementNetworkProfile);
     }
 
     /**
@@ -79,14 +95,14 @@ public final class ModuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+     * The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created.
      * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
-     * @return The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+     * @return The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -142,6 +158,7 @@ public final class ModuleState extends com.pulumi.resources.ResourceArgs {
 
     private ModuleState(ModuleState $) {
         this.location = $.location;
+        this.managementNetworkProfile = $.managementNetworkProfile;
         this.name = $.name;
         this.networkProfile = $.networkProfile;
         this.resourceGroupName = $.resourceGroupName;
@@ -188,6 +205,27 @@ public final class ModuleState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder location(String location) {
             return location(Output.of(location));
+        }
+
+        /**
+         * @param managementNetworkProfile A `management_network_profile` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managementNetworkProfile(@Nullable Output<ModuleManagementNetworkProfileArgs> managementNetworkProfile) {
+            $.managementNetworkProfile = managementNetworkProfile;
+            return this;
+        }
+
+        /**
+         * @param managementNetworkProfile A `management_network_profile` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder managementNetworkProfile(ModuleManagementNetworkProfileArgs managementNetworkProfile) {
+            return managementNetworkProfile(Output.of(managementNetworkProfile));
         }
 
         /**
@@ -254,7 +292,7 @@ public final class ModuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+         * @param skuName The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created.
          * 
          * @return builder
          * 
@@ -265,7 +303,7 @@ public final class ModuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skuName The SKU name of the dedicated hardware security module. Changing this forces a new Dedicated Hardware Security Module to be created.
+         * @param skuName The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created.
          * 
          * @return builder
          * 

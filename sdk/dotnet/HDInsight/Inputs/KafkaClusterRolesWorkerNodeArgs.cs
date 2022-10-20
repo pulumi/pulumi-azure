@@ -24,6 +24,14 @@ namespace Pulumi.Azure.HDInsight.Inputs
         [Input("password")]
         public Input<string>? Password { get; set; }
 
+        [Input("scriptActions")]
+        private InputList<Inputs.KafkaClusterRolesWorkerNodeScriptActionArgs>? _scriptActions;
+        public InputList<Inputs.KafkaClusterRolesWorkerNodeScriptActionArgs> ScriptActions
+        {
+            get => _scriptActions ?? (_scriptActions = new InputList<Inputs.KafkaClusterRolesWorkerNodeScriptActionArgs>());
+            set => _scriptActions = value;
+        }
+
         [Input("sshKeys")]
         private InputList<string>? _sshKeys;
 

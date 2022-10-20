@@ -119,7 +119,7 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<string>> RuleCollectionGroups { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
+        /// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
@@ -261,7 +261,7 @@ namespace Pulumi.Azure.Network
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
+        /// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -407,7 +407,7 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
-        /// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
+        /// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

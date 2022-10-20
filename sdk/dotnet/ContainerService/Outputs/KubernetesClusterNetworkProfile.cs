@@ -58,9 +58,17 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? PodCidr;
         /// <summary>
+        /// A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly ImmutableArray<string> PodCidrs;
+        /// <summary>
         /// The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? ServiceCidr;
+        /// <summary>
+        /// A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly ImmutableArray<string> ServiceCidrs;
 
         [OutputConstructor]
         private KubernetesClusterNetworkProfile(
@@ -86,7 +94,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             string? podCidr,
 
-            string? serviceCidr)
+            ImmutableArray<string> podCidrs,
+
+            string? serviceCidr,
+
+            ImmutableArray<string> serviceCidrs)
         {
             DnsServiceIp = dnsServiceIp;
             DockerBridgeCidr = dockerBridgeCidr;
@@ -99,7 +111,9 @@ namespace Pulumi.Azure.ContainerService.Outputs
             NetworkPolicy = networkPolicy;
             OutboundType = outboundType;
             PodCidr = podCidr;
+            PodCidrs = podCidrs;
             ServiceCidr = serviceCidr;
+            ServiceCidrs = serviceCidrs;
         }
     }
 }

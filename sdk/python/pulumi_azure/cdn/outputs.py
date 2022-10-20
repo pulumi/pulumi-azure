@@ -43,7 +43,7 @@ __all__ = [
     'EndpointGlobalDeliveryRuleUrlRedirectAction',
     'EndpointGlobalDeliveryRuleUrlRewriteAction',
     'EndpointOrigin',
-    'FrontdoorCustomEndpointTls',
+    'FrontdoorCustomDomainTls',
     'FrontdoorFirewallPolicyCustomRule',
     'FrontdoorFirewallPolicyCustomRuleMatchCondition',
     'FrontdoorFirewallPolicyManagedRule',
@@ -2375,7 +2375,7 @@ class EndpointOrigin(dict):
 
 
 @pulumi.output_type
-class FrontdoorCustomEndpointTls(dict):
+class FrontdoorCustomDomainTls(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2387,14 +2387,14 @@ class FrontdoorCustomEndpointTls(dict):
             suggest = "minimum_tls_version"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FrontdoorCustomEndpointTls. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorCustomDomainTls. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        FrontdoorCustomEndpointTls.__key_warning(key)
+        FrontdoorCustomDomainTls.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        FrontdoorCustomEndpointTls.__key_warning(key)
+        FrontdoorCustomDomainTls.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

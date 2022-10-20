@@ -12,6 +12,7 @@ import (
 
 type ProviderFeatures struct {
 	ApiManagement          *ProviderFeaturesApiManagement          `pulumi:"apiManagement"`
+	AppConfiguration       *ProviderFeaturesAppConfiguration       `pulumi:"appConfiguration"`
 	ApplicationInsights    *ProviderFeaturesApplicationInsights    `pulumi:"applicationInsights"`
 	CognitiveAccount       *ProviderFeaturesCognitiveAccount       `pulumi:"cognitiveAccount"`
 	KeyVault               *ProviderFeaturesKeyVault               `pulumi:"keyVault"`
@@ -36,6 +37,7 @@ type ProviderFeaturesInput interface {
 
 type ProviderFeaturesArgs struct {
 	ApiManagement          ProviderFeaturesApiManagementPtrInput          `pulumi:"apiManagement"`
+	AppConfiguration       ProviderFeaturesAppConfigurationPtrInput       `pulumi:"appConfiguration"`
 	ApplicationInsights    ProviderFeaturesApplicationInsightsPtrInput    `pulumi:"applicationInsights"`
 	CognitiveAccount       ProviderFeaturesCognitiveAccountPtrInput       `pulumi:"cognitiveAccount"`
 	KeyVault               ProviderFeaturesKeyVaultPtrInput               `pulumi:"keyVault"`
@@ -128,6 +130,10 @@ func (o ProviderFeaturesOutput) ApiManagement() ProviderFeaturesApiManagementPtr
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesApiManagement { return v.ApiManagement }).(ProviderFeaturesApiManagementPtrOutput)
 }
 
+func (o ProviderFeaturesOutput) AppConfiguration() ProviderFeaturesAppConfigurationPtrOutput {
+	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesAppConfiguration { return v.AppConfiguration }).(ProviderFeaturesAppConfigurationPtrOutput)
+}
+
 func (o ProviderFeaturesOutput) ApplicationInsights() ProviderFeaturesApplicationInsightsPtrOutput {
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesApplicationInsights { return v.ApplicationInsights }).(ProviderFeaturesApplicationInsightsPtrOutput)
 }
@@ -195,6 +201,15 @@ func (o ProviderFeaturesPtrOutput) ApiManagement() ProviderFeaturesApiManagement
 		}
 		return v.ApiManagement
 	}).(ProviderFeaturesApiManagementPtrOutput)
+}
+
+func (o ProviderFeaturesPtrOutput) AppConfiguration() ProviderFeaturesAppConfigurationPtrOutput {
+	return o.ApplyT(func(v *ProviderFeatures) *ProviderFeaturesAppConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AppConfiguration
+	}).(ProviderFeaturesAppConfigurationPtrOutput)
 }
 
 func (o ProviderFeaturesPtrOutput) ApplicationInsights() ProviderFeaturesApplicationInsightsPtrOutput {
@@ -419,6 +434,154 @@ func (o ProviderFeaturesApiManagementPtrOutput) PurgeSoftDeleteOnDestroy() pulum
 
 func (o ProviderFeaturesApiManagementPtrOutput) RecoverSoftDeleted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ProviderFeaturesApiManagement) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RecoverSoftDeleted
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ProviderFeaturesAppConfiguration struct {
+	PurgeSoftDeleteOnDestroy *bool `pulumi:"purgeSoftDeleteOnDestroy"`
+	RecoverSoftDeleted       *bool `pulumi:"recoverSoftDeleted"`
+}
+
+// ProviderFeaturesAppConfigurationInput is an input type that accepts ProviderFeaturesAppConfigurationArgs and ProviderFeaturesAppConfigurationOutput values.
+// You can construct a concrete instance of `ProviderFeaturesAppConfigurationInput` via:
+//
+//	ProviderFeaturesAppConfigurationArgs{...}
+type ProviderFeaturesAppConfigurationInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesAppConfigurationOutput() ProviderFeaturesAppConfigurationOutput
+	ToProviderFeaturesAppConfigurationOutputWithContext(context.Context) ProviderFeaturesAppConfigurationOutput
+}
+
+type ProviderFeaturesAppConfigurationArgs struct {
+	PurgeSoftDeleteOnDestroy pulumi.BoolPtrInput `pulumi:"purgeSoftDeleteOnDestroy"`
+	RecoverSoftDeleted       pulumi.BoolPtrInput `pulumi:"recoverSoftDeleted"`
+}
+
+func (ProviderFeaturesAppConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesAppConfiguration)(nil)).Elem()
+}
+
+func (i ProviderFeaturesAppConfigurationArgs) ToProviderFeaturesAppConfigurationOutput() ProviderFeaturesAppConfigurationOutput {
+	return i.ToProviderFeaturesAppConfigurationOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesAppConfigurationArgs) ToProviderFeaturesAppConfigurationOutputWithContext(ctx context.Context) ProviderFeaturesAppConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesAppConfigurationOutput)
+}
+
+func (i ProviderFeaturesAppConfigurationArgs) ToProviderFeaturesAppConfigurationPtrOutput() ProviderFeaturesAppConfigurationPtrOutput {
+	return i.ToProviderFeaturesAppConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderFeaturesAppConfigurationArgs) ToProviderFeaturesAppConfigurationPtrOutputWithContext(ctx context.Context) ProviderFeaturesAppConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesAppConfigurationOutput).ToProviderFeaturesAppConfigurationPtrOutputWithContext(ctx)
+}
+
+// ProviderFeaturesAppConfigurationPtrInput is an input type that accepts ProviderFeaturesAppConfigurationArgs, ProviderFeaturesAppConfigurationPtr and ProviderFeaturesAppConfigurationPtrOutput values.
+// You can construct a concrete instance of `ProviderFeaturesAppConfigurationPtrInput` via:
+//
+//	        ProviderFeaturesAppConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderFeaturesAppConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToProviderFeaturesAppConfigurationPtrOutput() ProviderFeaturesAppConfigurationPtrOutput
+	ToProviderFeaturesAppConfigurationPtrOutputWithContext(context.Context) ProviderFeaturesAppConfigurationPtrOutput
+}
+
+type providerFeaturesAppConfigurationPtrType ProviderFeaturesAppConfigurationArgs
+
+func ProviderFeaturesAppConfigurationPtr(v *ProviderFeaturesAppConfigurationArgs) ProviderFeaturesAppConfigurationPtrInput {
+	return (*providerFeaturesAppConfigurationPtrType)(v)
+}
+
+func (*providerFeaturesAppConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesAppConfiguration)(nil)).Elem()
+}
+
+func (i *providerFeaturesAppConfigurationPtrType) ToProviderFeaturesAppConfigurationPtrOutput() ProviderFeaturesAppConfigurationPtrOutput {
+	return i.ToProviderFeaturesAppConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *providerFeaturesAppConfigurationPtrType) ToProviderFeaturesAppConfigurationPtrOutputWithContext(ctx context.Context) ProviderFeaturesAppConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderFeaturesAppConfigurationPtrOutput)
+}
+
+type ProviderFeaturesAppConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesAppConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderFeaturesAppConfiguration)(nil)).Elem()
+}
+
+func (o ProviderFeaturesAppConfigurationOutput) ToProviderFeaturesAppConfigurationOutput() ProviderFeaturesAppConfigurationOutput {
+	return o
+}
+
+func (o ProviderFeaturesAppConfigurationOutput) ToProviderFeaturesAppConfigurationOutputWithContext(ctx context.Context) ProviderFeaturesAppConfigurationOutput {
+	return o
+}
+
+func (o ProviderFeaturesAppConfigurationOutput) ToProviderFeaturesAppConfigurationPtrOutput() ProviderFeaturesAppConfigurationPtrOutput {
+	return o.ToProviderFeaturesAppConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderFeaturesAppConfigurationOutput) ToProviderFeaturesAppConfigurationPtrOutputWithContext(ctx context.Context) ProviderFeaturesAppConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderFeaturesAppConfiguration) *ProviderFeaturesAppConfiguration {
+		return &v
+	}).(ProviderFeaturesAppConfigurationPtrOutput)
+}
+
+func (o ProviderFeaturesAppConfigurationOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesAppConfiguration) *bool { return v.PurgeSoftDeleteOnDestroy }).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesAppConfigurationOutput) RecoverSoftDeleted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeaturesAppConfiguration) *bool { return v.RecoverSoftDeleted }).(pulumi.BoolPtrOutput)
+}
+
+type ProviderFeaturesAppConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderFeaturesAppConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderFeaturesAppConfiguration)(nil)).Elem()
+}
+
+func (o ProviderFeaturesAppConfigurationPtrOutput) ToProviderFeaturesAppConfigurationPtrOutput() ProviderFeaturesAppConfigurationPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesAppConfigurationPtrOutput) ToProviderFeaturesAppConfigurationPtrOutputWithContext(ctx context.Context) ProviderFeaturesAppConfigurationPtrOutput {
+	return o
+}
+
+func (o ProviderFeaturesAppConfigurationPtrOutput) Elem() ProviderFeaturesAppConfigurationOutput {
+	return o.ApplyT(func(v *ProviderFeaturesAppConfiguration) ProviderFeaturesAppConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderFeaturesAppConfiguration
+		return ret
+	}).(ProviderFeaturesAppConfigurationOutput)
+}
+
+func (o ProviderFeaturesAppConfigurationPtrOutput) PurgeSoftDeleteOnDestroy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesAppConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PurgeSoftDeleteOnDestroy
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ProviderFeaturesAppConfigurationPtrOutput) RecoverSoftDeleted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeaturesAppConfiguration) *bool {
 		if v == nil {
 			return nil
 		}
@@ -1808,6 +1971,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesPtrInput)(nil)).Elem(), ProviderFeaturesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesApiManagementInput)(nil)).Elem(), ProviderFeaturesApiManagementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesApiManagementPtrInput)(nil)).Elem(), ProviderFeaturesApiManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesAppConfigurationInput)(nil)).Elem(), ProviderFeaturesAppConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesAppConfigurationPtrInput)(nil)).Elem(), ProviderFeaturesAppConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesApplicationInsightsInput)(nil)).Elem(), ProviderFeaturesApplicationInsightsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesApplicationInsightsPtrInput)(nil)).Elem(), ProviderFeaturesApplicationInsightsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderFeaturesCognitiveAccountInput)(nil)).Elem(), ProviderFeaturesCognitiveAccountArgs{})
@@ -1830,6 +1995,8 @@ func init() {
 	pulumi.RegisterOutputType(ProviderFeaturesPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesApiManagementOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesApiManagementPtrOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesAppConfigurationOutput{})
+	pulumi.RegisterOutputType(ProviderFeaturesAppConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesApplicationInsightsOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesApplicationInsightsPtrOutput{})
 	pulumi.RegisterOutputType(ProviderFeaturesCognitiveAccountOutput{})

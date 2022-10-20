@@ -80,6 +80,10 @@ export class OutputServiceBusQueue extends pulumi.CustomResource {
     }
 
     /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     */
+    public readonly authenticationMode!: pulumi.Output<string | undefined>;
+    /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -133,6 +137,7 @@ export class OutputServiceBusQueue extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OutputServiceBusQueueState | undefined;
+            resourceInputs["authenticationMode"] = state ? state.authenticationMode : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["propertyColumns"] = state ? state.propertyColumns : undefined;
             resourceInputs["queueName"] = state ? state.queueName : undefined;
@@ -166,6 +171,7 @@ export class OutputServiceBusQueue extends pulumi.CustomResource {
             if ((!args || args.streamAnalyticsJobName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'streamAnalyticsJobName'");
             }
+            resourceInputs["authenticationMode"] = args ? args.authenticationMode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["propertyColumns"] = args ? args.propertyColumns : undefined;
             resourceInputs["queueName"] = args ? args.queueName : undefined;
@@ -186,6 +192,10 @@ export class OutputServiceBusQueue extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OutputServiceBusQueue resources.
  */
 export interface OutputServiceBusQueueState {
+    /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     */
+    authenticationMode?: pulumi.Input<string>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */
@@ -232,6 +242,10 @@ export interface OutputServiceBusQueueState {
  * The set of arguments for constructing a OutputServiceBusQueue resource.
  */
 export interface OutputServiceBusQueueArgs {
+    /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     */
+    authenticationMode?: pulumi.Input<string>;
     /**
      * The name of the Stream Output. Changing this forces a new resource to be created.
      */

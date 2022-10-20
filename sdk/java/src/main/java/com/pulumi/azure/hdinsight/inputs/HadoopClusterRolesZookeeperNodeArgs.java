@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.hdinsight.inputs;
 
+import com.pulumi.azure.hdinsight.inputs.HadoopClusterRolesZookeeperNodeScriptActionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -29,6 +30,21 @@ public final class HadoopClusterRolesZookeeperNodeArgs extends com.pulumi.resour
      */
     public Optional<Output<String>> password() {
         return Optional.ofNullable(this.password);
+    }
+
+    /**
+     * The script action which will run on the cluster.
+     * 
+     */
+    @Import(name="scriptActions")
+    private @Nullable Output<List<HadoopClusterRolesZookeeperNodeScriptActionArgs>> scriptActions;
+
+    /**
+     * @return The script action which will run on the cluster.
+     * 
+     */
+    public Optional<Output<List<HadoopClusterRolesZookeeperNodeScriptActionArgs>>> scriptActions() {
+        return Optional.ofNullable(this.scriptActions);
     }
 
     /**
@@ -110,6 +126,7 @@ public final class HadoopClusterRolesZookeeperNodeArgs extends com.pulumi.resour
 
     private HadoopClusterRolesZookeeperNodeArgs(HadoopClusterRolesZookeeperNodeArgs $) {
         this.password = $.password;
+        this.scriptActions = $.scriptActions;
         this.sshKeys = $.sshKeys;
         this.subnetId = $.subnetId;
         this.username = $.username;
@@ -154,6 +171,37 @@ public final class HadoopClusterRolesZookeeperNodeArgs extends com.pulumi.resour
          */
         public Builder password(String password) {
             return password(Output.of(password));
+        }
+
+        /**
+         * @param scriptActions The script action which will run on the cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scriptActions(@Nullable Output<List<HadoopClusterRolesZookeeperNodeScriptActionArgs>> scriptActions) {
+            $.scriptActions = scriptActions;
+            return this;
+        }
+
+        /**
+         * @param scriptActions The script action which will run on the cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scriptActions(List<HadoopClusterRolesZookeeperNodeScriptActionArgs> scriptActions) {
+            return scriptActions(Output.of(scriptActions));
+        }
+
+        /**
+         * @param scriptActions The script action which will run on the cluster.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scriptActions(HadoopClusterRolesZookeeperNodeScriptActionArgs... scriptActions) {
+            return scriptActions(List.of(scriptActions));
         }
 
         /**

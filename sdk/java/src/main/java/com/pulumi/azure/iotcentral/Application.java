@@ -158,14 +158,14 @@ public class Application extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+     * A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
      * 
      */
     @Export(name="sku", type=String.class, parameters={})
     private Output</* @Nullable */ String> sku;
 
     /**
-     * @return A `sku` name. Possible values is `ST1`, `ST2`, Default value is `ST1`
+     * @return A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1`
      * 
      */
     public Output<Optional<String>> sku() {
@@ -200,14 +200,14 @@ public class Application extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A `template` name. IoT Central application template name. Default is a custom application.
+     * A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="template", type=String.class, parameters={})
     private Output<String> template;
 
     /**
-     * @return A `template` name. IoT Central application template name. Default is a custom application.
+     * @return A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> template() {

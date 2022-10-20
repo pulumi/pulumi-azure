@@ -243,14 +243,14 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
         return this.ruleCollectionGroups;
     }
     /**
-     * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
+     * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
      * 
      */
     @Export(name="sku", type=String.class, parameters={})
     private Output<String> sku;
 
     /**
-     * @return The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
+     * @return The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
      * 
      */
     public Output<String> sku() {

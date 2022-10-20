@@ -10,6 +10,181 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ApiContact struct {
+	// The email address of the contact person/organization.
+	Email *string `pulumi:"email"`
+	// The name of the contact person/organization.
+	Name *string `pulumi:"name"`
+	// Absolute URL of the contact information.
+	Url *string `pulumi:"url"`
+}
+
+// ApiContactInput is an input type that accepts ApiContactArgs and ApiContactOutput values.
+// You can construct a concrete instance of `ApiContactInput` via:
+//
+//	ApiContactArgs{...}
+type ApiContactInput interface {
+	pulumi.Input
+
+	ToApiContactOutput() ApiContactOutput
+	ToApiContactOutputWithContext(context.Context) ApiContactOutput
+}
+
+type ApiContactArgs struct {
+	// The email address of the contact person/organization.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// The name of the contact person/organization.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Absolute URL of the contact information.
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (ApiContactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiContact)(nil)).Elem()
+}
+
+func (i ApiContactArgs) ToApiContactOutput() ApiContactOutput {
+	return i.ToApiContactOutputWithContext(context.Background())
+}
+
+func (i ApiContactArgs) ToApiContactOutputWithContext(ctx context.Context) ApiContactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiContactOutput)
+}
+
+func (i ApiContactArgs) ToApiContactPtrOutput() ApiContactPtrOutput {
+	return i.ToApiContactPtrOutputWithContext(context.Background())
+}
+
+func (i ApiContactArgs) ToApiContactPtrOutputWithContext(ctx context.Context) ApiContactPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiContactOutput).ToApiContactPtrOutputWithContext(ctx)
+}
+
+// ApiContactPtrInput is an input type that accepts ApiContactArgs, ApiContactPtr and ApiContactPtrOutput values.
+// You can construct a concrete instance of `ApiContactPtrInput` via:
+//
+//	        ApiContactArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApiContactPtrInput interface {
+	pulumi.Input
+
+	ToApiContactPtrOutput() ApiContactPtrOutput
+	ToApiContactPtrOutputWithContext(context.Context) ApiContactPtrOutput
+}
+
+type apiContactPtrType ApiContactArgs
+
+func ApiContactPtr(v *ApiContactArgs) ApiContactPtrInput {
+	return (*apiContactPtrType)(v)
+}
+
+func (*apiContactPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiContact)(nil)).Elem()
+}
+
+func (i *apiContactPtrType) ToApiContactPtrOutput() ApiContactPtrOutput {
+	return i.ToApiContactPtrOutputWithContext(context.Background())
+}
+
+func (i *apiContactPtrType) ToApiContactPtrOutputWithContext(ctx context.Context) ApiContactPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiContactPtrOutput)
+}
+
+type ApiContactOutput struct{ *pulumi.OutputState }
+
+func (ApiContactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiContact)(nil)).Elem()
+}
+
+func (o ApiContactOutput) ToApiContactOutput() ApiContactOutput {
+	return o
+}
+
+func (o ApiContactOutput) ToApiContactOutputWithContext(ctx context.Context) ApiContactOutput {
+	return o
+}
+
+func (o ApiContactOutput) ToApiContactPtrOutput() ApiContactPtrOutput {
+	return o.ToApiContactPtrOutputWithContext(context.Background())
+}
+
+func (o ApiContactOutput) ToApiContactPtrOutputWithContext(ctx context.Context) ApiContactPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiContact) *ApiContact {
+		return &v
+	}).(ApiContactPtrOutput)
+}
+
+// The email address of the contact person/organization.
+func (o ApiContactOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiContact) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// The name of the contact person/organization.
+func (o ApiContactOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiContact) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Absolute URL of the contact information.
+func (o ApiContactOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiContact) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type ApiContactPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiContactPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiContact)(nil)).Elem()
+}
+
+func (o ApiContactPtrOutput) ToApiContactPtrOutput() ApiContactPtrOutput {
+	return o
+}
+
+func (o ApiContactPtrOutput) ToApiContactPtrOutputWithContext(ctx context.Context) ApiContactPtrOutput {
+	return o
+}
+
+func (o ApiContactPtrOutput) Elem() ApiContactOutput {
+	return o.ApplyT(func(v *ApiContact) ApiContact {
+		if v != nil {
+			return *v
+		}
+		var ret ApiContact
+		return ret
+	}).(ApiContactOutput)
+}
+
+// The email address of the contact person/organization.
+func (o ApiContactPtrOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Email
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the contact person/organization.
+func (o ApiContactPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Absolute URL of the contact information.
+func (o ApiContactPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiContact) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
 type ApiDiagnosticBackendRequest struct {
 	// Number of payload bytes to log (up to 8192).
 	BodyBytes *int `pulumi:"bodyBytes"`
@@ -2526,6 +2701,162 @@ func (o ApiImportWsdlSelectorPtrOutput) ServiceName() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.ServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApiLicense struct {
+	// The name of the license .
+	Name *string `pulumi:"name"`
+	// Absolute URL of the license.
+	Url *string `pulumi:"url"`
+}
+
+// ApiLicenseInput is an input type that accepts ApiLicenseArgs and ApiLicenseOutput values.
+// You can construct a concrete instance of `ApiLicenseInput` via:
+//
+//	ApiLicenseArgs{...}
+type ApiLicenseInput interface {
+	pulumi.Input
+
+	ToApiLicenseOutput() ApiLicenseOutput
+	ToApiLicenseOutputWithContext(context.Context) ApiLicenseOutput
+}
+
+type ApiLicenseArgs struct {
+	// The name of the license .
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Absolute URL of the license.
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (ApiLicenseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiLicense)(nil)).Elem()
+}
+
+func (i ApiLicenseArgs) ToApiLicenseOutput() ApiLicenseOutput {
+	return i.ToApiLicenseOutputWithContext(context.Background())
+}
+
+func (i ApiLicenseArgs) ToApiLicenseOutputWithContext(ctx context.Context) ApiLicenseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiLicenseOutput)
+}
+
+func (i ApiLicenseArgs) ToApiLicensePtrOutput() ApiLicensePtrOutput {
+	return i.ToApiLicensePtrOutputWithContext(context.Background())
+}
+
+func (i ApiLicenseArgs) ToApiLicensePtrOutputWithContext(ctx context.Context) ApiLicensePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiLicenseOutput).ToApiLicensePtrOutputWithContext(ctx)
+}
+
+// ApiLicensePtrInput is an input type that accepts ApiLicenseArgs, ApiLicensePtr and ApiLicensePtrOutput values.
+// You can construct a concrete instance of `ApiLicensePtrInput` via:
+//
+//	        ApiLicenseArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApiLicensePtrInput interface {
+	pulumi.Input
+
+	ToApiLicensePtrOutput() ApiLicensePtrOutput
+	ToApiLicensePtrOutputWithContext(context.Context) ApiLicensePtrOutput
+}
+
+type apiLicensePtrType ApiLicenseArgs
+
+func ApiLicensePtr(v *ApiLicenseArgs) ApiLicensePtrInput {
+	return (*apiLicensePtrType)(v)
+}
+
+func (*apiLicensePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiLicense)(nil)).Elem()
+}
+
+func (i *apiLicensePtrType) ToApiLicensePtrOutput() ApiLicensePtrOutput {
+	return i.ToApiLicensePtrOutputWithContext(context.Background())
+}
+
+func (i *apiLicensePtrType) ToApiLicensePtrOutputWithContext(ctx context.Context) ApiLicensePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiLicensePtrOutput)
+}
+
+type ApiLicenseOutput struct{ *pulumi.OutputState }
+
+func (ApiLicenseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiLicense)(nil)).Elem()
+}
+
+func (o ApiLicenseOutput) ToApiLicenseOutput() ApiLicenseOutput {
+	return o
+}
+
+func (o ApiLicenseOutput) ToApiLicenseOutputWithContext(ctx context.Context) ApiLicenseOutput {
+	return o
+}
+
+func (o ApiLicenseOutput) ToApiLicensePtrOutput() ApiLicensePtrOutput {
+	return o.ToApiLicensePtrOutputWithContext(context.Background())
+}
+
+func (o ApiLicenseOutput) ToApiLicensePtrOutputWithContext(ctx context.Context) ApiLicensePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiLicense) *ApiLicense {
+		return &v
+	}).(ApiLicensePtrOutput)
+}
+
+// The name of the license .
+func (o ApiLicenseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiLicense) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Absolute URL of the license.
+func (o ApiLicenseOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiLicense) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type ApiLicensePtrOutput struct{ *pulumi.OutputState }
+
+func (ApiLicensePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiLicense)(nil)).Elem()
+}
+
+func (o ApiLicensePtrOutput) ToApiLicensePtrOutput() ApiLicensePtrOutput {
+	return o
+}
+
+func (o ApiLicensePtrOutput) ToApiLicensePtrOutputWithContext(ctx context.Context) ApiLicensePtrOutput {
+	return o
+}
+
+func (o ApiLicensePtrOutput) Elem() ApiLicenseOutput {
+	return o.ApplyT(func(v *ApiLicense) ApiLicense {
+		if v != nil {
+			return *v
+		}
+		var ret ApiLicense
+		return ret
+	}).(ApiLicenseOutput)
+}
+
+// The name of the license .
+func (o ApiLicensePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiLicense) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Absolute URL of the license.
+func (o ApiLicensePtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiLicense) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Url
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -14928,6 +15259,8 @@ func (o GetServiceIdentityArrayOutput) Index(i pulumi.IntInput) GetServiceIdenti
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiContactInput)(nil)).Elem(), ApiContactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiContactPtrInput)(nil)).Elem(), ApiContactArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiDiagnosticBackendRequestInput)(nil)).Elem(), ApiDiagnosticBackendRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiDiagnosticBackendRequestPtrInput)(nil)).Elem(), ApiDiagnosticBackendRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiDiagnosticBackendRequestDataMaskingInput)(nil)).Elem(), ApiDiagnosticBackendRequestDataMaskingArgs{})
@@ -14964,6 +15297,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiImportPtrInput)(nil)).Elem(), ApiImportArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiImportWsdlSelectorInput)(nil)).Elem(), ApiImportWsdlSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiImportWsdlSelectorPtrInput)(nil)).Elem(), ApiImportWsdlSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiLicenseInput)(nil)).Elem(), ApiLicenseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiLicensePtrInput)(nil)).Elem(), ApiLicenseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiOauth2AuthorizationInput)(nil)).Elem(), ApiOauth2AuthorizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiOauth2AuthorizationPtrInput)(nil)).Elem(), ApiOauth2AuthorizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiOpenidAuthenticationInput)(nil)).Elem(), ApiOpenidAuthenticationArgs{})
@@ -15126,6 +15461,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceHostnameConfigurationScmArrayInput)(nil)).Elem(), GetServiceHostnameConfigurationScmArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceIdentityInput)(nil)).Elem(), GetServiceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceIdentityArrayInput)(nil)).Elem(), GetServiceIdentityArray{})
+	pulumi.RegisterOutputType(ApiContactOutput{})
+	pulumi.RegisterOutputType(ApiContactPtrOutput{})
 	pulumi.RegisterOutputType(ApiDiagnosticBackendRequestOutput{})
 	pulumi.RegisterOutputType(ApiDiagnosticBackendRequestPtrOutput{})
 	pulumi.RegisterOutputType(ApiDiagnosticBackendRequestDataMaskingOutput{})
@@ -15162,6 +15499,8 @@ func init() {
 	pulumi.RegisterOutputType(ApiImportPtrOutput{})
 	pulumi.RegisterOutputType(ApiImportWsdlSelectorOutput{})
 	pulumi.RegisterOutputType(ApiImportWsdlSelectorPtrOutput{})
+	pulumi.RegisterOutputType(ApiLicenseOutput{})
+	pulumi.RegisterOutputType(ApiLicensePtrOutput{})
 	pulumi.RegisterOutputType(ApiOauth2AuthorizationOutput{})
 	pulumi.RegisterOutputType(ApiOauth2AuthorizationPtrOutput{})
 	pulumi.RegisterOutputType(ApiOpenidAuthenticationOutput{})

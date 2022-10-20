@@ -849,6 +849,687 @@ func (o ModuleModuleLinkHashPtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type RunBookDraft struct {
+	// The Draft Content Link defined as `publishContentLink` above.
+	ContentLink  *RunBookDraftContentLink `pulumi:"contentLink"`
+	CreationTime *string                  `pulumi:"creationTime"`
+	// Whether the draft in edit mode.
+	EditModeEnabled  *bool   `pulumi:"editModeEnabled"`
+	LastModifiedTime *string `pulumi:"lastModifiedTime"`
+	// Specifies the output types of the runbook.
+	OutputTypes []string                `pulumi:"outputTypes"`
+	Parameters  []RunBookDraftParameter `pulumi:"parameters"`
+}
+
+// RunBookDraftInput is an input type that accepts RunBookDraftArgs and RunBookDraftOutput values.
+// You can construct a concrete instance of `RunBookDraftInput` via:
+//
+//	RunBookDraftArgs{...}
+type RunBookDraftInput interface {
+	pulumi.Input
+
+	ToRunBookDraftOutput() RunBookDraftOutput
+	ToRunBookDraftOutputWithContext(context.Context) RunBookDraftOutput
+}
+
+type RunBookDraftArgs struct {
+	// The Draft Content Link defined as `publishContentLink` above.
+	ContentLink  RunBookDraftContentLinkPtrInput `pulumi:"contentLink"`
+	CreationTime pulumi.StringPtrInput           `pulumi:"creationTime"`
+	// Whether the draft in edit mode.
+	EditModeEnabled  pulumi.BoolPtrInput   `pulumi:"editModeEnabled"`
+	LastModifiedTime pulumi.StringPtrInput `pulumi:"lastModifiedTime"`
+	// Specifies the output types of the runbook.
+	OutputTypes pulumi.StringArrayInput         `pulumi:"outputTypes"`
+	Parameters  RunBookDraftParameterArrayInput `pulumi:"parameters"`
+}
+
+func (RunBookDraftArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunBookDraft)(nil)).Elem()
+}
+
+func (i RunBookDraftArgs) ToRunBookDraftOutput() RunBookDraftOutput {
+	return i.ToRunBookDraftOutputWithContext(context.Background())
+}
+
+func (i RunBookDraftArgs) ToRunBookDraftOutputWithContext(ctx context.Context) RunBookDraftOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunBookDraftOutput)
+}
+
+func (i RunBookDraftArgs) ToRunBookDraftPtrOutput() RunBookDraftPtrOutput {
+	return i.ToRunBookDraftPtrOutputWithContext(context.Background())
+}
+
+func (i RunBookDraftArgs) ToRunBookDraftPtrOutputWithContext(ctx context.Context) RunBookDraftPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunBookDraftOutput).ToRunBookDraftPtrOutputWithContext(ctx)
+}
+
+// RunBookDraftPtrInput is an input type that accepts RunBookDraftArgs, RunBookDraftPtr and RunBookDraftPtrOutput values.
+// You can construct a concrete instance of `RunBookDraftPtrInput` via:
+//
+//	        RunBookDraftArgs{...}
+//
+//	or:
+//
+//	        nil
+type RunBookDraftPtrInput interface {
+	pulumi.Input
+
+	ToRunBookDraftPtrOutput() RunBookDraftPtrOutput
+	ToRunBookDraftPtrOutputWithContext(context.Context) RunBookDraftPtrOutput
+}
+
+type runBookDraftPtrType RunBookDraftArgs
+
+func RunBookDraftPtr(v *RunBookDraftArgs) RunBookDraftPtrInput {
+	return (*runBookDraftPtrType)(v)
+}
+
+func (*runBookDraftPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RunBookDraft)(nil)).Elem()
+}
+
+func (i *runBookDraftPtrType) ToRunBookDraftPtrOutput() RunBookDraftPtrOutput {
+	return i.ToRunBookDraftPtrOutputWithContext(context.Background())
+}
+
+func (i *runBookDraftPtrType) ToRunBookDraftPtrOutputWithContext(ctx context.Context) RunBookDraftPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunBookDraftPtrOutput)
+}
+
+type RunBookDraftOutput struct{ *pulumi.OutputState }
+
+func (RunBookDraftOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunBookDraft)(nil)).Elem()
+}
+
+func (o RunBookDraftOutput) ToRunBookDraftOutput() RunBookDraftOutput {
+	return o
+}
+
+func (o RunBookDraftOutput) ToRunBookDraftOutputWithContext(ctx context.Context) RunBookDraftOutput {
+	return o
+}
+
+func (o RunBookDraftOutput) ToRunBookDraftPtrOutput() RunBookDraftPtrOutput {
+	return o.ToRunBookDraftPtrOutputWithContext(context.Background())
+}
+
+func (o RunBookDraftOutput) ToRunBookDraftPtrOutputWithContext(ctx context.Context) RunBookDraftPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RunBookDraft) *RunBookDraft {
+		return &v
+	}).(RunBookDraftPtrOutput)
+}
+
+// The Draft Content Link defined as `publishContentLink` above.
+func (o RunBookDraftOutput) ContentLink() RunBookDraftContentLinkPtrOutput {
+	return o.ApplyT(func(v RunBookDraft) *RunBookDraftContentLink { return v.ContentLink }).(RunBookDraftContentLinkPtrOutput)
+}
+
+func (o RunBookDraftOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunBookDraft) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// Whether the draft in edit mode.
+func (o RunBookDraftOutput) EditModeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RunBookDraft) *bool { return v.EditModeEnabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o RunBookDraftOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunBookDraft) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the output types of the runbook.
+func (o RunBookDraftOutput) OutputTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RunBookDraft) []string { return v.OutputTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o RunBookDraftOutput) Parameters() RunBookDraftParameterArrayOutput {
+	return o.ApplyT(func(v RunBookDraft) []RunBookDraftParameter { return v.Parameters }).(RunBookDraftParameterArrayOutput)
+}
+
+type RunBookDraftPtrOutput struct{ *pulumi.OutputState }
+
+func (RunBookDraftPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RunBookDraft)(nil)).Elem()
+}
+
+func (o RunBookDraftPtrOutput) ToRunBookDraftPtrOutput() RunBookDraftPtrOutput {
+	return o
+}
+
+func (o RunBookDraftPtrOutput) ToRunBookDraftPtrOutputWithContext(ctx context.Context) RunBookDraftPtrOutput {
+	return o
+}
+
+func (o RunBookDraftPtrOutput) Elem() RunBookDraftOutput {
+	return o.ApplyT(func(v *RunBookDraft) RunBookDraft {
+		if v != nil {
+			return *v
+		}
+		var ret RunBookDraft
+		return ret
+	}).(RunBookDraftOutput)
+}
+
+// The Draft Content Link defined as `publishContentLink` above.
+func (o RunBookDraftPtrOutput) ContentLink() RunBookDraftContentLinkPtrOutput {
+	return o.ApplyT(func(v *RunBookDraft) *RunBookDraftContentLink {
+		if v == nil {
+			return nil
+		}
+		return v.ContentLink
+	}).(RunBookDraftContentLinkPtrOutput)
+}
+
+func (o RunBookDraftPtrOutput) CreationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunBookDraft) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CreationTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the draft in edit mode.
+func (o RunBookDraftPtrOutput) EditModeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RunBookDraft) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EditModeEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o RunBookDraftPtrOutput) LastModifiedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunBookDraft) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastModifiedTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the output types of the runbook.
+func (o RunBookDraftPtrOutput) OutputTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RunBookDraft) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o RunBookDraftPtrOutput) Parameters() RunBookDraftParameterArrayOutput {
+	return o.ApplyT(func(v *RunBookDraft) []RunBookDraftParameter {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(RunBookDraftParameterArrayOutput)
+}
+
+type RunBookDraftContentLink struct {
+	// A `hash` block as defined blow.
+	Hash *RunBookDraftContentLinkHash `pulumi:"hash"`
+	// The URI of the runbook content.
+	Uri string `pulumi:"uri"`
+	// Specifies the version of the content
+	Version *string `pulumi:"version"`
+}
+
+// RunBookDraftContentLinkInput is an input type that accepts RunBookDraftContentLinkArgs and RunBookDraftContentLinkOutput values.
+// You can construct a concrete instance of `RunBookDraftContentLinkInput` via:
+//
+//	RunBookDraftContentLinkArgs{...}
+type RunBookDraftContentLinkInput interface {
+	pulumi.Input
+
+	ToRunBookDraftContentLinkOutput() RunBookDraftContentLinkOutput
+	ToRunBookDraftContentLinkOutputWithContext(context.Context) RunBookDraftContentLinkOutput
+}
+
+type RunBookDraftContentLinkArgs struct {
+	// A `hash` block as defined blow.
+	Hash RunBookDraftContentLinkHashPtrInput `pulumi:"hash"`
+	// The URI of the runbook content.
+	Uri pulumi.StringInput `pulumi:"uri"`
+	// Specifies the version of the content
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (RunBookDraftContentLinkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunBookDraftContentLink)(nil)).Elem()
+}
+
+func (i RunBookDraftContentLinkArgs) ToRunBookDraftContentLinkOutput() RunBookDraftContentLinkOutput {
+	return i.ToRunBookDraftContentLinkOutputWithContext(context.Background())
+}
+
+func (i RunBookDraftContentLinkArgs) ToRunBookDraftContentLinkOutputWithContext(ctx context.Context) RunBookDraftContentLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunBookDraftContentLinkOutput)
+}
+
+func (i RunBookDraftContentLinkArgs) ToRunBookDraftContentLinkPtrOutput() RunBookDraftContentLinkPtrOutput {
+	return i.ToRunBookDraftContentLinkPtrOutputWithContext(context.Background())
+}
+
+func (i RunBookDraftContentLinkArgs) ToRunBookDraftContentLinkPtrOutputWithContext(ctx context.Context) RunBookDraftContentLinkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunBookDraftContentLinkOutput).ToRunBookDraftContentLinkPtrOutputWithContext(ctx)
+}
+
+// RunBookDraftContentLinkPtrInput is an input type that accepts RunBookDraftContentLinkArgs, RunBookDraftContentLinkPtr and RunBookDraftContentLinkPtrOutput values.
+// You can construct a concrete instance of `RunBookDraftContentLinkPtrInput` via:
+//
+//	        RunBookDraftContentLinkArgs{...}
+//
+//	or:
+//
+//	        nil
+type RunBookDraftContentLinkPtrInput interface {
+	pulumi.Input
+
+	ToRunBookDraftContentLinkPtrOutput() RunBookDraftContentLinkPtrOutput
+	ToRunBookDraftContentLinkPtrOutputWithContext(context.Context) RunBookDraftContentLinkPtrOutput
+}
+
+type runBookDraftContentLinkPtrType RunBookDraftContentLinkArgs
+
+func RunBookDraftContentLinkPtr(v *RunBookDraftContentLinkArgs) RunBookDraftContentLinkPtrInput {
+	return (*runBookDraftContentLinkPtrType)(v)
+}
+
+func (*runBookDraftContentLinkPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RunBookDraftContentLink)(nil)).Elem()
+}
+
+func (i *runBookDraftContentLinkPtrType) ToRunBookDraftContentLinkPtrOutput() RunBookDraftContentLinkPtrOutput {
+	return i.ToRunBookDraftContentLinkPtrOutputWithContext(context.Background())
+}
+
+func (i *runBookDraftContentLinkPtrType) ToRunBookDraftContentLinkPtrOutputWithContext(ctx context.Context) RunBookDraftContentLinkPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunBookDraftContentLinkPtrOutput)
+}
+
+type RunBookDraftContentLinkOutput struct{ *pulumi.OutputState }
+
+func (RunBookDraftContentLinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunBookDraftContentLink)(nil)).Elem()
+}
+
+func (o RunBookDraftContentLinkOutput) ToRunBookDraftContentLinkOutput() RunBookDraftContentLinkOutput {
+	return o
+}
+
+func (o RunBookDraftContentLinkOutput) ToRunBookDraftContentLinkOutputWithContext(ctx context.Context) RunBookDraftContentLinkOutput {
+	return o
+}
+
+func (o RunBookDraftContentLinkOutput) ToRunBookDraftContentLinkPtrOutput() RunBookDraftContentLinkPtrOutput {
+	return o.ToRunBookDraftContentLinkPtrOutputWithContext(context.Background())
+}
+
+func (o RunBookDraftContentLinkOutput) ToRunBookDraftContentLinkPtrOutputWithContext(ctx context.Context) RunBookDraftContentLinkPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RunBookDraftContentLink) *RunBookDraftContentLink {
+		return &v
+	}).(RunBookDraftContentLinkPtrOutput)
+}
+
+// A `hash` block as defined blow.
+func (o RunBookDraftContentLinkOutput) Hash() RunBookDraftContentLinkHashPtrOutput {
+	return o.ApplyT(func(v RunBookDraftContentLink) *RunBookDraftContentLinkHash { return v.Hash }).(RunBookDraftContentLinkHashPtrOutput)
+}
+
+// The URI of the runbook content.
+func (o RunBookDraftContentLinkOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v RunBookDraftContentLink) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+// Specifies the version of the content
+func (o RunBookDraftContentLinkOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunBookDraftContentLink) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type RunBookDraftContentLinkPtrOutput struct{ *pulumi.OutputState }
+
+func (RunBookDraftContentLinkPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RunBookDraftContentLink)(nil)).Elem()
+}
+
+func (o RunBookDraftContentLinkPtrOutput) ToRunBookDraftContentLinkPtrOutput() RunBookDraftContentLinkPtrOutput {
+	return o
+}
+
+func (o RunBookDraftContentLinkPtrOutput) ToRunBookDraftContentLinkPtrOutputWithContext(ctx context.Context) RunBookDraftContentLinkPtrOutput {
+	return o
+}
+
+func (o RunBookDraftContentLinkPtrOutput) Elem() RunBookDraftContentLinkOutput {
+	return o.ApplyT(func(v *RunBookDraftContentLink) RunBookDraftContentLink {
+		if v != nil {
+			return *v
+		}
+		var ret RunBookDraftContentLink
+		return ret
+	}).(RunBookDraftContentLinkOutput)
+}
+
+// A `hash` block as defined blow.
+func (o RunBookDraftContentLinkPtrOutput) Hash() RunBookDraftContentLinkHashPtrOutput {
+	return o.ApplyT(func(v *RunBookDraftContentLink) *RunBookDraftContentLinkHash {
+		if v == nil {
+			return nil
+		}
+		return v.Hash
+	}).(RunBookDraftContentLinkHashPtrOutput)
+}
+
+// The URI of the runbook content.
+func (o RunBookDraftContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunBookDraftContentLink) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the version of the content
+func (o RunBookDraftContentLinkPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunBookDraftContentLink) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type RunBookDraftContentLinkHash struct {
+	// Specifies the hash algorithm used to hash the content.
+	Algorithm string `pulumi:"algorithm"`
+	// Specifies the expected hash value of the content.
+	Value string `pulumi:"value"`
+}
+
+// RunBookDraftContentLinkHashInput is an input type that accepts RunBookDraftContentLinkHashArgs and RunBookDraftContentLinkHashOutput values.
+// You can construct a concrete instance of `RunBookDraftContentLinkHashInput` via:
+//
+//	RunBookDraftContentLinkHashArgs{...}
+type RunBookDraftContentLinkHashInput interface {
+	pulumi.Input
+
+	ToRunBookDraftContentLinkHashOutput() RunBookDraftContentLinkHashOutput
+	ToRunBookDraftContentLinkHashOutputWithContext(context.Context) RunBookDraftContentLinkHashOutput
+}
+
+type RunBookDraftContentLinkHashArgs struct {
+	// Specifies the hash algorithm used to hash the content.
+	Algorithm pulumi.StringInput `pulumi:"algorithm"`
+	// Specifies the expected hash value of the content.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (RunBookDraftContentLinkHashArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunBookDraftContentLinkHash)(nil)).Elem()
+}
+
+func (i RunBookDraftContentLinkHashArgs) ToRunBookDraftContentLinkHashOutput() RunBookDraftContentLinkHashOutput {
+	return i.ToRunBookDraftContentLinkHashOutputWithContext(context.Background())
+}
+
+func (i RunBookDraftContentLinkHashArgs) ToRunBookDraftContentLinkHashOutputWithContext(ctx context.Context) RunBookDraftContentLinkHashOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunBookDraftContentLinkHashOutput)
+}
+
+func (i RunBookDraftContentLinkHashArgs) ToRunBookDraftContentLinkHashPtrOutput() RunBookDraftContentLinkHashPtrOutput {
+	return i.ToRunBookDraftContentLinkHashPtrOutputWithContext(context.Background())
+}
+
+func (i RunBookDraftContentLinkHashArgs) ToRunBookDraftContentLinkHashPtrOutputWithContext(ctx context.Context) RunBookDraftContentLinkHashPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunBookDraftContentLinkHashOutput).ToRunBookDraftContentLinkHashPtrOutputWithContext(ctx)
+}
+
+// RunBookDraftContentLinkHashPtrInput is an input type that accepts RunBookDraftContentLinkHashArgs, RunBookDraftContentLinkHashPtr and RunBookDraftContentLinkHashPtrOutput values.
+// You can construct a concrete instance of `RunBookDraftContentLinkHashPtrInput` via:
+//
+//	        RunBookDraftContentLinkHashArgs{...}
+//
+//	or:
+//
+//	        nil
+type RunBookDraftContentLinkHashPtrInput interface {
+	pulumi.Input
+
+	ToRunBookDraftContentLinkHashPtrOutput() RunBookDraftContentLinkHashPtrOutput
+	ToRunBookDraftContentLinkHashPtrOutputWithContext(context.Context) RunBookDraftContentLinkHashPtrOutput
+}
+
+type runBookDraftContentLinkHashPtrType RunBookDraftContentLinkHashArgs
+
+func RunBookDraftContentLinkHashPtr(v *RunBookDraftContentLinkHashArgs) RunBookDraftContentLinkHashPtrInput {
+	return (*runBookDraftContentLinkHashPtrType)(v)
+}
+
+func (*runBookDraftContentLinkHashPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RunBookDraftContentLinkHash)(nil)).Elem()
+}
+
+func (i *runBookDraftContentLinkHashPtrType) ToRunBookDraftContentLinkHashPtrOutput() RunBookDraftContentLinkHashPtrOutput {
+	return i.ToRunBookDraftContentLinkHashPtrOutputWithContext(context.Background())
+}
+
+func (i *runBookDraftContentLinkHashPtrType) ToRunBookDraftContentLinkHashPtrOutputWithContext(ctx context.Context) RunBookDraftContentLinkHashPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunBookDraftContentLinkHashPtrOutput)
+}
+
+type RunBookDraftContentLinkHashOutput struct{ *pulumi.OutputState }
+
+func (RunBookDraftContentLinkHashOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunBookDraftContentLinkHash)(nil)).Elem()
+}
+
+func (o RunBookDraftContentLinkHashOutput) ToRunBookDraftContentLinkHashOutput() RunBookDraftContentLinkHashOutput {
+	return o
+}
+
+func (o RunBookDraftContentLinkHashOutput) ToRunBookDraftContentLinkHashOutputWithContext(ctx context.Context) RunBookDraftContentLinkHashOutput {
+	return o
+}
+
+func (o RunBookDraftContentLinkHashOutput) ToRunBookDraftContentLinkHashPtrOutput() RunBookDraftContentLinkHashPtrOutput {
+	return o.ToRunBookDraftContentLinkHashPtrOutputWithContext(context.Background())
+}
+
+func (o RunBookDraftContentLinkHashOutput) ToRunBookDraftContentLinkHashPtrOutputWithContext(ctx context.Context) RunBookDraftContentLinkHashPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RunBookDraftContentLinkHash) *RunBookDraftContentLinkHash {
+		return &v
+	}).(RunBookDraftContentLinkHashPtrOutput)
+}
+
+// Specifies the hash algorithm used to hash the content.
+func (o RunBookDraftContentLinkHashOutput) Algorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v RunBookDraftContentLinkHash) string { return v.Algorithm }).(pulumi.StringOutput)
+}
+
+// Specifies the expected hash value of the content.
+func (o RunBookDraftContentLinkHashOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v RunBookDraftContentLinkHash) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type RunBookDraftContentLinkHashPtrOutput struct{ *pulumi.OutputState }
+
+func (RunBookDraftContentLinkHashPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RunBookDraftContentLinkHash)(nil)).Elem()
+}
+
+func (o RunBookDraftContentLinkHashPtrOutput) ToRunBookDraftContentLinkHashPtrOutput() RunBookDraftContentLinkHashPtrOutput {
+	return o
+}
+
+func (o RunBookDraftContentLinkHashPtrOutput) ToRunBookDraftContentLinkHashPtrOutputWithContext(ctx context.Context) RunBookDraftContentLinkHashPtrOutput {
+	return o
+}
+
+func (o RunBookDraftContentLinkHashPtrOutput) Elem() RunBookDraftContentLinkHashOutput {
+	return o.ApplyT(func(v *RunBookDraftContentLinkHash) RunBookDraftContentLinkHash {
+		if v != nil {
+			return *v
+		}
+		var ret RunBookDraftContentLinkHash
+		return ret
+	}).(RunBookDraftContentLinkHashOutput)
+}
+
+// Specifies the hash algorithm used to hash the content.
+func (o RunBookDraftContentLinkHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunBookDraftContentLinkHash) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Algorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the expected hash value of the content.
+func (o RunBookDraftContentLinkHashPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RunBookDraftContentLinkHash) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type RunBookDraftParameter struct {
+	// Specifies the default value of the parameter.
+	DefaultValue *string `pulumi:"defaultValue"`
+	// The name of the parameter.
+	Key string `pulumi:"key"`
+	// Whether this parameter is mandatory.
+	Mandatory *bool `pulumi:"mandatory"`
+	Position  *int  `pulumi:"position"`
+	// Specifies the type of this parameter.
+	Type string `pulumi:"type"`
+}
+
+// RunBookDraftParameterInput is an input type that accepts RunBookDraftParameterArgs and RunBookDraftParameterOutput values.
+// You can construct a concrete instance of `RunBookDraftParameterInput` via:
+//
+//	RunBookDraftParameterArgs{...}
+type RunBookDraftParameterInput interface {
+	pulumi.Input
+
+	ToRunBookDraftParameterOutput() RunBookDraftParameterOutput
+	ToRunBookDraftParameterOutputWithContext(context.Context) RunBookDraftParameterOutput
+}
+
+type RunBookDraftParameterArgs struct {
+	// Specifies the default value of the parameter.
+	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
+	// The name of the parameter.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Whether this parameter is mandatory.
+	Mandatory pulumi.BoolPtrInput `pulumi:"mandatory"`
+	Position  pulumi.IntPtrInput  `pulumi:"position"`
+	// Specifies the type of this parameter.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (RunBookDraftParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunBookDraftParameter)(nil)).Elem()
+}
+
+func (i RunBookDraftParameterArgs) ToRunBookDraftParameterOutput() RunBookDraftParameterOutput {
+	return i.ToRunBookDraftParameterOutputWithContext(context.Background())
+}
+
+func (i RunBookDraftParameterArgs) ToRunBookDraftParameterOutputWithContext(ctx context.Context) RunBookDraftParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunBookDraftParameterOutput)
+}
+
+// RunBookDraftParameterArrayInput is an input type that accepts RunBookDraftParameterArray and RunBookDraftParameterArrayOutput values.
+// You can construct a concrete instance of `RunBookDraftParameterArrayInput` via:
+//
+//	RunBookDraftParameterArray{ RunBookDraftParameterArgs{...} }
+type RunBookDraftParameterArrayInput interface {
+	pulumi.Input
+
+	ToRunBookDraftParameterArrayOutput() RunBookDraftParameterArrayOutput
+	ToRunBookDraftParameterArrayOutputWithContext(context.Context) RunBookDraftParameterArrayOutput
+}
+
+type RunBookDraftParameterArray []RunBookDraftParameterInput
+
+func (RunBookDraftParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RunBookDraftParameter)(nil)).Elem()
+}
+
+func (i RunBookDraftParameterArray) ToRunBookDraftParameterArrayOutput() RunBookDraftParameterArrayOutput {
+	return i.ToRunBookDraftParameterArrayOutputWithContext(context.Background())
+}
+
+func (i RunBookDraftParameterArray) ToRunBookDraftParameterArrayOutputWithContext(ctx context.Context) RunBookDraftParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RunBookDraftParameterArrayOutput)
+}
+
+type RunBookDraftParameterOutput struct{ *pulumi.OutputState }
+
+func (RunBookDraftParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RunBookDraftParameter)(nil)).Elem()
+}
+
+func (o RunBookDraftParameterOutput) ToRunBookDraftParameterOutput() RunBookDraftParameterOutput {
+	return o
+}
+
+func (o RunBookDraftParameterOutput) ToRunBookDraftParameterOutputWithContext(ctx context.Context) RunBookDraftParameterOutput {
+	return o
+}
+
+// Specifies the default value of the parameter.
+func (o RunBookDraftParameterOutput) DefaultValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RunBookDraftParameter) *string { return v.DefaultValue }).(pulumi.StringPtrOutput)
+}
+
+// The name of the parameter.
+func (o RunBookDraftParameterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v RunBookDraftParameter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Whether this parameter is mandatory.
+func (o RunBookDraftParameterOutput) Mandatory() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RunBookDraftParameter) *bool { return v.Mandatory }).(pulumi.BoolPtrOutput)
+}
+
+func (o RunBookDraftParameterOutput) Position() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RunBookDraftParameter) *int { return v.Position }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the type of this parameter.
+func (o RunBookDraftParameterOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v RunBookDraftParameter) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type RunBookDraftParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (RunBookDraftParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RunBookDraftParameter)(nil)).Elem()
+}
+
+func (o RunBookDraftParameterArrayOutput) ToRunBookDraftParameterArrayOutput() RunBookDraftParameterArrayOutput {
+	return o
+}
+
+func (o RunBookDraftParameterArrayOutput) ToRunBookDraftParameterArrayOutputWithContext(ctx context.Context) RunBookDraftParameterArrayOutput {
+	return o
+}
+
+func (o RunBookDraftParameterArrayOutput) Index(i pulumi.IntInput) RunBookDraftParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RunBookDraftParameter {
+		return vs[0].([]RunBookDraftParameter)[vs[1].(int)]
+	}).(RunBookDraftParameterOutput)
+}
+
 type RunBookJobSchedule struct {
 	JobScheduleId *string           `pulumi:"jobScheduleId"`
 	Parameters    map[string]string `pulumi:"parameters"`
@@ -962,9 +1643,11 @@ func (o RunBookJobScheduleArrayOutput) Index(i pulumi.IntInput) RunBookJobSchedu
 }
 
 type RunBookPublishContentLink struct {
+	// A `hash` block as defined blow.
 	Hash *RunBookPublishContentLinkHash `pulumi:"hash"`
 	// The URI of the runbook content.
-	Uri     string  `pulumi:"uri"`
+	Uri string `pulumi:"uri"`
+	// Specifies the version of the content
 	Version *string `pulumi:"version"`
 }
 
@@ -980,9 +1663,11 @@ type RunBookPublishContentLinkInput interface {
 }
 
 type RunBookPublishContentLinkArgs struct {
+	// A `hash` block as defined blow.
 	Hash RunBookPublishContentLinkHashPtrInput `pulumi:"hash"`
 	// The URI of the runbook content.
-	Uri     pulumi.StringInput    `pulumi:"uri"`
+	Uri pulumi.StringInput `pulumi:"uri"`
+	// Specifies the version of the content
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -1063,6 +1748,7 @@ func (o RunBookPublishContentLinkOutput) ToRunBookPublishContentLinkPtrOutputWit
 	}).(RunBookPublishContentLinkPtrOutput)
 }
 
+// A `hash` block as defined blow.
 func (o RunBookPublishContentLinkOutput) Hash() RunBookPublishContentLinkHashPtrOutput {
 	return o.ApplyT(func(v RunBookPublishContentLink) *RunBookPublishContentLinkHash { return v.Hash }).(RunBookPublishContentLinkHashPtrOutput)
 }
@@ -1072,6 +1758,7 @@ func (o RunBookPublishContentLinkOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v RunBookPublishContentLink) string { return v.Uri }).(pulumi.StringOutput)
 }
 
+// Specifies the version of the content
 func (o RunBookPublishContentLinkOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RunBookPublishContentLink) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -1100,6 +1787,7 @@ func (o RunBookPublishContentLinkPtrOutput) Elem() RunBookPublishContentLinkOutp
 	}).(RunBookPublishContentLinkOutput)
 }
 
+// A `hash` block as defined blow.
 func (o RunBookPublishContentLinkPtrOutput) Hash() RunBookPublishContentLinkHashPtrOutput {
 	return o.ApplyT(func(v *RunBookPublishContentLink) *RunBookPublishContentLinkHash {
 		if v == nil {
@@ -1119,6 +1807,7 @@ func (o RunBookPublishContentLinkPtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the version of the content
 func (o RunBookPublishContentLinkPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunBookPublishContentLink) *string {
 		if v == nil {
@@ -1129,8 +1818,10 @@ func (o RunBookPublishContentLinkPtrOutput) Version() pulumi.StringPtrOutput {
 }
 
 type RunBookPublishContentLinkHash struct {
+	// Specifies the hash algorithm used to hash the content.
 	Algorithm string `pulumi:"algorithm"`
-	Value     string `pulumi:"value"`
+	// Specifies the expected hash value of the content.
+	Value string `pulumi:"value"`
 }
 
 // RunBookPublishContentLinkHashInput is an input type that accepts RunBookPublishContentLinkHashArgs and RunBookPublishContentLinkHashOutput values.
@@ -1145,8 +1836,10 @@ type RunBookPublishContentLinkHashInput interface {
 }
 
 type RunBookPublishContentLinkHashArgs struct {
+	// Specifies the hash algorithm used to hash the content.
 	Algorithm pulumi.StringInput `pulumi:"algorithm"`
-	Value     pulumi.StringInput `pulumi:"value"`
+	// Specifies the expected hash value of the content.
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (RunBookPublishContentLinkHashArgs) ElementType() reflect.Type {
@@ -1226,10 +1919,12 @@ func (o RunBookPublishContentLinkHashOutput) ToRunBookPublishContentLinkHashPtrO
 	}).(RunBookPublishContentLinkHashPtrOutput)
 }
 
+// Specifies the hash algorithm used to hash the content.
 func (o RunBookPublishContentLinkHashOutput) Algorithm() pulumi.StringOutput {
 	return o.ApplyT(func(v RunBookPublishContentLinkHash) string { return v.Algorithm }).(pulumi.StringOutput)
 }
 
+// Specifies the expected hash value of the content.
 func (o RunBookPublishContentLinkHashOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v RunBookPublishContentLinkHash) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -1258,6 +1953,7 @@ func (o RunBookPublishContentLinkHashPtrOutput) Elem() RunBookPublishContentLink
 	}).(RunBookPublishContentLinkHashOutput)
 }
 
+// Specifies the hash algorithm used to hash the content.
 func (o RunBookPublishContentLinkHashPtrOutput) Algorithm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunBookPublishContentLinkHash) *string {
 		if v == nil {
@@ -1267,6 +1963,7 @@ func (o RunBookPublishContentLinkHashPtrOutput) Algorithm() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the expected hash value of the content.
 func (o RunBookPublishContentLinkHashPtrOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunBookPublishContentLinkHash) *string {
 		if v == nil {
@@ -3174,6 +3871,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModuleModuleLinkPtrInput)(nil)).Elem(), ModuleModuleLinkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModuleModuleLinkHashInput)(nil)).Elem(), ModuleModuleLinkHashArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModuleModuleLinkHashPtrInput)(nil)).Elem(), ModuleModuleLinkHashArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunBookDraftInput)(nil)).Elem(), RunBookDraftArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunBookDraftPtrInput)(nil)).Elem(), RunBookDraftArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunBookDraftContentLinkInput)(nil)).Elem(), RunBookDraftContentLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunBookDraftContentLinkPtrInput)(nil)).Elem(), RunBookDraftContentLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunBookDraftContentLinkHashInput)(nil)).Elem(), RunBookDraftContentLinkHashArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunBookDraftContentLinkHashPtrInput)(nil)).Elem(), RunBookDraftContentLinkHashArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunBookDraftParameterInput)(nil)).Elem(), RunBookDraftParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RunBookDraftParameterArrayInput)(nil)).Elem(), RunBookDraftParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RunBookJobScheduleInput)(nil)).Elem(), RunBookJobScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RunBookJobScheduleArrayInput)(nil)).Elem(), RunBookJobScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RunBookPublishContentLinkInput)(nil)).Elem(), RunBookPublishContentLinkArgs{})
@@ -3220,6 +3925,14 @@ func init() {
 	pulumi.RegisterOutputType(ModuleModuleLinkPtrOutput{})
 	pulumi.RegisterOutputType(ModuleModuleLinkHashOutput{})
 	pulumi.RegisterOutputType(ModuleModuleLinkHashPtrOutput{})
+	pulumi.RegisterOutputType(RunBookDraftOutput{})
+	pulumi.RegisterOutputType(RunBookDraftPtrOutput{})
+	pulumi.RegisterOutputType(RunBookDraftContentLinkOutput{})
+	pulumi.RegisterOutputType(RunBookDraftContentLinkPtrOutput{})
+	pulumi.RegisterOutputType(RunBookDraftContentLinkHashOutput{})
+	pulumi.RegisterOutputType(RunBookDraftContentLinkHashPtrOutput{})
+	pulumi.RegisterOutputType(RunBookDraftParameterOutput{})
+	pulumi.RegisterOutputType(RunBookDraftParameterArrayOutput{})
 	pulumi.RegisterOutputType(RunBookJobScheduleOutput{})
 	pulumi.RegisterOutputType(RunBookJobScheduleArrayOutput{})
 	pulumi.RegisterOutputType(RunBookPublishContentLinkOutput{})

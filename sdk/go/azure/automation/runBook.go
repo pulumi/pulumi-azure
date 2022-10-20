@@ -80,10 +80,15 @@ type RunBook struct {
 	// The desired content of the runbook.
 	Content pulumi.StringOutput `pulumi:"content"`
 	// A description for this credential.
-	Description  pulumi.StringPtrOutput        `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// A `draft` block as defined below .
+	Draft        RunBookDraftPtrOutput         `pulumi:"draft"`
 	JobSchedules RunBookJobScheduleArrayOutput `pulumi:"jobSchedules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
+	// Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+	LogActivityTraceLevel pulumi.IntPtrOutput `pulumi:"logActivityTraceLevel"`
 	// Progress log option.
 	LogProgress pulumi.BoolOutput `pulumi:"logProgress"`
 	// Verbose log option.
@@ -149,10 +154,15 @@ type runBookState struct {
 	// The desired content of the runbook.
 	Content *string `pulumi:"content"`
 	// A description for this credential.
-	Description  *string              `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// A `draft` block as defined below .
+	Draft        *RunBookDraft        `pulumi:"draft"`
 	JobSchedules []RunBookJobSchedule `pulumi:"jobSchedules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
+	// Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+	LogActivityTraceLevel *int `pulumi:"logActivityTraceLevel"`
 	// Progress log option.
 	LogProgress *bool `pulumi:"logProgress"`
 	// Verbose log option.
@@ -175,10 +185,15 @@ type RunBookState struct {
 	// The desired content of the runbook.
 	Content pulumi.StringPtrInput
 	// A description for this credential.
-	Description  pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// A `draft` block as defined below .
+	Draft        RunBookDraftPtrInput
 	JobSchedules RunBookJobScheduleArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
+	// Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+	LogActivityTraceLevel pulumi.IntPtrInput
 	// Progress log option.
 	LogProgress pulumi.BoolPtrInput
 	// Verbose log option.
@@ -205,10 +220,15 @@ type runBookArgs struct {
 	// The desired content of the runbook.
 	Content *string `pulumi:"content"`
 	// A description for this credential.
-	Description  *string              `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// A `draft` block as defined below .
+	Draft        *RunBookDraft        `pulumi:"draft"`
 	JobSchedules []RunBookJobSchedule `pulumi:"jobSchedules"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
+	// Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+	LogActivityTraceLevel *int `pulumi:"logActivityTraceLevel"`
 	// Progress log option.
 	LogProgress bool `pulumi:"logProgress"`
 	// Verbose log option.
@@ -232,10 +252,15 @@ type RunBookArgs struct {
 	// The desired content of the runbook.
 	Content pulumi.StringPtrInput
 	// A description for this credential.
-	Description  pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// A `draft` block as defined below .
+	Draft        RunBookDraftPtrInput
 	JobSchedules RunBookJobScheduleArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
+	// Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+	LogActivityTraceLevel pulumi.IntPtrInput
 	// Progress log option.
 	LogProgress pulumi.BoolInput
 	// Verbose log option.
@@ -354,6 +379,11 @@ func (o RunBookOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RunBook) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A `draft` block as defined below .
+func (o RunBookOutput) Draft() RunBookDraftPtrOutput {
+	return o.ApplyT(func(v *RunBook) RunBookDraftPtrOutput { return v.Draft }).(RunBookDraftPtrOutput)
+}
+
 func (o RunBookOutput) JobSchedules() RunBookJobScheduleArrayOutput {
 	return o.ApplyT(func(v *RunBook) RunBookJobScheduleArrayOutput { return v.JobSchedules }).(RunBookJobScheduleArrayOutput)
 }
@@ -361,6 +391,12 @@ func (o RunBookOutput) JobSchedules() RunBookJobScheduleArrayOutput {
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (o RunBookOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *RunBook) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks.
+// Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+func (o RunBookOutput) LogActivityTraceLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RunBook) pulumi.IntPtrOutput { return v.LogActivityTraceLevel }).(pulumi.IntPtrOutput)
 }
 
 // Progress log option.

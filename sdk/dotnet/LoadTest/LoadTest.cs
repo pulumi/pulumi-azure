@@ -10,47 +10,40 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LoadTest
 {
     /// <summary>
-    /// Manages a Load Test.
+    /// &lt;!-- Note: This documentation is generated. Any manual changes will be overwritten --&gt;
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using Pulumi;
-    /// using Azure = Pulumi.Azure;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
-    ///     {
-    ///         Location = "West Europe",
-    ///     });
-    /// 
-    ///     var exampleLoadTest = new Azure.LoadTest.LoadTest("exampleLoadTest", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///     });
-    /// 
-    /// });
-    /// ```
+    /// Manages a Load Test Service.
     /// 
     /// ## Import
     /// 
-    /// Load tests can be imported using the `resource id`, e.g.
+    /// An existing Load Test can be imported into Terraform using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:loadtest/loadTest:LoadTest example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.LoadTestService/loadtests/example
+    ///  $ pulumi import azure:loadtest/loadTest:LoadTest example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LoadTestService/loadTests/{loadTestName}
     /// ```
+    /// 
+    ///  * Where `{subscriptionId}` is the ID of the Azure Subscription where the Load Test exists. For example `12345678-1234-9876-4563-123456789012`. * Where `{resourceGroupName}` is the name of Resource Group where this Load Test exists. For example `example-resource-group`. * Where `{loadTestName}` is the name of the Load Test. For example `loadTestValue`.
     /// </summary>
     [AzureResourceType("azure:loadtest/loadTest:LoadTest")]
     public partial class LoadTest : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Public URI of the Data Plane.
+        /// Resource data plane URI.
         /// </summary>
-        [Output("dataplaneUri")]
-        public Output<string> DataplaneUri { get; private set; } = null!;
+        [Output("dataPlaneUri")]
+        public Output<string> DataPlaneUri { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of the resource. Changing this forces a new Load Test to be created.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the Managed Identity which should be assigned to this Load Test.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.LoadTestIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
@@ -59,13 +52,13 @@ namespace Pulumi.Azure.LoadTest
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+        /// Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+        /// Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -123,19 +116,31 @@ namespace Pulumi.Azure.LoadTest
     public sealed class LoadTestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Description of the resource. Changing this forces a new Load Test to be created.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Specifies the Managed Identity which should be assigned to this Load Test.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.LoadTestIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+        /// Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+        /// Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -161,10 +166,22 @@ namespace Pulumi.Azure.LoadTest
     public sealed class LoadTestState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Public URI of the Data Plane.
+        /// Resource data plane URI.
         /// </summary>
-        [Input("dataplaneUri")]
-        public Input<string>? DataplaneUri { get; set; }
+        [Input("dataPlaneUri")]
+        public Input<string>? DataPlaneUri { get; set; }
+
+        /// <summary>
+        /// Description of the resource. Changing this forces a new Load Test to be created.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Specifies the Managed Identity which should be assigned to this Load Test.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.LoadTestIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
@@ -173,13 +190,13 @@ namespace Pulumi.Azure.LoadTest
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Load Test. Changing this forces a new Load Test to be created.
+        /// Specifies the name of this Load Test. Changing this forces a new Load Test to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the Resource Group where the Load Test should exist. Changing this forces a new Load Test to be created.
+        /// Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }

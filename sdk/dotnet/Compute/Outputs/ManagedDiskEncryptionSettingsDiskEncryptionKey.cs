@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string SecretUrl;
         /// <summary>
-        /// The ID of the source Key Vault.
+        /// The ID of the source Key Vault. This can be found as `id` on the `azure.keyvault.KeyVault` resource.
         /// </summary>
         public readonly string SourceVaultId;
 

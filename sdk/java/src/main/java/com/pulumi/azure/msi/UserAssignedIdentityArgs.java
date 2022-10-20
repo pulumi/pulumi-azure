@@ -17,16 +17,14 @@ public final class UserAssignedIdentityArgs extends com.pulumi.resources.Resourc
     public static final UserAssignedIdentityArgs Empty = new UserAssignedIdentityArgs();
 
     /**
-     * The location/region where the user assigned identity is
-     * created.
+     * The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return The location/region where the user assigned identity is
-     * created.
+     * @return The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      * 
      */
     public Optional<Output<String>> location() {
@@ -34,16 +32,14 @@ public final class UserAssignedIdentityArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The name of the user assigned identity. Changing this forces a
-     * new identity to be created.
+     * Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the user assigned identity. Changing this forces a
-     * new identity to be created.
+     * @return Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -51,16 +47,14 @@ public final class UserAssignedIdentityArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The name of the resource group in which to
-     * create the user assigned identity.
+     * Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return The name of the resource group in which to
-     * create the user assigned identity.
+     * @return Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -68,14 +62,14 @@ public final class UserAssignedIdentityArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A mapping of tags to assign to the resource.
+     * A mapping of tags which should be assigned to the User Assigned Identity.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource.
+     * @return A mapping of tags which should be assigned to the User Assigned Identity.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -110,8 +104,7 @@ public final class UserAssignedIdentityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param location The location/region where the user assigned identity is
-         * created.
+         * @param location The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
          * 
          * @return builder
          * 
@@ -122,8 +115,7 @@ public final class UserAssignedIdentityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param location The location/region where the user assigned identity is
-         * created.
+         * @param location The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
          * 
          * @return builder
          * 
@@ -133,8 +125,7 @@ public final class UserAssignedIdentityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The name of the user assigned identity. Changing this forces a
-         * new identity to be created.
+         * @param name Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
          * 
          * @return builder
          * 
@@ -145,8 +136,7 @@ public final class UserAssignedIdentityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The name of the user assigned identity. Changing this forces a
-         * new identity to be created.
+         * @param name Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created.
          * 
          * @return builder
          * 
@@ -156,8 +146,7 @@ public final class UserAssignedIdentityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the user assigned identity.
+         * @param resourceGroupName Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
          * 
          * @return builder
          * 
@@ -168,8 +157,7 @@ public final class UserAssignedIdentityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param resourceGroupName The name of the resource group in which to
-         * create the user assigned identity.
+         * @param resourceGroupName Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created.
          * 
          * @return builder
          * 
@@ -179,7 +167,7 @@ public final class UserAssignedIdentityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tags A mapping of tags to assign to the resource.
+         * @param tags A mapping of tags which should be assigned to the User Assigned Identity.
          * 
          * @return builder
          * 
@@ -190,7 +178,7 @@ public final class UserAssignedIdentityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tags A mapping of tags to assign to the resource.
+         * @param tags A mapping of tags which should be assigned to the User Assigned Identity.
          * 
          * @return builder
          * 

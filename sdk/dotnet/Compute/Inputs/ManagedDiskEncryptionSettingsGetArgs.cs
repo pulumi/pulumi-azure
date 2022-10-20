@@ -18,11 +18,8 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("diskEncryptionKey")]
         public Input<Inputs.ManagedDiskEncryptionSettingsDiskEncryptionKeyGetArgs>? DiskEncryptionKey { get; set; }
 
-        /// <summary>
-        /// Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("enabled", required: true)]
-        public Input<bool> Enabled { get; set; } = null!;
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
 
         /// <summary>
         /// A `key_encryption_key` block as defined below.

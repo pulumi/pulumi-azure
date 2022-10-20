@@ -42,7 +42,7 @@ class FirewallPolicyArgs:
         :param pulumi.Input[str] location: The Azure Region where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_ranges: A list of private IP ranges to which traffic will not be SNAT.
-        :param pulumi.Input[str] sku: The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
+        :param pulumi.Input[str] sku: The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[bool] sql_redirect_allowed: Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Firewall Policy.
         :param pulumi.Input['FirewallPolicyThreatIntelligenceAllowlistArgs'] threat_intelligence_allowlist: A `threat_intelligence_allowlist` block as defined below.
@@ -191,7 +191,7 @@ class FirewallPolicyArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
+        The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -295,7 +295,7 @@ class _FirewallPolicyState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_ranges: A list of private IP ranges to which traffic will not be SNAT.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rule_collection_groups: A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy.
-        :param pulumi.Input[str] sku: The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
+        :param pulumi.Input[str] sku: The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[bool] sql_redirect_allowed: Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Firewall Policy.
         :param pulumi.Input['FirewallPolicyThreatIntelligenceAllowlistArgs'] threat_intelligence_allowlist: A `threat_intelligence_allowlist` block as defined below.
@@ -487,7 +487,7 @@ class _FirewallPolicyState:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input[str]]:
         """
-        The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
+        The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
         """
         return pulumi.get(self, "sku")
 
@@ -611,7 +611,7 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Firewall Policy. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_ranges: A list of private IP ranges to which traffic will not be SNAT.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
-        :param pulumi.Input[str] sku: The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
+        :param pulumi.Input[str] sku: The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[bool] sql_redirect_allowed: Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Firewall Policy.
         :param pulumi.Input[pulumi.InputType['FirewallPolicyThreatIntelligenceAllowlistArgs']] threat_intelligence_allowlist: A `threat_intelligence_allowlist` block as defined below.
@@ -753,7 +753,7 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_ranges: A list of private IP ranges to which traffic will not be SNAT.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Firewall Policy should exist. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] rule_collection_groups: A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy.
-        :param pulumi.Input[str] sku: The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
+        :param pulumi.Input[str] sku: The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
         :param pulumi.Input[bool] sql_redirect_allowed: Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Firewall Policy.
         :param pulumi.Input[pulumi.InputType['FirewallPolicyThreatIntelligenceAllowlistArgs']] threat_intelligence_allowlist: A `threat_intelligence_allowlist` block as defined below.
@@ -884,7 +884,7 @@ class FirewallPolicy(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[str]:
         """
-        The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
+        The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created.
         """
         return pulumi.get(self, "sku")
 

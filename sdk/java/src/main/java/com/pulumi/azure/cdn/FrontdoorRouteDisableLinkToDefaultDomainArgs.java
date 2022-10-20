@@ -15,31 +15,47 @@ public final class FrontdoorRouteDisableLinkToDefaultDomainArgs extends com.pulu
     public static final FrontdoorRouteDisableLinkToDefaultDomainArgs Empty = new FrontdoorRouteDisableLinkToDefaultDomainArgs();
 
     /**
-     * The resource IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route. Changing this forces a new Frontdoor Route to be created.
+     * The resource IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route. Changing this forces a new FrontDoor Route Disable Link To Default Domain to be created.
+     * 
+     * @deprecated
+     * the &#39;cdn_frontdoor_route_disable_link_to_default_domain&#39; resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the &#39;link_to_default_domain&#39; field in the &#39;cdn_frontdoor_route&#39; resource to control this value
      * 
      */
+    @Deprecated /* the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value */
     @Import(name="cdnFrontdoorCustomDomainIds", required=true)
     private Output<List<String>> cdnFrontdoorCustomDomainIds;
 
     /**
-     * @return The resource IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route. Changing this forces a new Frontdoor Route to be created.
+     * @return The resource IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route. Changing this forces a new FrontDoor Route Disable Link To Default Domain to be created.
+     * 
+     * @deprecated
+     * the &#39;cdn_frontdoor_route_disable_link_to_default_domain&#39; resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the &#39;link_to_default_domain&#39; field in the &#39;cdn_frontdoor_route&#39; resource to control this value
      * 
      */
+    @Deprecated /* the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value */
     public Output<List<String>> cdnFrontdoorCustomDomainIds() {
         return this.cdnFrontdoorCustomDomainIds;
     }
 
     /**
-     * The resource ID of the CDN FrontDoor Route where the Link To Default Domain property should be `disabled`. Changing this forces a new Frontdoor Route to be created.
+     * The resource ID of the CDN FrontDoor Route where the Link To Default Domain property should be `disabled`. Changing this forces a new FrontDoor Route Disable Link To Default Domain to be created.
+     * 
+     * @deprecated
+     * the &#39;cdn_frontdoor_route_disable_link_to_default_domain&#39; resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the &#39;link_to_default_domain&#39; field in the &#39;cdn_frontdoor_route&#39; resource to control this value
      * 
      */
+    @Deprecated /* the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value */
     @Import(name="cdnFrontdoorRouteId", required=true)
     private Output<String> cdnFrontdoorRouteId;
 
     /**
-     * @return The resource ID of the CDN FrontDoor Route where the Link To Default Domain property should be `disabled`. Changing this forces a new Frontdoor Route to be created.
+     * @return The resource ID of the CDN FrontDoor Route where the Link To Default Domain property should be `disabled`. Changing this forces a new FrontDoor Route Disable Link To Default Domain to be created.
+     * 
+     * @deprecated
+     * the &#39;cdn_frontdoor_route_disable_link_to_default_domain&#39; resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the &#39;link_to_default_domain&#39; field in the &#39;cdn_frontdoor_route&#39; resource to control this value
      * 
      */
+    @Deprecated /* the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value */
     public Output<String> cdnFrontdoorRouteId() {
         return this.cdnFrontdoorRouteId;
     }
@@ -70,53 +86,73 @@ public final class FrontdoorRouteDisableLinkToDefaultDomainArgs extends com.pulu
         }
 
         /**
-         * @param cdnFrontdoorCustomDomainIds The resource IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route. Changing this forces a new Frontdoor Route to be created.
+         * @param cdnFrontdoorCustomDomainIds The resource IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route. Changing this forces a new FrontDoor Route Disable Link To Default Domain to be created.
          * 
          * @return builder
          * 
+         * @deprecated
+         * the &#39;cdn_frontdoor_route_disable_link_to_default_domain&#39; resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the &#39;link_to_default_domain&#39; field in the &#39;cdn_frontdoor_route&#39; resource to control this value
+         * 
          */
+        @Deprecated /* the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value */
         public Builder cdnFrontdoorCustomDomainIds(Output<List<String>> cdnFrontdoorCustomDomainIds) {
             $.cdnFrontdoorCustomDomainIds = cdnFrontdoorCustomDomainIds;
             return this;
         }
 
         /**
-         * @param cdnFrontdoorCustomDomainIds The resource IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route. Changing this forces a new Frontdoor Route to be created.
+         * @param cdnFrontdoorCustomDomainIds The resource IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route. Changing this forces a new FrontDoor Route Disable Link To Default Domain to be created.
          * 
          * @return builder
          * 
+         * @deprecated
+         * the &#39;cdn_frontdoor_route_disable_link_to_default_domain&#39; resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the &#39;link_to_default_domain&#39; field in the &#39;cdn_frontdoor_route&#39; resource to control this value
+         * 
          */
+        @Deprecated /* the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value */
         public Builder cdnFrontdoorCustomDomainIds(List<String> cdnFrontdoorCustomDomainIds) {
             return cdnFrontdoorCustomDomainIds(Output.of(cdnFrontdoorCustomDomainIds));
         }
 
         /**
-         * @param cdnFrontdoorCustomDomainIds The resource IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route. Changing this forces a new Frontdoor Route to be created.
+         * @param cdnFrontdoorCustomDomainIds The resource IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route. Changing this forces a new FrontDoor Route Disable Link To Default Domain to be created.
          * 
          * @return builder
          * 
+         * @deprecated
+         * the &#39;cdn_frontdoor_route_disable_link_to_default_domain&#39; resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the &#39;link_to_default_domain&#39; field in the &#39;cdn_frontdoor_route&#39; resource to control this value
+         * 
          */
+        @Deprecated /* the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value */
         public Builder cdnFrontdoorCustomDomainIds(String... cdnFrontdoorCustomDomainIds) {
             return cdnFrontdoorCustomDomainIds(List.of(cdnFrontdoorCustomDomainIds));
         }
 
         /**
-         * @param cdnFrontdoorRouteId The resource ID of the CDN FrontDoor Route where the Link To Default Domain property should be `disabled`. Changing this forces a new Frontdoor Route to be created.
+         * @param cdnFrontdoorRouteId The resource ID of the CDN FrontDoor Route where the Link To Default Domain property should be `disabled`. Changing this forces a new FrontDoor Route Disable Link To Default Domain to be created.
          * 
          * @return builder
          * 
+         * @deprecated
+         * the &#39;cdn_frontdoor_route_disable_link_to_default_domain&#39; resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the &#39;link_to_default_domain&#39; field in the &#39;cdn_frontdoor_route&#39; resource to control this value
+         * 
          */
+        @Deprecated /* the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value */
         public Builder cdnFrontdoorRouteId(Output<String> cdnFrontdoorRouteId) {
             $.cdnFrontdoorRouteId = cdnFrontdoorRouteId;
             return this;
         }
 
         /**
-         * @param cdnFrontdoorRouteId The resource ID of the CDN FrontDoor Route where the Link To Default Domain property should be `disabled`. Changing this forces a new Frontdoor Route to be created.
+         * @param cdnFrontdoorRouteId The resource ID of the CDN FrontDoor Route where the Link To Default Domain property should be `disabled`. Changing this forces a new FrontDoor Route Disable Link To Default Domain to be created.
          * 
          * @return builder
          * 
+         * @deprecated
+         * the &#39;cdn_frontdoor_route_disable_link_to_default_domain&#39; resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the &#39;link_to_default_domain&#39; field in the &#39;cdn_frontdoor_route&#39; resource to control this value
+         * 
          */
+        @Deprecated /* the 'cdn_frontdoor_route_disable_link_to_default_domain' resource has been deprecated and will be removed from the 4.0 AzureRM provider. Please use the 'link_to_default_domain' field in the 'cdn_frontdoor_route' resource to control this value */
         public Builder cdnFrontdoorRouteId(String cdnFrontdoorRouteId) {
             return cdnFrontdoorRouteId(Output.of(cdnFrontdoorRouteId));
         }

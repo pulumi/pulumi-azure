@@ -17,14 +17,14 @@ public final class SubnetDelegationServiceDelegationArgs extends com.pulumi.reso
     public static final SubnetDelegationServiceDelegationArgs Empty = new SubnetDelegationServiceDelegationArgs();
 
     /**
-     * A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+     * A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/publicIPAddresses/read`,`Microsoft.Network/virtualNetworks/read`,`Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
      * 
      */
     @Import(name="actions")
     private @Nullable Output<List<String>> actions;
 
     /**
-     * @return A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+     * @return A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/publicIPAddresses/read`,`Microsoft.Network/virtualNetworks/read`,`Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
      * 
      */
     public Optional<Output<List<String>>> actions() {
@@ -72,7 +72,7 @@ public final class SubnetDelegationServiceDelegationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param actions A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+         * @param actions A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/publicIPAddresses/read`,`Microsoft.Network/virtualNetworks/read`,`Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class SubnetDelegationServiceDelegationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param actions A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+         * @param actions A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/publicIPAddresses/read`,`Microsoft.Network/virtualNetworks/read`,`Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class SubnetDelegationServiceDelegationArgs extends com.pulumi.reso
         }
 
         /**
-         * @param actions A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
+         * @param actions A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/publicIPAddresses/read`,`Microsoft.Network/virtualNetworks/read`,`Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
          * 
          * @return builder
          * 

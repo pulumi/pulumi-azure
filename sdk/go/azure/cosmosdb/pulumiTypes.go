@@ -6347,6 +6347,200 @@ func (o GetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput) Index
 	}).(GetRestorableDatabaseAccountsAccountRestorableLocationOutput)
 }
 
+type GetSqlDatabaseAutoscaleSetting struct {
+	// The maximum throughput of the SQL database (RU/s).
+	MaxThroughput int `pulumi:"maxThroughput"`
+}
+
+// GetSqlDatabaseAutoscaleSettingInput is an input type that accepts GetSqlDatabaseAutoscaleSettingArgs and GetSqlDatabaseAutoscaleSettingOutput values.
+// You can construct a concrete instance of `GetSqlDatabaseAutoscaleSettingInput` via:
+//
+//	GetSqlDatabaseAutoscaleSettingArgs{...}
+type GetSqlDatabaseAutoscaleSettingInput interface {
+	pulumi.Input
+
+	ToGetSqlDatabaseAutoscaleSettingOutput() GetSqlDatabaseAutoscaleSettingOutput
+	ToGetSqlDatabaseAutoscaleSettingOutputWithContext(context.Context) GetSqlDatabaseAutoscaleSettingOutput
+}
+
+type GetSqlDatabaseAutoscaleSettingArgs struct {
+	// The maximum throughput of the SQL database (RU/s).
+	MaxThroughput pulumi.IntInput `pulumi:"maxThroughput"`
+}
+
+func (GetSqlDatabaseAutoscaleSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSqlDatabaseAutoscaleSetting)(nil)).Elem()
+}
+
+func (i GetSqlDatabaseAutoscaleSettingArgs) ToGetSqlDatabaseAutoscaleSettingOutput() GetSqlDatabaseAutoscaleSettingOutput {
+	return i.ToGetSqlDatabaseAutoscaleSettingOutputWithContext(context.Background())
+}
+
+func (i GetSqlDatabaseAutoscaleSettingArgs) ToGetSqlDatabaseAutoscaleSettingOutputWithContext(ctx context.Context) GetSqlDatabaseAutoscaleSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSqlDatabaseAutoscaleSettingOutput)
+}
+
+// GetSqlDatabaseAutoscaleSettingArrayInput is an input type that accepts GetSqlDatabaseAutoscaleSettingArray and GetSqlDatabaseAutoscaleSettingArrayOutput values.
+// You can construct a concrete instance of `GetSqlDatabaseAutoscaleSettingArrayInput` via:
+//
+//	GetSqlDatabaseAutoscaleSettingArray{ GetSqlDatabaseAutoscaleSettingArgs{...} }
+type GetSqlDatabaseAutoscaleSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetSqlDatabaseAutoscaleSettingArrayOutput() GetSqlDatabaseAutoscaleSettingArrayOutput
+	ToGetSqlDatabaseAutoscaleSettingArrayOutputWithContext(context.Context) GetSqlDatabaseAutoscaleSettingArrayOutput
+}
+
+type GetSqlDatabaseAutoscaleSettingArray []GetSqlDatabaseAutoscaleSettingInput
+
+func (GetSqlDatabaseAutoscaleSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSqlDatabaseAutoscaleSetting)(nil)).Elem()
+}
+
+func (i GetSqlDatabaseAutoscaleSettingArray) ToGetSqlDatabaseAutoscaleSettingArrayOutput() GetSqlDatabaseAutoscaleSettingArrayOutput {
+	return i.ToGetSqlDatabaseAutoscaleSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetSqlDatabaseAutoscaleSettingArray) ToGetSqlDatabaseAutoscaleSettingArrayOutputWithContext(ctx context.Context) GetSqlDatabaseAutoscaleSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSqlDatabaseAutoscaleSettingArrayOutput)
+}
+
+type GetSqlDatabaseAutoscaleSettingOutput struct{ *pulumi.OutputState }
+
+func (GetSqlDatabaseAutoscaleSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSqlDatabaseAutoscaleSetting)(nil)).Elem()
+}
+
+func (o GetSqlDatabaseAutoscaleSettingOutput) ToGetSqlDatabaseAutoscaleSettingOutput() GetSqlDatabaseAutoscaleSettingOutput {
+	return o
+}
+
+func (o GetSqlDatabaseAutoscaleSettingOutput) ToGetSqlDatabaseAutoscaleSettingOutputWithContext(ctx context.Context) GetSqlDatabaseAutoscaleSettingOutput {
+	return o
+}
+
+// The maximum throughput of the SQL database (RU/s).
+func (o GetSqlDatabaseAutoscaleSettingOutput) MaxThroughput() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSqlDatabaseAutoscaleSetting) int { return v.MaxThroughput }).(pulumi.IntOutput)
+}
+
+type GetSqlDatabaseAutoscaleSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSqlDatabaseAutoscaleSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSqlDatabaseAutoscaleSetting)(nil)).Elem()
+}
+
+func (o GetSqlDatabaseAutoscaleSettingArrayOutput) ToGetSqlDatabaseAutoscaleSettingArrayOutput() GetSqlDatabaseAutoscaleSettingArrayOutput {
+	return o
+}
+
+func (o GetSqlDatabaseAutoscaleSettingArrayOutput) ToGetSqlDatabaseAutoscaleSettingArrayOutputWithContext(ctx context.Context) GetSqlDatabaseAutoscaleSettingArrayOutput {
+	return o
+}
+
+func (o GetSqlDatabaseAutoscaleSettingArrayOutput) Index(i pulumi.IntInput) GetSqlDatabaseAutoscaleSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSqlDatabaseAutoscaleSetting {
+		return vs[0].([]GetSqlDatabaseAutoscaleSetting)[vs[1].(int)]
+	}).(GetSqlDatabaseAutoscaleSettingOutput)
+}
+
+type GetSqlRoleDefinitionPermission struct {
+	// A list of data actions that are allowed for the Cosmos DB SQL Role Definition.
+	DataActions []string `pulumi:"dataActions"`
+}
+
+// GetSqlRoleDefinitionPermissionInput is an input type that accepts GetSqlRoleDefinitionPermissionArgs and GetSqlRoleDefinitionPermissionOutput values.
+// You can construct a concrete instance of `GetSqlRoleDefinitionPermissionInput` via:
+//
+//	GetSqlRoleDefinitionPermissionArgs{...}
+type GetSqlRoleDefinitionPermissionInput interface {
+	pulumi.Input
+
+	ToGetSqlRoleDefinitionPermissionOutput() GetSqlRoleDefinitionPermissionOutput
+	ToGetSqlRoleDefinitionPermissionOutputWithContext(context.Context) GetSqlRoleDefinitionPermissionOutput
+}
+
+type GetSqlRoleDefinitionPermissionArgs struct {
+	// A list of data actions that are allowed for the Cosmos DB SQL Role Definition.
+	DataActions pulumi.StringArrayInput `pulumi:"dataActions"`
+}
+
+func (GetSqlRoleDefinitionPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSqlRoleDefinitionPermission)(nil)).Elem()
+}
+
+func (i GetSqlRoleDefinitionPermissionArgs) ToGetSqlRoleDefinitionPermissionOutput() GetSqlRoleDefinitionPermissionOutput {
+	return i.ToGetSqlRoleDefinitionPermissionOutputWithContext(context.Background())
+}
+
+func (i GetSqlRoleDefinitionPermissionArgs) ToGetSqlRoleDefinitionPermissionOutputWithContext(ctx context.Context) GetSqlRoleDefinitionPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSqlRoleDefinitionPermissionOutput)
+}
+
+// GetSqlRoleDefinitionPermissionArrayInput is an input type that accepts GetSqlRoleDefinitionPermissionArray and GetSqlRoleDefinitionPermissionArrayOutput values.
+// You can construct a concrete instance of `GetSqlRoleDefinitionPermissionArrayInput` via:
+//
+//	GetSqlRoleDefinitionPermissionArray{ GetSqlRoleDefinitionPermissionArgs{...} }
+type GetSqlRoleDefinitionPermissionArrayInput interface {
+	pulumi.Input
+
+	ToGetSqlRoleDefinitionPermissionArrayOutput() GetSqlRoleDefinitionPermissionArrayOutput
+	ToGetSqlRoleDefinitionPermissionArrayOutputWithContext(context.Context) GetSqlRoleDefinitionPermissionArrayOutput
+}
+
+type GetSqlRoleDefinitionPermissionArray []GetSqlRoleDefinitionPermissionInput
+
+func (GetSqlRoleDefinitionPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSqlRoleDefinitionPermission)(nil)).Elem()
+}
+
+func (i GetSqlRoleDefinitionPermissionArray) ToGetSqlRoleDefinitionPermissionArrayOutput() GetSqlRoleDefinitionPermissionArrayOutput {
+	return i.ToGetSqlRoleDefinitionPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i GetSqlRoleDefinitionPermissionArray) ToGetSqlRoleDefinitionPermissionArrayOutputWithContext(ctx context.Context) GetSqlRoleDefinitionPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSqlRoleDefinitionPermissionArrayOutput)
+}
+
+type GetSqlRoleDefinitionPermissionOutput struct{ *pulumi.OutputState }
+
+func (GetSqlRoleDefinitionPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSqlRoleDefinitionPermission)(nil)).Elem()
+}
+
+func (o GetSqlRoleDefinitionPermissionOutput) ToGetSqlRoleDefinitionPermissionOutput() GetSqlRoleDefinitionPermissionOutput {
+	return o
+}
+
+func (o GetSqlRoleDefinitionPermissionOutput) ToGetSqlRoleDefinitionPermissionOutputWithContext(ctx context.Context) GetSqlRoleDefinitionPermissionOutput {
+	return o
+}
+
+// A list of data actions that are allowed for the Cosmos DB SQL Role Definition.
+func (o GetSqlRoleDefinitionPermissionOutput) DataActions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSqlRoleDefinitionPermission) []string { return v.DataActions }).(pulumi.StringArrayOutput)
+}
+
+type GetSqlRoleDefinitionPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSqlRoleDefinitionPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSqlRoleDefinitionPermission)(nil)).Elem()
+}
+
+func (o GetSqlRoleDefinitionPermissionArrayOutput) ToGetSqlRoleDefinitionPermissionArrayOutput() GetSqlRoleDefinitionPermissionArrayOutput {
+	return o
+}
+
+func (o GetSqlRoleDefinitionPermissionArrayOutput) ToGetSqlRoleDefinitionPermissionArrayOutputWithContext(ctx context.Context) GetSqlRoleDefinitionPermissionArrayOutput {
+	return o
+}
+
+func (o GetSqlRoleDefinitionPermissionArrayOutput) Index(i pulumi.IntInput) GetSqlRoleDefinitionPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSqlRoleDefinitionPermission {
+		return vs[0].([]GetSqlRoleDefinitionPermission)[vs[1].(int)]
+	}).(GetSqlRoleDefinitionPermissionOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountAnalyticalStorageInput)(nil)).Elem(), AccountAnalyticalStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountAnalyticalStoragePtrInput)(nil)).Elem(), AccountAnalyticalStorageArgs{})
@@ -6444,6 +6638,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRestorableDatabaseAccountsAccountArrayInput)(nil)).Elem(), GetRestorableDatabaseAccountsAccountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRestorableDatabaseAccountsAccountRestorableLocationInput)(nil)).Elem(), GetRestorableDatabaseAccountsAccountRestorableLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRestorableDatabaseAccountsAccountRestorableLocationArrayInput)(nil)).Elem(), GetRestorableDatabaseAccountsAccountRestorableLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSqlDatabaseAutoscaleSettingInput)(nil)).Elem(), GetSqlDatabaseAutoscaleSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSqlDatabaseAutoscaleSettingArrayInput)(nil)).Elem(), GetSqlDatabaseAutoscaleSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSqlRoleDefinitionPermissionInput)(nil)).Elem(), GetSqlRoleDefinitionPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSqlRoleDefinitionPermissionArrayInput)(nil)).Elem(), GetSqlRoleDefinitionPermissionArray{})
 	pulumi.RegisterOutputType(AccountAnalyticalStorageOutput{})
 	pulumi.RegisterOutputType(AccountAnalyticalStoragePtrOutput{})
 	pulumi.RegisterOutputType(AccountBackupOutput{})
@@ -6540,4 +6738,8 @@ func init() {
 	pulumi.RegisterOutputType(GetRestorableDatabaseAccountsAccountArrayOutput{})
 	pulumi.RegisterOutputType(GetRestorableDatabaseAccountsAccountRestorableLocationOutput{})
 	pulumi.RegisterOutputType(GetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput{})
+	pulumi.RegisterOutputType(GetSqlDatabaseAutoscaleSettingOutput{})
+	pulumi.RegisterOutputType(GetSqlDatabaseAutoscaleSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetSqlRoleDefinitionPermissionOutput{})
+	pulumi.RegisterOutputType(GetSqlRoleDefinitionPermissionArrayOutput{})
 }

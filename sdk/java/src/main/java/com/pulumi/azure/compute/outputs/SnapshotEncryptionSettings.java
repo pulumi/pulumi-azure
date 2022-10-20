@@ -13,17 +13,45 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class SnapshotEncryptionSettings {
+    /**
+     * @return A `disk_encryption_key` block as defined below.
+     * 
+     */
     private @Nullable SnapshotEncryptionSettingsDiskEncryptionKey diskEncryptionKey;
-    private Boolean enabled;
+    /**
+     * @deprecated
+     * Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+     * 
+     */
+    @Deprecated /* Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block` */
+    private @Nullable Boolean enabled;
+    /**
+     * @return A `key_encryption_key` block as defined below.
+     * 
+     */
     private @Nullable SnapshotEncryptionSettingsKeyEncryptionKey keyEncryptionKey;
 
     private SnapshotEncryptionSettings() {}
+    /**
+     * @return A `disk_encryption_key` block as defined below.
+     * 
+     */
     public Optional<SnapshotEncryptionSettingsDiskEncryptionKey> diskEncryptionKey() {
         return Optional.ofNullable(this.diskEncryptionKey);
     }
-    public Boolean enabled() {
-        return this.enabled;
+    /**
+     * @deprecated
+     * Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+     * 
+     */
+    @Deprecated /* Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block` */
+    public Optional<Boolean> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
+    /**
+     * @return A `key_encryption_key` block as defined below.
+     * 
+     */
     public Optional<SnapshotEncryptionSettingsKeyEncryptionKey> keyEncryptionKey() {
         return Optional.ofNullable(this.keyEncryptionKey);
     }
@@ -38,7 +66,7 @@ public final class SnapshotEncryptionSettings {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable SnapshotEncryptionSettingsDiskEncryptionKey diskEncryptionKey;
-        private Boolean enabled;
+        private @Nullable Boolean enabled;
         private @Nullable SnapshotEncryptionSettingsKeyEncryptionKey keyEncryptionKey;
         public Builder() {}
         public Builder(SnapshotEncryptionSettings defaults) {
@@ -54,8 +82,8 @@ public final class SnapshotEncryptionSettings {
             return this;
         }
         @CustomType.Setter
-        public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+        public Builder enabled(@Nullable Boolean enabled) {
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter

@@ -18,6 +18,10 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// </summary>
         public readonly string? Password;
         /// <summary>
+        /// The script action which will run on the cluster.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SparkClusterRolesHeadNodeScriptAction> ScriptActions;
+        /// <summary>
         /// A list of SSH Keys which should be used for the local administrator on the Head Nodes. Changing this forces a new resource to be created.
         /// </summary>
         public readonly ImmutableArray<string> SshKeys;
@@ -42,6 +46,8 @@ namespace Pulumi.Azure.HDInsight.Outputs
         private SparkClusterRolesHeadNode(
             string? password,
 
+            ImmutableArray<Outputs.SparkClusterRolesHeadNodeScriptAction> scriptActions,
+
             ImmutableArray<string> sshKeys,
 
             string? subnetId,
@@ -53,6 +59,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
             string vmSize)
         {
             Password = password;
+            ScriptActions = scriptActions;
             SshKeys = sshKeys;
             SubnetId = subnetId;
             Username = username;

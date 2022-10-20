@@ -10,6 +10,396 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ContactProfileLink struct {
+	// A list of contact profile link channels. A `channel` block as defined below.
+	Channels []ContactProfileLinkChannel `pulumi:"channels"`
+	// Direction of the link. Possible values are `Uplink` and `Downlink`.
+	Direction string `pulumi:"direction"`
+	// Name of the link.
+	Name string `pulumi:"name"`
+	// Polarization of the link. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizonal`.
+	Polarization string `pulumi:"polarization"`
+}
+
+// ContactProfileLinkInput is an input type that accepts ContactProfileLinkArgs and ContactProfileLinkOutput values.
+// You can construct a concrete instance of `ContactProfileLinkInput` via:
+//
+//	ContactProfileLinkArgs{...}
+type ContactProfileLinkInput interface {
+	pulumi.Input
+
+	ToContactProfileLinkOutput() ContactProfileLinkOutput
+	ToContactProfileLinkOutputWithContext(context.Context) ContactProfileLinkOutput
+}
+
+type ContactProfileLinkArgs struct {
+	// A list of contact profile link channels. A `channel` block as defined below.
+	Channels ContactProfileLinkChannelArrayInput `pulumi:"channels"`
+	// Direction of the link. Possible values are `Uplink` and `Downlink`.
+	Direction pulumi.StringInput `pulumi:"direction"`
+	// Name of the link.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Polarization of the link. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizonal`.
+	Polarization pulumi.StringInput `pulumi:"polarization"`
+}
+
+func (ContactProfileLinkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactProfileLink)(nil)).Elem()
+}
+
+func (i ContactProfileLinkArgs) ToContactProfileLinkOutput() ContactProfileLinkOutput {
+	return i.ToContactProfileLinkOutputWithContext(context.Background())
+}
+
+func (i ContactProfileLinkArgs) ToContactProfileLinkOutputWithContext(ctx context.Context) ContactProfileLinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactProfileLinkOutput)
+}
+
+// ContactProfileLinkArrayInput is an input type that accepts ContactProfileLinkArray and ContactProfileLinkArrayOutput values.
+// You can construct a concrete instance of `ContactProfileLinkArrayInput` via:
+//
+//	ContactProfileLinkArray{ ContactProfileLinkArgs{...} }
+type ContactProfileLinkArrayInput interface {
+	pulumi.Input
+
+	ToContactProfileLinkArrayOutput() ContactProfileLinkArrayOutput
+	ToContactProfileLinkArrayOutputWithContext(context.Context) ContactProfileLinkArrayOutput
+}
+
+type ContactProfileLinkArray []ContactProfileLinkInput
+
+func (ContactProfileLinkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactProfileLink)(nil)).Elem()
+}
+
+func (i ContactProfileLinkArray) ToContactProfileLinkArrayOutput() ContactProfileLinkArrayOutput {
+	return i.ToContactProfileLinkArrayOutputWithContext(context.Background())
+}
+
+func (i ContactProfileLinkArray) ToContactProfileLinkArrayOutputWithContext(ctx context.Context) ContactProfileLinkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactProfileLinkArrayOutput)
+}
+
+type ContactProfileLinkOutput struct{ *pulumi.OutputState }
+
+func (ContactProfileLinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactProfileLink)(nil)).Elem()
+}
+
+func (o ContactProfileLinkOutput) ToContactProfileLinkOutput() ContactProfileLinkOutput {
+	return o
+}
+
+func (o ContactProfileLinkOutput) ToContactProfileLinkOutputWithContext(ctx context.Context) ContactProfileLinkOutput {
+	return o
+}
+
+// A list of contact profile link channels. A `channel` block as defined below.
+func (o ContactProfileLinkOutput) Channels() ContactProfileLinkChannelArrayOutput {
+	return o.ApplyT(func(v ContactProfileLink) []ContactProfileLinkChannel { return v.Channels }).(ContactProfileLinkChannelArrayOutput)
+}
+
+// Direction of the link. Possible values are `Uplink` and `Downlink`.
+func (o ContactProfileLinkOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactProfileLink) string { return v.Direction }).(pulumi.StringOutput)
+}
+
+// Name of the link.
+func (o ContactProfileLinkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactProfileLink) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Polarization of the link. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizonal`.
+func (o ContactProfileLinkOutput) Polarization() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactProfileLink) string { return v.Polarization }).(pulumi.StringOutput)
+}
+
+type ContactProfileLinkArrayOutput struct{ *pulumi.OutputState }
+
+func (ContactProfileLinkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactProfileLink)(nil)).Elem()
+}
+
+func (o ContactProfileLinkArrayOutput) ToContactProfileLinkArrayOutput() ContactProfileLinkArrayOutput {
+	return o
+}
+
+func (o ContactProfileLinkArrayOutput) ToContactProfileLinkArrayOutputWithContext(ctx context.Context) ContactProfileLinkArrayOutput {
+	return o
+}
+
+func (o ContactProfileLinkArrayOutput) Index(i pulumi.IntInput) ContactProfileLinkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContactProfileLink {
+		return vs[0].([]ContactProfileLink)[vs[1].(int)]
+	}).(ContactProfileLinkOutput)
+}
+
+type ContactProfileLinkChannel struct {
+	// Bandwidth in MHz.
+	BandwidthMhz float64 `pulumi:"bandwidthMhz"`
+	// Center frequency in MHz.
+	CenterFrequencyMhz float64 `pulumi:"centerFrequencyMhz"`
+	// Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
+	DemodulationConfiguration *string `pulumi:"demodulationConfiguration"`
+	// Customer End point to store/retrieve data during a contact. An `endPoint` block as defined below.
+	EndPoints []ContactProfileLinkChannelEndPoint `pulumi:"endPoints"`
+	// Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
+	ModulationConfiguration *string `pulumi:"modulationConfiguration"`
+	// Name of the channel.
+	Name string `pulumi:"name"`
+}
+
+// ContactProfileLinkChannelInput is an input type that accepts ContactProfileLinkChannelArgs and ContactProfileLinkChannelOutput values.
+// You can construct a concrete instance of `ContactProfileLinkChannelInput` via:
+//
+//	ContactProfileLinkChannelArgs{...}
+type ContactProfileLinkChannelInput interface {
+	pulumi.Input
+
+	ToContactProfileLinkChannelOutput() ContactProfileLinkChannelOutput
+	ToContactProfileLinkChannelOutputWithContext(context.Context) ContactProfileLinkChannelOutput
+}
+
+type ContactProfileLinkChannelArgs struct {
+	// Bandwidth in MHz.
+	BandwidthMhz pulumi.Float64Input `pulumi:"bandwidthMhz"`
+	// Center frequency in MHz.
+	CenterFrequencyMhz pulumi.Float64Input `pulumi:"centerFrequencyMhz"`
+	// Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
+	DemodulationConfiguration pulumi.StringPtrInput `pulumi:"demodulationConfiguration"`
+	// Customer End point to store/retrieve data during a contact. An `endPoint` block as defined below.
+	EndPoints ContactProfileLinkChannelEndPointArrayInput `pulumi:"endPoints"`
+	// Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
+	ModulationConfiguration pulumi.StringPtrInput `pulumi:"modulationConfiguration"`
+	// Name of the channel.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ContactProfileLinkChannelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactProfileLinkChannel)(nil)).Elem()
+}
+
+func (i ContactProfileLinkChannelArgs) ToContactProfileLinkChannelOutput() ContactProfileLinkChannelOutput {
+	return i.ToContactProfileLinkChannelOutputWithContext(context.Background())
+}
+
+func (i ContactProfileLinkChannelArgs) ToContactProfileLinkChannelOutputWithContext(ctx context.Context) ContactProfileLinkChannelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactProfileLinkChannelOutput)
+}
+
+// ContactProfileLinkChannelArrayInput is an input type that accepts ContactProfileLinkChannelArray and ContactProfileLinkChannelArrayOutput values.
+// You can construct a concrete instance of `ContactProfileLinkChannelArrayInput` via:
+//
+//	ContactProfileLinkChannelArray{ ContactProfileLinkChannelArgs{...} }
+type ContactProfileLinkChannelArrayInput interface {
+	pulumi.Input
+
+	ToContactProfileLinkChannelArrayOutput() ContactProfileLinkChannelArrayOutput
+	ToContactProfileLinkChannelArrayOutputWithContext(context.Context) ContactProfileLinkChannelArrayOutput
+}
+
+type ContactProfileLinkChannelArray []ContactProfileLinkChannelInput
+
+func (ContactProfileLinkChannelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactProfileLinkChannel)(nil)).Elem()
+}
+
+func (i ContactProfileLinkChannelArray) ToContactProfileLinkChannelArrayOutput() ContactProfileLinkChannelArrayOutput {
+	return i.ToContactProfileLinkChannelArrayOutputWithContext(context.Background())
+}
+
+func (i ContactProfileLinkChannelArray) ToContactProfileLinkChannelArrayOutputWithContext(ctx context.Context) ContactProfileLinkChannelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactProfileLinkChannelArrayOutput)
+}
+
+type ContactProfileLinkChannelOutput struct{ *pulumi.OutputState }
+
+func (ContactProfileLinkChannelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactProfileLinkChannel)(nil)).Elem()
+}
+
+func (o ContactProfileLinkChannelOutput) ToContactProfileLinkChannelOutput() ContactProfileLinkChannelOutput {
+	return o
+}
+
+func (o ContactProfileLinkChannelOutput) ToContactProfileLinkChannelOutputWithContext(ctx context.Context) ContactProfileLinkChannelOutput {
+	return o
+}
+
+// Bandwidth in MHz.
+func (o ContactProfileLinkChannelOutput) BandwidthMhz() pulumi.Float64Output {
+	return o.ApplyT(func(v ContactProfileLinkChannel) float64 { return v.BandwidthMhz }).(pulumi.Float64Output)
+}
+
+// Center frequency in MHz.
+func (o ContactProfileLinkChannelOutput) CenterFrequencyMhz() pulumi.Float64Output {
+	return o.ApplyT(func(v ContactProfileLinkChannel) float64 { return v.CenterFrequencyMhz }).(pulumi.Float64Output)
+}
+
+// Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
+func (o ContactProfileLinkChannelOutput) DemodulationConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContactProfileLinkChannel) *string { return v.DemodulationConfiguration }).(pulumi.StringPtrOutput)
+}
+
+// Customer End point to store/retrieve data during a contact. An `endPoint` block as defined below.
+func (o ContactProfileLinkChannelOutput) EndPoints() ContactProfileLinkChannelEndPointArrayOutput {
+	return o.ApplyT(func(v ContactProfileLinkChannel) []ContactProfileLinkChannelEndPoint { return v.EndPoints }).(ContactProfileLinkChannelEndPointArrayOutput)
+}
+
+// Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
+func (o ContactProfileLinkChannelOutput) ModulationConfiguration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContactProfileLinkChannel) *string { return v.ModulationConfiguration }).(pulumi.StringPtrOutput)
+}
+
+// Name of the channel.
+func (o ContactProfileLinkChannelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactProfileLinkChannel) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ContactProfileLinkChannelArrayOutput struct{ *pulumi.OutputState }
+
+func (ContactProfileLinkChannelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactProfileLinkChannel)(nil)).Elem()
+}
+
+func (o ContactProfileLinkChannelArrayOutput) ToContactProfileLinkChannelArrayOutput() ContactProfileLinkChannelArrayOutput {
+	return o
+}
+
+func (o ContactProfileLinkChannelArrayOutput) ToContactProfileLinkChannelArrayOutputWithContext(ctx context.Context) ContactProfileLinkChannelArrayOutput {
+	return o
+}
+
+func (o ContactProfileLinkChannelArrayOutput) Index(i pulumi.IntInput) ContactProfileLinkChannelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContactProfileLinkChannel {
+		return vs[0].([]ContactProfileLinkChannel)[vs[1].(int)]
+	}).(ContactProfileLinkChannelOutput)
+}
+
+type ContactProfileLinkChannelEndPoint struct {
+	// -(Required) Name of an end point.
+	EndPointName string `pulumi:"endPointName"`
+	// IP address of an end point.
+	IpAddress string `pulumi:"ipAddress"`
+	// TCP port to listen on to receive data.
+	Port string `pulumi:"port"`
+	// Protocol of an end point. Possible values are `TCP` and `UDP`.
+	Protocol string `pulumi:"protocol"`
+}
+
+// ContactProfileLinkChannelEndPointInput is an input type that accepts ContactProfileLinkChannelEndPointArgs and ContactProfileLinkChannelEndPointOutput values.
+// You can construct a concrete instance of `ContactProfileLinkChannelEndPointInput` via:
+//
+//	ContactProfileLinkChannelEndPointArgs{...}
+type ContactProfileLinkChannelEndPointInput interface {
+	pulumi.Input
+
+	ToContactProfileLinkChannelEndPointOutput() ContactProfileLinkChannelEndPointOutput
+	ToContactProfileLinkChannelEndPointOutputWithContext(context.Context) ContactProfileLinkChannelEndPointOutput
+}
+
+type ContactProfileLinkChannelEndPointArgs struct {
+	// -(Required) Name of an end point.
+	EndPointName pulumi.StringInput `pulumi:"endPointName"`
+	// IP address of an end point.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	// TCP port to listen on to receive data.
+	Port pulumi.StringInput `pulumi:"port"`
+	// Protocol of an end point. Possible values are `TCP` and `UDP`.
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (ContactProfileLinkChannelEndPointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactProfileLinkChannelEndPoint)(nil)).Elem()
+}
+
+func (i ContactProfileLinkChannelEndPointArgs) ToContactProfileLinkChannelEndPointOutput() ContactProfileLinkChannelEndPointOutput {
+	return i.ToContactProfileLinkChannelEndPointOutputWithContext(context.Background())
+}
+
+func (i ContactProfileLinkChannelEndPointArgs) ToContactProfileLinkChannelEndPointOutputWithContext(ctx context.Context) ContactProfileLinkChannelEndPointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactProfileLinkChannelEndPointOutput)
+}
+
+// ContactProfileLinkChannelEndPointArrayInput is an input type that accepts ContactProfileLinkChannelEndPointArray and ContactProfileLinkChannelEndPointArrayOutput values.
+// You can construct a concrete instance of `ContactProfileLinkChannelEndPointArrayInput` via:
+//
+//	ContactProfileLinkChannelEndPointArray{ ContactProfileLinkChannelEndPointArgs{...} }
+type ContactProfileLinkChannelEndPointArrayInput interface {
+	pulumi.Input
+
+	ToContactProfileLinkChannelEndPointArrayOutput() ContactProfileLinkChannelEndPointArrayOutput
+	ToContactProfileLinkChannelEndPointArrayOutputWithContext(context.Context) ContactProfileLinkChannelEndPointArrayOutput
+}
+
+type ContactProfileLinkChannelEndPointArray []ContactProfileLinkChannelEndPointInput
+
+func (ContactProfileLinkChannelEndPointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactProfileLinkChannelEndPoint)(nil)).Elem()
+}
+
+func (i ContactProfileLinkChannelEndPointArray) ToContactProfileLinkChannelEndPointArrayOutput() ContactProfileLinkChannelEndPointArrayOutput {
+	return i.ToContactProfileLinkChannelEndPointArrayOutputWithContext(context.Background())
+}
+
+func (i ContactProfileLinkChannelEndPointArray) ToContactProfileLinkChannelEndPointArrayOutputWithContext(ctx context.Context) ContactProfileLinkChannelEndPointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContactProfileLinkChannelEndPointArrayOutput)
+}
+
+type ContactProfileLinkChannelEndPointOutput struct{ *pulumi.OutputState }
+
+func (ContactProfileLinkChannelEndPointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactProfileLinkChannelEndPoint)(nil)).Elem()
+}
+
+func (o ContactProfileLinkChannelEndPointOutput) ToContactProfileLinkChannelEndPointOutput() ContactProfileLinkChannelEndPointOutput {
+	return o
+}
+
+func (o ContactProfileLinkChannelEndPointOutput) ToContactProfileLinkChannelEndPointOutputWithContext(ctx context.Context) ContactProfileLinkChannelEndPointOutput {
+	return o
+}
+
+// -(Required) Name of an end point.
+func (o ContactProfileLinkChannelEndPointOutput) EndPointName() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactProfileLinkChannelEndPoint) string { return v.EndPointName }).(pulumi.StringOutput)
+}
+
+// IP address of an end point.
+func (o ContactProfileLinkChannelEndPointOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactProfileLinkChannelEndPoint) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// TCP port to listen on to receive data.
+func (o ContactProfileLinkChannelEndPointOutput) Port() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactProfileLinkChannelEndPoint) string { return v.Port }).(pulumi.StringOutput)
+}
+
+// Protocol of an end point. Possible values are `TCP` and `UDP`.
+func (o ContactProfileLinkChannelEndPointOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v ContactProfileLinkChannelEndPoint) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type ContactProfileLinkChannelEndPointArrayOutput struct{ *pulumi.OutputState }
+
+func (ContactProfileLinkChannelEndPointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContactProfileLinkChannelEndPoint)(nil)).Elem()
+}
+
+func (o ContactProfileLinkChannelEndPointArrayOutput) ToContactProfileLinkChannelEndPointArrayOutput() ContactProfileLinkChannelEndPointArrayOutput {
+	return o
+}
+
+func (o ContactProfileLinkChannelEndPointArrayOutput) ToContactProfileLinkChannelEndPointArrayOutputWithContext(ctx context.Context) ContactProfileLinkChannelEndPointArrayOutput {
+	return o
+}
+
+func (o ContactProfileLinkChannelEndPointArrayOutput) Index(i pulumi.IntInput) ContactProfileLinkChannelEndPointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContactProfileLinkChannelEndPoint {
+		return vs[0].([]ContactProfileLinkChannelEndPoint)[vs[1].(int)]
+	}).(ContactProfileLinkChannelEndPointOutput)
+}
+
 type SpacecraftLink struct {
 	// Bandwidth in Mhz.
 	BandwidthMhz float64 `pulumi:"bandwidthMhz"`
@@ -144,8 +534,20 @@ func (o SpacecraftLinkArrayOutput) Index(i pulumi.IntInput) SpacecraftLinkOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactProfileLinkInput)(nil)).Elem(), ContactProfileLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactProfileLinkArrayInput)(nil)).Elem(), ContactProfileLinkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactProfileLinkChannelInput)(nil)).Elem(), ContactProfileLinkChannelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactProfileLinkChannelArrayInput)(nil)).Elem(), ContactProfileLinkChannelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactProfileLinkChannelEndPointInput)(nil)).Elem(), ContactProfileLinkChannelEndPointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactProfileLinkChannelEndPointArrayInput)(nil)).Elem(), ContactProfileLinkChannelEndPointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpacecraftLinkInput)(nil)).Elem(), SpacecraftLinkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpacecraftLinkArrayInput)(nil)).Elem(), SpacecraftLinkArray{})
+	pulumi.RegisterOutputType(ContactProfileLinkOutput{})
+	pulumi.RegisterOutputType(ContactProfileLinkArrayOutput{})
+	pulumi.RegisterOutputType(ContactProfileLinkChannelOutput{})
+	pulumi.RegisterOutputType(ContactProfileLinkChannelArrayOutput{})
+	pulumi.RegisterOutputType(ContactProfileLinkChannelEndPointOutput{})
+	pulumi.RegisterOutputType(ContactProfileLinkChannelEndPointArrayOutput{})
 	pulumi.RegisterOutputType(SpacecraftLinkOutput{})
 	pulumi.RegisterOutputType(SpacecraftLinkArrayOutput{})
 }

@@ -27,6 +27,8 @@ type FrontdoorRoute struct {
 
 	// A `cache` block as defined below.
 	Cache FrontdoorRouteCachePtrOutput `pulumi:"cache"`
+	// The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+	CdnFrontdoorCustomDomainIds pulumi.StringArrayOutput `pulumi:"cdnFrontdoorCustomDomainIds"`
 	// The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
 	CdnFrontdoorEndpointId pulumi.StringOutput `pulumi:"cdnFrontdoorEndpointId"`
 	// The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
@@ -43,7 +45,9 @@ type FrontdoorRoute struct {
 	ForwardingProtocol pulumi.StringPtrOutput `pulumi:"forwardingProtocol"`
 	// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 	HttpsRedirectEnabled pulumi.BoolPtrOutput `pulumi:"httpsRedirectEnabled"`
-	// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+	// Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+	LinkToDefaultDomain pulumi.BoolPtrOutput `pulumi:"linkToDefaultDomain"`
+	// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The route patterns of the rule.
 	PatternsToMatches pulumi.StringArrayOutput `pulumi:"patternsToMatches"`
@@ -97,6 +101,8 @@ func GetFrontdoorRoute(ctx *pulumi.Context,
 type frontdoorRouteState struct {
 	// A `cache` block as defined below.
 	Cache *FrontdoorRouteCache `pulumi:"cache"`
+	// The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+	CdnFrontdoorCustomDomainIds []string `pulumi:"cdnFrontdoorCustomDomainIds"`
 	// The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
 	CdnFrontdoorEndpointId *string `pulumi:"cdnFrontdoorEndpointId"`
 	// The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
@@ -113,7 +119,9 @@ type frontdoorRouteState struct {
 	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
 	// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 	HttpsRedirectEnabled *bool `pulumi:"httpsRedirectEnabled"`
-	// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+	// Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+	LinkToDefaultDomain *bool `pulumi:"linkToDefaultDomain"`
+	// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
 	Name *string `pulumi:"name"`
 	// The route patterns of the rule.
 	PatternsToMatches []string `pulumi:"patternsToMatches"`
@@ -124,6 +132,8 @@ type frontdoorRouteState struct {
 type FrontdoorRouteState struct {
 	// A `cache` block as defined below.
 	Cache FrontdoorRouteCachePtrInput
+	// The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+	CdnFrontdoorCustomDomainIds pulumi.StringArrayInput
 	// The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
 	CdnFrontdoorEndpointId pulumi.StringPtrInput
 	// The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
@@ -140,7 +150,9 @@ type FrontdoorRouteState struct {
 	ForwardingProtocol pulumi.StringPtrInput
 	// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 	HttpsRedirectEnabled pulumi.BoolPtrInput
-	// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+	// Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+	LinkToDefaultDomain pulumi.BoolPtrInput
+	// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
 	Name pulumi.StringPtrInput
 	// The route patterns of the rule.
 	PatternsToMatches pulumi.StringArrayInput
@@ -155,6 +167,8 @@ func (FrontdoorRouteState) ElementType() reflect.Type {
 type frontdoorRouteArgs struct {
 	// A `cache` block as defined below.
 	Cache *FrontdoorRouteCache `pulumi:"cache"`
+	// The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+	CdnFrontdoorCustomDomainIds []string `pulumi:"cdnFrontdoorCustomDomainIds"`
 	// The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
 	CdnFrontdoorEndpointId string `pulumi:"cdnFrontdoorEndpointId"`
 	// The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
@@ -171,7 +185,9 @@ type frontdoorRouteArgs struct {
 	ForwardingProtocol *string `pulumi:"forwardingProtocol"`
 	// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 	HttpsRedirectEnabled *bool `pulumi:"httpsRedirectEnabled"`
-	// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+	// Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+	LinkToDefaultDomain *bool `pulumi:"linkToDefaultDomain"`
+	// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
 	Name *string `pulumi:"name"`
 	// The route patterns of the rule.
 	PatternsToMatches []string `pulumi:"patternsToMatches"`
@@ -183,6 +199,8 @@ type frontdoorRouteArgs struct {
 type FrontdoorRouteArgs struct {
 	// A `cache` block as defined below.
 	Cache FrontdoorRouteCachePtrInput
+	// The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+	CdnFrontdoorCustomDomainIds pulumi.StringArrayInput
 	// The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
 	CdnFrontdoorEndpointId pulumi.StringInput
 	// The resource ID of the CDN FrontDoor Origin Group where this CDN FrontDoor Route should be created.
@@ -199,7 +217,9 @@ type FrontdoorRouteArgs struct {
 	ForwardingProtocol pulumi.StringPtrInput
 	// Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`.
 	HttpsRedirectEnabled pulumi.BoolPtrInput
-	// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+	// Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+	LinkToDefaultDomain pulumi.BoolPtrInput
+	// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
 	Name pulumi.StringPtrInput
 	// The route patterns of the rule.
 	PatternsToMatches pulumi.StringArrayInput
@@ -299,6 +319,11 @@ func (o FrontdoorRouteOutput) Cache() FrontdoorRouteCachePtrOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) FrontdoorRouteCachePtrOutput { return v.Cache }).(FrontdoorRouteCachePtrOutput)
 }
 
+// The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+func (o FrontdoorRouteOutput) CdnFrontdoorCustomDomainIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FrontdoorRoute) pulumi.StringArrayOutput { return v.CdnFrontdoorCustomDomainIds }).(pulumi.StringArrayOutput)
+}
+
 // The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
 func (o FrontdoorRouteOutput) CdnFrontdoorEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) pulumi.StringOutput { return v.CdnFrontdoorEndpointId }).(pulumi.StringOutput)
@@ -339,7 +364,12 @@ func (o FrontdoorRouteOutput) HttpsRedirectEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) pulumi.BoolPtrOutput { return v.HttpsRedirectEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+// Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+func (o FrontdoorRouteOutput) LinkToDefaultDomain() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FrontdoorRoute) pulumi.BoolPtrOutput { return v.LinkToDefaultDomain }).(pulumi.BoolPtrOutput)
+}
+
+// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
 func (o FrontdoorRouteOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorRoute) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

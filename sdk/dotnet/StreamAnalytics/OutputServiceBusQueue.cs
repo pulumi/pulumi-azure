@@ -75,6 +75,12 @@ namespace Pulumi.Azure.StreamAnalytics
     public partial class OutputServiceBusQueue : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        /// </summary>
+        [Output("authenticationMode")]
+        public Output<string?> AuthenticationMode { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Stream Output. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -181,6 +187,12 @@ namespace Pulumi.Azure.StreamAnalytics
     public sealed class OutputServiceBusQueueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        /// </summary>
+        [Input("authenticationMode")]
+        public Input<string>? AuthenticationMode { get; set; }
+
+        /// <summary>
         /// The name of the Stream Output. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -260,6 +272,12 @@ namespace Pulumi.Azure.StreamAnalytics
 
     public sealed class OutputServiceBusQueueState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+        /// </summary>
+        [Input("authenticationMode")]
+        public Input<string>? AuthenticationMode { get; set; }
+
         /// <summary>
         /// The name of the Stream Output. Changing this forces a new resource to be created.
         /// </summary>

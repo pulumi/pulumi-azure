@@ -2920,27 +2920,19 @@ class ManagedDiskEncryptionSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 enabled: bool,
                  disk_encryption_key: Optional['outputs.ManagedDiskEncryptionSettingsDiskEncryptionKey'] = None,
+                 enabled: Optional[bool] = None,
                  key_encryption_key: Optional['outputs.ManagedDiskEncryptionSettingsKeyEncryptionKey'] = None):
         """
-        :param bool enabled: Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
         :param 'ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs' disk_encryption_key: A `disk_encryption_key` block as defined above.
         :param 'ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs' key_encryption_key: A `key_encryption_key` block as defined below.
         """
-        pulumi.set(__self__, "enabled", enabled)
         if disk_encryption_key is not None:
             pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
         if key_encryption_key is not None:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> bool:
-        """
-        Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="diskEncryptionKey")
@@ -2949,6 +2941,11 @@ class ManagedDiskEncryptionSettings(dict):
         A `disk_encryption_key` block as defined above.
         """
         return pulumi.get(self, "disk_encryption_key")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="keyEncryptionKey")
@@ -2985,7 +2982,7 @@ class ManagedDiskEncryptionSettingsDiskEncryptionKey(dict):
                  source_vault_id: str):
         """
         :param str secret_url: The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
-        :param str source_vault_id: The ID of the source Key Vault.
+        :param str source_vault_id: The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
         """
         pulumi.set(__self__, "secret_url", secret_url)
         pulumi.set(__self__, "source_vault_id", source_vault_id)
@@ -3002,7 +2999,7 @@ class ManagedDiskEncryptionSettingsDiskEncryptionKey(dict):
     @pulumi.getter(name="sourceVaultId")
     def source_vault_id(self) -> str:
         """
-        The ID of the source Key Vault.
+        The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
         """
         return pulumi.get(self, "source_vault_id")
 
@@ -3033,7 +3030,7 @@ class ManagedDiskEncryptionSettingsKeyEncryptionKey(dict):
                  source_vault_id: str):
         """
         :param str key_url: The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
-        :param str source_vault_id: The ID of the source Key Vault.
+        :param str source_vault_id: The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
         """
         pulumi.set(__self__, "key_url", key_url)
         pulumi.set(__self__, "source_vault_id", source_vault_id)
@@ -3050,7 +3047,7 @@ class ManagedDiskEncryptionSettingsKeyEncryptionKey(dict):
     @pulumi.getter(name="sourceVaultId")
     def source_vault_id(self) -> str:
         """
-        The ID of the source Key Vault.
+        The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
         """
         return pulumi.get(self, "source_vault_id")
 
@@ -6046,28 +6043,39 @@ class SnapshotEncryptionSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 enabled: bool,
                  disk_encryption_key: Optional['outputs.SnapshotEncryptionSettingsDiskEncryptionKey'] = None,
+                 enabled: Optional[bool] = None,
                  key_encryption_key: Optional['outputs.SnapshotEncryptionSettingsKeyEncryptionKey'] = None):
-        pulumi.set(__self__, "enabled", enabled)
+        """
+        :param 'SnapshotEncryptionSettingsDiskEncryptionKeyArgs' disk_encryption_key: A `disk_encryption_key` block as defined below.
+        :param 'SnapshotEncryptionSettingsKeyEncryptionKeyArgs' key_encryption_key: A `key_encryption_key` block as defined below.
+        """
         if disk_encryption_key is not None:
             pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
         if key_encryption_key is not None:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
 
     @property
-    @pulumi.getter
-    def enabled(self) -> bool:
-        return pulumi.get(self, "enabled")
-
-    @property
     @pulumi.getter(name="diskEncryptionKey")
     def disk_encryption_key(self) -> Optional['outputs.SnapshotEncryptionSettingsDiskEncryptionKey']:
+        """
+        A `disk_encryption_key` block as defined below.
+        """
         return pulumi.get(self, "disk_encryption_key")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="keyEncryptionKey")
     def key_encryption_key(self) -> Optional['outputs.SnapshotEncryptionSettingsKeyEncryptionKey']:
+        """
+        A `key_encryption_key` block as defined below.
+        """
         return pulumi.get(self, "key_encryption_key")
 
 
@@ -6095,17 +6103,27 @@ class SnapshotEncryptionSettingsDiskEncryptionKey(dict):
     def __init__(__self__, *,
                  secret_url: str,
                  source_vault_id: str):
+        """
+        :param str secret_url: The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
+        :param str source_vault_id: The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
+        """
         pulumi.set(__self__, "secret_url", secret_url)
         pulumi.set(__self__, "source_vault_id", source_vault_id)
 
     @property
     @pulumi.getter(name="secretUrl")
     def secret_url(self) -> str:
+        """
+        The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `keyvault.Secret` resource.
+        """
         return pulumi.get(self, "secret_url")
 
     @property
     @pulumi.getter(name="sourceVaultId")
     def source_vault_id(self) -> str:
+        """
+        The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
+        """
         return pulumi.get(self, "source_vault_id")
 
 
@@ -6133,17 +6151,27 @@ class SnapshotEncryptionSettingsKeyEncryptionKey(dict):
     def __init__(__self__, *,
                  key_url: str,
                  source_vault_id: str):
+        """
+        :param str key_url: The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
+        :param str source_vault_id: The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
+        """
         pulumi.set(__self__, "key_url", key_url)
         pulumi.set(__self__, "source_vault_id", source_vault_id)
 
     @property
     @pulumi.getter(name="keyUrl")
     def key_url(self) -> str:
+        """
+        The URL to the Key Vault Key used as the Key Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
+        """
         return pulumi.get(self, "key_url")
 
     @property
     @pulumi.getter(name="sourceVaultId")
     def source_vault_id(self) -> str:
+        """
+        The ID of the source Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource.
+        """
         return pulumi.get(self, "source_vault_id")
 
 
@@ -10549,6 +10577,7 @@ class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult(dict):
         :param bool primary: If this ip_configuration is the primary one.
         :param Sequence['GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs'] public_ip_addresses: The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address` is documented below.
         :param str subnet_id: The the identifier of the subnet.
+        :param str version: The Internet Protocol Version of the public IP address.
         """
         pulumi.set(__self__, "application_gateway_backend_address_pool_ids", application_gateway_backend_address_pool_ids)
         pulumi.set(__self__, "application_security_group_ids", application_security_group_ids)
@@ -10627,6 +10656,9 @@ class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult(dict):
     @property
     @pulumi.getter
     def version(self) -> str:
+        """
+        The Internet Protocol Version of the public IP address.
+        """
         return pulumi.get(self, "version")
 
 
@@ -10637,19 +10669,22 @@ class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressRes
                  idle_timeout_in_minutes: int,
                  ip_tags: Sequence['outputs.GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagResult'],
                  name: str,
-                 public_ip_prefix_id: str):
+                 public_ip_prefix_id: str,
+                 version: str):
         """
         :param str domain_name_label: The domain name label for the DNS settings.
         :param int idle_timeout_in_minutes: The idle timeout in minutes.
         :param Sequence['GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs'] ip_tags: A list of `ip_tag` blocks as defined below.
         :param str name: The name of this Virtual Machine Scale Set.
         :param str public_ip_prefix_id: The ID of the public IP prefix.
+        :param str version: The Internet Protocol Version of the public IP address.
         """
         pulumi.set(__self__, "domain_name_label", domain_name_label)
         pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         pulumi.set(__self__, "ip_tags", ip_tags)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "public_ip_prefix_id", public_ip_prefix_id)
+        pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="domainNameLabel")
@@ -10690,6 +10725,14 @@ class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressRes
         The ID of the public IP prefix.
         """
         return pulumi.get(self, "public_ip_prefix_id")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The Internet Protocol Version of the public IP address.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type

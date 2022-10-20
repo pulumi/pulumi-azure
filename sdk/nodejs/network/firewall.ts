@@ -118,7 +118,7 @@ export class Firewall extends pulumi.CustomResource {
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
-     * SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
+     * SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
      */
     public readonly skuTier!: pulumi.Output<string>;
     /**
@@ -237,7 +237,7 @@ export interface FirewallState {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
+     * SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
      */
     skuTier?: pulumi.Input<string>;
     /**
@@ -299,7 +299,7 @@ export interface FirewallArgs {
      */
     skuName: pulumi.Input<string>;
     /**
-     * SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
+     * SKU tier of the Firewall. Possible values are `Premium`, `Standard` and `Basic`.
      */
     skuTier: pulumi.Input<string>;
     /**

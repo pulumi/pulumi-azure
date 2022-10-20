@@ -33,18 +33,22 @@ public final class ManagedDiskEncryptionSettingsArgs extends com.pulumi.resource
     }
 
     /**
-     * Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
+     * @deprecated
+     * Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
      * 
      */
-    @Import(name="enabled", required=true)
-    private Output<Boolean> enabled;
+    @Deprecated /* Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block` */
+    @Import(name="enabled")
+    private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
+     * @deprecated
+     * Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
      * 
      */
-    public Output<Boolean> enabled() {
-        return this.enabled;
+    @Deprecated /* Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block` */
+    public Optional<Output<Boolean>> enabled() {
+        return Optional.ofNullable(this.enabled);
     }
 
     /**
@@ -110,22 +114,26 @@ public final class ManagedDiskEncryptionSettingsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param enabled Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+         * 
          */
-        public Builder enabled(Output<Boolean> enabled) {
+        @Deprecated /* Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block` */
+        public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
         /**
-         * @param enabled Is Encryption enabled on this Managed Disk? Changing this forces a new resource to be created.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block`
+         * 
          */
+        @Deprecated /* Deprecated, Azure Disk Encryption is now configured directly by `disk_encryption_key` and `key_encryption_key`. To disable Azure Disk Encryption, please remove `encryption_settings` block. To enabled, specify a `encryption_settings` block` */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
@@ -152,7 +160,6 @@ public final class ManagedDiskEncryptionSettingsArgs extends com.pulumi.resource
         }
 
         public ManagedDiskEncryptionSettingsArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
             return $;
         }
     }

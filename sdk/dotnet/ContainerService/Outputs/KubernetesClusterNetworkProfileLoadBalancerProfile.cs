@@ -26,6 +26,10 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly int? ManagedOutboundIpCount;
         /// <summary>
+        /// The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+        /// </summary>
+        public readonly int? ManagedOutboundIpv6Count;
+        /// <summary>
         /// The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
         /// </summary>
         public readonly ImmutableArray<string> OutboundIpAddressIds;
@@ -46,6 +50,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
             int? managedOutboundIpCount,
 
+            int? managedOutboundIpv6Count,
+
             ImmutableArray<string> outboundIpAddressIds,
 
             ImmutableArray<string> outboundIpPrefixIds,
@@ -55,6 +61,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             EffectiveOutboundIps = effectiveOutboundIps;
             IdleTimeoutInMinutes = idleTimeoutInMinutes;
             ManagedOutboundIpCount = managedOutboundIpCount;
+            ManagedOutboundIpv6Count = managedOutboundIpv6Count;
             OutboundIpAddressIds = outboundIpAddressIds;
             OutboundIpPrefixIds = outboundIpPrefixIds;
             OutboundPortsAllocated = outboundPortsAllocated;

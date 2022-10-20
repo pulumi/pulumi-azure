@@ -30,6 +30,12 @@ namespace Pulumi.Azure.Cdn
         public Output<Outputs.FrontdoorRouteCache?> Cache { get; private set; } = null!;
 
         /// <summary>
+        /// The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+        /// </summary>
+        [Output("cdnFrontdoorCustomDomainIds")]
+        public Output<ImmutableArray<string>> CdnFrontdoorCustomDomainIds { get; private set; } = null!;
+
+        /// <summary>
         /// The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
         /// </summary>
         [Output("cdnFrontdoorEndpointId")]
@@ -78,7 +84,13 @@ namespace Pulumi.Azure.Cdn
         public Output<bool?> HttpsRedirectEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+        /// Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+        /// </summary>
+        [Output("linkToDefaultDomain")]
+        public Output<bool?> LinkToDefaultDomain { get; private set; } = null!;
+
+        /// <summary>
+        /// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -147,6 +159,18 @@ namespace Pulumi.Azure.Cdn
         [Input("cache")]
         public Input<Inputs.FrontdoorRouteCacheArgs>? Cache { get; set; }
 
+        [Input("cdnFrontdoorCustomDomainIds")]
+        private InputList<string>? _cdnFrontdoorCustomDomainIds;
+
+        /// <summary>
+        /// The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+        /// </summary>
+        public InputList<string> CdnFrontdoorCustomDomainIds
+        {
+            get => _cdnFrontdoorCustomDomainIds ?? (_cdnFrontdoorCustomDomainIds = new InputList<string>());
+            set => _cdnFrontdoorCustomDomainIds = value;
+        }
+
         /// <summary>
         /// The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
         /// </summary>
@@ -208,7 +232,13 @@ namespace Pulumi.Azure.Cdn
         public Input<bool>? HttpsRedirectEnabled { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+        /// Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+        /// </summary>
+        [Input("linkToDefaultDomain")]
+        public Input<bool>? LinkToDefaultDomain { get; set; }
+
+        /// <summary>
+        /// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -250,6 +280,18 @@ namespace Pulumi.Azure.Cdn
         /// </summary>
         [Input("cache")]
         public Input<Inputs.FrontdoorRouteCacheGetArgs>? Cache { get; set; }
+
+        [Input("cdnFrontdoorCustomDomainIds")]
+        private InputList<string>? _cdnFrontdoorCustomDomainIds;
+
+        /// <summary>
+        /// The IDs of the CDN FrontDoor Custom Domains which are associated with this CDN FrontDoor Route.
+        /// </summary>
+        public InputList<string> CdnFrontdoorCustomDomainIds
+        {
+            get => _cdnFrontdoorCustomDomainIds ?? (_cdnFrontdoorCustomDomainIds = new InputList<string>());
+            set => _cdnFrontdoorCustomDomainIds = value;
+        }
 
         /// <summary>
         /// The resource ID of the CDN FrontDoor Endpoint where this CDN FrontDoor Route should exist. Changing this forces a new Frontdoor Route to be created.
@@ -312,7 +354,13 @@ namespace Pulumi.Azure.Cdn
         public Input<bool>? HttpsRedirectEnabled { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hypens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
+        /// Should this CDN FrontDoor Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`.
+        /// </summary>
+        [Input("linkToDefaultDomain")]
+        public Input<bool>? LinkToDefaultDomain { get; set; }
+
+        /// <summary>
+        /// The name which should be used for this Frontdoor Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Frontdoor Route to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

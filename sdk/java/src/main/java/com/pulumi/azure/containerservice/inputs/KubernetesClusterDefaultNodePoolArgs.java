@@ -180,6 +180,21 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
+     * A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="messageOfTheDay")
+    private @Nullable Output<String> messageOfTheDay;
+
+    /**
+     * @return A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> messageOfTheDay() {
+        return Optional.ofNullable(this.messageOfTheDay);
+    }
+
+    /**
      * The minimum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
      * 
      */
@@ -359,6 +374,21 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
+     * Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to &#39;ScaleDownModeDelete&#39;. Possible values include &#39;ScaleDownModeDelete&#39; and &#39;ScaleDownModeDeallocate&#39;. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="scaleDownMode")
+    private @Nullable Output<String> scaleDownMode;
+
+    /**
+     * @return Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to &#39;ScaleDownModeDelete&#39;. Possible values include &#39;ScaleDownModeDelete&#39; and &#39;ScaleDownModeDeallocate&#39;. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> scaleDownMode() {
+        return Optional.ofNullable(this.scaleDownMode);
+    }
+
+    /**
      * A mapping of tags to assign to the Node Pool.
      * 
      */
@@ -449,6 +479,21 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
+     * Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+     * 
+     */
+    @Import(name="workloadRuntime")
+    private @Nullable Output<String> workloadRuntime;
+
+    /**
+     * @return Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+     * 
+     */
+    public Optional<Output<String>> workloadRuntime() {
+        return Optional.ofNullable(this.workloadRuntime);
+    }
+
+    /**
      * Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. Changing this forces a new Kubernetes Cluster to be created.
      * 
      */
@@ -477,6 +522,7 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         this.linuxOsConfig = $.linuxOsConfig;
         this.maxCount = $.maxCount;
         this.maxPods = $.maxPods;
+        this.messageOfTheDay = $.messageOfTheDay;
         this.minCount = $.minCount;
         this.name = $.name;
         this.nodeCount = $.nodeCount;
@@ -490,12 +536,14 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         this.osSku = $.osSku;
         this.podSubnetId = $.podSubnetId;
         this.proximityPlacementGroupId = $.proximityPlacementGroupId;
+        this.scaleDownMode = $.scaleDownMode;
         this.tags = $.tags;
         this.type = $.type;
         this.ultraSsdEnabled = $.ultraSsdEnabled;
         this.upgradeSettings = $.upgradeSettings;
         this.vmSize = $.vmSize;
         this.vnetSubnetId = $.vnetSubnetId;
+        this.workloadRuntime = $.workloadRuntime;
         this.zones = $.zones;
     }
 
@@ -734,6 +782,27 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
          */
         public Builder maxPods(Integer maxPods) {
             return maxPods(Output.of(maxPods));
+        }
+
+        /**
+         * @param messageOfTheDay A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder messageOfTheDay(@Nullable Output<String> messageOfTheDay) {
+            $.messageOfTheDay = messageOfTheDay;
+            return this;
+        }
+
+        /**
+         * @param messageOfTheDay A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder messageOfTheDay(String messageOfTheDay) {
+            return messageOfTheDay(Output.of(messageOfTheDay));
         }
 
         /**
@@ -990,6 +1059,27 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
+         * @param scaleDownMode Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to &#39;ScaleDownModeDelete&#39;. Possible values include &#39;ScaleDownModeDelete&#39; and &#39;ScaleDownModeDeallocate&#39;. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scaleDownMode(@Nullable Output<String> scaleDownMode) {
+            $.scaleDownMode = scaleDownMode;
+            return this;
+        }
+
+        /**
+         * @param scaleDownMode Specifies the autoscaling behaviour of the Kubernetes Cluster. If not specified, it defaults to &#39;ScaleDownModeDelete&#39;. Possible values include &#39;ScaleDownModeDelete&#39; and &#39;ScaleDownModeDeallocate&#39;. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scaleDownMode(String scaleDownMode) {
+            return scaleDownMode(Output.of(scaleDownMode));
+        }
+
+        /**
          * @param tags A mapping of tags to assign to the Node Pool.
          * 
          * @return builder
@@ -1113,6 +1203,27 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
          */
         public Builder vnetSubnetId(String vnetSubnetId) {
             return vnetSubnetId(Output.of(vnetSubnetId));
+        }
+
+        /**
+         * @param workloadRuntime Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadRuntime(@Nullable Output<String> workloadRuntime) {
+            $.workloadRuntime = workloadRuntime;
+            return this;
+        }
+
+        /**
+         * @param workloadRuntime Specifies the workload runtime used by the node pool. Possible values are `OCIContainer`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadRuntime(String workloadRuntime) {
+            return workloadRuntime(Output.of(workloadRuntime));
         }
 
         /**

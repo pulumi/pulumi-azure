@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a ServiceBus Namespace Network Rule Set Set.
+ * Manages a ServiceBus Namespace Network Rule Set.
  * 
  * ## Example Usage
  * ```java

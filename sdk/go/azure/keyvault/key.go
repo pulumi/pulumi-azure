@@ -107,7 +107,7 @@ type Key struct {
 	KeyOpts pulumi.StringArrayOutput `pulumi:"keyOpts"`
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
 	KeySize pulumi.IntPtrOutput `pulumi:"keySize"`
-	// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+	// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
 	KeyType pulumi.StringOutput `pulumi:"keyType"`
 	// The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
@@ -185,7 +185,7 @@ type keyState struct {
 	KeyOpts []string `pulumi:"keyOpts"`
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
 	KeySize *int `pulumi:"keySize"`
-	// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+	// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
 	KeyType *string `pulumi:"keyType"`
 	// The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
 	KeyVaultId *string `pulumi:"keyVaultId"`
@@ -226,7 +226,7 @@ type KeyState struct {
 	KeyOpts pulumi.StringArrayInput
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
 	KeySize pulumi.IntPtrInput
-	// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+	// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
 	KeyType pulumi.StringPtrInput
 	// The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringPtrInput
@@ -269,7 +269,7 @@ type keyArgs struct {
 	KeyOpts []string `pulumi:"keyOpts"`
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
 	KeySize *int `pulumi:"keySize"`
-	// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+	// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
 	KeyType string `pulumi:"keyType"`
 	// The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
 	KeyVaultId string `pulumi:"keyVaultId"`
@@ -291,7 +291,7 @@ type KeyArgs struct {
 	KeyOpts pulumi.StringArrayInput
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
 	KeySize pulumi.IntPtrInput
-	// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+	// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
 	KeyType pulumi.StringInput
 	// The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringInput
@@ -415,7 +415,7 @@ func (o KeyOutput) KeySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Key) pulumi.IntPtrOutput { return v.KeySize }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `Oct` (Octet), `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
+// Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
 func (o KeyOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.KeyType }).(pulumi.StringOutput)
 }

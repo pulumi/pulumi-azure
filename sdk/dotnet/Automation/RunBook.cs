@@ -80,6 +80,12 @@ namespace Pulumi.Azure.Automation
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// A `draft` block as defined below .
+        /// </summary>
+        [Output("draft")]
+        public Output<Outputs.RunBookDraft?> Draft { get; private set; } = null!;
+
         [Output("jobSchedules")]
         public Output<ImmutableArray<Outputs.RunBookJobSchedule>> JobSchedules { get; private set; } = null!;
 
@@ -88,6 +94,13 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. 
+        /// Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+        /// </summary>
+        [Output("logActivityTraceLevel")]
+        public Output<int?> LogActivityTraceLevel { get; private set; } = null!;
 
         /// <summary>
         /// Progress log option.
@@ -195,6 +208,12 @@ namespace Pulumi.Azure.Automation
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// A `draft` block as defined below .
+        /// </summary>
+        [Input("draft")]
+        public Input<Inputs.RunBookDraftArgs>? Draft { get; set; }
+
         [Input("jobSchedules")]
         private InputList<Inputs.RunBookJobScheduleArgs>? _jobSchedules;
         public InputList<Inputs.RunBookJobScheduleArgs> JobSchedules
@@ -208,6 +227,13 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. 
+        /// Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+        /// </summary>
+        [Input("logActivityTraceLevel")]
+        public Input<int>? LogActivityTraceLevel { get; set; }
 
         /// <summary>
         /// Progress log option.
@@ -283,6 +309,12 @@ namespace Pulumi.Azure.Automation
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// A `draft` block as defined below .
+        /// </summary>
+        [Input("draft")]
+        public Input<Inputs.RunBookDraftGetArgs>? Draft { get; set; }
+
         [Input("jobSchedules")]
         private InputList<Inputs.RunBookJobScheduleGetArgs>? _jobSchedules;
         public InputList<Inputs.RunBookJobScheduleGetArgs> JobSchedules
@@ -296,6 +328,13 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. 
+        /// Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing.
+        /// </summary>
+        [Input("logActivityTraceLevel")]
+        public Input<int>? LogActivityTraceLevel { get; set; }
 
         /// <summary>
         /// Progress log option.
